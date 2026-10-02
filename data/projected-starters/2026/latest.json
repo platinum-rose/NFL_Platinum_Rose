@@ -2,17 +2,17 @@
   "meta": {
     "schema": "projected_starters_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-10-01T08:59:37.681Z",
+    "generated_at": "2026-10-02T00:56:55.104Z",
     "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
-    "player_count": 42,
-    "manual_row_count": 0,
-    "eligible_manual_row_count": 0,
+    "player_count": 102,
+    "manual_row_count": 60,
+    "eligible_manual_row_count": 60,
     "estimated_row_count": 42,
     "withheld_named_manual_row_count": 0,
     "human_review_approved_count": 0,
     "human_review_rejected_count": 0,
-    "teams_with_signals": 24,
-    "teams_needing_manual_depth_chart": 32,
+    "teams_with_signals": 32,
+    "teams_needing_manual_depth_chart": 0,
     "named_status_review_validation": {
       "schema": "named_status_review_validation_v1",
       "status": "pass",
@@ -30,7 +30,7 @@
     "inputs": {
       "availability": {
         "path": "data/player-availability/latest.json",
-        "generated_at": "2026-10-01T08:59:36.955Z",
+        "generated_at": "2026-10-02T00:53:45.229Z",
         "evidence_validation_status": "pass"
       },
       "named_status_review": {
@@ -126,16 +126,74 @@
     "ARI": {
       "team": "ARI",
       "team_name": "Arizona Cardinals",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Jacoby Brissett QB",
+        "Jeremiyah Love RB"
+      ],
       "estimated": [
         "Starling Thomas V CB"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_5e99bdbe6bd921a0",
+          "team": "ARI",
+          "team_nick": "Cardinals",
+          "player_name": "Jacoby Brissett",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for ARI (usage score 52.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_cda3c37b3e7d6d11",
+          "team": "ARI",
+          "team_nick": "Cardinals",
+          "player_name": "Jeremiyah Love",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for ARI (usage score 23.5 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_2aad90cb31253d7c",
           "team": "ARI",
@@ -169,44 +227,74 @@
     "ATL": {
       "team": "ATL",
       "team_name": "Atlanta Falcons",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Michael Penix Jr. QB",
+        "Bijan Robinson RB"
+      ],
       "estimated": [
         "Gervon Dexter Sr. DT",
-        "Zach Harrison DE",
-        "C.J. Henderson CB"
+        "Zach Harrison DE"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
         {
-          "id": "starter_fa62941e47520b56",
+          "id": "starter_8ef4ecceac00b64b",
           "team": "ATL",
           "team_nick": "Falcons",
-          "player_name": "C.J. Henderson",
-          "position": "CB",
-          "unit": "defense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
+          "player_name": "Michael Penix Jr.",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
           "source_count": 1,
           "sources": [
             {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-09-22T23:11:00.000Z",
-              "evidence": "Henderson is expected to step into a starting role at cornerback in Week 3, Tori McElhaney of the Falcons' official website reports."
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for ATL (usage score 25.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
-            "starter"
+            "locked_starter",
+            "weekly_usage_dominant"
           ],
-          "impact_bucket": "defensive_major",
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_d30a1601163289d1",
+          "team": "ATL",
+          "team_nick": "Falcons",
+          "player_name": "Bijan Robinson",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for ATL (usage score 30.0 vs runner-up 10.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
           "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "confidence_basis": "manual_depth_chart"
         },
         {
           "id": "starter_b44112b040b4f9cc",
@@ -268,56 +356,144 @@
     "BAL": {
       "team": "BAL",
       "team_name": "Baltimore Ravens",
-      "coverage_status": "needs_manual_depth_chart",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Lamar Jackson QB",
+        "Derrick Henry RB"
+      ],
       "estimated": [],
       "missing": [
-        "verified all-position depth chart",
-        "manual source count reconciliation"
+        "independent second-source depth-chart reconciliation"
       ],
-      "players": [],
+      "players": [
+        {
+          "id": "starter_84b29f7d22163051",
+          "team": "BAL",
+          "team_nick": "Ravens",
+          "player_name": "Lamar Jackson",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for BAL (usage score 20.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_2bd8d79ca756f25a",
+          "team": "BAL",
+          "team_nick": "Ravens",
+          "player_name": "Derrick Henry",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for BAL (usage score 26.5 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        }
+      ],
       "named_status_reviews": []
     },
     "BUF": {
       "team": "BUF",
       "team_name": "Buffalo Bills",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
-      "estimated": [
-        "Greg Dortch WR"
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Josh Allen QB",
+        "James Cook RB"
       ],
+      "estimated": [],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation",
+        "independent second-source depth-chart reconciliation",
         "Connor McGovern: withheld pending confirmation"
       ],
       "players": [
         {
-          "id": "starter_62a8786f6172fc88",
+          "id": "starter_3131b2d449a8bcaa",
           "team": "BUF",
           "team_nick": "Bills",
-          "player_name": "Greg Dortch",
-          "position": "WR",
+          "player_name": "Josh Allen",
+          "position": "QB",
           "unit": "offense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
           "source_count": 1,
           "sources": [
             {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-09-26T00:33:00.000Z",
-              "evidence": "The Bills signed Dortch from the practice squad to the active roster Friday, Maddy Glabb reports."
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for BUF (usage score 26.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
-            "roster_signal"
+            "locked_starter",
+            "weekly_usage_dominant"
           ],
-          "impact_bucket": "skill_major",
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_2bf98deca8d70548",
+          "team": "BUF",
+          "team_nick": "Bills",
+          "player_name": "James Cook",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for BUF (usage score 24.5 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
           "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "confidence_basis": "manual_depth_chart"
         }
       ],
       "named_status_reviews": [
@@ -335,24 +511,111 @@
     "CAR": {
       "team": "CAR",
       "team_name": "Carolina Panthers",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Bryce Young QB",
+        "Chuba Hubbard RB",
+        "Darren Waller TE"
+      ],
       "estimated": [
         "David Moore WR",
         "Anthony Tyus III RB",
-        "Isaiah Simmons S"
+        "Maema Njongmeta LB"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
         {
-          "id": "starter_57711a569eba3a85",
+          "id": "starter_700d3669dc3cb82c",
           "team": "CAR",
           "team_nick": "Panthers",
-          "player_name": "Isaiah Simmons",
-          "position": "S",
+          "player_name": "Bryce Young",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for CAR (usage score 48.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_f7613d0cf1aa371f",
+          "team": "CAR",
+          "team_nick": "Panthers",
+          "player_name": "Chuba Hubbard",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for CAR (usage score 21.0 vs runner-up 4.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_8ee4bd812d860cd2",
+          "team": "CAR",
+          "team_nick": "Panthers",
+          "player_name": "Darren Waller",
+          "position": "TE",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.8,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at TE for CAR (usage score 8.0 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "te_uncertain",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_9c117a9a7d469b3c",
+          "team": "CAR",
+          "team_nick": "Panthers",
+          "player_name": "Maema Njongmeta",
+          "position": "LB",
           "unit": "defense",
           "role": "roster_depth_signal",
           "starter_confidence": 0.42,
@@ -363,8 +626,8 @@
               "source": "ESPN injuries API",
               "source_type": "structured_injury",
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-09-24T00:09:00.000Z",
-              "evidence": "The Panthers signed Simmons to the active roster from their practice squad Wednesday, Darin Gantt of the team's official site reports."
+              "published_at": "2026-09-26T18:03:00.000Z",
+              "evidence": "The Panthers signed Njongmeta from the practice squad to the active roster Saturday, Darin Gantt of the team's official site reports."
             }
           ],
           "evidence_tags": [
@@ -434,16 +697,46 @@
     "CHI": {
       "team": "CHI",
       "team_name": "Chicago Bears",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Case Keenum QB",
+        "D'Andre Swift RB"
+      ],
       "estimated": [
         "Tyson Bagent QB"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_f0529b2827fd4a4b",
+          "team": "CHI",
+          "team_nick": "Bears",
+          "player_name": "Case Keenum",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for CHI (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_91d78327c9efc060",
           "team": "CHI",
@@ -472,6 +765,34 @@
           "impact_bucket": "qb_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_219a40713a24f6e6",
+          "team": "CHI",
+          "team_nick": "Bears",
+          "player_name": "D'Andre Swift",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for CHI (usage score 21.5 vs runner-up 10.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
         }
       ],
       "named_status_reviews": []
@@ -479,17 +800,103 @@
     "CIN": {
       "team": "CIN",
       "team_name": "Cincinnati Bengals",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Joe Burrow QB",
+        "Chase Brown RB"
+      ],
       "estimated": [
+        "Jordan Battle S",
         "Tanner Hudson TE",
         "Mitchell Tinsley WR"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_87b67928a016feef",
+          "team": "CIN",
+          "team_nick": "Bengals",
+          "player_name": "Joe Burrow",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for CIN (usage score 37.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_9b7ed196293671eb",
+          "team": "CIN",
+          "team_nick": "Bengals",
+          "player_name": "Chase Brown",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for CIN (usage score 14.0 vs runner-up 4.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_cf9781b5354b03a0",
+          "team": "CIN",
+          "team_nick": "Bengals",
+          "player_name": "Jordan Battle",
+          "position": "S",
+          "unit": "defense",
+          "role": "competition_or_rotation",
+          "starter_confidence": 0.5,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "FantasyPros injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://api.fantasypros.com/public/v2/json/nfl/injuries",
+              "published_at": "2026-10-01T07:00:00.000Z",
+              "evidence": "Jordan Battle QUESTIONABLE"
+            }
+          ],
+          "evidence_tags": [
+            "competition"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
         {
           "id": "starter_fceaa45650840259",
           "team": "CIN",
@@ -550,16 +957,74 @@
     "CLE": {
       "team": "CLE",
       "team_name": "Cleveland Browns",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Deshaun Watson QB",
+        "Quinshon Judkins RB"
+      ],
       "estimated": [
         "Mekhi Blackmon CB"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_9349b5afec0efa20",
+          "team": "CLE",
+          "team_nick": "Browns",
+          "player_name": "Deshaun Watson",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for CLE (usage score 30.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_a5bd568ae71fa7df",
+          "team": "CLE",
+          "team_nick": "Browns",
+          "player_name": "Quinshon Judkins",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for CLE (usage score 19.0 vs runner-up 3.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_fd31c4dd6f382242",
           "team": "CLE",
@@ -593,16 +1058,74 @@
     "DAL": {
       "team": "DAL",
       "team_name": "Dallas Cowboys",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Dak Prescott QB",
+        "Javonte Williams RB"
+      ],
       "estimated": [
         "Justin Barron LB"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_c57574f736b195ac",
+          "team": "DAL",
+          "team_nick": "Cowboys",
+          "player_name": "Dak Prescott",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for DAL (usage score 40.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_f7fca794c20a31bb",
+          "team": "DAL",
+          "team_nick": "Cowboys",
+          "player_name": "Javonte Williams",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for DAL (usage score 20.5 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_24d5fc8f24492e38",
           "team": "DAL",
@@ -636,44 +1159,191 @@
     "DEN": {
       "team": "DEN",
       "team_name": "Denver Broncos",
-      "coverage_status": "needs_manual_depth_chart",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Bo Nix QB",
+        "J.K. Dobbins RB"
+      ],
       "estimated": [],
       "missing": [
-        "verified all-position depth chart",
-        "manual source count reconciliation"
+        "independent second-source depth-chart reconciliation"
       ],
-      "players": [],
+      "players": [
+        {
+          "id": "starter_0e61180a0e5a80a1",
+          "team": "DEN",
+          "team_nick": "Broncos",
+          "player_name": "Bo Nix",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for DEN (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_7f674b0972dee708",
+          "team": "DEN",
+          "team_nick": "Broncos",
+          "player_name": "J.K. Dobbins",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for DEN (usage score 18.0 vs runner-up 5.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        }
+      ],
       "named_status_reviews": []
     },
     "DET": {
       "team": "DET",
       "team_name": "Detroit Lions",
-      "coverage_status": "needs_manual_depth_chart",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Jared Goff QB",
+        "Jahmyr Gibbs RB"
+      ],
       "estimated": [],
       "missing": [
-        "verified all-position depth chart",
-        "manual source count reconciliation"
+        "independent second-source depth-chart reconciliation"
       ],
-      "players": [],
+      "players": [
+        {
+          "id": "starter_960abad639d8b210",
+          "team": "DET",
+          "team_nick": "Lions",
+          "player_name": "Jared Goff",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for DET (usage score 32.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_779350c00bea4dcc",
+          "team": "DET",
+          "team_nick": "Lions",
+          "player_name": "Jahmyr Gibbs",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for DET (usage score 24.0 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        }
+      ],
       "named_status_reviews": []
     },
     "GB": {
       "team": "GB",
       "team_name": "Green Bay Packers",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Jordan Love QB"
+      ],
       "estimated": [
         "Kevin Zeitler G",
         "Laken Tomlinson G"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation",
+        "independent second-source depth-chart reconciliation",
         "Micah Parsons: conflicted team assignment"
       ],
       "players": [
+        {
+          "id": "starter_a8f70e4bbcccd26e",
+          "team": "GB",
+          "team_nick": "Packers",
+          "player_name": "Jordan Love",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for GB (usage score 53.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_fc88fd7bbcc486e8",
           "team": "GB",
@@ -745,18 +1415,76 @@
     "HOU": {
       "team": "HOU",
       "team_name": "Houston Texans",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "C.J. Stroud QB",
+        "David Montgomery RB"
+      ],
       "estimated": [
         "Chris Braswell DE",
         "Dare Ogunbowale RB",
         "Xavier Hutchinson WR"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_c572b5c2745f156e",
+          "team": "HOU",
+          "team_nick": "Texans",
+          "player_name": "C.J. Stroud",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for HOU (usage score 27.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_9863d670764b802d",
+          "team": "HOU",
+          "team_nick": "Texans",
+          "player_name": "David Montgomery",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for HOU (usage score 12.0 vs runner-up 5.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_bd61169f903879fb",
           "team": "HOU",
@@ -844,16 +1572,74 @@
     "IND": {
       "team": "IND",
       "team_name": "Indianapolis Colts",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Daniel Jones QB",
+        "Jonathan Taylor RB"
+      ],
       "estimated": [
         "Anthony Gould WR"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_01beb4e5ad3e2782",
+          "team": "IND",
+          "team_nick": "Colts",
+          "player_name": "Daniel Jones",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for IND (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_366be29d9f73a93d",
+          "team": "IND",
+          "team_nick": "Colts",
+          "player_name": "Jonathan Taylor",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for IND (usage score 24.5 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_ae82ff805be8b01c",
           "team": "IND",
@@ -887,16 +1673,74 @@
     "JAX": {
       "team": "JAX",
       "team_name": "Jacksonville Jaguars",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Trevor Lawrence QB",
+        "Bhayshul Tuten RB"
+      ],
       "estimated": [
         "Quinn Ewers QB"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_676b42b6238a2082",
+          "team": "JAX",
+          "team_nick": "Jaguars",
+          "player_name": "Trevor Lawrence",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for JAX (usage score 29.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_79f001776e03cc13",
+          "team": "JAX",
+          "team_nick": "Jaguars",
+          "player_name": "Bhayshul Tuten",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for JAX (usage score 16.0 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_7e66f20233853604",
           "team": "JAX",
@@ -930,29 +1774,146 @@
     "KC": {
       "team": "KC",
       "team_name": "Kansas City Chiefs",
-      "coverage_status": "needs_manual_depth_chart",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Patrick Mahomes QB",
+        "Kenneth Walker III RB"
+      ],
       "estimated": [],
       "missing": [
-        "verified all-position depth chart",
-        "manual source count reconciliation"
+        "independent second-source depth-chart reconciliation"
       ],
-      "players": [],
+      "players": [
+        {
+          "id": "starter_df09c1be35efe411",
+          "team": "KC",
+          "team_nick": "Chiefs",
+          "player_name": "Patrick Mahomes",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for KC (usage score 24.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_f8e07eb81239f1d3",
+          "team": "KC",
+          "team_nick": "Chiefs",
+          "player_name": "Kenneth Walker III",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for KC (usage score 19.0 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        }
+      ],
       "named_status_reviews": []
     },
     "LV": {
       "team": "LV",
       "team_name": "Las Vegas Raiders",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Kirk Cousins QB",
+        "Ashton Jeanty RB"
+      ],
       "estimated": [
         "Cody White WR"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_545704bfecae29db",
+          "team": "LV",
+          "team_nick": "Raiders",
+          "player_name": "Kirk Cousins",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for LV (usage score 33.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_cfd1eea478973ceb",
+          "team": "LV",
+          "team_nick": "Raiders",
+          "player_name": "Ashton Jeanty",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for LV (usage score 20.5 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_ef0ea1e508f377aa",
           "team": "LV",
@@ -986,29 +1947,146 @@
     "LAC": {
       "team": "LAC",
       "team_name": "Los Angeles Chargers",
-      "coverage_status": "needs_manual_depth_chart",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Justin Herbert QB"
+      ],
       "estimated": [],
       "missing": [
-        "verified all-position depth chart",
-        "manual source count reconciliation"
+        "independent second-source depth-chart reconciliation"
       ],
-      "players": [],
+      "players": [
+        {
+          "id": "starter_05b0cea99fe8862a",
+          "team": "LAC",
+          "team_nick": "Chargers",
+          "player_name": "Justin Herbert",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for LAC (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        }
+      ],
       "named_status_reviews": []
     },
     "LAR": {
       "team": "LAR",
       "team_name": "Los Angeles Rams",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Matthew Stafford QB",
+        "Kyren Williams RB",
+        "Tyler Higbee TE"
+      ],
       "estimated": [
         "Dean Connors RB"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_adf6d6c0d3c890c5",
+          "team": "LAR",
+          "team_nick": "Rams",
+          "player_name": "Matthew Stafford",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for LAR (usage score 55.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_c4ed0e4066739f0e",
+          "team": "LAR",
+          "team_nick": "Rams",
+          "player_name": "Kyren Williams",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for LAR (usage score 18.5 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_443b7f889dc0f63a",
+          "team": "LAR",
+          "team_nick": "Rams",
+          "player_name": "Tyler Higbee",
+          "position": "TE",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.8,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at TE for LAR (usage score 11.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "te_uncertain",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_84a1d794ee84ccda",
           "team": "LAR",
@@ -1042,30 +2120,147 @@
     "MIA": {
       "team": "MIA",
       "team_name": "Miami Dolphins",
-      "coverage_status": "needs_manual_depth_chart",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Malik Willis QB",
+        "Ollie Gordon II RB"
+      ],
       "estimated": [],
       "missing": [
-        "verified all-position depth chart",
-        "manual source count reconciliation"
+        "independent second-source depth-chart reconciliation"
       ],
-      "players": [],
+      "players": [
+        {
+          "id": "starter_2cd424aefc9b9048",
+          "team": "MIA",
+          "team_nick": "Dolphins",
+          "player_name": "Malik Willis",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for MIA (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_61914773ce1974a5",
+          "team": "MIA",
+          "team_nick": "Dolphins",
+          "player_name": "Ollie Gordon II",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for MIA (usage score 18.5 vs runner-up 3.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        }
+      ],
       "named_status_reviews": []
     },
     "MIN": {
       "team": "MIN",
       "team_name": "Minnesota Vikings",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Kyler Murray QB",
+        "Aaron Jones RB"
+      ],
       "estimated": [
         "Kyle Van Noy LB",
         "Max Brosmer QB"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_1e1187a24de3072f",
+          "team": "MIN",
+          "team_nick": "Vikings",
+          "player_name": "Kyler Murray",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for MIN (usage score 29.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_7c37852b12897a74",
+          "team": "MIN",
+          "team_nick": "Vikings",
+          "player_name": "Aaron Jones",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for MIN (usage score 20.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_22d003a3b5c760a3",
           "team": "MIN",
@@ -1126,16 +2321,45 @@
     "NE": {
       "team": "NE",
       "team_name": "New England Patriots",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Drake Maye QB"
+      ],
       "estimated": [
         "Jaylen Reed S"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_46c88d156968d6cd",
+          "team": "NE",
+          "team_nick": "Patriots",
+          "player_name": "Drake Maye",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for NE (usage score 25.0 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_4e42063dd1ded7ec",
           "team": "NE",
@@ -1169,58 +2393,119 @@
     "NO": {
       "team": "NO",
       "team_name": "New Orleans Saints",
-      "coverage_status": "needs_manual_depth_chart",
-      "known": [],
-      "estimated": [],
-      "missing": [
-        "verified all-position depth chart",
-        "manual source count reconciliation"
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Tyler Shough QB"
       ],
-      "players": [],
-      "named_status_reviews": []
-    },
-    "NYG": {
-      "team": "NYG",
-      "team_name": "New York Giants",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
       "estimated": [
-        "Charlie Jones WR",
-        "Braxton Berrios WR",
-        "Jameis Winston QB",
-        "Ar'Darius Washington S"
+        "Kevin Austin Jr. WR"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
         {
-          "id": "starter_8327395fd44546f9",
-          "team": "NYG",
-          "team_nick": "Giants",
-          "player_name": "Ar'Darius Washington",
-          "position": "S",
-          "unit": "defense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
+          "id": "starter_cdc14a6eaceecf75",
+          "team": "NO",
+          "team_nick": "Saints",
+          "player_name": "Tyler Shough",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for NO (usage score 42.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_9e2f318133d7ee45",
+          "team": "NO",
+          "team_nick": "Saints",
+          "player_name": "Kevin Austin Jr.",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
           "source_count": 1,
           "sources": [
             {
               "source": "ESPN injuries API",
               "source_type": "structured_injury",
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-09-27T16:19:00.000Z",
-              "evidence": "With Tyler Nubin (calf) inactive, Washington will start at safety against the Titans on Sunday, Jordan Raanan of ESPN.com reports."
+              "published_at": "2026-10-02T00:41:00.000Z",
+              "evidence": "The Saints signed Austin from their practice squad to their active roster Thursday."
             }
           ],
           "evidence_tags": [
-            "starter"
+            "roster_signal"
           ],
-          "impact_bucket": "defensive_major",
+          "impact_bucket": "skill_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "NYG": {
+      "team": "NYG",
+      "team_name": "New York Giants",
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Cam Skattebo RB"
+      ],
+      "estimated": [
+        "Jihad Ward LB",
+        "Charlie Jones WR",
+        "Braxton Berrios WR",
+        "Jameis Winston QB"
+      ],
+      "missing": [
+        "independent second-source depth-chart reconciliation"
+      ],
+      "players": [
+        {
+          "id": "starter_3e551dcd539d7587",
+          "team": "NYG",
+          "team_nick": "Giants",
+          "player_name": "Cam Skattebo",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for NYG (usage score 22.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
         },
         {
           "id": "starter_f23c0981074a1b8d",
@@ -1246,6 +2531,33 @@
             "starter"
           ],
           "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_bbb2d7dbef86016a",
+          "team": "NYG",
+          "team_nick": "Giants",
+          "player_name": "Jihad Ward",
+          "position": "LB",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-02T00:31:00.000Z",
+              "evidence": "Ward was signed to the Giants' active roster Thursday, Tom Pelissero of Netflix reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "defensive_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         },
@@ -1309,17 +2621,75 @@
     "NYJ": {
       "team": "NYJ",
       "team_name": "New York Jets",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Geno Smith QB",
+        "Breece Hall RB"
+      ],
       "estimated": [
         "Jason Sanders PK",
         "Jamaal Pritchett WR"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_6055f85a25e26f50",
+          "team": "NYJ",
+          "team_nick": "Jets",
+          "player_name": "Geno Smith",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for NYJ (usage score 37.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_5e5d3ce95cd613bd",
+          "team": "NYJ",
+          "team_nick": "Jets",
+          "player_name": "Breece Hall",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for NYJ (usage score 14.5 vs runner-up 5.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_d2e43efd236ed00a",
           "team": "NYJ",
@@ -1380,16 +2750,74 @@
     "PHI": {
       "team": "PHI",
       "team_name": "Philadelphia Eagles",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Jalen Hurts QB",
+        "Saquon Barkley RB"
+      ],
       "estimated": [
         "Kenny Moore II CB"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_b54140029c03da99",
+          "team": "PHI",
+          "team_nick": "Eagles",
+          "player_name": "Jalen Hurts",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_69e51a1916993cd1",
+          "team": "PHI",
+          "team_nick": "Eagles",
+          "player_name": "Saquon Barkley",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for PHI (usage score 16.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_4af05a574008e571",
           "team": "PHI",
@@ -1423,18 +2851,75 @@
     "PIT": {
       "team": "PIT",
       "team_name": "Pittsburgh Steelers",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Aaron Rodgers QB",
+        "Jaylen Warren RB"
+      ],
       "estimated": [
         "Brock Hoffman C",
-        "Max Iheanachor OT",
-        "Travis Homer RB"
+        "Max Iheanachor OT"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_5ed0cd729c22f1a6",
+          "team": "PIT",
+          "team_nick": "Steelers",
+          "player_name": "Aaron Rodgers",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for PIT (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_3d3ce11c03ed7763",
+          "team": "PIT",
+          "team_nick": "Steelers",
+          "player_name": "Jaylen Warren",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for PIT (usage score 19.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_98955fdda64310e6",
           "team": "PIT",
@@ -1488,13 +2973,87 @@
           "impact_bucket": "offensive_line_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
+        }
+      ],
+      "named_status_reviews": []
+    },
+    "SF": {
+      "team": "SF",
+      "team_name": "San Francisco 49ers",
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Brock Purdy QB",
+        "Christian McCaffrey RB"
+      ],
+      "estimated": [
+        "Brandin Cooks WR"
+      ],
+      "missing": [
+        "independent second-source depth-chart reconciliation"
+      ],
+      "players": [
+        {
+          "id": "starter_ff6dbd9909583de4",
+          "team": "SF",
+          "team_nick": "49ers",
+          "player_name": "Brock Purdy",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for SF (usage score 27.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
         },
         {
-          "id": "starter_5019178a0d9554b6",
-          "team": "PIT",
-          "team_nick": "Steelers",
-          "player_name": "Travis Homer",
+          "id": "starter_2330dc72531b180e",
+          "team": "SF",
+          "team_nick": "49ers",
+          "player_name": "Christian McCaffrey",
           "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for SF (usage score 17.5 vs runner-up 4.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_7e6d5f2a0c7f9fda",
+          "team": "SF",
+          "team_nick": "49ers",
+          "player_name": "Brandin Cooks",
+          "position": "WR",
           "unit": "offense",
           "role": "roster_depth_signal",
           "starter_confidence": 0.42,
@@ -1505,8 +3064,8 @@
               "source": "ESPN injuries API",
               "source_type": "structured_injury",
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-09-26T20:54:00.000Z",
-              "evidence": "The Steelers signed Homer from the practice squad to the active roster Saturday, Teresa Varley of the team's official site reports."
+              "published_at": "2026-10-01T20:22:00.000Z",
+              "evidence": "The 49ers signed Cooks from the practice squad to the active roster Thursday, Nick Wagoner of ESPN.com reports."
             }
           ],
           "evidence_tags": [
@@ -1519,33 +3078,49 @@
       ],
       "named_status_reviews": []
     },
-    "SF": {
-      "team": "SF",
-      "team_name": "San Francisco 49ers",
-      "coverage_status": "needs_manual_depth_chart",
-      "known": [],
-      "estimated": [],
-      "missing": [
-        "verified all-position depth chart",
-        "manual source count reconciliation"
-      ],
-      "players": [],
-      "named_status_reviews": []
-    },
     "SEA": {
       "team": "SEA",
       "team_name": "Seattle Seahawks",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Sam Darnold QB"
+      ],
       "estimated": [
         "Drew Lock QB",
         "Rodney Thomas II S"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_60281f9b73514c8c",
+          "team": "SEA",
+          "team_nick": "Seahawks",
+          "player_name": "Sam Darnold",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for SEA (usage score 45.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_28aa8b210bde7b33",
           "team": "SEA",
@@ -1606,17 +3181,75 @@
     "TB": {
       "team": "TB",
       "team_name": "Tampa Bay Buccaneers",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Baker Mayfield QB",
+        "Bucky Irving RB"
+      ],
       "estimated": [
         "Ifeatu Melifonwu S",
         "Jalon Daniels QB"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_77d27463c21f1757",
+          "team": "TB",
+          "team_nick": "Buccaneers",
+          "player_name": "Baker Mayfield",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for TB (usage score 34.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_b3e3dc32968397d2",
+          "team": "TB",
+          "team_nick": "Buccaneers",
+          "player_name": "Bucky Irving",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for TB (usage score 17.0 vs runner-up 5.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_6e60ab9496a02b66",
           "team": "TB",
@@ -1677,17 +3310,75 @@
     "TEN": {
       "team": "TEN",
       "team_name": "Tennessee Titans",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Cam Ward QB",
+        "Tony Pollard RB"
+      ],
       "estimated": [
         "Michael Carter RB",
         "Erick Hallett II S"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_c0c26c6ab94cbba5",
+          "team": "TEN",
+          "team_nick": "Titans",
+          "player_name": "Cam Ward",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for TEN (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_b5791132f501fc38",
+          "team": "TEN",
+          "team_nick": "Titans",
+          "player_name": "Tony Pollard",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for TEN (usage score 19.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_0f55a9e6127512ba",
           "team": "TEN",
@@ -1748,16 +3439,74 @@
     "WAS": {
       "team": "WAS",
       "team_name": "Washington Commanders",
-      "coverage_status": "estimated_from_local_starter_language",
-      "known": [],
+      "coverage_status": "manual_and_estimated_signals",
+      "known": [
+        "Marcus Mariota QB",
+        "Jacory Croskey-Merritt RB"
+      ],
       "estimated": [
         "Austin Ekeler RB"
       ],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_a3ab401c40554551",
+          "team": "WAS",
+          "team_nick": "Commanders",
+          "player_name": "Marcus Mariota",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for WAS (usage score 31.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_59cb1657f3997c8a",
+          "team": "WAS",
+          "team_nick": "Commanders",
+          "player_name": "Jacory Croskey-Merritt",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at RB for WAS (usage score 19.5 vs runner-up 8.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": true,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_5940d10a92161cdf",
           "team": "WAS",
@@ -1790,6 +3539,1794 @@
     }
   },
   "players": [
+    {
+      "id": "starter_5e99bdbe6bd921a0",
+      "team": "ARI",
+      "team_nick": "Cardinals",
+      "player_name": "Jacoby Brissett",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for ARI (usage score 52.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_cda3c37b3e7d6d11",
+      "team": "ARI",
+      "team_nick": "Cardinals",
+      "player_name": "Jeremiyah Love",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for ARI (usage score 23.5 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_8ef4ecceac00b64b",
+      "team": "ATL",
+      "team_nick": "Falcons",
+      "player_name": "Michael Penix Jr.",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for ATL (usage score 25.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_d30a1601163289d1",
+      "team": "ATL",
+      "team_nick": "Falcons",
+      "player_name": "Bijan Robinson",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for ATL (usage score 30.0 vs runner-up 10.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_84b29f7d22163051",
+      "team": "BAL",
+      "team_nick": "Ravens",
+      "player_name": "Lamar Jackson",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for BAL (usage score 20.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_2bd8d79ca756f25a",
+      "team": "BAL",
+      "team_nick": "Ravens",
+      "player_name": "Derrick Henry",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for BAL (usage score 26.5 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_3131b2d449a8bcaa",
+      "team": "BUF",
+      "team_nick": "Bills",
+      "player_name": "Josh Allen",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for BUF (usage score 26.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_2bf98deca8d70548",
+      "team": "BUF",
+      "team_nick": "Bills",
+      "player_name": "James Cook",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for BUF (usage score 24.5 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_700d3669dc3cb82c",
+      "team": "CAR",
+      "team_nick": "Panthers",
+      "player_name": "Bryce Young",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for CAR (usage score 48.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_f7613d0cf1aa371f",
+      "team": "CAR",
+      "team_nick": "Panthers",
+      "player_name": "Chuba Hubbard",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for CAR (usage score 21.0 vs runner-up 4.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_8ee4bd812d860cd2",
+      "team": "CAR",
+      "team_nick": "Panthers",
+      "player_name": "Darren Waller",
+      "position": "TE",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.8,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at TE for CAR (usage score 8.0 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_f0529b2827fd4a4b",
+      "team": "CHI",
+      "team_nick": "Bears",
+      "player_name": "Case Keenum",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for CHI (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_219a40713a24f6e6",
+      "team": "CHI",
+      "team_nick": "Bears",
+      "player_name": "D'Andre Swift",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for CHI (usage score 21.5 vs runner-up 10.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_87b67928a016feef",
+      "team": "CIN",
+      "team_nick": "Bengals",
+      "player_name": "Joe Burrow",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for CIN (usage score 37.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_9b7ed196293671eb",
+      "team": "CIN",
+      "team_nick": "Bengals",
+      "player_name": "Chase Brown",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for CIN (usage score 14.0 vs runner-up 4.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_9349b5afec0efa20",
+      "team": "CLE",
+      "team_nick": "Browns",
+      "player_name": "Deshaun Watson",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for CLE (usage score 30.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_a5bd568ae71fa7df",
+      "team": "CLE",
+      "team_nick": "Browns",
+      "player_name": "Quinshon Judkins",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for CLE (usage score 19.0 vs runner-up 3.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_c57574f736b195ac",
+      "team": "DAL",
+      "team_nick": "Cowboys",
+      "player_name": "Dak Prescott",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for DAL (usage score 40.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_f7fca794c20a31bb",
+      "team": "DAL",
+      "team_nick": "Cowboys",
+      "player_name": "Javonte Williams",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for DAL (usage score 20.5 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_0e61180a0e5a80a1",
+      "team": "DEN",
+      "team_nick": "Broncos",
+      "player_name": "Bo Nix",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for DEN (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_7f674b0972dee708",
+      "team": "DEN",
+      "team_nick": "Broncos",
+      "player_name": "J.K. Dobbins",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for DEN (usage score 18.0 vs runner-up 5.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_960abad639d8b210",
+      "team": "DET",
+      "team_nick": "Lions",
+      "player_name": "Jared Goff",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for DET (usage score 32.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_779350c00bea4dcc",
+      "team": "DET",
+      "team_nick": "Lions",
+      "player_name": "Jahmyr Gibbs",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for DET (usage score 24.0 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_a8f70e4bbcccd26e",
+      "team": "GB",
+      "team_nick": "Packers",
+      "player_name": "Jordan Love",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for GB (usage score 53.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_c572b5c2745f156e",
+      "team": "HOU",
+      "team_nick": "Texans",
+      "player_name": "C.J. Stroud",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for HOU (usage score 27.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_9863d670764b802d",
+      "team": "HOU",
+      "team_nick": "Texans",
+      "player_name": "David Montgomery",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for HOU (usage score 12.0 vs runner-up 5.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_01beb4e5ad3e2782",
+      "team": "IND",
+      "team_nick": "Colts",
+      "player_name": "Daniel Jones",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for IND (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_366be29d9f73a93d",
+      "team": "IND",
+      "team_nick": "Colts",
+      "player_name": "Jonathan Taylor",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for IND (usage score 24.5 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_676b42b6238a2082",
+      "team": "JAX",
+      "team_nick": "Jaguars",
+      "player_name": "Trevor Lawrence",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for JAX (usage score 29.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_79f001776e03cc13",
+      "team": "JAX",
+      "team_nick": "Jaguars",
+      "player_name": "Bhayshul Tuten",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for JAX (usage score 16.0 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_df09c1be35efe411",
+      "team": "KC",
+      "team_nick": "Chiefs",
+      "player_name": "Patrick Mahomes",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for KC (usage score 24.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_f8e07eb81239f1d3",
+      "team": "KC",
+      "team_nick": "Chiefs",
+      "player_name": "Kenneth Walker III",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for KC (usage score 19.0 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_05b0cea99fe8862a",
+      "team": "LAC",
+      "team_nick": "Chargers",
+      "player_name": "Justin Herbert",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for LAC (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_adf6d6c0d3c890c5",
+      "team": "LAR",
+      "team_nick": "Rams",
+      "player_name": "Matthew Stafford",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for LAR (usage score 55.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_c4ed0e4066739f0e",
+      "team": "LAR",
+      "team_nick": "Rams",
+      "player_name": "Kyren Williams",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for LAR (usage score 18.5 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_443b7f889dc0f63a",
+      "team": "LAR",
+      "team_nick": "Rams",
+      "player_name": "Tyler Higbee",
+      "position": "TE",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.8,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at TE for LAR (usage score 11.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_545704bfecae29db",
+      "team": "LV",
+      "team_nick": "Raiders",
+      "player_name": "Kirk Cousins",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for LV (usage score 33.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_cfd1eea478973ceb",
+      "team": "LV",
+      "team_nick": "Raiders",
+      "player_name": "Ashton Jeanty",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for LV (usage score 20.5 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_2cd424aefc9b9048",
+      "team": "MIA",
+      "team_nick": "Dolphins",
+      "player_name": "Malik Willis",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for MIA (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_61914773ce1974a5",
+      "team": "MIA",
+      "team_nick": "Dolphins",
+      "player_name": "Ollie Gordon II",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for MIA (usage score 18.5 vs runner-up 3.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_1e1187a24de3072f",
+      "team": "MIN",
+      "team_nick": "Vikings",
+      "player_name": "Kyler Murray",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for MIN (usage score 29.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_7c37852b12897a74",
+      "team": "MIN",
+      "team_nick": "Vikings",
+      "player_name": "Aaron Jones",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for MIN (usage score 20.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_46c88d156968d6cd",
+      "team": "NE",
+      "team_nick": "Patriots",
+      "player_name": "Drake Maye",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for NE (usage score 25.0 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_cdc14a6eaceecf75",
+      "team": "NO",
+      "team_nick": "Saints",
+      "player_name": "Tyler Shough",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for NO (usage score 42.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_3e551dcd539d7587",
+      "team": "NYG",
+      "team_nick": "Giants",
+      "player_name": "Cam Skattebo",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for NYG (usage score 22.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_6055f85a25e26f50",
+      "team": "NYJ",
+      "team_nick": "Jets",
+      "player_name": "Geno Smith",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for NYJ (usage score 37.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_5e5d3ce95cd613bd",
+      "team": "NYJ",
+      "team_nick": "Jets",
+      "player_name": "Breece Hall",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for NYJ (usage score 14.5 vs runner-up 5.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_b54140029c03da99",
+      "team": "PHI",
+      "team_nick": "Eagles",
+      "player_name": "Jalen Hurts",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_69e51a1916993cd1",
+      "team": "PHI",
+      "team_nick": "Eagles",
+      "player_name": "Saquon Barkley",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for PHI (usage score 16.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_5ed0cd729c22f1a6",
+      "team": "PIT",
+      "team_nick": "Steelers",
+      "player_name": "Aaron Rodgers",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for PIT (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_3d3ce11c03ed7763",
+      "team": "PIT",
+      "team_nick": "Steelers",
+      "player_name": "Jaylen Warren",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for PIT (usage score 19.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_60281f9b73514c8c",
+      "team": "SEA",
+      "team_nick": "Seahawks",
+      "player_name": "Sam Darnold",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for SEA (usage score 45.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_ff6dbd9909583de4",
+      "team": "SF",
+      "team_nick": "49ers",
+      "player_name": "Brock Purdy",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for SF (usage score 27.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_2330dc72531b180e",
+      "team": "SF",
+      "team_nick": "49ers",
+      "player_name": "Christian McCaffrey",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for SF (usage score 17.5 vs runner-up 4.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_77d27463c21f1757",
+      "team": "TB",
+      "team_nick": "Buccaneers",
+      "player_name": "Baker Mayfield",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for TB (usage score 34.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_b3e3dc32968397d2",
+      "team": "TB",
+      "team_nick": "Buccaneers",
+      "player_name": "Bucky Irving",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for TB (usage score 17.0 vs runner-up 5.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_c0c26c6ab94cbba5",
+      "team": "TEN",
+      "team_nick": "Titans",
+      "player_name": "Cam Ward",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for TEN (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_b5791132f501fc38",
+      "team": "TEN",
+      "team_nick": "Titans",
+      "player_name": "Tony Pollard",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for TEN (usage score 19.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_a3ab401c40554551",
+      "team": "WAS",
+      "team_nick": "Commanders",
+      "player_name": "Marcus Mariota",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at QB for WAS (usage score 31.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_59cb1657f3997c8a",
+      "team": "WAS",
+      "team_nick": "Commanders",
+      "player_name": "Jacory Croskey-Merritt",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for WAS (usage score 19.5 vs runner-up 8.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": true,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_9e2f318133d7ee45",
+      "team": "NO",
+      "team_nick": "Saints",
+      "player_name": "Kevin Austin Jr.",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-02T00:41:00.000Z",
+          "evidence": "The Saints signed Austin from their practice squad to their active roster Thursday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_bbb2d7dbef86016a",
+      "team": "NYG",
+      "team_nick": "Giants",
+      "player_name": "Jihad Ward",
+      "position": "LB",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-02T00:31:00.000Z",
+          "evidence": "Ward was signed to the Giants' active roster Thursday, Tom Pelissero of Netflix reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_7e6d5f2a0c7f9fda",
+      "team": "SF",
+      "team_nick": "49ers",
+      "player_name": "Brandin Cooks",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-01T20:22:00.000Z",
+          "evidence": "The 49ers signed Cooks from the practice squad to the active roster Thursday, Nick Wagoner of ESPN.com reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_cf9781b5354b03a0",
+      "team": "CIN",
+      "team_nick": "Bengals",
+      "player_name": "Jordan Battle",
+      "position": "S",
+      "unit": "defense",
+      "role": "competition_or_rotation",
+      "starter_confidence": 0.5,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "FantasyPros injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://api.fantasypros.com/public/v2/json/nfl/injuries",
+          "published_at": "2026-10-01T07:00:00.000Z",
+          "evidence": "Jordan Battle QUESTIONABLE"
+        }
+      ],
+      "evidence_tags": [
+        "competition"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
     {
       "id": "starter_fc88fd7bbcc486e8",
       "team": "GB",
@@ -2414,33 +5951,6 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_8327395fd44546f9",
-      "team": "NYG",
-      "team_nick": "Giants",
-      "player_name": "Ar'Darius Washington",
-      "position": "S",
-      "unit": "defense",
-      "role": "likely_starter_or_primary",
-      "starter_confidence": 0.7,
-      "roster_confidence": 0.66,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-09-27T16:19:00.000Z",
-          "evidence": "With Tyler Nubin (calf) inactive, Washington will start at safety against the Titans on Sunday, Jordan Raanan of ESPN.com reports."
-        }
-      ],
-      "evidence_tags": [
-        "starter"
-      ],
-      "impact_bucket": "defensive_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
       "id": "starter_fd31c4dd6f382242",
       "team": "CLE",
       "team_nick": "Browns",
@@ -2576,33 +6086,6 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_5019178a0d9554b6",
-      "team": "PIT",
-      "team_nick": "Steelers",
-      "player_name": "Travis Homer",
-      "position": "RB",
-      "unit": "offense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-09-26T20:54:00.000Z",
-          "evidence": "The Steelers signed Homer from the practice squad to the active roster Saturday, Teresa Varley of the team's official site reports."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
       "id": "starter_24d5fc8f24492e38",
       "team": "DAL",
       "team_nick": "Cowboys",
@@ -2620,6 +6103,33 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
           "published_at": "2026-09-26T18:29:00.000Z",
           "evidence": "The Cowboys signed Barron from the practice squad to the active roster Saturday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_9c117a9a7d469b3c",
+      "team": "CAR",
+      "team_nick": "Panthers",
+      "player_name": "Maema Njongmeta",
+      "position": "LB",
+      "unit": "defense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-09-26T18:03:00.000Z",
+          "evidence": "The Panthers signed Njongmeta from the practice squad to the active roster Saturday, Darin Gantt of the team's official site reports."
         }
       ],
       "evidence_tags": [
@@ -2738,33 +6248,6 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_62a8786f6172fc88",
-      "team": "BUF",
-      "team_nick": "Bills",
-      "player_name": "Greg Dortch",
-      "position": "WR",
-      "unit": "offense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-09-26T00:33:00.000Z",
-          "evidence": "The Bills signed Dortch from the practice squad to the active roster Friday, Maddy Glabb reports."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
       "id": "starter_28aa8b210bde7b33",
       "team": "SEA",
       "team_nick": "Seahawks",
@@ -2809,33 +6292,6 @@
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
           "published_at": "2026-09-24T00:20:00.000Z",
           "evidence": "The Cardinals signed Thomas to the active roster from their practice squad Wednesday, Darren Urban of the team's official site reports."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "defensive_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_57711a569eba3a85",
-      "team": "CAR",
-      "team_nick": "Panthers",
-      "player_name": "Isaiah Simmons",
-      "position": "S",
-      "unit": "defense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-09-24T00:09:00.000Z",
-          "evidence": "The Panthers signed Simmons to the active roster from their practice squad Wednesday, Darin Gantt of the team's official site reports."
         }
       ],
       "evidence_tags": [
@@ -2896,33 +6352,6 @@
         "roster_signal"
       ],
       "impact_bucket": "defensive_front_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_fa62941e47520b56",
-      "team": "ATL",
-      "team_nick": "Falcons",
-      "player_name": "C.J. Henderson",
-      "position": "CB",
-      "unit": "defense",
-      "role": "likely_starter_or_primary",
-      "starter_confidence": 0.7,
-      "roster_confidence": 0.66,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-09-22T23:11:00.000Z",
-          "evidence": "Henderson is expected to step into a starting role at cornerback in Week 3, Tori McElhaney of the Falcons' official website reports."
-        }
-      ],
-      "evidence_tags": [
-        "starter"
-      ],
-      "impact_bucket": "defensive_major",
       "needs_human_review": true,
       "confidence_basis": "local_availability_starter_language"
     }

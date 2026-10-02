@@ -1,12 +1,12 @@
-# Prediction Market Context Map - 2026-10-01
+# Prediction Market Context Map - 2026-10-02
 
 > Consensus context only. Prediction markets are not sportsbook execution prices and do not authorize recommendations.
 > Actionable below means eligible for coherence math only; settlement terms remain unverified and execution eligibility is zero.
 
-Generated: 2026-10-01T09:00:20.600Z
-Contracts: 3981 | Mapped: 717 | Unmapped: 3264
-Eligible context: 717 | Actionable coherence: 252 | Execution eligible: 0
-Liquidity warnings: 3370 (84.65%) | Wrong-season mapped: 0
+Generated: 2026-10-02T00:54:39.316Z
+Contracts: 5040 | Mapped: 751 | Unmapped: 4289
+Eligible context: 751 | Actionable coherence: 407 | Execution eligible: 0
+Liquidity warnings: 3843 (76.25%) | Wrong-season mapped: 0
 
 ## Required Caveats
 
@@ -18,83 +18,83 @@ Liquidity warnings: 3370 (84.65%) | Wrong-season mapped: 0
 
 | Exchange | Team | Market | Season | Price | Net Odds | Volume 24h | Context | Coherence | Warning | Title |
 |---|---|---|---:|---:|---:|---:|---|---|---|---|
-| kalshi | IND | wins | 2026 | 50 | -107 | 13 | yes | context only | yes | Will the Indianapolis pro football team win at least 9 games this season? |
-| kalshi | IND | wins | 2026 | 62 | -175 | 254 | yes | context only | yes | Will the Indianapolis pro football team win at least 8 games this season? |
-| kalshi | IND | wins | 2026 | 73 | -290 | 10 | yes | context only | yes | Will the Indianapolis pro football team win at least 7 games this season? |
-| kalshi | IND | wins | 2026 | 85 | -609 | 0 | yes | context only | yes | Will the Indianapolis pro football team win at least 6 games this season? |
+| kalshi | IND | wins | 2026 | 45 | +114 | 706 | yes | yes | no | Will the Indianapolis pro football team win at least 9 games this season? |
+| kalshi | IND | wins | 2026 | 61 | -168 | 99 | yes | yes | no | Will the Indianapolis pro football team win at least 8 games this season? |
+| kalshi | IND | wins | 2026 | 75 | -322 | 131 | yes | yes | no | Will the Indianapolis pro football team win at least 7 games this season? |
+| kalshi | IND | wins | 2026 | 86 | -660 | 1299 | yes | yes | no | Will the Indianapolis pro football team win at least 6 games this season? |
 | kalshi | IND | wins | 2026 | 92 | -1237 | 0 | yes | context only | yes | Will the Indianapolis pro football team win at least 5 games this season? |
-| kalshi | IND | wins | 2026 | 93 | -1429 | 0 | yes | context only | yes | Will the Indianapolis pro football team win at least 4 games this season? |
+| kalshi | IND | wins | 2026 | 98 | -5276 | 49 | yes | yes | no | Will the Indianapolis pro football team win at least 4 games this season? |
 | kalshi | IND | wins | 2026 | 94 | -1683 | 0 | yes | context only | yes | Will the Indianapolis pro football team win at least 3 games this season? |
 | kalshi | IND | wins | 2026 | 98 | -5276 | 0 | yes | context only | yes | Will the Indianapolis pro football team win at least 2 games this season? |
 | kalshi | IND | wins | 2026 | 2 | +4573 | 0 | yes | context only | yes | Will the Indianapolis pro football team win at least 15 games this season? |
 | kalshi | IND | wins | 2026 | 23 | +313 | 0 | yes | context only | yes | Will the Indianapolis pro football team win at least 14 games this season? |
 | kalshi | IND | wins | 2026 | 23 | +313 | 0 | yes | context only | yes | Will the Indianapolis pro football team win at least 13 games this season? |
-| kalshi | IND | wins | 2026 | 8 | +1074 | 0 | yes | context only | yes | Will the Indianapolis pro football team win at least 12 games this season? |
+| kalshi | IND | wins | 2026 | 9 | +945 | 50 | yes | yes | no | Will the Indianapolis pro football team win at least 12 games this season? |
 | kalshi | IND | wins | 2026 | 17 | +456 | 0 | yes | context only | yes | Will the Indianapolis pro football team win at least 11 games this season? |
-| kalshi | IND | wins | 2026 | 33 | +189 | 0 | yes | context only | yes | Will the Indianapolis pro football team win at least 10 games this season? |
-| kalshi | BUF | wins | 2026 | 93 | -1429 | 4 | yes | context only | yes | Will the Buffalo pro football team win at least 9 games this season? |
-| kalshi | BUF | wins | 2026 | 99 | -10653 | 0 | yes | context only | yes | Will the Buffalo pro football team win at least 8 games this season? |
-| kalshi | BUF | wins | 2026 | 97 | -3471 | 0 | yes | context only | yes | Will the Buffalo pro football team win at least 7 games this season? |
+| kalshi | IND | wins | 2026 | 34 | +181 | 35 | yes | yes | no | Will the Indianapolis pro football team win at least 10 games this season? |
+| kalshi | BUF | wins | 2026 | 93 | -1429 | 4 | yes | yes | no | Will the Buffalo pro football team win at least 9 games this season? |
+| kalshi | BUF | wins | 2026 | 97 | -3471 | 5 | yes | yes | no | Will the Buffalo pro football team win at least 8 games this season? |
+| kalshi | BUF | wins | 2026 | 96 | -2581 | 5 | yes | yes | no | Will the Buffalo pro football team win at least 7 games this season? |
 | kalshi | BUF | wins | 2026 | 99 | -10653 | 0 | yes | context only | yes | Will the Buffalo pro football team win at least 6 games this season? |
 | kalshi | BUF | wins | 2026 | 93 | -1429 | 0 | yes | context only | yes | Will the Buffalo pro football team win at least 5 games this season? |
 | kalshi | BUF | wins | 2026 | 94 | -1683 | 0 | yes | context only | yes | Will the Buffalo pro football team win at least 4 games this season? |
-| kalshi | BUF | wins | 2026 | 1 | +9246 | 6326 | yes | yes | no | Will the Buffalo pro football team win at least 17 games this season? |
-| kalshi | BUF | wins | 2026 | 7 | +1240 | 173 | yes | context only | yes | Will the Buffalo pro football team win at least 16 games this season? |
+| kalshi | BUF | wins | 2026 | 1 | +9246 | 6422 | yes | yes | no | Will the Buffalo pro football team win at least 17 games this season? |
+| kalshi | BUF | wins | 2026 | 7 | +1240 | 0 | yes | context only | yes | Will the Buffalo pro football team win at least 16 games this season? |
 | kalshi | BUF | wins | 2026 | 21 | +351 | 0 | yes | context only | yes | Will the Buffalo pro football team win at least 15 games this season? |
-| kalshi | BUF | wins | 2026 | 35 | +173 | 20 | yes | context only | yes | Will the Buffalo pro football team win at least 14 games this season? |
-| kalshi | BUF | wins | 2026 | 52 | -116 | 100 | yes | context only | yes | Will the Buffalo pro football team win at least 13 games this season? |
-| kalshi | BUF | wins | 2026 | 70 | -251 | 1557 | yes | yes | no | Will the Buffalo pro football team win at least 12 games this season? |
-| kalshi | BUF | wins | 2026 | 79 | -404 | 245 | yes | context only | yes | Will the Buffalo pro football team win at least 11 games this season? |
-| kalshi | BUF | wins | 2026 | 88 | -788 | 20 | yes | yes | no | Will the Buffalo pro football team win at least 10 games this season? |
-| kalshi | DET | wins | 2026 | 79 | -404 | 0 | yes | context only | yes | Will the Detroit pro football team win at least 9 games this season? |
-| kalshi | DET | wins | 2026 | 87 | -719 | 0 | yes | context only | yes | Will the Detroit pro football team win at least 8 games this season? |
-| kalshi | DET | wins | 2026 | 96 | -2581 | 11 | yes | context only | yes | Will the Detroit pro football team win at least 7 games this season? |
+| kalshi | BUF | wins | 2026 | 35 | +173 | 0 | yes | context only | yes | Will the Buffalo pro football team win at least 14 games this season? |
+| kalshi | BUF | wins | 2026 | 50 | -107 | 32 | yes | yes | no | Will the Buffalo pro football team win at least 13 games this season? |
+| kalshi | BUF | wins | 2026 | 68 | -228 | 372 | yes | yes | no | Will the Buffalo pro football team win at least 12 games this season? |
+| kalshi | BUF | wins | 2026 | 80 | -430 | 1369 | yes | yes | no | Will the Buffalo pro football team win at least 11 games this season? |
+| kalshi | BUF | wins | 2026 | 88 | -788 | 84 | yes | yes | no | Will the Buffalo pro football team win at least 10 games this season? |
+| kalshi | DET | wins | 2026 | 79 | -404 | 10 | yes | yes | no | Will the Detroit pro football team win at least 9 games this season? |
+| kalshi | DET | wins | 2026 | 90 | -967 | 345 | yes | yes | no | Will the Detroit pro football team win at least 8 games this season? |
+| kalshi | DET | wins | 2026 | 96 | -2581 | 354 | yes | yes | no | Will the Detroit pro football team win at least 7 games this season? |
 | kalshi | DET | wins | 2026 | 97 | -3471 | 0 | yes | context only | yes | Will the Detroit pro football team win at least 6 games this season? |
 | kalshi | DET | wins | 2026 | 80 | -430 | 0 | yes | context only | yes | Will the Detroit pro football team win at least 5 games this season? |
 | kalshi | DET | wins | 2026 | 99 | -10653 | 0 | yes | context only | yes | Will the Detroit pro football team win at least 4 games this season? |
 | kalshi | DET | wins | 2026 | 99 | -10653 | 0 | yes | context only | yes | Will the Detroit pro football team win at least 3 games this season? |
 | kalshi | DET | wins | 2026 | 2 | +4573 | 0 | yes | context only | yes | Will the Detroit pro football team win at least 16 games this season? |
-| kalshi | DET | wins | 2026 | 6 | +1465 | 12 | yes | context only | yes | Will the Detroit pro football team win at least 15 games this season? |
+| kalshi | DET | wins | 2026 | 6 | +1465 | 0 | yes | context only | yes | Will the Detroit pro football team win at least 15 games this season? |
 | kalshi | DET | wins | 2026 | 15 | +529 | 0 | yes | context only | yes | Will the Detroit pro football team win at least 14 games this season? |
-| kalshi | DET | wins | 2026 | 26 | +266 | 128 | yes | context only | yes | Will the Detroit pro football team win at least 13 games this season? |
-| kalshi | DET | wins | 2026 | 40 | +140 | 87 | yes | yes | no | Will the Detroit pro football team win at least 12 games this season? |
-| kalshi | DET | wins | 2026 | 54 | -126 | 15 | yes | yes | no | Will the Detroit pro football team win at least 11 games this season? |
-| kalshi | DET | wins | 2026 | 68 | -228 | 0 | yes | context only | yes | Will the Detroit pro football team win at least 10 games this season? |
-| kalshi | NO | wins | 2026 | 46 | +109 | 36 | yes | yes | no | Will the New Orleans pro football team win at least 9 games this season? |
-| kalshi | NO | wins | 2026 | 64 | -191 | 3101 | yes | yes | no | Will the New Orleans pro football team win at least 8 games this season? |
-| kalshi | NO | wins | 2026 | 76 | -340 | 813 | yes | context only | yes | Will the New Orleans pro football team win at least 7 games this season? |
-| kalshi | NO | wins | 2026 | 87 | -719 | 1500 | yes | context only | yes | Will the New Orleans pro football team win at least 6 games this season? |
+| kalshi | DET | wins | 2026 | 26 | +266 | 0 | yes | context only | yes | Will the Detroit pro football team win at least 13 games this season? |
+| kalshi | DET | wins | 2026 | 41 | +134 | 8 | yes | yes | no | Will the Detroit pro football team win at least 12 games this season? |
+| kalshi | DET | wins | 2026 | 57 | -142 | 17 | yes | yes | no | Will the Detroit pro football team win at least 11 games this season? |
+| kalshi | DET | wins | 2026 | 71 | -263 | 7 | yes | yes | no | Will the Detroit pro football team win at least 10 games this season? |
+| kalshi | NO | wins | 2026 | 46 | +109 | 235 | yes | yes | no | Will the New Orleans pro football team win at least 9 games this season? |
+| kalshi | NO | wins | 2026 | 61 | -168 | 30 | yes | yes | no | Will the New Orleans pro football team win at least 8 games this season? |
+| kalshi | NO | wins | 2026 | 74 | -306 | 8 | yes | yes | no | Will the New Orleans pro football team win at least 7 games this season? |
+| kalshi | NO | wins | 2026 | 87 | -719 | 0 | yes | context only | yes | Will the New Orleans pro football team win at least 6 games this season? |
 | kalshi | NO | wins | 2026 | 91 | -1086 | 0 | yes | context only | yes | Will the New Orleans pro football team win at least 5 games this season? |
-| kalshi | NO | wins | 2026 | 76 | -340 | 0 | yes | context only | yes | Will the New Orleans pro football team win at least 4 games this season? |
+| kalshi | NO | wins | 2026 | 98 | -5276 | 44 | yes | yes | no | Will the New Orleans pro football team win at least 4 games this season? |
 | kalshi | NO | wins | 2026 | 98 | -5276 | 0 | yes | context only | yes | Will the New Orleans pro football team win at least 3 games this season? |
 | kalshi | NO | wins | 2026 | 95 | -2041 | 0 | yes | context only | yes | Will the New Orleans pro football team win at least 2 games this season? |
 | kalshi | NO | wins | 2026 | 1 | +9246 | 0 | yes | context only | yes | Will the New Orleans pro football team win at least 15 games this season? |
 | kalshi | NO | wins | 2026 | 3 | +3025 | 0 | yes | context only | yes | Will the New Orleans pro football team win at least 14 games this season? |
 | kalshi | NO | wins | 2026 | 5 | +1776 | 0 | yes | context only | yes | Will the New Orleans pro football team win at least 13 games this season? |
-| kalshi | NO | wins | 2026 | 14 | +574 | 133 | yes | context only | yes | Will the New Orleans pro football team win at least 12 games this season? |
+| kalshi | NO | wins | 2026 | 14 | +574 | 0 | yes | context only | yes | Will the New Orleans pro football team win at least 12 games this season? |
 | kalshi | NO | wins | 2026 | 19 | +398 | 334 | yes | yes | no | Will the New Orleans pro football team win at least 11 games this season? |
-| kalshi | NO | wins | 2026 | 31 | +208 | 2224 | yes | context only | yes | Will the New Orleans pro football team win at least 10 games this season? |
-| kalshi | CAR | wins | 2026 | 22 | +331 | 156 | yes | context only | yes | Will the Carolina pro football team win at least 9 games this season? |
-| kalshi | CAR | wins | 2026 | 33 | +189 | 74 | yes | yes | no | Will the Carolina pro football team win at least 8 games this season? |
-| kalshi | CAR | wins | 2026 | 51 | -112 | 3987 | yes | yes | no | Will the Carolina pro football team win at least 7 games this season? |
-| kalshi | CAR | wins | 2026 | 62 | -175 | 909 | yes | context only | yes | Will the Carolina pro football team win at least 6 games this season? |
+| kalshi | NO | wins | 2026 | 32 | +198 | 1271 | yes | yes | no | Will the New Orleans pro football team win at least 10 games this season? |
+| kalshi | CAR | wins | 2026 | 24 | +296 | 29 | yes | yes | no | Will the Carolina pro football team win at least 9 games this season? |
+| kalshi | CAR | wins | 2026 | 33 | +189 | 0 | yes | context only | yes | Will the Carolina pro football team win at least 8 games this season? |
+| kalshi | CAR | wins | 2026 | 51 | -112 | 686 | yes | yes | no | Will the Carolina pro football team win at least 7 games this season? |
+| kalshi | CAR | wins | 2026 | 62 | -175 | 0 | yes | context only | yes | Will the Carolina pro football team win at least 6 games this season? |
 | kalshi | CAR | wins | 2026 | 76 | -340 | 0 | yes | context only | yes | Will the Carolina pro football team win at least 5 games this season? |
-| kalshi | CAR | wins | 2026 | 87 | -719 | 0 | yes | context only | yes | Will the Carolina pro football team win at least 4 games this season? |
-| kalshi | CAR | wins | 2026 | 96 | -2581 | 2 | yes | context only | yes | Will the Carolina pro football team win at least 3 games this season? |
+| kalshi | CAR | wins | 2026 | 89 | -870 | 1177 | yes | yes | no | Will the Carolina pro football team win at least 4 games this season? |
+| kalshi | CAR | wins | 2026 | 96 | -2581 | 0 | yes | context only | yes | Will the Carolina pro football team win at least 3 games this season? |
 | kalshi | CAR | wins | 2026 | 98 | -5276 | 0 | yes | context only | yes | Will the Carolina pro football team win at least 2 games this season? |
 | kalshi | CAR | wins | 2026 | 5 | +1776 | 0 | yes | context only | yes | Will the Carolina pro football team win at least 15 games this season? |
 | kalshi | CAR | wins | 2026 | 1 | +9246 | 0 | yes | context only | yes | Will the Carolina pro football team win at least 14 games this season? |
 | kalshi | CAR | wins | 2026 | 3 | +3025 | 0 | yes | context only | yes | Will the Carolina pro football team win at least 13 games this season? |
-| kalshi | CAR | wins | 2026 | 4 | +2242 | 0 | yes | context only | yes | Will the Carolina pro football team win at least 12 games this season? |
+| kalshi | CAR | wins | 2026 | 2 | +4573 | 25 | yes | yes | no | Will the Carolina pro football team win at least 12 games this season? |
 | kalshi | CAR | wins | 2026 | 8 | +1074 | 0 | yes | context only | yes | Will the Carolina pro football team win at least 11 games this season? |
-| kalshi | CAR | wins | 2026 | 12 | +685 | 7204 | yes | yes | no | Will the Carolina pro football team win at least 10 games this season? |
+| kalshi | CAR | wins | 2026 | 12 | +685 | 39 | yes | yes | no | Will the Carolina pro football team win at least 10 games this season? |
 | kalshi | ARI | wins | 2026 | 12 | +685 | 0 | yes | context only | yes | Will the Arizona pro football team win at least 9 games this season? |
 | kalshi | ARI | wins | 2026 | 20 | +373 | 0 | yes | context only | yes | Will the Arizona pro football team win at least 8 games this season? |
-| kalshi | ARI | wins | 2026 | 31 | +208 | 119 | yes | yes | no | Will the Arizona pro football team win at least 7 games this season? |
-| kalshi | ARI | wins | 2026 | 48 | +101 | 445 | yes | yes | no | Will the Arizona pro football team win at least 6 games this season? |
-| kalshi | ARI | wins | 2026 | 64 | -191 | 114 | yes | yes | no | Will the Arizona pro football team win at least 5 games this season? |
-| kalshi | ARI | wins | 2026 | 79 | -404 | 0 | yes | context only | yes | Will the Arizona pro football team win at least 4 games this season? |
-| kalshi | ARI | wins | 2026 | 88 | -788 | 0 | yes | context only | yes | Will the Arizona pro football team win at least 3 games this season? |
+| kalshi | ARI | wins | 2026 | 31 | +208 | 1508 | yes | yes | no | Will the Arizona pro football team win at least 7 games this season? |
+| kalshi | ARI | wins | 2026 | 48 | +101 | 74 | yes | yes | no | Will the Arizona pro football team win at least 6 games this season? |
+| kalshi | ARI | wins | 2026 | 64 | -191 | 5 | yes | yes | no | Will the Arizona pro football team win at least 5 games this season? |
+| kalshi | ARI | wins | 2026 | 79 | -404 | 105 | yes | yes | no | Will the Arizona pro football team win at least 4 games this season? |
+| kalshi | ARI | wins | 2026 | 93 | -1429 | 1276 | yes | yes | no | Will the Arizona pro football team win at least 3 games this season? |
 | kalshi | ARI | wins | 2026 | 97 | -3471 | 0 | yes | context only | yes | Will the Arizona pro football team win at least 2 games this season? |
 | kalshi | ARI | wins | 2026 | 18 | +425 | 0 | yes | context only | yes | Will the Arizona pro football team win at least 15 games this season? |
 | kalshi | ARI | wins | 2026 | 17 | +456 | 0 | yes | context only | yes | Will the Arizona pro football team win at least 14 games this season? |
@@ -102,124 +102,124 @@ Liquidity warnings: 3370 (84.65%) | Wrong-season mapped: 0
 | kalshi | ARI | wins | 2026 | 3 | +3025 | 0 | yes | context only | yes | Will the Arizona pro football team win at least 12 games this season? |
 | kalshi | ARI | wins | 2026 | 3 | +3025 | 0 | yes | context only | yes | Will the Arizona pro football team win at least 11 games this season? |
 | kalshi | ARI | wins | 2026 | 6 | +1465 | 0 | yes | context only | yes | Will the Arizona pro football team win at least 10 games this season? |
-| kalshi | NE | wins | 2026 | 58 | -148 | 2065 | yes | yes | no | Will the New England pro football team win at least 9 games this season? |
-| kalshi | NE | wins | 2026 | 72 | -276 | 121 | yes | context only | yes | Will the New England pro football team win at least 8 games this season? |
-| kalshi | NE | wins | 2026 | 77 | -360 | 4 | yes | context only | yes | Will the New England pro football team win at least 7 games this season? |
-| kalshi | NE | wins | 2026 | 90 | -967 | 34 | yes | context only | yes | Will the New England pro football team win at least 6 games this season? |
+| kalshi | NE | wins | 2026 | 52 | -116 | 201895 | yes | yes | no | Will the New England pro football team win at least 9 games this season? |
+| kalshi | NE | wins | 2026 | 73 | -290 | 103 | yes | yes | no | Will the New England pro football team win at least 8 games this season? |
+| kalshi | NE | wins | 2026 | 77 | -360 | 4 | yes | yes | no | Will the New England pro football team win at least 7 games this season? |
+| kalshi | NE | wins | 2026 | 90 | -967 | 981 | yes | yes | no | Will the New England pro football team win at least 6 games this season? |
 | kalshi | NE | wins | 2026 | 92 | -1237 | 0 | yes | context only | yes | Will the New England pro football team win at least 5 games this season? |
 | kalshi | NE | wins | 2026 | 98 | -5276 | 0 | yes | context only | yes | Will the New England pro football team win at least 4 games this season? |
 | kalshi | NE | wins | 2026 | 75 | -322 | 0 | yes | context only | yes | Will the New England pro football team win at least 3 games this season? |
 | kalshi | NE | wins | 2026 | 98 | -5276 | 0 | yes | context only | yes | Will the New England pro football team win at least 2 games this season? |
-| kalshi | NE | wins | 2026 | 1 | +9246 | 1 | yes | yes | no | Will the New England pro football team win at least 15 games this season? |
+| kalshi | NE | wins | 2026 | 1 | +9246 | 0 | yes | context only | yes | Will the New England pro football team win at least 15 games this season? |
 | kalshi | NE | wins | 2026 | 2 | +4573 | 0 | yes | context only | yes | Will the New England pro football team win at least 14 games this season? |
-| kalshi | NE | wins | 2026 | 5 | +1776 | 98 | yes | context only | yes | Will the New England pro football team win at least 13 games this season? |
-| kalshi | NE | wins | 2026 | 16 | +490 | 148 | yes | context only | yes | Will the New England pro football team win at least 12 games this season? |
-| kalshi | NE | wins | 2026 | 27 | +252 | 4848 | yes | yes | no | Will the New England pro football team win at least 11 games this season? |
-| kalshi | NE | wins | 2026 | 40 | +140 | 20 | yes | yes | no | Will the New England pro football team win at least 10 games this season? |
-| kalshi | NYJ | wins | 2026 | 20 | +373 | 1041 | yes | context only | yes | Will the New York J pro football team win at least 9 games this season? |
-| kalshi | NYJ | wins | 2026 | 32 | +198 | 2557 | yes | yes | no | Will the New York J pro football team win at least 8 games this season? |
-| kalshi | NYJ | wins | 2026 | 47 | +105 | 414 | yes | yes | no | Will the New York J pro football team win at least 7 games this season? |
-| kalshi | NYJ | wins | 2026 | 64 | -191 | 23 | yes | yes | no | Will the New York J pro football team win at least 6 games this season? |
-| kalshi | NYJ | wins | 2026 | 75 | -322 | 911 | yes | context only | yes | Will the New York J pro football team win at least 5 games this season? |
-| kalshi | NYJ | wins | 2026 | 89 | -870 | 0 | yes | context only | yes | Will the New York J pro football team win at least 4 games this season? |
+| kalshi | NE | wins | 2026 | 6 | +1465 | 100 | yes | yes | no | Will the New England pro football team win at least 13 games this season? |
+| kalshi | NE | wins | 2026 | 11 | +755 | 83 | yes | yes | no | Will the New England pro football team win at least 12 games this season? |
+| kalshi | NE | wins | 2026 | 27 | +252 | 1102 | yes | yes | no | Will the New England pro football team win at least 11 games this season? |
+| kalshi | NE | wins | 2026 | 41 | +134 | 2913 | yes | yes | no | Will the New England pro football team win at least 10 games this season? |
+| kalshi | NYJ | wins | 2026 | 20 | +373 | 0 | yes | context only | yes | Will the New York J pro football team win at least 9 games this season? |
+| kalshi | NYJ | wins | 2026 | 34 | +181 | 2748 | yes | yes | no | Will the New York J pro football team win at least 8 games this season? |
+| kalshi | NYJ | wins | 2026 | 47 | +105 | 268 | yes | yes | no | Will the New York J pro football team win at least 7 games this season? |
+| kalshi | NYJ | wins | 2026 | 64 | -191 | 70 | yes | yes | no | Will the New York J pro football team win at least 6 games this season? |
+| kalshi | NYJ | wins | 2026 | 79 | -404 | 635 | yes | yes | no | Will the New York J pro football team win at least 5 games this season? |
+| kalshi | NYJ | wins | 2026 | 89 | -870 | 37 | yes | yes | no | Will the New York J pro football team win at least 4 games this season? |
 | kalshi | NYJ | wins | 2026 | 94 | -1683 | 0 | yes | context only | yes | Will the New York J pro football team win at least 3 games this season? |
 | kalshi | NYJ | wins | 2026 | 97 | -3471 | 0 | yes | context only | yes | Will the New York J pro football team win at least 2 games this season? |
 | kalshi | NYJ | wins | 2026 | 19 | +398 | 0 | yes | context only | yes | Will the New York J pro football team win at least 15 games this season? |
 | kalshi | NYJ | wins | 2026 | 7 | +1240 | 0 | yes | context only | yes | Will the New York J pro football team win at least 14 games this season? |
 | kalshi | NYJ | wins | 2026 | 20 | +373 | 0 | yes | context only | yes | Will the New York J pro football team win at least 13 games this season? |
 | kalshi | NYJ | wins | 2026 | 4 | +2242 | 0 | yes | context only | yes | Will the New York J pro football team win at least 12 games this season? |
-| kalshi | NYJ | wins | 2026 | 4 | +2242 | 2000 | yes | context only | yes | Will the New York J pro football team win at least 11 games this season? |
-| kalshi | NYJ | wins | 2026 | 12 | +685 | 43 | yes | context only | yes | Will the New York J pro football team win at least 10 games this season? |
-| kalshi | SF | wins | 2026 | 87 | -719 | 11 | yes | yes | no | Will the San Francisco pro football team win at least 9 games this season? |
-| kalshi | SF | wins | 2026 | 94 | -1683 | 104 | yes | context only | yes | Will the San Francisco pro football team win at least 8 games this season? |
-| kalshi | SF | wins | 2026 | 95 | -2041 | 0 | yes | context only | yes | Will the San Francisco pro football team win at least 7 games this season? |
+| kalshi | NYJ | wins | 2026 | 4 | +2242 | 0 | yes | context only | yes | Will the New York J pro football team win at least 11 games this season? |
+| kalshi | NYJ | wins | 2026 | 12 | +685 | 0 | yes | context only | yes | Will the New York J pro football team win at least 10 games this season? |
+| kalshi | SF | wins | 2026 | 87 | -719 | 73 | yes | yes | no | Will the San Francisco pro football team win at least 9 games this season? |
+| kalshi | SF | wins | 2026 | 94 | -1683 | 0 | yes | context only | yes | Will the San Francisco pro football team win at least 8 games this season? |
+| kalshi | SF | wins | 2026 | 98 | -5276 | 51 | yes | yes | no | Will the San Francisco pro football team win at least 7 games this season? |
 | kalshi | SF | wins | 2026 | 95 | -2041 | 0 | yes | context only | yes | Will the San Francisco pro football team win at least 6 games this season? |
 | kalshi | SF | wins | 2026 | 93 | -1429 | 0 | yes | context only | yes | Will the San Francisco pro football team win at least 5 games this season? |
 | kalshi | SF | wins | 2026 | 98 | -5276 | 0 | yes | context only | yes | Will the San Francisco pro football team win at least 4 games this season? |
-| kalshi | SF | wins | 2026 | 2 | +4573 | 661 | yes | yes | no | Will the San Francisco pro football team win at least 17 games this season? |
-| kalshi | SF | wins | 2026 | 5 | +1776 | 44 | yes | context only | yes | Will the San Francisco pro football team win at least 16 games this season? |
+| kalshi | SF | wins | 2026 | 2 | +4573 | 187 | yes | yes | no | Will the San Francisco pro football team win at least 17 games this season? |
+| kalshi | SF | wins | 2026 | 5 | +1776 | 300 | yes | yes | no | Will the San Francisco pro football team win at least 16 games this season? |
 
 ## Unmapped Contracts
 
 | Exchange | Taxonomy | Season | Reason | Title |
 |---|---|---:|---|---|
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will over 5.5 goals be scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will over 4.5 goals be scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will over 3.5 goals be scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will over 2.5 goals be scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will over 1.5 goals be scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will over 0.5 goals be scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Tie 1st Half |
-| kalshi | team_win_total | 2025 | wrong_season:2025 | Guinea wins 1st Half |
-| kalshi | multi_season |  | unsupported_taxonomy:multi_season | Which season will the New York J next make the playoffs? |
-| kalshi | multi_season |  | unsupported_taxonomy:multi_season | Which season will the New York J next make the playoffs? |
-| kalshi | multi_season | 2028 | unsupported_taxonomy:multi_season | Which season will the New York J next make the playoffs? |
-| kalshi | multi_season | 2027 | unsupported_taxonomy:multi_season | Which season will the New York J next make the playoffs? |
-| kalshi | multi_season | 2026 | unsupported_taxonomy:multi_season | Which season will the New York J next make the playoffs? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will there be over 3.5 2H points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will there be over 3.5 2H points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will there be over 3.5 2H points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will there be over 14.5 2H points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will there be over 3.5 2H points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will there be over 3.5 2H points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will there be over 3.5 2H points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Washington allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Tennessee allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Tampa Bay allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will San Francisco allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Seattle allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Pittsburgh allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Philadelphia allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will New York J allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will New York G allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will New Orleans allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will New England allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Minnesota allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Miami allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Las Vegas allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Los Angeles R allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Los Angeles C allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Kansas City allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Jacksonville allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Indianapolis allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Houston allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Green Bay allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Detroit allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Denver allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Dallas allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Cleveland allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Cincinnati allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Chicago allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Carolina allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Buffalo allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Baltimore allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Atlanta allow the fewest points scored? |
-| kalshi | unsupported_or_unknown |  | unsupported_taxonomy:unsupported_or_unknown | Will Arizona allow the fewest points scored? |
-| kalshi | unsupported_or_unknown | 2026 | unsupported_taxonomy:unsupported_or_unknown | Will there be at least 1 tie in the 2026-27 Pro Football regular season? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Geno Smith win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Aaron Donald win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Joe Burrow win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Tank Dell win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Tucker Kraft win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Tie/Co-Winners win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Travis Hunter win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Patrick Mahomes win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Nick Bosa win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Michael Penix Jr. win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Micah Parsons win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Malik Nabers win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Kyler Murray win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Kirk Cousins win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Jonathon Brooks win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will George Kittle win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Fred Warner win the Comeback Player of the Year? |
-| kalshi | player_award |  | unsupported_taxonomy:player_award | Will Daniel Jones win the Comeback Player of the Year? |
-| kalshi | draft | 2027 | unsupported_taxonomy:draft | Will Trinidad Chambliss be a top 5 draft pick in 2027? |
-| kalshi | draft | 2027 | unsupported_taxonomy:draft | Will Ryan Williams be a top 5 draft pick in 2027? |
-| kalshi | draft | 2027 | unsupported_taxonomy:draft | Will Nico Iamaleava be a top 5 draft pick in 2027? |
-| kalshi | draft | 2027 | unsupported_taxonomy:draft | Will LaNorris Sellers be a top 5 draft pick in 2027? |
-| kalshi | draft | 2027 | unsupported_taxonomy:draft | Will Leonard Moore be a top 5 draft pick in 2027? |
-| kalshi | draft | 2027 | unsupported_taxonomy:draft | Will Jeremiah Smith be a top 5 draft pick in 2027? |
-| kalshi | draft | 2027 | unsupported_taxonomy:draft | Will Julian Sayin be a top 5 draft pick in 2027? |
-| kalshi | draft | 2027 | unsupported_taxonomy:draft | Will John Mateer be a top 5 draft pick in 2027? |
-| kalshi | draft | 2027 | unsupported_taxonomy:draft | Will Jayden Maiava be a top 5 draft pick in 2027? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Washington be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Tennessee be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Pittsburgh be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will New York J be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will New York G be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will New Orleans be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Minnesota be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Miami be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Las Vegas be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Houston be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Cleveland be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Carolina be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Atlanta be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Arizona be the lowest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Washington be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Tennessee be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Tampa Bay be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will San Francisco be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Seattle be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Pittsburgh be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Philadelphia be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will New York J be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will New York G be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will New Orleans be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will New England be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Minnesota be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Miami be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Las Vegas be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Los Angeles R be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Los Angeles C be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Kansas City be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Jacksonville be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Indianapolis be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Houston be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Green Bay be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Detroit be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Denver be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Dallas be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Cleveland be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Cincinnati be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Chicago be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Carolina be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Buffalo be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Baltimore be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Atlanta be the highest scoring team? |
+| kalshi | team_context_non_coherence |  | unsupported_taxonomy:team_context_non_coherence | Will Arizona be the highest scoring team? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Saquon Barkley record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Omarion Hampton record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Kenneth Walker III record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Javonte Williams record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Jonathan Taylor record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Jeremiyah Love record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Jahmyr Gibbs record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will James Cook III record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Derrick Henry record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will De'Von Achane record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Christian McCaffrey record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Chase Brown record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Bijan Robinson record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Breece Hall record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Ashton Jeanty record 1500+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Zach Charbonnet record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Woody Marks record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Tony Pollard record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will TreVeyon Henderson record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Travis Etienne Jr. record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Tyler Allgeier record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Saquon Barkley record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Rhamondre Stevenson record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will RJ Harvey record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Quinshon Judkins record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Omarion Hampton record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Mike Washington Jr. record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Lamar Jackson record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Kyren Williams record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Kenneth Walker III record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Kyle Monangai record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Kenneth Gainwell record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Kaelon Black record 750+ rushing yards during 2026-27 Pro Football regular season? |
+| kalshi | player_stat | 2026 | unsupported_taxonomy:player_stat | Will Javonte Williams record 750+ rushing yards during 2026-27 Pro Football regular season? |

@@ -1,13 +1,13 @@
-# Cross-Market Coherence - 2026-10-01
+# Cross-Market Coherence - 2026-10-02
 
 > Consensus context only. Actionable means eligible for deterministic coherence math, not approved or executable.
 > Liquidity-warned/ineligible rows are excluded from the calculations. Settlement terms remain unverified.
 
-Generated: 2026-10-01T09:00:21.085Z
-Eligible-context contracts: 717 | Actionable coherence contracts: 252 | Context-only contracts: 465
+Generated: 2026-10-02T00:54:40.420Z
+Eligible-context contracts: 751 | Actionable coherence contracts: 407 | Context-only contracts: 344
 Eligible-context teams: 32 | Actionable teams: 32 | Execution-eligible contracts: 0
 Incoherent actionable teams: 0 | Ladder inversions: 0 | Nesting violations: 0
-Source liquidity warnings: 3370 (84.65%)
+Source liquidity warnings: 3843 (76.25%)
 
 ## Required Caveats
 
@@ -19,35 +19,35 @@ Source liquidity warnings: 3370 (84.65%)
 
 | Team | Eligible Context | Actionable | Max Div % | Softest | SB% | Conf% | Div% | Playoff% | Impl. Median Wins | Ladder Mono |
 |---|---:|---:|---:|---|---:|---:|---:|---:|---:|---|
-| ARI | 22 | 7 | 0 |  | 1 | 5 |  | 5 | 5.88 | yes |
-| ATL | 22 | 9 | 0 |  | 1 | 2 | 21 | 28 | 7.17 | yes |
-| BAL | 22 | 6 | 0 |  | 8.5 | 14 | 52 | 81 |  | yes |
-| BUF | 23 | 8 | 0 |  | 14 | 23 | 78 | 93 | 13.45 | yes |
-| CAR | 22 | 8 | 0 |  | 1 | 2 |  | 26 | 7.06 | yes |
-| CHI | 22 | 10 | 0 |  | 3.5 | 8 | 21 | 54 | 10 | yes |
-| CIN | 21 | 4 | 0 |  | 4.5 |  |  | 72 |  | yes |
-| CLE | 21 | 10 | 0 |  | 1 |  |  | 17 | 6.88 | yes |
-| DAL | 23 | 9 | 0 |  | 3 | 5 | 26 | 45 | 9.39 | yes |
-| DEN | 22 | 6 | 0 |  | 4.5 |  | 26 | 66 |  | yes |
-| DET | 23 | 7 | 0 |  | 4 | 8 | 38 | 70 | 11.29 | yes |
-| GB | 23 | 8 | 0 |  | 1.5 | 3 | 7 | 32 | 8.4 | yes |
-| HOU | 27 | 10 | 0 |  | 2 |  | 21 | 40 | 8.85 | yes |
-| IND | 24 | 7 | 0 |  | 1 |  |  | 37 |  | yes |
-| JAX | 21 | 6 | 0 |  | 5 |  | 54 | 70 | 10.71 | yes |
-| KC | 21 | 5 | 0 |  | 8.5 | 16 | 57 | 85 |  | yes |
-| LAC | 20 | 8 | 0 |  | 1 | 2 |  | 13 | 6.8 | yes |
-| LAR | 23 | 4 | 0 |  | 11.5 | 16 |  | 72 |  | yes |
-| LV | 22 | 11 | 0 |  | 2 |  | 19 | 38 | 8.57 | yes |
-| MIA | 20 | 10 | 0 |  | 1 |  | 1 | 2 | 3.24 | yes |
-| MIN | 23 | 10 | 0 |  | 3.5 | 9 |  | 69 | 11.21 | yes |
-| NE | 23 | 8 | 0 |  | 2 |  | 14 | 44 | 9.44 | yes |
-| NO | 22 | 8 | 0 |  | 1 | 2 | 41 | 50 | 8.78 | yes |
-| NYG | 23 | 10 | 0 |  | 1 | 1.5 |  | 19 | 7.31 | yes |
-| NYJ | 21 | 7 | 0 |  | 1 |  | 3 | 15 | 6.82 | yes |
-| PHI | 28 | 13 | 0 |  | 3.5 | 9 |  | 67 | 10.82 | yes |
-| PIT | 19 | 5 | 0 |  | 1 |  |  | 37 | 8.71 | yes |
-| SEA | 23 | 8 | 0 |  | 7.5 | 13 |  | 69 | 11.27 | yes |
-| SF | 28 | 13 | 0 |  | 9.5 | 17.5 |  | 81 | 11.92 | yes |
-| TB | 22 | 5 | 0 |  | 1 | 1 | 14 | 16 |  | yes |
-| TEN | 19 | 5 | 0 |  | 1 |  |  | 5 |  | yes |
-| WAS | 22 | 7 | 0 |  | 1 | 2 | 8 | 20 |  | yes |
+| ARI | 22 | 9 | 0 |  | 1 | 5 |  | 5 | 5.88 | yes |
+| ATL | 24 | 13 | 0 |  | 1 | 2.5 | 22 | 27 | 7.17 | yes |
+| BAL | 23 | 11 | 0 |  | 8.5 |  | 52.5 | 81 | 12.07 | yes |
+| BUF | 23 | 12 | 0 |  | 13.5 |  | 78 | 93 | 13 | yes |
+| CAR | 23 | 10 | 0 |  | 1 | 2 | 21 | 27 | 7.07 | yes |
+| CHI | 24 | 16 | 0 |  | 3.5 | 8 | 21 | 53 | 9.92 | yes |
+| CIN | 28 | 16 | 0 |  | 4.5 | 10 | 34 | 72 | 11.31 | yes |
+| CLE | 22 | 12 | 0 |  | 1 |  | 4 | 17 | 7 | yes |
+| DAL | 23 | 11 | 0 |  | 3.5 | 6 |  | 43 | 9.25 | yes |
+| DEN | 23 | 13 | 0 |  | 4 |  | 29 | 66 | 10.75 | yes |
+| DET | 29 | 14 | 0 |  | 4 | 8 | 36.5 | 69 | 11.44 | yes |
+| GB | 24 | 15 | 0 |  | 1.5 | 3 | 7.5 | 31 | 8.5 | yes |
+| HOU | 23 | 15 | 0 |  | 1.5 |  | 21.5 | 36 | 8.92 | yes |
+| IND | 20 | 13 | 0 |  | 1 | 2 | 21.5 | 36 | 8.69 | yes |
+| JAX | 22 | 14 | 0 |  | 4 |  | 55 | 70 | 10.83 | yes |
+| KC | 22 | 14 | 0 |  | 8.5 |  | 56 | 84 | 11.88 | yes |
+| LAC | 22 | 15 | 0 |  | 1 |  | 3.5 | 16 | 6.8 | yes |
+| LAR | 32 | 8 | 0 |  | 12 | 17 |  | 70 | 11.13 | yes |
+| LV | 23 | 15 | 0 |  | 2 |  | 13 | 40 | 8.6 | yes |
+| MIA | 19 | 9 | 0 |  | 1 |  | 1 |  | 3.22 | yes |
+| MIN | 23 | 12 | 0 |  | 3 | 9 | 37 | 69 | 11.18 | yes |
+| NE | 23 | 12 | 0 |  | 1.5 |  | 16 | 41 | 9.18 | yes |
+| NO | 23 | 12 | 0 |  | 1 | 3 | 41.5 | 50 | 8.73 | yes |
+| NYG | 26 | 13 | 0 |  | 1 | 1 |  | 17 | 7.29 | yes |
+| NYJ | 21 | 9 | 0 |  | 1 | 1 |  | 9 | 6.82 | yes |
+| PHI | 28 | 18 | 0 |  | 3.5 | 8 | 53 | 65 | 10.8 | yes |
+| PIT | 22 | 11 | 0 |  | 1 |  | 12 | 36 | 8.77 | yes |
+| SEA | 23 | 15 | 0 |  | 7.5 | 12.5 |  | 69 | 11.27 | yes |
+| SF | 27 | 16 | 0 |  | 9.5 | 24.5 |  | 76 | 11.92 | yes |
+| TB | 23 | 12 | 0 |  | 1 |  | 14 | 16 | 6.25 | yes |
+| TEN | 20 | 12 | 0 |  | 1 |  | 2 | 3 | 4.61 | yes |
+| WAS | 21 | 10 | 0 |  | 1 | 2 |  | 20 | 7.59 | yes |
