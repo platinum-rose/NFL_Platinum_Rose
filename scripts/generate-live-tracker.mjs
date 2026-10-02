@@ -6216,6 +6216,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               // only non-passers fall back to defensive INTs. Before this, QB INT legs read
               // stats.int (defensive) and never moved off 0.
               currentVal = ((stats.passAtt || 0) > 0 || (stats.passInt || 0) > 0) ? (stats.passInt || 0) : (stats.int || 0);
+            } else if (market.includes('kick')) {
+              currentVal = stats.pts || 0;
             } else if (market.includes('tackle')) {
               currentVal = stats.tkl || 0;
             } else if (market.includes('sack')) {
@@ -6372,6 +6374,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             // only non-passers fall back to defensive INTs. Before this, QB INT legs read
             // stats.int (defensive) and never moved off 0.
             currentVal = ((stats.passAtt || 0) > 0 || (stats.passInt || 0) > 0) ? (stats.passInt || 0) : (stats.int || 0);
+          } else if (market.includes('kick')) {
+            currentVal = stats.pts || 0;
           } else if (market.includes('tackle')) {
             currentVal = stats.tkl || 0;
           } else if (market.includes('sack')) {
