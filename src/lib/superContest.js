@@ -21,8 +21,12 @@ export const SUNDAY_TRACKER_SC_KEY_PREFIX = 'sunday_supercontest_picks_week_';
 const PUBLISHED_LINES_BY_WEEK = { 1: publishedWeek1Data, 2: publishedWeek2Data, 3: publishedWeek3Data, 4: publishedWeek4Data };
 
 export const BKR_CURRENT_LINES_BY_WEEK = { 2: bkrCurrentWeek2 };
-export const SC_WEEKS = Object.keys(PUBLISHED_LINES_BY_WEEK).map(Number).sort((a, b) => a - b);
-export const SC_LATEST_WEEK = SC_WEEKS[SC_WEEKS.length - 1];
+// Older weeks stay in PUBLISHED_LINES_BY_WEEK for lookups/grading only. The dashboard shows ONLY the
+// current week (Andy, 2026-10-02): the newest week that has a published week-NN-lines.json.
+const ALL_PUBLISHED_WEEKS = Object.keys(PUBLISHED_LINES_BY_WEEK).map(Number).sort((a, b) => a - b);
+export const SC_CURRENT_WEEK = ALL_PUBLISHED_WEEKS[ALL_PUBLISHED_WEEKS.length - 1];
+export const SC_LATEST_WEEK = SC_CURRENT_WEEK;
+export const SC_WEEKS = [SC_CURRENT_WEEK];
 
 /** Recommended / consensus pick map for Week 1 matchups */
 export const SC_WEEK1_RECOMMENDED_PICKS = {
@@ -200,7 +204,7 @@ export function getSuperContestMetadata(game) {
   const visitor = (game.visitor || '').toUpperCase();
 
   // Find in published Wednesday lines
-  const published = PUBLISHED_LINES_BY_WEEK[Number(game.week) || 1] || publishedWeek1Data;
+  const published = PUBLISHED_LINES_BY_WEEK[Number(game.week) || 1] || null;
   const scMatch = (published?.games || []).find(s => {
     const fav = (s.favorite_abbr || '').toUpperCase();
     const dog = (s.underdog_abbr || '').toUpperCase();
@@ -208,7 +212,9 @@ export function getSuperContestMetadata(game) {
   });
 
   // Find in live market comparison
-  const mktMatch = (liveMarketComparison?.games || []).find(m => {
+  // Only use the live-market comparison when it was built for this game's week (it can lag a week behind).
+  const liveForWeek = Number(liveMarketComparison?.supercontest_week) === Number(game.week) ? liveMarketComparison : null;
+  const mktMatch = (liveForWeek?.games || []).find(m => {
     const fav = (m.fav_abbr || m.favorite || '').toUpperCase();
     const dog = (m.dog_abbr || m.underdog || '').toUpperCase();
     return (fav === home && dog === visitor) || (fav === visitor && dog === home);

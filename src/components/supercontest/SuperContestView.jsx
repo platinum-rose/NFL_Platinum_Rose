@@ -53,8 +53,7 @@ import {
   WATCHLIST_STORAGE_KEY,
   syncPicksToSundayTracker,
   getRecommendedPickTeam,
-  SC_WEEKS,
-  SC_LATEST_WEEK,
+  SC_CURRENT_WEEK,
   getTeamContestSpread
 } from '../../lib/superContest';
 import MatchupWizardModal from '../modals/MatchupWizardModal';
@@ -85,7 +84,8 @@ const postLockedCardToToolbox = async (week, lockedCard) => {
 };
 
 export default function SuperContestView({ isOpen, onClose, games = [], stats = [], onUpdateContestLines, onSelectGame: _onSelectGame }) {
-  const [selectedWeek, setSelectedWeek] = useState(SC_LATEST_WEEK);
+  // Current week only (Andy, 2026-10-02): no week picker; past weeks don't load here.
+  const selectedWeek = SC_CURRENT_WEEK;
   const [lines, setLines] = useState({});
   const [analyzingGame, setAnalyzingGame] = useState(null);
   const [trackerSynced, setTrackerSynced] = useState(false);
@@ -576,19 +576,9 @@ export default function SuperContestView({ isOpen, onClose, games = [], stats = 
                 Active Slate:
               </span>
               <div className="flex items-center gap-1.5">
-                {SC_WEEKS.map(w => (
-                  <button 
-                    key={w}
-                    onClick={() => setSelectedWeek(w)}
-                    className={`px-3 py-1 text-xs font-bold rounded-md border transition-all ${
-                      selectedWeek === w
-                        ? 'bg-orange-600/20 text-orange-300 border-orange-500/40 shadow-sm'
-                        : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-white'
-                    }`}
-                  >
-                    Week {w} (16 Games)
-                  </button>
-                ))}
+                <span className="px-3 py-1 text-xs font-bold rounded-md border bg-orange-600/20 text-orange-300 border-orange-500/40 shadow-sm">
+                  Week {selectedWeek} ({weekGames.length} Games)
+                </span>
               </div>
 
               {/* WATCHLIST COUNTERS WITH QUICK FILTER TOGGLES */}
