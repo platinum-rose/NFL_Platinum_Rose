@@ -411,6 +411,16 @@ def final_scores(week):
             continue
     return out
 
+SIDE_BTN = '<button class="toc-toggle" type="button" onclick="document.body.classList.toggle(\'toc-open\')">☰ Contents</button>'
+SIDE_CSS = ('<style>.side-toc{position:fixed;top:16px;left:16px;bottom:16px;width:236px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 8px;font-size:13px;z-index:50;display:none;box-shadow:0 4px 14px rgba(0,0,0,.10);}'
+            '.side-toc a{display:block;padding:6px 8px;border-radius:6px;color:var(--primary);text-decoration:none;line-height:1.3;}.side-toc a:hover{background:var(--highlight);}'
+            '.side-toc-title{font-weight:700;margin:2px 8px 6px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;}'
+            '.side-toc a{display:flex;gap:8px;align-items:flex-start;}.toc-ico{flex:0 0 20px;text-align:center;}.toc-txt{flex:1 1 auto;}'
+            '.side-tip{position:fixed;z-index:70;max-width:280px;background:#0f172a;color:#f8fafc;font-size:12.5px;line-height:1.45;padding:9px 11px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.25);pointer-events:none;display:none;}'
+            '.toc-toggle{position:fixed;top:12px;left:12px;z-index:60;background:var(--primary);color:#fff;border:0;border-radius:8px;padding:8px 12px;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);}'
+            'body.toc-open .side-toc{display:block;top:56px;}'
+            '@media (min-width:1420px){.side-toc{display:block;top:16px;}.toc-toggle{display:none;}.container{margin-left:276px !important;margin-right:auto !important;}}</style>')
+
 def finalize_report(L, gaps):
     """Wrap sections, add the grouped TOC, side menu and disclaimer; return the report markdown text."""
     L, TOC = wrap_sections(L, names={'exec': 'The Week at a Glance — what to know before the reasoning'})
@@ -448,15 +458,8 @@ def finalize_report(L, gaps):
     side = ('<div class="side-toc" id="side-toc"><div class="side-toc-title">Contents</div>'
             + ''.join((f'<div class="side-part">{PART_LABEL[PART_OF[num]][1]}</div>' if PART_OF.get(num) and (i == 0 or PART_OF.get(TOC[i - 1][1]) != PART_OF.get(num)) else '') + f'<a href="#{rid}" data-tip="{SHORT_TIP.get(num, "")}" onclick="document.body.classList.remove(\'toc-open\')"><span class="toc-ico">{SEC_ICON.get(num, "📄")}</span><span class="toc-txt">{toc_label(num)}</span></a>' for i, (rid, num, name) in enumerate(TOC))
             + '<a href="#disclaimer" data-tip="The fine print: this report is for entertainment only, and every bet is your own decision and risk." onclick="document.body.classList.remove(\'toc-open\')"><span class="toc-ico">⚖️</span><span class="toc-txt">Disclaimer</span></a></div>')
-    side_btn = '<button class="toc-toggle" type="button" onclick="document.body.classList.toggle(\'toc-open\')">☰ Contents</button>'
-    side_css = ('<style>.side-toc{position:fixed;top:16px;left:16px;bottom:16px;width:236px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 8px;font-size:13px;z-index:50;display:none;box-shadow:0 4px 14px rgba(0,0,0,.10);}'
-                '.side-toc a{display:block;padding:6px 8px;border-radius:6px;color:var(--primary);text-decoration:none;line-height:1.3;}.side-toc a:hover{background:var(--highlight);}'
-                '.side-toc-title{font-weight:700;margin:2px 8px 6px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;}'
-                '.side-toc a{display:flex;gap:8px;align-items:flex-start;}.toc-ico{flex:0 0 20px;text-align:center;}.toc-txt{flex:1 1 auto;}'
-                '.side-tip{position:fixed;z-index:70;max-width:280px;background:#0f172a;color:#f8fafc;font-size:12.5px;line-height:1.45;padding:9px 11px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.25);pointer-events:none;display:none;}'
-                '.toc-toggle{position:fixed;top:12px;left:12px;z-index:60;background:var(--primary);color:#fff;border:0;border-radius:8px;padding:8px 12px;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);}'
-                'body.toc-open .side-toc{display:block;top:56px;}'
-                '@media (min-width:1420px){.side-toc{display:block;top:16px;}.toc-toggle{display:none;}.container{margin-left:276px !important;margin-right:auto !important;}}</style>')
+    side_btn = SIDE_BTN
+    side_css = SIDE_CSS
     at = next((i for i, ln in enumerate(L) if ln.startswith('<div class="part-banner')), None)
     if at is None: at = next(i for i, ln in enumerate(L) if ln.startswith('<a id="recommendations"'))
     L = [side_css, V2_CSS, side, side_btn] + L[:at] + nav + L[at:]
@@ -1839,7 +1842,7 @@ def main():
               '  <button class="btn-toggle" onclick="toggleAllRollups(true)">Open Everything</button>',
               '  <button class="btn-toggle" onclick="toggleAllRollups(false)">Close Everything</button>', '</div>', '']
     at = next(i for i, ln in enumerate(S) if ln.startswith('<a id="sc-our-five"'))
-    S = [side_css, sc_side, side_btn] + S[:at] + sc_nav + S[at:]
+    S = [SIDE_CSS, sc_side, SIDE_BTN] + S[:at] + sc_nav + S[at:]
     stxt = '\n'.join(add_tooltips(S))
     stxt = re.sub(r'§\s?(\d+)', r'Section \1', stxt).replace('§', '')
     smd = out_dir / f'nfl_week{W}_supercontest_intelligence_summary.md'

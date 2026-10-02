@@ -6,6 +6,8 @@
 
 import publishedWeek1Data from '../../data/supercontest/week-01-lines.json';
 import publishedWeek2Data from '../../data/supercontest/week-02-lines.json';
+import publishedWeek3Data from '../../data/supercontest/week-03-lines.json';
+import publishedWeek4Data from '../../data/supercontest/week-04-lines.json';
 import liveMarketComparison from '../../data/supercontest/live-market-comparison.json';
 // Bookmaker (BKR) "current line" snapshots, pasted by Andy. When a week has one, it
 // drives the Current Line / Movement / total columns instead of the DraftKings feed.
@@ -16,7 +18,7 @@ export const WATCHLIST_STORAGE_KEY = PR_STORAGE_KEYS.SUPERCONTEST_WATCHLIST?.key
 export const SUNDAY_TRACKER_SC_KEY_PREFIX = 'sunday_supercontest_picks_week_';
 
 /** Wednesday-published contest lines by week. Add each new week's week-NN-lines.json here. */
-const PUBLISHED_LINES_BY_WEEK = { 1: publishedWeek1Data, 2: publishedWeek2Data };
+const PUBLISHED_LINES_BY_WEEK = { 1: publishedWeek1Data, 2: publishedWeek2Data, 3: publishedWeek3Data, 4: publishedWeek4Data };
 
 export const BKR_CURRENT_LINES_BY_WEEK = { 2: bkrCurrentWeek2 };
 export const SC_WEEKS = Object.keys(PUBLISHED_LINES_BY_WEEK).map(Number).sort((a, b) => a - b);
