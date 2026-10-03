@@ -1,6 +1,6 @@
 ---
 name: master-intel-report
-description: Build the weekly Platinum Rose Master Intel Report (Saturday night, before the Sunday slate) in the locked template v1 format, with html, pdf, docx, md and json exports.
+description: Build the weekly Platinum Rose Master Intel Report (Saturday night, before the Sunday slate) in the locked template v2 (picks-first) format, with html, pdf, docx, md and json exports.
 ---
 
 # Master Intel Report (weekly, Saturday night)

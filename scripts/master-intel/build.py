@@ -878,10 +878,13 @@ def main():
     L = []
     asof = bkr['rows'][0].get('capturedAt', '')[:16]
     RE = ['', '</div>', '</details>']  # rollup end without back-link
+    def pt12(dt_): return dt_.astimezone(PT).strftime('%a %b %-d, %-I:%M %p PT') if os.name != 'nt' else dt_.astimezone(PT).strftime('%a %b %#d, %#I:%M %p PT')
+    try: asof_txt = pt12(datetime.datetime.fromisoformat(bkr['rows'][0].get('capturedAt', '').replace('Z', '+00:00')))
+    except Exception: asof_txt = f'{D}'
     L += [logo_css(), f'# 🏈 NFL Week {W} Master Betting Intelligence Report',
-          '## Multi-Platform Consensus, Market-Implied Board & Game-by-Game Analytical Dossier',
-          f'### Built {datetime.datetime.now(PT).strftime("%a %b %d %Y %H:%M PT")} — prices are Bookmaker (BKR) {D} capture ({asof}Z); verify every slip',
-          '', '<em>Proposals and research context only. Nothing here is placed. Sportsbook prices ≠ prediction-market percentages; never mix them without a fee/spread check.</em>', '']
+          "## What to bet this week, why we like it, and what every expert and betting market is saying",
+          f'### Built {pt12(datetime.datetime.now(PT))} · Prices from Bookmaker as of {asof_txt} — always check the price on your bet slip',
+          '', '<em>Recommendations and research only. Nothing in this report has been bet. Prediction-market percentages (Kalshi, DraftKings Predictions) are not sportsbook odds, so don\'t compare them directly.</em>', '']
     L += roll('section-top', 'inputs-box', '🧾 Data inputs &amp; freshness — what this report was built from') + [
           '| Input | Status |', '|---|---|',
           f"| Bookmaker (BKR) same-game props + game lines | {len(G)} games, {len(bkr['rows'])} lines |",

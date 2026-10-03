@@ -1,9 +1,9 @@
 # Weekly Master Betting Intelligence Report — Runbook
 
 **Owner:** any agent (Claude, Codex, Antigravity). **Cadence:** every **Saturday night** before the Sunday slate (after prop boards post), optional Sunday-morning refresh.
-**Format:** locked template v1. See `docs/MASTER_INTEL_REPORT_FORMAT.md` for the layout, the plain-English rules, the hand-written inputs and the agent instructions. This runbook covers the build steps.
+**Format:** locked template v2 (picks first; approved 2026-10-02). See `docs/MASTER_INTEL_REPORT_FORMAT.md` for the layout, the plain-English rules, the hand-written inputs and the agent instructions. This runbook covers the build steps.
 **Output:** `dist/nfl_week<N>_master_packet/nfl_week<N>_master_betting_intelligence_summary.{html,pdf,docx,md,json}` (gitignored; archive all five to Google Drive, share the html).
-**Structure:** Our Picks, The Week at a Glance, then 11 numbered sections (format doc §2), generated from data plus four hand-written inputs (format doc §3).
+**Structure:** Part A What to bet (Our Picks + sections 1–5), Part B Why we like them (Week at a Glance + 6–7), Part C Reference (8–11); see format doc §2, generated from data plus four hand-written inputs (format doc §3).
 
 > **Guardrails.** Everything here is read-only. No bet placement, no bet-slip clicks, no Supabase writes (the pull is SELECT-only), no `git add -A`.
 > Sportsbook pages are real-money accounts. Read the rendered page only. DK Predictions and Kalshi prices are contract percentages, not sportsbook odds; never swap one for the other without a fee/spread check.

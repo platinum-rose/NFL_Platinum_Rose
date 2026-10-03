@@ -1,6 +1,6 @@
-# Master Intel Report: Locked Format (Template v1)
+# Master Intel Report: Locked Format (Template v2)
 
-**Status:** locked template, approved by Andy on 2026-09-26 (Week 3). Use it **every Saturday night before the Sunday slate** until user feedback asks for changes. Don't redesign it; propose changes to Andy first and log any that he approves at the bottom of this file.
+**Status:** locked template v2, approved by Andy on 2026-10-02 (Week 4); v1 was approved 2026-09-26 (Week 3). Use it **every Saturday night before the Sunday slate** until user feedback asks for changes. Don't redesign it; propose changes to Andy first and log any that he approves at the bottom of this file.
 **Reference build:** Week 3, 2026 (`dist/nfl_week3_master_packet/`, commit `d1af19f` and later). If you aren't sure how something should look, open that report.
 **How to build it:** `docs/MASTER_INTEL_REPORT_RUNBOOK.md`. **The builder is the template:** `scripts/master-intel/build.py` + `scripts/master-intel/convert_summary.py`. Change the format there, never by hand-editing an output file.
 
@@ -19,28 +19,33 @@ The reader is a casual, all-Sunday couch bettor, not an analyst. Every part of t
 7. **Honest numbers.** Stars rank our picks against each other; they are not win percentages. Projections are written estimates, not model output (the quant model failed validation and is never used to pick or size bets). When a projection disagrees with a card lean (for example a dog moneyline that is a price bet), the text says so.
 8. **Disclaimer at the very bottom:** entertainment only, not advice, every wager is the reader's own risk, no liability on the author or Platinum Rose, 1-800-GAMBLER.
 
-## 2. Page layout (top to bottom)
+## 2. Page layout (top to bottom): Template v2, picks first
+
+Locked by Andy on 2026-10-02 (Week 4). Three parts: **A. What to bet → B. Why we like them → C. Reference.** `reorder_sections()` in build.py produces this order; the side menu and the contents grid show the part labels.
 
 | Block | What it shows | Notes |
 |---|---|---|
-| Header | Title, build time, BKR capture time, "proposals only" line | — |
+| Header | Title; plain subtitle ("What to bet this week, why we like it, and what every expert and betting market is saying"); build time and Bookmaker capture time in 12-hour PT; "recommendations only, nothing bet" line | No jargon, no ISO timestamps |
 | 🧾 Data inputs & freshness | What the report was built from (closed box) | — |
-| 🚨 Slate Status | Plain definition, then games played, QB changes, big-money signals **at their line**, players pulled from the Bookmaker menu, known gaps | Open by default |
-| Controls + Table of Contents | Expand/Collapse All buttons; contents grid with plain titles and one-line descriptions | Same titles as the side menu |
-| Side menu | Fixed on wide screens, "☰ Contents" drawer on narrow ones. Plain titles (e.g. "What the Odds Predict") with a hover description | `PLAIN` / `SHORT_TIP` in build.py |
+| 🚨 Slate Status | Plain definition, then games played, QB changes, big-money signals **at their line** ("not available yet" when there are no splits), players pulled from the Bookmaker menu (a game whose whole prop menu is unpriced shows as one line, not a player list), known gaps in plain words (no file paths) | Open by default |
+| Controls + Table of Contents | Expand/Collapse All buttons; contents grid grouped under Part A / B / C | Same titles as the side menu |
+| Side menu | Fixed on wide screens, "☰ Contents" drawer on narrow ones, with Part A / B / C labels | `PLAIN` / `SHORT_TIP` in build.py |
+| **Part A: What to bet** | | |
 | ⭐ Our Picks This Week | Straight bets grouped by game (filter Side/Total; sort by strength, kickoff or A–Z) · Parlays & round robins · Player prop stacks · SuperContest 5 · Passes & why | Tickets open inline with a one-line "what it is and why", payout, every leg, and the night-game hedge table where it applies |
+| 1. Every Bet, Ranked | Every lean ranked by stars (filter Side/Total/Prop) + the same plays grouped by bet type, with "How the stars work" | Old v1 §1 + §4 ranked tables |
+| 2. Player Props | Build-your-own props pool (per-game closed boxes, jump links, filter by prop type) + prop boards (article tier-1, tackles + assists, 2+ passing TDs) | Old v1 §1 props pool + §8 boards |
+| 3. Teaser Bets | Plain teaser explanation + Wong-eligible lines | — |
+| 4. The Underdog Upset Ticket | How the dog round robin pays (needs 3+ winners), per-dog table, per-dog reasoning with linked sources | — |
+| 5. Survivor Pool Picks | Plain explanation; your entries' status; win chance, pick share, value score, save-for-later notes, QB news, next 3 opponents | `data/survivor/pick-intel-<season>-w<NN>.json` |
+| **Part B: Why we like them** | | |
 | 📌 The Week at a Glance | Top matchup-data reads (explained, linked), one-sided consensus, clashes, big-money signals, QB watch | — |
-| 1. Every Bet, Ranked | Every lean ranked by stars, filter Side/Total/Prop; pointer to tickets; **props pool** (per-game closed boxes with jump links, filter by prop type) | — |
-| 2. What the Odds Predict | Overview table (both sides of spread and total splits) + one closed box per game (lines, win chance, implied vs projected score, bets-vs-money bars for spread/total/moneyline, big-money signal with its first-seen line and drift) | Signals persist in `data/generated/master-intel/big-money-flags-<season>-w<NN>.json` |
-| 3. What the Experts Say | Plain intro + how-to-read box; ranking ordered **by strength first** (Near-unanimous > Majority > Clash > Split), then margin; detail boxes grouped under each strength label | — |
-| 4. Strongest Plays & Expert Picks | "How the stars work" (plain); ranked tables for Sides / Totals / Props; expert pick registry per game (the citation targets) | — |
-| 5. Teaser Bets | Plain teaser explanation + Wong-eligible lines | — |
-| 6. The Underdog Upset Ticket | How the dog round robin pays (needs 3+ winners), per-dog table, per-dog reasoning with linked sources | — |
-| 7. Game-by-Game Breakdowns | Per game: projected final, line movement, **Game script / Why the card leans this way / What breaks it**, experts cited, actionable props; then closed boxes for Key context, Sides, Totals, Player props | Written narratives (see §3) |
-| 8. Player Props & How the Card Was Built | Article tier-1 props, tackles + assists main lines, 2+ passing TDs; closed "under the hood" box (ticket list, season build rules) | — |
-| 9. Survivor Pool Picks | Plain explanation; your entries' status; table with win chance, pick share, value score, save-for-later notes, QB news, next 3 opponents | `data/survivor/pick-intel-<season>-w<NN>.json` |
-| 10. Betting Trends | "Trends are history, not a forecast" note; trends tied to a game and side (filter by type); trend articles grouped by game | — |
-| 11. Sources & Data Notes | Source counts, feed health, Known Gaps | — |
+| 6. Game-by-Game Breakdowns | Per game: projected final, line movement, **Game script / Why the card leans this way / What breaks it**, experts cited, actionable props; the old v1 §2 odds-and-money box (lines, win chance, implied vs projected score, bets-vs-money bars, big-money signal with first-seen line and drift) folded into each game; closed boxes for Key context, Sides, Totals, Player props | Written narratives (see §3). Signals persist in `data/generated/master-intel/big-money-flags-<season>-w<NN>.json` |
+| 7. What the Experts Say | Plain intro + how-to-read box; ranking ordered **by strength first** (Near-unanimous > Majority > Clash > Split), then margin | — |
+| **Part C: Reference** | | |
+| 8. Expert Pick Registry | Every named expert pick by game (the citation targets the write-ups link to) | — |
+| 9. Betting Trends | "Trends are history, not a forecast" note; trends tied to a game and side (filter by type); trend articles grouped by game | — |
+| 10. How the Card Was Built | Ticket list and season build rules | — |
+| 11. Sources & Data Notes | Source counts, feed health, Known Gaps (full text, with file paths) | — |
 | ⚖️ Disclaimer | Entertainment-only / no-liability text | — |
 
 ## 3. What a person (or agent) writes each week
@@ -116,5 +121,6 @@ Every build also writes `nfl_week<N>_supercontest_intelligence_summary.{html,md,
 |---|---|---|
 | 2026-09-26 | Template v1 locked (Week 3 build) | Andy |
 | 2026-09-26 | SuperContest companion report added | Andy |
-| 2026-10-01 | **Template v2 order (review build, pending Andy's approval):** Part A What to bet (⭐ Our Picks · 1 Every Bet, Ranked (old §1 + §4 ranked tables) · 2 Player Props (old §1 props pool + §8 boards) · 3 Teasers · 4 Underdog ticket · 5 Survivor) → Part B Why we like them (📌 Week at a Glance · 6 Game-by-Game, with old §2's per-game odds/money box folded into each game · 7 What the Experts Say) → Part C Reference (8 Expert Pick Registry · 9 Trends · 10 How the Card Was Built · 11 Sources, with the data-inputs box). `reorder_sections()` in build.py; `scripts/master-intel/rebuild_review.py` re-lays out a past week's md. Week 3 review copy: `dist/nfl_week3_master_packet_v2/`. §2 table above still describes v1 until approved. | pending |
+| 2026-10-01 | **Template v2 order (review build; approved 2026-10-02):** Part A What to bet (⭐ Our Picks · 1 Every Bet, Ranked (old §1 + §4 ranked tables) · 2 Player Props (old §1 props pool + §8 boards) · 3 Teasers · 4 Underdog ticket · 5 Survivor) → Part B Why we like them (📌 Week at a Glance · 6 Game-by-Game, with old §2's per-game odds/money box folded into each game · 7 What the Experts Say) → Part C Reference (8 Expert Pick Registry · 9 Trends · 10 How the Card Was Built · 11 Sources, with the data-inputs box). `reorder_sections()` in build.py; `scripts/master-intel/rebuild_review.py` re-lays out a past week's md. Week 3 review copy: `dist/nfl_week3_master_packet_v2/`. | Andy (locked 2026-10-02) |
 | 2026-10-01 | Game narrative minimum checklist added to §3 (Week 3 LAC@BUF as the model; Saturday-only, no market-only placeholders) | Andy |
+| 2026-10-02 | **Template v2 locked** (§2 rewritten to the v2 order). Plain header: plain-English subtitle, 12-hour PT build and capture times. Slate Status: "not available yet" for big money when there are no splits, whole-menu-unpriced games collapsed to one line, gaps without file paths | Andy |
