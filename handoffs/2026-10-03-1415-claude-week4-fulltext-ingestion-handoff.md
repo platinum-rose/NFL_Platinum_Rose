@@ -30,3 +30,10 @@ VSiN best-bets columns). The fix is to read them in full, extract picks/trends/n
 - Coaching-staff file `data/nfl-rosters/coaching-staff-2026.json` (primer gives HCs/referees; coordinators needed); coaching trends for Week 5.
 - Expert season records (needs a read-only W2 pull). The card + ticket names (Andy's go-ahead). Optional Obsidian mirror of the archive.
 - Stale `.git/HEAD.lock` / `.git/index.lock` and `_to_delete/` need deleting by Andy (bridge can't delete).
+
+## Addendum (evening, same day)
+- `553e261` article classifier (`scripts/intel/classify_week_articles.py`): W4 archive = 244 preview · 173 team news · 122 W3 recap · 64 general · 1 out of window. News lane + digests skip recaps.
+- `e6d6988` caps: body 20k → 200k chars (`BODY_MAX_CHARS`, `htmlToText`), body picks 8 → 60, analytical 8/16 → 48/60.
+- `f57656b` every feed's article body now goes through the pick-language-gated parser (`agents/lib/analytical-picks.js`); colon-cue bug fixed ("Pick:" never matched). W4 archive check: 61/66 known picks from 66 lines (old open regex: 50/66 from 134). RSS teasers keep the old extractor.
+- Not yet observed on a live ingest run (code + unit tests + archive replay only). Check the next run's research_pick_signals counts per source.
+- Still open: schedule archive_week_articles + primer_feed weekly; coaching-staff file; Week 5 coaching trends; expert season records; the card.
