@@ -1,0 +1,32 @@
+{
+  "season": 2026,
+  "updated_at": "2026-09-18",
+  "purpose": "Not-yet-bought futures price watch. These are monitor-only price levels -- Andy is deliberately NOT buying SB Win / Exacta Matchup exposure on these teams yet, and wants to be alerted once the price has dipped (odds lengthened / implied probability dropped) far enough from where it was when watching started to be worth buying.",
+  "book_policy": {
+    "superbowl": ["bookmaker", "betonline"],
+    "superbowl_matchup": ["betus", "bookmaker"]
+  },
+  "note_on_books": "SB Win is tracked against Bookmaker.eu (Andy's actual account) and BetOnline equally. Exacta Matchup is tracked against BetUS and Bookmaker.eu (BKR currently has no exacta history in the local snapshot files -- BetUS is the effective source until Bookmaker.eu exacta screenshots are ingested).",
+  "items": [
+    {
+      "id": "buf-price-watch",
+      "team": "Buffalo Bills",
+      "teamAbbr": "BUF",
+      "status": "watching",
+      "watching_since": "2026-09-18",
+      "note": "Anchor team. Watching SB Win and all Exacta Matchup pairings for a price dip before adding exposure -- do not auto-recommend a buy, just flag the movement.",
+      "markets": ["superbowl", "superbowl_matchup"],
+      "dipThresholdPct": 25
+    },
+    {
+      "id": "chi-price-watch",
+      "team": "Chicago Bears",
+      "teamAbbr": "CHI",
+      "status": "watching",
+      "watching_since": "2026-09-18",
+      "note": "Watching SB Win and all Exacta Matchup pairings for a price dip before adding exposure -- do not auto-recommend a buy, just flag the movement.",
+      "markets": ["superbowl", "superbowl_matchup"],
+      "dipThresholdPct": 25
+    }
+  ]
+}
