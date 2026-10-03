@@ -15,7 +15,8 @@ Inputs (all local, all read-only; missing optional inputs are listed under "Know
   optional  data/podcasts/youtube-extracted-picks-2026-w<NN>.json     (cleaned YouTube digest)
   optional  scratch/w<NN>-synthesis-digest-sat.md (or w<NN>-synthesis-digest.md)  (lean table, "game | market | lean | source | tier")
   optional  reports/intel/master-intel-narratives-<season>-w<NN>.md  (hand/LLM-written §6 game scripts + projected scores; see runbook)
-  optional  data/odds/BKR_current_lines_*                          (earlier BKR pastes; earliest one for the week = line-move baseline)
+  optional  data/odds/actionnetwork-openers-<season>-w<NN>.json     (scripts/master-intel/actionnetwork_openers.py; preferred line-move baseline)
+  optional  data/odds/BKR_current_lines_*                          (earlier BKR pastes; fallback baseline = earliest one for the week)
   optional  reports/bets/2026-w<NN>-card.md                           (card; "### <ticket> — <book> — **$x** — price" headings)
   optional  data/player-availability/latest.json, data/secondary-matchups/latest.json,
             data/nfl-rosters/roster-map-latest.json, data/survivor/*, data/research-intel/review/player-props-intel-latest.json
@@ -185,9 +186,26 @@ def load_ticket_notes(path, block='TICKETS'):
         if mm: out[mm.group(1).strip()] = mm.group(2).strip()
     return out
 
-def opening_lines(sched):
-    """Earliest pasted BKR game-line snapshot (data/odds/BKR_current_lines_*) whose date header matches each game's PT kickoff date."""
+def opening_lines(sched, season=None, week=None):
+    """Opening line per game, used as the line-movement baseline.
+    1st choice (since 2026-10-03, Andy): data/odds/actionnetwork-openers-<season>-w<NN>.json, written by
+    scripts/master-intel/actionnetwork_openers.py (Action Network "Open" book, first line after the previous
+    Sunday 5 PM PT re-open). 2nd choice, per game, when that file or game is missing: the earliest pasted BKR
+    game-line snapshot (data/odds/BKR_current_lines_*) whose date header matches the game's PT kickoff date.
+    Every entry carries 'label', which the report prints so the reader knows where the opener came from."""
     want = {g['id']: g['k'].astimezone(PT).strftime('%b %d').upper() for g in sched}
+    an = {}
+    if season and week:
+        anf = ROOT / f'data/odds/actionnetwork-openers-{season}-w{int(week):02d}.json'
+        try: an = json.loads(anf.read_text(encoding='utf-8'))
+        except Exception: an = {}
+    an_out = {}
+    for gid, v in (an.get('games') or {}).items():
+        gid = '@'.join(ALIAS.get(t, t) for t in gid.split('@'))
+        if gid not in want or not v.get('sp') or v.get('tot') is None: continue
+        an_out[gid] = dict(src='AN-open', label=an.get('label', 'Action Network open') + (' (carried from before the re-open)' if v.get('carried_from_before_cutoff') else ''),
+                           source='Action Network', sp={ALIAS.get(k, k): float(x) for k, x in v['sp'].items()}, tot=float(v['tot']),
+                           ml={ALIAS.get(k, k): int(x) for k, x in (v.get('ml') or {}).items()})
     pat = re.compile(r'^(\w+) @ (\w+) \d+:\d+.*?\s(\w+) ([+-][\d.]+)[+-]\d+ / (\w+) ([+-][\d.]+)[+-]\d+\s+o([\d.]+)[+-]\d+ u[\d.]+[+-]\d+\s+(\w+) ([+-]\d+) (\w+) ([+-]\d+)')
     out = {}
     files = sorted(glob.glob(str(ROOT / 'data/odds/BKR_current_lines_*')), key=os.path.getmtime)
@@ -202,8 +220,9 @@ def opening_lines(sched):
             if not m: continue
             aw, hm = ALIAS.get(m.group(1), m.group(1)), ALIAS.get(m.group(2), m.group(2)); gid = f'{aw}@{hm}'
             if gid in out or want.get(gid) != day: continue
-            out[gid] = dict(src=label, sp={ALIAS.get(m.group(3), m.group(3)): float(m.group(4)), ALIAS.get(m.group(5), m.group(5)): float(m.group(6))},
+            out[gid] = dict(src=label, label=f'Bookmaker paste {label}', source='Bookmaker', sp={ALIAS.get(m.group(3), m.group(3)): float(m.group(4)), ALIAS.get(m.group(5), m.group(5)): float(m.group(6))},
                             tot=float(m.group(7)), ml={ALIAS.get(m.group(8), m.group(8)): int(m.group(9)), ALIAS.get(m.group(10), m.group(10)): int(m.group(11))})
+    out.update(an_out)
     return out
 
 def md_inline(t):
@@ -508,7 +527,7 @@ def main():
     NAR = load_narratives(ROOT / nar_p)
     TNOTE = load_ticket_notes(ROOT / nar_p)
     SCNOTE = load_ticket_notes(ROOT / nar_p, 'SUPERCONTEST')
-    OPEN = opening_lines(sched)
+    OPEN = opening_lines(sched, a.season, W)
 
     # ---------- BKR per game ----------
     ev = collections.defaultdict(list)
@@ -893,7 +912,8 @@ def main():
           f"| Research signals / articles / expert picks | {len(pull['signals'])} / {len(pull['notes'])} / {len(pull['expert'])} (since {pull['window_start'][:10]}) |",
           f"| Podcast transcripts processed | {pull.get('podcast_transcripts_processed')} |",
           f"| YouTube picks (cleaned) | {len(yt.get('picks', []))} |",
-          f"| Betting splits (Action Network) | {len(SPL)} games |"] + RE
+          f"| Betting splits (Action Network) | {len(SPL)} games |",
+          f"| Opening lines (line-movement baseline) | {', '.join(f'{n} games: {l}' for l, n in collections.Counter(o.get('label', o['src']) for g_, o in OPEN.items() if g_ in {x['id'] for x in live}).most_common()) or 'none'} |"] + RE
     qb_notes = []
     for g in live:
         for t in (g['visitor'], g['home']):
@@ -1340,7 +1360,7 @@ def main():
                 if b['tot'].get('Over'): mv.append(f"total {o['tot']:g} → {b['tot']['Over'][0]:g}")
                 for t in (A, H):
                     if t in o['ml'] and t in b['ml']: mv.append(f"moneyline {t} {o['ml'][t]:+d} → {b['ml'][t]:+d}")
-                L.append(f'<div style="font-size: 0.86rem; margin-bottom: 8px;">📈 <strong>Line movement</strong> (Bookmaker, {o["src"]} → {D}): {" · ".join(mv)}</div>')
+                L.append(f'<div style="font-size: 0.86rem; margin-bottom: 8px;">📈 <strong>Line movement</strong> (opening line: {o.get("label", o["src"])} → Bookmaker now, {D}): {" · ".join(mv)}</div>')
             for t, body in nar.get('secs', []):
                 L.append(f'<div style="font-weight: 700; margin-top: 8px;">{icons.get(t.lower(), "•")} {t}</div>')
                 for para in [x.strip() for x in body.split('\n\n') if x.strip()]:

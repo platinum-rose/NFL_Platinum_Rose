@@ -1,0 +1,1356 @@
+{
+ "schema": "week4_opening_lines_actionnetwork_v1",
+ "pulled_at_utc": "2026-10-03T18:13:36Z",
+ "source": "Action Network public JSON behind actionnetwork.com/nfl/odds: api.actionnetwork.com/web/v2/scoreboard/nfl (week=4) and /web/v2/markets/event/<id>/history (per-book line history). Read-only; no account.",
+ "books": {
+  "30": "Action Network \"Open\"",
+  "68": "DraftKings NJ (cross-check)"
+ },
+ "definitions": {
+  "first_ever": "first record in the book history (for most games a July/August look-ahead line, before any 2026 QB/injury news) - this is what the AN odds page OPEN column shows",
+  "reopen_after_2026-09-28": "first record on/after 2026-09-28T00:00Z (Sun 9/27 5:00 PM PT, after the Week 3 Sunday afternoon slate) - the practical Week 4 opener"
+ },
+ "spread_convention": "home_spread value = home team handicap (negative = home favored)",
+ "caveats": [
+  "Not Bookmaker prices; a different market from data/odds/BKR_current_lines_*.",
+  "Timestamps are when AN recorded the change, not necessarily when each book posted.",
+  "Reference only; no line movement claim beyond the recorded points."
+ ],
+ "games": [
+  {
+   "game": "IND@WAS",
+   "an_game_id": 290819,
+   "kickoff_utc": "2026-10-04T13:30:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": -1.5,
+      "odds": 100,
+      "at": "2026-08-31T17:30Z"
+     },
+     "total": {
+      "value": 49.5,
+      "odds": -110,
+      "at": "2026-07-30T13:30Z"
+     },
+     "ml_away": {
+      "odds": -105,
+      "at": "2026-06-02T12:48Z"
+     },
+     "ml_home": {
+      "odds": -115,
+      "at": "2026-05-13T18:40Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": 3.5,
+      "odds": -116,
+      "at": "2026-09-28T00:19Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-09-28T00:22Z"
+     },
+     "ml_away": {
+      "odds": -188,
+      "at": "2026-09-28T00:19Z"
+     },
+     "ml_home": {
+      "odds": 154,
+      "at": "2026-09-28T00:19Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": -1.5,
+      "odds": -105,
+      "at": "2026-07-21T01:09Z"
+     },
+     "total": {
+      "value": 50.5,
+      "odds": -110,
+      "at": "2026-07-21T01:11Z"
+     },
+     "ml_away": {
+      "odds": -102,
+      "at": "2026-07-21T01:15Z"
+     },
+     "ml_home": {
+      "odds": -118,
+      "at": "2026-07-21T01:15Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": 3.5,
+      "odds": -115,
+      "at": "2026-09-28T00:33Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": 100,
+      "at": "2026-09-28T04:39Z"
+     },
+     "ml_away": {
+      "odds": -185,
+      "at": "2026-09-28T00:21Z"
+     },
+     "ml_home": {
+      "odds": 154,
+      "at": "2026-09-28T00:21Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "LAR@PHI",
+   "an_game_id": 290889,
+   "kickoff_utc": "2026-10-04T17:00:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": 1.5,
+      "odds": -110,
+      "at": "2026-07-21T09:03Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": -122,
+      "at": "2026-09-11T00:16Z"
+     },
+     "ml_home": {
+      "odds": 102,
+      "at": "2026-09-11T00:16Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": 2.5,
+      "odds": -106,
+      "at": "2026-09-28T04:10Z"
+     },
+     "total": {
+      "value": 46,
+      "odds": -113,
+      "at": "2026-09-28T04:03Z"
+     },
+     "ml_away": {
+      "odds": -142,
+      "at": "2026-09-28T04:10Z"
+     },
+     "ml_home": {
+      "odds": 117,
+      "at": "2026-09-28T04:10Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": 1.5,
+      "odds": -110,
+      "at": "2026-07-21T09:03Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": -122,
+      "at": "2026-09-11T00:16Z"
+     },
+     "ml_home": {
+      "odds": 102,
+      "at": "2026-09-11T00:16Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": 1.5,
+      "odds": -105,
+      "at": "2026-09-28T11:41Z"
+     },
+     "total": {
+      "value": 46.5,
+      "odds": -110,
+      "at": "2026-09-28T04:03Z"
+     },
+     "ml_away": {
+      "odds": -130,
+      "at": "2026-09-28T04:03Z"
+     },
+     "ml_home": {
+      "odds": 110,
+      "at": "2026-09-28T04:03Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "GB@TB",
+   "an_game_id": 290890,
+   "kickoff_utc": "2026-10-04T17:00:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": 1.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": -125,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_home": {
+      "odds": 105,
+      "at": "2026-07-06T11:13Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -105,
+      "at": "2026-09-28T00:23Z"
+     },
+     "total": {
+      "value": 46,
+      "odds": -107,
+      "at": "2026-09-28T00:23Z"
+     },
+     "ml_away": {
+      "odds": 110,
+      "at": "2026-09-28T00:23Z"
+     },
+     "ml_home": {
+      "odds": -130,
+      "at": "2026-09-28T00:37Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": 1.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": -125,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_home": {
+      "odds": 105,
+      "at": "2026-07-06T11:13Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": 3,
+      "odds": -110,
+      "at": "2026-09-28T00:23Z"
+     },
+     "total": {
+      "value": 42.5,
+      "odds": -110,
+      "at": "2026-09-28T00:23Z"
+     },
+     "ml_away": {
+      "odds": -170,
+      "at": "2026-09-28T00:23Z"
+     },
+     "ml_home": {
+      "odds": 142,
+      "at": "2026-09-28T00:23Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "NYJ@CHI",
+   "an_game_id": 290891,
+   "kickoff_utc": "2026-10-04T17:00:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": -8.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 45.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 320,
+      "at": "2026-09-13T04:14Z"
+     },
+     "ml_home": {
+      "odds": -410,
+      "at": "2026-09-13T04:14Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -3,
+      "odds": -109,
+      "at": "2026-09-28T00:14Z"
+     },
+     "total": {
+      "value": 43,
+      "odds": -110,
+      "at": "2026-09-28T00:14Z"
+     },
+     "ml_away": {
+      "odds": 132,
+      "at": "2026-09-28T00:14Z"
+     },
+     "ml_home": {
+      "odds": -160,
+      "at": "2026-09-28T00:14Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": -8.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 45.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 320,
+      "at": "2026-09-13T04:14Z"
+     },
+     "ml_home": {
+      "odds": -410,
+      "at": "2026-09-13T04:14Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -3,
+      "odds": -102,
+      "at": "2026-09-28T00:43Z"
+     },
+     "total": {
+      "value": 43.5,
+      "odds": -102,
+      "at": "2026-09-28T19:53Z"
+     },
+     "ml_away": {
+      "odds": 130,
+      "at": "2026-09-28T11:43Z"
+     },
+     "ml_home": {
+      "odds": -155,
+      "at": "2026-09-28T11:43Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "NE@BUF",
+   "an_game_id": 290892,
+   "kickoff_utc": "2026-10-04T17:00:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": -3,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 49.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 136,
+      "at": "2026-09-09T22:57Z"
+     },
+     "ml_home": {
+      "odds": -162,
+      "at": "2026-09-09T22:57Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -6.5,
+      "odds": -112,
+      "at": "2026-09-28T04:33Z"
+     },
+     "total": {
+      "value": 48.5,
+      "odds": -113,
+      "at": "2026-09-28T11:52Z"
+     },
+     "ml_away": {
+      "odds": 257,
+      "at": "2026-09-28T00:19Z"
+     },
+     "ml_home": {
+      "odds": -326,
+      "at": "2026-09-28T00:19Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": -3,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 49.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 136,
+      "at": "2026-09-09T22:57Z"
+     },
+     "ml_home": {
+      "odds": -162,
+      "at": "2026-09-09T22:57Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -6.5,
+      "odds": -115,
+      "at": "2026-09-30T10:13Z"
+     },
+     "total": {
+      "value": 48.5,
+      "odds": -115,
+      "at": "2026-10-01T22:24Z"
+     },
+     "ml_away": {
+      "odds": 250,
+      "at": "2026-09-28T11:53Z"
+     },
+     "ml_home": {
+      "odds": -310,
+      "at": "2026-09-28T11:53Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "JAX@CIN",
+   "an_game_id": 290893,
+   "kickoff_utc": "2026-10-04T17:00:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 51.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 114,
+      "at": "2026-09-13T02:50Z"
+     },
+     "ml_home": {
+      "odds": -135,
+      "at": "2026-09-13T02:50Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -109,
+      "at": "2026-09-28T01:04Z"
+     },
+     "total": {
+      "value": 50.5,
+      "odds": -104,
+      "at": "2026-09-28T00:17Z"
+     },
+     "ml_away": {
+      "odds": 114,
+      "at": "2026-09-28T00:17Z"
+     },
+     "ml_home": {
+      "odds": -139,
+      "at": "2026-09-28T00:17Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 51.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 114,
+      "at": "2026-09-13T02:50Z"
+     },
+     "ml_home": {
+      "odds": -135,
+      "at": "2026-09-13T02:50Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -118,
+      "at": "2026-09-28T18:19Z"
+     },
+     "total": {
+      "value": 50.5,
+      "odds": -110,
+      "at": "2026-09-28T00:51Z"
+     },
+     "ml_away": {
+      "odds": 120,
+      "at": "2026-09-28T04:41Z"
+     },
+     "ml_home": {
+      "odds": -142,
+      "at": "2026-09-28T04:41Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "TEN@BAL",
+   "an_game_id": 290894,
+   "kickoff_utc": "2026-10-04T17:00:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": -8.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 300,
+      "at": "2026-09-13T15:50Z"
+     },
+     "ml_home": {
+      "odds": -380,
+      "at": "2026-09-13T15:50Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -11.5,
+      "odds": -113,
+      "at": "2026-09-28T00:32Z"
+     },
+     "total": {
+      "value": 43.5,
+      "odds": -109,
+      "at": "2026-09-28T00:32Z"
+     },
+     "ml_away": {
+      "odds": 525,
+      "at": "2026-09-28T00:25Z"
+     },
+     "ml_home": {
+      "odds": -750,
+      "at": "2026-09-28T00:25Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": -8.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 300,
+      "at": "2026-09-13T15:49Z"
+     },
+     "ml_home": {
+      "odds": -380,
+      "at": "2026-09-13T15:49Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -10.5,
+      "odds": -112,
+      "at": "2026-09-28T04:39Z"
+     },
+     "total": {
+      "value": 42.5,
+      "odds": -115,
+      "at": "2026-09-30T21:23Z"
+     },
+     "ml_away": {
+      "odds": 490,
+      "at": "2026-09-28T04:39Z"
+     },
+     "ml_home": {
+      "odds": -675,
+      "at": "2026-09-28T04:39Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "DAL@HOU",
+   "an_game_id": 290895,
+   "kickoff_utc": "2026-10-04T17:00:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 114,
+      "at": "2026-08-29T22:10Z"
+     },
+     "ml_home": {
+      "odds": -135,
+      "at": "2026-08-29T22:10Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -1.5,
+      "odds": -110,
+      "at": "2026-09-28T00:14Z"
+     },
+     "total": {
+      "value": 47,
+      "odds": -111,
+      "at": "2026-09-28T00:17Z"
+     },
+     "ml_away": {
+      "odds": 105,
+      "at": "2026-09-28T00:14Z"
+     },
+     "ml_home": {
+      "odds": -130,
+      "at": "2026-09-28T00:19Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 114,
+      "at": "2026-08-29T22:10Z"
+     },
+     "ml_home": {
+      "odds": -135,
+      "at": "2026-08-29T22:10Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -118,
+      "at": "2026-09-28T17:23Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-09-28T00:49Z"
+     },
+     "ml_away": {
+      "odds": 124,
+      "at": "2026-09-28T17:23Z"
+     },
+     "ml_home": {
+      "odds": -148,
+      "at": "2026-09-28T17:23Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "ARI@NYG",
+   "an_game_id": 290896,
+   "kickoff_utc": "2026-10-04T17:00:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": -7,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 45.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 260,
+      "at": "2026-09-07T07:52Z"
+     },
+     "ml_home": {
+      "odds": -325,
+      "at": "2026-09-07T07:52Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -109,
+      "at": "2026-09-28T00:19Z"
+     },
+     "total": {
+      "value": 43.5,
+      "odds": -109,
+      "at": "2026-09-28T00:22Z"
+     },
+     "ml_away": {
+      "odds": 113,
+      "at": "2026-09-28T00:19Z"
+     },
+     "ml_home": {
+      "odds": -132,
+      "at": "2026-09-28T00:36Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": -7,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 45.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 260,
+      "at": "2026-09-07T07:52Z"
+     },
+     "ml_home": {
+      "odds": -325,
+      "at": "2026-09-07T07:52Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -1.5,
+      "odds": -110,
+      "at": "2026-09-28T00:35Z"
+     },
+     "total": {
+      "value": 43.5,
+      "odds": -105,
+      "at": "2026-09-28T04:41Z"
+     },
+     "ml_away": {
+      "odds": 102,
+      "at": "2026-09-28T00:35Z"
+     },
+     "ml_home": {
+      "odds": -122,
+      "at": "2026-09-28T00:35Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "MIA@MIN",
+   "an_game_id": 290897,
+   "kickoff_utc": "2026-10-04T20:05:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": -7.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 43.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 320,
+      "at": "2026-09-13T03:06Z"
+     },
+     "ml_home": {
+      "odds": -410,
+      "at": "2026-09-13T03:06Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -10.5,
+      "odds": -107,
+      "at": "2026-09-28T00:04Z"
+     },
+     "total": {
+      "value": 42.5,
+      "odds": -107,
+      "at": "2026-09-28T00:04Z"
+     },
+     "ml_away": {
+      "odds": 475,
+      "at": "2026-09-28T00:04Z"
+     },
+     "ml_home": {
+      "odds": -637,
+      "at": "2026-09-28T00:04Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": -7.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 43.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 320,
+      "at": "2026-09-13T03:06Z"
+     },
+     "ml_home": {
+      "odds": -410,
+      "at": "2026-09-13T03:06Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -10,
+      "odds": -110,
+      "at": "2026-09-28T04:41Z"
+     },
+     "total": {
+      "value": 41.5,
+      "odds": -110,
+      "at": "2026-09-28T00:07Z"
+     },
+     "ml_away": {
+      "odds": 490,
+      "at": "2026-09-28T00:07Z"
+     },
+     "ml_home": {
+      "odds": -675,
+      "at": "2026-09-28T00:07Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "DEN@SF",
+   "an_game_id": 290898,
+   "kickoff_utc": "2026-10-04T20:25:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -110,
+      "at": "2026-07-21T09:11Z"
+     },
+     "total": {
+      "value": 46.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 120,
+      "at": "2026-09-10T04:36Z"
+     },
+     "ml_home": {
+      "odds": -142,
+      "at": "2026-09-10T04:36Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -3,
+      "odds": -110,
+      "at": "2026-09-28T04:13Z"
+     },
+     "total": {
+      "value": 45.5,
+      "odds": -111,
+      "at": "2026-09-28T04:03Z"
+     },
+     "ml_away": {
+      "odds": 137,
+      "at": "2026-09-28T04:13Z"
+     },
+     "ml_home": {
+      "odds": -165,
+      "at": "2026-09-28T04:13Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -110,
+      "at": "2026-07-21T09:11Z"
+     },
+     "total": {
+      "value": 46.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 120,
+      "at": "2026-09-10T04:36Z"
+     },
+     "ml_home": {
+      "odds": -142,
+      "at": "2026-09-10T04:36Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -120,
+      "at": "2026-09-28T19:55Z"
+     },
+     "total": {
+      "value": 46.5,
+      "odds": -110,
+      "at": "2026-09-28T04:03Z"
+     },
+     "ml_away": {
+      "odds": 140,
+      "at": "2026-09-28T04:43Z"
+     },
+     "ml_home": {
+      "odds": -166,
+      "at": "2026-09-28T04:43Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "LAC@SEA",
+   "an_game_id": 290899,
+   "kickoff_utc": "2026-10-04T20:25:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": -3,
+      "odds": -115,
+      "at": "2026-07-23T21:19Z"
+     },
+     "total": {
+      "value": 45.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 145,
+      "at": "2026-09-01T16:45Z"
+     },
+     "ml_home": {
+      "odds": -175,
+      "at": "2026-09-01T16:45Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -6.5,
+      "odds": -116,
+      "at": "2026-09-28T00:09Z"
+     },
+     "total": {
+      "value": 44,
+      "odds": -110,
+      "at": "2026-09-28T00:09Z"
+     },
+     "ml_away": {
+      "odds": 255,
+      "at": "2026-09-28T01:17Z"
+     },
+     "ml_home": {
+      "odds": -329,
+      "at": "2026-09-28T00:56Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": -3,
+      "odds": -115,
+      "at": "2026-07-23T21:19Z"
+     },
+     "total": {
+      "value": 45.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": 145,
+      "at": "2026-09-01T16:45Z"
+     },
+     "ml_home": {
+      "odds": -175,
+      "at": "2026-09-01T16:45Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -6.5,
+      "odds": -115,
+      "at": "2026-09-28T10:41Z"
+     },
+     "total": {
+      "value": 43.5,
+      "odds": -115,
+      "at": "2026-09-28T00:53Z"
+     },
+     "ml_away": {
+      "odds": 250,
+      "at": "2026-09-28T00:53Z"
+     },
+     "ml_home": {
+      "odds": -310,
+      "at": "2026-09-28T00:53Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "KC@LV",
+   "an_game_id": 290900,
+   "kickoff_utc": "2026-10-04T20:25:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": 5.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 43.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": -230,
+      "at": "2026-09-13T03:26Z"
+     },
+     "ml_home": {
+      "odds": 190,
+      "at": "2026-09-13T03:26Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": 5.5,
+      "odds": -111,
+      "at": "2026-09-28T00:00Z"
+     },
+     "total": {
+      "value": 46.5,
+      "odds": -110,
+      "at": "2026-09-28T00:01Z"
+     },
+     "ml_away": {
+      "odds": -247,
+      "at": "2026-09-28T00:17Z"
+     },
+     "ml_home": {
+      "odds": 200,
+      "at": "2026-09-28T00:02Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": 5.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 43.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": -230,
+      "at": "2026-09-13T03:26Z"
+     },
+     "ml_home": {
+      "odds": 190,
+      "at": "2026-09-13T03:26Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": 5.5,
+      "odds": -115,
+      "at": "2026-09-28T03:05Z"
+     },
+     "total": {
+      "value": 46.5,
+      "odds": -110,
+      "at": "2026-09-28T00:01Z"
+     },
+     "ml_away": {
+      "odds": -250,
+      "at": "2026-09-28T00:01Z"
+     },
+     "ml_home": {
+      "odds": 205,
+      "at": "2026-09-28T00:01Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "DET@CAR",
+   "an_game_id": 290901,
+   "kickoff_utc": "2026-10-05T00:20:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": 3,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": -162,
+      "at": "2026-09-01T03:23Z"
+     },
+     "ml_home": {
+      "odds": 136,
+      "at": "2026-09-01T03:23Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": 3,
+      "odds": -105,
+      "at": "2026-09-28T00:50Z"
+     },
+     "total": {
+      "value": 49.5,
+      "odds": -107,
+      "at": "2026-09-28T00:00Z"
+     },
+     "ml_away": {
+      "odds": -157,
+      "at": "2026-09-28T01:08Z"
+     },
+     "ml_home": {
+      "odds": 128,
+      "at": "2026-09-28T00:30Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": 3,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "ml_away": {
+      "odds": -162,
+      "at": "2026-09-01T03:23Z"
+     },
+     "ml_home": {
+      "odds": 136,
+      "at": "2026-09-01T03:23Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": 3,
+      "odds": -102,
+      "at": "2026-09-28T04:41Z"
+     },
+     "total": {
+      "value": 49.5,
+      "odds": -115,
+      "at": "2026-09-28T00:51Z"
+     },
+     "ml_away": {
+      "odds": -166,
+      "at": "2026-09-28T04:41Z"
+     },
+     "ml_home": {
+      "odds": 140,
+      "at": "2026-09-28T04:41Z"
+     }
+    }
+   }
+  },
+  {
+   "game": "ATL@NO",
+   "an_game_id": 290902,
+   "kickoff_utc": "2026-10-06T00:15:00.000Z",
+   "an_open_book": {
+    "first_ever": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 45.5,
+      "odds": -115,
+      "at": "2026-08-25T19:50Z"
+     },
+     "ml_away": {
+      "odds": 114,
+      "at": "2026-09-10T17:50Z"
+     },
+     "ml_home": {
+      "odds": -135,
+      "at": "2026-09-10T17:50Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -118,
+      "at": "2026-09-28T00:15Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -108,
+      "at": "2026-09-28T01:13Z"
+     },
+     "ml_away": {
+      "odds": 125,
+      "at": "2026-09-28T00:15Z"
+     },
+     "ml_home": {
+      "odds": -150,
+      "at": "2026-09-28T00:15Z"
+     }
+    }
+   },
+   "dk_nj": {
+    "first_ever": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -110,
+      "at": "2026-07-06T11:13Z"
+     },
+     "total": {
+      "value": 45.5,
+      "odds": -115,
+      "at": "2026-08-25T19:49Z"
+     },
+     "ml_away": {
+      "odds": 114,
+      "at": "2026-09-10T17:50Z"
+     },
+     "ml_home": {
+      "odds": -135,
+      "at": "2026-09-10T17:50Z"
+     }
+    },
+    "reopen_after_2026-09-28": {
+     "home_spread": {
+      "value": -2.5,
+      "odds": -120,
+      "at": "2026-09-28T01:31Z"
+     },
+     "total": {
+      "value": 47.5,
+      "odds": -110,
+      "at": "2026-09-28T01:31Z"
+     },
+     "ml_away": {
+      "odds": 136,
+      "at": "2026-09-28T04:41Z"
+     },
+     "ml_home": {
+      "odds": -162,
+      "at": "2026-09-28T04:41Z"
+     }
+    }
+   }
+  }
+ ]
+}

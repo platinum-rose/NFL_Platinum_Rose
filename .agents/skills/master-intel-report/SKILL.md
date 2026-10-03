@@ -14,6 +14,7 @@ description: Build the weekly Platinum Rose Master Intel Report (Saturday night,
 **The short version:**
 1. Refresh the inputs and capture the Bookmaker lines (runbook steps 0–8).
 2. `node scripts/master-intel/pull.mjs --week <N>`
+2b. `python3 scripts/master-intel/actionnetwork_openers.py --week <N>`: the Action Network opening lines that serve as the line-movement baseline (every week; runbook step 8a).
 3. First pass: `python3 scripts/master-intel/build.py --week <N> --date <capture-date> --no-export`
 3b. **Roster gate:** `python3 scripts/nfl-rosters/roster_vet.py --week <N> --date <capture-date> --fetch --strict` must print `ROSTER VET: PASS`. Never write a player's 2026 team, role or status from memory; look it up in `data/nfl-rosters/espn-full-rosters-latest.json`.
 4. Write `reports/intel/master-intel-narratives-<season>-w<NN>.md` (game write-ups + `## TICKETS` + `## SUPERCONTEST`) and `data/survivor/pick-intel-<season>-w<NN>.json`.

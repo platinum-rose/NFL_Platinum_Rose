@@ -1,0 +1,4224 @@
+{
+ "schema": "week4_source_price_reconciliation_v1",
+ "generated_at_utc": "2026-10-03T16:02:28Z",
+ "price_basis": "Oct-2 2026 20:16Z Bookmaker rendered capture (STALE baseline; current BKR capture blocked: logged out)",
+ "baseline_game_lines": {
+  "IND@WAS": {
+   "spread_IND": [
+    -3.5,
+    -118
+   ],
+   "spread_WAS": [
+    3.5,
+    101
+   ],
+   "total_over": [
+    47.5,
+    -103
+   ],
+   "total_under": [
+    47.5,
+    -113
+   ],
+   "ml_IND": -217,
+   "ml_WAS": 187
+  },
+  "NE@BUF": {
+   "spread_NE": [
+    7,
+    -113
+   ],
+   "spread_BUF": [
+    -7,
+    -103
+   ],
+   "total_over": [
+    50,
+    -108
+   ],
+   "total_under": [
+    50,
+    -108
+   ],
+   "ml_NE": 285,
+   "ml_BUF": -329
+  },
+  "NYJ@CHI": {
+   "spread_NYJ": [
+    3.5,
+    -104
+   ],
+   "spread_CHI": [
+    -3.5,
+    -112
+   ],
+   "total_over": [
+    43,
+    -108
+   ],
+   "total_under": [
+    43,
+    -108
+   ],
+   "ml_NYJ": 170,
+   "ml_CHI": -195
+  },
+  "ARI@NYG": {
+   "spread_ARI": [
+    -2.5,
+    -110
+   ],
+   "spread_NYG": [
+    2.5,
+    -106
+   ],
+   "total_over": [
+    44.5,
+    -105
+   ],
+   "total_under": [
+    44.5,
+    -111
+   ],
+   "ml_ARI": -143,
+   "ml_NYG": 125
+  },
+  "DAL@HOU": {
+   "spread_DAL": [
+    3,
+    -107
+   ],
+   "spread_HOU": [
+    -3,
+    -109
+   ],
+   "total_over": [
+    48.5,
+    -108
+   ],
+   "total_under": [
+    48.5,
+    -108
+   ],
+   "ml_DAL": 135,
+   "ml_HOU": -155
+  },
+  "JAX@CIN": {
+   "spread_JAX": [
+    2.5,
+    102
+   ],
+   "spread_CIN": [
+    -2.5,
+    -117
+   ],
+   "total_over": [
+    52,
+    -108
+   ],
+   "total_under": [
+    52,
+    -108
+   ],
+   "ml_JAX": 130,
+   "ml_CIN": -148
+  },
+  "GB@TB": {
+   "spread_GB": [
+    -3.5,
+    -108
+   ],
+   "spread_TB": [
+    3.5,
+    -108
+   ],
+   "total_over": [
+    39,
+    -108
+   ],
+   "total_under": [
+    39,
+    -108
+   ],
+   "ml_GB": -176,
+   "ml_TB": 154
+  },
+  "LAR@PHI": {
+   "spread_LAR": [
+    -3.5,
+    -108
+   ],
+   "spread_PHI": [
+    3.5,
+    -108
+   ],
+   "total_over": [
+    42.5,
+    -108
+   ],
+   "total_under": [
+    42.5,
+    -108
+   ],
+   "ml_LAR": -197,
+   "ml_PHI": 172
+  },
+  "TEN@BAL": {
+   "spread_TEN": [
+    11,
+    -109
+   ],
+   "spread_BAL": [
+    -11,
+    -107
+   ],
+   "total_over": [
+    42.5,
+    -104
+   ],
+   "total_under": [
+    42.5,
+    -112
+   ],
+   "ml_TEN": 478,
+   "ml_BAL": -609
+  },
+  "MIA@MIN": {
+   "spread_MIA": [
+    10.5,
+    -108
+   ],
+   "spread_MIN": [
+    -10.5,
+    -108
+   ],
+   "total_over": [
+    38.5,
+    -107
+   ],
+   "total_under": [
+    38.5,
+    -109
+   ],
+   "ml_MIA": 487,
+   "ml_MIN": -624
+  },
+  "DEN@SF": {
+   "spread_DEN": [
+    2.5,
+    101
+   ],
+   "spread_SF": [
+    -2.5,
+    -118
+   ],
+   "total_over": [
+    48,
+    -111
+   ],
+   "total_under": [
+    48,
+    -105
+   ],
+   "ml_DEN": 132,
+   "ml_SF": -152
+  },
+  "KC@LV": {
+   "spread_KC": [
+    -4.5,
+    -105
+   ],
+   "spread_LV": [
+    4.5,
+    -111
+   ],
+   "total_over": [
+    48,
+    -103
+   ],
+   "total_under": [
+    48,
+    -113
+   ],
+   "ml_KC": -204,
+   "ml_LV": 178
+  },
+  "LAC@SEA": {
+   "spread_LAC": [
+    7,
+    -105
+   ],
+   "spread_SEA": [
+    -7,
+    -111
+   ],
+   "total_over": [
+    42.5,
+    -115
+   ],
+   "total_under": [
+    42.5,
+    -101
+   ],
+   "ml_LAC": 269,
+   "ml_SEA": -319
+  },
+  "DET@CAR": {
+   "spread_DET": [
+    -3.5,
+    -113
+   ],
+   "spread_CAR": [
+    3.5,
+    -103
+   ],
+   "total_over": [
+    51,
+    -104
+   ],
+   "total_under": [
+    51,
+    -112
+   ],
+   "ml_DET": -193,
+   "ml_CAR": 168
+  },
+  "ATL@NO": {
+   "spread_ATL": [
+    2.5,
+    -113
+   ],
+   "spread_NO": [
+    -2.5,
+    -103
+   ],
+   "total_over": [
+    48,
+    -105
+   ],
+   "total_under": [
+    48,
+    -111
+   ],
+   "ml_ATL": 113,
+   "ml_NO": -128
+  }
+ },
+ "rows": [
+  {
+   "source": "podcast",
+   "speaker": "PropStarz",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 93,
+   "game": "JAX@CIN",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 71.5,
+   "price": -115,
+   "player": "Parker Washington",
+   "quote": "Firmly established as WR1 and the engine of the Jaguars passing attack facing a Bengals defense that plays man coverage at a high rate.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Dave",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 207,
+   "game": "JAX@CIN",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 39.5,
+   "price": -113,
+   "player": "Jakobi Meyers",
+   "quote": "Bengals play a lot of man coverage on third and medium, and Meyers has excellent target per route run metrics against man.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "PropStarz",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 500,
+   "game": "TEN@BAL",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 67.5,
+   "price": -113,
+   "player": "Zay Flowers",
+   "quote": "Flowers has practiced in full and has been incredibly efficient this season, leading in first-read target rate when active.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify",
+    "PLAYER Questionable"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "EC",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 660,
+   "game": "TEN@BAL",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 37.5,
+   "price": -111,
+   "player": "Wan'Dale Robinson",
+   "quote": "With Baltimore allowing high volume to slot receivers, Robinson's high target share makes this line a strong value.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify",
+    "PLAYER not on Oct-2 BKR prop menu (identity/market unverified)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "PropStarz",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 864,
+   "game": "KC@LV",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 54.5,
+   "price": -114,
+   "player": "Rashee Rice",
+   "quote": "Rice is looking more comfortable returning from a knee injury and remains the clear WR1 in the Chiefs' passing scheme.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Dave",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 1301,
+   "game": "IND@WAS",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 36.5,
+   "price": -109,
+   "player": "Keenan Allen",
+   "quote": "Expected to play through injury and benefit from underneath targets against a weak Commanders secondary.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify",
+    "PLAYER STATUS Out (IND) per ESPN feed 10/03 15:59Z"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "PropStarz",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 1547,
+   "game": "DET@CAR",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 26.5,
+   "price": -114,
+   "player": "Darren Waller",
+   "quote": "Detroit is extremely vulnerable to tight ends, and Waller's snap share exceeded 50% last week.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify",
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)",
+    "AMBIGUOUS IDENTITY: same player tagged to games ARI@NYG/DET@CAR - do not repair from memory; roster gate decides"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "PropStarz",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 1753,
+   "game": "DAL@HOU",
+   "market": "season_receiving_yards",
+   "side": "UNDER",
+   "line": 77.5,
+   "price": -115,
+   "player": "CeeDee Lamb",
+   "quote": "Houston's defensive scheme double-teams top options at a very high rate, which will limit Lamb's production.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "PropStarz",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 1922,
+   "game": "TEN@BAL",
+   "market": "rushing_yards",
+   "side": "OVER",
+   "line": 45.5,
+   "price": -115,
+   "player": "Tony Pollard",
+   "quote": "Pollard is highly efficient and should command safe volume against a putrid Ravens run defense.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "PropStarz",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 2074,
+   "game": "DEN@SF",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 39.5,
+   "price": -115,
+   "player": "Christian McCaffrey",
+   "quote": "With the 49ers' pass catchers depleted, McCaffrey will serve as a primary target against a blitz-heavy Denver defense.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Dave",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 2244,
+   "game": "LAC@SEA",
+   "market": "total_yards",
+   "side": "OVER",
+   "line": 28.5,
+   "price": 103,
+   "player": "Keaton Mitchell",
+   "quote": "Mitchell is the most explosive player in the Chargers' backfield and matches up well against Seattle's zone defense.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "PropStarz",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 2686,
+   "game": "ARI@NYG",
+   "market": "rushing_yards",
+   "side": "UNDER",
+   "line": 90.5,
+   "price": -115,
+   "player": "Jonathan Taylor",
+   "quote": "The Commanders run defense has been exceptional, holding opposing running backs to minimal yardage.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "EC",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 2985,
+   "game": "NE@BUF",
+   "market": "season_passing_yards",
+   "side": "UNDER",
+   "line": 242.5,
+   "price": -114,
+   "player": "Josh Allen",
+   "quote": "Allen is dealing with a knee injury, and the Patriots' secondary limits big passing plays.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Dave",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 3160,
+   "game": "TEN@BAL",
+   "market": "pass_attempts",
+   "side": "UNDER",
+   "line": 27.5,
+   "price": -114,
+   "player": "Lamar Jackson",
+   "quote": "A heavily run-focused game plan featuring Derrick Henry's revenge game narrative will limit Jackson's passing volume.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "EC",
+   "episode": "NFL Week 4 PLAYER PROPS: Picks and Bets",
+   "ts": 3564,
+   "game": "GB@TB",
+   "market": "field_goals_made",
+   "side": "OVER",
+   "line": 1.5,
+   "price": -118,
+   "player": "Trey Smack",
+   "quote": "The Packers' offense struggle to score touchdowns but can stall in field goal range against a soft Buccaneers red zone defense.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER not on Oct-2 BKR prop menu (identity/market unverified)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Chad Millman",
+   "episode": "Professional NFL Gamblers Hotline Week 4 (Chiefs-Raiders, Broncos-49ers, Cowboys-Texans)",
+   "ts": 445,
+   "game": "DEN@SF",
+   "market": "spread",
+   "side": "DEN",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Brass Balls Trade of the Week. Reverse line move shows sharp action on Denver despite majority tickets on San Francisco. SF has key defensive injuries including Nick Bosa being out.",
+   "baseline_compare": "Oct-2 BKR DEN +2.5 (+101); source +2.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Simon Hunter",
+   "episode": "Professional NFL Gamblers Hotline Week 4 (Chiefs-Raiders, Broncos-49ers, Cowboys-Texans)",
+   "ts": 193,
+   "game": "KC@LV",
+   "market": "spread",
+   "side": "LV",
+   "line": null,
+   "price": null,
+   "player": null,
+   "quote": "Simon already bet into the Raiders, though the pros are calling saying he and Chad are totally overrating this Raiders team and backing the Chiefs instead.",
+   "baseline_compare": null,
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Chad Millman",
+   "episode": "Professional NFL Gamblers Hotline Week 4 (Chiefs-Raiders, Broncos-49ers, Cowboys-Texans)",
+   "ts": 293,
+   "game": "ARI@NYG",
+   "market": "spread",
+   "side": "ARI",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "Chad was on Arizona early. Pros love Arizona in this matchup against the Giants, driving the line from ARI +2.5 all the way to ARI -2.5.",
+   "baseline_compare": "Oct-2 BKR ARI -2.5 (-110); source -2.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ryan McCrystal",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 141,
+   "game": "BYU",
+   "market": "spread",
+   "side": "BYU",
+   "line": -6.5,
+   "price": null,
+   "player": null,
+   "quote": "TCU's transition from Kendal Briles' veer-and-shoot to Gordon Sammis' pro-style offense plays directly into BYU's defensive strength. TCU struggles to execute this style well and ranks 112th in third-and-long rate.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE non-NFL/college",
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ryan McCrystal",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 165,
+   "game": "BYU",
+   "market": "conference_winner",
+   "side": "YES",
+   "line": null,
+   "price": null,
+   "player": null,
+   "quote": "Texas Tech is the favorite but has lost substantial defensive talent from last year and currently ranks 117th in explosive rush rate allowed. BYU is highly competitive and built to exploit this run defense.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (conference_winner)",
+    "EXCLUDE non-NFL/college"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ryan McCrystal",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 183,
+   "game": "FLA",
+   "market": "spread",
+   "side": "FLA",
+   "line": -5.5,
+   "price": null,
+   "player": null,
+   "quote": "Missouri's run defense is weak, ranking 88th in yards after contact allowed and 127th in missed tackle rate. Jadan Baugh, a powerful 225-pound back who is 10th in the nation in broken tackle rate, should dominate this ma",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE non-NFL/college",
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ryan McCrystal",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 204,
+   "game": "MSST",
+   "market": "spread",
+   "side": "MSST",
+   "line": 6,
+   "price": null,
+   "player": null,
+   "quote": "Both teams are starting highly talented but inexperienced young quarterbacks (Kamario Taylor and Keelon Russell). The home crowd environment gives a massive edge to MSST, especially since Keelon Russell holds the ball fo",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE non-NFL/college",
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Rich Hribar",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 250,
+   "game": "ARI@NYG",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 14.5,
+   "price": null,
+   "player": "Jeremiah Love",
+   "quote": "His workload and playing time are climbing, reaching a 63% snap share and running a route on 41.5% of dropbacks last week. He has been targeted on 27% of his routes, and the Giants allow significant receiving yards to op",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify",
+    "PLAYER not on Oct-2 BKR prop menu (identity/market unverified)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Rich Hribar",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 270,
+   "game": "IND@WAS",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 46.5,
+   "price": null,
+   "player": "Tyler Warren",
+   "quote": "He is playing 87% of the Colts' dropbacks and has a 23% target share. Washington has a highly exploitable secondary, ranking 29th in completion rate allowed and 27th in yards per pass attempt, and struggles immensely aga",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Rich Hribar",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 290,
+   "game": "JAX@CIN",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 78.5,
+   "price": null,
+   "player": "Ja'Marr Chase",
+   "quote": "Burrow is the least-pressured QB in the NFL, and Jacksonville's defense has historically struggled against receivers when failing to generate pressure. In this matchup last season, Chase exploded for 14 receptions and 16",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Joe Gibbs",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 320,
+   "game": "DAL@HOU",
+   "market": "spread",
+   "side": "DAL",
+   "line": null,
+   "price": null,
+   "player": null,
+   "quote": "Dallas is a small underdog here, but has the better overall offensive health to keep pace in what should be a highly volatile, penalty-driven game.",
+   "baseline_compare": null,
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Joe Gibbs",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 320,
+   "game": "DAL@HOU",
+   "market": "total",
+   "side": "OVER",
+   "line": 47.5,
+   "price": null,
+   "player": null,
+   "quote": "Referee Brad Allen's crew heavily flags roughing the passer and unnecessary roughness, extending drives. Both of these teams rank near the top of the league as automatic first-down beneficiaries of defensive holding and ",
+   "baseline_compare": "Oct-2 BKR total 48.5; source OVER 47.5; diff -1",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Joe Gibbs",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 350,
+   "game": "LAR@PHI",
+   "market": "spread",
+   "side": "LAR",
+   "line": -3,
+   "price": null,
+   "player": null,
+   "quote": "Craig Wrolstad is officiating, and under his tenure home underdogs cover at only a 37% rate. The Eagles struggle with offensive holding penalties (top-5 penalized), whereas the Rams offense is highly disciplined.",
+   "baseline_compare": "Oct-2 BKR LAR -3.5 (-108); source -3; diff +0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Joe Gibbs",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 361,
+   "game": "ATL@NO",
+   "market": "spread",
+   "side": "ATL",
+   "line": null,
+   "price": null,
+   "player": null,
+   "quote": "Land Clark's crew heavily penalizes the offensive side of the ball (65% of flags). Divisional home favorites are just 12-18-1 straight up under Clark. The Falcons are well-rested coming off a mini-bye with Penix under ce",
+   "baseline_compare": null,
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Warren Sharp",
+   "episode": "(39-13, 75%) NFL Week 4 Best Bets &amp; Player Props 2026",
+   "ts": 392,
+   "game": "DEN@SF",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 37.5,
+   "price": null,
+   "player": "Christian McCaffrey",
+   "quote": "The Broncos under Vance Joseph blitz at the second-highest rate on early downs. When blitzed, Brock Purdy looks McCaffrey's way immediately, yielding a 40% running back target rate. Additionally, injuries/health limits i",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 580,
+   "game": "GB@TB",
+   "market": "player_rushing_attempts",
+   "side": "UNDER",
+   "line": 8.5,
+   "price": -122,
+   "player": "MarShawn Lloyd",
+   "quote": "Carries are dropping, Caleb Johnson taking snaps, and Chris Brooks on passing downs.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 612,
+   "game": "GB@TB",
+   "market": "season_passing_yards",
+   "side": "OVER",
+   "line": 241.5,
+   "price": null,
+   "player": "Jordan Love",
+   "quote": "Packers cannot run the football right now and Love will be chucking it.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 625,
+   "game": "GB@TB",
+   "market": "season_passing_yards",
+   "side": "OVER",
+   "line": 300,
+   "price": 340,
+   "player": "Jordan Love",
+   "quote": "Escalator prop for passing yards.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 628,
+   "game": "GB@TB",
+   "market": "season_passing_yards",
+   "side": "OVER",
+   "line": 350,
+   "price": 1080,
+   "player": "Jordan Love",
+   "quote": "Escalator prop for passing yards.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 631,
+   "game": "GB@TB",
+   "market": "season_passing_yards",
+   "side": "OVER",
+   "line": 400,
+   "price": 3000,
+   "player": "Jordan Love",
+   "quote": "Escalator prop for passing yards.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 725,
+   "game": "LAR@PHI",
+   "market": "player_receptions",
+   "side": "OVER",
+   "line": 6.5,
+   "price": 123,
+   "player": "Puka Nacua",
+   "quote": "Lower line than week 1, Nacua was a target monster in prior matchups.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 751,
+   "game": "LAR@PHI",
+   "market": "player_receptions",
+   "side": "OVER",
+   "line": 8,
+   "price": 216,
+   "player": "Puka Nacua",
+   "quote": "Escalator prop for receptions.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 759,
+   "game": "LAR@PHI",
+   "market": "player_receptions",
+   "side": "OVER",
+   "line": 9,
+   "price": 400,
+   "player": "Puka Nacua",
+   "quote": "Escalator prop for receptions.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 761,
+   "game": "LAR@PHI",
+   "market": "player_receptions",
+   "side": "OVER",
+   "line": 10,
+   "price": 700,
+   "player": "Puka Nacua",
+   "quote": "Escalator prop for receptions.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 780,
+   "game": "LAR@PHI",
+   "market": "player_receptions",
+   "side": "OVER",
+   "line": 12,
+   "price": 1700,
+   "player": "Puka Nacua",
+   "quote": "Escalator prop for receptions.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 783,
+   "game": "LAR@PHI",
+   "market": "player_receptions",
+   "side": "OVER",
+   "line": 13,
+   "price": 2600,
+   "player": "Puka Nacua",
+   "quote": "Escalator prop for receptions.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 846,
+   "game": "LAR@PHI",
+   "market": "player_longest_rush",
+   "side": "OVER",
+   "line": 30,
+   "price": 450,
+   "player": "Saquon Barkley",
+   "quote": "Barkley showed burst, historically dominates the Rams defense.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 850,
+   "game": "LAR@PHI",
+   "market": "player_longest_rush",
+   "side": "OVER",
+   "line": 50,
+   "price": 1000,
+   "player": "Saquon Barkley",
+   "quote": "Barkley showed burst, historically dominates the Rams defense.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 915,
+   "game": "DEN@SF",
+   "market": "player_rushing_yards",
+   "side": "OVER",
+   "line": 22.5,
+   "price": null,
+   "player": "Kaelon Black",
+   "quote": "He is the powerful, in-between-the-tackles runner who can exploit Denver.",
+   "baseline_compare": null,
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 943,
+   "game": "DEN@SF",
+   "market": "player_rushing_yards",
+   "side": "OVER",
+   "line": 40,
+   "price": 300,
+   "player": "Kaelon Black",
+   "quote": "Escalator prop for rushing yards.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 945,
+   "game": "DEN@SF",
+   "market": "player_rushing_yards",
+   "side": "OVER",
+   "line": 50,
+   "price": 560,
+   "player": "Kaelon Black",
+   "quote": "Escalator prop for rushing yards.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 949,
+   "game": "DEN@SF",
+   "market": "player_rushing_yards",
+   "side": "OVER",
+   "line": 60,
+   "price": 960,
+   "player": "Kaelon Black",
+   "quote": "Escalator prop for rushing yards.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 958,
+   "game": "ARI@NYG",
+   "market": "spread",
+   "side": "NYG",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Arizona defense is the worst unit on the field. Line should not have flipped this much.",
+   "baseline_compare": "Oct-2 BKR NYG +2.5 (-106); source +2.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 977,
+   "game": "ARI@NYG",
+   "market": "spread",
+   "side": "NYG",
+   "line": -6.5,
+   "price": 285,
+   "player": null,
+   "quote": "Home dogs of under 3 points tend to win by a touchdown 60% of the time.",
+   "baseline_compare": "Oct-2 BKR NYG +2.5 (-106); source -6.5; diff -9",
+   "flags": [
+    "SIGN-MISMATCH vs baseline (team/side label or period likely wrong) - do not use"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1117,
+   "game": "IND@WAS",
+   "market": "spread",
+   "side": "IND",
+   "line": -3.5,
+   "price": null,
+   "player": null,
+   "quote": "Colts are the better team, best run blocking line, and Washington defense is weak.",
+   "baseline_compare": "Oct-2 BKR IND -3.5 (-118); source -3.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1168,
+   "game": "IND@WAS",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 62.5,
+   "price": null,
+   "player": "Josh Downs",
+   "quote": "Downs has seen massive target volume recently, and Washington allowed the most fantasy points to WRs.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1211,
+   "game": "TEN@BAL",
+   "market": "spread",
+   "side": "BAL",
+   "line": -11.5,
+   "price": null,
+   "player": null,
+   "quote": "Huge mismatch, Titans look lost and Lamar Jackson dominates in this spot.",
+   "baseline_compare": "Oct-2 BKR BAL -11 (-107); source -11.5; diff -0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1251,
+   "game": "LAC@SEA",
+   "market": "spread",
+   "side": "LAC",
+   "line": 7.5,
+   "price": null,
+   "player": null,
+   "quote": "Seahawks offense is struggling, and winless teams in Week 4 are 7-0 ATS vs over .500 teams since 2021.",
+   "baseline_compare": "Oct-2 BKR LAC +7 (-105); source +7.5; diff +0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1412,
+   "game": "DET@CAR",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 70,
+   "price": 194,
+   "player": "Jameson Williams",
+   "quote": "Lions face a Panthers secondary completely depleted of cornerbacks.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify",
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1450,
+   "game": "DET@CAR",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 70,
+   "price": 515,
+   "player": "Jameson Williams",
+   "quote": "Escalator prop with touchdown.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify",
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1508,
+   "game": "DET@CAR",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 100,
+   "price": 1000,
+   "player": "Jameson Williams",
+   "quote": "Escalator prop with touchdown.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify",
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1549,
+   "game": "JAX@CIN",
+   "market": "anytime_touchdown_scorer",
+   "side": "YES",
+   "line": null,
+   "price": 1200,
+   "player": "Nate Boerkircher",
+   "quote": "Bengals struggle heavily defending tight ends, and Boerkircher gets red zone reps.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1561,
+   "game": "JAX@CIN",
+   "market": "first_touchdown_scorer",
+   "side": "YES",
+   "line": null,
+   "price": 6500,
+   "player": "Nate Boerkircher",
+   "quote": "Bengals struggle heavily defending tight ends, and Boerkircher gets red zone reps.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1619,
+   "game": "ARI@NYG",
+   "market": "parlay",
+   "side": "YES",
+   "line": null,
+   "price": 1250,
+   "player": null,
+   "quote": "Four Square Parlay: Giants +1.5, Falcons +2.5, Raiders +4.5, Eagles +2.5.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (parlay)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Matt Moore",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1667,
+   "game": "OAK",
+   "market": "contest_pick",
+   "side": "OAK",
+   "line": 4.5,
+   "price": null,
+   "player": null,
+   "quote": "Moore's contest pick.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)",
+    "EXCLUDE unmapped/ambiguous team field 'OAK'"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Matt Moore",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1669,
+   "game": "LAR@PHI",
+   "market": "contest_pick",
+   "side": "PHI",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Moore's contest pick.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Matt Moore",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1671,
+   "game": "ARI@NYG",
+   "market": "contest_pick",
+   "side": "NYG",
+   "line": 1.5,
+   "price": null,
+   "player": null,
+   "quote": "Moore's contest pick.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Matt Moore",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1673,
+   "game": "DEN@SF",
+   "market": "contest_pick",
+   "side": "DEN",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Moore's contest pick.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Matt Moore",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1675,
+   "game": "DAL@HOU",
+   "market": "contest_pick",
+   "side": "DAL",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Moore's contest pick.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1686,
+   "game": "ARI@NYG",
+   "market": "contest_pick",
+   "side": "NYG",
+   "line": 1.5,
+   "price": null,
+   "player": null,
+   "quote": "Brandon's contest pick.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1688,
+   "game": "TEN@BAL",
+   "market": "contest_pick",
+   "side": "BAL",
+   "line": -11.5,
+   "price": null,
+   "player": null,
+   "quote": "Brandon's contest pick.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1690,
+   "game": "IND@WAS",
+   "market": "contest_pick",
+   "side": "IND",
+   "line": -3.5,
+   "price": null,
+   "player": null,
+   "quote": "Brandon's contest pick.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1692,
+   "game": "LAC@SEA",
+   "market": "contest_pick",
+   "side": "LAC",
+   "line": 7.5,
+   "price": null,
+   "player": null,
+   "quote": "Brandon's contest pick.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1695,
+   "game": "GB@TB",
+   "market": "contest_pick",
+   "side": "TB",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Brandon's contest pick.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Brandon Anderson",
+   "episode": "NFL Betting Playground | Week 4",
+   "ts": 1770,
+   "game": "MIA@MIN",
+   "market": "spread",
+   "side": "MIN",
+   "line": -1.5,
+   "price": null,
+   "player": null,
+   "quote": "Minnesota's run attack can exploit New Orleans, and Saints are on a short week.",
+   "baseline_compare": "Oct-2 BKR MIN -10.5 (-108); source -1.5; diff +9",
+   "flags": [
+    "EXCLUDE non-Week-4 (week=5)",
+    "LARGE GAP vs baseline (different market/period or stale opener) - do not use",
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Prop Bets &amp; Parlays",
+   "ts": 313,
+   "game": "ARI@NYG",
+   "market": "win_total",
+   "side": "UNDER",
+   "line": 7.5,
+   "price": -165,
+   "player": null,
+   "quote": "With the Giants catching points at home against Arizona, they are unlikely to be favored in many games this year; under 7.5 wins is a strong bet.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (win_total)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Prop Bets &amp; Parlays",
+   "ts": 492,
+   "game": "DET@CAR",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 51.5,
+   "price": null,
+   "player": "Jameson Williams",
+   "quote": "Carolina has major cornerback injuries, allowing Detroit's receivers to have huge games.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify",
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Prop Bets &amp; Parlays",
+   "ts": 1377,
+   "game": "NYJ@CHI",
+   "market": "pickem_pick",
+   "side": "JETS +3.5",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "One of Steve's 5 best picks ATS for Splash Sports.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Prop Bets &amp; Parlays",
+   "ts": 1380,
+   "game": "DAL@HOU",
+   "market": "pickem_pick",
+   "side": "COWBOYS +3.5",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "One of Steve's 5 best picks ATS for Splash Sports.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Prop Bets &amp; Parlays",
+   "ts": 1383,
+   "game": "LAR@PHI",
+   "market": "pickem_pick",
+   "side": "EAGLES +3.5",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "One of Steve's 5 best picks ATS for Splash Sports.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Prop Bets &amp; Parlays",
+   "ts": 1386,
+   "game": "LAC@SEA",
+   "market": "pickem_pick",
+   "side": "CHARGERS +7.5",
+   "line": 7.5,
+   "price": null,
+   "player": null,
+   "quote": "One of Steve's 5 best picks ATS for Splash Sports.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Prop Bets &amp; Parlays",
+   "ts": 1390,
+   "game": "TEN@BAL",
+   "market": "pickem_pick",
+   "side": "TITANS +11.5",
+   "line": 11.5,
+   "price": null,
+   "player": null,
+   "quote": "One of Steve's 5 best picks ATS for Splash Sports.",
+   "baseline_compare": null,
+   "flags": [
+    "CONTEST-ONLY (not a priced market)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Prop Bets &amp; Parlays",
+   "ts": 1505,
+   "game": "UNK",
+   "market": "prop",
+   "side": "NO",
+   "line": null,
+   "price": 220,
+   "player": null,
+   "quote": "Prop bet on Cleveland vs. Pittsburgh: 'Will the team that scores last win the game?' Steve bets NO at +220 as a pure math/value play.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (prop)",
+    "EXCLUDE unmapped/ambiguous team field 'UNK'"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Andrew Erickson",
+   "episode": "Top 10 NFL Player Props Picks for Week 4 (Welsh and Erickson, 38 min)",
+   "ts": 131,
+   "game": "DET@CAR",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": -340,
+   "player": "Jahmyr Gibbs",
+   "quote": "Erickson's anytime touchdown rollover tracker continues with Gibbs. Rolling over the winnings every single week against the Carolina Panthers.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Andrew Erickson",
+   "episode": "Top 10 NFL Player Props Picks for Week 4 (Welsh and Erickson, 38 min)",
+   "ts": 299,
+   "game": "IND@WAS",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 62.5,
+   "price": -114,
+   "player": "Josh Downs",
+   "quote": "The Commanders' secondary is highly vulnerable, allowing the most fantasy points to wide receivers. Downs runs heavily out of the slot where Washington struggles most, and his route participation and target share have ri",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Chris Welsh",
+   "episode": "Top 10 NFL Player Props Picks for Week 4 (Welsh and Erickson, 38 min)",
+   "ts": 477,
+   "game": "JAX@CIN",
+   "market": "receptions",
+   "side": "OVER",
+   "line": 5.5,
+   "price": 119,
+   "player": "Parker Washington",
+   "quote": "Washington has a massive 46% air yard share and a dominant target profile. He gets to match up against backup slot corners for the Bengals, avoiding their best coverage options.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Chad Millman",
+   "episode": "SHARP NFL Week 4 Bets - Patriots-Bills, Rams-Eagles and more",
+   "ts": 113,
+   "game": "CLE",
+   "market": "total",
+   "side": "UNDER",
+   "line": 38.5,
+   "price": null,
+   "player": null,
+   "quote": "Chad played the under at 38.5, noting the line is moving down quickly.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE already-played (PIT@CLE final)",
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Simon Hunter",
+   "episode": "SHARP NFL Week 4 Bets - Patriots-Bills, Rams-Eagles and more",
+   "ts": 115,
+   "game": "CLE",
+   "market": "spread",
+   "side": "CLE",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Simon takes the Browns on Thursday night, stating they have won nine straight in this spot and remain undervalued.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE already-played (PIT@CLE final)",
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Chad Millman",
+   "episode": "SHARP NFL Week 4 Bets - Patriots-Bills, Rams-Eagles and more",
+   "ts": 155,
+   "game": "LAR@PHI",
+   "market": "spread",
+   "side": "PHI",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "quote": "Chad considers the Eagles to be in a prime 'get-right, get-healthy' spot at home.",
+   "baseline_compare": "Oct-2 BKR PHI +3.5 (-108); source +3; diff -0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Chad Millman",
+   "episode": "SHARP NFL Week 4 Bets - Patriots-Bills, Rams-Eagles and more",
+   "ts": 168,
+   "game": "GB@TB",
+   "market": "spread",
+   "side": "TB",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Chad wants to bet the Bucs as home dogs, liking the spot and fading the public sentiment on Green Bay.",
+   "baseline_compare": "Oct-2 BKR TB +3.5 (-108); source +3.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Stuckey",
+   "episode": "NFL Week 4 Betting Preview",
+   "ts": 164,
+   "game": "PIT",
+   "market": "spread",
+   "side": "FAVORITE",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "At two and a half, it would be Steelers or nothing for me.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE already-played (PIT@CLE final)",
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Evan Abrams",
+   "episode": "NFL Week 4 Betting Preview",
+   "ts": 244,
+   "game": "CLE",
+   "market": "spread",
+   "side": "UNDER",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "I kind of liked Cleveland... I just thought there was a little bit of value at the two and a half.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE already-played (PIT@CLE final)",
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Doug Kezirian",
+   "episode": "NFL Week 4 Betting Preview",
+   "ts": 307,
+   "game": "IND@WAS",
+   "market": "spread",
+   "side": "UNDER",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "I'll gladly take the three and a half with Washington because I think they can win outright.",
+   "baseline_compare": "Oct-2 BKR WAS +3.5 (+101); source +3.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Stuckey",
+   "episode": "NFL Week 4 Betting Preview",
+   "ts": 340,
+   "game": "DAL@HOU",
+   "market": "spread",
+   "side": "FAVORITE",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "I'm going with the Houston Texans minus two and a half at home.",
+   "baseline_compare": "Oct-2 BKR HOU -3 (-109); source -2.5; diff +0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Evan Abrams",
+   "episode": "NFL Week 4 Betting Preview",
+   "ts": 380,
+   "game": "DEN@SF",
+   "market": "spread",
+   "side": "UNDER",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "I'll take the three on the road and the great defense with Denver.",
+   "baseline_compare": "Oct-2 BKR DEN +2.5 (+101); source +2.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Stuckey",
+   "episode": "NFL Week 4 Betting Preview",
+   "ts": 420,
+   "game": "MIA@MIN",
+   "market": "spread",
+   "side": "UNDER",
+   "line": 10.5,
+   "price": null,
+   "player": null,
+   "quote": "I'm taking the eleven with Miami... we'll call it ten and a half.",
+   "baseline_compare": "Oct-2 BKR MIA +10.5 (-108); source +10.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Doug Kezirian",
+   "episode": "NFL Week 4 Betting Preview",
+   "ts": 420,
+   "game": "MIA@MIN",
+   "market": "total",
+   "side": "UNDER",
+   "line": 38.5,
+   "price": null,
+   "player": null,
+   "quote": "I'd be looking at unders in both.",
+   "baseline_compare": "Oct-2 BKR total 38.5; source UNDER 38.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Doug Kezirian",
+   "episode": "NFL Week 4 Betting Preview",
+   "ts": 450,
+   "game": "JAX@CIN",
+   "market": "spread",
+   "side": "UNDER",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "I think the Jags are the play here.",
+   "baseline_compare": "Oct-2 BKR JAX +2.5 (+102); source +2.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Andrew Erickson",
+   "episode": "10 BEST BETS for NFL Week 4 (Woolcock and Erickson, 38 min)",
+   "ts": 278,
+   "game": "IND@WAS",
+   "market": "spread",
+   "side": "IND",
+   "line": -3.5,
+   "price": -110,
+   "player": null,
+   "quote": "Commanders' defense is extremely poor, making an Under bet hard to justify. Shane Steichen has a strong track record internationally (2-0 SU and ATS), while Dan Quinn and Marcus Mariota have struggled in international ga",
+   "baseline_compare": "Oct-2 BKR IND -3.5 (-118); source -3.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Andrew Erickson",
+   "episode": "10 BEST BETS for NFL Week 4 (Woolcock and Erickson, 38 min)",
+   "ts": 372,
+   "game": "JAX@CIN",
+   "market": "total",
+   "side": "OVER",
+   "line": 51,
+   "price": -110,
+   "player": null,
+   "quote": "Expects a shootout. Bengals are 12-5 to the Over at home since 2024. Jaguars have struggled defending deep passes (22nd in EPA), whereas the Bengals rank first in deep-ball efficiency.",
+   "baseline_compare": "Oct-2 BKR total 52; source OVER 51; diff -1",
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Andrew Erickson",
+   "episode": "10 BEST BETS for NFL Week 4 (Woolcock and Erickson, 38 min)",
+   "ts": 444,
+   "game": "NE@BUF",
+   "market": "spread",
+   "side": "NE",
+   "line": 7.5,
+   "price": -128,
+   "player": null,
+   "quote": "A divisional matchup where New England has covered 5 of the last 6 against the Bills. Drake Maye is 2-0 ATS in Buffalo, and the Patriots' ability to move the ball (7 drives into JAX territory last week) suggests value at",
+   "baseline_compare": "Oct-2 BKR NE +7 (-113); source +7.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Pat Fitzmaurice",
+   "episode": "Week 4 start/sit questions",
+   "ts": 2875,
+   "game": "KC@LV",
+   "market": "spread",
+   "side": "OVER",
+   "line": 4.5,
+   "price": null,
+   "player": null,
+   "quote": "Believes the Raiders keep the game close against the Chiefs.",
+   "baseline_compare": "Oct-2 BKR LV +4.5 (-111); source +4.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Derek Brown",
+   "episode": "Week 4 start/sit questions",
+   "ts": 2905,
+   "game": "KC@LV",
+   "market": "spread",
+   "side": "UNDER",
+   "line": -4.5,
+   "price": null,
+   "player": null,
+   "quote": "Expects Spags to shut down the Raiders' key playmakers and cover the spread.",
+   "baseline_compare": "Oct-2 BKR KC -4.5 (-105); source -4.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Pat Fitzmaurice",
+   "episode": "Week 4 start/sit questions",
+   "ts": 2875,
+   "game": "KC@LV",
+   "market": "total",
+   "side": "UNDER",
+   "line": 47.5,
+   "price": null,
+   "player": null,
+   "quote": "Expects Maxx Crosby and the Raiders defense to limit the Chiefs, keeping the score low.",
+   "baseline_compare": "Oct-2 BKR total 48; source UNDER 47.5; diff -0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Derek Brown",
+   "episode": "Week 4 start/sit questions",
+   "ts": 2905,
+   "game": "KC@LV",
+   "market": "total",
+   "side": "UNDER",
+   "line": 47.5,
+   "price": null,
+   "player": null,
+   "quote": "Agrees with Fitz on the Under, expecting an uglier game than anticipated.",
+   "baseline_compare": "Oct-2 BKR total 48; source UNDER 47.5; diff -0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Pat Fitzmaurice",
+   "episode": "Week 4 start/sit questions",
+   "ts": 3625,
+   "game": "ARI@NYG",
+   "market": "over_under_receptions",
+   "side": "OVER",
+   "line": 2.5,
+   "price": -155,
+   "player": "Darren Waller",
+   "quote": " Waller is projected for 3.1 receptions, and Detroit has struggled heavily against tight ends all season.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)",
+    "AMBIGUOUS IDENTITY: same player tagged to games ARI@NYG/DET@CAR - do not repair from memory; roster gate decides"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Derek Brown",
+   "episode": "Week 4 start/sit questions",
+   "ts": 3663,
+   "game": "ARI@NYG",
+   "market": "season_receiving_yards",
+   "side": "OVER",
+   "line": 26.5,
+   "price": -114,
+   "player": "Darren Waller",
+   "quote": " Waller's target share is in a great spot and Detroit is soft against the position.",
+   "baseline_compare": null,
+   "flags": [
+    "LABEL-AMBIGUOUS market tagged season_* but line looks single-game; verify",
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)",
+    "AMBIGUOUS IDENTITY: same player tagged to games ARI@NYG/DET@CAR - do not repair from memory; roster gate decides"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Derrik Klassen",
+   "episode": "Week 4 Preview: The Raiders are in our Game of the Week!",
+   "ts": 990,
+   "game": "MIA@MIN",
+   "market": "spread",
+   "side": "MIN",
+   "line": -10.5,
+   "price": null,
+   "player": null,
+   "quote": "Derrik notes that the 10.5-point spread is highly reasonable given Brian Flores' elite defense matching up against a struggling Dolphins team led by Malik Willis, expecting a score around 17-3.",
+   "baseline_compare": "Oct-2 BKR MIN -10.5 (-108); source -10.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 115,
+   "game": "IND@WAS",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 400,
+   "player": "Daniel Jones",
+   "quote": "Averaging 3 carries over his last two games and is historically a strong runner near the goal line.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 145,
+   "game": "IND@WAS",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 250,
+   "player": "Terry McLaurin",
+   "quote": "Receiving elite volume with 9 targets in back-to-back weeks and developing strong rapport with Mariota.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER STATUS Doubtful (WSH) per ESPN feed 10/03 15:59Z",
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Gilles Gallant",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 245,
+   "game": "LAR@PHI",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 175,
+   "player": "Jalen Hurts",
+   "quote": "Routinely among league leaders in red zone rushing attempts and goal line opportunities.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Gilles Gallant",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 305,
+   "game": "LAR@PHI",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 1000,
+   "player": "Davis Allen",
+   "quote": "Valuable longshot option in multi-TE sets given injuries to other Rams tight ends.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Sean Koerner",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 365,
+   "game": "GB@TB",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 380,
+   "player": "Jalon Daniels",
+   "quote": "Mobile rookie quarterback making his first start.Rushing upside is highly discounted in the market.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Sean Koerner",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 495,
+   "game": "GB@TB",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 1400,
+   "player": "Michael Sturdivant",
+   "quote": "Set for an increased offensive role and more snaps with Jayden Reed sidelined.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER not on Oct-2 BKR prop menu (identity/market unverified)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 615,
+   "game": "NYJ@CHI",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 370,
+   "player": "Kalif Raymond",
+   "quote": "Earning steady target share from Keenum and outsnapping secondary depth options.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 670,
+   "game": "NYJ@CHI",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 900,
+   "player": "Geno Smith",
+   "quote": "Rushing quarterbacks have historically given this Bears defensive unit issues.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Gilles Gallant",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 790,
+   "game": "NE@BUF",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 500,
+   "player": "Drake Maye",
+   "quote": "Leads the team in red zone rushing share and represents New England's top ground threat.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Gilles Gallant",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 840,
+   "game": "NE@BUF",
+   "market": "2_touchdowns",
+   "side": "YES",
+   "line": null,
+   "price": 600,
+   "player": "Josh Allen",
+   "quote": "High-powered rushing threat near the goal line facing a highly vulnerable Patriots run defense.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Sean Koerner",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 930,
+   "game": "JAX@CIN",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 255,
+   "player": "Jakobi Meyers",
+   "quote": "Consistently dominating wide receiver snaps and leading the team's primary red zone targets.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Sean Koerner",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 980,
+   "game": "JAX@CIN",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 450,
+   "player": "Domnite Meyers",
+   "quote": "Poised to assume a larger role and vacuum up slot targets with key injuries to the receiving corps.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER not on Oct-2 BKR prop menu (identity/market unverified)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1090,
+   "game": "TEN@BAL",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 205,
+   "player": "Tony Pollard",
+   "quote": "Maintaining the lion's share of ground touches and red zone opportunities weekly.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1140,
+   "game": "TEN@BAL",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 250,
+   "player": "Lamar Jackson",
+   "quote": "Offensive line issues will likely force Lamar to scramble and carry the ball more often.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Gilles Gallant",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1270,
+   "game": "DAL@HOU",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 360,
+   "player": "Ryan Flournoy",
+   "quote": "Sees highly encouraging end zone target share and favorable individual corner matchups.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Gilles Gallant",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1330,
+   "game": "DAL@HOU",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 380,
+   "player": "Xavier Hutchinson",
+   "quote": "Will play as the clear WR2 option if Nico Collins is limited or on a pitch count.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Sean Koerner",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1410,
+   "game": "ARI@NYG",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 220,
+   "player": "Michael Wilson",
+   "quote": "Boasts a highly elite route participation rate and strong target share in the Arizona offense.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Sean Koerner",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1475,
+   "game": "ARI@NYG",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 330,
+   "player": "Najee Harris",
+   "quote": "With Singletary scratched and Tracy out of favor, Najee will handle the bulk of goal line touches.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1565,
+   "game": "MIA@MIN",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 470,
+   "player": "Malik Washington",
+   "quote": "Operates as Miami's top receiver and will absorb additional work with Achane sidelined.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1610,
+   "game": "MIA@MIN",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 370,
+   "player": "Kyler Murray",
+   "quote": "Highly dynamic dual-threat quarterback with elite scrambling abilities near the goal line.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER not on Oct-2 BKR prop menu (identity/market unverified)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Gilles Gallant",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1685,
+   "game": "DEN@SF",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 1100,
+   "player": "Luke Farrell",
+   "quote": "Taking over the primary TE2 role, providing great longshot value in two-TE packages.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Gilles Gallant",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1740,
+   "game": "DEN@SF",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 240,
+   "player": "Courtland Sutton",
+   "quote": "Remains the focal point of the Denver passing game, seeing red zone looks in every game.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Sean Koerner",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1810,
+   "game": "LAC@SEA",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 550,
+   "player": "Tre Harris",
+   "quote": "Set for additional targets with injuries to the Chargers' tight ends and inconsistencies from other WRs.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Sean Koerner",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1865,
+   "game": "LAC@SEA",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 225,
+   "player": "Emmanuel Wilson",
+   "quote": "Will serve as Seattle's primary goal line back with Zach Charbonnet on IR.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER not on Oct-2 BKR prop menu (identity/market unverified)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 1955,
+   "game": "KC@LV",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 240,
+   "player": "Xavier Worthy",
+   "quote": "Tied for the team lead in red zone targets and always carries massive big-play potential.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 2010,
+   "game": "KC@LV",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 200,
+   "player": "Brock Bowers",
+   "quote": "Consistently seeing elite target volume, making him a prime scoring candidate in any matchup.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "podcast",
+   "speaker": "Gilles Gallant",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 2085,
+   "game": "DET@CAR",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 200,
+   "player": "Jameson Williams",
+   "quote": " Carolina secondary is vulnerable to deep balls, setting up a prime home-run spot for Williams.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 2135,
+   "game": "DET@CAR",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 200,
+   "player": "Jalen Coker",
+   "quote": "High-volume receiver who consistently leads the team in red zone targets.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER Questionable",
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Sean Koerner",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 2170,
+   "game": "DET@CAR",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 260,
+   "player": "Darren Waller",
+   "quote": "Sizable red zone target facing a Lions defense that has surrendered 6 touchdowns to tight ends.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER listed WITHOUT ODDS on Oct-2 BKR (pulled)",
+    "AMBIGUOUS IDENTITY: same player tagged to games ARI@NYG/DET@CAR - do not repair from memory; roster gate decides"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Gilles Gallant",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 2270,
+   "game": "ATL@NO",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 450,
+   "player": "Kyle Pitts",
+   "quote": "High route participation and physical mismatch make him a strong red zone threat.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER not on Oct-2 BKR prop menu (identity/market unverified)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Grant Neiffer",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 2320,
+   "game": "ATL@NO",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 230,
+   "player": "Juwan Johnson",
+   "quote": "Major red zone focal point with 6 targets and 3 touchdowns on the year already.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER not on Oct-2 BKR prop menu (identity/market unverified)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Sean Koerner",
+   "episode": "NFL Touchdown Show | Week 4",
+   "ts": 2370,
+   "game": "ATL@NO",
+   "market": "anytime_touchdown",
+   "side": "YES",
+   "line": null,
+   "price": 500,
+   "player": "Noah Fant",
+   "quote": "With Taysom Hill out, Fant's red zone opportunities and overall TD ceiling are elevated.",
+   "baseline_compare": null,
+   "flags": [
+    "PLAYER Questionable",
+    "PLAYER not on Oct-2 BKR prop menu (identity/market unverified)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 742,
+   "game": "CLE",
+   "market": "teaser",
+   "side": "CLE",
+   "line": 8.5,
+   "price": -125,
+   "player": null,
+   "quote": "Likes Cleveland as a teaser leg up to +8.5 in what should be a very close, competitive game.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE already-played (PIT@CLE final)",
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ross Tucker",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 758,
+   "game": "CLE",
+   "market": "teaser",
+   "side": "CLE",
+   "line": 8.5,
+   "price": -125,
+   "player": null,
+   "quote": "Agrees with Steve, expects a hard-fought game decided by a field goal, taking Browns +8.5 on a teaser leg.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE already-played (PIT@CLE final)",
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ross Tucker",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 808,
+   "game": "IND@WAS",
+   "market": "spread",
+   "side": "WAS",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Believes the win over Seattle changes the dynamic for Washington; taking them for 1 unit at +3.5.",
+   "baseline_compare": "Oct-2 BKR WAS +3.5 (+101); source +3.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 834,
+   "game": "TEN@BAL",
+   "market": "spread",
+   "side": "TEN",
+   "line": 11.5,
+   "price": null,
+   "player": null,
+   "quote": "Baltimore got gifted their last game due to terrible clock management by Dallas and has a long travel turnaround; taking Tennessee +11.5 for 1 unit.",
+   "baseline_compare": "Oct-2 BKR TEN +11 (-109); source +11.5; diff +0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ross Tucker",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 854,
+   "game": "TEN@BAL",
+   "market": "spread",
+   "side": "TEN",
+   "line": 11.5,
+   "price": null,
+   "player": null,
+   "quote": "Agrees with Steve that Titans will remain competitive, taking Tennessee +11.5 for 2 units.",
+   "baseline_compare": "Oct-2 BKR TEN +11 (-109); source +11.5; diff +0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 898,
+   "game": "NE@BUF",
+   "market": "spread",
+   "side": "NE",
+   "line": 7,
+   "price": null,
+   "player": null,
+   "quote": "Believes Josh Allen is banged up and the line is slightly inflated; taking Patriots +7 for 1 unit.",
+   "baseline_compare": "Oct-2 BKR NE +7 (-113); source +7; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ross Tucker",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 921,
+   "game": "NE@BUF",
+   "market": "lean",
+   "side": "NE",
+   "line": 7,
+   "price": null,
+   "player": null,
+   "quote": "Only a lean for Ross due to how bad New England looked against Jacksonville, but notes teams have a way of bouncing back.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (lean)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 944,
+   "game": "JAX@CIN",
+   "market": "teaser",
+   "side": "JAX",
+   "line": 8.5,
+   "price": -125,
+   "player": null,
+   "quote": "Expects a high-scoring shootout where Jacksonville stays competitive; teasing them up to +8.5.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ross Tucker",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 952,
+   "game": "JAX@CIN",
+   "market": "teaser",
+   "side": "JAX",
+   "line": 8.5,
+   "price": -125,
+   "player": null,
+   "quote": "On the same page as Steve, using Jaguars +8.5 as a teaser leg.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ross Tucker",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 1027,
+   "game": "DAL@HOU",
+   "market": "teaser",
+   "side": "DAL",
+   "line": 8.5,
+   "price": -125,
+   "player": null,
+   "quote": "Doesn't see Dallas getting blown out by Houston; takes Cowboys +8.5 as his third teaser leg.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 1055,
+   "game": "ARI@NYG",
+   "market": "teaser",
+   "side": "NYG",
+   "line": 7.5,
+   "price": -125,
+   "player": null,
+   "quote": "Thinks this will be a very tight, low-scoring matchup; Giants teased up to +7.5 is highly valuable.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ross Tucker",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 1068,
+   "game": "ARI@NYG",
+   "market": "teaser",
+   "side": "NYG",
+   "line": 7.5,
+   "price": -125,
+   "player": null,
+   "quote": "Uses Giants +7.5 as his fourth teaser leg in what he views as a classic teaser spot.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 1106,
+   "game": "LAR@PHI",
+   "market": "spread",
+   "side": "PHI",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "quote": "The Rams have had a brutal travel stretch (Australia, Denver elevation, now Philadelphia); taking Eagles +3 for 2 units.",
+   "baseline_compare": "Oct-2 BKR PHI +3.5 (-108); source +3; diff -0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Ross Tucker",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 1130,
+   "game": "LAR@PHI",
+   "market": "lean",
+   "side": "PHI",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "quote": "Leaning Philadelphia because they've historically played well against the Rams, but keeping it to a lean as they aren't firing on all cylinders.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (lean)"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Steve Fezik",
+   "episode": "2026 NFL Week 4 Bets",
+   "ts": 1148,
+   "game": "GB@TB",
+   "market": "total",
+   "side": "UNDER",
+   "line": 39.5,
+   "price": null,
+   "player": null,
+   "quote": "With Baker Mayfield out with a dislocated thumb and Green Bay's offense struggling, points will be at an absolute premium; Under 39.5 for 1 unit.",
+   "baseline_compare": "Oct-2 BKR total 39; source UNDER 39.5; diff +0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Kendra Middleton",
+   "episode": "A Vasectomy &amp; Icky Picks | NFL Week 4 Preview",
+   "ts": 2008,
+   "game": "TEN@BAL",
+   "market": "spread",
+   "side": "TEN",
+   "line": 11.5,
+   "price": null,
+   "player": null,
+   "quote": "Ravens are coming back from Rio with a long flight, they are heavily injured, and Lamar struggles to cover big numbers.",
+   "baseline_compare": "Oct-2 BKR TEN +11 (-109); source +11.5; diff +0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Kendra Middleton",
+   "episode": "A Vasectomy &amp; Icky Picks | NFL Week 4 Preview",
+   "ts": 2286,
+   "game": "NYJ@CHI",
+   "market": "spread",
+   "side": "NYJ",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Fading the Bears who are a public darling after a primetime win. If Tyson Bagent starts, it's an even better spot.",
+   "baseline_compare": "Oct-2 BKR NYJ +3.5 (-104); source +3.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Kendra Middleton",
+   "episode": "A Vasectomy &amp; Icky Picks | NFL Week 4 Preview",
+   "ts": 2742,
+   "game": "DAL@HOU",
+   "market": "spread",
+   "side": "HOU",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "Desperation spot for Texans (0-3). Fading the Cowboys' travel back from Brazil.",
+   "baseline_compare": "Oct-2 BKR HOU -3 (-109); source -2.5; diff +0.5",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "Evan Abrams",
+   "episode": "A Vasectomy &amp; Icky Picks | NFL Week 4 Preview",
+   "ts": 3600,
+   "game": "LAR@PHI",
+   "market": "spread",
+   "side": "LAR",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Breaks the tie between Brandon (Eagles) and JJ/Kendra (Rams). Believes Eagles are a mess.",
+   "baseline_compare": "Oct-2 BKR LAR -3.5 (-108); source +2.5; diff +6",
+   "flags": [
+    "SIGN-MISMATCH vs baseline (team/side label or period likely wrong) - do not use",
+    "no price stated"
+   ]
+  },
+  {
+   "source": "podcast",
+   "speaker": "John Jastremski",
+   "episode": "A Vasectomy &amp; Icky Picks | NFL Week 4 Preview",
+   "ts": 3760,
+   "game": "DEN@SF",
+   "market": "spread",
+   "side": "DEN",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Broncos are at home for three consecutive games, and the 49ers' injury report is massive.",
+   "baseline_compare": "Oct-2 BKR DEN +2.5 (+101); source +2.5; diff +0",
+   "flags": [
+    "no price stated"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.727+00:00",
+   "game": "LAC@SEA",
+   "market": "spread",
+   "side": "Seattle Seahawks",
+   "line": -7,
+   "price": null,
+   "player": null,
+   "quote": "Doug backs Seattle following a fluke loss against a Chargers team making a brutal cross-country trip.",
+   "baseline_compare": "Oct-2 BKR SEA -7 (-111); source -7; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.727+00:00",
+   "game": "DET@CAR",
+   "market": "total",
+   "side": "OVER",
+   "line": null,
+   "price": null,
+   "player": null,
+   "quote": "Lions team total over recommended due to Carolina losing starting corners Jaycee Horn and Mike Jackson to IR.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.726+00:00",
+   "game": "DEN@SF",
+   "market": "spread",
+   "side": "Denver Broncos",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "quote": "Valuable key number of +3 on the road with a elite defense against a heavily banged-up 49ers team.",
+   "baseline_compare": "Oct-2 BKR DEN +2.5 (+101); source +3; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.726+00:00",
+   "game": "JAX@CIN",
+   "market": "spread",
+   "side": "Jacksonville Jaguars",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Line should be a pick'em; Jacksonville dominates when they win and Cincinnati is potentially overrated.",
+   "baseline_compare": "Oct-2 BKR JAX +2.5 (+102); source +2.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.726+00:00",
+   "game": "AARON RODGERS UNDER INTERCEPTIONS",
+   "market": "player_prop",
+   "side": "UNDER",
+   "line": 0.5,
+   "price": null,
+   "player": null,
+   "quote": "Rodgers historically protects the ball; recent interceptions were tipped/dropped passes, not bad decisions.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE unmapped/ambiguous team field 'AARON RODGERS UNDER INTERCEPTIONS'"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.726+00:00",
+   "game": "MIA@MIN",
+   "market": "total",
+   "side": "UNDER",
+   "line": 38.5,
+   "price": null,
+   "player": null,
+   "quote": "Doug likes the under, highlighting Minnesota's league-worst EPA per play among 3-0 teams over the last decade and Miami's offensive ineptitude.",
+   "baseline_compare": "Oct-2 BKR total 38.5; source UNDER 38.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.726+00:00",
+   "game": "MIA@MIN",
+   "market": "spread",
+   "side": "Miami Dolphins",
+   "line": 11,
+   "price": null,
+   "player": null,
+   "quote": "Classic buy-low, sell-high spot taking +11 with 0-3 Miami against a lucky 3-0 Vikings team with a broken offense and Justin Jefferson potentially sitting out.",
+   "baseline_compare": "Oct-2 BKR MIA +10.5 (-108); source +11; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.726+00:00",
+   "game": "MALIK WILLIS OVER RUSHING YARDS",
+   "market": "player_prop",
+   "side": "OVER",
+   "line": null,
+   "price": null,
+   "player": null,
+   "quote": "Evan's best bet for the game expecting Willis to scramble frequently when facing heavy pressure from Brian Flores' defense.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE unmapped/ambiguous team field 'MALIK WILLIS OVER RUSHING YARDS'"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.726+00:00",
+   "game": "NE@BUF",
+   "market": "spread",
+   "side": "Buffalo Bills",
+   "line": -6.5,
+   "price": null,
+   "player": null,
+   "quote": "Laying -6.5 with Buffalo as Drake Maye looks completely lost and the Patriots' run game ranks dead last in success rate (28%).",
+   "baseline_compare": "Oct-2 BKR BUF -7 (-103); source -6.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.726+00:00",
+   "game": "NYJ@CHI",
+   "market": "spread",
+   "side": "New York Jets",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Host's Six-Pack contest pick taking Jets +3.5 against a Bears team with backup QB situation.",
+   "baseline_compare": "Oct-2 BKR NYJ +3.5 (-104); source +3.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.726+00:00",
+   "game": "GB@TB",
+   "market": "moneyline",
+   "side": "Tampa Bay Buccaneers",
+   "line": null,
+   "price": null,
+   "player": null,
+   "quote": "Moneyline Underdog Parlay leg paired with Jags (+470 at DraftKings); expecting Jayden Daniels spark against broken Packers offensive line.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.726+00:00",
+   "game": "JERRION PRICE UNDER RUSHING YARDS",
+   "market": "player_prop",
+   "side": "UNDER",
+   "line": null,
+   "price": null,
+   "player": null,
+   "quote": "Recommended bet on under rushing yards/carries due to fumbling issues and reduced workload.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE unmapped/ambiguous team field 'JERRION PRICE UNDER RUSHING YARDS'"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.726+00:00",
+   "game": "ARI@NYG",
+   "market": "total",
+   "side": "OVER",
+   "line": 44.5,
+   "price": null,
+   "player": null,
+   "quote": "Sharp modeling likes the over with Arizona's crisp offense facing a banged-up Giants secondary missing Brian Burns.",
+   "baseline_compare": "Oct-2 BKR total 44.5; source OVER 44.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.725+00:00",
+   "game": "IND@WAS",
+   "market": "spread",
+   "side": "Washington Commanders",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Mariota is a top-tier backup, Washington's run defense is elite, and 3.5 provides good line value against an overvalued Colts team.",
+   "baseline_compare": "Oct-2 BKR WAS +3.5 (+101); source +3.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:18.725+00:00",
+   "game": "DAL@HOU",
+   "market": "spread",
+   "side": "Houston Texans",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "Desperate 0-3 team in a strong spot with Nico Collins returning to face a decimated Dallas secondary.",
+   "baseline_compare": "Oct-2 BKR HOU -3 (-109); source -2.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:17.884+00:00",
+   "game": "ATL@NO",
+   "market": "moneyline",
+   "side": "NO",
+   "line": 220,
+   "price": 220,
+   "player": null,
+   "quote": "Fezzik bets NO at +220 for the team scoring last to win the game, citing pure mathematical value.",
+   "baseline_compare": null,
+   "flags": [
+    "SIGN-MISMATCH moneyline vs baseline - do not use"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:17.883+00:00",
+   "game": "NYJ@CHI",
+   "market": "spread",
+   "side": "New York Jets",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Steve Fezzik's contest pick taking the Jets +3.5 at Chicago.",
+   "baseline_compare": "Oct-2 BKR NYJ +3.5 (-104); source +3.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:17.883+00:00",
+   "game": "DAL@HOU",
+   "market": "spread",
+   "side": "Dallas Cowboys",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Steve Fezzik's contest pick backing Cowboys +3.5 on the road against Texans.",
+   "baseline_compare": "Oct-2 BKR DAL +3 (-107); source +3.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:17.883+00:00",
+   "game": "LAR@PHI",
+   "market": "spread",
+   "side": "Philadelphia Eagles",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Steve Fezzik's contest pick taking Eagles +3.5 at home vs. Rams.",
+   "baseline_compare": "Oct-2 BKR PHI +3.5 (-108); source +3.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:17.883+00:00",
+   "game": "LAC@SEA",
+   "market": "spread",
+   "side": "Los Angeles Chargers",
+   "line": 7.5,
+   "price": null,
+   "player": null,
+   "quote": "Steve Fezzik's contest pick taking Chargers +7.5 on the road at Seattle.",
+   "baseline_compare": "Oct-2 BKR LAC +7 (-105); source +7.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:17.883+00:00",
+   "game": "TEN@BAL",
+   "market": "spread",
+   "side": "Tennessee Titans",
+   "line": 11.5,
+   "price": null,
+   "player": null,
+   "quote": "Steve Fezzik's contest pick backing Titans +11.5 visiting injured Ravens.",
+   "baseline_compare": "Oct-2 BKR TEN +11 (-109); source +11.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-10-01T15:46:17.882+00:00",
+   "game": "JAMESON WILLIAMS OVER RECEIVING YARDS",
+   "market": "player_prop",
+   "side": "OVER",
+   "line": 51.5,
+   "price": null,
+   "player": null,
+   "quote": "Carolina lost top two CBs to IR; Detroit's receivers should capitalize.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE unmapped/ambiguous team field 'JAMESON WILLIAMS OVER RECEIVING YARDS'"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:15.8+00:00",
+   "game": "IND@WAS",
+   "market": "futures",
+   "side": "OVER",
+   "line": 7.5,
+   "price": null,
+   "player": null,
+   "quote": "Brandon Anderson likes Indianapolis Colts Over 7.5 season wins.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Action Network",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:15.8+00:00",
+   "game": "DAL@HOU",
+   "market": "spread",
+   "side": "Houston Texans",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "Brandon Anderson likes Houston Texans on the lookahead spread vs Dallas Cowboys.",
+   "baseline_compare": "Oct-2 BKR HOU -3 (-109); source -2.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:15.386+00:00",
+   "game": "IND@WAS",
+   "market": "spread",
+   "side": "Washington Commanders",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "London game where Washington's run defense can contain Jonathan Taylor and Marcus Mariota looks competent driving the offense; line should be closer to a pick 'em.",
+   "baseline_compare": "Oct-2 BKR WAS +3.5 (+101); source +3.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:15.386+00:00",
+   "game": "NE@BUF",
+   "market": "spread",
+   "side": "Buffalo Bills",
+   "line": -6.5,
+   "price": null,
+   "player": null,
+   "quote": "Patriots offense has looked terrible with poor pass protection, while Buffalo is out for revenge after a poor first half last week and should win by double digits.",
+   "baseline_compare": "Oct-2 BKR BUF -7 (-103); source -6.5; diff +0.5",
+   "flags": [
+    "EXCLUDE/VERIFY period-market language"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:15.386+00:00",
+   "game": "NYJ@CHI",
+   "market": "spread",
+   "side": "Chicago Bears",
+   "line": -3.5,
+   "price": null,
+   "player": null,
+   "quote": "Bears offense is clicking under Ben Johnson and Case Keenum, taking advantage of a second consecutive home game and rest advantage against the Jets.",
+   "baseline_compare": "Oct-2 BKR CHI -3.5 (-112); source -3.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:15.386+00:00",
+   "game": "KC@LV",
+   "market": "spread",
+   "side": "Kansas City Chiefs",
+   "line": -4.5,
+   "price": null,
+   "player": null,
+   "quote": "Patrick Mahomes' smallest line ever vs. Raiders; Chiefs fans will invade Vegas for a battle for first place, and Kansas City looks like a juggernaut Super Bowl contender again.",
+   "baseline_compare": "Oct-2 BKR KC -4.5 (-105); source -4.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:15.386+00:00",
+   "game": "DET@CAR",
+   "market": "total",
+   "side": "OVER",
+   "line": 50.5,
+   "price": null,
+   "player": null,
+   "quote": "Lions defense struggles to stop the pass, while Bryce Young and Panthers offense are improving; neither defense is expected to stop the opposing offense in good early October weather.",
+   "baseline_compare": "Oct-2 BKR total 51; source OVER 50.5; diff -0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:15.386+00:00",
+   "game": "ATL@NO",
+   "market": "spread",
+   "side": "New Orleans Saints",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "High emotion in New Orleans for Monday Night Football and the Katrina 20th anniversary vs. archrival Falcons; Saints looking to bounce back after fourth-quarter collapse.",
+   "baseline_compare": "Oct-2 BKR NO -2.5 (-103); source -2.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.843+00:00",
+   "game": "MIA@MIN",
+   "market": "spread",
+   "side": "Miami Dolphins",
+   "line": 11,
+   "price": null,
+   "player": null,
+   "quote": "Fading an overvalued 3-0 Vikings team taking double-digit points with the Dolphins.",
+   "baseline_compare": "Oct-2 BKR MIA +10.5 (-108); source +11; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.843+00:00",
+   "game": "DEN@SF",
+   "market": "spread",
+   "side": "Denver Broncos",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "quote": "Broncos defense is battle-tested while the 49ers are beat up with key injuries and inflated by public perception.",
+   "baseline_compare": "Oct-2 BKR DEN +2.5 (+101); source +3; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.843+00:00",
+   "game": "KC@LV",
+   "market": "spread",
+   "side": "Las Vegas Raiders",
+   "line": 4.5,
+   "price": null,
+   "player": null,
+   "quote": "Raiders offense is operating efficiently with Kirk Cousins and Brock Bowers against a young Chiefs defense.",
+   "baseline_compare": "Oct-2 BKR LV +4.5 (-111); source +4.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.843+00:00",
+   "game": "DET@CAR",
+   "market": "spread",
+   "side": "Carolina Panthers",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Lions defense has injuries and struggles against the blitz; taking Panthers assuming Bryce Young plays.",
+   "baseline_compare": "Oct-2 BKR CAR +3.5 (-103); source +3.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.843+00:00",
+   "game": "ATL@NO",
+   "market": "spread",
+   "side": "Atlanta Falcons",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "quote": "Saints defense is bottom-five in key metrics; taking Falcons getting a key field goal hook in a tight division game.",
+   "baseline_compare": "Oct-2 BKR ATL +2.5 (-113); source +3; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.842+00:00",
+   "game": "LAR@PHI",
+   "market": "spread",
+   "side": "Philadelphia Eagles",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Simon Says pick of the week backing the Eagles to bounce back as road underdogs.",
+   "baseline_compare": "Oct-2 BKR PHI +3.5 (-108); source +3.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.842+00:00",
+   "game": "JAX@CIN",
+   "market": "spread",
+   "side": "Cincinnati Bengals",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "Prime bounce-back spot for Joe Burrow at home under a field goal against a Jaguars team that struggles on the road.",
+   "baseline_compare": "Oct-2 BKR CIN -2.5 (-117); source -2.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.842+00:00",
+   "game": "DAL@HOU",
+   "market": "spread",
+   "side": "Houston Texans",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "Desperate 0-3 Texans team facing a heavily depleted Cowboys secondary that struggles defensively.",
+   "baseline_compare": "Oct-2 BKR HOU -3 (-109); source -2.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.842+00:00",
+   "game": "NE@BUF",
+   "market": "spread",
+   "side": "Buffalo Bills",
+   "line": -6.5,
+   "price": null,
+   "player": null,
+   "quote": "Josh Allen bounce-back game against a severely broken Patriots team with offensive line injuries and May turnover struggles.",
+   "baseline_compare": "Oct-2 BKR BUF -7 (-103); source -6.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.842+00:00",
+   "game": "TEN@BAL",
+   "market": "spread",
+   "side": "Baltimore Ravens",
+   "line": null,
+   "price": null,
+   "player": null,
+   "quote": "Backing Ravens 1st half to avoid second-half defensive backdoor covers against a regressing Cam Ward.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE/VERIFY period-market language"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.842+00:00",
+   "game": "ARI@NYG",
+   "market": "spread",
+   "side": "Arizona Cardinals",
+   "line": 1.5,
+   "price": null,
+   "player": null,
+   "quote": "Taking Cardinals as short road underdogs prior to line flip against a Giants team losing pass rusher Brian Burns.",
+   "baseline_compare": "Oct-2 BKR ARI -2.5 (-110); source +1.5; diff +4",
+   "flags": [
+    "SIGN-MISMATCH vs baseline (team/side label or period likely wrong) - do not use"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-30T15:08:14.841+00:00",
+   "game": "CLE",
+   "market": "spread",
+   "side": "Cleveland Browns",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Auto-play on Thursday Night Football home spot where the Browns are 10-2 SU and 9-3 ATS historically, covering 9 straight.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE already-played (PIT@CLE final)"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "CLE",
+   "market": "teaser",
+   "side": "Cleveland Browns",
+   "line": 8.5,
+   "price": null,
+   "player": null,
+   "quote": "[TEASER \u2014 6-pt Wong teaser leg: CLE +2.5 \u2192 +8.5; market +2.5] Teaser leg (+6 points from +2.5 to +8.5) in a close, low-scoring division matchup.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE already-played (PIT@CLE final)",
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "IND@WAS",
+   "market": "teaser",
+   "side": "Washington Commanders",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "[TEASER \u2014 6-pt teaser leg (not Wong): WAS -2.5 \u2192 +3.5; market -1.5; inferred from line vs market] Ross taking the Commanders getting the hook (+3.5) at home against the Colts.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "TEN@BAL",
+   "market": "spread",
+   "side": "Tennessee Titans",
+   "line": 11.5,
+   "price": null,
+   "player": null,
+   "quote": "Best bet. Baltimore returning from Brazil trip; Titans stayed competitive in recent games.",
+   "baseline_compare": "Oct-2 BKR TEN +11 (-109); source +11.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "NE@BUF",
+   "market": "spread",
+   "side": "New England Patriots",
+   "line": 7,
+   "price": null,
+   "player": null,
+   "quote": "Fezzik grabbing 7 points as Josh Allen appears banged up despite New England's poor form.",
+   "baseline_compare": "Oct-2 BKR NE +7 (-113); source +7; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "JAX@CIN",
+   "market": "teaser",
+   "side": "Jacksonville Jaguars",
+   "line": 8.5,
+   "price": null,
+   "player": null,
+   "quote": "[TEASER \u2014 6-pt Wong teaser leg: JAX +2.5 \u2192 +8.5; market +2.5] Teaser leg (+6 points from +2.5 to +8.5) expecting a tight shootout game in Cincinnati.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "DAL@HOU",
+   "market": "teaser",
+   "side": "Dallas Cowboys",
+   "line": 8.5,
+   "price": null,
+   "player": null,
+   "quote": "[TEASER \u2014 6-pt Wong teaser leg: DAL +2.5 \u2192 +8.5; market +2.5] Teaser leg (+6 points from +2.5 to +8.5); Ross doesn't expect Dallas offense to get blown out.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "ARI@NYG",
+   "market": "teaser",
+   "side": "New York Giants",
+   "line": 7.5,
+   "price": null,
+   "player": null,
+   "quote": "[TEASER \u2014 6-pt Wong teaser leg: NYG +1.5 \u2192 +7.5; market -7] Teaser leg (+6 points from +1.5 to +7.5) for home dog Giants in a projected close contest.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "LAR@PHI",
+   "market": "spread",
+   "side": "Philadelphia Eagles",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "quote": "Fezzik backing Eagles at home against a travel-weary Rams team flying back cross-country.",
+   "baseline_compare": "Oct-2 BKR PHI +3.5 (-108); source +3; diff -0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "GB@TB",
+   "market": "total",
+   "side": "UNDER",
+   "line": 39.5,
+   "price": null,
+   "player": null,
+   "quote": "Fezzik taking the under with Baker Mayfield out (dislocated thumb) and Green Bay struggling.",
+   "baseline_compare": "Oct-2 BKR total 39; source UNDER 39.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "NYJ@CHI",
+   "market": "spread",
+   "side": "New York Jets",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Ross taking the Jets getting key hook (+3.5) against Case Keenum on a short week.",
+   "baseline_compare": "Oct-2 BKR NYJ +3.5 (-104); source +3.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "KC@LV",
+   "market": "spread",
+   "side": "Las Vegas Raiders",
+   "line": 4.5,
+   "price": null,
+   "player": null,
+   "quote": "Best bet. Both hosts taking Raiders +4.5 at home against 3-0 Chiefs.",
+   "baseline_compare": "Oct-2 BKR LV +4.5 (-111); source +4.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "KC@LV",
+   "market": "total",
+   "side": "OVER",
+   "line": 47.5,
+   "price": null,
+   "player": null,
+   "quote": "Fezzik expects scoring pace to hit the over in division clash.",
+   "baseline_compare": "Oct-2 BKR total 48; source OVER 47.5; diff -0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "LAC@SEA",
+   "market": "teaser",
+   "side": "Seattle Seahawks",
+   "line": -1,
+   "price": null,
+   "player": null,
+   "quote": "[TEASER \u2014 6-pt teaser leg (not Wong): SEA -7 \u2192 -1; market -3] Teaser leg (-6 points from -7 to -1) on Seattle coming off a tough loss.",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "DEN@SF",
+   "market": "spread",
+   "side": "Denver Broncos",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "quote": "Fezzik backing Broncos +3 against an injury-ravaged 49ers roster.",
+   "baseline_compare": "Oct-2 BKR DEN +2.5 (+101); source +3; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Even Money",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:45.093+00:00",
+   "game": "DET@CAR",
+   "market": "spread",
+   "side": "Carolina Panthers",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "Best bet. Both hosts backing Panthers +3.5 at home against vulnerable Lions road defense.",
+   "baseline_compare": "Oct-2 BKR CAR +3.5 (-103); source +3.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "The Favorites",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.966+00:00",
+   "game": "JAX@CIN",
+   "market": "spread",
+   "side": "Jacksonville Jaguars",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Brandon Kravitz bet Jags +2.5 as a Sunday night overnight line vs. Cincinnati, feeling Jacksonville is being undervalued as potentially the top team in the NFL.",
+   "baseline_compare": "Oct-2 BKR JAX +2.5 (+102); source +2.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.825+00:00",
+   "game": "DET@CAR",
+   "market": "total",
+   "side": "OVER",
+   "line": 49.5,
+   "price": null,
+   "player": null,
+   "quote": "Panthers defense struggles to stop Lions offensive playmakers (Gibbs, Montgomery, St. Brown, LaPorta) and Lions secondary is banged up.",
+   "baseline_compare": "Oct-2 BKR total 51; source OVER 49.5; diff -1.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.825+00:00",
+   "game": "DET@CAR",
+   "market": "spread",
+   "side": "Detroit Lions",
+   "line": -3,
+   "price": null,
+   "player": null,
+   "quote": "Warmly likes laying the field goal with Detroit on the road.",
+   "baseline_compare": "Oct-2 BKR DET -3.5 (-113); source -3; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.825+00:00",
+   "game": "ATL@NO",
+   "market": "spread",
+   "side": "New Orleans Saints",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "Saints are the better team playing at home; Falcons' recent strong performance may be an overreaction to facing a struggling Packers team.",
+   "baseline_compare": "Oct-2 BKR NO -2.5 (-103); source -2.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.825+00:00",
+   "game": "ATL@NO",
+   "market": "total",
+   "side": "OVER",
+   "line": 46.5,
+   "price": null,
+   "player": null,
+   "quote": "Fast-paced dome game with explosive playmakers on both sides; analysts project fair line closer to 48.5.",
+   "baseline_compare": "Oct-2 BKR total 48; source OVER 46.5; diff -1.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "CLE",
+   "market": "spread",
+   "side": "Cleveland Browns",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "quote": "Divisional home underdogs on Thursday night have strong historical ATS trends (9-1 ATS last year); Browns defense plays much better at home.",
+   "baseline_compare": null,
+   "flags": [
+    "EXCLUDE already-played (PIT@CLE final)"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "IND@WAS",
+   "market": "teaser",
+   "side": "Washington Commanders",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "quote": "[TEASER \u2014 6-pt teaser leg (not Wong): WAS -2.5 \u2192 +3.5; market -1.5; inferred from line vs market] Laying more than a field goal with the Colts on neutral/international territory is overly aggressive; value lies with Comm",
+   "baseline_compare": null,
+   "flags": [
+    "NON-STANDARD/OUT-OF-SCOPE (teaser)"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "IND@WAS",
+   "market": "total",
+   "side": "OVER",
+   "line": 46.5,
+   "price": null,
+   "player": null,
+   "quote": "Both defenses have major flaws and lack resistance, creating high potential for a high-scoring game in London.",
+   "baseline_compare": "Oct-2 BKR total 47.5; source OVER 46.5; diff -1",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "ARI@NYG",
+   "market": "moneyline",
+   "side": "Arizona Cardinals",
+   "line": null,
+   "price": null,
+   "player": null,
+   "quote": "Jameis Winston is unreliable as a market favorite; Cardinals have superior offensive firepower.",
+   "baseline_compare": null,
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "NE@BUF",
+   "market": "spread",
+   "side": "Buffalo Bills",
+   "line": -7,
+   "price": null,
+   "player": null,
+   "quote": "Patriots offense and Drake Maye are struggling massively; Bills routinely blow out opponents at home and line could push past -7.",
+   "baseline_compare": "Oct-2 BKR BUF -7 (-103); source -7; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "NE@BUF",
+   "market": "total",
+   "side": "OVER",
+   "line": 48.5,
+   "price": null,
+   "player": null,
+   "quote": "Turnover-prone quarterbacks and short field setups favor scoring over the total.",
+   "baseline_compare": "Oct-2 BKR total 50; source OVER 48.5; diff -1.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "NYJ@CHI",
+   "market": "spread",
+   "side": "New York Jets",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "quote": "Jets are playing competitive football under Aaron Glenn; Bears are on a short week facing quarterback uncertainty.",
+   "baseline_compare": "Oct-2 BKR NYJ +3.5 (-104); source +3; diff -0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "DAL@HOU",
+   "market": "spread",
+   "side": "Houston Texans",
+   "line": -1.5,
+   "price": null,
+   "player": null,
+   "quote": "Expecting Nico Collins back from injury to exploit a heavily banged-up Dallas secondary.",
+   "baseline_compare": "Oct-2 BKR HOU -3 (-109); source -1.5; diff +1.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "DAL@HOU",
+   "market": "spread",
+   "side": "Dallas Cowboys",
+   "line": 1.5,
+   "price": null,
+   "player": null,
+   "quote": "Dak Prescott is playing at an MVP level; Texans offense struggled to move the ball even against weak defenses.",
+   "baseline_compare": "Oct-2 BKR DAL +3 (-107); source +1.5; diff -1.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "LAR@PHI",
+   "market": "spread",
+   "side": "Los Angeles Rams",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "Rams offer solid early line value lying under a field goal.",
+   "baseline_compare": "Oct-2 BKR LAR -3.5 (-108); source -2.5; diff +1",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "TEN@BAL",
+   "market": "spread",
+   "side": "Ravens",
+   "line": -11.5,
+   "price": null,
+   "player": null,
+   "quote": "Massive talent gap between the teams; Derrick Henry extra motivated facing his former team and Ravens offense expected to score easily.",
+   "baseline_compare": "Oct-2 BKR BAL -11 (-107); source -11.5; diff -0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "TEN@BAL",
+   "market": "total",
+   "side": "OVER",
+   "line": 43.5,
+   "price": null,
+   "player": null,
+   "quote": "Cam Ward pushes overs on the road due to aggressive play and weak Titans defense, paired with high-scoring Ravens offense.",
+   "baseline_compare": "Oct-2 BKR total 42.5; source OVER 43.5; diff +1",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "JAX@CIN",
+   "market": "total",
+   "side": "OVER",
+   "line": 50.5,
+   "price": null,
+   "player": null,
+   "quote": "Two explosive offenses with defense units that won't overwhelm, leading to a high-scoring game environment.",
+   "baseline_compare": "Oct-2 BKR total 52; source OVER 50.5; diff -1.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "MIA@MIN",
+   "market": "total",
+   "side": "UNDER",
+   "line": 41.5,
+   "price": null,
+   "player": null,
+   "quote": "Dolphins offense severely limited without De'Von Achane facing Brian Flores' defense, plus Justin Jefferson banged up for Minnesota.",
+   "baseline_compare": "Oct-2 BKR total 38.5; source UNDER 41.5; diff +3",
+   "flags": [
+    "LARGE GAP vs baseline (different market/period or stale opener) - do not use"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "MIA@MIN",
+   "market": "spread",
+   "side": "Vikings",
+   "line": -5.5,
+   "price": null,
+   "player": null,
+   "quote": "Vikings expected to start aggressive early and dominate the first half defensively against a struggling Miami offense.",
+   "baseline_compare": "Oct-2 BKR MIN -10.5 (-108); source -5.5; diff +5",
+   "flags": [
+    "EXCLUDE/VERIFY period-market language",
+    "LARGE GAP vs baseline (different market/period or stale opener) - do not use"
+   ]
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "KC@LV",
+   "market": "spread",
+   "side": "Chiefs",
+   "line": -4.5,
+   "price": null,
+   "player": null,
+   "quote": "Kansas City in a good spot laying reasonable points on the road, with Kareem Walker heavily featured in red zone touches.",
+   "baseline_compare": "Oct-2 BKR KC -4.5 (-105); source -4.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "KC@LV",
+   "market": "total",
+   "side": "OVER",
+   "line": 46.5,
+   "price": null,
+   "player": null,
+   "quote": "Mahomes playing in a dome and effective Raiders offense with Brock Bowers back set up well for points.",
+   "baseline_compare": "Oct-2 BKR total 48; source OVER 46.5; diff -1.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "LAC@SEA",
+   "market": "total",
+   "side": "UNDER",
+   "line": 43.5,
+   "price": null,
+   "player": null,
+   "quote": "Chargers offense unable to score effectively even with turnover opportunities; strong Seattle defense at home.",
+   "baseline_compare": "Oct-2 BKR total 42.5; source UNDER 43.5; diff +1",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "LAC@SEA",
+   "market": "spread",
+   "side": "Seahawks",
+   "line": -6.5,
+   "price": null,
+   "player": null,
+   "quote": "Seattle playing at home motivated off a loss against a struggling Chargers squad that lacks offensive punch.",
+   "baseline_compare": "Oct-2 BKR SEA -7 (-111); source -6.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "BettingPros",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.824+00:00",
+   "game": "DEN@SF",
+   "market": "spread",
+   "side": "Broncos",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "quote": "San Francisco continues to deal with mounting injuries on defense while Denver's defense can keep the game tight.",
+   "baseline_compare": "Oct-2 BKR DEN +2.5 (+101); source +3; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.53+00:00",
+   "game": "DAL@HOU",
+   "market": "spread",
+   "side": "Houston Texans",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "quote": "Chad and Simon note sharp money moving toward Houston early against Dallas, advising bettors to take the Texans before the line moves.",
+   "baseline_compare": "Oct-2 BKR HOU -3 (-109); source -2.5; diff +0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.53+00:00",
+   "game": "KC@LV",
+   "market": "spread",
+   "side": "Las Vegas Raiders",
+   "line": 4.5,
+   "price": null,
+   "player": null,
+   "quote": "Divisional home underdog Raiders +4.5 vs Chiefs; historically strong situational spot.",
+   "baseline_compare": "Oct-2 BKR LV +4.5 (-111); source +4.5; diff +0",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.53+00:00",
+   "game": "DET@CAR",
+   "market": "spread",
+   "side": "Carolina Panthers",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "quote": "Backing Carolina as a home underdog +3 against Detroit.",
+   "baseline_compare": "Oct-2 BKR CAR +3.5 (-103); source +3; diff -0.5",
+   "flags": []
+  },
+  {
+   "source": "expert_feed",
+   "speaker": "Sharp or Square",
+   "episode": "expert registry",
+   "ts": "2026-09-29T15:00:44.53+00:00",
+   "game": "LAC@SEA",
+   "market": "spread",
+   "side": "Seattle Seahawks",
+   "line": -6.5,
+   "price": null,
+   "player": null,
+   "quote": "Taking Seahawks -6.5 at home against a heavily struggling Chargers squad.",
+   "baseline_compare": "Oct-2 BKR SEA -7 (-111); source -6.5; diff +0.5",
+   "flags": []
+  }
+ ]
+}

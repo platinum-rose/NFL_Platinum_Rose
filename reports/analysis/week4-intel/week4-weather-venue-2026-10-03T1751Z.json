@@ -1,0 +1,1663 @@
+{
+ "schema": "week4_weather_venue_v1",
+ "generated_at_utc": "2026-10-03T17:51:22Z",
+ "sources": {
+  "open_meteo": "https://api.open-meteo.com/v1/forecast (hourly forecast model blend)",
+  "nws": "https://api.weather.gov points->forecastHourly (US venues)",
+  "espn": "site.api.espn.com scoreboard weather field (AccuWeather-sourced)"
+ },
+ "note": "Read-only forecast evidence. Forecasts are not observations; re-check within ~3h of kickoff.",
+ "games": {
+  "IND@WAS": {
+   "venue": "Tottenham Hotspur Stadium, London (neutral)",
+   "roof": "open-air",
+   "lat": 51.6043,
+   "lon": -0.0664,
+   "kickoff_utc": "2026-10-04T13:30Z",
+   "espn_weather": null,
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T13:00",
+     "temp_f": 70.1,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 6.3,
+     "gust_mph": 14.1,
+     "wmo_code": 0
+    },
+    {
+     "utc": "2026-10-04T14:00",
+     "temp_f": 71.4,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 6.7,
+     "gust_mph": 15.0,
+     "wmo_code": 0
+    },
+    {
+     "utc": "2026-10-04T15:00",
+     "temp_f": 72.0,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 6.7,
+     "gust_mph": 14.5,
+     "wmo_code": 0
+    },
+    {
+     "utc": "2026-10-04T16:00",
+     "temp_f": 71.3,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 5.8,
+     "gust_mph": 13.0,
+     "wmo_code": 0
+    },
+    {
+     "utc": "2026-10-04T17:00",
+     "temp_f": 69.8,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 6.3,
+     "gust_mph": 13.6,
+     "wmo_code": 2
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     69.8,
+     72.0
+    ],
+    "max_precip_prob_pct": 0,
+    "total_precip_in": 0,
+    "max_wind_mph": 6.7,
+    "max_gust_mph": 15.0
+   }
+  },
+  "NE@BUF": {
+   "venue": "Highmark Stadium, Orchard Park NY",
+   "roof": "open-air",
+   "lat": 42.7738,
+   "lon": -78.787,
+   "kickoff_utc": "2026-10-04T17:00Z",
+   "espn_weather": {
+    "displayValue": "Mostly sunny",
+    "temperature": 67,
+    "highTemperature": 67,
+    "conditionId": "2"
+   },
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T17:00",
+     "temp_f": 66.2,
+     "precip_prob_pct": 2,
+     "precip_in": 0.0,
+     "wind_mph": 10.6,
+     "gust_mph": 15.2,
+     "wmo_code": 1
+    },
+    {
+     "utc": "2026-10-04T18:00",
+     "temp_f": 66.2,
+     "precip_prob_pct": 3,
+     "precip_in": 0.0,
+     "wind_mph": 13.4,
+     "gust_mph": 20.6,
+     "wmo_code": 2
+    },
+    {
+     "utc": "2026-10-04T19:00",
+     "temp_f": 68.4,
+     "precip_prob_pct": 3,
+     "precip_in": 0.0,
+     "wind_mph": 12.2,
+     "gust_mph": 16.6,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 64.8,
+     "precip_prob_pct": 7,
+     "precip_in": 0.0,
+     "wind_mph": 10.2,
+     "gust_mph": 14.8,
+     "wmo_code": 0
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     64.8,
+     68.4
+    ],
+    "max_precip_prob_pct": 7,
+    "total_precip_in": 0,
+    "max_wind_mph": 13.4,
+    "max_gust_mph": 20.6
+   },
+   "nws_forecast_generated": "2026-10-03T17:39:06+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T12:00:00-04:00",
+     "temp_f": 66,
+     "wind": "6 mph SW",
+     "pop_pct": 5,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T13:00:00-04:00",
+     "temp_f": 66,
+     "wind": "6 mph SW",
+     "pop_pct": 5,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T14:00:00-04:00",
+     "temp_f": 67,
+     "wind": "6 mph SW",
+     "pop_pct": 1,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T15:00:00-04:00",
+     "temp_f": 68,
+     "wind": "6 mph SW",
+     "pop_pct": 1,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T16:00:00-04:00",
+     "temp_f": 67,
+     "wind": "6 mph W",
+     "pop_pct": 1,
+     "short": "Mostly Sunny"
+    }
+   ]
+  },
+  "NYJ@CHI": {
+   "venue": "Soldier Field, Chicago",
+   "roof": "open-air",
+   "lat": 41.8623,
+   "lon": -87.6167,
+   "kickoff_utc": "2026-10-04T17:00Z",
+   "espn_weather": {
+    "displayValue": "Mostly sunny",
+    "temperature": 66,
+    "highTemperature": 66,
+    "conditionId": "2",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "60605"
+     ],
+     "href": "http://www.accuweather.com/en/us/soldier-field-il/60608/hourly-weather-forecast/18170_poi?day=2&hbhhour=12&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T17:00",
+     "temp_f": 64.8,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 8.3,
+     "gust_mph": 14.8,
+     "wmo_code": 0
+    },
+    {
+     "utc": "2026-10-04T18:00",
+     "temp_f": 66.2,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 8.2,
+     "gust_mph": 15.4,
+     "wmo_code": 0
+    },
+    {
+     "utc": "2026-10-04T19:00",
+     "temp_f": 66.9,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 8.7,
+     "gust_mph": 13.9,
+     "wmo_code": 2
+    },
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 66.9,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 8.0,
+     "gust_mph": 12.5,
+     "wmo_code": 1
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     64.8,
+     66.9
+    ],
+    "max_precip_prob_pct": 0,
+    "total_precip_in": 0,
+    "max_wind_mph": 8.7,
+    "max_gust_mph": 15.4
+   },
+   "nws_forecast_generated": "2026-10-03T17:36:04+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T11:00:00-05:00",
+     "temp_f": 65,
+     "wind": "10 mph WNW",
+     "pop_pct": 0,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T12:00:00-05:00",
+     "temp_f": 67,
+     "wind": "10 mph WNW",
+     "pop_pct": 0,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T13:00:00-05:00",
+     "temp_f": 69,
+     "wind": "10 mph WNW",
+     "pop_pct": 0,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T14:00:00-05:00",
+     "temp_f": 69,
+     "wind": "10 mph NW",
+     "pop_pct": 0,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T15:00:00-05:00",
+     "temp_f": 70,
+     "wind": "10 mph NW",
+     "pop_pct": 0,
+     "short": "Mostly Sunny"
+    }
+   ]
+  },
+  "JAX@CIN": {
+   "venue": "Paycor Stadium, Cincinnati",
+   "roof": "open-air",
+   "lat": 39.0955,
+   "lon": -84.5161,
+   "kickoff_utc": "2026-10-04T17:00Z",
+   "espn_weather": {
+    "displayValue": "Mostly sunny",
+    "temperature": 69,
+    "highTemperature": 69,
+    "conditionId": "2",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "45202"
+     ],
+     "href": "http://www.accuweather.com/en/us/paycor-stadium-oh/45212/hourly-weather-forecast/53622_poi?day=2&hbhhour=13&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T17:00",
+     "temp_f": 72.5,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 6.2,
+     "gust_mph": 7.6,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T18:00",
+     "temp_f": 74.4,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 4.3,
+     "gust_mph": 5.1,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T19:00",
+     "temp_f": 76.0,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 4.3,
+     "gust_mph": 6.0,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 76.4,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 6.2,
+     "gust_mph": 7.8,
+     "wmo_code": 3
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     72.5,
+     76.4
+    ],
+    "max_precip_prob_pct": 0,
+    "total_precip_in": 0,
+    "max_wind_mph": 6.2,
+    "max_gust_mph": 7.8
+   },
+   "nws_forecast_generated": "2026-10-03T17:34:35+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T12:00:00-04:00",
+     "temp_f": 67,
+     "wind": "1 mph N",
+     "pop_pct": 1,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T13:00:00-04:00",
+     "temp_f": 69,
+     "wind": "2 mph N",
+     "pop_pct": 1,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T14:00:00-04:00",
+     "temp_f": 72,
+     "wind": "3 mph N",
+     "pop_pct": 1,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T15:00:00-04:00",
+     "temp_f": 73,
+     "wind": "3 mph N",
+     "pop_pct": 1,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T16:00:00-04:00",
+     "temp_f": 73,
+     "wind": "3 mph N",
+     "pop_pct": 1,
+     "short": "Sunny"
+    }
+   ]
+  },
+  "ARI@NYG": {
+   "venue": "MetLife Stadium, East Rutherford NJ",
+   "roof": "open-air",
+   "lat": 40.8135,
+   "lon": -74.0745,
+   "kickoff_utc": "2026-10-04T17:00Z",
+   "espn_weather": {
+    "displayValue": "Cloudy",
+    "temperature": 62,
+    "highTemperature": 62,
+    "conditionId": "7",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "07073"
+     ],
+     "href": "http://www.accuweather.com/en/us/metlife-stadium-nj/07073/hourly-weather-forecast/52866_poi?day=2&hbhhour=13&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T17:00",
+     "temp_f": 59.6,
+     "precip_prob_pct": 8,
+     "precip_in": 0.0,
+     "wind_mph": 7.2,
+     "gust_mph": 17.4,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T18:00",
+     "temp_f": 60.2,
+     "precip_prob_pct": 13,
+     "precip_in": 0.0,
+     "wind_mph": 8.5,
+     "gust_mph": 17.7,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T19:00",
+     "temp_f": 58.5,
+     "precip_prob_pct": 26,
+     "precip_in": 0.016,
+     "wind_mph": 7.3,
+     "gust_mph": 16.1,
+     "wmo_code": 51
+    },
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 58.0,
+     "precip_prob_pct": 31,
+     "precip_in": 0.0,
+     "wind_mph": 6.2,
+     "gust_mph": 15.2,
+     "wmo_code": 3
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     58.0,
+     60.2
+    ],
+    "max_precip_prob_pct": 31,
+    "total_precip_in": 0.02,
+    "max_wind_mph": 8.5,
+    "max_gust_mph": 17.7
+   },
+   "nws_forecast_generated": "2026-10-03T17:30:07+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T12:00:00-04:00",
+     "temp_f": 63,
+     "wind": "9 mph E",
+     "pop_pct": 13,
+     "short": "Mostly Cloudy"
+    },
+    {
+     "start": "2026-10-04T13:00:00-04:00",
+     "temp_f": 64,
+     "wind": "8 mph E",
+     "pop_pct": 13,
+     "short": "Mostly Cloudy"
+    },
+    {
+     "start": "2026-10-04T14:00:00-04:00",
+     "temp_f": 66,
+     "wind": "8 mph E",
+     "pop_pct": 53,
+     "short": "Chance Rain Showers"
+    },
+    {
+     "start": "2026-10-04T15:00:00-04:00",
+     "temp_f": 66,
+     "wind": "7 mph E",
+     "pop_pct": 53,
+     "short": "Chance Rain Showers"
+    },
+    {
+     "start": "2026-10-04T16:00:00-04:00",
+     "temp_f": 66,
+     "wind": "7 mph E",
+     "pop_pct": 53,
+     "short": "Chance Rain Showers"
+    }
+   ]
+  },
+  "LAR@PHI": {
+   "venue": "Lincoln Financial Field, Philadelphia",
+   "roof": "open-air",
+   "lat": 39.9008,
+   "lon": -75.1675,
+   "kickoff_utc": "2026-10-04T17:00Z",
+   "espn_weather": {
+    "displayValue": "Cloudy",
+    "temperature": 64,
+    "highTemperature": 64,
+    "conditionId": "7",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "19103"
+     ],
+     "href": "http://www.accuweather.com/en/us/lincoln-financial-field-pa/19107/hourly-weather-forecast/43025_poi?day=2&hbhhour=13&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T17:00",
+     "temp_f": 60.0,
+     "precip_prob_pct": 30,
+     "precip_in": 0.0,
+     "wind_mph": 7.3,
+     "gust_mph": 17.9,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T18:00",
+     "temp_f": 59.9,
+     "precip_prob_pct": 25,
+     "precip_in": 0.0,
+     "wind_mph": 7.3,
+     "gust_mph": 17.0,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T19:00",
+     "temp_f": 60.3,
+     "precip_prob_pct": 24,
+     "precip_in": 0.0,
+     "wind_mph": 8.0,
+     "gust_mph": 16.6,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 60.3,
+     "precip_prob_pct": 16,
+     "precip_in": 0.0,
+     "wind_mph": 8.1,
+     "gust_mph": 16.3,
+     "wmo_code": 3
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     59.9,
+     60.3
+    ],
+    "max_precip_prob_pct": 30,
+    "total_precip_in": 0,
+    "max_wind_mph": 8.1,
+    "max_gust_mph": 17.9
+   },
+   "nws_forecast_generated": "2026-10-03T17:30:09+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T12:00:00-04:00",
+     "temp_f": 64,
+     "wind": "5 mph E",
+     "pop_pct": 39,
+     "short": "Chance Rain Showers"
+    },
+    {
+     "start": "2026-10-04T13:00:00-04:00",
+     "temp_f": 65,
+     "wind": "5 mph E",
+     "pop_pct": 45,
+     "short": "Chance Rain Showers"
+    },
+    {
+     "start": "2026-10-04T14:00:00-04:00",
+     "temp_f": 65,
+     "wind": "5 mph E",
+     "pop_pct": 77,
+     "short": "Rain Showers"
+    },
+    {
+     "start": "2026-10-04T15:00:00-04:00",
+     "temp_f": 65,
+     "wind": "5 mph NE",
+     "pop_pct": 57,
+     "short": "Rain Showers Likely"
+    },
+    {
+     "start": "2026-10-04T16:00:00-04:00",
+     "temp_f": 66,
+     "wind": "5 mph NE",
+     "pop_pct": 43,
+     "short": "Chance Rain Showers"
+    }
+   ]
+  },
+  "GB@TB": {
+   "venue": "Raymond James Stadium, Tampa",
+   "roof": "open-air",
+   "lat": 27.9759,
+   "lon": -82.5033,
+   "kickoff_utc": "2026-10-04T17:00Z",
+   "espn_weather": {
+    "displayValue": "Intermittent clouds",
+    "temperature": 88,
+    "highTemperature": 88,
+    "conditionId": "4",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "33607"
+     ],
+     "href": "http://www.accuweather.com/en/us/raymond-james-stadium-fl/33602/hourly-weather-forecast/53558_poi?day=2&hbhhour=13&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T17:00",
+     "temp_f": 86.6,
+     "precip_prob_pct": 5,
+     "precip_in": 0.0,
+     "wind_mph": 6.1,
+     "gust_mph": 8.3,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T18:00",
+     "temp_f": 87.4,
+     "precip_prob_pct": 6,
+     "precip_in": 0.0,
+     "wind_mph": 5.2,
+     "gust_mph": 7.8,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T19:00",
+     "temp_f": 87.5,
+     "precip_prob_pct": 9,
+     "precip_in": 0.0,
+     "wind_mph": 4.9,
+     "gust_mph": 7.8,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 87.3,
+     "precip_prob_pct": 13,
+     "precip_in": 0.0,
+     "wind_mph": 4.8,
+     "gust_mph": 6.5,
+     "wmo_code": 3
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     86.6,
+     87.5
+    ],
+    "max_precip_prob_pct": 13,
+    "total_precip_in": 0,
+    "max_wind_mph": 6.1,
+    "max_gust_mph": 8.3
+   },
+   "nws_forecast_generated": "2026-10-03T17:36:06+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T12:00:00-04:00",
+     "temp_f": 86,
+     "wind": "8 mph SE",
+     "pop_pct": 0,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T13:00:00-04:00",
+     "temp_f": 89,
+     "wind": "7 mph SE",
+     "pop_pct": 0,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T14:00:00-04:00",
+     "temp_f": 88,
+     "wind": "7 mph SSE",
+     "pop_pct": 12,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T15:00:00-04:00",
+     "temp_f": 88,
+     "wind": "6 mph SSE",
+     "pop_pct": 11,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T16:00:00-04:00",
+     "temp_f": 87,
+     "wind": "5 mph SSE",
+     "pop_pct": 12,
+     "short": "Partly Sunny"
+    }
+   ]
+  },
+  "TEN@BAL": {
+   "venue": "M&T Bank Stadium, Baltimore",
+   "roof": "open-air",
+   "lat": 39.278,
+   "lon": -76.6227,
+   "kickoff_utc": "2026-10-04T17:00Z",
+   "espn_weather": {
+    "displayValue": "Cloudy",
+    "temperature": 63,
+    "highTemperature": 63,
+    "conditionId": "7",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "21230"
+     ],
+     "href": "http://www.accuweather.com/en/us/m-t-bank-stadium-md/21202/hourly-weather-forecast/43035_poi?day=2&hbhhour=13&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T17:00",
+     "temp_f": 62.3,
+     "precip_prob_pct": 10,
+     "precip_in": 0.0,
+     "wind_mph": 7.6,
+     "gust_mph": 14.5,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T18:00",
+     "temp_f": 62.9,
+     "precip_prob_pct": 4,
+     "precip_in": 0.0,
+     "wind_mph": 6.2,
+     "gust_mph": 11.6,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T19:00",
+     "temp_f": 62.8,
+     "precip_prob_pct": 9,
+     "precip_in": 0.0,
+     "wind_mph": 7.0,
+     "gust_mph": 12.3,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 63.1,
+     "precip_prob_pct": 8,
+     "precip_in": 0.0,
+     "wind_mph": 6.3,
+     "gust_mph": 10.3,
+     "wmo_code": 3
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     62.3,
+     63.1
+    ],
+    "max_precip_prob_pct": 10,
+    "total_precip_in": 0,
+    "max_wind_mph": 7.6,
+    "max_gust_mph": 14.5
+   },
+   "nws_forecast_generated": "2026-10-03T17:30:11+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T12:00:00-04:00",
+     "temp_f": 65,
+     "wind": "7 mph E",
+     "pop_pct": 62,
+     "short": "Rain Showers Likely"
+    },
+    {
+     "start": "2026-10-04T13:00:00-04:00",
+     "temp_f": 65,
+     "wind": "7 mph E",
+     "pop_pct": 75,
+     "short": "Rain Showers"
+    },
+    {
+     "start": "2026-10-04T14:00:00-04:00",
+     "temp_f": 65,
+     "wind": "7 mph E",
+     "pop_pct": 72,
+     "short": "Rain Showers Likely"
+    },
+    {
+     "start": "2026-10-04T15:00:00-04:00",
+     "temp_f": 65,
+     "wind": "7 mph E",
+     "pop_pct": 32,
+     "short": "Chance Rain Showers"
+    },
+    {
+     "start": "2026-10-04T16:00:00-04:00",
+     "temp_f": 65,
+     "wind": "6 mph NE",
+     "pop_pct": 19,
+     "short": "Slight Chance Rain Showers"
+    }
+   ]
+  },
+  "DAL@HOU": {
+   "venue": "NRG Stadium, Houston",
+   "roof": "retractable roof",
+   "lat": 29.6847,
+   "lon": -95.4107,
+   "kickoff_utc": "2026-10-04T17:00Z",
+   "espn_weather": {
+    "displayValue": "Cloudy",
+    "temperature": 80,
+    "highTemperature": 80,
+    "conditionId": "7",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "77054"
+     ],
+     "href": "http://www.accuweather.com/en/us/nrg-stadium-tx/77002/hourly-weather-forecast/43039_poi?day=2&hbhhour=12&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T17:00",
+     "temp_f": 77.5,
+     "precip_prob_pct": 26,
+     "precip_in": 0.0,
+     "wind_mph": 7.2,
+     "gust_mph": 17.0,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T18:00",
+     "temp_f": 77.9,
+     "precip_prob_pct": 32,
+     "precip_in": 0.0,
+     "wind_mph": 8.0,
+     "gust_mph": 19.5,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T19:00",
+     "temp_f": 80.1,
+     "precip_prob_pct": 30,
+     "precip_in": 0.0,
+     "wind_mph": 9.1,
+     "gust_mph": 18.3,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 80.2,
+     "precip_prob_pct": 24,
+     "precip_in": 0.0,
+     "wind_mph": 9.7,
+     "gust_mph": 19.0,
+     "wmo_code": 3
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     77.5,
+     80.2
+    ],
+    "max_precip_prob_pct": 32,
+    "total_precip_in": 0,
+    "max_wind_mph": 9.7,
+    "max_gust_mph": 19.5
+   },
+   "nws_forecast_generated": "2026-10-03T17:30:11+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T11:00:00-05:00",
+     "temp_f": 78,
+     "wind": "10 mph N",
+     "pop_pct": 33,
+     "short": "Chance Showers And Thunderstorms"
+    },
+    {
+     "start": "2026-10-04T12:00:00-05:00",
+     "temp_f": 80,
+     "wind": "10 mph N",
+     "pop_pct": 33,
+     "short": "Chance Showers And Thunderstorms"
+    },
+    {
+     "start": "2026-10-04T13:00:00-05:00",
+     "temp_f": 80,
+     "wind": "10 mph N",
+     "pop_pct": 34,
+     "short": "Chance Showers And Thunderstorms"
+    },
+    {
+     "start": "2026-10-04T14:00:00-05:00",
+     "temp_f": 82,
+     "wind": "10 mph N",
+     "pop_pct": 34,
+     "short": "Chance Showers And Thunderstorms"
+    },
+    {
+     "start": "2026-10-04T15:00:00-05:00",
+     "temp_f": 82,
+     "wind": "10 mph N",
+     "pop_pct": 34,
+     "short": "Chance Showers And Thunderstorms"
+    }
+   ]
+  },
+  "MIA@MIN": {
+   "venue": "U.S. Bank Stadium, Minneapolis",
+   "roof": "fixed roof",
+   "lat": 44.9737,
+   "lon": -93.2581,
+   "kickoff_utc": "2026-10-04T20:05Z",
+   "espn_weather": {
+    "displayValue": "Mostly sunny",
+    "temperature": 65,
+    "highTemperature": 65,
+    "conditionId": "2",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "55415"
+     ],
+     "href": "http://www.accuweather.com/en/us/us-bank-stadium-mn/55415/hourly-weather-forecast/35911_poi?day=2&hbhhour=15&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "weather_dependency": "none (fixed roof)",
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 66.0,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 10.3,
+     "gust_mph": 21.7,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T21:00",
+     "temp_f": 66.7,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 11.1,
+     "gust_mph": 21.5,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T22:00",
+     "temp_f": 65.9,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 10.8,
+     "gust_mph": 16.6,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T23:00",
+     "temp_f": 63.5,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 8.4,
+     "gust_mph": 16.1,
+     "wmo_code": 0
+    },
+    {
+     "utc": "2026-10-05T00:00",
+     "temp_f": 59.1,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 4.7,
+     "gust_mph": 10.1,
+     "wmo_code": 0
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     59.1,
+     66.7
+    ],
+    "max_precip_prob_pct": 0,
+    "total_precip_in": 0,
+    "max_wind_mph": 11.1,
+    "max_gust_mph": 21.7
+   },
+   "nws_forecast_generated": "2026-10-03T17:38:28+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T15:00:00-05:00",
+     "temp_f": 64,
+     "wind": "10 mph NW",
+     "pop_pct": 0,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T16:00:00-05:00",
+     "temp_f": 65,
+     "wind": "10 mph NW",
+     "pop_pct": 0,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T17:00:00-05:00",
+     "temp_f": 64,
+     "wind": "10 mph NW",
+     "pop_pct": 0,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T18:00:00-05:00",
+     "temp_f": 63,
+     "wind": "5 mph NW",
+     "pop_pct": 0,
+     "short": "Mostly Clear"
+    },
+    {
+     "start": "2026-10-04T19:00:00-05:00",
+     "temp_f": 61,
+     "wind": "5 mph WNW",
+     "pop_pct": 0,
+     "short": "Mostly Clear"
+    }
+   ]
+  },
+  "KC@LV": {
+   "venue": "Allegiant Stadium, Las Vegas",
+   "roof": "fixed roof",
+   "lat": 36.0909,
+   "lon": -115.1833,
+   "kickoff_utc": "2026-10-04T20:25Z",
+   "espn_weather": {
+    "displayValue": "Sunny",
+    "temperature": 93,
+    "highTemperature": 93,
+    "conditionId": "1",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "89118"
+     ],
+     "href": "http://www.accuweather.com/en/us/allegiant-stadium-nv/89101/hourly-weather-forecast/209206_poi?day=2&hbhhour=13&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "weather_dependency": "none (fixed roof)",
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 94.6,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 5.4,
+     "gust_mph": 14.8,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T21:00",
+     "temp_f": 96.0,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 5.2,
+     "gust_mph": 12.5,
+     "wmo_code": 1
+    },
+    {
+     "utc": "2026-10-04T22:00",
+     "temp_f": 96.7,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 4.7,
+     "gust_mph": 13.9,
+     "wmo_code": 0
+    },
+    {
+     "utc": "2026-10-04T23:00",
+     "temp_f": 96.5,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 5.4,
+     "gust_mph": 14.3,
+     "wmo_code": 0
+    },
+    {
+     "utc": "2026-10-05T00:00",
+     "temp_f": 95.6,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 4.0,
+     "gust_mph": 10.7,
+     "wmo_code": 0
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     94.6,
+     96.7
+    ],
+    "max_precip_prob_pct": 0,
+    "total_precip_in": 0,
+    "max_wind_mph": 5.4,
+    "max_gust_mph": 14.8
+   },
+   "nws_forecast_generated": "2026-10-03T17:05:04+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T13:00:00-07:00",
+     "temp_f": 92,
+     "wind": "6 mph ENE",
+     "pop_pct": 0,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T14:00:00-07:00",
+     "temp_f": 93,
+     "wind": "7 mph ENE",
+     "pop_pct": 0,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T15:00:00-07:00",
+     "temp_f": 94,
+     "wind": "6 mph ENE",
+     "pop_pct": 0,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T16:00:00-07:00",
+     "temp_f": 95,
+     "wind": "6 mph ENE",
+     "pop_pct": 0,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T17:00:00-07:00",
+     "temp_f": 94,
+     "wind": "5 mph ENE",
+     "pop_pct": 0,
+     "short": "Sunny"
+    }
+   ]
+  },
+  "DEN@SF": {
+   "venue": "Levi's Stadium, Santa Clara",
+   "roof": "open-air",
+   "lat": 37.403,
+   "lon": -121.97,
+   "kickoff_utc": "2026-10-04T20:25Z",
+   "espn_weather": {
+    "displayValue": "Sunny",
+    "temperature": 91,
+    "highTemperature": 91,
+    "conditionId": "1",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "95054"
+     ],
+     "href": "http://www.accuweather.com/en/us/levis-stadium-ca/95050/hourly-weather-forecast/53539_poi?day=2&hbhhour=13&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 88.4,
+     "precip_prob_pct": 1,
+     "precip_in": 0.0,
+     "wind_mph": 3.8,
+     "gust_mph": 4.0,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T21:00",
+     "temp_f": 86.5,
+     "precip_prob_pct": 2,
+     "precip_in": 0.0,
+     "wind_mph": 7.4,
+     "gust_mph": 7.8,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T22:00",
+     "temp_f": 82.7,
+     "precip_prob_pct": 1,
+     "precip_in": 0.0,
+     "wind_mph": 11.5,
+     "gust_mph": 17.9,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T23:00",
+     "temp_f": 79.4,
+     "precip_prob_pct": 1,
+     "precip_in": 0.0,
+     "wind_mph": 10.8,
+     "gust_mph": 18.3,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-05T00:00",
+     "temp_f": 81.3,
+     "precip_prob_pct": 1,
+     "precip_in": 0.0,
+     "wind_mph": 7.8,
+     "gust_mph": 14.5,
+     "wmo_code": 3
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     79.4,
+     88.4
+    ],
+    "max_precip_prob_pct": 2,
+    "total_precip_in": 0,
+    "max_wind_mph": 11.5,
+    "max_gust_mph": 18.3
+   },
+   "nws_forecast_generated": "2026-10-03T17:39:08+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T13:00:00-07:00",
+     "temp_f": 89,
+     "wind": "1 mph NW",
+     "pop_pct": 0,
+     "short": "Mostly Cloudy"
+    },
+    {
+     "start": "2026-10-04T14:00:00-07:00",
+     "temp_f": 90,
+     "wind": "7 mph NW",
+     "pop_pct": 0,
+     "short": "Partly Sunny"
+    },
+    {
+     "start": "2026-10-04T15:00:00-07:00",
+     "temp_f": 91,
+     "wind": "7 mph NW",
+     "pop_pct": 0,
+     "short": "Partly Sunny"
+    },
+    {
+     "start": "2026-10-04T16:00:00-07:00",
+     "temp_f": 89,
+     "wind": "7 mph NW",
+     "pop_pct": 0,
+     "short": "Partly Sunny"
+    },
+    {
+     "start": "2026-10-04T17:00:00-07:00",
+     "temp_f": 88,
+     "wind": "8 mph NW",
+     "pop_pct": 0,
+     "short": "Sunny"
+    }
+   ]
+  },
+  "LAC@SEA": {
+   "venue": "Lumen Field, Seattle",
+   "roof": "open-air (partial canopy)",
+   "lat": 47.5952,
+   "lon": -122.3316,
+   "kickoff_utc": "2026-10-04T20:25Z",
+   "espn_weather": {
+    "displayValue": "Partly sunny",
+    "temperature": 67,
+    "highTemperature": 67,
+    "conditionId": "3",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "98134"
+     ],
+     "href": "http://www.accuweather.com/en/us/lumen-field-wa/98104/hourly-weather-forecast/53660_poi?day=2&hbhhour=13&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-04T20:00",
+     "temp_f": 68.9,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 4.0,
+     "gust_mph": 5.1,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T21:00",
+     "temp_f": 70.6,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 5.2,
+     "gust_mph": 6.5,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T22:00",
+     "temp_f": 70.8,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 6.3,
+     "gust_mph": 8.7,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-04T23:00",
+     "temp_f": 70.8,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 5.8,
+     "gust_mph": 8.3,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-05T00:00",
+     "temp_f": 69.2,
+     "precip_prob_pct": 0,
+     "precip_in": 0.0,
+     "wind_mph": 4.2,
+     "gust_mph": 7.8,
+     "wmo_code": 3
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     68.9,
+     70.8
+    ],
+    "max_precip_prob_pct": 0,
+    "total_precip_in": 0,
+    "max_wind_mph": 6.3,
+    "max_gust_mph": 8.7
+   },
+   "nws_forecast_generated": "2026-10-03T17:30:12+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T13:00:00-07:00",
+     "temp_f": 67,
+     "wind": "3 mph N",
+     "pop_pct": 0,
+     "short": "Mostly Sunny"
+    },
+    {
+     "start": "2026-10-04T14:00:00-07:00",
+     "temp_f": 69,
+     "wind": "5 mph NNW",
+     "pop_pct": 0,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T15:00:00-07:00",
+     "temp_f": 69,
+     "wind": "5 mph NNW",
+     "pop_pct": 0,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T16:00:00-07:00",
+     "temp_f": 71,
+     "wind": "5 mph NNW",
+     "pop_pct": 0,
+     "short": "Sunny"
+    },
+    {
+     "start": "2026-10-04T17:00:00-07:00",
+     "temp_f": 69,
+     "wind": "5 mph N",
+     "pop_pct": 0,
+     "short": "Sunny"
+    }
+   ]
+  },
+  "DET@CAR": {
+   "venue": "Bank of America Stadium, Charlotte",
+   "roof": "open-air",
+   "lat": 35.2258,
+   "lon": -80.8528,
+   "kickoff_utc": "2026-10-05T00:20Z",
+   "espn_weather": {
+    "displayValue": "Rain",
+    "temperature": 67,
+    "highTemperature": 67,
+    "conditionId": "18",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "28202"
+     ],
+     "href": "http://www.accuweather.com/en/us/bank-of-america-stadium-nc/28202/hourly-weather-forecast/53601_poi?day=2&hbhhour=20&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-05T00:00",
+     "temp_f": 67.9,
+     "precip_prob_pct": 27,
+     "precip_in": 0.0,
+     "wind_mph": 3.3,
+     "gust_mph": 6.7,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-05T01:00",
+     "temp_f": 67.6,
+     "precip_prob_pct": 27,
+     "precip_in": 0.0,
+     "wind_mph": 3.4,
+     "gust_mph": 8.1,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-05T02:00",
+     "temp_f": 67.4,
+     "precip_prob_pct": 20,
+     "precip_in": 0.0,
+     "wind_mph": 1.5,
+     "gust_mph": 4.9,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-05T03:00",
+     "temp_f": 67.4,
+     "precip_prob_pct": 21,
+     "precip_in": 0.0,
+     "wind_mph": 0.4,
+     "gust_mph": 4.7,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-05T04:00",
+     "temp_f": 67.1,
+     "precip_prob_pct": 18,
+     "precip_in": 0.0,
+     "wind_mph": 3.2,
+     "gust_mph": 7.6,
+     "wmo_code": 3
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     67.1,
+     67.9
+    ],
+    "max_precip_prob_pct": 27,
+    "total_precip_in": 0,
+    "max_wind_mph": 3.4,
+    "max_gust_mph": 8.1
+   },
+   "nws_forecast_generated": "2026-10-03T17:30:12+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-04T20:00:00-04:00",
+     "temp_f": 69,
+     "wind": "1 mph N",
+     "pop_pct": 59,
+     "short": "Rain Showers Likely"
+    },
+    {
+     "start": "2026-10-04T21:00:00-04:00",
+     "temp_f": 68,
+     "wind": "0 mph ",
+     "pop_pct": 59,
+     "short": "Rain Showers Likely"
+    },
+    {
+     "start": "2026-10-04T22:00:00-04:00",
+     "temp_f": 68,
+     "wind": "0 mph ",
+     "pop_pct": 60,
+     "short": "Rain Showers Likely"
+    },
+    {
+     "start": "2026-10-04T23:00:00-04:00",
+     "temp_f": 68,
+     "wind": "0 mph ",
+     "pop_pct": 60,
+     "short": "Rain Showers Likely"
+    },
+    {
+     "start": "2026-10-05T00:00:00-04:00",
+     "temp_f": 67,
+     "wind": "0 mph ",
+     "pop_pct": 55,
+     "short": "Rain Showers Likely"
+    }
+   ]
+  },
+  "ATL@NO": {
+   "venue": "Caesars Superdome, New Orleans",
+   "roof": "fixed roof",
+   "lat": 29.9511,
+   "lon": -90.0812,
+   "kickoff_utc": "2026-10-06T00:15Z",
+   "espn_weather": {
+    "displayValue": "Intermittent clouds",
+    "temperature": 79,
+    "highTemperature": 79,
+    "conditionId": "36",
+    "link": {
+     "language": "en-US",
+     "rel": [
+      "70112"
+     ],
+     "href": "http://www.accuweather.com/en/us/caesars-superdome-la/70112/hourly-weather-forecast/19245_poi?day=3&hbhhour=19&lang=en-us",
+     "text": "Weather",
+     "shortText": "Weather",
+     "isExternal": true,
+     "isPremium": false
+    }
+   },
+   "weather_dependency": "none (fixed roof)",
+   "open_meteo_game_window": [
+    {
+     "utc": "2026-10-06T00:00",
+     "temp_f": 80.1,
+     "precip_prob_pct": 32,
+     "precip_in": 0.0,
+     "wind_mph": 5.0,
+     "gust_mph": 17.4,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-06T01:00",
+     "temp_f": 80.1,
+     "precip_prob_pct": 18,
+     "precip_in": 0.0,
+     "wind_mph": 5.7,
+     "gust_mph": 15.9,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-06T02:00",
+     "temp_f": 79.7,
+     "precip_prob_pct": 18,
+     "precip_in": 0.004,
+     "wind_mph": 7.6,
+     "gust_mph": 18.3,
+     "wmo_code": 51
+    },
+    {
+     "utc": "2026-10-06T03:00",
+     "temp_f": 78.5,
+     "precip_prob_pct": 18,
+     "precip_in": 0.0,
+     "wind_mph": 7.5,
+     "gust_mph": 19.0,
+     "wmo_code": 3
+    },
+    {
+     "utc": "2026-10-06T04:00",
+     "temp_f": 77.9,
+     "precip_prob_pct": 18,
+     "precip_in": 0.0,
+     "wind_mph": 6.1,
+     "gust_mph": 16.3,
+     "wmo_code": 3
+    }
+   ],
+   "open_meteo_summary": {
+    "temp_f_range": [
+     77.9,
+     80.1
+    ],
+    "max_precip_prob_pct": 32,
+    "total_precip_in": 0.0,
+    "max_wind_mph": 7.6,
+    "max_gust_mph": 19.0
+   },
+   "nws_forecast_generated": "2026-10-03T17:51:40+00:00",
+   "nws_game_window": [
+    {
+     "start": "2026-10-05T19:00:00-05:00",
+     "temp_f": 79,
+     "wind": "5 mph NE",
+     "pop_pct": 19,
+     "short": "Slight Chance Showers And Thunderstorms"
+    },
+    {
+     "start": "2026-10-05T20:00:00-05:00",
+     "temp_f": 79,
+     "wind": "5 mph NE",
+     "pop_pct": 19,
+     "short": "Slight Chance Showers And Thunderstorms"
+    },
+    {
+     "start": "2026-10-05T21:00:00-05:00",
+     "temp_f": 78,
+     "wind": "5 mph NE",
+     "pop_pct": 19,
+     "short": "Slight Chance Showers And Thunderstorms"
+    },
+    {
+     "start": "2026-10-05T22:00:00-05:00",
+     "temp_f": 78,
+     "wind": "5 mph NE",
+     "pop_pct": 19,
+     "short": "Slight Chance Rain Showers"
+    },
+    {
+     "start": "2026-10-05T23:00:00-05:00",
+     "temp_f": 77,
+     "wind": "5 mph NE",
+     "pop_pct": 19,
+     "short": "Slight Chance Rain Showers"
+    }
+   ]
+  }
+ }
+}
