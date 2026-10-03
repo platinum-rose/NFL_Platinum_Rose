@@ -23,6 +23,7 @@ SKIP = re.compile(r'week 3|steelers vs\.? browns|browns vs\.? steelers|eagles vs
 out = collections.defaultdict(list)
 for r in idx.values():
     if r['source'] not in BET or not r.get('file') or SKIP.search(r['title'] or ''): continue
+    if r.get('class') in ('prior_week_recap', 'out_of_window'): continue   # tagged by scripts/intel/classify_week_articles.py
     if r['source'] == 'Pro Football Talk' and not re.search(r'pick|power rank', r['title'] or '', re.I): continue
     txt = open(r['file'], encoding='utf-8').read().split('\n---\n', 1)[-1]
     txt = html.unescape(re.sub(r'!\[[^\]]*\]\([^)]*\)', '', txt))

@@ -297,6 +297,7 @@ NOISE = re.compile(r"historic start|offensive start|stronger starts|record-setti
 seen_t = set()
 for r in AIDX.values():
     if r.get('source') not in ('ESPN NFL', 'Pro Football Talk', 'Rotowire NFL'): continue
+    if r.get('class') in ('prior_week_recap', 'out_of_window', 'general'): continue   # tagged by scripts/intel/classify_week_articles.py
     t = html.unescape(r.get('title') or '')
     if not NEWSRX.search(t) or NOISE.search(t) or t.lower() in seen_t: continue
     tm = teams_in(t, cities=False)   # nicknames only: 'Dallas Goedert' must not read as the Cowboys

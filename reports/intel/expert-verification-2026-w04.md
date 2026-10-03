@@ -1,6 +1,6 @@
 # Expert pick verification: 2026 Week 4
 
-Generated 2026-10-03T20:57:48+00:00 by `scripts/master-intel/verify_expert_rows.py`. 371 picks verified, 72 rejected. Rejected picks are not shown or counted anywhere in the report.
+Generated 2026-10-03T22:10:11+00:00 by `scripts/master-intel/verify_expert_rows.py`. 371 picks verified, 72 rejected. Rejected picks are not shown or counted anywhere in the report.
 
 | Kind | Source | Person | Game | Pick | Why rejected |
 |---|---|---|---|---|---|

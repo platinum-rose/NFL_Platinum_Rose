@@ -12,6 +12,7 @@
 // Output (full text is local-only, gitignored): data/intel/articles/<season>-w<NN>/<source>/<slug>.md
 //         index (committed): reports/intel/article-archive-<season>-w<NN>.md + data/intel/articles/<season>-w<NN>/index.json
 // Re-runnable: skips files already saved unless --refetch. Batch with --max N (each fetch ~3-6 s).
+// Then runs scripts/intel/classify_week_articles.py to tag each article (preview / team news / recap / general / out of window).
 // usage: node scripts/intel/archive_week_articles.mjs --week 4 [--max 25] [--an-pages 4] [--refetch]
 import 'dotenv/config';
 import fs from 'node:fs';
@@ -103,9 +104,9 @@ for (let p = 1; p <= AN_PAGES; p++) {
     const [_, title, u] = m;
     if (/\/nfl\/(odds|props|picks|teams|archive|futures|weather|injury-report|referee|sharp-report|public-betting|projections|prop-projections|against-the-spread)/.test(u)) continue;
     const ctx = md.slice(m.index + m[0].length, m.index + m[0].length + 400);
-    const d = ctx.match(/(\w{3} \d{1,2}, 20\d\d)/); const when = d ? new Date(d[1] + ' 12:00 UTC') : new Date();
-    if (when < WS || SKIP_TITLE.test(title)) continue;
-    if (!cand.has(u)) cand.set(u, { source: 'Action Network', title: title.trim(), url: u, published: when.toISOString(), captured: null, sbBody: '', origin: 'an-archive' });
+    const d = ctx.match(/(\w{3} \d{1,2}, 20\d\d)/); const when = d ? new Date(d[1] + ' 12:00 UTC') : null;   // no date on the archive card: decide after the fetch
+    if ((when && when < WS) || SKIP_TITLE.test(title)) continue;
+    if (!cand.has(u)) cand.set(u, { source: 'Action Network', title: title.trim(), url: u, published: when ? when.toISOString() : null, captured: null, sbBody: '', origin: 'an-archive' });
     else cand.get(u).origin += '+an-archive';
   }
 }
@@ -129,6 +130,12 @@ for (const c of cand.values()) {
   if (!text && !c.sbBody && /Twitter/.test(c.source) && (c.title || c.summary)) { text = [c.title, c.summary].filter(Boolean).join('\n\n'); how = 'tweet text (title + summary)'; }
   if (!text && c.sbBody) { text = c.sbBody; how = 'supabase body' + (c.sbBody.length >= 20000 ? ' (TRUNCATED at 20,000)' : ''); }
   if (!text) { index[c.url] = { source: c.source, title: c.title, url: c.url, published: c.published, origin: c.origin, file: null, chars: 0, sb_chars: c.sbBody.length, how: 'not fetched' }; continue; }
+  // Archive cards without a date (evergreen pieces): keep only if the article's own date falls in the week window.
+  const pubFinal = m.published || c.published;
+  if (c.origin === 'an-archive' && (!pubFinal || new Date(pubFinal) < new Date(WS.getTime() - 2 * 86400000))) {
+    index[c.url] = { source: c.source, title: m.title || c.title, url: c.url, published: pubFinal || null, origin: c.origin, file: null, chars: 0, sb_chars: 0, how: 'skipped: published before the week window' };
+    continue;
+  }
   fs.mkdirSync(path.dirname(file), { recursive: true });
   const fm = ['---', `source: ${JSON.stringify(c.source)}`, `title: ${JSON.stringify(m.title || c.title)}`, `author: ${JSON.stringify(m.author || '')}`,
     `url: ${c.url}`, `published: ${m.published || c.published || ''}`, `captured: ${c.captured || ''}`, `fetched_at: ${new Date().toISOString()}`,
@@ -149,3 +156,6 @@ const L = [`# Article archive: ${SEASON} Week ${WEEK}`, '', `Full text saved loc
 for (const r of rows.sort((a, b) => (a.source + (b.published || '')).localeCompare(b.source + (a.published || ''))))
   L.push(`| ${r.source} | ${(r.published || '').slice(0, 10)} | [${(r.title || '').replace(/\|/g, '/').replace(/&#0?38;|&amp;/g, '&').slice(0, 90)}](${r.url}) | ${r.author || ''} | ${r.chars} | ${r.sb_chars} | ${r.how} |`);
 fs.writeFileSync(`reports/intel/article-archive-${SEASON}-w${WW}.md`, L.join('\n') + '\n', 'utf8');
+// Tag each article (Week N preview, team news, Week N-1 recap, general, out of window); rewrites the index report with the split.
+try { console.log(execFileSync('python3', ['scripts/intel/classify_week_articles.py', '--week', String(WEEK), '--season', String(SEASON)]).toString().trim()); }
+catch (e) { console.error('classify_week_articles.py failed:', e.message); }
