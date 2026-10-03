@@ -469,7 +469,8 @@ def finalize_report(L, gaps):
           'Odds, lines and player availability change, and the information here may be incomplete or out of date. Sports betting involves real risk of loss. Any bet you place is your own decision, made at your own risk: '
           'the author and Platinum Rose accept no responsibility or liability for any wager, loss or other outcome arising from use of this report. Bet only where it is legal for you, only if you are of legal age, and only what you can afford to lose. '
           'If gambling stops being fun, help is available at 1-800-GAMBLER.</div>']
-    txt = '\n'.join(add_tooltips(L)).replace('__GAPS__', '; '.join(gaps) if gaps else 'none')
+    short_gaps = [re.sub(r'\s*\([^)]*/[^)]*\)', '', g_).strip().rstrip('.').replace('<', '&lt;') for g_ in gaps]  # banner: plain text, no file paths
+    txt = '\n'.join(add_tooltips(L)).replace('__GAPS__', '; '.join(short_gaps) if short_gaps else 'none')
     txt = re.sub(r'§\s?(\d+)', r'Section \1', txt).replace('§', '')
     return txt
 
@@ -499,7 +500,7 @@ def main():
     avail = (J('data/player-availability/latest.json', {}) or {}).get('events', [])
     sec = (J('data/secondary-matchups/latest.json', {}) or {}).get('matchups', [])
     dkfiles = sorted(glob.glob(str(ROOT / f'data/generated/props/dk-predictions-{D}-*.json')))
-    dk = [json.load(open(f)) for f in dkfiles]
+    dk = [d_ for d_ in (json.load(open(f)) for f in dkfiles) if isinstance(d_, dict) and 'away' in d_ and 'home' in d_ and 'rows' in d_]  # skip the week inventory/summary files
     digest_p = next((p for p in [f'scratch/w{WW}-synthesis-digest-sat.md', f'scratch/w{WW}-synthesis-digest.md'] if (ROOT / p).exists()), None)
     card_p = f'reports/bets/{a.season}-w{WW}-card.md'
     card = (ROOT / card_p).read_text(encoding='utf-8') if (ROOT / card_p).exists() else ''
@@ -528,6 +529,7 @@ def main():
     for r in pull.get('splits', []):
         aw, hm = ALIAS.get(r['away_team'], r['away_team']), ALIAS.get(r['home_team'], r['home_team'])
         SPL[f'{aw}@{hm}'] = r
+    if not SPL: gaps.append(f'No Action Network betting splits for Week {a.week} in the pull (game_splits has 0 rows); bets-vs-money bars and big-money signals are empty.')
 
     # ---------- consensus ----------
     ids = {g['id']: g for g in live}
@@ -604,7 +606,7 @@ def main():
             c = [x.strip() for x in ln.split('|')]
             if len(c) >= 5 and c[0] and not c[0].startswith(('game', '#', 'Sources', 'Live')) and c[-1]:
                 LEANS.append(dict(game=c[0], market=c[1], lean=c[2], source=c[3], tier=c[4]))
-    else: gaps.append('No synthesis digest (scratch/w<NN>-synthesis-digest*.md) — sections 1/4 fall back to consensus counts only.')
+    else: gaps.append(f'No synthesis digest (scratch/w{WW}-synthesis-digest*.md) — sections 1/4 fall back to consensus counts only.')
     # ---------- card tickets ----------
     if exp_dropped: gaps.append('Dropped mis-tagged expert side picks (selection names neither team): ' + '; '.join(exp_dropped))
     miss_nar = [g['id'] for g in live if not (NAR.get(g['id']) or {}).get('secs')]
@@ -896,8 +898,11 @@ def main():
                 if e.get('position') == 'QB' and str(e.get('normalized_status', '')).upper().startswith(('OUT', 'DOUBTFUL')): qb_notes.append(f'{t} {n} {e["normalized_status"].title()}')
     pulled_all = []
     for gid_, b_ in G.items():
-        pp = sorted({r['player'] for r in b_['rows'] if not r['available'] and r.get('player')})
-        if pp: pulled_all.append(f"{gid_}: {', '.join(pp)}")
+        prow = [r for r in b_['rows'] if r.get('player')]
+        pp = sorted({r['player'] for r in prow if not r['available']})
+        if prow and len([r for r in prow if not r['available']]) >= 0.8 * len(prow):
+            pulled_all.append(f"{gid_}: <em>no player props priced at capture ({len(pp)} players listed, all without odds) — the whole menu is off, not an injury signal</em>")
+        elif pp: pulled_all.append(f"{gid_}: {', '.join(pp)}")
     results = []
     for g in done:
         f_ = FS.get(g['id'])
@@ -907,7 +912,7 @@ def main():
           '<div class="status-banner" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-left: 5px solid #3B82F6; padding: 14px 18px; border-radius: 8px; color: #F8FAFC; font-size: 0.92rem; line-height: 1.55;">',
           f"<div>• <strong>Played:</strong> {'; '.join(results) or 'none yet'}. <strong>{len(live)} games remain.</strong></div>",
           f"<div>• <strong>Quarterback changes (out or doubtful):</strong> {', '.join(qb_notes) or 'none'}.</div>",
-          f"<div>• <strong>Big-money (\"sharp\") signals</strong> — share of money beats share of bets by 15+ points, at the line when first seen: {', '.join(SIG_ALL) or 'none'}. Full detail in §2.</div>",
+          f"<div>• <strong>Big-money (\"sharp\") signals</strong> — share of money beats share of bets by 15+ points, at the line when first seen: {', '.join(SIG_ALL) or ('none' if SPL else 'not available yet — no Action Network splits this week')}. Full detail in §2.</div>",
           f"<div>• <strong>Pulled from the Bookmaker menu (listed without odds — check status):</strong> {'; '.join(pulled_all) or 'none'}.</div>",
           '<div>• <strong>Known data gaps:</strong> __GAPS__ — details in §11.</div>',
           '<div>• <strong>How to use this page:</strong> 💡 hover or tap an underlined column header for its definition; click a header to sort; use the buttons on each section to open or close it.</div>',
@@ -1281,7 +1286,7 @@ def main():
             L += [f"**Why it's on the ticket:** {' '.join(why.split())}" if why else f"**Why:** {link_sources(lg['why'], gid)}", '',
                   f"**What breaks it:** {' '.join(brk.split())}" if brk else '', '', f"**Card evidence:** {link_sources(lg['why'], gid)} · [full game write-up](#{gsid(gid)})"] + ROLL_END
     else:
-        L += ['_No underdog round robin on this week\'s card._']
+        L += ['<em>No underdog round robin on this week\'s card yet.</em>']
 
     # ---------------- 7. Dossier ----------------
     L += ['', '<a id="game-dossier"></a>', '## 7. Full Chronological Analytical Dossier (With Market Cards)', '',
@@ -1293,7 +1298,7 @@ def main():
         fsc = FS.get(gid)
         head = f"⏰ {g['k'].astimezone(PT):%a %H:%M PT} — {matchup(gid)}" + (f" — {f0} {s0:+g} · O/U {t0}" if f0 else '') + ((f" · Proj {proj_txt(gid)}") if proj_txt(gid) and not g['done'] else '') + ((f" — 🏁 FINAL {fsc['away'][0]} {fsc['away'][1]}–{fsc['home'][0]} {fsc['home'][1]}" if fsc else ' — 🏁 FINAL') if g['done'] else '')
         L += [f'<a id="{gsid(gid)}"></a>'] + roll('section-7', gsid(gid) + '-box', head)
-        if g['done']: L += ['_Played before this build; excluded from every slot._'] + ROLL_END; continue
+        if g['done']: L += ['<em>Played before this build; excluded from every slot.</em>'] + ROLL_END; continue
         b = G.get(gid); nar = NAR.get(gid) or {}
         anch = dict(EXPANCH.get(gid, {}))
         for al, tgt in ALIAS_EXP.items():
