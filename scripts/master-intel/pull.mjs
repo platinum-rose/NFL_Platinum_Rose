@@ -29,13 +29,52 @@ const expert = await all('user_picks', 'expert,pick_type,selection,line,visitor,
 const splits = await all('game_splits', '*', q => q.eq('season', SEASON).eq('week', WEEK));
 const feedHealth = await all('feed_health', 'source,last_status,last_reason,consecutive_failures,last_success_at,last_checked_at');
 const podcasts = await all('podcast_transcripts', 'processed_at', q => q.gte('processed_at', WS));
+// These are human-promoted Gemini extractions, not the older transcript-count signal
+// above. Keep the source trail intact so the narrative writer can distinguish a
+// named speaker's stated view from the ordinary signals/notes feeds. Do not turn
+// these into recommendations here: cleaning and roster validation happen in the
+// separate weekly synthesis/digest step.
+const geminiIntel = await all(
+  'podcast_gemini_intel',
+  'episode_id,model,picks,analysis_notes,promoted_at,created_at,podcast_episodes(title,pub_date)',
+  q => q.not('promoted_at', 'is', null).gte('created_at', WS)
+);
+const podcastGemini = geminiIntel.map(row => {
+  const episode = Array.isArray(row.podcast_episodes) ? row.podcast_episodes[0] : row.podcast_episodes;
+  return {
+    episode_id: row.episode_id,
+    episode_title: episode?.title || null,
+    episode_published_at: episode?.pub_date || null,
+    model: row.model,
+    promoted_at: row.promoted_at,
+    created_at: row.created_at,
+    picks: (row.picks || []).map(pick => ({
+      ...pick,
+      rationale: (pick.rationale || '').slice(0, 500),
+    })),
+    analysis_notes: (row.analysis_notes || []).map(note => ({
+      ...note,
+      summary: (note.summary || '').slice(0, 700),
+      quote: (note.quote || '').slice(0, 500),
+    })),
+  };
+});
+const podcastGeminiPickCount = podcastGemini.reduce((total, row) => total + row.picks.length, 0);
+const podcastGeminiNoteCount = podcastGemini.reduce((total, row) => total + row.analysis_notes.length, 0);
 const out = {
-  schema: 'master_intel_pull_v1', week: WEEK, season: SEASON, window_start: WS, pulled_at: new Date().toISOString(),
+  schema: 'master_intel_pull_v2', week: WEEK, season: SEASON, window_start: WS, pulled_at: new Date().toISOString(),
   signals: signals.map(r => ({ ...r, rationale: (r.rationale || '').slice(0, 240) })),
   notes: notes.map(r => ({ ...r, summary: (r.summary || '').slice(0, 300) })),
   expert: expert.map(r => ({ ...r, rationale: (r.rationale || '').slice(0, 240) })),
   splits, feed_health: feedHealth, podcast_transcripts_processed: podcasts.length,
+  // Promoted source material only. These rows remain evidence, not card picks.
+  podcast_gemini: podcastGemini,
+  podcast_gemini_summary: {
+    promoted_episodes: podcastGemini.length,
+    picks: podcastGeminiPickCount,
+    analysis_notes: podcastGeminiNoteCount,
+  },
 };
 const f = `data/generated/master-intel/w${String(WEEK).padStart(2, '0')}-pull.json`;
 fs.writeFileSync(f, JSON.stringify(out));
-console.log(`${f}: signals=${signals.length} notes=${notes.length} expert=${expert.length} splits=${splits.length} feeds=${feedHealth.length} podcasts=${podcasts.length}`);
+console.log(`${f}: signals=${signals.length} notes=${notes.length} expert=${expert.length} splits=${splits.length} feeds=${feedHealth.length} podcasts=${podcasts.length} geminiEpisodes=${podcastGemini.length} geminiPicks=${podcastGeminiPickCount} geminiNotes=${podcastGeminiNoteCount}`);
