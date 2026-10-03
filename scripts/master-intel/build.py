@@ -23,7 +23,7 @@ Inputs (all local, all read-only; missing optional inputs are listed under "Know
 Outputs:
   dist/nfl_week<N>_master_packet/nfl_week<N>_master_betting_intelligence_summary.{md,html,docx}
 """
-import argparse, base64, collections, datetime, glob, json, os, re, sys, zoneinfo
+import argparse, base64, collections, datetime, glob, html, json, os, re, sys, zoneinfo
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -598,6 +598,33 @@ def main():
                 c.sort(key=lambda x: -x[1])
                 if len(c) > 1 and c[0][1] == c[1][1]: continue
                 CONS[gid][c[0][0]].add(src)
+    # Verified picks (scripts/master-intel/verify_expert_rows.py, Andy 2026-10-03): when the file exists, consensus
+    # counts, the expert registry and the per-expert section use ONLY picks checked against the actual matchup.
+    VER = J(f'data/generated/master-intel/w{WW}-expert-verified.json')
+    VROWS = [x for x in (VER or {}).get('rows', []) if x.get('verdict') == 'verified' and x.get('game') in ids] if VER else []
+    def vwho(x): return (x.get('persons') or [None])[0] or x.get('outlet') or '?'
+    if VER:
+        VOTES = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))
+        PROPSIG = collections.defaultdict(lambda: collections.defaultdict(set))
+        for x in VROWS:
+            g_ = x['game']; who = vwho(x)[:28]
+            if x['market'] in ('spread', 'moneyline', 'contest') and x.get('side') in g_.split('@'): VOTES[g_][who][x['side']] += 1
+            elif x['market'] == 'total' and x.get('side') in ('Over', 'Under'): VOTES[g_][who][x['side']] += 1
+            elif x['market'] == 'prop': PROPSIG[g_][esc(x.get('selection'))[:70]].add(who)
+        CONS = collections.defaultdict(lambda: collections.defaultdict(set))
+        for gid, bysrc in VOTES.items():
+            for src, cnt in bysrc.items():
+                for axis in (lambda k: k not in ('Over', 'Under'), lambda k: k in ('Over', 'Under')):
+                    c = [(k, v) for k, v in cnt.items() if axis(k)]
+                    if not c: continue
+                    c.sort(key=lambda x: -x[1])
+                    if len(c) > 1 and c[0][1] == c[1][1]: continue
+                    CONS[gid][c[0][0]].add(src)
+        rej = {(x.get('outlet'), str(x.get('selection')), str(x.get('line')), x.get('published')) for x in VER.get('rows', []) if x.get('kind') == 'expert_feed' and x.get('verdict') != 'verified'}
+        for gid in list(EXP):
+            EXP[gid] = [r for r in EXP[gid] if (r.get('expert'), str(r.get('selection') or ''), str(r.get('line')), r.get('created_at')) not in rej]
+    else:
+        gaps.append(f'No verified expert picks (data/generated/master-intel/w{WW}-expert-verified.json); consensus counts use unverified article matches. Run scripts/master-intel/verify_expert_rows.py.')
     YT = collections.defaultdict(list)
     for p in yt.get('picks', []):
         gm = p.get('game');
@@ -842,7 +869,8 @@ def main():
         """Regex for a source name. A one-word alias ("Fezzik", "Ross", "Erickson") also takes the adjoining first/last
         name, so "Steve Fezzik" or "Ross Tucker" is linked whole instead of splitting the person's name around the link."""
         core = re.escape(name)
-        if name in ALIAS_EXP: core = r'(?:[A-Z][a-z]+ )?' + core + r'(?: [A-Z][a-z]+)?'
+        if name in ALIAS_EXP:   # a first name may follow a tag (<strong>Steve Fezzik); an already-linked name ends in </a>, which (?![\w<]) skips
+            return r'(?<![\w#-])((?:[A-Z][a-z]+ )?' + core + r'(?: [A-Z][a-z]+)?)(?![\w<])'
         return r'(?<![\w>#-])(' + core + r')(?![\w<])'
     ABBR = [(r'\bAN\b', 'Action Network'), (r'\bSoS\b', 'Sharp or Square'), (r'\bBP\b', 'BettingPros'), (r'\bEM\b', 'Even Money'),
             (r'\b([A-Z]{2,3}) O vs ([A-Z]{2,3}) D\b', r'\1 passing offense vs \2 defense'), (r'\bmed\b', 'medium'),
@@ -1260,6 +1288,49 @@ def main():
         L += roll('section-4', f'feature-{typ.lower()}', f'{icon} {label} — {len(rs)} ranked') + [
               '| Rank | Pick | Lean | Game | Confidence | What moves it | Evidence |', '|---|---|---|---|---|---|---|'] + [
               f"| {i+1} | **{esc(r['market'])}** | {esc(r['lean'])} | {glink(r['gid']) if r['gid'] else esc(r['game'])} | {stars(r['conf'])} | {esc('; '.join(r['conf_why']))} | {link_sources(r['source'], r['gid'])} |" for i, r in enumerate(rs)] + ROLL_END
+    if VROWS:
+        def vpick(x):
+            m_, sd, ln = x['market'], x.get('side'), x.get('line')
+            lnt = (f" {float(ln):+g}" if m_ in ('spread', 'contest', 'teaser') else f" {float(ln):g}") if ln not in (None, '') else ''
+            if m_ in ('spread', 'contest', 'teaser'): return f"{sd}{lnt}" + {'contest': ' (contest pick)', 'teaser': ' (teaser leg)'}.get(m_, '')
+            if m_ == 'moneyline': return f"{sd} to win" + (f" ({float(x['price']):+.0f})" if x.get('price') not in (None, '') else '')
+            if m_ == 'total': return f"{sd}{lnt}"
+            sel = re.sub(r'\b(season_|player_)', '', str(x.get('selection') or '')).replace('_', ' ')
+            return sel + (f" ({float(x['price']):+.0f})" if x.get('price') not in (None, '') and m_ == 'prop' else '')
+        BYX = collections.defaultdict(list)
+        for x in VROWS:
+            if x['market'] not in ('spread', 'moneyline', 'total', 'teaser', 'contest', 'prop'): continue   # futures, parlays, win totals
+            for who in (x.get('persons') or [x.get('outlet') or '?']): BYX[who].append(x)
+        # the same pick heard on a podcast and logged in the registry is one pick with two sources
+        for who, xs in BYX.items():
+            merged = {}
+            for x in xs:
+                mk_ = 'spread' if x['market'] in ('spread', 'contest') else x['market']
+                k = (x['game'], mk_, str(x.get('side')), str(x.get('line')), (x.get('players') or [''])[0] if mk_ == 'prop' else '')
+                if k in merged:
+                    y = merged[k]; y['best_bet'] = y.get('best_bet') or x.get('best_bet'); y['contest'] = y.get('contest') or x.get('contest')
+                    y['_srcs'].append(x); continue
+                merged[k] = dict(x, _srcs=[x])
+            BYX[who] = list(merged.values())
+        order = sorted(BYX, key=lambda k: (-sum(1 for x in BYX[k] if x.get('best_bet') or x.get('contest')), -len(BYX[k]), k))
+        L += ['', '<a id="expert-best-bets"></a>', "### ⭐ Every expert's picks this week", '',
+              f"All {len(VROWS)} verified Week {W} picks, grouped by expert. ⭐ = the expert called it a best bet (or it came from a best-bets show); 🏆 = a contest pick (SuperContest, Splash, Six-Pack). "
+              "Every pick here passed the matchup check (right teams, this week, a line that fits the game, a player on one of the two rosters); "
+              f"rejected picks are listed in `reports/intel/expert-verification-{a.season}-w{WW}.md`. Where a pick has an outlet but no named person, it's filed under the outlet.", '']
+        for who in order:
+            xs = sorted(BYX[who], key=lambda x: (not (x.get('best_bet') or x.get('contest')), kick.get(x['game']) or datetime.datetime.max.replace(tzinfo=datetime.timezone.utc), x['market']))
+            nb = sum(1 for x in xs if x.get('best_bet')); nc = sum(1 for x in xs if x.get('contest'))
+            L += roll('section-4', f"bx-{slug(who)}", f"🎙️ {esc(who)} — {len(xs)} pick{'s' if len(xs) != 1 else ''}" + (f" · ⭐ {nb}" if nb else '') + (f" · 🏆 {nc}" if nc else ''))
+            L += ['| | Game | Pick | Why (their words) | Source |', '|---|---|---|---|---|']
+            for x in xs:
+                mk_ = ('⭐' if x.get('best_bet') else '') + ('🏆' if x.get('contest') else '')
+                def one_src(y):
+                    t_ = esc(html.unescape(str(y.get('outlet') if y.get('kind') != 'expert_feed' else f"{y.get('outlet')} registry")))[:48]
+                    return f"[{t_}]({y['url']})" if y.get('url') else t_
+                srcs = x.get('_srcs') or [x]
+                quote_ = max((html.unescape(y.get('quote') or '') for y in srcs), key=len)
+                L.append(f"| {mk_} | {glink(x['game'])} | **{esc(vpick(x))}** | {esc(quote_)[:220]} | {' · '.join(dict.fromkeys(one_src(y) for y in srcs))} |")
+            L += ['', '</div>', '</details>']
     L += ['', '<a id="expert-registry"></a>', '### 🎙️ Expert pick registry by game', '', 'Every named expert pick we captured this week, by game. The game write-ups in §7 link here when they cite an expert.', '']
     for g in live:
         ex, yp = EXP.get(g['id'], []), YT.get(g['id'], [])
@@ -1320,7 +1391,7 @@ def main():
     # ---------------- 7. Dossier ----------------
     L += ['', '<a id="game-dossier"></a>', '## 7. Full Chronological Analytical Dossier (With Market Cards)', '',
           'Each game opens with a written game script, our projected final score and the reasoning behind the card lean, with links to the experts cited and the actionable props for that game. Below that: the betting lines, key context, and every pick grouped by **sides**, **totals** and **player props**.', ''] + controls('section-7', 'Section 7')
-    icons = {'game script': '📖', 'why the card leans this way': '🧠', 'what breaks it': '⚠️'}
+    icons = {'game script': '📖', 'why the card leans this way': '🧠', 'what breaks it': '⚠️', 'what the experts are saying': '🎙️'}
     for g in sched:
         gid = g['id']; A, H = g['visitor'], g['home']
         b0 = G.get(gid); f0, s0 = fav(gid) if b0 else (None, None); t0 = b0 and (b0['tot'].get('Over') or (None,))[0]
