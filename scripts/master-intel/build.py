@@ -838,6 +838,12 @@ def main():
         for p in YT.get(g['id'], []):
             EXPANCH[g['id']].setdefault(p['speaker'], f"exp-{slug(g['id'])}-{slug(p['speaker'])}")
     ALIAS_EXP = {'Fezzik': 'Even Money', 'Ross': 'Even Money', 'Erickson': 'BettingPros', 'Wormley': 'BettingPros'}
+    def src_pat(name):
+        """Regex for a source name. A one-word alias ("Fezzik", "Ross", "Erickson") also takes the adjoining first/last
+        name, so "Steve Fezzik" or "Ross Tucker" is linked whole instead of splitting the person's name around the link."""
+        core = re.escape(name)
+        if name in ALIAS_EXP: core = r'(?:[A-Z][a-z]+ )?' + core + r'(?: [A-Z][a-z]+)?'
+        return r'(?<![\w>#-])(' + core + r')(?![\w<])'
     ABBR = [(r'\bAN\b', 'Action Network'), (r'\bSoS\b', 'Sharp or Square'), (r'\bBP\b', 'BettingPros'), (r'\bEM\b', 'Even Money'),
             (r'\b([A-Z]{2,3}) O vs ([A-Z]{2,3}) D\b', r'\1 passing offense vs \2 defense'), (r'\bmed\b', 'medium'),
             (r'\bsecondary (HIGH|MEDIUM|medium)', r'secondary matchup \1'), (r'\bFavorites\b', 'The Favorites')]
@@ -852,9 +858,9 @@ def main():
         done_ = set()
         for name in sorted(anch, key=len, reverse=True):
             if anch[name] in done_: continue
-            pat_ = r'(?<![\w>#-])' + re.escape(name) + r'(?![\w<])'
+            pat_ = src_pat(name)
             if re.search(pat_, t_):
-                t_ = re.sub(pat_, f'<a href="#{anch[name]}">{name}</a>', t_, count=1); done_.add(anch[name])
+                t_ = re.sub(pat_, lambda m_: f'<a href="#{anch[name]}">{m_.group(1)}</a>', t_, count=1); done_.add(anch[name])
         return t_
 
     # ---- actionable props pool ----
@@ -1330,9 +1336,9 @@ def main():
         def cite(text):
             for name in sorted(anch, key=len, reverse=True):
                 if anch[name] in linked and name not in ALIAS_EXP: continue
-                pat = r'(?<![\w>#-])' + re.escape(name) + r'(?![\w<])'
+                pat = src_pat(name)
                 if re.search(pat, text):
-                    text = re.sub(pat, f'<a href="#{anch[name]}">{name}</a>', text, count=1)
+                    text = re.sub(pat, lambda m_: f'<a href="#{anch[name]}">{m_.group(1)}</a>', text, count=1)
                     if anch[name] not in linked: linked.add(anch[name]); cited.append(f'<a href="#{anch[name]}">{ALIAS_EXP.get(name, name)}</a>')
             return text
         if nar.get('secs') or nar.get('proj'):
@@ -1716,9 +1722,9 @@ def main():
         for name in sorted(SCX | set(ALIAS_EXP), key=len, reverse=True):
             tgt = ALIAS_EXP.get(name, name)
             if tgt not in SCX or tgt in done_: continue
-            pat_ = r'(?<![\w>#-])' + re.escape(name) + r'(?![\w<])'
+            pat_ = src_pat(name)
             if re.search(pat_, t_):
-                t_ = re.sub(pat_, f'<a href="#scx-{slug(tgt)}">{name}</a>', t_, count=1); done_.add(tgt)
+                t_ = re.sub(pat_, lambda m_: f'<a href="#scx-{slug(tgt)}">{m_.group(1)}</a>', t_, count=1); done_.add(tgt)
         return t_
     S = [logo_css(), f'# 🏆 NFL Week {W} SuperContest Intelligence Report', '## Spread-Only Contest Card: Our Five, Every Side Ranked, and the Game-by-Game Case',
          f'### Built {datetime.datetime.now(PT).strftime("%a %b %d %Y %H:%M PT")} — contest lines from {esc(scl.get("source", "the contest"))[:60]}; market lines Bookmaker (BKR) {D}', '',
