@@ -1,0 +1,43 @@
+{
+  "schema": "dk_predictions_week4_inventory_v1",
+  "captured_date": "2026-10-02",
+  "week": 4,
+  "source": "DraftKings Predictions rendered event pages",
+  "price_semantics": "Contract buy-price probabilities, not sportsbook odds. Do not compare directly with BKR/BEO prices without accounting for contract spread and fees.",
+  "coverage": {
+    "games": 15,
+    "normalized_rows": 1266,
+    "raw_rendered_category_snapshots": 15,
+    "raw_rendered_categories": 165,
+    "excluded": "Accordion-only alternate ladders and collapsed market groups."
+  },
+  "market_totals": {
+    "game_spread": 30,
+    "game_total": 30,
+    "game_moneyline": 30,
+    "atd_1_plus": 263,
+    "first_td": 263,
+    "td_2_plus": 263,
+    "pass_yds": 30,
+    "rec_yds": 173,
+    "rush_yds": 86
+  },
+  "structured_files": [
+    {"event":"DEN Broncos @ SF 49ers","file":"dk-predictions-2026-10-02-broncos-at-49ers.json","rows":78},
+    {"event":"ARI Cardinals @ NY Giants","file":"dk-predictions-2026-10-02-cardinals-at-giants.json","rows":74},
+    {"event":"LA Chargers @ SEA Seahawks","file":"dk-predictions-2026-10-02-chargers-at-seahawks.json","rows":71},
+    {"event":"KC Chiefs @ LV Raiders","file":"dk-predictions-2026-10-02-chiefs-at-raiders.json","rows":78},
+    {"event":"IND Colts @ WAS Commanders","file":"dk-predictions-2026-10-02-colts-at-commanders.json","rows":88},
+    {"event":"DAL Cowboys @ HOU Texans","file":"dk-predictions-2026-10-02-cowboys-at-texans.json","rows":83},
+    {"event":"MIA Dolphins @ MIN Vikings","file":"dk-predictions-2026-10-02-dolphins-at-vikings.json","rows":71},
+    {"event":"ATL Falcons @ NO Saints","file":"dk-predictions-2026-10-02-falcons-at-saints.json","rows":76},
+    {"event":"JAX Jaguars @ CIN Bengals","file":"dk-predictions-2026-10-02-jaguars-at-bengals.json","rows":91},
+    {"event":"NY Jets @ CHI Bears","file":"dk-predictions-2026-10-02-jets-at-bears.json","rows":71},
+    {"event":"DET Lions @ CAR Panthers","file":"dk-predictions-2026-10-02-lions-at-panthers.json","rows":75},
+    {"event":"GB Packers @ TB Buccaneers","file":"dk-predictions-2026-10-02-packers-at-buccaneers.json","rows":78},
+    {"event":"NE Patriots @ BUF Bills","file":"dk-predictions-2026-10-02-patriots-at-bills.json","rows":88},
+    {"event":"LA Rams @ PHI Eagles","file":"dk-predictions-2026-10-02-rams-at-eagles.json","rows":71},
+    {"event":"TEN Titans @ BAL Ravens","file":"dk-predictions-2026-10-02-titans-at-ravens.json","rows":75}
+  ],
+  "raw_snapshot_directory": "data/generated/props/dk-predictions-live-2026-10-02-week4"
+}

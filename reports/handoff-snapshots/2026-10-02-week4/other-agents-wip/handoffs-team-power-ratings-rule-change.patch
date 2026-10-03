@@ -1,0 +1,113 @@
+diff --git a/handoffs/2026-09-24-1100-claude-week3-reprice-branch-consolidation-handoff.md b/handoffs/2026-09-24-1100-claude-week3-reprice-branch-consolidation-handoff.md
+index 004880f..81fa42c 100644
+--- a/handoffs/2026-09-24-1100-claude-week3-reprice-branch-consolidation-handoff.md
++++ b/handoffs/2026-09-24-1100-claude-week3-reprice-branch-consolidation-handoff.md
+@@ -38,7 +38,7 @@ All 13 NFL tasks confirmed Ready (Twitter_Harvester Running) after being paused
+ `sync-live-market-lines.mjs` reported **15 requests remaining (485/500 used)**. GitHub `odds-ingest.yml` now runs every 4 h (main's in-season cadence, live since 9/21) and the Thursday/Sunday toolbox cadences also call it → odds ingestion will start failing soon. Decide: upgrade/reset the plan, or cut the cron back (e.g. 2×/day off-game-days) — a workflow edit goes live on push. Also: the SuperContest live comparison still uses Week 2 locked lines (Week 3 not posted).
+ 
+ ## 4. Carry-forward (unchanged)
+-Supabase sync of 19 Week 2 ticket numbers (pending OK) · PFF podcast feed URL fix · toolbox dry-run steps · $6.81 free money unassigned (don't lock to BUF without asking) · team power ratings not evidence · no bets/account actions · any Supabase write needs per-change OK · stage narrowly, never reset/clean/stash · this environment can't push.
++Supabase sync of 19 Week 2 ticket numbers (pending OK) · PFF podcast feed URL fix · toolbox dry-run steps · $6.81 free money unassigned (don't lock to BUF without asking) · team power ratings are allowed as evidence · no bets/account actions · any Supabase write needs per-change OK · stage narrowly, never reset/clean/stash · this environment can't push.
+ 
+ ## 5. Resume prompt (fresh session)
+ ```
+@@ -63,7 +63,7 @@ Today:
+ - Separately when I say so: CI-GREEN, props-intel tests update, governance "commit to main" pass, worktree/branch cleanup.
+ 
+ Standing constraints: no git add -A (stage narrowly, check mtimes); never reset/clean/stash the dirty checkout; any Supabase write needs my per-change OK;
+-no bet placement or account actions; I push (give me the command); docs/Futures_Odds/ stays untracked; don't use team power ratings as evidence;
++no bet placement or account actions; I push (give me the command); docs/Futures_Odds/ stays untracked; team power ratings are allowed as evidence;
+ $6.81 free money unassigned — ask before locking it; local scheduled tasks run from this checkout, so uncommitted script edits go live;
+ stale .git/index.lock → confirm no git process, request delete permission on E:\dev, rm, retry. Commit attribution per the session's system reminder.
+ ```
+diff --git a/handoffs/2026-09-24-1435-claude-week3-tnf-props-odds-single-source-pickem-handoff.md b/handoffs/2026-09-24-1435-claude-week3-tnf-props-odds-single-source-pickem-handoff.md
+index d73c963..5e1438c 100644
+--- a/handoffs/2026-09-24-1435-claude-week3-tnf-props-odds-single-source-pickem-handoff.md
++++ b/handoffs/2026-09-24-1435-claude-week3-tnf-props-odds-single-source-pickem-handoff.md
+@@ -40,5 +40,5 @@ Resume NFL_Dashboard ("Platinum Rose") — Week 3 THU→FRI. Repo E:\dev\project
+ Read: HANDOFF.md → handoffs/2026-09-24-1435-claude-week3-tnf-props-odds-single-source-pickem-handoff.md → reports/bets/2026-w03-card.md (bottom: TNF brief + ladder + placed) → agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md.
+ First: if before TNF kickoff (5:15 PT Thu), re-price the favorites longshot parlay (§4.1) from Codex's fresh BEO/BKR line pulls; Andy pastes the slip for verification before submitting.
+ Then: confirm SuperContest 5 + Bills credit + slots 1–5 status; log placed vs proposed in DEV claude/recommendation-ledger-2026.md; Nacua/Darnold Friday status for slots 3/4; pick'em leaderboards → standings; futures review §8; Circa re-price if photos arrive.
+-Standing constraints: no git add -A; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; Andy pushes; docs/Futures_Odds/ untracked; no team power ratings as evidence; $6.81 free money unassigned; local scheduled tasks run from this checkout; paste-slip-before-submit check on every ticket.
++Standing constraints: no git add -A; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; Andy pushes; docs/Futures_Odds/ untracked; team power ratings are allowed as evidence; $6.81 free money unassigned; local scheduled tasks run from this checkout; paste-slip-before-submit check on every ticket.
+ ```
+diff --git a/handoffs/2026-09-24-1805-claude-week3-tnf-night-favorites-parlay-late-adds-handoff.md b/handoffs/2026-09-24-1805-claude-week3-tnf-night-favorites-parlay-late-adds-handoff.md
+index 06b90bb..68b1267 100644
+--- a/handoffs/2026-09-24-1805-claude-week3-tnf-night-favorites-parlay-late-adds-handoff.md
++++ b/handoffs/2026-09-24-1805-claude-week3-tnf-night-favorites-parlay-late-adds-handoff.md
+@@ -41,5 +41,5 @@ Resume NFL_Dashboard ("Platinum Rose") — Week 3 THU night → FRI. Repo E:\dev
+ Read: HANDOFF.md → handoffs/2026-09-24-1805-claude-week3-tnf-night-favorites-parlay-late-adds-handoff.md → reports/bets/2026-w03-card.md (bottom) → DEV claude/recommendation-ledger-2026.md (Week 3).
+ First: grade TNF (ATL@GB) — Tier 1 999235271 (+ Primetime insurance), Tier 2 739202488, Tier 3 999241744, 1st-TD SGP 739213650, and the TNF legs of 739210986 / 739211245 / 739213766; grade D13 + D15 in the ledger; update wagers JSON statuses; regenerate the tracker (npm run tracker:generate -- --week 3).
+ Then: open spots on 739211245 (2) and 739213766 (1); SuperContest 5 / Bills credit / slots 1–5 status; Friday Nacua/Darnold; pick'em standings → pools-2026.json → npm run pickem:card; futures §8.
+-Standing constraints: no git add -A; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; Andy pushes; docs/Futures_Odds/ untracked; no team power ratings as evidence; $6.81 free money unassigned; local scheduled tasks run from this checkout; paste-slip check on every ticket; keep file scans scoped (bridge stalls).
++Standing constraints: no git add -A; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; Andy pushes; docs/Futures_Odds/ untracked; team power ratings are allowed as evidence; $6.81 free money unassigned; local scheduled tasks run from this checkout; paste-slip check on every ticket; keep file scans scoped (bridge stalls).
+ ```
+diff --git a/handoffs/2026-09-24-2110-claude-week3-tnf-graded-tracker-fixes-handoff.md b/handoffs/2026-09-24-2110-claude-week3-tnf-graded-tracker-fixes-handoff.md
+index 1262a52..c1210ab 100644
+--- a/handoffs/2026-09-24-2110-claude-week3-tnf-graded-tracker-fixes-handoff.md
++++ b/handoffs/2026-09-24-2110-claude-week3-tnf-graded-tracker-fixes-handoff.md
+@@ -42,5 +42,5 @@ Resume NFL_Dashboard ("Platinum Rose") — Week 3 FRI. Repo E:\dev\projects\NFL_
+ Read: HANDOFF.md → handoffs/2026-09-24-2110-claude-week3-tnf-graded-tracker-fixes-handoff.md → reports/bets/2026-w03-card.md (bottom) → DEV claude/recommendation-ledger-2026.md (Week 3 TNF results).
+ State: TNF graded (ATL 35-14; −$96.48; only 739211245 alive on ATL +5). Tracker fixes c717932/fc1b7b2 pushed.
+ First: Andy's status on 739211245 open spots (2), SuperContest 5, Bills $10 credit, card slots 1–5. Then Friday: Nacua/Darnold injury status; pick'em leaderboards → data/pickem/pools-2026.json → npm run pickem:card; futures §8; Circa re-price if photos arrive. Optional: fix the client template-literal regex escapes in generate-live-tracker.mjs.
+-Standing constraints: no git add -A; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; Andy pushes (unless he asks); docs/Futures_Odds/ untracked; no team power ratings as evidence; $6.81 free money unassigned; local scheduled tasks run from this checkout; paste-slip check on every ticket; keep file scans scoped (bridge stalls); git can't unlink lock files on the E: mount without delete permission — request it once or hand Andy the commit command.
++Standing constraints: no git add -A; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; Andy pushes (unless he asks); docs/Futures_Odds/ untracked; team power ratings are allowed as evidence; $6.81 free money unassigned; local scheduled tasks run from this checkout; paste-slip check on every ticket; keep file scans scoped (bridge stalls); git can't unlink lock files on the E: mount without delete permission — request it once or hand Andy the commit command.
+ ```
+diff --git a/handoffs/2026-09-26-1057-claude-week3-saturday-intel-health-handoff.md b/handoffs/2026-09-26-1057-claude-week3-saturday-intel-health-handoff.md
+index c124712..7ab4925 100644
+--- a/handoffs/2026-09-26-1057-claude-week3-saturday-intel-health-handoff.md
++++ b/handoffs/2026-09-26-1057-claude-week3-saturday-intel-health-handoff.md
+@@ -38,4 +38,4 @@
+ 9. **Recommendation ledger** now lives and is current at claude.ai Project "DEV" → `claude/recommendation-ledger-2026.md`. Read it via the Projects tool at the start of any session that will propose or grade picks — don't recreate it.
+ 
+ ## Standing constraints (unchanged, still in force)
+-No `git add -A`; never `reset`/`clean`/`stash`; Supabase writes need per-change OK; no bet placement/account actions (Claude proposes, Andy places); Andy pushes to git unless he explicitly asks Claude to; `docs/Futures_Odds/` stays untracked; never use team power ratings as evidence; $6.81 free/bonus money still unassigned; local scheduled tasks run from this exact checkout; paste-slip check on every ticket before treating it as placed; keep file scans scoped (`timeout`, `maxdepth`, targeted greps — the device_bash bridge stalls on broad recursive scans); git lock-file deletion on the E: mount needs explicit permission — request once or hand Andy the commit command.
++No `git add -A`; never `reset`/`clean`/`stash`; Supabase writes need per-change OK; no bet placement/account actions (Claude proposes, Andy places); Andy pushes to git unless he explicitly asks Claude to; `docs/Futures_Odds/` stays untracked; team power ratings are allowed as evidence; $6.81 free/bonus money still unassigned; local scheduled tasks run from this exact checkout; paste-slip check on every ticket before treating it as placed; keep file scans scoped (`timeout`, `maxdepth`, targeted greps — the device_bash bridge stalls on broad recursive scans); git lock-file deletion on the E: mount needs explicit permission — request once or hand Andy the commit command.
+diff --git a/handoffs/2026-09-26-1202-claude-week3-metabet-execvenues-git-merge-handoff.md b/handoffs/2026-09-26-1202-claude-week3-metabet-execvenues-git-merge-handoff.md
+index e9f2cc3..aa43bd8 100644
+--- a/handoffs/2026-09-26-1202-claude-week3-metabet-execvenues-git-merge-handoff.md
++++ b/handoffs/2026-09-26-1202-claude-week3-metabet-execvenues-git-merge-handoff.md
+@@ -163,7 +163,7 @@
+ - File scans (grep/find) must be scope-limited (specific paths, maxdepth,
+   timeout prefixes) — the device_bash bridge stalls/times out on broad
+   recursive scans of this large repo.
+-- Never use team power ratings as supporting evidence for picks.
++- Team power ratings are allowed as evidence.
+ - $6.81 of free/bonus money sitting unassigned.
+ - Scheduled/automated tasks are configured to run from this specific
+   checkout.
+@@ -178,5 +178,5 @@ Resume NFL_Dashboard ("Platinum Rose") — Week 3 SAT. Repo E:\dev\projects\NFL_
+ Read: HANDOFF.md → handoffs/2026-09-26-1202-claude-week3-metabet-execvenues-git-merge-handoff.md → src/lib/executionVenues.js (PREDICTION_MARKET_VENUES comment) → docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §1.
+ State: Metabet wired into Toolbox Diagnostics (36ab3ff). DraftKings/FanDuel moved to placeable in the execution-venue registry (44c30bf); Kalshi deliberately NOT moved. 2 unprocessed BKR/BetUS futures text batches backfilled + pushed (7acc444). fc1b7b2 sibling-commit git fork with origin/main resolved + merged + pushed (b7ce30c).
+ First: Kalshi execution-eligibility decision with Andy — (a) build the real bid/ask/fee-aware execution-eligibility check against the matching sportsbook market (never built, warned against skipping in executionVenues.js's own comment), or (b) a lighter override that just treats Kalshi's price like a sportsbook price and accepts the fee/liquidity blind spot. Do not move Kalshi into SPORTSBOOK_VENUES without picking one. Then: confirm whether Fanatics futures ingestion is in scope yet (Andy said "next week" on 2026-09-26); Circa screenshots (7 raw captures in docs/Futures_Odds/, no parser); 739211245's 2 open spots (PHI ML/BAL ML recommended, still unconfirmed); TheOddsAPI key ~11 requests remaining (Andy hasn't responded); Bills $10 credit still not placed; player-props-intel stale-game bug still not fixed.
+-Standing constraints: no git add -A; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; Andy pushes (unless he asks); docs/Futures_Odds/ untracked; no team power ratings as evidence; $6.81 free money unassigned; local scheduled tasks run from this checkout; paste-slip check on every ticket; keep file scans scoped (bridge stalls); git can't unlink lock files on the E: mount without delete permission — request it once or hand Andy the commit command.
++Standing constraints: no git add -A; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; Andy pushes (unless he asks); docs/Futures_Odds/ untracked; team power ratings are allowed as evidence; $6.81 free money unassigned; local scheduled tasks run from this checkout; paste-slip check on every ticket; keep file scans scoped (bridge stalls); git can't unlink lock files on the E: mount without delete permission — request it once or hand Andy the commit command.
+ ```
+diff --git a/handoffs/2026-09-26-2215-claude-master-intel-template-supercontest-handoff.md b/handoffs/2026-09-26-2215-claude-master-intel-template-supercontest-handoff.md
+index 2613790..5854de3 100644
+--- a/handoffs/2026-09-26-2215-claude-master-intel-template-supercontest-handoff.md
++++ b/handoffs/2026-09-26-2215-claude-master-intel-template-supercontest-handoff.md
+@@ -20,7 +20,7 @@
+ 8. Dirty tree: ~1,200 pre-existing modified/untracked files remain (other agents/scheduled tasks). Only this session's Week 3 inputs/outputs were committed; see the commit list in git log.
+ 
+ ## Guardrails (unchanged)
+-No `git add -A`; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; sportsbook pages read-only; no team power ratings as evidence; manual BKR/BEO lines only (TheOddsAPI ~11 requests left); prediction-market % never mixed with sportsbook odds without the fee/spread check.
++No `git add -A`; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; sportsbook pages read-only; team power ratings are allowed as evidence; manual BKR/BEO lines only (TheOddsAPI ~11 requests left); prediction-market % never mixed with sportsbook odds without the fee/spread check.
+ 
+ ## Resume prompt (paste into a fresh session)
+ > Resume NFL_Dashboard. Read HANDOFF.md, then `handoffs/2026-09-26-2215-claude-master-intel-template-supercontest-handoff.md`, then `docs/MASTER_INTEL_REPORT_FORMAT.md` §8 (SuperContest companion). Goal this session: design our **weekly SuperContest cadence** around the new SuperContest report (line capture → build → review with Amanda → lock the joint five into `data/supercontest/locked-card-week-<N>.json` → grade next week), and save Week 3's final joint five. Same standing constraints as the handoff.
+diff --git a/handoffs/2026-09-27-0100-claude-week3-roster-gate-intel-fix-codex-sunday-handoff.md b/handoffs/2026-09-27-0100-claude-week3-roster-gate-intel-fix-codex-sunday-handoff.md
+index 4c4f474..93cde0d 100644
+--- a/handoffs/2026-09-27-0100-claude-week3-roster-gate-intel-fix-codex-sunday-handoff.md
++++ b/handoffs/2026-09-27-0100-claude-week3-roster-gate-intel-fix-codex-sunday-handoff.md
+@@ -138,8 +138,8 @@ Davante Adams LAR, Jaylen Waddle DEN, DJ Moore BUF, Kenneth Walker III KC, Kyler
+ 6. Update reports/bets/2026-w03-card.md (new "SUNDAY v5" section; don't delete history), write a dated handoff in handoffs/, point HANDOFF.md at it.
+ 
+ ## 7. Standing rules / guardrails
+-- Leg barrier −350; flag >2 legs shorter than −200 per ticket. No points on dogs (rule 2). One leg per game where possible; ≤2 legs per game on BEO multi-game.
++- Leg barrier −350; flag >2 legs shorter than −200 per ticket. Underdog spreads are allowed when their matchup and price case are stated. One leg per game where possible; ≤2 legs per game on BEO multi-game.
+ - 2-team RRs → Bookmaker; BKR props same-game only; multi-game prop stacks → BetOnline. QB rushing/INT props need a stated matchup fit.
+-- No team power ratings as evidence. DK/prediction-market % never mixed with sportsbook odds without the fee/spread check.
++- Team power ratings are allowed as evidence. DK/prediction-market % never mixed with sportsbook odds without the fee/spread check.
+ - No bet placement or account actions; sportsbook pages read-only. Supabase writes need Andy's per-change OK. No paid model/synthesis runs.
+ - Git: no `git add -A`; stage narrow reviewed files; never reset/clean/stash the dirty checkout. Master Intel template v1 is locked (changes need Andy's OK + format-doc log).

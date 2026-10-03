@@ -1,0 +1,583 @@
+{
+  "schema": "dk_predictions_markets_v1",
+  "source_file": [
+    "https://predictions.draftkings.com/en/event/ari-cardinals-%40-ny-giants/34118104 (firecrawl render, 2026-10-02T22:20:00Z)",
+    "DK passing/receiving/rushing tabs (firecrawl render, ~2026-10-02T23:15Z)"
+  ],
+  "event": "ARI Cardinals @ NY Giants",
+  "away": "ARI Cardinals",
+  "home": "NY Giants",
+  "captured_at": "2026-10-02T22:20:00Z",
+  "note": "prob = DK contract buy price per side (not sportsbook odds); american_gross is pre-fee. Over+Under sum > 100% (spread). Main page only: game lines + TD scorer boards. Player yardage: the DK-highlighted ladder rung per player (pass/rec/rush yds), prob = buy price for \"N+ yards\"; captured 2026-10-02 ~23:15Z from passing/receiving/rushing tabs.",
+  "summary": {
+    "game_spread": 2,
+    "game_total": 2,
+    "game_moneyline": 2,
+    "atd_1_plus": 16,
+    "first_td": 16,
+    "td_2_plus": 16,
+    "pass_yds": 2,
+    "rec_yds": 12,
+    "rush_yds": 6
+  },
+  "rows": [
+    {
+      "market": "game_spread",
+      "side": "ARI Cardinals",
+      "line": -2.5,
+      "prob": 0.52,
+      "american_gross": -108
+    },
+    {
+      "market": "game_spread",
+      "side": "NY Giants",
+      "line": 2.5,
+      "prob": 0.5,
+      "american_gross": -100
+    },
+    {
+      "market": "game_total",
+      "side": "Over",
+      "line": 45.5,
+      "prob": 0.47,
+      "american_gross": 113
+    },
+    {
+      "market": "game_total",
+      "side": "Under",
+      "line": 45.5,
+      "prob": 0.55,
+      "american_gross": -122
+    },
+    {
+      "market": "game_moneyline",
+      "side": "ARI Cardinals",
+      "line": null,
+      "prob": 0.57,
+      "american_gross": -133
+    },
+    {
+      "market": "game_moneyline",
+      "side": "NY Giants",
+      "line": null,
+      "prob": 0.44,
+      "american_gross": 127
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Cameron Skattebo",
+      "line": null,
+      "prob": 0.56,
+      "american_gross": -127
+    },
+    {
+      "market": "first_td",
+      "side": "Cameron Skattebo",
+      "line": null,
+      "prob": 0.17,
+      "american_gross": 488
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Cameron Skattebo",
+      "line": null,
+      "prob": 0.19,
+      "american_gross": 426
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jeremiyah Love",
+      "line": null,
+      "prob": 0.55,
+      "american_gross": -122
+    },
+    {
+      "market": "first_td",
+      "side": "Jeremiyah Love",
+      "line": null,
+      "prob": 0.18,
+      "american_gross": 456
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jeremiyah Love",
+      "line": null,
+      "prob": 0.19,
+      "american_gross": 426
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Trey McBride",
+      "line": null,
+      "prob": 0.4,
+      "american_gross": 150
+    },
+    {
+      "market": "first_td",
+      "side": "Trey McBride",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Trey McBride",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Malik Nabers",
+      "line": null,
+      "prob": 0.34,
+      "american_gross": 194
+    },
+    {
+      "market": "first_td",
+      "side": "Malik Nabers",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Malik Nabers",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Michael Wilson",
+      "line": null,
+      "prob": 0.31,
+      "american_gross": 223
+    },
+    {
+      "market": "first_td",
+      "side": "Michael Wilson",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Michael Wilson",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Isaiah Likely",
+      "line": null,
+      "prob": 0.26,
+      "american_gross": 285
+    },
+    {
+      "market": "first_td",
+      "side": "Isaiah Likely",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Isaiah Likely",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Tyler Allgeier",
+      "line": null,
+      "prob": 0.24,
+      "american_gross": 317
+    },
+    {
+      "market": "first_td",
+      "side": "Tyler Allgeier",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Tyler Allgeier",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Najee Harris",
+      "line": null,
+      "prob": 0.23,
+      "american_gross": 335
+    },
+    {
+      "market": "first_td",
+      "side": "Najee Harris",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Najee Harris",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Marvin Harrison Jr.",
+      "line": null,
+      "prob": 0.21,
+      "american_gross": 376
+    },
+    {
+      "market": "first_td",
+      "side": "Marvin Harrison Jr.",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Marvin Harrison Jr.",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Malachi Fields",
+      "line": null,
+      "prob": 0.18,
+      "american_gross": 456
+    },
+    {
+      "market": "first_td",
+      "side": "Malachi Fields",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Malachi Fields",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jacoby Brissett",
+      "line": null,
+      "prob": 0.16,
+      "american_gross": 525
+    },
+    {
+      "market": "first_td",
+      "side": "Jacoby Brissett",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jacoby Brissett",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Kendrick Bourne",
+      "line": null,
+      "prob": 0.15,
+      "american_gross": 567
+    },
+    {
+      "market": "first_td",
+      "side": "Kendrick Bourne",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Kendrick Bourne",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Darnell Mooney",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "first_td",
+      "side": "Darnell Mooney",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Darnell Mooney",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Theo Johnson",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "Theo Johnson",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Theo Johnson",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jameis Winston",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "Jameis Winston",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jameis Winston",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Elijah Higgins",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "first_td",
+      "side": "Elijah Higgins",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Elijah Higgins",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "pass_yds",
+      "side": "Jacoby Brissett 240+",
+      "player": "Jacoby Brissett",
+      "line": 240,
+      "prob": 0.49,
+      "american_gross": 104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "pass_yds",
+      "side": "Jameis Winston 220+",
+      "player": "Jameis Winston",
+      "line": 220,
+      "prob": 0.47,
+      "american_gross": 113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Cameron Skattebo 20+",
+      "player": "Cameron Skattebo",
+      "line": 20,
+      "prob": 0.49,
+      "american_gross": 104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Darnell Mooney 20+",
+      "player": "Darnell Mooney",
+      "line": 20,
+      "prob": 0.55,
+      "american_gross": -122,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Elijah Higgins 20+",
+      "player": "Elijah Higgins",
+      "line": 20,
+      "prob": 0.2,
+      "american_gross": 400,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Isaiah Likely 40+",
+      "player": "Isaiah Likely",
+      "line": 40,
+      "prob": 0.53,
+      "american_gross": -113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Jeremiyah Love 20+",
+      "player": "Jeremiyah Love",
+      "line": 20,
+      "prob": 0.49,
+      "american_gross": 104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Kendrick Bourne 20+",
+      "player": "Kendrick Bourne",
+      "line": 20,
+      "prob": 0.56,
+      "american_gross": -127,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Malachi Fields 30+",
+      "player": "Malachi Fields",
+      "line": 30,
+      "prob": 0.44,
+      "american_gross": 127,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Malik Nabers 60+",
+      "player": "Malik Nabers",
+      "line": 60,
+      "prob": 0.47,
+      "american_gross": 113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Marvin Harrison Jr. 40+",
+      "player": "Marvin Harrison Jr.",
+      "line": 40,
+      "prob": 0.44,
+      "american_gross": 127,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Michael Wilson 60+",
+      "player": "Michael Wilson",
+      "line": 60,
+      "prob": 0.48,
+      "american_gross": 108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Theo Johnson 20+",
+      "player": "Theo Johnson",
+      "line": 20,
+      "prob": 0.3,
+      "american_gross": 233,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Trey McBride 70+",
+      "player": "Trey McBride",
+      "line": 70,
+      "prob": 0.47,
+      "american_gross": 113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Cameron Skattebo 70+",
+      "player": "Cameron Skattebo",
+      "line": 70,
+      "prob": 0.44,
+      "american_gross": 127,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Jacoby Brissett 20+",
+      "player": "Jacoby Brissett",
+      "line": 20,
+      "prob": 0.22,
+      "american_gross": 355,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Jameis Winston 20+",
+      "player": "Jameis Winston",
+      "line": 20,
+      "prob": 0.15,
+      "american_gross": 567,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Jeremiyah Love 70+",
+      "player": "Jeremiyah Love",
+      "line": 70,
+      "prob": 0.49,
+      "american_gross": 104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Najee Harris 30+",
+      "player": "Najee Harris",
+      "line": 30,
+      "prob": 0.41,
+      "american_gross": 144,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Tyler Allgeier 20+",
+      "player": "Tyler Allgeier",
+      "line": 20,
+      "prob": 0.51,
+      "american_gross": -104,
+      "ladder_rung": "dk_highlighted"
+    }
+  ]
+}

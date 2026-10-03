@@ -1,0 +1,685 @@
+{
+  "schema": "dk_predictions_markets_v1",
+  "source_file": [
+    "https://predictions.draftkings.com/en/event/ne-patriots-%40-buf-bills/34118207 (firecrawl render, 2026-10-02T22:20:00Z)",
+    "DK passing/receiving/rushing tabs (firecrawl render, ~2026-10-02T23:15Z)"
+  ],
+  "event": "NE Patriots @ BUF Bills",
+  "away": "NE Patriots",
+  "home": "BUF Bills",
+  "captured_at": "2026-10-02T22:20:00Z",
+  "note": "prob = DK contract buy price per side (not sportsbook odds); american_gross is pre-fee. Over+Under sum > 100% (spread). Main page only: game lines + TD scorer boards. Player yardage: the DK-highlighted ladder rung per player (pass/rec/rush yds), prob = buy price for \"N+ yards\"; captured 2026-10-02 ~23:15Z from passing/receiving/rushing tabs.",
+  "summary": {
+    "game_spread": 2,
+    "game_total": 2,
+    "game_moneyline": 2,
+    "atd_1_plus": 20,
+    "first_td": 20,
+    "td_2_plus": 20,
+    "pass_yds": 2,
+    "rec_yds": 14,
+    "rush_yds": 6
+  },
+  "rows": [
+    {
+      "market": "game_spread",
+      "side": "NE Patriots",
+      "line": 6.5,
+      "prob": 0.48,
+      "american_gross": 108
+    },
+    {
+      "market": "game_spread",
+      "side": "BUF Bills",
+      "line": -6.5,
+      "prob": 0.54,
+      "american_gross": -117
+    },
+    {
+      "market": "game_total",
+      "side": "Over",
+      "line": 48.5,
+      "prob": 0.55,
+      "american_gross": -122
+    },
+    {
+      "market": "game_total",
+      "side": "Under",
+      "line": 48.5,
+      "prob": 0.46,
+      "american_gross": 117
+    },
+    {
+      "market": "game_moneyline",
+      "side": "NE Patriots",
+      "line": null,
+      "prob": 0.27,
+      "american_gross": 270
+    },
+    {
+      "market": "game_moneyline",
+      "side": "BUF Bills",
+      "line": null,
+      "prob": 0.75,
+      "american_gross": -300
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Josh Allen",
+      "line": null,
+      "prob": 0.56,
+      "american_gross": -127
+    },
+    {
+      "market": "first_td",
+      "side": "Josh Allen",
+      "line": null,
+      "prob": 0.15,
+      "american_gross": 567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Josh Allen",
+      "line": null,
+      "prob": 0.19,
+      "american_gross": 426
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "James Cook",
+      "line": null,
+      "prob": 0.56,
+      "american_gross": -127
+    },
+    {
+      "market": "first_td",
+      "side": "James Cook",
+      "line": null,
+      "prob": 0.17,
+      "american_gross": 488
+    },
+    {
+      "market": "td_2_plus",
+      "side": "James Cook",
+      "line": null,
+      "prob": 0.2,
+      "american_gross": 400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "D.J. Moore",
+      "line": null,
+      "prob": 0.4,
+      "american_gross": 150
+    },
+    {
+      "market": "first_td",
+      "side": "D.J. Moore",
+      "line": null,
+      "prob": 0.09,
+      "american_gross": 1011
+    },
+    {
+      "market": "td_2_plus",
+      "side": "D.J. Moore",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Rhamondre Stevenson",
+      "line": null,
+      "prob": 0.39,
+      "american_gross": 156
+    },
+    {
+      "market": "first_td",
+      "side": "Rhamondre Stevenson",
+      "line": null,
+      "prob": 0.09,
+      "american_gross": 1011
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Rhamondre Stevenson",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Dalton Kincaid",
+      "line": null,
+      "prob": 0.36,
+      "american_gross": 178
+    },
+    {
+      "market": "first_td",
+      "side": "Dalton Kincaid",
+      "line": null,
+      "prob": 0.09,
+      "american_gross": 1011
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Dalton Kincaid",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "TreVeyon Henderson",
+      "line": null,
+      "prob": 0.32,
+      "american_gross": 212
+    },
+    {
+      "market": "first_td",
+      "side": "TreVeyon Henderson",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "td_2_plus",
+      "side": "TreVeyon Henderson",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Khalil Shakir",
+      "line": null,
+      "prob": 0.31,
+      "american_gross": 223
+    },
+    {
+      "market": "first_td",
+      "side": "Khalil Shakir",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Khalil Shakir",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Hunter Henry",
+      "line": null,
+      "prob": 0.29,
+      "american_gross": 245
+    },
+    {
+      "market": "first_td",
+      "side": "Hunter Henry",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Hunter Henry",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Mack Hollins",
+      "line": null,
+      "prob": 0.27,
+      "american_gross": 270
+    },
+    {
+      "market": "first_td",
+      "side": "Mack Hollins",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Mack Hollins",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Romeo Doubs",
+      "line": null,
+      "prob": 0.26,
+      "american_gross": 285
+    },
+    {
+      "market": "first_td",
+      "side": "Romeo Doubs",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Romeo Doubs",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Keon Coleman",
+      "line": null,
+      "prob": 0.22,
+      "american_gross": 355
+    },
+    {
+      "market": "first_td",
+      "side": "Keon Coleman",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Keon Coleman",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Demario Douglas",
+      "line": null,
+      "prob": 0.21,
+      "american_gross": 376
+    },
+    {
+      "market": "first_td",
+      "side": "Demario Douglas",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Demario Douglas",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Drake Maye",
+      "line": null,
+      "prob": 0.18,
+      "american_gross": 456
+    },
+    {
+      "market": "first_td",
+      "side": "Drake Maye",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Drake Maye",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Ty Johnson",
+      "line": null,
+      "prob": 0.17,
+      "american_gross": 488
+    },
+    {
+      "market": "first_td",
+      "side": "Ty Johnson",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Ty Johnson",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Dawson Knox",
+      "line": null,
+      "prob": 0.16,
+      "american_gross": 525
+    },
+    {
+      "market": "first_td",
+      "side": "Dawson Knox",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Dawson Knox",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Joshua Palmer",
+      "line": null,
+      "prob": 0.16,
+      "american_gross": 525
+    },
+    {
+      "market": "first_td",
+      "side": "Joshua Palmer",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Joshua Palmer",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Kyle Williams",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "first_td",
+      "side": "Kyle Williams",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Kyle Williams",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Eli Raridon",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "first_td",
+      "side": "Eli Raridon",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Eli Raridon",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jackson Hawes",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "first_td",
+      "side": "Jackson Hawes",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jackson Hawes",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Skyler Bell",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "first_td",
+      "side": "Skyler Bell",
+      "line": null,
+      "prob": 0.02,
+      "american_gross": 4900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Skyler Bell",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "pass_yds",
+      "side": "Drake Maye 240+",
+      "player": "Drake Maye",
+      "line": 240,
+      "prob": 0.5,
+      "american_gross": -100,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "pass_yds",
+      "side": "Josh Allen 250+",
+      "player": "Josh Allen",
+      "line": 250,
+      "prob": 0.49,
+      "american_gross": 104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "D.J. Moore 50+",
+      "player": "D.J. Moore",
+      "line": 50,
+      "prob": 0.54,
+      "american_gross": -117,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Dalton Kincaid 50+",
+      "player": "Dalton Kincaid",
+      "line": 50,
+      "prob": 0.55,
+      "american_gross": -122,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Dawson Knox 20+",
+      "player": "Dawson Knox",
+      "line": 20,
+      "prob": 0.32,
+      "american_gross": 212,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Demario Douglas 30+",
+      "player": "Demario Douglas",
+      "line": 30,
+      "prob": 0.5,
+      "american_gross": -100,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Hunter Henry 30+",
+      "player": "Hunter Henry",
+      "line": 30,
+      "prob": 0.57,
+      "american_gross": -133,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "James Cook 20+",
+      "player": "James Cook",
+      "line": 20,
+      "prob": 0.27,
+      "american_gross": 270,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Keon Coleman 20+",
+      "player": "Keon Coleman",
+      "line": 20,
+      "prob": 0.42,
+      "american_gross": 138,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Khalil Shakir 40+",
+      "player": "Khalil Shakir",
+      "line": 40,
+      "prob": 0.48,
+      "american_gross": 108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Kyle Williams 20+",
+      "player": "Kyle Williams",
+      "line": 20,
+      "prob": 0.38,
+      "american_gross": 163,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Mack Hollins 50+",
+      "player": "Mack Hollins",
+      "line": 50,
+      "prob": 0.45,
+      "american_gross": 122,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Rhamondre Stevenson 20+",
+      "player": "Rhamondre Stevenson",
+      "line": 20,
+      "prob": 0.51,
+      "american_gross": -104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Romeo Doubs 40+",
+      "player": "Romeo Doubs",
+      "line": 40,
+      "prob": 0.53,
+      "american_gross": -113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "TreVeyon Henderson 20+",
+      "player": "TreVeyon Henderson",
+      "line": 20,
+      "prob": 0.27,
+      "american_gross": 270,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Ty Johnson 20+",
+      "player": "Ty Johnson",
+      "line": 20,
+      "prob": 0.4,
+      "american_gross": 150,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Drake Maye 30+",
+      "player": "Drake Maye",
+      "line": 30,
+      "prob": 0.47,
+      "american_gross": 113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "James Cook 90+",
+      "player": "James Cook",
+      "line": 90,
+      "prob": 0.45,
+      "american_gross": 122,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Josh Allen 30+",
+      "player": "Josh Allen",
+      "line": 30,
+      "prob": 0.55,
+      "american_gross": -122,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Rhamondre Stevenson 30+",
+      "player": "Rhamondre Stevenson",
+      "line": 30,
+      "prob": 0.57,
+      "american_gross": -133,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "TreVeyon Henderson 40+",
+      "player": "TreVeyon Henderson",
+      "line": 40,
+      "prob": 0.53,
+      "american_gross": -113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Ty Johnson 20+",
+      "player": "Ty Johnson",
+      "line": 20,
+      "prob": 0.15,
+      "american_gross": 567,
+      "ladder_rung": "dk_highlighted"
+    }
+  ]
+}

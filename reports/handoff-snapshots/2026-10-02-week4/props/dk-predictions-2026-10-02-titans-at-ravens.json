@@ -1,0 +1,586 @@
+{
+  "schema": "dk_predictions_markets_v1",
+  "source_file": [
+    "https://predictions.draftkings.com/en/event/ten-titans-%40-bal-ravens/34118175 (firecrawl render, 2026-10-02T22:20:00Z)",
+    "DK passing/receiving/rushing tabs (firecrawl render, ~2026-10-02T23:15Z)"
+  ],
+  "event": "TEN Titans @ BAL Ravens",
+  "away": "TEN Titans",
+  "home": "BAL Ravens",
+  "captured_at": "2026-10-02T22:20:00Z",
+  "note": "prob = DK contract buy price per side (not sportsbook odds); american_gross is pre-fee. Over+Under sum > 100% (spread). Main page only: game lines + TD scorer boards. Player yardage: the DK-highlighted ladder rung per player (pass/rec/rush yds), prob = buy price for \"N+ yards\"; captured 2026-10-02 ~23:15Z from passing/receiving/rushing tabs.",
+  "summary": {
+    "game_spread": 2,
+    "game_total": 2,
+    "game_moneyline": 2,
+    "atd_1_plus": 17,
+    "first_td": 17,
+    "td_2_plus": 17,
+    "pass_yds": 2,
+    "rec_yds": 11,
+    "rush_yds": 5
+  },
+  "rows": [
+    {
+      "market": "game_spread",
+      "side": "TEN Titans",
+      "line": 11.5,
+      "prob": 0.52,
+      "american_gross": -108
+    },
+    {
+      "market": "game_spread",
+      "side": "BAL Ravens",
+      "line": -11.5,
+      "prob": 0.5,
+      "american_gross": -100
+    },
+    {
+      "market": "game_total",
+      "side": "Over",
+      "line": 42.5,
+      "prob": 0.51,
+      "american_gross": -104
+    },
+    {
+      "market": "game_total",
+      "side": "Under",
+      "line": 42.5,
+      "prob": 0.51,
+      "american_gross": -104
+    },
+    {
+      "market": "game_moneyline",
+      "side": "TEN Titans",
+      "line": null,
+      "prob": 0.16,
+      "american_gross": 525
+    },
+    {
+      "market": "game_moneyline",
+      "side": "BAL Ravens",
+      "line": null,
+      "prob": 0.86,
+      "american_gross": -614
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Derrick Henry",
+      "line": null,
+      "prob": 0.68,
+      "american_gross": -213
+    },
+    {
+      "market": "first_td",
+      "side": "Derrick Henry",
+      "line": null,
+      "prob": 0.26,
+      "american_gross": 285
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Derrick Henry",
+      "line": null,
+      "prob": 0.29,
+      "american_gross": 245
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Zay Flowers",
+      "line": null,
+      "prob": 0.43,
+      "american_gross": 133
+    },
+    {
+      "market": "first_td",
+      "side": "Zay Flowers",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Zay Flowers",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Mark Andrews",
+      "line": null,
+      "prob": 0.37,
+      "american_gross": 170
+    },
+    {
+      "market": "first_td",
+      "side": "Mark Andrews",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Mark Andrews",
+      "line": null,
+      "prob": 0.09,
+      "american_gross": 1011
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Tony Pollard",
+      "line": null,
+      "prob": 0.31,
+      "american_gross": 223
+    },
+    {
+      "market": "first_td",
+      "side": "Tony Pollard",
+      "line": null,
+      "prob": 0.09,
+      "american_gross": 1011
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Tony Pollard",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Lamar Jackson",
+      "line": null,
+      "prob": 0.29,
+      "american_gross": 245
+    },
+    {
+      "market": "first_td",
+      "side": "Lamar Jackson",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Lamar Jackson",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Rashod Bateman",
+      "line": null,
+      "prob": 0.28,
+      "american_gross": 257
+    },
+    {
+      "market": "first_td",
+      "side": "Rashod Bateman",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Rashod Bateman",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Carnell Tate",
+      "line": null,
+      "prob": 0.21,
+      "american_gross": 376
+    },
+    {
+      "market": "first_td",
+      "side": "Carnell Tate",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Carnell Tate",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Gunnar Helm",
+      "line": null,
+      "prob": 0.16,
+      "american_gross": 525
+    },
+    {
+      "market": "first_td",
+      "side": "Gunnar Helm",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Gunnar Helm",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Justice Hill",
+      "line": null,
+      "prob": 0.16,
+      "american_gross": 525
+    },
+    {
+      "market": "first_td",
+      "side": "Justice Hill",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Justice Hill",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Wan'Dale Robinson",
+      "line": null,
+      "prob": 0.16,
+      "american_gross": 525
+    },
+    {
+      "market": "first_td",
+      "side": "Wan'Dale Robinson",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Wan'Dale Robinson",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Tyjae Spears",
+      "line": null,
+      "prob": 0.15,
+      "american_gross": 567
+    },
+    {
+      "market": "first_td",
+      "side": "Tyjae Spears",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Tyjae Spears",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Cameron Ward",
+      "line": null,
+      "prob": 0.14,
+      "american_gross": 614
+    },
+    {
+      "market": "first_td",
+      "side": "Cameron Ward",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Cameron Ward",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Elic Ayomanor",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "first_td",
+      "side": "Elic Ayomanor",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Elic Ayomanor",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Nicholas Singleton",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "first_td",
+      "side": "Nicholas Singleton",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Nicholas Singleton",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Chris Moore",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "Chris Moore",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Chris Moore",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Devontez Walker",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "Devontez Walker",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Devontez Walker",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Matthew Hibner",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "first_td",
+      "side": "Matthew Hibner",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Matthew Hibner",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "pass_yds",
+      "side": "Cameron Ward 190+",
+      "player": "Cameron Ward",
+      "line": 190,
+      "prob": 0.5,
+      "american_gross": -100,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "pass_yds",
+      "side": "Lamar Jackson 220+",
+      "player": "Lamar Jackson",
+      "line": 220,
+      "prob": 0.52,
+      "american_gross": -108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Calvin Ridley 20+",
+      "player": "Calvin Ridley",
+      "line": 20,
+      "prob": 0.25,
+      "american_gross": 300,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Carnell Tate 40+",
+      "player": "Carnell Tate",
+      "line": 40,
+      "prob": 0.56,
+      "american_gross": -127,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Derrick Henry 20+",
+      "player": "Derrick Henry",
+      "line": 20,
+      "prob": 0.29,
+      "american_gross": 245,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Elic Ayomanor 20+",
+      "player": "Elic Ayomanor",
+      "line": 20,
+      "prob": 0.52,
+      "american_gross": -108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Gunnar Helm 20+",
+      "player": "Gunnar Helm",
+      "line": 20,
+      "prob": 0.51,
+      "american_gross": -104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Mark Andrews 40+",
+      "player": "Mark Andrews",
+      "line": 40,
+      "prob": 0.46,
+      "american_gross": 117,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Rashod Bateman 30+",
+      "player": "Rashod Bateman",
+      "line": 30,
+      "prob": 0.5,
+      "american_gross": -100,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Tony Pollard 20+",
+      "player": "Tony Pollard",
+      "line": 20,
+      "prob": 0.31,
+      "american_gross": 223,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Tyjae Spears 20+",
+      "player": "Tyjae Spears",
+      "line": 20,
+      "prob": 0.39,
+      "american_gross": 156,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Wan'Dale Robinson 40+",
+      "player": "Wan'Dale Robinson",
+      "line": 40,
+      "prob": 0.51,
+      "american_gross": -104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Zay Flowers 70+",
+      "player": "Zay Flowers",
+      "line": 70,
+      "prob": 0.53,
+      "american_gross": -113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Cameron Ward 20+",
+      "player": "Cameron Ward",
+      "line": 20,
+      "prob": 0.26,
+      "american_gross": 285,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Derrick Henry 100+",
+      "player": "Derrick Henry",
+      "line": 100,
+      "prob": 0.5,
+      "american_gross": -100,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Lamar Jackson 30+",
+      "player": "Lamar Jackson",
+      "line": 30,
+      "prob": 0.56,
+      "american_gross": -127,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Tony Pollard 50+",
+      "player": "Tony Pollard",
+      "line": 50,
+      "prob": 0.5,
+      "american_gross": -100,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Tyjae Spears 20+",
+      "player": "Tyjae Spears",
+      "line": 20,
+      "prob": 0.39,
+      "american_gross": 156,
+      "ladder_rung": "dk_highlighted"
+    }
+  ]
+}

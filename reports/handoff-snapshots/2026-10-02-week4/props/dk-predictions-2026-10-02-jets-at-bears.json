@@ -1,0 +1,562 @@
+{
+  "schema": "dk_predictions_markets_v1",
+  "source_file": [
+    "https://predictions.draftkings.com/en/event/ny-jets-%40-chi-bears/34118036 (firecrawl render, 2026-10-02T22:20:00Z)",
+    "DK passing/receiving/rushing tabs (firecrawl render, ~2026-10-02T23:15Z)"
+  ],
+  "event": "NY Jets @ CHI Bears",
+  "away": "NY Jets",
+  "home": "CHI Bears",
+  "captured_at": "2026-10-02T22:20:00Z",
+  "note": "prob = DK contract buy price per side (not sportsbook odds); american_gross is pre-fee. Over+Under sum > 100% (spread). Main page only: game lines + TD scorer boards. Player yardage: the DK-highlighted ladder rung per player (pass/rec/rush yds), prob = buy price for \"N+ yards\"; captured 2026-10-02 ~23:15Z from passing/receiving/rushing tabs.",
+  "summary": {
+    "game_spread": 2,
+    "game_total": 2,
+    "game_moneyline": 2,
+    "atd_1_plus": 15,
+    "first_td": 15,
+    "td_2_plus": 15,
+    "pass_yds": 2,
+    "rec_yds": 12,
+    "rush_yds": 6
+  },
+  "rows": [
+    {
+      "market": "game_spread",
+      "side": "NY Jets",
+      "line": 3.5,
+      "prob": 0.52,
+      "american_gross": -108
+    },
+    {
+      "market": "game_spread",
+      "side": "CHI Bears",
+      "line": -3.5,
+      "prob": 0.5,
+      "american_gross": -100
+    },
+    {
+      "market": "game_total",
+      "side": "Over",
+      "line": 42.5,
+      "prob": 0.53,
+      "american_gross": -113
+    },
+    {
+      "market": "game_total",
+      "side": "Under",
+      "line": 42.5,
+      "prob": 0.48,
+      "american_gross": 108
+    },
+    {
+      "market": "game_moneyline",
+      "side": "NY Jets",
+      "line": null,
+      "prob": 0.38,
+      "american_gross": 163
+    },
+    {
+      "market": "game_moneyline",
+      "side": "CHI Bears",
+      "line": null,
+      "prob": 0.64,
+      "american_gross": -178
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "D'Andre Swift",
+      "line": null,
+      "prob": 0.53,
+      "american_gross": -113
+    },
+    {
+      "market": "first_td",
+      "side": "D'Andre Swift",
+      "line": null,
+      "prob": 0.17,
+      "american_gross": 488
+    },
+    {
+      "market": "td_2_plus",
+      "side": "D'Andre Swift",
+      "line": null,
+      "prob": 0.15,
+      "american_gross": 567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Braelon Allen",
+      "line": null,
+      "prob": 0.44,
+      "american_gross": 127
+    },
+    {
+      "market": "first_td",
+      "side": "Braelon Allen",
+      "line": null,
+      "prob": 0.14,
+      "american_gross": 614
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Braelon Allen",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Garrett Wilson",
+      "line": null,
+      "prob": 0.38,
+      "american_gross": 163
+    },
+    {
+      "market": "first_td",
+      "side": "Garrett Wilson",
+      "line": null,
+      "prob": 0.09,
+      "american_gross": 1011
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Garrett Wilson",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Kyle Monangai",
+      "line": null,
+      "prob": 0.35,
+      "american_gross": 186
+    },
+    {
+      "market": "first_td",
+      "side": "Kyle Monangai",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Kyle Monangai",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Kenyon Sadiq",
+      "line": null,
+      "prob": 0.3,
+      "american_gross": 233
+    },
+    {
+      "market": "first_td",
+      "side": "Kenyon Sadiq",
+      "line": null,
+      "prob": 0.09,
+      "american_gross": 1011
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Kenyon Sadiq",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Luther Burden III",
+      "line": null,
+      "prob": 0.3,
+      "american_gross": 233
+    },
+    {
+      "market": "first_td",
+      "side": "Luther Burden III",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Luther Burden III",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Colston Loveland",
+      "line": null,
+      "prob": 0.29,
+      "american_gross": 245
+    },
+    {
+      "market": "first_td",
+      "side": "Colston Loveland",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Colston Loveland",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Rome Odunze",
+      "line": null,
+      "prob": 0.24,
+      "american_gross": 317
+    },
+    {
+      "market": "first_td",
+      "side": "Rome Odunze",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Rome Odunze",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Isaiah Davis",
+      "line": null,
+      "prob": 0.24,
+      "american_gross": 317
+    },
+    {
+      "market": "first_td",
+      "side": "Isaiah Davis",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Isaiah Davis",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Kalif Raymond",
+      "line": null,
+      "prob": 0.23,
+      "american_gross": 335
+    },
+    {
+      "market": "first_td",
+      "side": "Kalif Raymond",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Kalif Raymond",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Isaiah Williams",
+      "line": null,
+      "prob": 0.19,
+      "american_gross": 426
+    },
+    {
+      "market": "first_td",
+      "side": "Isaiah Williams",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Isaiah Williams",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Tyson Bagent",
+      "line": null,
+      "prob": 0.17,
+      "american_gross": 488
+    },
+    {
+      "market": "first_td",
+      "side": "Tyson Bagent",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Tyson Bagent",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Cole Kmet",
+      "line": null,
+      "prob": 0.16,
+      "american_gross": 525
+    },
+    {
+      "market": "first_td",
+      "side": "Cole Kmet",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Cole Kmet",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jeremy Ruckert",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "Jeremy Ruckert",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jeremy Ruckert",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Geno Smith",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "first_td",
+      "side": "Geno Smith",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Geno Smith",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "pass_yds",
+      "side": "Geno Smith 240+",
+      "player": "Geno Smith",
+      "line": 240,
+      "prob": 0.47,
+      "american_gross": 113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "pass_yds",
+      "side": "Tyson Bagent 200+",
+      "player": "Tyson Bagent",
+      "line": 200,
+      "prob": 0.56,
+      "american_gross": -127,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Braelon Allen 20+",
+      "player": "Braelon Allen",
+      "line": 20,
+      "prob": 0.38,
+      "american_gross": 163,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Cole Kmet 20+",
+      "player": "Cole Kmet",
+      "line": 20,
+      "prob": 0.33,
+      "american_gross": 203,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Colston Loveland 40+",
+      "player": "Colston Loveland",
+      "line": 40,
+      "prob": 0.44,
+      "american_gross": 127,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "D'Andre Swift 20+",
+      "player": "D'Andre Swift",
+      "line": 20,
+      "prob": 0.42,
+      "american_gross": 138,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Garrett Wilson 80+",
+      "player": "Garrett Wilson",
+      "line": 80,
+      "prob": 0.48,
+      "american_gross": 108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Isaiah Davis 20+",
+      "player": "Isaiah Davis",
+      "line": 20,
+      "prob": 0.3,
+      "american_gross": 233,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Isaiah Williams 30+",
+      "player": "Isaiah Williams",
+      "line": 30,
+      "prob": 0.41,
+      "american_gross": 144,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Kalif Raymond 30+",
+      "player": "Kalif Raymond",
+      "line": 30,
+      "prob": 0.57,
+      "american_gross": -133,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Kenyon Sadiq 40+",
+      "player": "Kenyon Sadiq",
+      "line": 40,
+      "prob": 0.56,
+      "american_gross": -127,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Kyle Monangai 20+",
+      "player": "Kyle Monangai",
+      "line": 20,
+      "prob": 0.21,
+      "american_gross": 376,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Luther Burden III 50+",
+      "player": "Luther Burden III",
+      "line": 50,
+      "prob": 0.5,
+      "american_gross": -100,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Rome Odunze 40+",
+      "player": "Rome Odunze",
+      "line": 40,
+      "prob": 0.43,
+      "american_gross": 133,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Braelon Allen 60+",
+      "player": "Braelon Allen",
+      "line": 60,
+      "prob": 0.48,
+      "american_gross": 108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "D'Andre Swift 70+",
+      "player": "D'Andre Swift",
+      "line": 70,
+      "prob": 0.45,
+      "american_gross": 122,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Geno Smith 20+",
+      "player": "Geno Smith",
+      "line": 20,
+      "prob": 0.29,
+      "american_gross": 245,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Isaiah Davis 20+",
+      "player": "Isaiah Davis",
+      "line": 20,
+      "prob": 0.58,
+      "american_gross": -138,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Kyle Monangai 40+",
+      "player": "Kyle Monangai",
+      "line": 40,
+      "prob": 0.51,
+      "american_gross": -104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Tyson Bagent 20+",
+      "player": "Tyson Bagent",
+      "line": 20,
+      "prob": 0.55,
+      "american_gross": -122,
+      "ladder_rung": "dk_highlighted"
+    }
+  ]
+}

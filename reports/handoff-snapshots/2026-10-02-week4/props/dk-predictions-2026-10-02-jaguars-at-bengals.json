@@ -1,0 +1,706 @@
+{
+  "schema": "dk_predictions_markets_v1",
+  "source_file": [
+    "https://predictions.draftkings.com/en/event/jax-jaguars-%40-cin-bengals/34118124 (firecrawl render, 2026-10-02T22:20:00Z)",
+    "DK passing/receiving/rushing tabs (firecrawl render, ~2026-10-02T23:15Z)"
+  ],
+  "event": "JAX Jaguars @ CIN Bengals",
+  "away": "JAX Jaguars",
+  "home": "CIN Bengals",
+  "captured_at": "2026-10-02T22:20:00Z",
+  "note": "prob = DK contract buy price per side (not sportsbook odds); american_gross is pre-fee. Over+Under sum > 100% (spread). Main page only: game lines + TD scorer boards. Player yardage: the DK-highlighted ladder rung per player (pass/rec/rush yds), prob = buy price for \"N+ yards\"; captured 2026-10-02 ~23:15Z from passing/receiving/rushing tabs.",
+  "summary": {
+    "game_spread": 2,
+    "game_total": 2,
+    "game_moneyline": 2,
+    "atd_1_plus": 21,
+    "first_td": 21,
+    "td_2_plus": 21,
+    "pass_yds": 2,
+    "rec_yds": 14,
+    "rush_yds": 6
+  },
+  "rows": [
+    {
+      "market": "game_spread",
+      "side": "JAX Jaguars",
+      "line": 2.5,
+      "prob": 0.49,
+      "american_gross": 104
+    },
+    {
+      "market": "game_spread",
+      "side": "CIN Bengals",
+      "line": -2.5,
+      "prob": 0.54,
+      "american_gross": -117
+    },
+    {
+      "market": "game_total",
+      "side": "Over",
+      "line": 51.5,
+      "prob": 0.52,
+      "american_gross": -108
+    },
+    {
+      "market": "game_total",
+      "side": "Under",
+      "line": 51.5,
+      "prob": 0.51,
+      "american_gross": -104
+    },
+    {
+      "market": "game_moneyline",
+      "side": "JAX Jaguars",
+      "line": null,
+      "prob": 0.43,
+      "american_gross": 133
+    },
+    {
+      "market": "game_moneyline",
+      "side": "CIN Bengals",
+      "line": null,
+      "prob": 0.58,
+      "american_gross": -138
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Chase Brown",
+      "line": null,
+      "prob": 0.6,
+      "american_gross": -150
+    },
+    {
+      "market": "first_td",
+      "side": "Chase Brown",
+      "line": null,
+      "prob": 0.16,
+      "american_gross": 525
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Chase Brown",
+      "line": null,
+      "prob": 0.22,
+      "american_gross": 355
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Ja'Marr Chase",
+      "line": null,
+      "prob": 0.53,
+      "american_gross": -113
+    },
+    {
+      "market": "first_td",
+      "side": "Ja'Marr Chase",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Ja'Marr Chase",
+      "line": null,
+      "prob": 0.16,
+      "american_gross": 525
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Bhayshul Tuten",
+      "line": null,
+      "prob": 0.49,
+      "american_gross": 104
+    },
+    {
+      "market": "first_td",
+      "side": "Bhayshul Tuten",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Bhayshul Tuten",
+      "line": null,
+      "prob": 0.15,
+      "american_gross": 567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Parker Washington",
+      "line": null,
+      "prob": 0.41,
+      "american_gross": 144
+    },
+    {
+      "market": "first_td",
+      "side": "Parker Washington",
+      "line": null,
+      "prob": 0.09,
+      "american_gross": 1011
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Parker Washington",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Tee Higgins",
+      "line": null,
+      "prob": 0.4,
+      "american_gross": 150
+    },
+    {
+      "market": "first_td",
+      "side": "Tee Higgins",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Tee Higgins",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jakobi Meyers",
+      "line": null,
+      "prob": 0.29,
+      "american_gross": 245
+    },
+    {
+      "market": "first_td",
+      "side": "Jakobi Meyers",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jakobi Meyers",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Brenton Strange",
+      "line": null,
+      "prob": 0.27,
+      "american_gross": 270
+    },
+    {
+      "market": "first_td",
+      "side": "Brenton Strange",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Brenton Strange",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Mike Gesicki",
+      "line": null,
+      "prob": 0.26,
+      "american_gross": 285
+    },
+    {
+      "market": "first_td",
+      "side": "Mike Gesicki",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Mike Gesicki",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Chris Rodriguez Jr.",
+      "line": null,
+      "prob": 0.24,
+      "american_gross": 317
+    },
+    {
+      "market": "first_td",
+      "side": "Chris Rodriguez Jr.",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Chris Rodriguez Jr.",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Brian Thomas Jr.",
+      "line": null,
+      "prob": 0.23,
+      "american_gross": 335
+    },
+    {
+      "market": "first_td",
+      "side": "Brian Thomas Jr.",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Brian Thomas Jr.",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Trevor Lawrence",
+      "line": null,
+      "prob": 0.22,
+      "american_gross": 355
+    },
+    {
+      "market": "first_td",
+      "side": "Trevor Lawrence",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Trevor Lawrence",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Samaje Perine",
+      "line": null,
+      "prob": 0.2,
+      "american_gross": 400
+    },
+    {
+      "market": "first_td",
+      "side": "Samaje Perine",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Samaje Perine",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Dohnte Meyers",
+      "line": null,
+      "prob": 0.19,
+      "american_gross": 426
+    },
+    {
+      "market": "first_td",
+      "side": "Dohnte Meyers",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Dohnte Meyers",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Drew Sample",
+      "line": null,
+      "prob": 0.14,
+      "american_gross": 614
+    },
+    {
+      "market": "first_td",
+      "side": "Drew Sample",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Drew Sample",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Josh Cameron",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "first_td",
+      "side": "Josh Cameron",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Josh Cameron",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "LeQuint Allen",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "LeQuint Allen",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "LeQuint Allen",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Ameer Abdullah",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "first_td",
+      "side": "Ameer Abdullah",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Ameer Abdullah",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Nate Boerkircher",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "first_td",
+      "side": "Nate Boerkircher",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Nate Boerkircher",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Joe Burrow",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "first_td",
+      "side": "Joe Burrow",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Joe Burrow",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Erick All",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "first_td",
+      "side": "Erick All",
+      "line": null,
+      "prob": 0.02,
+      "american_gross": 4900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Erick All",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Mitchell Tinsley",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "first_td",
+      "side": "Mitchell Tinsley",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Mitchell Tinsley",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "pass_yds",
+      "side": "Joe Burrow 270+",
+      "player": "Joe Burrow",
+      "line": 270,
+      "prob": 0.52,
+      "american_gross": -108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "pass_yds",
+      "side": "Trevor Lawrence 270+",
+      "player": "Trevor Lawrence",
+      "line": 270,
+      "prob": 0.48,
+      "american_gross": 108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Bhayshul Tuten 20+",
+      "player": "Bhayshul Tuten",
+      "line": 20,
+      "prob": 0.33,
+      "american_gross": 203,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Brenton Strange 40+",
+      "player": "Brenton Strange",
+      "line": 40,
+      "prob": 0.47,
+      "american_gross": 113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Brian Thomas Jr. 30+",
+      "player": "Brian Thomas Jr.",
+      "line": 30,
+      "prob": 0.48,
+      "american_gross": 108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Chase Brown 20+",
+      "player": "Chase Brown",
+      "line": 20,
+      "prob": 0.52,
+      "american_gross": -108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Dohnte Meyers 20+",
+      "player": "Dohnte Meyers",
+      "line": 20,
+      "prob": 0.55,
+      "american_gross": -122,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Drew Sample 20+",
+      "player": "Drew Sample",
+      "line": 20,
+      "prob": 0.24,
+      "american_gross": 317,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Ja'Marr Chase 90+",
+      "player": "Ja'Marr Chase",
+      "line": 90,
+      "prob": 0.46,
+      "american_gross": 117,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Jakobi Meyers 40+",
+      "player": "Jakobi Meyers",
+      "line": 40,
+      "prob": 0.53,
+      "american_gross": -113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Josh Cameron 20+",
+      "player": "Josh Cameron",
+      "line": 20,
+      "prob": 0.31,
+      "american_gross": 223,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Mike Gesicki 30+",
+      "player": "Mike Gesicki",
+      "line": 30,
+      "prob": 0.51,
+      "american_gross": -104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Parker Washington 80+",
+      "player": "Parker Washington",
+      "line": 80,
+      "prob": 0.47,
+      "american_gross": 113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Samaje Perine 20+",
+      "player": "Samaje Perine",
+      "line": 20,
+      "prob": 0.29,
+      "american_gross": 245,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Tee Higgins 60+",
+      "player": "Tee Higgins",
+      "line": 60,
+      "prob": 0.55,
+      "american_gross": -122,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Travis Hunter 20+",
+      "player": "Travis Hunter",
+      "line": 20,
+      "prob": 0.2,
+      "american_gross": 400,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Bhayshul Tuten 60+",
+      "player": "Bhayshul Tuten",
+      "line": 60,
+      "prob": 0.46,
+      "american_gross": 117,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Chase Brown 60+",
+      "player": "Chase Brown",
+      "line": 60,
+      "prob": 0.51,
+      "american_gross": -104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Chris Rodriguez Jr. 20+",
+      "player": "Chris Rodriguez Jr.",
+      "line": 20,
+      "prob": 0.54,
+      "american_gross": -117,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Joe Burrow 20+",
+      "player": "Joe Burrow",
+      "line": 20,
+      "prob": 0.25,
+      "american_gross": 300,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Samaje Perine 20+",
+      "player": "Samaje Perine",
+      "line": 20,
+      "prob": 0.38,
+      "american_gross": 163,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Trevor Lawrence 20+",
+      "player": "Trevor Lawrence",
+      "line": 20,
+      "prob": 0.38,
+      "american_gross": 163,
+      "ladder_rung": "dk_highlighted"
+    }
+  ]
+}

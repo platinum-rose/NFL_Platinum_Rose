@@ -77,35 +77,16 @@
    "market": "superbowl_matchup",
    "selection": "Green Bay Packers vs Buffalo Bills",
    "role": "anchor_correlation_amplifier",
-   "stake_usd": 60,
-   "price": 10250,
+   "stake_usd": 45,
+   "price": 8300,
    "status": "open",
    "known_input": true,
    "book": "betonline",
    "book_confirmed": true,
    "ticket_number": "994540980",
    "accepted_date": "2026-09-09",
-   "to_win_usd": 6150,
-   "result_status": "pending",
-   "tickets": [
-    {
-     "ticket_number": "994540980",
-     "accepted_date": "2026-09-09",
-     "stake_usd": 45,
-     "price": 8300,
-     "to_win_usd": 3735,
-     "result_status": "pending"
-    },
-    {
-     "ticket_number": "1000995399",
-     "accepted_date": "2026-09-30",
-     "stake_usd": 15,
-     "price": 16100,
-     "to_win_usd": 2415,
-     "result_status": "pending"
-    }
-   ],
-   "estimate_note": "2026-09-30: added $15 @ +16100 (ticket 1000995399). Stake/to_win/price are the sum/blend across tickets; exactas are mutually exclusive outcomes, so do NOT sum to_win across different exactas. Original ticket_number 994540980 equals bills_sb ticket 1 -- likely a copy error, verify against the BetOnline account."
+   "to_win_usd": 3735,
+   "result_status": "pending"
   },
   {
    "id": "buf_sea_exacta",
@@ -163,151 +144,105 @@
    "market": "superbowl_matchup",
    "selection": "Green Bay Packers vs Baltimore Ravens",
    "role": "exacta_amplifier",
-   "stake_usd": 20.0,
-   "price": 14420,
+   "stake_usd": 12.0,
+   "price": 10300,
    "status": "open",
    "known_input": true,
    "book": "betonline",
    "book_confirmed": true,
    "ticket_number": "994658662",
    "accepted_date": "2026-09-09",
-   "to_win_usd": 2884.0,
+   "to_win_usd": 1236.0,
    "result_status": "pending",
-   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text. | 2026-09-30: added $8 @ +20600 (ticket 1000995399).",
-   "tickets": [
-    {
-     "ticket_number": "994658662",
-     "accepted_date": "2026-09-09",
-     "stake_usd": 12.0,
-     "price": 10300,
-     "to_win_usd": 1236.0,
-     "result_status": "pending"
-    },
-    {
-     "ticket_number": "1000995399",
-     "accepted_date": "2026-09-30",
-     "stake_usd": 8,
-     "price": 20600,
-     "to_win_usd": 1648,
-     "result_status": "pending"
-    }
-   ]
+   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text."
   },
   {
    "id": "gb_kc_exacta",
    "market": "superbowl_matchup",
    "selection": "Green Bay Packers vs Kansas City Chiefs",
    "role": "exacta_amplifier",
-   "stake_usd": 20.0,
-   "price": 16150,
+   "stake_usd": 11.0,
+   "price": 10300,
    "status": "open",
    "known_input": true,
    "book": "betonline",
    "book_confirmed": true,
    "ticket_number": "994658662",
    "accepted_date": "2026-09-09",
-   "to_win_usd": 3230.0,
+   "to_win_usd": 1133.0,
    "result_status": "pending",
-   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text. | 2026-09-30: added $8 @ +23300 (ticket 1000995399) and $1 @ +23300 (ticket 1000995658).",
-   "tickets": [
-    {
-     "ticket_number": "994658662",
-     "accepted_date": "2026-09-09",
-     "stake_usd": 11.0,
-     "price": 10300,
-     "to_win_usd": 1133.0,
-     "result_status": "pending"
-    },
-    {
-     "ticket_number": "1000995399",
-     "accepted_date": "2026-09-30",
-     "stake_usd": 8,
-     "price": 23300,
-     "to_win_usd": 1864,
-     "result_status": "pending"
-    },
-    {
-     "ticket_number": "1000995658",
-     "accepted_date": "2026-09-30",
-     "stake_usd": 1,
-     "price": 23300,
-     "to_win_usd": 233,
-     "result_status": "pending"
-    }
-   ]
+   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text."
   },
   {
    "id": "gb_cin_exacta",
    "market": "superbowl_matchup",
    "selection": "Green Bay Packers vs Cincinnati Bengals",
    "role": "exacta_amplifier",
-   "stake_usd": 10.0,
-   "price": 17820,
+   "stake_usd": 8.0,
+   "price": 14200,
    "status": "open",
    "known_input": true,
    "book": "betonline",
    "book_confirmed": true,
    "ticket_number": "994658662",
    "accepted_date": "2026-09-09",
-   "to_win_usd": 1782.0,
+   "to_win_usd": 1136.0,
    "result_status": "pending",
-   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text. | 2026-09-30: added $2 @ +32300 (ticket 1000995399).",
-   "tickets": [
-    {
-     "ticket_number": "994658662",
-     "accepted_date": "2026-09-09",
-     "stake_usd": 8.0,
-     "price": 14200,
-     "to_win_usd": 1136.0,
-     "result_status": "pending"
-    },
-    {
-     "ticket_number": "1000995399",
-     "accepted_date": "2026-09-30",
-     "stake_usd": 2,
-     "price": 32300,
-     "to_win_usd": 646,
-     "result_status": "pending"
-    }
-   ]
+   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text."
   },
   {
    "id": "gb_pit_exacta",
    "market": "superbowl_matchup",
    "selection": "Green Bay Packers vs Pittsburgh Steelers",
    "role": "exacta_amplifier",
-   "stake_usd": 7.0,
-   "price": 66671,
+   "stake_usd": 6.0,
+   "price": 53200,
    "status": "open",
    "known_input": true,
    "book": "betonline",
    "book_confirmed": true,
    "ticket_number": "994658662",
    "accepted_date": "2026-09-09",
-   "to_win_usd": 4667.0,
+   "to_win_usd": 3192.0,
    "result_status": "pending",
-   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text. | 2026-09-30: added $1 @ +147500 (ticket 1000995587).",
-   "tickets": [
-    {
-     "ticket_number": "994658662",
-     "accepted_date": "2026-09-09",
-     "stake_usd": 6.0,
-     "price": 53200,
-     "to_win_usd": 3192.0,
-     "result_status": "pending"
-    },
-    {
-     "ticket_number": "1000995587",
-     "accepted_date": "2026-09-30",
-     "stake_usd": 1,
-     "price": 147500,
-     "to_win_usd": 1475,
-     "result_status": "pending"
-    }
-   ]
+   "estimate_note": "Opening exacta position surrounding the Packers/Bills anchor bets -- official play, logged verbatim from Andy's BetOnline ticket text."
   },
   {
-   "id": "gb_den_exacta",
+   "id": "gb_kc_exacta_1000995658",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Kansas City Chiefs",
+   "role": "exacta_amplifier",
+   "stake_usd": 1.0,
+   "price": 23300,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1000995658",
+   "accepted_date": "2026-09-30",
+   "to_win_usd": 233.0,
+   "result_status": "pending",
+   "estimate_note": "Official exacta position, logged verbatim from Andy's accepted BetOnline ticket text."
+  },
+  {
+   "id": "gb_pit_exacta_1000995587",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Pittsburgh Steelers",
+   "role": "exacta_amplifier",
+   "stake_usd": 1.0,
+   "price": 147500,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1000995587",
+   "accepted_date": "2026-09-30",
+   "to_win_usd": 1475.0,
+   "result_status": "pending",
+   "estimate_note": "Official exacta position, logged verbatim from Andy's accepted BetOnline ticket text."
+  },
+  {
+   "id": "gb_den_exacta_1000995399",
    "market": "superbowl_matchup",
    "selection": "Green Bay Packers vs Denver Broncos",
    "role": "exacta_amplifier",
@@ -321,17 +256,75 @@
    "accepted_date": "2026-09-30",
    "to_win_usd": 1975.0,
    "result_status": "pending",
-   "tickets": [
-    {
-     "ticket_number": "1000995399",
-     "accepted_date": "2026-09-30",
-     "stake_usd": 5,
-     "price": 39500,
-     "to_win_usd": 1975,
-     "result_status": "pending"
-    }
-   ],
-   "estimate_note": "2026-09-30: new Packers exacta added on the Packers value drop (ticket 1000995399). Exactas are mutually exclusive outcomes; do not sum to_win across exactas."
+   "estimate_note": "Official exacta position, logged verbatim from Andy's accepted BetOnline ticket text."
+  },
+  {
+   "id": "gb_cin_exacta_1000995399",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Cincinnati Bengals",
+   "role": "exacta_amplifier",
+   "stake_usd": 2.0,
+   "price": 32300,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1000995399",
+   "accepted_date": "2026-09-30",
+   "to_win_usd": 646.0,
+   "result_status": "pending",
+   "estimate_note": "Official exacta position, logged verbatim from Andy's accepted BetOnline ticket text."
+  },
+  {
+   "id": "gb_kc_exacta_1000995399",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Kansas City Chiefs",
+   "role": "exacta_amplifier",
+   "stake_usd": 8.0,
+   "price": 23300,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1000995399",
+   "accepted_date": "2026-09-30",
+   "to_win_usd": 1864.0,
+   "result_status": "pending",
+   "estimate_note": "Official exacta position, logged verbatim from Andy's accepted BetOnline ticket text."
+  },
+  {
+   "id": "gb_bal_exacta_1000995399",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Baltimore Ravens",
+   "role": "exacta_amplifier",
+   "stake_usd": 8.0,
+   "price": 20600,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1000995399",
+   "accepted_date": "2026-09-30",
+   "to_win_usd": 1648.0,
+   "result_status": "pending",
+   "estimate_note": "Official exacta position, logged verbatim from Andy's accepted BetOnline ticket text."
+  },
+  {
+   "id": "gb_buf_exacta_1000995399",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Buffalo Bills",
+   "role": "exacta_amplifier",
+   "stake_usd": 15.0,
+   "price": 16100,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1000995399",
+   "accepted_date": "2026-09-30",
+   "to_win_usd": 2415.0,
+   "result_status": "pending",
+   "estimate_note": "Official exacta position, logged verbatim from Andy's accepted BetOnline ticket text."
   },
   {
    "id": "bills_wins_over_10_5",

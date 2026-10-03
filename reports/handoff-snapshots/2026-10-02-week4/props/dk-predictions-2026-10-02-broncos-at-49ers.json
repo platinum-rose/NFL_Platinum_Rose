@@ -1,0 +1,607 @@
+{
+  "schema": "dk_predictions_markets_v1",
+  "source_file": [
+    "https://predictions.draftkings.com/en/event/den-broncos-%40-sf-49ers/34118067 (firecrawl render, 2026-10-02T22:20:00Z)",
+    "DK passing/receiving/rushing tabs (firecrawl render, ~2026-10-02T23:15Z)"
+  ],
+  "event": "DEN Broncos @ SF 49ers",
+  "away": "DEN Broncos",
+  "home": "SF 49ers",
+  "captured_at": "2026-10-02T22:20:00Z",
+  "note": "prob = DK contract buy price per side (not sportsbook odds); american_gross is pre-fee. Over+Under sum > 100% (spread). Main page only: game lines + TD scorer boards. Player yardage: the DK-highlighted ladder rung per player (pass/rec/rush yds), prob = buy price for \"N+ yards\"; captured 2026-10-02 ~23:15Z from passing/receiving/rushing tabs.",
+  "summary": {
+    "game_spread": 2,
+    "game_total": 2,
+    "game_moneyline": 2,
+    "atd_1_plus": 18,
+    "first_td": 18,
+    "td_2_plus": 18,
+    "pass_yds": 2,
+    "rec_yds": 10,
+    "rush_yds": 6
+  },
+  "rows": [
+    {
+      "market": "game_spread",
+      "side": "DEN Broncos",
+      "line": 2.5,
+      "prob": 0.5,
+      "american_gross": -100
+    },
+    {
+      "market": "game_spread",
+      "side": "SF 49ers",
+      "line": -2.5,
+      "prob": 0.53,
+      "american_gross": -113
+    },
+    {
+      "market": "game_total",
+      "side": "Over",
+      "line": 48.5,
+      "prob": 0.49,
+      "american_gross": 104
+    },
+    {
+      "market": "game_total",
+      "side": "Under",
+      "line": 48.5,
+      "prob": 0.53,
+      "american_gross": -113
+    },
+    {
+      "market": "game_moneyline",
+      "side": "DEN Broncos",
+      "line": null,
+      "prob": 0.44,
+      "american_gross": 127
+    },
+    {
+      "market": "game_moneyline",
+      "side": "SF 49ers",
+      "line": null,
+      "prob": 0.59,
+      "american_gross": -144
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Christian McCaffrey",
+      "line": null,
+      "prob": 0.64,
+      "american_gross": -178
+    },
+    {
+      "market": "first_td",
+      "side": "Christian McCaffrey",
+      "line": null,
+      "prob": 0.21,
+      "american_gross": 376
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Christian McCaffrey",
+      "line": null,
+      "prob": 0.25,
+      "american_gross": 300
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "J.K. Dobbins",
+      "line": null,
+      "prob": 0.43,
+      "american_gross": 133
+    },
+    {
+      "market": "first_td",
+      "side": "J.K. Dobbins",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "td_2_plus",
+      "side": "J.K. Dobbins",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Mike Evans",
+      "line": null,
+      "prob": 0.39,
+      "american_gross": 156
+    },
+    {
+      "market": "first_td",
+      "side": "Mike Evans",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Mike Evans",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Deebo Samuel",
+      "line": null,
+      "prob": 0.38,
+      "american_gross": 163
+    },
+    {
+      "market": "first_td",
+      "side": "Deebo Samuel",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Deebo Samuel",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "George Kittle",
+      "line": null,
+      "prob": 0.37,
+      "american_gross": 170
+    },
+    {
+      "market": "first_td",
+      "side": "George Kittle",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "td_2_plus",
+      "side": "George Kittle",
+      "line": null,
+      "prob": 0.09,
+      "american_gross": 1011
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jaylen Waddle",
+      "line": null,
+      "prob": 0.33,
+      "american_gross": 203
+    },
+    {
+      "market": "first_td",
+      "side": "Jaylen Waddle",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jaylen Waddle",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Courtland Sutton",
+      "line": null,
+      "prob": 0.32,
+      "american_gross": 212
+    },
+    {
+      "market": "first_td",
+      "side": "Courtland Sutton",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Courtland Sutton",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "RJ Harvey",
+      "line": null,
+      "prob": 0.29,
+      "american_gross": 245
+    },
+    {
+      "market": "first_td",
+      "side": "RJ Harvey",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "td_2_plus",
+      "side": "RJ Harvey",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Kaelon Black",
+      "line": null,
+      "prob": 0.24,
+      "american_gross": 317
+    },
+    {
+      "market": "first_td",
+      "side": "Kaelon Black",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Kaelon Black",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Brock Purdy",
+      "line": null,
+      "prob": 0.24,
+      "american_gross": 317
+    },
+    {
+      "market": "first_td",
+      "side": "Brock Purdy",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Brock Purdy",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Bo Nix",
+      "line": null,
+      "prob": 0.22,
+      "american_gross": 355
+    },
+    {
+      "market": "first_td",
+      "side": "Bo Nix",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Bo Nix",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Pat Bryant",
+      "line": null,
+      "prob": 0.22,
+      "american_gross": 355
+    },
+    {
+      "market": "first_td",
+      "side": "Pat Bryant",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Pat Bryant",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Evan Engram",
+      "line": null,
+      "prob": 0.17,
+      "american_gross": 488
+    },
+    {
+      "market": "first_td",
+      "side": "Evan Engram",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Evan Engram",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "KhaDarel Hodge",
+      "line": null,
+      "prob": 0.15,
+      "american_gross": 567
+    },
+    {
+      "market": "first_td",
+      "side": "KhaDarel Hodge",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "td_2_plus",
+      "side": "KhaDarel Hodge",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Kyle Juszczyk",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "first_td",
+      "side": "Kyle Juszczyk",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Kyle Juszczyk",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Brandin Cooks",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "first_td",
+      "side": "Brandin Cooks",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Brandin Cooks",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jordan Watkins",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "Jordan Watkins",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jordan Watkins",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jacob Cowing",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "Jacob Cowing",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jacob Cowing",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "pass_yds",
+      "side": "Bo Nix 230+",
+      "player": "Bo Nix",
+      "line": 230,
+      "prob": 0.5,
+      "american_gross": -100,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "pass_yds",
+      "side": "Brock Purdy 240+",
+      "player": "Brock Purdy",
+      "line": 240,
+      "prob": 0.5,
+      "american_gross": -100,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Adam Trautman 20+",
+      "player": "Adam Trautman",
+      "line": 20,
+      "prob": 0.21,
+      "american_gross": 376,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Christian McCaffrey 40+",
+      "player": "Christian McCaffrey",
+      "line": 40,
+      "prob": 0.56,
+      "american_gross": -127,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Courtland Sutton 40+",
+      "player": "Courtland Sutton",
+      "line": 40,
+      "prob": 0.52,
+      "american_gross": -108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Evan Engram 20+",
+      "player": "Evan Engram",
+      "line": 20,
+      "prob": 0.47,
+      "american_gross": 113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "George Kittle 70+",
+      "player": "George Kittle",
+      "line": 70,
+      "prob": 0.46,
+      "american_gross": 117,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Jaylen Waddle 60+",
+      "player": "Jaylen Waddle",
+      "line": 60,
+      "prob": 0.51,
+      "american_gross": -104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Kyle Juszczyk 20+",
+      "player": "Kyle Juszczyk",
+      "line": 20,
+      "prob": 0.29,
+      "american_gross": 245,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Pat Bryant 30+",
+      "player": "Pat Bryant",
+      "line": 30,
+      "prob": 0.44,
+      "american_gross": 127,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "RJ Harvey 30+",
+      "player": "RJ Harvey",
+      "line": 30,
+      "prob": 0.4,
+      "american_gross": 150,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Troy Franklin 20+",
+      "player": "Troy Franklin",
+      "line": 20,
+      "prob": 0.22,
+      "american_gross": 355,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Bo Nix 20+",
+      "player": "Bo Nix",
+      "line": 20,
+      "prob": 0.45,
+      "american_gross": 122,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Brock Purdy 20+",
+      "player": "Brock Purdy",
+      "line": 20,
+      "prob": 0.46,
+      "american_gross": 117,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Christian McCaffrey 70+",
+      "player": "Christian McCaffrey",
+      "line": 70,
+      "prob": 0.49,
+      "american_gross": 104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "J.K. Dobbins 60+",
+      "player": "J.K. Dobbins",
+      "line": 60,
+      "prob": 0.52,
+      "american_gross": -108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Kaelon Black 30+",
+      "player": "Kaelon Black",
+      "line": 30,
+      "prob": 0.42,
+      "american_gross": 138,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "RJ Harvey 20+",
+      "player": "RJ Harvey",
+      "line": 20,
+      "prob": 0.43,
+      "american_gross": 133,
+      "ladder_rung": "dk_highlighted"
+    }
+  ]
+}

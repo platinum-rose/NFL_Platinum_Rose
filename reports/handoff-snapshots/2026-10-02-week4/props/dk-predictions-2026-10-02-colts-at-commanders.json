@@ -1,0 +1,673 @@
+{
+  "schema": "dk_predictions_markets_v1",
+  "source_file": [
+    "https://predictions.draftkings.com/en/event/ind-colts-%40-was-commanders/34118061 (firecrawl render, 2026-10-02T22:20:00Z)",
+    "DK passing/receiving/rushing tabs (firecrawl render, ~2026-10-02T23:15Z)"
+  ],
+  "event": "IND Colts @ WAS Commanders",
+  "away": "IND Colts",
+  "home": "WAS Commanders",
+  "captured_at": "2026-10-02T22:20:00Z",
+  "note": "prob = DK contract buy price per side (not sportsbook odds); american_gross is pre-fee. Over+Under sum > 100% (spread). Main page only: game lines + TD scorer boards. Player yardage: the DK-highlighted ladder rung per player (pass/rec/rush yds), prob = buy price for \"N+ yards\"; captured 2026-10-02 ~23:15Z from passing/receiving/rushing tabs.",
+  "summary": {
+    "game_spread": 2,
+    "game_total": 2,
+    "game_moneyline": 2,
+    "atd_1_plus": 22,
+    "first_td": 22,
+    "td_2_plus": 22,
+    "pass_yds": 2,
+    "rec_yds": 9,
+    "rush_yds": 5
+  },
+  "rows": [
+    {
+      "market": "game_spread",
+      "side": "IND Colts",
+      "line": -4.5,
+      "prob": 0.5,
+      "american_gross": -100
+    },
+    {
+      "market": "game_spread",
+      "side": "WAS Commanders",
+      "line": 4.5,
+      "prob": 0.53,
+      "american_gross": -113
+    },
+    {
+      "market": "game_total",
+      "side": "Over",
+      "line": 48.5,
+      "prob": 0.47,
+      "american_gross": 113
+    },
+    {
+      "market": "game_total",
+      "side": "Under",
+      "line": 48.5,
+      "prob": 0.55,
+      "american_gross": -122
+    },
+    {
+      "market": "game_moneyline",
+      "side": "IND Colts",
+      "line": null,
+      "prob": 0.66,
+      "american_gross": -194
+    },
+    {
+      "market": "game_moneyline",
+      "side": "WAS Commanders",
+      "line": null,
+      "prob": 0.35,
+      "american_gross": 186
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jonathan Taylor",
+      "line": null,
+      "prob": 0.73,
+      "american_gross": -270
+    },
+    {
+      "market": "first_td",
+      "side": "Jonathan Taylor",
+      "line": null,
+      "prob": 0.26,
+      "american_gross": 285
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jonathan Taylor",
+      "line": null,
+      "prob": 0.36,
+      "american_gross": 178
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jacory Croskey-Merritt",
+      "line": null,
+      "prob": 0.48,
+      "american_gross": 108
+    },
+    {
+      "market": "first_td",
+      "side": "Jacory Croskey-Merritt",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jacory Croskey-Merritt",
+      "line": null,
+      "prob": 0.14,
+      "american_gross": 614
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Tyler Warren",
+      "line": null,
+      "prob": 0.39,
+      "american_gross": 156
+    },
+    {
+      "market": "first_td",
+      "side": "Tyler Warren",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Tyler Warren",
+      "line": null,
+      "prob": 0.09,
+      "american_gross": 1011
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Josh Downs",
+      "line": null,
+      "prob": 0.34,
+      "american_gross": 194
+    },
+    {
+      "market": "first_td",
+      "side": "Josh Downs",
+      "line": null,
+      "prob": 0.09,
+      "american_gross": 1011
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Josh Downs",
+      "line": null,
+      "prob": 0.08,
+      "american_gross": 1150
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Stefon Diggs",
+      "line": null,
+      "prob": 0.28,
+      "american_gross": 257
+    },
+    {
+      "market": "first_td",
+      "side": "Stefon Diggs",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Stefon Diggs",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Terry McLaurin",
+      "line": null,
+      "prob": 0.28,
+      "american_gross": 257
+    },
+    {
+      "market": "first_td",
+      "side": "Terry McLaurin",
+      "line": null,
+      "prob": 0.07,
+      "american_gross": 1329
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Terry McLaurin",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Keenan Allen",
+      "line": null,
+      "prob": 0.25,
+      "american_gross": 300
+    },
+    {
+      "market": "first_td",
+      "side": "Keenan Allen",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Keenan Allen",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Marcus Mariota",
+      "line": null,
+      "prob": 0.22,
+      "american_gross": 355
+    },
+    {
+      "market": "first_td",
+      "side": "Marcus Mariota",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Marcus Mariota",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Daniel Jones",
+      "line": null,
+      "prob": 0.21,
+      "american_gross": 376
+    },
+    {
+      "market": "first_td",
+      "side": "Daniel Jones",
+      "line": null,
+      "prob": 0.06,
+      "american_gross": 1567
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Daniel Jones",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Kaytron Allen",
+      "line": null,
+      "prob": 0.21,
+      "american_gross": 376
+    },
+    {
+      "market": "first_td",
+      "side": "Kaytron Allen",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Kaytron Allen",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Chigoziem Okonkwo",
+      "line": null,
+      "prob": 0.19,
+      "american_gross": 426
+    },
+    {
+      "market": "first_td",
+      "side": "Chigoziem Okonkwo",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Chigoziem Okonkwo",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Antonio Williams",
+      "line": null,
+      "prob": 0.15,
+      "american_gross": 567
+    },
+    {
+      "market": "first_td",
+      "side": "Antonio Williams",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Antonio Williams",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Laquon Treadwell",
+      "line": null,
+      "prob": 0.15,
+      "american_gross": 567
+    },
+    {
+      "market": "first_td",
+      "side": "Laquon Treadwell",
+      "line": null,
+      "prob": 0.05,
+      "american_gross": 1900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Laquon Treadwell",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Darius Slayton",
+      "line": null,
+      "prob": 0.15,
+      "american_gross": 567
+    },
+    {
+      "market": "first_td",
+      "side": "Darius Slayton",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Darius Slayton",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Dyami Brown",
+      "line": null,
+      "prob": 0.13,
+      "american_gross": 669
+    },
+    {
+      "market": "first_td",
+      "side": "Dyami Brown",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Dyami Brown",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Treylon Burks",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "Treylon Burks",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Treylon Burks",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Ben Sinnott",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "Ben Sinnott",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Ben Sinnott",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "John Bates",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "John Bates",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "John Bates",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Austin Ekeler",
+      "line": null,
+      "prob": 0.12,
+      "american_gross": 733
+    },
+    {
+      "market": "first_td",
+      "side": "Austin Ekeler",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Austin Ekeler",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Seth McGowan",
+      "line": null,
+      "prob": 0.11,
+      "american_gross": 809
+    },
+    {
+      "market": "first_td",
+      "side": "Seth McGowan",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Seth McGowan",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Mo Alie-Cox",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "first_td",
+      "side": "Mo Alie-Cox",
+      "line": null,
+      "prob": 0.03,
+      "american_gross": 3233
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Mo Alie-Cox",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "atd_1_plus",
+      "side": "Jaylin Lane",
+      "line": null,
+      "prob": 0.1,
+      "american_gross": 900
+    },
+    {
+      "market": "first_td",
+      "side": "Jaylin Lane",
+      "line": null,
+      "prob": 0.02,
+      "american_gross": 4900
+    },
+    {
+      "market": "td_2_plus",
+      "side": "Jaylin Lane",
+      "line": null,
+      "prob": 0.04,
+      "american_gross": 2400
+    },
+    {
+      "market": "pass_yds",
+      "side": "Daniel Jones 230+",
+      "player": "Daniel Jones",
+      "line": 230,
+      "prob": 0.51,
+      "american_gross": -104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "pass_yds",
+      "side": "Marcus Mariota 220+",
+      "player": "Marcus Mariota",
+      "line": 220,
+      "prob": 0.49,
+      "american_gross": 104,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Antonio Williams 60+",
+      "player": "Antonio Williams",
+      "line": 60,
+      "prob": 0.55,
+      "american_gross": -122,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Darius Slayton 20+",
+      "player": "Darius Slayton",
+      "line": 20,
+      "prob": 0.46,
+      "american_gross": 117,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Jonathan Taylor 20+",
+      "player": "Jonathan Taylor",
+      "line": 20,
+      "prob": 0.54,
+      "american_gross": -117,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Josh Downs 70+",
+      "player": "Josh Downs",
+      "line": 70,
+      "prob": 0.46,
+      "american_gross": 117,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Keenan Allen 40+",
+      "player": "Keenan Allen",
+      "line": 40,
+      "prob": 0.48,
+      "american_gross": 108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Laquon Treadwell 20+",
+      "player": "Laquon Treadwell",
+      "line": 20,
+      "prob": 0.41,
+      "american_gross": 144,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Stefon Diggs 70+",
+      "player": "Stefon Diggs",
+      "line": 70,
+      "prob": 0.55,
+      "american_gross": -122,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Terry McLaurin 60+",
+      "player": "Terry McLaurin",
+      "line": 60,
+      "prob": 0.48,
+      "american_gross": 108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rec_yds",
+      "side": "Tyler Warren 60+",
+      "player": "Tyler Warren",
+      "line": 60,
+      "prob": 0.43,
+      "american_gross": 133,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Daniel Jones 20+",
+      "player": "Daniel Jones",
+      "line": 20,
+      "prob": 0.32,
+      "american_gross": 212,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Jacory Croskey-Merritt 60+",
+      "player": "Jacory Croskey-Merritt",
+      "line": 60,
+      "prob": 0.54,
+      "american_gross": -117,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Jonathan Taylor 90+",
+      "player": "Jonathan Taylor",
+      "line": 90,
+      "prob": 0.52,
+      "american_gross": -108,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Marcus Mariota 30+",
+      "player": "Marcus Mariota",
+      "line": 30,
+      "prob": 0.47,
+      "american_gross": 113,
+      "ladder_rung": "dk_highlighted"
+    },
+    {
+      "market": "rush_yds",
+      "side": "Seth McGowan 20+",
+      "player": "Seth McGowan",
+      "line": 20,
+      "prob": 0.17,
+      "american_gross": 488,
+      "ladder_rung": "dk_highlighted"
+    }
+  ]
+}

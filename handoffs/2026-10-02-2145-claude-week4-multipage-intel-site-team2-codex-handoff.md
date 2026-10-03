@@ -10,14 +10,13 @@ This handoff covers **every Claude session from 10/1 20:05 to now** so the next 
 1. **No wagering synthesis, card, prop stacks or narratives until Andy says intel gathering is complete** (Andy, 10/2). Narratives are held to **Saturday 10/3** and must meet the narrative minimum in `docs/MASTER_INTEL_REPORT_FORMAT.md` §3 (Week 3 LAC@BUF is the model).
 2. **The client report is now a hosted multi-page site.** Link (private until Andy shares it from the page's Share menu): **https://claude.ai/artifact/E6RSz4VGWJayUWNJG9mRi6**. Andy and reviewers comment on it outside Cowork; every change goes into the builder and is **republished to that same URL** (§3.3). Never hand-edit the hosted copy or `dist/` outputs.
 3. **Template v2 (picks first) is LOCKED** by Andy (10/2 21:15). `docs/MASTER_INTEL_REPORT_FORMAT.md` §2 now describes v2.
-4. **Working-tree files that differ from HEAD: Andy decides. Don't commit or restore them on your own.** (Corrected 22:05 PT after a per-file check; the first version of this item called them all stale.)
-   - `data/futures-imports/andy-portfolio-ledger-2026.json`: **the disk copy is NEWER than HEAD, not older.** It was saved 9/30 07:35 PT; HEAD `16d8061` was committed 9/30 00:38 PT.
-     - It holds the same 9/30 exacta tickets: 1000995399 (BUF $15 @ +16100, BAL $8, KC $8, CIN $2), 1000995658 and 1000995587.
-     - It stores each ticket as its own position (19 positions). HEAD folds them into blended `tickets[]` rows (13 positions; e.g. GB/BUF shown as $60 @ +10250 = $45 @ +8300 + $15 @ +16100).
-     - Total stake is identical: $179.42 in `positions`.
-     - **Ask Andy which layout is canonical before committing either.** Exactas are mutually exclusive; never sum `to_win` across them.
-   - `docs/futures-odds-20260929/` (12 raw 9/29 board captures) and `handoffs/2026-09-30-0050-claude-futures-exactas-placed-week4-intel-resume-handoff.md` are **deleted on disk but present in HEAD**. No copy exists anywhere else on disk. Never commit the deletions. Restore only with Andy's OK: `git checkout HEAD -- docs/futures-odds-20260929 handoffs/2026-09-30-0050-claude-futures-exactas-placed-week4-intel-resume-handoff.md`.
-   - **Eight older Claude handoffs (9/24–9/27) are modified on disk.** The edits are **not** stale copies. They flip one standing rule from "don't use team power ratings as evidence" to **"team power ratings are allowed as evidence"**. That is a policy change: **confirm with Andy** before relying on it or committing it.
+4. **Working-tree reconciliation: done 22:15 PT, with Andy's decisions.**
+   - **Futures ledger:** Andy picked the **per-ticket layout** (the on-disk file, saved 9/30 07:35 PT) as canonical.
+     - Committed it: 19 positions, the same $179.42 stake as the blended HEAD layout, and the 69 portfolio tests pass.
+     - Exactas are mutually exclusive; never sum `to_win` across them.
+   - **Restored from HEAD:** `docs/futures-odds-20260929/` (12 raw 9/29 boards) and `handoffs/2026-09-30-0050-claude-futures-exactas-placed-week4-intel-resume-handoff.md`. Both had been deleted on disk.
+   - **Still uncommitted, waiting on Andy:** the edits to 8 older Claude handoffs (9/24–9/27) that flip the rule to **"team power ratings are allowed as evidence"**. A copy of the diff is in `reports/handoff-snapshots/2026-10-02-week4/other-agents-wip/handoffs-team-power-ratings-rule-change.patch`. **Confirm the rule with Andy** before relying on it.
+   - **Snapshot of every referenced file:** `reports/handoff-snapshots/2026-10-02-week4/` (see its README). It holds the gitignored Week 4 build, the master-intel inputs, the Week 4 prop and DK boards, the wagers ledger + Live Tracker (Andy-approved), and patches of other agents' unfinished work.
 5. **Guardrails (unchanged):**
    - No wagers or account actions.
    - No TheOddsAPI calls.
@@ -179,4 +178,9 @@ Guardrails: no wagers/account actions, no TheOddsAPI, no Supabase writes except 
   - `bookmaker-2026-10-01-live-make-playoffs.json`
   - `price-watch-list-2026.json`
 - 22:05 correction commit: this handoff's §1.4 fix + §3.4, the Codex parser fix + its handoff, the six `data/odds/` Week 4 captures.
-- Left uncommitted on purpose: the §1.4 files (Andy decides); Antigravity's billing-alert code (§3.4); `public/` and the Live Tracker html (wager data); the roughly 1,240 pre-existing dirty files.
+- 22:15 snapshot commit:
+  - `reports/handoff-snapshots/2026-10-02-week4/` (packet + site, pull/roster-vet/flags, Week 4 BKR/BEO/DK boards, wagers ledger + Live Tracker, other-agents WIP patches).
+  - The per-ticket futures ledger.
+  - The restored 9/29 futures boards + 9/30 handoff.
+  - `scripts/windows/task-backups/`.
+- Left uncommitted on purpose: the 8 Week 3 handoff edits (rule change, Andy to confirm); Antigravity's billing-alert code (§3.4); `public/` and the Live Tracker html (wager data); the roughly 1,240 pre-existing dirty files.
