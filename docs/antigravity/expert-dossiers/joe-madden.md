@@ -1,20 +1,20 @@
-# Expert Dossier: Ben Solak
+# Expert Dossier: Joe Madden
 
-Generated: 2026-10-03T05:53:31.581Z
+Generated: 2026-09-21T20:14:22.452Z
 
 > Expert dossiers are context for interpreting analyst priors and possible bias. They are not betting authority, not price evidence, and not official-pick support unless a signal is separately promoted through an approved review gate.
 
 ## Coverage
 
-- Host citations: 46
+- Host citations: 39
 - Local recovery signals: 0
 - Context-only recovery signals: 0
 
 ## Host Citation Profile
 
-- Sentiment counts: {"bullish":44,"bearish":2}
-- Top teams: CLE (8), SEA (6), LAR (6), KC (6), HOU (4), PHI (4), NE (3), DEN (3), NYG (2), CAR (1)
-- Top markets: general (22), superbowl (13), playoffs (6), wins (5)
+- Sentiment counts: {"bullish":38,"bearish":1}
+- Top teams: ARI (7), GB (7), NE (6), CHI (3), IND (3), BAL (2), MIN (2), DEN (2), CAR (2), HOU (2)
+- Top markets: general (33), wins (4), conference (2)
 
 ## Tendency Signals
 

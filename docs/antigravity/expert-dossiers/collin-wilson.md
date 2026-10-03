@@ -1,20 +1,20 @@
-# Expert Dossier: Ben Solak
+# Expert Dossier: Collin Wilson
 
-Generated: 2026-10-03T05:53:31.581Z
+Generated: 2026-09-21T20:14:22.452Z
 
 > Expert dossiers are context for interpreting analyst priors and possible bias. They are not betting authority, not price evidence, and not official-pick support unless a signal is separately promoted through an approved review gate.
 
 ## Coverage
 
-- Host citations: 46
+- Host citations: 174
 - Local recovery signals: 0
 - Context-only recovery signals: 0
 
 ## Host Citation Profile
 
-- Sentiment counts: {"bullish":44,"bearish":2}
-- Top teams: CLE (8), SEA (6), LAR (6), KC (6), HOU (4), PHI (4), NE (3), DEN (3), NYG (2), CAR (1)
-- Top markets: general (22), superbowl (13), playoffs (6), wins (5)
+- Sentiment counts: {"bullish":170,"bearish":4}
+- Top teams: KC (20), TEN (14), MIN (10), DET (10), LAR (8), ARI (8), SF (7), WAS (7), CIN (7), SEA (6)
+- Top markets: general (110), conference (36), superbowl (14), wins (10), division (4)
 
 ## Tendency Signals
 

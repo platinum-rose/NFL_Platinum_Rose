@@ -45,12 +45,19 @@
 // ═══════════════════════════════════════════════════════════════════════════════
 
 import 'dotenv/config';
+import fs from 'node:fs';
 import https from 'node:https';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { createClient } from '@supabase/supabase-js';
 import { normalizePick, normalizeNote, classifyPick, classifyNote } from '../scripts/lib/gemini-pick-normalize.js';
 import { findExpert } from '../src/lib/experts.js';
+import {
+  checkGeminiBillingLive,
+  sendBillingAlert,
+  recordBillingSuccess,
+  isBillingDepletedError,
+} from './lib/billing-alert.js';
 
 const ROOT = process.cwd();
 const MODEL_NAME = 'gemini-3.5-flash';
@@ -127,15 +134,26 @@ function groupByHost(picks, notes, showName) {
 const httpsAgent = new https.Agent({ rejectUnauthorized: false });
 
 async function obsidianPut(notePath, markdown) {
-  const { default: fetch } = await import('node-fetch');
-  const url = `${OBSIDIAN_URL}/vault/${notePath.split('/').map(encodeURIComponent).join('/')}`;
-  const res = await fetch(url, {
-    method: 'PUT',
-    agent: httpsAgent,
-    headers: { Authorization: `Bearer ${OBSIDIAN_KEY}`, 'Content-Type': 'text/markdown' },
-    body: markdown,
-  });
-  if (!res.ok) throw new Error(`Obsidian PUT ${res.status}: ${(await res.text()).slice(0, 200)}`);
+  try {
+    const { default: fetch } = await import('node-fetch');
+    const url = `${OBSIDIAN_URL}/vault/${notePath.split('/').map(encodeURIComponent).join('/')}`;
+    const res = await fetch(url, {
+      method: 'PUT',
+      agent: httpsAgent,
+      headers: { Authorization: `Bearer ${OBSIDIAN_KEY}`, 'Content-Type': 'text/markdown' },
+      body: markdown,
+    });
+    if (res.ok) return;
+  } catch (err) {
+    const vaultDir = process.env.VAULT_DIR;
+    if (vaultDir && fs.existsSync(vaultDir)) {
+      const fullPath = path.join(vaultDir, notePath);
+      await fs.promises.mkdir(path.dirname(fullPath), { recursive: true });
+      await fs.promises.writeFile(fullPath, markdown, 'utf8');
+      return;
+    }
+    throw err;
+  }
 }
 
 function buildVaultNote({ show, host, title, pubDate, picks, notes, model, youtubeUrl }) {
@@ -197,7 +215,11 @@ function runGeminiExtraction({ youtubeUrl, title, show, pubDate, durationSecs })
   // episode partway through (confirmed failure mode, see coverage_assessment).
   if (durationSecs) cliArgs.push('--duration-seconds', String(Math.round(durationSecs)));
 
-  const rawOutput = execFileSync('python', cliArgs, { encoding: 'utf8' });
+  const pythonBin = process.env.PYTHON_BIN || (fs.existsSync(path.join(ROOT, '.venv', 'Scripts', 'python.exe'))
+    ? path.join(ROOT, '.venv', 'Scripts', 'python.exe')
+    : (fs.existsSync(path.join(ROOT, '.venv', 'bin', 'python')) ? path.join(ROOT, '.venv', 'bin', 'python') : 'python'));
+
+  const rawOutput = execFileSync(pythonBin, cliArgs, { encoding: 'utf8' });
   const jsonRes = JSON.parse(rawOutput);
   if (jsonRes.error) throw new Error(jsonRes.error);
 
@@ -247,6 +269,20 @@ async function runExtract(supabase) {
   console.log(`PodcastGeminiIntelAgent (extract) start`);
   console.log(`  model=${MODEL_NAME} dryRun=${DRY_RUN} overwrite=${OVERWRITE} candidates=${episodes.length} to_run=${work.length} (${done.size} already done, skipped)`);
 
+  if (!DRY_RUN && work.length > 0) {
+    const probe = await checkGeminiBillingLive();
+    if (!probe.ok && probe.isBilling) {
+      console.error(`❌ GEMINI BILLING FAILURE: ${probe.reason} — ${probe.error}`);
+      await sendBillingAlert({
+        provider: 'Gemini API (YouTube Intel)',
+        error: probe.error || probe.reason,
+        context: 'Podcast YouTube Gemini Intel Pre-flight Check',
+        supabase,
+      });
+      process.exit(1);
+    }
+  }
+
   let wrote = 0, errors = 0, totalCost = 0;
 
   for (const ep of work) {
@@ -265,27 +301,52 @@ async function runExtract(supabase) {
       totalCost += Number(result.cost_usd || 0);
       console.log(`     ✅ picks=${result.picks.length} notes=${result.notes.length} cost=$${result.cost_usd} latency=${result.latency_ms}ms`);
 
-      const { error: upErr } = await supabase
-        .from('podcast_gemini_intel')
-        .upsert({
-          episode_id: ep.id,
-          model: MODEL_NAME,
-          youtube_url: ep.youtube_url,
-          picks: result.picks,
-          analysis_notes: result.notes,
-          quote_timestamps: result.quote_timestamps,
-          cost_usd: result.cost_usd,
-          latency_ms: result.latency_ms,
-          input_tokens: result.input_tokens,
-          output_tokens: result.output_tokens,
-          // promoted_at intentionally omitted -- stays null until --promote.
-        }, { onConflict: 'episode_id,model' });
-      if (upErr) throw new Error(`upsert failed: ${upErr.message}`);
+      let upErr = null;
+      for (let attempt = 1; attempt <= 3; attempt++) {
+        try {
+          const res = await supabase
+            .from('podcast_gemini_intel')
+            .upsert({
+              episode_id: ep.id,
+              model: MODEL_NAME,
+              youtube_url: ep.youtube_url,
+              picks: result.picks,
+              analysis_notes: result.notes,
+              quote_timestamps: result.quote_timestamps,
+              cost_usd: result.cost_usd,
+              latency_ms: result.latency_ms,
+              input_tokens: result.input_tokens,
+              output_tokens: result.output_tokens,
+              // promoted_at intentionally omitted -- stays null until --promote.
+            }, { onConflict: 'episode_id,model' });
+          upErr = res.error;
+          if (!upErr) break;
+          console.warn(`     [retry ${attempt}/3] upsert error: ${upErr.message}`);
+        } catch (e) {
+          upErr = e;
+          console.warn(`     [retry ${attempt}/3] upsert exception: ${e.message}`);
+        }
+        await new Promise(r => setTimeout(r, 2000));
+      }
+      if (upErr) throw new Error(`upsert failed: ${upErr.message || upErr}`);
       wrote++;
     } catch (err) {
       errors++;
       console.error(`     ❌ ${err.message}`);
+      if (isBillingDepletedError(err)) {
+        await sendBillingAlert({
+          provider: 'Gemini API (YouTube Intel)',
+          error: err.message,
+          context: `Episode: ${ep.title} (${ep.id})`,
+          supabase,
+        });
+        break;
+      }
     }
+  }
+
+  if (wrote > 0 && errors === 0) {
+    await recordBillingSuccess({ provider: 'Gemini API', supabase });
   }
 
   console.log(`\n📊 Done. episodes=${work.length} written=${wrote} errors=${errors} total_cost=$${totalCost.toFixed(4)}`);

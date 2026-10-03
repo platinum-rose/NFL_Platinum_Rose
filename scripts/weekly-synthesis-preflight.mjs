@@ -10,6 +10,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { checkGeminiBillingLive } from '../agents/lib/billing-alert.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const argv = process.argv.slice(2);
@@ -118,7 +119,20 @@ const SOURCES = [
   ['BEO futures board (import)', () => `data/futures-imports/${newest('data/futures-imports', /^betonline-2026-\d\d-\d\d(-.*)?\.json$/)}`, 168],
   ['BKR futures board (import)', () => `data/futures-imports/${newest('data/futures-imports', /^bookmaker-2026-\d\d-\d\d(-.*)?\.json$/)}`, 168],
   ['Promotions', 'data/sportsbooks/promotions-2026.json', 168],
+  ['Gemini API billing (LLM)', null, null, () => geminiBillingStatus],
 ];
+
+let geminiBillingStatus = { note: 'skipped (--no-fetch)' };
+if (!argv.includes('--no-fetch')) {
+  try {
+    const probe = await checkGeminiBillingLive();
+    geminiBillingStatus = probe.ok
+      ? { note: 'active (HTTP 200)' }
+      : { note: `FAILED (${probe.reason})`, fail: true };
+  } catch (e) {
+    geminiBillingStatus = { note: `error: ${e.message}`, fail: true };
+  }
+}
 
 const rows = [];
 for (const [label, p0, maxH, extra] of SOURCES) {

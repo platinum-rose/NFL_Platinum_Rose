@@ -36,6 +36,12 @@ import {
 import { planEpisodeQueue, DEFAULT_MAX_EPISODE_AGE_DAYS } from './lib/episode-queue.js';
 import { chunkTranscript } from './lib/chunk-text.js';
 import { mergePicks, mergeIntel } from './lib/extraction-merge.js';
+import {
+  checkGeminiBillingLive,
+  sendBillingAlert,
+  recordBillingSuccess,
+  isBillingDepletedError,
+} from './lib/billing-alert.js';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -568,6 +574,12 @@ async function reextractStored(supabase) {
       if (err instanceof ExtractionUnavailableError) {
         console.error(`    ⛔ ${err.message} — stopping re-extract run`);
         errors++;
+        await sendBillingAlert({
+          provider: 'LLM Extraction Chain (Gemini/OpenAI)',
+          error: err.message,
+          context: `Re-extract episode ${ep?.title || row.episode_id}`,
+          supabase,
+        });
         break;
       }
       console.error(`    ❌ ${err.message}`);
@@ -596,6 +608,21 @@ async function run() {
   if (DRY_RUN) console.log('🔍 DRY RUN mode — no Supabase writes, no transcription');
 
   const supabase = getSupabase();
+
+  // Pre-flight check: Live Gemini billing probe if Gemini is configured
+  if (GEMINI_KEY && !DRY_RUN) {
+    const probe = await checkGeminiBillingLive(GEMINI_KEY);
+    if (!probe.ok && probe.isBilling) {
+      console.error(`❌ GEMINI BILLING FAILURE: ${probe.reason} — ${probe.error}`);
+      await sendBillingAlert({
+        provider: 'Gemini API',
+        error: probe.error || probe.reason,
+        context: 'Podcast Ingest Pre-flight Check',
+        supabase,
+      });
+      deadExtractionProviders.add('gemini');
+    }
+  }
 
   if (REEXTRACT_SINCE) {
     const { errors } = await reextractStored(supabase);
@@ -829,6 +856,15 @@ async function run() {
               transcript = result.text;
               speakerSegments = result.utterances;
             } catch (err) {
+              if (isBillingDepletedError(err)) {
+                console.error(`    ⛔ Gemini audio diarization failed due to billing/credits: ${err.message}`);
+                await sendBillingAlert({
+                  provider: 'Gemini Audio Diarization',
+                  error: err.message,
+                  context: `Podcast: ${ep.title} (${ep.id})`,
+                  supabase,
+                });
+              }
               if (ASSEMBLYAI_KEY) {
                 console.warn(`    ⚠ Gemini diarization failed (${err.message}${err.cause ? `, cause: ${err.cause}` : ''}) — falling back to AssemblyAI`);
                 modelUsed = 'assemblyai-diarized';
@@ -942,6 +978,12 @@ async function run() {
           console.error('    ⛔ Stopping run: fix a provider key/credits, then re-run.');
           totalErrors++;
           stopRun = true;
+          await sendBillingAlert({
+            provider: 'LLM Extraction Chain (Gemini/OpenAI)',
+            error: err.message,
+            context: `Episode: ${ep.title} (${ep.id})`,
+            supabase,
+          });
           if (episodeId && !DRY_RUN) {
             await supabase
               .from('podcast_episodes')
@@ -985,6 +1027,10 @@ async function run() {
   console.log(`   Discovered: ${totalDiscovered} new episodes`);
   console.log(`   Processed:  ${totalProcessed} transcribed + extracted`);
   console.log(`   Errors:     ${totalErrors}`);
+
+  if (totalErrors === 0 && totalProcessed > 0) {
+    await recordBillingSuccess({ provider: 'Gemini API', supabase });
+  }
 
   if (totalErrors > 0) process.exit(1);
 }

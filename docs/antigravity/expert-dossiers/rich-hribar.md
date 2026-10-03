@@ -1,6 +1,6 @@
 # Expert Dossier: Rich Hribar
 
-Generated: 2026-09-26T21:35:26.087Z
+Generated: 2026-10-03T05:53:31.582Z
 
 > Expert dossiers are context for interpreting analyst priors and possible bias. They are not betting authority, not price evidence, and not official-pick support unless a signal is separately promoted through an approved review gate.
 
