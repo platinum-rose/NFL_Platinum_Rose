@@ -7,27 +7,27 @@
 - Downloaded artifact moved to ignored `data/generated/props/bookmaker-live-2026-10-01-week4.raw.txt` (164,782 bytes); parsed combined output is ignored at `data/generated/props/bookmaker-live-2026-10-01-week4.json`.
 - Visible main lines saved in tracked `data/odds/BKR_current_lines_1001_2215`.
 
-## Parser result — do not treat as clean
+## Parser result — repaired against the saved raw capture
 
-The requested clean target was **not met**: the raw capture has 15 games, but every game reports `unknown=6`; `unparsed` is nonzero throughout. This is preserved as captured; no raw reconstruction or parser change was made.
+The parser was corrected locally after the initial capture to recognize Second Half sections, unpriced TD-scorer listings, and `Player - Over/Under` layout. Rerunning against the unchanged raw file meets the requested structural target: **15 games, `unparsed=0`, `unknown=0`**. Listings that had no displayed price remain `available: false`; no odds were inferred.
 
 | Game | rows | unavail | unparsed | unknown | TD |
 |---|---:|---:|---:|---:|---:|
-| IND @ WAS | 416 | 380 | 116 | 6 | 28 |
-| NE @ BUF | 529 | 26 | 26 | 6 | 27 |
-| NYJ @ CHI | 474 | 438 | 110 | 6 | 26 |
-| ARI @ NYG | 442 | 6 | 6 | 6 | 27 |
-| DAL @ HOU | 42 | 6 | 6 | 6 | 0 |
-| JAX @ CIN | 484 | 6 | 6 | 6 | 26 |
-| GB @ TB | 469 | 6 | 6 | 6 | 25 |
-| LAR @ PHI | 493 | 35 | 8 | 6 | 21 |
-| TEN @ BAL | 438 | 402 | 119 | 6 | 29 |
-| MIA @ MIN | 433 | 93 | 56 | 6 | 26 |
-| DEN @ SF | 431 | 395 | 114 | 6 | 27 |
-| KC @ LV | 466 | 430 | 114 | 6 | 27 |
-| LAC @ SEA | 442 | 406 | 105 | 6 | 25 |
-| DET @ CAR | 433 | 397 | 114 | 6 | 28 |
-| ATL @ NO | 42 | 6 | 6 | 6 | 0 |
+| IND @ WAS | 416 | 380 | 0 | 0 | 28 |
+| NE @ BUF | 529 | 14 | 0 | 0 | 27 |
+| NYJ @ CHI | 474 | 438 | 0 | 0 | 26 |
+| ARI @ NYG | 442 | 6 | 0 | 0 | 27 |
+| DAL @ HOU | 42 | 6 | 0 | 0 | 0 |
+| JAX @ CIN | 484 | 6 | 0 | 0 | 26 |
+| GB @ TB | 469 | 6 | 0 | 0 | 25 |
+| LAR @ PHI | 493 | 33 | 0 | 0 | 21 |
+| TEN @ BAL | 438 | 402 | 0 | 0 | 29 |
+| MIA @ MIN | 433 | 55 | 0 | 0 | 26 |
+| DEN @ SF | 431 | 395 | 0 | 0 | 27 |
+| KC @ LV | 466 | 430 | 0 | 0 | 27 |
+| LAC @ SEA | 442 | 406 | 0 | 0 | 25 |
+| DET @ CAR | 433 | 397 | 0 | 0 | 28 |
+| ATL @ NO | 42 | 6 | 0 | 0 | 0 |
 
 ## Visible player thresholds without displayed odds
 

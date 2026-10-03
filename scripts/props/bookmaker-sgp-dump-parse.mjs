@@ -10,7 +10,7 @@ if (!IN || !DATE || !WEEK) { console.error('usage: --in <dump.txt> --date YYYY-M
 const raw = fs.readFileSync(IN, 'utf8').split('\n');
 const PM = [['Passing Yards','pass_yds'],['Pass Completions','pass_cmp'],['Passing Touchdowns','pass_td'],['Receptions','rec'],['Receiving Yards','rec_yds'],['Rushing Yards','rush_yds'],['Carries','carries']];
 const TD = { 'Player To Score 1st Touchdown':'first_td','Player To Score 1+ Touchdown':'atd_1_plus','Player To Score 2+ Touchdown':'td_2_plus','Player To Score 3+ Touchdown':'td_3_plus' };
-const PERIOD = [['First Half','first_half_lines'],['First Quarter','first_quarter_lines'],['Second Quarter','second_quarter_lines'],['Third Quarter','third_quarter_lines'],['Fourth Quarter','fourth_quarter_lines']];
+const PERIOD = [['First Half','first_half_lines'],['Second Half','second_half_lines'],['First Quarter','first_quarter_lines'],['Second Quarter','second_quarter_lines'],['Third Quarter','third_quarter_lines'],['Fourth Quarter','fourth_quarter_lines']];
 const odds = (s) => (s == null ? null : Number(s));
 const events = []; let ev = null, sec = null, secIdx = -1;
 for (const line of raw) {
@@ -23,7 +23,7 @@ for (const line of raw) {
     if (secIdx === 0 || t === 'Game') market = 'game_lines';
     else if (TD[t]) market = TD[t];
     else { const p = PERIOD.find(([n]) => v.endsWith(n)); if (p) market = p[1];
-      else { const m = PM.find(([n]) => t.endsWith(' ' + n)); if (m) { market = m[1]; player = t.slice(0, -(m[0].length + 1)).trim(); } } }
+      else { const m = PM.find(([n]) => t.endsWith(' ' + n)); if (m) { market = m[1]; player = t.slice(0, -(m[0].length + 1)).trim().replace(/\s+Total$/i, ''); } } }
     sec = { title: v, market, player, mode: null }; continue;
   }
   if (k !== 'I' || !sec) continue;
@@ -31,10 +31,12 @@ for (const line of raw) {
   if (v === 'Money Line') { sec.mode = 'ml'; continue; }
   let m;
   if (sec.player && (m = v.match(/^(.*?) (\d+(?:\.\d+)?)\+(?: ([+-]\d+))?$/))) { ev.rows.push({ ...base, player: m[1], side: 'Over', line: Number(m[2]) - 0.5, threshold: Number(m[2]), odds: odds(m[3]), available: m[3] != null }); continue; }
-  if (TD[sec.title.replace(/^.{2,40}?\svs\s.{2,40}?\s*:\s*/i, '')] && (m = v.match(/^(.*?) ([+-]\d+)$/))) { ev.rows.push({ ...base, player: m[1], side: 'Yes', line: null, odds: odds(m[2]), available: true }); continue; }
+  if (sec.player && (m = v.match(/^(.*?) - (Over|Under)(?: (\d+(?:\.\d+)?)([+-]\d+))?$/))) { ev.rows.push({ ...base, player: m[1], side: m[2], line: m[3] == null ? null : Number(m[3]), odds: odds(m[4]), available: m[4] != null }); continue; }
+  if (TD[sec.title.replace(/^.{2,40}?\svs\s.{2,40}?\s*:\s*/i, '')] && (m = v.match(/^(.*?)(?: ([+-]\d+))?$/))) { ev.rows.push({ ...base, player: m[1], side: 'Yes', line: null, odds: odds(m[2]), available: m[2] != null }); continue; }
   if ((m = v.match(/^(Over|Under) (\d+(?:\.\d+)?)([+-]\d+)$/))) { ev.rows.push({ ...base, player: null, bet: 'total', side: m[1], line: Number(m[2]), odds: odds(m[3]), available: true }); continue; }
   if (sec.mode === 'ml' && (m = v.match(/^(.*?) ([+-]\d+)$/))) { ev.rows.push({ ...base, player: null, bet: 'moneyline', side: m[1], line: null, odds: odds(m[2]), available: true }); continue; }
   if ((m = v.match(/^(.*?) ([+-]\d+(?:\.\d+)?)([+-]\d+)$/))) { ev.rows.push({ ...base, player: null, bet: 'spread', side: m[1], line: Number(m[2]), odds: odds(m[3]), available: true }); continue; }
+  if (sec.market === 'second_half_lines') { ev.rows.push({ ...base, player: null, bet: 'unpriced', side: null, line: null, odds: null, available: false }); continue; }
   ev.rows.push({ ...base, player: sec.player, side: null, line: null, odds: null, available: false, unparsed: true });
 }
 const slug = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');

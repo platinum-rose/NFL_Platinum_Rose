@@ -10,11 +10,14 @@ This handoff covers **every Claude session from 10/1 20:05 to now** so the next 
 1. **No wagering synthesis, card, prop stacks or narratives until Andy says intel gathering is complete** (Andy, 10/2). Narratives are held to **Saturday 10/3** and must meet the narrative minimum in `docs/MASTER_INTEL_REPORT_FORMAT.md` §3 (Week 3 LAC@BUF is the model).
 2. **The client report is now a hosted multi-page site.** Link (private until Andy shares it from the page's Share menu): **https://claude.ai/artifact/E6RSz4VGWJayUWNJG9mRi6**. Andy and reviewers comment on it outside Cowork; every change goes into the builder and is **republished to that same URL** (§3.3). Never hand-edit the hosted copy or `dist/` outputs.
 3. **Template v2 (picks first) is LOCKED** by Andy (10/2 21:15). `docs/MASTER_INTEL_REPORT_FORMAT.md` §2 now describes v2.
-4. **Stale files in the working tree. Do NOT commit these, and don't trust them:**
-   - `data/futures-imports/andy-portfolio-ledger-2026.json` on disk is **older than HEAD**. It is missing the 9/30 exacta tickets (e.g. ticket 1000995399, $15 @ +16100), and it rolls the GB/BUF exacta back to $45 @ +8300. **HEAD (16d8061) is correct.**
-   - `handoffs/2026-09-30-0050-claude-futures-exactas-placed-week4-intel-resume-handoff.md` is **deleted on disk** but present in HEAD.
-   - About 10 older handoffs show small modifications. They look like regressions from a stale copy, not new work.
-   - Likely cause: the 10/1 M6 → main merge or a stale file copy. **Fix only with Andy's OK:** `git checkout HEAD -- <those paths>`, or diff first. Never `git add -A`.
+4. **Working-tree files that differ from HEAD: Andy decides. Don't commit or restore them on your own.** (Corrected 22:05 PT after a per-file check; the first version of this item called them all stale.)
+   - `data/futures-imports/andy-portfolio-ledger-2026.json`: **the disk copy is NEWER than HEAD, not older.** It was saved 9/30 07:35 PT; HEAD `16d8061` was committed 9/30 00:38 PT.
+     - It holds the same 9/30 exacta tickets: 1000995399 (BUF $15 @ +16100, BAL $8, KC $8, CIN $2), 1000995658 and 1000995587.
+     - It stores each ticket as its own position (19 positions). HEAD folds them into blended `tickets[]` rows (13 positions; e.g. GB/BUF shown as $60 @ +10250 = $45 @ +8300 + $15 @ +16100).
+     - Total stake is identical: $179.42 in `positions`.
+     - **Ask Andy which layout is canonical before committing either.** Exactas are mutually exclusive; never sum `to_win` across them.
+   - `docs/futures-odds-20260929/` (12 raw 9/29 board captures) and `handoffs/2026-09-30-0050-claude-futures-exactas-placed-week4-intel-resume-handoff.md` are **deleted on disk but present in HEAD**. No copy exists anywhere else on disk. Never commit the deletions. Restore only with Andy's OK: `git checkout HEAD -- docs/futures-odds-20260929 handoffs/2026-09-30-0050-claude-futures-exactas-placed-week4-intel-resume-handoff.md`.
+   - **Eight older Claude handoffs (9/24–9/27) are modified on disk.** The edits are **not** stale copies. They flip one standing rule from "don't use team power ratings as evidence" to **"team power ratings are allowed as evidence"**. That is a policy change: **confirm with Andy** before relying on it or committing it.
 5. **Guardrails (unchanged):**
    - No wagers or account actions.
    - No TheOddsAPI calls.
@@ -26,7 +29,7 @@ This handoff covers **every Claude session from 10/1 20:05 to now** so the next 
 
 | Item | State | Next |
 |---|---|---|
-| Antigravity YouTube/Gemini run | **In progress.** 12 `podcast_gemini_intel` rows in the last 12h, latest 21:33 PT, none promoted yet. Done so far: BettingPros Top 10 Props + 10 Best Bets, SportsLine props, Cosell pt 2, SoS Pro Gamblers Hotline, start/sit, and more | When it finishes: build the cleaned digest `data/podcasts/youtube-extracted-picks-2026-w04.json` (runbook §4 cleaning rules, Week 3 file as the model). Andy reviews it before anything is promoted |
+| Antigravity YouTube/Gemini run | **In progress.** 14 `podcast_gemini_intel` rows since 10/2 19:00 PT, latest 21:42 PT, none promoted yet. Done so far: BettingPros Top 10 Props + 10 Best Bets, SportsLine props, Cosell pt 2, SoS Pro Gamblers Hotline, start/sit, and more | When it finishes: build the cleaned digest `data/podcasts/youtube-extracted-picks-2026-w04.json` (runbook §4 cleaning rules, Week 3 file as the model). Andy reviews it before anything is promoted |
 | Audio-only podcast episodes | **13 still `pending`** in `podcast_episodes`, including **BettingPros Ep. 1083 (highest value)**, Move the Sticks Week 4 Matchups, PFF NFL Pro, NFL Report, BettingPros TNF Ep. 1081, Athletic | Gemini credits were topped up (402 fixed), so the next scheduled Podcast_Ingestion_Sync (Sat 06:30 PT, Windows) or the GH podcast workflow should drain them. Confirm |
 | Master pull | `data/generated/master-intel/w04-pull.json` **pulled 10/2 20:30 PT**: 601 signals, 86 expert picks, **0 splits**, 19 transcripts | **Rerun on Windows** after YouTube + podcasts land: `node scripts/master-intel/pull.mjs --week 4` |
 | Expert pick extraction | **Not run.** `user_picks` has 0 rows newer than 10/1 08:46 PT | On Windows: `node agents/pick-extraction.js`, then re-pull |
@@ -108,6 +111,21 @@ Commits, all on `main`:
 - At the 10/2 1:16 PM PT BKR capture, **Drake Maye and Josh Allen were listed without odds** (NE@BUF). Verify before trusting any NE@BUF prop.
 - ATL@NO is missing from the BKR capture (14 of 15 events).
 
+
+### 3.4 Uncommitted work by other agents (found 22:05 PT, reviewed, status below)
+- **Codex BKR parser fix: COMMITTED in the 22:05 correction commit.** `scripts/props/bookmaker-sgp-dump-parse.mjs` now handles Second Half sections, unpriced TD-scorer listings and `Player - Over/Under` rows. On the unchanged raw capture it gets 15 games, `unparsed=0`, `unknown=0`. Committed with:
+  - Codex's updated `handoffs/2026-10-01-2230-codex-week4-bkr-sgp-capture.md`.
+  - Six Week 4 line captures in `data/odds/`: BEO/BKR/BetUS current lines 10/1 23:33–23:51, BEO/BKR period lines 10/2, DK Predictions game contracts.
+- **Antigravity billing-alert code: NOT committed** (Antigravity's lane, still running).
+  - Files: `agents/lib/billing-alert.js` (new), `agents/podcast-ingest.js`, `agents/podcast-gemini-intel.js`, `.github/workflows/podcast-ingest.yml`, `scripts/weekly-synthesis-preflight.mjs`.
+  - What it does: a live Gemini billing probe plus email alerts on 402 or depleted-credit errors.
+  - **Before it goes to `main`:**
+    - The workflow needs new GH secrets `GMAIL_ADDRESS`, `GMAIL_APP_PASSWORD` and `TO_EMAIL`.
+    - The code's fallback recipient is `andrewlrose@gmail.com`. Confirm the address with Andy.
+    - The preflight now runs a live Gemini probe on every run (skipped with `--no-fetch`).
+    - Antigravity commits it, or Codex reviews and commits it (Codex task 5).
+- Still local by design: `public/` and the Live Tracker html (wager data), the wagers-ledger `.bak-claude-*` backups, `scripts/windows/task-backups/` (Antigravity's 10/2 task XML exports), and the ~1,100 pre-existing dirty files.
+
 ## 4. Resume prompt: Claude Team 2
 
 ```
@@ -130,10 +148,11 @@ Resume Platinum Rose NFL, Week 4 (Saturday 10/3), Codex lane. HEAD = the 2026-10
 
 Tasks, in order:
 1. Betting splits: Week 4 has 0 rows in game_splits (last capture 9/27). Inspect the `betting-splits-ingest.yml` GitHub Actions runs for Fri 10/2 (`gh run list --workflow betting-splits-ingest.yml`, `gh run view --log`), find why nothing was written, fix it, and trigger a run if allowed. Report the root cause in your handoff. A splits ingest is the one Supabase write you may trigger, and only through the existing workflow; nothing else writes to Supabase.
-2. Stale working tree (read-only): produce a report of tracked files whose working copy is OLDER than HEAD (e.g. data/futures-imports/andy-portfolio-ledger-2026.json missing the 9/30 exacta tickets; handoffs/2026-09-30-0050-… deleted on disk; ~10 older handoffs modified). Use `git diff --stat` and per-file diffs. List each file as "regressed vs HEAD" or "genuine local edit". Do NOT restore anything; Andy decides.
+2. Working tree vs HEAD (read-only): finish the per-file report started in the handoff §1.4. Already known: the futures ledger on disk is a NEWER per-ticket layout of the same 9/30 tickets (same $179.42); docs/futures-odds-20260929/ + handoffs/2026-09-30-0050-… are deleted on disk; 8 older handoffs flip the "team power ratings" rule. Use `git diff --stat` + per-file diffs over the other tracked, modified files that aren't auto-generated, and label each one "regressed vs HEAD", "genuine local edit" or "generated". Do NOT restore or commit any of them; Andy decides.
 3. scripts/master-intel/build_site.py: add a small test (python, no network) that builds the site from dist/nfl_week4_master_packet/nfl_week4_master_betting_intelligence_summary.html (or a trimmed fixture) and asserts: every page exists, 0 broken `#` links across pages, every page links assets/report.css and assets/report.js, _artifact_index.html has no <html>/<head>/<body>. Add beautifulsoup4 to the Python requirements the repo uses (requirements*.txt or the runbook's pip line).
 4. Pre-existing failing tests (not from these sessions): generateLiveTracker.test.js (1) and superContestView.test.js (1). Run `npm test` on Windows, fix or document.
-5. Saturday market refresh, if Andy asks: BKR SGP re-capture per docs/MASTER_INTEL_REPORT_RUNBOOK.md §2 (read-only, never click odds or a bet slip), then `node scripts/props/bookmaker-sgp-dump-parse.mjs ...`. Check NE@BUF (Maye/Allen had no odds at the 10/2 capture) and whether ATL@NO is on the board.
+5. Antigravity billing-alert code (handoff §3.4): if Antigravity hasn't committed it by Saturday noon PT, review it. Run `node --check` on each file, `node scripts/weekly-synthesis-preflight.mjs --no-fetch`, and the podcast-ingest unit tests. Confirm with Andy that the GH secrets exist and which alert address to use, then commit only those 5 files.
+6. Saturday market refresh, if Andy asks: BKR SGP re-capture per docs/MASTER_INTEL_REPORT_RUNBOOK.md §2 (read-only, never click odds or a bet slip), then `node scripts/props/bookmaker-sgp-dump-parse.mjs ...`. Check NE@BUF (Maye/Allen had no odds at the 10/2 capture) and whether ATL@NO is on the board.
 Guardrails: no wagers/account actions, no TheOddsAPI, no Supabase writes except task 1's workflow, no ledger writes, narrow staging by explicit path (never git add -A), keep the dirty checkout intact. End with a dated handoff in handoffs/ and the commit hash.
 ```
 
@@ -159,4 +178,5 @@ Guardrails: no wagers/account actions, no TheOddsAPI, no Supabase writes except 
   - `bookmaker-2026-10-01-live-division-futures.json`
   - `bookmaker-2026-10-01-live-make-playoffs.json`
   - `price-watch-list-2026.json`
-- Left uncommitted on purpose: the stale files in §1.4; `public/` and the Live Tracker html (wager data); the roughly 1,240 pre-existing dirty files.
+- 22:05 correction commit: this handoff's §1.4 fix + §3.4, the Codex parser fix + its handoff, the six `data/odds/` Week 4 captures.
+- Left uncommitted on purpose: the §1.4 files (Andy decides); Antigravity's billing-alert code (§3.4); `public/` and the Live Tracker html (wager data); the roughly 1,240 pre-existing dirty files.
