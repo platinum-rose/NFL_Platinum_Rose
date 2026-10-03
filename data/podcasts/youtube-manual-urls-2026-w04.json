@@ -1,0 +1,185 @@
+{
+  "schema": "youtube_manual_urls_v1",
+  "season": 2026,
+  "week": 4,
+  "saved_at": "2026-10-03T01:58:00Z",
+  "saved_by": "claude (Andy supplied URLs 2026-10-02 18:54 PT)",
+  "note": "Titles verified via YouTube oEmbed. Rows with episode_id had podcast_episodes.youtube_url written (was null) so agents/podcast-gemini-intel.js can pick them up. Rows without episode_id have no RSS episode; run via scripts/youtube-podcast-sweep.js --urls-only --url <url>. Nothing processed yet. Batch 2 (19:04 PT): 5 more links written to podcast_episodes; SportsLine has no feed; Action Network playlist queued for --playlist-url sweep. Batch 3 (19:14 PT): Athletic Football Show x3. Batch 4 (19:21 PT): BettingPros YouTube x3, all standalone (not linked).",
+  "videos": [
+    {
+      "url": "https://www.youtube.com/watch?v=_7s695JYfdg",
+      "channel": "Warren Sharp",
+      "title": "(39-13, 75%) NFL Week 4 Best Bets & Player Props 2026",
+      "feed": "Sharp Football Analysis",
+      "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+      "episode_status": "pending"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=5zsAWxI0n2E",
+      "channel": "Sharp or Square",
+      "title": "SHARP NFL Week 4 Bets - Patriots-Bills, Rams-Eagles, Packers-Bucs, Cowboys-Texans, Lions-Panthers",
+      "feed": "Sharp or Square",
+      "episode_id": "25ed28d8-9e48-4a20-9132-b87eca2f31e5",
+      "episode_status": "pending"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=jJ3NTHui-mk",
+      "channel": "Ross Tucker",
+      "title": "2026 NFL Week 4 PROP BETS & PARLAYS",
+      "feed": "Even Money",
+      "episode_id": "6b947fdd-81ad-4791-8bbe-a34137bd3191",
+      "episode_status": "done (audio); Gemini adds host attribution"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=HAqpEWvG8Y4",
+      "channel": "Ross Tucker",
+      "title": "2026 NFL Week 4 BETS!",
+      "feed": "Even Money",
+      "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+      "episode_status": "done (audio); Gemini adds host attribution"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Yf2eYagDYUg",
+      "channel": "Sharp or Square",
+      "title": "Professional NFL Gamblers Hotline Week 4 - Calls on Chiefs-Raiders, Broncos-49ers, Cowboys-Texans",
+      "feed": null,
+      "episode_id": null
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=2hBAZh-llNQ",
+      "channel": "Ross Tucker",
+      "title": "Greg Cosell's 2026 NFL Week 4 PREVIEW: Part 2 + Steelers - Browns REACTION",
+      "feed": null,
+      "episode_id": null
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ITGK7TJFoGo",
+      "channel": "FantasyPros",
+      "title": "Fantasy Football Experts Answer KEY Week 4 Questions: Start/Sit Lineup Advice (2026)",
+      "feed": null,
+      "episode_id": null,
+      "note": "fantasy start/sit, not a betting show"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=fQFEhKL-r_0",
+      "channel": "The Action Network",
+      "title": "NFL Week 4 Best Bets: Player Props, SGPs & Longshots | Brandon's Playground",
+      "feed": "Action Network Sports Betting",
+      "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+      "episode_status": "pending",
+      "match": "high (Playground | Week 4)"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ALbO3dG7TwU",
+      "channel": "The Action Network",
+      "title": "Our Anytime Touchdown Picks for Week 4 of The NFL Season!",
+      "feed": "Action Network Sports Betting",
+      "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+      "episode_status": "pending",
+      "match": "high (NFL Touchdown Show | Week 4)"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=3zlHdfn163U",
+      "channel": "The Action Network",
+      "title": "NFL Week 4 Betting Preview: Picks for EVERY Game",
+      "feed": "Action Network Sports Betting",
+      "episode_id": "b09926ba-a24d-45c6-842d-edac7985b6cc",
+      "episode_status": "done (audio)",
+      "match": "high (NFL Week 4 Betting Preview)"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=3tAeMpz3W7Y",
+      "channel": "Warren Sharp",
+      "title": "NFL Week 4 Matchups: What You Need to Know Before Kickoff",
+      "feed": "Sharp Football Analysis",
+      "episode_id": "9f05cece-06a1-4843-b2c2-3d9a4a0bf44e",
+      "episode_status": "pending",
+      "match": "exact title"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=F0OZPXxWtTs",
+      "channel": "The Action Network",
+      "title": "FULL NFL WEEK 4 Betting Preview! Picks for EVERY Game From The Favorites",
+      "feed": "The Favorites",
+      "episode_id": "5119e7b5-1c2b-4287-bfc8-7d7bc6cffb65",
+      "episode_status": "pending",
+      "match": "medium: RSS title differs ('A Vasectomy & Icky Picks | NFL Week 4 Preview'); only Favorites W4 preview in window. Verify duration (~81 min) when processed."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=1_4ZMa0H0Rk",
+      "channel": "SportsLine",
+      "title": "NFL Week 4 PLAYER PROPS - Picks and Bets",
+      "feed": null,
+      "episode_id": null,
+      "note": "no tracked feed; run via youtube-podcast-sweep.js --urls-only --url"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=VMyIU7Hr084",
+      "channel": "The Athletic Football Show",
+      "title": "Who Will OWN the AFC West? Plus, Bengals In Trouble & MVP Brock Purdy",
+      "feed": "The Athletic Football Show",
+      "episode_id": "89ce129d-9c8b-430b-9f0a-0ca287fb09db",
+      "episode_status": "pending",
+      "match": "medium: RSS 'Week 4 Preview: The Raiders are in our Game of the Week!' (88 min). Topics line up with KC@LV, JAX@CIN, DEN@SF. Verify length when processed."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=S7-uJjh0vPg",
+      "channel": "The Athletic Football Show",
+      "title": "What Does Trevor Lawrence's RISE Teach Us About NFL Quarterbacks?",
+      "feed": "The Athletic Football Show",
+      "episode_id": "52d1d2d9-db8b-4f62-ac3b-94a2c6bdccc3",
+      "episode_status": "done (audio)",
+      "match": "high"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=QN15FEemsz8",
+      "channel": "The Athletic Football Show",
+      "title": "How Brian Flores SUFFOCATED Baker Mayfield & the Buccaneers",
+      "feed": null,
+      "episode_id": null,
+      "note": "Likely a clip of 'Week 3 Hangover: Brian Flores is a menace...' (done). Not linked so a clip is not attributed as the full episode. Low priority; Week 3 content."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=S1Ylt0hn3pY",
+      "channel": "BettingPros",
+      "title": "10 BEST BETS for NFL Week 4: Top Picks & Predictions to Make NOW (2026)",
+      "hosts": "Seth Woolcock, Andrew Erickson",
+      "uploaded": "2026-10-01T16:05-07:00",
+      "duration": "38:35",
+      "feed": null,
+      "episode_id": null,
+      "note": "NOT linked to Ep. 1083 (30d6545e...; 35:37, 14:23 PT, 'Upset Special + Week 4 Parlay'): length and title differ; looks like a YouTube-only show. Run as standalone. Priority: high."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=BUqjtq0xp1U",
+      "channel": "BettingPros",
+      "title": "Top 10 NFL Player Props Picks for Week 4 | Prop Bets & TD Scorers (2026)",
+      "hosts": "Chris Welsh, Andrew Erickson",
+      "uploaded": "2026-10-02T10:57-07:00",
+      "duration": "38:41",
+      "feed": null,
+      "episode_id": null,
+      "note": "YouTube-only props show. Priority: high (props)."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=mncrhL4zVvw",
+      "channel": "BettingPros",
+      "title": "Sunday NFL Week 4 Best Bets | Expert Picks, Predictions & Player Props (2026)",
+      "hosts": "Matt Perrault, Pat Fitzmaurice",
+      "scheduled_live": "2026-10-04T09:00-07:00",
+      "feed": null,
+      "episode_id": null,
+      "note": "LIVE stream scheduled Sun 10/4 9:00 AM PT; nothing to process until it airs. Sunday-morning item only."
+    }
+  ],
+  "saved_at_batch2": "2026-10-03T02:08:00Z",
+  "playlists": [
+    {
+      "url": "https://www.youtube.com/playlist?list=PLhSKB8hCbd_8nmO8CdANKeUdS9o5TXE79",
+      "title": "The Action Network Podcast",
+      "owner": "The Action Network",
+      "run": "node scripts/youtube-podcast-sweep.js --playlist-url <url> --lookback-days 7",
+      "note": "Mixed playlist: game previews, short TD/escalator clips, a UFC 332 video, one titled 'NFL Week 5'. The sweep's NFL-relevance and 10-min duration filters should drop clips/UFC; review candidates before running Gemini."
+    }
+  ]
+}
