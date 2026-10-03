@@ -129,7 +129,7 @@ Commits, all on `main`:
 ## 4. Resume prompt: Claude Team 2
 
 ```
-Resume Platinum Rose NFL, Week 4 (Saturday 10/3). HEAD = the 2026-10-02 21:45 Claude handoff commit on top of 8207d26 (main). Read HANDOFF.md, reconcile live Git (`git status -sb`; NOTE the stale working-tree files listed in §1.4 of the handoff — do not commit them, ask Andy before restoring), then read handoffs/2026-10-02-2145-claude-week4-multipage-intel-site-team2-codex-handoff.md in full.
+Resume Platinum Rose NFL, Week 4 (Saturday 10/3). HEAD = 40cb644 (the 10/2 22:05 handoff correction) or later on main. Read HANDOFF.md, reconcile live Git (`git status -sb`; NOTE the stale working-tree files listed in §1.4 of the handoff — do not commit them, ask Andy before restoring), then read handoffs/2026-10-02-2145-claude-week4-multipage-intel-site-team2-codex-handoff.md in full.
 
 Your lane: finish Week 4 intel and keep the hosted client report current.
 1. Check status with read-only Supabase SELECTs (project aambmuzfcojxqvbzhngp): podcast_gemini_intel rows since 10/2, podcast_episodes pending for pub_date > 2026-09-28, user_picks newer than 2026-10-01T15:47Z, game_splits season 2026 week 4. Tell Andy what landed.
@@ -144,7 +144,7 @@ Guardrails: no wagers/account actions, no TheOddsAPI, no Supabase or ledger writ
 ## 5. Resume prompt: Codex team
 
 ```
-Resume Platinum Rose NFL, Week 4 (Saturday 10/3), Codex lane. HEAD = the 2026-10-02 21:45 Claude handoff commit on top of 8207d26 (main). Read HANDOFF.md, reconcile live Git (`git status -sb`), then read handoffs/2026-10-02-2145-claude-week4-multipage-intel-site-team2-codex-handoff.md (§1, §2, §3.3). Claude Team 2 owns the intel digest, the report content and the hosted client site; you own the engineering fixes below. Do not write narratives, the card or picks.
+Resume Platinum Rose NFL, Week 4 (Saturday 10/3), Codex lane. HEAD = 40cb644 (the 10/2 22:05 handoff correction) or later on main. Read HANDOFF.md, reconcile live Git (`git status -sb`), then read handoffs/2026-10-02-2145-claude-week4-multipage-intel-site-team2-codex-handoff.md (§1, §2, §3.3). Claude Team 2 owns the intel digest, the report content and the hosted client site; you own the engineering fixes below. Do not write narratives, the card or picks.
 
 Tasks, in order:
 1. Betting splits: Week 4 has 0 rows in game_splits (last capture 9/27). Inspect the `betting-splits-ingest.yml` GitHub Actions runs for Fri 10/2 (`gh run list --workflow betting-splits-ingest.yml`, `gh run view --log`), find why nothing was written, fix it, and trigger a run if allowed. Report the root cause in your handoff. A splits ingest is the one Supabase write you may trigger, and only through the existing workflow; nothing else writes to Supabase.
