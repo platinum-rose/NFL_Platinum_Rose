@@ -84,6 +84,7 @@ RT = collections.defaultdict(set)
 for n, recs in E.items():
     for r in recs:
         if r.get('group') != 'practiceSquad': RT[norm(n)].add(fx(r['team']) if r['team'] != 'WSH' else 'WAS')
+RTKEYS = sorted(RT, key=len, reverse=True)
 # people named inside outlet rationales (outlet -> person)
 PEOPLE = [('Steve Fezzik', r'\bfezz?ik\b'), ('Ross Tucker', r'\bross\b'), ('Doug Kezirian', r'\bdoug\b'), ('Brandon Anderson', r'\bbrandon anderson\b'),
           ('Brandon Kravitz', r'\bkravitz\b'), ('Simon Hunter', r'\bsimon\b'), ('Chad Millman', r'\bchad\b'), ('Stuckey', r'\bstuckey\b'),
@@ -146,7 +147,10 @@ for r in pull.get('signals', []):
     if bt == 'total':
         ou = 'Over' if re.search(r'\bover\b', lean, re.I) else 'Under' if re.search(r'\bunder\b', lean, re.I) else None
         if not ou or not num: continue
-        T = teams_in(title_text); g = [x for x in GAMES if set(x.split('@')) <= T]
+        # match the game from the pick's own text first ("Vikings/Dolphins UNDER 38.5"), the article title only as a fallback
+        T = teams_in(lean); g = [x for x in GAMES if set(x.split('@')) <= T]
+        if len(g) != 1:
+            T = teams_in(title_text); g = [x for x in GAMES if set(x.split('@')) <= T]
         add(kind='article', outlet=r.get('source'), persons=[r['author']] if r.get('author') and r['author'] != 'None' else [], game=g[0] if len(g) == 1 else None,
             market='total', side=ou, line=float(num.group(1)), price=None, selection=lean, quote=(r.get('rationale') or '')[:300],
             source_title=r.get('event_ref'), url=r.get('event_ref'), published=r.get('captured_at'), players=[], text=title_text)
@@ -169,6 +173,24 @@ for r in pull.get('signals', []):
             market='prop', side=r.get('lean'), line=None, price=None, selection=f"{pl}: {r.get('team_or_market')} {r.get('lean')}",
             quote=(r.get('rationale') or '')[:300], source_title=r.get('event_ref'), url=r.get('event_ref'), published=r.get('captured_at'), players=[pl], text=title_text)
 
+# 4) picks read from the FULL article text (scripts/intel/archive_week_articles.mjs -> hand extraction). These replace the
+#    headline-level signal rows from the same article, which are dropped below.
+AP = J(f'data/intel/extracted/{a.season}-w{WW}-article-picks.json', {}) or {}
+full_urls = set()
+for r in AP.get('rows', []):
+    full_urls.add(r['url'])
+    m = r['market']; side = r.get('side')
+    players = []
+    if m == 'prop':
+        ns = ' ' + norm(side or '') + ' '
+        players = [nm for nm in RTKEYS if len(nm) > 5 and f' {nm} ' in ns]
+        players = [p_ for p_ in players if not any(p_ != q and p_ in q for q in players)][:1]   # longest match only
+    add(kind='article', outlet=r['outlet'], persons=[r['person']] if r.get('person') else [], game=r['game'], market=m, side=side, line=r.get('line'),
+        price=r.get('price'), selection=(f"{side or ''} {r['line'] if r.get('line') is not None else ''}".strip() if m != 'prop' else side) or 'pass',
+        quote=r.get('quote') or '', source_title=r.get('title'), url=r['url'], published=r.get('published'), players=players,
+        full_text=True, flags_in=r.get('flags') or [])
+rows[:] = [x for x in rows if not (x['kind'] == 'article' and not x.get('full_text') and x.get('url') in full_urls)]
+
 # ---- one pick per source: the same tweet/article parsed twice (author + handle) is one row ----
 seen = set(); keep = []
 for x in rows:
@@ -180,9 +202,10 @@ rows[:] = keep
 PICKY = re.compile(r"\b(give me|plays?|take|taking|pick|best bet|lean|like|predicted|to win|bet)\b", re.I)
 NOTPICK = re.compile(r"^(no on|the losses|losses|opened|odds)\b|\bwere\b", re.I)
 NOPAGE = re.compile(r"schedule-odds|survivor|odds-betting-point-spreads|odds-spreads-lines|fashionable", re.I)
-URLPERSON = [(r"steve-makinen", "Steve Makinen"), (r"tuleys-takes", "Tuley's Takes"), (r"\bsolak", "Ben Solak")]
+URLPERSON = [(r"steve-makinen", "Steve Makinen"), (r"tuleys-takes", "Dave Tuley"), (r"\bsolak", "Ben Solak"), (r"wes-reynolds", "Wes Reynolds"),
+             (r"matt-youmans", "Matt Youmans"), (r"zachary-cohen", "Zachary Cohen"), (r"sharpfootballanalysis\.com/betting/best-bets", "Josh Shepardson")]
 for x in rows:
-    if x['kind'] != 'article': continue
+    if x['kind'] != 'article' or x.get('full_text'): continue   # full-text picks were read and confirmed as picks by hand
     u = x.get('url') or ''
     for rx, who in URLPERSON:
         if re.search(rx, u, re.I) and who not in x['persons']: x['persons'].append(who)
@@ -193,12 +216,14 @@ for x in rows:
 # ---- an article page that shows both Over and Under at the same number is an odds table, not a pick ----
 both = collections.Counter((x['url'], x['line']) for x in rows if x['kind'] == 'article' and x['market'] == 'total')
 for x in rows:
-    if x['kind'] == 'article' and x['market'] == 'total':
-        sides = {y['side'] for y in rows if y['kind'] == 'article' and y['market'] == 'total' and y['url'] == x['url'] and y['line'] == x['line']}
+    if x['kind'] == 'article' and x['market'] == 'total' and not x.get('full_text'):
+        sides = {y['side'] for y in rows if y['kind'] == 'article' and y['market'] == 'total' and y['url'] == x['url'] and y['line'] == x['line'] and y['game'] == x['game'] and not y.get('full_text')}
         if len(sides) > 1: x['reasons'] = ['page lists both over and under (odds table, not a pick)']
 # ---- checks ----
 def ts(x):
-    try: return datetime.datetime.fromisoformat(str(x).replace('Z', '+00:00'))
+    try:
+        t = datetime.datetime.fromisoformat(str(x).replace('Z', '+00:00'))
+        return t if t.tzinfo else t.replace(tzinfo=datetime.timezone.utc)
     except Exception: return None
 for x in rows:
     R = x['reasons']; gid = x['game']
@@ -225,6 +250,9 @@ for x in rows:
         if re.search(r'week\s*(\d+)', x['text'].lower()) and int(re.search(r'week\s*(\d+)', x['text'].lower()).group(1)) != W:
             R.append('article title names a different week')
     m, s, ln = x['market'], x['side'], x['line']
+    if m == 'pass':   # the expert explicitly passed on the game: verified as a stance, never counted as a side
+        x['best_bet'] = x['contest'] = False; x['verdict'] = 'reject' if R else 'verified'; continue
+    if 'alt' in (x.get('flags_in') or []) and m == 'spread': x['flags'].append('alternate line (as stated by the source)'); ln = None
     if m in ('spread', 'moneyline', 'teaser', 'contest'):
         if s not in (A, H): R.append(f"side '{s}' is not {A} or {H}")
         elif m in ('spread', 'contest') and ln is not None:
@@ -246,14 +274,44 @@ for x in rows:
             R.append(f"total {ln:g} doesn't fit this game ({'/'.join(f'{t_:g}' for t_ in totals(gid))} open/now)")
     if m not in ('spread', 'moneyline', 'teaser', 'contest', 'total', 'prop'): x['flags'].append(f'market {m}')
     if m == 'moneyline' and x['kind'] == 'expert_feed' and re.search(r'scor\w* last', x['quote'] or '', re.I): R.append('a game-prop, not a moneyline on this game')
-    x['best_bet'] = bool(BEST.search(f"{x.get('quote') or ''} {x.get('source_title') or ''}"))
+    x['best_bet'] = bool(BEST.search(f"{x.get('quote') or ''} {x.get('source_title') or ''}")) or 'best' in (x.get('flags_in') or [])
+    for f_ in x.get('flags_in') or []:
+        if f_ in ('sgp', 'pro', 'lean', 'survivor'): x['flags'].append({'sgp': 'same-game-parlay leg', 'pro': 'Action PRO model prediction', 'lean': 'lean, not a full play', 'survivor': 'survivor pick'}[f_])
     x['contest'] = bool(m == 'contest' or CONTEST.search(x.get('quote') or ''))
     x['verdict'] = 'not_pick' if x.pop('verdict_hint', None) == 'not_pick' else ('reject' if R else 'verified')
     x.pop('text', None)
 for x in rows: x.pop('text', None)
 
+# ---- context lanes (never counted as picks): trends & systems (Evan Abrams' primer), news & angles (archived headlines) ----
+CTX = []
+PI = J(f'data/intel/extracted/{a.season}-w{WW}-primer-intel.json', {}) or {}
+for r in PI.get('rows', []):
+    g = r['game']
+    if g != 'SLATE' and (g not in GAMES or g in FINAL or (NOW and g not in NOW)): continue
+    CTX.append(dict(lane='trend' if r['kind'] == 'trend' else 'system', game=g, text=r.get('text') if r['kind'] == 'trend' else
+                    f"{r['label']}: {('play on ' + r['side']) if r['side'] not in ('Over', 'Under') else r['side'].lower()} ({r['record']}{', ' + r['units'] + ' units' if r.get('units') else ''})",
+                    side=r.get('side'), market=r.get('market') or r.get('group'), category=r.get('category'), top=r.get('top'), person=r.get('person'), outlet=r.get('outlet'), url=r.get('url'), published=r.get('published')))
+AIDX = J(f'data/intel/articles/{a.season}-w{WW}/index.json', {}) or {}
+NEWSRX = re.compile(r"\b(out|ruled|questionable|doubtful|injur\w*|ir\b|injured reserve|return\w*|activat\w*|start\w*|qb|quarterback|trade\w*|signs?|releas\w*|practice|game-time|concussion|hamstring|ankle|knee|debut|benched|suspend\w*)\b", re.I)
+NOISE = re.compile(r"historic start|offensive start|stronger starts|record-setting|reacting to|need to start|evaluating|weighs in|right move|will he succeed|swung and missed|has time to prove|stephen a\.|first take|get up|fantasy|dfs|start/sit|start-sit|waiver|draft|uniform|arrivals|mascot|hall of fame|ratings|viewers|power rankings|mock", re.I)
+seen_t = set()
+for r in AIDX.values():
+    if r.get('source') not in ('ESPN NFL', 'Pro Football Talk', 'Rotowire NFL'): continue
+    t = html.unescape(r.get('title') or '')
+    if not NEWSRX.search(t) or NOISE.search(t) or t.lower() in seen_t: continue
+    tm = teams_in(t, cities=False)   # nicknames only: 'Dallas Goedert' must not read as the Cowboys
+    gs = {TEAM_GAME[x] for x in tm if x in TEAM_GAME}
+    if len(gs) != 1: continue
+    g = next(iter(gs))
+    if g in FINAL or (NOW and g not in NOW): continue
+    pub = ts(r.get('published'))
+    prev = max([PREV[x] for x in g.split('@') if x in PREV], default=None)
+    if pub and prev and pub < prev: continue
+    seen_t.add(t.lower())
+    CTX.append(dict(lane='news', game=g, text=t, outlet=r['source'], url=r['url'], published=r.get('published')))
 out = dict(schema='expert_verified_v1', season=a.season, week=W, date=D, generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat(timespec='seconds'),
-           checks=['game', 'final', 'timing', 'other-opponent', 'side', 'line', 'players'], counts=dict(collections.Counter(x['verdict'] for x in rows)), rows=rows)
+           checks=['game', 'final', 'timing', 'other-opponent', 'side', 'line', 'players'], counts=dict(collections.Counter(x['verdict'] for x in rows)), rows=rows,
+           context=CTX, context_counts=dict(collections.Counter(c['lane'] for c in CTX)))
 (ROOT / f'data/generated/master-intel/w{WW}-expert-verified.json').write_text(json.dumps(out, indent=1, ensure_ascii=False), encoding='utf-8')
 L = [f'# Expert pick verification: {a.season} Week {W}', '', f'Generated {out["generated_at"]} by `scripts/master-intel/verify_expert_rows.py`. '
      f'{out["counts"].get("verified", 0)} picks verified, {out["counts"].get("reject", 0)} rejected. Rejected picks are not shown or counted anywhere in the report.', '',

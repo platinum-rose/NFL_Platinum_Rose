@@ -1292,6 +1292,7 @@ def main():
         def vpick(x):
             m_, sd, ln = x['market'], x.get('side'), x.get('line')
             lnt = (f" {float(ln):+g}" if m_ in ('spread', 'contest', 'teaser') else f" {float(ln):g}") if ln not in (None, '') else ''
+            if m_ == 'pass': return 'Pass (no play on this game)'
             if m_ in ('spread', 'contest', 'teaser'): return f"{sd}{lnt}" + {'contest': ' (contest pick)', 'teaser': ' (teaser leg)'}.get(m_, '')
             if m_ == 'moneyline': return f"{sd} to win" + (f" ({float(x['price']):+.0f})" if x.get('price') not in (None, '') else '')
             if m_ == 'total': return f"{sd}{lnt}"
@@ -1299,7 +1300,7 @@ def main():
             return sel + (f" ({float(x['price']):+.0f})" if x.get('price') not in (None, '') and m_ == 'prop' else '')
         BYX = collections.defaultdict(list)
         for x in VROWS:
-            if x['market'] not in ('spread', 'moneyline', 'total', 'teaser', 'contest', 'prop'): continue   # futures, parlays, win totals
+            if x['market'] not in ('spread', 'moneyline', 'total', 'teaser', 'contest', 'prop', 'pass'): continue   # futures, parlays, win totals
             for who in (x.get('persons') or [x.get('outlet') or '?']): BYX[who].append(x)
         # the same pick heard on a podcast and logged in the registry is one pick with two sources
         for who, xs in BYX.items():
@@ -1473,6 +1474,17 @@ def main():
                 gl = {(r['market'], r['side']): r for r in d_['rows'] if r['market'].startswith('game_')}
                 ctxl.append('- **DraftKings Predictions (contract %, before fees):** ' + ' · '.join(f"{r['side']} {r['market'].replace('game_', '')} {('' if r['line'] is None else format(r['line'], '+g') if 'spread' in r['market'] else r['line'])} {r['prob']*100:.0f}%" for r in gl.values()))
         if ctxl: L += roll('section-7-sub', f'{gsid(gid)}-context', f'🔑 Key context — splits, matchups, injuries, consensus ({len(ctxl)})') + ctxl + RE
+        # context lanes from the verified file (never counted as picks): trends & systems, news & angles
+        cx = [c for c in (VER or {}).get('context', []) if c.get('game') == gid]
+        tr = [c for c in cx if c['lane'] in ('trend', 'system')]
+        if tr:
+            trl_ = [f"- {'⚙️ **System**' if c['lane'] == 'system' else '📈'} {esc(html.unescape(c['text']))[:330]}" + (f" <em>({esc(c['market'])})</em>" if c['lane'] == 'trend' and c.get('market') else '') for c in sorted(tr, key=lambda c: (c['lane'] != 'system', not c.get('top')))]
+            src_ = sorted({c.get('person') or c.get('outlet') for c in tr})
+            L += roll('section-7-sub', f'{gsid(gid)}-trends', f'📊 Trends & systems ({len(tr)})') + [f"From {', '.join(src_)} — [Action Network betting primer]({tr[0]['url']}). Trends and systems are context, not picks; none of them is counted in the expert consensus.", ''] + trl_ + RE
+        nw = [c for c in cx if c['lane'] == 'news']
+        if nw:
+            nwl_ = [f"- [{esc(html.unescape(c['text']))[:150]}]({c['url']}) — {esc(c['outlet'])}, {str(c.get('published') or '')[:10]}" for c in sorted(nw, key=lambda c: str(c.get('published') or ''), reverse=True)]
+            L += roll('section-7-sub', f'{gsid(gid)}-news', f'📰 News & angles ({len(nw)})') + ['Headlines matched to this game by team name and date (newest first). Check the inactive list before kickoff.', ''] + nwl_ + RE
         # grouped picks
         def xl(name): i_ = EXPANCH.get(gid, {}).get(name); return f"[{esc(name)}](#{i_})" if i_ else f"_{esc(name)}_"
         grp = {'Side': [], 'Total': [], 'Prop': []}

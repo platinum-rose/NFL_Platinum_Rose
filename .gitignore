@@ -129,3 +129,8 @@ scratch/*-tmp*.mjs
 # Parsed prop boards + derived stats (regenerate with scripts/props/)
 data/generated/props/
 data/generated/prop-availability.json
+
+# Full-text article archive (local only; index is committed under reports/intel/)
+data/intel/articles/*/**/*.md
+data/intel/articles/*/action-network/primer-feed/
+data/intel/extracted/*-primer-intel.json
