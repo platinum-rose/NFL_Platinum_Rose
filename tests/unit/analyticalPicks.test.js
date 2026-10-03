@@ -99,3 +99,31 @@ describe('caps for slate-wide articles (2026-10-03)', () => {
     expect(out.filter((x) => x.bet_type === 'total')).toHaveLength(15);
   });
 });
+
+describe('betting-feed bodies through the gated parser (2026-10-03)', () => {
+  const o = (extra = {}) => ({ source: 'VSiN', baseConfidence: 0.65, eventRef: 'u', scores: false, ...extra });
+  const leans = (txt, extra) => extractAnalyticalSignals(txt, o(extra)).map((x) => x.lean);
+  it('reads a pick label that ends in a colon', () => {
+    expect(leans("### Erickson's Pick: Colts -3.5\n### Trends")).toEqual(['Colts -3.5']);
+    expect(leans('Bet: Texans ML (-136)')).toEqual(['Texans ML']);
+    expect(leans('Pick: Commanders Moneyline (+160)')).toEqual(['Commanders ML']);
+    expect(leans('My Pick: Saints')).toEqual(['Saints ML']);
+    expect(leans("Not sure the right team is favored here. I'll take the +2.5 with the Giants")).toEqual(['Giants +2.5']);
+  });
+  it('drops quoted market lines and past results', () => {
+    expect(leans('Best Bet: Patriots +6.5. The advance line was Bills -5.5 but was raised a point.')).toEqual(['Patriots +6.5']);
+    expect(leans("We went 4-2 ATS with our best bets in last week's column, with wins on the Steelers +3.5.")).toEqual([]);
+    expect(leans('Pick: Under 38.5; Bet to Under 38')).toEqual(['Under 38.5']);
+    expect(leans('Current, former and future champions litter the MMA 30 under 30 list. Best bets inside.')).toEqual([]);
+  });
+  it('uses pick headings only in a column with no inline picks, and carries a header cue to the next lines', () => {
+    const column = 'Wes Reynolds offers his Week 4 NFL best bets.\nNew England Patriots +7 at Buffalo Bills\nPerhaps no team is more undervalued.\nTEASER OF THE WEEK\nAtlanta Falcons +8.5/Tampa Bay Buccaneers +9.5\nBEST OF THE REST\nNew York Jets +3.5 at Chicago Bears';
+    expect(leans(column, { pickColumn: true, week: 4 })).toEqual(['Patriots +7', 'Falcons +8.5', 'Buccaneers +9.5', 'Jets +3.5']);
+    const listing = 'Pittsburgh -3 at Cleveland\nBest Bet: Cleveland +3\nIndianapolis -3.5 vs. Washington\nBest Bet: Pass\nNew England at Buffalo -6.5\nBest Bet: Patriots +6.5 or better';
+    expect(leans(listing, { pickColumn: true, week: 4 })).toEqual(['Browns +3', 'Patriots +6.5']);
+  });
+  it('skips a section about another week', () => {
+    expect(leans('Bet: Over 46.5 (-115)\nAdditional Week 3 Best Bets\nJaguars -2.5 (-120) vs. Patriots', { week: 4 })).toEqual(['Over 46.5']);
+  });
+});
+

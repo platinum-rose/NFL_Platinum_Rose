@@ -104,7 +104,7 @@ const FETCH_BODY = process.env.INTEL_FETCH_BODY === 'true';
 // scripts/intel/archive_week_articles.mjs.
 const BODY_MAX_CHARS = 200_000;
 // Max explicit picks taken from one article body (teaser/RSS text keeps the old 3).
-const BODY_MAX_EXPLICIT = 60;   // Tuley's weekly column alone has 49 distinct lines; his last pick sat at #49
+const BODY_MAX_EXPLICIT = 60;   // max picks kept from one article body (16 games x side + total, plus MLs)
 // 2026-09-19: the local 30-min scheduled sweep (research-intel-cron.js) ran without
 // INTEL_FETCH_BODY, won the insert race, and the GitHub runs that do fetch bodies then
 // saw nothing "new" -- so most notes stayed title/teaser-only (ESPN 171/171, Action
@@ -336,13 +336,17 @@ async function fetchArticleBody(url, maxChars = BODY_MAX_CHARS) {
     });
     if (!res.ok) return null;
     const html = await res.text();
-    // Strip scripts, styles, nav, header, footer to reduce noise
+    // Strip scripts, styles, nav, header, footer to reduce noise. Block ends (headings, paragraphs,
+    // list items) become line breaks (2026-10-03) so a pick box like "Erickson's Pick: Colts -3.5"
+    // stays its own line for the pick parser instead of running into the next section.
     const stripped = html
       .replace(/<(script|style|nav|header|footer|aside)[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+      .replace(/<\/(p|div|li|h[1-6]|tr|blockquote)>|<br\s*\/?>/gi, '\n')
       .replace(/<[^>]+>/g, ' ')
       .replace(/&nbsp;/g, ' ')
       .replace(/&[a-z]+;/g, ' ')
-      .replace(/\s+/g, ' ')
+      .replace(/[ \t\r\f\v]+/g, ' ')
+      .replace(/ *\n[\s]*/g, '\n')
       .trim();
     if (stripped.length > maxChars) {
       console.warn(`   [warn] article body exceeds ${maxChars} chars — truncating ${stripped.length} -> ${maxChars} chars for ${url}`);
@@ -599,21 +603,26 @@ function extractSignals(item, source, baseConfidence) {
   });
 }
 
-// Body-text pick extraction, routed by feed type: betting/news feeds keep the
-// original extractor; analytical feeds use agents/lib/analytical-picks.js.
+// Body-text pick extraction. 2026-10-03 (Andy): every feed's article BODY now goes through the
+// pick-language-gated parser in agents/lib/analytical-picks.js. The old open regex
+// (extractSignalsFromText) took any "Team +3" in the text, so on full bodies it kept quoted lines
+// that are not picks ("The advance line was Colts -4.5", odds tables, last week's results):
+// on the Week 4 corpus it produced 134 lines for 66 known picks. The gated parser needs a pick cue
+// nearby ("Pick:", "Best Bet:", "I'll take", "give me"). Betting feeds skip the predicted-score
+// parser (their previews quote past results). RSS teasers (title + description) keep the old
+// extractor (extractSignals below), which is short text where the open regex is fine.
+// A picks column ("Wes Reynolds: NFL Week 4 Best Bets") states each pick as its own heading line.
+const PICK_COLUMN_TITLE = /best bets?|picks|predictions|takes\b|plays\b|leans\b/i;
 function bodySignalsFor({ source, sourceType, confidence, url, title, body }) {
-  if (sourceType === 'analytical') {
-    return extractAnalyticalSignals(body, { source, baseConfidence: confidence, eventRef: url });
-  }
-  return extractSignalsFromText(body, {
+  return extractAnalyticalSignals(body, {
     source,
     baseConfidence: confidence,
     eventRef: url,
-    fallbackLabel: title,
-    fallbackRationale: body.slice(0, 220),
-    // 2026-10-03: was 8 -- slate-wide columns (e.g. a BettingPros primer with ~30 picks across
-    // 15 games) were cut off. Duplicate leans are dropped inside extractSignalsFromText.
-    maxExplicit: BODY_MAX_EXPLICIT,
+    max: BODY_MAX_EXPLICIT,
+    scores: sourceType === 'analytical',
+    pickColumn: PICK_COLUMN_TITLE.test(title || ''),
+    // "Week 4" in the title: sections about other weeks (last week's results) are skipped.
+    week: Number((String(title || '').match(/\bweek (\d{1,2})\b/i) || [])[1]) || null,
   });
 }
 
