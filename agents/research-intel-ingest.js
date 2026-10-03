@@ -97,7 +97,14 @@ const FETCH_BODY = process.env.INTEL_FETCH_BODY === 'true';
 // Postgres `text` column (migration 011_research_intel_fts.sql) with no
 // length limit, so raising this needs no schema change. See
 // docs/FUTURES_ARTICLE_REACQUISITION_AND_GATES_DESIGN_2026-08-13.md §4.
-const BODY_MAX_CHARS = 20_000;
+// 2026-10-03 (Andy): was 20_000 -- 33 Week 4 notes were cut off at exactly 20,000 chars and
+// 78 archived articles run longer (Abrams' primer, VSiN best-bets columns, BettingPros
+// slate primers). Raised to 200_000; the body column has no limit and the FTS tsvector
+// stays far under its 1 MB cap at this size. Full text is also archived locally by
+// scripts/intel/archive_week_articles.mjs.
+const BODY_MAX_CHARS = 200_000;
+// Max explicit picks taken from one article body (teaser/RSS text keeps the old 3).
+const BODY_MAX_EXPLICIT = 60;   // Tuley's weekly column alone has 49 distinct lines; his last pick sat at #49
 // 2026-09-19: the local 30-min scheduled sweep (research-intel-cron.js) ran without
 // INTEL_FETCH_BODY, won the insert race, and the GitHub runs that do fetch bodies then
 // saw nothing "new" -- so most notes stayed title/teaser-only (ESPN 171/171, Action
@@ -548,7 +555,13 @@ function extractSignalsFromText(text, { source, baseConfidence, eventRef, fallba
   const lower = clean.toLowerCase();
   const signals = [];
 
-  const spreadOrTotalMatches = clean.match(/\b[A-Z][A-Za-z .&'-]{2,30}\s(?:\+|-)\d+(?:\.\d+)?\b|\b(?:Over|Under)\s\d+(?:\.\d+)?\b/g) || [];
+  const allMatches = clean.match(/\b[A-Z][A-Za-z .&'-]{2,30}\s(?:\+|-)\d+(?:\.\d+)?\b|\b(?:Over|Under)\s\d+(?:\.\d+)?\b/g) || [];
+  // Long bodies repeat the same line many times (headline, pick box, recap): keep each lean once.
+  const seenLean = new Set();
+  const spreadOrTotalMatches = allMatches.filter((m) => {
+    const k = m.replace(/\s+/g, ' ').trim().toLowerCase();
+    if (seenLean.has(k)) return false; seenLean.add(k); return true;
+  });
   for (const m of spreadOrTotalMatches.slice(0, maxExplicit)) {
     signals.push({
       source,
@@ -598,7 +611,9 @@ function bodySignalsFor({ source, sourceType, confidence, url, title, body }) {
     eventRef: url,
     fallbackLabel: title,
     fallbackRationale: body.slice(0, 220),
-    maxExplicit: 8, // a full article can reasonably cover several games' picks
+    // 2026-10-03: was 8 -- slate-wide columns (e.g. a BettingPros primer with ~30 picks across
+    // 15 games) were cut off. Duplicate leans are dropped inside extractSignalsFromText.
+    maxExplicit: BODY_MAX_EXPLICIT,
   });
 }
 

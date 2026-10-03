@@ -22,4 +22,10 @@ describe('linked article helpers', () => {
     expect(text).not.toContain('menu');
     expect(text).not.toContain('x()');
   });
+
+  it('keeps long article bodies past the old 20,000-char cap (2026-10-03)', () => {
+    const para = '<p>' + 'Bills -6.5 is the pick for this matchup. '.repeat(1000) + '</p>';
+    const text = htmlToText(`<html><body><article>${para}</article></body></html>`);
+    expect(text.length).toBeGreaterThan(40000);
+  });
 });

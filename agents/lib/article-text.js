@@ -22,7 +22,8 @@ export function htmlTitle(html = '') {
   return m ? m[1].replace(/\s+/g, ' ').trim() : null;
 }
 
-export function htmlToText(html = '', maxChars = 20000) {
+// 2026-10-03: default raised 20000 -> 200000 to match research-intel-ingest's BODY_MAX_CHARS.
+export function htmlToText(html = '', maxChars = 200000) {
   return String(html)
     .replace(/<(script|style|nav|header|footer|aside|noscript|svg)[^>]*>[\s\S]*?<\/\1>/gi, ' ')
     .replace(/<\/(p|div|li|h[1-6]|tr|br)>/gi, '\n')

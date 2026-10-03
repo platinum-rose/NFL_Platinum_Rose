@@ -158,8 +158,9 @@ export function parseGatedLines(text, { source, baseConfidence = 0.65, eventRef 
   const seen = new Set();
   for (const s of sentences(text)) {
     if (!PICK_CUE.test(s)) continue;
-    // sides: "<Team> -2.5" / "+3" / "PK" -- 1-2 digit lines only (odds like +750 are rejected)
-    for (const m of s.matchAll(/((?:[A-Z][A-Za-z.']+ ){0,2}[A-Z0-9][A-Za-z0-9.']+)\s([+-]\d{1,2}(?:\.5)?|PK|pick'?em)(?![\d.])(?!\s*(?:yards|yds|points|pts|%|percent))/g)) {
+    // sides: "<Team> -2.5" / "+3" / "PK" -- 1-2 digit lines only (odds like +750 are rejected).
+    // 2026-10-03: a line that ends the sentence ("Packers -3.") used to be dropped by a (?![\d.]) lookahead.
+    for (const m of s.matchAll(/((?:[A-Z][A-Za-z.']+ ){0,2}[A-Z0-9][A-Za-z0-9.']+)\s([+-]\d{1,2}(?:\.5)?|PK|pick'?em)(?!\d|\.\d)(?!\s*(?:yards|yds|points|pts|%|percent))/g)) {
       const tt = trailingTeam(m[1]);
       if (!tt) continue;
       const lean = `${tt.team.name} ${m[2]}`;
@@ -177,7 +178,7 @@ export function parseGatedLines(text, { source, baseConfidence = 0.65, eventRef 
       out.push({ source, team_or_market: lean, bet_type: 'moneyline', lean, rationale: s.slice(0, 280), event_ref: eventRef, confidence: confidenceFor(baseConfidence, -0.06) });
     }
     // totals: "Over/Under 38.5" (game-total range only; player props stay with prop parsers)
-    for (const m of s.matchAll(/\b(Over|Under)\s(\d{2}(?:\.5)?)(?![\d.])(?!\s*(?:yards|yds|receiving|rushing|passing|receptions|catches|tackles|points scored by))/gi)) {
+    for (const m of s.matchAll(/\b(Over|Under)\s(\d{2}(?:\.5)?)(?!\d|\.\d)(?!\s*(?:yards|yds|receiving|rushing|passing|receptions|catches|tackles|points scored by))/gi)) {
       const n = Number(m[2]);
       if (n < 30 || n > 65) continue;
       const lean = `${m[1][0].toUpperCase()}${m[1].slice(1).toLowerCase()} ${m[2]}`;
@@ -199,12 +200,13 @@ export function parseGatedLines(text, { source, baseConfidence = 0.65, eventRef 
 
 // ---------------------------------------------------------------------------
 /** Router used by research-intel-ingest for analytical feeds (teaser or body text). */
-export function extractAnalyticalSignals(text, { source, baseConfidence, eventRef, max = 16 } = {}) {
+// 2026-10-03: caps raised (gated lines 8 -> 48, total 16 -> 60) so a 16-game slate column keeps a side + total for every game.
+export function extractAnalyticalSignals(text, { source, baseConfidence, eventRef, max = 60 } = {}) {
   const opts = { source, baseConfidence, eventRef };
   const out = [];
   if (/walter/i.test(source || '') || /Week \d+ NFL Pick:/.test(text || '')) out.push(...parseWalterPicks(text, opts));
   out.push(...parseScorePredictions(text, opts));
-  out.push(...parseGatedLines(text, { ...opts, max: 8 }));
+  out.push(...parseGatedLines(text, { ...opts, max: 48 }));
   const seen = new Set();
   return out.filter((s) => {
     const k = `${String(s.team_or_market).toLowerCase()}|${s.bet_type}`;

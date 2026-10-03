@@ -87,3 +87,15 @@ describe('analytical picks: gated lines', () => {
     expect(extractAnalyticalSignals('Week 4 picks, odds and predictions: everything you need to know.', opts('PFF'))).toEqual([]);
   });
 });
+
+describe('caps for slate-wide articles (2026-10-03)', () => {
+  it('keeps a pick for every game of a full-slate column (was capped at 8 lines / 16 signals)', () => {
+    const G = [['Colts', 'Commanders'], ['Patriots', 'Bills'], ['Jets', 'Bears'], ['Jaguars', 'Bengals'], ['Cardinals', 'Giants'], ['Rams', 'Eagles'],
+      ['Packers', 'Buccaneers'], ['Titans', 'Ravens'], ['Cowboys', 'Texans'], ['Dolphins', 'Vikings'], ['Chiefs', 'Raiders'], ['Broncos', '49ers'],
+      ['Chargers', 'Seahawks'], ['Lions', 'Panthers'], ['Falcons', 'Saints']];
+    const text = G.map(([a, h], i) => `I like the ${a} +${(i % 6) + 2}.5 here. Best bet: ${a} at ${h} Under ${40 + i}.5.`).join(' ');
+    const out = extractAnalyticalSignals(text, { source: 'PFF', baseConfidence: 0.65, eventRef: 'u' });
+    expect(out.filter((x) => x.bet_type === 'spread')).toHaveLength(15);
+    expect(out.filter((x) => x.bet_type === 'total')).toHaveLength(15);
+  });
+});
