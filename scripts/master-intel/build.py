@@ -1585,6 +1585,11 @@ def main():
     if not a.no_export:
         convert_summary.generate_docx(str(md), str(md.with_suffix('.docx')))
         convert_summary.generate_html(str(md), str(md.with_suffix('.html')))
+        try:  # multi-page client site (dist/.../site/), split from the single page
+            import build_site
+            build_site.main(str(md.with_suffix('.html')))
+        except ImportError as e_:
+            print(f'NOTE: multi-page site skipped ({e_}); pip install beautifulsoup4')
     for x in gaps: print('GAP:', x)
     # ======================================================================
     # SuperContest report (spread-only, 5 picks) — same data, same look
