@@ -24,3 +24,15 @@ Flags: four legs in the −121..−199 band · QB-shared: none · legs per game:
 | DEN@SF | Courtland Sutton anytime TD | BEO | +210 | + | 2 | n/a (you hold both sides) | Nix | FREE | Gilles Gallant ATD pick (+240); DEN's top red-zone target |
 Source for T+A counts: ESPN box scores in data/fantasy/boxscores (W1–3).
 Flags: five legs in the −121..−199 band; Herbert INT is a QB INT leg with a stated matchup fit · QB-shared: none · legs per game ≤ 2
+
+### 7b-C Afternoon stack #2 (6 legs, optional 7th SNF leg) — BEO — **$5** — +4511 combined (+7691 with St. Brown) — proposed Sun 10/04 ~12:00 PT
+| game | market & line | book | price | band | tier | side expected to win? | QB exposure | availability | why |
+|---|---|---|---|---|---|---|---|---|---|
+| KC@LV | Kirk Cousins 2+ pass TD | BEO | +124 | + | 2 | LV covers (+5 held) | Cousins | FREE | 3, 3, 3 pass TD W1–3 (3 of 3) |
+| KC@LV | Travis Kelce anytime TD | BEO | +140 | + | 2 | yes (KC) | Mahomes | FREE | TD in W2 and W3 (2 of 3); shootout pairing with Cousins |
+| LAC@SEA | Ernest Jones 8+ tackles + assists | BEO | -182 | -121..-200 | 2 | side-neutral | — | FREE | 13, 8, 8 (3 of 3) |
+| LAC@SEA | Jaxon Smith-Njigba 7+ receptions | BEO | -150 | -121..-200 | 2 | yes | Darnold | SOFT (JSN ATD on a live ticket) | 8, 9, 10 (3 of 3); 11–14 targets a game |
+| DEN@SF | Fred Warner 9+ tackles + assists | BEO | -114 | -100..-120 | 2 | side-neutral | — | FREE | 11, 5, 17 (2 of 3); rule-1 band, T+A box-score support |
+| MIA@MIN | Michael Taaffe 6+ tackles + assists | BEO | -130 | -121..-200 | 2 | side-neutral | — | FREE | 4, 9, 7 (2 of 3) |
+| DET@CAR (opt.) | Amon-Ra St. Brown 7+ receptions | BEO | -145 | -121..-200 | 2 | yes | Goff | FREE | 10, 9, 4 (2 of 3); SNF leg keeps it alive |
+Flags: Warner −114 in the −120..−100 band (tier 2 via box scores); JSN SOFT; St. Brown shares Goff with the placed 8-leg · QB-shared: none within the ticket
