@@ -228,6 +228,14 @@ def sc_page(ctx):
 
 # ---------------------------------------------------------------- props
 MKEYS = [
+    (r'field[ _]?goal', 'fg_made'),
+    (r'kicking', 'kick_pts'),
+    (r'tackle|\bsacks?\b|defensive', 'defense'),
+    (r'longest[ _]rush', 'long_rush'),
+    (r'longest[ _](?:reception|rec)', 'long_rec'),
+    (r'longest[ _](?:completion|pass)', 'long_pass'),
+    (r'total[ _]yards|rush\s*\+\s*rec|scrimmage', 'rr_yds'),
+    (r'team[ _]total', 'team_total'),
     (r'first[ _]?(?:td|touchdown)', 'first_td'),
     (r'pass(?:ing)?[ _]?(?:td|touchdown)', 'pass_td'),
     (r'2\+ ?td|2_touchdowns|two touchdowns', 'td2'),
@@ -236,7 +244,6 @@ MKEYS = [
     (r'pass(?:ing)?[ _]?att|pass attempts', 'pass_att'),
     (r'completion|pass_cmp', 'pass_cmp'),
     (r'pass(?:ing)?[ _]?yard', 'pass_yds'),
-    (r'longest|total[ _]yards|kicking|field_goal|tackle', 'other'),
     (r'rush(?:ing)?[ _]?att|carries', 'carries'),
     (r'rush(?:ing)?[ _]?yard', 'rush_yds'),
     (r'reception', 'rec'),
@@ -244,10 +251,14 @@ MKEYS = [
 ]
 MNAME = {'first_td': 'first TD', 'pass_td': 'pass TDs', 'td2': '2+ TDs', 'atd': 'anytime TD', 'pass_int': 'interceptions',
          'pass_att': 'pass attempts', 'pass_cmp': 'completions', 'pass_yds': 'pass yds', 'carries': 'carries',
-         'rush_yds': 'rush yds', 'rec': 'receptions', 'rec_yds': 'rec yds', 'other': ''}
+         'rush_yds': 'rush yds', 'rec': 'receptions', 'rec_yds': 'rec yds', 'other': '',
+         'fg_made': 'field goals made', 'kick_pts': 'kicking points', 'defense': 'tackles / sacks', 'long_rush': 'longest rush',
+         'long_rec': 'longest reception', 'long_pass': 'longest completion', 'rr_yds': 'rush + rec yds', 'team_total': 'team total points'}
 MKIND = {'first_td': 'TD scorer', 'td2': 'TD scorer', 'atd': 'TD scorer', 'pass_td': 'Passing', 'pass_int': 'Passing',
          'pass_att': 'Passing', 'pass_cmp': 'Passing', 'pass_yds': 'Passing', 'carries': 'Rushing', 'rush_yds': 'Rushing',
-         'rec': 'Receiving', 'rec_yds': 'Receiving', 'other': 'Other'}
+         'rec': 'Receiving', 'rec_yds': 'Receiving', 'other': 'Other',
+         'fg_made': 'Kicking', 'kick_pts': 'Kicking', 'defense': 'Defense', 'long_rush': 'Rushing', 'long_rec': 'Receiving',
+         'long_pass': 'Passing', 'rr_yds': 'Rushing', 'team_total': 'Game props'}
 YES = ('atd', 'first_td', 'td2')
 
 
@@ -262,8 +273,7 @@ def parse_leg(text, player=None):
     """'Jacoby Brissett 2+ pass TD' / 'X season_receiving_yards OVER 71.5' / 'X 40+ receiving yards' -> leg dict."""
     t = re.sub(r'^[^:]{3,40}:\s*', '', str(text))           # 'Name: Name - passing_yards OVER 254.5'
     low = t.lower()
-    mk = next((k for p, k in MKEYS if re.search(p, low)), None)
-    if not mk: return None
+    mk = next((k for p, k in MKEYS if re.search(p, low)), None) or 'other'
     side, line = ('yes', None) if mk in YES else (None, None)
     if mk not in YES:
         m = re.search(r'(\d+(?:\.\d+)?)\+', low)
@@ -276,7 +286,7 @@ def parse_leg(text, player=None):
         if side is None:
             side = 'over' if 'over' in low else 'under' if 'under' in low else None
     if not player:
-        player = re.split(r'\s+(?:\d|o\d|u\d|over\b|under\b|OVER\b|UNDER\b|anytime|first|season_|player_|rushing|receiving|passing|pass\b|rush\b|receptions|longest|total|2\+|2_|anytime_|first_|over_under)', t, maxsplit=1)[0]
+        player = re.split(r'\s+(?:\d|o\d|u\d|over\b|under\b|OVER\b|UNDER\b|anytime|first|season_|player_|rushing|receiving|passing|pass\b|rush\b|receptions|longest|total|2\+|2_|anytime_|first_|over_under|field|kicking|tackles|sacks)', t, maxsplit=1)[0]
         player = player.strip(' -:')
     return dict(player=player.strip(), mkey=mk, side=side, line=line)
 
@@ -376,7 +386,7 @@ def card_prop_legs(ctx):
             if re.match(r'^[\s:-]*$', ''.join(c)): continue
             d = dict(zip(hdr, c))
             leg = parse_leg(d.get('market & line', ''))
-            if leg and d.get('game') in ctx['games']:
+            if leg and leg['mkey'] != 'other' and d.get('game') in ctx['games']:
                 out.append(dict(gid=d['game'], leg=leg, ticket=name, price=d.get('price'), book=d.get('book'), why=d.get('why', ''), tier=d.get('tier', '')))
     return out
 
@@ -399,10 +409,10 @@ def props_lab(ctx):
     idx = price_books(ctx)
     clusters = {}
     def add(gid, leg, src):
-        if not leg or leg['mkey'] == 'other' or not leg['player']: return
+        if not leg or not leg['player']: return
         l_, f_ = nkey(leg['player'])
         k = (gid, l_, leg['mkey'], leg['side'])
-        c = clusters.setdefault(k, dict(gid=gid, player=leg['player'], mkey=leg['mkey'], side=leg['side'], lines=[], src=[], card=None, lean=None))
+        c = clusters.setdefault(k, dict(gid=gid, player=leg['player'], mkey=leg['mkey'], side=leg['side'], lines=[], src=[], card=None, lean=None, raw=leg.get('raw')))
         if len(leg['player']) > len(c['player']): c['player'] = leg['player']
         if leg['line'] is not None: c['lines'].append(leg['line'])
         src.setdefault('line', leg['line'])
@@ -422,7 +432,38 @@ def props_lab(ctx):
         if leg and pl: leg['player'] = pl.title() if pl.islower() else pl
         if leg and leg['line'] is None and isinstance(r.get('line'), (int, float)) and leg['mkey'] not in YES:
             leg['line'] = float(r['line'])
+        if leg and leg['mkey'] == 'other':
+            leg['raw'] = re.sub(r'^[^:]{3,40}:\s*', '', r.get('selection') or '').replace('_', ' ')
         add(r['game'], leg, dict(kind=r.get('kind'), who=who_of(r), row=r, price=r.get('price'), why=re.sub(r'^\[[^\]]*\]\s*', '', r.get('quote') or '')))
+    # game props the intel calls out (team totals inside a total pick, e.g. 'Lions team total over')
+    for r in ctx['vrows']:
+        txt = f"{r.get('selection') or ''} {r.get('quote') or ''}"
+        if r.get('market') != 'total' or not re.search(r'team total', txt, re.I): continue
+        m_ = re.search(r'(\w+)\s+team total', txt, re.I)
+        tm = NICK.get((m_.group(1) if m_ else '').lower())
+        if not tm: continue
+        side = 'over' if re.search(r'\bover\b', txt, re.I) else 'under'
+        leg = dict(player=TEAMS[tm], mkey='team_total', side=side, line=float(r['line']) if isinstance(r.get('line'), (int, float)) else None, team=tm)
+        add(r['game'], leg, dict(kind=r.get('kind'), who=who_of(r), row=r, price=r.get('price'), why=re.sub(r'^\[[^\]]*\]\s*', '', r.get('quote') or '')))
+    # player -> team (BetOnline boards carry the team), for the game-context line on every leg
+    teamof = {}
+    for r in J(ROOT / f'data/generated/props/beo-w{ctx["W"]}.json', []) or []:
+        a_, h_ = [BEO_CODE.get(x, x) for x in (str(r.get('game', '')).split('_') + ['', ''])[:2]]
+        gid_ = next((g for g, x in ctx['games'].items() if x['away'] == a_ and x['home'] == h_), None)
+        tm = NICK.get(str(r.get('team', '')).split()[-1].lower()) if r.get('team') else None
+        if gid_ and tm: teamof.setdefault((gid_, nkey(r.get('player'))[0]), tm)
+    for r in ctx['vrows']:
+        if r.get('team_tag') and r.get('players'):
+            teamof.setdefault((r['game'], nkey(r['players'][0])[0]), r['team_tag'])
+    def context(c):
+        g = ctx['games'].get(c['gid']) or {}
+        tm = c.get('team') or (TEAMS and next((t for t, n in TEAMS.items() if n == c['player']), None)) or teamof.get((c['gid'], nkey(c['player'])[0]))
+        pj = g.get('projection') or {}
+        if not tm or tm not in pj: return ''
+        opp = g['home'] if tm == g['away'] else g['away']
+        d = pj[tm] - pj.get(opp, 0)
+        res = f'projected to win by {d}' if d > 0 else (f'projected to lose by {-d}' if d < 0 else 'projected even')
+        return f'{tm} {res} ({tm} {pj[tm]} – {opp} {pj.get(opp, "?")}, our projection)'
     # score, line, prices
     per = defaultdict(list)
     for k, c in clusters.items():
@@ -435,14 +476,18 @@ def props_lab(ctx):
             line = sorted(cnt, key=lambda v: (-cnt[v], v if c['side'] == 'over' else -v))[0]
         else: line = None
         leg = dict(player=c['player'], mkey=c['mkey'], side=c['side'], line=line)
-        c.update(score=score, line=line, people=sorted(people), prices=best_prices(idx, c['gid'], leg),
+        c.update(score=score, line=line, people=sorted(people), prices=best_prices(idx, c['gid'], leg) if c['mkey'] in MNAME and c['mkey'] not in ('other', 'fg_made', 'kick_pts', 'defense', 'long_rush', 'long_rec', 'long_pass', 'rr_yds', 'team_total') else {}, ctx_line=context(c),
                  status=injury_status(ctx, c['gid'], c['player']))
         if c['status'] in ('out', 'doubtful', 'injured reserve', 'ir'): c['score'] -= 10
         if c['lean'] == 'skip' and not c['card']: c['score'] -= 1
         per[c['gid']].append(c)
     total = sum(len(v) for v in per.values())
     nexp = sum(1 for r in ctx['vrows'] if r.get('market') == 'prop')
-    kinds = ['TD scorer', 'Passing', 'Rushing', 'Receiving']
+    kinds = ['TD scorer', 'Passing', 'Rushing', 'Receiving', 'Kicking', 'Defense', 'Game props', 'Other']
+    kcount = defaultdict(int)
+    for v in per.values():
+        for c in v: kcount[MKIND[c['mkey']]] += 1
+    kinds = [k for k in kinds if k != 'Other' or kcount[k]]
     h = ['<div class="props-lab" id="props-lab-legs">',
          '<h3 id="props-recommended">🎯 Recommended legs by game</h3>',
          f'<p class="muted-note">{total} legs in {len(per)} games from the card, the synthesis leans and {nexp} verified expert prop calls. '
@@ -451,10 +496,11 @@ def props_lab(ctx):
          'BetOnline (BEO) and DraftKings Predictions (DK, before its fee).</p>',
          '<div class="legs-filter no-bm" id="legs-filter">'
          '<div class="lf-row"><span class="lf-label">Type</span>'
-         + ''.join(f'<button type="button" class="btn-toggle lf-kind{" btn-primary" if k == "All" else ""}" data-kind="{E(k)}">{E(k)}</button>' for k in ['All'] + kinds)
+         + ''.join(f'<button type="button" class="btn-toggle lf-kind{" btn-primary" if k == "All" else ""}" data-kind="{E(k)}"{" disabled" if k != "All" and not kcount[k] else ""}>{E(k)} <small>{total if k == "All" else kcount[k]}</small></button>' for k in ['All'] + kinds)
+         + ('' if kcount['Defense'] else '<span class="muted-note lf-none">No defensive props were called out by this week\'s intel (and no BetOnline tackles board was posted).</span>')
          + '</div><div class="lf-row"><label class="lf-check"><input type="checkbox" id="lf-card"> Card legs only</label>'
          '<label class="lf-check"><input type="checkbox" id="lf-multi"> 2+ supporters</label>'
-         '<label class="lf-check"><input type="checkbox" id="lf-priced" checked> Hide out / unpriced</label>'
+         '<label class="lf-check"><input type="checkbox" id="lf-priced" checked> Hide out / doubtful</label>'
          '<input type="search" id="lf-q" placeholder="Search player" aria-label="Search player"></div>'
          '<div class="lf-row"><button type="button" class="btn-toggle" id="lf-open">Open all games</button>'
          '<button type="button" class="btn-toggle" id="lf-close">Close all games</button>'
@@ -470,8 +516,9 @@ def props_lab(ctx):
               '<div class="rollup-content"><div class="leg-list">']
         for c in cs:
             sd = '' if c['side'] in ('yes', None) else ('o' if c['side'] == 'over' else 'u')
-            ltxt = f'{sd}{c["line"]:g} ' if c['line'] is not None else ''
+            ltxt = f'{sd}{c["line"]:g} ' if c['line'] is not None else (f'{c["side"]} ' if c['side'] in ('over', 'under') and c['mkey'] not in YES else '')
             leg = f'{c["player"]} {ltxt}{MNAME[c["mkey"]]}'.strip()
+            if c['mkey'] == 'other' and c.get('raw'): leg = c['raw']
             if c['mkey'] == 'pass_td' and c['line'] == 1.5 and c['side'] == 'over': leg = f'{c["player"]} 2+ pass TDs'
             pr = c['prices']; exact = {b: v for b, v in pr.items() if v['exact']}
             best = max(exact.items(), key=lambda kv: dec(kv[1]['odds'])) if exact else None
@@ -481,7 +528,7 @@ def props_lab(ctx):
             if c['lean'] and c['lean'] != 'skip': flags.append(f'<span class="leg-tag">lean {E(c["lean"])}</span>')
             if c['lean'] == 'skip': flags.append('<span class="leg-tag tag-warn">synthesis skip</span>')
             if c['status']: flags.append(f'<span class="leg-tag tag-warn">⚠ {E(c["status"])}</span>')
-            if not pr: flags.append('<span class="leg-tag tag-warn">no price</span>')
+            if not pr: flags.append('<span class="leg-tag">no captured price</span>')
             nsup = len(c['people']) + (1 if c['card'] else 0) + (1 if c['lean'] not in (None, 'skip') else 0)
             bt = f'<b>{am(best[1]["odds"])}</b> <span class="lg-book">{best[0]}</span>' if best else '<span class="px-none">no same-line price</span>'
             def cell(b):
@@ -491,6 +538,7 @@ def props_lab(ctx):
                 lab = am(v['odds']) if v['exact'] else f'{("o" if c["side"] == "over" else "")}{v["line"]:g} {am(v["odds"])} (other line)'
                 return f'<div class="lp-cell"><span class="lp-b">{b}</span><span class="{cls}">{E(lab)}</span></div>'
             whos = []
+            if c.get('ctx_line'): whos.append(f'<li class="leg-ctx">📌 <b>Game context:</b> {E(c["ctx_line"])}</li>')
             for s in c['src']:
                 wy = (s.get('why') or '')[:220]
                 if s['kind'] in ('card', 'lean'):
@@ -498,9 +546,11 @@ def props_lab(ctx):
                 else:
                     r = s['row']; q = f' {am(s["price"])}' if s.get('price') not in (None, '') else ''
                     lq = f' at {s["line"]:g}' if s.get('line') is not None and c['mkey'] not in YES else ''
+                    if not wy.strip() or wy.strip().lower() == (r.get('selection') or '').strip().lower():
+                        wy = 'called this leg (no written reason stored; see the source)'
                     whos.append(f'<li><b>{E(s["who"])}</b>{E(lq)}{E(q)}: {E(wy)} <span class="src">— {source_html(r, ctx)}</span></li>')
             dat = (f'data-kind="{E(MKIND[c["mkey"]])}" data-card="{1 if c["card"] else 0}" data-sup="{nsup}" '
-                   f'data-bad="{1 if (bad or not pr) else 0}" data-player="{E(c["player"].lower())}"')
+                   f'data-bad="{1 if bad else 0}" data-player="{E(c["player"].lower())}"')
             h.append(f'<details class="leg bm-item" {dat}><summary class="bm-host">'
                      f'<span class="lg-main"><span class="lg-name">{E(leg)}</span><span class="lg-tags">{" ".join(flags)}</span></span>'
                      f'<span class="lg-kind">{E(MKIND[c["mkey"]])}</span>'
@@ -660,6 +710,17 @@ BOOKMARKS_CSS = r"""
 .rec-filter{display:inline-flex;flex-wrap:wrap;gap:6px;margin-right:6px}
 .rp:not([hidden])~.rp:not([hidden])::before{content:' · '}
 .rp[hidden]{display:none}
+.mu-jump{position:sticky;top:150px;z-index:6;display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:0 0 14px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:var(--card)}
+.mu-jump-label{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.mu-jump-link{padding:5px 11px;border:1px solid var(--border);border-radius:999px;color:var(--text);text-decoration:none;font-size:12.5px;font-weight:700;white-space:nowrap}
+.mu-jump-link:hover{border-color:var(--accent);color:var(--primary)}
+.mu-jump .mu-all{margin-left:auto}.mu-jump .mu-all+.mu-all{margin-left:0}
+.mu-card{scroll-margin-top:220px}
+.mu-badge{display:inline-block;margin-left:8px;padding:1px 9px;border-radius:999px;background:#facc15;color:#0f172a;font-size:12px;font-weight:800}.mu-badge.lean{background:transparent;color:#f59e0b;border:1px solid #f59e0b}
+.split-alert{margin:4px 0 12px;padding:10px 14px;border:1px solid #facc15;border-left:4px solid #facc15;border-radius:10px;background:rgba(250,204,21,.08)}
+.split-alert ul{margin:6px 0;padding-left:18px}.split-alert li{margin:3px 0;font-size:14px}
+tr.split-big td{background:rgba(250,204,21,.12)}tr.split-lean td{background:rgba(245,158,11,.07)}
+@media (max-width:640px){.mu-jump{position:static}.mu-card{scroll-margin-top:80px}}
 @media (max-width:640px){.sc-pick{padding:12px;gap:10px}.sc-rank{min-width:34px;height:34px}.sc-title{font-size:16px}}
 """
 
@@ -708,7 +769,7 @@ BOOKMARKS_JS = r"""
     count();
     if (location.hash.length > 1){
       var t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
-      if (t){ var p = t.parentElement; while (p){ if (p.tagName === 'DETAILS') p.open = true; p = p.parentElement; }
+      if (t){ if (t.tagName === 'DETAILS') t.open = true; var p = t.parentElement; while (p){ if (p.tagName === 'DETAILS') p.open = true; p = p.parentElement; }
               t.scrollIntoView({block: 'center'}); t.classList.add('bm-flash'); }
     }
     var list = document.getElementById('bm-list');
@@ -814,7 +875,14 @@ BOOKMARKS_JS = r"""
       });
     }); });
   }
-  function go(){ setup(); wire(); calc(); legs(); recFilter(); }
+  function muJump(){
+    document.querySelectorAll('.mu-jump-link').forEach(function(a){ a.addEventListener('click', function(){
+      var h = a.getAttribute('href'); if (h.charAt(0) !== '#') return;
+      var t = document.getElementById(h.slice(1)); if (t && t.tagName === 'DETAILS') t.open = true; }); });
+    document.querySelectorAll('.mu-all').forEach(function(b){ b.addEventListener('click', function(){
+      var v = b.getAttribute('data-open') === '1'; document.querySelectorAll('.mu-card').forEach(function(d){ d.open = v; }); }); });
+  }
+  function go(){ setup(); wire(); calc(); legs(); recFilter(); muJump(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
 })();
 """

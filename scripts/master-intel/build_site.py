@@ -158,6 +158,97 @@ def dashboard_fragment():
     ).section
 
 
+def _splits_alert(sec):
+    """Flag split rows where the money share beats the ticket share: 15+ points = big-money alert (the report's
+    big-money rule), 10-14 = money lean. Adds an alert box at the top of the splits card and marks the rows."""
+    alerts = []
+    for tr in sec.select('tbody tr'):
+        tds = tr.find_all('td')
+        if len(tds) < 5:
+            continue
+        m = re.search(r'([+−-]?\d+)', tds[-1].get_text(strip=True).replace('−', '-'))
+        if not m:
+            continue
+        d = int(m.group(1))
+        if d >= 10:
+            mk = tds[0].get_text(' ', strip=True); sd = tds[1].get_text(' ', strip=True)
+            b = tds[2].get_text(' ', strip=True); mo = tds[3].get_text(' ', strip=True)
+            big = d >= 15
+            tr['class'] = tr.get('class', []) + ['split-big' if big else 'split-lean']
+            alerts.append((big, f'{mk}: {sd} — {b} of tickets but {mo} of the money (+{d})'))
+    if alerts:
+        items = ''.join(f'<li><b>{"💰 Big money / possible sharp play" if big else "⚠️ Money lean"}</b> — {html.escape(t)}</li>' for big, t in alerts)
+        box = soup_of('<div class="split-alert"><strong>Sharp / big-money alert</strong><ul>' + items + '</ul>'
+                      '<p class="muted-note">Fewer tickets carrying a bigger share of the money usually means larger, often professional, bets. '
+                      '15+ points = big-money signal; 10–14 = money lean. It is a signal, not a guarantee.</p></div>').div
+    else:
+        box = soup_of('<p class="muted-note split-none">No sharp or big-money gap in this game (no side where money beats tickets by 10+ points).</p>').p
+    h3 = sec.find('h3')
+    (h3.insert_after(box) if h3 else sec.insert(0, box))
+    return sum(1 for big, _ in alerts if big), len(alerts)
+
+
+def _matchup_cards(holder, gid, gs):
+    """Game page: every block becomes a collapsible card, with a jump bar at the top."""
+    cards = []
+    def card(cid, title, els, open_=False):
+        d = soup_of(f'<details class="rollup-box mu-card" id="{cid}"{" open" if open_ else ""}><summary><span class="sum-text">{title}</span></summary>'
+                    '<div class="rollup-content"></div></details>').details
+        inner = d.find('div', class_='rollup-content')
+        for e in els:
+            inner.append(e.extract())
+        return d
+    sp = holder.find('section', class_='splits-top')
+    if sp is not None:
+        nbig, nall = _splits_alert(sp)
+        h3 = sp.find('h3')
+        if h3: h3.decompose()
+        tag = f' <span class="mu-badge">💰 {nbig} big-money</span>' if nbig else (f' <span class="mu-badge lean">⚠️ {nall} money lean</span>' if nall else '')
+        d = card(f'mu-{gs}-splits', '📊 Betting splits: where the bets and the money are' + tag, [sp], True)
+        holder.insert(0, d); cards.append((d['id'], '📊 Splits'))
+    nar = holder.find('div', class_='game-narrative')
+    if nar is not None:
+        kids = [k for k in nar.children if getattr(k, 'name', None)]
+        groups, cur = [('proj', '🎯 Projection &amp; game script', [])], None
+        for k in kids:
+            t = k.get_text(' ', strip=True)
+            if k.name == 'div' and t.startswith('🧠'):
+                groups.append(('why', '🧠 Why the card leans this way', [])); continue
+            if k.name == 'div' and t.startswith('⚠'):
+                groups.append(('breaks', '⚠️ What breaks it', [])); continue
+            if k.name == 'div' and t.startswith('🎙️ What the experts'):
+                groups.append(('experts', '🎙️ What the experts are saying', [])); continue
+            groups[-1][2].append(k)
+        prev = nar
+        for key, title, els in groups:
+            if not els: continue
+            d = card(f'mu-{gs}-{key}', title, els, key in ('proj', 'why'))
+            prev.insert_after(d); prev = d; cards.append((d['id'], title.split(' ', 1)[1].replace('&amp;', '&').split(' ')[0] if False else title))
+        nar.decompose()
+    lt = holder.find('div', class_='table-responsive', recursive=False)
+    if lt is not None:
+        ptr = holder.find('p', class_='mi-pointer')
+        els = [lt] + ([ptr] if ptr else [])
+        anchor = lt.find_previous_sibling()
+        d = card(f'mu-{gs}-line', '💵 Bookmaker line', els)
+        (anchor.insert_after(d) if anchor else holder.insert(0, d)); cards.append((d['id'], '💵 Line'))
+    for suf, lab in (('side', '⚖️ Sides'), ('total', '📈 Totals'), ('prop', '🧾 Props')):
+        el = holder.find('details', id=f'{gid}-{suf}')
+        if el is not None:
+            el['class'] = el.get('class', []) + ['mu-card']
+            cards.append((el['id'], lab))
+    short = {'proj': '🎯 Projection', 'why': '🧠 Why', 'breaks': '⚠️ What breaks it', 'experts': '🎙️ Experts'}
+    links = []
+    for cid, lab in cards:
+        k = cid.rsplit('-', 1)[-1]
+        links.append(f'<a href="#{cid}" class="mu-jump-link">{short.get(k, lab)}</a>')
+    links.append(f'<a href="glance.html#market-{gid}" class="mu-jump-link">📈 Market Intel →</a>')
+    bar = soup_of('<nav class="mu-jump" aria-label="Jump to a section of this matchup"><span class="mu-jump-label">Jump to</span>'
+                  + ''.join(links) + '<button type="button" class="btn-toggle mu-all" data-open="1">Open all</button>'
+                  '<button type="button" class="btn-toggle mu-all" data-open="0">Close all</button></nav>').nav
+    holder.insert(0, bar)
+
+
 def _rec_filter(box):
     """Straight bets on the dashboard: All / Sides / Moneylines / Totals filter that also filters each game's
     summary line (the old table filter hid table rows only, so a game's summary still listed its sides
@@ -426,6 +517,7 @@ def main(src):
                 lt.insert_after(ptr)
             else:
                 holder.append(ptr)
+            _matchup_cards(holder, gid, gs)
 
         if 'glance.html' in pages:
             MJ = (XC or {}).get('games', {}) if XC else {}
@@ -446,7 +538,7 @@ def main(src):
                 if not game_holder:
                     continue
                 moved, splits = MOVED.get(gid, ({}, None))
-                lt_div = game_holder.find('div', class_='table-responsive', recursive=False)
+                lt_div = (game_holder.find('details', id=f'mu-{gid[5:]}-line') or game_holder).find('div', class_='table-responsive')
                 line_table = lt_div.find('table') if lt_div else None
                 item = soup_of(
                     f'<details class="rollup-box market-matchup" id="market-{gid}">'
