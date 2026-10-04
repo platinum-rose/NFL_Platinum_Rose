@@ -134,33 +134,60 @@ def sc_rows(ctx):
 def sc_page(ctx):
     five, alts, note = sc_rows(ctx)
     r5 = block(ctx['narr'], 'SUPERCONTEST'); ralt = block(ctx['narr'], 'SUPERCONTEST ALTERNATES')
+    rank = block(ctx['narr'], 'SUPERCONTEST RANKING')
+    stars = {}
+    for x in (ctx['M'].get('ranked_plays') or []):
+        if x.get('type') == 'Side' and x.get('lean') and x['lean'] not in stars:
+            stars[x['lean']] = (x.get('stars'), x.get('tier'))
+    def aid(team, alt): return f'sc-{"alt" if alt else "pick"}-{slug(team)}'
+    def tile(i, r, alt):
+        team = r.get('pick', ''); gid = ctx['team_game'].get(team, '')
+        lab, ko = game_label(ctx, gid)
+        st, tr = stars.get(team, (None, None))
+        conf = f'{st:g}★ · tier {tr}' if st is not None else 'no card side lean'
+        return (f'<a class="sc-tile{" sc-tile-alt" if alt else ""}" href="#{aid(team, alt)}">'
+                f'<span class="sct-rank">{"ALT " if alt else "#"}{i}</span>'
+                f'<span class="sct-pick">{E(team)} {E(r.get("contest line", ""))}</span>'
+                f'<span class="sct-game">{E(lab)}<br>{E(ko)} PT</span>'
+                f'<span class="sct-room">Room {E(r.get("margin vs contest line", ""))}</span>'
+                f'<span class="sct-conf">{E(conf)}</span>'
+                '<span class="sct-go">Breakdown ↓</span></a>')
     def card_html(i, r, reason, alt=False):
         team = r.get('pick', ''); gid = ctx['team_game'].get(team, '')
         lab, ko = game_label(ctx, gid)
         chips = [('Contest line', r.get('contest line')), ('Book now (BKR)', r.get('book now (bkr)')),
                  ('Our projection', r.get('projection')), ('Room vs contest line', r.get('margin vs contest line'))]
+        st, tr = stars.get(team, (None, None))
+        if st is not None: chips.append(('Card confidence', f'{st:g}★ · tier {tr}'))
         ch = ''.join(f'<span class="sc-chip"><b>{E(k)}</b> {E(v)}</span>' for k, v in chips if v)
-        return (f'<article class="sc-pick bm-item{" sc-alt" if alt else ""}" id="sc-{"alt" if alt else "pick"}-{slug(team)}">'
+        pos = f'alternate {i}' if alt else f'#{i} of the five'
+        how = rank.get(team)
+        return (f'<article class="sc-pick bm-item{" sc-alt" if alt else ""}" id="{aid(team, alt)}">'
                 f'<div class="sc-rank">{"ALT " if alt else ""}{i}</div><div class="sc-body">'
                 f'<h3 class="sc-title">{E(team)} {E(r.get("contest line", ""))}'
                 f' <span class="sc-game">{E(lab)} · {E(ko)} PT · <a href="{gpage(gid)}">matchup →</a></span></h3>'
                 f'<div class="sc-chips">{ch}</div>'
-                f'<p class="sc-why"><b>Why:</b> {E(reason or "")}</p>'
-                f'<p class="sc-support"><b>Evidence:</b> {E(r.get("support", ""))}</p></div></article>')
+                + (f'<p class="sc-how"><b>How it got to {E(pos)}:</b> {E(how)}</p>' if how else '')
+                + f'<p class="sc-why"><b>Why:</b> {E(reason or "")}</p>'
+                f'<p class="sc-support"><b>Evidence:</b> {E(r.get("support", ""))} · <a href="#sc-exp-{slug(gid)}">experts on this game ↓</a> · <a href="#sc-strip">back to the top ↑</a></p></div></article>')
     h = ['<div class="sc-shell" id="sc-page">',
          '<h2 class="page-h">🏆 Super Contest — 5 sides against the spread</h2>',
          '<p class="dashboard-intro">The contest is five picks against the spread at the contest\'s fixed lines: '
-         '<b>sides only</b> — no totals, moneylines, props or teasers on this page. Our five are ranked by how much room '
-         'the projection leaves against the contest line, then by the evidence. The five alternates are the next-best '
-         'sides if you want to swap one out. Tap ☆ on any pick to save it for review.</p>',
-         '<h3 id="sc-top5">Our five</h3><div class="sc-list">']
+         '<b>sides only</b> — no totals, moneylines, props or teasers on this page. The card ranks sides by how much room '
+         'our projection leaves against the contest line, then by the evidence. Tap a pick for its breakdown; tap ☆ on a breakdown to save it.</p>',
+         '<div class="sc-strip" id="sc-strip"><div class="sc-strip-group"><div class="sc-strip-label">Our five</div><div class="sc-tiles">']
+    h += [tile(i + 1, r, False) for i, r in enumerate(five)]
+    h += ['</div></div><div class="sc-strip-group"><div class="sc-strip-label">Five alternates</div><div class="sc-tiles">']
+    h += [tile(i + 1, r, True) for i, r in enumerate(alts)]
+    h += ['</div></div></div>']
+    if note: h.append(f'<p class="muted-note">{E(note)}</p>')
+    h += ['<h3 id="sc-top5">Our five: breakdowns</h3><div class="sc-list">']
     h += [card_html(i + 1, r, r5.get(r.get('pick', ''))) for i, r in enumerate(five)]
-    h += ['</div>', '<h3 id="sc-alternates">Five alternates</h3>',
-          '<p class="muted-note">Alternates beyond the five recommendations, best first. Each one says what would make it worth swapping in.</p>',
+    h += ['</div>', '<h3 id="sc-alternates">Five alternates: breakdowns</h3>',
+          '<p class="muted-note">The next-best sides beyond the five recommendations, best first, with what would make each worth swapping in.</p>',
           '<div class="sc-list">']
     h += [card_html(i + 1, r, ralt.get(r.get('pick', '')), alt=True) for i, r in enumerate(alts)]
     h += ['</div>']
-    if note: h.append(f'<p class="muted-note">{E(note)}</p>')
     # ---- expert sides, grouped by game ----
     picks = {r.get('pick') for r in five}; altp = {r.get('pick') for r in alts}
     by = defaultdict(list)
@@ -583,6 +610,21 @@ BOOKMARKS_CSS = r"""
 .teaser-calc input{width:74px;padding:5px 7px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text)}
 .splits-top{margin:0 0 16px;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:var(--card)}.splits-top h3{margin:0 0 6px;font-size:15px}
 .mi-pointer{margin:16px 0;padding:10px 14px;border-left:3px solid var(--accent);border-radius:7px;background:var(--card);font-size:13.5px}
+.sc-strip{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:8px 0 14px}
+.sc-strip-group{min-width:0}
+.sc-strip-label{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 6px}
+.sc-strip-group:last-child .sc-strip-label{color:var(--muted)}
+.sc-tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.sc-tile{display:flex;flex-direction:column;gap:2px;min-width:0;padding:10px 10px 9px;border:1px solid var(--border);border-top:3px solid var(--accent);border-radius:10px;background:var(--card);color:var(--text);text-decoration:none;transition:border-color .15s,transform .15s}
+.sc-tile:hover{border-color:var(--accent);transform:translateY(-2px)}.sc-tile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sc-tile-alt{border-top-color:var(--border)}
+.sct-rank{font-size:11px;font-weight:800;color:var(--muted)}.sct-pick{font-size:17px;font-weight:800;white-space:nowrap}
+.sct-game{font-size:11px;color:var(--muted);line-height:1.35}.sct-conf{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sct-room{font-size:12px;font-weight:700;color:var(--body)}.sct-go{margin-top:4px;font-size:11.5px;font-weight:800;color:var(--primary)}
+.sc-how{margin:4px 0 6px;font-size:14px;line-height:1.5;padding:8px 10px;border-radius:8px;background:var(--raised,var(--highlight))}
+.sc-pick{scroll-margin-top:150px}
+@media (max-width:1050px){.sc-strip{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px){.sc-tiles{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:4px}.sc-tile{flex:0 0 132px;scroll-snap-align:start}}
 @media (max-width:640px){.sc-pick{padding:12px;gap:10px}.sc-rank{min-width:34px;height:34px}.sc-title{font-size:16px}}
 """
 
