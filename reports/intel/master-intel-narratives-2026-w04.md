@@ -639,3 +639,10 @@ Atlanta's turnover problem continues: two Penix giveaways and New Orleans wins b
 - LAR: The Eagles are missing their top two receivers and their tight end; the projection has the Rams by 5 against −3.
 - TEN: Big money is on the Titans moneyline at 4% of tickets, and the projection has Baltimore by 10, inside the 11.5.
 - DEN: Eleven named experts against two on Denver, and the line moved toward the Broncos despite the public on San Francisco.
+
+## SUPERCONTEST ALTERNATES
+- HOU: The projection has Houston by 4 against a contest line of −2.5, Collins is back against a Dallas secondary we grade HIGH for the Texans, and the winless-team system plays on Houston. Eleven named experts are on Houston, but Dallas has 80% of spread tickets and the sharp moneyline flag, so it sits sixth, not in the five.
+- LV: Kansas City by 3 in the projection leaves a point and a half of room on +4.5. Fezzik and Tucker (best bet), Tuley (best bet), Sharp or Square and Simon Hunter are on Las Vegas, the line moved from KC −5.5 to −4.5, and the home-dog-against-an-undefeated-team system is 101–66–4.
+- GB: The projection has Green Bay by 5 against −3.5, built on a Tampa Bay rookie quarterback making his first start. The expert room is the other way: only Mike Florio and an Erickson alternate are on Green Bay, while Millman, Anderson (a contest pick) and Action Network took Tampa Bay +3.5. Use it only if you want a projection-only pick.
+- NYJ: Fezzik, Tucker, Action Network's contest pick, Reynolds and Middleton are on the Jets, and Bagent starting is the condition Middleton named. The projection has Chicago by 3, so +3.5 is only a half point of room; it is the card's top-ranked side but a thin contest margin.
+- NE: Seven named experts back New England (Fezzik, Erickson, Tuley, Makinen, Youmans, Reynolds, Tucker) and five Bet Labs systems fire on the Patriots. The projection has Buffalo by 6, so the contest +6.5 leaves only half a point, and the book's +7 is the better number if you bet it outside the contest.

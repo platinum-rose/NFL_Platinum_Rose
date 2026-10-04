@@ -920,6 +920,14 @@ def main():
         for p in YT.get(g['id'], []):
             if yt_kind(p) == 'Prop':
                 pool_add(g['id'], p['pick'], str(p.get('price') or ''), '—', 'expert', ('⚠ ' + p['verify']) if p.get('verify') else f"{p['show'].split(' — ')[0]}", p['speaker'])
+    # verified expert prop calls (podcasts, articles, pick feed): until 2026-10-04 the pool skipped these, which left it thin
+    for x in VROWS:
+        if x.get('market') != 'prop': continue
+        sel_ = re.sub(r'^[^:]{3,40}:\s*', '', x.get('selection') or '').replace('season_', '').replace('player_', '').replace('_', ' ')
+        who_ = ', '.join(x.get('persons') or []) or x.get('outlet') or 'expert'
+        q_ = re.sub(r'^\[[^\]]*\]\s*', '', x.get('quote') or '')
+        pool_add(x['game'], sel_, (f"{int(x['price']):+d}" if isinstance(x.get('price'), (int, float)) else ''), '—', 'expert (verified)',
+                 esc(q_)[:120] + (f" [source]({x['url']})" if x.get('url') else ''), who_)
     ppi = J('data/research-intel/review/player-props-intel-latest.json', {}) or {}
     pl = ppi.get('props') or ppi.get('rows') or []
     live_games = {f"{g['visitor']} @ {g['home']}": g['id'] for g in live}

@@ -1,0 +1,693 @@
+#!/usr/bin/env python3
+"""Extra site pages and blocks for the Master Intel client site (called by build_site.py).
+
+  sc_page(ctx)        Super Contest tab: the five, five alternates, reasoning, then expert sides (ATS only) with citations
+  props_lab(ctx)      Props Lab: recommended legs per game from every intel source, with the best price across BKR / BEO / DK
+  teaser_extras(ctx)  Teaser Board: named experts per Wong leg, expert teaser calls, teaser / round-robin math
+  BOOKMARKS_*         bookmark page body, script and styles (localStorage, per viewer)
+
+Everything is read from files already on disk (read-only): the card, the narratives, the verified expert rows,
+the podcast episode links (scripts/master-intel/podcast_links.mjs), the BKR / BEO / DK price captures and the
+master packet json that build.py writes. Nothing here changes a pick; it only presents what the card and the
+intel already say.
+"""
+import glob, html, json, math, re
+from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
+from urllib.parse import urlparse
+
+ROOT = Path(__file__).resolve().parents[2]
+E = lambda s: html.escape(str(s if s is not None else ''), quote=True)
+
+TEAMS = {
+    'ARI': 'Cardinals', 'ATL': 'Falcons', 'BAL': 'Ravens', 'BUF': 'Bills', 'CAR': 'Panthers', 'CHI': 'Bears',
+    'CIN': 'Bengals', 'CLE': 'Browns', 'DAL': 'Cowboys', 'DEN': 'Broncos', 'DET': 'Lions', 'GB': 'Packers',
+    'HOU': 'Texans', 'IND': 'Colts', 'JAX': 'Jaguars', 'KC': 'Chiefs', 'LV': 'Raiders', 'LAC': 'Chargers',
+    'LAR': 'Rams', 'MIA': 'Dolphins', 'MIN': 'Vikings', 'NE': 'Patriots', 'NO': 'Saints', 'NYG': 'Giants',
+    'NYJ': 'Jets', 'PHI': 'Eagles', 'PIT': 'Steelers', 'SF': '49ers', 'SEA': 'Seahawks', 'TB': 'Buccaneers',
+    'TEN': 'Titans', 'WAS': 'Commanders'}
+NICK = {v.lower(): k for k, v in TEAMS.items()}
+BEO_CODE = {'LVR': 'LV', 'NOS': 'NO', 'WSH': 'WAS', 'JAC': 'JAX', 'TBB': 'TB', 'GBP': 'GB', 'KCC': 'KC', 'NEP': 'NE', 'SFO': 'SF', 'LA': 'LAR'}
+
+
+def slug(s): return re.sub(r'[^a-z0-9]+', '-', str(s).lower()).strip('-')
+def gpage(gid): return f'game-{slug(gid)}.html'
+def am(o):
+    try: o = int(round(float(o)))
+    except (TypeError, ValueError): return ''
+    return f'{o:+d}'.replace('-', '−')
+def dec(o):
+    o = float(o); return 1 + (o / 100 if o > 0 else 100 / -o)
+def ln(x):
+    return ('+' if x > 0 else '') + (f'{x:g}'.replace('-', '−'))
+def J(p, d=None):
+    try: return json.loads(Path(p).read_text(encoding='utf-8'))
+    except Exception: return d
+
+
+# ---------------------------------------------------------------- context
+def load(week, date):
+    W = f'{int(week):02d}'
+    pk = ROOT / f'dist/nfl_week{int(week)}_master_packet/nfl_week{int(week)}_master_betting_intelligence_summary.json'
+    M = J(pk, {}) or {}
+    games = {g['game']: g for g in M.get('games', [])}
+    order = sorted(games, key=lambda k: games[k].get('kickoff_utc', ''))
+    ver = J(ROOT / f'data/generated/master-intel/w{W}-expert-verified.json', {}) or {}
+    vrows = [r for r in ver.get('rows', []) if r.get('verdict') == 'verified' and r.get('game') in games]
+    pods = J(ROOT / f'data/generated/master-intel/w{W}-podcast-links.json', {}) or {}
+    card = (ROOT / f'reports/bets/{date[:4]}-w{W}-card.md')
+    card = card.read_text(encoding='utf-8') if card.exists() else ''
+    narr = ROOT / f'reports/intel/master-intel-narratives-{date[:4]}-w{W}.md'
+    narr = narr.read_text(encoding='utf-8') if narr.exists() else ''
+    digest = ROOT / f'scratch/w{W}-synthesis-digest-sat.md'
+    digest = digest.read_text(encoding='utf-8') if digest.exists() else ''
+    team_game = {}
+    for gid, g in games.items():
+        team_game[g['away']] = gid; team_game[g['home']] = gid
+    return dict(week=int(week), date=date, M=M, games=games, order=order, vrows=vrows, pods=pods, card=card,
+                narr=narr, digest=digest, team_game=team_game, W=W)
+
+
+def block(txt, name):
+    m = re.search(r'^## ' + re.escape(name) + r'\n(.*?)(?=^## |\Z)', txt, re.M | re.S)
+    out = {}
+    for l in (m.group(1).splitlines() if m else []):
+        mm = re.match(r'^- (.+?): (.+)$', l.strip())
+        if mm: out[mm.group(1).strip()] = mm.group(2).strip()
+    return out
+
+
+def fmt_date(s):
+    try: return datetime.fromisoformat(str(s).replace('Z', '+00:00')).strftime('%b %-d')
+    except Exception: return ''
+
+
+def who_of(r):
+    p = ', '.join(r.get('persons') or [])
+    if r.get('kind') == 'podcast':
+        return p or 'podcast host'
+    return p or r.get('outlet') or 'expert'
+
+
+def source_html(r, ctx):
+    """Citation: outlet / show, date and a public link when one exists."""
+    d = fmt_date(r.get('published'))
+    if r.get('kind') == 'podcast':
+        t = r.get('source_title') or r.get('outlet') or ''
+        lk = ctx['pods'].get(t) or ctx['pods'].get(html.unescape(t)) or {}
+        links = []
+        if lk.get('youtube_url'): links.append(f'<a href="{E(lk["youtube_url"])}" target="_blank" rel="noopener">▶ YouTube episode</a> (auto-transcript on YouTube)')
+        if lk.get('audio_url'): links.append(f'<a href="{E(html.unescape(lk["audio_url"]))}" target="_blank" rel="noopener">audio</a>')
+        return f'podcast · <em>{E(html.unescape(t))}</em> · {d}' + (' · ' + ' · '.join(links) if links else ' · no public link found')
+    if r.get('url'):
+        host = urlparse(r['url']).netloc.replace('www.', '')
+        title = r.get('source_title') or host
+        return f'{E(r.get("outlet") or host)} · {d} · <a href="{E(r["url"])}" target="_blank" rel="noopener">{E(title[:70])} ↗</a>'
+    return f'{E(r.get("outlet") or "")} · {d} · expert pick feed (no public link stored)'
+
+
+def game_label(ctx, gid):
+    g = ctx['games'].get(gid) or {}
+    return f'{g.get("away", "")} @ {g.get("home", "")}', g.get('kickoff_pt', '')
+
+
+# ---------------------------------------------------------------- Super Contest
+def sc_rows(ctx):
+    card = ctx['card']
+    m = re.search(r'^## SuperContest[^\n]*\n(.*?)(?=^## |\Z)', card, re.M | re.S)
+    five, alts, cur = [], [], None
+    if not m: return five, alts, ''
+    body = m.group(1)
+    hdr = None
+    for l in body.splitlines():
+        if not l.startswith('|'): continue
+        c = [x.strip() for x in l.strip().strip('|').split('|')]
+        if hdr is None: hdr = [h.lower() for h in c]; cur = five; continue
+        if re.match(r'^[\s:-]*$', ''.join(c)): continue
+        if 'alternates' in c[0].lower(): cur = alts; continue
+        cur.append(dict(zip(hdr, c)))
+    note = next((l for l in body.splitlines() if l.lower().startswith('middle check')), '')
+    return five, alts, note
+
+
+def sc_page(ctx):
+    five, alts, note = sc_rows(ctx)
+    r5 = block(ctx['narr'], 'SUPERCONTEST'); ralt = block(ctx['narr'], 'SUPERCONTEST ALTERNATES')
+    def card_html(i, r, reason, alt=False):
+        team = r.get('pick', ''); gid = ctx['team_game'].get(team, '')
+        lab, ko = game_label(ctx, gid)
+        chips = [('Contest line', r.get('contest line')), ('Book now (BKR)', r.get('book now (bkr)')),
+                 ('Our projection', r.get('projection')), ('Room vs contest line', r.get('margin vs contest line'))]
+        ch = ''.join(f'<span class="sc-chip"><b>{E(k)}</b> {E(v)}</span>' for k, v in chips if v)
+        return (f'<article class="sc-pick bm-item{" sc-alt" if alt else ""}" id="sc-{"alt" if alt else "pick"}-{slug(team)}">'
+                f'<div class="sc-rank">{"ALT " if alt else ""}{i}</div><div class="sc-body">'
+                f'<h3 class="sc-title">{E(team)} {E(r.get("contest line", ""))}'
+                f' <span class="sc-game">{E(lab)} · {E(ko)} PT · <a href="{gpage(gid)}">matchup →</a></span></h3>'
+                f'<div class="sc-chips">{ch}</div>'
+                f'<p class="sc-why"><b>Why:</b> {E(reason or "")}</p>'
+                f'<p class="sc-support"><b>Evidence:</b> {E(r.get("support", ""))}</p></div></article>')
+    h = ['<div class="sc-shell" id="sc-page">',
+         '<h2 class="page-h">🏆 Super Contest — 5 sides against the spread</h2>',
+         '<p class="dashboard-intro">The contest is five picks against the spread at the contest\'s fixed lines: '
+         '<b>sides only</b> — no totals, moneylines, props or teasers on this page. Our five are ranked by how much room '
+         'the projection leaves against the contest line, then by the evidence. The five alternates are the next-best '
+         'sides if you want to swap one out. Tap ☆ on any pick to save it for review.</p>',
+         '<h3 id="sc-top5">Our five</h3><div class="sc-list">']
+    h += [card_html(i + 1, r, r5.get(r.get('pick', ''))) for i, r in enumerate(five)]
+    h += ['</div>', '<h3 id="sc-alternates">Five alternates</h3>',
+          '<p class="muted-note">Alternates beyond the five recommendations, best first. Each one says what would make it worth swapping in.</p>',
+          '<div class="sc-list">']
+    h += [card_html(i + 1, r, ralt.get(r.get('pick', '')), alt=True) for i, r in enumerate(alts)]
+    h += ['</div>']
+    if note: h.append(f'<p class="muted-note">{E(note)}</p>')
+    # ---- expert sides, grouped by game ----
+    picks = {r.get('pick') for r in five}; altp = {r.get('pick') for r in alts}
+    by = defaultdict(list)
+    for r in ctx['vrows']:
+        if r.get('market') in ('spread', 'contest') and r.get('side'):
+            by[r['game']].append(r)
+    h += ['<h3 id="sc-experts">What the experts picked against the spread</h3>',
+          '<p class="muted-note">Every verified side (spread and contest picks) from this week\'s expert feed, articles and podcasts, '
+          'grouped by game. Contest picks are marked 🏆. Podcast picks link to the YouTube episode, where YouTube shows the transcript '
+          '(⋯ → Show transcript); article picks link to the article. Rows marked "expert pick feed" came from the pick registry, '
+          'which stores no public link.</p>',
+          '<div class="rollup-controls"><button class="btn-toggle" onclick="toggleRollups(\'sc-exp\', true)">Open all games</button>'
+          '<button class="btn-toggle" onclick="toggleRollups(\'sc-exp\', false)">Close all games</button></div>']
+    for gid in ctx['order']:
+        rows = by.get(gid, [])
+        if not rows: continue
+        g = ctx['games'][gid]
+        cnt = defaultdict(set)
+        for r in rows: cnt[r['side']].add(who_of(r))
+        tally = ' · '.join(f'{t} {len(cnt.get(t, ()))}' for t in (g['away'], g['home']))
+        ours = [t for t in (g['away'], g['home']) if t in picks] or [t for t in (g['away'], g['home']) if t in altp]
+        tag = (' · our pick: ' + ours[0]) if ours and ours[0] in picks else (' · alternate: ' + ours[0]) if ours else ''
+        rows.sort(key=lambda r: (r['side'] != g['away'], r.get('market') != 'contest', who_of(r)))
+        h += [f'<details class="rollup-box sc-exp" id="sc-exp-{slug(gid)}"><summary><span class="sum-text">'
+              f'{E(g["away"])} @ {E(g["home"])} — {E(g.get("kickoff_pt", ""))} PT — experts {E(tally)}{E(tag)}</span></summary>'
+              '<div class="rollup-content"><div class="table-responsive"><table><thead><tr>'
+              '<th>Side</th><th>Expert</th><th>Line</th><th>Reasoning</th><th>Source</th></tr></thead><tbody>']
+        for r in rows:
+            line = r.get('line')
+            lns = ln(float(line)) if isinstance(line, (int, float)) else ''
+            q = re.sub(r'^\[[^\]]*\]\s*', '', r.get('quote') or '')
+            h.append(f'<tr><td><b>{E(r["side"])}</b>{" 🏆" if r.get("market") == "contest" else ""}</td>'
+                     f'<td>{E(who_of(r))}</td><td>{E(lns)}</td><td>{E(q[:260])}</td><td>{source_html(r, ctx)}</td></tr>')
+        h += ['</tbody></table></div>', f'<p><a href="{gpage(gid)}">Full matchup →</a></p></div></details>']
+    h.append('</div>')
+    return ''.join(h)
+
+
+# ---------------------------------------------------------------- props
+MKEYS = [
+    (r'first[ _]?(?:td|touchdown)', 'first_td'),
+    (r'pass(?:ing)?[ _]?(?:td|touchdown)', 'pass_td'),
+    (r'2\+ ?td|2_touchdowns|two touchdowns', 'td2'),
+    (r'anytime|\batd\b', 'atd'),
+    (r'interception|\bints?\b|pass_int', 'pass_int'),
+    (r'pass(?:ing)?[ _]?att|pass attempts', 'pass_att'),
+    (r'completion|pass_cmp', 'pass_cmp'),
+    (r'pass(?:ing)?[ _]?yard', 'pass_yds'),
+    (r'longest|total[ _]yards|kicking|field_goal|tackle', 'other'),
+    (r'rush(?:ing)?[ _]?att|carries', 'carries'),
+    (r'rush(?:ing)?[ _]?yard', 'rush_yds'),
+    (r'reception', 'rec'),
+    (r'rec(?:eiving)?[ _]?yard', 'rec_yds'),
+]
+MNAME = {'first_td': 'first TD', 'pass_td': 'pass TDs', 'td2': '2+ TDs', 'atd': 'anytime TD', 'pass_int': 'interceptions',
+         'pass_att': 'pass attempts', 'pass_cmp': 'completions', 'pass_yds': 'pass yds', 'carries': 'carries',
+         'rush_yds': 'rush yds', 'rec': 'receptions', 'rec_yds': 'rec yds', 'other': ''}
+MKIND = {'first_td': 'TD scorer', 'td2': 'TD scorer', 'atd': 'TD scorer', 'pass_td': 'Passing', 'pass_int': 'Passing',
+         'pass_att': 'Passing', 'pass_cmp': 'Passing', 'pass_yds': 'Passing', 'carries': 'Rushing', 'rush_yds': 'Rushing',
+         'rec': 'Receiving', 'rec_yds': 'Receiving', 'other': 'Other'}
+YES = ('atd', 'first_td', 'td2')
+
+
+def nkey(name):
+    t = re.sub(r"[.'’]", '', str(name).lower()).replace('-', ' ').split()
+    t = [x for x in t if x not in ('jr', 'sr', 'ii', 'iii', 'iv')]
+    if not t: return ('', '')
+    return (t[-1], t[0][0] if len(t) > 1 else '')
+
+
+def parse_leg(text, player=None):
+    """'Jacoby Brissett 2+ pass TD' / 'X season_receiving_yards OVER 71.5' / 'X 40+ receiving yards' -> leg dict."""
+    t = re.sub(r'^[^:]{3,40}:\s*', '', str(text))           # 'Name: Name - passing_yards OVER 254.5'
+    low = t.lower()
+    mk = next((k for p, k in MKEYS if re.search(p, low)), None)
+    if not mk: return None
+    side, line = ('yes', None) if mk in YES else (None, None)
+    if mk not in YES:
+        m = re.search(r'(\d+(?:\.\d+)?)\+', low)
+        if m: side, line = 'over', float(m.group(1)) - 0.5
+        m = re.search(r'\b(over|under|o|u)\s?(\d+(?:\.\d+)?)', low)
+        if m:
+            side = 'over' if m.group(1).startswith('o') else 'under'; line = float(m.group(2))
+            if line == int(line) and side == 'over': line -= 0.5         # ladder rung 'OVER 300' = 300+
+        if mk == 'pass_td' and line is None and re.search(r'2\+', low): side, line = 'over', 1.5
+        if side is None:
+            side = 'over' if 'over' in low else 'under' if 'under' in low else None
+    if not player:
+        player = re.split(r'\s+(?:\d|o\d|u\d|over\b|under\b|OVER\b|UNDER\b|anytime|first|season_|player_|rushing|receiving|passing|pass\b|rush\b|receptions|longest|total|2\+|2_|anytime_|first_|over_under)', t, maxsplit=1)[0]
+        player = player.strip(' -:')
+    return dict(player=player.strip(), mkey=mk, side=side, line=line)
+
+
+def price_books(ctx):
+    """Index BKR / BEO / DK player prices: (gid, last, mkey, side) -> {book: [(line, odds, first_initial)]}."""
+    idx = defaultdict(lambda: defaultdict(list))
+    full2abbr = {}
+    for a, n in TEAMS.items(): full2abbr[n.lower()] = a
+    def gid_from_names(a, h):
+        return next((g for g, x in ctx['games'].items() if x['away'] == a and x['home'] == h), None)
+    # BKR (latest capture for the date)
+    bk = J(ROOT / f'data/generated/props/bookmaker-live-{ctx["date"]}-week{ctx["week"]}.json', {}) or {}
+    BMAP = {'rec_yds': 'rec_yds', 'rec': 'rec', 'rush_yds': 'rush_yds', 'carries': 'carries', 'pass_yds': 'pass_yds',
+            'pass_cmp': 'pass_cmp', 'pass_td': 'pass_td', 'atd_1_plus': 'atd', 'first_td': 'first_td', 'td_2_plus': 'td2'}
+    for r in bk.get('rows', []):
+        mk = BMAP.get(r.get('market'))
+        if not mk or not r.get('player') or r.get('odds') is None or r.get('available') is False: continue
+        ev = r.get('event', '').split(' @ ')
+        if len(ev) != 2: continue
+        a = full2abbr.get(ev[0].split()[-1].lower()); hh = full2abbr.get(ev[1].split()[-1].lower())
+        gid = gid_from_names(a, hh)
+        if not gid: continue
+        side = 'yes' if mk in YES else str(r.get('side', '')).lower()
+        l_, f_ = nkey(r['player'])
+        idx[(gid, l_, mk, side)]['BKR'].append((r.get('line') if mk not in YES else None, int(r['odds']), f_))
+    # BEO ladders: line N = N+ (over N-0.5); atd line 2 = 2+ TDs
+    for r in J(ROOT / f'data/generated/props/beo-w{ctx["W"]}.json', []) or []:
+        a, hh = [BEO_CODE.get(x, x) for x in str(r.get('game', '')).split('_')[:2]] + [None] * (2 - len(str(r.get('game', '')).split('_')[:2]))
+        gid = gid_from_names(a, hh)
+        if not gid or r.get('odds') is None: continue
+        m = r.get('market'); lv = r.get('line')
+        if m == 'atd': mk = 'atd' if (lv or 1) == 1 else 'td2' if lv == 2 else None
+        elif m == 'first_td': mk = 'first_td'
+        else: mk = m if m in MNAME else None
+        if not mk: continue
+        l_, f_ = nkey(r.get('player'))
+        line = None if mk in YES else float(lv) - 0.5
+        idx[(gid, l_, mk, 'yes' if mk in YES else 'over')]['BEO'].append((line, int(r['odds']), f_))
+    # DK Predictions (contract prices, gross of fees)
+    DMAP = {'atd_1_plus': 'atd', 'first_td': 'first_td', 'td_2_plus': 'td2', 'rec_yds': 'rec_yds', 'rush_yds': 'rush_yds', 'pass_yds': 'pass_yds'}
+    for f in sorted(glob.glob(str(ROOT / 'data/generated/props/dk-predictions-*-*-at-*.json'))):
+        mm = re.search(r'dk-predictions-(\d{4}-\d{2}-\d{2})-([a-z0-9]+)-at-([a-z0-9]+)\.json$', f)
+        if not mm or mm.group(1) < ctx['date'][:8] + '01': continue
+        gid = gid_from_names(NICK.get(mm.group(2)), NICK.get(mm.group(3)))
+        if not gid: continue
+        d = J(f, {}) or {}
+        for r in d.get('rows', []):
+            mk = DMAP.get(r.get('market'))
+            if not mk or r.get('american_gross') is None: continue
+            pl = r.get('player') or r.get('side') or ''
+            pl = re.sub(r'\s+\d+\+$', '', pl)
+            l_, f_ = nkey(pl)
+            line = None if mk in YES else (float(r['line']) - 0.5 if r.get('line') is not None else None)
+            idx[(gid, l_, mk, 'yes' if mk in YES else 'over')]['DK'].append((line, int(r['american_gross']), f_))
+    return idx
+
+
+def best_prices(idx, gid, leg):
+    l_, f_ = nkey(leg['player'])
+    got = idx.get((gid, l_, leg['mkey'], leg['side'] or 'over')) or {}
+    out = {}
+    for book, opts in got.items():
+        opts = [o for o in opts if not f_ or not o[2] or o[2] == f_]
+        if not opts: continue
+        if leg['mkey'] in YES or leg['line'] is None:
+            exact = opts
+        else:
+            exact = [o for o in opts if o[0] is not None and abs(o[0] - leg['line']) < 0.01]
+        if exact:
+            o = max(exact, key=lambda z: dec(z[1])); out[book] = dict(line=o[0], odds=o[1], exact=True)
+        elif leg['line'] is not None:
+            near = [o for o in opts if o[0] is not None]
+            if near:
+                o = min(near, key=lambda z: (abs(z[0] - leg['line']), -dec(z[1]))); out[book] = dict(line=o[0], odds=o[1], exact=False)
+    return out
+
+
+def injury_status(ctx, gid, player):
+    l_, f_ = nkey(player)
+    for x in (ctx['games'].get(gid) or {}).get('injuries_skill') or []:
+        l2, f2 = nkey(x.get('player'))
+        if l2 == l_ and (not f_ or not f2 or f_ == f2):
+            return str(x.get('status', '')).lower()
+    return ''
+
+
+def card_prop_legs(ctx):
+    out = []
+    for m in re.finditer(r'^### (.+?) — (\w+) — \*\*\$[\d.]+\*\*.*?\n(.*?)(?=^### |^## |\Z)', ctx['card'], re.M | re.S):
+        name, body = m.group(1).strip(), m.group(3)
+        hdr = None
+        for l in body.splitlines():
+            if not l.startswith('|'): continue
+            c = [x.strip() for x in l.strip().strip('|').split('|')]
+            if hdr is None: hdr = [h.lower() for h in c]; continue
+            if re.match(r'^[\s:-]*$', ''.join(c)): continue
+            d = dict(zip(hdr, c))
+            leg = parse_leg(d.get('market & line', ''))
+            if leg and d.get('game') in ctx['games']:
+                out.append(dict(gid=d['game'], leg=leg, ticket=name, price=d.get('price'), book=d.get('book'), why=d.get('why', ''), tier=d.get('tier', '')))
+    return out
+
+
+def digest_prop_legs(ctx):
+    out = []
+    for l in ctx['digest'].splitlines():
+        c = [x.strip() for x in l.strip().strip('|').split('|')]
+        if len(c) < 5: continue
+        gid = c[0].split(' ')[0]
+        if gid not in ctx['games']: continue
+        leg = parse_leg(c[1])
+        if not leg or leg['mkey'] == 'other': continue
+        if not re.search(r'TD|yds|rec|rush|pass|interception', c[1], re.I): continue
+        out.append(dict(gid=gid, leg=leg, lean=c[2], why=c[3], tier=c[4]))
+    return out
+
+
+def props_lab(ctx):
+    idx = price_books(ctx)
+    clusters = {}
+    def add(gid, leg, src):
+        if not leg or leg['mkey'] == 'other' or not leg['player']: return
+        l_, f_ = nkey(leg['player'])
+        k = (gid, l_, leg['mkey'], leg['side'])
+        c = clusters.setdefault(k, dict(gid=gid, player=leg['player'], mkey=leg['mkey'], side=leg['side'], lines=[], src=[], card=None, lean=None))
+        if len(leg['player']) > len(c['player']): c['player'] = leg['player']
+        if leg['line'] is not None: c['lines'].append(leg['line'])
+        src.setdefault('line', leg['line'])
+        c['src'].append(src)
+        return c
+    for x in card_prop_legs(ctx):
+        c = add(x['gid'], x['leg'], dict(kind='card', who='Platinum Rose card', what=x['ticket'], price=x['price'], book=x['book'], why=x['why']))
+        if c: c['card'] = x['ticket']; c['card_line'] = x['leg']['line']
+    for x in digest_prop_legs(ctx):
+        skip = 'skip' in x['tier'].lower()
+        c = add(x['gid'], x['leg'], dict(kind='lean', who='Platinum Rose synthesis', what=('skip' if skip else 'tier ' + x['tier']), why=x['why']))
+        if c: c['lean'] = 'skip' if skip else x['tier']
+    for r in ctx['vrows']:
+        if r.get('market') != 'prop': continue
+        pl = (r.get('players') or [None])[0]
+        leg = parse_leg(r.get('selection') or '', None)
+        if leg and pl: leg['player'] = pl.title() if pl.islower() else pl
+        if leg and leg['line'] is None and isinstance(r.get('line'), (int, float)) and leg['mkey'] not in YES:
+            leg['line'] = float(r['line'])
+        add(r['game'], leg, dict(kind=r.get('kind'), who=who_of(r), row=r, price=r.get('price'), why=re.sub(r'^\[[^\]]*\]\s*', '', r.get('quote') or '')))
+    # score, line, prices
+    per = defaultdict(list)
+    for k, c in clusters.items():
+        people = {s['who'] for s in c['src'] if s['kind'] not in ('card', 'lean')}
+        score = (3 if c['card'] else 0) + (0 if c['lean'] in (None, 'skip') else 2 if str(c['lean']).startswith('1') else 1.5) + len(people)
+        if c.get('card_line') is not None: line = c['card_line']
+        elif c['lines']:
+            cnt = defaultdict(int)
+            for v in c['lines']: cnt[v] += 1
+            line = sorted(cnt, key=lambda v: (-cnt[v], v if c['side'] == 'over' else -v))[0]
+        else: line = None
+        leg = dict(player=c['player'], mkey=c['mkey'], side=c['side'], line=line)
+        c.update(score=score, line=line, people=sorted(people), prices=best_prices(idx, c['gid'], leg),
+                 status=injury_status(ctx, c['gid'], c['player']))
+        if c['status'] in ('out', 'doubtful', 'injured reserve', 'ir'): c['score'] -= 10
+        if c['lean'] == 'skip' and not c['card']: c['score'] -= 1
+        per[c['gid']].append(c)
+    total = sum(len(v) for v in per.values())
+    nexp = sum(1 for r in ctx['vrows'] if r.get('market') == 'prop')
+    h = ['<div class="props-lab" id="props-lab-legs">',
+         '<h3 id="props-recommended">🎯 Recommended legs by game</h3>',
+         f'<p class="muted-note">{total} legs in {len(per)} games, merged from the card, the synthesis leans and {nexp} verified expert prop calls '
+         '(articles, podcasts, the pick feed). <b>Support</b> counts the card (3), a synthesis lean (1.5–2) and each named expert (1). '
+         '<b>Best price</b> compares the same player, market, side and line across Bookmaker (BKR), BetOnline (BEO) and DraftKings Predictions (DK); '
+         'a price in grey is the book\'s nearest other line, not the same bet. BKR props are same-game only. '
+         'Players listed out or doubtful are flagged and sorted last. Tap ☆ to save a leg.</p>',
+         '<details class="rollup-box"><summary><span class="sum-text">🔎 Why the old props pool was so thin</span></summary><div class="rollup-content">'
+         '<p>The pool only read four inputs: legs on the card, the synthesis leans, the old expert pick table and the YouTube pick digest. '
+         f'This week the YouTube digest was empty and the old table held almost no prop rows, so the pool showed 15 props in 9 games, while {nexp} '
+         'verified prop calls from podcasts and articles sat unused in the expert verification file. This page now reads that file too, merges '
+         'repeat calls on the same player and market into one leg, and prices every leg at all three books.</p></div></details>']
+    for gid in ctx['order']:
+        cs = sorted(per.get(gid, []), key=lambda c: (-c['score'], MKIND[c['mkey']], c['player']))
+        if not cs: continue
+        g = ctx['games'][gid]
+        top = ', '.join(f'{c["player"]} {MNAME[c["mkey"]]}' for c in cs[:2])
+        h += [f'<details class="rollup-box section-pool" id="props-{slug(gid)}"><summary><span class="sum-text">'
+              f'🧾 {E(g["away"])} @ {E(g["home"])} — {len(cs)} legs · {E(g.get("kickoff_pt", ""))} PT · top: {E(top)}</span></summary>'
+              '<div class="rollup-content"><div class="table-responsive"><table class="legs-table"><thead><tr>'
+              '<th>Leg</th><th>Type</th><th>Support</th><th>Best price</th><th>BKR</th><th>BEO</th><th>DK</th><th>Who and why</th></tr></thead><tbody>']
+        for c in cs:
+            sd = '' if c['side'] in ('yes', None) else ('o' if c['side'] == 'over' else 'u')
+            ltxt = f'{sd}{c["line"]:g} ' if c['line'] is not None else ''
+            leg = f'{c["player"]} {ltxt}{MNAME[c["mkey"]]}'.strip()
+            if c['mkey'] == 'pass_td' and c['line'] == 1.5 and c['side'] == 'over': leg = f'{c["player"]} 2+ pass TDs'
+            pr = c['prices']; exact = {b: v for b, v in pr.items() if v['exact']}
+            best = max(exact.items(), key=lambda kv: dec(kv[1]['odds'])) if exact else None
+            def cell(b):
+                v = pr.get(b)
+                if not v: return '<td class="px-none">—</td>'
+                cls = 'px-best' if best and best[0] == b else ('px-alt' if not v['exact'] else '')
+                lab = am(v['odds']) if v['exact'] else f'{("o" if c["side"] == "over" else "")}{v["line"]:g} {am(v["odds"])}'
+                return f'<td class="{cls}">{E(lab)}</td>'
+            flags = []
+            if c['card']: flags.append(f'<span class="leg-tag tag-card">card: {E(c["card"])}</span>')
+            if c['lean'] and c['lean'] != 'skip': flags.append(f'<span class="leg-tag">lean tier {E(c["lean"])}</span>')
+            if c['lean'] == 'skip': flags.append('<span class="leg-tag tag-warn">synthesis: skip</span>')
+            if c['status']: flags.append(f'<span class="leg-tag tag-warn">⚠ {E(c["status"])}</span>')
+            if not pr: flags.append('<span class="leg-tag tag-warn">not on the captured boards</span>')
+            whos = []
+            for s in c['src'][:6]:
+                wy = (s.get('why') or '')[:150]
+                if s['kind'] in ('card', 'lean'):
+                    whos.append(f'<li><b>{E(s["who"])}</b> ({E(s.get("what", ""))}): {E(wy)}</li>')
+                else:
+                    r = s['row']; q = f' {am(s["price"])}' if s.get('price') not in (None, '') else ''
+                    lq = f' at {s["line"]:g}' if s.get('line') is not None and c['mkey'] not in YES else ''
+                    whos.append(f'<li><b>{E(s["who"])}</b>{E(lq)}{E(q)}: {E(wy)} <span class="src">— {source_html(r, ctx)}</span></li>')
+            if len(c['src']) > 6: whos.append(f'<li>…and {len(c["src"]) - 6} more</li>')
+            bt = f'{best[0]} {am(best[1]["odds"])}' if best else '—'
+            h.append(f'<tr><td><b>{E(leg)}</b><br>{" ".join(flags)}</td><td>{E(MKIND[c["mkey"]])}</td><td>{c["score"]:g}</td>'
+                     f'<td class="px-best-cell">{E(bt)}</td>{cell("BKR")}{cell("BEO")}{cell("DK")}<td><ul class="leg-src">{"".join(whos)}</ul></td></tr>')
+        h += ['</tbody></table></div>', f'<p><a href="{gpage(gid)}">Full matchup →</a></p></div></details>']
+    h.append('</div>')
+    return ''.join(h)
+
+
+# ---------------------------------------------------------------- teasers
+def teaser_extras(ctx, legs):
+    """legs: [(gid, team)] from the Wong table. Returns (experts_cell_html_by_leg, calls_html, math_html)."""
+    cells = {}
+    for gid, team in legs:
+        ppl = defaultdict(list)
+        for r in ctx['vrows']:
+            if r.get('game') == gid and r.get('side') == team and r.get('market') in ('spread', 'contest', 'teaser', 'moneyline'):
+                ppl[who_of(r)].append(r)
+        items = []
+        for w, rs in sorted(ppl.items(), key=lambda kv: (not any(x['market'] == 'teaser' for x in kv[1]), kv[0])):
+            r = next((x for x in rs if x['market'] == 'teaser'), rs[0])
+            lk = ''
+            if r.get('url'): lk = f' <a href="{E(r["url"])}" target="_blank" rel="noopener">↗</a>'
+            elif r.get('kind') == 'podcast':
+                p = ctx['pods'].get(r.get('source_title') or '') or {}
+                if p.get('youtube_url'): lk = f' <a href="{E(p["youtube_url"])}" target="_blank" rel="noopener">▶</a>'
+            mk = {'teaser': 'teaser', 'contest': 'contest', 'moneyline': 'ML', 'spread': 'spread'}[r['market']]
+            qt = re.sub(r'^\[[^\]]*\]\s*', '', r.get('quote') or '')[:200]
+            items.append(f'<span class="exp-chip" title="{E(qt)}">{E(w)} <i>{mk}</i>{lk}</span>')
+        cells[(gid, team)] = (len(ppl), ' '.join(items) or '—')
+    calls = [r for r in ctx['vrows'] if r.get('market') == 'teaser']
+    ch = ['<h3 id="teaser-calls">Expert teaser calls this week</h3>',
+          '<div class="table-responsive"><table><thead><tr><th>Game</th><th>Leg</th><th>Expert</th><th>What they said</th><th>Source</th></tr></thead><tbody>']
+    for r in sorted(calls, key=lambda r: (ctx['order'].index(r['game']) if r['game'] in ctx['order'] else 99)):
+        q = r.get('quote') or ''
+        tag = re.match(r'^\[TEASER — ([^\]]*)\]', q)
+        q2 = re.sub(r'^\[[^\]]*\]\s*', '', q)
+        ch.append(f'<tr><td><a href="{gpage(r["game"])}">{E(r["game"])}</a></td><td><b>{E(r["side"])} {E(ln(r["line"]) if isinstance(r.get("line"), (int, float)) else "")}</b>'
+                  f'<br><span class="muted-note">{E(tag.group(1) if tag else "")}</span></td><td>{E(who_of(r))}</td><td>{E(q2[:220])}</td><td>{source_html(r, ctx)}</td></tr>')
+    ch.append('</tbody></table></div>')
+    # math
+    pays = [('2-team', 2, -120), ('3-team', 3, 160), ('4-team', 4, 260)]
+    ps = [0.70, 0.72, 0.74, 0.76]
+    def ev(n, odds, p): return p ** n * dec(odds) - 1
+    rows = ''.join(f'<tr><td><b>{nm}</b> ({am(o)})</td><td>{(1 / dec(o)) ** (1 / n) * 100:.1f}%</td>' +
+                   ''.join(f'<td class="{"ev-pos" if ev(n, o, p) > 0 else "ev-neg"}">{ev(n, o, p) * 100:+.1f}%</td>' for p in ps) + '</tr>' for nm, n, o in pays)
+    def rr(nlegs, size, odds, p):
+        """round robin of all size-team teasers from nlegs legs, $1 each: EV per $ and chance of a profit."""
+        combos = math.comb(nlegs, size); evs = 0; pprofit = 0
+        for k in range(nlegs + 1):
+            pk = math.comb(nlegs, k) * p ** k * (1 - p) ** (nlegs - k)
+            ret = math.comb(k, size) * dec(odds) if k >= size else 0
+            evs += pk * ret
+            if ret > combos: pprofit += pk
+        return evs / combos - 1, pprofit, combos
+    rr_rows = []
+    for nm, nl, sz, o in [('3 legs by 2s', 3, 2, -120), ('4 legs by 2s', 4, 2, -120), ('4 legs by 3s', 4, 3, 160), ('4-team straight', 4, 4, 260), ('3-team straight', 3, 3, 160)]:
+        e, pp, cb = rr(nl, sz, o, 0.74)
+        rr_rows.append(f'<tr><td><b>{nm}</b></td><td>{cb}</td><td class="{"ev-pos" if e > 0 else "ev-neg"}">{e * 100:+.1f}%</td><td>{pp * 100:.0f}%</td></tr>')
+    mh = ['<h3 id="teaser-math">Teaser math: 2, 3 and 4 legs, and round robins</h3>',
+          '<p class="muted-note">Prices are the usual 6-point payouts (2-team −120, 3-team +160, 4-team +260); confirm BKR\'s on the slip. '
+          '"Break-even per leg" is how often each leg must cover for the ticket to break even. Historically, Wong legs have covered '
+          'roughly 72–75% of the time, but that is a long-run average, not a promise for this week\'s legs.</p>',
+          '<div class="table-responsive"><table class="no-bm"><thead><tr><th>Ticket</th><th>Break-even per leg</th>' +
+          ''.join(f'<th>EV if legs cover {p * 100:.0f}%</th>' for p in ps) + f'</tr></thead><tbody>{rows}</tbody></table></div>',
+          '<p><b>What the table says:</b> the edge per leg compounds. If the legs really cover 74% or better, bigger teasers return more per dollar; '
+          'at 72% the 2-team loses and the 3- and 4-team are near break-even; at 70% all of them lose, the 4-team most. A round robin does not '
+          'change the expected return per dollar of a single ticket of the same size; it trades some upside for a better chance of getting something back.</p>',
+          '<div class="table-responsive"><table class="no-bm"><thead><tr><th>Structure ($1 per ticket, legs at 74%)</th><th>Tickets</th><th>EV per $</th><th>Chance of a profit</th></tr></thead>'
+          f'<tbody>{"".join(rr_rows)}</tbody></table></div>',
+          '<div class="teaser-calc no-bm" id="teaser-calc"><h4>Try your own numbers</h4>'
+          '<label>Leg cover rate % <input type="number" id="tc-p" value="74" min="50" max="95" step="0.5"></label> '
+          '<label>2-team <input type="number" id="tc-2" value="-120"></label> <label>3-team <input type="number" id="tc-3" value="160"></label> '
+          '<label>4-team <input type="number" id="tc-4" value="260"></label><div id="tc-out" class="table-responsive"></div></div>']
+    return cells, ''.join(ch), ''.join(mh)
+
+
+# ---------------------------------------------------------------- bookmarks
+BOOKMARKS_PAGE = (
+    '<div class="bm-page"><h2 class="page-h" id="bookmarks">☆ Bookmarks</h2>'
+    '<p class="dashboard-intro">Picks, legs, sides and totals you starred anywhere in this report. They are saved in this browser only '
+    '(not on other devices, and cleared if you clear site data). Tap a bookmark to jump back to it.</p>'
+    '<div class="rollup-controls"><button class="btn-toggle" id="bm-copy">Copy list as text</button>'
+    '<button class="btn-toggle" id="bm-clear">Remove all</button></div><div id="bm-list"><p class="muted-note">No bookmarks yet. Tap ☆ next to any pick, leg or table row.</p></div></div>')
+
+BOOKMARKS_CSS = r"""
+/* ---- bookmarks + extras (site_extras.py) ---- */
+.bm-btn{appearance:none;border:1px solid var(--border);background:transparent;color:var(--muted);border-radius:999px;width:26px;height:26px;min-width:26px;margin:0 6px 0 0;padding:0;cursor:pointer;font-size:14px;line-height:24px;vertical-align:middle}
+.bm-btn::before{content:'☆'}.bm-btn.on{color:#facc15;border-color:#facc15}.bm-btn.on::before{content:'★'}
+.bm-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bm-flash{animation:bmflash 2.4s ease-out 1}@keyframes bmflash{0%{background:rgba(250,204,21,.35)}100%{background:transparent}}
+.bm-count{display:inline-block;min-width:18px;margin-left:5px;padding:0 5px;border-radius:999px;background:#facc15;color:#0f172a;font-size:11px;line-height:18px;text-align:center}.bm-count:empty{display:none}
+.bm-group{margin:16px 0}.bm-group h3{margin:0 0 8px;font-size:15px}.bm-row{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--border);border-radius:9px;background:var(--card);margin:6px 0}
+.bm-row a{color:var(--text);text-decoration:none;flex:1;min-width:0;overflow-wrap:anywhere}.bm-row a:hover{color:var(--primary)}.bm-row .bm-ctx{display:block;color:var(--muted);font-size:12px}
+.site-ref-nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 14px;padding:0 0 10px;font-size:12.5px}
+.site-ref-nav .ref-label{color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:10.5px}
+.site-ref-nav a{color:var(--body);text-decoration:none;font-weight:650}.site-ref-nav a:hover{color:var(--primary)}.site-ref-nav a.current{color:var(--primary);text-decoration:underline;text-underline-offset:3px}
+.sc-list{display:grid;gap:10px;margin:10px 0 18px}
+.sc-pick{display:flex;gap:14px;padding:14px 16px;border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:12px;background:var(--card)}
+.sc-pick.sc-alt{border-left-color:var(--border)}
+.sc-rank{flex:0 0 auto;min-width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:10px;background:var(--raised,var(--highlight));color:var(--text);font-weight:800;font-size:15px}
+.sc-alt .sc-rank{font-size:11.5px}
+.sc-body{min-width:0;flex:1}.sc-title{margin:0 0 6px;font-size:18px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
+.sc-game{font-size:12.5px;font-weight:600;color:var(--muted)}.sc-game a{color:var(--primary)}
+.sc-chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}.sc-chip{font-size:12px;padding:3px 9px;border:1px solid var(--border);border-radius:999px;color:var(--body)}.sc-chip b{color:var(--muted);font-weight:700;margin-right:3px}
+.sc-why,.sc-support{margin:4px 0;font-size:14px;line-height:1.5}.sc-support{color:var(--muted);font-size:13px}
+.muted-note{color:var(--muted);font-size:13px;line-height:1.5}
+.leg-tag{display:inline-block;margin:3px 4px 0 0;padding:1px 7px;border-radius:999px;border:1px solid var(--border);font-size:11px;color:var(--muted)}
+.leg-tag.tag-card{border-color:var(--accent);color:var(--accent)}.leg-tag.tag-warn{border-color:#f59e0b;color:#f59e0b}
+.px-best{color:#22c55e;font-weight:800}.px-alt{color:var(--muted);font-size:12px}.px-none{color:var(--muted)}.px-best-cell{font-weight:800;white-space:nowrap}
+.leg-src{margin:0;padding-left:16px;font-size:12.5px;line-height:1.45}.leg-src .src{color:var(--muted)}
+.legs-table td{vertical-align:top}
+.exp-chip{display:inline-block;margin:2px 4px 2px 0;padding:2px 8px;border:1px solid var(--border);border-radius:999px;font-size:12px;white-space:nowrap}.exp-chip i{color:var(--muted);font-style:normal;font-size:11px}
+.ev-pos{color:#22c55e;font-weight:700}.ev-neg{color:#f87171}
+.teaser-calc{margin:14px 0;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:var(--card)}.teaser-calc h4{margin:0 0 8px}
+.teaser-calc label{display:inline-flex;align-items:center;gap:6px;margin:4px 12px 4px 0;font-size:13px;color:var(--muted)}
+.teaser-calc input{width:74px;padding:5px 7px;border:1px solid var(--border);border-radius:7px;background:var(--bg);color:var(--text)}
+.splits-top{margin:0 0 16px;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:var(--card)}.splits-top h3{margin:0 0 6px;font-size:15px}
+.mi-pointer{margin:16px 0;padding:10px 14px;border-left:3px solid var(--accent);border-radius:7px;background:var(--card);font-size:13.5px}
+@media (max-width:640px){.sc-pick{padding:12px;gap:10px}.sc-rank{min-width:34px;height:34px}.sc-title{font-size:16px}}
+"""
+
+BOOKMARKS_JS = r"""
+/* ---- bookmarks, teaser calculator (site_extras.py) ---- */
+(function(){
+  var wk = document.body.getAttribute('data-week') || '';
+  var KEY = 'pr-bookmarks-w' + wk;
+  function load(){ try { var a = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(a) ? a : []; } catch(e){ return []; } }
+  function save(a){ try { localStorage.setItem(KEY, JSON.stringify(a)); } catch(e){} }
+  function hash(s){ var x = 5381; for (var i = 0; i < s.length; i++){ x = ((x << 5) + x + s.charCodeAt(i)) | 0; } return (x >>> 0).toString(36); }
+  var page = (location.pathname.split('/').pop() || 'index.html');
+  if (page.indexOf('.html') < 0) page = 'index.html';
+  function clean(t){ return (t || '').replace(/\s+/g, ' ').trim(); }
+  function ctxOf(el){
+    var d = el.closest('details'); var s = d && d.querySelector('summary');
+    if (s) return clean(s.textContent).slice(0, 90);
+    var h = document.querySelector('.container h2'); return h ? clean(h.textContent).slice(0, 90) : document.title;
+  }
+  function count(){ var n = load().length; document.querySelectorAll('.bm-count').forEach(function(c){ c.textContent = n ? String(n) : ''; }); }
+  function setup(){
+    var marks = {}; load().forEach(function(b){ marks[b.id] = 1; });
+    var els = document.querySelectorAll('.container table tbody tr, .container .bm-item');
+    els.forEach(function(el){
+      if (el.closest('.no-bm') || el.closest('#bm-list')) return;
+      var text = clean(el.textContent);
+      if (!text || text.length < 3) return;
+      var host = el.matches('tr') ? el.querySelector('td') : (el.querySelector('.sc-title') || el);
+      if (!host) return;
+      if (!el.id) el.id = 'bm-' + hash(page + '|' + text.slice(0, 200));
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'bm-btn' + (marks[el.id] ? ' on' : '');
+      b.setAttribute('aria-label', 'Bookmark for review'); b.setAttribute('aria-pressed', marks[el.id] ? 'true' : 'false');
+      b.title = 'Bookmark for review';
+      b.addEventListener('click', function(ev){
+        ev.preventDefault(); ev.stopPropagation();
+        var a = load(), i = -1;
+        for (var k = 0; k < a.length; k++){ if (a[k].id === el.id && a[k].page === page){ i = k; break; } }
+        if (i >= 0){ a.splice(i, 1); b.classList.remove('on'); b.setAttribute('aria-pressed', 'false'); }
+        else { a.push({id: el.id, page: page, text: text.slice(0, 220), ctx: ctxOf(el), title: document.title.replace(/ · Week.*$/, ''), t: Date.now()});
+               b.classList.add('on'); b.setAttribute('aria-pressed', 'true'); }
+        save(a); count();
+      });
+      host.insertBefore(b, host.firstChild);
+    });
+    count();
+    if (location.hash.length > 1){
+      var t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (t){ var p = t.parentElement; while (p){ if (p.tagName === 'DETAILS') p.open = true; p = p.parentElement; }
+              t.scrollIntoView({block: 'center'}); t.classList.add('bm-flash'); }
+    }
+    var list = document.getElementById('bm-list');
+    if (list) render(list);
+  }
+  function render(list){
+    var a = load();
+    if (!a.length){ list.innerHTML = '<p class="muted-note">No bookmarks yet. Tap ☆ next to any pick, leg or table row.</p>'; return; }
+    var groups = {}, orderG = [];
+    a.forEach(function(b){ if (!groups[b.page]){ groups[b.page] = []; orderG.push(b.page); } groups[b.page].push(b); });
+    list.innerHTML = '';
+    orderG.forEach(function(pg){
+      var g = document.createElement('div'); g.className = 'bm-group';
+      var h = document.createElement('h3'); h.textContent = groups[pg][0].title || pg; g.appendChild(h);
+      groups[pg].forEach(function(b){
+        var r = document.createElement('div'); r.className = 'bm-row';
+        var l = document.createElement('a'); l.href = b.page + '#' + b.id; l.textContent = b.text;
+        var c = document.createElement('span'); c.className = 'bm-ctx'; c.textContent = b.ctx || ''; l.appendChild(c);
+        var x = document.createElement('button'); x.type = 'button'; x.className = 'btn-toggle'; x.textContent = 'Remove';
+        x.addEventListener('click', function(){ save(load().filter(function(z){ return !(z.id === b.id && z.page === b.page); })); count(); render(list); });
+        r.appendChild(l); r.appendChild(x); g.appendChild(r);
+      });
+      list.appendChild(g);
+    });
+  }
+  function wire(){
+    var c = document.getElementById('bm-clear'), cp = document.getElementById('bm-copy'), list = document.getElementById('bm-list');
+    if (c) c.addEventListener('click', function(){ save([]); count(); if (list) render(list); });
+    if (cp) cp.addEventListener('click', function(){
+      var txt = load().map(function(b){ return '- ' + b.text + ' (' + (b.title || b.page) + ')'; }).join('\n');
+      try { navigator.clipboard.writeText(txt); cp.textContent = 'Copied'; } catch(e){ cp.textContent = 'Copy failed'; }
+      setTimeout(function(){ cp.textContent = 'Copy list as text'; }, 1600);
+    });
+  }
+  function calc(){
+    var box = document.getElementById('teaser-calc'); if (!box) return;
+    function dec(o){ o = +o; return o > 0 ? 1 + o / 100 : 1 + 100 / -o; }
+    function comb(n, k){ if (k < 0 || k > n) return 0; var r = 1; for (var i = 1; i <= k; i++) r = r * (n - k + i) / i; return r; }
+    function run(){
+      var p = (+document.getElementById('tc-p').value || 74) / 100;
+      var o2 = document.getElementById('tc-2').value, o3 = document.getElementById('tc-3').value, o4 = document.getElementById('tc-4').value;
+      var rows = [['2-team', 2, 2, o2], ['3-team', 3, 3, o3], ['4-team', 4, 4, o4], ['3 legs by 2s', 3, 2, o2], ['4 legs by 2s', 4, 2, o2], ['4 legs by 3s', 4, 3, o3]];
+      var h = '<table class="no-bm"><thead><tr><th>Ticket</th><th>Break-even per leg</th><th>EV per $</th><th>Chance of a profit</th></tr></thead><tbody>';
+      rows.forEach(function(r){
+        var n = r[1], s = r[2], d = dec(r[3]), cb = comb(n, s), ev = 0, pp = 0;
+        for (var k = 0; k <= n; k++){ var pk = comb(n, k) * Math.pow(p, k) * Math.pow(1 - p, n - k); var ret = k >= s ? comb(k, s) * d : 0; ev += pk * ret; if (ret > cb) pp += pk; }
+        ev = ev / cb - 1;
+        var be = Math.pow(1 / d, 1 / s) * 100;
+        h += '<tr><td><b>' + r[0] + '</b></td><td>' + be.toFixed(1) + '%</td><td class="' + (ev > 0 ? 'ev-pos' : 'ev-neg') + '">' + (ev >= 0 ? '+' : '') + (ev * 100).toFixed(1) + '%</td><td>' + (pp * 100).toFixed(0) + '%</td></tr>';
+      });
+      document.getElementById('tc-out').innerHTML = h + '</tbody></table>';
+    }
+    box.querySelectorAll('input').forEach(function(i){ i.addEventListener('input', run); });
+    run();
+  }
+  function go(){ setup(); wire(); calc(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
+})();
+"""
