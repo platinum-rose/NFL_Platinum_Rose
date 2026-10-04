@@ -120,6 +120,7 @@ SITE_CSS = r"""
 .dashboard-card .dc-go{margin-top:16px;font-size:12px;font-weight:800;color:var(--primary)}
 .dashboard-section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:24px 0 0}.dashboard-section-title h2{margin:0}.dashboard-section-title span{color:var(--muted);font-size:12px}
 .game-room-kicker{display:inline-flex;align-items:center;gap:7px;margin:0 0 10px;color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.game-room-kicker::before{content:'◈';font-size:14px}
+.rec-asof{margin:-4px 0 14px;color:var(--muted);font-size:12.5px}
 .market-intel-notice{margin:14px 0 18px;padding:12px 14px;border-left:3px solid var(--accent);border-radius:7px;background:var(--highlight);color:var(--muted);font-size:13px;line-height:1.5}.market-matchup{margin:10px 0}.market-matchup h3{margin:4px 0 10px;font-size:15px}
 @media (min-width:1300px){.container{margin-left:auto !important;margin-right:auto !important;max-width:1180px}}
 @media (max-width:640px){body{padding:0 16px 24px !important}.site-header{margin-left:-16px;margin-right:-16px}.site-header-inner{padding-left:16px;padding-right:16px}.site-brand-row{padding-top:5px}.site-status{max-width:45%;overflow:hidden;text-overflow:ellipsis}.container{padding:20px 16px !important;border-radius:10px}h1{font-size:22px}.page-nav{grid-template-columns:1fr}.page-nav .pn-next{grid-column:1}.nav-more-menu{position:fixed;right:16px;left:16px;top:74px;min-width:0}}
@@ -255,13 +256,26 @@ def main(src):
                     el.string = 'Matchups: Odds, Money, Projections & the Case'
                     break
         if fn == 'index.html':
-            # The dashboard cards replace the single-page report's in-body TOC.
-            # Keep the report identity and slate status, but avoid presenting two
-            # competing navigation systems on the client home page.
-            home_header = [copy.copy(h) for h in header
-                           if 'toc-title' not in (h.get('class') or [])
-                           and 'toc-grid' not in (h.get('class') or [])]
-            frag = home_header + [dashboard_fragment()] + frag
+            # 2026-10-04 (Andy): the dashboard opens on the recommendations. The report's title block, the
+            # "nothing has been bet" note, the expand/collapse bar and the "Choose your Week" cards are gone
+            # (the tabs at the top replace the cards). Slate Status moves to the bottom, collapsed.
+            m_ = re.search(r'Prices from (.+?) —', built)
+            asof = soup_of('<p class="rec-asof">Prices: ' + html.escape(m_.group(1) if m_ else built_short)
+                           + '</p>').p
+            out_ = []
+            for el in frag:
+                out_.append(el)
+                if el.name == 'h2':
+                    out_.append(asof)
+            for el in out_:
+                for d in (el.find_all('details', id=re.compile(r'^rec-'), recursive=False) if el.get('id') == 'section-rec-box' else []):
+                    if d['id'] != 'rec-passes':
+                        d['open'] = ''
+            slate = [copy.copy(h) for h in header if h.get('id') == 'slate-status-box']
+            for d in slate:
+                if d.has_attr('open'):
+                    del d['open']
+            frag = out_ + slate
         pages[fn] = dict(title=short, part=part, frag=frag, box=box)
 
     # ---- games: one page per game, hub keeps the overview ----
