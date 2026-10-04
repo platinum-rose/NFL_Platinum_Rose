@@ -2595,17 +2595,17 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       gap: 6px;
       line-height: 1.35;
     }
-    /* Paper / imaginary tickets: teal, dashed, in their own collapsible section */
+    /* Paper / imaginary tickets: purple, dashed, in their own collapsible section */
     .badge-paper {
-      background: rgba(20, 184, 166, 0.18) !important;
-      color: #5EEAD4 !important;
-      border: 1px solid rgba(20, 184, 166, 0.6) !important;
+      background: rgba(168, 85, 247, 0.18) !important;
+      color: #D8B4FE !important;
+      border: 1px solid rgba(168, 85, 247, 0.6) !important;
     }
     .bet-card.paper-ticket {
-      border: 1px dashed #14B8A6;
-      background: linear-gradient(135deg, rgba(19, 78, 74, 0.35) 0%, rgba(15, 23, 42, 0.95) 100%);
+      border: 1px dashed #A855F7;
+      background: linear-gradient(135deg, rgba(59, 7, 100, 0.35) 0%, rgba(15, 23, 42, 0.95) 100%);
     }
-    .bet-card.paper-ticket:hover { border-color: #2DD4BF; }
+    .bet-card.paper-ticket:hover { border-color: #C084FC; }
     .bet-card.paper-ticket.cashed { border: 1px dashed var(--accent-green); }
     .bet-card.paper-ticket.burnt { border-style: dashed !important; opacity: 0.85; }
     .paper-divider-line {
@@ -2619,7 +2619,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     .paper-divider-line .divider-stripe {
       flex: 1;
       height: 2px;
-      background: linear-gradient(90deg, rgba(20, 184, 166, 0.05), rgba(20, 184, 166, 0.8), rgba(20, 184, 166, 0.05));
+      background: linear-gradient(90deg, rgba(168, 85, 247, 0.05), rgba(168, 85, 247, 0.8), rgba(168, 85, 247, 0.05));
       border-radius: 2px;
     }
     .paper-divider-line .divider-label {
@@ -2628,16 +2628,16 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       gap: 6px;
       font-size: 0.74rem;
       font-weight: 800;
-      color: #5EEAD4;
-      background: rgba(19, 78, 74, 0.45);
-      border: 1px solid rgba(20, 184, 166, 0.7);
+      color: #D8B4FE;
+      background: rgba(59, 7, 100, 0.45);
+      border: 1px solid rgba(168, 85, 247, 0.7);
       padding: 4px 14px;
       border-radius: 20px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
-      box-shadow: 0 0 14px rgba(20, 184, 166, 0.25);
+      box-shadow: 0 0 14px rgba(168, 85, 247, 0.25);
     }
-    .paper-divider-line:hover .divider-label { border-color: #2DD4BF; }
+    .paper-divider-line:hover .divider-label { border-color: #C084FC; }
     .paper-chevron { display: inline-block; transition: transform 0.15s; }
     #paper-section-wrap.paper-collapsed .paper-chevron { transform: rotate(-90deg); }
     #paper-section-wrap.paper-collapsed #paper-cards-grid { display: none; }
@@ -3650,7 +3650,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             <input type="checkbox" id="chk-hide-burnt" onchange="toggleHideBurnt(this.checked)">
             <span>🔥 Hide Burnt (<span id="chk-burnt-count">${burntWagers.length}</span>)</span>
           </label>
-          <label class="filter-toggle-label" style="color:#5EEAD4; border-color:rgba(20,184,166,0.45);">
+          <label class="filter-toggle-label" style="color:#D8B4FE; border-color:rgba(168,85,247,0.45);">
             <input type="checkbox" id="chk-hide-paper" onchange="toggleHidePaper(this.checked)">
             <span>📝 Hide Imaginary (<span id="chk-paper-count">${paperWagers.length}</span>)</span>
           </label>
@@ -3704,6 +3704,23 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           </div>
         </div>
 
+        <!-- PAPER / IMAGINARY TICKETS SECTION (AI benchmark; not placed, excluded from totals) -->
+        <div id="paper-section-wrap" style="display:${paperWagers.length > 0 ? 'block' : 'none'};">
+          <div class="paper-divider-line" id="paper-divider-line" onclick="togglePaperSection()" title="Click to collapse / expand">
+            <div class="divider-stripe"></div>
+            <div class="divider-label">
+              <span class="paper-chevron">▾</span>
+              <span>📝</span>
+              <strong>IMAGINARY / PAPER SLIPS (<span id="paper-section-count">${paperWagers.length}</span>)</strong>
+              <span style="font-size:0.65rem; opacity:0.85; margin-left:4px;">• NOT PLACED · EXCLUDED FROM TOTALS</span>
+            </div>
+            <div class="divider-stripe"></div>
+          </div>
+          <div class="cards-grid" id="paper-cards-grid">
+            ${paperWagers.map(bet => renderCard(bet, bet.status === 'SETTLED' ? ((bet.result === 'win' || bet.result === 'WON') ? 'cashed' : ((bet.result === 'loss' || bet.result === 'LOST') ? 'burnt' : 'live')) : 'live')).join('\n')}
+          </div>
+        </div>
+
         <!-- BURNT / DROPPED TICKETS SECTION -->
         <div id="burnt-section-wrap" style="display:${burntWagers.length > 0 ? 'block' : 'none'};">
           <div class="burnt-divider-line" id="burnt-divider-line">
@@ -3721,22 +3738,6 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           </div>
         </div>
 
-        <!-- PAPER / IMAGINARY TICKETS SECTION (AI benchmark; not placed, excluded from totals) -->
-        <div id="paper-section-wrap" style="display:${paperWagers.length > 0 ? 'block' : 'none'};">
-          <div class="paper-divider-line" id="paper-divider-line" onclick="togglePaperSection()" title="Click to collapse / expand">
-            <div class="divider-stripe"></div>
-            <div class="divider-label">
-              <span class="paper-chevron">▾</span>
-              <span>📝</span>
-              <strong>IMAGINARY / PAPER SLIPS (<span id="paper-section-count">${paperWagers.length}</span>)</strong>
-              <span style="font-size:0.65rem; opacity:0.85; margin-left:4px;">• NOT PLACED · EXCLUDED FROM TOTALS</span>
-            </div>
-            <div class="divider-stripe"></div>
-          </div>
-          <div class="cards-grid" id="paper-cards-grid">
-            ${paperWagers.map(bet => renderCard(bet, bet.status === 'SETTLED' ? ((bet.result === 'win' || bet.result === 'WON') ? 'cashed' : ((bet.result === 'loss' || bet.result === 'LOST') ? 'burnt' : 'live')) : 'live')).join('\n')}
-          </div>
-        </div>
       </div>
 
       <!-- TAB 2: PLAYER CHEAT SHEET (MODULAR, COMPACT WHEN COLLAPSED, HIDE FULFILLED) -->
