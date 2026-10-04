@@ -776,6 +776,11 @@ def main(src):
         if fn == 'index.html':
             (out / '_artifact_index.html').write_text(head + body + '\n', encoding='utf-8')
     print(f'site: wrote {len(pages)} pages ({len(games)} game pages) to {out}')
+    try:
+        import build_single   # one self-contained .html for email attachments
+        build_single.main(out)
+    except Exception as e:
+        print(f'single-file: skipped ({e})')
     return out
 
 

@@ -735,6 +735,10 @@ BOOKMARKS_JS = r"""
   var page = (location.pathname.split('/').pop() || 'index.html');
   if (page.indexOf('.html') < 0) page = 'index.html';
   function clean(t){ return (t || '').replace(/\s+/g, ' ').trim(); }
+  // single-file edition: every page is a <section data-page> in one document
+  var SINGLE = !!document.querySelector('[data-page]');
+  function pageOf(el){ var s = el.closest && el.closest('[data-page]'); return s ? s.getAttribute('data-page') : page; }
+  function hrefOf(b){ return SINGLE ? '#/' + b.page.replace(/\.html$/, '') + '/' + b.id : b.page + '#' + b.id; }
   function ctxOf(el){
     var d = el.closest('details'); var s = d && d.querySelector('summary');
     if (s) return clean(s.textContent).slice(0, 90);
@@ -750,7 +754,8 @@ BOOKMARKS_JS = r"""
       if (!text || text.length < 3) return;
       var host = el.matches('tr') ? el.querySelector('td') : (el.querySelector('.bm-host') || el.querySelector('.sc-title') || el);
       if (!host) return;
-      if (!el.id) el.id = 'bm-' + hash(page + '|' + text.slice(0, 200));
+      var pg = pageOf(el);
+      if (!el.id) el.id = 'bm-' + hash(pg + '|' + text.slice(0, 200));
       var b = document.createElement('button');
       b.type = 'button'; b.className = 'bm-btn' + (marks[el.id] ? ' on' : '');
       b.setAttribute('aria-label', 'Bookmark for review'); b.setAttribute('aria-pressed', marks[el.id] ? 'true' : 'false');
@@ -758,11 +763,12 @@ BOOKMARKS_JS = r"""
       b.addEventListener('click', function(ev){
         ev.preventDefault(); ev.stopPropagation();
         var a = load(), i = -1;
-        for (var k = 0; k < a.length; k++){ if (a[k].id === el.id && a[k].page === page){ i = k; break; } }
+        for (var k = 0; k < a.length; k++){ if (a[k].id === el.id && a[k].page === pg){ i = k; break; } }
         if (i >= 0){ a.splice(i, 1); b.classList.remove('on'); b.setAttribute('aria-pressed', 'false'); }
-        else { a.push({id: el.id, page: page, text: text.slice(0, 220), ctx: ctxOf(el), title: document.title.replace(/ · Week.*$/, ''), t: Date.now()});
+        else { var sec = SINGLE && el.closest('[data-page]'); a.push({id: el.id, page: pg, text: text.slice(0, 220), ctx: ctxOf(el), title: sec ? (sec.getAttribute('data-title') || pg) : document.title.replace(/ · Week.*$/, ''), t: Date.now()});
                b.classList.add('on'); b.setAttribute('aria-pressed', 'true'); }
         save(a); count();
+        var lst = document.getElementById('bm-list'); if (lst) render(lst);
       });
       host.insertBefore(b, host.firstChild);
     });
@@ -786,7 +792,7 @@ BOOKMARKS_JS = r"""
       var h = document.createElement('h3'); h.textContent = groups[pg][0].title || pg; g.appendChild(h);
       groups[pg].forEach(function(b){
         var r = document.createElement('div'); r.className = 'bm-row';
-        var l = document.createElement('a'); l.href = b.page + '#' + b.id; l.textContent = b.text;
+        var l = document.createElement('a'); l.href = hrefOf(b); l.textContent = b.text;
         var c = document.createElement('span'); c.className = 'bm-ctx'; c.textContent = b.ctx || ''; l.appendChild(c);
         var x = document.createElement('button'); x.type = 'button'; x.className = 'btn-toggle'; x.textContent = 'Remove';
         x.addEventListener('click', function(){ save(load().filter(function(z){ return !(z.id === b.id && z.page === b.page); })); count(); render(list); });
