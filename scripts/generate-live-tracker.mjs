@@ -3700,6 +3700,9 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           <button class="filter-btn" id="btn-clear-settled" onclick="toggleClearSettled()" style="color:#FCA5A5; border-color:rgba(239,68,68,0.4);" title="Clear settled / concluded slips from the active board (preserved in History)">
             🧹 Clear Settled
           </button>
+          <button class="filter-btn" id="btn-export-marks" onclick="openExportMarks()" style="color:#D8B4FE; border-color:rgba(168,85,247,0.45);" title="Copy this board's marks (burnt / pushed / out / cashed legs, splits, picks) so the phone copy can match it">
+            📲 Export marks
+          </button>
           <button class="filter-btn" id="btn-add-slip" onclick="openAddSlipModal()" style="color:#A7F3D0; border-color:rgba(16,185,129,0.4); font-weight:700;" title="Add new wagers built for Sunday and beyond">
             ➕ Add Sunday Slip
           </button>
@@ -5207,6 +5210,45 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       filterCards();
     }
     window.toggleHidePaper = toggleHidePaper;
+
+    // ── 📲 Export marks: every tracker key in this browser's storage, as JSON, for
+    //    scripts/build-phone-tracker.mjs --seed <file> (phone copy can't see desktop storage). ──
+    function collectTrackerMarks() {
+      const keys = {};
+      try {
+        for (let i = 0; i < localStorage.length; i++) {
+          const k = localStorage.key(i);
+          if (/^(sunday_|nfl_live_tracker|sc_custom_user_override)/.test(k)) keys[k] = localStorage.getItem(k);
+        }
+      } catch (e) {}
+      return { schema: 'tracker-marks/v1', week: ${week}, exported_at: new Date().toISOString(), keys };
+    }
+    function openExportMarks() {
+      const json = JSON.stringify(collectTrackerMarks());
+      let modal = document.getElementById('export-marks-modal');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'export-marks-modal';
+        modal.style.cssText = 'position:fixed;inset:0;background:rgba(2,6,23,0.75);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;';
+        modal.innerHTML = '<div style="background:#0F172A;border:1px solid #A855F7;border-radius:10px;padding:14px;width:min(640px,100%);display:flex;flex-direction:column;gap:8px;">'
+          + '<strong style="color:#D8B4FE;font-size:0.85rem;">📲 Export marks</strong>'
+          + '<span style="color:#94A3B8;font-size:0.72rem;">Copy this and paste it to Claude. It carries every leg you marked burnt, pushed, out or cashed, plus splits and picks, onto the phone copy.</span>'
+          + '<textarea id="export-marks-text" readonly style="width:100%;height:220px;background:#020617;color:#E2E8F0;border:1px solid #334155;border-radius:6px;font:11px ui-monospace,monospace;"></textarea>'
+          + '<div style="display:flex;gap:8px;justify-content:flex-end;">'
+          + '<button class="filter-btn" id="export-marks-copy">Copy</button>'
+          + '<button class="filter-btn" id="export-marks-close">Close</button></div></div>';
+        document.body.appendChild(modal);
+        modal.querySelector('#export-marks-close').onclick = () => { modal.style.display = 'none'; };
+        modal.querySelector('#export-marks-copy').onclick = async () => {
+          const ta = modal.querySelector('#export-marks-text');
+          try { await navigator.clipboard.writeText(ta.value); showToast('📲 Marks copied. Paste them to Claude.'); }
+          catch (e) { ta.focus(); ta.select(); showToast('Select-all is on: press Ctrl+C to copy.'); }
+        };
+      }
+      modal.querySelector('#export-marks-text').value = json;
+      modal.style.display = 'flex';
+    }
+    window.openExportMarks = openExportMarks;
 
     function togglePaperSection() {
       paperCollapsed = !paperCollapsed;
