@@ -1052,9 +1052,13 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     return [...list.filter(isPropParlay), ...list.filter(b => !isPropParlay(b))];
   }
 
-  const burntWagers = propParlaysFirst(wagers.filter(w => w.status === 'SETTLED' && (w.result === 'loss' || w.result === 'LOST')));
-  const cashedWagers = propParlaysFirst(wagers.filter(w => w.status === 'SETTLED' && (w.result === 'win' || w.result === 'WON')));
-  const liveWagers = propParlaysFirst(wagers.filter(w => w.status !== 'SETTLED'));
+  // Paper (imaginary-money) tickets live in their own collapsible section and never
+  // count toward the live / cashed / burnt sections.
+  const realWagers = wagers.filter(w => !w.is_paper);
+  const paperWagers = propParlaysFirst(wagers.filter(w => w.is_paper));
+  const burntWagers = propParlaysFirst(realWagers.filter(w => w.status === 'SETTLED' && (w.result === 'loss' || w.result === 'LOST')));
+  const cashedWagers = propParlaysFirst(realWagers.filter(w => w.status === 'SETTLED' && (w.result === 'win' || w.result === 'WON')));
+  const liveWagers = propParlaysFirst(realWagers.filter(w => w.status !== 'SETTLED'));
   const settledWagers = burntWagers;
 
   const FUTURES_MARKET_LABELS = {
@@ -1561,7 +1565,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     const isBurntInitial = initialStatus === 'burnt' || (bet.status === 'SETTLED' && (bet.result === 'loss' || bet.result === 'LOST'));
     const isCashedInitial = initialStatus === 'cashed' || (bet.status === 'SETTLED' && (bet.result === 'win' || bet.result === 'WON'));
 
-    let cardClass = 'bet-card';
+    let cardClass = bet.is_paper ? 'bet-card paper-ticket' : 'bet-card';
     let progClass = 'progress-fill';
     let progStyle = '';
     if (isBurntInitial) {
@@ -1584,7 +1588,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                 <div class="card-subtitle">${bet.book || 'Sportsbook'} • ${bet.ticket_type}</div>
                 <div class="badges-row">
                   ${bet.is_paper
-                    ? `<span class="badge badge-promo" title="Not placed. Imaginary money, excluded from all totals." style="background:rgba(168,85,247,0.18);color:#D8B4FE;border-color:rgba(168,85,247,0.5);">📝 PAPER · IMAGINARY $${(bet.stake_usd ?? 0).toFixed(0)} · NOT PLACED</span>`
+                    ? `<span class="badge badge-paper" title="Not placed. Imaginary money, excluded from all totals.">📝 PAPER · IMAGINARY $${(bet.stake_usd ?? 0).toFixed(0)} · NOT PLACED</span>`
                     : `<span class="badge ${isPromo ? 'badge-promo' : 'badge-cash'}">${isPromo ? '$0 CASH (PROMO)' : 'CASH'}</span>`}
                   ${bet.ticket_type?.includes('Open') ? '<span class="badge badge-open">OPEN PARLAY</span>' : ''}
                   <span class="badge badge-cash" id="badge-split-${bet.id}" style="display:none;">🤝 50/50 SPLIT</span>
@@ -2591,6 +2595,52 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       gap: 6px;
       line-height: 1.35;
     }
+    /* Paper / imaginary tickets: teal, dashed, in their own collapsible section */
+    .badge-paper {
+      background: rgba(20, 184, 166, 0.18) !important;
+      color: #5EEAD4 !important;
+      border: 1px solid rgba(20, 184, 166, 0.6) !important;
+    }
+    .bet-card.paper-ticket {
+      border: 1px dashed #14B8A6;
+      background: linear-gradient(135deg, rgba(19, 78, 74, 0.35) 0%, rgba(15, 23, 42, 0.95) 100%);
+    }
+    .bet-card.paper-ticket:hover { border-color: #2DD4BF; }
+    .bet-card.paper-ticket.cashed { border: 1px dashed var(--accent-green); }
+    .bet-card.paper-ticket.burnt { border-style: dashed !important; opacity: 0.85; }
+    .paper-divider-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0 12px 0;
+      cursor: pointer;
+      user-select: none;
+    }
+    .paper-divider-line .divider-stripe {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(20, 184, 166, 0.05), rgba(20, 184, 166, 0.8), rgba(20, 184, 166, 0.05));
+      border-radius: 2px;
+    }
+    .paper-divider-line .divider-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: #5EEAD4;
+      background: rgba(19, 78, 74, 0.45);
+      border: 1px solid rgba(20, 184, 166, 0.7);
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      box-shadow: 0 0 14px rgba(20, 184, 166, 0.25);
+    }
+    .paper-divider-line:hover .divider-label { border-color: #2DD4BF; }
+    .paper-chevron { display: inline-block; transition: transform 0.15s; }
+    #paper-section-wrap.paper-collapsed .paper-chevron { transform: rotate(-90deg); }
+    #paper-section-wrap.paper-collapsed #paper-cards-grid { display: none; }
     .burnt-divider-line {
       display: flex;
       align-items: center;
@@ -3600,6 +3650,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             <input type="checkbox" id="chk-hide-burnt" onchange="toggleHideBurnt(this.checked)">
             <span>🔥 Hide Burnt (<span id="chk-burnt-count">${burntWagers.length}</span>)</span>
           </label>
+          <label class="filter-toggle-label" style="color:#5EEAD4; border-color:rgba(20,184,166,0.45);">
+            <input type="checkbox" id="chk-hide-paper" onchange="toggleHidePaper(this.checked)">
+            <span>📝 Hide Imaginary (<span id="chk-paper-count">${paperWagers.length}</span>)</span>
+          </label>
           <label class="filter-toggle-label" style="color:#93C5FD; border-color:rgba(59,130,246,0.4);">
             <input type="checkbox" id="chk-hide-fulfilled-legs" onchange="toggleHideFulfilledLegs(this.checked)">
             <span>⚡ Minimize Hit &amp; Burnt Legs</span>
@@ -3664,6 +3718,23 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           </div>
           <div class="cards-grid" id="burnt-cards-grid">
             ${burntWagers.map(bet => renderCard(bet, 'burnt')).join('\n')}
+          </div>
+        </div>
+
+        <!-- PAPER / IMAGINARY TICKETS SECTION (AI benchmark; not placed, excluded from totals) -->
+        <div id="paper-section-wrap" style="display:${paperWagers.length > 0 ? 'block' : 'none'};">
+          <div class="paper-divider-line" id="paper-divider-line" onclick="togglePaperSection()" title="Click to collapse / expand">
+            <div class="divider-stripe"></div>
+            <div class="divider-label">
+              <span class="paper-chevron">▾</span>
+              <span>📝</span>
+              <strong>IMAGINARY / PAPER SLIPS (<span id="paper-section-count">${paperWagers.length}</span>)</strong>
+              <span style="font-size:0.65rem; opacity:0.85; margin-left:4px;">• NOT PLACED · EXCLUDED FROM TOTALS</span>
+            </div>
+            <div class="divider-stripe"></div>
+          </div>
+          <div class="cards-grid" id="paper-cards-grid">
+            ${paperWagers.map(bet => renderCard(bet, bet.status === 'SETTLED' ? ((bet.result === 'win' || bet.result === 'WON') ? 'cashed' : ((bet.result === 'loss' || bet.result === 'LOST') ? 'burnt' : 'live')) : 'live')).join('\n')}
           </div>
         </div>
       </div>
@@ -4630,6 +4701,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     const PUSHED_LEGS_KEY = 'sunday_pushed_legs_week_${week}';
     const OUT_LEGS_KEY = 'sunday_out_legs_week_${week}';
     const HIDE_BURNT_KEY = 'sunday_hide_burnt_week_${week}';
+    const HIDE_PAPER_KEY = 'sunday_hide_paper_week_${week}';
+    const PAPER_COLLAPSED_KEY = 'sunday_paper_collapsed_week_${week}';
     const CASHED_KEY = 'sunday_cashed_state_week_${week}';
     const HIDE_CASHED_KEY = 'sunday_hide_cashed_week_${week}';
     const HIDE_FULFILLED_KEY = 'sunday_hide_fulfilled_week_${week}';
@@ -4690,6 +4763,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     let playerCollapsedState = {};
     let hideBurnt = false;
     let hideCashed = false;
+    let hidePaper = false;
+    let paperCollapsed = false;
     let activeFilter = 'all';
     let activePlayerFilter = 'all';
     let activePlayerSort = 'gametime';
@@ -4733,6 +4808,13 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       hideCashed = readJsonKey(HIDE_CASHED_KEY, false);
       const chkCashed = document.getElementById('chk-hide-cashed');
       if (chkCashed) chkCashed.checked = !!hideCashed;
+
+      hidePaper = readJsonKey(HIDE_PAPER_KEY, false);
+      const chkPaper = document.getElementById('chk-hide-paper');
+      if (chkPaper) chkPaper.checked = !!hidePaper;
+      paperCollapsed = readJsonKey(PAPER_COLLAPSED_KEY, false);
+      const paperWrapInit = document.getElementById('paper-section-wrap');
+      if (paperWrapInit) paperWrapInit.classList.toggle('paper-collapsed', !!paperCollapsed);
 
       hideFulfilled = readJsonKey(HIDE_FULFILLED_KEY, false);
       const chkFulfilled = document.getElementById('chk-hide-fulfilled');
@@ -5082,6 +5164,21 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       filterCards();
     }
     window.toggleHideCashed = toggleHideCashed;
+
+    function toggleHidePaper(checked) {
+      hidePaper = checked;
+      try { localStorage.setItem(HIDE_PAPER_KEY, JSON.stringify(hidePaper)); } catch (e) {}
+      filterCards();
+    }
+    window.toggleHidePaper = toggleHidePaper;
+
+    function togglePaperSection() {
+      paperCollapsed = !paperCollapsed;
+      try { localStorage.setItem(PAPER_COLLAPSED_KEY, JSON.stringify(paperCollapsed)); } catch (e) {}
+      const wrap = document.getElementById('paper-section-wrap');
+      if (wrap) wrap.classList.toggle('paper-collapsed', paperCollapsed);
+    }
+    window.togglePaperSection = togglePaperSection;
 
     function showTab(tabName) {
       activeTab = tabName;
@@ -8831,6 +8928,9 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         if (hideCashed && isCashed && activeFilter !== 'cashed') {
           show = false;
         }
+        if (hidePaper && card.classList.contains('paper-ticket')) {
+          show = false;
+        }
 
         card.style.display = show ? '' : 'none';
       });
@@ -8857,14 +8957,20 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       let burntCount = 0;
       let cashedCount = 0;
       let liveCount = 0;
+      let paperCount = 0;
       let visibleLiveCards = 0;
+      const paperGrid = document.getElementById('paper-cards-grid');
 
       const allCards = document.querySelectorAll('.bet-card');
       allCards.forEach(card => {
         const isBurnt = card.classList.contains('burnt');
         const isCashed = card.classList.contains('cashed');
 
-        if (isBurnt) {
+        if (paperGrid && card.classList.contains('paper-ticket')) {
+          // Imaginary tickets always stay in their own section, whatever their state.
+          paperCount++;
+          if (card.parentElement !== paperGrid) paperGrid.appendChild(card);
+        } else if (isBurnt) {
           burntCount++;
           if (card.parentElement !== burntGrid) {
             burntGrid.appendChild(card);
@@ -8908,6 +9014,15 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         } else {
           cashedSection.style.display = 'none';
         }
+      }
+
+      const paperSection = document.getElementById('paper-section-wrap');
+      const paperSectionCount = document.getElementById('paper-section-count');
+      const chkPaperCount = document.getElementById('chk-paper-count');
+      if (paperSectionCount) paperSectionCount.textContent = paperCount;
+      if (chkPaperCount) chkPaperCount.textContent = paperCount;
+      if (paperSection) {
+        paperSection.style.display = (paperCount > 0 && !hidePaper) ? 'block' : 'none';
       }
 
       if (burntSection) {
