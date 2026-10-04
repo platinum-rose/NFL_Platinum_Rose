@@ -1575,7 +1575,7 @@ def main():
         ev_s = f"{x_['ev']:.2f}" if x_.get('ev') is not None else '—'
         L.append(f"| {i+1} | {tl(t)}**{t}** | {opp} ([game](#{gsid(gid)})) | {p_*100:.0f}% | {pk_s} | {ev_s} | {esc(note) or '—'} | {nx} |")
     if spt:
-        L += ['', f"<em>Pick share and value score: [SurvivorGrid]({spi['sources'].get('pick_pct')}) (value score blends win chance with popularity; above 1.00 is a better-than-average pick this week). Save-for-later notes: [Covers]({spi['sources'].get('note')}). Captured {spi.get('captured_at', '')[:16].replace('T', ' ')}.</em>"]
+        L += ['', f"<em>Pick share and value score: [{spi['sources'].get('pick_pct_label', 'SurvivorGrid')}]({spi['sources'].get('pick_pct')}) (value score blends win chance with popularity; above 1.00 is a better-than-average pick this week; '—' = no value score from this source). Save-for-later notes: [{spi['sources'].get('note_label', 'Covers')}]({spi['sources'].get('note')}). Captured {spi.get('captured_at', '')[:16].replace('T', ' ')}.</em>"]
     # ---------------- 10 ----------------
     import html as _html
     L += ['', '<a id="systems"></a>', '## 10. Master Quantitative Betting Systems, Model Rules & Historical Trends', '',
