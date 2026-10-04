@@ -40,11 +40,48 @@ PAGES = [
 ]
 PART_NAME = {'A': 'What to bet', 'B': 'Why we like them', 'C': 'Reference'}
 
+# F-mi-dark (2026-10-03): dark "Tracker slate + teal" layer for the site chrome.
+# Appended after SITE_CSS so it wins; tokens come from convert_summary.py's :root.
+SITE_DARK_CSS = r"""
+/* ---- F-mi-dark site chrome ---- */
+.site-header{background:rgba(15,23,42,.94)}
+.site-brand{color:var(--text)}
+.site-nav-link,.nav-more summary{min-height:var(--tap,40px);padding:0 16px;border:1px solid var(--border);background:var(--card);color:var(--body);font-size:13.5px;font-weight:700}
+.site-nav-link:hover,.nav-more summary:hover,.nav-more[open] summary{border-color:var(--accent);background:var(--raised);color:var(--text)}
+.site-nav-link.current{border-color:var(--accent);background:var(--accent);color:var(--on-accent);box-shadow:none}
+.site-primary-nav{gap:8px;padding-bottom:12px}
+.nav-more-menu{top:46px;background:var(--card);border-color:var(--border);box-shadow:0 16px 36px rgba(0,0,0,.45)}
+.nav-more-menu a{color:var(--body);padding:11px 12px;font-size:13.5px}
+.nav-more-menu a:hover,.nav-more-menu a.current{background:var(--raised);color:var(--primary)}
+.side-toc{background:var(--card);border-color:var(--border)}
+.side-toc a.current{background:var(--raised);box-shadow:inset 3px 0 0 var(--accent);color:var(--text)}
+.toc-toggle{min-height:var(--tap,40px);background:var(--accent);color:var(--on-accent);border:0;border-radius:999px;font-weight:800}
+.site-bar a{color:var(--primary)}
+.page-nav a{background:var(--card);color:var(--text);border-color:var(--border);padding:14px 16px}
+.page-nav a:hover{border-color:var(--accent)}
+.game-card{background:var(--card);border-color:var(--border)}
+.game-card:hover{border-color:var(--accent)}
+.dashboard-card{background:var(--card)}
+.dashboard-card:hover{border-color:var(--accent);box-shadow:0 12px 28px rgba(0,0,0,.35)}
+.dashboard-card h3{color:var(--text)}.dashboard-card .dc-go{color:var(--primary)}
+.market-intel-notice{background:var(--card)}
+@media (max-width:640px){
+  .site-bar{display:none}
+  .site-primary-nav{-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent);padding-right:28px}
+  .site-brand{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:13.5px}
+  .dashboard-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .dashboard-card{min-height:0;padding:14px}
+  .dashboard-card p{display:none}
+}
+@media print{
+  .site-header,.side-toc,.toc-toggle,.page-nav{display:none !important}
+  .site-bar{color:#475569}
+}
+"""
+
 SITE_CSS = r"""
 /* ---- multi-page site layer (build_site.py) ---- */
-:root{color-scheme:light;--on-primary:#ffffff}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){color-scheme:dark;--on-primary:#0f172a}}
-:root[data-theme="dark"]{--on-primary:#0f172a}
+:root{color-scheme:dark;--on-primary:#0f172a}
 .rollup-controls,.table-filter{flex-wrap:wrap}
 .site-bar{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;margin:0 0 18px;padding-bottom:10px;border-bottom:1px solid var(--border);font-size:12.5px;color:var(--muted)}
 .site-bar a{color:var(--primary);text-decoration:none;font-weight:700}
@@ -89,7 +126,7 @@ def main(src):
         css = css.replace(m.group(0), '@media (prefers-color-scheme: dark) {\n  :root:not([data-theme="light"]) {' + dark + '}\n}\n:root[data-theme="dark"] {' + dark + ' color-scheme: dark;}')
     # text on the primary fill: white on light navy, but dark on the light-blue dark-mode primary
     css = re.sub(r'(background(?:-color)?:\s*var\(--primary\);\s*color:\s*)#(?:ffffff|fff)\b', r'\1var(--on-primary)', css)
-    css += SITE_CSS
+    css += SITE_CSS + SITE_DARK_CSS
     (out / 'assets' / 'report.css').write_text(css, encoding='utf-8')
     script = soup.body.find('script', recursive=False)
     (out / 'assets' / 'report.js').write_text(script.string if script else '', encoding='utf-8')

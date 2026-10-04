@@ -411,8 +411,8 @@ V2_TIP = {'rec': 'Everything we recommend betting this week in one place: straig
           '11': 'What the report was built from, which feeds were working, and what data is missing this week.'}
 
 V2_CSS = ('<style>.part-banner{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin:38px 0 12px;padding:11px 16px;border-radius:9px;'
-          'background:var(--primary);color:#fff;font-size:1.08rem;letter-spacing:.01em;box-shadow:0 2px 8px rgba(0,0,0,.12);}'
-          '.part-banner .pb-sub{opacity:.88;font-size:.86rem;font-weight:400;}.part-banner.part-b{background:#0f766e;}.part-banner.part-c{background:#475569;}'
+          'background:var(--raised,var(--highlight));color:var(--text);border-left:4px solid var(--accent);font-size:1.08rem;letter-spacing:.01em;box-shadow:none;}'
+          '.part-banner .pb-sub{opacity:.88;font-size:.86rem;font-weight:400;}.part-banner.part-b{border-left-color:var(--info,#38bdf8);}.part-banner.part-c{border-left-color:var(--muted);}'
           '.toc-part{grid-column:1/-1;font-weight:800;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:8px 2px 0;}'
           '.side-toc .side-part{font-weight:800;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:10px 8px 2px;}</style>')
 
@@ -432,11 +432,11 @@ def final_scores(week):
 
 SIDE_BTN = '<button class="toc-toggle" type="button" onclick="document.body.classList.toggle(\'toc-open\')">☰ Contents</button>'
 SIDE_CSS = ('<style>.side-toc{position:fixed;top:16px;left:16px;bottom:16px;width:236px;overflow-y:auto;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 8px;font-size:13px;z-index:50;display:none;box-shadow:0 4px 14px rgba(0,0,0,.10);}'
-            '.side-toc a{display:block;padding:6px 8px;border-radius:6px;color:var(--primary);text-decoration:none;line-height:1.3;}.side-toc a:hover{background:var(--highlight);}'
+            '.side-toc a{display:block;padding:6px 8px;border-radius:6px;color:var(--primary);text-decoration:none;line-height:1.3;}.side-toc a:hover{background:var(--raised,var(--highlight));}'
             '.side-toc-title{font-weight:700;margin:2px 8px 6px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em;}'
             '.side-toc a{display:flex;gap:8px;align-items:flex-start;}.toc-ico{flex:0 0 20px;text-align:center;}.toc-txt{flex:1 1 auto;}'
             '.side-tip{position:fixed;z-index:70;max-width:280px;background:#0f172a;color:#f8fafc;font-size:12.5px;line-height:1.45;padding:9px 11px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.25);pointer-events:none;display:none;}'
-            '.toc-toggle{position:fixed;top:12px;left:12px;z-index:60;background:var(--primary);color:#fff;border:0;border-radius:8px;padding:8px 12px;font-weight:600;font-size:13px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);}'
+            '.toc-toggle{position:fixed;top:12px;left:12px;z-index:60;background:var(--accent,var(--primary));color:var(--on-accent,#fff);border:0;border-radius:999px;min-height:40px;padding:8px 16px;font-weight:800;font-size:13.5px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2);}'
             'body.toc-open .side-toc{display:block;top:56px;}'
             '@media (min-width:1420px){.side-toc{display:block;top:16px;}.toc-toggle{display:none;}.container{margin-left:276px !important;margin-right:auto !important;}}</style>')
 
@@ -966,7 +966,7 @@ def main():
         results.append(f"<strong>{g['id']}</strong> 🏁 FINAL — {f_['away'][0]} {f_['away'][1]}, {f_['home'][0]} {f_['home'][1]}" if f_ else f"<strong>{g['id']}</strong> 🏁 FINAL")
     L += roll('section-top', 'slate-status-box', f'🚨 Slate Status — {datetime.datetime.now(PT).strftime("%a %b %d, %H:%M PT")}', True) + [
           '<div style="font-size: 0.9rem; margin-bottom: 10px;"><strong>What is the Slate Status?</strong> A quick snapshot of the news that changes how to read this report: games already played, quarterback changes, where the big-money bettors are putting their money, and players the sportsbook has taken off its menu (usually an injury or lineup question). Check it before placing anything.</div>',
-          '<div class="status-banner" style="background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); border-left: 5px solid #3B82F6; padding: 14px 18px; border-radius: 8px; color: #F8FAFC; font-size: 0.92rem; line-height: 1.55;">',
+          '<div class="status-banner" style="background: var(--bg); border: 1px solid var(--border); border-left: 5px solid var(--accent); padding: 14px 18px; border-radius: 10px; color: var(--text); font-size: 0.92rem; line-height: 1.55;">',
           f"<div>• <strong>Played:</strong> {'; '.join(results) or 'none yet'}. <strong>{len(live)} games remain.</strong></div>",
           f"<div>• <strong>Quarterback changes (out or doubtful):</strong> {', '.join(qb_notes) or 'none'}.</div>",
           f"<div>• <strong>Big-money (\"sharp\") signals</strong> — share of money beats share of bets by 15+ points, at the line when first seen: {', '.join(SIG_ALL) or ('none' if SPL else 'not available yet — no Action Network splits this week')}. Full detail in §2.</div>",
@@ -1414,7 +1414,7 @@ def main():
                     if anch[name] not in linked: linked.add(anch[name]); cited.append(f'<a href="#{anch[name]}">{ALIAS_EXP.get(name, name)}</a>')
             return text
         if nar.get('secs') or nar.get('proj'):
-            L += ['<div class="game-narrative" style="border-left: 4px solid #3B82F6; background: rgba(59,130,246,0.07); padding: 12px 16px; border-radius: 6px; margin: 4px 0 16px 0;">']
+            L += ['<div class="game-narrative" style="border-left: 4px solid var(--accent); background: rgba(0,210,190,0.07); padding: 12px 16px; border-radius: 8px; margin: 4px 0 16px 0;">']
             pj = nar.get('proj')
             if pj:
                 (t1_, s1), (t2_, s2) = pj; w_, l_ = ((t1_, s1), (t2_, s2)) if s1 >= s2 else ((t2_, s2), (t1_, s1))

@@ -711,31 +711,31 @@ def generate_html(md_path, html_path):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{doc_title}</title>
 <style>
+  /* F-mi-dark (2026-10-03): one dark on-screen theme, Option A "Tracker slate + teal".
+     Matches the Live Tracker surfaces + the Platinum Rose teal accent. Light lives only in @media print. */
   :root {{
-    --primary: #102c57;
-    --primary-light: #1e4d8c;
-    --secondary: #334155;
-    --accent: #b45309;
-    --bg: #f8fafc;
-    --card: #ffffff;
-    --border: #e2e8f0;
-    --text: #0f172a;
-    --muted: #64748b;
-    --highlight: #f1f5f9;
-  }}
-  @media (prefers-color-scheme: dark) {{
-    :root {{
-      --primary: #60a5fa;
-      --primary-light: #93c5fd;
-      --secondary: #cbd5e1;
-      --accent: #fbbf24;
-      --bg: #0f172a;
-      --card: #1e293b;
-      --border: #334155;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --highlight: #1e293b;
-    }}
+    color-scheme: dark;
+    --primary: #5eead4;        /* interactive text: links, active labels */
+    --primary-light: #99f6e4;
+    --secondary: #cbd5e1;      /* h3 / h4 */
+    --accent: #00d2be;         /* Platinum Rose teal: active fills, focus, open edges */
+    --on-accent: #0f172a;      /* text on teal (9.3:1) */
+    --on-primary: #0f172a;
+    --bg: #0f172a;             /* page */
+    --card: #1e293b;           /* boxes */
+    --raised: #273449;         /* table heads, buttons, hover */
+    --border: #334155;
+    --text: #f8fafc;           /* headings, strong */
+    --body: #cbd5e1;           /* paragraphs */
+    --muted: #94a3b8;
+    --highlight: #1e293b;
+    --zebra: rgba(148, 163, 184, 0.06);
+    --pos: #34d399;
+    --neg: #f87171;            /* not #ef4444: that fails AA on cards (3.9:1) */
+    --warn: #fcd34d;
+    --info: #38bdf8;
+    --star: #fbbf24;
+    --tap: 40px;               /* min height for buttons / pills */
   }}
   html {{
     scroll-behavior: smooth;
@@ -745,13 +745,13 @@ def generate_html(md_path, html_path):
     scroll-margin-top: 24px;
   }}
   @keyframes target-pulse {{
-    0% {{ background-color: rgba(59, 130, 246, 0.25); border-radius: 6px; padding: 2px 6px; }}
+    0% {{ background-color: rgba(0, 210, 190, 0.2); border-radius: 6px; padding: 2px 6px; }}
     100% {{ background-color: transparent; }}
   }}
   body {{
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg);
-    color: var(--text);
+    color: var(--body);
     line-height: 1.65;
     margin: 0;
     padding: 32px 20px;
@@ -759,21 +759,25 @@ def generate_html(md_path, html_path):
   .container {{
     max-width: 1100px;
     margin: 0 auto;
-    background: var(--card);
+    background: var(--bg);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 36px 44px;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    box-shadow: none;
   }}
+  a {{ color: var(--primary); }}
+  a:hover {{ color: var(--primary-light); }}
+  a:focus-visible, button:focus-visible, summary:focus-visible {{ outline: 2px solid var(--accent); outline-offset: 2px; }}
+  strong, b {{ color: var(--text); }}
   h1 {{
-    color: var(--primary);
+    color: var(--text);
     font-size: 26px;
     margin-top: 0;
     margin-bottom: 12px;
     line-height: 1.3;
   }}
   h2 {{
-    color: var(--primary);
+    color: var(--text);
     font-size: 20px;
     margin-top: 32px;
     margin-bottom: 16px;
@@ -819,16 +823,19 @@ def generate_html(md_path, html_path):
     border-bottom: 1px solid var(--border);
   }}
   th {{
-    background-color: var(--primary);
-    color: #ffffff;
-    font-weight: 600;
+    background-color: var(--raised);
+    color: var(--muted);
+    font-size: 11.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 700;
     position: relative;
   }}
   th:hover, th:has(.term-tooltip:hover) {{
     z-index: 100;
   }}
   tr:nth-child(even) {{
-    background-color: var(--highlight);
+    background-color: var(--zebra);
   }}
   .badge {{
     display: inline-block;
@@ -840,49 +847,49 @@ def generate_html(md_path, html_path):
     margin: 1px 0;
   }}
   .badge-cross {{
-    background: #fee2e2;
-    color: #991b1b;
-    border: 1px solid #fecaca;
+    background: rgba(248, 113, 113, 0.14);
+    color: #fca5a5;
+    border: 1px solid rgba(248, 113, 113, 0.4);
   }}
   .badge-consensus {{
-    background: #dbeafe;
-    color: #1e40af;
-    border: 1px solid #bfdbfe;
+    background: rgba(56, 189, 248, 0.14);
+    color: #7dd3fc;
+    border: 1px solid rgba(56, 189, 248, 0.4);
   }}
   .badge-unit {{
-    background: #fef3c7;
-    color: #92400e;
-    border: 1px solid #fde68a;
+    background: rgba(252, 211, 77, 0.14);
+    color: #fcd34d;
+    border: 1px solid rgba(252, 211, 77, 0.4);
   }}
   .badge-teaser {{
-    background: #f3e8ff;
-    color: #6b21a8;
-    border: 1px solid #e9d5ff;
+    background: rgba(192, 132, 252, 0.14);
+    color: #d8b4fe;
+    border: 1px solid rgba(192, 132, 252, 0.4);
   }}
   .badge-best {{
-    background: #dcfce7;
-    color: #166534;
-    border: 1px solid #bbf7d0;
+    background: rgba(52, 211, 153, 0.14);
+    color: #6ee7b7;
+    border: 1px solid rgba(52, 211, 153, 0.4);
   }}
   .badge-stable {{
-    background: #dcfce7;
-    color: #166534;
-    border: 1px solid #86efac;
+    background: rgba(52, 211, 153, 0.14);
+    color: #6ee7b7;
+    border: 1px solid rgba(52, 211, 153, 0.4);
   }}
   .badge-watch {{
-    background: #fef3c7;
-    color: #92400e;
-    border: 1px solid #fde68a;
+    background: rgba(252, 211, 77, 0.14);
+    color: #fcd34d;
+    border: 1px solid rgba(252, 211, 77, 0.4);
   }}
   .badge-volatile {{
-    background: #fee2e2;
-    color: #991b1b;
-    border: 1px solid #fca5a5;
+    background: rgba(248, 113, 113, 0.14);
+    color: #fca5a5;
+    border: 1px solid rgba(248, 113, 113, 0.4);
   }}
   .badge-zero {{
-    background: #f1f5f9;
-    color: #475569;
-    border: 1px solid #cbd5e1;
+    background: rgba(148, 163, 184, 0.14);
+    color: #cbd5e1;
+    border: 1px solid rgba(148, 163, 184, 0.4);
   }}
   .table-link {{
     color: var(--primary);
@@ -913,14 +920,14 @@ def generate_html(md_path, html_path):
     text-decoration: none;
     background: var(--highlight);
     border: 1px solid var(--border);
-    padding: 4px 12px;
-    border-radius: 6px;
+    padding: 8px 14px;
+    border-radius: 8px;
     transition: all 0.2s ease;
   }}
   .back-to-top:hover {{
-    background: var(--primary);
-    color: #ffffff;
-    border-color: var(--primary);
+    background: var(--accent);
+    color: var(--on-accent);
+    border-color: var(--accent);
   }}
   ul, ol {{
     padding-left: 24px;
@@ -981,13 +988,14 @@ def generate_html(md_path, html_path):
     color: var(--muted);
   }}
   .btn-pill {{
-    background: var(--card);
-    color: var(--primary);
+    background: var(--raised);
+    color: var(--text);
     border: 1px solid var(--border);
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
+    min-height: var(--tap);
+    padding: 0 16px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease;
     display: inline-flex;
@@ -995,18 +1003,18 @@ def generate_html(md_path, html_path):
     gap: 4px;
   }}
   .btn-pill:hover {{
-    background: var(--primary);
-    color: #ffffff;
-    border-color: var(--primary);
+    border-color: var(--accent);
+    color: var(--primary);
   }}
   .btn-pill.btn-primary {{
-    background: var(--primary);
-    color: #ffffff;
-    border-color: var(--primary);
+    background: var(--accent);
+    color: var(--on-accent);
+    border-color: var(--accent);
   }}
   .btn-pill.btn-primary:hover {{
-    background: var(--primary-light);
-    border-color: var(--primary-light);
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--on-accent);
   }}
   .quick-picks-list {{
     display: flex;
@@ -1032,26 +1040,14 @@ def generate_html(md_path, html_path):
     text-align: center;
   }}
   .badge-top5 {{
-    background: #dcfce7;
-    color: #166534;
-    border: 1px solid #86efac;
+    background: rgba(52, 211, 153, 0.14);
+    color: #6ee7b7;
+    border: 1px solid rgba(52, 211, 153, 0.4);
   }}
   .badge-alt {{
-    background: #f1f5f9;
-    color: #475569;
-    border: 1px solid #cbd5e1;
-  }}
-  @media (prefers-color-scheme: dark) {{
-    .badge-top5 {{
-      background: rgba(22, 101, 52, 0.4);
-      color: #86efac;
-      border-color: #166534;
-    }}
-    .badge-alt {{
-      background: rgba(71, 85, 105, 0.4);
-      color: #cbd5e1;
-      border-color: #475569;
-    }}
+    background: rgba(148, 163, 184, 0.14);
+    color: #cbd5e1;
+    border: 1px solid rgba(148, 163, 184, 0.4);
   }}
   .quick-pick-link {{
     display: inline-flex;
@@ -1065,7 +1061,7 @@ def generate_html(md_path, html_path):
     transition: all 0.15s ease;
   }}
   .quick-pick-link:hover {{
-    background: rgba(37, 99, 235, 0.1);
+    background: rgba(0, 210, 190, 0.12);
     color: var(--primary-light);
     transform: translateY(-1px);
   }}
@@ -1075,15 +1071,9 @@ def generate_html(md_path, html_path):
     user-select: none;
   }}
   tr:target {{
-    background-color: #dbeafe !important;
-    outline: 2px solid #2563eb;
+    background-color: rgba(0, 210, 190, 0.16) !important;
+    outline: 2px solid var(--accent);
     transition: background-color 0.5s ease;
-  }}
-  @media (prefers-color-scheme: dark) {{
-    tr:target {{
-      background-color: rgba(37, 99, 235, 0.25) !important;
-      outline: 2px solid #60a5fa;
-    }}
   }}
   /* Rollup / Collapsible Box Styles */
   .global-rollup-bar {{
@@ -1113,30 +1103,35 @@ def generate_html(md_path, html_path):
     margin: 12px 0 16px 0;
   }}
   .btn-toggle {{
-    background: var(--highlight);
-    color: var(--primary);
+    background: var(--raised);
+    color: var(--text);
     border: 1px solid var(--border);
-    padding: 6px 14px;
-    border-radius: 6px;
-    font-size: 12.5px;
-    font-weight: 600;
+    min-height: var(--tap);
+    padding: 0 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
   }}
   .btn-toggle:hover {{
+    border-color: var(--accent);
+    color: var(--primary);
+  }}
+  .btn-primary, .btn-toggle.btn-primary {{
+    background: var(--accent);
+    color: var(--on-accent);
+    border-color: var(--accent);
+  }}
+  .btn-primary:hover, .btn-toggle.btn-primary:hover {{
     background: var(--primary);
-    color: #ffffff;
     border-color: var(--primary);
+    color: var(--on-accent);
   }}
-  .btn-primary {{
-    background: var(--primary);
-    color: #ffffff;
-    border-color: var(--primary);
-  }}
-  .btn-primary:hover {{
-    background: var(--primary-light);
-    border-color: var(--primary-light);
-  }}
+  .rollup-controls {{ flex-wrap: wrap; align-items: center; }}
   details.rollup-box {{
     background: var(--card);
     border: 1px solid var(--border);
@@ -1149,24 +1144,27 @@ def generate_html(md_path, html_path):
     border-color: var(--primary-light);
   }}
   details.rollup-box[open] {{
-    border-color: var(--primary);
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border-color: rgba(0, 210, 190, 0.5);
+    box-shadow: inset 3px 0 0 var(--accent);
   }}
   details.rollup-box:target {{
-    border-color: #2563eb !important;
-    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.35) !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 4px rgba(0, 210, 190, 0.3) !important;
     animation: target-box-pulse 2.5s ease-out;
   }}
   @keyframes target-box-pulse {{
-    0% {{ box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.55); border-color: #2563eb; }}
-    100% {{ box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }}
+    0% {{ box-shadow: 0 0 0 6px rgba(0, 210, 190, 0.5); border-color: var(--accent); }}
+    100% {{ box-shadow: inset 3px 0 0 var(--accent); }}
   }}
   details.rollup-box summary {{
-    padding: 12px 18px;
-    font-size: 15px;
+    min-height: 52px;
+    box-sizing: border-box;
+    gap: 12px;
+    padding: 10px 14px 10px 18px;
+    font-size: 15.5px;
     font-weight: 700;
-    color: var(--primary);
-    background: var(--highlight);
+    color: var(--text);
+    background: var(--card);
     cursor: pointer;
     user-select: none;
     display: flex;
@@ -1179,18 +1177,21 @@ def generate_html(md_path, html_path):
     display: none;
   }}
   details.rollup-box summary:hover {{
-    background: #e2e8f0;
-  }}
-  @media (prefers-color-scheme: dark) {{
-    details.rollup-box summary:hover {{
-      background: #334155;
-    }}
+    background: var(--raised);
   }}
   details.rollup-box > summary .sum-text {{ flex: 1 1 auto; min-width: 0; }}
   details.rollup-box > summary::after {{
-    content: '▼';
-    font-size: 11px;
-    color: var(--muted);
+    content: '▾';
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--raised);
+    border: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--accent);
     transition: transform 0.2s ease;
     transform: rotate(-90deg);
   }}
@@ -1208,7 +1209,7 @@ def generate_html(md_path, html_path):
     align-items: baseline;
     gap: 3px;
     cursor: help;
-    border-bottom: 1.5px dotted #3b82f6;
+    border-bottom: 1.5px dotted var(--info);
     color: inherit;
     font-weight: inherit;
   }}
@@ -1218,14 +1219,14 @@ def generate_html(md_path, html_path):
   .term-tooltip::after {{
     content: ' ⓘ';
     font-size: 10px;
-    color: #3b82f6;
+    color: var(--info);
     opacity: 0.85;
     font-weight: bold;
   }}
   .term-tooltip .tip-text {{
     visibility: hidden;
     width: 290px;
-    background-color: #0f172a;
+    background-color: #0b1222;
     color: #f8fafc;
     text-align: left;
     border-radius: 8px;
@@ -1248,7 +1249,7 @@ def generate_html(md_path, html_path):
     text-transform: none;
   }}
   .term-tooltip .tip-text strong {{
-    color: #60a5fa;
+    color: var(--primary);
     display: block;
     margin-bottom: 4px;
     font-size: 12.5px;
@@ -1263,7 +1264,7 @@ def generate_html(md_path, html_path):
     margin-left: -6px;
     border-width: 6px;
     border-style: solid;
-    border-color: transparent transparent #0f172a transparent;
+    border-color: transparent transparent #0b1222 transparent;
   }}
   .term-tooltip:hover .tip-text {{
     visibility: visible;
@@ -1305,7 +1306,7 @@ def generate_html(md_path, html_path):
   }}
   details.section-alternates summary {{
     background: rgba(30, 41, 59, 0.7);
-    color: #93c5fd;
+    color: var(--primary);
     font-size: 14.5px;
   }}
   /* Sortable Tables */
@@ -1317,7 +1318,8 @@ def generate_html(md_path, html_path):
     transition: background-color 0.2s ease;
   }}
   th.sortable-header:hover {{
-    background-color: var(--primary-light);
+    background-color: var(--border);
+    color: var(--text);
   }}
   .sort-icon {{
     display: inline-block;
@@ -1333,7 +1335,7 @@ def generate_html(md_path, html_path):
   th.sortable-header[data-sort-dir="asc"] .sort-icon,
   th.sortable-header[data-sort-dir="desc"] .sort-icon {{
     opacity: 1;
-    color: #60a5fa;
+    color: var(--accent);
     font-weight: 900;
   }}
   .team-logo {{
@@ -1353,6 +1355,37 @@ def generate_html(md_path, html_path):
     object-fit: contain;
     display: inline-block;
     filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+  }}
+  /* F-mi-dark: dark-coloured team logos (NYG, LAR, NYJ...) get a faint halo so they read on slate */
+  .tl, .team-logo, .team-logo-sm {{ filter: drop-shadow(0 0 1.5px rgba(248, 250, 252, 0.55)); }}
+  /* F-mi-dark: phone width */
+  @media (max-width: 640px) {{
+    body {{ padding: 16px 12px; }}
+    .container {{ padding: 20px 14px; border-radius: 12px; }}
+    details.rollup-box .rollup-content {{ padding: 14px 12px; }}
+    .btn-toggle, .btn-pill {{ padding: 0 14px; }}
+  }}
+  @media (prefers-reduced-motion: reduce) {{
+    *, *::before, *::after {{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }}
+  }}
+  /* F-mi-dark: light print sheet so the PDF export stays printable */
+  @media print {{
+    :root {{
+      color-scheme: light;
+      --primary: #0f766e; --primary-light: #115e59; --secondary: #334155; --accent: #0f766e;
+      --on-accent: #ffffff; --on-primary: #ffffff;
+      --bg: #ffffff; --card: #ffffff; --raised: #f1f5f9; --border: #cbd5e1;
+      --text: #0f172a; --body: #1e293b; --muted: #475569; --highlight: #f8fafc; --zebra: #f8fafc;
+      --pos: #047857; --neg: #b91c1c; --warn: #b45309; --info: #0369a1; --star: #b45309;
+    }}
+    body {{ background: #ffffff; padding: 0; }}
+    .container {{ border: 0; padding: 0; max-width: none; }}
+    .badge, .pick-tier-badge {{ color: #0f172a !important; background: #f1f5f9 !important; border-color: #cbd5e1 !important; }}
+    details.rollup-box[open] {{ box-shadow: none; }}
+    details.rollup-box summary {{ min-height: 0; }}
+    details.rollup-box > summary::after, .btn-toggle, .btn-pill, .rollup-controls, .global-rollup-bar, .back-to-top {{ display: none !important; }}
+    .term-tooltip .tip-text {{ display: none !important; }}
+    a {{ color: #0f766e; }}
   }}
 </style>
 </head>
@@ -1558,7 +1591,7 @@ function initPickSheet() {{
   const update = () => {{
     const on = boxes.filter(b => b.checked).map(b => b.dataset.side);
     const c = document.getElementById('pick-count');
-    if (c) {{ c.textContent = on.length + ' of 5 picked' + (on.length > 5 ? ' (too many)' : ''); c.style.color = on.length === 5 ? '' : '#b45309'; }}
+    if (c) {{ c.textContent = on.length + ' of 5 picked' + (on.length > 5 ? ' (too many)' : ''); c.style.color = on.length === 5 ? '' : 'var(--warn)'; }}
     const l = document.getElementById('pick-list');
     if (l) l.textContent = on.join(' · ');
     try {{ localStorage.setItem(key, JSON.stringify(on)); }} catch (e) {{}}

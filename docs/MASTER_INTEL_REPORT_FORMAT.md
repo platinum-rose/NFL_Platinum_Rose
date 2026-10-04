@@ -19,6 +19,38 @@ The reader is a casual, all-Sunday couch bettor, not an analyst. Every part of t
 7. **Honest numbers.** Stars rank our picks against each other; they are not win percentages. Projections are written estimates, not model output (the quant model failed validation and is never used to pick or size bets). When a projection disagrees with a card lean (for example a dog moneyline that is a price bet), the text says so.
 8. **Disclaimer at the very bottom:** entertainment only, not advice, every wager is the reader's own risk, no liability on the author or Platinum Rose, 1-800-GAMBLER.
 
+## 1a. Look: dark "Tracker slate + teal" (F-mi-dark, approved by Andy 2026-10-03)
+
+The report matches the main NFL Dashboard and the Live Tracker. It has **one dark on-screen theme**: no light/dark switching, and no `prefers-color-scheme` blocks. Light is used only by `@media print`, so the PDF export stays printable.
+
+The tokens are defined in `:root` in `convert_summary.py`, and `build_site.py`'s `SITE_DARK_CSS` reuses them:
+
+| Token | Value | Use |
+|---|---|---|
+| `--bg` | `#0f172a` | page and outer container |
+| `--card` | `#1e293b` | collapsible boxes, nav pills, cards |
+| `--raised` | `#273449` | table header band, buttons, hover |
+| `--border` | `#334155` | every border |
+| `--text` / `--body` / `--muted` | `#f8fafc` / `#cbd5e1` / `#94a3b8` | headings and strong text / paragraphs / captions |
+| `--accent` | `#00d2be` | Platinum Rose teal: active pill or toggle fill, focus ring, open-box edge |
+| `--primary` | `#5eead4` | link and interactive text |
+| `--on-accent` | `#0f172a` | text on teal (9.3:1). Never put white on teal (1.9:1) |
+| `--pos` / `--neg` / `--warn` / `--info` / `--star` | `#34d399` / `#f87171` / `#fcd34d` / `#38bdf8` / `#fbbf24` | Use `#f87171` for red numbers: the Tracker's `#ef4444` fails AA on cards |
+
+**Buttons and controls ("easy buttons"):**
+- All buttons, toggles and nav pills are at least 40px tall (`--tap`), with 13.5px bold labels.
+- The active state is a teal fill with dark text.
+- Collapsible boxes have a 52px summary row, with a 30px chevron tile on the right.
+- An open box gets a teal left edge.
+- Badges are tinted chips: a 14% fill and a 40% border in the badge colour, with light text.
+
+**Phone width (390px):**
+- No page-level horizontal scroll. Wide tables scroll inside their own box.
+- The site nav row scrolls sideways and fades at the right edge.
+- The in-card crumb bar is hidden.
+
+**Inline styles in build.py:** the status banner, game narrative and part banners use tokens (`var(--accent)` etc.), not hex values. That keeps the print sheet able to flip them to light.
+
 ## 2. Page layout (top to bottom): Template v2, picks first
 
 Locked by Andy on 2026-10-02 (Week 4). Three parts: **A. What to bet → B. Why we like them → C. Reference.** `reorder_sections()` in build.py produces this order; the side menu and the contents grid show the part labels.
@@ -129,3 +161,4 @@ Every build also writes `nfl_week<N>_supercontest_intelligence_summary.{html,md,
 | 2026-10-02 | **Template v2 locked** (§2 rewritten to the v2 order). Plain header: plain-English subtitle, 12-hour PT build and capture times. Slate Status: "not available yet" for big money when there are no splits, whole-menu-unpriced games collapsed to one line, gaps without file paths | Andy |
 | 2026-10-02 | Multi-page client site (`build_site.py`, auto-run by build.py) + hosted Artifact link for client review | Andy |
 | 2026-10-03 | **Opening lines from Action Network**, persistent for the season. The line-movement baseline is `data/odds/actionnetwork-openers-<season>-w<NN>.json` (`scripts/master-intel/actionnetwork_openers.py`, runbook step 8a): the first AN "Open" line after the previous Sunday 5 PM PT. It falls back per game to the earliest BKR paste. The source is labelled in each game's line-movement box ("opening line: Action Network open, Sun 9/27 5:00 PM PT → Bookmaker now") and in the Data inputs table | Andy |
+| 2026-10-03 | **F-mi-dark**: dark "Tracker slate + teal" look (§1a): one dark on-screen theme with a light print sheet, 40px buttons and pills, and tinted chips. Style only; content, anchors and exports are unchanged | Andy |
