@@ -11913,14 +11913,14 @@
     "odds_decimal": 93.38,
     "potential_profit_usd": 931.18,
     "potential_payout_usd": 941.26,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_739565346",
     "needs_confirmation": [
       "odds derived from Win / Risk",
       "leg 1 tagged LIVE on ticket"
     ],
-    "progress_notes": "Official per Andy 2026-10-01 18:53 PT (pasted BKR ticket). Game times as shown on the BKR ticket (PT). | Leg 1 (CLE +3.5) graded WON 2026-10-01 from ESPN final (CLE 27, PIT 24); 9 legs pending.",
+    "progress_notes": "Official per Andy 2026-10-01 18:53 PT (pasted BKR ticket). Game times as shown on the BKR ticket (PT). | Leg 1 (CLE +3.5) graded WON 2026-10-01 from ESPN final (CLE 27, PIT 24); 9 legs pending. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
       {
         "leg_num": 1,
@@ -11996,7 +11996,7 @@
         "price": "-155",
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_739565346_5_hou_ml"
       },
       {
@@ -12026,7 +12026,7 @@
         "price": "-328",
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_739565346_7_buf_ml"
       },
       {
@@ -12041,7 +12041,7 @@
         "price": "-147",
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_739565346_8_cin_ml"
       },
       {
@@ -12056,7 +12056,7 @@
         "price": "-140",
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_739565346_9_ari_ml"
       },
       {
@@ -12074,7 +12074,10 @@
         "status": "PENDING",
         "key": "leg_739565346_10_kc_ml"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -10.08,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20260930_bkr_739527199",
@@ -12165,14 +12168,14 @@
     "odds_decimal": null,
     "potential_profit_usd": null,
     "potential_payout_usd": null,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "needs_confirmation": [
       "book",
       "odds / payout (unknown at entry; record actual payout if it wins)",
       "ticket_number"
     ],
-    "progress_notes": "Logged 2026-10-02 by Claude at Andy's request: promotional $100 'Jay's Lock Box' order, NOT counted against the Bankroll. Order text: 'Jay's Lock Box - NE/BUF Under 48½+CIN -2½ (JAC/CIN) - $100'.",
+    "progress_notes": "Logged 2026-10-02 by Claude at Andy's request: promotional $100 'Jay's Lock Box' order, NOT counted against the Bankroll. Order text: 'Jay's Lock Box - NE/BUF Under 48½+CIN -2½ (JAC/CIN) - $100'. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
       {
         "leg_num": 1,
@@ -12183,7 +12186,7 @@
         "price": null,
         "direction": "under",
         "game_start": "10/04/2026",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_w04_jayslockbox_1"
       },
       {
@@ -12195,10 +12198,13 @@
         "line": -2.5,
         "price": null,
         "game_start": "10/04/2026",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_w04_jayslockbox_2"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": 0,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_bkr_739714646_round_robin_8x4",
@@ -12233,14 +12239,111 @@
     },
     "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. Logged from the Bookmaker ticket slip; all legs pending.",
     "legs": [
-      { "leg_num": 1, "game": "NYJ @ CHI", "team": "NYJ", "opponent": "CHI", "market": "spread", "selection": "New York Jets +3.5", "line": 3.5, "price": "-104", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739714646_1_nyj_spread" },
-      { "leg_num": 2, "game": "LAR @ PHI", "team": "LAR", "opponent": "PHI", "market": "spread", "selection": "Los Angeles Rams -3", "line": -3, "price": "-135", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739714646_2_lar_spread" },
-      { "leg_num": 3, "game": "MIA @ MIN", "team": "MIA", "opponent": "MIN", "market": "spread", "selection": "Miami Dolphins +10", "line": 10, "price": "-121", "game_start": "10/04/2026 @ 01:05 PM", "status": "PENDING", "key": "leg_739714646_3_mia_spread" },
-      { "leg_num": 4, "game": "DEN @ SF", "team": "DEN", "opponent": "SF", "market": "spread", "selection": "Denver Broncos +3", "line": 3, "price": "-121", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_739714646_4_den_spread" },
-      { "leg_num": 5, "game": "KC @ LV", "team": "LV", "opponent": "KC", "market": "spread", "selection": "Las Vegas Raiders +5", "line": 5, "price": "-113", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_739714646_5_lv_spread" },
-      { "leg_num": 6, "game": "GB @ TB", "team": "UNDER", "opponent": null, "market": "total", "selection": "Under 40", "line": 40, "price": "-120", "direction": "under", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739714646_6_gb_tb_under" },
-      { "leg_num": 7, "game": "DAL @ HOU", "team": "HOU", "opponent": "DAL", "market": "moneyline", "selection": "Houston Texans Moneyline", "line": null, "price": "-159", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739714646_7_hou_ml" },
-      { "leg_num": 8, "game": "TEN @ BAL", "team": "TEN", "opponent": "BAL", "market": "spread", "selection": "Tennessee Titans +12", "line": 12, "price": "-114", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739714646_8_ten_spread" }
+      {
+        "leg_num": 1,
+        "game": "NYJ @ CHI",
+        "team": "NYJ",
+        "opponent": "CHI",
+        "market": "spread",
+        "selection": "New York Jets +3.5",
+        "line": 3.5,
+        "price": "-104",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739714646_1_nyj_spread"
+      },
+      {
+        "leg_num": 2,
+        "game": "LAR @ PHI",
+        "team": "LAR",
+        "opponent": "PHI",
+        "market": "spread",
+        "selection": "Los Angeles Rams -3",
+        "line": -3,
+        "price": "-135",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739714646_2_lar_spread"
+      },
+      {
+        "leg_num": 3,
+        "game": "MIA @ MIN",
+        "team": "MIA",
+        "opponent": "MIN",
+        "market": "spread",
+        "selection": "Miami Dolphins +10",
+        "line": 10,
+        "price": "-121",
+        "game_start": "10/04/2026 @ 01:05 PM",
+        "status": "PENDING",
+        "key": "leg_739714646_3_mia_spread"
+      },
+      {
+        "leg_num": 4,
+        "game": "DEN @ SF",
+        "team": "DEN",
+        "opponent": "SF",
+        "market": "spread",
+        "selection": "Denver Broncos +3",
+        "line": 3,
+        "price": "-121",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_739714646_4_den_spread"
+      },
+      {
+        "leg_num": 5,
+        "game": "KC @ LV",
+        "team": "LV",
+        "opponent": "KC",
+        "market": "spread",
+        "selection": "Las Vegas Raiders +5",
+        "line": 5,
+        "price": "-113",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_739714646_5_lv_spread"
+      },
+      {
+        "leg_num": 6,
+        "game": "GB @ TB",
+        "team": "UNDER",
+        "opponent": null,
+        "market": "total",
+        "selection": "Under 40",
+        "line": 40,
+        "price": "-120",
+        "direction": "under",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739714646_6_gb_tb_under"
+      },
+      {
+        "leg_num": 7,
+        "game": "DAL @ HOU",
+        "team": "HOU",
+        "opponent": "DAL",
+        "market": "moneyline",
+        "selection": "Houston Texans Moneyline",
+        "line": null,
+        "price": "-159",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739714646_7_hou_ml"
+      },
+      {
+        "leg_num": 8,
+        "game": "TEN @ BAL",
+        "team": "TEN",
+        "opponent": "BAL",
+        "market": "spread",
+        "selection": "Tennessee Titans +12",
+        "line": 12,
+        "price": "-114",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739714646_8_ten_spread"
+      }
     ]
   },
   {
@@ -12265,18 +12368,94 @@
     "potential_profit_usd": 303.33,
     "potential_payout_usd": 323.33,
     "cash_out_offer_usd_at_ingest": 10.48,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_739714534",
-    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. Cash-out offer at ingest: $10.48; all legs pending.",
+    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. Cash-out offer at ingest: $10.48; all legs pending. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
-      { "leg_num": 1, "game": "NE @ BUF", "team": "BUF", "opponent": "NE", "market": "moneyline", "selection": "Buffalo Bills Moneyline", "line": null, "price": "-325", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739714534_1_buf_ml" },
-      { "leg_num": 2, "game": "GB @ TB", "team": "GB", "opponent": "TB", "market": "moneyline", "selection": "Green Bay Packers Moneyline", "line": null, "price": "-160", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739714534_2_gb_ml" },
-      { "leg_num": 3, "game": "LAR @ PHI", "team": "LAR", "opponent": "PHI", "market": "moneyline", "selection": "Los Angeles Rams Moneyline", "line": null, "price": "-200", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739714534_3_lar_ml" },
-      { "leg_num": 4, "game": "KC @ LV", "team": "LV", "opponent": "KC", "market": "spread", "selection": "Las Vegas Raiders +5", "line": 5, "price": "-113", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_739714534_4_lv_spread" },
-      { "leg_num": 5, "game": "DET @ CAR", "team": "DET", "opponent": "CAR", "market": "moneyline", "selection": "Detroit Lions Moneyline", "line": null, "price": "-192", "game_start": "10/04/2026 @ 05:20 PM", "status": "PENDING", "key": "leg_739714534_5_det_ml" },
-      { "leg_num": 6, "game": "MIA @ MIN", "team": "UNDER", "opponent": null, "market": "total", "selection": "Under 40", "line": 40, "price": "-130", "direction": "under", "game_start": "10/04/2026 @ 01:05 PM", "status": "PENDING", "key": "leg_739714534_6_mia_min_under" }
-    ]
+      {
+        "leg_num": 1,
+        "game": "NE @ BUF",
+        "team": "BUF",
+        "opponent": "NE",
+        "market": "moneyline",
+        "selection": "Buffalo Bills Moneyline",
+        "line": null,
+        "price": "-325",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_739714534_1_buf_ml"
+      },
+      {
+        "leg_num": 2,
+        "game": "GB @ TB",
+        "team": "GB",
+        "opponent": "TB",
+        "market": "moneyline",
+        "selection": "Green Bay Packers Moneyline",
+        "line": null,
+        "price": "-160",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739714534_2_gb_ml"
+      },
+      {
+        "leg_num": 3,
+        "game": "LAR @ PHI",
+        "team": "LAR",
+        "opponent": "PHI",
+        "market": "moneyline",
+        "selection": "Los Angeles Rams Moneyline",
+        "line": null,
+        "price": "-200",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739714534_3_lar_ml"
+      },
+      {
+        "leg_num": 4,
+        "game": "KC @ LV",
+        "team": "LV",
+        "opponent": "KC",
+        "market": "spread",
+        "selection": "Las Vegas Raiders +5",
+        "line": 5,
+        "price": "-113",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_739714534_4_lv_spread"
+      },
+      {
+        "leg_num": 5,
+        "game": "DET @ CAR",
+        "team": "DET",
+        "opponent": "CAR",
+        "market": "moneyline",
+        "selection": "Detroit Lions Moneyline",
+        "line": null,
+        "price": "-192",
+        "game_start": "10/04/2026 @ 05:20 PM",
+        "status": "PENDING",
+        "key": "leg_739714534_5_det_ml"
+      },
+      {
+        "leg_num": 6,
+        "game": "MIA @ MIN",
+        "team": "UNDER",
+        "opponent": null,
+        "market": "total",
+        "selection": "Under 40",
+        "line": 40,
+        "price": "-130",
+        "direction": "under",
+        "game_start": "10/04/2026 @ 01:05 PM",
+        "status": "PENDING",
+        "key": "leg_739714534_6_mia_min_under"
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -20,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_bkr_739714258_5team_parlay",
@@ -12300,17 +12479,81 @@
     "potential_profit_usd": 250.18,
     "potential_payout_usd": 270.18,
     "cash_out_offer_usd_at_ingest": 11.78,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_739714258",
-    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. Cash-out offer at ingest: $11.78; all legs pending.",
+    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. Cash-out offer at ingest: $11.78; all legs pending. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
-      { "leg_num": 1, "game": "NE @ BUF", "team": "NE", "opponent": "BUF", "market": "spread", "selection": "New England Patriots +7", "line": 7, "price": "-114", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739714258_1_ne_spread" },
-      { "leg_num": 2, "game": "NYJ @ CHI", "team": "NYJ", "opponent": "CHI", "market": "spread", "selection": "New York Jets +3.5", "line": 3.5, "price": "-103", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739714258_2_nyj_spread" },
-      { "leg_num": 3, "game": "LAC @ SEA", "team": "SEA", "opponent": "LAC", "market": "moneyline", "selection": "Seattle Seahawks Moneyline", "line": null, "price": "-323", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_739714258_3_sea_ml" },
-      { "leg_num": 4, "game": "DET @ CAR", "team": "DET", "opponent": "CAR", "market": "moneyline", "selection": "Detroit Lions Moneyline", "line": null, "price": "-192", "game_start": "10/04/2026 @ 05:20 PM", "status": "PENDING", "key": "leg_739714258_4_det_ml" },
-      { "leg_num": 5, "game": "GB @ TB", "team": "UNDER", "opponent": null, "market": "total", "selection": "Under 40", "line": 40, "price": "-120", "direction": "under", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739714258_5_gb_tb_under" }
-    ]
+      {
+        "leg_num": 1,
+        "game": "NE @ BUF",
+        "team": "NE",
+        "opponent": "BUF",
+        "market": "spread",
+        "selection": "New England Patriots +7",
+        "line": 7,
+        "price": "-114",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739714258_1_ne_spread"
+      },
+      {
+        "leg_num": 2,
+        "game": "NYJ @ CHI",
+        "team": "NYJ",
+        "opponent": "CHI",
+        "market": "spread",
+        "selection": "New York Jets +3.5",
+        "line": 3.5,
+        "price": "-103",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_739714258_2_nyj_spread"
+      },
+      {
+        "leg_num": 3,
+        "game": "LAC @ SEA",
+        "team": "SEA",
+        "opponent": "LAC",
+        "market": "moneyline",
+        "selection": "Seattle Seahawks Moneyline",
+        "line": null,
+        "price": "-323",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_739714258_3_sea_ml"
+      },
+      {
+        "leg_num": 4,
+        "game": "DET @ CAR",
+        "team": "DET",
+        "opponent": "CAR",
+        "market": "moneyline",
+        "selection": "Detroit Lions Moneyline",
+        "line": null,
+        "price": "-192",
+        "game_start": "10/04/2026 @ 05:20 PM",
+        "status": "PENDING",
+        "key": "leg_739714258_4_det_ml"
+      },
+      {
+        "leg_num": 5,
+        "game": "GB @ TB",
+        "team": "UNDER",
+        "opponent": null,
+        "market": "total",
+        "selection": "Under 40",
+        "line": 40,
+        "price": "-120",
+        "direction": "under",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739714258_5_gb_tb_under"
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -20,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_bkr_739713560_round_robin_6x2",
@@ -12345,12 +12588,84 @@
     },
     "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. All legs pending.",
     "legs": [
-      { "leg_num": 1, "game": "JAX @ CIN", "team": "JAX", "opponent": "CIN", "market": "moneyline", "selection": "Jacksonville Jaguars Moneyline", "line": null, "price": "+130", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739713560_1_jax_ml" },
-      { "leg_num": 2, "game": "DEN @ SF", "team": "DEN", "opponent": "SF", "market": "moneyline", "selection": "Denver Broncos Moneyline", "line": null, "price": "+125", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_739713560_2_den_ml" },
-      { "leg_num": 3, "game": "KC @ LV", "team": "LV", "opponent": "KC", "market": "moneyline", "selection": "Las Vegas Raiders Moneyline", "line": null, "price": "+183", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_739713560_3_lv_ml" },
-      { "leg_num": 4, "game": "NYJ @ CHI", "team": "NYJ", "opponent": "CHI", "market": "moneyline", "selection": "New York Jets Moneyline", "line": null, "price": "+164", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739713560_4_nyj_ml" },
-      { "leg_num": 5, "game": "DET @ CAR", "team": "CAR", "opponent": "DET", "market": "moneyline", "selection": "Carolina Panthers Moneyline", "line": null, "price": "+167", "game_start": "10/04/2026 @ 05:20 PM", "status": "PENDING", "key": "leg_739713560_5_car_ml" },
-      { "leg_num": 6, "game": "IND @ WAS", "team": "WAS", "opponent": "IND", "market": "moneyline", "selection": "Washington Commanders Moneyline", "line": null, "price": "+184", "game_start": "10/04/2026 @ 06:30 AM", "status": "PENDING", "key": "leg_739713560_6_was_ml" }
+      {
+        "leg_num": 1,
+        "game": "JAX @ CIN",
+        "team": "JAX",
+        "opponent": "CIN",
+        "market": "moneyline",
+        "selection": "Jacksonville Jaguars Moneyline",
+        "line": null,
+        "price": "+130",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739713560_1_jax_ml"
+      },
+      {
+        "leg_num": 2,
+        "game": "DEN @ SF",
+        "team": "DEN",
+        "opponent": "SF",
+        "market": "moneyline",
+        "selection": "Denver Broncos Moneyline",
+        "line": null,
+        "price": "+125",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_739713560_2_den_ml"
+      },
+      {
+        "leg_num": 3,
+        "game": "KC @ LV",
+        "team": "LV",
+        "opponent": "KC",
+        "market": "moneyline",
+        "selection": "Las Vegas Raiders Moneyline",
+        "line": null,
+        "price": "+183",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_739713560_3_lv_ml"
+      },
+      {
+        "leg_num": 4,
+        "game": "NYJ @ CHI",
+        "team": "NYJ",
+        "opponent": "CHI",
+        "market": "moneyline",
+        "selection": "New York Jets Moneyline",
+        "line": null,
+        "price": "+164",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739713560_4_nyj_ml"
+      },
+      {
+        "leg_num": 5,
+        "game": "DET @ CAR",
+        "team": "CAR",
+        "opponent": "DET",
+        "market": "moneyline",
+        "selection": "Carolina Panthers Moneyline",
+        "line": null,
+        "price": "+167",
+        "game_start": "10/04/2026 @ 05:20 PM",
+        "status": "PENDING",
+        "key": "leg_739713560_5_car_ml"
+      },
+      {
+        "leg_num": 6,
+        "game": "IND @ WAS",
+        "team": "WAS",
+        "opponent": "IND",
+        "market": "moneyline",
+        "selection": "Washington Commanders Moneyline",
+        "line": null,
+        "price": "+184",
+        "game_start": "10/04/2026 @ 06:30 AM",
+        "status": "PENDING",
+        "key": "leg_739713560_6_was_ml"
+      }
     ]
   },
   {
@@ -12386,11 +12701,71 @@
     },
     "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. All legs pending.",
     "legs": [
-      { "leg_num": 1, "game": "ARI @ NYG", "team": "ARI", "opponent": "NYG", "market": "spread", "selection": "Arizona Cardinals -1.5", "line": -1.5, "price": "-128", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739713279_1_ari_spread" },
-      { "leg_num": 2, "game": "NE @ BUF", "team": "NE", "opponent": "BUF", "market": "spread", "selection": "New England Patriots +7", "line": 7, "price": "-114", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739713279_2_ne_spread" },
-      { "leg_num": 3, "game": "DEN @ SF", "team": "SF", "opponent": "DEN", "market": "spread", "selection": "San Francisco 49ers -2.5", "line": -2.5, "price": "-112", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_739713279_3_sf_spread" },
-      { "leg_num": 4, "game": "MIA @ MIN", "team": "MIA", "opponent": "MIN", "market": "spread", "selection": "Miami Dolphins +10.5", "line": 10.5, "price": "-133", "game_start": "10/04/2026 @ 01:05 PM", "status": "PENDING", "key": "leg_739713279_4_mia_spread" },
-      { "leg_num": 5, "game": "LAR @ PHI", "team": "LAR", "opponent": "PHI", "market": "spread", "selection": "Los Angeles Rams -3", "line": -3, "price": "-135", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739713279_5_lar_spread" }
+      {
+        "leg_num": 1,
+        "game": "ARI @ NYG",
+        "team": "ARI",
+        "opponent": "NYG",
+        "market": "spread",
+        "selection": "Arizona Cardinals -1.5",
+        "line": -1.5,
+        "price": "-128",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739713279_1_ari_spread"
+      },
+      {
+        "leg_num": 2,
+        "game": "NE @ BUF",
+        "team": "NE",
+        "opponent": "BUF",
+        "market": "spread",
+        "selection": "New England Patriots +7",
+        "line": 7,
+        "price": "-114",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739713279_2_ne_spread"
+      },
+      {
+        "leg_num": 3,
+        "game": "DEN @ SF",
+        "team": "SF",
+        "opponent": "DEN",
+        "market": "spread",
+        "selection": "San Francisco 49ers -2.5",
+        "line": -2.5,
+        "price": "-112",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_739713279_3_sf_spread"
+      },
+      {
+        "leg_num": 4,
+        "game": "MIA @ MIN",
+        "team": "MIA",
+        "opponent": "MIN",
+        "market": "spread",
+        "selection": "Miami Dolphins +10.5",
+        "line": 10.5,
+        "price": "-133",
+        "game_start": "10/04/2026 @ 01:05 PM",
+        "status": "PENDING",
+        "key": "leg_739713279_4_mia_spread"
+      },
+      {
+        "leg_num": 5,
+        "game": "LAR @ PHI",
+        "team": "LAR",
+        "opponent": "PHI",
+        "market": "spread",
+        "selection": "Los Angeles Rams -3",
+        "line": -3,
+        "price": "-135",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739713279_5_lar_spread"
+      }
     ]
   },
   {
@@ -12415,17 +12790,80 @@
     "potential_profit_usd": 457.54,
     "potential_payout_usd": 482.54,
     "cash_out_offer_usd_at_ingest": 10.97,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_739713278",
-    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. Cash-out offer at ingest: $10.97; all legs pending.",
+    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. Cash-out offer at ingest: $10.97; all legs pending. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
-      { "leg_num": 1, "game": "ARI @ NYG", "team": "ARI", "opponent": "NYG", "market": "spread", "selection": "Arizona Cardinals -1.5", "line": -1.5, "price": "-128", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739713278_1_ari_spread" },
-      { "leg_num": 2, "game": "NE @ BUF", "team": "NE", "opponent": "BUF", "market": "spread", "selection": "New England Patriots +7", "line": 7, "price": "-114", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739713278_2_ne_spread" },
-      { "leg_num": 3, "game": "DEN @ SF", "team": "SF", "opponent": "DEN", "market": "spread", "selection": "San Francisco 49ers -2.5", "line": -2.5, "price": "-112", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_739713278_3_sf_spread" },
-      { "leg_num": 4, "game": "MIA @ MIN", "team": "MIA", "opponent": "MIN", "market": "spread", "selection": "Miami Dolphins +10.5", "line": 10.5, "price": "-133", "game_start": "10/04/2026 @ 01:05 PM", "status": "PENDING", "key": "leg_739713278_4_mia_spread" },
-      { "leg_num": 5, "game": "LAR @ PHI", "team": "LAR", "opponent": "PHI", "market": "spread", "selection": "Los Angeles Rams -3", "line": -3, "price": "-135", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_739713278_5_lar_spread" }
-    ]
+      {
+        "leg_num": 1,
+        "game": "ARI @ NYG",
+        "team": "ARI",
+        "opponent": "NYG",
+        "market": "spread",
+        "selection": "Arizona Cardinals -1.5",
+        "line": -1.5,
+        "price": "-128",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_739713278_1_ari_spread"
+      },
+      {
+        "leg_num": 2,
+        "game": "NE @ BUF",
+        "team": "NE",
+        "opponent": "BUF",
+        "market": "spread",
+        "selection": "New England Patriots +7",
+        "line": 7,
+        "price": "-114",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739713278_2_ne_spread"
+      },
+      {
+        "leg_num": 3,
+        "game": "DEN @ SF",
+        "team": "SF",
+        "opponent": "DEN",
+        "market": "spread",
+        "selection": "San Francisco 49ers -2.5",
+        "line": -2.5,
+        "price": "-112",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_739713278_3_sf_spread"
+      },
+      {
+        "leg_num": 4,
+        "game": "MIA @ MIN",
+        "team": "MIA",
+        "opponent": "MIN",
+        "market": "spread",
+        "selection": "Miami Dolphins +10.5",
+        "line": 10.5,
+        "price": "-133",
+        "game_start": "10/04/2026 @ 01:05 PM",
+        "status": "PENDING",
+        "key": "leg_739713278_4_mia_spread"
+      },
+      {
+        "leg_num": 5,
+        "game": "LAR @ PHI",
+        "team": "LAR",
+        "opponent": "PHI",
+        "market": "spread",
+        "selection": "Los Angeles Rams -3",
+        "line": -3,
+        "price": "-135",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_739713278_5_lar_spread"
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -25,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_betonline_1002306890_ne_buf_spread",
@@ -12448,12 +12886,27 @@
     "odds_decimal": 1.8696,
     "potential_profit_usd": 8.7,
     "potential_payout_usd": 18.7,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04.",
+    "status": "SETTLED",
+    "result": "win",
+    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04. | Settled 2026-10-04 by Claude: NE 29, BUF 26 (NE +7 won).",
     "legs": [
-      { "leg_num": 1, "game": "NE @ BUF", "team": "NE", "opponent": "BUF", "market": "spread", "selection": "New England Patriots +7", "line": 7, "price": "-115", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002306890_1_ne_spread" }
-    ]
+      {
+        "leg_num": 1,
+        "game": "NE @ BUF",
+        "team": "NE",
+        "opponent": "BUF",
+        "market": "spread",
+        "selection": "New England Patriots +7",
+        "line": 7,
+        "price": "-115",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "WON",
+        "key": "leg_1002306890_1_ne_spread"
+      }
+    ],
+    "settled_payout_usd": 18.7,
+    "profit_usd": 8.7,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_betonline_1002306799_gb_super_bowl",
@@ -12480,7 +12933,18 @@
     "result": null,
     "progress_notes": "Official user-placed BetOnline futures ticket supplied by Andy on 2026-10-04.",
     "legs": [
-      { "leg_num": 1, "game": "NFL Futures", "team": "GB", "opponent": null, "market": "super_bowl_winner", "selection": "Green Bay Packers to win Super Bowl LXI", "line": null, "price": "+6600", "status": "PENDING", "key": "leg_1002306799_1_gb_super_bowl" }
+      {
+        "leg_num": 1,
+        "game": "NFL Futures",
+        "team": "GB",
+        "opponent": null,
+        "market": "super_bowl_winner",
+        "selection": "Green Bay Packers to win Super Bowl LXI",
+        "line": null,
+        "price": "+6600",
+        "status": "PENDING",
+        "key": "leg_1002306799_1_gb_super_bowl"
+      }
     ]
   },
   {
@@ -12504,16 +12968,87 @@
     "odds_decimal": 567,
     "potential_profit_usd": 2830,
     "potential_payout_usd": 2835,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04.",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
-      { "leg_num": 1, "game": "NE @ BUF", "player": "James Cook", "team": "BUF", "opponent": "NE", "market": "anytime_touchdown", "selection": "James Cook 2+ Touchdowns", "line": 2, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002306704_1_cook_2td" },
-      { "leg_num": 2, "game": "DEN @ SF", "player": "Christian McCaffrey", "team": "SF", "opponent": "DEN", "market": "anytime_touchdown", "selection": "Christian McCaffrey 2+ Touchdowns", "line": 2, "price": null, "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_1002306704_2_mccaffrey_2td" },
-      { "leg_num": 3, "game": "JAX @ CIN", "player": "Chase Brown", "team": "CIN", "opponent": "JAX", "market": "anytime_touchdown", "selection": "Chase Brown 2+ Touchdowns", "line": 2, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002306704_3_chase_brown_2td" },
-      { "leg_num": 4, "game": "DET @ CAR", "player": "Jahmyr Gibbs", "team": "DET", "opponent": "CAR", "market": "anytime_touchdown", "selection": "Jahmyr Gibbs 2+ Touchdowns", "line": 2, "price": null, "game_start": "10/04/2026 @ 05:20 PM", "status": "PENDING", "key": "leg_1002306704_4_gibbs_2td" },
-      { "leg_num": 5, "game": "DAL @ HOU", "player": "David Montgomery", "team": "HOU", "opponent": "DAL", "market": "anytime_touchdown", "selection": "David Montgomery 2+ Touchdowns", "line": 2, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002306704_5_montgomery_2td" }
-    ]
+      {
+        "leg_num": 1,
+        "game": "NE @ BUF",
+        "player": "James Cook",
+        "team": "BUF",
+        "opponent": "NE",
+        "market": "anytime_touchdown",
+        "selection": "James Cook 2+ Touchdowns",
+        "line": 2,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002306704_1_cook_2td",
+        "actual_stat": 1
+      },
+      {
+        "leg_num": 2,
+        "game": "DEN @ SF",
+        "player": "Christian McCaffrey",
+        "team": "SF",
+        "opponent": "DEN",
+        "market": "anytime_touchdown",
+        "selection": "Christian McCaffrey 2+ Touchdowns",
+        "line": 2,
+        "price": null,
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_1002306704_2_mccaffrey_2td"
+      },
+      {
+        "leg_num": 3,
+        "game": "JAX @ CIN",
+        "player": "Chase Brown",
+        "team": "CIN",
+        "opponent": "JAX",
+        "market": "anytime_touchdown",
+        "selection": "Chase Brown 2+ Touchdowns",
+        "line": 2,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002306704_3_chase_brown_2td",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 4,
+        "game": "DET @ CAR",
+        "player": "Jahmyr Gibbs",
+        "team": "DET",
+        "opponent": "CAR",
+        "market": "anytime_touchdown",
+        "selection": "Jahmyr Gibbs 2+ Touchdowns",
+        "line": 2,
+        "price": null,
+        "game_start": "10/04/2026 @ 05:20 PM",
+        "status": "PENDING",
+        "key": "leg_1002306704_4_gibbs_2td"
+      },
+      {
+        "leg_num": 5,
+        "game": "DAL @ HOU",
+        "player": "David Montgomery",
+        "team": "HOU",
+        "opponent": "DAL",
+        "market": "anytime_touchdown",
+        "selection": "David Montgomery 2+ Touchdowns",
+        "line": 2,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002306704_5_montgomery_2td",
+        "actual_stat": 0
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_betonline_1002306303_hybrid_prop_parlay",
@@ -12536,19 +13071,133 @@
     "odds_decimal": 147,
     "potential_profit_usd": 997.18,
     "potential_payout_usd": 1004.01,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04.",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
-      { "leg_num": 1, "game": "KC @ LV", "player": "Patrick Mahomes", "team": "KC", "opponent": "LV", "market": "passing_touchdowns", "selection": "Patrick Mahomes Over 1.5 Passing TDs", "line": 1.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_1002306303_1_mahomes_pass_td" },
-      { "leg_num": 2, "game": "JAX @ CIN", "player": "Joe Burrow", "team": "CIN", "opponent": "JAX", "market": "passing_touchdowns", "selection": "Joe Burrow Over 1.5 Passing TDs", "line": 1.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002306303_2_burrow_pass_td" },
-      { "leg_num": 3, "game": "MIA @ MIN", "player": "Justin Jefferson", "team": "MIN", "opponent": "MIA", "market": "anytime_touchdown", "selection": "Justin Jefferson 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 01:05 PM", "status": "PENDING", "key": "leg_1002306303_3_jefferson_td" },
-      { "leg_num": 4, "game": "ARI @ NYG", "player": "Trey McBride", "team": "ARI", "opponent": "NYG", "market": "anytime_touchdown", "selection": "Trey McBride 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002306303_4_mcbride_td" },
-      { "leg_num": 5, "game": "DEN @ SF", "player": "Christian McCaffrey", "team": "SF", "opponent": "DEN", "market": "receiving_yards", "selection": "Christian McCaffrey Over 41.5 Receiving Yards", "line": 41.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_1002306303_5_mccaffrey_receiving" },
-      { "leg_num": 6, "game": "GB @ TB", "player": "Lukas Van Ness", "team": "GB", "opponent": "TB", "market": "sacks", "selection": "Lukas Van Ness Over 0.5 Sacks", "line": 0.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002306303_6_van_ness_sacks" },
-      { "leg_num": 7, "game": "NYJ @ CHI", "player": "D'Andre Swift", "team": "CHI", "opponent": "NYJ", "market": "anytime_touchdown", "selection": "D'Andre Swift 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002306303_7_swift_td" },
-      { "leg_num": 8, "game": "DET @ CAR", "team": "DET", "opponent": "CAR", "market": "moneyline", "selection": "Detroit Lions to win", "line": null, "price": null, "game_start": "10/04/2026 @ 05:20 PM", "status": "PENDING", "key": "leg_1002306303_8_det_ml" }
-    ]
+      {
+        "leg_num": 1,
+        "game": "KC @ LV",
+        "player": "Patrick Mahomes",
+        "team": "KC",
+        "opponent": "LV",
+        "market": "passing_touchdowns",
+        "selection": "Patrick Mahomes Over 1.5 Passing TDs",
+        "line": 1.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_1002306303_1_mahomes_pass_td"
+      },
+      {
+        "leg_num": 2,
+        "game": "JAX @ CIN",
+        "player": "Joe Burrow",
+        "team": "CIN",
+        "opponent": "JAX",
+        "market": "passing_touchdowns",
+        "selection": "Joe Burrow Over 1.5 Passing TDs",
+        "line": 1.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002306303_2_burrow_pass_td",
+        "actual_stat": 1
+      },
+      {
+        "leg_num": 3,
+        "game": "MIA @ MIN",
+        "player": "Justin Jefferson",
+        "team": "MIN",
+        "opponent": "MIA",
+        "market": "anytime_touchdown",
+        "selection": "Justin Jefferson 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 01:05 PM",
+        "status": "PENDING",
+        "key": "leg_1002306303_3_jefferson_td"
+      },
+      {
+        "leg_num": 4,
+        "game": "ARI @ NYG",
+        "player": "Trey McBride",
+        "team": "ARI",
+        "opponent": "NYG",
+        "market": "anytime_touchdown",
+        "selection": "Trey McBride 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002306303_4_mcbride_td",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 5,
+        "game": "DEN @ SF",
+        "player": "Christian McCaffrey",
+        "team": "SF",
+        "opponent": "DEN",
+        "market": "receiving_yards",
+        "selection": "Christian McCaffrey Over 41.5 Receiving Yards",
+        "line": 41.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_1002306303_5_mccaffrey_receiving"
+      },
+      {
+        "leg_num": 6,
+        "game": "GB @ TB",
+        "player": "Lukas Van Ness",
+        "team": "GB",
+        "opponent": "TB",
+        "market": "sacks",
+        "selection": "Lukas Van Ness Over 0.5 Sacks",
+        "line": 0.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002306303_6_van_ness_sacks",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 7,
+        "game": "NYJ @ CHI",
+        "player": "D'Andre Swift",
+        "team": "CHI",
+        "opponent": "NYJ",
+        "market": "anytime_touchdown",
+        "selection": "D'Andre Swift 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002306303_7_swift_td",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 8,
+        "game": "DET @ CAR",
+        "team": "DET",
+        "opponent": "CAR",
+        "market": "moneyline",
+        "selection": "Detroit Lions to win",
+        "line": null,
+        "price": null,
+        "game_start": "10/04/2026 @ 05:20 PM",
+        "status": "PENDING",
+        "key": "leg_1002306303_8_det_ml"
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -6.83,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_betonline_1002304945_morning_prop_parlay",
@@ -12571,19 +13220,135 @@
     "odds_decimal": 96,
     "potential_profit_usd": 475,
     "potential_payout_usd": 480,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04.",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
-      { "leg_num": 1, "game": "LAR @ PHI", "player": "Matthew Stafford", "team": "LAR", "opponent": "PHI", "market": "passing_touchdowns", "selection": "Matthew Stafford Over 1.5 Passing TDs", "line": 1.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002304945_1_stafford_pass_td" },
-      { "leg_num": 2, "game": "NE @ BUF", "player": "James Cook", "team": "BUF", "opponent": "NE", "market": "rushing_yards", "selection": "James Cook 76+ Rushing Yards", "line": 75.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002304945_2_cook_rushing" },
-      { "leg_num": 3, "game": "JAX @ CIN", "player": "Parker Washington", "team": "JAX", "opponent": "CIN", "market": "receptions", "selection": "Parker Washington Over 5.5 Receptions", "line": 5.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002304945_3_parker_receptions" },
-      { "leg_num": 4, "game": "LAR @ PHI", "player": "Davante Adams", "team": "LAR", "opponent": "PHI", "market": "anytime_touchdown", "selection": "Davante Adams 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002304945_4_adams_td" },
-      { "leg_num": 5, "game": "DAL @ HOU", "player": "Javonte Williams", "team": "DAL", "opponent": "HOU", "market": "anytime_touchdown", "selection": "Javonte Williams 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002304945_5_javonte_td" },
-      { "leg_num": 6, "game": "ARI @ NYG", "player": "Jacoby Brissett", "team": "ARI", "opponent": "NYG", "market": "passing_touchdowns", "selection": "Jacoby Brissett Over 1.5 Passing TDs", "line": 1.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002304945_6_brissett_pass_td" },
-      { "leg_num": 7, "game": "ARI @ NYG", "player": "Jameis Winston", "team": "NYG", "opponent": "ARI", "market": "pass_interceptions", "selection": "Jameis Winston Over 0.5 Pass Interceptions", "line": 0.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002304945_7_winston_int" },
-      { "leg_num": 8, "game": "GB @ TB", "player": "Jalon Daniels", "team": "TB", "opponent": "GB", "market": "pass_interceptions", "selection": "Jalon Daniels Over 0.5 Pass Interceptions", "line": 0.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002304945_8_daniels_int" }
-    ]
+      {
+        "leg_num": 1,
+        "game": "LAR @ PHI",
+        "player": "Matthew Stafford",
+        "team": "LAR",
+        "opponent": "PHI",
+        "market": "passing_touchdowns",
+        "selection": "Matthew Stafford Over 1.5 Passing TDs",
+        "line": 1.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002304945_1_stafford_pass_td",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 2,
+        "game": "NE @ BUF",
+        "player": "James Cook",
+        "team": "BUF",
+        "opponent": "NE",
+        "market": "rushing_yards",
+        "selection": "James Cook 76+ Rushing Yards",
+        "line": 75.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_1002304945_2_cook_rushing"
+      },
+      {
+        "leg_num": 3,
+        "game": "JAX @ CIN",
+        "player": "Parker Washington",
+        "team": "JAX",
+        "opponent": "CIN",
+        "market": "receptions",
+        "selection": "Parker Washington Over 5.5 Receptions",
+        "line": 5.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002304945_3_parker_receptions",
+        "actual_stat": 1
+      },
+      {
+        "leg_num": 4,
+        "game": "LAR @ PHI",
+        "player": "Davante Adams",
+        "team": "LAR",
+        "opponent": "PHI",
+        "market": "anytime_touchdown",
+        "selection": "Davante Adams 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002304945_4_adams_td",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 5,
+        "game": "DAL @ HOU",
+        "player": "Javonte Williams",
+        "team": "DAL",
+        "opponent": "HOU",
+        "market": "anytime_touchdown",
+        "selection": "Javonte Williams 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_1002304945_5_javonte_td"
+      },
+      {
+        "leg_num": 6,
+        "game": "ARI @ NYG",
+        "player": "Jacoby Brissett",
+        "team": "ARI",
+        "opponent": "NYG",
+        "market": "passing_touchdowns",
+        "selection": "Jacoby Brissett Over 1.5 Passing TDs",
+        "line": 1.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_1002304945_6_brissett_pass_td"
+      },
+      {
+        "leg_num": 7,
+        "game": "ARI @ NYG",
+        "player": "Jameis Winston",
+        "team": "NYG",
+        "opponent": "ARI",
+        "market": "pass_interceptions",
+        "selection": "Jameis Winston Over 0.5 Pass Interceptions",
+        "line": 0.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_1002304945_7_winston_int"
+      },
+      {
+        "leg_num": 8,
+        "game": "GB @ TB",
+        "player": "Jalon Daniels",
+        "team": "TB",
+        "opponent": "GB",
+        "market": "pass_interceptions",
+        "selection": "Jalon Daniels Over 0.5 Pass Interceptions",
+        "line": 0.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_1002304945_8_daniels_int"
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_betonline_1002303293_atd_parlay",
@@ -12606,17 +13371,101 @@
     "odds_decimal": 268,
     "potential_profit_usd": 1335,
     "potential_payout_usd": 1340,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04.",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
-      { "leg_num": 1, "game": "TEN @ BAL", "player": "Lamar Jackson", "team": "BAL", "opponent": "TEN", "market": "anytime_touchdown", "selection": "Lamar Jackson 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002303293_1_lamar_td" },
-      { "leg_num": 2, "game": "GB @ TB", "player": "Christian Watson", "team": "GB", "opponent": "TB", "market": "anytime_touchdown", "selection": "Christian Watson 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002303293_2_watson_td" },
-      { "leg_num": 3, "game": "NYJ @ CHI", "player": "Garrett Wilson", "team": "NYJ", "opponent": "CHI", "market": "anytime_touchdown", "selection": "Garrett Wilson 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002303293_3_garrett_td" },
-      { "leg_num": 4, "game": "LAC @ SEA", "player": "Jaxon Smith-Njigba", "team": "SEA", "opponent": "LAC", "market": "anytime_touchdown", "selection": "Jaxon Smith-Njigba 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_1002303293_4_jsn_td" },
-      { "leg_num": 5, "game": "KC @ LV", "player": "Brock Bowers", "team": "LV", "opponent": "KC", "market": "anytime_touchdown", "selection": "Brock Bowers 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_1002303293_5_bowers_td" },
-      { "leg_num": 6, "game": "DET @ CAR", "player": "Darren Waller", "team": "CAR", "opponent": "DET", "market": "anytime_touchdown", "selection": "Darren Waller 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 05:20 PM", "status": "PENDING", "key": "leg_1002303293_6_waller_td" }
-    ]
+      {
+        "leg_num": 1,
+        "game": "TEN @ BAL",
+        "player": "Lamar Jackson",
+        "team": "BAL",
+        "opponent": "TEN",
+        "market": "anytime_touchdown",
+        "selection": "Lamar Jackson 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002303293_1_lamar_td",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 2,
+        "game": "GB @ TB",
+        "player": "Christian Watson",
+        "team": "GB",
+        "opponent": "TB",
+        "market": "anytime_touchdown",
+        "selection": "Christian Watson 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002303293_2_watson_td",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 3,
+        "game": "NYJ @ CHI",
+        "player": "Garrett Wilson",
+        "team": "NYJ",
+        "opponent": "CHI",
+        "market": "anytime_touchdown",
+        "selection": "Garrett Wilson 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002303293_3_garrett_td",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 4,
+        "game": "LAC @ SEA",
+        "player": "Jaxon Smith-Njigba",
+        "team": "SEA",
+        "opponent": "LAC",
+        "market": "anytime_touchdown",
+        "selection": "Jaxon Smith-Njigba 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_1002303293_4_jsn_td"
+      },
+      {
+        "leg_num": 5,
+        "game": "KC @ LV",
+        "player": "Brock Bowers",
+        "team": "LV",
+        "opponent": "KC",
+        "market": "anytime_touchdown",
+        "selection": "Brock Bowers 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_1002303293_5_bowers_td"
+      },
+      {
+        "leg_num": 6,
+        "game": "DET @ CAR",
+        "player": "Darren Waller",
+        "team": "CAR",
+        "opponent": "DET",
+        "market": "anytime_touchdown",
+        "selection": "Darren Waller 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 05:20 PM",
+        "status": "PENDING",
+        "key": "leg_1002303293_6_waller_td"
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_betonline_1002396982_late_prop_parlay",
@@ -12639,19 +13488,135 @@
     "odds_decimal": 148,
     "potential_profit_usd": 735,
     "potential_payout_usd": 740,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official late-added BetOnline ticket supplied by Andy on 2026-10-04. Logged for leg-by-leg grading.",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official late-added BetOnline ticket supplied by Andy on 2026-10-04. Logged for leg-by-leg grading. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
-      { "leg_num": 1, "game": "KC @ LV", "player": "Patrick Mahomes", "team": "KC", "opponent": "LV", "market": "passing_touchdowns", "selection": "Patrick Mahomes Over 1.5 Passing TDs", "line": 1.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_1002396982_1_mahomes_pass_td" },
-      { "leg_num": 2, "game": "JAX @ CIN", "player": "Joe Burrow", "team": "CIN", "opponent": "JAX", "market": "passing_touchdowns", "selection": "Joe Burrow Over 1.5 Passing TDs", "line": 1.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002396982_2_burrow_pass_td" },
-      { "leg_num": 3, "game": "DAL @ HOU", "player": "CeeDee Lamb", "team": "DAL", "opponent": "HOU", "market": "anytime_touchdown", "selection": "CeeDee Lamb 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002396982_3_lamb_td" },
-      { "leg_num": 4, "game": "ARI @ NYG", "player": "Trey McBride", "team": "ARI", "opponent": "NYG", "market": "anytime_touchdown", "selection": "Trey McBride 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002396982_4_mcbride_td" },
-      { "leg_num": 5, "game": "DEN @ SF", "player": "Christian McCaffrey", "team": "SF", "opponent": "DEN", "market": "receiving_yards", "selection": "Christian McCaffrey 32+ Receiving Yards", "line": 31.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 01:25 PM", "status": "PENDING", "key": "leg_1002396982_5_mccaffrey_receiving" },
-      { "leg_num": 6, "game": "GB @ TB", "player": "Lukas Van Ness", "team": "GB", "opponent": "TB", "market": "sacks", "selection": "Lukas Van Ness Over 0.5 Sacks", "line": 0.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002396982_6_van_ness_sacks" },
-      { "leg_num": 7, "game": "NYJ @ CHI", "player": "D'Andre Swift", "team": "CHI", "opponent": "NYJ", "market": "anytime_touchdown", "selection": "D'Andre Swift 1+ Touchdowns", "line": 0.5, "price": null, "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002396982_7_swift_td" },
-      { "leg_num": 8, "game": "JAX @ CIN", "player": "Bhayshul Tuten", "team": "JAX", "opponent": "CIN", "market": "rushing_yards", "selection": "Bhayshul Tuten Over 57.5 Rushing Yards", "line": 57.5, "price": null, "direction": "over", "game_start": "10/04/2026 @ 10:00 AM", "status": "PENDING", "key": "leg_1002396982_8_tuten_rushing" }
-    ]
+      {
+        "leg_num": 1,
+        "game": "KC @ LV",
+        "player": "Patrick Mahomes",
+        "team": "KC",
+        "opponent": "LV",
+        "market": "passing_touchdowns",
+        "selection": "Patrick Mahomes Over 1.5 Passing TDs",
+        "line": 1.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_1002396982_1_mahomes_pass_td"
+      },
+      {
+        "leg_num": 2,
+        "game": "JAX @ CIN",
+        "player": "Joe Burrow",
+        "team": "CIN",
+        "opponent": "JAX",
+        "market": "passing_touchdowns",
+        "selection": "Joe Burrow Over 1.5 Passing TDs",
+        "line": 1.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002396982_2_burrow_pass_td",
+        "actual_stat": 1
+      },
+      {
+        "leg_num": 3,
+        "game": "DAL @ HOU",
+        "player": "CeeDee Lamb",
+        "team": "DAL",
+        "opponent": "HOU",
+        "market": "anytime_touchdown",
+        "selection": "CeeDee Lamb 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_1002396982_3_lamb_td"
+      },
+      {
+        "leg_num": 4,
+        "game": "ARI @ NYG",
+        "player": "Trey McBride",
+        "team": "ARI",
+        "opponent": "NYG",
+        "market": "anytime_touchdown",
+        "selection": "Trey McBride 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002396982_4_mcbride_td",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 5,
+        "game": "DEN @ SF",
+        "player": "Christian McCaffrey",
+        "team": "SF",
+        "opponent": "DEN",
+        "market": "receiving_yards",
+        "selection": "Christian McCaffrey 32+ Receiving Yards",
+        "line": 31.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_1002396982_5_mccaffrey_receiving"
+      },
+      {
+        "leg_num": 6,
+        "game": "GB @ TB",
+        "player": "Lukas Van Ness",
+        "team": "GB",
+        "opponent": "TB",
+        "market": "sacks",
+        "selection": "Lukas Van Ness Over 0.5 Sacks",
+        "line": 0.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002396982_6_van_ness_sacks",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 7,
+        "game": "NYJ @ CHI",
+        "player": "D'Andre Swift",
+        "team": "CHI",
+        "opponent": "NYJ",
+        "market": "anytime_touchdown",
+        "selection": "D'Andre Swift 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "LOST",
+        "key": "leg_1002396982_7_swift_td",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 8,
+        "game": "JAX @ CIN",
+        "player": "Bhayshul Tuten",
+        "team": "JAX",
+        "opponent": "CIN",
+        "market": "rushing_yards",
+        "selection": "Bhayshul Tuten Over 57.5 Rushing Yards",
+        "line": 57.5,
+        "price": null,
+        "direction": "over",
+        "game_start": "10/04/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_1002396982_8_tuten_rushing"
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_betonline_afternoon_8leg_20261004",
@@ -12674,9 +13639,9 @@
     "odds_decimal": 62,
     "potential_profit_usd": 305,
     "potential_payout_usd": 310,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official BetOnline ticket confirmed by Andy on 2026-10-04 (~12:00 PT); ticket number not supplied. Built from the afternoon prop session (reports/bets/2026-w04-afternoon-props.md). Logged for leg-by-leg grading.",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official BetOnline ticket confirmed by Andy on 2026-10-04 (~12:00 PT); ticket number not supplied. Built from the afternoon prop session (reports/bets/2026-w04-afternoon-props.md). Logged for leg-by-leg grading. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
       {
         "leg_num": 1,
@@ -12750,8 +13715,9 @@
         "price": -148,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_20261004_5_dean_ta"
+        "status": "LOST",
+        "key": "leg_afternoon_8leg_20261004_5_dean_ta",
+        "actual_stat": 5
       },
       {
         "leg_num": 6,
@@ -12795,10 +13761,14 @@
         "price": -164,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_20261004_8_willis_int"
+        "status": "LOST",
+        "key": "leg_afternoon_8leg_20261004_8_willis_int",
+        "actual_stat": 0
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_betonline_afternoon_8leg_b_20261004",
@@ -12821,9 +13791,9 @@
     "odds_decimal": 212,
     "potential_profit_usd": 664.65,
     "potential_payout_usd": 667.8,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official BetOnline ticket confirmed by Andy on 2026-10-04 (~12:15 PT); ticket number not supplied. $3.15 stake (account wagering limit reached). Waller ATD duplicates a leg on #1002303293 (flagged, Andy kept it).",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official BetOnline ticket confirmed by Andy on 2026-10-04 (~12:15 PT); ticket number not supplied. $3.15 stake (account wagering limit reached). Waller ATD duplicates a leg on #1002303293 (flagged, Andy kept it). | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
       {
         "leg_num": 1,
@@ -12852,8 +13822,9 @@
         "price": 150,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_b_20261004_2_kelce_td"
+        "status": "LOST",
+        "key": "leg_afternoon_8leg_b_20261004_2_kelce_td",
+        "actual_stat": 0
       },
       {
         "leg_num": 3,
@@ -12867,8 +13838,9 @@
         "price": -148,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_b_20261004_3_jsn_rec"
+        "status": "LOST",
+        "key": "leg_afternoon_8leg_b_20261004_3_jsn_rec",
+        "actual_stat": 5
       },
       {
         "leg_num": 4,
@@ -12897,8 +13869,9 @@
         "price": -186,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_b_20261004_5_warner_ta"
+        "status": "LOST",
+        "key": "leg_afternoon_8leg_b_20261004_5_warner_ta",
+        "actual_stat": 7
       },
       {
         "leg_num": 6,
@@ -12945,7 +13918,10 @@
         "status": "PENDING",
         "key": "leg_afternoon_8leg_b_20261004_8_waller_td"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -3.15,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_betonline_afternoon_7leg_c_20261004",
@@ -12968,9 +13944,9 @@
     "odds_decimal": 164,
     "potential_profit_usd": 815,
     "potential_payout_usd": 820,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official BetOnline ticket confirmed by Andy on 2026-10-04 (~12:30 PT); ticket number not supplied. Andy-built.",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official BetOnline ticket confirmed by Andy on 2026-10-04 (~12:30 PT); ticket number not supplied. Andy-built. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
       {
         "leg_num": 1,
@@ -13014,8 +13990,9 @@
         "price": -143,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_7leg_c_20261004_3_jeanty_td"
+        "status": "LOST",
+        "key": "leg_afternoon_7leg_c_20261004_3_jeanty_td",
+        "actual_stat": 0
       },
       {
         "leg_num": 4,
@@ -13077,7 +14054,10 @@
         "status": "PENDING",
         "key": "leg_afternoon_7leg_c_20261004_7_harvey_rec"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_bkr_739761492_5team_parlay",
@@ -13101,10 +14081,10 @@
     "potential_profit_usd": 454.86,
     "potential_payout_usd": 479.86,
     "cash_out_offer_usd_at_ingest": 10.95,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_739761492",
-    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04 (placed 13:03 PT). Cash-out offer at ingest: $10.95; all legs pending. BKR listed kickoffs as 01:35/01:10 PM; real kickoffs used.",
+    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04 (placed 13:03 PT). Cash-out offer at ingest: $10.95; all legs pending. BKR listed kickoffs as 01:35/01:10 PM; real kickoffs used. | Settled 2026-10-04 by Claude from ESPN final box scores (lost leg(s) marked).",
     "legs": [
       {
         "leg_num": 1,
@@ -13116,7 +14096,7 @@
         "line": 3.5,
         "price": "-131",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_739761492_1_den_spread"
       },
       {
@@ -13173,7 +14153,10 @@
         "status": "PENDING",
         "key": "leg_739761492_5_det_car_over"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -25,
+    "graded_at": "2026-10-04T23:30:00Z"
   },
   {
     "id": "bet_20261004_betonline_snf_island_8leg_20261004",
