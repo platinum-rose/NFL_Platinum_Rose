@@ -631,6 +631,8 @@ Atlanta's turnover problem continues: two Penix giveaways and New Orleans wins b
 - SuperContest B 2-team RR: The same five as ten $1 two-team parlays, so three winners get the stake back and four or five profit.
 - 7a Morning prop stack: Quarterback markets on the morning games: Brissett and Stafford 2+ passing TDs, plus interceptions by Winston and the rookie Jalon Daniels. A $5 long shot (+930).
 - 7b Afternoon prop stack: Darnold and Mahomes 2+ passing TDs plus a Malik Willis interception. +393 on $5; three heavy-ish legs, so it's thinner than it looks.
+- 7e Anytime TD 7-leg: Seven touchdown scorers, one per game, each on a team we expect to win or a matchup we grade HIGH, with a named expert behind every leg; Jameson Williams on Sunday night keeps it alive late. $5 at about +58,781 at BetOnline: a true moonshot (this ticket type is 0–11 this season).
+- 8a First TD 3-leg: James Cook, Derrick Henry and Travis Kelce to score their game's first touchdown: the lead scorers on three expected winners, two of them Trent Conner first-TD picks. $5 at about +23,525 (First TD tickets are 1 for 8 this season).
 - 8b 2+ TD 3-leg: Derrick Henry, David Montgomery and Jahmyr Gibbs to score twice; the Gibbs leg on Sunday night keeps it alive late. $5 at +2300, a template moonshot.
 
 ## SUPERCONTEST

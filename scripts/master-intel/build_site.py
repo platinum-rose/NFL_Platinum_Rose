@@ -173,13 +173,13 @@ def _rec_filter(box):
         del bar['data-col']
         lead = soup_of('<span class="rec-filter" id="rec-filter">'
                        '<button type="button" class="btn-toggle btn-primary" data-t="all">All</button>'
-                       '<button type="button" class="btn-toggle" data-t="side">Sides</button>'
+                       '<button type="button" class="btn-toggle" data-t="side">Spreads</button>'
                        '<button type="button" class="btn-toggle" data-t="ml">Moneylines</button>'
                        '<button type="button" class="btn-toggle" data-t="total">Totals</button></span>').span
         bar.insert(0, lead)
     intro = rec.find('p')
     if intro:
-        intro.string = 'Grouped by game. Filter to sides, moneylines or totals, and sort by strength, kickoff or name. Open a game for our projected score and the reasoning.'
+        intro.string = 'Grouped by game. Filter to spreads, moneylines or totals, and sort by strength, kickoff or name. Open a game for our projected score and the reasoning.'
     for g in rec.find_all('details', class_='filter-group'):
         g['class'] = g.get('class', []) + ['rec-game']
         tags_rows = []
@@ -189,13 +189,7 @@ def _rec_filter(box):
                 continue
             typ = tds[0].get_text(strip=True).lower(); pick = tds[1].get_text(' ', strip=True)
             t = set()
-            for part in pick.split(' / '):
-                if typ == 'total':
-                    t.add('total')
-                elif re.search(r'\bML\b', part):
-                    t.add('ml')
-                else:
-                    t.add('side')
+            t.add({'total': 'total', 'ml': 'ml', 'spread': 'side', 'side': 'side'}.get(typ, 'side'))
             tr['data-t'] = ' '.join(sorted(t))
             tags_rows.append(tr['data-t'])
         sm = g.find('summary'); st = sm.find(class_='sum-text') if sm else None

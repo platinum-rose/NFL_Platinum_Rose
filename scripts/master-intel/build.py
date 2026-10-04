@@ -1044,22 +1044,58 @@ def main():
     L += ['', '<a id="recommendations"></a>', '## ⭐ Platinum Rose Recommendations: What to Bet This Week', '',
           'Everything Platinum Rose recommends this week, in one place. Prices are Bookmaker (BKR) or BetOnline (BEO) at capture time: **check the price on your slip before placing**. More stars = more evidence behind the bet ([how stars work](#confidence-defs)).', '']
     straight = [r for r in RANKED if r['type'] in ('Side', 'Total')]
+    # 2026-10-04 (Andy): a lean written as 'NYJ +3.5 -103 / NYJ ML +167' becomes two rows, a Spread and an ML, so the
+    # Moneylines filter shows only moneylines. An underdog ML says plainly that it is a price play (usually a leg of the
+    # dog round robin), not a call that the team wins, when our projection has it losing.
+    dogrr = next((t for t in TK if 'dog' in t['name'].lower()), None)
+    dogrr_teams = {lg['market'].split()[0] for lg in (dogrr['legs'] if dogrr else [])}
+    def split_rows(r):
+        parts = [x.strip() for x in r['market'].split(' / ') if x.strip()]
+        out_ = []
+        for part in parts:
+            if r['type'] == 'Total':
+                typ = 'Total'
+            elif re.search(r'\bML\b', part):
+                typ = 'ML'
+            else:
+                typ = 'Spread'
+            if re.match(r'^[+−-]', part) and r['lean']:
+                part = f"{r['lean']} {part}"
+            note = ''
+            pm = re.search(r'\bML\s*([+−-]\d+)', part)
+            pj = (NAR.get(r['gid']) or {}).get('proj')
+            if typ == 'ML' and pm and pj:
+                od = int(pm.group(1).replace('−', '-'))
+                pts = dict(pj); team = r['lean']; opp = next((t_ for t_ in pts if t_ != team), None)
+                if opp and team in pts and pts[team] < pts[opp] and od > 0:
+                    imp = 100 / (od + 100) * 100
+                    note = (f"Underdog moneyline: our projection has {opp} winning by {pts[opp] - pts[team]}, so this is a price play, not a call that {team} wins. "
+                            f"At {od:+d} it only needs to win about {imp:.0f}% of the time"
+                            + (", and it is one of the six legs of the Dog-ML round robin." if team in dogrr_teams else ".") + ' ')
+            out_.append(dict(r, market=part, type=typ, note=note))
+        return out_
+    rows_all = [x for r in straight for x in split_rows(r)]
     bygame = collections.OrderedDict()
-    for r in straight: bygame.setdefault(r['gid'], []).append(r)
-    L += roll('section-rec', 'rec-straight', f'✅ Straight bets: sides &amp; totals — {len(straight)} picks in {len(bygame)} games') + [
-          'Grouped by game. Filter to only sides or only totals, and sort by strength, kickoff or name. Open a game for our projected score and the reasoning.', '']
-    L += fbar('Type', ['Side', 'Total'], 'rec-games', 'rec-games') + ['<div id="rec-games">']
+    for r in rows_all: bygame.setdefault(r['gid'], []).append(r)
+    L += roll('section-rec', 'rec-straight', f'✅ Straight bets: spreads, moneylines &amp; totals — {len(rows_all)} bets in {len(bygame)} games') + [
+          'Grouped by game. Filter to spreads, moneylines or totals, and sort by strength, kickoff or name. Open a game for our projected score and the reasoning.', '']
+    L += fbar('Type', ['Spread', 'ML', 'Total'], 'rec-games', 'rec-games') + ['<div id="rec-games">']
     for gid, rs in bygame.items():
         best = max(r['conf'] for r in rs); k_ = kick.get(gid)
         head = f"{matchup(gid)} — " + ' · '.join(f"{esc(r['market'])} ({r['conf']:.1f}★)" for r in rs) + (f" — {k_.astimezone(PT):%a %H:%M PT}" if k_ else '')
         L += [f'<details class="rollup-box section-rec filter-group sort-group" id="rec-{slug(gid)}" data-conf="{best:.2f}" data-kick="{k_.isoformat() if k_ else ""}" data-game="{gid}">', f'<summary>🏈 {head}</summary>', '<div class="rollup-content">', '',
               '| Type | Pick | Lean | Confidence | Why |', '|---|---|---|---|---|'] + [
-              f"| {r['type']} | **{esc(r['market'])}** | {esc(r['lean'])} | {stars(r['conf'])} | {link_sources(r['source'], gid)} <em>({esc('; '.join(r['conf_why']))})</em> |" for r in rs]
+              f"| {r['type']} | **{esc(r['market'])}** | {esc(r['lean'])} | {stars(r['conf'])} | {('<strong>' + esc(r['note']) + '</strong>') if r.get('note') else ''}{link_sources(r['source'], gid)} <em>({esc('; '.join(r['conf_why']))})</em> |" for r in rs]
         if proj_txt(gid): L += ['', f"🎯 **Our projected score:** {proj_txt(gid)}"]
         if gwhy(gid): L += ['', f"🧠 **Why:** {esc(gwhy(gid))}"]
         L += ['', f"[Full game write-up →](#{gsid(gid)}) · [all expert picks →](#experts-{slug(gid)})"] + RE
     L += ['</div>'] + RE
-    parl = [t for t in TK if not ticket_is_props(t)]; stacks = [t for t in TK if ticket_is_props(t)]
+    singles = [t for t in TK if not ticket_is_props(t) and t['name'].lower().startswith('single')]
+    parl = [t for t in TK if not ticket_is_props(t) and t not in singles]; stacks = [t for t in TK if ticket_is_props(t)]
+    if singles:
+        L += roll('section-rec', 'rec-singles', f'🎯 Singles — {len(singles)} bets') + ['One bet, one result: no parlay math. These are the card\'s highest-margin single reads.', '']
+        for t in singles: L += ticket_box(t, 'section-tickets')
+        L += RE
     L += roll('section-rec', 'rec-parlays', f'🎟️ Parlays &amp; round robins — {len(parl)} tickets') + [
           'Each ticket opens to show what it is, why it\'s on the card, and every leg.', '', '💡 **"(est.)" price:** each leg\'s odds multiplied together, the standard way to estimate what a parlay pays. The book\'s actual payout can differ a little, and same-game parlays (several legs from one game) pay noticeably less because the legs are related. Check the payout on your slip.', '',
           '<div class="rollup-controls">', "  <button class=\"btn-toggle btn-primary\" onclick=\"toggleRollups('section-tickets', true)\">Open all tickets</button>",
