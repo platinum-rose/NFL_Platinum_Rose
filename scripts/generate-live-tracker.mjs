@@ -731,13 +731,48 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
   const SC_RANK_LOOKUP = hasLockedCardFile
     ? Object.fromEntries(scTop5List.map(p => [p.pickTeam, { ...p, isTop5: true, isAlt: false }]))
     : SC_RANKINGS;
-  const scAlternatesList = hasLockedCardFile ? [] : [
+  // Per-week alternates (#6–#10) live in data/supercontest/alternates-week-<N>.json
+  // (or public/). With a locked card but no alternates file, the section is empty;
+  // with neither, the hardcoded Week 1 alternates are used.
+  let scWeekAlternates = null;
+  try {
+    let rawAlts = '';
+    try { rawAlts = await readFile(path.resolve(ROOT, `data/supercontest/alternates-week-${week}.json`), 'utf8'); } catch {
+      rawAlts = await readFile(path.resolve(ROOT, `public/alternates-week-${week}.json`), 'utf8');
+    }
+    const parsedAlts = JSON.parse(rawAlts);
+    if (Array.isArray(parsedAlts) && parsedAlts.length > 0) {
+      const lockedTeams = new Set(scTop5List.map(p => p.pickTeam));
+      scWeekAlternates = parsedAlts
+        .filter(a => a && (a.pickTeam || a.team) && !lockedTeams.has(a.pickTeam || a.team))
+        .map((a, idx) => ({
+          rank: a.rank || scTop5List.length + idx + 1,
+          grade: a.grade || 'B',
+          isAlt: true,
+          isTop5: false,
+          pickTeam: a.pickTeam || a.team,
+          pickLabel: a.pickLabel || `${a.pickTeam || a.team} ${a.lockedSpread || ''}`,
+          opponent: a.opponent || 'OPP',
+          isHome: !!a.isHome,
+          lockedSpread: a.lockedSpread || '',
+          dkSpread: a.dkSpread || '-',
+          modelEdge: a.modelEdge || '',
+          clvText: a.clvText || '',
+          consensus: a.consensus || 'Card alternate',
+          reason: a.reason || '',
+        }));
+    }
+  } catch { /* no alternates file for this week */ }
+  if (scWeekAlternates) {
+    for (const a of scWeekAlternates) if (!SC_RANK_LOOKUP[a.pickTeam]) SC_RANK_LOOKUP[a.pickTeam] = a;
+  }
+  const scAlternatesList = scWeekAlternates || (hasLockedCardFile ? [] : [
     SC_RANKINGS['PHI'],
     SC_RANKINGS['MIA'],
     SC_RANKINGS['SF'],
     SC_RANKINGS['KC'],
     SC_RANKINGS['DAL'],
-  ];
+  ]);
 
   const scMatrixList = scLines.map(g => {
     const fav = g.favorite_abbr;
