@@ -14,6 +14,7 @@ handoff prose. A full copy of the pre-trim rolling handoff was archived at
 ## Current Pick Up Here
 
 Latest active handoff sources:
+- `handoffs/2026-10-04-0300-claude-pickem-w04-podcast-screen-rules-handoff.md` (**LATEST.** W4 pick'em plans (TNF PIT locked x3); podcast props screen + normalizer; betting rules pruned per Andy (see §5/§7.2 of the synthesis prompt); Slot 3 must be rebuilt to the morning template; "no unders in parlays" was never a rule. Next: Sunday card in a fresh session.)
 - `handoffs/2026-10-03-2045-claude-synthesis-w04-card-built-intel-filled-handoff.md` (**LATEST.** Week 4 digest + card built (14 tickets, $175, nothing placed), TICKETS/SUPERCONTEST blocks + per-game ticket notes in the narratives, survivor pick intel, Master Intel rebuilt and filled; review artifact v3. SC five proposed + 5 alternates; Bills credits x2 pending Andy. Next: SUN mode — inactives, re-price, island ladders, ledger.)
 - `handoffs/2026-10-03-1415-claude-week4-fulltext-ingestion-handoff.md` (**LATEST.** Local full-text archive of the week's articles (604), Abrams primer feed (systems/trends), 118 hand-extracted article picks verified, trends/news lanes in build.py, all 15 narratives updated; NE@BUF lean flipped to NE +7. Open: ingestion caps/scheduling tickets, coaching file, card.)
 - `handoffs/2026-10-03-1300-claude-week4-expert-verification-best-bets-handoff.md` ( New `scripts/master-intel/verify_expert_rows.py` checks every expert/podcast/article pick against the actual matchup (257 verified / 83 rejected for W4); build.py now counts consensus from verified picks only and adds an "Every expert's picks this week" block; every narrative has a "What the experts are saying" section. Open: expert season records, coaching-staff file, coaching trends for Week 5, the card.)
@@ -95,8 +96,8 @@ Current state:
    still sitting at STOP A. See
    `handoffs/2026-09-22-2300-claude-preflight-fix-bkr-manual-capture-week3-resume.md`.
 5. Active rules: leg barrier `-350` (flag >2 legs shorter than -200); QB rushing/INT props
-   need a stated matchup fit; a player missing from the final box score = lost leg; 2-team
-   RRs on Bookmaker; BKR props same-game only.
+   need a stated matchup fit; a player missing from the final box score = lost leg; BKR props
+   same-game only.
 6. Automation: Grok Thread Scanner & Windows Scheduled Tasks suite (13 tasks) are active
    in hidden mode. Week 3 rollover active; grok thread prompt generated in
    `data/research-intel/grok-thread-prompt-latest.md`.

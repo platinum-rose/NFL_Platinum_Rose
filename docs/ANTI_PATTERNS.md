@@ -77,3 +77,7 @@
 - **O(n²) lookups in loops**: Never call a `.find()` inside `.map()` — pre-build a `Map` keyed by the lookup field for O(1) access.
 
 - **Don't use `.map()` on potentially undefined arrays**: Always default: `(arr || []).map(...)`.
+
+## Betting Rules & Card Building
+
+- **Treating a playbook proposal as a standing rule** (2026-10-04, Andy correction): the Week 4 card and a Claude session excluded full-game unders from parlays as a "house rule". The source was the *Week 4 proposal* section of `docs/claude-project-dev/week4-playbook-2026.md` ("Andy's call"), not a rule Andy adopted. Rule: the only betting rules are Andy's standing rules (`agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md` §7.2, HANDOFF "Active rules") and the data-derived build rules (§5 table). Playbook "Cut"/"Rules" bullets are proposals until Andy confirms them; cite them as "playbook proposal", never "house rule", and never drop a leg on one alone.

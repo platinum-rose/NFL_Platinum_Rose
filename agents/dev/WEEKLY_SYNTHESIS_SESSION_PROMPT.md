@@ -93,13 +93,10 @@ Source: `docs/tracked-wagers/week2_2026_analysis.md`. Read only "Patterns to use
 | 1 | **No −120 to −100 connector legs** unless sourcing tier 1–2 (§6). Take −121 or longer, or plus money. | 31-45-1, 41% vs 53% needed, −23% (n=76), bad both weeks |
 | 2 | **Underdog spreads are allowed when the matchup and price case are stated.** Do not use points merely to make a parlay leg feel safer. | Week 1 spread dogs were 10-20, −44%; that is a review signal, not a prohibition. |
 | 3 | **Lean on tackles+assists and passing TDs.** Keep sacks and receiving yards to a minimum. | T+A 9-4 +22%, pass TD 8-3 +14%; rec yds −27%, receptions −18%, sacks 2-3 |
-| 4 | **Props go on the side you expect to win.** Never stack an offense you fade elsewhere on the card. | 56% vs 39% (Week 2) |
-| 5 | **Each starting QB is one shared risk** across every leg on his offense. Count those legs as one exposure. | MNF Dart injury: Giants legs 4-15 |
-| 6 | **ML chalk ≤ −290 is not a free anchor.** Flag it; one per ticket at most. | 6-4 vs ~78% implied; TB −410, BAL −379, LAC −292 all lost |
-| 7 | **Structure:** 2-leg tickets and 2-team RRs first. Straight parlays of 5+ legs are moonshots only ($5, one or two a week). | All 3 Week 2 winners were 2-leg or 2-team; 5+ leg straights 0-26 |
-| 8 | **Receptions are tight to the line.** Only for proven target share on the expected winner. Yardage is bimodal, so don't pay −110 to −120 for a median line. | 9 of 12 rec losses were within 1.5 catches |
-| 9 | **Moonshot ATD stacks lose.** One long-priced TD (+150 or longer) is fine as a single or in an RR. | ATD moonshots 0-11 on scorers; +150-or-longer band +20% |
-| 10 | Bookmaker vs BetOnline: **no edge either way** (50% vs 49% after the 9/22 book correction). Choose the book by rule and price, not habit. | — |
+| 4 | **Each starting QB is one shared risk** across every leg on his offense. Count those legs as one exposure. | MNF Dart injury: Giants legs 4-15 |
+| 5 | **ML chalk ≤ −290 is not a free anchor.** Flag it; one per ticket at most. | 6-4 vs ~78% implied; TB −410, BAL −379, LAC −292 all lost |
+| 6 | **Receptions are tight to the line.** Only for proven target share on the expected winner. Yardage is bimodal, so don't pay −110 to −120 for a median line. | 9 of 12 rec losses were within 1.5 catches |
+| 7 | Bookmaker vs BetOnline: **no edge either way** (50% vs 49% after the 9/22 book correction). Choose the book by rule and price, not habit. | — |
 
 **Also known:** the quant prop model **failed validation** (Brier skill −3.3%, calibration inverted). Never use a model "edge %" to select or size legs (`docs/BETTING_LESSONS_LEARNED.md` §"quant prop model FAILED"). Build from verified role: who got the touches last week.
 
@@ -135,7 +132,7 @@ Key traps: nflverse codes the Rams `LA` (roster map `LAR`); odds tables use `WSH
 
 ## 7. Phase 3 — Build the card
 
-### 7.1 Slots (from `docs/NFL_WEEKLY_CARD_PROCESS.md`, reweighted by §5 rule 7)
+### 7.1 Slots (from `docs/NFL_WEEKLY_CARD_PROCESS.md`)
 
 Order: RRs first, then sides/totals, then props.
 - **Dog 2-team RR** (Bookmaker): 6 selections × $1.33 = $20. Dogs you would bet as singles; use the moneyline or spread only when its documented case supports that market.
@@ -153,7 +150,7 @@ Stakes follow the card-process doc. Flag any deviation; never invent new staking
 - **Leg barrier −350.** Flag any stack with **more than two legs shorter than −200**.
 - **QB rushing / INT props are allowed only with a stated matchup fit** (mobile QB vs man/blitz-heavy D, QB expected to trail, young QB vs ball-hawking secondary). BKR SGPs don't take INT legs.
 - **Player missing from the final box score = leg LOST.** Avoid questionable players in stacks unless the price covers it.
-- **Books:** 2-team round robins → Bookmaker. BKR props → **same-game only**. Multi-game prop stacks → BetOnline.
+- **Books:** BKR props → **same-game only**. Multi-game prop stacks → BetOnline.
 - **BEO correlation trim** starts above 2 legs per game (Week 2: 5 same-game legs cut the price 15.4%). Keep ≤2 legs per game on BEO multi-game stacks.
 - One leg per game where possible; props independent of the sides/totals parlays; no exact duplicate legs across live tickets.
 - The Bills free-bet credit ($10, **sides/totals ~−110 only**, stake not returned, lands Wed by 7 pm ET). Andy's default is **Bills' opponent + points**. Underdog spreads are allowed when their matchup and price case are stated; show both Andy's default and the best-supported −110 side/total on the slate. Andy picks.

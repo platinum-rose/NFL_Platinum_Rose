@@ -29,8 +29,10 @@ Source: re-graded Week 1–3 post-mortems (ESPN box scores). Repo: `reports/bets
 - Caveats: Week 1 Twitter coverage thin; some first-TD picks graded as anytime.
 
 ## Week 4 proposal (Andy's call; nothing placed)
+These are proposals, not standing rules, unless Andy confirms them (2026-10-04).
 - Lean in: 2-team RRs (dog-ML RR, SC 2-team RR), dogs on the ML not the spread, QB markets (pass TD overs, INT-yes), props on the expected winner, 1–2 leg tickets for top reads, AI prop screens, props backed by a "follow" expert.
-- Cut: 5+ leg parlays to max 4 × $5; master RR to $35 (70 × $0.50) or skip; no reception/receiving-yard filler; no full-game Unders in parlays; drop first TD/sacks/QB rushing; AI side picks only with a second source.
-- Rules: avoid −121 to −199 connectors; max 4 legs on anything over $5; re-grade after Week 4.
+- Cut: 5+ leg parlays to max 4 × $5; master RR to $35 (70 × $0.50) or skip; no reception/receiving-yard filler; no full-game Unders in parlays; AI side picks only with a second source.
+- Rules: avoid −121 to −199 connectors; re-grade after Week 4.
 - Proposed mix ≈$240 (vs $422/wk avg): 2-team RRs $35 · 1–2 leg tickets $45 · SC 5-team $15 · master RR $35/$0 · 5+ leg parlays $20 · islands (TNF PIT@CLE, SNF, MNF) $90.
 - Prop round robins: ruled out by Andy — no book offers them and building combos by hand is too labor-intensive for the return. Use 2–3 hand-built 2-leg prop tickets instead.
+- Removed by Andy 2026-10-04: "max 4 legs on anything over $5" and "drop first TD/sacks/QB rushing".
