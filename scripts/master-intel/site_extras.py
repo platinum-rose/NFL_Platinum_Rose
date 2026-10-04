@@ -657,6 +657,9 @@ BOOKMARKS_CSS = r"""
 .lp-row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
 .lp-cell{display:flex;flex-direction:column;min-width:96px;padding:6px 10px;border:1px solid var(--border);border-radius:8px;font-size:13.5px}.lp-b{font-size:10.5px;font-weight:800;letter-spacing:.06em;color:var(--muted)}
 @media (max-width:640px){.leg-list .leg>summary{grid-template-columns:auto minmax(0,1fr) auto;gap:4px 8px}.lg-kind{display:none}.lg-sup{grid-column:2/4;text-align:left}.lg-sup small{display:inline;margin-left:6px}.lg-price{grid-column:3;grid-row:1}}
+.rec-filter{display:inline-flex;flex-wrap:wrap;gap:6px;margin-right:6px}
+.rp:not([hidden])~.rp:not([hidden])::before{content:' · '}
+.rp[hidden]{display:none}
 @media (max-width:640px){.sc-pick{padding:12px;gap:10px}.sc-rank{min-width:34px;height:34px}.sc-title{font-size:16px}}
 """
 
@@ -796,7 +799,22 @@ BOOKMARKS_JS = r"""
     document.getElementById('lf-collapse').addEventListener('click', function(){ setAll('.leg', false); });
     apply();
   }
-  function go(){ setup(); wire(); calc(); legs(); }
+  function recFilter(){
+    var bar = document.getElementById('rec-filter'); if (!bar) return;
+    bar.querySelectorAll('button[data-t]').forEach(function(b){ b.addEventListener('click', function(){
+      var k = b.getAttribute('data-t');
+      bar.querySelectorAll('button[data-t]').forEach(function(x){ x.classList.toggle('btn-primary', x === b); });
+      document.querySelectorAll('.rec-game').forEach(function(g){
+        var n = 0;
+        g.querySelectorAll('tbody tr[data-t]').forEach(function(tr){
+          var ok = k === 'all' || tr.getAttribute('data-t').split(' ').indexOf(k) >= 0; tr.style.display = ok ? '' : 'none'; if (ok) n++; });
+        g.querySelectorAll('.rp[data-t]').forEach(function(sp){
+          sp.hidden = !(k === 'all' || sp.getAttribute('data-t').split(' ').indexOf(k) >= 0); });
+        g.style.display = n ? '' : 'none';
+      });
+    }); });
+  }
+  function go(){ setup(); wire(); calc(); legs(); recFilter(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go); else go();
 })();
 """

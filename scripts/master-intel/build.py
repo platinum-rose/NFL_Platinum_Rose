@@ -787,7 +787,8 @@ def main():
         _px = lambda z: re.sub(r'\s*\bnaive\b', ' (est.)', z.strip())
         TK.append(dict(name=m.group(1).strip(), disp=ticket_display(m.group(1)), book=m.group(2).strip(), stake=m.group(3), price=_px(m.group(4)), ret=_px(m.group(5)), legs=legs,
                        flags=flags.group(0) if flags else '', id='ticket-' + slug(m.group(1))))
-    sc_line = re.search(r'^## SuperContest[^\n]*\n([^\n]+)', card_cur, re.M)
+    # the picks may sit on the heading line ('## SuperContest — proposed five (contest lines): ARI −1.5, ...') or the line under it
+    sc_line = re.search(r'^## SuperContest([^\n]*\n[^\n]+)', card_cur, re.M)
     left_off = re.search(r'^## Left off and why\n(.*?)(?=^## |\Z)', card_cur, re.M | re.S)
 
     PROPWORDS = r'(\brec\b|\brush\b|pass TD|pass yds|\bTD\b|\bATD\b|T\+A|tackles|receptions|rec yds|completions|attempts|interceptions)'

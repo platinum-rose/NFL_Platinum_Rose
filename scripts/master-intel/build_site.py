@@ -158,6 +158,59 @@ def dashboard_fragment():
     ).section
 
 
+def _rec_filter(box):
+    """Straight bets on the dashboard: All / Sides / Moneylines / Totals filter that also filters each game's
+    summary line (the old table filter hid table rows only, so a game's summary still listed its sides
+    under 'Total'). A pick like 'NYJ +3.5 -103 / NYJ ML +167' counts as both a side and a moneyline."""
+    rec = box.find('details', id='rec-straight')
+    if not rec:
+        return
+    bar = rec.find('div', class_='table-filter')
+    if bar:
+        for b in bar.find_all('button', attrs={'data-filter': True}):
+            b.decompose()
+        bar['class'] = [c for c in bar.get('class', []) if c != 'table-filter']
+        del bar['data-col']
+        lead = soup_of('<span class="rec-filter" id="rec-filter">'
+                       '<button type="button" class="btn-toggle btn-primary" data-t="all">All</button>'
+                       '<button type="button" class="btn-toggle" data-t="side">Sides</button>'
+                       '<button type="button" class="btn-toggle" data-t="ml">Moneylines</button>'
+                       '<button type="button" class="btn-toggle" data-t="total">Totals</button></span>').span
+        bar.insert(0, lead)
+    intro = rec.find('p')
+    if intro:
+        intro.string = 'Grouped by game. Filter to sides, moneylines or totals, and sort by strength, kickoff or name. Open a game for our projected score and the reasoning.'
+    for g in rec.find_all('details', class_='filter-group'):
+        g['class'] = g.get('class', []) + ['rec-game']
+        tags_rows = []
+        for tr in g.select('tbody tr'):
+            tds = tr.find_all('td')
+            if len(tds) < 2:
+                continue
+            typ = tds[0].get_text(strip=True).lower(); pick = tds[1].get_text(' ', strip=True)
+            t = set()
+            for part in pick.split(' / '):
+                if typ == 'total':
+                    t.add('total')
+                elif re.search(r'\bML\b', part):
+                    t.add('ml')
+                else:
+                    t.add('side')
+            tr['data-t'] = ' '.join(sorted(t))
+            tags_rows.append(tr['data-t'])
+        sm = g.find('summary'); st = sm.find(class_='sum-text') if sm else None
+        if st is None:
+            continue
+        raw = st.decode_contents()
+        parts = raw.split(' — ')
+        if len(parts) >= 3:
+            items = ' — '.join(parts[1:-1]).split(' · ')
+            if len(items) == len(tags_rows):
+                chips = ''.join(f'<span class="rp" data-t="{t}">{it}</span>' for it, t in zip(items, tags_rows))
+                st.clear()
+                st.append(soup_of(f'{parts[0]} — {chips} — {parts[-1]}'))
+
+
 def main(src):
     src = Path(src)
     raw = src.read_text(encoding='utf-8')
@@ -267,10 +320,21 @@ def main(src):
                 out_.append(el)
                 if el.name == 'h2':
                     out_.append(asof)
+            # Everything collapsed on arrival (Andy 2026-10-04); straight-bet filter rebuilt below.
             for el in out_:
-                for d in (el.find_all('details', id=re.compile(r'^rec-'), recursive=False) if el.get('id') == 'section-rec-box' else []):
-                    if d['id'] != 'rec-passes':
-                        d['open'] = ''
+                for d in (el.find_all('details') if hasattr(el, 'find_all') else []):
+                    if d.has_attr('open'):
+                        del d['open']
+                if el.get('id') == 'section-rec-box':
+                    _rec_filter(el)
+                    scb = el.find('details', id='rec-supercontest')
+                    if scb is not None and XC:
+                        _f, _a, _ = SX.sc_rows(XC)
+                        if _a:
+                            alts = ' · '.join(f"{html.escape(r.get('pick', ''))} {html.escape(r.get('contest line', ''))}" for r in _a)
+                            scb.find('div', class_='rollup-content').append(soup_of(
+                                f'<p><strong>Five alternates:</strong> {alts}. '
+                                '<a href="sc.html">Reasoning, ranking and expert picks on the Super Contest tab →</a></p>').p)
             slate = [copy.copy(h) for h in header if h.get('id') == 'slate-status-box']
             for d in slate:
                 if d.has_attr('open'):
