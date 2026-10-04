@@ -71,7 +71,7 @@ function sentences(text) {
   return cleanLines(text).flatMap((line) => line.split(/(?<=[.!?])\s+(?=[A-Z0-9"(])/));
 }
 
-const PICK_CUE = /\b(i like|we like|i'?ll take|we'?ll take|i'?m taking|we'?re taking|take the|taking the|lay the|laying the|lean(?:ing)?\b|my pick|our pick|the pick|pick:|picks?:|best bets?|bet on|betting on|backing|play on|hammer|fade|prediction:|recommend|i'?d (?:take|bet|play)|give me|i'?ll go|for me|bet:|the play|best of the rest|teaser of the week)(?:\b|(?<=:))/gi;
+const PICK_CUE = /\b(i like|we like|i'?ll take|we'?ll take|i'?m taking|we'?re taking|take the|taking the|lay the|laying the|lean(?:ing)?\b|my pick|our pick|the pick|pick:|picks?:|best bets?|bet on|betting on|backing|play on|hammer|fade|prediction:|recommend|i'?d (?:take|bet|play)|give me|i'?ll go|for me|bet:|the play|best of the rest|teaser of the week|more plays|other plays|additional plays|plays for|my plays|also like)(?:\b|(?<=:))/gi;
 // 2026-10-03: the trailing \b never matched after a colon, so "Erickson's Pick: Colts -3.5" or "Bet: Texans ML" had no cue.
 // A line only counts when it sits near a cue (some lines run long once markup is stripped).
 const CUE_BEFORE = 100, CUE_AFTER = 160;
@@ -168,14 +168,20 @@ const MATCHUP_RE = /((?:[A-Z][A-Za-z.']+ ){0,2}[A-Z0-9][A-Za-z0-9.']+)\s(?:@|at|
 // counts as a pick heading. A short cue line with no line of its own ("BEST OF THE REST", "Teaser of the week")
 // covers the next CARRY_LINES lines.
 const CARRY_LINES = 3;
-const STANDALONE = /^(?:[A-Z][A-Za-z.']+ ){0,3}[A-Z0-9][A-Za-z0-9.']+ (?:[+-]\d{1,2}(?:\.5)?|[+-]\d{3} ML|ML|PK)(?: \([+-]\d{3}\))? (?:at|vs\.?|versus|@) (?:[A-Z][A-Za-z.']+ ?){1,4}$|^(?:[A-Z][A-Za-z.']+[ /]?){1,6} (?:Over|Under) \d{2}(?:\.5)?$/;
+// "Denver Broncos +3.0 (-115) vs. San Francisco 49ers", "Colts -3.5 ( -192 )", "Houston Texans -145 ML vs. Dallas Cowboys",
+// "Miami Dolphins vs. Minnesota Vikings Under 39.5 Points (-115)", "Jacksonville Jaguars at Cincinnati Bengals total points OVER 51"
+const PRICE = String.raw`(?: \(\s*[+-]\d{3}\s*\))?`;
+const STANDALONE = new RegExp(String.raw`^(?:[A-Z][A-Za-z.']+ ){0,3}[A-Z0-9][A-Za-z0-9.']+ (?:[+-]\d{1,2}(?:\.[05])?|[+-]\d{3} ML|ML|PK)${PRICE}(?: (?:at|vs\.?|versus|@) (?:[A-Z0-9][A-Za-z0-9.']+ ?){1,4})?$`
+  + String.raw`|^(?:[A-Z0-9][A-Za-z0-9.']+(?: vs\.?| at|-|/| )?\s?){1,8}(?: total points)? (?:Over|Under|OVER|UNDER) \d{2}(?:\.[05])?(?: [Pp]oints)?${PRICE}$`);
+const PRICED = /\(\s*[+-]\d{3}\s*\)\s*(?:(?:at|vs\.?|versus|@)\s.*)?$/;
 // Sentences that quote a market line or a past result rather than make a pick
 // ("The advance line was Colts -4.5", "we went 4-2 ATS with wins on the Steelers +3.5").
-const NOT_PICK = /\b(advance line|look-?ahead line|line (?:was|opened|moved|dropped|rose|fell)|re-?opened|opened (?:at|as)|went \d+-\d+|last week'?s? (?:column|picks|best bets)|wins? (?:were )?on the|losses were|cashed|we'?re \d+-\d+ (?:ats|on)|record (?:is|of)|was a winner|lost with)\b|"no" on\b/i;
+const NOT_PICK = /\b(advance line|look-?ahead line|line (?:was|opened|moved|dropped|rose|fell)|re-?opened|opened (?:at|as)|went \d+-\d+|last week'?s? (?:column|picks|best bets)|wins? (?:were )?on the|losses were|cashed|we'?re \d+-\d+ (?:ats|on)|record (?:is|of)|was a winner|lost with|best bet was|pick was|last week:|result:)\b|"no" on\b/i;
 export function parseGatedLines(text, { source, baseConfidence = 0.65, eventRef = null, max = 8, pickColumn = false, week = null } = {}) {
   const run = (useStandalone) => gatedPass(text, { source, baseConfidence, eventRef, max, useStandalone, week });
-  const first = run(false);
-  // Pick headings only count in a column that states no inline picks of its own (a column with "Best Bet: ..."
+  // In a picks column a heading that carries its price ("Denver Broncos +3.0 (-115) vs. San Francisco 49ers") is a pick.
+  const first = run(pickColumn ? 'priced' : false);
+  // Other pick headings only count in a column that states no inline picks of its own (a column with "Best Bet: ..."
   // lines uses its headings for the game listing: "Pittsburgh -3 at Cleveland").
   if (!pickColumn || first.filter((x) => x.inline).length >= 2) return first.map(strip);
   return run(true).map(strip);
@@ -184,31 +190,37 @@ const strip = ({ inline, ...x }) => x;
 function gatedPass(text, { source, baseConfidence, eventRef, max, useStandalone, week }) {
   const out = [];
   const seen = new Set();
-  let carry = 0, stale = false;
+  let carry = 0, stale = false, prevLine = '';
   for (const line of cleanLines(text)) {
     // A section about another week ("Additional Week 3 Best Bets", "Last week's results") is skipped
     // until a line names this week again.
     // Only heading-length lines switch sections; prose that mentions "won in Week 3" does not.
+    // ...and only when the line is about picks or results ("Additional Week 3 Best Bets", "Week 3 results"),
+    // so a sidebar link like "NFL Week 3 grades" does not switch off the article below it.
     const wk = week && line.length <= 70 ? line.match(/\bweek (\d{1,2})\b/i) : null;
-    if (wk && Number(wk[1]) !== week) { stale = true; carry = 0; continue; }
-    if (wk) stale = false;
+    if (wk && Number(wk[1]) !== week && (cueSpans(line).length || /\b(results?|record|recap)\b/i.test(line))) { stale = true; carry = 0; continue; }
+    if (wk && Number(wk[1]) === week) stale = false;
+    else if (wk && stale) continue;   // "Week 3 Picks" inside a stale section keeps it stale
     if (stale) continue;
-    const standalone = useStandalone && line.length <= 90 && STANDALONE.test(line);
+    const standalone = !!useStandalone && line.length <= 90 && STANDALONE.test(line) && (useStandalone !== 'priced' || PRICED.test(line));
+    const carried = carry > 0 && line.length <= 90;   // carry reaches list items, not paragraphs
     let lineCue = false, pushed = 0;
     for (const s of line.split(/(?<=[.!?])\s+(?=[A-Z0-9"(])/)) {
       if (NOT_PICK.test(s)) continue;
       let spans = cueSpans(s);
       const inline = spans.length > 0;
       if (spans.length) lineCue = true;
-      else if (carry > 0 || standalone) spans = [[-1, Infinity]];
+      else if (carried || standalone) spans = [[-1, Infinity]];
       if (!spans.length) continue;
       // sides: "<Team> -2.5" / "+3" / "PK" -- 1-2 digit lines only (odds like +750 are rejected).
       // 2026-10-03: a line that ends the sentence ("Packers -3.") used to be dropped by a (?![\d.]) lookahead.
-      for (const m of s.matchAll(/((?:[A-Z][A-Za-z.']+ ){0,2}[A-Z0-9][A-Za-z0-9.']+)\s([+-]\d{1,2}(?:\.5)?|PK|pick'?em)(?!\d|\.\d)(?!\s*(?:yards|yds|points|pts|%|percent))/g)) {
+      for (const m of s.matchAll(/((?:[A-Z][A-Za-z.']+ ){0,2}[A-Z0-9][A-Za-z0-9.']+)\s([+-]\d{1,2}(?:\.[05])?|PK|pick'?em)(?!\d|\.\d)(?!\s*(?:yards|yds|points|pts|%|percent))/g)) {
         if (!nearCue(spans, m.index)) continue;
+        // "fade the Rams -3" is a pick AGAINST that line, not on it
+        if (/\bfad(?:e|ing)\s+(?:the\s+)?(?:[A-Z][A-Za-z.']+\s+){0,2}$/i.test(s.slice(Math.max(0, m.index - 30), m.index) + m[1].replace(/\S+$/, ''))) continue;
         const tt = trailingTeam(m[1]);
         if (!tt) continue;
-        const lean = `${tt.team.name} ${m[2]}`;
+        const lean = `${tt.team.name} ${m[2].replace(/\.0$/, '')}`;
         const key = `spread|${lean.toLowerCase()}`;
         if (seen.has(key)) continue; seen.add(key);
         pushed++; out.push({ inline, source, team_or_market: lean, bet_type: 'spread', lean, rationale: s.slice(0, 280), event_ref: eventRef, confidence: confidenceFor(baseConfidence, -0.06) });
@@ -244,7 +256,7 @@ function gatedPass(text, { source, baseConfidence, eventRef, max, useStandalone,
         pushed++; out.push({ inline, source, team_or_market: lean, bet_type: 'moneyline', lean, rationale: s.slice(0, 280), event_ref: eventRef, confidence: confidenceFor(baseConfidence, -0.1) });
       }
       // totals: "Over/Under 38.5" (game-total range only; player props stay with prop parsers)
-      for (const m of s.matchAll(/\b(Over|Under)\s(\d{2}(?:\.[05])?)(?!\d|\.\d)(?!\s*(?:yards|yds|receiving|rushing|passing|receptions|catches|tackles|points scored by))/gi)) {
+      for (const m of s.matchAll(/\b(Over|Under)\s(\d{2}(?:\.[05])?)(?!\d|\.\d)(?!\s*(?:yards|yds|receiving|rushing|passing|receptions|catches|tackles|points scored by|%|percent|pass|rush|attempts|completions|carries|targets|interceptions|sacks|tds?\b|touchdowns|fantasy))/gi)) {
         if (!nearCue(spans, m.index)) continue;
         // "30 under 30" (a list title) and "Bet to Under 38" (a price threshold, not a second pick)
         const before = s.slice(Math.max(0, m.index - 16), m.index);
@@ -265,10 +277,28 @@ function gatedPass(text, { source, baseConfidence, eventRef, max, useStandalone,
       }
       if (out.length >= max) break;
     }
+    // Heading + analyst line: "Dallas Cowboys +2.5 at Houston Texans" / "Bowen: I'll take Dallas -- with the points".
+    // A cue line that names a team but states no line takes that team's line from the heading just above it.
+    if (lineCue && !pushed && prevLine && prevLine.length <= 90) {
+      // the team has to follow the cue directly ("I'll take Dallas", "give me the Bills"), not just appear in the paragraph
+      const said = [...line.matchAll(PICK_CUE)].filter((c) => !/^fade/i.test(c[0])).map((c) => ' ' + line.slice(c.index + c[0].length, c.index + c[0].length + 30).toLowerCase().replace(/^\s*(?:the|with the|on the)\s/, ' ') + ' ').join('|');
+      for (const m of prevLine.matchAll(/((?:[A-Z][A-Za-z.']+ ){0,2}[A-Z0-9][A-Za-z0-9.']+)\s([+-]\d{1,2}(?:\.5)?|PK)(?!\d|\.\d)/g)) {
+        const tt = trailingTeam(m[1]);
+        if (!tt) continue;
+        const names = [tt.team.name, tt.team.city, tt.team.fullName].filter(Boolean).map((x) => String(x).toLowerCase());
+        if (!names.some((nm) => said.includes(' ' + nm + ' ') || said.includes(' ' + nm + ' --') || said.includes(' ' + nm + ','))) continue;
+        const lean = `${tt.team.name} ${m[2]}`;
+        const key = `spread|${lean.toLowerCase()}`;
+        if (seen.has(key)) continue; seen.add(key);
+        pushed++; out.push({ inline: true, source, team_or_market: lean, bet_type: 'spread', lean, rationale: `${prevLine} -- ${line}`.slice(0, 280), event_ref: eventRef, confidence: confidenceFor(baseConfidence, -0.06) });
+      }
+    }
+    prevLine = line;
     if (out.length >= max) break;
     // Only a short header-style cue line ("BEST OF THE REST", "Teaser of the week") carries to the lines below it;
     // "Best Bet: Pass" does not (the next lines are the next game's listing).
     if (lineCue && !pushed && line.length <= 40 && !/\b(pass|no play|stay away)\b/i.test(line)) carry = CARRY_LINES;
+    else if (carried && pushed) carry = CARRY_LINES;   // a list keeps going ("Four more plays for Sunday:" + 4 lines)
     else if (carry > 0) carry--;
   }
   return out.slice(0, max);
@@ -278,15 +308,38 @@ function gatedPass(text, { source, baseConfidence, eventRef, max, useStandalone,
 /** Router used by research-intel-ingest for analytical feeds (teaser or body text). */
 // 2026-10-03: caps raised (gated lines 8 -> 48, total 16 -> 60) so a 16-game slate column keeps a side + total for every game.
 // scores: false for betting feeds, whose previews quote past results ("Bills 31, Patriots 13 last season").
-export function extractAnalyticalSignals(text, { source, baseConfidence, eventRef, max = 60, scores = true, pickColumn = false, week = null } = {}) {
+// title: a recap / scores / grades article quotes final scores, which must not read as predicted scores.
+const RECAP_TITLE = /recap|scores and|scores for|results|grades|final score|takeaways|what we learned|instant analysis/i;
+export function extractAnalyticalSignals(text, { source, baseConfidence, eventRef, max = 60, scores = true, pickColumn = false, week = null, title = '' } = {}) {
   const opts = { source, baseConfidence, eventRef };
   const out = [];
-  if (/walter/i.test(source || '') || /Week \d+ NFL Pick:/.test(text || '')) out.push(...parseWalterPicks(text, opts));
-  if (scores) out.push(...parseScorePredictions(text, opts));
-  out.push(...parseGatedLines(text, { ...opts, max: 48, pickColumn, week }));
+  const walter = (/walter/i.test(source || '') || /Week \d+ NFL Pick:/.test(text || '')) ? parseWalterPicks(text, opts) : [];
+  out.push(...walter);
+  if (scores && !RECAP_TITLE.test(title || '')) out.push(...parseScorePredictions(text, opts));
+  // Walter's pick blocks are parsed above; the line parser would re-read the same picks ("Under 38.5 (0 Units)").
+  if (!walter.length) out.push(...parseGatedLines(text, { ...opts, max: 48, pickColumn, week }));
   const seen = new Set();
   return out.filter((s) => {
     const k = `${String(s.team_or_market).toLowerCase()}|${s.bet_type}`;
     if (seen.has(k)) return false; seen.add(k); return true;
   }).slice(0, max);
+}
+
+// ---------------------------------------------------------------------------
+/** Picks from a full article body, for any feed (research-intel-ingest + the re-extraction script).
+ *  A picks column ("Wes Reynolds: NFL Week 4 Best Bets") states each pick as its own heading line;
+ *  "Week N" in the title lets sections about other weeks be skipped; predicted scores only for
+ *  analytical feeds (betting previews quote past results). */
+export const PICK_COLUMN_TITLE = /best bets?|\bbets\b|picks|predictions|takes\b|plays\b|leans\b/i;
+export function extractBodySignals({ source, sourceType, confidence, url, title, body, max = 60 }) {
+  return extractAnalyticalSignals(body, {
+    source,
+    baseConfidence: confidence,
+    eventRef: url,
+    max,
+    scores: sourceType === 'analytical',
+    pickColumn: PICK_COLUMN_TITLE.test(title || ''),
+    week: Number((String(title || '').match(/\bweek (\d{1,2})\b/i) || [])[1]) || null,
+    title,
+  });
 }

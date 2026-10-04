@@ -127,3 +127,30 @@ describe('betting-feed bodies through the gated parser (2026-10-03)', () => {
   });
 });
 
+describe('fixes from the Week 4 re-extraction review (2026-10-03)', () => {
+  const o = (extra = {}) => ({ source: 'ESPN NFL', baseConfidence: 0.65, eventRef: 'u', scores: false, ...extra });
+  const mk = (txt, extra) => extractAnalyticalSignals(txt, o(extra)).map((x) => x.team_or_market);
+  it('takes the line from the heading when the analyst names the team ("I\'ll take Dallas -- with the points")', () => {
+    expect(mk("Dallas Cowboys +2.5 at Houston Texans\nBowen: I'll take Dallas -- with the points -- in Houston.")).toEqual(['Cowboys +2.5']);
+  });
+  it('never turns "fade the Rams" into a Rams pick', () => {
+    expect(mk('I will fade the Rams -3 here.')).toEqual([]);
+    expect(mk('Los Angeles Rams -3 at Philadelphia\nThe Eagles are not good enough for me to take them and fade the Rams in a must-win spot.')).toEqual([]);
+  });
+  it('reads priced pick headings in a picks column, and a "more plays" list', () => {
+    expect(mk('Erickson\'s Pick: Colts -3.5\nErickson\'s Pick: Bears -3.5\nDenver Broncos +3.0 (-115) vs. San Francisco 49ers\nPittsburgh -3 at Cleveland', { pickColumn: true, week: 4 }))
+      .toEqual(['Colts -3.5', 'Bears -3.5', 'Broncos +3']);
+    expect(mk('Best Bet: Patriots +7\nFour more plays for Sunday:\nTexans -3 vs Cowboys\nBengals -2.5 vs Jaguars\nDolphins-Vikings Under 38.5\n49ers -2.5 vs Broncos'))
+      .toEqual(['Patriots +7', 'Texans -3', 'Bengals -2.5', 'Under 38.5', '49ers -2.5']);
+  });
+  it('keeps a stale section stale through "Week 3 Picks"', () => {
+    expect(mk('Bet: Over 46.5 (-115)\nAdditional Week 3 Best Bets\nWeek 3 Picks\nJaguars -2.5 (-120) vs. Patriots', { pickColumn: true, week: 4 })).toEqual(['Over 46.5']);
+  });
+  it('does not read final scores in a recap as predictions, or props as game totals', () => {
+    const recap = 'Falcons 35, Packers 14. Ravens 34, Cowboys 31. Bills 24, Chargers 16. Lions 31, Jets 24.';
+    expect(extractAnalyticalSignals(recap, { source: 'PFF', baseConfidence: 0.67, eventRef: 'u', title: 'NFL scores and recaps for every Week 3 game' })).toEqual([]);
+    expect(mk("A 5-star prop bet on this week's cheat sheet: Jared Goff UNDER 34.5 pass attempts.")).toEqual([]);
+    expect(mk('Our featured VSiN Community Best Bet was Commanders +7.5.')).toEqual([]);
+  });
+});
+

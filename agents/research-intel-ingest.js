@@ -11,7 +11,8 @@ import nodemailer from 'nodemailer';
 import 'dotenv/config';
 import { planRevisions } from './lib/intel-revisions.js';
 import { isCollegeFootballItem } from './lib/college-football-filter.js';
-import { extractAnalyticalSignals } from './lib/analytical-picks.js';
+import { extractAnalyticalSignals, extractBodySignals } from './lib/analytical-picks.js';
+import { fetchArticleBody } from './lib/article-body.js';
 
 const execFileAsync = promisify(execFile);
 // 2026-09-01: Action Network's feed sits behind CloudFront and started
@@ -327,35 +328,8 @@ function cleanHtml(input = '') {
     .replace(/\s+/g, ' ')
     .trim();
 }
-// F-11 Ph.2: Fetch + strip article body (text only, capped at BODY_MAX_CHARS)
-async function fetchArticleBody(url, maxChars = BODY_MAX_CHARS) {
-  try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; PlatinumRoseBot/1.0)' },
-      signal: AbortSignal.timeout(8_000),
-    });
-    if (!res.ok) return null;
-    const html = await res.text();
-    // Strip scripts, styles, nav, header, footer to reduce noise. Block ends (headings, paragraphs,
-    // list items) become line breaks (2026-10-03) so a pick box like "Erickson's Pick: Colts -3.5"
-    // stays its own line for the pick parser instead of running into the next section.
-    const stripped = html
-      .replace(/<(script|style|nav|header|footer|aside)[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-      .replace(/<\/(p|div|li|h[1-6]|tr|blockquote)>|<br\s*\/?>/gi, '\n')
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/&nbsp;/g, ' ')
-      .replace(/&[a-z]+;/g, ' ')
-      .replace(/[ \t\r\f\v]+/g, ' ')
-      .replace(/ *\n[\s]*/g, '\n')
-      .trim();
-    if (stripped.length > maxChars) {
-      console.warn(`   [warn] article body exceeds ${maxChars} chars — truncating ${stripped.length} -> ${maxChars} chars for ${url}`);
-    }
-    return stripped.slice(0, maxChars) || null;
-  } catch {
-    return null;
-  }
-}
+// F-11 Ph.2: article body fetch + HTML-to-text lives in agents/lib/article-body.js (shared with
+// scripts/intel/reextract-week-signals.mjs).
 function firstTag(xml, tagName) {
   const open = new RegExp(`<${tagName}(?:\\s[^>]*)?>`, 'i');
   const close = new RegExp(`</${tagName}>`, 'i');
@@ -612,18 +586,8 @@ function extractSignals(item, source, baseConfidence) {
 // parser (their previews quote past results). RSS teasers (title + description) keep the old
 // extractor (extractSignals below), which is short text where the open regex is fine.
 // A picks column ("Wes Reynolds: NFL Week 4 Best Bets") states each pick as its own heading line.
-const PICK_COLUMN_TITLE = /best bets?|picks|predictions|takes\b|plays\b|leans\b/i;
 function bodySignalsFor({ source, sourceType, confidence, url, title, body }) {
-  return extractAnalyticalSignals(body, {
-    source,
-    baseConfidence: confidence,
-    eventRef: url,
-    max: BODY_MAX_EXPLICIT,
-    scores: sourceType === 'analytical',
-    pickColumn: PICK_COLUMN_TITLE.test(title || ''),
-    // "Week 4" in the title: sections about other weeks (last week's results) are skipped.
-    week: Number((String(title || '').match(/\bweek (\d{1,2})\b/i) || [])[1]) || null,
-  });
+  return extractBodySignals({ source, sourceType, confidence, url, title, body, max: BODY_MAX_EXPLICIT });
 }
 
 function maxBodyCharsFor(source) {
