@@ -2533,6 +2533,25 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     }
     @media (max-width: 1400px) { .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 900px) { .app-layout { grid-template-columns: 1fr; } .cards-grid { grid-template-columns: 1fr; } }
+    /* Phone: sidebars stack in the page flow instead of sticking over the ticket board */
+    @media (max-width: 900px) {
+      .sidebar-left, .sidebar-right { position: static; max-height: none; overflow: visible; }
+    }
+    /* Collapsible Game Board */
+    #sb-board-title { cursor: pointer; user-select: none; }
+    .sb-chevron, .burnt-chevron { display: inline-block; transition: transform 0.15s; }
+    .sidebar-left.sb-collapsed .sb-chevron { transform: rotate(-90deg); }
+    .sidebar-left.sb-collapsed .sidebar-box:first-child > :not(.sidebar-box-title) { display: none; }
+    .sidebar-left.sb-collapsed .sidebar-box:not(:first-child) { display: none; }
+    /* Collapsible Burnt section (mirrors the Imaginary section) */
+    .burnt-divider-line { cursor: pointer; user-select: none; }
+    #burnt-section-wrap.burnt-collapsed .burnt-chevron { transform: rotate(-90deg); }
+    #burnt-section-wrap.burnt-collapsed #burnt-cards-grid { display: none; }
+    /* Live only: just the open tickets */
+    #btn-live-only { background: #1E293B; border: 1px solid #334155; color: #CBD5E1; border-radius: 6px; padding: 4px 10px; font-size: 0.72rem; font-weight: 800; cursor: pointer; }
+    #btn-live-only[aria-pressed="true"] { background: #065F46; border-color: #10B981; color: #ECFDF5; }
+    body.live-only .sidebar-left, body.live-only .sidebar-right,
+    body.live-only #paper-section-wrap, body.live-only #burnt-section-wrap, body.live-only #cashed-section-wrap { display: none !important; }
 
     /* Card Styling */
     .bet-card {
@@ -3618,8 +3637,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     <!-- LEFT SIDEBAR: Sunday Multi-Game Slate Board -->
     <aside class="sidebar-left">
       <div class="sidebar-box">
-        <div class="sidebar-box-title">
-          <span>📅 Sunday Game Board</span>
+        <div class="sidebar-box-title" id="sb-board-title" role="button" tabindex="0" aria-expanded="true" title="Tap to collapse / expand">
+          <span><span class="sb-chevron">▾</span> 📅 Sunday Game Board</span>
           <span style="font-size:0.65rem; color:var(--text-muted);" id="sb-header-count">${weekSchedule.length} Games</span>
         </div>
         <div class="scoreboard-filter-bar">
@@ -3668,6 +3687,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       <div id="tab-tickets-wrap">
         <div class="filter-bar">
           <span>Filter Wagers:</span>
+          <button type="button" id="btn-live-only" aria-pressed="false" title="Show only open tickets: hides the Game Board, ledger, Cashed, Imaginary and Burnt sections">🎯 Live only</button>
           <button class="filter-btn active" onclick="setFilter('all')">All (${wagers.length})</button>
           <button class="filter-btn" onclick="setFilter('cash')">Cash</button>
           <button class="filter-btn" onclick="setFilter('promo')">Promo Credits</button>
@@ -3744,7 +3764,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 
         <!-- PAPER / IMAGINARY TICKETS SECTION (AI benchmark; not placed, excluded from totals) -->
         <div id="paper-section-wrap" style="display:${paperWagers.length > 0 ? 'block' : 'none'};">
-          <div class="paper-divider-line" id="paper-divider-line" onclick="togglePaperSection()" title="Click to collapse / expand">
+          <div class="paper-divider-line" id="paper-divider-line" role="button" tabindex="0" title="Tap to collapse / expand">
             <div class="divider-stripe"></div>
             <div class="divider-label">
               <span class="paper-chevron">▾</span>
@@ -3761,9 +3781,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 
         <!-- BURNT / DROPPED TICKETS SECTION -->
         <div id="burnt-section-wrap" style="display:${burntWagers.length > 0 ? 'block' : 'none'};">
-          <div class="burnt-divider-line" id="burnt-divider-line">
+          <div class="burnt-divider-line" id="burnt-divider-line" role="button" tabindex="0" title="Tap to collapse / expand">
             <div class="divider-stripe"></div>
             <div class="divider-label">
+              <span class="burnt-chevron">▾</span>
               <span>🔥</span>
               <strong>BURNT / ELIMINATED SLIPS (<span id="burnt-section-count">${burntWagers.length}</span>)</strong>
               <span style="font-size:0.65rem; opacity:0.85; margin-left:4px;">• DROPPED BELOW LINE</span>
@@ -4851,7 +4872,9 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       hidePaper = readJsonKey(HIDE_PAPER_KEY, false);
       const chkPaper = document.getElementById('chk-hide-paper');
       if (chkPaper) chkPaper.checked = !!hidePaper;
-      paperCollapsed = readJsonKey(PAPER_COLLAPSED_KEY, false);
+      const isNarrow = (() => { try { return window.matchMedia('(max-width: 900px)').matches; } catch (e) { return false; } })();
+      paperCollapsed = readJsonKey(PAPER_COLLAPSED_KEY, isNarrow);
+      initMobileSections(isNarrow);
       const paperWrapInit = document.getElementById('paper-section-wrap');
       if (paperWrapInit) paperWrapInit.classList.toggle('paper-collapsed', !!paperCollapsed);
 
@@ -5257,6 +5280,44 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       if (wrap) wrap.classList.toggle('paper-collapsed', paperCollapsed);
     }
     window.togglePaperSection = togglePaperSection;
+
+    // ── Phone-friendly sections: collapsible Game Board and Burnt section, and a
+    //    one-tap "Live only" view. On a narrow screen they default to collapsed / on. ──
+    function onTap(el, fn) {
+      if (!el) return;
+      el.addEventListener('click', fn);
+      el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fn(); } });
+    }
+    function initMobileSections(isNarrow) {
+      const SB_COLLAPSED_KEY = 'sunday_gameboard_collapsed_week_${week}';
+      const BURNT_COLLAPSED_KEY = 'sunday_burnt_collapsed_week_${week}';
+      const LIVE_ONLY_KEY = 'sunday_live_only_week_${week}';
+      const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+
+      const sb = document.querySelector('.sidebar-left');
+      const sbTitle = document.getElementById('sb-board-title');
+      let sbCollapsed = readJsonKey(SB_COLLAPSED_KEY, isNarrow);
+      const applySb = () => { if (sb) sb.classList.toggle('sb-collapsed', sbCollapsed); if (sbTitle) sbTitle.setAttribute('aria-expanded', String(!sbCollapsed)); };
+      applySb();
+      onTap(sbTitle, () => { sbCollapsed = !sbCollapsed; save(SB_COLLAPSED_KEY, sbCollapsed); applySb(); });
+
+      const burntWrap = document.getElementById('burnt-section-wrap');
+      let burntCollapsed = readJsonKey(BURNT_COLLAPSED_KEY, isNarrow);
+      const applyBurnt = () => { if (burntWrap) burntWrap.classList.toggle('burnt-collapsed', burntCollapsed); };
+      applyBurnt();
+      onTap(document.getElementById('burnt-divider-line'), () => { burntCollapsed = !burntCollapsed; save(BURNT_COLLAPSED_KEY, burntCollapsed); applyBurnt(); });
+
+      onTap(document.getElementById('paper-divider-line'), togglePaperSection);
+
+      const liveBtn = document.getElementById('btn-live-only');
+      let liveOnly = readJsonKey(LIVE_ONLY_KEY, isNarrow);
+      const applyLive = () => {
+        document.body.classList.toggle('live-only', liveOnly);
+        if (liveBtn) { liveBtn.setAttribute('aria-pressed', String(liveOnly)); liveBtn.textContent = liveOnly ? '🎯 Live only: ON' : '🎯 Live only'; }
+      };
+      applyLive();
+      onTap(liveBtn, () => { liveOnly = !liveOnly; save(LIVE_ONLY_KEY, liveOnly); applyLive(); });
+    }
 
     function showTab(tabName) {
       activeTab = tabName;
