@@ -13078,5 +13078,101 @@
         "key": "leg_afternoon_7leg_c_20261004_7_harvey_rec"
       }
     ]
+  },
+  {
+    "id": "bet_20261004_bkr_739761492_5team_parlay",
+    "ticket_number": "739761492",
+    "placed_at": "2026-10-04T13:03:00-07:00",
+    "date": "2026-10-04",
+    "season": 2026,
+    "week": 4,
+    "game": "Week 4 Sunday Multi-Game",
+    "game_title": "Week 4 5-team afternoon-to-SNF parlay",
+    "book": "Bookmaker",
+    "ticket_type": "Parlay (5 Teams)",
+    "category": "Parlay",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "cash_risk_usd": 25,
+    "stake_usd": 25,
+    "units": 2.5,
+    "odds_american": "+1819",
+    "odds_decimal": 19.194,
+    "potential_profit_usd": 454.86,
+    "potential_payout_usd": 479.86,
+    "cash_out_offer_usd_at_ingest": 10.95,
+    "status": "PENDING",
+    "result": null,
+    "external_url": "https://be.bookmaker.eu/#ticket_739761492",
+    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04 (placed 13:03 PT). Cash-out offer at ingest: $10.95; all legs pending. BKR listed kickoffs as 01:35/01:10 PM; real kickoffs used.",
+    "legs": [
+      {
+        "leg_num": 1,
+        "game": "DEN @ SF",
+        "team": "DEN",
+        "opponent": "SF",
+        "market": "spread",
+        "selection": "Denver Broncos +3.5",
+        "line": 3.5,
+        "price": "-131",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_739761492_1_den_spread"
+      },
+      {
+        "leg_num": 2,
+        "game": "KC @ LV",
+        "team": "LV",
+        "opponent": "KC",
+        "market": "spread",
+        "selection": "Las Vegas Raiders +5",
+        "line": 5,
+        "price": "-108",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_739761492_2_lv_spread"
+      },
+      {
+        "leg_num": 3,
+        "game": "LAC @ SEA",
+        "team": "SEA",
+        "opponent": "LAC",
+        "market": "spread",
+        "selection": "Seattle Seahawks -6.5",
+        "line": -6.5,
+        "price": "-127",
+        "game_start": "10/04/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_739761492_3_sea_spread"
+      },
+      {
+        "leg_num": 4,
+        "game": "MIA @ MIN",
+        "team": "UNDER",
+        "opponent": null,
+        "market": "total",
+        "selection": "Under 40",
+        "line": 40,
+        "price": "-128",
+        "direction": "under",
+        "game_start": "10/04/2026 @ 01:05 PM",
+        "status": "PENDING",
+        "key": "leg_739761492_4_mia_min_under"
+      },
+      {
+        "leg_num": 5,
+        "game": "DET @ CAR",
+        "team": "OVER",
+        "opponent": null,
+        "market": "total",
+        "selection": "Over 50.5",
+        "line": 50.5,
+        "price": "-129",
+        "direction": "over",
+        "game_start": "10/04/2026 @ 05:20 PM",
+        "status": "PENDING",
+        "key": "leg_739761492_5_det_car_over"
+      }
+    ]
   }
 ]
