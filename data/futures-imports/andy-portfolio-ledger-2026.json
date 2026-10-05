@@ -1,7 +1,7 @@
 {
  "schema_version": "1.0",
  "season": 2026,
- "as_of": "2026-09-30",
+ "as_of": "2026-10-05",
  "units": {
   "futures_usd": 20,
   "in_season_usd": 10
@@ -53,12 +53,12 @@
    "market": "superbowl",
    "selection": "Green Bay Packers",
    "role": "anchor_bet",
-   "current_stake_usd": 40,
+   "current_stake_usd": 60,
    "target_cap_usd": 200,
-   "blended_price": 2500,
+   "blended_price": 3867,
    "status": "open",
    "known_input": true,
-   "estimate_note": "First real stake against the $200 target cap ($160 of cap room remains). Confirmed placed at BetOnline. Does not separately qualify for the BetOnline Super Bowl Futures Special promo -- below the $50 minimum, and the account's one-time promo slot is already claimed by the bills_sb wager.",
+   "estimate_note": "First real stake against the $200 target cap ($160 of cap room remains). Confirmed placed at BetOnline. Does not separately qualify for the BetOnline Super Bowl Futures Special promo -- below the $50 minimum, and the account's one-time promo slot is already claimed by the bills_sb wager. | 2026-10-05: added ticket 1002306799 ($20 @ +6600); stake now $60, blended +3867, $140 of cap room.",
    "book": "betonline",
    "book_confirmed": true,
    "tickets": [
@@ -69,6 +69,16 @@
      "price": 2500,
      "to_win_usd": 1000,
      "result_status": "pending"
+    },
+    {
+     "ticket_number": "1002306799",
+     "accepted_date": "2026-10-04",
+     "stake_usd": 20,
+     "price": 6600,
+     "to_win_usd": 1320,
+     "result_status": "pending",
+     "funding": "cash",
+     "note": "Logged in user-placed-wagers-2026.json on 2026-10-04 and moved here on 2026-10-05 (futures belong in this ledger)."
     }
    ]
   },
