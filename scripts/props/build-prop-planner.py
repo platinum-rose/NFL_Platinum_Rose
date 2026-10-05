@@ -12,7 +12,7 @@ Usage:
      --out reports/analysis/prop-planner/player-prop-parlay-planner-2026-w04-atl-no.html \
      --experts data/generated/master-intel/w04-expert-verified.json
 
---experts (optional) loads the week's verified expert picks for this game into an "Expert picks" panel.
+--experts (optional) loads the week's verified expert player-prop picks for this game into an "Expert picks" panel.
 Each pick is matched to the closest captured BEO/BKR leg (with a note when the line has moved) and gets an
 Add button. Player picks pass the roster gate (ESPN full rosters + availability, same rules as
 scripts/nfl-rosters/roster_vet.py); a player who fails it gets no Add button.
@@ -234,7 +234,7 @@ def expert_picks(path, game, lines):
     picks, seen, blocked = [], {}, []
     for r in sorted(rows, key=lambda r: r.get('published') or '', reverse=True):
         d = describe(r)
-        if not d: continue
+        if not d or d['kind'] != 'prop': continue   # props only; game sides/totals/teasers stay out of the planner
         outlet = html.unescape(r.get('outlet') or '')
         sig = (outlet, tuple(r.get('persons') or []), d['label'])
         if sig in seen: seen[sig]['sources'] += 1; continue
@@ -246,7 +246,7 @@ def expert_picks(path, game, lines):
                   price=r.get('price') if d['kind'] == 'prop' else None, url=r.get('url'), roster=roster, matches=matches, nomatch=nomatch, sources=1)
         seen[sig] = pk; picks.append(pk)
     picks.sort(key=lambda p: (p['kind'] != 'prop', not p['best_bet']))
-    note = (f'{len(picks)} verified picks for {key} from {pathlib.Path(path).name}; player picks roster-gated against ESPN rosters '
+    note = (f'{len(picks)} verified player-prop picks for {key} from {pathlib.Path(path).name}; player picks roster-gated against ESPN rosters '
             f'({snap["generated_at"][:16].replace("T", " ")} UTC). Buttons use current board prices; a note shows when the line moved since the call.')
     return dict(note=note, picks=picks), blocked
 
