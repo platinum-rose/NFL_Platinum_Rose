@@ -1,533 +1,249 @@
 #!/usr/bin/env node
 
 /**
- * reconcile-settlement.mjs
+ * Grade placed wagers against completed ESPN games for one NFL week.
  *
- * Automated post-game reconciliation and grading engine for Andy's officially placed
- * betting portfolio and the Alejandro 50/50 split ledger.
- *
- * Capabilities:
- *  1. Fetches official final boxscores from ESPN API (with CDN fallback).
- *  2. Extracts player boxscore stats across passing, rushing, receiving, defense, and turnovers.
- *  3. Grades each leg and wager in data/official-picks/user-placed-wagers-2026.json.
- *  4. Accounts for promo credit tickets ($0 cash risk) vs cash risk wagers.
- *  5. Calculates Alejandro's 50/50 split accounting (stakes, winnings, net bill owe/owed).
- *  6. Updates user-placed-wagers-2026.json, alejandro-ledger-history.json, and writes markdown report.
+ * The command is deliberately local-only: even a committed reconciliation
+ * never synchronizes the bankroll or Supabase. The caller must authorize
+ * those independent actions separately.
  *
  * Usage:
- *  node scripts/reconcile-settlement.mjs [--dry-run] [--week <num>] [--game-id <espnEventId>] [--split-ticket <id>]
+ *   node scripts/reconcile-settlement.mjs --week <n> [--dry-run] [--season <yyyy>]
  */
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { syncPlacedWagersToBankroll } from './sync-placed-wagers-to-bankroll.mjs';
+import { getNFLWeekInfo } from '../src/lib/constants.js';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const ROOT = path.resolve(__dirname, '..');
-
+const ROOT = path.resolve(path.dirname(__filename), '..');
 const WAGERS_FILE = path.join(ROOT, 'data', 'official-picks', 'user-placed-wagers-2026.json');
-const ALEJANDRO_HISTORY_FILE = path.join(ROOT, 'data', 'official-picks', 'alejandro-ledger-history.json');
 const REPORT_MD_FILE = path.join(ROOT, 'docs', 'tracked-wagers', 'reconciliation-latest.md');
 const REPORT_JSON_FILE = path.join(ROOT, 'docs', 'tracked-wagers', 'reconciliation-latest.json');
+const ESPN_SCOREBOARD = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard';
 
-// Known ESPN event IDs for season 2026
-const EVENT_MAP = {
-  'melbourne': '401872657',
-  'SF@LAR': '401872657',
-  'LARvsSF': '401872657'
-};
+const TEAM_ALIASES = new Map([
+  ['LA', 'LAR'], ['LAR', 'LAR'], ['SF', 'SF'], ['JAC', 'JAX'], ['JAX', 'JAX'],
+  ['WSH', 'WAS'], ['WAS', 'WAS'], ['TB', 'TB'], ['TAM', 'TB'], ['NE', 'NE'],
+]);
 
-async function fetchEspnBoxscore(eventId) {
-  const endpoints = [
-    `https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${eventId}`,
-    `https://cdn.espn.com/core/nfl/boxscore?xhr=1&gameId=${eventId}`
-  ];
+const normalizeTeam = (value) => TEAM_ALIASES.get(String(value || '').toUpperCase()) || String(value || '').toUpperCase();
+const eventKey = (away, home) => `${normalizeTeam(away)}@${normalizeTeam(home)}`;
+const isFinal = (status) => status?.completed === true || status?.name === 'STATUS_FINAL';
 
-  for (const url of endpoints) {
-    try {
-      const res = await fetch(url, { headers: { 'User-Agent': 'NFL-Dashboard-Reconciler/1.0' } });
-      if (res.ok) {
-        const data = await res.json();
-        return data;
-      }
-    } catch {
-      // try fallback
-    }
-  }
-  throw new Error(`Failed to fetch boxscore for ESPN Event ID ${eventId}`);
+function gameKeyFromLeg(leg) {
+  const match = String(leg.game || '').toUpperCase().match(/\b([A-Z]{2,3})\s*@\s*([A-Z]{2,3})\b/);
+  if (match) return eventKey(match[1], match[2]);
+  if (leg.team && leg.opponent) return eventKey(leg.team, leg.opponent);
+  return null;
 }
 
-function parseBoxscore(data) {
-  // 1. Teams & Score
-  const headerComp = data.header?.competitions?.[0] || data.competitions?.[0];
-  const competitors = headerComp?.competitors || [];
-  const homeComp = competitors.find(c => c.homeAway === 'home');
-  const awayComp = competitors.find(c => c.homeAway === 'away');
+async function fetchJson(url) {
+  const response = await fetch(url, { headers: { 'User-Agent': 'NFL-Dashboard-Reconciler/2.0' } });
+  if (!response.ok) throw new Error(`ESPN request failed (${response.status}): ${url}`);
+  return response.json();
+}
 
-  const homeScore = parseInt(homeComp?.score ?? '0', 10);
-  const awayScore = parseInt(awayComp?.score ?? '0', 10);
-  const homeAbbr = (homeComp?.team?.abbreviation || '').toUpperCase();
-  const awayAbbr = (awayComp?.team?.abbreviation || '').toUpperCase();
+async function fetchWeekScoreboard({ season, week }) {
+  const data = await fetchJson(`${ESPN_SCOREBOARD}?dates=${season}&seasontype=2&week=${week}`);
+  return (data.events || []).map((event) => {
+    const comp = event.competitions?.[0];
+    const home = comp?.competitors?.find((item) => item.homeAway === 'home');
+    const away = comp?.competitors?.find((item) => item.homeAway === 'away');
+    if (!home || !away) return null;
+    return {
+      id: event.id,
+      key: eventKey(away.team?.abbreviation, home.team?.abbreviation),
+      awayTeam: normalizeTeam(away.team?.abbreviation),
+      homeTeam: normalizeTeam(home.team?.abbreviation),
+      awayScore: Number(away.score),
+      homeScore: Number(home.score),
+      completed: isFinal(event.status?.type),
+    };
+  }).filter(Boolean);
+}
 
-  const isCompleted = headerComp?.status?.type?.completed === true || 
-                      headerComp?.status?.type?.name === 'STATUS_FINAL' ||
-                      data.format?.status?.type?.completed === true;
-
-  // 2. Individual Player Stats
+async function fetchBoxscore(eventId) {
+  const data = await fetchJson(`https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=${eventId}`);
+  const comp = data.header?.competitions?.[0];
+  const home = comp?.competitors?.find((item) => item.homeAway === 'home');
+  const away = comp?.competitors?.find((item) => item.homeAway === 'away');
   const players = {};
-  const boxTeams = data.boxscore?.players || [];
-  for (const team of boxTeams) {
-    for (const statGroup of team.statistics || []) {
-      const catName = statGroup.name; // e.g. passing, rushing, receiving, defensive, interceptions
-      for (const ath of statGroup.athletes || []) {
-        const name = ath.athlete?.displayName || ath.athlete?.name;
+  for (const team of data.boxscore?.players || []) {
+    for (const group of team.statistics || []) {
+      for (const athlete of group.athletes || []) {
+        const name = athlete.athlete?.displayName;
         if (!name) continue;
-        if (!players[name]) players[name] = {};
-        players[name][catName] = ath.stats || [];
+        players[name] ||= {};
+        players[name][group.name] = athlete.stats || [];
       }
     }
   }
-
   return {
-    isCompleted,
-    homeTeam: homeAbbr,
-    awayTeam: awayAbbr,
-    homeScore,
-    awayScore,
-    totalPoints: homeScore + awayScore,
-    players
+    id: eventId,
+    homeTeam: normalizeTeam(home?.team?.abbreviation),
+    awayTeam: normalizeTeam(away?.team?.abbreviation),
+    homeScore: Number(home?.score),
+    awayScore: Number(away?.score),
+    totalPoints: Number(home?.score) + Number(away?.score),
+    completed: isFinal(comp?.status?.type),
+    players,
   };
 }
 
-function getPlayerStat(players, playerName, category, index) {
-  let pStats = players[playerName];
-  if (!pStats) {
-    const key = Object.keys(players).find(k => k.toLowerCase() === playerName.toLowerCase() || k.includes(playerName) || playerName.includes(k));
-    if (key) pStats = players[key];
+// "Deebo Samuel" must match ESPN's "Deebo Samuel Sr.", "James Cook" -> "James Cook III".
+const normName = (value) => String(value || '').toLowerCase()
+  .replace(/\b(sr|jr|ii|iii|iv|v)\b\.?/g, '').replace(/[.'’-]/g, '').replace(/\s+/g, ' ').trim();
+
+function playerStat(players, playerName, category, index) {
+  let record = players[playerName];
+  if (!record) {
+    const key = Object.keys(players).find((name) => normName(name) === normName(playerName));
+    record = key ? players[key] : null;
   }
-  if (!pStats || !pStats[category]) return 0;
-  const raw = pStats[category][index];
-  if (!raw) return 0;
-  return parseFloat(raw) || 0;
+  return Number(record?.[category]?.[index]) || 0;
 }
 
-function getSelectedTeam(selection, teamHint, box) {
-  const sel = (selection || '').toLowerCase();
-  const hint = (teamHint || '').toUpperCase();
-  if (hint === box.homeTeam) return 'home';
-  if (hint === box.awayTeam) return 'away';
-
-  const nickMap = {
-    'SF': ['49ers', 'niners', 'san francisco'],
-    'LAR': ['rams', 'los angeles rams', 'la rams'],
-    'DET': ['lions', 'detroit'],
-    'NO': ['saints', 'new orleans'],
-    'JAX': ['jaguars', 'jags', 'jacksonville'],
-    'CLE': ['browns', 'cleveland'],
-    'PHI': ['eagles', 'philadelphia'],
-    'WAS': ['commanders', 'washington'],
-    'TB': ['buccaneers', 'bucs', 'tampa', 'tampa bay'],
-    'CIN': ['bengals', 'cincinnati'],
-    'CAR': ['panthers', 'carolina'],
-    'CHI': ['bears', 'chicago']
-  };
-
-  const homeNicks = [box.homeTeam.toLowerCase(), ...(nickMap[box.homeTeam] || [])];
-  for (const n of homeNicks) {
-    if (sel.includes(n)) return 'home';
-  }
-
-  const awayNicks = [box.awayTeam.toLowerCase(), ...(nickMap[box.awayTeam] || [])];
-  for (const n of awayNicks) {
-    if (sel.includes(n)) return 'away';
-  }
-
+function selectedSide(leg, box) {
+  const team = normalizeTeam(leg.team);
+  if (team === box.homeTeam) return 'home';
+  if (team === box.awayTeam) return 'away';
+  const text = String(leg.selection || '').toLowerCase();
+  if (text.includes(box.awayTeam.toLowerCase())) return 'away';
   return 'home';
 }
 
-function gradeLeg(leg, box, force = false) {
-  const { market, line, selection, player, team } = leg;
-  let actual = null;
-  let status = 'PENDING';
+export function gradeLeg(leg, box) {
+  if (!box?.completed) return { status: 'PENDING', actual: null };
+  const line = Number(leg.line ?? 0);
+  const market = String(leg.market || '').toLowerCase();
+  if (market === 'open_slot') return { status: 'OPEN', actual: 'Slot Open' };
 
-  if (!box) {
-    return { status: 'PENDING', actual: null };
+  if (market === 'spread' || market === 'moneyline') {
+    const side = selectedSide(leg, box);
+    const score = side === 'home' ? box.homeScore : box.awayScore;
+    const opponentScore = side === 'home' ? box.awayScore : box.homeScore;
+    const margin = score - opponentScore;
+    if (market === 'moneyline') return { status: margin > 0 ? 'WON' : margin === 0 ? 'PUSH' : 'LOST', actual: `${score}-${opponentScore}` };
+    return { status: margin + line > 0 ? 'WON' : margin + line === 0 ? 'PUSH' : 'LOST', actual: margin > 0 ? `+${margin}` : String(margin) };
   }
-
-  // 1. Game-level markets
-  if (market === 'spread') {
-    const side = getSelectedTeam(selection, team, box);
-    const teamScore = side === 'home' ? box.homeScore : box.awayScore;
-    const oppScore = side === 'home' ? box.awayScore : box.homeScore;
-
-    const margin = teamScore - oppScore;
-    actual = margin > 0 ? `+${margin}` : `${margin}`;
-    const effSpread = line ?? 0;
-    if (margin + effSpread > 0) status = 'WON';
-    else if (margin + effSpread === 0) status = 'PUSH';
-    else status = 'LOST';
-  } else if (market === 'moneyline') {
-    const side = getSelectedTeam(selection, team, box);
-    const teamScore = side === 'home' ? box.homeScore : box.awayScore;
-    const oppScore = side === 'home' ? box.awayScore : box.homeScore;
-    actual = `${teamScore}-${oppScore}`;
-    if (teamScore > oppScore) status = 'WON';
-    else if (teamScore === oppScore) status = 'PUSH';
-    else status = 'LOST';
-  } else if (market === 'total') {
-    actual = box.totalPoints;
-    const isUnder = selection.toLowerCase().includes('under');
-    if (isUnder) {
-      if (box.totalPoints < line) status = 'WON';
-      else if (box.totalPoints === line) status = 'PUSH';
-      else status = 'LOST';
-    } else {
-      if (box.totalPoints > line) status = 'WON';
-      else if (box.totalPoints === line) status = 'PUSH';
-      else status = 'LOST';
-    }
-  } else if (market === 'open_slot') {
-    status = 'OPEN';
-    actual = 'Slot Open';
+  if (market === 'total') {
+    const under = String(leg.selection || '').toLowerCase().includes('under');
+    const actual = box.totalPoints;
+    return { status: under ? (actual < line ? 'WON' : actual === line ? 'PUSH' : 'LOST') : (actual > line ? 'WON' : actual === line ? 'PUSH' : 'LOST'), actual };
   }
-  // 2. Player Props
-  else if (player) {
-    if (market === 'anytime_touchdown') {
-      const rushTDs = getPlayerStat(box.players, player, 'rushing', 3);
-      const recTDs = getPlayerStat(box.players, player, 'receiving', 3);
-      const defTDs = getPlayerStat(box.players, player, 'defensive', 6);
-      actual = rushTDs + recTDs + defTDs;
-      status = actual >= 1 ? 'WON' : 'LOST';
-    } else if (market === 'receptions') {
-      actual = getPlayerStat(box.players, player, 'receiving', 0);
-      status = actual > (line ?? 0) ? 'WON' : 'LOST';
-    } else if (market === 'receiving_yards') {
-      actual = getPlayerStat(box.players, player, 'receiving', 1);
-      status = actual > (line ?? 0) ? 'WON' : 'LOST';
-    } else if (market === 'rushing_yards') {
-      actual = getPlayerStat(box.players, player, 'rushing', 1);
-      status = actual > (line ?? 0) ? 'WON' : 'LOST';
-    } else if (market === 'passing_yards') {
-      actual = getPlayerStat(box.players, player, 'passing', 1);
-      status = actual > (line ?? 0) ? 'WON' : 'LOST';
-    } else if (market === 'passing_tds') {
-      actual = getPlayerStat(box.players, player, 'passing', 3);
-      status = actual > (line ?? 0) ? 'WON' : 'LOST';
-    } else if (market === 'interceptions') {
-      actual = getPlayerStat(box.players, player, 'passing', 4);
-      status = actual > (line ?? 0) ? 'WON' : 'LOST';
-    } else if (market === 'sacks') {
-      actual = getPlayerStat(box.players, player, 'defensive', 2);
-      status = actual > (line ?? 0) ? 'WON' : 'LOST';
-    } else if (market === 'tackles_assists') {
-      actual = getPlayerStat(box.players, player, 'defensive', 0);
-      status = actual > (line ?? 0) ? 'WON' : 'LOST';
-    }
-  }
+  if (!leg.player) return { status: 'PENDING', actual: null };
 
-  return { status, actual };
+  const statSpec = {
+    anytime_touchdown: ['rushing', 3, true],
+    receptions: ['receiving', 0], receiving_yards: ['receiving', 1],
+    rushing_yards: ['rushing', 1], passing_yards: ['passing', 1],
+    passing_tds: ['passing', 3], passing_touchdowns: ['passing', 3],
+    interceptions: ['passing', 4], pass_interceptions: ['passing', 4], interceptions_thrown: ['passing', 4], sacks: ['defensive', 2], tackles_assists: ['defensive', 0],
+  }[market];
+  if (!statSpec) return { status: 'PENDING', actual: null };
+  const actual = statSpec[2]
+    ? playerStat(box.players, leg.player, 'rushing', 3) + playerStat(box.players, leg.player, 'receiving', 3) + playerStat(box.players, leg.player, 'defensive', 6)
+    : playerStat(box.players, leg.player, statSpec[0], statSpec[1]);
+  return { status: actual > line ? 'WON' : actual === line ? 'PUSH' : 'LOST', actual };
 }
 
-export async function reconcilePortfolio({ dryRun = false, force = false, week = 1, eventId = '401872657', splitTickets = [], splitAll = false } = {}) {
-  console.log(`\n🏈 Running Placed Wager & Alejandro Settlement Reconciliation...`);
-  console.log(`   Source: ${path.relative(ROOT, WAGERS_FILE)}`);
-  console.log(`   Mode: ${dryRun ? '🔍 DRY RUN (No writes)' : '💾 COMMIT (Writing ledger)'}`);
-  if (force) console.log(`   ⚡ FORCE MODE: Grading current in-progress stats as final.`);
-  if (splitAll) console.log(`   🤝 SPLIT ALL: Marking all placed wagers as 50/50 Alejandro split.`);
-  else if (splitTickets.length > 0) console.log(`   🤝 SPLIT TICKETS: Marking ${splitTickets.length} wagers as 50/50 Alejandro split.`);
+const toDecimal = (price) => {
+  const n = Number(String(price ?? '-110').replace('+', ''));
+  if (!Number.isFinite(n) || n === 0) return 1 + 100 / 110;
+  return n > 0 ? 1 + n / 100 : 1 + 100 / Math.abs(n);
+};
+const round2 = (value) => Math.round(value * 100) / 100;
 
-  const rawWagers = await readFile(WAGERS_FILE, 'utf8');
-  const wagers = JSON.parse(rawWagers);
+function combinations(items, size) {
+  if (size === 0) return [[]];
+  if (items.length < size) return [];
+  const [first, ...rest] = items;
+  return [...combinations(rest, size - 1).map((combo) => [first, ...combo]), ...combinations(rest, size)];
+}
 
-  // Load existing Alejandro History
-  let alejandroHistory = {
-    updated_at: new Date().toISOString(),
-    total_cash_staked: 0,
-    alejandro_cost_share: 0,
-    alejandro_cashed_share: 0,
-    alejandro_net_balance: 0,
-    records: []
-  };
-
-  try {
-    const rawHist = await readFile(ALEJANDRO_HISTORY_FILE, 'utf8');
-    alejandroHistory = JSON.parse(rawHist);
-  } catch {
-    // First run or file doesn't exist yet
+function ticketOutcome(bet, legs) {
+  const hasPending = legs.some((leg) => leg.status === 'PENDING' || leg.status === 'OPEN');
+  const stake = Number(bet.cash_risk_usd ?? bet.stake_usd ?? 0);
+  if (bet.round_robin) {
+    // A Round Robin can remain alive despite losing selections, so it is not
+    // settled while any leg is pending. Once every leg is final, the result
+    // comes from the combination payouts: a "win" must return more than the
+    // stake. Payout is computed from logged leg prices and flagged for
+    // confirmation against the book's ticket.
+    if (hasPending) return { status: 'PENDING', result: null };
+    const size = Number(bet.round_robin.teams_per_combination || 2);
+    const combos = combinations(legs, size);
+    const perCombo = combos.length ? stake / combos.length : 0;
+    let payout = 0;
+    for (const combo of combos) {
+      if (combo.some((leg) => leg.status === 'LOST')) continue;
+      payout += perCombo * combo.reduce((acc, leg) => acc * (leg.status === 'PUSH' ? 1 : toDecimal(leg.price)), 1);
+    }
+    payout = round2(payout);
+    const result = payout > stake + 0.005 ? 'win' : payout < stake - 0.005 ? 'loss' : 'push';
+    return { status: 'SETTLED', result, settled_payout_usd: payout, profit_usd: round2(payout - stake), payout_source: 'computed_from_leg_prices' };
   }
+  if (legs.some((leg) => leg.status === 'LOST')) return { status: 'SETTLED', result: 'loss', settled_payout_usd: 0, profit_usd: -stake };
+  if (hasPending) return { status: 'PENDING', result: null };
+  const payout = Number(bet.potential_payout_usd ?? 0);
+  return { status: 'SETTLED', result: 'win', settled_payout_usd: payout, profit_usd: round2(payout - stake) };
+}
 
-  // Fetch boxscore for Melbourne
-  console.log(`   Fetching ESPN Game Summary for Event ID ${eventId}...`);
-  const espnData = await fetchEspnBoxscore(eventId);
-  const box = parseBoxscore(espnData);
-  console.log(`   Game State: ${box.awayTeam} ${box.awayScore} @ ${box.homeTeam} ${box.homeScore} (${box.isCompleted ? 'FINAL' : 'IN PROGRESS'})`);
+function buildReport({ season, week, games, wagers }) {
+  const finalGames = games.filter((game) => game.completed);
+  const pendingGames = games.filter((game) => !game.completed);
+  const affected = wagers.filter((bet) => Number(bet.week) === week);
+  return `# NFL Week ${week} settlement preview\n\n` +
+    `Generated: ${new Date().toISOString()}  \nSeason: ${season}  \nMode: completed games only; pending games are never graded.\n\n` +
+    `## ESPN scoreboard\n\n` +
+    `Final (${finalGames.length}): ${finalGames.map((game) => `${game.awayTeam} ${game.awayScore} @ ${game.homeTeam} ${game.homeScore}`).join('; ') || 'none'}\n\n` +
+    `Pending (${pendingGames.length}): ${pendingGames.map((game) => `${game.awayTeam} @ ${game.homeTeam}`).join('; ') || 'none'}\n\n` +
+    `## Week ${week} tickets (${affected.length})\n\n` +
+    affected.map((bet) => `- ${bet.id}: **${bet.status}**${bet.result ? ` (${bet.result})` : ''}`).join('\n') + '\n';
+}
 
-  let totalCashRisk = 0;
-  let totalPromoRisk = 0;
-  let totalCashedPayout = 0;
-  let totalSettledProfit = 0;
+export async function reconcilePortfolio({ dryRun = true, week, season } = {}) {
+  if (!Number.isInteger(week) || week < 1) throw new Error('A valid regular-season --week is required.');
+  const wagers = JSON.parse(await readFile(WAGERS_FILE, 'utf8'));
+  const games = await fetchWeekScoreboard({ season, week });
+  const boxes = new Map();
+  for (const game of games.filter((item) => item.completed)) boxes.set(game.key, await fetchBoxscore(game.id));
 
-  let alejandroActiveStakes = 0;
-  let alejandroActiveCost = 0;
-  let alejandroActiveCashed = 0;
-
-  const gradedWagers = [];
-
-  for (const bet of wagers) {
-    const isMelbourneTicket = bet.game === 'SF @ LAR' || bet.game?.includes('SF @ LAR');
-    const isPromo = bet.is_promo_credit || bet.funding_type === 'promo_credit';
-    const cashRisk = isPromo ? 0 : (bet.cash_risk_usd ?? bet.stake_usd ?? 0);
-    const promoRisk = isPromo ? (bet.promo_credit_stake_usd ?? bet.stake_usd ?? 0) : 0;
-
-    totalCashRisk += cashRisk;
-    totalPromoRisk += promoRisk;
-
-    // Check if wager is split with Alejandro
-    const isSplit = splitAll || splitTickets.includes(bet.id) || bet.is_split === true || bet.split_partner === 'Alejandro' || false;
-
-    // Grade legs
-    let allLegsWon = true;
-    let anyLegLost = false;
-    let anyLegPending = false;
-    let anyLegOpen = false;
-
-    const gradedLegs = (bet.legs || []).map(leg => {
-      // If this leg is for the Melbourne game, grade it against the boxscore
-      const legIsMelbourne = !leg.game || leg.game === 'SF @ LAR' || leg.opponent === 'SF' || leg.opponent === 'LAR';
-      if (legIsMelbourne) {
-        const { status, actual } = gradeLeg(leg, box);
-        if (status === 'LOST') anyLegLost = true;
-        if (status === 'PENDING') anyLegPending = true;
-        if (status === 'OPEN') anyLegOpen = true;
-        if (status !== 'WON') allLegsWon = false;
-        return {
-          ...leg,
-          actual_stat: actual,
-          status
-        };
-      } else {
-        // Multi-game Sunday leg (pending)
-        if (leg.status === 'OPEN') anyLegOpen = true;
-        else anyLegPending = true;
-        allLegsWon = false;
-        return leg;
-      }
+  const reconciled = wagers.map((bet) => {
+    if (Number(bet.week) !== week) return bet;
+    // Never re-grade a settled ticket: it may carry manual grades or the book's
+    // actual payout, which a fresh ESPN pass must not overwrite.
+    if (bet.status === 'SETTLED') return bet;
+    const legs = (bet.legs || []).map((leg) => {
+      const box = boxes.get(gameKeyFromLeg(leg));
+      if (!box) return leg.status === 'OPEN' ? leg : { ...leg, status: 'PENDING' };
+      const grade = gradeLeg(leg, box);
+      return { ...leg, status: grade.status, actual_stat: grade.actual };
     });
+    const outcome = ticketOutcome(bet, legs);
+    return { ...bet, ...outcome, graded_at: outcome.status === 'SETTLED' ? new Date().toISOString() : bet.graded_at, legs };
+  });
 
-    let finalTicketStatus = bet.status;
-    let finalResult = bet.result;
-    let gradedAt = bet.graded_at;
-
-    if (isMelbourneTicket && !anyLegOpen && !anyLegPending) {
-      // All legs are completed or game is final
-      if (box.isCompleted || force) {
-        if (anyLegLost) {
-          finalTicketStatus = 'SETTLED';
-          finalResult = 'loss';
-          gradedAt = new Date().toISOString();
-        } else if (allLegsWon) {
-          finalTicketStatus = 'SETTLED';
-          finalResult = 'win';
-          gradedAt = new Date().toISOString();
-          totalCashedPayout += bet.potential_payout_usd || 0;
-          totalSettledProfit += bet.potential_profit_usd || 0;
-        }
-      } else {
-        finalTicketStatus = 'LIVE';
-        finalResult = null;
-      }
-    } else if (anyLegOpen || anyLegPending) {
-      // Partial progress (like Bookmaker 7-Team Open Parlay)
-      finalTicketStatus = 'PENDING';
-      finalResult = null;
-      if (gradedLegs.some(l => l.status === 'WON')) {
-        bet.progress_notes = 'Leg 1 (SF +4) WON. Advancing to Sunday games.';
-      }
-    }
-
-    if (finalResult === 'loss') {
-      totalSettledProfit -= cashRisk;
-    }
-
-    // Alejandro Split Accounting
-    if (isSplit) {
-      alejandroActiveStakes += cashRisk;
-      const costShare = cashRisk * 0.5;
-      alejandroActiveCost += costShare;
-
-      let cashedShare = 0;
-      if (finalResult === 'win') {
-        cashedShare = (bet.potential_payout_usd || 0) * 0.5;
-        alejandroActiveCashed += cashedShare;
-      }
-
-      // Record in ledger
-      const existingRecord = alejandroHistory.records.find(r => r.ticket_id === bet.id);
-      const rec = {
-        ticket_id: bet.id,
-        ticket_type: bet.ticket_type,
-        book: bet.book,
-        description: bet.game_title || bet.game,
-        total_stake: cashRisk,
-        alejandro_stake_share: costShare,
-        is_promo: isPromo,
-        status: finalTicketStatus,
-        result: finalResult || 'pending',
-        payout_share: cashedShare,
-        net_impact: cashedShare - costShare,
-        updated_at: new Date().toISOString()
-      };
-
-      if (existingRecord) {
-        Object.assign(existingRecord, rec);
-      } else {
-        alejandroHistory.records.push(rec);
-      }
-    }
-
-    gradedWagers.push({
-      ...bet,
-      status: finalTicketStatus,
-      result: finalResult,
-      graded_at: gradedAt,
-      legs: gradedLegs
-    });
-  }
-
-  // Summary Alejandro Ledger
-  const totalCost = alejandroHistory.records.reduce((acc, r) => acc + (r.alejandro_stake_share || 0), 0);
-  const totalCashed = alejandroHistory.records.reduce((acc, r) => acc + (r.payout_share || 0), 0);
-  const netBalance = totalCashed - totalCost;
-
-  alejandroHistory.updated_at = new Date().toISOString();
-  alejandroHistory.total_cash_staked = alejandroActiveStakes;
-  alejandroHistory.alejandro_cost_share = totalCost;
-  alejandroHistory.alejandro_cashed_share = totalCashed;
-  alejandroHistory.alejandro_net_balance = netBalance;
-  alejandroHistory.summary = netBalance < 0
-    ? `Alejandro Castro owes Andy $${Math.abs(netBalance).toFixed(2)}`
-    : netBalance > 0
-      ? `Andy owes Alejandro Castro $${netBalance.toFixed(2)}`
-      : 'All split accounts are settled ($0.00)';
-
-  // Build Markdown Summary
-  const mdReport = `# 🏈 NFL Settlement & Ledger Reconciliation Report
-**Generated:** ${new Date().toISOString()}  
-**Slate / Event:** Week 1 Season Opener (SF @ LAR - Melbourne)  
-**Game Result:** **${box.awayTeam} ${box.awayScore}, ${box.homeTeam} ${box.homeScore}** (Total: ${box.awayScore + box.homeScore} points)
-
----
-
-## 📊 Portfolio Summary
-
-| Metric | Cash Risk | Promo Risk | Total Value |
-| :--- | :--- | :--- | :--- |
-| **Total Placed Wagers** | **$${totalCashRisk.toFixed(2)}** | **$${totalPromoRisk.toFixed(2)}** | **$${(totalCashRisk + totalPromoRisk).toFixed(2)}** |
-| **Total Payout Cashed** | **$${totalCashedPayout.toFixed(2)}** | - | **$${totalCashedPayout.toFixed(2)}** |
-| **Settled Net P&L** | **$${totalSettledProfit.toFixed(2)}** | $0.00 Cash Loss | **$${totalSettledProfit.toFixed(2)}** |
-
----
-
-## 🎫 Ticket Grading Breakdown
-
-${gradedWagers.map((w, idx) => `
-### ${idx + 1}. ${w.game_title || w.game} — ${w.book} (${w.ticket_type})
-* **Ticket ID:** \`${w.id}\`
-* **Stake:** $${(w.cash_risk_usd ?? w.stake_usd ?? 0).toFixed(2)} ${w.is_promo_credit ? '(Promo Credit)' : '(Cash)'}
-* **Status:** **${w.status}** (${w.result ? w.result.toUpperCase() : 'IN PROGRESS'})
-* **Potential Payout:** $${(w.potential_payout_usd || 0).toFixed(2)}
-* **Leg Results:**
-${(w.legs || []).map(l => `  - ${l.status === 'WON' ? '✅' : l.status === 'LOST' ? '❌' : l.status === 'OPEN' ? '🟢' : '🟡'} **${l.player || l.selection}**: ${l.status} (Target: \`${l.line ?? '-'}\`, Actual: \`${l.actual_stat ?? '-'}\`)`).join('\n')}
-`).join('\n')}
-
----
-
-## 🤝 Alejandro Castro Split Accounting Ledger
-
-* **Alejandro Castro Active Split Records:** ${alejandroHistory.records.length} wagers
-* **Total Stakes Split (50%):** $${totalCost.toFixed(2)}
-* **Total Cashed Share (50%):** $${totalCashed.toFixed(2)}
-* **Current Ledger Balance:** **${alejandroHistory.summary}**
-
-${alejandroHistory.records.length === 0 ? '_No split wagers logged yet. Toggle split on any ticket in the Live Tracker or CLI._' : `
-| Ticket ID | Description | Total Stake | Alejandro Share (50%) | Result | Payout Share | Net Impact |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-${alejandroHistory.records.map(r => `| \`${r.ticket_id.slice(0, 16)}...\` | ${r.description} | $${r.total_stake.toFixed(2)} | $${r.alejandro_stake_share.toFixed(2)} | ${r.result.toUpperCase()} | $${r.payout_share.toFixed(2)} | **${r.net_impact >= 0 ? '+' : ''}$${r.net_impact.toFixed(2)}** |`).join('\n')}
-`}
-
----
-*Report generated by NFL Toolbox Reconciliation Engine.*
-`;
-
+  const report = buildReport({ season, week, games, wagers: reconciled });
+  console.log(report);
   if (!dryRun) {
-    await writeFile(WAGERS_FILE, JSON.stringify(gradedWagers, null, 2), 'utf8');
-    await writeFile(ALEJANDRO_HISTORY_FILE, JSON.stringify(alejandroHistory, null, 2), 'utf8');
+    await writeFile(WAGERS_FILE, JSON.stringify(reconciled, null, 2), 'utf8');
     await mkdir(path.dirname(REPORT_MD_FILE), { recursive: true });
-    await writeFile(REPORT_MD_FILE, mdReport, 'utf8');
-    await writeFile(REPORT_JSON_FILE, JSON.stringify({
-      generated_at: new Date().toISOString(),
-      summary: {
-        totalCashRisk,
-        totalPromoRisk,
-        totalCashedPayout,
-        totalSettledProfit,
-        alejandro: alejandroHistory
-      },
-      wagers: gradedWagers
-    }, null, 2), 'utf8');
-
-    console.log(`\n✅ Successfully reconciled portfolio!`);
-    console.log(`   Updated wagers: ${path.relative(ROOT, WAGERS_FILE)}`);
-    console.log(`   Updated Alejandro Ledger: ${path.relative(ROOT, ALEJANDRO_HISTORY_FILE)}`);
-    console.log(`   Generated Report: ${path.relative(ROOT, REPORT_MD_FILE)}`);
-
-    // Synchronize reconciled wagers directly to Supabase and public/
-    try {
-      await syncPlacedWagersToBankroll({ quiet: false });
-    } catch (syncErr) {
-      console.warn(`   ⚠️ Bankroll sync warning:`, syncErr.message);
-    }
-  } else {
-    console.log(`\n🔍 [DRY RUN] Reconciliation preview complete. No files modified.`);
-    console.log('\n' + mdReport);
+    await writeFile(REPORT_MD_FILE, report, 'utf8');
+    await writeFile(REPORT_JSON_FILE, JSON.stringify({ generated_at: new Date().toISOString(), season, week, games, wagers: reconciled.filter((bet) => Number(bet.week) === week) }, null, 2), 'utf8');
   }
-
-  return {
-    gradedWagers,
-    alejandroHistory,
-    totalCashRisk,
-    totalPromoRisk,
-    totalCashedPayout,
-    totalSettledProfit
-  };
+  return { games, wagers: reconciled, report };
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === __filename;
-if (isMain) {
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   const args = process.argv.slice(2);
-  const dryRun = args.includes('--dry-run');
-  const force = args.includes('--force');
-  const splitAll = args.includes('--split-all');
-  const splitTickets = [];
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === '--split-ticket' && args[i + 1]) {
-      splitTickets.push(args[i + 1]);
-      i++;
-    }
-  }
-  const weekIdx = args.indexOf('--week');
-  const week = weekIdx >= 0 ? parseInt(args[weekIdx + 1], 10) : 1;
-  const gameIdx = args.indexOf('--game-id');
-  const eventId = gameIdx >= 0 ? args[gameIdx + 1] : '401872657';
-
-  reconcilePortfolio({ dryRun, force, week, eventId, splitAll, splitTickets })
-    .then(() => {
-      process.exitCode = 0;
-    })
-    .catch(err => {
-      console.error(`❌ Reconciliation failed:`, err);
-      process.exit(1);
-    });
+  const info = getNFLWeekInfo();
+  const weekIndex = args.indexOf('--week');
+  const seasonIndex = args.indexOf('--season');
+  const week = weekIndex >= 0 ? Number(args[weekIndex + 1]) : info.week;
+  const season = seasonIndex >= 0 ? Number(args[seasonIndex + 1]) : info.season;
+  reconcilePortfolio({ dryRun: args.includes('--dry-run'), week, season })
+    .catch((error) => { console.error(`Reconciliation failed: ${error.message}`); process.exitCode = 1; });
 }

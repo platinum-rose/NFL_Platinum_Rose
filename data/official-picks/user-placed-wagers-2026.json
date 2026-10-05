@@ -11610,7 +11610,7 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10.09,
-    "graded_at": "2026-10-04T10:30:02.622Z"
+    "graded_at": "2026-10-05T14:42:27.095Z"
   },
   {
     "id": "bet_20261001_betonline_1001390385",
@@ -11773,7 +11773,7 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -5,
-    "graded_at": "2026-10-04T10:30:02.623Z"
+    "graded_at": "2026-10-05T14:42:27.096Z"
   },
   {
     "id": "bet_20261001_betonline_1001388000",
@@ -11890,7 +11890,7 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -5,
-    "graded_at": "2026-10-04T10:30:02.623Z"
+    "graded_at": "2026-10-05T14:42:27.096Z"
   },
   {
     "id": "bet_20261001_bkr_739565346",
@@ -11951,8 +11951,9 @@
         "price": "-194",
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 06:30 AM",
-        "status": "PENDING",
-        "key": "leg_739565346_2_ind_ml"
+        "status": "WON",
+        "key": "leg_739565346_2_ind_ml",
+        "actual_stat": "30-13"
       },
       {
         "leg_num": 3,
@@ -11966,8 +11967,9 @@
         "price": "-192",
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_739565346_3_det_ml"
+        "status": "LOST",
+        "key": "leg_739565346_3_det_ml",
+        "actual_stat": "26-32"
       },
       {
         "leg_num": 4,
@@ -11981,8 +11983,9 @@
         "price": "-178",
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739565346_4_gb_ml"
+        "status": "WON",
+        "key": "leg_739565346_4_gb_ml",
+        "actual_stat": "17-14"
       },
       {
         "leg_num": 5,
@@ -11997,7 +12000,8 @@
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 10:00 AM",
         "status": "LOST",
-        "key": "leg_739565346_5_hou_ml"
+        "key": "leg_739565346_5_hou_ml",
+        "actual_stat": "30-34"
       },
       {
         "leg_num": 6,
@@ -12027,7 +12031,8 @@
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 10:00 AM",
         "status": "LOST",
-        "key": "leg_739565346_7_buf_ml"
+        "key": "leg_739565346_7_buf_ml",
+        "actual_stat": "26-29"
       },
       {
         "leg_num": 8,
@@ -12042,7 +12047,8 @@
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 10:00 AM",
         "status": "LOST",
-        "key": "leg_739565346_8_cin_ml"
+        "key": "leg_739565346_8_cin_ml",
+        "actual_stat": "17-22"
       },
       {
         "leg_num": 9,
@@ -12057,7 +12063,8 @@
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 10:00 AM",
         "status": "LOST",
-        "key": "leg_739565346_9_ari_ml"
+        "key": "leg_739565346_9_ari_ml",
+        "actual_stat": "24-36"
       },
       {
         "leg_num": 10,
@@ -12071,13 +12078,14 @@
         "price": "-197",
         "target_stat": "moneyline",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_739565346_10_kc_ml"
+        "status": "WON",
+        "key": "leg_739565346_10_kc_ml",
+        "actual_stat": "30-27"
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": -10.08,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.096Z"
   },
   {
     "id": "bet_20260930_bkr_739527199",
@@ -12143,7 +12151,7 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -21.2,
-    "graded_at": "2026-10-04T10:30:02.623Z"
+    "graded_at": "2026-10-05T14:42:27.096Z"
   },
   {
     "id": "bet_20261002_w04_jays_lockbox_promo_2team",
@@ -12187,7 +12195,8 @@
         "direction": "under",
         "game_start": "10/04/2026",
         "status": "LOST",
-        "key": "leg_w04_jayslockbox_1"
+        "key": "leg_w04_jayslockbox_1",
+        "actual_stat": 55
       },
       {
         "leg_num": 2,
@@ -12199,12 +12208,13 @@
         "price": null,
         "game_start": "10/04/2026",
         "status": "LOST",
-        "key": "leg_w04_jayslockbox_2"
+        "key": "leg_w04_jayslockbox_2",
+        "actual_stat": "-5"
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": 0,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.097Z"
   },
   {
     "id": "bet_20261004_bkr_739714646_round_robin_8x4",
@@ -12227,8 +12237,8 @@
     "odds_decimal": 11.0054,
     "potential_profit_usd": 1050.57,
     "potential_payout_usd": 1155.57,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_739714646",
     "round_robin": {
       "selection_count": 8,
@@ -12237,7 +12247,7 @@
       "stake_per_combination_usd": 1.5,
       "settlement_method": "manual_bookmaker_ticket_payout"
     },
-    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. Logged from the Bookmaker ticket slip; all legs pending.",
+    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. Logged from the Bookmaker ticket slip; all legs pending. | 2026-10-05: payout $84.48 computed from leg prices (pending BKR confirmation); result loss.",
     "legs": [
       {
         "leg_num": 1,
@@ -12249,8 +12259,9 @@
         "line": 3.5,
         "price": "-104",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739714646_1_nyj_spread"
+        "status": "LOST",
+        "key": "leg_739714646_1_nyj_spread",
+        "actual_stat": "-11"
       },
       {
         "leg_num": 2,
@@ -12262,8 +12273,9 @@
         "line": -3,
         "price": "-135",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739714646_2_lar_spread"
+        "status": "WON",
+        "key": "leg_739714646_2_lar_spread",
+        "actual_stat": "+4"
       },
       {
         "leg_num": 3,
@@ -12275,8 +12287,9 @@
         "line": 10,
         "price": "-121",
         "game_start": "10/04/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_739714646_3_mia_spread"
+        "status": "WON",
+        "key": "leg_739714646_3_mia_spread",
+        "actual_stat": "-5"
       },
       {
         "leg_num": 4,
@@ -12288,8 +12301,9 @@
         "line": 3,
         "price": "-121",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_739714646_4_den_spread"
+        "status": "LOST",
+        "key": "leg_739714646_4_den_spread",
+        "actual_stat": "-10"
       },
       {
         "leg_num": 5,
@@ -12301,8 +12315,9 @@
         "line": 5,
         "price": "-113",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_739714646_5_lv_spread"
+        "status": "WON",
+        "key": "leg_739714646_5_lv_spread",
+        "actual_stat": "-3"
       },
       {
         "leg_num": 6,
@@ -12315,8 +12330,9 @@
         "price": "-120",
         "direction": "under",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739714646_6_gb_tb_under"
+        "status": "WON",
+        "key": "leg_739714646_6_gb_tb_under",
+        "actual_stat": 31
       },
       {
         "leg_num": 7,
@@ -12328,8 +12344,9 @@
         "line": null,
         "price": "-159",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739714646_7_hou_ml"
+        "status": "LOST",
+        "key": "leg_739714646_7_hou_ml",
+        "actual_stat": "30-34"
       },
       {
         "leg_num": 8,
@@ -12341,9 +12358,17 @@
         "line": 12,
         "price": "-114",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739714646_8_ten_spread"
+        "status": "WON",
+        "key": "leg_739714646_8_ten_spread",
+        "actual_stat": "-6"
       }
+    ],
+    "graded_at": "2026-10-05T14:42:27.097Z",
+    "settled_payout_usd": 84.48,
+    "profit_usd": -20.52,
+    "payout_source": "computed_from_leg_prices",
+    "needs_confirmation": [
+      "round-robin payout computed from logged leg prices; confirm against the BKR ticket"
     ]
   },
   {
@@ -12384,7 +12409,8 @@
         "price": "-325",
         "game_start": "10/04/2026 @ 10:00 AM",
         "status": "LOST",
-        "key": "leg_739714534_1_buf_ml"
+        "key": "leg_739714534_1_buf_ml",
+        "actual_stat": "26-29"
       },
       {
         "leg_num": 2,
@@ -12396,8 +12422,9 @@
         "line": null,
         "price": "-160",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739714534_2_gb_ml"
+        "status": "WON",
+        "key": "leg_739714534_2_gb_ml",
+        "actual_stat": "17-14"
       },
       {
         "leg_num": 3,
@@ -12409,8 +12436,9 @@
         "line": null,
         "price": "-200",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739714534_3_lar_ml"
+        "status": "WON",
+        "key": "leg_739714534_3_lar_ml",
+        "actual_stat": "24-20"
       },
       {
         "leg_num": 4,
@@ -12422,8 +12450,9 @@
         "line": 5,
         "price": "-113",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_739714534_4_lv_spread"
+        "status": "WON",
+        "key": "leg_739714534_4_lv_spread",
+        "actual_stat": "-3"
       },
       {
         "leg_num": 5,
@@ -12435,8 +12464,9 @@
         "line": null,
         "price": "-192",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_739714534_5_det_ml"
+        "status": "LOST",
+        "key": "leg_739714534_5_det_ml",
+        "actual_stat": "26-32"
       },
       {
         "leg_num": 6,
@@ -12449,13 +12479,14 @@
         "price": "-130",
         "direction": "under",
         "game_start": "10/04/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_739714534_6_mia_min_under"
+        "status": "WON",
+        "key": "leg_739714534_6_mia_min_under",
+        "actual_stat": 25
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": -20,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.097Z"
   },
   {
     "id": "bet_20261004_bkr_739714258_5team_parlay",
@@ -12494,8 +12525,9 @@
         "line": 7,
         "price": "-114",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739714258_1_ne_spread"
+        "status": "WON",
+        "key": "leg_739714258_1_ne_spread",
+        "actual_stat": "+3"
       },
       {
         "leg_num": 2,
@@ -12508,7 +12540,8 @@
         "price": "-103",
         "game_start": "10/04/2026 @ 10:00 AM",
         "status": "LOST",
-        "key": "leg_739714258_2_nyj_spread"
+        "key": "leg_739714258_2_nyj_spread",
+        "actual_stat": "-11"
       },
       {
         "leg_num": 3,
@@ -12520,8 +12553,9 @@
         "line": null,
         "price": "-323",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_739714258_3_sea_ml"
+        "status": "WON",
+        "key": "leg_739714258_3_sea_ml",
+        "actual_stat": "30-23"
       },
       {
         "leg_num": 4,
@@ -12533,8 +12567,9 @@
         "line": null,
         "price": "-192",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_739714258_4_det_ml"
+        "status": "LOST",
+        "key": "leg_739714258_4_det_ml",
+        "actual_stat": "26-32"
       },
       {
         "leg_num": 5,
@@ -12547,13 +12582,14 @@
         "price": "-120",
         "direction": "under",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739714258_5_gb_tb_under"
+        "status": "WON",
+        "key": "leg_739714258_5_gb_tb_under",
+        "actual_stat": 31
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": -20,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.097Z"
   },
   {
     "id": "bet_20261004_bkr_739713560_round_robin_6x2",
@@ -12576,8 +12612,8 @@
     "odds_decimal": 6.6887,
     "potential_profit_usd": 170.66,
     "potential_payout_usd": 200.66,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_739713560",
     "round_robin": {
       "selection_count": 6,
@@ -12586,7 +12622,7 @@
       "stake_per_combination_usd": 2,
       "settlement_method": "manual_bookmaker_ticket_payout"
     },
-    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. All legs pending.",
+    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. All legs pending. | Settled 2026-10-05 from the BKR ticket (graded 10/04 8:42 PM): JAX + CAR the only winning combo; returned $12.28 on $30 (-$17.72).",
     "legs": [
       {
         "leg_num": 1,
@@ -12598,8 +12634,9 @@
         "line": null,
         "price": "+130",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739713560_1_jax_ml"
+        "status": "WON",
+        "key": "leg_739713560_1_jax_ml",
+        "actual_stat": "22-17"
       },
       {
         "leg_num": 2,
@@ -12611,8 +12648,9 @@
         "line": null,
         "price": "+125",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_739713560_2_den_ml"
+        "status": "LOST",
+        "key": "leg_739713560_2_den_ml",
+        "actual_stat": "14-24"
       },
       {
         "leg_num": 3,
@@ -12624,8 +12662,9 @@
         "line": null,
         "price": "+183",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_739713560_3_lv_ml"
+        "status": "LOST",
+        "key": "leg_739713560_3_lv_ml",
+        "actual_stat": "27-30"
       },
       {
         "leg_num": 4,
@@ -12637,8 +12676,9 @@
         "line": null,
         "price": "+164",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739713560_4_nyj_ml"
+        "status": "LOST",
+        "key": "leg_739713560_4_nyj_ml",
+        "actual_stat": "12-23"
       },
       {
         "leg_num": 5,
@@ -12650,8 +12690,9 @@
         "line": null,
         "price": "+167",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_739713560_5_car_ml"
+        "status": "WON",
+        "key": "leg_739713560_5_car_ml",
+        "actual_stat": "32-26"
       },
       {
         "leg_num": 6,
@@ -12663,10 +12704,14 @@
         "line": null,
         "price": "+184",
         "game_start": "10/04/2026 @ 06:30 AM",
-        "status": "PENDING",
-        "key": "leg_739713560_6_was_ml"
+        "status": "LOST",
+        "key": "leg_739713560_6_was_ml",
+        "actual_stat": "13-30"
       }
-    ]
+    ],
+    "graded_at": "2026-10-05T15:00:00Z",
+    "settled_payout_usd": 12.28,
+    "profit_usd": -17.72
   },
   {
     "id": "bet_20261004_bkr_739713279_round_robin_5x2",
@@ -12689,8 +12734,8 @@
     "odds_decimal": 3.27,
     "potential_profit_usd": 34.05,
     "potential_payout_usd": 49.05,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "win",
     "external_url": "https://be.bookmaker.eu/#ticket_739713279",
     "round_robin": {
       "selection_count": 5,
@@ -12699,7 +12744,7 @@
       "stake_per_combination_usd": 1.5,
       "settlement_method": "manual_bookmaker_ticket_payout"
     },
-    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. All legs pending.",
+    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. All legs pending. | 2026-10-05: payout $29.66 computed from leg prices (pending BKR confirmation); result win.",
     "legs": [
       {
         "leg_num": 1,
@@ -12711,8 +12756,9 @@
         "line": -1.5,
         "price": "-128",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739713279_1_ari_spread"
+        "status": "LOST",
+        "key": "leg_739713279_1_ari_spread",
+        "actual_stat": "-12"
       },
       {
         "leg_num": 2,
@@ -12724,8 +12770,9 @@
         "line": 7,
         "price": "-114",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739713279_2_ne_spread"
+        "status": "WON",
+        "key": "leg_739713279_2_ne_spread",
+        "actual_stat": "+3"
       },
       {
         "leg_num": 3,
@@ -12737,8 +12784,9 @@
         "line": -2.5,
         "price": "-112",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_739713279_3_sf_spread"
+        "status": "WON",
+        "key": "leg_739713279_3_sf_spread",
+        "actual_stat": "+10"
       },
       {
         "leg_num": 4,
@@ -12750,8 +12798,9 @@
         "line": 10.5,
         "price": "-133",
         "game_start": "10/04/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_739713279_4_mia_spread"
+        "status": "WON",
+        "key": "leg_739713279_4_mia_spread",
+        "actual_stat": "-5"
       },
       {
         "leg_num": 5,
@@ -12763,9 +12812,17 @@
         "line": -3,
         "price": "-135",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739713279_5_lar_spread"
+        "status": "WON",
+        "key": "leg_739713279_5_lar_spread",
+        "actual_stat": "+4"
       }
+    ],
+    "graded_at": "2026-10-05T14:42:27.097Z",
+    "settled_payout_usd": 29.66,
+    "profit_usd": 14.66,
+    "payout_source": "computed_from_leg_prices",
+    "needs_confirmation": [
+      "round-robin payout computed from logged leg prices; confirm against the BKR ticket"
     ]
   },
   {
@@ -12806,7 +12863,8 @@
         "price": "-128",
         "game_start": "10/04/2026 @ 10:00 AM",
         "status": "LOST",
-        "key": "leg_739713278_1_ari_spread"
+        "key": "leg_739713278_1_ari_spread",
+        "actual_stat": "-12"
       },
       {
         "leg_num": 2,
@@ -12818,8 +12876,9 @@
         "line": 7,
         "price": "-114",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739713278_2_ne_spread"
+        "status": "WON",
+        "key": "leg_739713278_2_ne_spread",
+        "actual_stat": "+3"
       },
       {
         "leg_num": 3,
@@ -12831,8 +12890,9 @@
         "line": -2.5,
         "price": "-112",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_739713278_3_sf_spread"
+        "status": "WON",
+        "key": "leg_739713278_3_sf_spread",
+        "actual_stat": "+10"
       },
       {
         "leg_num": 4,
@@ -12844,8 +12904,9 @@
         "line": 10.5,
         "price": "-133",
         "game_start": "10/04/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_739713278_4_mia_spread"
+        "status": "WON",
+        "key": "leg_739713278_4_mia_spread",
+        "actual_stat": "-5"
       },
       {
         "leg_num": 5,
@@ -12857,13 +12918,14 @@
         "line": -3,
         "price": "-135",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_739713278_5_lar_spread"
+        "status": "WON",
+        "key": "leg_739713278_5_lar_spread",
+        "actual_stat": "+4"
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": -25,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.097Z"
   },
   {
     "id": "bet_20261004_betonline_1002306890_ne_buf_spread",
@@ -12901,12 +12963,13 @@
         "price": "-115",
         "game_start": "10/04/2026 @ 10:00 AM",
         "status": "WON",
-        "key": "leg_1002306890_1_ne_spread"
+        "key": "leg_1002306890_1_ne_spread",
+        "actual_stat": "+3"
       }
     ],
     "settled_payout_usd": 18.7,
     "profit_usd": 8.7,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.097Z"
   },
   {
     "id": "bet_20261004_betonline_1002306799_gb_super_bowl",
@@ -12998,8 +13061,9 @@
         "line": 2,
         "price": null,
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_1002306704_2_mccaffrey_2td"
+        "status": "LOST",
+        "key": "leg_1002306704_2_mccaffrey_2td",
+        "actual_stat": 1
       },
       {
         "leg_num": 3,
@@ -13027,8 +13091,9 @@
         "line": 2,
         "price": null,
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_1002306704_4_gibbs_2td"
+        "status": "LOST",
+        "key": "leg_1002306704_4_gibbs_2td",
+        "actual_stat": 1
       },
       {
         "leg_num": 5,
@@ -13048,7 +13113,7 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -5,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.097Z"
   },
   {
     "id": "bet_20261004_betonline_1002306303_hybrid_prop_parlay",
@@ -13087,8 +13152,9 @@
         "price": null,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_1002306303_1_mahomes_pass_td"
+        "status": "WON",
+        "key": "leg_1002306303_1_mahomes_pass_td",
+        "actual_stat": 2
       },
       {
         "leg_num": 2,
@@ -13117,8 +13183,9 @@
         "line": 0.5,
         "price": null,
         "game_start": "10/04/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_1002306303_3_jefferson_td"
+        "status": "LOST",
+        "key": "leg_1002306303_3_jefferson_td",
+        "actual_stat": 0
       },
       {
         "leg_num": 4,
@@ -13147,8 +13214,9 @@
         "price": null,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_1002306303_5_mccaffrey_receiving"
+        "status": "LOST",
+        "key": "leg_1002306303_5_mccaffrey_receiving",
+        "actual_stat": 18
       },
       {
         "leg_num": 6,
@@ -13191,13 +13259,14 @@
         "line": null,
         "price": null,
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_1002306303_8_det_ml"
+        "status": "LOST",
+        "key": "leg_1002306303_8_det_ml",
+        "actual_stat": "26-32"
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": -6.83,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.097Z"
   },
   {
     "id": "bet_20261004_betonline_1002304945_morning_prop_parlay",
@@ -13252,8 +13321,9 @@
         "price": null,
         "direction": "over",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1002304945_2_cook_rushing"
+        "status": "LOST",
+        "key": "leg_1002304945_2_cook_rushing",
+        "actual_stat": 0
       },
       {
         "leg_num": 3,
@@ -13297,8 +13367,9 @@
         "line": 0.5,
         "price": null,
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1002304945_5_javonte_td"
+        "status": "WON",
+        "key": "leg_1002304945_5_javonte_td",
+        "actual_stat": 3
       },
       {
         "leg_num": 6,
@@ -13312,8 +13383,9 @@
         "price": null,
         "direction": "over",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1002304945_6_brissett_pass_td"
+        "status": "WON",
+        "key": "leg_1002304945_6_brissett_pass_td",
+        "actual_stat": 2
       },
       {
         "leg_num": 7,
@@ -13328,7 +13400,8 @@
         "direction": "over",
         "game_start": "10/04/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_1002304945_7_winston_int"
+        "key": "leg_1002304945_7_winston_int",
+        "actual_stat": null
       },
       {
         "leg_num": 8,
@@ -13343,12 +13416,13 @@
         "direction": "over",
         "game_start": "10/04/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_1002304945_8_daniels_int"
+        "key": "leg_1002304945_8_daniels_int",
+        "actual_stat": null
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": -5,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.097Z"
   },
   {
     "id": "bet_20261004_betonline_1002303293_atd_parlay",
@@ -13431,8 +13505,9 @@
         "line": 0.5,
         "price": null,
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_1002303293_4_jsn_td"
+        "status": "LOST",
+        "key": "leg_1002303293_4_jsn_td",
+        "actual_stat": 0
       },
       {
         "leg_num": 5,
@@ -13445,8 +13520,9 @@
         "line": 0.5,
         "price": null,
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_1002303293_5_bowers_td"
+        "status": "WON",
+        "key": "leg_1002303293_5_bowers_td",
+        "actual_stat": 1
       },
       {
         "leg_num": 6,
@@ -13459,13 +13535,14 @@
         "line": 0.5,
         "price": null,
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_1002303293_6_waller_td"
+        "status": "LOST",
+        "key": "leg_1002303293_6_waller_td",
+        "actual_stat": 0
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": -5,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.097Z"
   },
   {
     "id": "bet_20261004_betonline_1002396982_late_prop_parlay",
@@ -13504,8 +13581,9 @@
         "price": null,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_1002396982_1_mahomes_pass_td"
+        "status": "WON",
+        "key": "leg_1002396982_1_mahomes_pass_td",
+        "actual_stat": 2
       },
       {
         "leg_num": 2,
@@ -13534,8 +13612,9 @@
         "line": 0.5,
         "price": null,
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1002396982_3_lamb_td"
+        "status": "WON",
+        "key": "leg_1002396982_3_lamb_td",
+        "actual_stat": 1
       },
       {
         "leg_num": 4,
@@ -13564,8 +13643,9 @@
         "price": null,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_1002396982_5_mccaffrey_receiving"
+        "status": "LOST",
+        "key": "leg_1002396982_5_mccaffrey_receiving",
+        "actual_stat": 18
       },
       {
         "leg_num": 6,
@@ -13610,13 +13690,14 @@
         "price": null,
         "direction": "over",
         "game_start": "10/04/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1002396982_8_tuten_rushing"
+        "status": "WON",
+        "key": "leg_1002396982_8_tuten_rushing",
+        "actual_stat": 73
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": -5,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.097Z"
   },
   {
     "id": "bet_20261004_betonline_afternoon_8leg_20261004",
@@ -13656,7 +13737,8 @@
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
         "status": "PENDING",
-        "key": "leg_afternoon_8leg_20261004_1_herbert_int"
+        "key": "leg_afternoon_8leg_20261004_1_herbert_int",
+        "actual_stat": null
       },
       {
         "leg_num": 2,
@@ -13670,8 +13752,9 @@
         "price": -127,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_20261004_2_purdy_pass_td"
+        "status": "WON",
+        "key": "leg_afternoon_8leg_20261004_2_purdy_pass_td",
+        "actual_stat": 2
       },
       {
         "leg_num": 3,
@@ -13685,8 +13768,9 @@
         "price": -132,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_20261004_3_darnold_pass_td"
+        "status": "WON",
+        "key": "leg_afternoon_8leg_20261004_3_darnold_pass_td",
+        "actual_stat": 2
       },
       {
         "leg_num": 4,
@@ -13700,8 +13784,9 @@
         "price": -157,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_20261004_4_cashman_ta"
+        "status": "WON",
+        "key": "leg_afternoon_8leg_20261004_4_cashman_ta",
+        "actual_stat": 8
       },
       {
         "leg_num": 5,
@@ -13731,8 +13816,9 @@
         "price": -167,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_20261004_6_walker_td"
+        "status": "WON",
+        "key": "leg_afternoon_8leg_20261004_6_walker_td",
+        "actual_stat": 2
       },
       {
         "leg_num": 7,
@@ -13746,8 +13832,9 @@
         "price": -186,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_20261004_7_goff_pass_td"
+        "status": "LOST",
+        "key": "leg_afternoon_8leg_20261004_7_goff_pass_td",
+        "actual_stat": 1
       },
       {
         "leg_num": 8,
@@ -13768,7 +13855,7 @@
     ],
     "settled_payout_usd": 0,
     "profit_usd": -5,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.097Z"
   },
   {
     "id": "bet_20261004_betonline_afternoon_8leg_b_20261004",
@@ -13807,8 +13894,9 @@
         "price": 127,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_b_20261004_1_cousins_pass_td"
+        "status": "WON",
+        "key": "leg_afternoon_8leg_b_20261004_1_cousins_pass_td",
+        "actual_stat": 2
       },
       {
         "leg_num": 2,
@@ -13854,8 +13942,9 @@
         "price": -182,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_b_20261004_4_ejones_ta"
+        "status": "WON",
+        "key": "leg_afternoon_8leg_b_20261004_4_ejones_ta",
+        "actual_stat": 12
       },
       {
         "leg_num": 5,
@@ -13885,8 +13974,9 @@
         "price": -130,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_b_20261004_6_taaffe_ta"
+        "status": "WON",
+        "key": "leg_afternoon_8leg_b_20261004_6_taaffe_ta",
+        "actual_stat": 6
       },
       {
         "leg_num": 7,
@@ -13900,8 +13990,9 @@
         "price": -145,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_b_20261004_7_arsb_rec"
+        "status": "WON",
+        "key": "leg_afternoon_8leg_b_20261004_7_arsb_rec",
+        "actual_stat": 8
       },
       {
         "leg_num": 8,
@@ -13915,13 +14006,14 @@
         "price": 210,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_8leg_b_20261004_8_waller_td"
+        "status": "LOST",
+        "key": "leg_afternoon_8leg_b_20261004_8_waller_td",
+        "actual_stat": 0
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": -3.15,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.098Z"
   },
   {
     "id": "bet_20261004_betonline_afternoon_7leg_c_20261004",
@@ -13960,8 +14052,9 @@
         "price": 170,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_7leg_c_20261004_1_deebo_td"
+        "status": "WON",
+        "key": "leg_afternoon_7leg_c_20261004_1_deebo_td",
+        "actual_stat": 1
       },
       {
         "leg_num": 2,
@@ -13975,8 +14068,9 @@
         "price": 140,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_7leg_c_20261004_2_ewilson_td"
+        "status": "WON",
+        "key": "leg_afternoon_7leg_c_20261004_2_ewilson_td",
+        "actual_stat": 2
       },
       {
         "leg_num": 3,
@@ -14006,8 +14100,9 @@
         "price": 179,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_7leg_c_20261004_4_laporta_td"
+        "status": "WON",
+        "key": "leg_afternoon_7leg_c_20261004_4_laporta_td",
+        "actual_stat": 1
       },
       {
         "leg_num": 5,
@@ -14021,8 +14116,9 @@
         "price": -132,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_7leg_c_20261004_5_young_pass_td"
+        "status": "WON",
+        "key": "leg_afternoon_7leg_c_20261004_5_young_pass_td",
+        "actual_stat": 2
       },
       {
         "leg_num": 6,
@@ -14036,8 +14132,9 @@
         "price": -145,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_7leg_c_20261004_6_mayer_rec"
+        "status": "WON",
+        "key": "leg_afternoon_7leg_c_20261004_6_mayer_rec",
+        "actual_stat": 8
       },
       {
         "leg_num": 7,
@@ -14051,13 +14148,14 @@
         "price": -107,
         "direction": "over",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_afternoon_7leg_c_20261004_7_harvey_rec"
+        "status": "WON",
+        "key": "leg_afternoon_7leg_c_20261004_7_harvey_rec",
+        "actual_stat": 10
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": -5,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.098Z"
   },
   {
     "id": "bet_20261004_bkr_739761492_5team_parlay",
@@ -14097,7 +14195,8 @@
         "price": "-131",
         "game_start": "10/04/2026 @ 01:25 PM",
         "status": "LOST",
-        "key": "leg_739761492_1_den_spread"
+        "key": "leg_739761492_1_den_spread",
+        "actual_stat": "-10"
       },
       {
         "leg_num": 2,
@@ -14109,8 +14208,9 @@
         "line": 5,
         "price": "-108",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_739761492_2_lv_spread"
+        "status": "WON",
+        "key": "leg_739761492_2_lv_spread",
+        "actual_stat": "-3"
       },
       {
         "leg_num": 3,
@@ -14122,8 +14222,9 @@
         "line": -6.5,
         "price": "-127",
         "game_start": "10/04/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_739761492_3_sea_spread"
+        "status": "WON",
+        "key": "leg_739761492_3_sea_spread",
+        "actual_stat": "+7"
       },
       {
         "leg_num": 4,
@@ -14136,8 +14237,9 @@
         "price": "-128",
         "direction": "under",
         "game_start": "10/04/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_739761492_4_mia_min_under"
+        "status": "WON",
+        "key": "leg_739761492_4_mia_min_under",
+        "actual_stat": 25
       },
       {
         "leg_num": 5,
@@ -14150,13 +14252,14 @@
         "price": "-129",
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_739761492_5_det_car_over"
+        "status": "WON",
+        "key": "leg_739761492_5_det_car_over",
+        "actual_stat": 58
       }
     ],
     "settled_payout_usd": 0,
     "profit_usd": -25,
-    "graded_at": "2026-10-04T23:30:00Z"
+    "graded_at": "2026-10-05T14:42:27.098Z"
   },
   {
     "id": "bet_20261004_betonline_snf_island_8leg_20261004",
@@ -14179,9 +14282,9 @@
     "odds_decimal": 160,
     "potential_profit_usd": 795,
     "potential_payout_usd": 800,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official BetOnline SNF island ticket (Tier 3 band) confirmed by Andy on 2026-10-04 (~14:45 PT); ticket number not supplied. Waller ATD duplicates a leg on the live afternoon 8-leg #2 (flagged, kept). Tremble placed at 2+ receptions (-152).",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official BetOnline SNF island ticket (Tier 3 band) confirmed by Andy on 2026-10-04 (~14:45 PT); ticket number not supplied. Waller ATD duplicates a leg on the live afternoon 8-leg #2 (flagged, kept). Tremble placed at 2+ receptions (-152). | Settled 2026-10-05 by Claude from ESPN final box score (DET 26, CAR 32).",
     "legs": [
       {
         "leg_num": 1,
@@ -14195,8 +14298,9 @@
         "price": -124,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_island_8leg_20261004_1_gibbs_rec"
+        "status": "LOST",
+        "key": "leg_snf_island_8leg_20261004_1_gibbs_rec",
+        "actual_stat": 4
       },
       {
         "leg_num": 2,
@@ -14210,8 +14314,9 @@
         "price": -141,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_island_8leg_20261004_2_young_pass_yds"
+        "status": "WON",
+        "key": "leg_snf_island_8leg_20261004_2_young_pass_yds",
+        "actual_stat": 329
       },
       {
         "leg_num": 3,
@@ -14225,8 +14330,9 @@
         "price": -104,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_island_8leg_20261004_3_jwilliams_rec"
+        "status": "WON",
+        "key": "leg_snf_island_8leg_20261004_3_jwilliams_rec",
+        "actual_stat": 6
       },
       {
         "leg_num": 4,
@@ -14240,8 +14346,9 @@
         "price": 127,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_island_8leg_20261004_4_lloyd_ta"
+        "status": "WON",
+        "key": "leg_snf_island_8leg_20261004_4_lloyd_ta",
+        "actual_stat": 9
       },
       {
         "leg_num": 5,
@@ -14255,8 +14362,9 @@
         "price": 210,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_island_8leg_20261004_5_waller_td"
+        "status": "LOST",
+        "key": "leg_snf_island_8leg_20261004_5_waller_td",
+        "actual_stat": 0
       },
       {
         "leg_num": 6,
@@ -14270,8 +14378,9 @@
         "price": -136,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_island_8leg_20261004_6_clark_ta"
+        "status": "WON",
+        "key": "leg_snf_island_8leg_20261004_6_clark_ta",
+        "actual_stat": 7
       },
       {
         "leg_num": 7,
@@ -14285,8 +14394,9 @@
         "price": -143,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_island_8leg_20261004_7_hubbard_td"
+        "status": "WON",
+        "key": "leg_snf_island_8leg_20261004_7_hubbard_td",
+        "actual_stat": 2
       },
       {
         "leg_num": 8,
@@ -14300,10 +14410,14 @@
         "price": -152,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_island_8leg_20261004_8_tremble_rec"
+        "status": "WON",
+        "key": "leg_snf_island_8leg_20261004_8_tremble_rec",
+        "actual_stat": 4
       }
-    ]
+    ],
+    "graded_at": "2026-10-05T15:00:00Z",
+    "settled_payout_usd": 0,
+    "profit_usd": -5
   },
   {
     "id": "bet_20261004_betonline_snf_7leg_b_20261004",
@@ -14326,9 +14440,9 @@
     "odds_decimal": 263,
     "potential_profit_usd": 1875.92,
     "potential_payout_usd": 1883.08,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official BetOnline SNF ticket confirmed by Andy on 2026-10-04 (~15:30 PT); ticket number not supplied. Tremble ATD price moved +400 -> +450 at placement.",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official BetOnline SNF ticket confirmed by Andy on 2026-10-04 (~15:30 PT); ticket number not supplied. Tremble ATD price moved +400 -> +450 at placement. | Settled 2026-10-05 by Claude from ESPN final box score (DET 26, CAR 32).",
     "legs": [
       {
         "leg_num": 1,
@@ -14342,8 +14456,9 @@
         "price": -143,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_7leg_b_20261004_1_arsb_td"
+        "status": "LOST",
+        "key": "leg_snf_7leg_b_20261004_1_arsb_td",
+        "actual_stat": 0
       },
       {
         "leg_num": 2,
@@ -14357,8 +14472,9 @@
         "price": -193,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_7leg_b_20261004_2_mcmillan_recyds"
+        "status": "WON",
+        "key": "leg_snf_7leg_b_20261004_2_mcmillan_recyds",
+        "actual_stat": 192
       },
       {
         "leg_num": 3,
@@ -14372,8 +14488,9 @@
         "price": 450,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_7leg_b_20261004_3_tremble_td"
+        "status": "LOST",
+        "key": "leg_snf_7leg_b_20261004_3_tremble_td",
+        "actual_stat": 0
       },
       {
         "leg_num": 4,
@@ -14387,8 +14504,9 @@
         "price": -124,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_7leg_b_20261004_4_young_int"
+        "status": "LOST",
+        "key": "leg_snf_7leg_b_20261004_4_young_int",
+        "actual_stat": 0
       },
       {
         "leg_num": 5,
@@ -14402,8 +14520,9 @@
         "price": -157,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_7leg_b_20261004_5_hubbard_rec"
+        "status": "LOST",
+        "key": "leg_snf_7leg_b_20261004_5_hubbard_rec",
+        "actual_stat": 1
       },
       {
         "leg_num": 6,
@@ -14417,8 +14536,9 @@
         "price": -182,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_7leg_b_20261004_6_jwilliams_recyds"
+        "status": "WON",
+        "key": "leg_snf_7leg_b_20261004_6_jwilliams_recyds",
+        "actual_stat": 102
       },
       {
         "leg_num": 7,
@@ -14432,9 +14552,13 @@
         "price": 350,
         "direction": "over",
         "game_start": "10/04/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_snf_7leg_b_20261004_7_barnes_sack"
+        "status": "LOST",
+        "key": "leg_snf_7leg_b_20261004_7_barnes_sack",
+        "actual_stat": 0
       }
-    ]
+    ],
+    "graded_at": "2026-10-05T15:00:00Z",
+    "settled_payout_usd": 0,
+    "profit_usd": -7.16
   }
 ]
