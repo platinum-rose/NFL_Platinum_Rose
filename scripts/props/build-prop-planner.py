@@ -335,6 +335,17 @@ def ui_patches(t):
             "      const knownMarkets = new Set(lines.filter(x => gameSel === 'All games' || x.game === gameSel).map(x => x.market));\n"
             "      [...activeMarkets].forEach(m => { if (!knownMarkets.has(m)) activeMarkets.delete(m); });")
     t = sub("$('gameFilter').addEventListener('change', renderLines);", "$('gameFilter').addEventListener('change', () => { renderFilters(); renderLines(); });")
+    # layout: "Add more captured lines" moves under the builder in a sticky right column; the market list grows with the page
+    m = re.search(r'\n\s*<section class="panel import">.*?</section>', t, flags=re.S); assert m
+    imp = m.group(0).strip(); t = t[:m.start()] + t[m.end():]
+    t = sub('<aside class="panel builder">', '<div class="right-col">\n      <aside class="panel builder">')
+    t = sub('      </aside>\n', '      </aside>\n      ' + imp + '\n      </div>\n')
+    t = sub("  </style>", """    .lines { max-height:none; overflow:visible; }
+    .right-col { position:sticky; top:16px; align-self:start; display:grid; gap:18px; min-width:0; max-height:calc(100vh - 32px); overflow:auto; scrollbar-width:thin; }
+    .right-col .builder { position:static; }
+    .right-col .import { margin:0; }
+    @media (max-width:900px) { .right-col { position:static; max-height:none; overflow:visible; } }
+  </style>""")
     t = sub("    function addLeg(id) {", UI_JS)
     t = sub("  </style>", UI_CSS + "  </style>")
     t, n = re.subn(r'(<section class="panel">\s*<div class="panel-head"><div><h2>Captured market selections</h2>)', lambda m: UI_PANEL + m.group(1), t); assert n == 1

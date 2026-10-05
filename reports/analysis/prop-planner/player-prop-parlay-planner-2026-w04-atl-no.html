@@ -105,6 +105,11 @@
     code { color:#ddd6fe; }
     @media (max-width:900px) { .layout { grid-template-columns:1fr; } .builder { position:static; } }
     @media (max-width:620px) { .filters { grid-template-columns:1fr; } .line { grid-template-columns:1fr auto; gap:5px 10px; } .line .market { grid-column:1; } .line .odds { grid-column:2; grid-row:1; } .line .add { grid-column:2; grid-row:2; } .draft-controls { grid-template-columns:1fr; } .player-group-head { flex-wrap:wrap; } }
+    .lines { max-height:none; overflow:visible; }
+    .right-col { position:sticky; top:16px; align-self:start; display:grid; gap:18px; min-width:0; max-height:calc(100vh - 32px); overflow:auto; scrollbar-width:thin; }
+    .right-col .builder { position:static; }
+    .right-col .import { margin:0; }
+    @media (max-width:900px) { .right-col { position:static; max-height:none; overflow:visible; } }
 
     .experts > summary { cursor:pointer; list-style:none; } .experts > summary::-webkit-details-marker { display:none; }
     .experts > summary h2::before { content:'\203A'; display:inline-block; margin-right:7px; color:var(--accent-2); transition:transform .15s ease; }
@@ -151,20 +156,9 @@
           <div class="section-controls"><span class="muted" style="margin-right:auto;font-size:11px">Market filters stack: select as many as you like.</span><button class="section-control" id="expandSections">Expand filtered</button><button class="section-control" id="collapseSections">Collapse filtered</button></div>
           <div class="lines" id="lineList"></div>
         </section>
-
-        <section class="panel import">
-          <div class="panel-head"><div><h2>Add more captured lines</h2><span class="muted">Paste only lines you already collected; nothing is fetched.</span></div></div>
-          <div class="import-body">
-            <div class="notice"><span>ⓘ</span><div><strong>ATL @ NO boards, captured 2026-10-05 ~12:10 PT (MNF Week 4):</strong> BEO 619 selections from BEO_Week4_ATL_NOS_v3; BKR 690 selections from BKR_Week4_ATL_NOS. Each book is listed as its own game in the Game filter, so a stack stays on one book. BKR selections marked <em>(no SGP)</em> cannot be combined in a same-game parlay.</div></div>
-            <label class="field">One line per selection: <code>GAME | PLAYER | MARKET | SELECTION | AMERICAN_ODDS</code>
-              <textarea id="importText" placeholder="IND @ WAS | Example Player | Receptions | Over 4.5 | -115"></textarea>
-            </label>
-            <div class="import-actions"><button class="primary" id="importButton">Add pasted lines</button><button class="ghost" id="downloadButton">Download planner JSON</button><span class="result" id="importResult"></span></div>
-            <p class="fine">Use exact, dated captures. The planner treats imported lines as historical until you replace them; it does not validate player status, market availability, or parlay eligibility.</p>
-          </div>
-        </section>
       </div>
 
+      <div class="right-col">
       <aside class="panel builder">
         <div class="panel-head"><h2>Research stack</h2><span class="count" id="legCount">0 legs</span></div>
         <div class="stake"><label class="field">Stake<input id="stake" type="number" min="0" step="0.01" value="10"></label><button class="ghost" id="clearButton">Clear</button></div>
@@ -186,6 +180,18 @@
           <div class="draft-list" id="draftList"></div>
         </section>
       </aside>
+      <section class="panel import">
+          <div class="panel-head"><div><h2>Add more captured lines</h2><span class="muted">Paste only lines you already collected; nothing is fetched.</span></div></div>
+          <div class="import-body">
+            <div class="notice"><span>ⓘ</span><div><strong>ATL @ NO boards, captured 2026-10-05 ~12:10 PT (MNF Week 4):</strong> BEO 619 selections from BEO_Week4_ATL_NOS_v3; BKR 690 selections from BKR_Week4_ATL_NOS. Each book is listed as its own game in the Game filter, so a stack stays on one book. BKR selections marked <em>(no SGP)</em> cannot be combined in a same-game parlay.</div></div>
+            <label class="field">One line per selection: <code>GAME | PLAYER | MARKET | SELECTION | AMERICAN_ODDS</code>
+              <textarea id="importText" placeholder="IND @ WAS | Example Player | Receptions | Over 4.5 | -115"></textarea>
+            </label>
+            <div class="import-actions"><button class="primary" id="importButton">Add pasted lines</button><button class="ghost" id="downloadButton">Download planner JSON</button><span class="result" id="importResult"></span></div>
+            <p class="fine">Use exact, dated captures. The planner treats imported lines as historical until you replace them; it does not validate player status, market availability, or parlay eligibility.</p>
+          </div>
+        </section>
+      </div>
     </section>
   </main>
 
