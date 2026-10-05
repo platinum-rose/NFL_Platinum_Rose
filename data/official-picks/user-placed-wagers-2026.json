@@ -12247,7 +12247,7 @@
       "stake_per_combination_usd": 1.5,
       "settlement_method": "manual_bookmaker_ticket_payout"
     },
-    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. Logged from the Bookmaker ticket slip; all legs pending. | 2026-10-05: payout $84.48 computed from leg prices (pending BKR confirmation); result loss.",
+    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. Logged from the Bookmaker ticket slip; all legs pending. | Settled 2026-10-05 from the BKR ticket (graded 10/04 4:46 PM): returned $84.47 on $105 (-20.53).",
     "legs": [
       {
         "leg_num": 1,
@@ -12363,13 +12363,10 @@
         "actual_stat": "-6"
       }
     ],
-    "graded_at": "2026-10-05T14:42:27.097Z",
-    "settled_payout_usd": 84.48,
-    "profit_usd": -20.52,
-    "payout_source": "computed_from_leg_prices",
-    "needs_confirmation": [
-      "round-robin payout computed from logged leg prices; confirm against the BKR ticket"
-    ]
+    "graded_at": "2026-10-05T16:00:00Z",
+    "settled_payout_usd": 84.47,
+    "profit_usd": -20.53,
+    "payout_source": "bookmaker_ticket"
   },
   {
     "id": "bet_20261004_bkr_739714534_6team_parlay",
@@ -12744,7 +12741,7 @@
       "stake_per_combination_usd": 1.5,
       "settlement_method": "manual_bookmaker_ticket_payout"
     },
-    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. All legs pending. | 2026-10-05: payout $29.66 computed from leg prices (pending BKR confirmation); result win.",
+    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-04. All legs pending. | Settled 2026-10-05 from the BKR ticket (graded 10/04 4:39 PM): returned $29.64 on $15 (+14.64).",
     "legs": [
       {
         "leg_num": 1,
@@ -12817,13 +12814,10 @@
         "actual_stat": "+4"
       }
     ],
-    "graded_at": "2026-10-05T14:42:27.097Z",
-    "settled_payout_usd": 29.66,
-    "profit_usd": 14.66,
-    "payout_source": "computed_from_leg_prices",
-    "needs_confirmation": [
-      "round-robin payout computed from logged leg prices; confirm against the BKR ticket"
-    ]
+    "graded_at": "2026-10-05T16:00:00Z",
+    "settled_payout_usd": 29.64,
+    "profit_usd": 14.64,
+    "payout_source": "bookmaker_ticket"
   },
   {
     "id": "bet_20261004_bkr_739713278_5team_parlay",
