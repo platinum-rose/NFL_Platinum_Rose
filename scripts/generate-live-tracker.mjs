@@ -599,7 +599,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     });
   }
 
-  // Pre-load ESPN summary boxscores for concluded games (e.g. SF @ LAR Melbourne, NE @ SEA)
+  // Pre-load ESPN summary boxscores for this week's concluded games
   const { athleteStatsMap: boxscoreAthleteStats, athleteInjuriesMap: boxscoreAthleteInjuries, teamStatusMap: initialTeamStatusMap, teamScoreMap: initialTeamScoreMap, firstTdByTeam: initialFirstTdByTeam } = await loadConcludedGameStats(schedule, week);
 
 
@@ -933,6 +933,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 
     ticketConfigJs[bet.id] = {
       name: bet.game_title || bet.game,
+      // Legs graded LOST in the ledger, named on the settled-loss banner.
+      lostLegs: (bet.legs || []).filter(l => String(l.status || '').toUpperCase() === 'LOST').map(l => l.selection || l.player || 'leg'),
       book: bet.book,
       ticketNumber: bet.ticket_number || null,
       isPromo,
@@ -9304,7 +9306,9 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           if (burnBanner) {
             burnBanner.style.display = 'flex';
             if (isSettledLoss) {
-              burnBanner.innerHTML = '<span>🔥</span><strong>Concluded / Settled Loss:</strong> Melbourne Season Opener (Final).';
+              const lostNames = (config.lostLegs || []).map(n => String(n).replace(/[<>&]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c])));
+              burnBanner.innerHTML = '<span>🔥</span><strong>Concluded / Settled Loss:</strong> ' +
+                (lostNames.length ? 'Lost on ' + lostNames.join(', ') + '.' : 'Final result recorded.');
             } else if (config.isRoundRobin && rrAliveCombosCount === 0 && rrTotalCombosCount > 0) {
               burnBanner.innerHTML = '<span>🔥</span><strong>Burnt / Eliminated:</strong> All Round Robin combinations busted (' + burntLegsInTicket.length + ' burnt legs).';
             } else if (burntLegsInTicket.length > 0) {
