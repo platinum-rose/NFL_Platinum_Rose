@@ -329,6 +329,12 @@ def ui_patches(t):
             "      $('lineList').scrollTop = priorScroll;\n"
             "      $('lineList').querySelectorAll('details.market-section').forEach(d => d.addEventListener('toggle', () => { const k = d.dataset.key; if (d.open) { openSections.add(k); closedSections.delete(k); } else { closedSections.add(k); openSections.delete(k); } }));\n"
             "      $('lineList').querySelectorAll('details.category-section').forEach(d => d.addEventListener('toggle', () => { if (d.open) closedCategories.delete(d.dataset.cat); else closedCategories.add(d.dataset.cat); }));")
+    # market pills follow the Game (book) filter: only markets that book offers; drop selections it lacks
+    t = sub("const knownMarkets = new Set(lines.map(x => x.market));",
+            "const gameSel = $('gameFilter').value || 'All games';\n"
+            "      const knownMarkets = new Set(lines.filter(x => gameSel === 'All games' || x.game === gameSel).map(x => x.market));\n"
+            "      [...activeMarkets].forEach(m => { if (!knownMarkets.has(m)) activeMarkets.delete(m); });")
+    t = sub("$('gameFilter').addEventListener('change', renderLines);", "$('gameFilter').addEventListener('change', () => { renderFilters(); renderLines(); });")
     t = sub("    function addLeg(id) {", UI_JS)
     t = sub("  </style>", UI_CSS + "  </style>")
     t, n = re.subn(r'(<section class="panel">\s*<div class="panel-head"><div><h2>Captured market selections</h2>)', lambda m: UI_PANEL + m.group(1), t); assert n == 1

@@ -277,7 +277,9 @@
       const games = ['All games', ...new Set(lines.map(x => x.game))];
       const prior = $('gameFilter').value || 'All games';
       $('gameFilter').innerHTML = games.map(game => `<option ${game === prior ? 'selected' : ''}>${escapeHtml(game)}</option>`).join('');
-      const knownMarkets = new Set(lines.map(x => x.market));
+      const gameSel = $('gameFilter').value || 'All games';
+      const knownMarkets = new Set(lines.filter(x => gameSel === 'All games' || x.game === gameSel).map(x => x.market));
+      [...activeMarkets].forEach(m => { if (!knownMarkets.has(m)) activeMarkets.delete(m); });
       const markets = ['All', ...marketOrder.filter(market => knownMarkets.has(market) || emptyMarketGroups.has(market))];
       const isOn = m => m === 'All' ? !activeMarkets.size : activeMarkets.has(m);
       $('marketTabs').innerHTML = markets.map(m => `<button class="tab ${isOn(m) ? 'active' : ''}" aria-pressed="${isOn(m)}" data-market="${escapeHtml(m)}">${escapeHtml(m)}</button>`).join('');
@@ -450,7 +452,7 @@
       const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(payload, null, 2)], { type:'application/json' })); a.download = 'player-prop-parlay-planner.json'; a.click(); URL.revokeObjectURL(a.href);
     }
 
-    $('gameFilter').addEventListener('change', renderLines);
+    $('gameFilter').addEventListener('change', () => { renderFilters(); renderLines(); });
     $('search').addEventListener('input', renderLines);
     $('expandSections').addEventListener('click', () => $('lineList').querySelectorAll('details').forEach(section => { section.open = true; }));
     $('collapseSections').addEventListener('click', () => $('lineList').querySelectorAll('details').forEach(section => { section.open = false; }));
