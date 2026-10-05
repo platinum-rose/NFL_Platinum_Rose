@@ -10,7 +10,7 @@ Usage:
      --beo docs/Player_Prop_Odds_Weekly/Week4/BEO_Week4_ATL_NOS_v3 \
      --bkr docs/Player_Prop_Odds_Weekly/Week4/BKR_Week4_ATL_NOS \
      --out reports/analysis/prop-planner/player-prop-parlay-planner-2026-w04-atl-no.html \
-     --experts data/generated/master-intel/w04-expert-verified.json
+     --experts data/generated/master-intel/w04-expert-verified.json data/generated/master-intel/w04-mnf-prop-articles.json
 
 --experts (optional) loads the week's verified expert player-prop picks for this game into an "Expert picks" panel.
 Each pick is matched to the closest captured BEO/BKR leg (with a note when the line has moved) and gets an
@@ -117,7 +117,10 @@ def bkr_lines(path, game, captured, team_of):
 
 # ---------------------------------------------------------------- expert picks
 EXPERT_STATS = {
-    'anytime_touchdown': ('td', None, None, 'anytime TD'),
+    'anytime_touchdown': ('td', '1+ TD', None, 'anytime TD'),
+    'two_plus_touchdowns': ('td', '2+ TD', None, '2+ TDs'),
+    'first_team_touchdown': ('ftd', 'First TD', None, 'first team TD'),
+    'first_touchdown': ('ftd', 'First TD', None, 'first TD'),
     'passing_yards': ('ou', 'Over/Under (passing yards)', 'Passing Yards', 'passing yards'),
     'pass_completions': ('ou', 'Over/Under (pass completions)', 'Pass Completions', 'completions'),
     'passing_touchdowns': ('ou', 'Over/Under (passing TDs)', 'Passing TDs', 'passing TDs'),
@@ -162,7 +165,7 @@ def describe(r):
         stat = st.group(1) if st else ''
         player = (r.get('players') or [''])[0] or re.split(r'\s+[-:]\s+|\s+(?=[a-z_]+\b)', sel)[0]
         spec = EXPERT_STATS.get(stat)
-        if spec and spec[0] == 'td': return dict(kind='prop', player=player, stat=stat, label=f'{player} anytime TD')
+        if spec and spec[0] in ('td', 'ftd'): return dict(kind='prop', player=player, stat=stat, label=f'{player} {spec[3]}')
         ou = 'Under' if 'UNDER' in f'{sel} {side}'.upper() else 'Over'
         if line is None:
             nums = NUM.findall(side) or NUM.findall(sel.split(stat, 1)[-1] if stat else sel)
@@ -185,9 +188,11 @@ def match(d, lines):
         if not spec: return [], f'No board market mapped for "{d["stat"] or d["label"]}".'
         mine = [l for l in lines if l['player'] != 'Game market' and nkey(bare(l['player'])) == nkey(d['player'])]
         if not mine: return [], f'{d["player"]} is not on the captured boards.'
-        if spec[0] == 'td':
-            out = [dict(id=l['id'], note='') for l in mine if l['market'] == 'Touchdowns' and clean(l['selection']) == '1+ TD']
-            return out, '' if out else 'No anytime-TD price on the captured boards.'
+        if spec[0] in ('td', 'ftd'):
+            mk = 'Touchdowns' if spec[0] == 'td' else 'First Touchdown Scorer'
+            note = 'pick is first TEAM TD; board price is first TD of the game' if d['stat'] == 'first_team_touchdown' else ''
+            out = [dict(id=l['id'], note=note) for l in mine if l['market'] == mk and clean(l['selection']) == spec[1]]
+            return out, '' if out else f'No {spec[3]} price on the captured boards.'
         if d.get('line') is None: return [], 'The expert line was not captured.'
         tgt = d['line']
         for book in ('BEO', 'BKR'):
@@ -223,10 +228,11 @@ def match(d, lines):
     if d['kind'] == 'teaser': return [], 'Teaser leg: build it at the book; it is not a parlay selection on these boards.'
     return [], 'Not on the captured boards.'
 
-def expert_picks(path, game, lines):
+def expert_picks(paths, game, lines):
+    paths = [paths] if isinstance(paths, str) else list(paths)
     key = game.replace(' ', '')
     teams = [ESPN_FIX.get(t, t) for t in key.split('@')]
-    rows = [r for r in json.loads((ROOT / path).read_text(encoding='utf-8')).get('rows', [])
+    rows = [r for path in paths for r in json.loads((ROOT / path).read_text(encoding='utf-8')).get('rows', [])
             if r.get('game') == key and r.get('verdict') == 'verified']
     snap = json.loads((ROOT / 'data/nfl-rosters/espn-full-rosters-latest.json').read_text(encoding='utf-8'))
     av = ROOT / 'data/player-availability/latest.json'
@@ -246,7 +252,8 @@ def expert_picks(path, game, lines):
                   price=r.get('price') if d['kind'] == 'prop' else None, url=r.get('url'), roster=roster, matches=matches, nomatch=nomatch, sources=1)
         seen[sig] = pk; picks.append(pk)
     picks.sort(key=lambda p: (p['kind'] != 'prop', not p['best_bet']))
-    note = (f'{len(picks)} verified player-prop picks for {key} from {pathlib.Path(path).name}; player picks roster-gated against ESPN rosters '
+    srcs = ', '.join(pathlib.Path(x).name for x in paths)
+    note = (f'{len(picks)} verified player-prop picks for {key} from {srcs}; player picks roster-gated against ESPN rosters '
             f'({snap["generated_at"][:16].replace("T", " ")} UTC). Buttons use current board prices; a note shows when the line moved since the call.')
     return dict(note=note, picks=picks), blocked
 
@@ -356,7 +363,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--game', required=True); ap.add_argument('--captured', required=True)
     ap.add_argument('--beo'); ap.add_argument('--bkr'); ap.add_argument('--out', required=True)
-    ap.add_argument('--experts', help='expert-verified JSON (data/generated/master-intel/wNN-expert-verified.json)')
+    ap.add_argument('--experts', nargs='+', help='expert-verified JSON (data/generated/master-intel/wNN-expert-verified.json)')
     a = ap.parse_args()
     lines, team_of, notes = [], {}, []
     if a.beo:
