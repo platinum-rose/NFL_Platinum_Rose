@@ -3,29 +3,557 @@
   "season": 2026,
   "week": 4,
   "game": "ATL@NO",
-  "generated_at": "2026-10-05T22:10:00Z",
-  "method": "Manual in-session extraction (no paid model calls) of ATL@NO player-prop picks from Action Network, BettingPros and VSiN. Sources read: local Week 4 article archive (data/intel/articles/2026-w04), VSiN pages via WebFetch, BettingPros pages via the Claude desktop browser pane (WebFetch hit a redirect loop). Quotes are short paraphrases of the author's rationale.",
+  "generated_at": "2026-10-05T22:15:00Z",
+  "method": "Manual in-session extraction (no paid model calls) of ATL@NO player-prop picks from Action Network, BettingPros and VSiN. Sources read: local Week 4 article archive (data/intel/articles/2026-w04), VSiN pages via WebFetch, BettingPros pages via the Claude desktop browser pane (WebFetch hit a redirect loop). Quotes are short paraphrases of the author's rationale. Action Network articles read from the archive page Andy linked (https://www.actionnetwork.com/nfl/archive/1) in the desktop browser pane.",
   "sources_checked": [
-    {"outlet": "Action Network", "url": "https://www.actionnetwork.com/nfl/saints-vs-falcons-predictions-picks-odds", "author": "Pablo Planovsky", "published": "2026-10-01", "props": 0, "note": "Game picks only (Saints, Over 47.5); already in w04-expert-verified.json. No ATL@NO prop article found on actionnetwork.com for MNF."},
-    {"outlet": "VSiN", "url": "https://vsin.com/nfl/falcons-vs-saints-predictions-week-4-monday-night-football-odds-picks-and-player-props/", "author": "Zachary Cohen", "published": "2026-10-04", "props": 1},
-    {"outlet": "VSiN", "url": "https://vsin.com/the-vsin-daily/falcons-saints-mnf/", "author": "Bill Adee", "published": "2026-10-04", "props": 0, "note": "Game sides only (Falcons +2)."},
-    {"outlet": "VSiN", "url": "https://vsin.com/nfl/nfl-first-touchdown-scorer-predictions-for-week-4/", "author": "The Books", "published": "2026-10-02", "props": 0, "note": "ATL@NO section lists team first-TD rates only; no ATL/NO scorer pick."},
-    {"outlet": "BettingPros", "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/", "author": "Mike Fanelli", "published": "2026-10-05", "props": 6},
-    {"outlet": "BettingPros", "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-same-game-parlay-falcons-vs-saints/", "author": "Dan Servodidio", "published": "2026-10-05", "props": 3, "note": "3-leg SGP at DraftKings, +405."},
-    {"outlet": "BettingPros", "url": "https://www.bettingpros.com/articles/nfl-week-4-picks-predictions-and-parlays/", "author": "Mike Maher", "published": "2026-10-01", "props": 0, "note": "ATL@NO: Falcons ML +127 only."}
+    {
+      "outlet": "VSiN",
+      "url": "https://vsin.com/nfl/falcons-vs-saints-predictions-week-4-monday-night-football-odds-picks-and-player-props/",
+      "author": "Zachary Cohen",
+      "published": "2026-10-04",
+      "props": 1
+    },
+    {
+      "outlet": "VSiN",
+      "url": "https://vsin.com/the-vsin-daily/falcons-saints-mnf/",
+      "author": "Bill Adee",
+      "published": "2026-10-04",
+      "props": 0,
+      "note": "Game sides only (Falcons +2)."
+    },
+    {
+      "outlet": "VSiN",
+      "url": "https://vsin.com/nfl/nfl-first-touchdown-scorer-predictions-for-week-4/",
+      "author": "The Books",
+      "published": "2026-10-02",
+      "props": 0,
+      "note": "ATL@NO section lists team first-TD rates only; no ATL/NO scorer pick."
+    },
+    {
+      "outlet": "BettingPros",
+      "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/",
+      "author": "Mike Fanelli",
+      "published": "2026-10-05",
+      "props": 6
+    },
+    {
+      "outlet": "BettingPros",
+      "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-same-game-parlay-falcons-vs-saints/",
+      "author": "Dan Servodidio",
+      "published": "2026-10-05",
+      "props": 3,
+      "note": "3-leg SGP at DraftKings, +405."
+    },
+    {
+      "outlet": "BettingPros",
+      "url": "https://www.bettingpros.com/articles/nfl-week-4-picks-predictions-and-parlays/",
+      "author": "Mike Maher",
+      "published": "2026-10-01",
+      "props": 0,
+      "note": "ATL@NO: Falcons ML +127 only."
+    },
+    {
+      "outlet": "Action Network",
+      "url": "https://www.actionnetwork.com/nfl/saints-vs-falcons-predictions-picks-odds",
+      "author": "Pablo Planovsky",
+      "published": "2026-10-01",
+      "props": 0,
+      "note": "Game picks only (Saints, Over 47.5)."
+    },
+    {
+      "outlet": "Action Network",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-player-props-for-drake-london-kyle-pitts-tyler-shough",
+      "author": "Sam Farley",
+      "published": "2026-10-05",
+      "props": 3
+    },
+    {
+      "outlet": "Action Network",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-anytime-touchdown-scorer-props-nfl-monday-night-football",
+      "author": "Gilles Gallant",
+      "published": "2026-10-05",
+      "props": 1
+    },
+    {
+      "outlet": "Action Network",
+      "url": "https://www.actionnetwork.com/nfl/saints-vs-falcons-odds-picks-parlay-for-monday-night-football",
+      "author": "Frank Ammirante",
+      "published": "2026-10-05",
+      "props": 2,
+      "note": "3-leg SGP with Over 47.5, +525 DK."
+    },
+    {
+      "outlet": "Action Network",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-picks-props-odds-predictions-monday-night-football-oct-5",
+      "author": "Action Network Staff (Neiffer, Gallant; Lanfranca ATL +1.5, Ward Over 47.5)",
+      "published": "2026-10-05",
+      "props": 3
+    },
+    {
+      "outlet": "Action Network",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-trades-to-lock-in-before-mnf-kickoff",
+      "author": "Pablo Planovsky",
+      "published": "2026-10-05",
+      "props": 1,
+      "note": "Kalshi markets; NO ML lean, total over lean."
+    },
+    {
+      "outlet": "Action Network",
+      "url": "https://www.actionnetwork.com/nfl/atlanta-falcons-vs-new-orleans-saints-prediction-pick-odds-nfl-monday-night-football-october-5",
+      "author": "John Lanfranca",
+      "published": "2026-10-05",
+      "props": 0,
+      "note": "Falcons +1.5 only."
+    },
+    {
+      "outlet": "Action Network",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-mnf-picks-props-over-under",
+      "author": "Alex Kolodziej",
+      "published": "2026-10-05",
+      "props": 0,
+      "note": "PRO paywalled (3 rushing prop over/unders); picks not visible."
+    }
   ],
   "rows": [
-    {"kind": "article", "outlet": "VSiN", "persons": ["Zachary Cohen"], "game": "ATL@NO", "market": "prop", "side": "OVER 76.5", "line": 76.5, "price": -117, "selection": "Drake London receiving_yards OVER 76.5", "players": ["Drake London"], "quote": "Lean only (author says he won't play it): London draws Quincy Riley, a top-12 WR/CB matchup this week.", "source_title": "Falcons vs. Saints Predictions: Week 4 Monday Night Football odds, picks, and player props", "url": "https://vsin.com/nfl/falcons-vs-saints-predictions-week-4-monday-night-football-odds-picks-and-player-props/", "published": "2026-10-04T04:47:03+00:00", "best_bet": false, "verdict": "verified"},
-
-    {"kind": "article", "outlet": "BettingPros", "persons": ["Mike Fanelli"], "game": "ATL@NO", "market": "prop", "side": "YES", "line": null, "price": 140, "selection": "Bijan Robinson first_team_touchdown YES", "players": ["Bijan Robinson"], "quote": "Atlanta's first-TD scorer in both games they scored; Saints have allowed 4 rushing TDs (DK +140).", "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints", "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/", "published": "2026-10-05T12:00:00+00:00", "best_bet": false, "verdict": "verified"},
-    {"kind": "article", "outlet": "BettingPros", "persons": ["Mike Fanelli"], "game": "ATL@NO", "market": "prop", "side": "YES", "line": null, "price": 235, "selection": "Bijan Robinson two_plus_touchdowns YES", "players": ["Bijan Robinson"], "quote": "Aggressive add-on after his two-TD game at Green Bay (DK +235).", "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints", "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/", "published": "2026-10-05T12:00:00+00:00", "best_bet": false, "verdict": "verified"},
-    {"kind": "article", "outlet": "BettingPros", "persons": ["Mike Fanelli"], "game": "ATL@NO", "market": "prop", "side": "YES", "line": null, "price": 390, "selection": "Chris Olave first_team_touchdown YES", "players": ["Chris Olave"], "quote": "Team-high 34 targets with Etienne out; A.J. Terrell (groin) misses the game (DK +390).", "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints", "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/", "published": "2026-10-05T12:00:00+00:00", "best_bet": false, "verdict": "verified"},
-    {"kind": "article", "outlet": "BettingPros", "persons": ["Mike Fanelli"], "game": "ATL@NO", "market": "prop", "side": "YES", "line": null, "price": 125, "selection": "Drake London anytime_touchdown YES", "players": ["Drake London"], "quote": "Target share jumped to 48% with Penix back; Saints have allowed 4 WR receiving TDs (DK +125).", "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints", "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/", "published": "2026-10-05T12:00:00+00:00", "best_bet": false, "verdict": "verified"},
-    {"kind": "article", "outlet": "BettingPros", "persons": ["Mike Fanelli"], "game": "ATL@NO", "market": "prop", "side": "YES", "line": null, "price": 230, "selection": "Juwan Johnson anytime_touchdown YES", "players": ["Juwan Johnson"], "quote": "Leads all TEs with 3 receiving TDs; Falcons have allowed 3 TE TDs (DK +230).", "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints", "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/", "published": "2026-10-05T12:00:00+00:00", "best_bet": false, "verdict": "verified"},
-    {"kind": "article", "outlet": "BettingPros", "persons": ["Mike Fanelli"], "game": "ATL@NO", "market": "prop", "side": "YES", "line": null, "price": 2000, "selection": "Juwan Johnson two_plus_touchdowns YES", "players": ["Juwan Johnson"], "quote": "Long-shot add-on after his two-TD game vs. Las Vegas (DK +2000).", "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints", "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/", "published": "2026-10-05T12:00:00+00:00", "best_bet": false, "verdict": "verified"},
-
-    {"kind": "article", "outlet": "BettingPros", "persons": ["Dan Servodidio"], "game": "ATL@NO", "market": "prop", "side": "OVER 79.5", "line": 79.5, "price": -139, "selection": "Chris Olave receiving_yards OVER 79.5", "players": ["Chris Olave"], "quote": "SGP leg 1 (80+, DK -139): 86+ yards in all three games; ATL allows the most WR yards.", "source_title": "NFL Monday Night Football Same Game Parlay: Falcons vs. Saints", "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-same-game-parlay-falcons-vs-saints/", "published": "2026-10-05T12:00:00+00:00", "best_bet": false, "verdict": "verified"},
-    {"kind": "article", "outlet": "BettingPros", "persons": ["Dan Servodidio"], "game": "ATL@NO", "market": "prop", "side": "OVER 44.5", "line": 44.5, "price": -111, "selection": "Devaughn Vele receiving_yards OVER 44.5", "players": ["Devaughn Vele"], "quote": "SGP leg 2 (45+, DK -111): Shough's No. 2 option; ATL allows 67.3 yds/game to WR2s.", "source_title": "NFL Monday Night Football Same Game Parlay: Falcons vs. Saints", "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-same-game-parlay-falcons-vs-saints/", "published": "2026-10-05T12:00:00+00:00", "best_bet": false, "verdict": "verified"},
-    {"kind": "article", "outlet": "BettingPros", "persons": ["Dan Servodidio"], "game": "ATL@NO", "market": "prop", "side": "OVER 69.5", "line": 69.5, "price": -160, "selection": "Drake London receiving_yards OVER 69.5", "players": ["Drake London"], "quote": "SGP leg 3 (70+, DK -160): 100+ yards in 6 of 7 games with Penix; 70+ in 5 of 7 vs. NO.", "source_title": "NFL Monday Night Football Same Game Parlay: Falcons vs. Saints", "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-same-game-parlay-falcons-vs-saints/", "published": "2026-10-05T12:00:00+00:00", "best_bet": false, "verdict": "verified"}
+    {
+      "kind": "article",
+      "outlet": "VSiN",
+      "persons": [
+        "Zachary Cohen"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "OVER 76.5",
+      "line": 76.5,
+      "price": -117,
+      "selection": "Drake London receiving_yards OVER 76.5",
+      "players": [
+        "Drake London"
+      ],
+      "quote": "Lean only (author says he won't play it): London draws Quincy Riley, a top-12 WR/CB matchup this week.",
+      "source_title": "Falcons vs. Saints Predictions: Week 4 Monday Night Football odds, picks, and player props",
+      "url": "https://vsin.com/nfl/falcons-vs-saints-predictions-week-4-monday-night-football-odds-picks-and-player-props/",
+      "published": "2026-10-04T04:47:03+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "BettingPros",
+      "persons": [
+        "Mike Fanelli"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "YES",
+      "line": null,
+      "price": 140,
+      "selection": "Bijan Robinson first_team_touchdown YES",
+      "players": [
+        "Bijan Robinson"
+      ],
+      "quote": "Atlanta's first-TD scorer in both games they scored; Saints have allowed 4 rushing TDs (DK +140).",
+      "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints",
+      "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/",
+      "published": "2026-10-05T12:00:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "BettingPros",
+      "persons": [
+        "Mike Fanelli"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "YES",
+      "line": null,
+      "price": 235,
+      "selection": "Bijan Robinson two_plus_touchdowns YES",
+      "players": [
+        "Bijan Robinson"
+      ],
+      "quote": "Aggressive add-on after his two-TD game at Green Bay (DK +235).",
+      "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints",
+      "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/",
+      "published": "2026-10-05T12:00:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "BettingPros",
+      "persons": [
+        "Mike Fanelli"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "YES",
+      "line": null,
+      "price": 390,
+      "selection": "Chris Olave first_team_touchdown YES",
+      "players": [
+        "Chris Olave"
+      ],
+      "quote": "Team-high 34 targets with Etienne out; A.J. Terrell (groin) misses the game (DK +390).",
+      "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints",
+      "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/",
+      "published": "2026-10-05T12:00:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "BettingPros",
+      "persons": [
+        "Mike Fanelli"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "YES",
+      "line": null,
+      "price": 125,
+      "selection": "Drake London anytime_touchdown YES",
+      "players": [
+        "Drake London"
+      ],
+      "quote": "Target share jumped to 48% with Penix back; Saints have allowed 4 WR receiving TDs (DK +125).",
+      "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints",
+      "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/",
+      "published": "2026-10-05T12:00:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "BettingPros",
+      "persons": [
+        "Mike Fanelli"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "YES",
+      "line": null,
+      "price": 230,
+      "selection": "Juwan Johnson anytime_touchdown YES",
+      "players": [
+        "Juwan Johnson"
+      ],
+      "quote": "Leads all TEs with 3 receiving TDs; Falcons have allowed 3 TE TDs (DK +230).",
+      "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints",
+      "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/",
+      "published": "2026-10-05T12:00:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "BettingPros",
+      "persons": [
+        "Mike Fanelli"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "YES",
+      "line": null,
+      "price": 2000,
+      "selection": "Juwan Johnson two_plus_touchdowns YES",
+      "players": [
+        "Juwan Johnson"
+      ],
+      "quote": "Long-shot add-on after his two-TD game vs. Las Vegas (DK +2000).",
+      "source_title": "NFL Monday Night Football First & Anytime TD Scorers: Falcons vs. Saints",
+      "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-first-anytime-td-scorers-falcons-vs-saints/",
+      "published": "2026-10-05T12:00:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "BettingPros",
+      "persons": [
+        "Dan Servodidio"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "OVER 79.5",
+      "line": 79.5,
+      "price": -139,
+      "selection": "Chris Olave receiving_yards OVER 79.5",
+      "players": [
+        "Chris Olave"
+      ],
+      "quote": "SGP leg 1 (80+, DK -139): 86+ yards in all three games; ATL allows the most WR yards.",
+      "source_title": "NFL Monday Night Football Same Game Parlay: Falcons vs. Saints",
+      "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-same-game-parlay-falcons-vs-saints/",
+      "published": "2026-10-05T12:00:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "BettingPros",
+      "persons": [
+        "Dan Servodidio"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "OVER 44.5",
+      "line": 44.5,
+      "price": -111,
+      "selection": "Devaughn Vele receiving_yards OVER 44.5",
+      "players": [
+        "Devaughn Vele"
+      ],
+      "quote": "SGP leg 2 (45+, DK -111): Shough's No. 2 option; ATL allows 67.3 yds/game to WR2s.",
+      "source_title": "NFL Monday Night Football Same Game Parlay: Falcons vs. Saints",
+      "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-same-game-parlay-falcons-vs-saints/",
+      "published": "2026-10-05T12:00:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "BettingPros",
+      "persons": [
+        "Dan Servodidio"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "OVER 69.5",
+      "line": 69.5,
+      "price": -160,
+      "selection": "Drake London receiving_yards OVER 69.5",
+      "players": [
+        "Drake London"
+      ],
+      "quote": "SGP leg 3 (70+, DK -160): 100+ yards in 6 of 7 games with Penix; 70+ in 5 of 7 vs. NO.",
+      "source_title": "NFL Monday Night Football Same Game Parlay: Falcons vs. Saints",
+      "url": "https://www.bettingpros.com/articles/nfl-monday-night-football-same-game-parlay-falcons-vs-saints/",
+      "published": "2026-10-05T12:00:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "Action Network",
+      "persons": [
+        "Sam Farley"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "OVER 27.5",
+      "line": 27.5,
+      "price": -115,
+      "selection": "Kyle Pitts receiving_yards OVER 27.5",
+      "players": [
+        "Kyle Pitts"
+      ],
+      "quote": "Ran a route on 76% of dropbacks; only 2 teams allowed more TE yards than NO (bet365 -115).",
+      "source_title": "Falcons vs Saints Player Props for Drake London, Kyle Pitts, Tyler Shough",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-player-props-for-drake-london-kyle-pitts-tyler-shough",
+      "published": "2026-10-05T02:00:55+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "Action Network",
+      "persons": [
+        "Sam Farley"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "OVER 78.5",
+      "line": 78.5,
+      "price": -114,
+      "selection": "Drake London receiving_yards OVER 78.5",
+      "players": [
+        "Drake London"
+      ],
+      "quote": "34% target share with Penix since 2024; 194 yards last week (FanDuel -114).",
+      "source_title": "Falcons vs Saints Player Props for Drake London, Kyle Pitts, Tyler Shough",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-player-props-for-drake-london-kyle-pitts-tyler-shough",
+      "published": "2026-10-05T02:00:55+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "Action Network",
+      "persons": [
+        "Sam Farley"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "OVER 254.5",
+      "line": 254.5,
+      "price": -114,
+      "selection": "Tyler Shough passing_yards OVER 254.5",
+      "players": [
+        "Tyler Shough"
+      ],
+      "quote": "Averaging 305 pass yards; ATL pass defense ranks 29th (-114).",
+      "source_title": "Falcons vs Saints Player Props for Drake London, Kyle Pitts, Tyler Shough",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-player-props-for-drake-london-kyle-pitts-tyler-shough",
+      "published": "2026-10-05T02:00:55+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "Action Network",
+      "persons": [
+        "Gilles Gallant"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "YES",
+      "line": null,
+      "price": 255,
+      "selection": "Juwan Johnson anytime_touchdown YES",
+      "players": [
+        "Juwan Johnson"
+      ],
+      "quote": "Six red-zone targets, four in the end zone; ATL allowed 3 TE TDs (DK +255).",
+      "source_title": "Falcons vs Saints Anytime Touchdown Scorer Props for NFL Monday Night Football",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-anytime-touchdown-scorer-props-nfl-monday-night-football",
+      "published": "2026-10-05T12:02:07+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "Action Network",
+      "persons": [
+        "Frank Ammirante"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "OVER 28.5",
+      "line": 28.5,
+      "price": -113,
+      "selection": "Kyle Pitts receiving_yards OVER 28.5",
+      "players": [
+        "Kyle Pitts"
+      ],
+      "quote": "SGP leg (+525 with Over 47.5): coaches want Pitts involved; NO just allowed 116 yds to Bowers.",
+      "source_title": "Saints vs Falcons Odds, Picks, Parlay for Monday Night Football",
+      "url": "https://www.actionnetwork.com/nfl/saints-vs-falcons-odds-picks-parlay-for-monday-night-football",
+      "published": "2026-10-05T19:07:22+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "Action Network",
+      "persons": [
+        "Frank Ammirante"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "OVER 11.5",
+      "line": 11.5,
+      "price": -103,
+      "selection": "Alvin Kamara rush_attempts OVER 11.5",
+      "players": [
+        "Alvin Kamara"
+      ],
+      "quote": "SGP leg: lead back with Etienne on IR; ATL is 1st in rush EPA, so more short carries.",
+      "source_title": "Saints vs Falcons Odds, Picks, Parlay for Monday Night Football",
+      "url": "https://www.actionnetwork.com/nfl/saints-vs-falcons-odds-picks-parlay-for-monday-night-football",
+      "published": "2026-10-05T19:07:22+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "Action Network",
+      "persons": [
+        "Grant Neiffer"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "YES",
+      "line": null,
+      "price": 250,
+      "selection": "Juwan Johnson anytime_touchdown YES",
+      "players": [
+        "Juwan Johnson"
+      ],
+      "quote": "Six red-zone targets; ATL forces the league-high pass rate (DK +250).",
+      "source_title": "Falcons vs Saints Props, Picks, Odds & Monday Night Football Predictions",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-picks-props-odds-predictions-monday-night-football-oct-5",
+      "published": "2026-10-05T21:50:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "Action Network",
+      "persons": [
+        "Grant Neiffer"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "YES",
+      "line": null,
+      "price": 550,
+      "selection": "Noah Fant anytime_touchdown YES",
+      "players": [
+        "Noah Fant"
+      ],
+      "quote": "Three TDs on three red-zone targets; questionable (abdomen) (+550).",
+      "source_title": "Falcons vs Saints Props, Picks, Odds & Monday Night Football Predictions",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-picks-props-odds-predictions-monday-night-football-oct-5",
+      "published": "2026-10-05T21:50:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "Action Network",
+      "persons": [
+        "Gilles Gallant"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "OVER 0.5",
+      "line": 0.5,
+      "price": 120,
+      "selection": "Michael Penix Jr. interceptions OVER 0.5",
+      "players": [
+        "Michael Penix Jr."
+      ],
+      "quote": "INT in 7 of 13 career starts; NO top-10 in pressure and blitz rate (+120).",
+      "source_title": "Falcons vs Saints Props, Picks, Odds & Monday Night Football Predictions",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-picks-props-odds-predictions-monday-night-football-oct-5",
+      "published": "2026-10-05T21:50:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    },
+    {
+      "kind": "article",
+      "outlet": "Action Network",
+      "persons": [
+        "Pablo Planovsky"
+      ],
+      "game": "ATL@NO",
+      "market": "prop",
+      "side": "YES",
+      "line": null,
+      "price": null,
+      "selection": "Juwan Johnson anytime_touchdown YES",
+      "players": [
+        "Juwan Johnson"
+      ],
+      "quote": "Kalshi TD-scorer market pick: lead TE and a top red-zone option with Etienne out.",
+      "source_title": "Falcons vs. Saints Picks & Player Props to Lock In Before MNF Kickoff",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-saints-trades-to-lock-in-before-mnf-kickoff",
+      "published": "2026-10-05T19:39:00+00:00",
+      "best_bet": false,
+      "verdict": "verified"
+    }
   ]
 }
