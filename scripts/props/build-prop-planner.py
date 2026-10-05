@@ -249,7 +249,7 @@ def expert_picks(paths, game, lines):
         if roster and not roster['ok']: blocked.append(roster['text'])
         pk = dict(id=f'x{len(picks)}', label=d['label'], kind=d['kind'], outlet=outlet, persons=r.get('persons') or [],
                   quote=html.unescape(r.get('quote') or ''), published=(r.get('published') or '')[:10], best_bet=bool(r.get('best_bet')),
-                  price=r.get('price') if d['kind'] == 'prop' else None, url=r.get('url'), roster=roster, matches=matches, nomatch=nomatch, sources=1)
+                  price=r.get('price') if d['kind'] == 'prop' else None, url=r.get('url'), source_title=html.unescape(r.get('source_title') or ''), roster=roster, matches=matches, nomatch=nomatch, sources=1)
         seen[sig] = pk; picks.append(pk)
     picks.sort(key=lambda p: (p['kind'] != 'prop', not p['best_bet']))
     srcs = ', '.join(pathlib.Path(x).name for x in paths)
@@ -274,20 +274,39 @@ UI_CSS = """
     .expert-add.is-selected { background:rgba(110,231,183,.14); border-color:var(--good); color:var(--good); }
     .expert-note { font-size:11px; color:#fbbf24; }
     .roster-block { font-size:12px; color:#fca5a5; font-weight:700; }
+    .expert-filters { display:flex; flex-wrap:wrap; gap:10px 14px; align-items:flex-end; padding:12px 14px 0; }
+    .expert-pills { display:flex; flex-wrap:wrap; gap:6px; }
+    .expert-pills .tab .n { opacity:.65; margin-left:3px; font-size:11px; }
+    .expert-person { min-width:190px; }
+    .expert-title { color:#cbd5e1; font-size:11px; margin-top:3px; }
     .badge-best { display:inline-block; border-radius:999px; padding:2px 7px; margin-right:6px; font-size:10px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; background:rgba(251,191,36,.16); color:#fbbf24; vertical-align:middle; }
 """
 UI_PANEL = """<section class="panel experts-panel" id="expertsPanel" hidden>
           <details class="experts" open><summary class="panel-head"><div><h2>Expert picks for this game</h2><span class="muted" id="expertNote"></span></div><span class="chip" id="expertCount"></span></summary>
+          <div class="expert-filters" id="expertFilters"></div>
           <div class="expert-list" id="expertList"></div></details>
         </section>
 
         """
 UI_JS = """    function expertLegLabel(line) { return line.player === 'Game market' ? (line.selection.split(' \\u00b7 ').slice(1).join(' \\u00b7 ') || line.selection) : `${line.market.replace(/^Over\\/Under \\((.*)\\)$/, '$1')} ${line.selection}`; }
+    let expertOutlet = 'All', expertPerson = 'All';
+    function renderExpertFilters(all) {
+      const outlets = [...new Set(all.map(p => p.outlet))];
+      const cnt = o => o === 'All' ? all.length : all.filter(p => p.outlet === o).length;
+      const pool = all.filter(p => expertOutlet === 'All' || p.outlet === expertOutlet);
+      const persons = [...new Set(pool.flatMap(p => p.persons || []))].sort();
+      if (expertPerson !== 'All' && !persons.includes(expertPerson)) expertPerson = 'All';
+      $('expertFilters').innerHTML = `<div class="expert-pills">${['All', ...outlets].map(o => `<button class="tab ${o === expertOutlet ? 'active' : ''}" data-outlet="${escapeHtml(o)}">${escapeHtml(o)}<span class="n">${cnt(o)}</span></button>`).join('')}</div>` + (persons.length > 1 ? `<label class="field expert-person">Expert<select id="expertPerson"><option>All</option>${persons.map(n => `<option ${n === expertPerson ? 'selected' : ''}>${escapeHtml(n)}</option>`).join('')}</select></label>` : '');
+      $('expertFilters').querySelectorAll('[data-outlet]').forEach(b => b.addEventListener('click', () => { expertOutlet = b.dataset.outlet; expertPerson = 'All'; renderExperts(); }));
+      const sel = document.getElementById('expertPerson'); if (sel) sel.addEventListener('change', () => { expertPerson = sel.value; renderExperts(); });
+    }
     function renderExperts() {
-      const picks = (expertData && expertData.picks) || [];
-      if (!picks.length) return;
+      const allPicks = (expertData && expertData.picks) || [];
+      if (!allPicks.length) return;
+      renderExpertFilters(allPicks);
+      const picks = allPicks.filter(p => (expertOutlet === 'All' || p.outlet === expertOutlet) && (expertPerson === 'All' || (p.persons || []).includes(expertPerson)));
       $('expertsPanel').hidden = false;
-      $('expertCount').textContent = `${picks.length} pick${picks.length === 1 ? '' : 's'}`;
+      $('expertCount').textContent = picks.length === allPicks.length ? `${allPicks.length} picks` : `${picks.length} of ${allPicks.length} picks`;
       $('expertNote').textContent = expertData.note || '';
       const scroll = $('expertList').scrollTop;
       $('expertList').innerHTML = picks.map(p => {
@@ -298,8 +317,8 @@ UI_JS = """    function expertLegLabel(line) { return line.player === 'Game mark
         else if (p.matches.length) actions = p.matches.map(mt => { const line = lines.find(x => x.id === mt.id); if (!line) return ''; const on = legs.some(l => l.id === line.id); return `<span class="expert-leg"><button class="expert-add ${on ? 'is-selected' : ''}" data-id="${line.id}" title="${on ? 'Remove from' : 'Add to'} the builder">${on ? '\\u2713' : '+'} ${escapeHtml(line.book)} \\u00b7 ${escapeHtml(expertLegLabel(line))} <b>${displayOdds(line.odds)}</b></button>${mt.note ? `<span class="expert-note">${escapeHtml(mt.note)}</span>` : ''}</span>`; }).join('');
         else actions = `<span class="expert-note">${escapeHtml(p.nomatch || 'Not on the captured boards.')}</span>`;
         const src = p.url ? `<a href="${escapeHtml(p.url)}" target="_blank" rel="noopener">${escapeHtml(who)}</a>` : escapeHtml(who);
-        return `<article class="expert"><div class="expert-top"><span class="expert-pick">${p.best_bet ? '<span class="badge-best">Best bet</span>' : ''}${escapeHtml(p.label)}${called}</span><span class="expert-src">${src} \\u00b7 ${escapeHtml(p.published || '')}${p.roster && p.roster.ok ? ` \\u00b7 ${escapeHtml(p.roster.text)}` : ''}</span></div>${p.quote ? `<p class="expert-quote">\\u201c${escapeHtml(p.quote)}\\u201d</p>` : ''}<div class="expert-legs">${actions}</div></article>`;
-      }).join('');
+        return `<article class="expert"><div class="expert-top"><span class="expert-pick">${p.best_bet ? '<span class="badge-best">Best bet</span>' : ''}${escapeHtml(p.label)}${called}</span><span class="expert-src">${src} \\u00b7 ${escapeHtml(p.published || '')}${p.roster && p.roster.ok ? ` \\u00b7 ${escapeHtml(p.roster.text)}` : ''}</span></div>${p.source_title ? `<div class="expert-title">${escapeHtml(p.source_title)}</div>` : ''}${p.quote ? `<p class="expert-quote">\\u201c${escapeHtml(p.quote)}\\u201d</p>` : ''}<div class="expert-legs">${actions}</div></article>`;
+      }).join('') || '<div class="empty">No picks from this source.</div>';
       $('expertList').scrollTop = scroll;
       $('expertList').querySelectorAll('.expert-add').forEach(b => b.addEventListener('click', () => { const id = b.dataset.id; if (legs.some(l => l.id === id)) { legs = legs.filter(l => l.id !== id); renderBuilder(); renderLines(); } else addLeg(id); }));
     }
