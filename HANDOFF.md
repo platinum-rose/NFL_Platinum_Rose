@@ -5,7 +5,7 @@
 > `handoffs/` and `handoffs/archive/`.
 
 **Last governance trim:** 2026-09-22 by Antigravity & Codex
-**Last verified HEAD:** 10/03 14:15 Claude commit (full-text article pass + context lanes) on top of `94a5193`; run `git log -3 --oneline` to confirm.
+**Last verified HEAD:** `6887ca8` = origin/main (2026-10-05 13:00 PT, Claude H2C2 handoff). Previously: 10/03 14:15 Claude commit (full-text article pass + context lanes) on top of `94a5193`; run `git log -3 --oneline` to confirm.
 **Last verified branch:** `main` — **the only working branch.** `wip/yahoo-sync` is retired (archived as tag `archive/wip-yahoo-sync-2026-09-23`; remote branch deleted after a clean automation week). Commit to `main`.
 **Workspace state:** very dirty/shared; run `git status -sb` before trusting any
 handoff prose. A full copy of the pre-trim rolling handoff was archived at
@@ -13,7 +13,9 @@ handoff prose. A full copy of the pre-trim rolling handoff was archived at
 
 ## Current Pick Up Here
 
-Latest active handoff sources:
+**▶ PICK UP HERE (2026-10-05 13:00 PT, cross-team H2C2 handoff to Claude Team 2):** `handoffs/2026-10-05-1300-claude-h2c2-team2-briefing-week4-fri-mon.md`. It supersedes every "LATEST" pointer below. It covers Fri 10/02 → Mon 10/05 (Week 4 card, tickets, settlement −$208.42 on $353.51, SuperContest 4–1, Live/phone tracker, Master Intel v2 dark site, Week 5 BKR openers, futures/promos, the MNF ATL@NO prop planner) and has a resume prompt in §9. Support files, including copies of gitignored inputs, a ticket ledger, a file manifest and a 26-handoff digest, are in `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/`. Newer session handoffs not listed below: `handoffs/2026-10-05-1235-claude-week4-closeout-futures-w5-lines-mnf-planner-handoff.md`, `handoffs/2026-10-04-1054-claude-week4-card-tracker-handoff.md`.
+
+Older active handoff sources (superseded by the briefing above, kept for history):
 - `handoffs/2026-10-04-0300-claude-pickem-w04-podcast-screen-rules-handoff.md` (**LATEST.** W4 pick'em plans (TNF PIT locked x3); podcast props screen + normalizer; betting rules pruned per Andy (see §5/§7.2 of the synthesis prompt); Slot 3 must be rebuilt to the morning template; "no unders in parlays" was never a rule. Next: Sunday card in a fresh session.)
 - `handoffs/2026-10-03-2045-claude-synthesis-w04-card-built-intel-filled-handoff.md` (**LATEST.** Week 4 digest + card built (14 tickets, $175, nothing placed), TICKETS/SUPERCONTEST blocks + per-game ticket notes in the narratives, survivor pick intel, Master Intel rebuilt and filled; review artifact v3. SC five proposed + 5 alternates; Bills credits x2 pending Andy. Next: SUN mode — inactives, re-price, island ladders, ledger.)
 - `handoffs/2026-10-03-1415-claude-week4-fulltext-ingestion-handoff.md` (**LATEST.** Local full-text archive of the week's articles (604), Abrams primer feed (systems/trends), 118 hand-extracted article picks verified, trends/news lanes in build.py, all 15 narratives updated; NE@BUF lean flipped to NE +7. Open: ingestion caps/scheduling tickets, coaching file, card.)

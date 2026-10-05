@@ -1,0 +1,1011 @@
+{
+  "generated_at": "2026-10-03T06:18:45.277Z",
+  "source_window": "2026 regular season Weeks 1-3",
+  "evidence": {
+    "boxscores": "data/fantasy/boxscores/espn-*.json",
+    "schedule": "public/schedule.json",
+    "opening_market_snapshot": "reports/bets/week4-beo-opening-market-baseline-2026-09-28.md"
+  },
+  "matchups": [
+    {
+      "game_id": "nfl_2026_2_w04_PIT_at_CLE",
+      "kickoff_utc": "2026-10-02T00:15:00.000Z",
+      "away": {
+        "code": "PIT",
+        "games": 3,
+        "record": "2-1",
+        "results": [
+          "W1 W 20-13 ATL",
+          "W2 L 3-20 NE",
+          "W3 W 30-27 CIN"
+        ],
+        "points_for_pg": 17.7,
+        "points_against_pg": 20,
+        "yards_pg": 303.3,
+        "yards_allowed_pg": 305.7,
+        "yards_per_play": "4.8",
+        "yards_per_play_allowed": "5.5",
+        "pass_yards_pg": 207.7,
+        "pass_yards_allowed_pg": 192.7,
+        "rush_yards_pg": 95.7,
+        "rush_yards_allowed_pg": 113,
+        "turnover_margin": 2,
+        "third_down": "32.4% (12/37)",
+        "third_down_allowed": "33.3% (12/36)"
+      },
+      "home": {
+        "code": "CLE",
+        "games": 3,
+        "record": "2-1",
+        "results": [
+          "W1 L 10-34 JAX",
+          "W2 W 23-19 TB",
+          "W3 W 21-18 CAR"
+        ],
+        "points_for_pg": 18,
+        "points_against_pg": 23.7,
+        "yards_pg": 266,
+        "yards_allowed_pg": 344.3,
+        "yards_per_play": "4.8",
+        "yards_per_play_allowed": "5.4",
+        "pass_yards_pg": 178.3,
+        "pass_yards_allowed_pg": 224,
+        "rush_yards_pg": 87.7,
+        "rush_yards_allowed_pg": 120.3,
+        "turnover_margin": -1,
+        "third_down": "30.6% (11/36)",
+        "third_down_allowed": "39.0% (16/41)"
+      },
+      "opening_market": {
+        "spread": "PIT -2.5 (-125) / CLE +2.5 (+100)",
+        "total": "38.5 (O -115 / U -115)",
+        "moneyline": "PIT -150 / CLE +114"
+      },
+      "breakdown": {
+        "form": "CLE has scored more per game (18), while PIT has allowed fewer (20).",
+        "passing": "The passing-yards baselines are broadly balanced.",
+        "rushing": "The rushing-yards baselines are broadly balanced.",
+        "possession": "PIT has the early turnover-margin edge. Third-down offense: PIT 32.4% (12/37); CLE 30.6% (11/36).",
+        "awayPath": "PIT's favorable path is to exceed its 303.3-yard offensive baseline while keeping CLE below its 18-point scoring baseline.",
+        "homePath": "CLE's favorable path is to exceed its 266-yard offensive baseline while keeping PIT below its 17.7-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_IND_at_WAS",
+      "kickoff_utc": "2026-10-04T13:30:00.000Z",
+      "away": {
+        "code": "IND",
+        "games": 3,
+        "record": "1-2",
+        "results": [
+          "W1 L 23-41 BAL",
+          "W2 L 30-33 KC",
+          "W3 W 19-17 HOU"
+        ],
+        "points_for_pg": 24,
+        "points_against_pg": 30.3,
+        "yards_pg": 293.3,
+        "yards_allowed_pg": 417.3,
+        "yards_per_play": "4.7",
+        "yards_per_play_allowed": "6.5",
+        "pass_yards_pg": 190,
+        "pass_yards_allowed_pg": 276,
+        "rush_yards_pg": 103.3,
+        "rush_yards_allowed_pg": 141.3,
+        "turnover_margin": -5,
+        "third_down": "40.5% (15/37)",
+        "third_down_allowed": "36.4% (12/33)"
+      },
+      "home": {
+        "code": "WAS",
+        "games": 3,
+        "record": "1-2",
+        "results": [
+          "W1 L 22-24 PHI",
+          "W2 L 20-37 DAL",
+          "W3 W 33-31 SEA"
+        ],
+        "points_for_pg": 25,
+        "points_against_pg": 30.7,
+        "yards_pg": 314,
+        "yards_allowed_pg": 362.3,
+        "yards_per_play": "4.7",
+        "yards_per_play_allowed": "6.4",
+        "pass_yards_pg": 182,
+        "pass_yards_allowed_pg": 280.3,
+        "rush_yards_pg": 132,
+        "rush_yards_allowed_pg": 82,
+        "turnover_margin": 2,
+        "third_down": "38.1% (16/42)",
+        "third_down_allowed": "47.1% (16/34)"
+      },
+      "opening_market": {
+        "spread": "IND -3.5 (-110) / WAS +3.5 (-121)",
+        "total": "46.5 (O -125 / U -106)",
+        "moneyline": "IND -176 / WAS +135"
+      },
+      "breakdown": {
+        "form": "WAS has scored more per game (25), while IND has allowed fewer (30.3).",
+        "passing": "The passing-yards baselines are broadly balanced.",
+        "rushing": "IND has the more favorable early rushing-production comparison (21.3 yards versus the opponent's average allowed).",
+        "possession": "WAS has the early turnover-margin edge. Third-down offense: IND 40.5% (15/37); WAS 38.1% (16/42).",
+        "awayPath": "IND's favorable path is to exceed its 293.3-yard offensive baseline while keeping WAS below its 25-point scoring baseline.",
+        "homePath": "WAS's favorable path is to exceed its 314-yard offensive baseline while keeping IND below its 24-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_NE_at_BUF",
+      "kickoff_utc": "2026-10-04T17:00:00.000Z",
+      "away": {
+        "code": "NE",
+        "games": 3,
+        "record": "1-2",
+        "results": [
+          "W1 L 10-13 SEA",
+          "W2 W 20-3 PIT",
+          "W3 L 6-35 JAX"
+        ],
+        "points_for_pg": 12,
+        "points_against_pg": 17,
+        "yards_pg": 307,
+        "yards_allowed_pg": 278.3,
+        "yards_per_play": "5.1",
+        "yards_per_play_allowed": "4.8",
+        "pass_yards_pg": 197.7,
+        "pass_yards_allowed_pg": 170,
+        "rush_yards_pg": 109.3,
+        "rush_yards_allowed_pg": 108.3,
+        "turnover_margin": -5,
+        "third_down": "32.5% (13/40)",
+        "third_down_allowed": "34.3% (12/35)"
+      },
+      "home": {
+        "code": "BUF",
+        "games": 3,
+        "record": "3-0",
+        "results": [
+          "W1 W 36-31 HOU",
+          "W2 W 41-31 DET",
+          "W3 W 24-16 LAC"
+        ],
+        "points_for_pg": 33.7,
+        "points_against_pg": 26,
+        "yards_pg": 401.7,
+        "yards_allowed_pg": 361.3,
+        "yards_per_play": "6.5",
+        "yards_per_play_allowed": "5.4",
+        "pass_yards_pg": 246.7,
+        "pass_yards_allowed_pg": 254.3,
+        "rush_yards_pg": 155,
+        "rush_yards_allowed_pg": 107,
+        "turnover_margin": -2,
+        "third_down": "54.5% (18/33)",
+        "third_down_allowed": "40.5% (17/42)"
+      },
+      "opening_market": {
+        "spread": "NE +6.5 (-106) / BUF -6.5 (-125)",
+        "total": "48.5 (O -115 / U -115)",
+        "moneyline": "NE +240 / BUF -334"
+      },
+      "breakdown": {
+        "form": "BUF has scored more per game (33.7), while NE has allowed fewer (17).",
+        "passing": "BUF has the more favorable early passing-production comparison (76.7 yards versus the opponent's average allowed).",
+        "rushing": "BUF has the more favorable early rushing-production comparison (46.7 yards versus the opponent's average allowed).",
+        "possession": "BUF has the early turnover-margin edge. Third-down offense: NE 32.5% (13/40); BUF 54.5% (18/33).",
+        "awayPath": "NE's favorable path is to exceed its 307-yard offensive baseline while keeping BUF below its 33.7-point scoring baseline.",
+        "homePath": "BUF's favorable path is to exceed its 401.7-yard offensive baseline while keeping NE below its 12-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_NYJ_at_CHI",
+      "kickoff_utc": "2026-10-04T17:00:00.000Z",
+      "away": {
+        "code": "NYJ",
+        "games": 3,
+        "record": "1-2",
+        "results": [
+          "W1 W 23-10 TEN",
+          "W2 L 17-20 GB",
+          "W3 L 24-31 DET"
+        ],
+        "points_for_pg": 21.3,
+        "points_against_pg": 20.3,
+        "yards_pg": 329,
+        "yards_allowed_pg": 258.3,
+        "yards_per_play": "5.0",
+        "yards_per_play_allowed": "4.8",
+        "pass_yards_pg": 236.7,
+        "pass_yards_allowed_pg": 171,
+        "rush_yards_pg": 92.3,
+        "rush_yards_allowed_pg": 87.3,
+        "turnover_margin": 1,
+        "third_down": "37.2% (16/43)",
+        "third_down_allowed": "32.3% (10/31)"
+      },
+      "home": {
+        "code": "CHI",
+        "games": 3,
+        "record": "2-1",
+        "results": [
+          "W1 W 59-37 CAR",
+          "W2 L 3-9 MIN",
+          "W3 W 27-7 PHI"
+        ],
+        "points_for_pg": 29.7,
+        "points_against_pg": 17.7,
+        "yards_pg": 408,
+        "yards_allowed_pg": 324,
+        "yards_per_play": "5.9",
+        "yards_per_play_allowed": "6.1",
+        "pass_yards_pg": 223.7,
+        "pass_yards_allowed_pg": 207,
+        "rush_yards_pg": 184.3,
+        "rush_yards_allowed_pg": 117,
+        "turnover_margin": 3,
+        "third_down": "47.6% (20/42)",
+        "third_down_allowed": "29.0% (9/31)"
+      },
+      "opening_market": {
+        "spread": "NYJ +3.5 (-136) / CHI -3.5 (+104)",
+        "total": "43.5 (O -106 / U -121)",
+        "moneyline": "NYJ +120 / CHI -157"
+      },
+      "breakdown": {
+        "form": "CHI has scored more per game (29.7), while CHI has allowed fewer (17.7).",
+        "passing": "CHI has the more favorable early passing-production comparison (52.7 yards versus the opponent's average allowed).",
+        "rushing": "CHI has the more favorable early rushing-production comparison (97.0 yards versus the opponent's average allowed).",
+        "possession": "CHI has the early turnover-margin edge. Third-down offense: NYJ 37.2% (16/43); CHI 47.6% (20/42).",
+        "awayPath": "NYJ's favorable path is to exceed its 329-yard offensive baseline while keeping CHI below its 29.7-point scoring baseline.",
+        "homePath": "CHI's favorable path is to exceed its 408-yard offensive baseline while keeping NYJ below its 21.3-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_JAX_at_CIN",
+      "kickoff_utc": "2026-10-04T17:00:00.000Z",
+      "away": {
+        "code": "JAX",
+        "games": 3,
+        "record": "2-1",
+        "results": [
+          "W1 W 34-10 CLE",
+          "W2 L 13-20 DEN",
+          "W3 W 35-6 NE"
+        ],
+        "points_for_pg": 27.3,
+        "points_against_pg": 12,
+        "yards_pg": 314.3,
+        "yards_allowed_pg": 327,
+        "yards_per_play": "5.5",
+        "yards_per_play_allowed": "5.8",
+        "pass_yards_pg": 195,
+        "pass_yards_allowed_pg": 235.7,
+        "rush_yards_pg": 119.3,
+        "rush_yards_allowed_pg": 91.3,
+        "turnover_margin": 4,
+        "third_down": "52.9% (18/34)",
+        "third_down_allowed": "29.0% (9/31)"
+      },
+      "home": {
+        "code": "CIN",
+        "games": 3,
+        "record": "2-1",
+        "results": [
+          "W1 W 33-27 TB",
+          "W2 W 20-6 HOU",
+          "W3 L 27-30 PIT"
+        ],
+        "points_for_pg": 26.7,
+        "points_against_pg": 21,
+        "yards_pg": 323.3,
+        "yards_allowed_pg": 355.7,
+        "yards_per_play": "5.4",
+        "yards_per_play_allowed": "5.6",
+        "pass_yards_pg": 232,
+        "pass_yards_allowed_pg": 260,
+        "rush_yards_pg": 91.3,
+        "rush_yards_allowed_pg": 95.7,
+        "turnover_margin": 2,
+        "third_down": "46.3% (19/41)",
+        "third_down_allowed": "43.6% (17/39)"
+      },
+      "opening_market": {
+        "spread": "JAX +2.5 (-106) / CIN -2.5 (-125)",
+        "total": "50.5 (O -121 / U -106)",
+        "moneyline": "JAX +114 / CIN -150"
+      },
+      "breakdown": {
+        "form": "JAX has scored more per game (27.3), while JAX has allowed fewer (12).",
+        "passing": "CIN has the more favorable early passing-production comparison (-3.7 yards versus the opponent's average allowed).",
+        "rushing": "JAX has the more favorable early rushing-production comparison (23.6 yards versus the opponent's average allowed).",
+        "possession": "JAX has the early turnover-margin edge. Third-down offense: JAX 52.9% (18/34); CIN 46.3% (19/41).",
+        "awayPath": "JAX's favorable path is to exceed its 314.3-yard offensive baseline while keeping CIN below its 26.7-point scoring baseline.",
+        "homePath": "CIN's favorable path is to exceed its 323.3-yard offensive baseline while keeping JAX below its 27.3-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_ARI_at_NYG",
+      "kickoff_utc": "2026-10-04T17:00:00.000Z",
+      "away": {
+        "code": "ARI",
+        "games": 3,
+        "record": "1-2",
+        "results": [
+          "W1 W 26-14 LAC",
+          "W2 L 7-31 SEA",
+          "W3 L 30-36 SF"
+        ],
+        "points_for_pg": 21,
+        "points_against_pg": 27,
+        "yards_pg": 303,
+        "yards_allowed_pg": 362,
+        "yards_per_play": "4.5",
+        "yards_per_play_allowed": "6.5",
+        "pass_yards_pg": 210,
+        "pass_yards_allowed_pg": 234.3,
+        "rush_yards_pg": 93,
+        "rush_yards_allowed_pg": 127.7,
+        "turnover_margin": 3,
+        "third_down": "40.9% (18/44)",
+        "third_down_allowed": "44.8% (13/29)"
+      },
+      "home": {
+        "code": "NYG",
+        "games": 3,
+        "record": "2-1",
+        "results": [
+          "W1 W 28-20 DAL",
+          "W2 L 6-28 LAR",
+          "W3 W 12-7 TEN"
+        ],
+        "points_for_pg": 15.3,
+        "points_against_pg": 18.3,
+        "yards_pg": 271.3,
+        "yards_allowed_pg": 329,
+        "yards_per_play": "4.5",
+        "yards_per_play_allowed": "5.8",
+        "pass_yards_pg": 153,
+        "pass_yards_allowed_pg": 224.7,
+        "rush_yards_pg": 118.3,
+        "rush_yards_allowed_pg": 104.3,
+        "turnover_margin": 3,
+        "third_down": "42.1% (16/38)",
+        "third_down_allowed": "54.5% (18/33)"
+      },
+      "opening_market": {
+        "spread": "ARI -0.5 (-110) / NYG +0.5 (-115)",
+        "total": "43.5 (O -121 / U -110)",
+        "moneyline": "ARI -110 / NYG -115"
+      },
+      "breakdown": {
+        "form": "ARI has scored more per game (21), while NYG has allowed fewer (18.3).",
+        "passing": "ARI has the more favorable early passing-production comparison (-14.7 yards versus the opponent's average allowed).",
+        "rushing": "The rushing-yards baselines are broadly balanced.",
+        "possession": "Turnover margin does not separate the teams yet. Third-down offense: ARI 40.9% (18/44); NYG 42.1% (16/38).",
+        "awayPath": "ARI's favorable path is to exceed its 303-yard offensive baseline while keeping NYG below its 15.3-point scoring baseline.",
+        "homePath": "NYG's favorable path is to exceed its 271.3-yard offensive baseline while keeping ARI below its 21-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_LAR_at_PHI",
+      "kickoff_utc": "2026-10-04T17:00:00.000Z",
+      "away": {
+        "code": "LAR",
+        "games": 3,
+        "record": "1-2",
+        "results": [
+          "W1 L 7-27 SF",
+          "W2 W 28-6 NYG",
+          "W3 L 26-30 DEN"
+        ],
+        "points_for_pg": 20.3,
+        "points_against_pg": 21,
+        "yards_pg": 417.7,
+        "yards_allowed_pg": 272.7,
+        "yards_per_play": "6.3",
+        "yards_per_play_allowed": "4.6",
+        "pass_yards_pg": 284,
+        "pass_yards_allowed_pg": 171.3,
+        "rush_yards_pg": 133.7,
+        "rush_yards_allowed_pg": 101.3,
+        "turnover_margin": -3,
+        "third_down": "42.9% (15/35)",
+        "third_down_allowed": "43.6% (17/39)"
+      },
+      "home": {
+        "code": "PHI",
+        "games": 3,
+        "record": "2-1",
+        "results": [
+          "W1 W 24-22 WAS",
+          "W2 W 24-20 TEN",
+          "W3 L 7-27 CHI"
+        ],
+        "points_for_pg": 18.3,
+        "points_against_pg": 23,
+        "yards_pg": 302.3,
+        "yards_allowed_pg": 320.3,
+        "yards_per_play": "5.3",
+        "yards_per_play_allowed": "5.1",
+        "pass_yards_pg": 191.7,
+        "pass_yards_allowed_pg": 193,
+        "rush_yards_pg": 110.7,
+        "rush_yards_allowed_pg": 127.3,
+        "turnover_margin": -5,
+        "third_down": "46.3% (19/41)",
+        "third_down_allowed": "39.0% (16/41)"
+      },
+      "opening_market": {
+        "spread": "LAR -2.5 (-115) / PHI +2.5 (-110)",
+        "total": "46.5 (O -115 / U -115)",
+        "moneyline": "LAR -145 / PHI +114"
+      },
+      "breakdown": {
+        "form": "LAR has scored more per game (20.3), while LAR has allowed fewer (21).",
+        "passing": "LAR has the more favorable early passing-production comparison (91.0 yards versus the opponent's average allowed).",
+        "rushing": "The rushing-yards baselines are broadly balanced.",
+        "possession": "LAR has the early turnover-margin edge. Third-down offense: LAR 42.9% (15/35); PHI 46.3% (19/41).",
+        "awayPath": "LAR's favorable path is to exceed its 417.7-yard offensive baseline while keeping PHI below its 18.3-point scoring baseline.",
+        "homePath": "PHI's favorable path is to exceed its 302.3-yard offensive baseline while keeping LAR below its 20.3-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_GB_at_TB",
+      "kickoff_utc": "2026-10-04T17:00:00.000Z",
+      "away": {
+        "code": "GB",
+        "games": 3,
+        "record": "1-2",
+        "results": [
+          "W1 L 22-39 MIN",
+          "W2 W 20-17 NYJ",
+          "W3 L 14-35 ATL"
+        ],
+        "points_for_pg": 18.7,
+        "points_against_pg": 30.3,
+        "yards_pg": 315.3,
+        "yards_allowed_pg": 340.7,
+        "yards_per_play": "5.3",
+        "yards_per_play_allowed": "5.1",
+        "pass_yards_pg": 266.7,
+        "pass_yards_allowed_pg": 202,
+        "rush_yards_pg": 48.7,
+        "rush_yards_allowed_pg": 138.7,
+        "turnover_margin": -2,
+        "third_down": "27.8% (10/36)",
+        "third_down_allowed": "50.0% (22/44)"
+      },
+      "home": {
+        "code": "TB",
+        "games": 3,
+        "record": "0-3",
+        "results": [
+          "W1 L 27-33 CIN",
+          "W2 L 19-23 CLE",
+          "W3 L 16-23 MIN"
+        ],
+        "points_for_pg": 20.7,
+        "points_against_pg": 26.3,
+        "yards_pg": 279.3,
+        "yards_allowed_pg": 282.7,
+        "yards_per_play": "4.7",
+        "yards_per_play_allowed": "4.9",
+        "pass_yards_pg": 185,
+        "pass_yards_allowed_pg": 206.7,
+        "rush_yards_pg": 94.3,
+        "rush_yards_allowed_pg": 76,
+        "turnover_margin": -5,
+        "third_down": "32.6% (14/43)",
+        "third_down_allowed": "35.7% (15/42)"
+      },
+      "opening_market": {
+        "spread": "GB -3.5 (-110) / TB +3.5 (-115)",
+        "total": "40.5 (O -115 / U -110)",
+        "moneyline": "GB -200 / TB +154"
+      },
+      "breakdown": {
+        "form": "TB has scored more per game (20.7), while TB has allowed fewer (26.3).",
+        "passing": "GB has the more favorable early passing-production comparison (60.0 yards versus the opponent's average allowed).",
+        "rushing": "GB has the more favorable early rushing-production comparison (-27.3 yards versus the opponent's average allowed).",
+        "possession": "GB has the early turnover-margin edge. Third-down offense: GB 27.8% (10/36); TB 32.6% (14/43).",
+        "awayPath": "GB's favorable path is to exceed its 315.3-yard offensive baseline while keeping TB below its 20.7-point scoring baseline.",
+        "homePath": "TB's favorable path is to exceed its 279.3-yard offensive baseline while keeping GB below its 18.7-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_TEN_at_BAL",
+      "kickoff_utc": "2026-10-04T17:00:00.000Z",
+      "away": {
+        "code": "TEN",
+        "games": 3,
+        "record": "0-3",
+        "results": [
+          "W1 L 10-23 NYJ",
+          "W2 L 20-24 PHI",
+          "W3 L 7-12 NYG"
+        ],
+        "points_for_pg": 12.3,
+        "points_against_pg": 19.7,
+        "yards_pg": 249.3,
+        "yards_allowed_pg": 315.3,
+        "yards_per_play": "4.8",
+        "yards_per_play_allowed": "4.9",
+        "pass_yards_pg": 159,
+        "pass_yards_allowed_pg": 189,
+        "rush_yards_pg": 90.3,
+        "rush_yards_allowed_pg": 126.3,
+        "turnover_margin": -1,
+        "third_down": "39.5% (15/38)",
+        "third_down_allowed": "39.5% (17/43)"
+      },
+      "home": {
+        "code": "BAL",
+        "games": 3,
+        "record": "2-1",
+        "results": [
+          "W1 W 41-23 IND",
+          "W2 L 17-24 NO",
+          "W3 W 34-31 DAL"
+        ],
+        "points_for_pg": 30.7,
+        "points_against_pg": 26,
+        "yards_pg": 398.7,
+        "yards_allowed_pg": 321.3,
+        "yards_per_play": "6.7",
+        "yards_per_play_allowed": "5.1",
+        "pass_yards_pg": 231.3,
+        "pass_yards_allowed_pg": 216.3,
+        "rush_yards_pg": 167.3,
+        "rush_yards_allowed_pg": 105,
+        "turnover_margin": 1,
+        "third_down": "37.0% (10/27)",
+        "third_down_allowed": "42.1% (16/38)"
+      },
+      "opening_market": {
+        "spread": "TEN +11.5 (-110) / BAL -11.5 (-115)",
+        "total": "43.5 (O -110 / U -115)",
+        "moneyline": "TEN +500 / BAL -770"
+      },
+      "breakdown": {
+        "form": "BAL has scored more per game (30.7), while TEN has allowed fewer (19.7).",
+        "passing": "BAL has the more favorable early passing-production comparison (42.3 yards versus the opponent's average allowed).",
+        "rushing": "BAL has the more favorable early rushing-production comparison (41.0 yards versus the opponent's average allowed).",
+        "possession": "BAL has the early turnover-margin edge. Third-down offense: TEN 39.5% (15/38); BAL 37.0% (10/27).",
+        "awayPath": "TEN's favorable path is to exceed its 249.3-yard offensive baseline while keeping BAL below its 30.7-point scoring baseline.",
+        "homePath": "BAL's favorable path is to exceed its 398.7-yard offensive baseline while keeping TEN below its 12.3-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_DAL_at_HOU",
+      "kickoff_utc": "2026-10-04T17:00:00.000Z",
+      "away": {
+        "code": "DAL",
+        "games": 3,
+        "record": "1-2",
+        "results": [
+          "W1 L 20-28 NYG",
+          "W2 W 37-20 WAS",
+          "W3 L 31-34 BAL"
+        ],
+        "points_for_pg": 29.3,
+        "points_against_pg": 27.3,
+        "yards_pg": 330.3,
+        "yards_allowed_pg": 387,
+        "yards_per_play": "5.6",
+        "yards_per_play_allowed": "6.0",
+        "pass_yards_pg": 236,
+        "pass_yards_allowed_pg": 207.3,
+        "rush_yards_pg": 94.3,
+        "rush_yards_allowed_pg": 179.7,
+        "turnover_margin": 0,
+        "third_down": "57.1% (20/35)",
+        "third_down_allowed": "58.8% (20/34)"
+      },
+      "home": {
+        "code": "HOU",
+        "games": 3,
+        "record": "0-3",
+        "results": [
+          "W1 L 31-36 BUF",
+          "W2 L 6-20 CIN",
+          "W3 L 17-19 IND"
+        ],
+        "points_for_pg": 18,
+        "points_against_pg": 25,
+        "yards_pg": 326,
+        "yards_allowed_pg": 325.3,
+        "yards_per_play": "4.8",
+        "yards_per_play_allowed": "5.4",
+        "pass_yards_pg": 241.3,
+        "pass_yards_allowed_pg": 238.7,
+        "rush_yards_pg": 84.7,
+        "rush_yards_allowed_pg": 86.7,
+        "turnover_margin": 1,
+        "third_down": "36.4% (16/44)",
+        "third_down_allowed": "38.5% (15/39)"
+      },
+      "opening_market": {
+        "spread": "DAL +2.5 (-106) / HOU -2.5 (-121)",
+        "total": "47.5 (O -115 / U -115)",
+        "moneyline": "DAL +110 / HOU -145"
+      },
+      "breakdown": {
+        "form": "DAL has scored more per game (29.3), while HOU has allowed fewer (25).",
+        "passing": "HOU has the more favorable early passing-production comparison (34.0 yards versus the opponent's average allowed).",
+        "rushing": "DAL has the more favorable early rushing-production comparison (7.6 yards versus the opponent's average allowed).",
+        "possession": "HOU has the early turnover-margin edge. Third-down offense: DAL 57.1% (20/35); HOU 36.4% (16/44).",
+        "awayPath": "DAL's favorable path is to exceed its 330.3-yard offensive baseline while keeping HOU below its 18-point scoring baseline.",
+        "homePath": "HOU's favorable path is to exceed its 326-yard offensive baseline while keeping DAL below its 29.3-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_MIA_at_MIN",
+      "kickoff_utc": "2026-10-04T20:05:00.000Z",
+      "away": {
+        "code": "MIA",
+        "games": 3,
+        "record": "0-3",
+        "results": [
+          "W1 L 13-27 LV",
+          "W2 L 13-35 SF",
+          "W3 L 10-24 KC"
+        ],
+        "points_for_pg": 12,
+        "points_against_pg": 28.7,
+        "yards_pg": 290.7,
+        "yards_allowed_pg": 335.3,
+        "yards_per_play": "5.0",
+        "yards_per_play_allowed": "6.1",
+        "pass_yards_pg": 192.3,
+        "pass_yards_allowed_pg": 231,
+        "rush_yards_pg": 98.3,
+        "rush_yards_allowed_pg": 104.3,
+        "turnover_margin": -1,
+        "third_down": "41.5% (17/41)",
+        "third_down_allowed": "48.1% (13/27)"
+      },
+      "home": {
+        "code": "MIN",
+        "games": 3,
+        "record": "3-0",
+        "results": [
+          "W1 W 39-22 GB",
+          "W2 W 9-3 CHI",
+          "W3 W 23-16 TB"
+        ],
+        "points_for_pg": 23.7,
+        "points_against_pg": 13.7,
+        "yards_pg": 238.3,
+        "yards_allowed_pg": 319.7,
+        "yards_per_play": "4.3",
+        "yards_per_play_allowed": "4.8",
+        "pass_yards_pg": 137,
+        "pass_yards_allowed_pg": 234,
+        "rush_yards_pg": 101.3,
+        "rush_yards_allowed_pg": 85.7,
+        "turnover_margin": 4,
+        "third_down": "30.2% (13/43)",
+        "third_down_allowed": "22.7% (10/44)"
+      },
+      "opening_market": {
+        "spread": "MIA +10.5 (-110) / MIN -10.5 (-121)",
+        "total": "39.5 (O -110 / U -115)",
+        "moneyline": "MIA +400 / MIN -589"
+      },
+      "breakdown": {
+        "form": "MIN has scored more per game (23.7), while MIN has allowed fewer (13.7).",
+        "passing": "MIA has the more favorable early passing-production comparison (-41.7 yards versus the opponent's average allowed).",
+        "rushing": "MIA has the more favorable early rushing-production comparison (12.6 yards versus the opponent's average allowed).",
+        "possession": "MIN has the early turnover-margin edge. Third-down offense: MIA 41.5% (17/41); MIN 30.2% (13/43).",
+        "awayPath": "MIA's favorable path is to exceed its 290.7-yard offensive baseline while keeping MIN below its 23.7-point scoring baseline.",
+        "homePath": "MIN's favorable path is to exceed its 238.3-yard offensive baseline while keeping MIA below its 12-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_KC_at_LV",
+      "kickoff_utc": "2026-10-04T20:25:00.000Z",
+      "away": {
+        "code": "KC",
+        "games": 3,
+        "record": "3-0",
+        "results": [
+          "W1 W 31-10 DEN",
+          "W2 W 33-30 IND",
+          "W3 W 24-10 MIA"
+        ],
+        "points_for_pg": 29.3,
+        "points_against_pg": 16.7,
+        "yards_pg": 416.3,
+        "yards_allowed_pg": 278,
+        "yards_per_play": "6.4",
+        "yards_per_play_allowed": "4.7",
+        "pass_yards_pg": 263,
+        "pass_yards_allowed_pg": 178.3,
+        "rush_yards_pg": 153.3,
+        "rush_yards_allowed_pg": 99.7,
+        "turnover_margin": 3,
+        "third_down": "45.9% (17/37)",
+        "third_down_allowed": "37.5% (15/40)"
+      },
+      "home": {
+        "code": "LV",
+        "games": 3,
+        "record": "3-0",
+        "results": [
+          "W1 W 27-13 MIA",
+          "W2 W 26-14 LAC",
+          "W3 W 35-27 NO"
+        ],
+        "points_for_pg": 29.3,
+        "points_against_pg": 18,
+        "yards_pg": 311.7,
+        "yards_allowed_pg": 316.7,
+        "yards_per_play": "4.9",
+        "yards_per_play_allowed": "5.2",
+        "pass_yards_pg": 211.7,
+        "pass_yards_allowed_pg": 200.3,
+        "rush_yards_pg": 100,
+        "rush_yards_allowed_pg": 116.3,
+        "turnover_margin": 5,
+        "third_down": "41.0% (16/39)",
+        "third_down_allowed": "41.0% (16/39)"
+      },
+      "opening_market": null,
+      "breakdown": {
+        "form": "LV has scored more per game (29.3), while KC has allowed fewer (16.7).",
+        "passing": "KC has the more favorable early passing-production comparison (62.7 yards versus the opponent's average allowed).",
+        "rushing": "KC has the more favorable early rushing-production comparison (37.0 yards versus the opponent's average allowed).",
+        "possession": "LV has the early turnover-margin edge. Third-down offense: KC 45.9% (17/37); LV 41.0% (16/39).",
+        "awayPath": "KC's favorable path is to exceed its 416.3-yard offensive baseline while keeping LV below its 29.3-point scoring baseline.",
+        "homePath": "LV's favorable path is to exceed its 311.7-yard offensive baseline while keeping KC below its 29.3-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_DEN_at_SF",
+      "kickoff_utc": "2026-10-04T20:25:00.000Z",
+      "away": {
+        "code": "DEN",
+        "games": 3,
+        "record": "2-1",
+        "results": [
+          "W1 L 10-31 KC",
+          "W2 W 20-13 JAX",
+          "W3 W 30-26 LAR"
+        ],
+        "points_for_pg": 20,
+        "points_against_pg": 23.3,
+        "yards_pg": 275,
+        "yards_allowed_pg": 380.7,
+        "yards_per_play": "5.0",
+        "yards_per_play_allowed": "5.6",
+        "pass_yards_pg": 194,
+        "pass_yards_allowed_pg": 237,
+        "rush_yards_pg": 81,
+        "rush_yards_allowed_pg": 143.7,
+        "turnover_margin": 0,
+        "third_down": "36.1% (13/36)",
+        "third_down_allowed": "47.8% (22/46)"
+      },
+      "home": {
+        "code": "SF",
+        "games": 3,
+        "record": "3-0",
+        "results": [
+          "W1 W 27-7 LAR",
+          "W2 W 35-13 MIA",
+          "W3 W 36-30 ARI"
+        ],
+        "points_for_pg": 32.7,
+        "points_against_pg": 16.7,
+        "yards_pg": 399.3,
+        "yards_allowed_pg": 313,
+        "yards_per_play": "7.3",
+        "yards_per_play_allowed": "4.8",
+        "pass_yards_pg": 263,
+        "pass_yards_allowed_pg": 207.3,
+        "rush_yards_pg": 136.3,
+        "rush_yards_allowed_pg": 105.7,
+        "turnover_margin": 0,
+        "third_down": "63.0% (17/27)",
+        "third_down_allowed": "42.9% (18/42)"
+      },
+      "opening_market": {
+        "spread": "DEN +3.5 (-136) / SF -3.5 (+104)",
+        "total": "46.5 (O -115 / U -115)",
+        "moneyline": "DEN +125 / SF -159"
+      },
+      "breakdown": {
+        "form": "SF has scored more per game (32.7), while SF has allowed fewer (16.7).",
+        "passing": "SF has the more favorable early passing-production comparison (26.0 yards versus the opponent's average allowed).",
+        "rushing": "SF has the more favorable early rushing-production comparison (-7.4 yards versus the opponent's average allowed).",
+        "possession": "Turnover margin does not separate the teams yet. Third-down offense: DEN 36.1% (13/36); SF 63.0% (17/27).",
+        "awayPath": "DEN's favorable path is to exceed its 275-yard offensive baseline while keeping SF below its 32.7-point scoring baseline.",
+        "homePath": "SF's favorable path is to exceed its 399.3-yard offensive baseline while keeping DEN below its 20-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_LAC_at_SEA",
+      "kickoff_utc": "2026-10-04T20:25:00.000Z",
+      "away": {
+        "code": "LAC",
+        "games": 3,
+        "record": "0-3",
+        "results": [
+          "W1 L 14-26 ARI",
+          "W2 L 14-26 LV",
+          "W3 L 16-24 BUF"
+        ],
+        "points_for_pg": 14.7,
+        "points_against_pg": 25.3,
+        "yards_pg": 308.7,
+        "yards_allowed_pg": 349.3,
+        "yards_per_play": "5.2",
+        "yards_per_play_allowed": "5.4",
+        "pass_yards_pg": 195.7,
+        "pass_yards_allowed_pg": 233,
+        "rush_yards_pg": 113,
+        "rush_yards_allowed_pg": 116.3,
+        "turnover_margin": 0,
+        "third_down": "35.1% (13/37)",
+        "third_down_allowed": "40.0% (16/40)"
+      },
+      "home": {
+        "code": "SEA",
+        "games": 3,
+        "record": "2-1",
+        "results": [
+          "W1 W 13-10 NE",
+          "W2 W 31-7 ARI",
+          "W3 L 31-33 WAS"
+        ],
+        "points_for_pg": 25,
+        "points_against_pg": 16.7,
+        "yards_pg": 367.7,
+        "yards_allowed_pg": 228.7,
+        "yards_per_play": "6.2",
+        "yards_per_play_allowed": "3.8",
+        "pass_yards_pg": 266.7,
+        "pass_yards_allowed_pg": 141.7,
+        "rush_yards_pg": 101,
+        "rush_yards_allowed_pg": 87,
+        "turnover_margin": 0,
+        "third_down": "33.3% (11/33)",
+        "third_down_allowed": "26.8% (11/41)"
+      },
+      "opening_market": {
+        "spread": "LAC +6.5 (-110) / SEA -6.5 (-121)",
+        "total": "43.5 (O -110 / U -115)",
+        "moneyline": "LAC +220 / SEA -304"
+      },
+      "breakdown": {
+        "form": "SEA has scored more per game (25), while SEA has allowed fewer (16.7).",
+        "passing": "LAC has the more favorable early passing-production comparison (54.0 yards versus the opponent's average allowed).",
+        "rushing": "LAC has the more favorable early rushing-production comparison (26.0 yards versus the opponent's average allowed).",
+        "possession": "Turnover margin does not separate the teams yet. Third-down offense: LAC 35.1% (13/37); SEA 33.3% (11/33).",
+        "awayPath": "LAC's favorable path is to exceed its 308.7-yard offensive baseline while keeping SEA below its 25-point scoring baseline.",
+        "homePath": "SEA's favorable path is to exceed its 367.7-yard offensive baseline while keeping LAC below its 14.7-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_DET_at_CAR",
+      "kickoff_utc": "2026-10-05T00:20:00.000Z",
+      "away": {
+        "code": "DET",
+        "games": 3,
+        "record": "2-1",
+        "results": [
+          "W1 W 31-30 NO",
+          "W2 L 31-41 BUF",
+          "W3 W 31-24 NYJ"
+        ],
+        "points_for_pg": 31,
+        "points_against_pg": 31.7,
+        "yards_pg": 368.3,
+        "yards_allowed_pg": 416.7,
+        "yards_per_play": "5.6",
+        "yards_per_play_allowed": "5.8",
+        "pass_yards_pg": 247.7,
+        "pass_yards_allowed_pg": 299.3,
+        "rush_yards_pg": 120.7,
+        "rush_yards_allowed_pg": 117.3,
+        "turnover_margin": 3,
+        "third_down": "41.2% (14/34)",
+        "third_down_allowed": "56.1% (23/41)"
+      },
+      "home": {
+        "code": "CAR",
+        "games": 3,
+        "record": "1-2",
+        "results": [
+          "W1 L 37-59 CHI",
+          "W2 W 34-3 ATL",
+          "W3 L 18-21 CLE"
+        ],
+        "points_for_pg": 29.7,
+        "points_against_pg": 27.7,
+        "yards_pg": 392.7,
+        "yards_allowed_pg": 365.7,
+        "yards_per_play": "6.0",
+        "yards_per_play_allowed": "5.5",
+        "pass_yards_pg": 295.7,
+        "pass_yards_allowed_pg": 172.3,
+        "rush_yards_pg": 97,
+        "rush_yards_allowed_pg": 193.3,
+        "turnover_margin": 3,
+        "third_down": "36.8% (14/38)",
+        "third_down_allowed": "45.2% (19/42)"
+      },
+      "opening_market": {
+        "spread": "DET -3.5 (-115) / CAR +3.5 (-110)",
+        "total": "49.5 (O -121 / U -110)",
+        "moneyline": "DET -179 / CAR +140"
+      },
+      "breakdown": {
+        "form": "DET has scored more per game (31), while CAR has allowed fewer (27.7).",
+        "passing": "DET has the more favorable early passing-production comparison (75.4 yards versus the opponent's average allowed).",
+        "rushing": "CAR has the more favorable early rushing-production comparison (-20.3 yards versus the opponent's average allowed).",
+        "possession": "Turnover margin does not separate the teams yet. Third-down offense: DET 41.2% (14/34); CAR 36.8% (14/38).",
+        "awayPath": "DET's favorable path is to exceed its 368.3-yard offensive baseline while keeping CAR below its 29.7-point scoring baseline.",
+        "homePath": "CAR's favorable path is to exceed its 392.7-yard offensive baseline while keeping DET below its 31-point scoring baseline."
+      }
+    },
+    {
+      "game_id": "nfl_2026_2_w04_ATL_at_NO",
+      "kickoff_utc": "2026-10-06T00:15:00.000Z",
+      "away": {
+        "code": "ATL",
+        "games": 3,
+        "record": "1-2",
+        "results": [
+          "W1 L 13-20 PIT",
+          "W2 L 3-34 CAR",
+          "W3 W 35-14 GB"
+        ],
+        "points_for_pg": 17,
+        "points_against_pg": 22.7,
+        "yards_pg": 340.7,
+        "yards_allowed_pg": 310.7,
+        "yards_per_play": "5.4",
+        "yards_per_play_allowed": "5.0",
+        "pass_yards_pg": 167.7,
+        "pass_yards_allowed_pg": 263,
+        "rush_yards_pg": 173,
+        "rush_yards_allowed_pg": 47.7,
+        "turnover_margin": -6,
+        "third_down": "34.3% (12/35)",
+        "third_down_allowed": "35.7% (15/42)"
+      },
+      "home": {
+        "code": "NO",
+        "games": 3,
+        "record": "1-2",
+        "results": [
+          "W1 L 30-31 DET",
+          "W2 W 24-17 BAL",
+          "W3 L 27-35 LV"
+        ],
+        "points_for_pg": 27,
+        "points_against_pg": 27.7,
+        "yards_pg": 382.7,
+        "yards_allowed_pg": 340.3,
+        "yards_per_play": "5.2",
+        "yards_per_play_allowed": "5.3",
+        "pass_yards_pg": 281.3,
+        "pass_yards_allowed_pg": 211.7,
+        "rush_yards_pg": 101.3,
+        "rush_yards_allowed_pg": 128.7,
+        "turnover_margin": -4,
+        "third_down": "53.2% (25/47)",
+        "third_down_allowed": "47.1% (16/34)"
+      },
+      "opening_market": null,
+      "breakdown": {
+        "form": "NO has scored more per game (27), while ATL has allowed fewer (22.7).",
+        "passing": "NO has the more favorable early passing-production comparison (18.3 yards versus the opponent's average allowed).",
+        "rushing": "The rushing-yards baselines are broadly balanced.",
+        "possession": "NO has the early turnover-margin edge. Third-down offense: ATL 34.3% (12/35); NO 53.2% (25/47).",
+        "awayPath": "ATL's favorable path is to exceed its 340.7-yard offensive baseline while keeping NO below its 27-point scoring baseline.",
+        "homePath": "NO's favorable path is to exceed its 382.7-yard offensive baseline while keeping ATL below its 17-point scoring baseline."
+      }
+    }
+  ]
+}

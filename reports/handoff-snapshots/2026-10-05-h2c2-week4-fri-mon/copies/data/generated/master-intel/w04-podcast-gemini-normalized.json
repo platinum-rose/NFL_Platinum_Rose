@@ -1,0 +1,4272 @@
+{
+ "schema": "podcast_gemini_normalized_v1",
+ "season": 2026,
+ "week": 4,
+ "generated_at": "2026-10-04T09:27:42+00:00",
+ "source": "supabase:podcast_gemini_intel (promoted, read-only)",
+ "episodes": 17,
+ "roster_asof": "2026-10-03T19:13:12.500977+00:00",
+ "boards": {
+  "bkr": "data/generated/props/bookmaker-live-2026-10-03-week4.json",
+  "beo": "data/generated/props/beo-w04.json"
+ },
+ "counts": {
+  "side:ok": 61,
+  "total:ok": 7,
+  "other:not_screened": 2,
+  "prop:ok": 59,
+  "other:dropped": 5,
+  "prop:quarantine": 4,
+  "prop:ladder_rung": 13,
+  "prop:unpriced_market": 4
+ },
+ "issues": {
+  "side_recoded": 9,
+  "college": 5,
+  "unknown_player": 4,
+  "game_remapped": 3
+ },
+ "picks": [
+  {
+   "episode_id": "b09926ba-a24d-45c6-842d-edac7985b6cc",
+   "show": "action-network-sports-betting",
+   "speaker": "Stuckey",
+   "raw_market": "spread",
+   "raw_team": "PIT",
+   "raw_side": "FAVORITE",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "rationale": "At two and a half, it would be Steelers or nothing for me.",
+   "source_timestamp": 164,
+   "flags": [
+    "side coded 'FAVORITE'; read from line -2.5 -> PIT"
+   ],
+   "kind": "side",
+   "game": "PIT@CLE",
+   "market": "spread",
+   "pick": "PIT",
+   "status": "ok"
+  },
+  {
+   "episode_id": "b09926ba-a24d-45c6-842d-edac7985b6cc",
+   "show": "action-network-sports-betting",
+   "speaker": "Evan Abrams",
+   "raw_market": "spread",
+   "raw_team": "CLE",
+   "raw_side": "UNDER",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "rationale": "I kind of liked Cleveland... I just thought there was a little bit of value at the two and a half.",
+   "source_timestamp": 244,
+   "flags": [
+    "side coded 'UNDER'; read from line +2.5 -> CLE"
+   ],
+   "kind": "side",
+   "game": "PIT@CLE",
+   "market": "spread",
+   "pick": "CLE",
+   "status": "ok"
+  },
+  {
+   "episode_id": "b09926ba-a24d-45c6-842d-edac7985b6cc",
+   "show": "action-network-sports-betting",
+   "speaker": "Doug Kezirian",
+   "raw_market": "spread",
+   "raw_team": "WAS",
+   "raw_side": "UNDER",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "rationale": "I'll gladly take the three and a half with Washington because I think they can win outright.",
+   "source_timestamp": 307,
+   "flags": [
+    "side coded 'UNDER'; read from line +3.5 -> WSH"
+   ],
+   "kind": "side",
+   "game": "IND@WSH",
+   "market": "spread",
+   "pick": "WSH",
+   "status": "ok"
+  },
+  {
+   "episode_id": "b09926ba-a24d-45c6-842d-edac7985b6cc",
+   "show": "action-network-sports-betting",
+   "speaker": "Stuckey",
+   "raw_market": "spread",
+   "raw_team": "HOU",
+   "raw_side": "FAVORITE",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "rationale": "I'm going with the Houston Texans minus two and a half at home.",
+   "source_timestamp": 340,
+   "flags": [
+    "side coded 'FAVORITE'; read from line -2.5 -> HOU"
+   ],
+   "kind": "side",
+   "game": "DAL@HOU",
+   "market": "spread",
+   "pick": "HOU",
+   "status": "ok"
+  },
+  {
+   "episode_id": "b09926ba-a24d-45c6-842d-edac7985b6cc",
+   "show": "action-network-sports-betting",
+   "speaker": "Evan Abrams",
+   "raw_market": "spread",
+   "raw_team": "DEN",
+   "raw_side": "UNDER",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "rationale": "I'll take the three on the road and the great defense with Denver.",
+   "source_timestamp": 380,
+   "flags": [
+    "side coded 'UNDER'; read from line +2.5 -> DEN"
+   ],
+   "kind": "side",
+   "game": "DEN@SF",
+   "market": "spread",
+   "pick": "DEN",
+   "status": "ok"
+  },
+  {
+   "episode_id": "b09926ba-a24d-45c6-842d-edac7985b6cc",
+   "show": "action-network-sports-betting",
+   "speaker": "Stuckey",
+   "raw_market": "spread",
+   "raw_team": "MIA",
+   "raw_side": "UNDER",
+   "line": 10.5,
+   "price": null,
+   "player": null,
+   "rationale": "I'm taking the eleven with Miami... we'll call it ten and a half.",
+   "source_timestamp": 420,
+   "flags": [
+    "side coded 'UNDER'; read from line +10.5 -> MIA"
+   ],
+   "kind": "side",
+   "game": "MIA@MIN",
+   "market": "spread",
+   "pick": "MIA",
+   "status": "ok"
+  },
+  {
+   "episode_id": "b09926ba-a24d-45c6-842d-edac7985b6cc",
+   "show": "action-network-sports-betting",
+   "speaker": "Doug Kezirian",
+   "raw_market": "total",
+   "raw_team": "MIN",
+   "raw_side": "UNDER",
+   "line": 38.5,
+   "price": null,
+   "player": null,
+   "rationale": "I'd be looking at unders in both.",
+   "source_timestamp": 420,
+   "flags": [],
+   "kind": "total",
+   "game": "MIA@MIN",
+   "pick": "UNDER",
+   "status": "ok"
+  },
+  {
+   "episode_id": "b09926ba-a24d-45c6-842d-edac7985b6cc",
+   "show": "action-network-sports-betting",
+   "speaker": "Doug Kezirian",
+   "raw_market": "spread",
+   "raw_team": "JAX",
+   "raw_side": "UNDER",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "rationale": "I think the Jags are the play here.",
+   "source_timestamp": 450,
+   "flags": [
+    "side coded 'UNDER'; read from line +2.5 -> JAX"
+   ],
+   "kind": "side",
+   "game": "JAX@CIN",
+   "market": "spread",
+   "pick": "JAX",
+   "status": "ok"
+  },
+  {
+   "episode_id": "5119e7b5-1c2b-4287-bfc8-7d7bc6cffb65",
+   "show": "the-favorites",
+   "speaker": "Kendra Middleton",
+   "raw_market": "spread",
+   "raw_team": "TEN",
+   "raw_side": "TEN",
+   "line": 11.5,
+   "price": null,
+   "player": null,
+   "rationale": "Ravens are coming back from Rio with a long flight, they are heavily injured, and Lamar struggles to cover big numbers.",
+   "source_timestamp": 2008,
+   "flags": [],
+   "kind": "side",
+   "game": "TEN@BAL",
+   "market": "spread",
+   "pick": "TEN",
+   "status": "ok"
+  },
+  {
+   "episode_id": "5119e7b5-1c2b-4287-bfc8-7d7bc6cffb65",
+   "show": "the-favorites",
+   "speaker": "Kendra Middleton",
+   "raw_market": "spread",
+   "raw_team": "NYJ",
+   "raw_side": "NYJ",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "rationale": "Fading the Bears who are a public darling after a primetime win. If Tyson Bagent starts, it's an even better spot.",
+   "source_timestamp": 2286,
+   "flags": [],
+   "kind": "side",
+   "game": "NYJ@CHI",
+   "market": "spread",
+   "pick": "NYJ",
+   "status": "ok"
+  },
+  {
+   "episode_id": "5119e7b5-1c2b-4287-bfc8-7d7bc6cffb65",
+   "show": "the-favorites",
+   "speaker": "Kendra Middleton",
+   "raw_market": "spread",
+   "raw_team": "HOU",
+   "raw_side": "HOU",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "rationale": "Desperation spot for Texans (0-3). Fading the Cowboys' travel back from Brazil.",
+   "source_timestamp": 2742,
+   "flags": [],
+   "kind": "side",
+   "game": "DAL@HOU",
+   "market": "spread",
+   "pick": "HOU",
+   "status": "ok"
+  },
+  {
+   "episode_id": "5119e7b5-1c2b-4287-bfc8-7d7bc6cffb65",
+   "show": "the-favorites",
+   "speaker": "Evan Abrams",
+   "raw_market": "spread",
+   "raw_team": "LAR",
+   "raw_side": "LAR",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "rationale": "Breaks the tie between Brandon (Eagles) and JJ/Kendra (Rams). Believes Eagles are a mess.",
+   "source_timestamp": 3600,
+   "flags": [],
+   "kind": "side",
+   "game": "LAR@PHI",
+   "market": "spread",
+   "pick": "LAR",
+   "status": "ok"
+  },
+  {
+   "episode_id": "5119e7b5-1c2b-4287-bfc8-7d7bc6cffb65",
+   "show": "the-favorites",
+   "speaker": "John Jastremski",
+   "raw_market": "spread",
+   "raw_team": "DEN",
+   "raw_side": "DEN",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "rationale": "Broncos are at home for three consecutive games, and the 49ers' injury report is massive.",
+   "source_timestamp": 3760,
+   "flags": [],
+   "kind": "side",
+   "game": "DEN@SF",
+   "market": "spread",
+   "pick": "DEN",
+   "status": "ok"
+  },
+  {
+   "episode_id": "25ed28d8-9e48-4a20-9132-b87eca2f31e5",
+   "show": "sharp-or-square",
+   "speaker": "Chad Millman",
+   "raw_market": "total",
+   "raw_team": "CLE",
+   "raw_side": "UNDER",
+   "line": 38.5,
+   "price": null,
+   "player": null,
+   "rationale": "Chad played the under at 38.5, noting the line is moving down quickly.",
+   "source_timestamp": 113,
+   "flags": [],
+   "kind": "total",
+   "game": "PIT@CLE",
+   "pick": "UNDER",
+   "status": "ok"
+  },
+  {
+   "episode_id": "25ed28d8-9e48-4a20-9132-b87eca2f31e5",
+   "show": "sharp-or-square",
+   "speaker": "Simon Hunter",
+   "raw_market": "spread",
+   "raw_team": "CLE",
+   "raw_side": "CLE",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "rationale": "Simon takes the Browns on Thursday night, stating they have won nine straight in this spot and remain undervalued.",
+   "source_timestamp": 115,
+   "flags": [],
+   "kind": "side",
+   "game": "PIT@CLE",
+   "market": "spread",
+   "pick": "CLE",
+   "status": "ok"
+  },
+  {
+   "episode_id": "25ed28d8-9e48-4a20-9132-b87eca2f31e5",
+   "show": "sharp-or-square",
+   "speaker": "Chad Millman",
+   "raw_market": "spread",
+   "raw_team": "PHI",
+   "raw_side": "PHI",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "rationale": "Chad considers the Eagles to be in a prime 'get-right, get-healthy' spot at home.",
+   "source_timestamp": 155,
+   "flags": [],
+   "kind": "side",
+   "game": "LAR@PHI",
+   "market": "spread",
+   "pick": "PHI",
+   "status": "ok"
+  },
+  {
+   "episode_id": "25ed28d8-9e48-4a20-9132-b87eca2f31e5",
+   "show": "sharp-or-square",
+   "speaker": "Chad Millman",
+   "raw_market": "spread",
+   "raw_team": "TB",
+   "raw_side": "TB",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "rationale": "Chad wants to bet the Bucs as home dogs, liking the spot and fading the public sentiment on Green Bay.",
+   "source_timestamp": 168,
+   "flags": [],
+   "kind": "side",
+   "game": "GB@TB",
+   "market": "spread",
+   "pick": "TB",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "teaser",
+   "raw_team": "CLE",
+   "raw_side": "CLE",
+   "line": 8.5,
+   "price": -125,
+   "player": null,
+   "rationale": "Likes Cleveland as a teaser leg up to +8.5 in what should be a very close, competitive game.",
+   "source_timestamp": 742,
+   "flags": [],
+   "kind": "side",
+   "game": "PIT@CLE",
+   "market": "teaser",
+   "pick": "CLE",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Ross Tucker",
+   "raw_market": "teaser",
+   "raw_team": "CLE",
+   "raw_side": "CLE",
+   "line": 8.5,
+   "price": -125,
+   "player": null,
+   "rationale": "Agrees with Steve, expects a hard-fought game decided by a field goal, taking Browns +8.5 on a teaser leg.",
+   "source_timestamp": 758,
+   "flags": [],
+   "kind": "side",
+   "game": "PIT@CLE",
+   "market": "teaser",
+   "pick": "CLE",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Ross Tucker",
+   "raw_market": "spread",
+   "raw_team": "WAS",
+   "raw_side": "WAS",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "rationale": "Believes the win over Seattle changes the dynamic for Washington; taking them for 1 unit at +3.5.",
+   "source_timestamp": 808,
+   "flags": [],
+   "kind": "side",
+   "game": "IND@WSH",
+   "market": "spread",
+   "pick": "WSH",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "spread",
+   "raw_team": "TEN",
+   "raw_side": "TEN",
+   "line": 11.5,
+   "price": null,
+   "player": null,
+   "rationale": "Baltimore got gifted their last game due to terrible clock management by Dallas and has a long travel turnaround; taking Tennessee +11.5 for 1 unit.",
+   "source_timestamp": 834,
+   "flags": [],
+   "kind": "side",
+   "game": "TEN@BAL",
+   "market": "spread",
+   "pick": "TEN",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Ross Tucker",
+   "raw_market": "spread",
+   "raw_team": "TEN",
+   "raw_side": "TEN",
+   "line": 11.5,
+   "price": null,
+   "player": null,
+   "rationale": "Agrees with Steve that Titans will remain competitive, taking Tennessee +11.5 for 2 units.",
+   "source_timestamp": 854,
+   "flags": [],
+   "kind": "side",
+   "game": "TEN@BAL",
+   "market": "spread",
+   "pick": "TEN",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "spread",
+   "raw_team": "NE",
+   "raw_side": "NE",
+   "line": 7,
+   "price": null,
+   "player": null,
+   "rationale": "Believes Josh Allen is banged up and the line is slightly inflated; taking Patriots +7 for 1 unit.",
+   "source_timestamp": 898,
+   "flags": [],
+   "kind": "side",
+   "game": "NE@BUF",
+   "market": "spread",
+   "pick": "NE",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Ross Tucker",
+   "raw_market": "lean",
+   "raw_team": "NE",
+   "raw_side": "NE",
+   "line": 7,
+   "price": null,
+   "player": null,
+   "rationale": "Only a lean for Ross due to how bad New England looked against Jacksonville, but notes teams have a way of bouncing back.",
+   "source_timestamp": 921,
+   "flags": [],
+   "kind": "side",
+   "game": "NE@BUF",
+   "market": "lean",
+   "pick": "NE",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "teaser",
+   "raw_team": "JAX",
+   "raw_side": "JAX",
+   "line": 8.5,
+   "price": -125,
+   "player": null,
+   "rationale": "Expects a high-scoring shootout where Jacksonville stays competitive; teasing them up to +8.5.",
+   "source_timestamp": 944,
+   "flags": [],
+   "kind": "side",
+   "game": "JAX@CIN",
+   "market": "teaser",
+   "pick": "JAX",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Ross Tucker",
+   "raw_market": "teaser",
+   "raw_team": "JAX",
+   "raw_side": "JAX",
+   "line": 8.5,
+   "price": -125,
+   "player": null,
+   "rationale": "On the same page as Steve, using Jaguars +8.5 as a teaser leg.",
+   "source_timestamp": 952,
+   "flags": [],
+   "kind": "side",
+   "game": "JAX@CIN",
+   "market": "teaser",
+   "pick": "JAX",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Ross Tucker",
+   "raw_market": "teaser",
+   "raw_team": "DAL",
+   "raw_side": "DAL",
+   "line": 8.5,
+   "price": -125,
+   "player": null,
+   "rationale": "Doesn't see Dallas getting blown out by Houston; takes Cowboys +8.5 as his third teaser leg.",
+   "source_timestamp": 1027,
+   "flags": [],
+   "kind": "side",
+   "game": "DAL@HOU",
+   "market": "teaser",
+   "pick": "DAL",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "teaser",
+   "raw_team": "NYG",
+   "raw_side": "NYG",
+   "line": 7.5,
+   "price": -125,
+   "player": null,
+   "rationale": "Thinks this will be a very tight, low-scoring matchup; Giants teased up to +7.5 is highly valuable.",
+   "source_timestamp": 1055,
+   "flags": [],
+   "kind": "side",
+   "game": "ARI@NYG",
+   "market": "teaser",
+   "pick": "NYG",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Ross Tucker",
+   "raw_market": "teaser",
+   "raw_team": "NYG",
+   "raw_side": "NYG",
+   "line": 7.5,
+   "price": -125,
+   "player": null,
+   "rationale": "Uses Giants +7.5 as his fourth teaser leg in what he views as a classic teaser spot.",
+   "source_timestamp": 1068,
+   "flags": [],
+   "kind": "side",
+   "game": "ARI@NYG",
+   "market": "teaser",
+   "pick": "NYG",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "spread",
+   "raw_team": "PHI",
+   "raw_side": "PHI",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "rationale": "The Rams have had a brutal travel stretch (Australia, Denver elevation, now Philadelphia); taking Eagles +3 for 2 units.",
+   "source_timestamp": 1106,
+   "flags": [],
+   "kind": "side",
+   "game": "LAR@PHI",
+   "market": "spread",
+   "pick": "PHI",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Ross Tucker",
+   "raw_market": "lean",
+   "raw_team": "PHI",
+   "raw_side": "PHI",
+   "line": 3,
+   "price": null,
+   "player": null,
+   "rationale": "Leaning Philadelphia because they've historically played well against the Rams, but keeping it to a lean as they aren't firing on all cylinders.",
+   "source_timestamp": 1130,
+   "flags": [],
+   "kind": "side",
+   "game": "LAR@PHI",
+   "market": "lean",
+   "pick": "PHI",
+   "status": "ok"
+  },
+  {
+   "episode_id": "e3b7d457-47eb-4bd1-a491-02305eef408a",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "total",
+   "raw_team": "TB",
+   "raw_side": "UNDER",
+   "line": 39.5,
+   "price": null,
+   "player": null,
+   "rationale": "With Baker Mayfield out with a dislocated thumb and Green Bay's offense struggling, points will be at an absolute premium; Under 39.5 for 1 unit.",
+   "source_timestamp": 1148,
+   "flags": [],
+   "kind": "total",
+   "game": "GB@TB",
+   "pick": "UNDER",
+   "status": "ok"
+  },
+  {
+   "episode_id": "6b947fdd-81ad-4791-8bbe-a34137bd3191",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "win_total",
+   "raw_team": "NYG",
+   "raw_side": "UNDER",
+   "line": 7.5,
+   "price": -165,
+   "player": null,
+   "rationale": "With the Giants catching points at home against Arizona, they are unlikely to be favored in many games this year; under 7.5 wins is a strong bet.",
+   "source_timestamp": 313,
+   "flags": [],
+   "kind": "other",
+   "game": "ARI@NYG",
+   "status": "not_screened"
+  },
+  {
+   "episode_id": "6b947fdd-81ad-4791-8bbe-a34137bd3191",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "DET",
+   "raw_side": "OVER",
+   "line": 51.5,
+   "price": null,
+   "player": "Jameson Williams",
+   "rationale": "Carolina has major cornerback injuries, allowing Detroit's receivers to have huge games.",
+   "source_timestamp": 492,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "DET",
+   "game": "DET@CAR",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 52.0,
+     "odds": -114,
+     "exact": true
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 52.0,
+    "odds": -114,
+    "exact": true,
+    "implied": 0.533
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "6b947fdd-81ad-4791-8bbe-a34137bd3191",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "pickem_pick",
+   "raw_team": "NYJ",
+   "raw_side": "JETS +3.5",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "rationale": "One of Steve's 5 best picks ATS for Splash Sports.",
+   "source_timestamp": 1377,
+   "flags": [],
+   "kind": "side",
+   "game": "NYJ@CHI",
+   "market": "contest",
+   "pick": "NYJ",
+   "status": "ok"
+  },
+  {
+   "episode_id": "6b947fdd-81ad-4791-8bbe-a34137bd3191",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "pickem_pick",
+   "raw_team": "DAL",
+   "raw_side": "COWBOYS +3.5",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "rationale": "One of Steve's 5 best picks ATS for Splash Sports.",
+   "source_timestamp": 1380,
+   "flags": [],
+   "kind": "side",
+   "game": "DAL@HOU",
+   "market": "contest",
+   "pick": "DAL",
+   "status": "ok"
+  },
+  {
+   "episode_id": "6b947fdd-81ad-4791-8bbe-a34137bd3191",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "pickem_pick",
+   "raw_team": "PHI",
+   "raw_side": "EAGLES +3.5",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "rationale": "One of Steve's 5 best picks ATS for Splash Sports.",
+   "source_timestamp": 1383,
+   "flags": [],
+   "kind": "side",
+   "game": "LAR@PHI",
+   "market": "contest",
+   "pick": "PHI",
+   "status": "ok"
+  },
+  {
+   "episode_id": "6b947fdd-81ad-4791-8bbe-a34137bd3191",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "pickem_pick",
+   "raw_team": "LAC",
+   "raw_side": "CHARGERS +7.5",
+   "line": 7.5,
+   "price": null,
+   "player": null,
+   "rationale": "One of Steve's 5 best picks ATS for Splash Sports.",
+   "source_timestamp": 1386,
+   "flags": [],
+   "kind": "side",
+   "game": "LAC@SEA",
+   "market": "contest",
+   "pick": "LAC",
+   "status": "ok"
+  },
+  {
+   "episode_id": "6b947fdd-81ad-4791-8bbe-a34137bd3191",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "pickem_pick",
+   "raw_team": "TEN",
+   "raw_side": "TITANS +11.5",
+   "line": 11.5,
+   "price": null,
+   "player": null,
+   "rationale": "One of Steve's 5 best picks ATS for Splash Sports.",
+   "source_timestamp": 1390,
+   "flags": [],
+   "kind": "side",
+   "game": "TEN@BAL",
+   "market": "contest",
+   "pick": "TEN",
+   "status": "ok"
+  },
+  {
+   "episode_id": "6b947fdd-81ad-4791-8bbe-a34137bd3191",
+   "show": "even-money",
+   "speaker": "Steve Fezzik",
+   "raw_market": "prop",
+   "raw_team": "UNK",
+   "raw_side": "NO",
+   "line": null,
+   "price": 220,
+   "player": null,
+   "rationale": "Prop bet on Cleveland vs. Pittsburgh: 'Will the team that scores last win the game?' Steve bets NO at +220 as a pure math/value play.",
+   "source_timestamp": 1505,
+   "flags": [
+    "non-NFL team code UNK (college)"
+   ],
+   "kind": "other",
+   "status": "dropped"
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "IND",
+   "raw_side": "YES",
+   "line": null,
+   "price": 400,
+   "player": "Daniel Jones",
+   "rationale": "Averaging 3 carries over his last two games and is historically a strong runner near the goal line.",
+   "source_timestamp": 115,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "IND",
+   "game": "IND@WSH",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 350
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 350,
+    "implied": 0.222
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "WAS",
+   "raw_side": "YES",
+   "line": null,
+   "price": 250,
+   "player": "Terry McLaurin",
+   "rationale": "Receiving elite volume with 9 targets in back-to-back weeks and developing strong rapport with Mariota.",
+   "source_timestamp": 145,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "WSH",
+   "game": "IND@WSH",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 240
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 240,
+    "implied": 0.294
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Gilles Gallant",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "PHI",
+   "raw_side": "YES",
+   "line": null,
+   "price": 175,
+   "player": "Jalen Hurts",
+   "rationale": "Routinely among league leaders in red zone rushing attempts and goal line opportunities.",
+   "source_timestamp": 245,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "PHI",
+   "game": "LAR@PHI",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 160
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 158
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 160,
+    "implied": 0.385
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Gilles Gallant",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "LAR",
+   "raw_side": "YES",
+   "line": null,
+   "price": 1000,
+   "player": "Davis Allen",
+   "rationale": "Valuable longshot option in multi-TE sets given injuries to other Rams tight ends.",
+   "source_timestamp": 305,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "LAR",
+   "game": "LAR@PHI",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 800
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 768
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 800,
+    "implied": 0.111
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Sean Koerner",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "TB",
+   "raw_side": "YES",
+   "line": null,
+   "price": 380,
+   "player": "Jalon Daniels",
+   "rationale": "Mobile rookie quarterback making his first start.Rushing upside is highly discounted in the market.",
+   "source_timestamp": 365,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "TB",
+   "game": "GB@TB",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 350
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 372
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 372,
+    "implied": 0.212
+   },
+   "card_tickets": [
+    "7a Morning prop stack"
+   ]
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Sean Koerner",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "GB",
+   "raw_side": "YES",
+   "line": null,
+   "price": 1400,
+   "player": "Michael Sturdivant",
+   "rationale": "Set for an increased offensive role and more snaps with Jayden Reed sidelined.",
+   "source_timestamp": 495,
+   "flags": [
+    "player not on any ESPN 2026 roster"
+   ],
+   "kind": "prop",
+   "status": "quarantine"
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "CHI",
+   "raw_side": "YES",
+   "line": null,
+   "price": 370,
+   "player": "Kalif Raymond",
+   "rationale": "Earning steady target share from Keenum and outsnapping secondary depth options.",
+   "source_timestamp": 615,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "CHI",
+   "game": "NYJ@CHI",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 325
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 347
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 347,
+    "implied": 0.224
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "NYJ",
+   "raw_side": "YES",
+   "line": null,
+   "price": 900,
+   "player": "Geno Smith",
+   "rationale": "Rushing quarterbacks have historically given this Bears defensive unit issues.",
+   "source_timestamp": 670,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "NYJ",
+   "game": "NYJ@CHI",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 800
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 778
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 800,
+    "implied": 0.111
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Gilles Gallant",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "NE",
+   "raw_side": "YES",
+   "line": null,
+   "price": 500,
+   "player": "Drake Maye",
+   "rationale": "Leads the team in red zone rushing share and represents New England's top ground threat.",
+   "source_timestamp": 790,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "NE",
+   "game": "NE@BUF",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 400
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 422
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 422,
+    "implied": 0.192
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Gilles Gallant",
+   "raw_market": "2_touchdowns",
+   "raw_team": "BUF",
+   "raw_side": "YES",
+   "line": null,
+   "price": 600,
+   "player": "Josh Allen",
+   "rationale": "High-powered rushing threat near the goal line facing a highly vulnerable Patriots run defense.",
+   "source_timestamp": 840,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "BUF",
+   "game": "NE@BUF",
+   "market": "atd2",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 350
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 421
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 421,
+    "implied": 0.192
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Sean Koerner",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "JAX",
+   "raw_side": "YES",
+   "line": null,
+   "price": 255,
+   "player": "Jakobi Meyers",
+   "rationale": "Consistently dominating wide receiver snaps and leading the team's primary red zone targets.",
+   "source_timestamp": 930,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "JAX",
+   "game": "JAX@CIN",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 240
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 258
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 258,
+    "implied": 0.279
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Sean Koerner",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "CIN",
+   "raw_side": "YES",
+   "line": null,
+   "price": 450,
+   "player": "Domnite Meyers",
+   "rationale": "Poised to assume a larger role and vacuum up slot targets with key injuries to the receiving corps.",
+   "source_timestamp": 980,
+   "flags": [
+    "player not on any ESPN 2026 roster"
+   ],
+   "kind": "prop",
+   "status": "quarantine"
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "TEN",
+   "raw_side": "YES",
+   "line": null,
+   "price": 205,
+   "player": "Tony Pollard",
+   "rationale": "Maintaining the lion's share of ground touches and red zone opportunities weekly.",
+   "source_timestamp": 1090,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "TEN",
+   "game": "TEN@BAL",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 179
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 194
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 194,
+    "implied": 0.34
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "BAL",
+   "raw_side": "YES",
+   "line": null,
+   "price": 250,
+   "player": "Lamar Jackson",
+   "rationale": "Offensive line issues will likely force Lamar to scramble and carry the ball more often.",
+   "source_timestamp": 1140,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "BAL",
+   "game": "TEN@BAL",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 220
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 237
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 237,
+    "implied": 0.297
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Gilles Gallant",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "DAL",
+   "raw_side": "YES",
+   "line": null,
+   "price": 360,
+   "player": "Ryan Flournoy",
+   "rationale": "Sees highly encouraging end zone target share and favorable individual corner matchups.",
+   "source_timestamp": 1270,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "DAL",
+   "game": "DAL@HOU",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 325
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 347
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 347,
+    "implied": 0.224
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Gilles Gallant",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "HOU",
+   "raw_side": "YES",
+   "line": null,
+   "price": 380,
+   "player": "Xavier Hutchinson",
+   "rationale": "Will play as the clear WR2 option if Nico Collins is limited or on a pitch count.",
+   "source_timestamp": 1330,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "HOU",
+   "game": "DAL@HOU",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 350
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 372
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 372,
+    "implied": 0.212
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Sean Koerner",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "ARI",
+   "raw_side": "YES",
+   "line": null,
+   "price": 220,
+   "player": "Michael Wilson",
+   "rationale": "Boasts a highly elite route participation rate and strong target share in the Arizona offense.",
+   "source_timestamp": 1410,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "ARI",
+   "game": "ARI@NYG",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 200
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 216
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 216,
+    "implied": 0.316
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Sean Koerner",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "NYG",
+   "raw_side": "YES",
+   "line": null,
+   "price": 330,
+   "player": "Najee Harris",
+   "rationale": "With Singletary scratched and Tracy out of favor, Najee will handle the bulk of goal line touches.",
+   "source_timestamp": 1475,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "NYG",
+   "game": "ARI@NYG",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 325
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 347
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 347,
+    "implied": 0.224
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "MIA",
+   "raw_side": "YES",
+   "line": null,
+   "price": 470,
+   "player": "Malik Washington",
+   "rationale": "Operates as Miami's top receiver and will absorb additional work with Achane sidelined.",
+   "source_timestamp": 1565,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "MIA",
+   "game": "MIA@MIN",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 350
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 350,
+    "implied": 0.222
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "MIN",
+   "raw_side": "YES",
+   "line": null,
+   "price": 370,
+   "player": "Kyler Murray",
+   "rationale": "Highly dynamic dual-threat quarterback with elite scrambling abilities near the goal line.",
+   "source_timestamp": 1610,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "MIN",
+   "game": "MIA@MIN",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 325
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 325,
+    "implied": 0.235
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Gilles Gallant",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "SF",
+   "raw_side": "YES",
+   "line": null,
+   "price": 1100,
+   "player": "Luke Farrell",
+   "rationale": "Taking over the primary TE2 role, providing great longshot value in two-TE packages.",
+   "source_timestamp": 1685,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "SF",
+   "game": "DEN@SF",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 900
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 855
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 900,
+    "implied": 0.1
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Gilles Gallant",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "DEN",
+   "raw_side": "YES",
+   "line": null,
+   "price": 240,
+   "player": "Courtland Sutton",
+   "rationale": "Remains the focal point of the Denver passing game, seeing red zone looks in every game.",
+   "source_timestamp": 1740,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "DEN",
+   "game": "DEN@SF",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 220
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 216
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 220,
+    "implied": 0.312
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Sean Koerner",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "LAC",
+   "raw_side": "YES",
+   "line": null,
+   "price": 550,
+   "player": "Tre Harris",
+   "rationale": "Set for additional targets with injuries to the Chargers' tight ends and inconsistencies from other WRs.",
+   "source_timestamp": 1810,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "LAC",
+   "game": "LAC@SEA",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 400
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 422
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 422,
+    "implied": 0.192
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Sean Koerner",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "SEA",
+   "raw_side": "YES",
+   "line": null,
+   "price": 225,
+   "player": "Emmanuel Wilson",
+   "rationale": "Will serve as Seattle's primary goal line back with Zach Charbonnet on IR.",
+   "source_timestamp": 1865,
+   "flags": [
+    "player not on any ESPN 2026 roster"
+   ],
+   "kind": "prop",
+   "status": "quarantine"
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "KC",
+   "raw_side": "YES",
+   "line": null,
+   "price": 240,
+   "player": "Xavier Worthy",
+   "rationale": "Tied for the team lead in red zone targets and always carries massive big-play potential.",
+   "source_timestamp": 1955,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "KC",
+   "game": "KC@LV",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 220
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 226
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": null,
+    "odds": 226,
+    "implied": 0.307
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "LV",
+   "raw_side": "YES",
+   "line": null,
+   "price": 200,
+   "player": "Brock Bowers",
+   "rationale": "Consistently seeing elite target volume, making him a prime scoring candidate in any matchup.",
+   "source_timestamp": 2010,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "LV",
+   "game": "KC@LV",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 179
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 160
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 179,
+    "implied": 0.358
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Gilles Gallant",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "DET",
+   "raw_side": "YES",
+   "line": null,
+   "price": 200,
+   "player": "Jameson Williams",
+   "rationale": " Carolina secondary is vulnerable to deep balls, setting up a prime home-run spot for Williams.",
+   "source_timestamp": 2085,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "DET",
+   "game": "DET@CAR",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 179
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 179,
+    "implied": 0.358
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "CAR",
+   "raw_side": "YES",
+   "line": null,
+   "price": 200,
+   "player": "Jalen Coker",
+   "rationale": "High-volume receiver who consistently leads the team in red zone targets.",
+   "source_timestamp": 2135,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "CAR",
+   "game": "DET@CAR",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 190
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 190,
+    "implied": 0.345
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Sean Koerner",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "CAR",
+   "raw_side": "YES",
+   "line": null,
+   "price": 260,
+   "player": "Darren Waller",
+   "rationale": "Sizable red zone target facing a Lions defense that has surrendered 6 touchdowns to tight ends.",
+   "source_timestamp": 2170,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "CAR",
+   "game": "DET@CAR",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 240
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 240,
+    "implied": 0.294
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Gilles Gallant",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "ATL",
+   "raw_side": "YES",
+   "line": null,
+   "price": 450,
+   "player": "Kyle Pitts",
+   "rationale": "High route participation and physical mismatch make him a strong red zone threat.",
+   "source_timestamp": 2270,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "ATL",
+   "game": "ATL@NO",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 400
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 400,
+    "implied": 0.2
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Grant Neiffer",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "NO",
+   "raw_side": "YES",
+   "line": null,
+   "price": 230,
+   "player": "Juwan Johnson",
+   "rationale": "Major red zone focal point with 6 targets and 3 touchdowns on the year already.",
+   "source_timestamp": 2320,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "NO",
+   "game": "ATL@NO",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 210
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 210,
+    "implied": 0.323
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "e54e9a7a-92a6-41ac-abd5-954a290fdfff",
+   "show": "action-network-sports-betting",
+   "speaker": "Sean Koerner",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "NO",
+   "raw_side": "YES",
+   "line": null,
+   "price": 500,
+   "player": "Noah Fant",
+   "rationale": "With Taysom Hill out, Fant's red zone opportunities and overall TD ceiling are elevated.",
+   "source_timestamp": 2370,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "NO",
+   "game": "ATL@NO",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 450
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 450,
+    "implied": 0.182
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_rushing_attempts",
+   "raw_team": "GB",
+   "raw_side": "UNDER",
+   "line": 8.5,
+   "price": -122,
+   "player": "MarShawn Lloyd",
+   "rationale": "Carries are dropping, Caleb Johnson taking snaps, and Chris Brooks on passing downs.",
+   "source_timestamp": 580,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "GB",
+   "game": "GB@TB",
+   "market": "carries",
+   "direction": "UNDER",
+   "status": "ok",
+   "board": {},
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "season_passing_yards",
+   "raw_team": "GB",
+   "raw_side": "OVER",
+   "line": 241.5,
+   "price": null,
+   "player": "Jordan Love",
+   "rationale": "Packers cannot run the football right now and Love will be chucking it.",
+   "source_timestamp": 612,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "GB",
+   "game": "GB@TB",
+   "market": "pass_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 245.0,
+     "odds": -108,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 249,
+     "odds": 112,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 245.0,
+    "odds": -108,
+    "exact": false,
+    "implied": 0.519
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "season_passing_yards",
+   "raw_team": "GB",
+   "raw_side": "OVER",
+   "line": 300,
+   "price": 340,
+   "player": "Jordan Love",
+   "rationale": "Escalator prop for passing yards.",
+   "source_timestamp": 625,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "GB",
+   "game": "GB@TB",
+   "market": "pass_yds",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 241.5,
+   "board": {
+    "BEO": {
+     "threshold": 305.0,
+     "odds": 240,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 309,
+     "odds": 287,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 305.0,
+    "odds": 240,
+    "exact": false,
+    "implied": 0.294
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "season_passing_yards",
+   "raw_team": "GB",
+   "raw_side": "OVER",
+   "line": 350,
+   "price": 1080,
+   "player": "Jordan Love",
+   "rationale": "Escalator prop for passing yards.",
+   "source_timestamp": 628,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "GB",
+   "game": "GB@TB",
+   "market": "pass_yds",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 241.5,
+   "board": {
+    "BEO": {
+     "threshold": 355.0,
+     "odds": 525,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 359,
+     "odds": 635,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 355.0,
+    "odds": 525,
+    "exact": false,
+    "implied": 0.16
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "season_passing_yards",
+   "raw_team": "GB",
+   "raw_side": "OVER",
+   "line": 400,
+   "price": 3000,
+   "player": "Jordan Love",
+   "rationale": "Escalator prop for passing yards.",
+   "source_timestamp": 631,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "GB",
+   "game": "GB@TB",
+   "market": "pass_yds",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 241.5,
+   "board": {},
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_receptions",
+   "raw_team": "LAR",
+   "raw_side": "OVER",
+   "line": 6.5,
+   "price": 123,
+   "player": "Puka Nacua",
+   "rationale": "Lower line than week 1, Nacua was a target monster in prior matchups.",
+   "source_timestamp": 725,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "LAR",
+   "game": "LAR@PHI",
+   "market": "rec",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 7.0,
+     "odds": 114,
+     "exact": true
+    },
+    "BKR": {
+     "threshold": 7,
+     "odds": 137,
+     "exact": true
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 7,
+    "odds": 137,
+    "exact": true,
+    "implied": 0.422
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_receptions",
+   "raw_team": "LAR",
+   "raw_side": "OVER",
+   "line": 8,
+   "price": 216,
+   "player": "Puka Nacua",
+   "rationale": "Escalator prop for receptions.",
+   "source_timestamp": 751,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "LAR",
+   "game": "LAR@PHI",
+   "market": "rec",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 6.5,
+   "board": {
+    "BEO": {
+     "threshold": 8.0,
+     "odds": 179,
+     "exact": true
+    },
+    "BKR": {
+     "threshold": 8,
+     "odds": 230,
+     "exact": true
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 8,
+    "odds": 230,
+    "exact": true,
+    "implied": 0.303
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_receptions",
+   "raw_team": "LAR",
+   "raw_side": "OVER",
+   "line": 9,
+   "price": 400,
+   "player": "Puka Nacua",
+   "rationale": "Escalator prop for receptions.",
+   "source_timestamp": 759,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "LAR",
+   "game": "LAR@PHI",
+   "market": "rec",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 6.5,
+   "board": {
+    "BEO": {
+     "threshold": 9.0,
+     "odds": 300,
+     "exact": true
+    },
+    "BKR": {
+     "threshold": 9,
+     "odds": 391,
+     "exact": true
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 9,
+    "odds": 391,
+    "exact": true,
+    "implied": 0.204
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_receptions",
+   "raw_team": "LAR",
+   "raw_side": "OVER",
+   "line": 10,
+   "price": 700,
+   "player": "Puka Nacua",
+   "rationale": "Escalator prop for receptions.",
+   "source_timestamp": 761,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "LAR",
+   "game": "LAR@PHI",
+   "market": "rec",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 6.5,
+   "board": {
+    "BEO": {
+     "threshold": 10.0,
+     "odds": 500,
+     "exact": true
+    },
+    "BKR": {
+     "threshold": 10,
+     "odds": 653,
+     "exact": true
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 10,
+    "odds": 653,
+    "exact": true,
+    "implied": 0.133
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_receptions",
+   "raw_team": "LAR",
+   "raw_side": "OVER",
+   "line": 12,
+   "price": 1700,
+   "player": "Puka Nacua",
+   "rationale": "Escalator prop for receptions.",
+   "source_timestamp": 780,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "LAR",
+   "game": "LAR@PHI",
+   "market": "rec",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 6.5,
+   "board": {
+    "BEO": {
+     "threshold": 12.0,
+     "odds": 1550,
+     "exact": true
+    },
+    "BKR": {
+     "threshold": 12,
+     "odds": 1355,
+     "exact": true
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 12.0,
+    "odds": 1550,
+    "exact": true,
+    "implied": 0.061
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_receptions",
+   "raw_team": "LAR",
+   "raw_side": "OVER",
+   "line": 13,
+   "price": 2600,
+   "player": "Puka Nacua",
+   "rationale": "Escalator prop for receptions.",
+   "source_timestamp": 783,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "LAR",
+   "game": "LAR@PHI",
+   "market": "rec",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 6.5,
+   "board": {},
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_longest_rush",
+   "raw_team": "PHI",
+   "raw_side": "OVER",
+   "line": 30,
+   "price": 450,
+   "player": "Saquon Barkley",
+   "rationale": "Barkley showed burst, historically dominates the Rams defense.",
+   "source_timestamp": 846,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "PHI",
+   "game": "LAR@PHI",
+   "market": null,
+   "direction": "OVER",
+   "status": "unpriced_market"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_longest_rush",
+   "raw_team": "PHI",
+   "raw_side": "OVER",
+   "line": 50,
+   "price": 1000,
+   "player": "Saquon Barkley",
+   "rationale": "Barkley showed burst, historically dominates the Rams defense.",
+   "source_timestamp": 850,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "PHI",
+   "game": "LAR@PHI",
+   "market": null,
+   "direction": "OVER",
+   "status": "unpriced_market"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_rushing_yards",
+   "raw_team": "SF",
+   "raw_side": "OVER",
+   "line": 22.5,
+   "price": null,
+   "player": "Kaelon Black",
+   "rationale": "He is the powerful, in-between-the-tackles runner who can exploit Denver.",
+   "source_timestamp": 915,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "SF",
+   "game": "DEN@SF",
+   "market": "rush_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 24.0,
+     "odds": -113,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 24,
+     "odds": -104,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 24,
+    "odds": -104,
+    "exact": false,
+    "implied": 0.51
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_rushing_yards",
+   "raw_team": "SF",
+   "raw_side": "OVER",
+   "line": 40,
+   "price": 300,
+   "player": "Kaelon Black",
+   "rationale": "Escalator prop for rushing yards.",
+   "source_timestamp": 943,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "SF",
+   "game": "DEN@SF",
+   "market": "rush_yds",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 22.5,
+   "board": {
+    "BEO": {
+     "threshold": 44.0,
+     "odds": 196,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 44,
+     "odds": 215,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 44,
+    "odds": 215,
+    "exact": false,
+    "implied": 0.317
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_rushing_yards",
+   "raw_team": "SF",
+   "raw_side": "OVER",
+   "line": 50,
+   "price": 560,
+   "player": "Kaelon Black",
+   "rationale": "Escalator prop for rushing yards.",
+   "source_timestamp": 945,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "SF",
+   "game": "DEN@SF",
+   "market": "rush_yds",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 22.5,
+   "board": {
+    "BEO": {
+     "threshold": 54.0,
+     "odds": 290,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 54,
+     "odds": 317,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 54,
+    "odds": 317,
+    "exact": false,
+    "implied": 0.24
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "player_rushing_yards",
+   "raw_team": "SF",
+   "raw_side": "OVER",
+   "line": 60,
+   "price": 960,
+   "player": "Kaelon Black",
+   "rationale": "Escalator prop for rushing yards.",
+   "source_timestamp": 949,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "SF",
+   "game": "DEN@SF",
+   "market": "rush_yds",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 22.5,
+   "board": {
+    "BEO": {
+     "threshold": 64.0,
+     "odds": 450,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 64,
+     "odds": 483,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 64,
+    "odds": 483,
+    "exact": false,
+    "implied": 0.172
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "spread",
+   "raw_team": "NYG",
+   "raw_side": "NYG",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "rationale": "Arizona defense is the worst unit on the field. Line should not have flipped this much.",
+   "source_timestamp": 958,
+   "flags": [],
+   "kind": "side",
+   "game": "ARI@NYG",
+   "market": "spread",
+   "pick": "NYG",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "spread",
+   "raw_team": "NYG",
+   "raw_side": "NYG",
+   "line": -6.5,
+   "price": 285,
+   "player": null,
+   "rationale": "Home dogs of under 3 points tend to win by a touchdown 60% of the time.",
+   "source_timestamp": 977,
+   "flags": [],
+   "kind": "side",
+   "game": "ARI@NYG",
+   "market": "spread",
+   "pick": "NYG",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "spread",
+   "raw_team": "IND",
+   "raw_side": "IND",
+   "line": -3.5,
+   "price": null,
+   "player": null,
+   "rationale": "Colts are the better team, best run blocking line, and Washington defense is weak.",
+   "source_timestamp": 1117,
+   "flags": [],
+   "kind": "side",
+   "game": "IND@WSH",
+   "market": "spread",
+   "pick": "IND",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "IND",
+   "raw_side": "OVER",
+   "line": 62.5,
+   "price": null,
+   "player": "Josh Downs",
+   "rationale": "Downs has seen massive target volume recently, and Washington allowed the most fantasy points to WRs.",
+   "source_timestamp": 1168,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "IND",
+   "game": "IND@WSH",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 63.0,
+     "odds": -117,
+     "exact": true
+    },
+    "BKR": {
+     "threshold": 72,
+     "odds": -106,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 63.0,
+    "odds": -117,
+    "exact": true,
+    "implied": 0.539
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "spread",
+   "raw_team": "BAL",
+   "raw_side": "BAL",
+   "line": -11.5,
+   "price": null,
+   "player": null,
+   "rationale": "Huge mismatch, Titans look lost and Lamar Jackson dominates in this spot.",
+   "source_timestamp": 1211,
+   "flags": [],
+   "kind": "side",
+   "game": "TEN@BAL",
+   "market": "spread",
+   "pick": "BAL",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "spread",
+   "raw_team": "LAC",
+   "raw_side": "LAC",
+   "line": 7.5,
+   "price": null,
+   "player": null,
+   "rationale": "Seahawks offense is struggling, and winless teams in Week 4 are 7-0 ATS vs over .500 teams since 2021.",
+   "source_timestamp": 1251,
+   "flags": [],
+   "kind": "side",
+   "game": "LAC@SEA",
+   "market": "spread",
+   "pick": "LAC",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "DET",
+   "raw_side": "OVER",
+   "line": 70,
+   "price": 194,
+   "player": "Jameson Williams",
+   "rationale": "Lions face a Panthers secondary completely depleted of cornerbacks.",
+   "source_timestamp": 1412,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "DET",
+   "game": "DET@CAR",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 72.0,
+     "odds": 150,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 72.0,
+    "odds": 150,
+    "exact": false,
+    "implied": 0.4
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "DET",
+   "raw_side": "OVER",
+   "line": 70,
+   "price": 515,
+   "player": "Jameson Williams",
+   "rationale": "Escalator prop with touchdown.",
+   "source_timestamp": 1450,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "DET",
+   "game": "DET@CAR",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 70,
+   "board": {
+    "BEO": {
+     "threshold": 72.0,
+     "odds": 150,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 72.0,
+    "odds": 150,
+    "exact": false,
+    "implied": 0.4
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "DET",
+   "raw_side": "OVER",
+   "line": 100,
+   "price": 1000,
+   "player": "Jameson Williams",
+   "rationale": "Escalator prop with touchdown.",
+   "source_timestamp": 1508,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "DET",
+   "game": "DET@CAR",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ladder_rung",
+   "ladder_of": 70,
+   "board": {
+    "BEO": {
+     "threshold": 102.0,
+     "odds": 340,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 102.0,
+    "odds": 340,
+    "exact": false,
+    "implied": 0.227
+   },
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "anytime_touchdown_scorer",
+   "raw_team": "JAX",
+   "raw_side": "YES",
+   "line": null,
+   "price": 1200,
+   "player": "Nate Boerkircher",
+   "rationale": "Bengals struggle heavily defending tight ends, and Boerkircher gets red zone reps.",
+   "source_timestamp": 1549,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "JAX",
+   "game": "JAX@CIN",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 900
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 855
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 900,
+    "implied": 0.1
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "first_touchdown_scorer",
+   "raw_team": "JAX",
+   "raw_side": "YES",
+   "line": null,
+   "price": 6500,
+   "player": "Nate Boerkircher",
+   "rationale": "Bengals struggle heavily defending tight ends, and Boerkircher gets red zone reps.",
+   "source_timestamp": 1561,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "JAX",
+   "game": "JAX@CIN",
+   "market": "first_td",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": 5000
+    },
+    "BKR": {
+     "threshold": null,
+     "odds": 2528
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": 5000,
+    "implied": 0.02
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "parlay",
+   "raw_team": "NYG",
+   "raw_side": "YES",
+   "line": null,
+   "price": 1250,
+   "player": null,
+   "rationale": "Four Square Parlay: Giants +1.5, Falcons +2.5, Raiders +4.5, Eagles +2.5.",
+   "source_timestamp": 1619,
+   "flags": [],
+   "kind": "other",
+   "game": "ARI@NYG",
+   "status": "not_screened"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Matt Moore",
+   "raw_market": "contest_pick",
+   "raw_team": "OAK",
+   "raw_side": "OAK",
+   "line": 4.5,
+   "price": null,
+   "player": null,
+   "rationale": "Moore's contest pick.",
+   "source_timestamp": 1667,
+   "flags": [],
+   "kind": "side",
+   "game": "KC@LV",
+   "market": "contest",
+   "pick": "LV",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Matt Moore",
+   "raw_market": "contest_pick",
+   "raw_team": "PHI",
+   "raw_side": "PHI",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "rationale": "Moore's contest pick.",
+   "source_timestamp": 1669,
+   "flags": [],
+   "kind": "side",
+   "game": "LAR@PHI",
+   "market": "contest",
+   "pick": "PHI",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Matt Moore",
+   "raw_market": "contest_pick",
+   "raw_team": "NYG",
+   "raw_side": "NYG",
+   "line": 1.5,
+   "price": null,
+   "player": null,
+   "rationale": "Moore's contest pick.",
+   "source_timestamp": 1671,
+   "flags": [],
+   "kind": "side",
+   "game": "ARI@NYG",
+   "market": "contest",
+   "pick": "NYG",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Matt Moore",
+   "raw_market": "contest_pick",
+   "raw_team": "DEN",
+   "raw_side": "DEN",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "rationale": "Moore's contest pick.",
+   "source_timestamp": 1673,
+   "flags": [],
+   "kind": "side",
+   "game": "DEN@SF",
+   "market": "contest",
+   "pick": "DEN",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Matt Moore",
+   "raw_market": "contest_pick",
+   "raw_team": "DAL",
+   "raw_side": "DAL",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "rationale": "Moore's contest pick.",
+   "source_timestamp": 1675,
+   "flags": [],
+   "kind": "side",
+   "game": "DAL@HOU",
+   "market": "contest",
+   "pick": "DAL",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "contest_pick",
+   "raw_team": "NYG",
+   "raw_side": "NYG",
+   "line": 1.5,
+   "price": null,
+   "player": null,
+   "rationale": "Brandon's contest pick.",
+   "source_timestamp": 1686,
+   "flags": [],
+   "kind": "side",
+   "game": "ARI@NYG",
+   "market": "contest",
+   "pick": "NYG",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "contest_pick",
+   "raw_team": "BAL",
+   "raw_side": "BAL",
+   "line": -11.5,
+   "price": null,
+   "player": null,
+   "rationale": "Brandon's contest pick.",
+   "source_timestamp": 1688,
+   "flags": [],
+   "kind": "side",
+   "game": "TEN@BAL",
+   "market": "contest",
+   "pick": "BAL",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "contest_pick",
+   "raw_team": "IND",
+   "raw_side": "IND",
+   "line": -3.5,
+   "price": null,
+   "player": null,
+   "rationale": "Brandon's contest pick.",
+   "source_timestamp": 1690,
+   "flags": [],
+   "kind": "side",
+   "game": "IND@WSH",
+   "market": "contest",
+   "pick": "IND",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "contest_pick",
+   "raw_team": "LAC",
+   "raw_side": "LAC",
+   "line": 7.5,
+   "price": null,
+   "player": null,
+   "rationale": "Brandon's contest pick.",
+   "source_timestamp": 1692,
+   "flags": [],
+   "kind": "side",
+   "game": "LAC@SEA",
+   "market": "contest",
+   "pick": "LAC",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "contest_pick",
+   "raw_team": "TB",
+   "raw_side": "TB",
+   "line": 3.5,
+   "price": null,
+   "player": null,
+   "rationale": "Brandon's contest pick.",
+   "source_timestamp": 1695,
+   "flags": [],
+   "kind": "side",
+   "game": "GB@TB",
+   "market": "contest",
+   "pick": "TB",
+   "status": "ok"
+  },
+  {
+   "episode_id": "929eeaf1-48ff-420e-8678-72f471f328f2",
+   "show": "action-network-sports-betting",
+   "speaker": "Brandon Anderson",
+   "raw_market": "spread",
+   "raw_team": "MIN",
+   "raw_side": "MIN",
+   "line": -1.5,
+   "price": null,
+   "player": null,
+   "rationale": "Minnesota's run attack can exploit New Orleans, and Saints are on a short week.",
+   "source_timestamp": 1770,
+   "flags": [],
+   "kind": "side",
+   "game": "MIA@MIN",
+   "market": "spread",
+   "pick": "MIN",
+   "status": "ok"
+  },
+  {
+   "episode_id": "89ce129d-9c8b-430b-9f0a-0ca287fb09db",
+   "show": "the-athletic-football-show",
+   "speaker": "Derrik Klassen",
+   "raw_market": "spread",
+   "raw_team": "MIN",
+   "raw_side": "MIN",
+   "line": -10.5,
+   "price": null,
+   "player": null,
+   "rationale": "Derrik notes that the 10.5-point spread is highly reasonable given Brian Flores' elite defense matching up against a struggling Dolphins team led by Malik Willis, expecting a score around 17-3.",
+   "source_timestamp": 990,
+   "flags": [],
+   "kind": "side",
+   "game": "MIA@MIN",
+   "market": "spread",
+   "pick": "MIN",
+   "status": "ok"
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Ryan McCrystal",
+   "raw_market": "spread",
+   "raw_team": "BYU",
+   "raw_side": "BYU",
+   "line": -6.5,
+   "price": null,
+   "player": null,
+   "rationale": "TCU's transition from Kendal Briles' veer-and-shoot to Gordon Sammis' pro-style offense plays directly into BYU's defensive strength. TCU struggles to execute this style well and ranks 112th in third-and-long rate.",
+   "source_timestamp": 141,
+   "flags": [
+    "non-NFL team code BYU (college)"
+   ],
+   "kind": "other",
+   "status": "dropped"
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Ryan McCrystal",
+   "raw_market": "conference_winner",
+   "raw_team": "BYU",
+   "raw_side": "YES",
+   "line": null,
+   "price": null,
+   "player": null,
+   "rationale": "Texas Tech is the favorite but has lost substantial defensive talent from last year and currently ranks 117th in explosive rush rate allowed. BYU is highly competitive and built to exploit this run defense.",
+   "source_timestamp": 165,
+   "flags": [
+    "non-NFL team code BYU (college)"
+   ],
+   "kind": "other",
+   "status": "dropped"
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Ryan McCrystal",
+   "raw_market": "spread",
+   "raw_team": "FLA",
+   "raw_side": "FLA",
+   "line": -5.5,
+   "price": null,
+   "player": null,
+   "rationale": "Missouri's run defense is weak, ranking 88th in yards after contact allowed and 127th in missed tackle rate. Jadan Baugh, a powerful 225-pound back who is 10th in the nation in broken tackle rate, should dominate this matchup.",
+   "source_timestamp": 183,
+   "flags": [
+    "non-NFL team code FLA (college)"
+   ],
+   "kind": "other",
+   "status": "dropped"
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Ryan McCrystal",
+   "raw_market": "spread",
+   "raw_team": "MSST",
+   "raw_side": "MSST",
+   "line": 6,
+   "price": null,
+   "player": null,
+   "rationale": "Both teams are starting highly talented but inexperienced young quarterbacks (Kamario Taylor and Keelon Russell). The home crowd environment gives a massive edge to MSST, especially since Keelon Russell holds the ball for 2.5+ seconds on 60% of dropbacks.",
+   "source_timestamp": 204,
+   "flags": [
+    "non-NFL team code MSST (college)"
+   ],
+   "kind": "other",
+   "status": "dropped"
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Rich Hribar",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "ARI",
+   "raw_side": "OVER",
+   "line": 14.5,
+   "price": null,
+   "player": "Jeremiah Love",
+   "rationale": "His workload and playing time are climbing, reaching a 63% snap share and running a route on 41.5% of dropbacks last week. He has been targeted on 27% of his routes, and the Giants allow significant receiving yards to opposing running backs.",
+   "source_timestamp": 250,
+   "flags": [
+    "player not on any ESPN 2026 roster"
+   ],
+   "kind": "prop",
+   "status": "quarantine"
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Rich Hribar",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "IND",
+   "raw_side": "OVER",
+   "line": 46.5,
+   "price": null,
+   "player": "Tyler Warren",
+   "rationale": "He is playing 87% of the Colts' dropbacks and has a 23% target share. Washington has a highly exploitable secondary, ranking 29th in completion rate allowed and 27th in yards per pass attempt, and struggles immensely against play-action.",
+   "source_timestamp": 270,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "IND",
+   "game": "IND@WSH",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 53.0,
+     "odds": -114,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 54,
+     "odds": -105,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 53.0,
+    "odds": -114,
+    "exact": false,
+    "implied": 0.533
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Rich Hribar",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "CIN",
+   "raw_side": "OVER",
+   "line": 78.5,
+   "price": null,
+   "player": "Ja'Marr Chase",
+   "rationale": "Burrow is the least-pressured QB in the NFL, and Jacksonville's defense has historically struggled against receivers when failing to generate pressure. In this matchup last season, Chase exploded for 14 receptions and 165 yards.",
+   "source_timestamp": 290,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "CIN",
+   "game": "JAX@CIN",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 85.0,
+     "odds": -125,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 86,
+     "odds": 101,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 85.0,
+    "odds": -125,
+    "exact": false,
+    "implied": 0.556
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Joe Gibbs",
+   "raw_market": "spread",
+   "raw_team": "DAL",
+   "raw_side": "DAL",
+   "line": null,
+   "price": null,
+   "player": null,
+   "rationale": "Dallas is a small underdog here, but has the better overall offensive health to keep pace in what should be a highly volatile, penalty-driven game.",
+   "source_timestamp": 320,
+   "flags": [],
+   "kind": "side",
+   "game": "DAL@HOU",
+   "market": "spread",
+   "pick": "DAL",
+   "status": "ok"
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Joe Gibbs",
+   "raw_market": "total",
+   "raw_team": "DAL",
+   "raw_side": "OVER",
+   "line": 47.5,
+   "price": null,
+   "player": null,
+   "rationale": "Referee Brad Allen's crew heavily flags roughing the passer and unnecessary roughness, extending drives. Both of these teams rank near the top of the league as automatic first-down beneficiaries of defensive holding and pass interference.",
+   "source_timestamp": 320,
+   "flags": [],
+   "kind": "total",
+   "game": "DAL@HOU",
+   "pick": "OVER",
+   "status": "ok"
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Joe Gibbs",
+   "raw_market": "spread",
+   "raw_team": "LAR",
+   "raw_side": "LAR",
+   "line": -3,
+   "price": null,
+   "player": null,
+   "rationale": "Craig Wrolstad is officiating, and under his tenure home underdogs cover at only a 37% rate. The Eagles struggle with offensive holding penalties (top-5 penalized), whereas the Rams offense is highly disciplined.",
+   "source_timestamp": 350,
+   "flags": [],
+   "kind": "side",
+   "game": "LAR@PHI",
+   "market": "spread",
+   "pick": "LAR",
+   "status": "ok"
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Joe Gibbs",
+   "raw_market": "spread",
+   "raw_team": "ATL",
+   "raw_side": "ATL",
+   "line": null,
+   "price": null,
+   "player": null,
+   "rationale": "Land Clark's crew heavily penalizes the offensive side of the ball (65% of flags). Divisional home favorites are just 12-18-1 straight up under Clark. The Falcons are well-rested coming off a mini-bye with Penix under center.",
+   "source_timestamp": 361,
+   "flags": [],
+   "kind": "side",
+   "game": "ATL@NO",
+   "market": "spread",
+   "pick": "ATL",
+   "status": "ok"
+  },
+  {
+   "episode_id": "4726c7fc-5fd9-4513-8d9a-b822807d2ea0",
+   "show": "sharp-football-analysis",
+   "speaker": "Warren Sharp",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "SF",
+   "raw_side": "OVER",
+   "line": 37.5,
+   "price": null,
+   "player": "Christian McCaffrey",
+   "rationale": "The Broncos under Vance Joseph blitz at the second-highest rate on early downs. When blitzed, Brock Purdy looks McCaffrey's way immediately, yielding a 40% running back target rate. Additionally, injuries/health limits in SF's receiving corps will funnel more targets to the backfield.",
+   "source_timestamp": 392,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "SF",
+   "game": "DEN@SF",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 41.0,
+     "odds": -118,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 42,
+     "odds": -109,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 41.0,
+    "odds": -118,
+    "exact": false,
+    "implied": 0.541
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "3d7d89ec-3213-4be8-abf6-9289c0b6a7e9",
+   "show": "fantasypros",
+   "speaker": "Pat Fitzmaurice",
+   "raw_market": "spread",
+   "raw_team": "LV",
+   "raw_side": "OVER",
+   "line": 4.5,
+   "price": null,
+   "player": null,
+   "rationale": "Believes the Raiders keep the game close against the Chiefs.",
+   "source_timestamp": 2875,
+   "flags": [
+    "side coded 'OVER'; read from line +4.5 -> LV"
+   ],
+   "kind": "side",
+   "game": "KC@LV",
+   "market": "spread",
+   "pick": "LV",
+   "status": "ok"
+  },
+  {
+   "episode_id": "3d7d89ec-3213-4be8-abf6-9289c0b6a7e9",
+   "show": "fantasypros",
+   "speaker": "Derek Brown",
+   "raw_market": "spread",
+   "raw_team": "KC",
+   "raw_side": "UNDER",
+   "line": -4.5,
+   "price": null,
+   "player": null,
+   "rationale": "Expects Spags to shut down the Raiders' key playmakers and cover the spread.",
+   "source_timestamp": 2905,
+   "flags": [
+    "side coded 'UNDER'; read from line -4.5 -> KC"
+   ],
+   "kind": "side",
+   "game": "KC@LV",
+   "market": "spread",
+   "pick": "KC",
+   "status": "ok"
+  },
+  {
+   "episode_id": "3d7d89ec-3213-4be8-abf6-9289c0b6a7e9",
+   "show": "fantasypros",
+   "speaker": "Pat Fitzmaurice",
+   "raw_market": "total",
+   "raw_team": "LV",
+   "raw_side": "UNDER",
+   "line": 47.5,
+   "price": null,
+   "player": null,
+   "rationale": "Expects Maxx Crosby and the Raiders defense to limit the Chiefs, keeping the score low.",
+   "source_timestamp": 2875,
+   "flags": [],
+   "kind": "total",
+   "game": "KC@LV",
+   "pick": "UNDER",
+   "status": "ok"
+  },
+  {
+   "episode_id": "3d7d89ec-3213-4be8-abf6-9289c0b6a7e9",
+   "show": "fantasypros",
+   "speaker": "Derek Brown",
+   "raw_market": "total",
+   "raw_team": "LV",
+   "raw_side": "UNDER",
+   "line": 47.5,
+   "price": null,
+   "player": null,
+   "rationale": "Agrees with Fitz on the Under, expecting an uglier game than anticipated.",
+   "source_timestamp": 2905,
+   "flags": [],
+   "kind": "total",
+   "game": "KC@LV",
+   "pick": "UNDER",
+   "status": "ok"
+  },
+  {
+   "episode_id": "3d7d89ec-3213-4be8-abf6-9289c0b6a7e9",
+   "show": "fantasypros",
+   "speaker": "Pat Fitzmaurice",
+   "raw_market": "over_under_receptions",
+   "raw_team": "NYG",
+   "raw_side": "OVER",
+   "line": 2.5,
+   "price": -155,
+   "player": "Darren Waller",
+   "rationale": " Waller is projected for 3.1 receptions, and Detroit has struggled heavily against tight ends all season.",
+   "source_timestamp": 3625,
+   "flags": [
+    "Gemini game was ARI@NYG; roster puts Darren Waller on CAR"
+   ],
+   "kind": "prop",
+   "player_team": "CAR",
+   "game": "DET@CAR",
+   "market": "rec",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 3.0,
+     "odds": -167,
+     "exact": true
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 3.0,
+    "odds": -167,
+    "exact": true,
+    "implied": 0.625
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "3d7d89ec-3213-4be8-abf6-9289c0b6a7e9",
+   "show": "fantasypros",
+   "speaker": "Derek Brown",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "NYG",
+   "raw_side": "OVER",
+   "line": 26.5,
+   "price": -114,
+   "player": "Darren Waller",
+   "rationale": " Waller's target share is in a great spot and Detroit is soft against the position.",
+   "source_timestamp": 3663,
+   "flags": [
+    "Gemini game was ARI@NYG; roster puts Darren Waller on CAR",
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "CAR",
+   "game": "DET@CAR",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 29.0,
+     "odds": -114,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 29.0,
+    "odds": -114,
+    "exact": false,
+    "implied": 0.533
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "a3876105-57bf-46d3-b189-0b6bf7b6736a",
+   "show": "bettingpros-podcast",
+   "speaker": "Andrew Erickson",
+   "raw_market": "spread",
+   "raw_team": "IND",
+   "raw_side": "IND",
+   "line": -3.5,
+   "price": -110,
+   "player": null,
+   "rationale": "Commanders' defense is extremely poor, making an Under bet hard to justify. Shane Steichen has a strong track record internationally (2-0 SU and ATS), while Dan Quinn and Marcus Mariota have struggled in international games.",
+   "source_timestamp": 278,
+   "flags": [],
+   "kind": "side",
+   "game": "IND@WSH",
+   "market": "spread",
+   "pick": "IND",
+   "status": "ok"
+  },
+  {
+   "episode_id": "a3876105-57bf-46d3-b189-0b6bf7b6736a",
+   "show": "bettingpros-podcast",
+   "speaker": "Andrew Erickson",
+   "raw_market": "total",
+   "raw_team": "CIN",
+   "raw_side": "OVER",
+   "line": 51,
+   "price": -110,
+   "player": null,
+   "rationale": "Expects a shootout. Bengals are 12-5 to the Over at home since 2024. Jaguars have struggled defending deep passes (22nd in EPA), whereas the Bengals rank first in deep-ball efficiency.",
+   "source_timestamp": 372,
+   "flags": [],
+   "kind": "total",
+   "game": "JAX@CIN",
+   "pick": "OVER",
+   "status": "ok"
+  },
+  {
+   "episode_id": "a3876105-57bf-46d3-b189-0b6bf7b6736a",
+   "show": "bettingpros-podcast",
+   "speaker": "Andrew Erickson",
+   "raw_market": "spread",
+   "raw_team": "NE",
+   "raw_side": "NE",
+   "line": 7.5,
+   "price": -128,
+   "player": null,
+   "rationale": "A divisional matchup where New England has covered 5 of the last 6 against the Bills. Drake Maye is 2-0 ATS in Buffalo, and the Patriots' ability to move the ball (7 drives into JAX territory last week) suggests value at +7.5 despite recent red-zone struggles.",
+   "source_timestamp": 444,
+   "flags": [],
+   "kind": "side",
+   "game": "NE@BUF",
+   "market": "spread",
+   "pick": "NE",
+   "status": "ok"
+  },
+  {
+   "episode_id": "fb9a843d-2db2-4a7e-a930-6e66416bfb60",
+   "show": "sharp-or-square",
+   "speaker": "Chad Millman",
+   "raw_market": "spread",
+   "raw_team": "DEN",
+   "raw_side": "DEN",
+   "line": 2.5,
+   "price": null,
+   "player": null,
+   "rationale": "Brass Balls Trade of the Week. Reverse line move shows sharp action on Denver despite majority tickets on San Francisco. SF has key defensive injuries including Nick Bosa being out.",
+   "source_timestamp": 445,
+   "flags": [],
+   "kind": "side",
+   "game": "DEN@SF",
+   "market": "spread",
+   "pick": "DEN",
+   "status": "ok"
+  },
+  {
+   "episode_id": "fb9a843d-2db2-4a7e-a930-6e66416bfb60",
+   "show": "sharp-or-square",
+   "speaker": "Simon Hunter",
+   "raw_market": "spread",
+   "raw_team": "LV",
+   "raw_side": "LV",
+   "line": null,
+   "price": null,
+   "player": null,
+   "rationale": "Simon already bet into the Raiders, though the pros are calling saying he and Chad are totally overrating this Raiders team and backing the Chiefs instead.",
+   "source_timestamp": 193,
+   "flags": [],
+   "kind": "side",
+   "game": "KC@LV",
+   "market": "spread",
+   "pick": "LV",
+   "status": "ok"
+  },
+  {
+   "episode_id": "fb9a843d-2db2-4a7e-a930-6e66416bfb60",
+   "show": "sharp-or-square",
+   "speaker": "Chad Millman",
+   "raw_market": "spread",
+   "raw_team": "ARI",
+   "raw_side": "ARI",
+   "line": -2.5,
+   "price": null,
+   "player": null,
+   "rationale": "Chad was on Arizona early. Pros love Arizona in this matchup against the Giants, driving the line from ARI +2.5 all the way to ARI -2.5.",
+   "source_timestamp": 293,
+   "flags": [],
+   "kind": "side",
+   "game": "ARI@NYG",
+   "market": "spread",
+   "pick": "ARI",
+   "status": "ok"
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "PropStarz",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "JAX",
+   "raw_side": "OVER",
+   "line": 71.5,
+   "price": -115,
+   "player": "Parker Washington",
+   "rationale": "Firmly established as WR1 and the engine of the Jaguars passing attack facing a Bengals defense that plays man coverage at a high rate.",
+   "source_timestamp": 93,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "JAX",
+   "game": "JAX@CIN",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 74.0,
+     "odds": -114,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 77,
+     "odds": -105,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 74.0,
+    "odds": -114,
+    "exact": false,
+    "implied": 0.533
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "Dave",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "JAX",
+   "raw_side": "OVER",
+   "line": 39.5,
+   "price": -113,
+   "player": "Jakobi Meyers",
+   "rationale": "Bengals play a lot of man coverage on third and medium, and Meyers has excellent target per route run metrics against man.",
+   "source_timestamp": 207,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "JAX",
+   "game": "JAX@CIN",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 40.0,
+     "odds": -117,
+     "exact": true
+    },
+    "BKR": {
+     "threshold": 40,
+     "odds": -106,
+     "exact": true
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 40,
+    "odds": -106,
+    "exact": true,
+    "implied": 0.515
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "PropStarz",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "BAL",
+   "raw_side": "OVER",
+   "line": 67.5,
+   "price": -113,
+   "player": "Zay Flowers",
+   "rationale": "Flowers has practiced in full and has been incredibly efficient this season, leading in first-read target rate when active.",
+   "source_timestamp": 500,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "BAL",
+   "game": "TEN@BAL",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 69.0,
+     "odds": -115,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 72,
+     "odds": -105,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 69.0,
+    "odds": -115,
+    "exact": false,
+    "implied": 0.535
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "EC",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "TEN",
+   "raw_side": "OVER",
+   "line": 37.5,
+   "price": -111,
+   "player": "Wan'Dale Robinson",
+   "rationale": "With Baltimore allowing high volume to slot receivers, Robinson's high target share makes this line a strong value.",
+   "source_timestamp": 660,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "TEN",
+   "game": "TEN@BAL",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 39.0,
+     "odds": -114,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 38,
+     "odds": -105,
+     "exact": true
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 38,
+    "odds": -105,
+    "exact": true,
+    "implied": 0.512
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "PropStarz",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "KC",
+   "raw_side": "OVER",
+   "line": 54.5,
+   "price": -114,
+   "player": "Rashee Rice",
+   "rationale": "Rice is looking more comfortable returning from a knee injury and remains the clear WR1 in the Chiefs' passing scheme.",
+   "source_timestamp": 864,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "KC",
+   "game": "KC@LV",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 56.0,
+     "odds": -114,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 57,
+     "odds": -105,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 56.0,
+    "odds": -114,
+    "exact": false,
+    "implied": 0.533
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "Dave",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "IND",
+   "raw_side": "OVER",
+   "line": 36.5,
+   "price": -109,
+   "player": "Keenan Allen",
+   "rationale": "Expected to play through injury and benefit from underneath targets against a weak Commanders secondary.",
+   "source_timestamp": 1301,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "IND",
+   "game": "IND@WSH",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 37.0,
+     "odds": -112,
+     "exact": true
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 37.0,
+    "odds": -112,
+    "exact": true,
+    "implied": 0.528
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "PropStarz",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "CAR",
+   "raw_side": "OVER",
+   "line": 26.5,
+   "price": -114,
+   "player": "Darren Waller",
+   "rationale": "Detroit is extremely vulnerable to tight ends, and Waller's snap share exceeded 50% last week.",
+   "source_timestamp": 1547,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "CAR",
+   "game": "DET@CAR",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 29.0,
+     "odds": -114,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 29.0,
+    "odds": -114,
+    "exact": false,
+    "implied": 0.533
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "PropStarz",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "DAL",
+   "raw_side": "UNDER",
+   "line": 77.5,
+   "price": -115,
+   "player": "CeeDee Lamb",
+   "rationale": "Houston's defensive scheme double-teams top options at a very high rate, which will limit Lamb's production.",
+   "source_timestamp": 1753,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "DAL",
+   "game": "DAL@HOU",
+   "market": "rec_yds",
+   "direction": "UNDER",
+   "status": "ok",
+   "board": {},
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "PropStarz",
+   "raw_market": "rushing_yards",
+   "raw_team": "TEN",
+   "raw_side": "OVER",
+   "line": 45.5,
+   "price": -115,
+   "player": "Tony Pollard",
+   "rationale": "Pollard is highly efficient and should command safe volume against a putrid Ravens run defense.",
+   "source_timestamp": 1922,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "TEN",
+   "game": "TEN@BAL",
+   "market": "rush_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 48.0,
+     "odds": -113,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 48,
+     "odds": -105,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 48,
+    "odds": -105,
+    "exact": false,
+    "implied": 0.512
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "PropStarz",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "SF",
+   "raw_side": "OVER",
+   "line": 39.5,
+   "price": -115,
+   "player": "Christian McCaffrey",
+   "rationale": "With the 49ers' pass catchers depleted, McCaffrey will serve as a primary target against a blitz-heavy Denver defense.",
+   "source_timestamp": 2074,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "SF",
+   "game": "DEN@SF",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 41.0,
+     "odds": -118,
+     "exact": false
+    },
+    "BKR": {
+     "threshold": 42,
+     "odds": -109,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 41.0,
+    "odds": -118,
+    "exact": false,
+    "implied": 0.541
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "Dave",
+   "raw_market": "total_yards",
+   "raw_team": "LAC",
+   "raw_side": "OVER",
+   "line": 28.5,
+   "price": 103,
+   "player": "Keaton Mitchell",
+   "rationale": "Mitchell is the most explosive player in the Chargers' backfield and matches up well against Seattle's zone defense.",
+   "source_timestamp": 2244,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "LAC",
+   "game": "LAC@SEA",
+   "market": null,
+   "direction": "OVER",
+   "status": "unpriced_market"
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "PropStarz",
+   "raw_market": "rushing_yards",
+   "raw_team": "NYG",
+   "raw_side": "UNDER",
+   "line": 90.5,
+   "price": -115,
+   "player": "Jonathan Taylor",
+   "rationale": "The Commanders run defense has been exceptional, holding opposing running backs to minimal yardage.",
+   "source_timestamp": 2686,
+   "flags": [
+    "Gemini game was ARI@NYG; roster puts Jonathan Taylor on IND"
+   ],
+   "kind": "prop",
+   "player_team": "IND",
+   "game": "IND@WSH",
+   "market": "rush_yds",
+   "direction": "UNDER",
+   "status": "ok",
+   "board": {},
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "EC",
+   "raw_market": "season_passing_yards",
+   "raw_team": "BUF",
+   "raw_side": "UNDER",
+   "line": 242.5,
+   "price": -114,
+   "player": "Josh Allen",
+   "rationale": "Allen is dealing with a knee injury, and the Patriots' secondary limits big passing plays.",
+   "source_timestamp": 2985,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "BUF",
+   "game": "NE@BUF",
+   "market": "pass_yds",
+   "direction": "UNDER",
+   "status": "ok",
+   "board": {},
+   "card_tickets": []
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "Dave",
+   "raw_market": "pass_attempts",
+   "raw_team": "BAL",
+   "raw_side": "UNDER",
+   "line": 27.5,
+   "price": -114,
+   "player": "Lamar Jackson",
+   "rationale": "A heavily run-focused game plan featuring Derrick Henry's revenge game narrative will limit Jackson's passing volume.",
+   "source_timestamp": 3160,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "BAL",
+   "game": "TEN@BAL",
+   "market": "pass_att",
+   "direction": "UNDER",
+   "status": "ok",
+   "board": {},
+   "card_tickets": [
+    "7e Anytime TD 7-leg"
+   ]
+  },
+  {
+   "episode_id": "ed88ae47-3a90-4883-a297-a1bdfc8a1585",
+   "show": "sportsline",
+   "speaker": "EC",
+   "raw_market": "field_goals_made",
+   "raw_team": "GB",
+   "raw_side": "OVER",
+   "line": 1.5,
+   "price": -118,
+   "player": "Trey Smack",
+   "rationale": "The Packers' offense struggle to score touchdowns but can stall in field goal range against a soft Buccaneers red zone defense.",
+   "source_timestamp": 3564,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "GB",
+   "game": "GB@TB",
+   "market": null,
+   "direction": "OVER",
+   "status": "unpriced_market"
+  },
+  {
+   "episode_id": "352bbee7-3960-4d0d-98dd-e86fc0f1f54a",
+   "show": "bettingpros-podcast",
+   "speaker": "Andrew Erickson",
+   "raw_market": "anytime_touchdown",
+   "raw_team": "DET",
+   "raw_side": "YES",
+   "line": null,
+   "price": -340,
+   "player": "Jahmyr Gibbs",
+   "rationale": "Erickson's anytime touchdown rollover tracker continues with Gibbs. Rolling over the winnings every single week against the Carolina Panthers.",
+   "source_timestamp": 131,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "DET",
+   "game": "DET@CAR",
+   "market": "atd1",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": null,
+     "odds": -501
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": null,
+    "odds": -501,
+    "implied": 0.834
+   },
+   "card_tickets": [
+    "8b 2+ TD 3-leg"
+   ]
+  },
+  {
+   "episode_id": "352bbee7-3960-4d0d-98dd-e86fc0f1f54a",
+   "show": "bettingpros-podcast",
+   "speaker": "Andrew Erickson",
+   "raw_market": "season_receiving_yards",
+   "raw_team": "IND",
+   "raw_side": "OVER",
+   "line": 62.5,
+   "price": -114,
+   "player": "Josh Downs",
+   "rationale": "The Commanders' secondary is highly vulnerable, allowing the most fantasy points to wide receivers. Downs runs heavily out of the slot where Washington struggles most, and his route participation and target share have risen significantly.",
+   "source_timestamp": 299,
+   "flags": [
+    "market label says season; this is a single-game line"
+   ],
+   "kind": "prop",
+   "player_team": "IND",
+   "game": "IND@WSH",
+   "market": "rec_yds",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 63.0,
+     "odds": -117,
+     "exact": true
+    },
+    "BKR": {
+     "threshold": 72,
+     "odds": -106,
+     "exact": false
+    }
+   },
+   "best": {
+    "book": "BEO",
+    "threshold": 63.0,
+    "odds": -117,
+    "exact": true,
+    "implied": 0.539
+   },
+   "card_tickets": []
+  },
+  {
+   "episode_id": "352bbee7-3960-4d0d-98dd-e86fc0f1f54a",
+   "show": "bettingpros-podcast",
+   "speaker": "Chris Welsh",
+   "raw_market": "receptions",
+   "raw_team": "JAX",
+   "raw_side": "OVER",
+   "line": 5.5,
+   "price": 119,
+   "player": "Parker Washington",
+   "rationale": "Washington has a massive 46% air yard share and a dominant target profile. He gets to match up against backup slot corners for the Bengals, avoiding their best coverage options.",
+   "source_timestamp": 477,
+   "flags": [],
+   "kind": "prop",
+   "player_team": "JAX",
+   "game": "JAX@CIN",
+   "market": "rec",
+   "direction": "OVER",
+   "status": "ok",
+   "board": {
+    "BEO": {
+     "threshold": 6.0,
+     "odds": 114,
+     "exact": true
+    },
+    "BKR": {
+     "threshold": 6,
+     "odds": 124,
+     "exact": true
+    }
+   },
+   "best": {
+    "book": "BKR",
+    "threshold": 6,
+    "odds": 124,
+    "exact": true,
+    "implied": 0.446
+   },
+   "card_tickets": []
+  }
+ ]
+}

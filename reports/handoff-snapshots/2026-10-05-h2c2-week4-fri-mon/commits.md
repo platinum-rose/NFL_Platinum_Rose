@@ -1,0 +1,68 @@
+# Commits since 2026-10-02 America/Los_Angeles (oldest first; times America/Los_Angeles)
+
+On `main`; remote main `6887ca8`; HEAD `6887ca8`.
+
+- `248aa71` 2026-10-02 12:01:00 -0700 — feat(supercontest): Week 4 contest lines; wire Weeks 3-4 into the dashboard; fix SC report build
+- `8712129` 2026-10-02 12:16:59 -0700 — feat(supercontest): dashboard loads only the current week; no week picker
+- `cd48156` 2026-10-02 13:25:22 -0700 — Capture Week 4 Bookmaker SGP lines
+- `3a948f7` 2026-10-02 13:30:09 -0700 — Add live market capture session handoff
+- `9698310` 2026-10-02 16:34:57 -0700 — data(secondary-matchups): regenerate Week 4 after roster-seed rebuild (Porter Jr. to DAL)
+- `f64dbaf` 2026-10-02 16:35:20 -0700 — docs(odds): Week 4 BetOnline prop boards for the 14 Sunday/Monday games (hand-pasted by Andy)
+- `47eb968` 2026-10-02 16:47:34 -0700 — Handoff: Week 4 TNF graded, template v2, SuperContest W4, BKR/BEO/DK boards with DK yardage rungs
+- `d42e7b9` 2026-10-02 20:51:08 -0700 — Handoff: Week 4 intel gathering, YouTube queue, 10/2 futures boards
+- `17afa34` 2026-10-02 21:05:46 -0700 — fix(master-intel): Week 4 build crash + honest slate-status banner
+- `4ea7d0f` 2026-10-02 21:20:54 -0700 — master-intel: lock template v2 (picks first) + plain-English header
+- `8207d26` 2026-10-02 21:33:00 -0700 — master-intel: multi-page client site (build_site.py) + hosted link
+- `7cd869a` 2026-10-02 21:37:43 -0700 — Handoff: Week 4 multi-page intel site, template v2 locked, Team 2 + Codex resume prompts
+- `40cb644` 2026-10-02 21:52:49 -0700 — Handoff correction + Codex BKR parser fix + Week 4 line captures
+- `8a459ba` 2026-10-02 21:54:25 -0700 — Handoff: point resume prompts at 40cb644
+- `71c91e2` 2026-10-02 21:55:08 -0700 — HANDOFF.md: correct the working-tree note (ledger is newer, not stale)
+- `b1a905f` 2026-10-02 22:03:01 -0700 — Week 4 handoff snapshot: every referenced file saved in the repo
+- `6192952` 2026-10-02 22:57:58 -0700 — feat(podcast-intel): ingest Week 4 YouTube slate (17 episodes, 155 picks), add Gemini billing alert system, and update expert dossiers
+- `4970ebd` 2026-10-03 00:46:21 -0700 — feat(master-intel): include promoted podcast evidence
+- `d11123d` 2026-10-03 11:58:33 -0700 — feat(week4): AN opening-line baseline in build.py + 10/03 evidence refresh
+- `daec7b1` 2026-10-03 12:24:29 -0700 — feat(week4): game narratives for 15 games + BKR 10/03 live file builder
+- `94a5193` 2026-10-03 12:58:46 -0700 — feat(week4): expert-pick verification gate, per-expert picks section, expert blocks
+- `421db5a` 2026-10-03 14:06:37 -0700 — Week 4: full-text article archive, primer systems/trends, article picks verified, narratives updated
+- `553e261` 2026-10-03 15:10:41 -0700 — Week 4 article archive: tag each article (preview / team news / recap / general / out of window)
+- `e6d6988` 2026-10-03 15:38:28 -0700 — intel ingest: raise article body cap to 200k and per-article pick caps
+- `f57656b` 2026-10-03 16:22:13 -0700 — intel ingest: gate article-body picks on pick language for every feed
+- `17eb5d0` 2026-10-03 16:22:30 -0700 — handoff: addendum for classifier, caps and gated body picks
+- `720e169` 2026-10-03 17:49:48 -0700 — intel: Week 4 signal re-extraction review + parser fixes from it
+- `5642882` 2026-10-03 19:37:30 -0700 — handoff: F-mi-dark brief for UX_EXPERT (Master Intel dark redesign)
+- `8949848` 2026-10-03 20:00:34 -0700 — master-intel: F-mi-dark dark "Tracker slate + teal" restyle
+- `b56fa7d` 2026-10-03 20:00:54 -0700 — handoff: F-mi-dark done (UX_EXPERT)
+- `7eef057` 2026-10-03 20:15:03 -0700 — handoff: brief for WEEKLY_SYNTHESIS_SESSION to fill Week 4 Master Intel
+- `cf45e15` 2026-10-03 20:37:42 -0700 — week4: synthesis digest + card, TICKETS/SUPERCONTEST, survivor pick intel; Master Intel filled
+- `9e4a5d6` 2026-10-03 21:04:17 -0700 — master-intel: Super Contest sides page, Props Lab legs + best prices, teaser math, bookmarks
+- `0640db9` 2026-10-03 21:13:59 -0700 — master-intel: Super Contest pick strip (5 + 5 tiles) and ranking synopses
+- `2da3131` 2026-10-03 21:20:40 -0700 — master-intel: Props Lab legs as collapsible rows with type/card/support/player filters
+- `3ff5060` 2026-10-03 21:47:12 -0700 — master-intel site: client nav + dashboard (Andy), dark layer, SC/Props/Teaser/Market Intel/bookmarks wiring
+- `3856b0d` 2026-10-03 21:57:34 -0700 — master-intel site: dashboard opens on the recommendations; slate status last, collapsed
+- `317a551` 2026-10-03 22:12:26 -0700 — master-intel: dashboard collapsed, Sides/ML/Totals filter fixed, SuperContest five parsed
+- `9a5381b` 2026-10-03 22:25:21 -0700 — week4: add 7e Anytime TD 7-leg and 8a First TD tickets; singles box; spread/ML rows split
+- `69b9198` 2026-10-03 22:32:43 -0700 — master-intel site: props context + kicking/defense/game props, sharp-money alerts, collapsible matchup cards
+- `ab61805` 2026-10-03 22:50:06 -0700 — week4: client release wording (drop private credit note, playbook -> house rule)
+- `10138d5` 2026-10-03 23:00:33 -0700 — master-intel: single-file edition (one self-contained .html for email attachments)
+- `710a2be` 2026-10-03 23:22:01 -0700 — pickem: Week 4 card (BKR 10/03 10:46 odds, leans, TNF PIT locked x3)
+- `eb0a1ce` 2026-10-04 02:54:52 -0700 — week4: podcast props screen + normalizer, betting rules pruned per Andy, handoff
+- `7f54ddb` 2026-10-04 10:56:28 -0700 — week4: record Sunday card and live tracker
+- `bb2bdb2` 2026-10-04 11:03:24 -0700 — live-tracker: imaginary (paper) tickets in their own teal, collapsible section
+- `12c5ac4` 2026-10-04 11:07:25 -0700 — supercontest: Week 4 official five (SF -2.5, ARI -1.5, MIA +10.5, LAR -3, NE +6.5)
+- `41fd046` 2026-10-04 11:09:05 -0700 — live-tracker: imaginary section purple, placed above Burnt
+- `493a0db` 2026-10-04 11:54:59 -0700 — week4: log afternoon 8-leg BetOnline prop parlay ($5 @ +6100)
+- `e27ade4` 2026-10-04 11:55:55 -0700 — live-tracker: regenerate Week 4 Sunday tracker (latest data)
+- `f684dc4` 2026-10-04 12:07:10 -0700 — week4: log afternoon 8-leg prop parlay #2 ($3.15 @ +21100)
+- `d9c06cb` 2026-10-04 12:58:57 -0700 — week4: log afternoon 7-leg TD/receptions parlay ($5 @ +16300)
+- `2ca7a44` 2026-10-04 13:04:50 -0700 — week4: log BKR 5-team parlay #739761492 ($25 to win $454.86); SNF island proposals
+- `fcd8e5f` 2026-10-04 13:23:58 -0700 — supercontest: per-week alternates on the Live Tracker (Week 4: TEN, HOU, LV, GB, NYJ)
+- `7859465` 2026-10-04 14:43:43 -0700 — week4: log SNF island 8-leg SGP DET@CAR ($5 @ +15900)
+- `a7f4130` 2026-10-04 15:00:26 -0700 — live-tracker: phone copy (ESPN snapshot + desktop marks) and "Export marks" button
+- `0030b25` 2026-10-04 15:10:01 -0700 — live-tracker: phone layout — Live only view, collapsible Game Board and Burnt
+- `bc7a9ce` 2026-10-04 15:20:21 -0700 — week4: log SNF 7-leg SGP #2 DET@CAR ($7.16 @ +26200)
+- `be88632` 2026-10-04 16:52:23 -0700 — week4: settle morning + afternoon tickets from ESPN finals
+- `3225fba` 2026-10-04 19:00:58 -0700 — live-tracker: retire the "Melbourne Season Opener" settled-loss banner
+- `a096758` 2026-10-05 11:29:30 -0700 — week4: close out settlement; fix reconcile-settlement grading bugs
+- `189f8f7` 2026-10-05 11:39:17 -0700 — week4: apply BKR actuals for 8x4 and 5x2 round robins
+- `70e0def` 2026-10-05 12:09:43 -0700 — futures: move GB SB ticket 1002306799 to portfolio; save BKR Week 5 openers
+- `6887ca8` 2026-10-05 12:27:28 -0700 — week4: MNF ATL@NO prop planner, prop boards, phone tracker, session handoff
