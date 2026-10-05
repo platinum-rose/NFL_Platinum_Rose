@@ -14,12 +14,12 @@
 
 ## 0. TL;DR: where things stand
 
-1. **Week 4 betting is settled through Sunday night.** 24 real tickets, $353.51 cash risk, **net −$208.42**. One paying straight bet (NE +7, +$8.70) and one paying round robin (5x2, +$14.64). SuperContest went **4–1**.
+1. **Week 4 betting is settled through Sunday night.** 24 real tickets, $343.51 cash risk, **net −$208.42**. The only winners were the NE +7 Bills-win free bet (+$8.70) and the 5x2 round robin (+$14.64). SuperContest went **4–1**.
 2. **MNF ATL @ NO is tonight (Mon 10/05, 5:15 PM PT).** No real MNF tickets are logged yet.
    - A prop planner was built for Alejandro, Andy's prop-parlay partner: `reports/analysis/prop-planner/player-prop-parlay-planner-2026-w04-atl-no.html`.
    - Any MNF tickets Andy places must be logged, tracked and settled. So must the pick'em games.
 3. **Week 5 has started.** The BKR opening board for 12 of 15 games is saved (`data/odds/BKR_current_lines_1005_1205`). MIN@NO, BAL@ATL (SNF) and BUF@LAR (MNF) are not posted yet. CHI@GB kicks off at **10:00 AM PT**.
-4. **Futures and promos have small bookkeeping items open:** the Bills free-wager win, the $4.83 BetOnline reloads, and the GB Super Bowl future (moved to the portfolio ledger). See §6.
+4. **Futures and promos:** the NE +7 free bet is recorded (updated 10/05 13:30, Andy confirmed it). One Bills credit is unused and goes on BUF@LAR. Still open: the $4.83 BetOnline reloads. The GB Super Bowl future moved to the portfolio ledger. See §6.
 5. **The Master Intel weekly report** (template v2, dark "Tracker slate + teal" multi-page site) was built and filled for Week 4. The Week 5 run follows `docs/MASTER_INTEL_REPORT_RUNBOOK.md`.
 6. **Week 4 analysis work not done yet:**
    - grading the 11 AI paper tickets
@@ -114,13 +114,13 @@ Full per-handoff timeline: digest §1. Commits: `snapshot/commits.md`. Times are
 
 The full table is in `snapshot/week4-ticket-ledger.md`.
 
-- **Real tickets:** 24 settled, $353.51 risk, −$208.42 net.
+- **Real tickets:** 24 settled, $343.51 cash risk, −$208.42 net. The NE +7 ticket was a free bet.
   - TNF: 5 tickets, all lost (−$51.37), plus the Jay's Lock Box promo (no cash).
   - Sunday BKR game tickets:
     - 5-team spread −$25; Slot 3 5-team #739714258 −$20; 6-team −$20; afternoon 5-team #739761492 −$25.
     - Round robins: 8x4 #739714646 **−$20.53** (returned $84.47 on $105); 5x2 #739713279 **+$14.64**; 6x2 #739713560 **−$17.72**. All three are Andy's actual BKR figures.
   - BetOnline:
-    - NE +7 $10 **won +$8.70**.
+    - NE +7, a $10 **Bills-win free bet** (no cash risk), **won +$8.70**.
     - 11 prop parlays all lost, including the 2 SNF island SGPs.
 - **SuperContest five** (SF −2.5, ARI −1.5, MIA +10.5, LAR −3, NE +6.5): **4–1**. ARI was the miss. File: `data/supercontest/locked-card-week-4.json`.
 - **SNF:** CAR 32, DET 26. The island 8-leg died on Gibbs (4 rec) and Waller (0 TD).
@@ -296,12 +296,11 @@ Confirmed in this window (sources in digest §3):
    - Regenerate the trackers and republish the phone tracker.
    - **Settle after the final** from ESPN.
    - **Grade pick'em:** `node scripts/pickem-grade.mjs --week 4`.
-2. **Bills free wager: discrepancy, ask Andy.**
-   - Andy said "the free wager on **JAX +7** hit, removes $8.70 in liability."
-   - The ledger has **NE +7, BetOnline #1002306890, $10 at −115, won $8.70**, logged as `funding_type: cash`.
-   - The card also named NE +7 as the Bills-credit default. It is almost certainly that ticket.
-   - Confirm with Andy. Then set it to free-bet funding (`cash_risk_usd: 0` makes Week 4 risk $343.51), and record in `promotions-2026.json` (`received_used`, applied_to that ticket) and in the portfolio ledger (an $8.70 liability reduction on `bills_sb`).
-   - Ask too whether the second Bills credit from 10/04 was used.
+2. **Bills free wager: RESOLVED 10/05 13:30.** Andy confirmed NE +7 BetOnline #1002306890 was the free bet (he had mistyped it as "JAX +7"). Recorded so far:
+   - Wagers ledger: `funding_type: free_bet`, $0 cash risk, payout and profit $8.70.
+   - `promotions-2026.json`: the Week 2 credit is `received_used` on this ticket. The Week 3 credit (BUF 24–16 vs LAC) is `received_unused` and **goes on BUF @ LAR, Week 5 MNF**. Week 4 earned no credit (BUF lost to NE). Which of the two credits was actually spent isn't recorded, so it was logged first-in, first-out.
+   - Portfolio: `bills_sb` ticket 996987591 has `promo_offset_usd: 8.7`, leaving **$0.39** of the $9.09 boost uncovered.
+   - Week 4 cash risk is now $343.51.
 3. **BetOnline reloads:** three at $1.61, $4.83 in total.
    - Log them in `beo-reloads.balance_log`.
    - Do a fresh BUF SB price capture across books (read-only), recommend the best book, and log Andy's ticket in `bills_sb` once placed.
@@ -313,8 +312,8 @@ Confirmed in this window (sources in digest §3):
    - Next week's Bills free wager goes on **BUF@LAR**.
 
 ### 6b. Week 4 close-out analysis (team can do; present to Andy)
-5. **Grade the 11 paper tickets** in `paper-wagers-2026.json` from ESPN box scores. There is also 1 old Week 2 paper record still pending.
-6. **Recommendation ledger, Week 4 section** (proposed vs placed, divergences D14+).
+5. **Grade the 11 AI paper tickets** in `paper-wagers-2026.json` from ESPN box scores. Do this together with Andy (his call, 10/05), and include the one old Week 2 paper record that is still pending. Paper records are the AI benchmark; never present them as placed bets.
+6. **Recommendation ledger, Week 4 section, built from the paper tickets** (Andy, 10/05). Each graded AI paper ticket is the "proposed" side. Compare it with what Andy actually placed (see the ticket ledger), log agreements and divergences as D14+, and record who was right.
    - **The repo copy `docs/claude-project-dev/recommendation-ledger-2026.md` (last updated 9/28 20:40) is newer than** the claude.ai project copy `claude/recommendation-ledger-2026.md` (9/28 19:15).
    - Update the repo copy, then mirror it to the project.
 7. **End-of-week Week 4 betting analysis,** the kind Andy returns to every week. Precedent: `reports/bets/season-recap/`, `week3-recap/`, `reports/analysis/w1-3-deep/`. Cover:
@@ -411,8 +410,8 @@ You are Claude Team 2 taking over NFL_Dashboard ("Platinum Rose") from the Cowor
 Guardrails: read-only on sportsbooks, no bet placement, no TheOddsAPI, no Supabase writes or game_odds_snapshots pricing without Andy's per-action OK; ledgers change only to record what Andy reports; run the roster gate (python3 scripts/nfl-rosters/roster_vet.py --week <N> --date <capture-date> --fetch --strict --card <file>) before presenting any card; never fix names from memory.
 
 Step 0 (tonight): MNF ATL @ NO 5:15 PT. Log any tickets Andy sends, regenerate the desktop and phone trackers (republish https://claude.ai/artifact/R4qQo7h1ds6hjyXmkvZr22), settle from ESPN after the final, and grade pick'em (node scripts/pickem-grade.mjs --week 4).
-Step 1: briefing §6a items 2–4. Confirm the NE +7 vs "JAX +7" free wager with Andy before touching funding fields. Log the $4.83 reloads and give a best-price BUF SB recommendation from a fresh read-only capture. Capture the missing Week 5 games when Andy pastes them, and fix the CHI@GB 10:00 PT note.
-Step 2: §6b Week 4 close-out analysis: grade the 11 paper tickets, add Week 4 to the recommendation ledger (repo copy first, then mirror to the claude.ai project), and write the end-of-week Week 4 analysis for Andy.
+Step 1: briefing §6a items 3–4. The NE +7 free bet is already recorded; the unused Bills credit goes on BUF@LAR. Log the $4.83 reloads and give a best-price BUF SB recommendation from a fresh read-only capture. Capture the missing Week 5 games when Andy pastes them, and fix the CHI@GB 10:00 PT note.
+Step 2: §6b Week 4 close-out analysis, with Andy: grade the 11 AI paper tickets, then fill the Week 4 recommendation-ledger section from them (paper = proposed vs Andy's placed tickets; repo copy first, then mirror to the claude.ai project), and write the end-of-week Week 4 analysis.
 Step 3: Week 5 Master Intel cadence per docs/MASTER_INTEL_REPORT_RUNBOOK.md (no wagering synthesis until intel is complete; Action Network openers as the baseline; add coaching trends starting Week 5). Ask Andy which artifact is canonical for the client report.
 Finish every session with a dated handoff in handoffs/ and an update to HANDOFF.md "Current Pick Up Here". For a cross-team handoff, use the H2C2 skill.
 ```

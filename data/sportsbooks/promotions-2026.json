@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "season": 2026,
-  "updated_at": "2026-09-21",
+  "updated_at": "2026-10-05",
   "purpose": "Running tracker of sportsbook promotions, rewards and bonus cash that change how tickets should be built or funded. Check the 'active' items at every card build. Reward cash is logged here first, then as funding on the ticket it is applied to.",
   "how_promo_type_changes_the_build": {
     "cash_no_strings": "Same as your own money: stake comes back on a win. Just shop the best price.",
@@ -29,8 +29,22 @@
           "week": 2,
           "result": "BUF 41-31 W vs DET",
           "amount_usd": 10,
-          "status": "due_2026-09-23",
-          "plan": "Cover the $9.09 BUF SB cash boost (bet_20260917_996987591, +950): any price -110 or better returns >= $9.09 profit"
+          "status": "received_used",
+          "applied_to": "bet_20261004_betonline_1002306890_ne_buf_spread (NE +7 -115, $10 free bet, Week 4; NE 29-26 won +$8.70)",
+          "note": "Which credit (Week 2 or Week 3) was spent is not recorded; logged first-in-first-out. Andy 2026-10-05: one of the two credits used on NE +7, the other still unused."
+        },
+        {
+          "week": 3,
+          "result": "BUF 24-16 W vs LAC",
+          "amount_usd": 10,
+          "status": "received_unused",
+          "plan": "Andy 2026-10-05: use on the BUF @ LAR game (Week 5 MNF, Mon 10/12), same pay-down purpose."
+        },
+        {
+          "week": 4,
+          "result": "BUF 26-29 L vs NE",
+          "amount_usd": 0,
+          "status": "no_credit (Bills loss)"
         }
       ],
       "use": "Free roll on a side/total at -110. Each winner pays $9.09.",
@@ -41,7 +55,16 @@
         "expected_return_usd": 45
       },
       "strategy": "Put each credit on the week's highest-conviction side or total as soon as it lands (Wednesday), shopping the best number around key numbers 3/7. Avoid spread underdogs (10-20 season). First winner clears the $9.09 BUF SB boost (bet_20260917_996987591); later winners go to the BUF futures bankroll. Expect ~5 winners from ~10 credits (~$45). Hedging via the Bills opponent spread is optional, only when it is also the best read.",
-      "restrictions": "Credit usable ONLY on sides or totals at about -110 (Andy, 2026-09-21). Stake not returned; a win pays $9.09."
+      "restrictions": "Credit usable ONLY on sides or totals at about -110 (Andy, 2026-09-21). Stake not returned; a win pays $9.09.",
+      "offset_log": [
+        {
+          "date": "2026-10-05",
+          "free_bet_win_usd": 8.7,
+          "source": "bet_20261004_betonline_1002306890_ne_buf_spread",
+          "applied_against": "bills_sb ticket 996987591 ($9.09 cash BUF SB boost)",
+          "remaining_to_offset_usd": 0.39
+        }
+      ]
     },
     {
       "id": "beo-reloads",

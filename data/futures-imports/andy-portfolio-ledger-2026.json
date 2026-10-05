@@ -43,10 +43,19 @@
      "to_win_usd": 86.36,
      "result_status": "pending",
      "funding": "cash",
-     "note": "Boost placed before TNF DET@BUF on the theory the price would be better pre-game. Moved here from user-placed-wagers-2026.json on 2026-09-21 (futures belong in this ledger). Target: clear this stake with Bills-win promo credits (see data/sportsbooks/promotions-2026.json)."
+     "note": "Boost placed before TNF DET@BUF on the theory the price would be better pre-game. Moved here from user-placed-wagers-2026.json on 2026-09-21 (futures belong in this ledger). Target: clear this stake with Bills-win promo credits (see data/sportsbooks/promotions-2026.json).",
+     "promo_offset_usd": 8.7,
+     "promo_offset_log": [
+      {
+       "date": "2026-10-04",
+       "amount_usd": 8.7,
+       "source": "BEO Bills-win free bet on NE +7 (-115), won; wagers ledger bet_20261004_betonline_1002306890_ne_buf_spread"
+      }
+     ],
+     "net_cash_liability_usd": 0.39
     }
    ],
-   "estimate_note": "First real stake against the $200 target cap ($150 of cap room remains). Confirmed placed at BetOnline; this wager qualifies for BetOnline's Super Bowl Futures Special ($10/regular-season-win promo) -- see data/futures-imports/betonline-superbowl-futures-promo-2026.json, now marked claimed. | 2026-09-21: added ticket 996987591 ($9.09 @ +950); stake now $59.09, blended +992, $140.91 of cap room."
+   "estimate_note": "First real stake against the $200 target cap ($150 of cap room remains). Confirmed placed at BetOnline; this wager qualifies for BetOnline's Super Bowl Futures Special ($10/regular-season-win promo) -- see data/futures-imports/betonline-superbowl-futures-promo-2026.json, now marked claimed. | 2026-09-21: added ticket 996987591 ($9.09 @ +950); stake now $59.09, blended +992, $140.91 of cap room. | 2026-10-05: Bills-win free bet (NE +7, Week 4) won $8.70, offsetting ticket 996987591 ($9.09); $0.39 of that boost is still uncovered. Stake on the position is unchanged ($59.09); the offset is tracked as promo winnings, not a stake change."
   },
   {
    "id": "packers_sb",

@@ -1,39 +1,39 @@
-# Week 4 ticket ledger (generated 2026-10-05 from the wagers ledger)
+# Week 4 ticket ledger (generated 2026-10-05 from the wagers ledger; updated after Andy confirmed the NE +7 free bet)
 
-Source: `data/official-picks/user-placed-wagers-2026.json` (real tickets) and `data/official-picks/paper-wagers-2026.json` (AI paper records, never placed). Placeholder IDs (no book ticket number yet) are the `afternoon_*` / `snf_*` style ids.
+Source: `data/official-picks/user-placed-wagers-2026.json` (real tickets) and `data/official-picks/paper-wagers-2026.json` (AI paper records, never placed). Rows with no ticket number are placeholders waiting for BetOnline numbers. Funding: cash unless noted.
 
 ## Real tickets
 
-| # | Placed | Book | Ticket | Type | Title | Cash risk | Odds | Status | Result | Payout | P/L |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| 1 | 2026-09-30T17:27 | Bookmaker | 739527199 | SGP Parlay (2 Teams) | TNF SGP: Under 40 + CLE +3.5 (2 Teams) | 21.2 | +226 | SETTLED | loss | 0 | -21.2 |
-| 2 | 2026-10-01 | BetOnline | 1001392960 | Parlay (4 Legs) | TNF 4-leg prop parlay #1001392960 | 10.09 | +1150 | SETTLED | loss | 0 | -10.09 |
-| 3 | 2026-10-01 | BetOnline | 1001390385 | Parlay (8 Legs) | TNF 8-leg prop parlay #1001390385 | 5 | +6920 | SETTLED | loss | 0 | -5 |
-| 4 | 2026-10-01 | BetOnline | 1001388000 | Parlay (5 Legs) | TNF 5-leg prop parlay #1001388000 | 5 | +12600 | SETTLED | loss | 0 | -5 |
-| 5 | 2026-10-01T17:05 | Bookmaker | 739565346 | Parlay (10 Teams) | Week 4 10-team ML/spread parlay (TNF CLE +3.5 + weekend favorites) | 10.08 | +9238 | SETTLED | loss | 0 | -10.08 |
-| 6 | 2026-10-02T20:07 | unknown (Andy to confirm) | — | Parlay (2 Teams) — promotional product | Jay's Lock Box — NE/BUF Under 48½ + CIN −2½ (promo) | 0 | None | SETTLED | loss | 0 | 0 |
-| 7 | 2026-10-04 | BetOnline | 1002306890 | Spread - FB | New England Patriots +7 | 10 | -115 | SETTLED | win | 18.7 | 8.7 |
-| 8 | 2026-10-04 | BetOnline | 1002306704 | Future/Prop Parlay (5 Legs) | Week 4 5-leg 2+ touchdown parlay | 5 | +56600 | SETTLED | loss | 0 | -5 |
-| 9 | 2026-10-04 | BetOnline | 1002306303 | Future/Prop Parlay (8 Legs) | Week 4 8-leg hybrid player-prop and DET win parlay | 6.83 | +14600 | SETTLED | loss | 0 | -6.83 |
-| 10 | 2026-10-04 | BetOnline | 1002304945 | Future/Prop Parlay (8 Legs) | Week 4 8-leg morning player-prop parlay | 5 | +9500 | SETTLED | loss | 0 | -5 |
-| 11 | 2026-10-04 | BetOnline | 1002303293 | Future/Prop Parlay (6 Legs) | Week 4 6-leg anytime-touchdown parlay | 5 | +26700 | SETTLED | loss | 0 | -5 |
-| 12 | 2026-10-04 | BetOnline | 1002396982 | Future/Prop Parlay (8 Legs) | Week 4 late 8-leg player-prop parlay | 5 | +14700 | SETTLED | loss | 0 | -5 |
-| 13 | 2026-10-04 | BetOnline | — | Future/Prop Parlay (8 Legs) | Week 4 afternoon 8-leg player-prop parlay | 5 | +6100 | SETTLED | loss | 0 | -5 |
-| 14 | 2026-10-04 | BetOnline | — | Future/Prop Parlay (8 Legs) | Week 4 afternoon 8-leg player-prop parlay #2 (SNF tail) | 3.15 | +21100 | SETTLED | loss | 0 | -3.15 |
-| 15 | 2026-10-04 | BetOnline | — | Future/Prop Parlay (7 Legs) | Week 4 afternoon 7-leg TD/receptions parlay (SNF tail) | 5 | +16300 | SETTLED | loss | 0 | -5 |
-| 16 | 2026-10-04 | BetOnline | — | Future/Prop Parlay (8 Legs) | Week 4 SNF island 8-leg SGP (DET @ CAR) | 5 | +15900 | SETTLED | loss | 0 | -5 |
-| 17 | 2026-10-04 | BetOnline | — | Future/Prop Parlay (7 Legs) | Week 4 SNF 7-leg SGP #2 (DET leads / CAR chases) | 7.16 | +26200 | SETTLED | loss | 0 | -7.16 |
-| 18 | 2026-10-04T01:51 | Bookmaker | 739713279 | Round Robin (5 Selections, 2-Team Combinations, 10 Parlays) | Week 4 5-selection 2-team round robin | 15 | +227 | SETTLED | win | 29.64 | 14.64 |
-| 19 | 2026-10-04T01:51 | Bookmaker | 739713278 | Parlay (5 Teams) | Week 4 5-team spread parlay | 25 | +1830 | SETTLED | loss | 0 | -25 |
-| 20 | 2026-10-04T02:22 | Bookmaker | 739713560 | Round Robin (6 Selections, 2-Team Combinations, 15 Parlays) | Week 4 6-selection moneyline round robin | 30 | +569 | SETTLED | loss | 12.28 | -17.72 |
-| 21 | 2026-10-04T03:26 | Bookmaker | 739714258 | Parlay (5 Teams) | Week 4 5-team morning-to-SNF parlay | 20 | +1251 | SETTLED | loss | 0 | -20 |
-| 22 | 2026-10-04T03:48 | Bookmaker | 739714534 | Parlay (6 Teams) | Week 4 6-team parlay | 20 | +1517 | SETTLED | loss | 0 | -20 |
-| 23 | 2026-10-04T03:54 | Bookmaker | 739714646 | Round Robin (8 Selections, 4-Team Combinations, 70 Parlays) | Week 4 8-selection 4-team round robin | 105 | +1001 | SETTLED | loss | 84.47 | -20.53 |
-| 24 | 2026-10-04T13:03 | Bookmaker | 739761492 | Parlay (5 Teams) | Week 4 5-team afternoon-to-SNF parlay | 25 | +1819 | SETTLED | loss | 0 | -25 |
+| # | Placed | Book | Ticket | Funding | Type | Title | Cash risk | Odds | Status | Result | Payout | P/L |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 2026-09-30T17:27 | Bookmaker | 739527199 | cash | SGP Parlay (2 Teams) | TNF SGP: Under 40 + CLE +3.5 (2 Teams) | 21.2 | +226 | SETTLED | loss | 0 | -21.2 |
+| 2 | 2026-10-01 | BetOnline | 1001392960 | cash | Parlay (4 Legs) | TNF 4-leg prop parlay #1001392960 | 10.09 | +1150 | SETTLED | loss | 0 | -10.09 |
+| 3 | 2026-10-01 | BetOnline | 1001390385 | cash | Parlay (8 Legs) | TNF 8-leg prop parlay #1001390385 | 5 | +6920 | SETTLED | loss | 0 | -5 |
+| 4 | 2026-10-01 | BetOnline | 1001388000 | cash | Parlay (5 Legs) | TNF 5-leg prop parlay #1001388000 | 5 | +12600 | SETTLED | loss | 0 | -5 |
+| 5 | 2026-10-01T17:05 | Bookmaker | 739565346 | cash | Parlay (10 Teams) | Week 4 10-team ML/spread parlay (TNF CLE +3.5 + weekend favorites) | 10.08 | +9238 | SETTLED | loss | 0 | -10.08 |
+| 6 | 2026-10-02T20:07 | unknown (Andy to confirm) | — | promo_credit | Parlay (2 Teams) — promotional product | Jay's Lock Box — NE/BUF Under 48½ + CIN −2½ (promo) | 0 | None | SETTLED | loss | 0 | 0 |
+| 7 | 2026-10-04 | BetOnline | 1002306890 | free_bet | Spread - FB | Week 4 Free Bet -- New England Patriots +7 (BEO Super Bowl Promo Offse | 0 | -115 | SETTLED | win | 8.7 | 8.7 |
+| 8 | 2026-10-04 | BetOnline | 1002306704 | cash | Future/Prop Parlay (5 Legs) | Week 4 5-leg 2+ touchdown parlay | 5 | +56600 | SETTLED | loss | 0 | -5 |
+| 9 | 2026-10-04 | BetOnline | 1002306303 | cash | Future/Prop Parlay (8 Legs) | Week 4 8-leg hybrid player-prop and DET win parlay | 6.83 | +14600 | SETTLED | loss | 0 | -6.83 |
+| 10 | 2026-10-04 | BetOnline | 1002304945 | cash | Future/Prop Parlay (8 Legs) | Week 4 8-leg morning player-prop parlay | 5 | +9500 | SETTLED | loss | 0 | -5 |
+| 11 | 2026-10-04 | BetOnline | 1002303293 | cash | Future/Prop Parlay (6 Legs) | Week 4 6-leg anytime-touchdown parlay | 5 | +26700 | SETTLED | loss | 0 | -5 |
+| 12 | 2026-10-04 | BetOnline | 1002396982 | cash | Future/Prop Parlay (8 Legs) | Week 4 late 8-leg player-prop parlay | 5 | +14700 | SETTLED | loss | 0 | -5 |
+| 13 | 2026-10-04 | BetOnline | — | cash | Future/Prop Parlay (8 Legs) | Week 4 afternoon 8-leg player-prop parlay | 5 | +6100 | SETTLED | loss | 0 | -5 |
+| 14 | 2026-10-04 | BetOnline | — | cash | Future/Prop Parlay (8 Legs) | Week 4 afternoon 8-leg player-prop parlay #2 (SNF tail) | 3.15 | +21100 | SETTLED | loss | 0 | -3.15 |
+| 15 | 2026-10-04 | BetOnline | — | cash | Future/Prop Parlay (7 Legs) | Week 4 afternoon 7-leg TD/receptions parlay (SNF tail) | 5 | +16300 | SETTLED | loss | 0 | -5 |
+| 16 | 2026-10-04 | BetOnline | — | cash | Future/Prop Parlay (8 Legs) | Week 4 SNF island 8-leg SGP (DET @ CAR) | 5 | +15900 | SETTLED | loss | 0 | -5 |
+| 17 | 2026-10-04 | BetOnline | — | cash | Future/Prop Parlay (7 Legs) | Week 4 SNF 7-leg SGP #2 (DET leads / CAR chases) | 7.16 | +26200 | SETTLED | loss | 0 | -7.16 |
+| 18 | 2026-10-04T01:51 | Bookmaker | 739713279 | cash | Round Robin (5 Selections, 2-Team Combinations, 10 Parlays) | Week 4 5-selection 2-team round robin | 15 | +227 | SETTLED | win | 29.64 | 14.64 |
+| 19 | 2026-10-04T01:51 | Bookmaker | 739713278 | cash | Parlay (5 Teams) | Week 4 5-team spread parlay | 25 | +1830 | SETTLED | loss | 0 | -25 |
+| 20 | 2026-10-04T02:22 | Bookmaker | 739713560 | cash | Round Robin (6 Selections, 2-Team Combinations, 15 Parlays) | Week 4 6-selection moneyline round robin | 30 | +569 | SETTLED | loss | 12.28 | -17.72 |
+| 21 | 2026-10-04T03:26 | Bookmaker | 739714258 | cash | Parlay (5 Teams) | Week 4 5-team morning-to-SNF parlay | 20 | +1251 | SETTLED | loss | 0 | -20 |
+| 22 | 2026-10-04T03:48 | Bookmaker | 739714534 | cash | Parlay (6 Teams) | Week 4 6-team parlay | 20 | +1517 | SETTLED | loss | 0 | -20 |
+| 23 | 2026-10-04T03:54 | Bookmaker | 739714646 | cash | Round Robin (8 Selections, 4-Team Combinations, 70 Parlays) | Week 4 8-selection 4-team round robin | 105 | +1001 | SETTLED | loss | 84.47 | -20.53 |
+| 24 | 2026-10-04T13:03 | Bookmaker | 739761492 | cash | Parlay (5 Teams) | Week 4 5-team afternoon-to-SNF parlay | 25 | +1819 | SETTLED | loss | 0 | -25 |
 
-Settled real tickets: risk $353.51, net $-208.42. Open: the GB Super Bowl future moved to the futures ledger (not in this table).
+Settled real tickets: cash risk $343.51, net $-208.42. The NE +7 ticket was a $10 Bills-win free bet (no cash risk); its $8.70 win offsets the BUF SB boost #996987591. Still open: the GB Super Bowl future, which moved to the futures ledger and is not in this table.
 
-## Paper (AI benchmark, not placed)
+## Paper (AI benchmark, not placed) — TO GRADE (next team, with Andy)
 
 | # | Id | Title | Stake | Odds | Status | Result |
 |---|---|---|---|---|---|---|

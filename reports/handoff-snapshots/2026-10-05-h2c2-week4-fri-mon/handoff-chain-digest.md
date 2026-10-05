@@ -2,7 +2,7 @@
 > - `scripts/master-intel/build_site.py` is **not** dirty. Andy's nav work was committed in `10138d5` (10/04 ~23:00 PT), and the file matches HEAD.
 > - All commits through `6887ca8` are pushed; `origin/main` = `6887ca8`. The "`8949848` not pushed" note is obsolete.
 > - Phone tracker artifact URL: https://claude.ai/artifact/R4qQo7h1ds6hjyXmkvZr22.
-> - §4 item 4 / §7 item 20: the Bills free wager Andy described as "JAX +7" matches **NE +7 BetOnline #1002306890** ($10 at −115, +$8.70) in the ledger. Confirm with Andy.
+> - §4 item 4 / §7 item 20: the Bills free wager Andy described as "JAX +7" is **NE +7 BetOnline #1002306890** ($10 at −115, +$8.70). Andy confirmed this on 10/05, and it is now recorded as a free bet. The second Bills credit is unused and goes on BUF@LAR.
 > - §7 item 19: the 24 real tickets are itemised in `week4-ticket-ledger.md`. That file reconciles the 13 tickets from 10/04 10:54 with the later afternoon and SNF placements.
 > - Jay's Lock Box is recorded as SETTLED / loss with $0 cash in the ledger. Book, odds and ticket # are still unknown.
 

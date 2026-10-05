@@ -12929,22 +12929,22 @@
     "season": 2026,
     "week": 4,
     "game": "NE @ BUF",
-    "game_title": "New England Patriots +7",
+    "game_title": "Week 4 Free Bet -- New England Patriots +7 (BEO Super Bowl Promo Offset)",
     "book": "BetOnline",
     "ticket_type": "Spread - FB",
     "category": "Spread",
-    "funding_type": "cash",
-    "is_promo_credit": false,
-    "cash_risk_usd": 10,
+    "funding_type": "free_bet",
+    "is_promo_credit": true,
+    "cash_risk_usd": 0,
     "stake_usd": 10,
-    "units": 1,
+    "units": 0,
     "odds_american": "-115",
     "odds_decimal": 1.8696,
     "potential_profit_usd": 8.7,
-    "potential_payout_usd": 18.7,
+    "potential_payout_usd": 8.7,
     "status": "SETTLED",
     "result": "win",
-    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04. | Settled 2026-10-04 by Claude: NE 29, BUF 26 (NE +7 won).",
+    "progress_notes": "Official user-placed BetOnline ticket supplied by Andy on 2026-10-04. | Settled 2026-10-04 by Claude: NE 29, BUF 26 (NE +7 won). | 2026-10-05 (Andy confirmed): this was the Bills-win FREE BET, not cash. Stake not returned; the $8.70 win offsets BUF Super Bowl liability (bills_sb, ticket 996987591). Andy's message called it \"JAX +7\"; he confirmed it was NE +7.",
     "legs": [
       {
         "leg_num": 1,
@@ -12961,9 +12961,11 @@
         "actual_stat": "+3"
       }
     ],
-    "settled_payout_usd": 18.7,
+    "settled_payout_usd": 8.7,
     "profit_usd": 8.7,
-    "graded_at": "2026-10-05T14:42:27.097Z"
+    "graded_at": "2026-10-05T14:42:27.097Z",
+    "promo_credit_stake_usd": 10,
+    "promotion": "BetOnline Super Bowl Futures Special: $10 free bet per Bills regular-season win (Week 2 credit)"
   },
   {
     "id": "bet_20261004_betonline_1002306704_2td_parlay",
