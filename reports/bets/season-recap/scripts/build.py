@@ -1,5 +1,5 @@
 import json,sys,os,re
-sys.path.insert(0,os.path.expanduser('~/scratch'))
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from grade import *
 from parse_placed import w3,parse_leg,grade_spec
 WEEK=os.environ.get('WEEK','3')
@@ -57,7 +57,7 @@ for a in AI:
 if WEEK=='3':
   g=GAMES[('LAR','DEN')];   h1=sum(int(x) for x in g['away_ls'][:2])+sum(int(x) for x in g['home_ls'][:2])
   ai_only.append(dict(label='LAR@DEN 1st half Under 22.5',src='SNF T3 (dropped by Andy, D11)',game='LAR@DEN',kind='half_total',thr=22.5,dir='under',result='W' if h1<22.5 else 'L',actual=f'1H total {h1}',margin=22.5-h1,cat='Total Under',group='Sides & totals',origin='ai_only',pkey=['half','LAR@DEN']))
-json.dump(dict(tickets=tickets,legs=legs,ai_only=ai_only),open(os.path.expanduser(f'~/scratch/w{WEEK}legs.json'),'w'),default=str,indent=1)
+json.dump(dict(tickets=tickets,legs=legs,ai_only=ai_only),open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..',f'w{WEEK}legs.json'),'w'),default=str,indent=1)
 import collections
 print('placed legs',len(legs),'ai_only',len(ai_only))
 c=collections.Counter((l['origin'],l['result']) for l in legs); print(c)

@@ -1,7 +1,8 @@
 import json, re, os, unicodedata
 H=os.path.expanduser('~')
 WEEK=os.environ.get('WEEK','3')
-G=json.load(open(H+f'/scratch/w{WEEK}games.json'))
+_RD=os.environ.get('RECAP_DIR') or (H+'/scratch' if os.path.exists(H+f'/scratch/w{WEEK}games.json') else os.path.join(os.path.dirname(os.path.abspath(__file__)),'..'))
+G=json.load(open(os.path.join(_RD,f'w{WEEK}games.json')))
 def norm(s):
     s=unicodedata.normalize('NFKD',s or '').encode('ascii','ignore').decode().lower()
     s=re.sub(r"[\.'’]","",s); s=re.sub(r"\b(jr|sr|ii|iii|iv)\b","",s); s=re.sub(r"[^a-z ]"," ",s)

@@ -1,7 +1,7 @@
 import json,re,sys,os
-sys.path.insert(0,os.path.expanduser('~/scratch'))
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))
 from grade import *
-W=json.load(open(os.path.expanduser('~/mnt/dev/projects/NFL_Dashboard/data/official-picks/user-placed-wagers-2026.json')))
+W=json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'..','..','..','..','data','official-picks','user-placed-wagers-2026.json')))
 w3=[w for w in W if str(w.get('week'))==os.environ.get('WEEK','3')]
 MK={'interceptions':'INT?','pass_interceptions':'int_thrown','completions':'completions','sacks':'sacks','receiving_yards':'rec_yds','rushing_yards':'rush_yds','receptions':'rec','touchdowns':'atd','first_touchdown':'first_td','passing_touchdowns':'pass_td','anytime_touchdown':'atd','anytime_td':'atd','tackles_assists':'tackles','pass_attempts':'pass_att','rush_attempts':'carries','passing_yards':'pass_yds','carries':'carries','passing_tds':'pass_td','interceptions_thrown':'int_thrown','pass_completions':'completions','field_goals_made':'fgm','pass_attempts':'pass_att'}
 def thr_dir(sel,line):

@@ -7,6 +7,7 @@ css=css.replace('</style>','''.season{width:100%;border-collapse:collapse;font:1
 .season th:first-child,.season td:first-child{text-align:left}
 .season td{text-align:right;padding:7px 10px;border-bottom:1px solid var(--rule);font-variant-numeric:tabular-nums}
 .season tr.cur td{font-weight:600;background:var(--bg)} .neg{color:var(--miss)}
+.srcs{display:inline-flex;flex-wrap:wrap;gap:4px;margin-left:6px}.src{font:600 10.5px var(--mono);text-transform:uppercase;letter-spacing:.04em;color:var(--ink2);border:1px solid var(--rule);border-radius:3px;padding:1px 5px;text-decoration:none}.src:hover{color:var(--ink);border-color:var(--ink2)}
 .note-box{border-left:3px solid var(--o3);padding:8px 12px;background:var(--paper);font-size:13.5px;color:var(--ink2);max-width:80ch}
 </style>''')
 o=M['org']

@@ -1,4 +1,4 @@
-import json,collections,html,sys,importlib
+import json,collections,html,sys,importlib,os
 WK=sys.argv[1]
 CFG=importlib.import_module(f'cfg_w{WK}')
 R=CFG.R
@@ -147,6 +147,17 @@ div_rows=''.join(f'<tr><td class="mono">{e(a)}</td><td>{e(b)}</td><td>{e(c)}</td
 exp=collections.defaultdict(lambda:[0,0])
 for l in graded: exp[l['game']][0 if l['result']=='W' else 1]+=1
 order_games=CFG.ORDER
+_EXP_PATH=getattr(CFG,'EXPERTS',None)
+EXP=json.load(open(_EXP_PATH)) if _EXP_PATH and os.path.exists(_EXP_PATH) else None
+def expert_row(k,r):
+    if not r.get('experts'): return ''
+    links=''
+    if EXP:
+        seen=[]
+        for t in EXP['games'].get(k,{}).get('takeaways',[]):
+            if t['src'] not in seen: seen.append(t['src'])
+        links=' '.join(f'<a class="src" href="{e(EXP["sources"][x]["url"])}" target="_blank" rel="noopener">{e(EXP["sources"][x]["outlet"].split(" (")[0])}</a>' for x in seen if x in EXP['sources'])
+    return f'<div><dt>Expert view</dt><dd>{e(r["experts"])}{(" <span class=\"srcs\">"+links+"</span>") if links else ""}</dd></div>'
 def gcard(k):
     g=GM[k]; r=R.get(k); a,h=g['score']; A_,H_=g['away'],g['home']
     ls=g['ls']; nq=max(len(ls[0]),len(ls[1]))
@@ -164,7 +175,7 @@ def gcard(k):
 <dl><div><dt>{CFG.PROJ_LABEL}</dt><dd>{e(projtxt)} <span class="total">(total {a+h}{(" vs "+format(pj[0]+pj[1],"g")) if pj else ""})</span></dd></div>
 <div><dt>Our read</dt><dd>{e(r["ai"])}</dd></div>
 <div><dt>What happened</dt><dd>{e(r["happened"])}</dd></div>
-<div><dt>Where it went wrong</dt><dd>{e(r["wrong"])}</dd></div></dl>
+<div><dt>Where it went wrong</dt><dd>{e(r["wrong"])}</dd></div>{expert_row(k,r)}</dl>
 {stats}<footer><span class="gradechip">{e(r["grade"])}</span>{expo}</footer></article>'''
 games_html=''.join(gcard(k) for k in order_games)
 # ---------- near misses

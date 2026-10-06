@@ -163,10 +163,24 @@ Run after the last game of the week (usually Tuesday morning, after MNF). Script
    guess in `reports/analysis/season/claude/provenance.json`.
 6. **Season page.** `python build_season_report.py --week <N>` → `reports/analysis/season/claude/season-review.html`;
    republish it to the "Platinum Rose Season Review" artifact (same URL every week).
-7. **Post-mortem + ledger.** Write the week's post-mortem in `reports/bets/season-recap/` (Week 1/2 format), update the
+7. **Team performance + expert commentary (added 2026-10-05, Claude Team 2).**
+   - `python3 reports/analysis/season/claude/scripts/team_postmortem.py --week <N>` → `out/week-NN-teams.{json,csv}` +
+     `-summary.md`: per team score, ATS/O-U vs the ESPN (DraftKings) line, points vs implied, YPP diff, TO margin,
+     3rd down / red zone, points per drive, season-to-date SU/ATS/O-U, and mechanical "result vs stats" flags.
+   - `python3 reports/bets/season-recap/scripts/espn_week.py --week <N>` → `wNgames.json` (grader input) and
+     `wNgamesum.json` (game cards with team lines and scoring plays). Replaces the uncommitted scratch builders.
+   - Expert post-game commentary → `reports/bets/season-recap/wNexpert-commentary.json` (committed; master-intel is gitignored). Free web reads only
+     (no paid models, no Supabase). Weekly roundups cover every game: NFL.com "What We Learned", CBS grades (Breech),
+     Bleacher Report "takeaways for every team", ESPN Sunday takeaways (read via the ABC7 syndication when espn.com does
+     not render), The Ringer and SI winners/losers; add TNF/SNF game stories as needed. Store attributed paraphrases with
+     URLs, not quotes (page extraction is not reliable verbatim); cross-check numbers against the box scores and list
+     rejected claims.
+   - `recaps_wN.py` adds an `experts` line per game (Claude's synthesis); `cfg_wN.EXPERTS` points at the JSON so the game
+     cards render an "Expert view" row with source links.
+8. **Post-mortem + ledger.** Write the week's post-mortem in `reports/bets/season-recap/` (Week 1/2 format), update the
    season-to-date table in every earlier post-mortem, and close the week in the recommendation ledger
    (`docs/claude-project-dev/recommendation-ledger-2026.md` and the claude.ai DEV project copy).
-8. **Findings.** Append `[claude]` lines to `reports/analysis/w1-3-deep/FINDINGS.md` (append-only, shared with Codex)
+9. **Findings.** Append `[claude]` lines to `reports/analysis/w1-3-deep/FINDINGS.md` (append-only, shared with Codex)
    for anything that crossed 2 SE or reversed.
-9. **Needs Andy's explicit OK, every time:** Supabase writes, the Bankroll sync
+10. **Needs Andy's explicit OK, every time:** Supabase writes, the Bankroll sync
    (`scripts/sync-placed-wagers-to-bankroll.mjs`), and any account action.
