@@ -78,6 +78,70 @@ $TasksConfig = @(
         LimitMin    = 45
     },
     @{
+        Name        = "NFL_Dashboard_Toolbox_Tuesday"
+        Script      = "toolbox-tuesday.cmd"
+        Description = "toolbox --cadence tuesday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-tuesday.log"
+        Type        = "Weekly"
+        WeeklyAt    = @(@("Tuesday", "10:00"))
+        LimitMin    = 30
+    },
+    @{
+        Name        = "NFL_Dashboard_Toolbox_WednesdayPM"
+        Script      = "toolbox-wednesday-pm.cmd"
+        Description = "toolbox --cadence wednesday-pm (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-wednesday-pm.log"
+        Type        = "Weekly"
+        WeeklyAt    = @(@("Wednesday", "15:00"))
+        LimitMin    = 30
+    },
+    @{
+        Name        = "NFL_Dashboard_Toolbox_Wednesday"
+        Script      = "toolbox-wednesday.cmd"
+        Description = "toolbox --cadence wednesday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-wednesday.log"
+        Type        = "Weekly"
+        WeeklyAt    = @(@("Wednesday", "09:00"))
+        LimitMin    = 60
+    },
+    @{
+        Name        = "NFL_Dashboard_Toolbox_Thursday"
+        Script      = "toolbox-thursday.cmd"
+        Description = "toolbox --cadence thursday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-thursday.log"
+        Type        = "Weekly"
+        WeeklyAt    = @(@("Thursday", "14:30"))
+        LimitMin    = 30
+    },
+    @{
+        Name        = "NFL_Dashboard_Toolbox_Friday"
+        Script      = "toolbox-friday.cmd"
+        Description = "toolbox --cadence friday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-friday.log"
+        Type        = "Weekly"
+        WeeklyAt    = @(@("Friday", "15:00"))
+        LimitMin    = 30
+    },
+    @{
+        Name        = "NFL_Dashboard_Toolbox_Saturday"
+        Script      = "toolbox-saturday.cmd"
+        Description = "toolbox --cadence saturday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-saturday.log"
+        Type        = "Weekly"
+        WeeklyAt    = @(@("Saturday", "10:00"))
+        LimitMin    = 20
+    },
+    @{
+        Name        = "NFL_Dashboard_Toolbox_Sunday"
+        Script      = "toolbox-sunday.cmd"
+        Description = "toolbox --cadence sunday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-sunday.log"
+        Type        = "Weekly"
+        WeeklyAt    = @(@("Sunday", "08:30"), @("Sunday", "11:45"))
+        LimitMin    = 20
+    },
+    @{
+        Name        = "NFL_Dashboard_Toolbox_Monday"
+        Script      = "toolbox-monday.cmd"
+        Description = "toolbox --cadence monday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-monday.log"
+        Type        = "Weekly"
+        WeeklyAt    = @(@("Monday", "22:30"))
+        LimitMin    = 15
+    },
+    @{
         Name        = "NFL_Dashboard_Grok_Thread_Scanner"
         Script      = "grok-thread-scanner.cmd"
         Description = "Scans bookmarks for unparsed threads and generates Grok prompt packets (hourly, hidden mode)."

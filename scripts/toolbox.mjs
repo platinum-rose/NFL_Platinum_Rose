@@ -265,8 +265,13 @@ async function runCadence(day) {
       // 2026-09-23: was hardcoded '--week 1'; with no --week the tracker uses
       // getNFLWeekInfo() (src/lib/constants.js) for the current NFL week.
       await run('node', ['scripts/generate-live-tracker.mjs']);
-      console.log(`${c.cyan}3. Launching Live Tracker in Browser...${c.reset}`);
-      await launchInBrowser('public/live-tracker-sunday.html');
+      if (process.argv.includes('--no-launch')) {
+        // Scheduled (unattended) runs: build only; don't pop a browser window.
+        console.log(`${c.dim}3. Browser launch skipped (--no-launch).${c.reset}`);
+      } else {
+        console.log(`${c.cyan}3. Launching Live Tracker in Browser...${c.reset}`);
+        await launchInBrowser('public/live-tracker-sunday.html');
+      }
       break;
 
     case 'monday':
@@ -399,6 +404,7 @@ NFL Toolbox CLI Runner
 Usage:
   node scripts/toolbox.mjs                          # Interactive menu
   node scripts/toolbox.mjs --cadence <day>          # tuesday, wednesday, wednesday-pm, thursday, friday, saturday, sunday, monday, prediction-markets
+  node scripts/toolbox.mjs --cadence sunday --no-launch   # build the tracker without opening a browser (scheduled runs)
   node scripts/toolbox.mjs --generate-tracker       # Generates public/live-tracker-sunday.html
   node scripts/toolbox.mjs --launch-tracker         # Launches sunday tracker in browser
   node scripts/toolbox.mjs --reconcile [--dry-run]  # Grades wagers and reconciles split ledger
