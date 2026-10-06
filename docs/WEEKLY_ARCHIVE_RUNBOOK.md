@@ -32,6 +32,7 @@ then `Start-ScheduledTask -TaskName NFL_Dashboard_Weekly_Archive` and read `logs
 | notes | `vault/`: staged Obsidian notes (committed) |
 | vault | `VAULT_DIR/NFL/<season>/Week NN/` via `agents/lib/vaultWriter.js` (atomic, hash-verified, unchanged notes skipped) |
 | rollups | `data/archive/<season>/season/team-weeks.csv`, `fantasy-player-weeks.csv`, `fantasy-matchups.csv` |
+| drafts | `data/archive/<season>/drafts/<season>-<league>.json/.csv` + `drafts-<season>.csv`: every pick (round, cost, team, manager, player, position) with that player's fantasy points to date and value vs draft slot; vault `NFL/<season>/Drafts/`. Fetched once (a draft never changes), re-parsed each run. `node scripts/archive/yahoo-draft-results.mjs --history 4` also archives each league's prior seasons via Yahoo's renew chain |
 | — | `manifest.json`: per-step status, counts, errors |
 
 ## Obsidian layout (`NFL/<season>/Week NN/`)
@@ -51,4 +52,4 @@ TABLE week, opponent, result, ats, ypp_diff, to_margin FROM "NFL/2026" WHERE typ
 - Yahoo Pick'em: the public Fantasy API may not expose it; the first Windows run's probe (`yahoo/yahoo-week.json` → `other_games`) answers this. Until then the Tuesday browser task covers it.
 - Yahoo parsing has not yet run against live responses (the Claude sandbox cannot reach Yahoo). Check the first run's `manifest.json` and `yahoo-week.json`; fix the parser and re-run with `--from-raw` if any field is empty.
 - Survivor report shows an unresolved team id (`NFL.T.33`) in the field pick distribution — `sync-yahoo-survivor.mjs` team-id map needs a fix.
-- Backfill Yahoo weeks 1-3 on Windows: `node scripts/archive/weekly-archive.mjs --week 1 --skip-espn` (repeat for 2, 3).
+- One-time 2026 backfill (weeks 1-4 + drafts with 4 seasons of history): run `scripts\windows\yahoo-backfill-2026.cmd` on Windows; log in `logs\yahoo-backfill-2026.log`. Past weeks copy the stored survivor history instead of re-running the sync (it would overwrite history with today's state).

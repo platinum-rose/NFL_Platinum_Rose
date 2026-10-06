@@ -11,7 +11,7 @@
  * scripts/sync-yahoo-survivor.mjs --week N and freezes its outputs), and a probe of every other Yahoo
  * game on the account (Pick'em etc.) that saves group/standings/teams responses for later parsing.
  *
- * Usage:  node scripts/archive/yahoo-week-archive.mjs --week 4 [--season 2026] [--from-raw] [--skip-survivor]
+ * Usage:  node scripts/archive/yahoo-week-archive.mjs --week 4 [--season 2026] [--from-raw] [--skip-survivor] [--survivor-copy-only]
  * No writes anywhere except data/archive/... (and the survivor sync's own data/survivor files).
  */
 import 'dotenv/config';
@@ -177,8 +177,9 @@ async function parseAll() {
 }
 
 function survivor() {
-  const r = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'sync-yahoo-survivor.mjs'), '--week', String(WEEK)], { cwd: ROOT, encoding: 'utf8' });
-  note(`survivor sync exit ${r.status}`);
+  // --survivor-copy-only (backfill): never re-run the sync for a past week; it would overwrite that week's stored history with today's state
+  if (has('--survivor-copy-only')) note('survivor: copy-only (backfill)');
+  else { const r = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'sync-yahoo-survivor.mjs'), '--week', String(WEEK)], { cwd: ROOT, encoding: 'utf8' }); note(`survivor sync exit ${r.status}`); }
   const dst = path.join(OUT, 'survivor'); fs.mkdirSync(dst, { recursive: true });
   for (const f of [`history/week-${WEEK}-picks.json`, `YAHOO_SURVIVOR_WEEK_${WEEK}_REPORT.md`, 'yahoo-survivor-entrants-2026.json', 'yahoo-competitor-profiles.json']) {
     const src = path.join(ROOT, 'data', 'survivor', f);

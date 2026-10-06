@@ -128,10 +128,21 @@ async function betting() {
 
 // --------------------------------------------------------------- 3 yahoo
 async function yahoo() {
-  const r = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'archive', 'yahoo-week-archive.mjs'), '--week', String(WEEK), '--season', String(SEASON)], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64e6 });
+  const r = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'archive', 'yahoo-week-archive.mjs'), '--week', String(WEEK), '--season', String(SEASON), ...(BACKFILL ? ['--survivor-copy-only'] : [])], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64e6 });
   fs.writeFileSync(path.join(AR, 'yahoo-archive.log'), `${r.stdout}\n${r.stderr}`);
   if (r.status !== 0) throw new Error(`yahoo-week-archive exit ${r.status}: ${(r.stderr || '').slice(-400)}`);
   return { summary: (r.stdout || '').trim().split('\n').pop() };
+}
+
+// --------------------------------------------------------------- 3b drafts (fetch once; re-parse each run so points-to-date stays current)
+async function drafts() {
+  const dir = path.join(ROOT, 'data', 'archive', String(SEASON), 'drafts');
+  const haveRaw = fs.existsSync(path.join(dir, 'raw', 'leagues.json'));
+  const args = [path.join(ROOT, 'scripts', 'archive', 'yahoo-draft-results.mjs'), '--season', String(SEASON), ...(haveRaw ? ['--from-raw'] : []), ...(has('--no-vault') ? ['--no-vault'] : [])];
+  const r = spawnSync(process.execPath, args, { cwd: ROOT, encoding: 'utf8', maxBuffer: 64e6 });
+  fs.writeFileSync(path.join(AR, 'drafts.log'), `${r.stdout}\n${r.stderr}`);
+  if (r.status !== 0) throw new Error(`yahoo-draft-results exit ${r.status}: ${(r.stderr || '').slice(-400)}`);
+  return { fetched: !haveRaw, summary: (r.stdout || '').trim().split('\n').filter((l) => l.startsWith('parsed')).length + ' leagues' };
 }
 
 // --------------------------------------------------------------- 4 pools
@@ -311,6 +322,10 @@ if (!has('--vault-only')) {
   await step('betting', betting);
   if (!has('--skip-yahoo')) await step('yahoo', yahoo);
   await step('pools', pools);
+}
+await step('rollups', rollups); // drafts read the season player rows, so build them first
+if (!has('--skip-yahoo') && !has('--vault-only')) {
+  await step('drafts', drafts);
 }
 await step('notes', async () => buildNotes());
 if (!has('--no-vault')) await step('vault', vault);
