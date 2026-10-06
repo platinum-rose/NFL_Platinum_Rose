@@ -113,6 +113,22 @@ function legDirection(leg) {
   return /\bunder\b/i.test(String((leg && leg.selection) || '')) ? 'under' : 'over';
 }
 
+// Player-name key shared by build-time and in-page code. Injected into the page with
+// .toString() so its regex escapes survive (backslashes inside the page template literal are
+// eaten: \b became a backspace and \s+ became "s+", which broke every live suffixed name, e.g.
+// ESPN "Kyle Pitts Sr." vs ticket "Kyle Pitts"). Strips accents, punctuation and trailing
+// generational suffixes (Jr, Sr, II, III, IV, V) so "Pitts Sr." and "Pitts" share one key.
+function playerNameKey(name) {
+  return String(name || '')
+    .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[\u2018\u2019'`.,]/g, '')
+    .replace(/[-\u2010-\u2015]/g, ' ')
+    .replace(/\s+/g, ' ').trim()
+    .replace(/(?:\s(?:jr|sr|ii|iii|iv|v))+$/, '')
+    .trim();
+}
+
 function ftdNormName(s) {
   return String(s || '').toLowerCase()
     .replace(/\b(sr|jr|iii|ii|iv)\b\.?/g, '')
@@ -290,9 +306,9 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
           const dName = (ath.displayName || '').toLowerCase().trim();
           const fName = (ath.fullName || '').toLowerCase().trim();
           const sName = (ath.shortName || '').toLowerCase().trim();
-          const noSuffix = dName.replace(/\b(sr\.?|jr\.?|iii|ii|iv)\b/gi, '').trim();
-          const cleanD = dName.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
-          const cleanNoSuff = noSuffix.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
+          const noSuffix = playerNameKey(dName);
+          const cleanD = playerNameKey(fName);
+          const cleanNoSuff = playerNameKey(sName);
           const names = [dName, fName, sName, noSuffix, cleanD, cleanNoSuff].filter(Boolean);
           const status = inj.status || 'Injured';
           const detail = inj.details?.type || inj.details?.detail || '';
@@ -314,9 +330,9 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
             const dName = (ath.displayName || '').toLowerCase().trim();
             const fName = (ath.fullName || '').toLowerCase().trim();
             const sName = (ath.shortName || '').toLowerCase().trim();
-            const noSuffix = dName.replace(/\b(sr\.?|jr\.?|iii|ii|iv)\b/gi, '').trim();
-            const cleanD = dName.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
-            const cleanNoSuff = noSuffix.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
+            const noSuffix = playerNameKey(dName);
+            const cleanD = playerNameKey(fName);
+            const cleanNoSuff = playerNameKey(sName);
 
             const names = [dName, fName, sName, noSuffix, cleanD, cleanNoSuff].filter(Boolean);
 
@@ -4384,7 +4400,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 
                       const pos = p.displayPosition || 'FLEX';
                       const normPName = (p.name || '').toLowerCase().trim();
-                      const normBaseName = normPName.replace(/\b(sr\.?|jr\.?|iii|ii|iv)\b/gi, '').trim();
+                      const normBaseName = playerNameKey(normPName);
                       const playerBoxStats = boxscoreAthleteStats[normPName] || boxscoreAthleteStats[normBaseName] || null;
                       const fantasyPts = p.fantasyPoints != null ? p.fantasyPoints : (playerBoxStats?.fantasyPts != null ? playerBoxStats.fantasyPts : null);
                       const isConcludedGame = p.game?.window === 'concluded';
@@ -4492,7 +4508,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                         else if (pos.includes('W') || pos.includes('R') || pos.includes('T')) posColor = '#06B6D4';
 
                         const normSName = (s.name || '').toLowerCase().trim();
-                        const normBaseName = normSName.replace(/\b(sr\.?|jr\.?|iii|ii|iv)\b/gi, '').trim();
+                        const normBaseName = playerNameKey(normSName);
                         const starterBoxStats = boxscoreAthleteStats[normSName] || boxscoreAthleteStats[normBaseName] || null;
                         const starterFantasyPts = s.fantasyPoints != null ? s.fantasyPoints : (starterBoxStats?.fantasyPts != null ? starterBoxStats.fantasyPts : null);
                         const isConcludedGame = s.game?.window === 'concluded';
@@ -5885,7 +5901,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             let pct = 50;
             const pText = sit.possessionText || '';
             if (pText) {
-              const m = pText.match(/([A-Z]{2,3})\s*(\d+)/i);
+              const m = pText.match(/([A-Z]{2,3})\\s*(\\d+)/i);
               if (m) {
                 const pTeam = m[1].toUpperCase();
                 const yard = parseInt(m[2], 10);
@@ -5926,7 +5942,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         const coverEl = document.getElementById('sb-cover-' + gameId);
         if (coverEl && (isLive || isCompleted) && homeScore >= 0 && awayScore >= 0) {
           const lineText = document.getElementById('sb-line-' + gameId)?.textContent || '';
-          const spreadMatch = lineText.match(/([A-Z]{2,3})\s+([+-]?\d+(\.\d+)?)/);
+          const spreadMatch = lineText.match(/([A-Z]{2,3})\\s+([+-]?\\d+(\\.\\d+)?)/);
           if (spreadMatch) {
             const favTeam = spreadMatch[1];
             const spreadVal = parseFloat(spreadMatch[2]);
@@ -6015,7 +6031,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       const kickoff = parseFloat(legEl.getAttribute('data-kickoff') || '9999999999999');
       const abbrs = [];
       const gameLabel = legEl.getAttribute('data-game') || '';
-      gameLabel.split(/\s*(?:@|vs\.?)\s*/i).forEach(part => {
+      gameLabel.split(/\\s*(?:@|vs\\.?)\\s*/i).forEach(part => {
         const a = (part || '').trim().toUpperCase();
         if (a && a.length <= 4) abbrs.push(a);
       });
@@ -6238,6 +6254,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     let latestTeamStatusMap = ${JSON.stringify(initialTeamStatusMap)};
     // First-TD scorer per team abbr (build snapshot, refreshed by fetchSummaryForEvent).
     let firstTdByTeam = ${JSON.stringify(initialFirstTdByTeam || {})};
+    ${playerNameKey.toString()}
     ${ftdNormName.toString()}
     ${isFirstTdMarket.toString()}
     ${extractFirstTdFromSummary.toString()}
@@ -6313,9 +6330,9 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               const dName = (ath.displayName || '').toLowerCase().trim();
               const fName = (ath.fullName || '').toLowerCase().trim();
               const sName = (ath.shortName || '').toLowerCase().trim();
-              const noSuffix = dName.replace(/\b(sr\.?|jr\.?|iii|ii|iv)\b/gi, '').trim();
-              const cleanD = dName.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
-              const cleanNoSuff = noSuffix.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
+              const noSuffix = playerNameKey(dName);
+              const cleanD = playerNameKey(fName);
+              const cleanNoSuff = playerNameKey(sName);
               const names = [dName, fName, sName, noSuffix, cleanD, cleanNoSuff].filter(Boolean);
               const status = inj.status || 'Injured';
               const detail = inj.details?.type || inj.details?.detail || '';
@@ -6336,9 +6353,9 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               const dName = (ath.displayName || '').toLowerCase().trim();
               const fName = (ath.fullName || '').toLowerCase().trim();
               const sName = (ath.shortName || '').toLowerCase().trim();
-              const noSuffix = dName.replace(/\b(sr\.?|jr\.?|iii|ii|iv)\b/gi, '').trim();
-              const cleanD = dName.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
-              const cleanNoSuff = noSuffix.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
+              const noSuffix = playerNameKey(dName);
+              const cleanD = playerNameKey(fName);
+              const cleanNoSuff = playerNameKey(sName);
 
               const names = [dName, fName, sName, noSuffix, cleanD, cleanNoSuff].filter(Boolean);
               const s = a.stats || [];
@@ -6412,8 +6429,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       playerCards.forEach(card => {
         const pId = card.getAttribute('data-player-id');
         const pName = (card.getAttribute('data-player-name') || '').toLowerCase().trim();
-        const baseName = pName.replace(/\b(sr\.?|jr\.?|iii|ii|iv)\b/gi, '').trim();
-        const cleanP = pName.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
+        const baseName = playerNameKey(pName);
+        const cleanP = playerNameKey(pName);
         const team = (card.getAttribute('data-team') || '').toUpperCase();
         const stats = athleteLiveStatsMap[pName] || athleteLiveStatsMap[baseName] || athleteLiveStatsMap[cleanP] || null;
 
@@ -6587,8 +6604,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         const rawP = el.getAttribute('data-player');
         if (!rawP) return;
         const pName = rawP.toLowerCase().trim();
-        const baseName = pName.replace(/\b(sr\.?|jr\.?|iii|ii|iv)\b/gi, '').trim();
-        const cleanP = pName.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
+        const baseName = playerNameKey(pName);
+        const cleanP = playerNameKey(pName);
         const stats = athleteLiveStatsMap[pName] || athleteLiveStatsMap[baseName] || athleteLiveStatsMap[cleanP] || null;
 
         const legKey = el.getAttribute('data-key');
@@ -6761,7 +6778,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         const cardKey = card.getAttribute('data-card-key');
         const team = (card.getAttribute('data-team') || '').toUpperCase();
         const pName = (card.getAttribute('data-player-name') || '').toLowerCase().trim();
-        const baseName = pName.replace(/\b(sr\.?|jr\.?|iii|ii|iv)\b/gi, '').trim();
+        const baseName = playerNameKey(pName);
         const stats = athleteLiveStatsMap[pName] || athleteLiveStatsMap[baseName] || null;
         const info = teamStatusMap[team];
         const isDone = info ? (info.isCompleted || (info.statusDesc && info.statusDesc.startsWith('Final'))) : false;
@@ -6806,7 +6823,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         const cardKey = card.getAttribute('data-card-key');
         const team = (card.getAttribute('data-team') || '').toUpperCase();
         const pName = (card.getAttribute('data-player-name') || '').toLowerCase().trim();
-        const baseName = pName.replace(/\b(sr\.?|jr\.?|iii|ii|iv)\b/gi, '').trim();
+        const baseName = playerNameKey(pName);
         const pstat = document.getElementById('ff-starter-pstat-' + cardKey);
         const stats = athleteLiveStatsMap[pName] || athleteLiveStatsMap[baseName] || null;
         const info = teamStatusMap[team];
@@ -7537,7 +7554,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         if (rawTeam && eventMap[rawTeam]) ev = eventMap[rawTeam];
         else if (rawOpp && eventMap[rawOpp]) ev = eventMap[rawOpp];
         else if (rawGame) {
-          const parts = rawGame.split(/\s*[@vV][sS]?\.?\s*/);
+          const parts = rawGame.split(/\\s*[@vV][sS]?\\.?\\s*/);
           if (parts.length === 2) {
             const t1 = normalizeClientTeam(parts[0]);
             const t2 = normalizeClientTeam(parts[1]);
@@ -7574,8 +7591,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         // 1. PLAYER PROPS
         if (rawPlayer) {
           const pName = rawPlayer.toLowerCase().trim();
-          const baseName = pName.replace(/\b(sr\.?|jr\.?|iii|ii|iv)\b/gi, '').trim();
-          const cleanP = pName.replace(/['.\-]/g, '').replace(/\s+/g, ' ').trim();
+          const baseName = playerNameKey(pName);
+          const cleanP = playerNameKey(pName);
           const stats = athleteLiveStatsMap[pName] || athleteLiveStatsMap[baseName] || athleteLiveStatsMap[cleanP] || null;
 
           // First-TD legs: decided the moment anyone scores the game's first TD.

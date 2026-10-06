@@ -30091,7 +30091,7 @@
             let pct = 50;
             const pText = sit.possessionText || '';
             if (pText) {
-              const m = pText.match(/([A-Z]{2,3})s*(d+)/i);
+              const m = pText.match(/([A-Z]{2,3})\s*(\d+)/i);
               if (m) {
                 const pTeam = m[1].toUpperCase();
                 const yard = parseInt(m[2], 10);
@@ -30132,7 +30132,7 @@
         const coverEl = document.getElementById('sb-cover-' + gameId);
         if (coverEl && (isLive || isCompleted) && homeScore >= 0 && awayScore >= 0) {
           const lineText = document.getElementById('sb-line-' + gameId)?.textContent || '';
-          const spreadMatch = lineText.match(/([A-Z]{2,3})s+([+-]?d+(.d+)?)/);
+          const spreadMatch = lineText.match(/([A-Z]{2,3})\s+([+-]?\d+(\.\d+)?)/);
           if (spreadMatch) {
             const favTeam = spreadMatch[1];
             const spreadVal = parseFloat(spreadMatch[2]);
@@ -30221,7 +30221,7 @@
       const kickoff = parseFloat(legEl.getAttribute('data-kickoff') || '9999999999999');
       const abbrs = [];
       const gameLabel = legEl.getAttribute('data-game') || '';
-      gameLabel.split(/s*(?:@|vs.?)s*/i).forEach(part => {
+      gameLabel.split(/\s*(?:@|vs\.?)\s*/i).forEach(part => {
         const a = (part || '').trim().toUpperCase();
         if (a && a.length <= 4) abbrs.push(a);
       });
@@ -30444,6 +30444,16 @@
     let latestTeamStatusMap = {};
     // First-TD scorer per team abbr (build snapshot, refreshed by fetchSummaryForEvent).
     let firstTdByTeam = {};
+    function playerNameKey(name) {
+  return String(name || '')
+    .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[\u2018\u2019'`.,]/g, '')
+    .replace(/[-\u2010-\u2015]/g, ' ')
+    .replace(/\s+/g, ' ').trim()
+    .replace(/(?:\s(?:jr|sr|ii|iii|iv|v))+$/, '')
+    .trim();
+}
     function ftdNormName(s) {
   return String(s || '').toLowerCase()
     .replace(/\b(sr|jr|iii|ii|iv)\b\.?/g, '')
@@ -30577,9 +30587,9 @@
               const dName = (ath.displayName || '').toLowerCase().trim();
               const fName = (ath.fullName || '').toLowerCase().trim();
               const sName = (ath.shortName || '').toLowerCase().trim();
-              const noSuffix = dName.replace(/(sr.?|jr.?|iii|ii|iv)/gi, '').trim();
-              const cleanD = dName.replace(/['.-]/g, '').replace(/s+/g, ' ').trim();
-              const cleanNoSuff = noSuffix.replace(/['.-]/g, '').replace(/s+/g, ' ').trim();
+              const noSuffix = playerNameKey(dName);
+              const cleanD = playerNameKey(fName);
+              const cleanNoSuff = playerNameKey(sName);
               const names = [dName, fName, sName, noSuffix, cleanD, cleanNoSuff].filter(Boolean);
               const status = inj.status || 'Injured';
               const detail = inj.details?.type || inj.details?.detail || '';
@@ -30600,9 +30610,9 @@
               const dName = (ath.displayName || '').toLowerCase().trim();
               const fName = (ath.fullName || '').toLowerCase().trim();
               const sName = (ath.shortName || '').toLowerCase().trim();
-              const noSuffix = dName.replace(/(sr.?|jr.?|iii|ii|iv)/gi, '').trim();
-              const cleanD = dName.replace(/['.-]/g, '').replace(/s+/g, ' ').trim();
-              const cleanNoSuff = noSuffix.replace(/['.-]/g, '').replace(/s+/g, ' ').trim();
+              const noSuffix = playerNameKey(dName);
+              const cleanD = playerNameKey(fName);
+              const cleanNoSuff = playerNameKey(sName);
 
               const names = [dName, fName, sName, noSuffix, cleanD, cleanNoSuff].filter(Boolean);
               const s = a.stats || [];
@@ -30676,8 +30686,8 @@
       playerCards.forEach(card => {
         const pId = card.getAttribute('data-player-id');
         const pName = (card.getAttribute('data-player-name') || '').toLowerCase().trim();
-        const baseName = pName.replace(/(sr.?|jr.?|iii|ii|iv)/gi, '').trim();
-        const cleanP = pName.replace(/['.-]/g, '').replace(/s+/g, ' ').trim();
+        const baseName = playerNameKey(pName);
+        const cleanP = playerNameKey(pName);
         const team = (card.getAttribute('data-team') || '').toUpperCase();
         const stats = athleteLiveStatsMap[pName] || athleteLiveStatsMap[baseName] || athleteLiveStatsMap[cleanP] || null;
 
@@ -30851,8 +30861,8 @@
         const rawP = el.getAttribute('data-player');
         if (!rawP) return;
         const pName = rawP.toLowerCase().trim();
-        const baseName = pName.replace(/(sr.?|jr.?|iii|ii|iv)/gi, '').trim();
-        const cleanP = pName.replace(/['.-]/g, '').replace(/s+/g, ' ').trim();
+        const baseName = playerNameKey(pName);
+        const cleanP = playerNameKey(pName);
         const stats = athleteLiveStatsMap[pName] || athleteLiveStatsMap[baseName] || athleteLiveStatsMap[cleanP] || null;
 
         const legKey = el.getAttribute('data-key');
@@ -31025,7 +31035,7 @@
         const cardKey = card.getAttribute('data-card-key');
         const team = (card.getAttribute('data-team') || '').toUpperCase();
         const pName = (card.getAttribute('data-player-name') || '').toLowerCase().trim();
-        const baseName = pName.replace(/(sr.?|jr.?|iii|ii|iv)/gi, '').trim();
+        const baseName = playerNameKey(pName);
         const stats = athleteLiveStatsMap[pName] || athleteLiveStatsMap[baseName] || null;
         const info = teamStatusMap[team];
         const isDone = info ? (info.isCompleted || (info.statusDesc && info.statusDesc.startsWith('Final'))) : false;
@@ -31070,7 +31080,7 @@
         const cardKey = card.getAttribute('data-card-key');
         const team = (card.getAttribute('data-team') || '').toUpperCase();
         const pName = (card.getAttribute('data-player-name') || '').toLowerCase().trim();
-        const baseName = pName.replace(/(sr.?|jr.?|iii|ii|iv)/gi, '').trim();
+        const baseName = playerNameKey(pName);
         const pstat = document.getElementById('ff-starter-pstat-' + cardKey);
         const stats = athleteLiveStatsMap[pName] || athleteLiveStatsMap[baseName] || null;
         const info = teamStatusMap[team];
@@ -31801,7 +31811,7 @@
         if (rawTeam && eventMap[rawTeam]) ev = eventMap[rawTeam];
         else if (rawOpp && eventMap[rawOpp]) ev = eventMap[rawOpp];
         else if (rawGame) {
-          const parts = rawGame.split(/s*[@vV][sS]?.?s*/);
+          const parts = rawGame.split(/\s*[@vV][sS]?\.?\s*/);
           if (parts.length === 2) {
             const t1 = normalizeClientTeam(parts[0]);
             const t2 = normalizeClientTeam(parts[1]);
@@ -31838,8 +31848,8 @@
         // 1. PLAYER PROPS
         if (rawPlayer) {
           const pName = rawPlayer.toLowerCase().trim();
-          const baseName = pName.replace(/(sr.?|jr.?|iii|ii|iv)/gi, '').trim();
-          const cleanP = pName.replace(/['.-]/g, '').replace(/s+/g, ' ').trim();
+          const baseName = playerNameKey(pName);
+          const cleanP = playerNameKey(pName);
           const stats = athleteLiveStatsMap[pName] || athleteLiveStatsMap[baseName] || athleteLiveStatsMap[cleanP] || null;
 
           // First-TD legs: decided the moment anyone scores the game's first TD.
