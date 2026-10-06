@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "CLE — Week 4"
-created: "2026-10-06T04:26:14.907Z"
-modified: "2026-10-06T04:26:14.907Z"
+created: "2026-10-06T04:57:48.070Z"
+modified: "2026-10-06T04:57:48.070Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -47,5 +47,5 @@ Team page: [[NFL/Teams/CLE|CLE]] · game: [[NFL/2026/Week 04/Games/PIT @ CLE|PIT
 
 **Season through Week 4:** SU 3-1 · ATS 3-1 · O/U 3-1 · PPG 20.2 / allowed 23.8 · YPP 5.15 / allowed 5.47 · TO margin -1
 
-**Key lines:** Deshaun Watson 24/33 268y 1TD 1INT sk 2-8 QBR 53.3 · Quinshon Judkins 17-53 1TD · Denzel Boston 4/7-89 0TD
+**Key lines:** Deshaun Watson 24/33 268y 1TD 1INT sk 2-8 QBR 53.4 · Quinshon Judkins 17-53 1TD · Denzel Boston 4/7-89 0TD
 

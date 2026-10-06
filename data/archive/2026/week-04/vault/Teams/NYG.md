@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "NYG — Week 4"
-created: "2026-10-06T04:26:14.989Z"
-modified: "2026-10-06T04:26:14.989Z"
+created: "2026-10-06T04:57:48.161Z"
+modified: "2026-10-06T04:57:48.161Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -47,6 +47,6 @@ Team page: [[NFL/Teams/NYG|NYG]] · game: [[NFL/2026/Week 04/Games/ARI @ NYG|ARI
 
 **Season through Week 4:** SU 3-1 · ATS 3-1 · O/U 2-2 · PPG 20.5 / allowed 19.8 · YPP 4.6 / allowed 5.4 · TO margin +3
 
-**Key lines:** Jameis Winston 18/29 250y 3TD 2INT sk 4-18 QBR 53.0 · Cam Skattebo 18-58 0TD · Malik Nabers 6/7-112 1TD
+**Key lines:** Jameis Winston 18/29 250y 3TD 2INT sk 4-18 QBR 53.1 · Cam Skattebo 18-58 0TD · Malik Nabers 6/7-112 1TD
 
 **Flags (mechanical):** defensive/ST TD

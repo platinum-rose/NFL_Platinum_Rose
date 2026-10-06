@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "SEA — Week 4"
-created: "2026-10-06T04:26:15.420Z"
-modified: "2026-10-06T04:26:15.420Z"
+created: "2026-10-06T04:57:48.719Z"
+modified: "2026-10-06T04:57:48.719Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -45,8 +45,8 @@ Team page: [[NFL/Teams/SEA|SEA]] · game: [[NFL/2026/Week 04/Games/LAC @ SEA|LAC
 |---|---|---|---|---|---|---|---|---|
 | -7 | P (0) | +4.8 | 4.9 (4.4) | +3 | 3-12 | 2-4 | 2.14 | 4/3 |
 
-**Season through Week 4:** SU 3-1 · ATS 1-1-2 · O/U 2-2 · PPG 26.2 / allowed 18.2 · YPP 5.83 / allowed 3.93 · TO margin +3
+**Season through Week 4:** SU 3-1 · ATS 1-1-2 · O/U 2-2 · PPG 26.2 / allowed 18.2 · YPP 5.83 / allowed 3.92 · TO margin +3
 
-**Key lines:** Sam Darnold 13/22 168y 2TD 1INT sk 3-20 QBR 20.3 · Emanuel Wilson 21-81 1TD · Jaxon Smith-Njigba 5/6-76 0TD
+**Key lines:** Sam Darnold 13/22 168y 2TD 1INT sk 3-20 QBR 20.4 · Emanuel Wilson 21-81 1TD · Jaxon Smith-Njigba 5/6-76 0TD
 
 **Flags (mechanical):** TO margin +3; ATS within 1.5

@@ -177,7 +177,7 @@ Run after the last game of the week (usually Tuesday morning, after MNF). Script
      rejected claims.
    - `recaps_wN.py` adds an `experts` line per game (Claude's synthesis); `cfg_wN.EXPERTS` points at the JSON so the game
      cards render an "Expert view" row with source links.
-   - **Automated weekly archive** (Mon 23:30 / Tue 06:00 / Thu 06:00): `scripts/archive/weekly-archive.mjs` runs the team, game-summary and dry-run grading steps above plus Yahoo fantasy/survivor/pick'em, pool captures, Obsidian notes (`NFL/<season>/Week NN/`) and season CSVs. See `docs/WEEKLY_ARCHIVE_RUNBOOK.md`.
+   - **Automated weekly archive** (Mon 23:30 / Tue 06:00 / Thu 06:00): `scripts/archive/weekly-archive.mjs` runs the team, game-summary and grading steps above (`grade_week.py --apply`: settles what the box score decides, lists what stays open) plus Yahoo fantasy/survivor/pick'em, pool captures, Obsidian notes (`NFL/<season>/Week NN/`) and season CSVs. See `docs/WEEKLY_ARCHIVE_RUNBOOK.md`.
 8. **Post-mortem + ledger.** Write the week's post-mortem in `reports/bets/season-recap/` (Week 1/2 format), update the
    season-to-date table in every earlier post-mortem, and close the week in the recommendation ledger
    (`docs/claude-project-dev/recommendation-ledger-2026.md` and the claude.ai DEV project copy).

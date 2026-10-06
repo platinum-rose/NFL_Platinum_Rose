@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "CHI — Week 4"
-created: "2026-10-06T04:26:15.223Z"
-modified: "2026-10-06T04:26:15.223Z"
+created: "2026-10-06T04:57:48.460Z"
+modified: "2026-10-06T04:57:48.460Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -45,7 +45,7 @@ Team page: [[NFL/Teams/CHI|CHI]] · game: [[NFL/2026/Week 04/Games/NYJ @ CHI|NYJ
 |---|---|---|---|---|---|---|---|---|
 | -3.5 | W (+7.5) | -0.5 | 5.5 (4.9) | -2 | 7-15 | 2-7 | 2.56 | 3/1 |
 
-**Season through Week 4:** SU 3-1 · ATS 3-1 · O/U 1-3 · PPG 28 / allowed 16.2 · YPP 5.75 / allowed 5.68 · TO margin +1
+**Season through Week 4:** SU 3-1 · ATS 3-1 · O/U 1-3 · PPG 28 / allowed 16.2 · YPP 5.75 / allowed 5.67 · TO margin +1
 
 **Key lines:** Tyson Bagent 25/34 268y 0TD 1INT sk 1-8 QBR 75.1 · Kyle Monangai 30-146 2TD · Rome Odunze 6/7-94 0TD
 

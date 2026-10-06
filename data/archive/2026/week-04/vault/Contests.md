@@ -5,13 +5,13 @@ source_system: weekly-archive
 source_type: contests-week
 canonical_status: generated
 title: "Contests — Week 4"
-created: "2026-10-06T04:26:15.552Z"
-modified: "2026-10-06T04:26:15.552Z"
+created: "2026-10-06T04:57:49.017Z"
+modified: "2026-10-06T04:57:49.017Z"
 season: 2026
 week: 4
 type: "contests-week"
 tags: ["nfl", "season-2026", "week-04", "nfl/contests-week", "pickem", "survivor"]
-pools: ["BUKBUK NFL POOL", "the duma 2"]
+pools: ["BUKBUK NFL POOL", "the duma 2", "Ken's Pickem League"]
 ---
 # Contests — Week 4
 
@@ -21,6 +21,7 @@ pools: ["BUKBUK NFL POOL", "the duma 2"]
 |---|---|---|---|---|---|---|
 | BUKBUK NFL POOL | CBS Sports | 10 | 27 | 40 | 18 | cary delgado (46 YTD after MNF) |
 | the duma 2 | SimplySportsware | 91 | 55 | 346 | 45 | AVL GAL 399 |
+| Ken's Pickem League | Yahoo | 96 | 11 | 271 | 28 | Ditka’s Bears 309 |
 
 ### BUKBUK NFL POOL — my picks
 
@@ -64,6 +65,53 @@ pools: ["BUKBUK NFL POOL", "the duma 2"]
 | DET@CAR | DET | 11 | CAR | ✗ |
 | ATL@NO | ATL | 1 | ATL | ✓ |
 
+### Ken's Pickem League — my picks
+
+| Game | Pick | Conf | Winner | Result |
+|---|---|---|---|---|
+
+
+### Other Yahoo games (API probe)
+
+- Men's Bracket Mayhem (yahoops): 4 group(s) — raw saved, not parsed yet
+- Pro Football Pick'em (nflp): 1 group(s) — raw saved, parsed
+
 ## Survivor
 
-_No survivor report archived for this week._
+
+**Generated:** 2026-10-06T04:55:32.758Z | **Season:** 2026 | **Week:** 4
+
+---
+
+## LMS 2022 (100 Total Entrants)
+
+- **Lock Status:** 🔒 Locked
+- **Field Status:** 19 Alive | 81 Eliminated
+- **Your Selection:** **`UNSELECTED`** (UNSELECTED)
+
+### Field Pick Distribution
+
+| Team | Entrant Count | Field Share % |
+| :--- | :---: | :---: |
+| **NFL.T.33** | 13 | 68.4% |
+| **LAC** | 5 | 26.3% |
+| **CLE** | 1 | 5.3% |
+
+---
+
+## Ken's Survival League (100 Total Entrants)
+
+- **Lock Status:** 🔒 Locked
+- **Field Status:** 27 Alive | 73 Eliminated
+- **Your Selection:** **`UNSELECTED`** (UNSELECTED)
+
+### Field Pick Distribution
+
+| Team | Entrant Count | Field Share % |
+| :--- | :---: | :---: |
+| **NFL.T.33** | 15 | 55.6% |
+| **LAC** | 11 | 40.7% |
+| **CLE** | 1 | 3.7% |
+
+---
+

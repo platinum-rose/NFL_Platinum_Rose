@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "BAL — Week 4"
-created: "2026-10-06T04:26:15.265Z"
-modified: "2026-10-06T04:26:15.265Z"
+created: "2026-10-06T04:57:48.513Z"
+modified: "2026-10-06T04:57:48.513Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -45,7 +45,7 @@ Team page: [[NFL/Teams/BAL|BAL]] · game: [[NFL/2026/Week 04/Games/TEN @ BAL|TEN
 |---|---|---|---|---|---|---|---|---|
 | -11.5 | L (-5.5) | -2.5 | 6.3 (5.1) | +2 | 2-10 | 3-3 | 2 | 1/2 |
 
-**Season through Week 4:** SU 3-1 · ATS 1-2-1 · O/U 3-1 · PPG 29 / allowed 24 · YPP 6.58 / allowed 5.07 · TO margin +3
+**Season through Week 4:** SU 3-1 · ATS 1-2-1 · O/U 3-1 · PPG 29 / allowed 24 · YPP 6.58 / allowed 5.08 · TO margin +3
 
 **Key lines:** Lamar Jackson 15/20 222y 2TD 0INT sk 2-13 QBR 72.5 · Derrick Henry 23-73 1TD · Zay Flowers 8/10-118 1TD
 

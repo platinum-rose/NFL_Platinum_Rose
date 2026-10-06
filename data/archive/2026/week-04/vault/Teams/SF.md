@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "SF — Week 4"
-created: "2026-10-06T04:26:15.343Z"
-modified: "2026-10-06T04:26:15.343Z"
+created: "2026-10-06T04:57:48.628Z"
+modified: "2026-10-06T04:57:48.628Z"
 season: 2026
 week: 4
 type: "team-week"

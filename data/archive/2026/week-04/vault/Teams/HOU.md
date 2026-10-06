@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "HOU — Week 4"
-created: "2026-10-06T04:26:15.028Z"
-modified: "2026-10-06T04:26:15.028Z"
+created: "2026-10-06T04:57:48.221Z"
+modified: "2026-10-06T04:57:48.221Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -47,6 +47,6 @@ Team page: [[NFL/Teams/HOU|HOU]] · game: [[NFL/2026/Week 04/Games/DAL @ HOU|DAL
 
 **Season through Week 4:** SU 0-4 · ATS 0-4 · O/U 2-2 · PPG 21 / allowed 27.2 · YPP 5.5 / allowed 5.53 · TO margin +1
 
-**Key lines:** C.J. Stroud 21/31 347y 2TD 0INT sk 2-12 QBR 54.7 · David Montgomery 10-24 0TD · Nico Collins 7/8-118 2TD
+**Key lines:** C.J. Stroud 21/31 347y 2TD 0INT sk 2-12 QBR 54.8 · David Montgomery 10-24 0TD · Nico Collins 7/8-118 2TD
 
 **Flags (mechanical):** lost despite YPP edge; blew 10+ halftime lead

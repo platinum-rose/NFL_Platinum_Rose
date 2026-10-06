@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "WSH — Week 4"
-created: "2026-10-06T04:26:14.946Z"
-modified: "2026-10-06T04:26:14.946Z"
+created: "2026-10-06T04:57:48.116Z"
+modified: "2026-10-06T04:57:48.116Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -47,6 +47,6 @@ Team page: [[NFL/Teams/WSH|WSH]] · game: [[NFL/2026/Week 04/Games/IND @ WSH|IND
 
 **Season through Week 4:** SU 1-3 · ATS 2-2 · O/U 3-1 · PPG 22 / allowed 30.5 · YPP 4.85 / allowed 5.7 · TO margin +3
 
-**Key lines:** Athan Kaliakmanis 15/33 186y 1TD 1INT sk 1-9 QBR 20.6 · Marcus Mariota 1-35 0TD · Dyami Brown 3/4-65 0TD
+**Key lines:** Athan Kaliakmanis 15/33 186y 1TD 1INT sk 1-9 QBR 20.7 · Marcus Mariota 1-35 0TD · Dyami Brown 3/4-65 0TD
 
 **Flags (mechanical):** lost despite YPP edge

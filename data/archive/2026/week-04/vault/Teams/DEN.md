@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "DEN — Week 4"
-created: "2026-10-06T04:26:15.324Z"
-modified: "2026-10-06T04:26:15.324Z"
+created: "2026-10-06T04:57:48.606Z"
+modified: "2026-10-06T04:57:48.606Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -47,5 +47,5 @@ Team page: [[NFL/Teams/DEN|DEN]] · game: [[NFL/2026/Week 04/Games/DEN @ SF|DEN 
 
 **Season through Week 4:** SU 2-2 · ATS 2-2 · O/U 1-3 · PPG 18.5 / allowed 23.5 · YPP 4.8 / allowed 5.55 · TO margin -1
 
-**Key lines:** Bo Nix 25/42 214y 1TD 0INT sk 0-0 QBR 43.8 · J.K. Dobbins 11-40 0TD · RJ Harvey 10/10-68 0TD
+**Key lines:** Bo Nix 25/42 214y 1TD 0INT sk 0-0 QBR 43.9 · J.K. Dobbins 11-40 0TD · RJ Harvey 10/10-68 0TD
 

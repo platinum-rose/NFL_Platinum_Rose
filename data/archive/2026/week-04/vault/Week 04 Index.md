@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: week-index
 canonical_status: generated
 title: "NFL 2026 Week 4"
-created: "2026-10-06T04:26:15.596Z"
-modified: "2026-10-06T04:26:15.596Z"
+created: "2026-10-06T04:57:49.120Z"
+modified: "2026-10-06T04:57:49.120Z"
 season: 2026
 week: 4
 type: "week-index"
@@ -18,7 +18,7 @@ unders: 6
 ---
 # NFL 2026 — Week 4
 
-Favorites ATS 4-11-1 · Overs 10 of 16 · archived 2026-10-06T04:26Z
+Favorites ATS 4-11-1 · Overs 10 of 16 · archived 2026-10-06T04:57Z
 
 ## Games
 
@@ -45,7 +45,11 @@ Favorites ATS 4-11-1 · Overs 10 of 16 · archived 2026-10-06T04:26Z
 
 ## Fantasy & contests
 
-- _Yahoo data not captured this run_
+- [[NFL/2026/Week 04/Fantasy/2026 -  The League|2026 -  The League]]
+- [[NFL/2026/Week 04/Fantasy/The Honey Badgers|The Honey Badgers]]
+- [[NFL/2026/Week 04/Fantasy/Rose Bowl XIX|Rose Bowl XIX]]
+- [[NFL/2026/Week 04/Fantasy/CC Bowl XV CHAMPIONS LEAGUE|CC Bowl XV CHAMPIONS LEAGUE]]
+- [[NFL/2026/Week 04/Fantasy/RFI XIX|RFI XIX]]
 - [[NFL/2026/Week 04/Contests|Pick'em & survivor]]
 - [[NFL/2026/Week 04/Betting|Betting]]
 

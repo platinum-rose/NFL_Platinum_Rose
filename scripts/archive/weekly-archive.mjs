@@ -9,13 +9,15 @@
  *
  * Steps (each is recorded in data/archive/<season>/week-NN/manifest.json; one failing step never stops the rest):
  *   1 espn      cache every game summary for the week; EXIT 75 (retry later) unless all games are final
- *   2 betting   team_postmortem.py, espn_week.py, weekly_review.py, grade_week.py DRY RUN (never --apply)
+ *   2 betting   team_postmortem.py, espn_week.py, grade_week.py --apply (settles only tickets the box score fully decides;
+ *               backs the ledger up first; round robins / pushes / unsupported markets stay open and are listed), weekly_review.py
  *   3 yahoo     scripts/archive/yahoo-week-archive.mjs (fantasy leagues, survivor, other-game probe)
  *   4 pools     copy this week's pick'em captures from data/pickem/ (CBS/SimplySportsware/Yahoo)
  *   5 notes     build Obsidian notes -> data/archive/<season>/week-NN/vault/ (staging, committed)
  *   6 vault     write the staged notes into VAULT_DIR/NFL/<season>/Week NN/ via agents/lib/vaultWriter.js
  *   7 rollups   season CSVs in data/archive/<season>/season/
- * Guardrails: read-only APIs, local files only, no Supabase, no paid models, never settles or edits the ledger.
+ * Guardrails: read-only APIs, local files only, no Supabase, no paid models. The only ledger write is grade_week.py --apply
+ * (box-score facts; never payouts it cannot see — those stay open for Andy).
  * Run natively on Windows (Task Scheduler) — never write the vault through a Linux VM mount.
  */
 import 'dotenv/config';
@@ -73,6 +75,19 @@ const runPy = (script, args, outFile) => {
   return (r.stdout || '').trim().split('\n').slice(-2).join(' | ');
 };
 
+// grade_week output -> [{ticket, reason}] for anything it left open
+function leftOpen(file) {
+  if (!fs.existsSync(file)) return [];
+  const out = []; let cur = null;
+  for (const line of fs.readFileSync(file, 'utf8').split('\n')) {
+    const h = line.match(/^== (\S+)\s+#?(\S*)\s+(\S+)/); if (h) { cur = { id: h[1], ticket: h[2], book: h[3], open_legs: [] }; continue; }
+    if (cur && /^\s+\?{3,}/.test(line)) cur.open_legs.push(line.trim().replace(/^\?+\s*/, ''));
+    if (cur && /->\s*stays open/.test(line)) out.push(cur);
+  }
+  for (const m of fs.readFileSync(file, 'utf8').matchAll(/unresolved: \('([^']+)', '([^']+)', '([^']+)'\)/g)) if (!out.some((o) => o.id === m[1])) out.push({ id: m[1], open_legs: [`${m[2]} -> ${m[3]}`] });
+  return out;
+}
+
 // --------------------------------------------------------------- 1 espn
 const ESPN = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl';
 async function espn() {
@@ -98,7 +113,8 @@ async function betting() {
   const exists = (p) => fs.existsSync(path.join(ROOT, p));
   if (BACKFILL && exists(`reports/bets/season-recap/w${WEEK}gamesum.json`)) r.espn_week = 'skipped (backfill; w' + WEEK + 'gamesum.json exists)';
   else r.espn_week = runPy('reports/bets/season-recap/scripts/espn_week.py', ['--week', String(WEEK)], path.join(d, 'espn_week.log'));
-  try { r.grade_dry_run = runPy('reports/analysis/season/claude/scripts/grade_week.py', ['--week', String(WEEK)], path.join(d, 'grade-dry-run.txt')); } catch (e) { r.grade_dry_run = `error: ${e.message}`; }
+  try { r.grade_apply = runPy('reports/analysis/season/claude/scripts/grade_week.py', ['--week', String(WEEK), '--apply'], path.join(d, 'grade-apply.txt')); } catch (e) { r.grade_apply = `error: ${e.message}`; }
+  r.left_open = leftOpen(path.join(d, 'grade-apply.txt'));
   if (BACKFILL && exists(`reports/analysis/season/claude/out/week-${WK}.json`)) r.weekly_review = 'skipped (backfill; week review exists)';
   else { try { r.weekly_review = runPy('reports/analysis/season/claude/scripts/weekly_review.py', ['--week', String(WEEK)], path.join(d, 'weekly_review.log')); } catch (e) { r.weekly_review = `error: ${e.message}`; } }
   for (const f of [`week-${WK}-teams.json`, `week-${WK}-teams.csv`, `week-${WK}-teams-summary.md`, `week-${WK}-summary.md`, `week-${WK}.json`]) {
@@ -222,6 +238,8 @@ function buildNotes() {
       { title: `Betting — Week ${WEEK}`, type: 'betting-week', sensitivity: 'yellow', tags: ['betting'] });
     md += `# Betting — Week ${WEEK}\n\n${wk.length} tickets · cash risk $${risk.toFixed(2)} · net **${net >= 0 ? '+' : '−'}$${Math.abs(net).toFixed(2)}** · open ${wk.filter((w) => w.status !== 'SETTLED').length}\n\n`;
     md += table(['Book', 'Ticket', 'Title', 'Stake', 'Odds', 'Result', 'P/L'], wk.map((w) => [w.book, w.ticket_number ?? '', String(w.game_title || '').slice(0, 70), w.stake_usd, w.odds_american ?? '', w.result ?? w.status, w.profit_usd ?? '']));
+    const lo = leftOpen(path.join(AR, 'betting', 'grade-apply.txt'));
+    if (lo.length) md += `\n## Left open for Andy (box score cannot decide)\n\n${lo.map((o) => `- ${o.book ?? ''} ${o.ticket ?? ''} \`${o.id}\`: ${o.open_legs.join('; ') || 'needs the book payout (round robin / push)'}`).join('\n')}\n`;
     md += `\nWeek index: [[${VAULT_BASE}/Week ${WK} Index]] · full analysis in the repo: \`reports/analysis/season/claude/out/week-${WK}-summary.md\`\n`;
     add('Betting.md', md);
   }

@@ -69,7 +69,13 @@ async function fetchAll() {
     const groups = findAll(gr?.fantasy_content ?? {}, 'group').map((x) => deepCollect(x)).filter((x) => x.group_key);
     for (const grp of groups) {
       await get(`group-${grp.group_key}-standings`, `group/${grp.group_key}/standings`);
-      await get(`group-${grp.group_key}-teams`, `group/${grp.group_key}/teams`);
+      const tm = await get(`group-${grp.group_key}-teams`, `group/${grp.group_key}/teams`);
+      // my entry's weekly picks: the endpoint is undocumented, so try the likely shapes and keep whichever answers
+      const mine = findAll(tm?.fantasy_content ?? {}, 'team').map((t) => deepCollect(t)).find((t) => t.is_owned_by_current_login === true || t.is_owned_by_current_login === 1 || t.is_owned_by_current_login === '1');
+      if (mine?.team_key) {
+        await get(`pickem-${mine.team_key}-picks-a`, `team/${mine.team_key}/picks;week=${WEEK}`);
+        await get(`pickem-${mine.team_key}-picks-b`, `group/${grp.group_key}/teams;team_keys=${mine.team_key}/picks;week=${WEEK}`);
+      }
     }
     if (!groups.length) {
       await get(`game-${g.game_key}-leagues`, `users;use_login=1/games;game_keys=${g.game_key}/leagues`);
@@ -131,9 +137,36 @@ async function parseAll() {
   for (const g of loadRaw('games-parsed') ?? []) {
     if (String(g.season) !== String(SEASON) || g.code === 'nfl' || String(g.game_key) === SURVIVAL_GAME_KEY) continue;
     const groups = findAll(body(`game-${g.game_key}-groups`)?.fantasy_content ?? {}, 'group').map((x) => deepCollect(x)).filter((x) => x.group_key);
-    out.other_games.push({ game_key: g.game_key, code: g.code, name: g.name, type: g.type, groups: groups.map((x) => ({ group_key: x.group_key, name: x.name, num_teams: num(x.num_teams),
+    const isNflPickem = g.code === 'nflp';
+    const og = { game_key: g.game_key, code: g.code, name: g.name, type: g.type, groups: groups.map((x) => ({ group_key: x.group_key, name: x.name, num_teams: num(x.num_teams),
       standings_raw: `raw/group-${slug(x.group_key)}-standings.json`, teams_raw: `raw/group-${slug(x.group_key)}-teams.json` })),
-      parsed: false, note: 'Raw responses saved; a parser is added once the shape of this game is known.' });
+      parsed: isNflPickem, note: isNflPickem ? 'Standings + weekly lines parsed; pool capture written to data/pickem/.' : 'Not an NFL game (raw saved only).' };
+    out.other_games.push(og);
+    if (!isNflPickem) continue;
+    for (const grp of groups) {
+      const st = body(`group-${grp.group_key}-standings`)?.fantasy_content?.group;
+      const teamsBody = body(`group-${grp.group_key}-teams`);
+      const mineKey = findAll(teamsBody?.fantasy_content ?? {}, 'team').map((t) => deepCollect(t)).find((t) => [true, 1, '1'].includes(t.is_owned_by_current_login))?.team_key;
+      const rows = (st?.standings ?? []).map((x) => x.team).filter(Boolean).map((t) => {
+        const weeks = {}; for (const w of t.weekly_performance_collection ?? []) { const p = w.weekly_performance; if (p) weeks[String(p.week)] = { pts: num(p.week_points), wins: num(p.week_wins), losses: num(p.week_losses), rank: num(p.week_rank), dropped: !!p.dropped }; }
+        return { rank: num(t.rank), team_key: t.team_key, name: t.team_name, pts: num(t.total_points), avg: num(t.average_points), wins: num(t.total_wins), losses: num(t.total_losses), weeks };
+      }).sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999));
+      const me = rows.find((r) => r.team_key === mineKey);
+      const wk = me?.weeks?.[String(WEEK)] ?? {};
+      const picksRaw = ['a', 'b'].map((k) => loadRaw(`pickem-${mineKey}-picks-${k}`)).find((r) => r && !r.error);
+      const cap = { schema: 'pickem_pool_capture_v1', pool_id: `yahoo-${grp.group_key}`, pool_name: grp.name, platform: 'Yahoo', url: grp.url, week: WEEK, season: SEASON,
+        captured_at: new Date().toISOString(), captured_by: 'scripts/archive/yahoo-week-archive.mjs (Yahoo Fantasy API, read-only)', entrants: num(grp.num_teams),
+        scoring: 'confidence (Yahoo Pro Football Pick\'em); a dropped week does not count toward the season total',
+        week_status: num(st?.current_week) === WEEK ? 'may be pre-final (Yahoo finalizes the week on Tuesday; the Thursday run refreshes)' : 'final',
+        andy: me ? { entry: me.name, weekly_pts: wk.pts, weekly_rank: wk.rank, week_wins: wk.wins, week_losses: wk.losses, week_dropped: wk.dropped,
+          ytd: me.pts, overall_rank: me.rank, by_week: Object.fromEntries(Object.entries(me.weeks).map(([k, v]) => [k, v.pts])), picks: [],
+          picks_note: picksRaw ? 'pick endpoint answered; raw saved (parser pending)' : 'Yahoo API returned no per-game picks; the Tuesday browser capture adds them' } : null,
+        season_leader: rows[0] ? `${rows[0].name} ${rows[0].pts}` : null,
+        overall_standings: rows.map((r) => ({ rank: r.rank, name: r.name, pts: r.pts, wins: r.wins, losses: r.losses, week_pts: r.weeks[String(WEEK)]?.pts ?? null, week_rank: r.weeks[String(WEEK)]?.rank ?? null })) };
+      const pf = path.join(ROOT, 'data', 'pickem', `yahoo-${slug(grp.group_key.replace(/\./g, '-'))}-${SEASON}-w${String(WEEK).padStart(2, '0')}.json`);
+      fs.writeFileSync(pf, JSON.stringify(cap, null, 1));
+      og.pool_capture = path.relative(ROOT, pf).split(path.sep).join('/');
+    }
   }
   if (!loadRaw('games')) out.notes.push('Yahoo games list was not fetched (no raw/games.json) - nothing to parse.');
   else if (!out.other_games.length) out.notes.push('No other 2026 Yahoo games (e.g. Pick\'em) were returned by the API for this account.');

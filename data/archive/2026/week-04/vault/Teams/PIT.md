@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "PIT — Week 4"
-created: "2026-10-06T04:26:14.887Z"
-modified: "2026-10-06T04:26:14.887Z"
+created: "2026-10-06T04:57:48.046Z"
+modified: "2026-10-06T04:57:48.046Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -47,5 +47,5 @@ Team page: [[NFL/Teams/PIT|PIT]] · game: [[NFL/2026/Week 04/Games/PIT @ CLE|PIT
 
 **Season through Week 4:** SU 2-2 · ATS 2-2 · O/U 2-2 · PPG 19.2 / allowed 21.8 · YPP 5.05 / allowed 5.67 · TO margin +2
 
-**Key lines:** Aaron Rodgers 22/40 299y 3TD 2INT sk 5-30 QBR 49.3 · Jaylen Warren 17-93 0TD · DK Metcalf 5/9-115 0TD
+**Key lines:** Aaron Rodgers 22/40 299y 3TD 2INT sk 5-30 QBR 49.4 · Jaylen Warren 17-93 0TD · DK Metcalf 5/9-115 0TD
 

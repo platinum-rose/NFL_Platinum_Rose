@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "KC — Week 4"
-created: "2026-10-06T04:26:15.363Z"
-modified: "2026-10-06T04:26:15.363Z"
+created: "2026-10-06T04:57:48.648Z"
+modified: "2026-10-06T04:57:48.648Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -47,6 +47,6 @@ Team page: [[NFL/Teams/KC|KC]] · game: [[NFL/2026/Week 04/Games/KC @ LV|KC @ LV
 
 **Season through Week 4:** SU 4-0 · ATS 2-2 · O/U 2-2 · PPG 29.5 / allowed 19.2 · YPP 6.58 / allowed 4.85 · TO margin +5
 
-**Key lines:** Patrick Mahomes 15/30 225y 2TD 0INT sk 2-15 QBR 63.5 · Kenneth Walker III 22-177 2TD · Tyquan Thornton 5/8-111 2TD
+**Key lines:** Patrick Mahomes 15/30 225y 2TD 0INT sk 2-15 QBR 63.6 · Kenneth Walker III 22-177 2TD · Tyquan Thornton 5/8-111 2TD
 
 **Flags (mechanical):** TO margin +2; ATS within 1.5

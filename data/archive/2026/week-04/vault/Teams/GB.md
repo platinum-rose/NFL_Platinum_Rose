@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "GB — Week 4"
-created: "2026-10-06T04:26:15.048Z"
-modified: "2026-10-06T04:26:15.048Z"
+created: "2026-10-06T04:57:48.243Z"
+modified: "2026-10-06T04:57:48.243Z"
 season: 2026
 week: 4
 type: "team-week"

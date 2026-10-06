@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "NE — Week 4"
-created: "2026-10-06T04:26:15.164Z"
-modified: "2026-10-06T04:26:15.164Z"
+created: "2026-10-06T04:57:48.390Z"
+modified: "2026-10-06T04:57:48.390Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -45,7 +45,7 @@ Team page: [[NFL/Teams/NE|NE]] · game: [[NFL/2026/Week 04/Games/NE @ BUF|NE @ B
 |---|---|---|---|---|---|---|---|---|
 | +7 | W (+10) | +7.8 | 5.5 (6.3) | 0 | 5-12 | 3-3 | 2.42 | 1/1 |
 
-**Season through Week 4:** SU 2-2 · ATS 2-1-1 · O/U 1-3 · PPG 16.2 / allowed 19.2 · YPP 5.28 / allowed 5.23 · TO margin -5
+**Season through Week 4:** SU 2-2 · ATS 2-1-1 · O/U 1-3 · PPG 16.2 / allowed 19.2 · YPP 5.28 / allowed 5.22 · TO margin -5
 
 **Key lines:** Drake Maye 22/37 269y 3TD 1INT sk 1-7 QBR 91.0 · Drake Maye 8-54 0TD · Hunter Henry 5/5-62 0TD
 

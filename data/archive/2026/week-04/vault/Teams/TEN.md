@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "TEN — Week 4"
-created: "2026-10-06T04:26:15.243Z"
-modified: "2026-10-06T04:26:15.243Z"
+created: "2026-10-06T04:57:48.488Z"
+modified: "2026-10-06T04:57:48.488Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -47,6 +47,6 @@ Team page: [[NFL/Teams/TEN|TEN]] · game: [[NFL/2026/Week 04/Games/TEN @ BAL|TEN
 
 **Season through Week 4:** SU 0-4 · ATS 2-2 · O/U 2-2 · PPG 13.8 / allowed 20.8 · YPP 4.85 / allowed 5.22 · TO margin -3
 
-**Key lines:** Cam Ward 20/31 222y 1TD 1INT sk 1-10 QBR 48.2 · Tony Pollard 16-48 1TD · Carnell Tate 9/12-145 0TD
+**Key lines:** Cam Ward 20/31 222y 1TD 1INT sk 1-10 QBR 48.3 · Tony Pollard 16-48 1TD · Carnell Tate 9/12-145 0TD
 
 **Flags (mechanical):** TO margin -2

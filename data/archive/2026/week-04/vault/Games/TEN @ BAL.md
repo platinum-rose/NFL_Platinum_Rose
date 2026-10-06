@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "TEN @ BAL — Week 4"
-created: "2026-10-06T04:26:14.742Z"
-modified: "2026-10-06T04:26:14.742Z"
+created: "2026-10-06T04:57:47.883Z"
+modified: "2026-10-06T04:57:47.883Z"
 season: 2026
 week: 4
 type: "game-week"

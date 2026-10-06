@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "IND @ WSH — Week 4"
-created: "2026-10-06T04:26:14.587Z"
-modified: "2026-10-06T04:26:14.587Z"
+created: "2026-10-06T04:57:47.694Z"
+modified: "2026-10-06T04:57:47.694Z"
 season: 2026
 week: 4
 type: "game-week"

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "DAL — Week 4"
-created: "2026-10-06T04:26:15.009Z"
-modified: "2026-10-06T04:26:15.009Z"
+created: "2026-10-06T04:57:48.185Z"
+modified: "2026-10-06T04:57:48.185Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -45,7 +45,7 @@ Team page: [[NFL/Teams/DAL|DAL]] · game: [[NFL/2026/Week 04/Games/DAL @ HOU|DAL
 |---|---|---|---|---|---|---|---|---|
 | +3 | W (+7) | +11.2 | 5.5 (7.6) | 0 | 5-14 | 4-4 | 3.4 | 2/3 |
 
-**Season through Week 4:** SU 2-2 · ATS 2-1-1 · O/U 4-0 · PPG 30.5 / allowed 28 · YPP 5.53 / allowed 6.43 · TO margin 0
+**Season through Week 4:** SU 2-2 · ATS 2-1-1 · O/U 4-0 · PPG 30.5 / allowed 28 · YPP 5.53 / allowed 6.42 · TO margin 0
 
 **Key lines:** Dak Prescott 32/45 335y 1TD 0INT sk 3-11 QBR 85.3 · Javonte Williams 19-62 3TD · CeeDee Lamb 17/21-189 1TD
 

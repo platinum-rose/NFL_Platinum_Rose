@@ -2,28 +2,23 @@
  "schema": "weekly_archive_manifest_v1",
  "season": 2026,
  "week": 4,
- "started_at": "2026-10-06T04:26:14.437Z",
+ "started_at": "2026-10-06T04:57:47.501Z",
  "host": "linux",
  "steps": {
   "notes": {
    "ok": true,
-   "ms": 1156,
-   "notes": 51,
+   "ms": 1622,
+   "notes": 56,
    "staged": "data/archive/2026/week-04/vault"
-  },
-  "vault": {
-   "ok": false,
-   "ms": 1,
-   "error": "Error: refusing to write the vault through a Linux mount (vault CLAUDE.md rule 3); run on Windows\n    at vault (file:///sessions/rcw-016vjbbwctp6dxgxpyxblmfm/mnt/dev/projects/NFL_Dashboard/scripts/archive/weekly-archive.mjs:241:108)\n    at step (file:///sessions/rcw-016vjbbwctp6dxgxpyxblmfm/mnt/dev/projects/NFL_Dashboard/scripts/archive/weekly-archive.mjs:43:25)\n    at file:///sessions/rcw-016vjbbwctp6dxgxpyxblmfm/mnt/dev/projects/NFL_Dashboard/scripts/archive/weekly-archive.mjs:291:31"
   },
   "rollups": {
    "ok": true,
-   "ms": 94,
-   "team_weeks": 32,
-   "fantasy_player_weeks": 0,
-   "fantasy_matchups": 0
+   "ms": 249,
+   "team_weeks": 128,
+   "fantasy_player_weeks": 933,
+   "fantasy_matchups": 28
   }
  },
- "status": "partial",
- "finished_at": "2026-10-06T04:26:15.708Z"
+ "status": "ok",
+ "finished_at": "2026-10-06T04:57:49.393Z"
 }

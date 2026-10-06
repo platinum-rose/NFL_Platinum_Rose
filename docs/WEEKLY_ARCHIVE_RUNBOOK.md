@@ -26,7 +26,7 @@ then `Start-ScheduledTask -TaskName NFL_Dashboard_Weekly_Archive` and read `logs
 | Step | Output |
 |---|---|
 | espn | every game summary → `data/fantasy/boxscores/espn-<id>.json` (gate: all STATUS_FINAL) |
-| betting | `betting/`: team post-mortem (`week-NN-teams.*`), game summaries, `grade-dry-run.txt` (never applies), weekly betting review |
+| betting | `betting/`: team post-mortem (`week-NN-teams.*`), game summaries, `grade-apply.txt` (settles every ticket the box score fully decides; ledger backed up first as `…bak-team2-<ts>`), weekly betting review. Round robins, pushes needing the book payout and unsupported markets (e.g. D/ST TD) stay open and are listed under "Left open" in the Betting note and `manifest.json` |
 | yahoo | `yahoo/yahoo-week.json`: each fantasy league's settings, standings, matchups, every roster with the week's player points + stats, the week's transactions; `yahoo/survivor/` (existing survivor sync, frozen); probe of every other Yahoo game (Pick'em) with raw responses. Raw API responses: `yahoo/raw/` (gitignored); re-parse offline with `node scripts/archive/yahoo-week-archive.mjs --week N --from-raw` |
 | pools | `pools/`: this week's pick'em captures (schema `pickem_pool_capture_v1`) |
 | notes | `vault/`: staged Obsidian notes (committed) |
@@ -42,7 +42,7 @@ TABLE week, opponent, result, ats, ypp_diff, to_margin FROM "NFL/2026" WHERE typ
 ```
 
 ## Rules (binding)
-- Read-only APIs; local files only. No Supabase writes, no paid model calls, never `grade_week.py --apply`, never ledger edits.
+- Read-only APIs; local files only. No Supabase writes, no paid model calls. The only ledger write is `grade_week.py --apply` (box-score facts, Andy's standing OK 2026-10-05); it never invents a payout it cannot see.
 - The vault is written only by the Windows task (native filesystem). The script refuses to write the vault from a Linux VM mount (vault `CLAUDE.md` writer rule 3). Claude sessions use `--no-vault`.
 - Pool captures: browser pane, read-only pages; never Make/Remove/Save picks; never store passwords.
 - A past week (`--week` < current) never rewrites existing game summaries or betting reviews unless `--refresh`.

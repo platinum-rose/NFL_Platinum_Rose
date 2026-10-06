@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "DEN @ SF — Week 4"
-created: "2026-10-06T04:26:14.782Z"
-modified: "2026-10-06T04:26:14.782Z"
+created: "2026-10-06T04:57:47.926Z"
+modified: "2026-10-06T04:57:47.926Z"
 season: 2026
 week: 4
 type: "game-week"

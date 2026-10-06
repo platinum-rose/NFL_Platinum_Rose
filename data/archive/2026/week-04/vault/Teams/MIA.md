@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "MIA — Week 4"
-created: "2026-10-06T04:26:15.284Z"
-modified: "2026-10-06T04:26:15.284Z"
+created: "2026-10-06T04:57:48.558Z"
+modified: "2026-10-06T04:57:48.558Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -47,5 +47,5 @@ Team page: [[NFL/Teams/MIA|MIA]] · game: [[NFL/2026/Week 04/Games/MIA @ MIN|MIA
 
 **Season through Week 4:** SU 0-4 · ATS 1-3 · O/U 1-3 · PPG 11.5 / allowed 25.2 · YPP 5.15 / allowed 5.9 · TO margin -2
 
-**Key lines:** Malik Willis 9/17 85y 0TD 0INT sk 2-8 QBR 37.5 · Ollie Gordon II 9-100 1TD · Malik Washington 5/5-67 0TD
+**Key lines:** Malik Willis 9/17 85y 0TD 0INT sk 2-8 QBR 37.6 · Ollie Gordon II 9-100 1TD · Malik Washington 5/5-67 0TD
 

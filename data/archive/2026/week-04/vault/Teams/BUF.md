@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "BUF — Week 4"
-created: "2026-10-06T04:26:15.183Z"
-modified: "2026-10-06T04:26:15.183Z"
+created: "2026-10-06T04:57:48.413Z"
+modified: "2026-10-06T04:57:48.413Z"
 season: 2026
 week: 4
 type: "team-week"
@@ -47,6 +47,6 @@ Team page: [[NFL/Teams/BUF|BUF]] · game: [[NFL/2026/Week 04/Games/NE @ BUF|NE @
 
 **Season through Week 4:** SU 3-1 · ATS 3-1 · O/U 3-1 · PPG 31.8 / allowed 26.8 · YPP 6.58 / allowed 5.45 · TO margin -2
 
-**Key lines:** Josh Allen 23/33 253y 1TD 1INT sk 1-4 QBR 50.8 · James Cook III 12-75 1TD · Keon Coleman 6/7-116 1TD
+**Key lines:** Josh Allen 23/33 253y 1TD 1INT sk 1-4 QBR 50.9 · James Cook III 12-75 1TD · Keon Coleman 6/7-116 1TD
 
 **Flags (mechanical):** lost despite YPP edge

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: betting-week
 canonical_status: generated
 title: "Betting — Week 4"
-created: "2026-10-06T04:26:15.578Z"
-modified: "2026-10-06T04:26:15.578Z"
+created: "2026-10-06T04:57:49.074Z"
+modified: "2026-10-06T04:57:49.074Z"
 season: 2026
 week: 4
 type: "betting-week"
