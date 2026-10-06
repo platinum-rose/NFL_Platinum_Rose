@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "RFI XIX — Week 4"
-created: "2026-10-06T05:59:23.836Z"
-modified: "2026-10-06T05:59:23.836Z"
+created: "2026-10-06T14:13:48.282Z"
+modified: "2026-10-06T14:13:48.282Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"
@@ -16,7 +16,7 @@ league_key: "470.l.772245"
 my_team: "Fat Lazy AmAndicans"
 my_points: 89.9
 opp_points: 128.82
-my_rank: 3
+my_rank: 7
 ---
 # RFI XIX — Week 4
 
@@ -35,18 +35,18 @@ my_rank: 3
 
 | Rank | Team | W-L-T | PF | PA |
 |---|---|---|---|---|
-| 1 | Sheriff Of Paddy's | 3-0-0 | 403.84 | 329.62 |
-| 2 | Doug Exeter | 3-0-0 | 389.86 | 299.52 |
-| 3 | **Fat Lazy AmAndicans** | 2-1-0 | 325.62 | 303.52 |
-| 4 | NotSoNewlyWedz | 2-1-0 | 311.6 | 249.78 |
-| 5 | Golden Domers 4 J&J | 2-1-0 | 296.62 | 283.6 |
-| 6 | CousinCamp | 1-2-0 | 351.6 | 365.82 |
-| 7 | Tremendous Slouch | 1-2-0 | 341.84 | 378.2 |
-| 8 | Shrimp Gang | 1-2-0 | 311.58 | 320 |
-| 9 | Snookies Squad | 1-2-0 | 262.76 | 350.5799999999999 |
-| 10 | 2026 Champ! | 1-2-0 | 258.92 | 304.58 |
-| 11 | Shanimals | 1-2-0 | 254.5 | 274.74 |
-| 12 | Tough Nuts | 0-3-0 | 347 | 395.78 |
+| 1 | Sheriff Of Paddy's | 4-0-0 | 507.02 | 426 |
+| 2 | Doug Exeter | 3-1-0 | 486.24 | 402.7 |
+| 3 | NotSoNewlyWedz | 3-1-0 | 453.6 | 351.7 |
+| 4 | Golden Domers 4 J&J | 3-1-0 | 407.08 | 372.88 |
+| 5 | CousinCamp | 2-2-0 | 480.42 | 455.72 |
+| 6 | Shrimp Gang | 2-2-0 | 442.76 | 432.24 |
+| 7 | **Fat Lazy AmAndicans** | 2-2-0 | 415.52 | 432.34 |
+| 8 | 2026 Champ! | 2-2-0 | 374.92 | 388.03999999999996 |
+| 9 | Tremendous Slouch | 1-3-0 | 425.3 | 494.2 |
+| 10 | Shanimals | 1-3-0 | 366.74 | 405.92 |
+| 11 | Snookies Squad | 1-3-0 | 352.04 | 461.0399999999999 |
+| 12 | Tough Nuts | 0-4-0 | 448.92 | 537.78 |
 
 ## My lineup (Fat Lazy AmAndicans)
 

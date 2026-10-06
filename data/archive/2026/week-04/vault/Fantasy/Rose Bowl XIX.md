@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "Rose Bowl XIX — Week 4"
-created: "2026-10-06T05:59:23.835Z"
-modified: "2026-10-06T05:59:23.835Z"
+created: "2026-10-06T14:13:48.235Z"
+modified: "2026-10-06T14:13:48.235Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"
@@ -16,7 +16,7 @@ league_key: "470.l.735815"
 my_team: "Fat Lazy Americans"
 my_points: 157.32
 opp_points: 158.38
-my_rank: 11
+my_rank: 12
 ---
 # Rose Bowl XIX — Week 4
 
@@ -35,18 +35,18 @@ my_rank: 11
 
 | Rank | Team | W-L-T | PF | PA |
 |---|---|---|---|---|
-| 1 | Jukin Junies | 3-0-0 | 545.54 | 385.4 |
-| 2 | Concussion Protocol | 3-0-0 | 455.94 | 370.58 |
-| 3 | Sir Nix A Lot | 3-0-0 | 347.6 | 309.36 |
-| 4 | CallinginSickMonday | 2-1-0 | 460.56 | 475.43999999999994 |
-| 5 | Nabers of the Lost Ark | 2-1-0 | 439.2 | 408.8 |
-| 6 | Panda XL | 1-2-0 | 420.38 | 419.78 |
-| 7 | Chubbtown Brownies | 1-2-0 | 378.44 | 452.76000000000005 |
-| 8 | L.V. Rosekillers | 1-2-0 | 378.4 | 355.38 |
-| 9 | Waiting for Basketball | 1-2-0 | 356.48 | 410.14000000000004 |
-| 10 | Bear Force One | 1-2-0 | 333.08 | 365.42 |
-| 11 | **Fat Lazy Americans** | 0-3-0 | 380.28 | 523.78 |
-| 12 | OUTLAWS | 0-3-0 | 345.16 | 364.22 |
+| 1 | Concussion Protocol | 4-0-0 | 566.52 | 479.59999999999997 |
+| 2 | Jukin Junies | 3-1-0 | 654.56 | 495.97999999999996 |
+| 3 | Nabers of the Lost Ark | 3-1-0 | 558.74 | 512.5 |
+| 4 | Sir Nix A Lot | 3-1-0 | 455.36 | 481.84000000000003 |
+| 5 | CallinginSickMonday | 2-2-0 | 625.86 | 667 |
+| 6 | Chubbtown Brownies | 2-2-0 | 550.92 | 560.5200000000001 |
+| 7 | L.V. Rosekillers | 2-2-0 | 536.78 | 512.7 |
+| 8 | Bear Force One | 2-2-0 | 524.64 | 530.72 |
+| 9 | Panda XL | 1-3-0 | 524.08 | 539.3199999999999 |
+| 10 | OUTLAWS | 1-3-0 | 479.9 | 471.40000000000003 |
+| 11 | Waiting for Basketball | 1-3-0 | 463.66 | 544.8800000000001 |
+| 12 | **Fat Lazy Americans** | 0-4-0 | 537.6 | 682.16 |
 
 ## My lineup (Fat Lazy Americans)
 
@@ -83,8 +83,8 @@ Starters 157.32 · bench 54.42
 | Javonte Williams | DAL | RB | 31.3 | Bear Force One | RB |
 | Kenneth Walker III | KC | RB | 30.9 | Panda XL | RB |
 | Nico Collins | HOU | WR | 30.8 | L.V. Rosekillers | WR |
-| Kyle Monangai | CHI | RB | 28 | Waiting for Basketball | BN |
 | Emanuel Wilson | SEA | RB | 28 | Bear Force One | W/R |
+| Kyle Monangai | CHI | RB | 28 | Waiting for Basketball | BN |
 | Bijan Robinson | ATL | RB | 27.7 | Concussion Protocol | RB |
 | Puka Nacua | LAR | WR | 27.7 | Bear Force One | WR |
 | Tee Higgins | CIN | WR | 26.7 | OUTLAWS | WR |

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "The Honey Badgers — Week 4"
-created: "2026-10-06T05:59:23.835Z"
-modified: "2026-10-06T05:59:23.835Z"
+created: "2026-10-06T14:13:48.211Z"
+modified: "2026-10-06T14:13:48.211Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"
@@ -16,7 +16,7 @@ league_key: "470.l.351555"
 my_team: "Fat Lazy Americans"
 my_points: 109.51
 opp_points: 130.77
-my_rank: 8
+my_rank: 9
 ---
 # The Honey Badgers — Week 4
 
@@ -35,18 +35,18 @@ my_rank: 8
 
 | Rank | Team | W-L-T | PF | PA |
 |---|---|---|---|---|
-| 1 | Dolphin Boobiez | 3-0-0 | 503.04 | 396.84000000000003 |
-| 2 | The Curious Case of Cookus | 3-0-0 | 473.46 | 340.95 |
-| 3 | CopperTheBigRedDog | 2-1-0 | 467.4 | 404.45 |
-| 4 | Comfy In Chair | 2-1-0 | 421.95 | 410.9 |
-| 5 | The Trophy Wives | 2-1-0 | 405.08 | 354.47 |
-| 6 | Olivators | 1-2-0 | 434.66 | 478.30999999999995 |
-| 7 | My Balls Are Afoot | 1-2-0 | 417.87 | 478.22999999999996 |
-| 8 | **Fat Lazy Americans** | 1-2-0 | 398.17 | 434.07 |
-| 9 | JRZ | 1-2-0 | 389.58 | 412.4 |
-| 10 | Jesus take the wheel | 1-2-0 | 350.73 | 440.63 |
-| 11 | Unicorn Love | 1-2-0 | 342.04 | 384.71000000000004 |
-| 12 | Kryponite | 0-3-0 | 322.7 | 390.72 |
+| 1 | Dolphin Boobiez | 4-0-0 | 640.41 | 529.95 |
+| 2 | The Curious Case of Cookus | 4-0-0 | 604.23 | 450.46 |
+| 3 | CopperTheBigRedDog | 3-1-0 | 646.77 | 547.65 |
+| 4 | Olivators | 2-2-0 | 623.64 | 633.2099999999999 |
+| 5 | My Balls Are Afoot | 2-2-0 | 573.49 | 607.66 |
+| 6 | Comfy In Chair | 2-2-0 | 555.06 | 548.27 |
+| 7 | The Trophy Wives | 2-2-0 | 534.51 | 510.09000000000003 |
+| 8 | JRZ | 1-3-0 | 544.48 | 601.38 |
+| 9 | **Fat Lazy Americans** | 1-3-0 | 507.68 | 564.84 |
+| 10 | Unicorn Love | 1-3-0 | 485.24 | 564.08 |
+| 11 | Jesus take the wheel | 1-3-0 | 431.47 | 548.03 |
+| 12 | Kryponite | 1-3-0 | 430.1 | 471.46000000000004 |
 
 ## My lineup (Fat Lazy Americans)
 

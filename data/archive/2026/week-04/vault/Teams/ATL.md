@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "ATL — Week 4"
-created: "2026-10-06T05:59:23.833Z"
-modified: "2026-10-06T05:59:23.833Z"
+created: "2026-10-06T14:13:48.140Z"
+modified: "2026-10-06T14:13:48.140Z"
 season: 2026
 week: 4
 type: "team-week"

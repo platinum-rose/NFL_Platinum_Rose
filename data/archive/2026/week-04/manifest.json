@@ -2,58 +2,23 @@
  "schema": "weekly_archive_manifest_v1",
  "season": 2026,
  "week": 4,
- "started_at": "2026-10-06T05:58:50.727Z",
- "host": "win32",
+ "started_at": "2026-10-06T14:13:46.825Z",
+ "host": "linux",
  "steps": {
-  "betting": {
-   "ok": true,
-   "ms": 3226,
-   "team_postmortem": "wrote week-04-teams.json/.csv: 32 team rows, pending []",
-   "espn_week": "week 4: 16 final games written; pending: none",
-   "grade_apply": "0 change(s); 0 unresolved leg(s).",
-   "left_open": [],
-   "weekly_review": "Week 4: net -274.93 on $401.32 · season net -1321.89 on $1699.29 · open 0 · unique legs 613 (from box 10)"
-  },
-  "yahoo": {
-   "ok": true,
-   "ms": 29468,
-   "summary": "parsed: 5 leagues, 56 rosters, other games: yahoops,nflp"
-  },
-  "pools": {
-   "ok": true,
-   "ms": 17,
-   "files": [
-    "cbs-bukbuk-2026-w04.json",
-    "simplysportsware-duma2-2026-w04.json",
-    "yahoo-472-g-4087-2026-w04.json"
-   ]
-  },
   "rollups": {
    "ok": true,
-   "ms": 23,
+   "ms": 304,
    "team_weeks": 128,
    "fantasy_player_weeks": 3712,
    "fantasy_matchups": 112
   },
-  "drafts": {
-   "ok": true,
-   "ms": 173,
-   "fetched": false,
-   "summary": "5 leagues"
-  },
   "notes": {
    "ok": true,
-   "ms": 50,
+   "ms": 1343,
    "notes": 56,
    "staged": "data/archive/2026/week-04/vault"
-  },
-  "vault": {
-   "ok": true,
-   "ms": 41,
-   "written": 2,
-   "unchanged": 54
   }
  },
  "status": "ok",
- "finished_at": "2026-10-06T05:59:23.905Z"
+ "finished_at": "2026-10-06T14:13:48.781Z"
 }

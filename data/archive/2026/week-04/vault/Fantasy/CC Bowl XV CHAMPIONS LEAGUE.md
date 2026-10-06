@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "CC Bowl XV CHAMPIONS LEAGUE — Week 4"
-created: "2026-10-06T05:59:23.836Z"
-modified: "2026-10-06T05:59:23.836Z"
+created: "2026-10-06T14:13:48.259Z"
+modified: "2026-10-06T14:13:48.259Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"
@@ -33,14 +33,14 @@ my_rank: 1
 
 | Rank | Team | W-L-T | PF | PA |
 |---|---|---|---|---|
-| 1 | **Fat Lazy Americans** | 3-0-0 | 551.94 | 349.08 |
-| 2 | CallingInSickMonday | 3-0-0 | 497 | 314.20000000000005 |
-| 3 | KC Masterpiece | 2-1-0 | 486.88 | 500.28 |
-| 4 | Ninja Goblins | 2-1-0 | 382.8 | 428.18 |
-| 5 | The Omen | 1-2-0 | 462.5 | 447.15999999999997 |
-| 6 | Prestige Worldwide | 1-2-0 | 393.42 | 537.32 |
-| 7 | Ava's Mafia | 0-3-0 | 369.22 | 504.41999999999996 |
-| 8 | Isotopes | 0-3-0 | 362.08 | 425.2 |
+| 1 | **Fat Lazy Americans** | 4-0-0 | 705.26 | 490.12 |
+| 2 | CallingInSickMonday | 3-1-0 | 622.48 | 471.46000000000004 |
+| 3 | Ninja Goblins | 3-1-0 | 519.48 | 563.66 |
+| 4 | KC Masterpiece | 2-2-0 | 622.36 | 636.96 |
+| 5 | The Omen | 2-2-0 | 619.76 | 572.64 |
+| 6 | Isotopes | 1-3-0 | 589.74 | 573.2 |
+| 7 | Prestige Worldwide | 1-3-0 | 541.42 | 764.98 |
+| 8 | Ava's Mafia | 0-4-0 | 510.26 | 657.74 |
 
 ## My lineup (Fat Lazy Americans)
 

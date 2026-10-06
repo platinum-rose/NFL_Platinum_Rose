@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "ATL @ NO — Week 4"
-created: "2026-10-06T05:59:23.819Z"
-modified: "2026-10-06T05:59:23.819Z"
+created: "2026-10-06T14:13:47.488Z"
+modified: "2026-10-06T14:13:47.488Z"
 season: 2026
 week: 4
 type: "game-week"

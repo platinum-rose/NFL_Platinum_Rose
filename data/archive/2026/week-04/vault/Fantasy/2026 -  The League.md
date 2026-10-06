@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "2026 -  The League — Week 4"
-created: "2026-10-06T05:59:23.834Z"
-modified: "2026-10-06T05:59:23.834Z"
+created: "2026-10-06T14:13:48.188Z"
+modified: "2026-10-06T14:13:48.188Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"
@@ -35,18 +35,18 @@ my_rank: 4
 
 | Rank | Team | W-L-T | PF | PA |
 |---|---|---|---|---|
-| 1 | Rafi Bomb Returns! | 3-0-0 | 418.64 | 307.28 |
-| 2 | I LIKE BIG TDS | 3-0-0 | 401.52 | 328.71999999999997 |
-| 3 | Berserker | 2-1-0 | 439.7 | 420.74 |
-| 4 | **Fat Lazy Americans** | 2-1-0 | 391.28 | 349.47999999999996 |
-| 5 | Kona’s Kickers | 2-1-0 | 332.84 | 321.68 |
-| 6 | Oroszlanok | 1-2-0 | 380.36 | 381.82 |
-| 7 | Postino's Banditos | 1-2-0 | 365.02 | 408.46000000000004 |
-| 8 | Billy Goat Tavern | 1-2-0 | 355.18 | 409.5 |
-| 9 | MombaMentality | 1-2-0 | 353.14 | 407.26 |
-| 10 | Dumpster Fire | 1-2-0 | 351.54 | 389.86 |
-| 11 | No Talent Ass Clowns | 1-2-0 | 306.1 | 342.14 |
-| 12 | Wailin Raylans | 0-3-0 | 342 | 370.38 |
+| 1 | Rafi Bomb Returns! | 4-0-0 | 566.22 | 422.76 |
+| 2 | I LIKE BIG TDS | 4-0-0 | 554.22 | 464.64 |
+| 3 | Berserker | 3-1-0 | 590.38 | 556.24 |
+| 4 | **Fat Lazy Americans** | 3-1-0 | 519.5 | 459.71999999999997 |
+| 5 | Oroszlanok | 2-2-0 | 538.18 | 513.78 |
+| 6 | Kona’s Kickers | 2-2-0 | 435.92 | 425.78 |
+| 7 | No Talent Ass Clowns | 2-2-0 | 410.2 | 445.21999999999997 |
+| 8 | Postino's Banditos | 1-3-0 | 496.98 | 566.28 |
+| 9 | MombaMentality | 1-3-0 | 489.06 | 559.96 |
+| 10 | Dumpster Fire | 1-3-0 | 467.02 | 537.44 |
+| 11 | Billy Goat Tavern | 1-3-0 | 465.42 | 537.72 |
+| 12 | Wailin Raylans | 0-4-0 | 477.5 | 521.06 |
 
 ## My lineup (Fat Lazy Americans)
 

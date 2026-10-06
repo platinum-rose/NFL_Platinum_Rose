@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "CLE — Week 4"
-created: "2026-10-06T05:59:23.820Z"
-modified: "2026-10-06T05:59:23.820Z"
+created: "2026-10-06T14:13:47.528Z"
+modified: "2026-10-06T14:13:47.528Z"
 season: 2026
 week: 4
 type: "team-week"

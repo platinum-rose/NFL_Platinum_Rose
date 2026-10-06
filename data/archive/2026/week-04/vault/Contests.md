@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: contests-week
 canonical_status: generated
 title: "Contests — Week 4"
-created: "2026-10-06T05:59:23.838Z"
-modified: "2026-10-06T05:59:23.838Z"
+created: "2026-10-06T14:13:48.359Z"
+modified: "2026-10-06T14:13:48.359Z"
 season: 2026
 week: 4
 type: "contests-week"
@@ -19,9 +19,9 @@ pools: ["BUKBUK NFL POOL", "the duma 2", "Ken's Pickem League"]
 
 | Pool | Platform | Week pts | Week rank | Season | Season rank | Leader |
 |---|---|---|---|---|---|---|
-| BUKBUK NFL POOL | CBS Sports | 10 | 27 | 40 | 18 | cary delgado (46 YTD after MNF) |
+| BUKBUK NFL POOL | CBS Sports | 10 | 27 | 40 | 19 | cary delgado 46 YTD (Josh Uvero 44 second) |
 | the duma 2 | SimplySportsware | 91 | 55 | 346 | 45 | AVL GAL 399 |
-| Ken's Pickem League | Yahoo | 96 | 11 | 271 | 28 | Ditka’s Bears 309 |
+| Ken's Pickem League | Yahoo | 96 | 12 | 271 | 31 | Ditka’s Bears 309 |
 
 ### BUKBUK NFL POOL — my picks
 
@@ -79,39 +79,31 @@ pools: ["BUKBUK NFL POOL", "the duma 2", "Ken's Pickem League"]
 ## Survivor
 
 
-**Generated:** 2026-10-06T05:59:23.408Z | **Season:** 2026 | **Week:** 4
+**Generated:** 2026-10-06T14:10:37.364Z | **Season:** 2026 | **Week:** 4
 
 ---
 
 ## LMS 2022 (100 Total Entrants)
 
-- **Lock Status:** 🔒 Locked
+- **Lock Status:** ⏳ Pre-Lock (Locking at `2026-10-11T17:00:00.000Z`)
 - **Field Status:** 19 Alive | 81 Eliminated
 - **Your Selection:** **`UNSELECTED`** (UNSELECTED)
 
 ### Field Pick Distribution
 
-| Team | Entrant Count | Field Share % |
-| :--- | :---: | :---: |
-| **NFL.T.33** | 13 | 68.4% |
-| **LAC** | 5 | 26.3% |
-| **CLE** | 1 | 5.3% |
+*Picks are masked by Yahoo until the kickoff of Week 4 games (Sunday 1:00 PM ET).*
 
 ---
 
 ## Ken's Survival League (100 Total Entrants)
 
-- **Lock Status:** 🔒 Locked
+- **Lock Status:** ⏳ Pre-Lock (Locking at `2026-10-11T17:00:00.000Z`)
 - **Field Status:** 27 Alive | 73 Eliminated
 - **Your Selection:** **`UNSELECTED`** (UNSELECTED)
 
 ### Field Pick Distribution
 
-| Team | Entrant Count | Field Share % |
-| :--- | :---: | :---: |
-| **NFL.T.33** | 15 | 55.6% |
-| **LAC** | 11 | 40.7% |
-| **CLE** | 1 | 3.7% |
+*Picks are masked by Yahoo until the kickoff of Week 4 games (Sunday 1:00 PM ET).*
 
 ---
 
