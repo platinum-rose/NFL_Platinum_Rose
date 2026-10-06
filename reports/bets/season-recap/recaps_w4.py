@@ -76,4 +76,9 @@ R={
   wrong='DET ML lost and sank every BKR parlay it capped. The SNF 8-leg died on Gibbs (4 rec) and Waller (0 TD). Placed CAR ML and Over 50.5 won.',
   experts='DET\'s defense is the problem: seven straight CAR scoring drives, and it is allowing 31.8 PPG (B/R: third-most in 40 years). The Ringer: Young\'s career-high 0.22 EPA/dropback. CAR has 121 points through four weeks, a franchise record.',
   grade='Side ✗'),
+'ATL@NO':dict(kick='Mon MNF',ai='Card: ATL +8.5 in the Wong teaser (Tuley, Reynolds). Placed: Kalshi Hooper/Fant/NO D/ST TD combo, three BEO prop SGPs, BKR NO −1 / Over 46.',
+  happened='ATL ran for 5 TDs (Bijan 19-145-2, Brian Robinson Jr. 3 TD); Penix 15/20, 223, 1 TD. ATL 45–24, total 69.',
+  wrong='All five MNF tickets lost (−$57.81). The Over 46 cashed but NO −1 lost by 22. Fant (abdomen) and Za\'Darius Smith (concussion) had no box line, so both legs were dead; London 5 rec (needed 6). Bijan TD, Blackmon T+A, Penix U30.5 att, Pitts o2.5 rec (3) and Shough 252+/253+ hit.',
+  experts='Post-game coverage was about ATL\'s line: two Robinsons, five rushing TDs (matching the franchise record) and no NO answer for the run. NO\'s offense moved the ball (Shough 286) but couldn\'t keep pace.',
+  grade='Card ATL ✓ · placed ✗'),
 }

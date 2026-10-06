@@ -1,101 +1,465 @@
 {
- "week": 4, "season": 2026, "built": "2026-10-05 ~18:10 PT, Claude Team 2",
+ "week": 4,
+ "season": 2026,
+ "built": "2026-10-05 ~18:10 PT, Claude Team 2",
  "method": "Free WebSearch + WebFetch article reads (no paid models, no Supabase, no X/Gemini). Takeaways are PARAPHRASED and attributed; WebFetch extraction is not reliable for verbatim quotes, so none are stored. Claims were cross-checked against data/fantasy/boxscores/espn-*.json; contradicted claims were dropped (listed in rejected).",
  "sources": {
-  "nfl_wwl": {"outlet": "NFL.com Around the NFL", "title": "2026 NFL season, Week 4: What We Learned from Sunday's games", "url": "https://www.nfl.com/news/2026-nfl-season-week-4-what-we-learned-from-sunday-s-games"},
-  "cbs_grades": {"outlet": "CBS Sports", "author": "John Breech", "title": "NFL Week 4 grades for all 32 teams", "url": "https://www.cbssports.com/nfl/news/nfl-week-4-grades-for-all-32-teams-bears-bengals-patriots-rams/"},
-  "br_every_team": {"outlet": "Bleacher Report", "author": "Brent Sobleski", "title": "2026 NFL Week 4 Biggest Takeaways for Every Team", "url": "https://bleacherreport.com/articles/25505696-2026-nfl-week-4-biggest-takeaways-every-team"},
-  "espn_takeaways": {"outlet": "ESPN (read via ABC7 syndication)", "title": "NFL Week 4: Big takeaways, questions and fantasy spin from Sunday's games", "url": "https://www.espn.com/nfl/story/_/id/50077236/week-4-sunday-games-takeaways-questions-2026", "read_url": "https://abc7ny.com/post/nfl-week-4-big-takeaways-questions-fantasy-spin-sundays-games/19908018/"},
-  "ringer_wl": {"outlet": "The Ringer", "author": "The Ringer staff", "title": "The Winners and Losers of NFL Week 4", "url": "https://www.theringer.com/2026/10/04/nfl/winners-losers-nfl-week-4-drake-maye-rams-raiders-panthers"},
-  "si_wl": {"outlet": "Sports Illustrated", "title": "NFL Week 4 Winners and Losers", "url": "https://www.si.com/nfl/nfl-week-4-2026-winners-and-losers-cowboys-make-statement-texans-defense-falters"},
-  "thescore_tnf": {"outlet": "theScore (AP)", "title": "Browns survive Steelers rally for 3rd straight win", "url": "https://thescore.com/nfl/news/3613522"},
-  "panthers_itn": {"outlet": "Panthers.com", "author": "Kassidy Hill & Darin Gantt", "title": "Inside The Numbers: Panthers vs. Lions in Week 4", "url": "https://www.panthers.com/news/inside-the-numbers-panthers-vs-lions-in-week-4-bryce-young-tetairoa-mcmillan-chuba-hubbard", "note": "team site; stats, not neutral analysis"}
+  "nfl_wwl": {
+   "outlet": "NFL.com Around the NFL",
+   "title": "2026 NFL season, Week 4: What We Learned from Sunday's games",
+   "url": "https://www.nfl.com/news/2026-nfl-season-week-4-what-we-learned-from-sunday-s-games"
+  },
+  "cbs_grades": {
+   "outlet": "CBS Sports",
+   "author": "John Breech",
+   "title": "NFL Week 4 grades for all 32 teams",
+   "url": "https://www.cbssports.com/nfl/news/nfl-week-4-grades-for-all-32-teams-bears-bengals-patriots-rams/"
+  },
+  "br_every_team": {
+   "outlet": "Bleacher Report",
+   "author": "Brent Sobleski",
+   "title": "2026 NFL Week 4 Biggest Takeaways for Every Team",
+   "url": "https://bleacherreport.com/articles/25505696-2026-nfl-week-4-biggest-takeaways-every-team"
+  },
+  "espn_takeaways": {
+   "outlet": "ESPN (read via ABC7 syndication)",
+   "title": "NFL Week 4: Big takeaways, questions and fantasy spin from Sunday's games",
+   "url": "https://www.espn.com/nfl/story/_/id/50077236/week-4-sunday-games-takeaways-questions-2026",
+   "read_url": "https://abc7ny.com/post/nfl-week-4-big-takeaways-questions-fantasy-spin-sundays-games/19908018/"
+  },
+  "ringer_wl": {
+   "outlet": "The Ringer",
+   "author": "The Ringer staff",
+   "title": "The Winners and Losers of NFL Week 4",
+   "url": "https://www.theringer.com/2026/10/04/nfl/winners-losers-nfl-week-4-drake-maye-rams-raiders-panthers"
+  },
+  "si_wl": {
+   "outlet": "Sports Illustrated",
+   "title": "NFL Week 4 Winners and Losers",
+   "url": "https://www.si.com/nfl/nfl-week-4-2026-winners-and-losers-cowboys-make-statement-texans-defense-falters"
+  },
+  "thescore_tnf": {
+   "outlet": "theScore (AP)",
+   "title": "Browns survive Steelers rally for 3rd straight win",
+   "url": "https://thescore.com/nfl/news/3613522"
+  },
+  "panthers_itn": {
+   "outlet": "Panthers.com",
+   "author": "Kassidy Hill & Darin Gantt",
+   "title": "Inside The Numbers: Panthers vs. Lions in Week 4",
+   "url": "https://www.panthers.com/news/inside-the-numbers-panthers-vs-lions-in-week-4-bryce-young-tetairoa-mcmillan-chuba-hubbard",
+   "note": "team site; stats, not neutral analysis"
+  },
+  "cbs_mnf": {
+   "outlet": "CBS Sports",
+   "author": "Garrett Podell",
+   "title": "Saints vs. Falcons score: Bijan Robinson, Brian Robinson combine for 5 TDs as Atlanta runs wild",
+   "url": "https://www.cbssports.com/nfl/news/saints-vs-falcons-live-updates-score-highlights/live/"
+  },
+  "yahoo_mnf": {
+   "outlet": "Yahoo Sports",
+   "title": "Falcons run all over Saints, match team record with 5 rushing TDs in latest blowout win",
+   "url": "https://sports.yahoo.com/nfl/live/falcons-saints-score-live-updates-inactives-highlights-stats-where-to-watch-week-4-monday-night-football-224500412.html",
+   "note": "headline only; the readable page was the pre-game blog"
+  },
+  "fox_mnf": {
+   "outlet": "FOX Sports",
+   "title": "Falcons vs. Saints Highlights: Atlanta Routs New Orleans Behind Five Rushing TDs",
+   "url": "https://www.foxsports.com/live-blog/nfl/falcons-vs-saints-live-updates-score-nfc-south-rivals-clash-monday-night"
+  }
  },
  "games": {
-  "PIT@CLE": {"event_id": "401872964", "takeaways": [
-   {"src": "thescore_tnf", "text": "Ward INT sparked 21 unanswered CLE points; Rodgers tied it 24-24 to Freiermuth at 1:44; Szmyt 56-yd FG with 10s left. CLE 3-1, best start since 2021; Watson's third straight 4th-quarter comeback."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "CLE B+: Watson keeps playing well, rookies Boston and Concepcion 9-153 combined, five sacks. PIT B-: Rodgers 299 yds but two ill-advised INTs, Boswell's third missed FG, defense keeps giving up big plays."},
-   {"src": "br_every_team", "author": "Brent Sobleski", "text": "PIT receivers created separation on only ~14.7% of routes, forcing Rodgers into near-perfect throws; CLE rookie WRs established as real targets."}]},
-  "IND@WSH": {"event_id": "401872965", "site": "London", "takeaways": [
-   {"src": "nfl_wwl", "author": "Jeremy Bergman", "text": "Taylor (95 yds, 2 TD) steadied IND after early Jones turnovers. WSH lost Mariota (MCL) to 7th-round rookie Kaliakmanis. Sauce Gardner had his worst career game (117 yds on 5 targets, burned for a 47-yd Burks TD)."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "IND B but scoreline flattering: Jones 55.9% with an INT and fumble; Taylor and defense carried it vs a third-string QB. WSH C: kept it close into the 4th."},
-   {"src": "espn_takeaways", "author": "Stephen Holder, John Keim", "text": "IND winning ugly; Buckner dominant post-neck surgery. WSH injury list (Daniels, Tunsil, McLaurin, Cosmi, Mariota) is the story."}]},
-  "ARI@NYG": {"event_id": "401872966", "takeaways": [
-   {"src": "nfl_wwl", "author": "Nick Shook", "text": "NYG defense won it: goal-line stand plus Deonte Banks' 98-yd pick-six. ARI blew a 14-3 lead, punted three times in the 4th and failed at the goal line. Winston: 3 TD, 2 INT on consecutive 2nd-half drives."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "ARI C: Brissett's first 3-INT game in 11 years, ending with the pick-six at the NYG 4. NYG B: second straight week the defense won the game."},
-   {"src": "br_every_team", "author": "Brent Sobleski", "text": "Marvin Harrison Jr. clearly behind McBride and Wilson (1 catch on 4 targets)."}]},
-  "DAL@HOU": {"event_id": "401872967", "takeaways": [
-   {"src": "nfl_wwl", "author": "Kevin Patra", "text": "Lamb 17-189-1, 11-140-1 in the 2nd half; Dak targeted him on 21 of 45 routes. HOU defense collapsed; Javonte Williams scored three short TDs. Collins returned for 2 TDs."},
-   {"src": "ringer_wl", "text": "Loser: DeMeco Ryans/HOU defense. CB Kamari Lassiter allowed 136 yds on 50 snaps with three penalties, most allowed by a CB this season. Stroud is playing well; the defense is the problem."},
-   {"src": "si_wl", "text": "HOU gave up 28 second-half points and fell to 0-4 despite Stroud's 347 yds."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "DAL B (Prescott's game-winning 12-yd TD with 40s left); HOU B-: defense couldn't slow Dallas."}]},
-  "GB@TB": {"event_id": "401872968", "takeaways": [
-   {"src": "nfl_wwl", "author": "Bobby Kownack", "text": "GB escaped: penalties on the first play of four drives, 2-of-9 on 3rd down. Love has 2 TD passes in every game (matches his 2020 pace). TB forced late turnovers off rookie Jalon Daniels' first start; Edgerrin Cooper hurt (Achilles)."},
-   {"src": "espn_takeaways", "author": "Rob Demovsky, Jenna Laine", "text": "GB had 4th-quarter turnovers at the TB 1 and 7. Daniels showed promise despite 2 INTs; Mayfield (thumb) out."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "GB C: ugliest win of the week; offense out of sync. TB C: hard to win with an undrafted rookie QB; 0-4."},
-   {"src": "br_every_team", "author": "Brent Sobleski", "text": "GB RBs Kaleb Johnson and MarShawn Lloyd both fumbled."}]},
-  "JAX@CIN": {"event_id": "401872969", "takeaways": [
-   {"src": "nfl_wwl", "author": "Nick Shook", "text": "JAX won through ~100 first-half penalty yards by taking away two Burrow INTs (one set up a TD, the second ended a 4th-quarter red-zone drive). The JAX formula is a credible run game plus turnover-free Lawrence."},
-   {"src": "espn_takeaways", "author": "Michael DiRocco, Ben Baby", "text": "JAX has 10 takeaways in 4 games but its secondary is getting hurt. Burrow has 13 4th-quarter/OT turnovers since the start of 2024."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "CIN C+: 428 pass yds but the run game was nonexistent; late Burrow decisions cost it."},
-   {"src": "br_every_team", "author": "Brent Sobleski", "text": "Ja'Marr Chase left with a concussion; Gesicki and Tinsley stepped up as Burrow threw for 428."}]},
-  "LAR@PHI": {"event_id": "401872970", "takeaways": [
-   {"src": "nfl_wwl", "author": "Jeremy Bergman", "text": "LAR came back from 20-10 with 14 unanswered (Kyren go-ahead TD; Nacua 9-125). PHI 0-for-12 on 3rd down, most attempts without a conversion since 1991; Hurts 93 yds. PHI lost Barkley, Greenard, Q. Mitchell and Bigsby in-game."},
-   {"src": "ringer_wl", "text": "LAR out-gained PHI 415-172 but nearly lost to its own mistakes. PHI's 68 net passing yards were a 23-year regular-season low."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "LAR C+: Stafford 13/17 for 149 in the 4th saved a bad game. PHI C: worst offensive performance since 2014."},
-   {"src": "br_every_team", "author": "Brent Sobleski", "text": "Stafford now has 6 INTs (8 all last season) and looks uncomfortable behind his line."}]},
-  "NE@BUF": {"event_id": "401872971", "takeaways": [
-   {"src": "nfl_wwl", "author": "Kevin Patra", "text": "Maye 269 yds, 3 TD despite two turnovers; late TD to Chism on a one-handed catch. BUF allowed 405 yds and 26 first downs. Doubs 2 TDs."},
-   {"src": "ringer_wl", "text": "Winner Maye: 8 turnovers in his prior 13+ quarters, positive EPA for the first time since Week 18 last year."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "NE A-. BUF B-: James Cook got only 12 carries despite the matchup; the defense suddenly looks vulnerable."},
-   {"src": "si_wl", "text": "BUF CB Maxwell Hairston allowed two TDs."},
-   {"src": "espn_takeaways", "author": "Mike Reiss", "text": "BUF secondary exposed in man coverage; Keon Coleman breakout."}]},
-  "NYJ@CHI": {"event_id": "401872972", "takeaways": [
-   {"src": "nfl_wwl", "author": "Dan Parr", "text": "Bagent (first start in 3 years) 268 yds; Monangai 30-146-2 wore NYJ out. NYJ 0-for-7 on 3rd down. CHI has held three straight opponents to 12 or fewer."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "CHI A-: offense on the field 42+ minutes; NYJ never forced a punt. CHI 10-0 when rushing for 140+. NYJ D."},
-   {"src": "espn_takeaways", "author": "Courtney Cronin, Rich Cimini", "text": "NYJ had 99 yds before a late TD; identity crisis after three straight losses. Fitzpatrick's INT ended NYJ's 20-game interception drought."}]},
-  "TEN@BAL": {"event_id": "401872973", "takeaways": [
-   {"src": "nfl_wwl", "author": "Bobby Kownack", "text": "Lamar (2 TD, 144.2 rating at half) left with an ankle injury and BAL didn't score again under Huntley. Simpson's opening INT set up a TD. Ward-Tate 9-145 but mental errors and fumbles."},
-   {"src": "espn_takeaways", "author": "Jamison Hensley, Turron Davenport", "text": "Without Lamar: 98 yds and no points on 5 drives. Tyler Loop hit a 64-yd FG (stadium record)."},
-   {"src": "br_every_team", "author": "Brent Sobleski", "text": "Lamar: high-ankle sprain, day-to-day. Tate is the most productive Titans rookie WR game in 5+ years but fumbled twice."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "TEN C: failed on a drive to the BAL 2; three straight losses by 6 or fewer."}]},
-  "MIA@MIN": {"event_id": "401872974", "takeaways": [
-   {"src": "nfl_wwl", "author": "Brooke Cersosimo", "text": "Murray averaged 4.9 air yds per attempt (lowest by a Vikings QB in a season), 18.9% of throws 10+ air yds, no Jefferson. Hockenson 13/13-119. MIA's first four sacks of the year. Gordon 9-100 after Achane's injury; Dallas Turner at 5.5 sacks."},
-   {"src": "ringer_wl", "text": "Loser: Murray/O'Connell. One offensive TD in 23 possessions over two games, against a weak MIA pass defense."},
-   {"src": "si_wl", "text": "Reichard 5/5 FG, 28 straight makes; 27 of MIN's 71 season points."},
-   {"src": "espn_takeaways", "author": "Kevin Seifert, Marcel Louis-Jacques", "text": "MIN 4-0 despite the offense; defense held MIA to 8 first downs."}]},
-  "DEN@SF": {"event_id": "401872975", "takeaways": [
-   {"src": "espn_takeaways", "author": "Nick Wagoner, Jeff Legwold", "text": "SF won without its peak offense; defense held DEN to 4.6 yds/play. Nix inaccurate (25/42, 214). Surtain's leg injury limits DEN's coverage flexibility."},
-   {"src": "ringer_wl", "text": "SF 4-0; Purdy leads in EPA/dropback; first team with zero sacks allowed through four games since 2005."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "DEN C+: one first-half TD all season; secondary thin after losing both corners. SF B+."},
-   {"src": "si_wl", "text": "Kittle's 56-yd TD (under a year post-Achilles) sealed it."},
-   {"src": "br_every_team", "author": "Brent Sobleski", "text": "DEN injuries: Surtain, Riley Moss, Pat Bryant; DEN ranks 29th on offense and defense."}]},
-  "KC@LV": {"event_id": "401872976", "takeaways": [
-   {"src": "nfl_wwl", "author": "Kevin Patra", "text": "Walker 177 yds, 2 TD (76-yd run); Mahomes' 55-yd shot to Thornton set up the go-ahead score. Bassa's kickoff punch-out and five Araiza punts inside the 20 won the hidden-yardage battle. LV TEs (Bowers, Mayer, Thomas) 16-200-2."},
-   {"src": "ringer_wl", "text": "Loser Kubiak: went for 4th-and-2 up 16-10, then kicked on 4th-and-1 down 3 with under 5:00 left."},
-   {"src": "espn_takeaways", "author": "Nate Taylor", "text": "KC has zero sacks in three weeks despite pass-rush investment; Thornton and Rice hurt. LV run game stuck (72 yds on 26 carries)."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "KC B, LV B: LV can play with anyone, but a late kick-return fumble hurt."}]},
-  "LAC@SEA": {"event_id": "401872977", "takeaways": [
-   {"src": "nfl_wwl", "author": "Dan Parr", "text": "SEA led 30-13 into the 4th and nearly gave it back; Nwosu's strip-sack of Herbert closed it. Darnold clean after two early INTs. Wilson 120 scrimmage yds, 2 TD with Price and Charbonnet out."},
-   {"src": "ringer_wl", "text": "LAC 0-4, -39 point margin. Herbert 34.8 rating on downfield throws; Harbaugh-McDaniel disconnect."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "SEA B: three takeaways. LAC C: lost Alt and McConkey; Herbert sacked 4 times, 3 turnovers."},
-   {"src": "espn_takeaways", "author": "Brady Henderson", "text": "Herbert looked like himself after halftime."}]},
-  "DET@CAR": {"event_id": "401872978", "takeaways": [
-   {"src": "panthers_itn", "author": "Kassidy Hill & Darin Gantt", "text": "Young 29/41, 329, 2 TD, 0 INT, 11 straight completions to open; leads the NFL in passing yds. McMillan 14-192-2 (first Panther with 10+/175+/2 TD). Hubbard 20-122-2. CAR's 121 points through four weeks is a franchise record."},
-   {"src": "ringer_wl", "text": "Winner Young: career-high 0.22 EPA/dropback despite missing linemen."},
-   {"src": "cbs_grades", "author": "John Breech", "text": "DET C: allowed seven straight scoring drives; no pressure on Young. CAR A-."},
-   {"src": "br_every_team", "author": "Brent Sobleski", "text": "DET is allowing 31.8 PPG, third-most over 40 years; TeSlaa 95 yds."}]}
+  "PIT@CLE": {
+   "event_id": "401872964",
+   "takeaways": [
+    {
+     "src": "thescore_tnf",
+     "text": "Ward INT sparked 21 unanswered CLE points; Rodgers tied it 24-24 to Freiermuth at 1:44; Szmyt 56-yd FG with 10s left. CLE 3-1, best start since 2021; Watson's third straight 4th-quarter comeback."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "CLE B+: Watson keeps playing well, rookies Boston and Concepcion 9-153 combined, five sacks. PIT B-: Rodgers 299 yds but two ill-advised INTs, Boswell's third missed FG, defense keeps giving up big plays."
+    },
+    {
+     "src": "br_every_team",
+     "author": "Brent Sobleski",
+     "text": "PIT receivers created separation on only ~14.7% of routes, forcing Rodgers into near-perfect throws; CLE rookie WRs established as real targets."
+    }
+   ]
+  },
+  "IND@WSH": {
+   "event_id": "401872965",
+   "site": "London",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Jeremy Bergman",
+     "text": "Taylor (95 yds, 2 TD) steadied IND after early Jones turnovers. WSH lost Mariota (MCL) to 7th-round rookie Kaliakmanis. Sauce Gardner had his worst career game (117 yds on 5 targets, burned for a 47-yd Burks TD)."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "IND B but scoreline flattering: Jones 55.9% with an INT and fumble; Taylor and defense carried it vs a third-string QB. WSH C: kept it close into the 4th."
+    },
+    {
+     "src": "espn_takeaways",
+     "author": "Stephen Holder, John Keim",
+     "text": "IND winning ugly; Buckner dominant post-neck surgery. WSH injury list (Daniels, Tunsil, McLaurin, Cosmi, Mariota) is the story."
+    }
+   ]
+  },
+  "ARI@NYG": {
+   "event_id": "401872966",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Nick Shook",
+     "text": "NYG defense won it: goal-line stand plus Deonte Banks' 98-yd pick-six. ARI blew a 14-3 lead, punted three times in the 4th and failed at the goal line. Winston: 3 TD, 2 INT on consecutive 2nd-half drives."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "ARI C: Brissett's first 3-INT game in 11 years, ending with the pick-six at the NYG 4. NYG B: second straight week the defense won the game."
+    },
+    {
+     "src": "br_every_team",
+     "author": "Brent Sobleski",
+     "text": "Marvin Harrison Jr. clearly behind McBride and Wilson (1 catch on 4 targets)."
+    }
+   ]
+  },
+  "DAL@HOU": {
+   "event_id": "401872967",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Kevin Patra",
+     "text": "Lamb 17-189-1, 11-140-1 in the 2nd half; Dak targeted him on 21 of 45 routes. HOU defense collapsed; Javonte Williams scored three short TDs. Collins returned for 2 TDs."
+    },
+    {
+     "src": "ringer_wl",
+     "text": "Loser: DeMeco Ryans/HOU defense. CB Kamari Lassiter allowed 136 yds on 50 snaps with three penalties, most allowed by a CB this season. Stroud is playing well; the defense is the problem."
+    },
+    {
+     "src": "si_wl",
+     "text": "HOU gave up 28 second-half points and fell to 0-4 despite Stroud's 347 yds."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "DAL B (Prescott's game-winning 12-yd TD with 40s left); HOU B-: defense couldn't slow Dallas."
+    }
+   ]
+  },
+  "GB@TB": {
+   "event_id": "401872968",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Bobby Kownack",
+     "text": "GB escaped: penalties on the first play of four drives, 2-of-9 on 3rd down. Love has 2 TD passes in every game (matches his 2020 pace). TB forced late turnovers off rookie Jalon Daniels' first start; Edgerrin Cooper hurt (Achilles)."
+    },
+    {
+     "src": "espn_takeaways",
+     "author": "Rob Demovsky, Jenna Laine",
+     "text": "GB had 4th-quarter turnovers at the TB 1 and 7. Daniels showed promise despite 2 INTs; Mayfield (thumb) out."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "GB C: ugliest win of the week; offense out of sync. TB C: hard to win with an undrafted rookie QB; 0-4."
+    },
+    {
+     "src": "br_every_team",
+     "author": "Brent Sobleski",
+     "text": "GB RBs Kaleb Johnson and MarShawn Lloyd both fumbled."
+    }
+   ]
+  },
+  "JAX@CIN": {
+   "event_id": "401872969",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Nick Shook",
+     "text": "JAX won through ~100 first-half penalty yards by taking away two Burrow INTs (one set up a TD, the second ended a 4th-quarter red-zone drive). The JAX formula is a credible run game plus turnover-free Lawrence."
+    },
+    {
+     "src": "espn_takeaways",
+     "author": "Michael DiRocco, Ben Baby",
+     "text": "JAX has 10 takeaways in 4 games but its secondary is getting hurt. Burrow has 13 4th-quarter/OT turnovers since the start of 2024."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "CIN C+: 428 pass yds but the run game was nonexistent; late Burrow decisions cost it."
+    },
+    {
+     "src": "br_every_team",
+     "author": "Brent Sobleski",
+     "text": "Ja'Marr Chase left with a concussion; Gesicki and Tinsley stepped up as Burrow threw for 428."
+    }
+   ]
+  },
+  "LAR@PHI": {
+   "event_id": "401872970",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Jeremy Bergman",
+     "text": "LAR came back from 20-10 with 14 unanswered (Kyren go-ahead TD; Nacua 9-125). PHI 0-for-12 on 3rd down, most attempts without a conversion since 1991; Hurts 93 yds. PHI lost Barkley, Greenard, Q. Mitchell and Bigsby in-game."
+    },
+    {
+     "src": "ringer_wl",
+     "text": "LAR out-gained PHI 415-172 but nearly lost to its own mistakes. PHI's 68 net passing yards were a 23-year regular-season low."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "LAR C+: Stafford 13/17 for 149 in the 4th saved a bad game. PHI C: worst offensive performance since 2014."
+    },
+    {
+     "src": "br_every_team",
+     "author": "Brent Sobleski",
+     "text": "Stafford now has 6 INTs (8 all last season) and looks uncomfortable behind his line."
+    }
+   ]
+  },
+  "NE@BUF": {
+   "event_id": "401872971",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Kevin Patra",
+     "text": "Maye 269 yds, 3 TD despite two turnovers; late TD to Chism on a one-handed catch. BUF allowed 405 yds and 26 first downs. Doubs 2 TDs."
+    },
+    {
+     "src": "ringer_wl",
+     "text": "Winner Maye: 8 turnovers in his prior 13+ quarters, positive EPA for the first time since Week 18 last year."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "NE A-. BUF B-: James Cook got only 12 carries despite the matchup; the defense suddenly looks vulnerable."
+    },
+    {
+     "src": "si_wl",
+     "text": "BUF CB Maxwell Hairston allowed two TDs."
+    },
+    {
+     "src": "espn_takeaways",
+     "author": "Mike Reiss",
+     "text": "BUF secondary exposed in man coverage; Keon Coleman breakout."
+    }
+   ]
+  },
+  "NYJ@CHI": {
+   "event_id": "401872972",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Dan Parr",
+     "text": "Bagent (first start in 3 years) 268 yds; Monangai 30-146-2 wore NYJ out. NYJ 0-for-7 on 3rd down. CHI has held three straight opponents to 12 or fewer."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "CHI A-: offense on the field 42+ minutes; NYJ never forced a punt. CHI 10-0 when rushing for 140+. NYJ D."
+    },
+    {
+     "src": "espn_takeaways",
+     "author": "Courtney Cronin, Rich Cimini",
+     "text": "NYJ had 99 yds before a late TD; identity crisis after three straight losses. Fitzpatrick's INT ended NYJ's 20-game interception drought."
+    }
+   ]
+  },
+  "TEN@BAL": {
+   "event_id": "401872973",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Bobby Kownack",
+     "text": "Lamar (2 TD, 144.2 rating at half) left with an ankle injury and BAL didn't score again under Huntley. Simpson's opening INT set up a TD. Ward-Tate 9-145 but mental errors and fumbles."
+    },
+    {
+     "src": "espn_takeaways",
+     "author": "Jamison Hensley, Turron Davenport",
+     "text": "Without Lamar: 98 yds and no points on 5 drives. Tyler Loop hit a 64-yd FG (stadium record)."
+    },
+    {
+     "src": "br_every_team",
+     "author": "Brent Sobleski",
+     "text": "Lamar: high-ankle sprain, day-to-day. Tate is the most productive Titans rookie WR game in 5+ years but fumbled twice."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "TEN C: failed on a drive to the BAL 2; three straight losses by 6 or fewer."
+    }
+   ]
+  },
+  "MIA@MIN": {
+   "event_id": "401872974",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Brooke Cersosimo",
+     "text": "Murray averaged 4.9 air yds per attempt (lowest by a Vikings QB in a season), 18.9% of throws 10+ air yds, no Jefferson. Hockenson 13/13-119. MIA's first four sacks of the year. Gordon 9-100 after Achane's injury; Dallas Turner at 5.5 sacks."
+    },
+    {
+     "src": "ringer_wl",
+     "text": "Loser: Murray/O'Connell. One offensive TD in 23 possessions over two games, against a weak MIA pass defense."
+    },
+    {
+     "src": "si_wl",
+     "text": "Reichard 5/5 FG, 28 straight makes; 27 of MIN's 71 season points."
+    },
+    {
+     "src": "espn_takeaways",
+     "author": "Kevin Seifert, Marcel Louis-Jacques",
+     "text": "MIN 4-0 despite the offense; defense held MIA to 8 first downs."
+    }
+   ]
+  },
+  "DEN@SF": {
+   "event_id": "401872975",
+   "takeaways": [
+    {
+     "src": "espn_takeaways",
+     "author": "Nick Wagoner, Jeff Legwold",
+     "text": "SF won without its peak offense; defense held DEN to 4.6 yds/play. Nix inaccurate (25/42, 214). Surtain's leg injury limits DEN's coverage flexibility."
+    },
+    {
+     "src": "ringer_wl",
+     "text": "SF 4-0; Purdy leads in EPA/dropback; first team with zero sacks allowed through four games since 2005."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "DEN C+: one first-half TD all season; secondary thin after losing both corners. SF B+."
+    },
+    {
+     "src": "si_wl",
+     "text": "Kittle's 56-yd TD (under a year post-Achilles) sealed it."
+    },
+    {
+     "src": "br_every_team",
+     "author": "Brent Sobleski",
+     "text": "DEN injuries: Surtain, Riley Moss, Pat Bryant; DEN ranks 29th on offense and defense."
+    }
+   ]
+  },
+  "KC@LV": {
+   "event_id": "401872976",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Kevin Patra",
+     "text": "Walker 177 yds, 2 TD (76-yd run); Mahomes' 55-yd shot to Thornton set up the go-ahead score. Bassa's kickoff punch-out and five Araiza punts inside the 20 won the hidden-yardage battle. LV TEs (Bowers, Mayer, Thomas) 16-200-2."
+    },
+    {
+     "src": "ringer_wl",
+     "text": "Loser Kubiak: went for 4th-and-2 up 16-10, then kicked on 4th-and-1 down 3 with under 5:00 left."
+    },
+    {
+     "src": "espn_takeaways",
+     "author": "Nate Taylor",
+     "text": "KC has zero sacks in three weeks despite pass-rush investment; Thornton and Rice hurt. LV run game stuck (72 yds on 26 carries)."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "KC B, LV B: LV can play with anyone, but a late kick-return fumble hurt."
+    }
+   ]
+  },
+  "LAC@SEA": {
+   "event_id": "401872977",
+   "takeaways": [
+    {
+     "src": "nfl_wwl",
+     "author": "Dan Parr",
+     "text": "SEA led 30-13 into the 4th and nearly gave it back; Nwosu's strip-sack of Herbert closed it. Darnold clean after two early INTs. Wilson 120 scrimmage yds, 2 TD with Price and Charbonnet out."
+    },
+    {
+     "src": "ringer_wl",
+     "text": "LAC 0-4, -39 point margin. Herbert 34.8 rating on downfield throws; Harbaugh-McDaniel disconnect."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "SEA B: three takeaways. LAC C: lost Alt and McConkey; Herbert sacked 4 times, 3 turnovers."
+    },
+    {
+     "src": "espn_takeaways",
+     "author": "Brady Henderson",
+     "text": "Herbert looked like himself after halftime."
+    }
+   ]
+  },
+  "DET@CAR": {
+   "event_id": "401872978",
+   "takeaways": [
+    {
+     "src": "panthers_itn",
+     "author": "Kassidy Hill & Darin Gantt",
+     "text": "Young 29/41, 329, 2 TD, 0 INT, 11 straight completions to open; leads the NFL in passing yds. McMillan 14-192-2 (first Panther with 10+/175+/2 TD). Hubbard 20-122-2. CAR's 121 points through four weeks is a franchise record."
+    },
+    {
+     "src": "ringer_wl",
+     "text": "Winner Young: career-high 0.22 EPA/dropback despite missing linemen."
+    },
+    {
+     "src": "cbs_grades",
+     "author": "John Breech",
+     "text": "DET C: allowed seven straight scoring drives; no pressure on Young. CAR A-."
+    },
+    {
+     "src": "br_every_team",
+     "author": "Brent Sobleski",
+     "text": "DET is allowing 31.8 PPG, third-most over 40 years; TeSlaa 95 yds."
+    }
+   ]
+  },
+  "ATL@NO": {
+   "event_id": "401872979",
+   "takeaways": [
+    {
+     "src": "cbs_mnf",
+     "author": "Garrett Podell",
+     "text": "ATL's line won the trenches: Bijan 19-145-2 and Brian Robinson Jr. 3 short TDs; NO had no answer for the run. Penix efficient (15/20, 223, 1 TD to Dotson). Shough threw for 286 but NO couldn't keep pace; Kamara's 2 TDs came on 7 carries. ATL 2-2, NO 1-3."
+    },
+    {
+     "src": "yahoo_mnf",
+     "text": "ATL's five rushing TDs matched the franchise record (headline)."
+    },
+    {
+     "src": "fox_mnf",
+     "text": "ATL's second straight win; NO's front generated little pressure and gave up explosive plays."
+    }
+   ]
+  }
  },
  "league": [
-  {"src": "si_wl", "text": "Officials threw 238 flags for 1,830 yards across 14 games; on pace for the most penalized season."},
-  {"src": "ringer_wl", "text": "Officiating flashpoints: Vrabel's unsportsmanlike flag, an exchange with Trey McBride, a referee confronting Eric Wilson."}
+  {
+   "src": "si_wl",
+   "text": "Officials threw 238 flags for 1,830 yards across 14 games; on pace for the most penalized season."
+  },
+  {
+   "src": "ringer_wl",
+   "text": "Officiating flashpoints: Vrabel's unsportsmanlike flag, an exchange with Trey McBride, a referee confronting Eric Wilson."
+  }
  ],
  "rejected": [
   "NFL.com SF/DEN and CAR/DET sections: the second read came back generic and wrong (called CAR-DET a divisional game); discarded.",
   "ESPN-mirror summary errors: 'Chargers' Lamb', 'Prescott multiple TDs' (box: 1 pass TD); dropped.",
   "theScore extraction labeled TNF 'Week 5'; it is Week 4 (event 401872964).",
   "NFL.com TNF 'what we learned' search hit was a 2019 article; not used.",
-  "ESPN Graziano overreactions page did not render; not used."
+  "ESPN Graziano overreactions page did not render; not used.",
+  "FOX MNF blog: 'Bijan and Brian Robinson combined for four rushing TDs' (scoring plays show five: Bijan 2, Brian Robinson Jr. 3); dropped.",
+  "CBS MNF summary: 'Kevin Stefanski's offense' and 'Penix's return from injury' not verifiable from the box score or roster data; dropped.",
+  "Yahoo MNF page: only the pre-game blog rendered; headline used, nothing else."
  ],
- "pending": ["ATL@NO (MNF, event 401872979): add after final"]
+ "pending": []
 }
