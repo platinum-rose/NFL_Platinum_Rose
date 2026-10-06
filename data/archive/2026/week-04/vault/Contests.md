@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: contests-week
 canonical_status: generated
 title: "Contests — Week 4"
-created: "2026-10-06T19:14:59.735Z"
-modified: "2026-10-06T19:14:59.735Z"
+created: "2026-10-06T19:27:53.964Z"
+modified: "2026-10-06T19:27:53.964Z"
 season: 2026
 week: 4
 type: "contests-week"

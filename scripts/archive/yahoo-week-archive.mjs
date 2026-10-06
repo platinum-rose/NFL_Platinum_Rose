@@ -150,7 +150,8 @@ async function parseAll() {
       const rows = (st?.standings ?? []).map((x) => x.team).filter(Boolean).map((t) => {
         const weeks = {}; for (const w of t.weekly_performance_collection ?? []) { const p = w.weekly_performance; if (p) weeks[String(p.week)] = { pts: num(p.week_points), wins: num(p.week_wins), losses: num(p.week_losses), rank: num(p.week_rank), dropped: !!p.dropped }; }
         return { rank: num(t.rank), team_key: t.team_key, name: t.team_name, pts: num(t.total_points), avg: num(t.average_points), wins: num(t.total_wins), losses: num(t.total_losses), weeks };
-      }).sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999));
+      }).filter((r, i, all) => !r.team_key || all.findIndex((o) => o.team_key === r.team_key) === i) // the API can list the owner's team twice
+        .sort((a, b) => (a.rank ?? 999) - (b.rank ?? 999));
       const me = rows.find((r) => r.team_key === mineKey);
       const wk = me?.weeks?.[String(WEEK)] ?? {};
       const picksRaw = ['a', 'b'].map((k) => loadRaw(`pickem-${mineKey}-picks-${k}`)).find((r) => r && !r.error);
@@ -164,6 +165,11 @@ async function parseAll() {
         season_leader: rows[0] ? `${rows[0].name} ${rows[0].pts}` : null,
         overall_standings: rows.map((r) => ({ rank: r.rank, name: r.name, pts: r.pts, wins: r.wins, losses: r.losses, week_pts: r.weeks[String(WEEK)]?.pts ?? null, week_rank: r.weeks[String(WEEK)]?.rank ?? null })) };
       const pf = path.join(ROOT, 'data', 'pickem', `yahoo-${slug(grp.group_key.replace(/\./g, '-'))}-${SEASON}-w${String(WEEK).padStart(2, '0')}.json`);
+      // keep per-game picks added by the Tuesday browser capture (the API returns none) so a later run never wipes them
+      const prev = (() => { try { return JSON.parse(fs.readFileSync(pf, 'utf8')); } catch { return null; } })();
+      if (cap.andy && !cap.andy.picks.length && prev?.andy?.picks?.length) {
+        for (const k of ['picks', 'picks_note', 'tiebreakers', 'dropped_pts']) if (prev.andy[k] !== undefined) cap.andy[k] = prev.andy[k];
+      }
       fs.writeFileSync(pf, JSON.stringify(cap, null, 1));
       og.pool_capture = path.relative(ROOT, pf).split(path.sep).join('/');
     }

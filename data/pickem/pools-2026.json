@@ -1,7 +1,7 @@
 {
  "schema": "pickem_pools_v1",
  "season": 2026,
- "updated_at": "2026-10-06T14:25:00.000Z",
+ "updated_at": "2026-10-06T19:35:00.000Z",
  "notes": "Andy's pick'em / confidence pools. Games lock at each game's kickoff in all three. Strategy profiles drive scripts/pickem-card.mjs; standings are filled in from Andy's leaderboard screenshots.",
  "pools": [
   {
@@ -42,12 +42,12 @@
   },
   {
    "id": "yahoo",
-   "name": "Yahoo confidence pool",
+   "name": "Ken's Pickem League (Yahoo Pro Football Pick'em confidence pool)",
    "platform": "Yahoo",
    "format": "confidence",
    "scoring": "confidence 1..N (N = games that week)",
-   "entrants": 95,
-   "entrants_note": "about 90-100",
+   "entrants": 54,
+   "entrants_note": "54 on the Week 4 final standings",
    "lock": "per_game_kickoff",
    "prizes": [
     "weekly",
@@ -64,7 +64,25 @@
     "max_tier": 2,
     "max_ev_cost": 2.5
    },
-   "standings": null
+   "standings": {
+    "as_of": "2026-10-06 Week 4 final",
+    "rank": 31,
+    "pts": 271,
+    "leader": "Ditka’s Bears 309",
+    "gap_to_leader": 38,
+    "by_week": {
+     "1": 90,
+     "2": 85,
+     "3": 75,
+     "4": 96
+    },
+    "week4_rank": 12,
+    "week4_pts": 96,
+    "dropped_pts": 75,
+    "source": "data/pickem/yahoo-472-g-4087-2026-w04.json"
+   },
+   "entry_name": "Fat Lazy American",
+   "url": "https://football.fantasysports.yahoo.com/pickem/4087/12"
   },
   {
    "id": "cbs",

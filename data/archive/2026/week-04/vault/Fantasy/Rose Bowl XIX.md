@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "Rose Bowl XIX — Week 4"
-created: "2026-10-06T19:14:59.597Z"
-modified: "2026-10-06T19:14:59.597Z"
+created: "2026-10-06T19:27:53.826Z"
+modified: "2026-10-06T19:27:53.826Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "KC @ LV — Week 4"
-created: "2026-10-06T19:14:58.679Z"
-modified: "2026-10-06T19:14:58.679Z"
+created: "2026-10-06T19:27:53.107Z"
+modified: "2026-10-06T19:27:53.107Z"
 season: 2026
 week: 4
 type: "game-week"

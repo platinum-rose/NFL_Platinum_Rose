@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "CC Bowl XV CHAMPIONS LEAGUE — Week 4"
-created: "2026-10-06T19:14:59.623Z"
-modified: "2026-10-06T19:14:59.623Z"
+created: "2026-10-06T19:27:53.848Z"
+modified: "2026-10-06T19:27:53.848Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "BAL — Week 4"
-created: "2026-10-06T19:14:59.230Z"
-modified: "2026-10-06T19:14:59.230Z"
+created: "2026-10-06T19:27:53.550Z"
+modified: "2026-10-06T19:27:53.550Z"
 season: 2026
 week: 4
 type: "team-week"

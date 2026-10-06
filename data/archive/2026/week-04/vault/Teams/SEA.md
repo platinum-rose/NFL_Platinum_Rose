@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "SEA — Week 4"
-created: "2026-10-06T19:14:59.422Z"
-modified: "2026-10-06T19:14:59.422Z"
+created: "2026-10-06T19:27:53.692Z"
+modified: "2026-10-06T19:27:53.692Z"
 season: 2026
 week: 4
 type: "team-week"
