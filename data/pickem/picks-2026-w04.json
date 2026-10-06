@@ -2,14 +2,106 @@
  "schema": "pickem_picks_v1",
  "season": 2026,
  "week": 4,
- "notes": "Picks per pool keyed by the PICKED team. status: proposed (recommended, not confirmed) | submitted (Andy confirmed it is in). Locked games are fixed when the card is rebuilt. TNF PIT@CLE final CLE 27-24: PIT lost in all three pools (Andy confirmed 10/03 ~21:15 PT). CBS picks for all 16 games captured from the BUKBUK pool page 10/05 ~20:35 PT (10-6). SimplySportsware and Yahoo still only have TNF.",
+ "notes": "Picks per pool keyed by the PICKED team. status: proposed (recommended, not confirmed) | submitted (Andy confirmed it is in). Locked games are fixed when the card is rebuilt. TNF PIT@CLE final CLE 27-24: PIT lost in all three pools (Andy confirmed 10/03 ~21:15 PT). CBS picks for all 16 games captured from the BUKBUK pool page 10/05 ~20:35 PT (10-6). SimplySportsware picks + confidences for all 16 games captured 10/05 ~20:48 PT (91 pts). Yahoo still only has TNF.",
  "pools": {
   "simplysportsware": {
    "PIT": {
     "confidence": 4,
     "status": "submitted",
     "at": "2026-10-04T04:15:00.000Z",
-    "submitted_at": "2026-10-01T17:15:00-07:00"
+    "submitted_at": "2026-10-01T17:15:00-07:00",
+    "result": "L",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "IND": {
+    "confidence": 12,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "BUF": {
+    "confidence": 14,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "BAL": {
+    "confidence": 16,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "CIN": {
+    "confidence": 7,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "HOU": {
+    "confidence": 6,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "GB": {
+    "confidence": 10,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "CHI": {
+    "confidence": 9,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "LAR": {
+    "confidence": 8,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "ARI": {
+    "confidence": 3,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "MIN": {
+    "confidence": 15,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "KC": {
+    "confidence": 2,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "SEA": {
+    "confidence": 13,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "SF": {
+    "confidence": 5,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "DET": {
+    "confidence": 11,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
+   },
+   "ATL": {
+    "confidence": 1,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks page, read 2026-10-05 ~20:48 PT"
    }
   },
   "yahoo": {
