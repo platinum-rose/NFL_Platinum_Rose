@@ -82,7 +82,7 @@ $TasksConfig = @(
         Script      = "toolbox-tuesday.cmd"
         Description = "toolbox --cadence tuesday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-tuesday.log"
         Type        = "Weekly"
-        WeeklyAt    = @(@("Tuesday", "10:00"))
+        WeeklyAt    = ,@("Tuesday", "10:00")
         LimitMin    = 30
     },
     @{
@@ -90,7 +90,7 @@ $TasksConfig = @(
         Script      = "toolbox-wednesday-pm.cmd"
         Description = "toolbox --cadence wednesday-pm (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-wednesday-pm.log"
         Type        = "Weekly"
-        WeeklyAt    = @(@("Wednesday", "15:00"))
+        WeeklyAt    = ,@("Wednesday", "15:00")
         LimitMin    = 30
     },
     @{
@@ -98,7 +98,7 @@ $TasksConfig = @(
         Script      = "toolbox-wednesday.cmd"
         Description = "toolbox --cadence wednesday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-wednesday.log"
         Type        = "Weekly"
-        WeeklyAt    = @(@("Wednesday", "09:00"))
+        WeeklyAt    = ,@("Wednesday", "09:00")
         LimitMin    = 60
     },
     @{
@@ -106,7 +106,7 @@ $TasksConfig = @(
         Script      = "toolbox-thursday.cmd"
         Description = "toolbox --cadence thursday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-thursday.log"
         Type        = "Weekly"
-        WeeklyAt    = @(@("Thursday", "14:30"))
+        WeeklyAt    = ,@("Thursday", "14:30")
         LimitMin    = 30
     },
     @{
@@ -114,7 +114,7 @@ $TasksConfig = @(
         Script      = "toolbox-friday.cmd"
         Description = "toolbox --cadence friday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-friday.log"
         Type        = "Weekly"
-        WeeklyAt    = @(@("Friday", "15:00"))
+        WeeklyAt    = ,@("Friday", "15:00")
         LimitMin    = 30
     },
     @{
@@ -122,7 +122,7 @@ $TasksConfig = @(
         Script      = "toolbox-saturday.cmd"
         Description = "toolbox --cadence saturday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-saturday.log"
         Type        = "Weekly"
-        WeeklyAt    = @(@("Saturday", "10:00"))
+        WeeklyAt    = ,@("Saturday", "10:00")
         LimitMin    = 20
     },
     @{
@@ -138,7 +138,7 @@ $TasksConfig = @(
         Script      = "toolbox-monday.cmd"
         Description = "toolbox --cadence monday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-monday.log"
         Type        = "Weekly"
-        WeeklyAt    = @(@("Monday", "22:30"))
+        WeeklyAt    = ,@("Monday", "22:30")
         LimitMin    = 15
     },
     @{
