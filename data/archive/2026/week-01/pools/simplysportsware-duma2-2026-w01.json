@@ -1,0 +1,1653 @@
+{
+ "schema": "pickem_pool_capture_v1",
+ "pool_id": "simplysportsware",
+ "pool_name": "the duma 2",
+ "platform": "SimplySportsware",
+ "entry_name": "Fat Lazy American",
+ "url": "https://www.simplysportsware.com/pool-home",
+ "pages": {
+  "my_picks": "MyPicks.aspx?view=1",
+  "standings": "Standings.aspx?nfl=1",
+  "weekly_breakdown": "WeeklyBreakdown.aspx"
+ },
+ "week": 1,
+ "season": 2026,
+ "captured_at": "2026-10-06T13:40:00-07:00",
+ "captured_by": "Claude Team 2 via the desktop browser pane (read-only backfill: MyPicks + Standings week views; Andy signed in himself)",
+ "entrants": 93,
+ "scoring": "confidence 1-16; Lost = confidence points on missed picks",
+ "andy": {
+  "week1": {
+   "pts": 95,
+   "lost": 41,
+   "max": 136,
+   "wins": 11,
+   "losses": 5,
+   "rank_row": 40,
+   "of": 93
+  },
+  "season": {
+   "pts": 95,
+   "lost": 41,
+   "wins": 11,
+   "losses": 5,
+   "pct": 68.8,
+   "rank_row": 40,
+   "rank_competition": 39,
+   "by_week": {
+    "1": 95
+   }
+  },
+  "picks": [
+   {
+    "game": "NE@SEA",
+    "pick": "SEA",
+    "confidence": 7,
+    "winner": "SEA",
+    "correct": true
+   },
+   {
+    "game": "SF@LAR",
+    "pick": "LAR",
+    "confidence": 10,
+    "winner": "SF",
+    "correct": false
+   },
+   {
+    "game": "NYJ@TEN",
+    "pick": "NYJ",
+    "confidence": 2,
+    "winner": "NYJ",
+    "correct": true
+   },
+   {
+    "game": "ATL@PIT",
+    "pick": "PIT",
+    "confidence": 9,
+    "winner": "PIT",
+    "correct": true
+   },
+   {
+    "game": "BAL@IND",
+    "pick": "BAL",
+    "confidence": 12,
+    "winner": "BAL",
+    "correct": true
+   },
+   {
+    "game": "TB@CIN",
+    "pick": "CIN",
+    "confidence": 8,
+    "winner": "CIN",
+    "correct": true
+   },
+   {
+    "game": "BUF@HOU",
+    "pick": "HOU",
+    "confidence": 1,
+    "winner": "BUF",
+    "correct": false
+   },
+   {
+    "game": "CLE@JAX",
+    "pick": "JAX",
+    "confidence": 15,
+    "winner": "JAX",
+    "correct": true
+   },
+   {
+    "game": "NO@DET",
+    "pick": "DET",
+    "confidence": 14,
+    "winner": "DET",
+    "correct": true
+   },
+   {
+    "game": "CHI@CAR",
+    "pick": "CHI",
+    "confidence": 6,
+    "winner": "CHI",
+    "correct": true
+   },
+   {
+    "game": "MIA@LV",
+    "pick": "LV",
+    "confidence": 5,
+    "winner": "LV",
+    "correct": true
+   },
+   {
+    "game": "ARI@LAC",
+    "pick": "LAC",
+    "confidence": 16,
+    "winner": "ARI",
+    "correct": false
+   },
+   {
+    "game": "WSH@PHI",
+    "pick": "PHI",
+    "confidence": 13,
+    "winner": "PHI",
+    "correct": true
+   },
+   {
+    "game": "GB@MIN",
+    "pick": "GB",
+    "confidence": 3,
+    "winner": "MIN",
+    "correct": false
+   },
+   {
+    "game": "DAL@NYG",
+    "pick": "DAL",
+    "confidence": 11,
+    "winner": "NYG",
+    "correct": false
+   },
+   {
+    "game": "DEN@KC",
+    "pick": "KC",
+    "confidence": 4,
+    "winner": "KC",
+    "correct": true
+   }
+  ]
+ },
+ "leaders": {
+  "season": "Rayguns 119",
+  "week1": "Rayguns 119"
+ },
+ "note_rank": "Season standings as of Week 1 are computed by summing each member's Week 1-1 rows from the site's Standings week views (sorted by points, then fewest Lost); the site's own historical overall view was not available. rank_competition = 1 + members with more points.",
+ "overall_standings": [
+  {
+   "row": 1,
+   "name": "Rayguns",
+   "pts": 119,
+   "lost": 17,
+   "w": 14,
+   "l": 2
+  },
+  {
+   "row": 2,
+   "name": "AVL GAL",
+   "pts": 116,
+   "lost": 20,
+   "w": 14,
+   "l": 2
+  },
+  {
+   "row": 3,
+   "name": "Chuck Wagon",
+   "pts": 115,
+   "lost": 21,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 4,
+   "name": "pmac10023",
+   "pts": 111,
+   "lost": 25,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 5,
+   "name": "Deb N Air",
+   "pts": 110,
+   "lost": 26,
+   "w": 13,
+   "l": 3
+  },
+  {
+   "row": 6,
+   "name": "LeeBabySims",
+   "pts": 109,
+   "lost": 27,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 7,
+   "name": "Cobra Kai 15",
+   "pts": 108,
+   "lost": 28,
+   "w": 13,
+   "l": 3
+  },
+  {
+   "row": 8,
+   "name": "Barry18",
+   "pts": 108,
+   "lost": 28,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 9,
+   "name": "Lightning Bolts Are Coming",
+   "pts": 107,
+   "lost": 29,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 10,
+   "name": "Storkuss",
+   "pts": 106,
+   "lost": 30,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 11,
+   "name": "BrockTua",
+   "pts": 106,
+   "lost": 30,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 12,
+   "name": "Baltimore Brown",
+   "pts": 105,
+   "lost": 31,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 13,
+   "name": "Shoppykat",
+   "pts": 105,
+   "lost": 31,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 14,
+   "name": "FLYING ELVII",
+   "pts": 105,
+   "lost": 31,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 15,
+   "name": "LadyDiamond",
+   "pts": 104,
+   "lost": 32,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 16,
+   "name": "BrantnRave",
+   "pts": 104,
+   "lost": 32,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 17,
+   "name": "Bearnecessity",
+   "pts": 103,
+   "lost": 33,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 18,
+   "name": "Dr Zod",
+   "pts": 103,
+   "lost": 33,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 19,
+   "name": "Come back kid",
+   "pts": 103,
+   "lost": 33,
+   "w": 13,
+   "l": 3
+  },
+  {
+   "row": 20,
+   "name": "Rockydogz",
+   "pts": 103,
+   "lost": 33,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 21,
+   "name": "HoHum",
+   "pts": 103,
+   "lost": 33,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 22,
+   "name": "the spread",
+   "pts": 102,
+   "lost": 34,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 23,
+   "name": "lolasbitchez",
+   "pts": 102,
+   "lost": 34,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 24,
+   "name": "NowInOakland",
+   "pts": 101,
+   "lost": 35,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 25,
+   "name": "adsch33",
+   "pts": 101,
+   "lost": 35,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 26,
+   "name": "MoJoRising",
+   "pts": 101,
+   "lost": 35,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 27,
+   "name": "The Iggles",
+   "pts": 100,
+   "lost": 36,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 28,
+   "name": "JHoler",
+   "pts": 100,
+   "lost": 36,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 29,
+   "name": "Tahopeful",
+   "pts": 100,
+   "lost": 36,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 30,
+   "name": "Fredzone",
+   "pts": 100,
+   "lost": 36,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 31,
+   "name": "Fangirl",
+   "pts": 100,
+   "lost": 36,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 32,
+   "name": "lilyvonlily",
+   "pts": 98,
+   "lost": 38,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 33,
+   "name": "PA Dude",
+   "pts": 98,
+   "lost": 38,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 34,
+   "name": "T1upTJ",
+   "pts": 98,
+   "lost": 38,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 35,
+   "name": "sklnews",
+   "pts": 97,
+   "lost": 39,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 36,
+   "name": "CM5",
+   "pts": 96,
+   "lost": 40,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 37,
+   "name": "jpbblues",
+   "pts": 96,
+   "lost": 40,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 38,
+   "name": "ksundstrom5",
+   "pts": 96,
+   "lost": 40,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 39,
+   "name": "Cinci Jungle Fever",
+   "pts": 95,
+   "lost": 41,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 40,
+   "name": "Fat Lazy American",
+   "pts": 95,
+   "lost": 41,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 41,
+   "name": "SLJ1872",
+   "pts": 95,
+   "lost": 41,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 42,
+   "name": "State",
+   "pts": 95,
+   "lost": 41,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 43,
+   "name": "SKOLinOne",
+   "pts": 94,
+   "lost": 42,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 44,
+   "name": "bheather",
+   "pts": 94,
+   "lost": 42,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 45,
+   "name": "DarksideMOB",
+   "pts": 94,
+   "lost": 42,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 46,
+   "name": "Red Grapes of Wrath",
+   "pts": 94,
+   "lost": 42,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 47,
+   "name": "Wecsters",
+   "pts": 94,
+   "lost": 42,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 48,
+   "name": "Playing It Koi",
+   "pts": 94,
+   "lost": 42,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 49,
+   "name": "Alibaba818",
+   "pts": 94,
+   "lost": 42,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 50,
+   "name": "Philly vs. All Youse",
+   "pts": 93,
+   "lost": 43,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 51,
+   "name": "stejore19",
+   "pts": 93,
+   "lost": 43,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 52,
+   "name": "Mark1408",
+   "pts": 93,
+   "lost": 43,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 53,
+   "name": "First&Goal",
+   "pts": 92,
+   "lost": 44,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 54,
+   "name": "blindsided",
+   "pts": 92,
+   "lost": 44,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 55,
+   "name": "the czar",
+   "pts": 91,
+   "lost": 45,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 56,
+   "name": "Morrisszyslak",
+   "pts": 91,
+   "lost": 45,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 57,
+   "name": "QuickFish",
+   "pts": 91,
+   "lost": 45,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 58,
+   "name": "mzal13",
+   "pts": 90,
+   "lost": 46,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 59,
+   "name": "LaCostaGrizzly",
+   "pts": 90,
+   "lost": 46,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 60,
+   "name": "bowncingsole",
+   "pts": 90,
+   "lost": 46,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 61,
+   "name": "The Brooklyn Bruiser",
+   "pts": 90,
+   "lost": 46,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 62,
+   "name": "PolyPick6",
+   "pts": 90,
+   "lost": 46,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 63,
+   "name": "Lenpapa",
+   "pts": 89,
+   "lost": 47,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 64,
+   "name": "betterlucknextweek",
+   "pts": 88,
+   "lost": 48,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 65,
+   "name": "Howlin Wolf",
+   "pts": 88,
+   "lost": 48,
+   "w": 8,
+   "l": 8
+  },
+  {
+   "row": 66,
+   "name": "Csonkaupthegut",
+   "pts": 88,
+   "lost": 48,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 67,
+   "name": "Jmeans110&",
+   "pts": 88,
+   "lost": 48,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 68,
+   "name": "Hijo y Hanna",
+   "pts": 87,
+   "lost": 49,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 69,
+   "name": "bags7777",
+   "pts": 86,
+   "lost": 50,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 70,
+   "name": "Cheese Ed",
+   "pts": 86,
+   "lost": 50,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 71,
+   "name": "YoungGunHaaken",
+   "pts": 86,
+   "lost": 50,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 72,
+   "name": "akak907",
+   "pts": 84,
+   "lost": 52,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 73,
+   "name": "FoghornLeghorn",
+   "pts": 83,
+   "lost": 53,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 74,
+   "name": "tjdieck",
+   "pts": 82,
+   "lost": 54,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 75,
+   "name": "BeastMode12",
+   "pts": 80,
+   "lost": 56,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 76,
+   "name": "NotWavehog",
+   "pts": 80,
+   "lost": 56,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 77,
+   "name": "JCP Warriors",
+   "pts": 79,
+   "lost": 57,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 78,
+   "name": "Vagelli",
+   "pts": 79,
+   "lost": 57,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 79,
+   "name": "BDANIEL1123",
+   "pts": 78,
+   "lost": 58,
+   "w": 8,
+   "l": 8
+  },
+  {
+   "row": 80,
+   "name": "Dak to the Future",
+   "pts": 77,
+   "lost": 59,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 81,
+   "name": "LarrySF49",
+   "pts": 76,
+   "lost": 44,
+   "w": 8,
+   "l": 7
+  },
+  {
+   "row": 82,
+   "name": "Shock Therapy",
+   "pts": 76,
+   "lost": 60,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 83,
+   "name": "Bloodydamn Goblin",
+   "pts": 75,
+   "lost": 61,
+   "w": 8,
+   "l": 8
+  },
+  {
+   "row": 84,
+   "name": "Robo53",
+   "pts": 74,
+   "lost": 62,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 85,
+   "name": "wengel2694",
+   "pts": 72,
+   "lost": 64,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 86,
+   "name": "Princess Cyn",
+   "pts": 70,
+   "lost": 66,
+   "w": 7,
+   "l": 9
+  },
+  {
+   "row": 87,
+   "name": "KickingBass",
+   "pts": 69,
+   "lost": 67,
+   "w": 8,
+   "l": 8
+  },
+  {
+   "row": 88,
+   "name": "tmotts62",
+   "pts": 68,
+   "lost": 68,
+   "w": 7,
+   "l": 9
+  },
+  {
+   "row": 89,
+   "name": "Babalinks",
+   "pts": 67,
+   "lost": 69,
+   "w": 8,
+   "l": 8
+  },
+  {
+   "row": 90,
+   "name": "Littlef",
+   "pts": 61,
+   "lost": 75,
+   "w": 7,
+   "l": 9
+  },
+  {
+   "row": 91,
+   "name": "KeepItSimple",
+   "pts": 58,
+   "lost": 78,
+   "w": 6,
+   "l": 10
+  },
+  {
+   "row": 92,
+   "name": "theboxersd",
+   "pts": 55,
+   "lost": 81,
+   "w": 7,
+   "l": 9
+  },
+  {
+   "row": 93,
+   "name": "Dmichaels08",
+   "pts": 47,
+   "lost": 58,
+   "w": 8,
+   "l": 6
+  }
+ ],
+ "week1_standings": [
+  {
+   "row": 1,
+   "name": "Rayguns",
+   "pts": 119,
+   "lost": 17,
+   "w": 14,
+   "l": 2
+  },
+  {
+   "row": 2,
+   "name": "AVL GAL",
+   "pts": 116,
+   "lost": 20,
+   "w": 14,
+   "l": 2
+  },
+  {
+   "row": 3,
+   "name": "Chuck Wagon",
+   "pts": 115,
+   "lost": 21,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 4,
+   "name": "pmac10023",
+   "pts": 111,
+   "lost": 25,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 5,
+   "name": "Deb N Air",
+   "pts": 110,
+   "lost": 26,
+   "w": 13,
+   "l": 3
+  },
+  {
+   "row": 6,
+   "name": "LeeBabySims",
+   "pts": 109,
+   "lost": 27,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 7,
+   "name": "Cobra Kai 15",
+   "pts": 108,
+   "lost": 28,
+   "w": 13,
+   "l": 3
+  },
+  {
+   "row": 8,
+   "name": "Barry18",
+   "pts": 108,
+   "lost": 28,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 9,
+   "name": "Lightning Bolts Are Coming",
+   "pts": 107,
+   "lost": 29,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 10,
+   "name": "Storkuss",
+   "pts": 106,
+   "lost": 30,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 11,
+   "name": "BrockTua",
+   "pts": 106,
+   "lost": 30,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 12,
+   "name": "Baltimore Brown",
+   "pts": 105,
+   "lost": 31,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 13,
+   "name": "Shoppykat",
+   "pts": 105,
+   "lost": 31,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 14,
+   "name": "FLYING ELVII",
+   "pts": 105,
+   "lost": 31,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 15,
+   "name": "LadyDiamond",
+   "pts": 104,
+   "lost": 32,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 16,
+   "name": "BrantnRave",
+   "pts": 104,
+   "lost": 32,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 17,
+   "name": "Bearnecessity",
+   "pts": 103,
+   "lost": 33,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 18,
+   "name": "Dr Zod",
+   "pts": 103,
+   "lost": 33,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 19,
+   "name": "Come back kid",
+   "pts": 103,
+   "lost": 33,
+   "w": 13,
+   "l": 3
+  },
+  {
+   "row": 20,
+   "name": "Rockydogz",
+   "pts": 103,
+   "lost": 33,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 21,
+   "name": "HoHum",
+   "pts": 103,
+   "lost": 33,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 22,
+   "name": "the spread",
+   "pts": 102,
+   "lost": 34,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 23,
+   "name": "lolasbitchez",
+   "pts": 102,
+   "lost": 34,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 24,
+   "name": "NowInOakland",
+   "pts": 101,
+   "lost": 35,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 25,
+   "name": "adsch33",
+   "pts": 101,
+   "lost": 35,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 26,
+   "name": "MoJoRising",
+   "pts": 101,
+   "lost": 35,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 27,
+   "name": "The Iggles",
+   "pts": 100,
+   "lost": 36,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 28,
+   "name": "JHoler",
+   "pts": 100,
+   "lost": 36,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 29,
+   "name": "Tahopeful",
+   "pts": 100,
+   "lost": 36,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 30,
+   "name": "Fredzone",
+   "pts": 100,
+   "lost": 36,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 31,
+   "name": "Fangirl",
+   "pts": 100,
+   "lost": 36,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 32,
+   "name": "lilyvonlily",
+   "pts": 98,
+   "lost": 38,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 33,
+   "name": "PA Dude",
+   "pts": 98,
+   "lost": 38,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 34,
+   "name": "T1upTJ",
+   "pts": 98,
+   "lost": 38,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 35,
+   "name": "sklnews",
+   "pts": 97,
+   "lost": 39,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 36,
+   "name": "CM5",
+   "pts": 96,
+   "lost": 40,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 37,
+   "name": "jpbblues",
+   "pts": 96,
+   "lost": 40,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 38,
+   "name": "ksundstrom5",
+   "pts": 96,
+   "lost": 40,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 39,
+   "name": "Cinci Jungle Fever",
+   "pts": 95,
+   "lost": 41,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 40,
+   "name": "Fat Lazy American",
+   "pts": 95,
+   "lost": 41,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 41,
+   "name": "SLJ1872",
+   "pts": 95,
+   "lost": 41,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 42,
+   "name": "State",
+   "pts": 95,
+   "lost": 41,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 43,
+   "name": "SKOLinOne",
+   "pts": 94,
+   "lost": 42,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 44,
+   "name": "bheather",
+   "pts": 94,
+   "lost": 42,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 45,
+   "name": "DarksideMOB",
+   "pts": 94,
+   "lost": 42,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 46,
+   "name": "Red Grapes of Wrath",
+   "pts": 94,
+   "lost": 42,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 47,
+   "name": "Wecsters",
+   "pts": 94,
+   "lost": 42,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 48,
+   "name": "Playing It Koi",
+   "pts": 94,
+   "lost": 42,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 49,
+   "name": "Alibaba818",
+   "pts": 94,
+   "lost": 42,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 50,
+   "name": "Philly vs. All Youse",
+   "pts": 93,
+   "lost": 43,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 51,
+   "name": "stejore19",
+   "pts": 93,
+   "lost": 43,
+   "w": 12,
+   "l": 4
+  },
+  {
+   "row": 52,
+   "name": "Mark1408",
+   "pts": 93,
+   "lost": 43,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 53,
+   "name": "First&Goal",
+   "pts": 92,
+   "lost": 44,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 54,
+   "name": "blindsided",
+   "pts": 92,
+   "lost": 44,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 55,
+   "name": "the czar",
+   "pts": 91,
+   "lost": 45,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 56,
+   "name": "Morrisszyslak",
+   "pts": 91,
+   "lost": 45,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 57,
+   "name": "QuickFish",
+   "pts": 91,
+   "lost": 45,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 58,
+   "name": "mzal13",
+   "pts": 90,
+   "lost": 46,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 59,
+   "name": "LaCostaGrizzly",
+   "pts": 90,
+   "lost": 46,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 60,
+   "name": "bowncingsole",
+   "pts": 90,
+   "lost": 46,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 61,
+   "name": "The Brooklyn Bruiser",
+   "pts": 90,
+   "lost": 46,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 62,
+   "name": "PolyPick6",
+   "pts": 90,
+   "lost": 46,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 63,
+   "name": "Lenpapa",
+   "pts": 89,
+   "lost": 47,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 64,
+   "name": "betterlucknextweek",
+   "pts": 88,
+   "lost": 48,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 65,
+   "name": "Howlin Wolf",
+   "pts": 88,
+   "lost": 48,
+   "w": 8,
+   "l": 8
+  },
+  {
+   "row": 66,
+   "name": "Csonkaupthegut",
+   "pts": 88,
+   "lost": 48,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 67,
+   "name": "Jmeans110&",
+   "pts": 88,
+   "lost": 48,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 68,
+   "name": "Hijo y Hanna",
+   "pts": 87,
+   "lost": 49,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 69,
+   "name": "bags7777",
+   "pts": 86,
+   "lost": 50,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 70,
+   "name": "Cheese Ed",
+   "pts": 86,
+   "lost": 50,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 71,
+   "name": "YoungGunHaaken",
+   "pts": 86,
+   "lost": 50,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 72,
+   "name": "akak907",
+   "pts": 84,
+   "lost": 52,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 73,
+   "name": "FoghornLeghorn",
+   "pts": 83,
+   "lost": 53,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 74,
+   "name": "tjdieck",
+   "pts": 82,
+   "lost": 54,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 75,
+   "name": "BeastMode12",
+   "pts": 80,
+   "lost": 56,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 76,
+   "name": "NotWavehog",
+   "pts": 80,
+   "lost": 56,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 77,
+   "name": "JCP Warriors",
+   "pts": 79,
+   "lost": 57,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 78,
+   "name": "Vagelli",
+   "pts": 79,
+   "lost": 57,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 79,
+   "name": "BDANIEL1123",
+   "pts": 78,
+   "lost": 58,
+   "w": 8,
+   "l": 8
+  },
+  {
+   "row": 80,
+   "name": "Dak to the Future",
+   "pts": 77,
+   "lost": 59,
+   "w": 11,
+   "l": 5
+  },
+  {
+   "row": 81,
+   "name": "Shock Therapy",
+   "pts": 76,
+   "lost": 60,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 82,
+   "name": "LarrySF49",
+   "pts": 76,
+   "lost": 44,
+   "w": 8,
+   "l": 7
+  },
+  {
+   "row": 83,
+   "name": "Bloodydamn Goblin",
+   "pts": 75,
+   "lost": 61,
+   "w": 8,
+   "l": 8
+  },
+  {
+   "row": 84,
+   "name": "Robo53",
+   "pts": 74,
+   "lost": 62,
+   "w": 9,
+   "l": 7
+  },
+  {
+   "row": 85,
+   "name": "wengel2694",
+   "pts": 72,
+   "lost": 64,
+   "w": 10,
+   "l": 6
+  },
+  {
+   "row": 86,
+   "name": "Princess Cyn",
+   "pts": 70,
+   "lost": 66,
+   "w": 7,
+   "l": 9
+  },
+  {
+   "row": 87,
+   "name": "KickingBass",
+   "pts": 69,
+   "lost": 67,
+   "w": 8,
+   "l": 8
+  },
+  {
+   "row": 88,
+   "name": "tmotts62",
+   "pts": 68,
+   "lost": 68,
+   "w": 7,
+   "l": 9
+  },
+  {
+   "row": 89,
+   "name": "Babalinks",
+   "pts": 67,
+   "lost": 69,
+   "w": 8,
+   "l": 8
+  },
+  {
+   "row": 90,
+   "name": "Littlef",
+   "pts": 61,
+   "lost": 75,
+   "w": 7,
+   "l": 9
+  },
+  {
+   "row": 91,
+   "name": "KeepItSimple",
+   "pts": 58,
+   "lost": 78,
+   "w": 6,
+   "l": 10
+  },
+  {
+   "row": 92,
+   "name": "theboxersd",
+   "pts": 55,
+   "lost": 81,
+   "w": 7,
+   "l": 9
+  },
+  {
+   "row": 93,
+   "name": "Dmichaels08",
+   "pts": 47,
+   "lost": 58,
+   "w": 8,
+   "l": 6
+  }
+ ]
+}

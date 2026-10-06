@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "CC Bowl XV CHAMPIONS LEAGUE — Week 2"
-created: "2026-10-06T05:58:19.684Z"
-modified: "2026-10-06T05:58:19.684Z"
+created: "2026-10-06T20:08:24.313Z"
+modified: "2026-10-06T20:08:24.313Z"
 season: 2026
 week: 2
 type: "fantasy-league-week"

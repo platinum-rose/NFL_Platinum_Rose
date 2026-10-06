@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "WSH @ DAL — Week 2"
-created: "2026-10-06T05:58:19.666Z"
-modified: "2026-10-06T05:58:19.666Z"
+created: "2026-10-06T20:08:23.149Z"
+modified: "2026-10-06T20:08:23.149Z"
 season: 2026
 week: 2
 type: "game-week"

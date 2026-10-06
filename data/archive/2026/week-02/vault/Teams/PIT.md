@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "PIT — Week 2"
-created: "2026-10-06T05:58:19.675Z"
-modified: "2026-10-06T05:58:19.675Z"
+created: "2026-10-06T20:08:23.783Z"
+modified: "2026-10-06T20:08:23.783Z"
 season: 2026
 week: 2
 type: "team-week"

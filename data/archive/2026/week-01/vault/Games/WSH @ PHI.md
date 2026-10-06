@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "WSH @ PHI — Week 1"
-created: "2026-10-06T05:57:48.513Z"
-modified: "2026-10-06T05:57:48.513Z"
+created: "2026-10-06T20:08:20.034Z"
+modified: "2026-10-06T20:08:20.034Z"
 season: 2026
 week: 1
 type: "game-week"

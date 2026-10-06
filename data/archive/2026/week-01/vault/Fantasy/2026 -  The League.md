@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "2026 -  The League — Week 1"
-created: "2026-10-06T05:57:48.529Z"
-modified: "2026-10-06T05:57:48.529Z"
+created: "2026-10-06T20:08:20.935Z"
+modified: "2026-10-06T20:08:20.935Z"
 season: 2026
 week: 1
 type: "fantasy-league-week"

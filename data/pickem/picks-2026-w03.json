@@ -1,31 +1,292 @@
 {
-  "schema": "pickem_picks_v1",
-  "season": 2026,
-  "week": 3,
-  "notes": "Picks per pool keyed by the PICKED team. status: proposed (recommended, not confirmed) | submitted (Andy confirmed it is in). Locked games are fixed when the card is rebuilt.",
-  "pools": {
-    "simplysportsware": {
-      "GB": {
-        "confidence": 10,
-        "status": "submitted",
-        "at": "2026-09-24T19:10:00.000Z",
-        "submitted_at": "2026-09-24T14:25:00-07:00"
-      }
-    },
-    "yahoo": {
-      "ATL": {
-        "confidence": 3,
-        "status": "submitted",
-        "at": "2026-09-24T19:13:00.000Z",
-        "submitted_at": "2026-09-24T14:25:00-07:00"
-      }
-    },
-    "cbs": {
-      "GB": {
-        "status": "submitted",
-        "at": "2026-09-24T19:10:00.000Z",
-        "submitted_at": "2026-09-24T14:25:00-07:00"
-      }
-    }
+ "schema": "pickem_picks_v1",
+ "season": 2026,
+ "week": 3,
+ "notes": "Picks per pool keyed by the PICKED team. status: proposed (recommended, not confirmed) | submitted (Andy confirmed it is in). Locked games are fixed when the card is rebuilt. Backfilled 2026-10-06 from the three pool sites (read-only): all 16 picks per pool with results.",
+ "pools": {
+  "simplysportsware": {
+   "GB": {
+    "confidence": 10,
+    "status": "submitted",
+    "at": "2026-09-24T19:10:00.000Z",
+    "submitted_at": "2026-09-24T14:25:00-07:00",
+    "result": "L",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "BUF": {
+    "confidence": 15,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "CIN": {
+    "confidence": 7,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "IND": {
+    "confidence": 1,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "JAX": {
+    "confidence": 2,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "TEN": {
+    "confidence": 5,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "KC": {
+    "confidence": 16,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "DET": {
+    "confidence": 13,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "CAR": {
+    "confidence": 6,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "SEA": {
+    "confidence": 12,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "MIN": {
+    "confidence": 3,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "SF": {
+    "confidence": 14,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "BAL": {
+    "confidence": 11,
+    "status": "submitted",
+    "result": "W",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "NO": {
+    "confidence": 4,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "LAR": {
+    "confidence": 8,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   },
+   "PHI": {
+    "confidence": 9,
+    "status": "submitted",
+    "result": "L",
+    "source": "SimplySportsware MyPicks, read 2026-10-06 (backfill)"
+   }
+  },
+  "yahoo": {
+   "ATL": {
+    "confidence": 3,
+    "status": "submitted",
+    "at": "2026-09-24T19:13:00.000Z",
+    "submitted_at": "2026-09-24T14:25:00-07:00",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "BUF": {
+    "confidence": 13,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "CAR": {
+    "confidence": 4,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "DET": {
+    "confidence": 12,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "IND": {
+    "confidence": 1,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "KC": {
+    "confidence": 16,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "TEN": {
+    "confidence": 6,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "CIN": {
+    "confidence": 8,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "SEA": {
+    "confidence": 15,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "JAX": {
+    "confidence": 7,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "SF": {
+    "confidence": 14,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "TB": {
+    "confidence": 2,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "BAL": {
+    "confidence": 9,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "NO": {
+    "confidence": 10,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "LAR": {
+    "confidence": 5,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   },
+   "PHI": {
+    "confidence": 11,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 (backfill)"
+   }
+  },
+  "cbs": {
+   "GB": {
+    "status": "submitted",
+    "at": "2026-09-24T19:10:00.000Z",
+    "submitted_at": "2026-09-24T14:25:00-07:00",
+    "result": "L",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "BUF": {
+    "status": "submitted",
+    "result": "W",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "CLE": {
+    "status": "submitted",
+    "result": "W",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "DET": {
+    "status": "submitted",
+    "result": "W",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "HOU": {
+    "status": "submitted",
+    "result": "L",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "JAX": {
+    "status": "submitted",
+    "result": "W",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "KC": {
+    "status": "submitted",
+    "result": "W",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "NYG": {
+    "status": "submitted",
+    "result": "W",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "CIN": {
+    "status": "submitted",
+    "result": "L",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "SEA": {
+    "status": "submitted",
+    "result": "L",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "SF": {
+    "status": "submitted",
+    "result": "W",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "TB": {
+    "status": "submitted",
+    "result": "L",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "BAL": {
+    "status": "submitted",
+    "result": "W",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "NO": {
+    "status": "submitted",
+    "result": "L",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "LAR": {
+    "status": "submitted",
+    "result": "L",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   },
+   "PHI": {
+    "status": "submitted",
+    "result": "L",
+    "source": "CBS BUKBUK weekly standings, read 2026-10-06 (backfill)"
+   }
   }
+ }
 }

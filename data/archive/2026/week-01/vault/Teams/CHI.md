@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "CHI — Week 1"
-created: "2026-10-06T05:57:48.519Z"
-modified: "2026-10-06T05:57:48.519Z"
+created: "2026-10-06T20:08:20.369Z"
+modified: "2026-10-06T20:08:20.369Z"
 season: 2026
 week: 1
 type: "team-week"

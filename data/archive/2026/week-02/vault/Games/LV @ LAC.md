@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "LV @ LAC — Week 2"
-created: "2026-10-06T05:58:19.665Z"
-modified: "2026-10-06T05:58:19.665Z"
+created: "2026-10-06T20:08:22.946Z"
+modified: "2026-10-06T20:08:22.946Z"
 season: 2026
 week: 2
 type: "game-week"

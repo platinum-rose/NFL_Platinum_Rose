@@ -2,8 +2,8 @@
  "schema": "weekly_archive_manifest_v1",
  "season": 2026,
  "week": 3,
- "started_at": "2026-10-06T05:58:19.859Z",
- "host": "win32",
+ "started_at": "2026-10-06T20:08:25.508Z",
+ "host": "linux",
  "steps": {
   "betting": {
    "ok": true,
@@ -28,7 +28,7 @@
   },
   "rollups": {
    "ok": true,
-   "ms": 22,
+   "ms": 335,
    "team_weeks": 128,
    "fantasy_player_weeks": 3712,
    "fantasy_matchups": 112
@@ -41,7 +41,7 @@
   },
   "notes": {
    "ok": true,
-   "ms": 49,
+   "ms": 1957,
    "notes": 56,
    "staged": "data/archive/2026/week-03/vault"
   },
@@ -52,6 +52,8 @@
    "unchanged": 0
   }
  },
+ "last_full_run": "2026-10-06T05:58:19.859Z",
+ "mode": "vault-only rebuild",
  "status": "ok",
- "finished_at": "2026-10-06T05:58:50.653Z"
+ "finished_at": "2026-10-06T20:08:28.125Z"
 }

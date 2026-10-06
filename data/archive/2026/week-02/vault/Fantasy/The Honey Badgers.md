@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "The Honey Badgers — Week 2"
-created: "2026-10-06T05:58:19.683Z"
-modified: "2026-10-06T05:58:19.683Z"
+created: "2026-10-06T20:08:24.254Z"
+modified: "2026-10-06T20:08:24.254Z"
 season: 2026
 week: 2
 type: "fantasy-league-week"

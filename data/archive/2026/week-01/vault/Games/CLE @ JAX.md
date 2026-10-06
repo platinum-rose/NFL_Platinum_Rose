@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "CLE @ JAX — Week 1"
-created: "2026-10-06T05:57:48.509Z"
-modified: "2026-10-06T05:57:48.509Z"
+created: "2026-10-06T20:08:19.863Z"
+modified: "2026-10-06T20:08:19.863Z"
 season: 2026
 week: 1
 type: "game-week"

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "HOU @ IND — Week 3"
-created: "2026-10-06T05:58:50.522Z"
-modified: "2026-10-06T05:58:50.522Z"
+created: "2026-10-06T20:08:26.048Z"
+modified: "2026-10-06T20:08:26.048Z"
 season: 2026
 week: 3
 type: "game-week"

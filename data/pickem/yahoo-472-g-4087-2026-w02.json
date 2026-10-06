@@ -26,8 +26,176 @@
    "3": 75,
    "4": 96
   },
-  "picks": [],
-  "picks_note": "Yahoo API returned no per-game picks; the Tuesday browser capture adds them"
+  "picks": [
+   {
+    "game": "DET@BUF",
+    "pick": "BUF",
+    "confidence": 5,
+    "winner": "BUF",
+    "correct": true,
+    "pool_pct_away": 8,
+    "pool_pct_home": 92,
+    "final": "Buf 41-Det 31"
+   },
+   {
+    "game": "CAR@ATL",
+    "pick": "CAR",
+    "confidence": 1,
+    "winner": "CAR",
+    "correct": true,
+    "pool_pct_away": 79,
+    "pool_pct_home": 21,
+    "final": "Car 34-Atl 3"
+   },
+   {
+    "game": "MIN@CHI",
+    "pick": "CHI",
+    "confidence": 9,
+    "winner": "MIN",
+    "correct": false,
+    "pool_pct_away": 7,
+    "pool_pct_home": 93,
+    "final": "Min 9-Chi 3"
+   },
+   {
+    "game": "PHI@TEN",
+    "pick": "PHI",
+    "confidence": 12,
+    "winner": "PHI",
+    "correct": true,
+    "pool_pct_away": 99,
+    "pool_pct_home": 1,
+    "final": "Phi 24-Ten 20"
+   },
+   {
+    "game": "PIT@NE",
+    "pick": "NE",
+    "confidence": 8,
+    "winner": "NE",
+    "correct": true,
+    "pool_pct_away": 19,
+    "pool_pct_home": 81,
+    "final": "NE 20-Pit 3"
+   },
+   {
+    "game": "GB@NYJ",
+    "pick": "GB",
+    "confidence": 6,
+    "winner": "GB",
+    "correct": true,
+    "pool_pct_away": 89,
+    "pool_pct_home": 11,
+    "final": "GB 20-NYJ 17"
+   },
+   {
+    "game": "CLE@TB",
+    "pick": "TB",
+    "confidence": 14,
+    "winner": "CLE",
+    "correct": false,
+    "pool_pct_away": 1,
+    "pool_pct_home": 99,
+    "final": "Cle 23-TB 19"
+   },
+   {
+    "game": "NO@BAL",
+    "pick": "BAL",
+    "confidence": 15,
+    "winner": "NO",
+    "correct": false,
+    "pool_pct_away": 2,
+    "pool_pct_home": 98,
+    "final": "NO 24-Bal 17"
+   },
+   {
+    "game": "CIN@HOU",
+    "pick": "HOU",
+    "confidence": 2,
+    "winner": "CIN",
+    "correct": false,
+    "pool_pct_away": 34,
+    "pool_pct_home": 66,
+    "final": "Cin 20-Hou 6"
+   },
+   {
+    "game": "JAX@DEN",
+    "pick": "DEN",
+    "confidence": 3,
+    "winner": "DEN",
+    "correct": true,
+    "pool_pct_away": 42,
+    "pool_pct_home": 58,
+    "final": "Den 20-Jax 13"
+   },
+   {
+    "game": "LV@LAC",
+    "pick": "LAC",
+    "confidence": 11,
+    "winner": "LV",
+    "correct": false,
+    "pool_pct_away": 11,
+    "pool_pct_home": 89,
+    "final": "LV 26-LAC 14"
+   },
+   {
+    "game": "WSH@DAL",
+    "pick": "DAL",
+    "confidence": 4,
+    "winner": "DAL",
+    "correct": true,
+    "pool_pct_away": 15,
+    "pool_pct_home": 85,
+    "final": "Dal 37-Was 20"
+   },
+   {
+    "game": "SEA@ARI",
+    "pick": "SEA",
+    "confidence": 7,
+    "winner": "SEA",
+    "correct": true,
+    "pool_pct_away": 91,
+    "pool_pct_home": 9,
+    "final": "Sea 31-Ari 7"
+   },
+   {
+    "game": "MIA@SF",
+    "pick": "SF",
+    "confidence": 16,
+    "winner": "SF",
+    "correct": true,
+    "pool_pct_away": 1,
+    "pool_pct_home": 99,
+    "final": "SF 35-Mia 13"
+   },
+   {
+    "game": "IND@KC",
+    "pick": "KC",
+    "confidence": 10,
+    "winner": "KC",
+    "correct": true,
+    "pool_pct_away": 3,
+    "pool_pct_home": 97,
+    "final": "KC 33-Ind 30"
+   },
+   {
+    "game": "NYG@LAR",
+    "pick": "LAR",
+    "confidence": 13,
+    "winner": "LAR",
+    "correct": true,
+    "pool_pct_away": 15,
+    "pool_pct_home": 85,
+    "final": "LAR 28-NYG 6"
+   }
+  ],
+  "picks_note": "Per-game picks read from the Yahoo picks page (pickem/4087/12/picks?week=2) in the desktop browser pane 2026-10-06, read-only. Picked side inferred from Correct/Incorrect + final score; checks: 11-5, 85 pts. pool_pct = Yahoo-wide pick distribution.",
+  "tiebreakers": {
+   "NYG@LAR": null,
+   "IND@KC": null,
+   "most_points": "Buffalo",
+   "fewest_points": "Cleveland",
+   "note": "no tiebreaker scores entered"
+  }
  },
  "season_leader": "Ditka’s Bears 309",
  "overall_standings": [
@@ -273,15 +441,6 @@
    "losses": 18,
    "week_pts": 92,
    "week_rank": 11
-  },
-  {
-   "rank": 28,
-   "name": "Fat Lazy American",
-   "pts": 271,
-   "wins": 31,
-   "losses": 16,
-   "week_pts": 85,
-   "week_rank": 35
   },
   {
    "rank": 28,

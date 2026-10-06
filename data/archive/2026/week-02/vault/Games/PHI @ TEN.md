@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "PHI @ TEN — Week 2"
-created: "2026-10-06T05:58:19.664Z"
-modified: "2026-10-06T05:58:19.664Z"
+created: "2026-10-06T20:08:22.891Z"
+modified: "2026-10-06T20:08:22.891Z"
 season: 2026
 week: 2
 type: "game-week"

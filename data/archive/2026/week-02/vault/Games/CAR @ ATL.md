@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "CAR @ ATL — Week 2"
-created: "2026-10-06T05:58:19.661Z"
-modified: "2026-10-06T05:58:19.661Z"
+created: "2026-10-06T20:08:22.726Z"
+modified: "2026-10-06T20:08:22.726Z"
 season: 2026
 week: 2
 type: "game-week"

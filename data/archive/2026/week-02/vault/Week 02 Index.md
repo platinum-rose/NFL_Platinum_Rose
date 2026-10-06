@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: week-index
 canonical_status: generated
 title: "NFL 2026 Week 2"
-created: "2026-10-06T05:58:19.688Z"
-modified: "2026-10-06T05:58:19.688Z"
+created: "2026-10-06T20:08:24.544Z"
+modified: "2026-10-06T20:08:24.544Z"
 season: 2026
 week: 2
 type: "week-index"
@@ -18,7 +18,7 @@ unders: 10
 ---
 # NFL 2026 — Week 2
 
-Favorites ATS 8-8-0 · Overs 6 of 16 · archived 2026-10-06T05:58Z
+Favorites ATS 8-8-0 · Overs 6 of 16 · archived 2026-10-06T20:08Z
 
 ## Games
 

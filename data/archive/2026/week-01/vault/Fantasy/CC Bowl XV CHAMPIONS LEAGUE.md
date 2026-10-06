@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "CC Bowl XV CHAMPIONS LEAGUE — Week 1"
-created: "2026-10-06T05:57:48.532Z"
-modified: "2026-10-06T05:57:48.532Z"
+created: "2026-10-06T20:08:21.022Z"
+modified: "2026-10-06T20:08:21.022Z"
 season: 2026
 week: 1
 type: "fantasy-league-week"

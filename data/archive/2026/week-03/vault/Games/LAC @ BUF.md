@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "LAC @ BUF — Week 3"
-created: "2026-10-06T05:58:50.523Z"
-modified: "2026-10-06T05:58:50.523Z"
+created: "2026-10-06T20:08:26.102Z"
+modified: "2026-10-06T20:08:26.102Z"
 season: 2026
 week: 3
 type: "game-week"

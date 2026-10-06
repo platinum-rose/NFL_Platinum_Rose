@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "The Honey Badgers — Week 1"
-created: "2026-10-06T05:57:48.530Z"
-modified: "2026-10-06T05:57:48.530Z"
+created: "2026-10-06T20:08:20.962Z"
+modified: "2026-10-06T20:08:20.962Z"
 season: 2026
 week: 1
 type: "fantasy-league-week"

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "PHI — Week 3"
-created: "2026-10-06T05:58:50.541Z"
-modified: "2026-10-06T05:58:50.541Z"
+created: "2026-10-06T20:08:27.404Z"
+modified: "2026-10-06T20:08:27.404Z"
 season: 2026
 week: 3
 type: "team-week"

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "ARI — Week 2"
-created: "2026-10-06T05:58:19.679Z"
-modified: "2026-10-06T05:58:19.679Z"
+created: "2026-10-06T20:08:24.039Z"
+modified: "2026-10-06T20:08:24.039Z"
 season: 2026
 week: 2
 type: "team-week"

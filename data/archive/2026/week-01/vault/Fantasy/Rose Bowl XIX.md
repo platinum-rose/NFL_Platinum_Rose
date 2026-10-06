@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "Rose Bowl XIX — Week 1"
-created: "2026-10-06T05:57:48.531Z"
-modified: "2026-10-06T05:57:48.531Z"
+created: "2026-10-06T20:08:20.992Z"
+modified: "2026-10-06T20:08:20.992Z"
 season: 2026
 week: 1
 type: "fantasy-league-week"

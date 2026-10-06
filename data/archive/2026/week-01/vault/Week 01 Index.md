@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: week-index
 canonical_status: generated
 title: "NFL 2026 Week 1"
-created: "2026-10-06T05:57:48.535Z"
-modified: "2026-10-06T05:57:48.535Z"
+created: "2026-10-06T20:08:21.268Z"
+modified: "2026-10-06T20:08:21.268Z"
 season: 2026
 week: 1
 type: "week-index"
@@ -18,7 +18,7 @@ unders: 7
 ---
 # NFL 2026 — Week 1
 
-Favorites ATS 9-6-1 · Overs 9 of 16 · archived 2026-10-06T05:57Z
+Favorites ATS 9-6-1 · Overs 9 of 16 · archived 2026-10-06T20:08Z
 
 ## Games
 

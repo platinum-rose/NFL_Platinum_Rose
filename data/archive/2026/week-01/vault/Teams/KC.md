@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "KC — Week 1"
-created: "2026-10-06T05:57:48.528Z"
-modified: "2026-10-06T05:57:48.528Z"
+created: "2026-10-06T20:08:20.910Z"
+modified: "2026-10-06T20:08:20.910Z"
 season: 2026
 week: 1
 type: "team-week"

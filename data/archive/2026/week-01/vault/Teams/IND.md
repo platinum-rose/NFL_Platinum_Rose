@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "IND — Week 1"
-created: "2026-10-06T05:57:48.517Z"
-modified: "2026-10-06T05:57:48.517Z"
+created: "2026-10-06T20:08:20.296Z"
+modified: "2026-10-06T20:08:20.296Z"
 season: 2026
 week: 1
 type: "team-week"

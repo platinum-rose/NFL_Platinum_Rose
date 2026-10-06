@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "NYJ @ TEN — Week 1"
-created: "2026-10-06T05:57:48.510Z"
-modified: "2026-10-06T05:57:48.510Z"
+created: "2026-10-06T20:08:19.913Z"
+modified: "2026-10-06T20:08:19.913Z"
 season: 2026
 week: 1
 type: "game-week"
