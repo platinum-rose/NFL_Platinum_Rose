@@ -43,7 +43,11 @@ const STAGE = path.join(AR, 'vault');
 const VAULT_DIR = process.env.VAULT_DIR || '';
 const VAULT_BASE = `NFL/${SEASON}/Week ${WK}`;
 fs.mkdirSync(AR, { recursive: true });
-const manifest = { schema: 'weekly_archive_manifest_v1', season: SEASON, week: WEEK, started_at: new Date().toISOString(), host: process.platform, steps: {} };
+const MANIFEST = path.join(AR, 'manifest.json');
+// A notes-only rebuild (--vault-only, e.g. from the Tuesday pool capture) keeps the last full run's step record.
+const prior = has('--vault-only') ? (() => { try { return JSON.parse(fs.readFileSync(MANIFEST, 'utf8')); } catch { return null; } })() : null;
+const manifest = { schema: 'weekly_archive_manifest_v1', season: SEASON, week: WEEK, started_at: new Date().toISOString(), host: process.platform,
+  steps: { ...(prior?.steps || {}) }, ...(prior ? { last_full_run: prior.last_full_run || prior.started_at, mode: 'vault-only rebuild' } : {}) };
 const step = async (name, fn) => {
   const t0 = Date.now();
   try { const r = await fn(); manifest.steps[name] = { ok: true, ms: Date.now() - t0, ...(r || {}) }; }
@@ -315,7 +319,7 @@ if (!has('--vault-only')) {
     const nf = manifest.steps.espn?.not_final || [];
     if (manifest.steps.espn?.ok && nf.length) {
       manifest.status = 'waiting_for_finals'; manifest.finished_at = new Date().toISOString();
-      fs.writeFileSync(path.join(AR, 'manifest.json'), JSON.stringify(manifest, null, 1));
+      fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 1));
       console.log(`not final yet: ${nf.join(', ')} — exit 75 (retry later)`); process.exit(75);
     }
   }
@@ -332,6 +336,6 @@ if (!has('--no-vault')) await step('vault', vault);
 await step('rollups', rollups);
 manifest.status = Object.values(manifest.steps).every((s) => s.ok) ? 'ok' : 'partial';
 manifest.finished_at = new Date().toISOString();
-fs.writeFileSync(path.join(AR, 'manifest.json'), JSON.stringify(manifest, null, 1));
+fs.writeFileSync(MANIFEST, JSON.stringify(manifest, null, 1));
 console.log(`done: ${manifest.status}`);
 process.exit(manifest.status === 'ok' ? 0 : 1);
