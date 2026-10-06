@@ -54,6 +54,16 @@ function printBanner() {
   ${c.reset}${c.dim}Operating Cadence: Tuesday - Monday | Week 1 Active Slate${c.reset}\n`);
 }
 
+/** Python for repo scripts: the repo .venv when present (it has nfl_data_py/pandas),
+ *  else python3. Bare `python3` on Windows is a different interpreter without them. */
+function repoPython() {
+  const win = path.join(ROOT, '.venv', 'Scripts', 'python.exe');
+  const nix = path.join(ROOT, '.venv', 'bin', 'python');
+  if (process.platform === 'win32' && existsSync(win)) return win;
+  if (existsSync(nix)) return nix;
+  return 'python3';
+}
+
 /** Execute a command asynchronously with stdio inherit */
 async function runCmd(command, args = [], cwd = ROOT) {
   console.log(`\n${c.yellow}▶ Running:${c.reset} ${command} ${args.join(' ')}\n`);
@@ -62,6 +72,10 @@ async function runCmd(command, args = [], cwd = ROOT) {
       cwd,
       stdio: 'inherit',
       env: { ...process.env }
+    });
+    proc.on('error', (err) => {
+      console.log(`\n${c.red}✖ Could not start ${command}: ${err.message}${c.reset}\n`);
+      resolve(false);
     });
     proc.on('close', (code) => {
       if (code === 0) {
@@ -156,15 +170,20 @@ async function runCadence(day) {
       console.log(`${c.cyan}1. Ingesting Weekly Schedule (ESPN)...${c.reset}`);
       await run('node', ['agents/schedule-ingest.js', '--year', '2026', '--season-type', '2', '--start-week', '1', '--end-week', '18']);
       console.log(`${c.cyan}2. Refreshing Player Stats (nflverse weekly + seasonal)...${c.reset}`);
-      await run('python3', ['scripts/fetch_nflverse_data.py', '--datasets', 'player_stats_weekly', 'player_stats_seasonal', '--force']);
+      await run(repoPython(), ['scripts/fetch_nflverse_data.py', '--datasets', 'player_stats_weekly', 'player_stats_seasonal', '--force']);
       console.log(`${c.cyan}3. Ingesting Player Stats into Supabase...${c.reset}`);
-      await run('node', ['agents/player-stats-ingest.js', '--season', '2026']);
+      if (results[results.length - 1]) {
+        await run('node', ['agents/player-stats-ingest.js', '--season', '2026']);
+      } else {
+        // Don't re-upsert last week's CSVs as if they were fresh.
+        console.log(`${c.yellow}  Skipped: the nflverse refresh failed, so the local CSVs are stale.${c.reset}`);
+      }
       console.log(`${c.cyan}4. Seeding Weekly Usage-Based Starter Locks...${c.reset}`);
       await run('node', ['scripts/build-week-usage-locks.js', '--season', '2026']);
       console.log(`${c.cyan}5. Rebuilding Projected Starters Snapshot...${c.reset}`);
       await run('node', ['scripts/build-projected-starters.js']);
       console.log(`${c.cyan}6. Ingesting Initial Game Odds (TheOddsAPI)...${c.reset}`);
-      await run('node', ['agents/game-odds-ingest.js', '--season', '2026', '--dry-run']);
+      await run('node', ['agents/game-odds-ingest.js', '--season', '2026']); // live write: dry run reviewed and approved by Andy 2026-10-06
       console.log(`${c.cyan}7. Running Roster Audit Baseline...${c.reset}`);
       await run('node', ['scripts/audit-all32-rosters.js']);
       break;
