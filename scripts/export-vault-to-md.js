@@ -35,7 +35,7 @@ import 'dotenv/config';
 import path from 'node:path';
 import { mkdir, writeFile, access, rename, rm } from 'node:fs/promises';
 import { createClient } from '@supabase/supabase-js';
-import { ensureVaultFrontmatter } from '../agents/lib/vaultFrontmatter.js';
+import { writeVaultNote } from '../agents/lib/vaultWriter.js';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
@@ -139,33 +139,14 @@ async function fetchAllNotes() {
  * @returns {Promise<'written'|'skipped'>}
  */
 async function writeNote(notePath, content) {
-  // Ensure .md extension
   const filePath = notePath.endsWith('.md') ? notePath : `${notePath}.md`;
-  const absPath  = path.resolve(VAULT_DIR, filePath);
-  const vaultRoot = path.resolve(VAULT_DIR);
-  if (absPath !== vaultRoot && !absPath.startsWith(vaultRoot + path.sep)) {
-    throw new Error(`path traversal blocked: ${notePath}`);
-  }
-  const dir      = path.dirname(absPath);
-
-  if (DRY_RUN) return 'skipped';
-
-  await mkdir(dir, { recursive: true });
-  const noteContent = ensureVaultFrontmatter(content ?? '', {
+  const r = await writeVaultNote(VAULT_DIR, filePath, content ?? '', {
     title: filePath.replace(/^NFL\//, '').replace(/\.md$/i, '').replace(/\//g, ' - '),
     sourceSystem: 'nfl-vault-export',
     sourceType: 'exported-vault-note',
     tags: ['nfl-dashboard-export'],
-  });
-  const tmpPath = `${absPath}.tmp.${process.pid}.${Date.now()}`;
-  try {
-    await writeFile(tmpPath, noteContent, 'utf8');
-    await rename(tmpPath, absPath);
-  } catch (err) {
-    await rm(tmpPath, { force: true }).catch(() => {});
-    throw err;
-  }
-  return 'written';
+  }, { dryRun: DRY_RUN });
+  return r === 'skipped' ? 'skipped' : 'written';
 }
 
 // ─── Main ─────────────────────────────────────────────────────────────────────

@@ -70,6 +70,14 @@ $TasksConfig = @(
         LimitMin    = 60
     },
     @{
+        Name        = "NFL_Dashboard_Weekly_Archive"
+        Script      = "weekly-archive.cmd"
+        Description = "End-of-week archive to data/archive + Obsidian NFL/<season>/Week NN (Mon 23:30, Tue 06:00 retry, Thu 06:00 stat-correction refresh)."
+        Type        = "Weekly"
+        WeeklyAt    = @(@("Monday", "23:30"), @("Tuesday", "06:00"), @("Thursday", "06:00"))
+        LimitMin    = 45
+    },
+    @{
         Name        = "NFL_Dashboard_Grok_Thread_Scanner"
         Script      = "grok-thread-scanner.cmd"
         Description = "Scans bookmarks for unparsed threads and generates Grok prompt packets (hourly, hidden mode)."
@@ -96,6 +104,8 @@ foreach ($cfg in $TasksConfig) {
         $triggers = @(New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(2) -RepetitionInterval (New-TimeSpan -Minutes $cfg.IntervalMin) -RepetitionDuration (New-TimeSpan -Days 3650))
     } elseif ($cfg.Type -eq "Daily") {
         $triggers = @($cfg.AtTimes | ForEach-Object { New-ScheduledTaskTrigger -Daily -At $_ })
+    } elseif ($cfg.Type -eq "Weekly") {
+        $triggers = @($cfg.WeeklyAt | ForEach-Object { New-ScheduledTaskTrigger -Weekly -DaysOfWeek $_[0] -At $_[1] })
     }
 
     $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Minutes $cfg.LimitMin)

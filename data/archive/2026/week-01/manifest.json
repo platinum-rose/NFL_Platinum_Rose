@@ -1,0 +1,37 @@
+{
+ "schema": "weekly_archive_manifest_v1",
+ "season": 2026,
+ "week": 1,
+ "started_at": "2026-10-06T04:26:38.302Z",
+ "host": "linux",
+ "steps": {
+  "betting": {
+   "ok": true,
+   "ms": 8015,
+   "team_postmortem": "wrote week-01-teams.json/.csv: 32 team rows, pending []",
+   "espn_week": "week 1: 16 final games written; pending: none",
+   "grade_dry_run": "0 change(s); 0 unresolved leg(s).",
+   "weekly_review": "Week 1: net -290.21 on $370.77 · season net -290.21 on $370.77 · open 0 · unique legs 119 (from box 0)"
+  },
+  "pools": {
+   "ok": true,
+   "ms": 36,
+   "files": []
+  },
+  "notes": {
+   "ok": true,
+   "ms": 1421,
+   "notes": 51,
+   "staged": "data/archive/2026/week-01/vault"
+  },
+  "rollups": {
+   "ok": true,
+   "ms": 143,
+   "team_weeks": 64,
+   "fantasy_player_weeks": 0,
+   "fantasy_matchups": 0
+  }
+ },
+ "status": "ok",
+ "finished_at": "2026-10-06T04:26:47.947Z"
+}
