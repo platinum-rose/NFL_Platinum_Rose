@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "RFI XIX — Week 4"
-created: "2026-10-06T04:57:48.931Z"
-modified: "2026-10-06T04:57:48.931Z"
+created: "2026-10-06T05:59:23.836Z"
+modified: "2026-10-06T05:59:23.836Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"

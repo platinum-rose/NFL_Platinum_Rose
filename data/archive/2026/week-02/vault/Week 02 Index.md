@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: week-index
 canonical_status: generated
 title: "NFL 2026 Week 2"
-created: "2026-10-06T04:26:57.768Z"
-modified: "2026-10-06T04:26:57.768Z"
+created: "2026-10-06T05:58:19.688Z"
+modified: "2026-10-06T05:58:19.688Z"
 season: 2026
 week: 2
 type: "week-index"
@@ -18,7 +18,7 @@ unders: 10
 ---
 # NFL 2026 — Week 2
 
-Favorites ATS 8-8-0 · Overs 6 of 16 · archived 2026-10-06T04:26Z
+Favorites ATS 8-8-0 · Overs 6 of 16 · archived 2026-10-06T05:58Z
 
 ## Games
 
@@ -30,13 +30,13 @@ Favorites ATS 8-8-0 · Overs 6 of 16 · archived 2026-10-06T04:26Z
 - [[NFL/2026/Week 02/Games/MIN @ CHI|MIN 9 @ CHI 3]]
 - [[NFL/2026/Week 02/Games/NO @ BAL|NO 24 @ BAL 17]]
 - [[NFL/2026/Week 02/Games/PHI @ TEN|PHI 24 @ TEN 20]]
-- [[NFL/2026/Week 02/Games/PIT @ NE|PIT 3 @ NE 20]]
 - [[NFL/2026/Week 02/Games/JAX @ DEN|JAX 13 @ DEN 20]]
 - [[NFL/2026/Week 02/Games/LV @ LAC|LV 26 @ LAC 14]]
 - [[NFL/2026/Week 02/Games/MIA @ SF|MIA 13 @ SF 35]]
 - [[NFL/2026/Week 02/Games/SEA @ ARI|SEA 31 @ ARI 7]]
 - [[NFL/2026/Week 02/Games/WSH @ DAL|WSH 20 @ DAL 37]]
 - [[NFL/2026/Week 02/Games/IND @ KC|IND 30 @ KC 33]]
+- [[NFL/2026/Week 02/Games/PIT @ NE|PIT 3 @ NE 20]]
 - [[NFL/2026/Week 02/Games/NYG @ LAR|NYG 6 @ LAR 28]]
 
 ## Teams
@@ -45,7 +45,11 @@ Favorites ATS 8-8-0 · Overs 6 of 16 · archived 2026-10-06T04:26Z
 
 ## Fantasy & contests
 
-- _Yahoo data not captured this run_
+- [[NFL/2026/Week 02/Fantasy/2026 -  The League|2026 -  The League]]
+- [[NFL/2026/Week 02/Fantasy/The Honey Badgers|The Honey Badgers]]
+- [[NFL/2026/Week 02/Fantasy/Rose Bowl XIX|Rose Bowl XIX]]
+- [[NFL/2026/Week 02/Fantasy/CC Bowl XV CHAMPIONS LEAGUE|CC Bowl XV CHAMPIONS LEAGUE]]
+- [[NFL/2026/Week 02/Fantasy/RFI XIX|RFI XIX]]
 - [[NFL/2026/Week 02/Contests|Pick'em & survivor]]
 - [[NFL/2026/Week 02/Betting|Betting]]
 

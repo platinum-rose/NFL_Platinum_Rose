@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "BAL @ DAL — Week 3"
-created: "2026-10-06T04:27:08.255Z"
-modified: "2026-10-06T04:27:08.255Z"
+created: "2026-10-06T05:58:50.526Z"
+modified: "2026-10-06T05:58:50.526Z"
 season: 2026
 week: 3
 type: "game-week"

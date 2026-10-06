@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "DET @ CAR — Week 4"
-created: "2026-10-06T04:57:47.998Z"
-modified: "2026-10-06T04:57:47.998Z"
+created: "2026-10-06T05:59:23.818Z"
+modified: "2026-10-06T05:59:23.818Z"
 season: 2026
 week: 4
 type: "game-week"

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "LV @ LAC — Week 2"
-created: "2026-10-06T04:26:56.700Z"
-modified: "2026-10-06T04:26:56.700Z"
+created: "2026-10-06T05:58:19.665Z"
+modified: "2026-10-06T05:58:19.665Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "LAC -6.5"
 total: 43.5
 ats_winner: "LV"
 ou: "U"
-event_id: "401872941"
+event_id: null
 ---
 # LV 26 @ LAC 14
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line LAC -6.5 · total 43.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| LV | 305 | 248 | 57 | 5.1 | 4-14 | 2-3 | 1 | 2-5 | 27:43 |
-| LAC | 310 | 183 | 127 | 5.0 | 5-14 | 2-2 | 3 | 3-9 | 32:17 |
+| LV | 305 | 248 | 57 |  |  |  | 1 |  | 27:43 |
+| LAC | 310 | 183 | 127 |  |  |  | 3 |  | 32:17 |
 
 **Leaders**
 
-- LV: Kirk Cousins 19/29 253 yds 3 TD 1 INT · Ashton Jeanty 21-48 0 TD · Tre Tucker 5-119 1 TD
-- LAC: Justin Herbert 15/27 192 yds 1 TD 2 INT · Omarion Hampton 23-94 1 TD · Tre' Harris 1-53 0 TD
+- LV: Kirk Cousins 19/29 253y 3TD 1INT · Ashton Jeanty 21-48-0 · Tre Tucker 5-119-1
+- LAC: Justin Herbert 15/27 192y 1TD 2INT · Omarion Hampton 23-94-1 · Tre' Harris 1-53-0
 
 ## Scoring plays
 

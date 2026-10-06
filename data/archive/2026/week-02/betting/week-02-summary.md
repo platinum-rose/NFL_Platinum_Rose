@@ -158,11 +158,34 @@ Tickets that kept every rule: 5 · $88.07 staked · net +$43.17
 | 5+ side-leg parlay | 12 | $212.76 | $0.00 | −$212.76 |
 | 4-team master RR | 2 | $210.00 | $0.00 | −$210.00 |
 
-## Cash exposure over $25 on one game (top 3 per week; a parlay counts its full stake against every game in it)
+## Cash exposure over $25 on one game
 
-- Week 1 DAL@NYG: $92.00 across 4 tickets (15 games over $25 that week)
-- Week 1 ARI@LAC: $82.00 across 6 tickets (15 games over $25 that week)
-- Week 1 WAS@PHI: $77.69 across 6 tickets (15 games over $25 that week)
-- Week 2 IND@KC: $110.85 across 11 tickets (14 games over $25 that week)
-- Week 2 WAS@DAL: $105.95 across 12 tickets (14 games over $25 that week)
-- Week 2 NYG@LAR: $105.00 across 9 tickets (14 games over $25 that week)
+- Week 1 DAL@NYG: $92.00 across 4 tickets
+- Week 1 ARI@LAC: $82.00 across 6 tickets
+- Week 1 WAS@PHI: $77.69 across 6 tickets
+- Week 1 ATL@PIT: $75.00 across 4 tickets
+- Week 1 CHI@CAR: $60.69 across 4 tickets
+- Week 1 GB@MIN: $57.00 across 4 tickets
+- Week 1 NO@DET: $55.69 across 5 tickets
+- Week 1 CLE@JAX: $55.69 across 3 tickets
+- Week 1 SF@LAR: $50.69 across 5 tickets
+- Week 1 TB@CIN: $50.69 across 3 tickets
+- Week 1 NE@SEA: $45.08 across 3 tickets
+- Week 1 BAL@IND: $35.00 across 2 tickets
+- Week 1 BUF@HOU: $30.00 across 3 tickets
+- Week 1 MIA@LV: $27.00 across 2 tickets
+- Week 1 WISCONSIN@NOTREDAMECFB: $25.13 across 1 tickets
+- Week 2 IND@KC: $110.85 across 11 tickets
+- Week 2 WAS@DAL: $105.95 across 12 tickets
+- Week 2 NYG@LAR: $105.00 across 9 tickets
+- Week 2 MIA@SF: $86.02 across 10 tickets
+- Week 2 LV@LAC: $85.07 across 7 tickets
+- Week 2 JAX@DEN: $85.07 across 7 tickets
+- Week 2 PHI@TEN: $80.00 across 8 tickets
+- Week 2 GB@NYJ: $65.07 across 6 tickets
+- Week 2 MIN@CHI: $55.07 across 6 tickets
+- Week 2 DET@BUF: $52.04 across 6 tickets
+- Week 2 SEA@ARI: $50.95 across 6 tickets
+- Week 2 PIT@NE: $35.07 across 4 tickets
+- Week 2 CIN@HOU: $35.00 across 4 tickets
+- Week 2 NO@BAL: $30.07 across 3 tickets

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "WSH @ PHI — Week 1"
-created: "2026-10-06T04:26:46.808Z"
-modified: "2026-10-06T04:26:46.808Z"
+created: "2026-10-06T05:57:48.513Z"
+modified: "2026-10-06T05:57:48.513Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "PHI -6"
 total: 43.5
 ats_winner: "WSH"
 ou: "O"
-event_id: "401872929"
+event_id: null
 ---
 # WSH 22 @ PHI 24
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line PHI -6 · total 43.5 (ESPN/Dra
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| WSH | 295 | 163 | 132 | 4.4 | 5-15 | 3-3 | 0 | 1-1 | 33:20 |
-| PHI | 318 | 182 | 136 | 6.0 | 6-14 | 2-3 | 0 | 3-21 | 26:40 |
+| WSH | 295 | 163 | 132 |  |  |  | 0 |  | 33:20 |
+| PHI | 318 | 182 | 136 |  |  |  | 0 |  | 26:40 |
 
 **Leaders**
 
-- WSH: Jayden Daniels 18/34 164 yds 2 TD 0 INT · Jacory Croskey-Merritt 16-63 1 TD · Antonio Williams 4-64 1 TD
-- PHI: Jalen Hurts 14/25 203 yds 3 TD 0 INT · Saquon Barkley 15-83 0 TD · Dallas Goedert 4-77 2 TD
+- WSH: Jayden Daniels 18/34 164y 2TD 0INT · Jacory Croskey-Merritt 16-63-1 · Antonio Williams 4-64-1
+- PHI: Jalen Hurts 14/25 203y 3TD 0INT · Saquon Barkley 15-83-0 · Dallas Goedert 4-77-2
 
 ## Scoring plays
 
@@ -50,4 +50,4 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line PHI -6 · total 43.5 (ESPN/Dra
 - Q3 0:44 PHI Jake Elliott 35 Yd Field Goal (9-17)
 - Q4 9:59 WSH Stefon Diggs 10 Yd pass from Jayden Daniels (Drew Stevens Kick) (16-17)
 - Q4 6:02 PHI Dallas Goedert 43 Yd pass from Jalen Hurts (Jake Elliott Kick) (16-24)
-- Q4 1:01 WSH Antonio Williams 1 Yd pass from Jayden Daniels (Two-Point Pass Conversion Failed) (22-24)
+- Q4 1:01 WSH Antonio Williams 1 Yd pass from Jayden Daniels (Two-Point Pass Convers (22-24)

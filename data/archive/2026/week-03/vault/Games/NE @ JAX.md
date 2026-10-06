@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "NE @ JAX — Week 3"
-created: "2026-10-06T04:27:08.143Z"
-modified: "2026-10-06T04:27:08.143Z"
+created: "2026-10-06T05:58:50.525Z"
+modified: "2026-10-06T05:58:50.525Z"
 season: 2026
 week: 3
 type: "game-week"

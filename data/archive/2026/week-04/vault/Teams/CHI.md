@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "CHI — Week 4"
-created: "2026-10-06T04:57:48.460Z"
-modified: "2026-10-06T04:57:48.460Z"
+created: "2026-10-06T05:59:23.827Z"
+modified: "2026-10-06T05:59:23.827Z"
 season: 2026
 week: 4
 type: "team-week"

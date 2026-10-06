@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "DET @ BUF — Week 2"
-created: "2026-10-06T04:26:56.407Z"
-modified: "2026-10-06T04:26:56.407Z"
+created: "2026-10-06T05:58:19.660Z"
+modified: "2026-10-06T05:58:19.660Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "BUF -5.5"
 total: 54.5
 ats_winner: "BUF"
 ou: "O"
-event_id: "401872932"
+event_id: null
 ---
 # DET 31 @ BUF 41
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line BUF -5.5 · total 54.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| DET | 355 | 289 | 66 | 5.7 | 4-11 | 3-4 | 0 | 4-38 | 26:15 |
-| BUF | 446 | 243 | 203 | 6.5 | 9-12 | 5-5 | 0 | 2-5 | 33:45 |
+| DET | 355 | 289 | 66 |  |  |  | 0 |  | 26:15 |
+| BUF | 446 | 243 | 203 |  |  |  | 0 |  | 33:45 |
 
 **Leaders**
 
-- DET: Jared Goff 26/38 327 yds 4 TD 0 INT · Jahmyr Gibbs 16-52 0 TD · Amon-Ra St. Brown 9-142 2 TD
-- BUF: Josh Allen 20/31 248 yds 3 TD 0 INT · James Cook III 21-135 1 TD · Dalton Kincaid 7-95 1 TD
+- DET: Jared Goff 26/38 327y 4TD 0INT · Jahmyr Gibbs 16-52-0 · Amon-Ra St. Brown 9-142-2
+- BUF: Josh Allen 20/31 248y 3TD 0INT · James Cook III 21-135-1 · Dalton Kincaid 7-95-1
 
 ## Scoring plays
 

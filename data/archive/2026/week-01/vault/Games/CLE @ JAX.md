@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "CLE @ JAX — Week 1"
-created: "2026-10-06T04:26:46.645Z"
-modified: "2026-10-06T04:26:46.645Z"
+created: "2026-10-06T05:57:48.509Z"
+modified: "2026-10-06T05:57:48.509Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "JAX -8.5"
 total: 40.5
 ats_winner: "JAX"
 ou: "O"
-event_id: "401872922"
+event_id: null
 ---
 # CLE 10 @ JAX 34
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line JAX -8.5 · total 40.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| CLE | 272 | 185 | 87 | 5.6 | 1-8 | 0-2 | 2 | 5-20 | 26:09 |
-| JAX | 360 | 234 | 126 | 6.4 | 5-10 | 2-2 | 0 | 1-11 | 33:51 |
+| CLE | 272 | 185 | 87 |  |  |  | 2 |  | 26:09 |
+| JAX | 360 | 234 | 126 |  |  |  | 0 |  | 33:51 |
 
 **Leaders**
 
-- CLE: Deshaun Watson 16/22 205 yds 1 TD 1 INT · Deshaun Watson 6-38 0 TD · Denzel Boston 2-59 1 TD
-- JAX: Trevor Lawrence 18/23 245 yds 4 TD 0 INT · Bhayshul Tuten 15-66 0 TD · Parker Washington 5-83 1 TD
+- CLE: Deshaun Watson 16/22 205y 1TD 1INT · Deshaun Watson 6-38-0 · Denzel Boston 2-59-1
+- JAX: Trevor Lawrence 18/23 245y 4TD 0INT · Bhayshul Tuten 15-66-0 · Parker Washington 5-83-1
 
 ## Scoring plays
 

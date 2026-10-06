@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "TB @ CIN — Week 1"
-created: "2026-10-06T04:26:46.715Z"
-modified: "2026-10-06T04:26:46.715Z"
+created: "2026-10-06T05:57:48.511Z"
+modified: "2026-10-06T05:57:48.511Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "CIN -3.5"
 total: 50.5
 ats_winner: "CIN"
 ou: "O"
-event_id: "401872925"
+event_id: null
 ---
 # TB 27 @ CIN 33
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line CIN -3.5 · total 50.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| TB | 282 | 193 | 89 | 5.4 | 5-10 | 2-4 | 4 | 4-23 | 28:35 |
-| CIN | 351 | 245 | 106 | 5.6 | 8-14 | 2-5 | 1 | 1-9 | 31:25 |
+| TB | 282 | 193 | 89 |  |  |  | 4 |  | 28:35 |
+| CIN | 351 | 245 | 106 |  |  |  | 1 |  | 31:25 |
 
 **Leaders**
 
-- TB: Baker Mayfield 23/28 216 yds 0 TD 0 INT · Bucky Irving 8-45 1 TD · Emeka Egbuka 5-63 0 TD
-- CIN: Joe Burrow 25/35 254 yds 1 TD 1 INT · Chase Brown 16-56 1 TD · Mike Gesicki 5-78 1 TD
+- TB: Baker Mayfield 23/28 216y 0TD 0INT · Bucky Irving 8-45-1 · Emeka Egbuka 5-63-0
+- CIN: Joe Burrow 25/35 254y 1TD 1INT · Chase Brown 16-56-1 · Mike Gesicki 5-78-1
 
 ## Scoring plays
 

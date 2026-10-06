@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "CAR @ ATL — Week 2"
-created: "2026-10-06T04:26:56.491Z"
-modified: "2026-10-06T04:26:56.491Z"
+created: "2026-10-06T05:58:19.661Z"
+modified: "2026-10-06T05:58:19.661Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "CAR -2.5"
 total: 43.5
 ats_winner: "CAR"
 ou: "U"
-event_id: "401872933"
+event_id: null
 ---
 # CAR 34 @ ATL 3
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line CAR -2.5 · total 43.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| CAR | 340 | 272 | 68 | 5.7 | 6-14 | 3-6 | 0 | 2-15 | 29:31 |
-| ATL | 286 | 129 | 157 | 4.3 | 4-13 | 0-0 | 5 | 3-16 | 30:29 |
+| CAR | 340 | 272 | 68 |  |  |  | 0 |  | 29:31 |
+| ATL | 286 | 129 | 157 |  |  |  | 5 |  | 30:29 |
 
 **Leaders**
 
-- CAR: Bryce Young 23/36 287 yds 3 TD 0 INT · Chuba Hubbard 12-53 0 TD · Tetairoa McMillan 5-101 0 TD
-- ATL: Cooper Rush 10/17 86 yds 0 TD 2 INT · Bijan Robinson 16-72 0 TD · Drake London 4-51 0 TD
+- CAR: Bryce Young 23/36 287y 3TD 0INT · Chuba Hubbard 12-53-0 · Tetairoa McMillan 5-101-0
+- ATL: Cooper Rush 10/17 86y 0TD 2INT · Bijan Robinson 16-72-0 · Drake London 4-51-0
 
 ## Scoring plays
 

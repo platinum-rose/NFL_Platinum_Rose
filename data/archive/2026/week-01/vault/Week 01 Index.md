@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: week-index
 canonical_status: generated
 title: "NFL 2026 Week 1"
-created: "2026-10-06T04:26:47.782Z"
-modified: "2026-10-06T04:26:47.782Z"
+created: "2026-10-06T05:57:48.535Z"
+modified: "2026-10-06T05:57:48.535Z"
 season: 2026
 week: 1
 type: "week-index"
@@ -18,7 +18,7 @@ unders: 7
 ---
 # NFL 2026 — Week 1
 
-Favorites ATS 9-6-1 · Overs 9 of 16 · archived 2026-10-06T04:26Z
+Favorites ATS 9-6-1 · Overs 9 of 16 · archived 2026-10-06T05:57Z
 
 ## Games
 
@@ -45,7 +45,11 @@ Favorites ATS 9-6-1 · Overs 9 of 16 · archived 2026-10-06T04:26Z
 
 ## Fantasy & contests
 
-- _Yahoo data not captured this run_
+- [[NFL/2026/Week 01/Fantasy/2026 -  The League|2026 -  The League]]
+- [[NFL/2026/Week 01/Fantasy/The Honey Badgers|The Honey Badgers]]
+- [[NFL/2026/Week 01/Fantasy/Rose Bowl XIX|Rose Bowl XIX]]
+- [[NFL/2026/Week 01/Fantasy/CC Bowl XV CHAMPIONS LEAGUE|CC Bowl XV CHAMPIONS LEAGUE]]
+- [[NFL/2026/Week 01/Fantasy/RFI XIX|RFI XIX]]
 - [[NFL/2026/Week 01/Contests|Pick'em & survivor]]
 - [[NFL/2026/Week 01/Betting|Betting]]
 

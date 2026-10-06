@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "MIN @ CHI — Week 2"
-created: "2026-10-06T04:26:56.580Z"
-modified: "2026-10-06T04:26:56.580Z"
+created: "2026-10-06T05:58:19.663Z"
+modified: "2026-10-06T05:58:19.663Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "CHI -4.5"
 total: 46.5
 ats_winner: "MIN"
 ou: "U"
-event_id: "401872937"
+event_id: null
 ---
 # MIN 9 @ CHI 3
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line CHI -4.5 · total 46.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| MIN | 246 | 127 | 119 | 4.8 | 3-13 | 0-1 | 0 | 3-16 | 27:19 |
-| CHI | 297 | 163 | 134 | 4.2 | 5-15 | 0-3 | 2 | 4-29 | 32:41 |
+| MIN | 246 | 127 | 119 |  |  |  | 0 |  | 27:19 |
+| CHI | 297 | 163 | 134 |  |  |  | 2 |  | 32:41 |
 
 **Leaders**
 
-- MIN: Carson Wentz 11/20 143 yds 0 TD 0 INT · Aaron Jones Sr. 23-105 0 TD · Justin Jefferson 3-55 0 TD
-- CHI: Caleb Williams 15/26 138 yds 0 TD 1 INT · Kyle Monangai 10-47 0 TD · D'Andre Swift 5-54 0 TD
+- MIN: Carson Wentz 11/20 143y 0TD 0INT · Aaron Jones Sr. 23-105-0 · Justin Jefferson 3-55-0
+- CHI: Caleb Williams 15/26 138y 0TD 1INT · Kyle Monangai 10-47-0 · D'Andre Swift 5-54-0
 
 ## Scoring plays
 

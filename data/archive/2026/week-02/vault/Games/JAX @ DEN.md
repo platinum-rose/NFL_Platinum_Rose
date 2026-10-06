@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "JAX @ DEN — Week 2"
-created: "2026-10-06T04:26:56.678Z"
-modified: "2026-10-06T04:26:56.678Z"
+created: "2026-10-06T05:58:19.665Z"
+modified: "2026-10-06T05:58:19.665Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "DEN -2.5"
 total: 45.5
 ats_winner: "DEN"
 ou: "U"
-event_id: "401872940"
+event_id: null
 ---
 # JAX 13 @ DEN 20
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line DEN -2.5 · total 45.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| JAX | 268 | 173 | 95 | 4.9 | 5-12 | 1-2 | 1 | 2-16 | 28:43 |
-| DEN | 392 | 288 | 104 | 6.6 | 4-11 | 2-5 | 1 | 0-0 | 31:17 |
+| JAX | 268 | 173 | 95 |  |  |  | 1 |  | 28:43 |
+| DEN | 392 | 288 | 104 |  |  |  | 1 |  | 31:17 |
 
 **Leaders**
 
-- JAX: Trevor Lawrence 17/29 189 yds 0 TD 1 INT · Bhayshul Tuten 13-65 1 TD · Parker Washington 7-98 0 TD
-- DEN: Bo Nix 22/31 288 yds 1 TD 1 INT · Jonah Coleman 10-39 1 TD · Jaylen Waddle 8-138 0 TD
+- JAX: Trevor Lawrence 17/29 189y 0TD 1INT · Bhayshul Tuten 13-65-1 · Parker Washington 7-98-0
+- DEN: Bo Nix 22/31 288y 1TD 1INT · Jonah Coleman 10-39-1 · Jaylen Waddle 8-138-0
 
 ## Scoring plays
 

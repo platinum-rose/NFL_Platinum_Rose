@@ -1,6 +1,6 @@
 # Yahoo Survival Football — Week 4 Intelligence Report
 
-**Generated:** 2026-10-06T04:55:32.758Z | **Season:** 2026 | **Week:** 4
+**Generated:** 2026-10-06T05:59:23.408Z | **Season:** 2026 | **Week:** 4
 
 ---
 

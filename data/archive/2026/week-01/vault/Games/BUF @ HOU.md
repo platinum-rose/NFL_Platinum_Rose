@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "BUF @ HOU — Week 1"
-created: "2026-10-06T04:26:46.595Z"
-modified: "2026-10-06T04:26:46.595Z"
+created: "2026-10-06T05:57:48.508Z"
+modified: "2026-10-06T05:57:48.508Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "BUF -1.5"
 total: 44.5
 ats_winner: "BUF"
 ou: "O"
-event_id: "401872660"
+event_id: null
 ---
 # BUF 36 @ HOU 31
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line BUF -1.5 · total 44.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| BUF | 409 | 323 | 86 | 7.9 | 3-9 | 1-3 | 0 | 2-11 | 23:43 |
-| HOU | 381 | 257 | 124 | 5.2 | 7-16 | 4-5 | 2 | 3-17 | 36:17 |
+| BUF | 409 | 323 | 86 |  |  |  | 0 |  | 23:43 |
+| HOU | 381 | 257 | 124 |  |  |  | 2 |  | 36:17 |
 
 **Leaders**
 
-- BUF: Josh Allen 20/29 334 yds 2 TD 0 INT · James Cook III 13-57 0 TD · Dalton Kincaid 5-130 0 TD
-- HOU: C.J. Stroud 26/38 274 yds 2 TD 0 INT · David Montgomery 20-60 2 TD · Nico Collins 7-75 1 TD
+- BUF: Josh Allen 20/29 334y 2TD 0INT · James Cook III 13-57-0 · Dalton Kincaid 5-130-0
+- HOU: C.J. Stroud 26/38 274y 2TD 0INT · David Montgomery 20-60-2 · Nico Collins 7-75-1
 
 ## Scoring plays
 
@@ -54,4 +54,4 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line BUF -1.5 · total 44.5 (ESPN/D
 - Q4 13:34 HOU David Montgomery 7 Yd pass from C.J. Stroud (Ka'imi Fairbairn Kick) (27-28)
 - Q4 10:31 BUF Tyler Bass 33 Yd Field Goal (30-28)
 - Q4 6:44 HOU Ka'imi Fairbairn 58 Yd Field Goal (30-31)
-- Q4 1:36 BUF Joshua Palmer 34 Yd pass from Josh Allen (Two-Point Pass Conversion Failed) (36-31)
+- Q4 1:36 BUF Joshua Palmer 34 Yd pass from Josh Allen (Two-Point Pass Conversion Fa (36-31)

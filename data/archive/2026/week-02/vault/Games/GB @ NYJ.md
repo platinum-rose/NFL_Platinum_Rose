@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "GB @ NYJ — Week 2"
-created: "2026-10-06T04:26:56.557Z"
-modified: "2026-10-06T04:26:56.557Z"
+created: "2026-10-06T05:58:19.663Z"
+modified: "2026-10-06T05:58:19.663Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "GB -3.5"
 total: 44.5
 ats_winner: "NYJ"
 ou: "U"
-event_id: "401872936"
+event_id: null
 ---
 # GB 20 @ NYJ 17
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line GB -3.5 · total 44.5 (ESPN/Dr
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| GB | 199 | 136 | 63 | 4.0 | 1-9 | 2-4 | 1 | 3-9 | 26:57 |
-| NYJ | 285 | 218 | 67 | 4.0 | 8-19 | 2-3 | 0 | 4-29 | 37:40 |
+| GB | 199 | 136 | 63 |  |  |  | 1 |  | 26:57 |
+| NYJ | 285 | 218 | 67 |  |  |  | 0 |  | 37:40 |
 
 **Leaders**
 
-- GB: Jordan Love 16/29 145 yds 2 TD 0 INT · Kaleb Johnson 8-32 0 TD · Matthew Golden 4-58 0 TD
-- NYJ: Geno Smith 27/41 247 yds 1 TD 0 INT · Breece Hall 16-29 0 TD · Breece Hall 5-63 0 TD
+- GB: Jordan Love 16/29 145y 2TD 0INT · Kaleb Johnson 8-32-0 · Matthew Golden 4-58-0
+- NYJ: Geno Smith 27/41 247y 1TD 0INT · Breece Hall 16-29-0 · Breece Hall 5-63-0
 
 ## Scoring plays
 
@@ -49,4 +49,4 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line GB -3.5 · total 44.5 (ESPN/Dr
 - Q4 11:04 NYJ Jason Sanders 32 Yd Field Goal (7-17)
 - Q4 7:58 GB Christian Watson 3 Yd pass from Jordan Love (Trey Smack Kick) (14-17)
 - Q4 2:59 GB Trey Smack 34 Yd Field Goal (17-17)
-- OT 5:23 GB Trey Smack 26 Yd Field Goal  (20-17)
+- Q5 5:23 GB Trey Smack 26 Yd Field Goal  (20-17)

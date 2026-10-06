@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "NYJ @ TEN — Week 1"
-created: "2026-10-06T04:26:46.693Z"
-modified: "2026-10-06T04:26:46.693Z"
+created: "2026-10-06T05:57:48.510Z"
+modified: "2026-10-06T05:57:48.510Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "TEN -1.5"
 total: 39.5
 ats_winner: "NYJ"
 ou: "U"
-event_id: "401872924"
+event_id: null
 ---
 # NYJ 23 @ TEN 10
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line TEN -1.5 · total 39.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| NYJ | 367 | 215 | 152 | 5.8 | 2-12 | 2-3 | 0 | 0-0 | 38:46 |
-| TEN | 195 | 127 | 68 | 4.0 | 4-12 | 1-1 | 1 | 3-13 | 21:14 |
+| NYJ | 367 | 215 | 152 |  |  |  | 0 |  | 38:46 |
+| TEN | 195 | 127 | 68 |  |  |  | 1 |  | 21:14 |
 
 **Leaders**
 
-- NYJ: Geno Smith 19/24 215 yds 0 TD 0 INT · Breece Hall 22-102 1 TD · Garrett Wilson 6-79 0 TD
-- TEN: Cam Ward 19/32 140 yds 1 TD 0 INT · Tony Pollard 7-35 0 TD · Carnell Tate 4-38 0 TD
+- NYJ: Geno Smith 19/24 215y 0TD 0INT · Breece Hall 22-102-1 · Garrett Wilson 6-79-0
+- TEN: Cam Ward 19/32 140y 1TD 0INT · Tony Pollard 7-35-0 · Carnell Tate 4-38-0
 
 ## Scoring plays
 

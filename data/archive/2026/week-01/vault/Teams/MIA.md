@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "MIA — Week 1"
-created: "2026-10-06T04:26:47.521Z"
-modified: "2026-10-06T04:26:47.521Z"
+created: "2026-10-06T05:57:48.525Z"
+modified: "2026-10-06T05:57:48.525Z"
 season: 2026
 week: 1
 type: "team-week"

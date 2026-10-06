@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "WSH @ DAL — Week 2"
-created: "2026-10-06T04:26:56.770Z"
-modified: "2026-10-06T04:26:56.770Z"
+created: "2026-10-06T05:58:19.666Z"
+modified: "2026-10-06T05:58:19.666Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "DAL -4.5"
 total: 51.5
 ats_winner: "DAL"
 ou: "O"
-event_id: "401872944"
+event_id: null
 ---
 # WSH 20 @ DAL 37
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line DAL -4.5 · total 51.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| WSH | 389 | 207 | 182 | 5.8 | 8-14 | 1-3 | 1 | 0-0 | 31:29 |
-| DAL | 332 | 266 | 66 | 6.1 | 7-11 | 3-4 | 0 | 2-13 | 28:31 |
+| WSH | 389 | 207 | 182 |  |  |  | 1 |  | 31:29 |
+| DAL | 332 | 266 | 66 |  |  |  | 0 |  | 28:31 |
 
 **Leaders**
 
-- WSH: Jayden Daniels 11/17 96 yds 1 TD 0 INT · Jayden Daniels 7-69 0 TD · Terry McLaurin 2-50 0 TD
-- DAL: Dak Prescott 26/31 279 yds 4 TD 0 INT · Javonte Williams 12-30 0 TD · CeeDee Lamb 8-153 2 TD
+- WSH: Marcus Mariota 11/16 111y 1TD 0INT · Jayden Daniels 7-69-0 · Terry McLaurin 2-50-0
+- DAL: Dak Prescott 26/31 279y 4TD 0INT · Javonte Williams 12-30-0 · CeeDee Lamb 8-153-2
 
 ## Scoring plays
 

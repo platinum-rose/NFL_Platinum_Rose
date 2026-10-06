@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "WSH — Week 2"
-created: "2026-10-06T04:26:57.572Z"
-modified: "2026-10-06T04:26:57.572Z"
+created: "2026-10-06T05:58:19.680Z"
+modified: "2026-10-06T05:58:19.680Z"
 season: 2026
 week: 2
 type: "team-week"

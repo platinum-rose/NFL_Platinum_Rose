@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "CIN @ HOU — Week 2"
-created: "2026-10-06T04:26:56.513Z"
-modified: "2026-10-06T04:26:56.513Z"
+created: "2026-10-06T05:58:19.662Z"
+modified: "2026-10-06T05:58:19.662Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "HOU -3"
 total: 45.5
 ats_winner: "CIN"
 ou: "U"
-event_id: "401872934"
+event_id: null
 ---
 # CIN 20 @ HOU 6
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line HOU -3 · total 45.5 (ESPN/Dra
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| CIN | 267 | 182 | 85 | 4.5 | 5-15 | 1-1 | 0 | 5-25 | 30:49 |
-| HOU | 374 | 314 | 60 | 4.8 | 5-17 | 0-4 | 0 | 4-39 | 29:11 |
+| CIN | 267 | 182 | 85 |  |  |  | 0 |  | 30:49 |
+| HOU | 374 | 314 | 60 |  |  |  | 0 |  | 29:11 |
 
 **Leaders**
 
-- CIN: Joe Burrow 20/31 207 yds 2 TD 0 INT · Chase Brown 20-80 0 TD · Tee Higgins 5-95 0 TD
-- HOU: C.J. Stroud 30/55 353 yds 0 TD 0 INT · C.J. Stroud 3-29 0 TD · Dalton Schultz 12-140 0 TD
+- CIN: Joe Burrow 20/31 207y 2TD 0INT · Chase Brown 20-80-0 · Tee Higgins 5-95-0
+- HOU: C.J. Stroud 30/55 353y 0TD 0INT · C.J. Stroud 3-29-0 · Dalton Schultz 12-140-0
 
 ## Scoring plays
 

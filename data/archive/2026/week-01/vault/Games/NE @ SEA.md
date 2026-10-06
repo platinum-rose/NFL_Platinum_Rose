@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "NE @ SEA — Week 1"
-created: "2026-10-06T04:26:46.434Z"
-modified: "2026-10-06T04:26:46.434Z"
+created: "2026-10-06T05:57:48.506Z"
+modified: "2026-10-06T05:57:48.506Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "SEA -3"
 total: 44.5
 ats_winner: "push"
 ou: "U"
-event_id: "401872656"
+event_id: null
 ---
 # NE 10 @ SEA 13
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line SEA -3 · total 44.5 (ESPN/Dra
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| NE | 277 | 168 | 109 | 4.1 | 5-16 | 1-2 | 3 | 3-10 | 34:17 |
-| SEA | 285 | 188 | 97 | 5.9 | 2-11 | 0-2 | 0 | 2-12 | 25:43 |
+| NE | 277 | 168 | 109 |  |  |  | 3 |  | 34:17 |
+| SEA | 285 | 188 | 97 |  |  |  | 0 |  | 25:43 |
 
 **Leaders**
 
-- NE: Drake Maye 23/33 178 yds 1 TD 3 INT · Rhamondre Stevenson 18-51 0 TD · Mack Hollins 4-51 0 TD
-- SEA: Drew Lock 16/22 187 yds 1 TD 0 INT · Jadarian Price 10-52 0 TD · Jaxon Smith-Njigba 8-122 1 TD
+- NE: Drake Maye 23/33 178y 1TD 3INT · Rhamondre Stevenson 18-51-0 · Mack Hollins 4-51-0
+- SEA: Drew Lock 16/22 187y 1TD 0INT · Jadarian Price 10-52-0 · Jaxon Smith-Njigba 8-122-1
 
 ## Scoring plays
 

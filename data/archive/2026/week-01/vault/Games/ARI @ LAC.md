@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "ARI @ LAC — Week 1"
-created: "2026-10-06T04:26:46.738Z"
-modified: "2026-10-06T04:26:46.738Z"
+created: "2026-10-06T05:57:48.511Z"
+modified: "2026-10-06T05:57:48.511Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "LAC -8.5"
 total: 47.5
 ats_winner: "ARI"
 ou: "U"
-event_id: "401872926"
+event_id: null
 ---
 # ARI 26 @ LAC 14
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line LAC -8.5 · total 47.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| ARI | 393 | 277 | 116 | 5.5 | 6-14 | 2-5 | 0 | 1-0 | 37:31 |
-| LAC | 268 | 187 | 81 | 5.3 | 2-8 | 2-3 | 2 | 3-22 | 22:29 |
+| ARI | 393 | 277 | 116 |  |  |  | 0 |  | 37:31 |
+| LAC | 268 | 187 | 81 |  |  |  | 2 |  | 22:29 |
 
 **Leaders**
 
-- ARI: Jacoby Brissett 27/37 277 yds 1 TD 0 INT · Tyler Allgeier 17-61 0 TD · Trey McBride 9-95 1 TD
-- LAC: Justin Herbert 17/27 209 yds 1 TD 1 INT · Omarion Hampton 12-43 1 TD · Ladd McConkey 5-82 1 TD
+- ARI: Jacoby Brissett 27/37 277y 1TD 0INT · Tyler Allgeier 17-61-0 · Trey McBride 9-95-1
+- LAC: Justin Herbert 17/27 209y 1TD 1INT · Omarion Hampton 12-43-1 · Ladd McConkey 5-82-1
 
 ## Scoring plays
 

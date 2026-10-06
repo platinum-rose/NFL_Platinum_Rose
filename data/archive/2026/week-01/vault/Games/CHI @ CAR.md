@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "CHI @ CAR — Week 1"
-created: "2026-10-06T04:26:46.620Z"
-modified: "2026-10-06T04:26:46.620Z"
+created: "2026-10-06T05:57:48.509Z"
+modified: "2026-10-06T05:57:48.509Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "CHI -3"
 total: 47.5
 ats_winner: "CHI"
 ou: "O"
-event_id: "401872661"
+event_id: null
 ---
 # CHI 59 @ CAR 37
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line CHI -3 · total 47.5 (ESPN/Dra
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| CHI | 552 | 261 | 291 | 7.9 | 10-14 | 4-4 | 1 | 2-8 | 34:03 |
-| CAR | 478 | 353 | 125 | 7.7 | 4-9 | 4-4 | 3 | 2-8 | 25:57 |
+| CHI | 552 | 261 | 291 |  |  |  | 1 |  | 34:03 |
+| CAR | 478 | 353 | 125 |  |  |  | 3 |  | 25:57 |
 
 **Leaders**
 
-- CHI: Caleb Williams 21/29 269 yds 2 TD 0 INT · D'Andre Swift 18-124 3 TD · Kalif Raymond 8-84 0 TD
-- CAR: Bryce Young 23/37 361 yds 3 TD 1 INT · Chuba Hubbard 10-49 1 TD · Jalen Coker 8-138 2 TD
+- CHI: Caleb Williams 21/29 269y 2TD 0INT · D'Andre Swift 18-124-3 · Kalif Raymond 8-84-0
+- CAR: Bryce Young 23/37 361y 3TD 1INT · Chuba Hubbard 10-49-1 · Jalen Coker 8-138-2
 
 ## Scoring plays
 

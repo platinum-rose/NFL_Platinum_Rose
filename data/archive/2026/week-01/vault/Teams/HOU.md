@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "HOU — Week 1"
-created: "2026-10-06T04:26:47.139Z"
-modified: "2026-10-06T04:26:47.139Z"
+created: "2026-10-06T05:57:48.518Z"
+modified: "2026-10-06T05:57:48.518Z"
 season: 2026
 week: 1
 type: "team-week"

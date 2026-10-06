@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "MIA @ SF — Week 2"
-created: "2026-10-06T04:26:56.722Z"
-modified: "2026-10-06T04:26:56.722Z"
+created: "2026-10-06T05:58:19.665Z"
+modified: "2026-10-06T05:58:19.665Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "SF -12.5"
 total: 44.5
 ats_winner: "SF"
 ou: "O"
-event_id: "401872942"
+event_id: null
 ---
 # MIA 13 @ SF 35
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line SF -12.5 · total 44.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| MIA | 284 | 182 | 102 | 5.1 | 7-15 | 0-2 | 0 | 4-15 | 30:13 |
-| SF | 382 | 287 | 95 | 7.8 | 5-7 | 5-5 | 0 | 0-0 | 29:47 |
+| MIA | 284 | 182 | 102 |  |  |  | 0 |  | 30:13 |
+| SF | 382 | 287 | 95 |  |  |  | 0 |  | 29:47 |
 
 **Leaders**
 
-- MIA: Malik Willis 14/23 197 yds 1 TD 0 INT · De'Von Achane 20-74 0 TD · Ryan Miller 1-77 1 TD
-- SF: Brock Purdy 20/22 287 yds 2 TD 0 INT · Brock Purdy 3-30 1 TD · George Kittle 4-80 1 TD
+- MIA: Malik Willis 14/23 197y 1TD 0INT · De'Von Achane 20-74-0 · Ryan Miller 1-77-1
+- SF: Brock Purdy 20/22 287y 2TD 0INT · Brock Purdy 3-30-1 · George Kittle 4-80-1
 
 ## Scoring plays
 

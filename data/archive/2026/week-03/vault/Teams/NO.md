@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "NO — Week 3"
-created: "2026-10-06T04:27:09.257Z"
-modified: "2026-10-06T04:27:09.257Z"
+created: "2026-10-06T05:58:50.540Z"
+modified: "2026-10-06T05:58:50.540Z"
 season: 2026
 week: 3
 type: "team-week"

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "SF @ LAR — Week 1"
-created: "2026-10-06T04:26:46.522Z"
-modified: "2026-10-06T04:26:46.522Z"
+created: "2026-10-06T05:57:48.507Z"
+modified: "2026-10-06T05:57:48.507Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "LAR -3.5"
 total: 47.5
 ats_winner: "SF"
 ou: "U"
-event_id: "401872657"
+event_id: null
 ---
 # SF 27 @ LAR 7
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line LAR -3.5 · total 47.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| SF | 379 | 205 | 174 | 5.9 | 7-12 | 2-3 | 1 | 0-0 | 33:50 |
-| LAR | 290 | 168 | 122 | 5.1 | 2-9 | 1-3 | 2 | 0-0 | 26:10 |
+| SF | 379 | 205 | 174 |  |  |  | 1 |  | 33:50 |
+| LAR | 290 | 168 | 122 |  |  |  | 2 |  | 26:10 |
 
 **Leaders**
 
-- SF: Brock Purdy 25/34 205 yds 3 TD 1 INT · Christian McCaffrey 10-68 0 TD · Demarcus Robinson 2-50 1 TD
-- LAR: Matthew Stafford 15/25 155 yds 0 TD 1 INT · Blake Corum 10-54 0 TD · Puka Nacua 5-74 0 TD
+- SF: Brock Purdy 25/34 205y 3TD 1INT · Christian McCaffrey 10-68-0 · Demarcus Robinson 2-50-1
+- LAR: Matthew Stafford 15/25 155y 0TD 1INT · Blake Corum 10-54-0 · Puka Nacua 5-74-0
 
 ## Scoring plays
 

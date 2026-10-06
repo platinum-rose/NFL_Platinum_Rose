@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "ATL @ PIT — Week 1"
-created: "2026-10-06T04:26:46.548Z"
-modified: "2026-10-06T04:26:46.548Z"
+created: "2026-10-06T05:57:48.507Z"
+modified: "2026-10-06T05:57:48.507Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "PIT -6.5"
 total: 40.5
 ats_winner: "PIT"
 ou: "U"
-event_id: "401872658"
+event_id: null
 ---
 # ATL 13 @ PIT 20
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line PIT -6.5 · total 40.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| ATL | 238 | 118 | 120 | 4.2 | 2-12 | 0-0 | 2 | 4-25 | 31:07 |
-| PIT | 264 | 206 | 58 | 4.1 | 3-13 | 1-2 | 1 | 2-15 | 28:53 |
+| ATL | 238 | 118 | 120 |  |  |  | 2 |  | 31:07 |
+| PIT | 264 | 206 | 58 |  |  |  | 1 |  | 28:53 |
 
 **Leaders**
 
-- ATL: Cooper Rush 12/22 143 yds 1 TD 2 INT · Bijan Robinson 21-83 0 TD · Bijan Robinson 8-90 1 TD
-- PIT: Aaron Rodgers 24/40 221 yds 1 TD 0 INT · Jaylen Warren 10-46 0 TD · Michael Pittman Jr. 3-58 0 TD
+- ATL: Cooper Rush 12/22 143y 1TD 2INT · Bijan Robinson 21-83-0 · Bijan Robinson 8-90-1
+- PIT: Aaron Rodgers 24/40 221y 1TD 0INT · Jaylen Warren 10-46-0 · Michael Pittman Jr. 3-58-0
 
 ## Scoring plays
 

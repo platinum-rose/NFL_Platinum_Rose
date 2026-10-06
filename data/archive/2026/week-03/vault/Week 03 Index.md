@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: week-index
 canonical_status: generated
 title: "NFL 2026 Week 3"
-created: "2026-10-06T04:27:09.509Z"
-modified: "2026-10-06T04:27:09.509Z"
+created: "2026-10-06T05:58:50.548Z"
+modified: "2026-10-06T05:58:50.548Z"
 season: 2026
 week: 3
 type: "week-index"
@@ -18,7 +18,7 @@ unders: 8
 ---
 # NFL 2026 — Week 3
 
-Favorites ATS 5-9-2 · Overs 8 of 16 · archived 2026-10-06T04:27Z
+Favorites ATS 5-9-2 · Overs 8 of 16 · archived 2026-10-06T05:58Z
 
 ## Games
 
@@ -45,7 +45,11 @@ Favorites ATS 5-9-2 · Overs 8 of 16 · archived 2026-10-06T04:27Z
 
 ## Fantasy & contests
 
-- _Yahoo data not captured this run_
+- [[NFL/2026/Week 03/Fantasy/2026 -  The League|2026 -  The League]]
+- [[NFL/2026/Week 03/Fantasy/The Honey Badgers|The Honey Badgers]]
+- [[NFL/2026/Week 03/Fantasy/Rose Bowl XIX|Rose Bowl XIX]]
+- [[NFL/2026/Week 03/Fantasy/CC Bowl XV CHAMPIONS LEAGUE|CC Bowl XV CHAMPIONS LEAGUE]]
+- [[NFL/2026/Week 03/Fantasy/RFI XIX|RFI XIX]]
 - [[NFL/2026/Week 03/Contests|Pick'em & survivor]]
 - [[NFL/2026/Week 03/Betting|Betting]]
 

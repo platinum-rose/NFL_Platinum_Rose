@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "CAR — Week 4"
-created: "2026-10-06T04:57:48.766Z"
-modified: "2026-10-06T04:57:48.766Z"
+created: "2026-10-06T05:59:23.832Z"
+modified: "2026-10-06T05:59:23.832Z"
 season: 2026
 week: 4
 type: "team-week"

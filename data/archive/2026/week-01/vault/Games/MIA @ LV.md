@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "MIA @ LV — Week 1"
-created: "2026-10-06T04:26:46.785Z"
-modified: "2026-10-06T04:26:46.785Z"
+created: "2026-10-06T05:57:48.512Z"
+modified: "2026-10-06T05:57:48.512Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "LV -3"
 total: 40.5
 ats_winner: "LV"
 ou: "U"
-event_id: "401872928"
+event_id: null
 ---
 # MIA 13 @ LV 27
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line LV -3 · total 40.5 (ESPN/Draf
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| MIA | 259 | 185 | 74 | 5.2 | 2-10 | 1-3 | 2 | 5-35 | 25:07 |
-| LV | 290 | 160 | 130 | 4.3 | 5-13 | 3-4 | 2 | 0-0 | 34:53 |
+| MIA | 259 | 185 | 74 |  |  |  | 2 |  | 25:07 |
+| LV | 290 | 160 | 130 |  |  |  | 2 |  | 34:53 |
 
 **Leaders**
 
-- MIA: Malik Willis 15/27 220 yds 0 TD 1 INT · Malik Willis 6-39 1 TD · Caleb Douglas 5-94 0 TD
-- LV: Kirk Cousins 21/30 160 yds 3 TD 2 INT · Ashton Jeanty 23-102 0 TD · Ashton Jeanty 6-45 2 TD
+- MIA: Malik Willis 15/27 220y 0TD 1INT · Malik Willis 6-39-1 · Caleb Douglas 5-94-0
+- LV: Kirk Cousins 21/30 160y 3TD 2INT · Ashton Jeanty 23-102-0 · Ashton Jeanty 6-45-2
 
 ## Scoring plays
 

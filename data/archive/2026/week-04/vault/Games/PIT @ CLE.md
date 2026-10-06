@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "PIT @ CLE — Week 4"
-created: "2026-10-06T04:57:47.671Z"
-modified: "2026-10-06T04:57:47.671Z"
+created: "2026-10-06T05:59:23.809Z"
+modified: "2026-10-06T05:59:23.809Z"
 season: 2026
 week: 4
 type: "game-week"

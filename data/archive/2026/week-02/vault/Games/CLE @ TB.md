@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "CLE @ TB — Week 2"
-created: "2026-10-06T04:26:56.535Z"
-modified: "2026-10-06T04:26:56.535Z"
+created: "2026-10-06T05:58:19.662Z"
+modified: "2026-10-06T05:58:19.662Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "TB -8.5"
 total: 41.5
 ats_winner: "CLE"
 ou: "O"
-event_id: "401872935"
+event_id: null
 ---
 # CLE 23 @ TB 19
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line TB -8.5 · total 41.5 (ESPN/Dr
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| CLE | 267 | 223 | 44 | 4.9 | 5-13 | 1-3 | 0 | 2-15 | 29:22 |
-| TB | 313 | 176 | 137 | 5.0 | 7-16 | 1-4 | 1 | 3-6 | 30:38 |
+| CLE | 267 | 223 | 44 |  |  |  | 0 |  | 29:22 |
+| TB | 313 | 176 | 137 |  |  |  | 1 |  | 30:38 |
 
 **Leaders**
 
-- CLE: Deshaun Watson 24/30 238 yds 2 TD 0 INT · Deshaun Watson 7-22 0 TD · Denzel Boston 5-95 1 TD
-- TB: Baker Mayfield 21/34 182 yds 1 TD 1 INT · Bucky Irving 17-89 0 TD · Tez Johnson 1-49 0 TD
+- CLE: Deshaun Watson 24/30 238y 2TD 0INT · Deshaun Watson 7-22-0 · Denzel Boston 5-95-1
+- TB: Baker Mayfield 21/34 182y 1TD 1INT · Bucky Irving 17-89-0 · Tez Johnson 1-49-0
 
 ## Scoring plays
 

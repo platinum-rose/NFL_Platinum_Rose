@@ -2,7 +2,7 @@
  "schema": "yahoo_week_archive_v1",
  "season": 2026,
  "week": 4,
- "built_at": "2026-10-06T04:57:15.126Z",
+ "built_at": "2026-10-06T05:59:23.424Z",
  "leagues": [
   {
    "league_key": "470.l.117200",
@@ -27364,5 +27364,17 @@
    "pool_capture": "data/pickem/yahoo-472-g-4087-2026-w04.json"
   }
  ],
- "notes": []
+ "notes": [
+  "leagues: 470.l.117200, 470.l.351555, 470.l.735815, 470.l.735870, 470.l.772245",
+  "  470.l.117200: 12 rosters",
+  "  470.l.351555: 12 rosters",
+  "  470.l.735815: 12 rosters",
+  "  470.l.735870: 8 rosters",
+  "  470.l.772245: 12 rosters",
+  "probe game 467 code=yahoops name=Men's Bracket Mayhem type=pickem-team-list",
+  "probe game 472 code=nflp name=Pro Football Pick'em type=pickem-group",
+  "WARN fetch pickem-472.g.4087.t.12-picks-a (team/472.g.4087.t.12/picks;week=4): Yahoo GET https://fantasysports.yahooapis.com/fantasy/v2/team/472.g.4087.t.12/picks;week=4?format=json → 400: {\"error\":{\"xml:lang\":\"en-us\",\"yahoo:uri\":\"/fantasy/v2/team/472.g.4087.t.12/picks;week=4?format=json\",\"description\":\"Invalid team resource picks requested.\",\"detail\":\"\"}}",
+  "WARN fetch pickem-472.g.4087.t.12-picks-b (group/472.g.4087/teams;team_keys=472.g.4087.t.12/picks;week=4): Yahoo GET https://fantasysports.yahooapis.com/fantasy/v2/group/472.g.4087/teams;team_keys=472.g.4087.t.12/picks;week=4?format=json → 400: {\"error\":{\"xml:lang\":\"en-us\",\"yahoo:uri\":\"/fantasy/v2/group/472.g.4087/teams;team_keys=472.g.4087.t.12/picks;week=4?format=json\",\"description\":\"Invalid team resource picks requested.\",\"detail\":\"\"}}",
+  "survivor sync exit 0"
+ ]
 }

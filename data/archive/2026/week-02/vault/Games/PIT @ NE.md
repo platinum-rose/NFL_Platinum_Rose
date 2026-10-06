@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "PIT @ NE — Week 2"
-created: "2026-10-06T04:26:56.655Z"
-modified: "2026-10-06T04:26:56.655Z"
+created: "2026-10-06T05:58:19.667Z"
+modified: "2026-10-06T05:58:19.667Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "NE -4.5"
 total: 41.5
 ats_winner: "NE"
 ou: "U"
-event_id: "401872946"
+event_id: null
 ---
 # PIT 3 @ NE 20
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line NE -4.5 · total 41.5 (ESPN/Dr
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| PIT | 235 | 144 | 91 | 3.5 | 2-12 | 0-1 | 2 | 4-43 | 32:47 |
-| NE | 327 | 191 | 136 | 6.2 | 4-12 | 0-1 | 2 | 3-17 | 27:13 |
+| PIT | 235 | 144 | 91 |  |  |  | 2 |  | 32:47 |
+| NE | 327 | 191 | 136 |  |  |  | 2 |  | 27:13 |
 
 **Leaders**
 
-- PIT: Aaron Rodgers 23/39 187 yds 0 TD 1 INT · Jaylen Warren 11-43 0 TD · Germie Bernard 4-35 0 TD
-- NE: Drake Maye 14/22 208 yds 0 TD 1 INT · TreVeyon Henderson 16-76 1 TD · Romeo Doubs 3-96 0 TD
+- PIT: Aaron Rodgers 23/39 187y 0TD 1INT · Jaylen Warren 11-43-0 · Germie Bernard 4-35-0
+- NE: Drake Maye 14/22 208y 0TD 1INT · TreVeyon Henderson 16-76-1 · Romeo Doubs 3-96-0
 
 ## Scoring plays
 

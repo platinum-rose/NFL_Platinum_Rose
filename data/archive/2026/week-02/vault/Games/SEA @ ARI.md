@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "SEA @ ARI — Week 2"
-created: "2026-10-06T04:26:56.745Z"
-modified: "2026-10-06T04:26:56.745Z"
+created: "2026-10-06T05:58:19.666Z"
+modified: "2026-10-06T05:58:19.666Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "SEA -3.5"
 total: 40.5
 ats_winner: "SEA"
 ou: "U"
-event_id: "401872943"
+event_id: null
 ---
 # SEA 31 @ ARI 7
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line SEA -3.5 · total 40.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| SEA | 381 | 219 | 162 | 5.7 | 6-13 | 3-5 | 1 | 1-16 | 36:33 |
-| ARI | 151 | 81 | 70 | 3.2 | 3-12 | 1-1 | 1 | 2-14 | 23:27 |
+| SEA | 381 | 219 | 162 |  |  |  | 1 |  | 36:33 |
+| ARI | 151 | 81 | 70 |  |  |  | 1 |  | 23:27 |
 
 **Leaders**
 
-- SEA: Drew Lock 19/26 235 yds 3 TD 0 INT · Emanuel Wilson 21-92 0 TD · Jaxon Smith-Njigba 9-155 3 TD
-- ARI: Jacoby Brissett 17/28 95 yds 1 TD 1 INT · Jeremiyah Love 9-29 0 TD · Trey McBride 8-41 1 TD
+- SEA: Drew Lock 19/26 235y 3TD 0INT · Emanuel Wilson 21-92-0 · Jaxon Smith-Njigba 9-155-3
+- ARI: Jacoby Brissett 17/28 95y 1TD 1INT · Jeremiyah Love 9-29-0 · Trey McBride 8-41-1
 
 ## Scoring plays
 

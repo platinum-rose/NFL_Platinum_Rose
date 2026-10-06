@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "GB @ MIN — Week 1"
-created: "2026-10-06T04:26:46.761Z"
-modified: "2026-10-06T04:26:46.761Z"
+created: "2026-10-06T05:57:48.512Z"
+modified: "2026-10-06T05:57:48.512Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "MIN -2.5"
 total: 46.5
 ats_winner: "MIN"
 ou: "O"
-event_id: "401872927"
+event_id: null
 ---
 # GB 22 @ MIN 39
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line MIN -2.5 · total 46.5 (ESPN/D
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| GB | 419 | 353 | 66 | 6.3 | 3-12 | 1-4 | 2 | 4-34 | 27:02 |
-| MIN | 239 | 132 | 107 | 3.9 | 8-15 | 4-4 | 1 | 3-19 | 32:58 |
+| GB | 419 | 353 | 66 |  |  |  | 2 |  | 27:02 |
+| MIN | 239 | 132 | 107 |  |  |  | 1 |  | 32:58 |
 
 **Leaders**
 
-- GB: Jordan Love 21/42 387 yds 2 TD 1 INT · MarShawn Lloyd 13-37 0 TD · Christian Watson 6-147 2 TD
-- MIN: Carson Wentz 12/19 133 yds 3 TD 0 INT · Jordan Mason 15-59 1 TD · Justin Jefferson 8-92 2 TD
+- GB: Jordan Love 21/42 387y 2TD 1INT · MarShawn Lloyd 13-37-0 · Christian Watson 6-147-2
+- MIN: Carson Wentz 12/19 133y 3TD 0INT · Jordan Mason 15-59-1 · Justin Jefferson 8-92-2
 
 ## Scoring plays
 
@@ -51,6 +51,6 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line MIN -2.5 · total 46.5 (ESPN/D
 - Q2 0:14 GB Christian Watson 2 Yd pass from Jordan Love (Trey Smack Kick) (19-10)
 - Q3 5:09 GB Trey Smack 26 Yd Field Goal  (22-10)
 - Q3 2:08 MIN T.J. Hockenson 16 Yd pass from Carson Wentz (Will Reichard Kick) (22-17)
-- Q4 6:37 MIN Aaron Jones Sr. 3 Yd Rush (Carson Wentz Pass to Justin Jefferson for Two-Point Conversion) (22-25)
+- Q4 6:37 MIN Aaron Jones Sr. 3 Yd Rush (Carson Wentz Pass to Justin Jefferson for T (22-25)
 - Q4 4:48 MIN Jordan Mason 1 Yd Rush (Will Reichard Kick) (22-32)
 - Q4 3:55 MIN Justin Jefferson 9 Yd pass from Carson Wentz (Will Reichard Kick) (22-39)

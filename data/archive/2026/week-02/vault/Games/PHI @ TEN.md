@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "PHI @ TEN — Week 2"
-created: "2026-10-06T04:26:56.629Z"
-modified: "2026-10-06T04:26:56.629Z"
+created: "2026-10-06T05:58:19.664Z"
+modified: "2026-10-06T05:58:19.664Z"
 season: 2026
 week: 2
 type: "game-week"
@@ -20,7 +20,7 @@ line: "PHI -7"
 total: 39.5
 ats_winner: "TEN"
 ou: "O"
-event_id: "401872939"
+event_id: null
 ---
 # PHI 24 @ TEN 20
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 02/Week 02 Index|2]] · line PHI -7 · total 39.5 (ESPN/Dra
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| PHI | 341 | 252 | 89 | 4.7 | 11-18 | 3-4 | 2 | 3-12 | 36:25 |
-| TEN | 291 | 169 | 122 | 5.7 | 6-13 | 2-4 | 0 | 2-14 | 23:35 |
+| PHI | 341 | 252 | 89 |  |  |  | 2 |  | 36:25 |
+| TEN | 291 | 169 | 122 |  |  |  | 0 |  | 23:35 |
 
 **Leaders**
 
-- PHI: Jalen Hurts 26/37 264 yds 2 TD 2 INT · Tank Bigsby 13-33 1 TD · DeVonta Smith 10-117 1 TD
-- TEN: Cam Ward 13/20 183 yds 0 TD 0 INT · Tony Pollard 14-64 0 TD · Elic Ayomanor 2-69 0 TD
+- PHI: Jalen Hurts 26/37 264y 2TD 2INT · Tank Bigsby 13-33-1 · DeVonta Smith 10-117-1
+- TEN: Cam Ward 13/20 183y 0TD 0INT · Tony Pollard 14-64-0 · Elic Ayomanor 2-69-0
 
 ## Scoring plays
 

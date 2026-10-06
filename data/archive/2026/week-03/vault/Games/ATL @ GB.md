@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "ATL @ GB — Week 3"
-created: "2026-10-06T04:27:07.676Z"
-modified: "2026-10-06T04:27:07.676Z"
+created: "2026-10-06T05:58:50.520Z"
+modified: "2026-10-06T05:58:50.520Z"
 season: 2026
 week: 3
 type: "game-week"

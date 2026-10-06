@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "BAL @ IND — Week 1"
-created: "2026-10-06T04:26:46.571Z"
-modified: "2026-10-06T04:26:46.571Z"
+created: "2026-10-06T05:57:48.508Z"
+modified: "2026-10-06T05:57:48.508Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "BAL -3"
 total: 48.5
 ats_winner: "BAL"
 ou: "O"
-event_id: "401872659"
+event_id: null
 ---
 # BAL 41 @ IND 23
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line BAL -3 · total 48.5 (ESPN/Dra
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| BAL | 506 | 304 | 202 | 7.9 | 3-9 | 3-4 | 1 | 2-20 | 35:20 |
-| IND | 251 | 149 | 102 | 4.7 | 3-10 | 3-3 | 2 | 2-17 | 24:40 |
+| BAL | 506 | 304 | 202 |  |  |  | 1 |  | 35:20 |
+| IND | 251 | 149 | 102 |  |  |  | 2 |  | 24:40 |
 
 **Leaders**
 
-- BAL: Lamar Jackson 17/25 324 yds 1 TD 0 INT · Derrick Henry 24-144 3 TD · Zay Flowers 5-150 1 TD
-- IND: Daniel Jones 19/31 166 yds 1 TD 1 INT · Jonathan Taylor 19-98 2 TD · Alec Pierce 4-61 0 TD
+- BAL: Lamar Jackson 17/25 324y 1TD 0INT · Derrick Henry 24-144-3 · Zay Flowers 5-150-1
+- IND: Daniel Jones 19/31 166y 1TD 1INT · Jonathan Taylor 19-98-2 · Alec Pierce 4-61-0
 
 ## Scoring plays
 

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "NO @ DET — Week 1"
-created: "2026-10-06T04:26:46.669Z"
-modified: "2026-10-06T04:26:46.669Z"
+created: "2026-10-06T05:57:48.510Z"
+modified: "2026-10-06T05:57:48.510Z"
 season: 2026
 week: 1
 type: "game-week"
@@ -20,7 +20,7 @@ line: "DET -7"
 total: 49.5
 ats_winner: "NO"
 ou: "O"
-event_id: "401872923"
+event_id: null
 ---
 # NO 30 @ DET 31
 
@@ -33,13 +33,13 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line DET -7 · total 49.5 (ESPN/Dra
 
 | Team | Yds | Pass | Rush | YPP | 3rd | RZ | TO | Sacks taken | TOP |
 |---|---|---|---|---|---|---|---|---|---|
-| NO | 469 | 378 | 91 | 5.5 | 8-17 | 4-5 | 3 | 5-32 | 31:35 |
-| DET | 369 | 204 | 165 | 5.1 | 5-13 | 4-5 | 1 | 1-2 | 36:51 |
+| NO | 469 | 378 | 91 |  |  |  | 3 |  | 31:35 |
+| DET | 369 | 204 | 165 |  |  |  | 1 |  | 36:51 |
 
 **Leaders**
 
-- NO: Tyler Shough 35/56 410 yds 3 TD 2 INT · Travis Etienne Jr. 9-46 0 TD · Chris Olave 10-182 0 TD
-- DET: Jared Goff 26/39 206 yds 2 TD 0 INT · Jahmyr Gibbs 29-156 2 TD · Amon-Ra St. Brown 10-67 2 TD
+- NO: Tyler Shough 35/56 410y 3TD 2INT · Travis Etienne Jr. 9-46-0 · Chris Olave 10-182-0
+- DET: Jared Goff 26/39 206y 2TD 0INT · Jahmyr Gibbs 29-156-2 · Amon-Ra St. Brown 10-67-2
 
 ## Scoring plays
 
@@ -51,5 +51,5 @@ Week [[NFL/2026/Week 01/Week 01 Index|1]] · line DET -7 · total 49.5 (ESPN/Dra
 - Q4 7:41 NO Daniel Carlson 28 Yd Field Goal (17-21)
 - Q4 2:32 DET Jake Bates 23 Yd Field Goal (17-24)
 - Q4 1:07 NO Juwan Johnson 9 Yd pass from Tyler Shough (Daniel Carlson Kick) (24-24)
-- OT 5:04 DET Amon-Ra St. Brown 4 Yd pass from Jared Goff (Jake Bates Kick) (24-31)
-- OT 1:34 NO Noah Fant 8 Yd pass from Tyler Shough (Two-Point Pass Conversion Failed) (30-31)
+- Q5 5:04 DET Amon-Ra St. Brown 4 Yd pass from Jared Goff (Jake Bates Kick) (24-31)
+- Q5 1:34 NO Noah Fant 8 Yd pass from Tyler Shough (Two-Point Pass Conversion Faile (30-31)
