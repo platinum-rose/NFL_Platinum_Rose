@@ -387,7 +387,11 @@ async function loadConcludedGameStats(schedule = [], week = 1) {
 
 // Resolve the current NFL week when no --week flag is passed (same pattern as
 // build-secondary-matchup-vulnerability.js) instead of silently defaulting to Week 1.
-const DEFAULT_WEEK = getNFLWeekInfo().week || 1;
+// getNFLWeekInfo() rolls the week at Tue 00:00 UTC = Mon 5:00 PM PT, i.e. at MNF kickoff, so a build
+// without --week during MNF produced the NEXT week's tracker and dropped every MNF ticket (2026-10-05).
+// Hold the slate's week until Tue ~7:00 AM PT by evaluating the clock 14 hours earlier.
+const WEEK_ROLLOVER_GRACE_MS = 14 * 60 * 60 * 1000;
+const DEFAULT_WEEK = getNFLWeekInfo(new Date(Date.now() - WEEK_ROLLOVER_GRACE_MS)).week || 1;
 
 export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEFAULT_OUT_PUBLIC, DEFAULT_OUT_DOCS] } = {}) {
   console.log(`\n🏈 Generating Sunday Multi-Game Live Tracker for Week ${week}...`);
