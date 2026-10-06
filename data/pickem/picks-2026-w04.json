@@ -2,7 +2,7 @@
  "schema": "pickem_picks_v1",
  "season": 2026,
  "week": 4,
- "notes": "Picks per pool keyed by the PICKED team. status: proposed (recommended, not confirmed) | submitted (Andy confirmed it is in). Locked games are fixed when the card is rebuilt. TNF PIT@CLE final CLE 27-24: PIT lost in all three pools (Andy confirmed 10/03 ~21:15 PT). CBS picks for all 16 games captured from the BUKBUK pool page 10/05 ~20:35 PT (10-6). SimplySportsware picks + confidences for all 16 games captured 10/05 ~20:48 PT (91 pts). Yahoo still only has TNF.",
+ "notes": "Picks per pool keyed by the PICKED team. status: proposed (recommended, not confirmed) | submitted (Andy confirmed it is in). Locked games are fixed when the card is rebuilt. TNF PIT@CLE final CLE 27-24: PIT lost in all three pools (Andy confirmed 10/03 ~21:15 PT). CBS picks for all 16 games captured from the BUKBUK pool page 10/05 ~20:35 PT (10-6). SimplySportsware picks + confidences for all 16 games captured 10/05 ~20:48 PT (91 pts). Yahoo picks + confidences for all 16 games captured 10/06 ~07:45 PT (9-7, 96 pts).",
  "pools": {
   "simplysportsware": {
    "PIT": {
@@ -109,7 +109,99 @@
     "confidence": 4,
     "status": "submitted",
     "at": "2026-10-04T04:15:00.000Z",
-    "submitted_at": "2026-10-01T17:15:00-07:00"
+    "submitted_at": "2026-10-01T17:15:00-07:00",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "IND": {
+    "confidence": 11,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "BUF": {
+    "confidence": 14,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "CHI": {
+    "confidence": 9,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "CIN": {
+    "confidence": 6,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "ARI": {
+    "confidence": 2,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "LAR": {
+    "confidence": 10,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "GB": {
+    "confidence": 7,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "BAL": {
+    "confidence": 16,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "HOU": {
+    "confidence": 5,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "MIN": {
+    "confidence": 15,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "KC": {
+    "confidence": 12,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "SF": {
+    "confidence": 3,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "SEA": {
+    "confidence": 13,
+    "status": "submitted",
+    "result": "W",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "DET": {
+    "confidence": 8,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
+   },
+   "NO": {
+    "confidence": 1,
+    "status": "submitted",
+    "result": "L",
+    "source": "Yahoo picks page, read 2026-10-06 ~07:45 PT"
    }
   },
   "cbs": {

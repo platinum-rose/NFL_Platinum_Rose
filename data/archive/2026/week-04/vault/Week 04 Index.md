@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: week-index
 canonical_status: generated
 title: "NFL 2026 Week 4"
-created: "2026-10-06T14:13:48.456Z"
-modified: "2026-10-06T14:13:48.456Z"
+created: "2026-10-06T19:14:59.858Z"
+modified: "2026-10-06T19:14:59.858Z"
 season: 2026
 week: 4
 type: "week-index"
@@ -18,7 +18,7 @@ unders: 6
 ---
 # NFL 2026 — Week 4
 
-Favorites ATS 4-11-1 · Overs 10 of 16 · archived 2026-10-06T14:13Z
+Favorites ATS 4-11-1 · Overs 10 of 16 · archived 2026-10-06T19:14Z
 
 ## Games
 

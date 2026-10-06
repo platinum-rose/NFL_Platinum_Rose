@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: contests-week
 canonical_status: generated
 title: "Contests — Week 4"
-created: "2026-10-06T14:13:48.359Z"
-modified: "2026-10-06T14:13:48.359Z"
+created: "2026-10-06T19:14:59.735Z"
+modified: "2026-10-06T19:14:59.735Z"
 season: 2026
 week: 4
 type: "contests-week"
@@ -69,7 +69,22 @@ pools: ["BUKBUK NFL POOL", "the duma 2", "Ken's Pickem League"]
 
 | Game | Pick | Conf | Winner | Result |
 |---|---|---|---|---|
-
+| PIT@CLE | PIT | 4 | CLE | ✗ |
+| IND@WSH | IND | 11 | IND | ✓ |
+| NE@BUF | BUF | 14 | NE | ✗ |
+| NYJ@CHI | CHI | 9 | CHI | ✓ |
+| JAX@CIN | CIN | 6 | JAX | ✗ |
+| ARI@NYG | ARI | 2 | NYG | ✗ |
+| LAR@PHI | LAR | 10 | LAR | ✓ |
+| GB@TB | GB | 7 | GB | ✓ |
+| TEN@BAL | BAL | 16 | BAL | ✓ |
+| DAL@HOU | HOU | 5 | DAL | ✗ |
+| MIA@MIN | MIN | 15 | MIN | ✓ |
+| KC@LV | KC | 12 | KC | ✓ |
+| DEN@SF | SF | 3 | SF | ✓ |
+| LAC@SEA | SEA | 13 | SEA | ✓ |
+| DET@CAR | DET | 8 | CAR | ✗ |
+| ATL@NO | NO | 1 | ATL | ✗ |
 
 ### Other Yahoo games (API probe)
 

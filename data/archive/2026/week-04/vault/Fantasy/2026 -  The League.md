@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "2026 -  The League — Week 4"
-created: "2026-10-06T14:13:48.188Z"
-modified: "2026-10-06T14:13:48.188Z"
+created: "2026-10-06T19:14:59.542Z"
+modified: "2026-10-06T19:14:59.542Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"

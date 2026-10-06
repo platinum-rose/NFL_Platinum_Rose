@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "DET — Week 4"
-created: "2026-10-06T14:13:48.097Z"
-modified: "2026-10-06T14:13:48.097Z"
+created: "2026-10-06T19:14:59.446Z"
+modified: "2026-10-06T19:14:59.446Z"
 season: 2026
 week: 4
 type: "team-week"

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "LAR @ PHI — Week 4"
-created: "2026-10-06T14:13:47.328Z"
-modified: "2026-10-06T14:13:47.328Z"
+created: "2026-10-06T19:14:58.541Z"
+modified: "2026-10-06T19:14:58.541Z"
 season: 2026
 week: 4
 type: "game-week"

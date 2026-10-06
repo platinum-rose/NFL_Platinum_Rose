@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "BUF — Week 4"
-created: "2026-10-06T14:13:47.815Z"
-modified: "2026-10-06T14:13:47.815Z"
+created: "2026-10-06T19:14:59.141Z"
+modified: "2026-10-06T19:14:59.141Z"
 season: 2026
 week: 4
 type: "team-week"

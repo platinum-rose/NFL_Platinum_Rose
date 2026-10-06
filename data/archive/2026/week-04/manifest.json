@@ -2,23 +2,25 @@
  "schema": "weekly_archive_manifest_v1",
  "season": 2026,
  "week": 4,
- "started_at": "2026-10-06T14:13:46.825Z",
+ "started_at": "2026-10-06T19:14:57.818Z",
  "host": "linux",
  "steps": {
   "rollups": {
    "ok": true,
-   "ms": 304,
+   "ms": 423,
    "team_weeks": 128,
    "fantasy_player_weeks": 3712,
    "fantasy_matchups": 112
   },
   "notes": {
    "ok": true,
-   "ms": 1343,
+   "ms": 1613,
    "notes": 56,
    "staged": "data/archive/2026/week-04/vault"
   }
  },
+ "last_full_run": "2026-10-06T14:13:46.825Z",
+ "mode": "vault-only rebuild",
  "status": "ok",
- "finished_at": "2026-10-06T14:13:48.781Z"
+ "finished_at": "2026-10-06T19:15:00.310Z"
 }

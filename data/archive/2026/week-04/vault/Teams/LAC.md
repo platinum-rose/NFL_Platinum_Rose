@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "LAC — Week 4"
-created: "2026-10-06T14:13:48.054Z"
-modified: "2026-10-06T14:13:48.054Z"
+created: "2026-10-06T19:14:59.401Z"
+modified: "2026-10-06T19:14:59.401Z"
 season: 2026
 week: 4
 type: "team-week"

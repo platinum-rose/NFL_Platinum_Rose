@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "GB @ TB — Week 4"
-created: "2026-10-06T14:13:47.292Z"
-modified: "2026-10-06T14:13:47.292Z"
+created: "2026-10-06T19:14:58.486Z"
+modified: "2026-10-06T19:14:58.486Z"
 season: 2026
 week: 4
 type: "game-week"

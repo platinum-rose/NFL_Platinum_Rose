@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "NYJ — Week 4"
-created: "2026-10-06T14:13:47.841Z"
-modified: "2026-10-06T14:13:47.841Z"
+created: "2026-10-06T19:14:59.165Z"
+modified: "2026-10-06T19:14:59.165Z"
 season: 2026
 week: 4
 type: "team-week"

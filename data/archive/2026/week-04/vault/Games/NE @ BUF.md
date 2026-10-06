@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "NE @ BUF — Week 4"
-created: "2026-10-06T14:13:47.344Z"
-modified: "2026-10-06T14:13:47.344Z"
+created: "2026-10-06T19:14:58.564Z"
+modified: "2026-10-06T19:14:58.564Z"
 season: 2026
 week: 4
 type: "game-week"

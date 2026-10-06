@@ -27,8 +27,160 @@
    "4": 96,
    "5": null
   },
-  "picks": [],
-  "picks_note": "Yahoo API returned no per-game picks; the Tuesday browser capture adds them"
+  "picks": [
+   {
+    "game": "PIT@CLE",
+    "pick": "PIT",
+    "confidence": 4,
+    "winner": "CLE",
+    "correct": false,
+    "pool_pct_away": 71,
+    "pool_pct_home": 29
+   },
+   {
+    "game": "IND@WSH",
+    "pick": "IND",
+    "confidence": 11,
+    "winner": "IND",
+    "correct": true,
+    "pool_pct_away": 72,
+    "pool_pct_home": 28
+   },
+   {
+    "game": "NE@BUF",
+    "pick": "BUF",
+    "confidence": 14,
+    "winner": "NE",
+    "correct": false,
+    "pool_pct_away": 2,
+    "pool_pct_home": 98
+   },
+   {
+    "game": "NYJ@CHI",
+    "pick": "CHI",
+    "confidence": 9,
+    "winner": "CHI",
+    "correct": true,
+    "pool_pct_away": 7,
+    "pool_pct_home": 93
+   },
+   {
+    "game": "JAX@CIN",
+    "pick": "CIN",
+    "confidence": 6,
+    "winner": "JAX",
+    "correct": false,
+    "pool_pct_away": 39,
+    "pool_pct_home": 61
+   },
+   {
+    "game": "ARI@NYG",
+    "pick": "ARI",
+    "confidence": 2,
+    "winner": "NYG",
+    "correct": false,
+    "pool_pct_away": 47,
+    "pool_pct_home": 53
+   },
+   {
+    "game": "LAR@PHI",
+    "pick": "LAR",
+    "confidence": 10,
+    "winner": "LAR",
+    "correct": true,
+    "pool_pct_away": 76,
+    "pool_pct_home": 24
+   },
+   {
+    "game": "GB@TB",
+    "pick": "GB",
+    "confidence": 7,
+    "winner": "GB",
+    "correct": true,
+    "pool_pct_away": 80,
+    "pool_pct_home": 20
+   },
+   {
+    "game": "TEN@BAL",
+    "pick": "BAL",
+    "confidence": 16,
+    "winner": "BAL",
+    "correct": true,
+    "pool_pct_away": 1,
+    "pool_pct_home": 99
+   },
+   {
+    "game": "DAL@HOU",
+    "pick": "HOU",
+    "confidence": 5,
+    "winner": "DAL",
+    "correct": false,
+    "pool_pct_away": 50,
+    "pool_pct_home": 50
+   },
+   {
+    "game": "MIA@MIN",
+    "pick": "MIN",
+    "confidence": 15,
+    "winner": "MIN",
+    "correct": true,
+    "pool_pct_away": 1,
+    "pool_pct_home": 99
+   },
+   {
+    "game": "KC@LV",
+    "pick": "KC",
+    "confidence": 12,
+    "winner": "KC",
+    "correct": true,
+    "pool_pct_away": 86,
+    "pool_pct_home": 14
+   },
+   {
+    "game": "DEN@SF",
+    "pick": "SF",
+    "confidence": 3,
+    "winner": "SF",
+    "correct": true,
+    "pool_pct_away": 12,
+    "pool_pct_home": 88
+   },
+   {
+    "game": "LAC@SEA",
+    "pick": "SEA",
+    "confidence": 13,
+    "winner": "SEA",
+    "correct": true,
+    "pool_pct_away": 4,
+    "pool_pct_home": 96
+   },
+   {
+    "game": "DET@CAR",
+    "pick": "DET",
+    "confidence": 8,
+    "winner": "CAR",
+    "correct": false,
+    "pool_pct_away": 90,
+    "pool_pct_home": 10
+   },
+   {
+    "game": "ATL@NO",
+    "pick": "NO",
+    "confidence": 1,
+    "winner": "ATL",
+    "correct": false,
+    "pool_pct_away": 21,
+    "pool_pct_home": 79
+   }
+  ],
+  "picks_note": "Per-game picks read from the Yahoo picks page (pickem/4087/12/picks?week=4) in the desktop browser pane 2026-10-06 ~07:45 PT, read-only. Picked side inferred from Correct/Incorrect + final score (unambiguous); checks: 9-7, 96 pts. pool_pct = Yahoo-wide pick distribution.",
+  "tiebreakers": {
+   "ATL@NO": "ATL 24 - NO 24",
+   "DET@CAR": "DET 27 - CAR 24",
+   "most_points": "Detroit",
+   "fewest_points": "Miami"
+  },
+  "dropped_pts": 75
  },
  "season_leader": "Ditka’s Bears 309",
  "overall_standings": [
