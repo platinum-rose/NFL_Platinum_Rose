@@ -84,6 +84,10 @@ const TOTAL_PATTERN = /\b(Over|Under)\s+(\d+(?:\.\d+)?)(?:\s+(wins?|points?|pts|
 const PICK_ACTION_PATTERN = /\b(best bets?|pick:|prediction:|recommended bet|recommend(?:ed|s)?|I'm taking|I am taking|I(?:'|’)ll take|I like|we like|play:|bet:|wager|target|lean:|sprinkle|backing|fade)\b/i;
 const PAGE_CHROME_PATTERN = /\b(skip to main content|top stories|follow us|newsletter|advertisement|related articles|more news|sign up|log in|subscribe|privacy policy)\b/i;
 const PICK_ORIENTED_PATTERN = /\b(best bets?|picks?|predictions?|odds|props?|win totals?|wagers?|futures?)\b/i;
+// Titles that match PICK_ORIENTED_PATTERN but are pool/tool/market-context pages, not bettable picks
+// (survivor, confidence/pick'em pools, award-odds trackers, TD tools, paywalled luck rankings).
+// They are still parsed for selections and notes; they just don't count as unresolved pick records.
+const CONTEXT_ONLY_TITLE_PATTERN = /\b(survivor|confidence pools?|pick[’']?em|MVP (?:odds|race)|touchdown machine|luck rankings)\b/i;
 const STRICT_TEAM_MARKETS = new Set([
   'moneyline',
   'spread',
@@ -393,7 +397,7 @@ function parseMarketDetails(text, fallbackTeams = []) {
       selection: `SGP: ${clean(parlayMatch[1])}`,
       side: 'parlay',
       line: parlayMatch[2],
-      price: `${parlayMatch[2]} (${parlayMatch[3]} Units)`,
+      price: parlayMatch[2],
       book: parlayMatch[4],
       units: parlayMatch[3],
     };
@@ -407,7 +411,7 @@ function parseMarketDetails(text, fallbackTeams = []) {
       selection: `${unitSpreadMatch[1]} ${unitSpreadMatch[2]}`,
       side: unitSpreadMatch[2].startsWith('+') ? 'positive_or_over' : 'negative_or_under',
       line: unitSpreadMatch[2],
-      price: `-110 (${units} Units)`,
+      price: '-110',
       book: /DraftKings/i.test(source) ? 'DraftKings' : 'Consensus',
       units,
     };
@@ -421,7 +425,7 @@ function parseMarketDetails(text, fallbackTeams = []) {
       selection: `${unitTotalMatch[1]} ${unitTotalMatch[2]}`,
       side: unitTotalMatch[1].toLowerCase(),
       line: unitTotalMatch[2],
-      price: `-110 (${units} Units)`,
+      price: '-110',
       book: /DraftKings/i.test(source) ? 'DraftKings' : 'Consensus',
       units,
     };
@@ -430,7 +434,7 @@ function parseMarketDetails(text, fallbackTeams = []) {
   // Handle BettingPros & Analyst Prop Header: "Player/Team Prop Line ( +100 )"
   const propHeaderMatch = source.match(/\b([A-Z][A-Za-z'.-]+(?:\s+[A-Za-z0-9'+.-]+){1,5})\s*\(\s*([+-]\d{3,5})\s*\)/);
   if (propHeaderMatch && !/courtesy of/i.test(propHeaderMatch[1]) && !/Odds:/i.test(propHeaderMatch[1]) && !/Parlay/i.test(propHeaderMatch[1])) {
-    const rawSel = clean(propHeaderMatch[1]).replace(/^(?:Pick|Play|Bet|Lean):\s*/i, '');
+    const rawSel = clean(propHeaderMatch[1]).replace(/^(?:Pick|Play|Bet|Lean|Leg\s*#?\d+):\s*/i, '');
     const price = propHeaderMatch[2];
     const book = /DraftKings/i.test(source) ? 'DraftKings' : null;
     let market = 'player_prop_or_stat_future';
@@ -577,7 +581,7 @@ function extractAnalystSelections(article, teams, fullText) {
     .map((p) => (p.endsWith('.') ? p : `${p}.`))
     .join(' ');
   const sentenceCandidates = articleSentences(sourceText)
-    .filter((sentence) => PICK_ACTION_PATTERN.test(sentence) || /\b(?:pick|play|bet|lean|target):/i.test(sentence) || /(?:same-game\s+)?parlay:/i.test(sentence))
+    .filter((sentence) => PICK_ACTION_PATTERN.test(sentence) || /\b(?:pick|play|bet|lean|target):/i.test(sentence) || /(?:same-game\s+)?parlay:/i.test(sentence) || /\bleg\s*#?\d+\s*:/i.test(sentence))
     .filter((sentence) => hasMarketDetail(sentence))
     .filter((sentence) => !isPageChromeSentence(sentence))
     .filter((sentence) => !/\b(draft pick|first-round pick|scouting report pick change|pick-six|picked off)\b/i.test(sentence))
@@ -1256,7 +1260,8 @@ function buildReport(rows, since, collection = {}, options = {}) {
       focused_text_chars: fullText.length,
       summary: clean(row.summary),
       teams,
-      pick_oriented: PICK_ORIENTED_PATTERN.test(row.title || ''),
+      pick_oriented: PICK_ORIENTED_PATTERN.test(row.title || '') && !CONTEXT_ONLY_TITLE_PATTERN.test(row.title || ''),
+      context_only_title: PICK_ORIENTED_PATTERN.test(row.title || '') && CONTEXT_ONLY_TITLE_PATTERN.test(row.title || ''),
       source_meta: sourceMeta,
       flags: [],
     };
@@ -1282,7 +1287,8 @@ function buildReport(rows, since, collection = {}, options = {}) {
     article.market_lead_count = leads.length;
     article.pick_lead_count = leads.length;
     article.analysis_note_count = notes.length;
-    if (!article.pick_oriented) article.pick_review_status = 'not_pick_oriented';
+    if (article.context_only_title) article.pick_review_status = 'context_only_title';
+    else if (!article.pick_oriented) article.pick_review_status = 'not_pick_oriented';
     else if (article.body_evidence_status !== 'body_available') article.pick_review_status = 'unresolved_body_evidence';
     else if (selections.length === 0) article.pick_review_status = 'unresolved_no_selection_extracted';
     else article.pick_review_status = 'explicit_selection_extracted';

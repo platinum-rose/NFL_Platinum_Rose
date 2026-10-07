@@ -192,9 +192,18 @@ async function runCadence(day) {
       console.log(`${c.cyan}1. Running Podcast & YouTube Sweep...${c.reset}`);
       await run('node', ['scripts/youtube-podcast-sweep.js', '--lookback-days', '3', '--max-per-run', '5']);
       console.log(`${c.cyan}2. Ingesting Research Intel Articles...${c.reset}`);
-      await run('node', ['agents/research-intel-ingest.js', '--dry-run']);
-      console.log(`${c.cyan}3. Processing Twitter/X Bookmarks...${c.reset}`);
-      await run('node', ['agents/twitter-bookmarks-agent.js', '--dry-run']);
+      await run('node', ['agents/research-intel-ingest.js']); // live: Andy 2026-10-07 (half-hourly sync already runs live; dedups)
+      {
+        // Current-week window only: since the most recent Tuesday 00:00 local (post-MNF),
+        // so prior-week previews don't leak into week-N synthesis. Read-only Supabase + local files.
+        const since = new Date();
+        since.setHours(0, 0, 0, 0);
+        since.setDate(since.getDate() - ((since.getDay() + 5) % 7));
+        console.log(`${c.cyan}3. Rebuilding Article Intel Review (since ${since.toISOString()})...${c.reset}`);
+        await run('node', ['scripts/build-article-intel-review.js', '--since', since.toISOString()]);
+      }
+      console.log(`${c.cyan}4. Processing Twitter/X Bookmarks...${c.reset}`);
+      await run('node', ['agents/twitter-bookmarks-agent.js']); // live: Andy 2026-10-07 (bookmark sync already runs live; dedups)
       break;
 
     case 'wednesday-pm':

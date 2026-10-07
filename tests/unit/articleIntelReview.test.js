@@ -194,3 +194,57 @@ describe('article evidence integrity', () => {
     expect(report.summary.weighted_picks.tier_2_analyst_best_bets).toBe(2);
   });
 });
+
+describe('article intel review fixes (2026-10-07)', () => {
+  it('stores unit-sized picks with a numeric price so they pass the actual-pick gate', () => {
+    const report = buildReport([
+      article({
+        id: 'walter-units',
+        source: 'Walter Football',
+        title: 'NFL Picks',
+        summary: 'Week 5 NFL Pick: Cowboys 38, Buccaneers 17. Pick: Cowboys -8 (3 Units).',
+      }),
+    ], SINCE, collection());
+
+    const pick = report.analyst_selections.find((item) => item.selection === 'Cowboys -8');
+    expect(pick).toBeTruthy();
+    expect(pick.price).toBe('-110');
+    expect(Number.isFinite(Number(pick.price))).toBe(true);
+    expect(report.validation_results.article_evidence.metrics.invalid_actual_picks).toBe(0);
+  });
+
+  it('treats survivor, confidence-pool, MVP-odds and tool pages as context, not unresolved picks', () => {
+    const report = buildReport([
+      article({ id: 'surv', title: 'NFL Survivor Pool Week 5 Picks, Strategy: Target Bengals, Texans' }),
+      article({ id: 'conf', title: 'NFL Week 5 Confidence Pool Picks & Predictions (2026)' }),
+      article({ id: 'mvp', title: 'Mahomes Odds Surge in NFL MVP Race' }),
+      article({ id: 'tdm', title: 'NFL Anytime Touchdown Machine: Live TD Odds, Trends and More' }),
+      article({ id: 'real', title: 'NFL Week 5 Best Bets' }),
+    ], SINCE, collection({ database_rows: 5, deduped_records: 5 }));
+
+    const byId = Object.fromEntries(report.articles.map((a) => [a.id, a.pick_review_status]));
+    expect(byId.surv).toBe('context_only_title');
+    expect(byId.conf).toBe('context_only_title');
+    expect(byId.mvp).toBe('context_only_title');
+    expect(byId.tdm).toBe('context_only_title');
+    expect(byId.real).toBe('unresolved_no_selection_extracted');
+    expect(report.summary.unresolved_pick_oriented_records).toBe(1);
+  });
+
+  it('extracts priced parlay legs written as "Leg N: selection ( price )"', () => {
+    const report = buildReport([
+      article({
+        id: 'bp-parlay',
+        source: 'BettingPros',
+        title: 'NFL Week 5 Picks & Predictions: Best Early Parlays (2026)',
+        summary: 'Early NFL Week 5 Parlay #1. Leg 1: Dak Prescott 30+ Pass Attempts ( -375 ). Dallas threw the ball on 45 plays.',
+      }),
+    ], SINCE, collection());
+
+    const leg = report.analyst_selections.find((item) => /Dak Prescott/.test(item.selection));
+    expect(leg).toBeTruthy();
+    expect(leg.selection).toBe('Dak Prescott 30+ Pass Attempts');
+    expect(leg.price).toBe('-375');
+    expect(report.articles[0].pick_review_status).toBe('explicit_selection_extracted');
+  });
+});
