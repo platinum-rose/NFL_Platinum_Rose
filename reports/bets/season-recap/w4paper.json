@@ -1,0 +1,965 @@
+[
+ {
+  "name": "AI Slot 4 Afternoon parlay",
+  "id": "paper_20261004_ai_slot4_afternoon",
+  "paper": true,
+  "stake": 20,
+  "odds": "+1378",
+  "legs": [
+   {
+    "label": "Arizona Cardinals Moneyline",
+    "result": "L",
+    "actual": "ARI 24-36",
+    "margin": -12,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Los Angeles Rams Moneyline",
+    "result": "W",
+    "actual": "LAR 24-20",
+    "margin": 4,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Miami Dolphins +9.5",
+    "result": "W",
+    "actual": "MIA 10-15",
+    "margin": 4.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 9.5,
+    "player": null
+   },
+   {
+    "label": "Denver Broncos +2.5",
+    "result": "L",
+    "actual": "DEN 14-24",
+    "margin": -7.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 2.5,
+    "player": null
+   },
+   {
+    "label": "Detroit Lions Moneyline",
+    "result": "L",
+    "actual": "DET 26-32",
+    "margin": -6,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI Slot 5 Hybrid",
+  "id": "paper_20261004_ai_slot5_hybrid",
+  "paper": true,
+  "stake": 20,
+  "odds": "+1295",
+  "legs": [
+   {
+    "label": "Arizona Cardinals Moneyline",
+    "result": "L",
+    "actual": "ARI 24-36",
+    "margin": -12,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Miami Dolphins +9.5",
+    "result": "W",
+    "actual": "MIA 10-15",
+    "margin": 4.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 9.5,
+    "player": null
+   },
+   {
+    "label": "New England Patriots +7",
+    "result": "W",
+    "actual": "NE 29-26",
+    "margin": 10.0,
+    "kind": "spread",
+    "key": null,
+    "thr": 7.0,
+    "player": null
+   },
+   {
+    "label": "Denver Broncos Moneyline",
+    "result": "L",
+    "actual": "DEN 14-24",
+    "margin": -10,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI Arizona ML + Jacksonville ML",
+  "id": "paper_20261004_ai_ari_jax_ml",
+  "paper": true,
+  "stake": 10,
+  "odds": "+298",
+  "legs": [
+   {
+    "label": "Arizona Cardinals Moneyline",
+    "result": "L",
+    "actual": "ARI 24-36",
+    "margin": -12,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Jacksonville Jaguars Moneyline",
+    "result": "W",
+    "actual": "JAX 22-17",
+    "margin": 5,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI SuperContest A 5-team parlay",
+  "id": "paper_20261004_ai_supercontest_a",
+  "paper": true,
+  "stake": 15,
+  "odds": "+2495",
+  "legs": [
+   {
+    "label": "Arizona Cardinals -2.5",
+    "result": "L",
+    "actual": "ARI 24-36",
+    "margin": -14.5,
+    "kind": "spread",
+    "key": null,
+    "thr": -2.5,
+    "player": null
+   },
+   {
+    "label": "Miami Dolphins +9.5",
+    "result": "W",
+    "actual": "MIA 10-15",
+    "margin": 4.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 9.5,
+    "player": null
+   },
+   {
+    "label": "Los Angeles Rams -3.5",
+    "result": "W",
+    "actual": "LAR 24-20",
+    "margin": 0.5,
+    "kind": "spread",
+    "key": null,
+    "thr": -3.5,
+    "player": null
+   },
+   {
+    "label": "Tennessee Titans +11.5",
+    "result": "W",
+    "actual": "TEN 18-24",
+    "margin": 5.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 11.5,
+    "player": null
+   },
+   {
+    "label": "Denver Broncos +2.5",
+    "result": "L",
+    "actual": "DEN 14-24",
+    "margin": -7.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 2.5,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI 7a Morning prop stack",
+  "id": "paper_20261004_ai_7a_morning_props",
+  "paper": true,
+  "stake": 5,
+  "odds": "+21403",
+  "legs": [
+   {
+    "label": "Jacoby Brissett 2+ Passing TDs",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 2.0,
+    "player": "Jacoby Brissett"
+   },
+   {
+    "label": "Matthew Stafford 2+ Passing TDs",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -2.0,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 2.0,
+    "player": "Matthew Stafford"
+   },
+   {
+    "label": "Jameis Winston Over 0.5 Pass Interceptions",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.5,
+    "kind": "prop",
+    "key": "int_thrown",
+    "thr": 0.5,
+    "player": "Jameis Winston"
+   },
+   {
+    "label": "Jalon Daniels Over 0.5 Pass Interceptions",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.5,
+    "kind": "prop",
+    "key": "int_thrown",
+    "thr": 0.5,
+    "player": "Jalon Daniels"
+   },
+   {
+    "label": "Puka Nacua Anytime TD",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Puka Nacua"
+   },
+   {
+    "label": "Jakobi Meyers Anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Jakobi Meyers"
+   },
+   {
+    "label": "Tony Pollard Anytime TD",
+    "result": "W",
+    "actual": 1.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Tony Pollard"
+   }
+  ]
+ },
+ {
+  "name": "AI 7b Afternoon prop stack",
+  "id": "paper_20261004_ai_7b_afternoon_props",
+  "paper": true,
+  "stake": 5,
+  "odds": "+393",
+  "legs": [
+   {
+    "label": "Sam Darnold 2+ Passing TDs",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 2.0,
+    "player": "Sam Darnold"
+   },
+   {
+    "label": "Patrick Mahomes 2+ Passing TDs",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 2.0,
+    "player": "Patrick Mahomes"
+   },
+   {
+    "label": "Malik Willis Over 0.5 Pass Interceptions",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -0.5,
+    "kind": "prop",
+    "key": "int_thrown",
+    "thr": 0.5,
+    "player": "Malik Willis"
+   }
+  ]
+ },
+ {
+  "name": "AI 7d Hybrid prop stack",
+  "id": "paper_20261004_ai_7d_hybrid_props",
+  "paper": true,
+  "stake": 10,
+  "odds": "+16362",
+  "legs": [
+   {
+    "label": "Parker Washington 6+ Receptions",
+    "result": "L",
+    "actual": 1.0,
+    "margin": -5.0,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 6.0,
+    "player": "Parker Washington"
+   },
+   {
+    "label": "Puka Nacua 7+ Receptions",
+    "result": "W",
+    "actual": 9.0,
+    "margin": 2.0,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 7.0,
+    "player": "Puka Nacua"
+   },
+   {
+    "label": "Tony Pollard 48+ Rushing Yards",
+    "result": "W",
+    "actual": 48.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 48.0,
+    "player": "Tony Pollard"
+   },
+   {
+    "label": "James Cook 85+ Rushing Yards",
+    "result": "L",
+    "actual": 75.0,
+    "margin": -10.0,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 85.0,
+    "player": "James Cook"
+   },
+   {
+    "label": "Jalon Daniels Over 0.5 Pass Interceptions",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.5,
+    "kind": "prop",
+    "key": "int_thrown",
+    "thr": 0.5,
+    "player": "Jalon Daniels"
+   },
+   {
+    "label": "Christian McCaffrey 41+ Receiving Yards",
+    "result": "L",
+    "actual": 18.0,
+    "margin": -23.0,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 41.0,
+    "player": "Christian McCaffrey"
+   },
+   {
+    "label": "Jameson Williams Anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Jameson Williams"
+   }
+  ]
+ },
+ {
+  "name": "AI 8b 2+ TD 3-leg",
+  "id": "paper_20261004_ai_8b_2td",
+  "paper": true,
+  "stake": 5,
+  "odds": "+2300",
+  "legs": [
+   {
+    "label": "Derrick Henry 2+ Touchdowns",
+    "result": "L",
+    "actual": 1.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 2.0,
+    "player": "Derrick Henry"
+   },
+   {
+    "label": "David Montgomery 2+ Touchdowns",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -2.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 2.0,
+    "player": "David Montgomery"
+   },
+   {
+    "label": "Jahmyr Gibbs 2+ Touchdowns",
+    "result": "L",
+    "actual": 1.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 2.0,
+    "player": "Jahmyr Gibbs"
+   }
+  ]
+ },
+ {
+  "name": "AI 7e Anytime TD 4-leg",
+  "id": "paper_20261004_ai_7e_atd",
+  "paper": true,
+  "stake": 5,
+  "odds": "+6596",
+  "legs": [
+   {
+    "label": "Michael Wilson Anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Michael Wilson"
+   },
+   {
+    "label": "Garrett Wilson Anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Garrett Wilson"
+   },
+   {
+    "label": "Lamar Jackson Anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Lamar Jackson"
+   },
+   {
+    "label": "Jameson Williams Anytime TD",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Jameson Williams"
+   }
+  ]
+ },
+ {
+  "name": "AI 8a First TD 3-leg",
+  "id": "paper_20261004_ai_8a_first_td",
+  "paper": true,
+  "stake": 5,
+  "odds": "+23525",
+  "legs": [
+   {
+    "label": "James Cook First TD",
+    "result": "L",
+    "actual": "Romeo Doubs",
+    "margin": null,
+    "kind": "prop",
+    "key": "first_td",
+    "thr": null,
+    "player": "James Cook"
+   },
+   {
+    "label": "Derrick Henry First TD",
+    "result": "W",
+    "actual": "Derrick Henry",
+    "margin": null,
+    "kind": "prop",
+    "key": "first_td",
+    "thr": null,
+    "player": "Derrick Henry"
+   },
+   {
+    "label": "Travis Kelce First TD",
+    "result": "L",
+    "actual": "Ian Thomas",
+    "margin": null,
+    "kind": "prop",
+    "key": "first_td",
+    "thr": null,
+    "player": "Travis Kelce"
+   }
+  ]
+ },
+ {
+  "name": "AI 6-point Wong teaser JAX-DEN-ATL",
+  "id": "paper_20261004_ai_wong_teaser",
+  "paper": true,
+  "stake": 10,
+  "odds": "+160",
+  "legs": [
+   {
+    "label": "Jacksonville Jaguars +8.5 (6-point teaser)",
+    "result": "W",
+    "actual": "JAX 22-17",
+    "margin": 13.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 8.5,
+    "player": null
+   },
+   {
+    "label": "Denver Broncos +8.5 (6-point teaser)",
+    "result": "L",
+    "actual": "DEN 14-24",
+    "margin": -1.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 8.5,
+    "player": null
+   },
+   {
+    "label": "Atlanta Falcons +8.5 (6-point teaser)",
+    "result": "W",
+    "actual": "ATL 45-24",
+    "margin": 29.5,
+    "kind": "spread",
+    "key": null,
+    "thr": 8.5,
+    "player": null
+   }
+  ]
+ },
+ {
+  "name": "AI TNF S2: CLE ML + Rodgers 1+ INT",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "CLE ML",
+    "result": "W",
+    "actual": "CLE 27-24",
+    "margin": 3,
+    "kind": "ml",
+    "key": null,
+    "thr": null,
+    "player": null
+   },
+   {
+    "label": "Aaron Rodgers 1+ int_thrown",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.0,
+    "kind": "prop",
+    "key": "int_thrown",
+    "thr": 1,
+    "player": "Aaron Rodgers"
+   }
+  ]
+ },
+ {
+  "name": "AI TNF S1: Warren 76+ rush + Rodgers U19.5 comp",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Jaylen Warren 75.5+ rush_yds",
+    "result": "W",
+    "actual": 93.0,
+    "margin": 17.5,
+    "kind": "prop",
+    "key": "rush_yds",
+    "thr": 75.5,
+    "player": "Jaylen Warren"
+   },
+   {
+    "label": "Aaron Rodgers U19.5 completions",
+    "result": "L",
+    "actual": 22.0,
+    "margin": -2.5,
+    "kind": "prop",
+    "key": "completions",
+    "thr": 19.5,
+    "player": "Aaron Rodgers"
+   }
+  ]
+ },
+ {
+  "name": "AI 7b-A Afternoon 4 (Darnold / Purdy 2+ TD, Bolton / Cashman T+A)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Sam Darnold 2+ pass_td",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 2,
+    "player": "Sam Darnold"
+   },
+   {
+    "label": "Brock Purdy 2+ pass_td",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 2,
+    "player": "Brock Purdy"
+   },
+   {
+    "label": "Nick Bolton 9+ tackles",
+    "result": "W",
+    "actual": 9.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 9,
+    "player": "Nick Bolton"
+   },
+   {
+    "label": "Blake Cashman 8+ tackles",
+    "result": "W",
+    "actual": 8.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 8,
+    "player": "Blake Cashman"
+   }
+  ]
+ },
+ {
+  "name": "AI 7b-B Afternoon 6 moonshot",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Justin Herbert 1+ int_thrown",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.0,
+    "kind": "prop",
+    "key": "int_thrown",
+    "thr": 1,
+    "player": "Justin Herbert"
+   },
+   {
+    "label": "Ernest Jones 8+ tackles",
+    "result": "W",
+    "actual": 12.0,
+    "margin": 4.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 8,
+    "player": "Ernest Jones"
+   },
+   {
+    "label": "Rashee Rice 5+ rec",
+    "result": "L",
+    "actual": 0,
+    "margin": -5,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 5,
+    "player": "Rashee Rice"
+   },
+   {
+    "label": "Nakobe Dean 8+ tackles",
+    "result": "L",
+    "actual": 5.0,
+    "margin": -3.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 8,
+    "player": "Nakobe Dean"
+   },
+   {
+    "label": "Alex Singleton 9+ tackles",
+    "result": "W",
+    "actual": 14.0,
+    "margin": 5.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 9,
+    "player": "Alex Singleton"
+   },
+   {
+    "label": "Courtland Sutton 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Courtland Sutton"
+   }
+  ]
+ },
+ {
+  "name": "AI 7b-C Afternoon #2 (7 with St. Brown)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Kirk Cousins 2+ pass_td",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "pass_td",
+    "thr": 2,
+    "player": "Kirk Cousins"
+   },
+   {
+    "label": "Travis Kelce 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Travis Kelce"
+   },
+   {
+    "label": "Ernest Jones 8+ tackles",
+    "result": "W",
+    "actual": 12.0,
+    "margin": 4.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 8,
+    "player": "Ernest Jones"
+   },
+   {
+    "label": "Jaxon Smith-Njigba 7+ rec",
+    "result": "L",
+    "actual": 5.0,
+    "margin": -2.0,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 7,
+    "player": "Jaxon Smith-Njigba"
+   },
+   {
+    "label": "Fred Warner 9+ tackles",
+    "result": "L",
+    "actual": 7.0,
+    "margin": -2.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 9,
+    "player": "Fred Warner"
+   },
+   {
+    "label": "Michael Taaffe 6+ tackles",
+    "result": "W",
+    "actual": 6.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 6,
+    "player": "Michael Taaffe"
+   },
+   {
+    "label": "Amon-Ra St. Brown 7+ rec",
+    "result": "W",
+    "actual": 8.0,
+    "margin": 1.0,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 7,
+    "player": "Amon-Ra St. Brown"
+   }
+  ]
+ },
+ {
+  "name": "AI SNF Tier 1 (Young 233+ / Gibbs 5+ rec / Barnes 5+ / Goff 23+ comp)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Bryce Young 233+ pass_yds",
+    "result": "W",
+    "actual": 329.0,
+    "margin": 96.0,
+    "kind": "prop",
+    "key": "pass_yds",
+    "thr": 233,
+    "player": "Bryce Young"
+   },
+   {
+    "label": "Jahmyr Gibbs 5+ rec",
+    "result": "L",
+    "actual": 4.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 5,
+    "player": "Jahmyr Gibbs"
+   },
+   {
+    "label": "Derrick Barnes 5+ tackles",
+    "result": "L",
+    "actual": 1.0,
+    "margin": -4.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 5,
+    "player": "Derrick Barnes"
+   },
+   {
+    "label": "Jared Goff 23+ completions",
+    "result": "W",
+    "actual": 32.0,
+    "margin": 9.0,
+    "kind": "prop",
+    "key": "completions",
+    "thr": 23,
+    "player": "Jared Goff"
+   }
+  ]
+ },
+ {
+  "name": "AI SNF Tier 2 (Hubbard ATD / Lloyd / Clark / J. Williams 4+ / Hutchinson)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Chuba Hubbard 1+ atd",
+    "result": "W",
+    "actual": 2.0,
+    "margin": 1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Chuba Hubbard"
+   },
+   {
+    "label": "Devin Lloyd 9+ tackles",
+    "result": "W",
+    "actual": 9.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 9,
+    "player": "Devin Lloyd"
+   },
+   {
+    "label": "Chuck Clark 7+ tackles",
+    "result": "W",
+    "actual": 7.0,
+    "margin": 0.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 7,
+    "player": "Chuck Clark"
+   },
+   {
+    "label": "Jameson Williams 4+ rec",
+    "result": "W",
+    "actual": 6.0,
+    "margin": 2.0,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 4,
+    "player": "Jameson Williams"
+   },
+   {
+    "label": "Aidan Hutchinson 1+ sacks",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "sacks",
+    "thr": 1,
+    "player": "Aidan Hutchinson"
+   }
+  ]
+ },
+ {
+  "name": "AI SNF Tier 3 (McMillan 94+ / TeSlaa ATD / Tremble 3+ / Okereke 8+)",
+  "id": null,
+  "paper": true,
+  "extra": true,
+  "legs": [
+   {
+    "label": "Tetairoa McMillan 94+ rec_yds",
+    "result": "W",
+    "actual": 192.0,
+    "margin": 98.0,
+    "kind": "prop",
+    "key": "rec_yds",
+    "thr": 94,
+    "player": "Tetairoa McMillan"
+   },
+   {
+    "label": "Isaac TeSlaa 1+ atd",
+    "result": "L",
+    "actual": 0.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "atd",
+    "thr": 1,
+    "player": "Isaac TeSlaa"
+   },
+   {
+    "label": "Tommy Tremble 3+ rec",
+    "result": "W",
+    "actual": 4.0,
+    "margin": 1.0,
+    "kind": "prop",
+    "key": "rec",
+    "thr": 3,
+    "player": "Tommy Tremble"
+   },
+   {
+    "label": "Bobby Okereke 8+ tackles",
+    "result": "L",
+    "actual": 7.0,
+    "margin": -1.0,
+    "kind": "prop",
+    "key": "tackles",
+    "thr": 8,
+    "player": "Bobby Okereke"
+   }
+  ]
+ }
+]

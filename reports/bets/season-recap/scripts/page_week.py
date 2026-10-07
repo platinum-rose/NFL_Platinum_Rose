@@ -12,7 +12,7 @@ css=css.replace('</style>','''.season{width:100%;border-collapse:collapse;font:1
 </style>''')
 o=M['org']
 def pct(t): return round(100*t[0]/t[1]) if t[1] else 0
-SEASON=[('1',370.77,80.56,63,136,''),('2',428.79,131.24,107,211,''),('3',466.55,39.21,74,165,'MNF pending')]
+SEASON=getattr(CFG,'SEASON',None) or [('1',370.77,80.56,63,136,''),('2',428.79,131.24,107,211,''),('3',466.55,39.21,74,165,'MNF pending')]
 srows=''.join(f'<tr class="{"cur" if w==WK else ""}"><td>Week {w}{(" · "+n) if n else ""}</td><td>${s:.2f}</td><td>${r:.2f}</td><td class="neg">−${s-r:.2f}</td><td>{hw}/{hn} · {round(100*hw/hn)}%</td></tr>' for w,s,r,hw,hn,n in SEASON)
 tot_s=sum(x[1] for x in SEASON); tot_r=sum(x[2] for x in SEASON)
 srows+=f'<tr><td><b>Season</b></td><td><b>${tot_s:.2f}</b></td><td><b>${tot_r:.2f}</b></td><td class="neg"><b>−${tot_s-tot_r:.2f}</b></td><td><b>{sum(x[3] for x in SEASON)}/{sum(x[4] for x in SEASON)}</b></td></tr>'

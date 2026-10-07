@@ -25,10 +25,11 @@ def category(s):
     if s['kind']=='team_total': return 'Team total'
     if s['kind']=='half_total': return 'Total Under'
     if s['kind']=='cfb': return 'College (CFB)'
+    if s['kind']=='dst_td': return 'D/ST TD'
     k=s['key']
     if k=='atd' and (s.get('thr') or 1)>=2: k='tds'
     if k=='rush_yds' and s['player'] in QBRUSH: return 'QB rushing yds'
-    return {'rush_yds':'Rushing yds','carries':'Carries','rec':'Receptions','rec_yds':'Receiving yds','pass_td':'Passing TDs','pass_yds':'QB volume','pass_att':'QB volume','completions':'QB volume','int_thrown':'QB INT thrown','sacks':'Sacks','tackles':'Tackles+Ast','def_int':'Defensive INT','atd':'Anytime TD','tds':'2+ TD','first_td':'First TD','fgm':'Kicker FGs'}[k]
+    return {'rush_yds':'Rushing yds','carries':'Carries','rec':'Receptions','rec_yds':'Receiving yds','pass_td':'Passing TDs','pass_yds':'QB volume','pass_att':'QB volume','completions':'QB volume','int_thrown':'QB INT thrown','sacks':'Sacks','tackles':'Tackles+Ast','def_int':'Defensive INT','atd':'Anytime TD','tds':'2+ TD','first_td':'First TD','fgm':'Kicker FGs','kicking_points':'Kicker points'}[k]
 GROUP={'College (CFB)':'Sides & totals','Moneyline':'Sides & totals','Spread (fav)':'Sides & totals','Spread (dog)':'Sides & totals','Total Under':'Sides & totals','Total Over':'Sides & totals','Team total':'Sides & totals'}
 AIK={}
 for a in AI: AIK.setdefault(pkey(a),[]).append(a)

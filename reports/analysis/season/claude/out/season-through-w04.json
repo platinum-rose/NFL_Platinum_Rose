@@ -353,36 +353,28 @@
  },
  "by_prov": {
   "claude": {
-   "tickets": 55,
+   "tickets": 54,
    "won": 4,
-   "staked": 1015.03,
-   "returned": 164.6,
-   "net": -850.43,
-   "roi": -0.8378
+   "staked": 1131.57,
+   "returned": 261.35,
+   "net": -870.22,
+   "roi": -0.769
   },
   "mixed": {
-   "tickets": 22,
-   "won": 1,
-   "staked": 140.95,
-   "returned": 16.39,
-   "net": -124.56,
-   "roi": -0.8837
+   "tickets": 37,
+   "won": 2,
+   "staked": 290.02,
+   "returned": 46.03,
+   "net": -243.99,
+   "roi": -0.8413
   },
   "andy": {
-   "tickets": 22,
+   "tickets": 28,
    "won": 1,
-   "staked": 209.8,
+   "staked": 277.7,
    "returned": 70.02,
-   "net": -139.78,
-   "roi": -0.6663
-  },
-  "unknown": {
-   "tickets": 20,
-   "won": 1,
-   "staked": 333.51,
-   "returned": 126.39,
-   "net": -207.12,
-   "roi": -0.621
+   "net": -207.68,
+   "roi": -0.7479
   }
  },
  "legs": {
@@ -3611,8 +3603,8 @@
    "id": "bet_20261001_betonline_1001392960",
    "num": "1001392960",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "andy",
+   "why": "override: Week 4 post-mortem leg origins (0% in AI record)",
    "family": "Island SGP ladder (TNF/SNF/MNF)",
    "stake": 10.09,
    "returned": 0.0
@@ -3621,8 +3613,8 @@
    "id": "bet_20261001_betonline_1001390385",
    "num": "1001390385",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Week 4 post-mortem leg origins (12% in AI record)",
    "family": "Island SGP ladder (TNF/SNF/MNF)",
    "stake": 5.0,
    "returned": 0.0
@@ -3631,8 +3623,8 @@
    "id": "bet_20261001_betonline_1001388000",
    "num": "1001388000",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Week 4 post-mortem leg origins (20% in AI record)",
    "family": "Island SGP ladder (TNF/SNF/MNF)",
    "stake": 5.0,
    "returned": 0.0
@@ -3641,8 +3633,8 @@
    "id": "bet_20261001_bkr_739565346",
    "num": "739565346",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Week 4 post-mortem leg origins (40% in AI record)",
    "family": "Game-line parlay",
    "stake": 10.08,
    "returned": 0.0
@@ -3651,8 +3643,8 @@
    "id": "bet_20260930_bkr_739527199",
    "num": "739527199",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "claude",
+   "why": "override: Week 4 post-mortem leg origins (50% in AI record)",
    "family": "Game-line parlay",
    "stake": 21.2,
    "returned": 0.0
@@ -3661,8 +3653,8 @@
    "id": "bet_20261002_w04_jays_lockbox_promo_2team",
    "num": null,
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "andy",
+   "why": "override: Week 4 post-mortem leg origins (0% in AI record)",
    "family": "Promo / trade credit",
    "stake": 0.0,
    "returned": 0.0
@@ -3671,8 +3663,8 @@
    "id": "bet_20261004_bkr_739714646_round_robin_8x4",
    "num": "739714646",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "claude",
+   "why": "override: Week 4 post-mortem leg origins (75% in AI record)",
    "family": "4-team master RR",
    "stake": 105.0,
    "returned": 84.47
@@ -3681,8 +3673,8 @@
    "id": "bet_20261004_bkr_739714534_6team_parlay",
    "num": "739714534",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Week 4 post-mortem leg origins (33% in AI record)",
    "family": "Game-line parlay",
    "stake": 20.0,
    "returned": 0.0
@@ -3691,8 +3683,8 @@
    "id": "bet_20261004_bkr_739714258_5team_parlay",
    "num": "739714258",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "claude",
+   "why": "override: Ledger D16: Slot 3 morning parlay placed as proposed (Under 40 for 38.5)",
    "family": "Game-line parlay",
    "stake": 20.0,
    "returned": 0.0
@@ -3701,8 +3693,8 @@
    "id": "bet_20261004_bkr_739713560_round_robin_6x2",
    "num": "739713560",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "claude",
+   "why": "override: Week 4 post-mortem leg origins (50% in AI record)",
    "family": "2-team RR",
    "stake": 30.0,
    "returned": 12.28
@@ -3711,8 +3703,8 @@
    "id": "bet_20261004_bkr_739713279_round_robin_5x2",
    "num": "739713279",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Ledger D18: official SuperContest five as a 2-team RR",
    "family": "2-team RR",
    "stake": 15.0,
    "returned": 29.64
@@ -3721,8 +3713,8 @@
    "id": "bet_20261004_bkr_739713278_5team_parlay",
    "num": "739713278",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Ledger D18: official SuperContest five as a parlay (SF -2.5 / NE +7 replace AI DEN / TEN)",
    "family": "Game-line parlay",
    "stake": 25.0,
    "returned": 0.0
@@ -3731,8 +3723,8 @@
    "id": "bet_20261004_betonline_1002306890_ne_buf_spread",
    "num": "1002306890",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "claude",
+   "why": "override: Week 4 post-mortem leg origins (100% in AI record)",
    "family": "Promo / trade credit",
    "stake": 0.0,
    "returned": 0.0
@@ -3741,8 +3733,8 @@
    "id": "bet_20261004_betonline_1002306704_2td_parlay",
    "num": "1002306704",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Week 4 post-mortem leg origins (40% in AI record)",
    "family": "Prop parlay / stack",
    "stake": 5.0,
    "returned": 0.0
@@ -3751,8 +3743,8 @@
    "id": "bet_20261004_betonline_1002306303_hybrid_prop_parlay",
    "num": "1002306303",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Week 4 post-mortem leg origins (38% in AI record)",
    "family": "Prop parlay / stack",
    "stake": 6.83,
    "returned": 0.0
@@ -3761,8 +3753,8 @@
    "id": "bet_20261004_betonline_1002304945_morning_prop_parlay",
    "num": "1002304945",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Ledger D20: 7a build at 1.5 pass-TD lines plus Andy adds",
    "family": "Prop parlay / stack",
    "stake": 5.0,
    "returned": 0.0
@@ -3771,8 +3763,8 @@
    "id": "bet_20261004_betonline_1002303293_atd_parlay",
    "num": "1002303293",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Week 4 post-mortem leg origins (33% in AI record)",
    "family": "Prop parlay / stack",
    "stake": 5.0,
    "returned": 0.0
@@ -3781,8 +3773,8 @@
    "id": "bet_20261004_betonline_1002396982_late_prop_parlay",
    "num": "1002396982",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Week 4 post-mortem leg origins (25% in AI record)",
    "family": "Prop parlay / stack",
    "stake": 5.0,
    "returned": 0.0
@@ -3791,8 +3783,8 @@
    "id": "bet_20261004_betonline_afternoon_8leg_20261004",
    "num": null,
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Ledger D21: 7b-A core (3 of 4 legs) plus five Andy adds",
    "family": "Prop parlay / stack",
    "stake": 5.0,
    "returned": 0.0
@@ -3801,8 +3793,8 @@
    "id": "bet_20261004_betonline_afternoon_8leg_b_20261004",
    "num": null,
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "claude",
+   "why": "override: Ledger D22: 7b-C as proposed (Warner 8+) plus Waller ATD",
    "family": "Prop parlay / stack",
    "stake": 3.15,
    "returned": 0.0
@@ -3812,7 +3804,7 @@
    "num": null,
    "week": 4,
    "by": "andy",
-   "why": "notes",
+   "why": "override: Week 4 post-mortem leg origins (0% in AI record)",
    "family": "Prop parlay / stack",
    "stake": 5.0,
    "returned": 0.0
@@ -3821,8 +3813,8 @@
    "id": "bet_20261004_bkr_739761492_5team_parlay",
    "num": "739761492",
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Week 4 post-mortem leg origins (40% in AI record)",
    "family": "Game-line parlay",
    "stake": 25.0,
    "returned": 0.0
@@ -3831,8 +3823,8 @@
    "id": "bet_20261004_betonline_snf_island_8leg_20261004",
    "num": null,
    "week": 4,
-   "by": "claude",
-   "why": "notes",
+   "by": "mixed",
+   "why": "override: Ledger D24: SNF ladder legs across tiers plus Waller ATD",
    "family": "Island SGP ladder (TNF/SNF/MNF)",
    "stake": 5.0,
    "returned": 0.0
@@ -3841,8 +3833,8 @@
    "id": "bet_20261004_betonline_snf_7leg_b_20261004",
    "num": null,
    "week": 4,
-   "by": "unknown",
-   "why": "no signal",
+   "by": "mixed",
+   "why": "override: Week 4 post-mortem leg origins (14% in AI record)",
    "family": "Island SGP ladder (TNF/SNF/MNF)",
    "stake": 7.16,
    "returned": 0.0
@@ -3851,8 +3843,8 @@
    "id": "bet_20261005_kalshi_mnf_3td_combo",
    "num": "F92AF9DCBF8",
    "week": 4,
-   "by": "claude",
-   "why": "notes",
+   "by": "andy",
+   "why": "override: Ledger Week 4: MNF tickets built from the ATL@NO prop planner, no AI card",
    "family": "Island SGP ladder (TNF/SNF/MNF)",
    "stake": 9.81,
    "returned": 0.0
@@ -3861,8 +3853,8 @@
    "id": "bet_20261005_betonline_1002759127",
    "num": "1002759127",
    "week": 4,
-   "by": "claude",
-   "why": "notes",
+   "by": "andy",
+   "why": "override: Ledger Week 4: MNF tickets built from the ATL@NO prop planner, no AI card",
    "family": "Island SGP ladder (TNF/SNF/MNF)",
    "stake": 6.0,
    "returned": 0.0
@@ -3871,8 +3863,8 @@
    "id": "bet_20261005_betonline_1002756348",
    "num": "1002756348",
    "week": 4,
-   "by": "claude",
-   "why": "notes",
+   "by": "andy",
+   "why": "override: Ledger Week 4: MNF tickets built from the ATL@NO prop planner, no AI card",
    "family": "Island SGP ladder (TNF/SNF/MNF)",
    "stake": 4.0,
    "returned": 0.0
@@ -3881,8 +3873,8 @@
    "id": "bet_20261005_betonline_1002754993",
    "num": "1002754993 + 1002746959",
    "week": 4,
-   "by": "claude",
-   "why": "notes",
+   "by": "andy",
+   "why": "override: Ledger Week 4: MNF tickets built from the ATL@NO prop planner, no AI card",
    "family": "Island SGP ladder (TNF/SNF/MNF)",
    "stake": 11.61,
    "returned": 0.0
@@ -3891,8 +3883,8 @@
    "id": "bet_20261005_bkr_739813995",
    "num": "739813995",
    "week": 4,
-   "by": "claude",
-   "why": "notes",
+   "by": "andy",
+   "why": "override: Ledger Week 4: MNF tickets built from the ATL@NO prop planner, no AI card",
    "family": "Game-line parlay",
    "stake": 26.39,
    "returned": 0.0

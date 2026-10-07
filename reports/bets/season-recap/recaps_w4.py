@@ -48,7 +48,7 @@ R={
   grade='Side ✗'),
 'TEN@BAL':dict(kick='Sun 10:00',ai='SuperContest TEN +11.5 and the SC parlay; Henry 2+ TD (8b) and first TD (8a); Lamar and Pollard ATD.',
   happened='Lamar threw 2 TDs in the first half and left with a high-ankle sprain; BAL didn\'t score again. Loop hit a 64-yard FG. BAL 24–18.',
-  wrong='TEN +11.5 covered by 5.5 (SuperContest ✓). No placed tickets on this game; the Henry legs were paper only.',
+  wrong='TEN +11.5 covered by 5.5 (SuperContest ✓). TEN +12 won on the 8x4 RR and Lamar ATD lost on the ATD 6-leg; the Henry legs were paper only.',
   experts='Without Lamar, BAL managed 98 yards and no points on 5 drives. TEN\'s Ward-to-Tate (9-145) is real, but Tate fumbled twice. Watch Lamar\'s status for Week 5 (BAL at ATL).',
   grade='TEN ✓'),
 'MIA@MIN':dict(kick='Sun 1:05',ai='MIA +9.5 single, Slot 4, Hybrid and the SC parlay; SuperContest MIA +10.5; Willis INT in 7b (a hedge).',

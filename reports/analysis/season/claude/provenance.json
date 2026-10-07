@@ -1,12 +1,149 @@
 {
-  "_about": "Who a ticket came from, for the Claude-recommended vs Andy-built split in weekly_review.py. by = claude | mixed | andy. Tickets not listed fall back to a `recommended_by` field on the ticket, then Team 1 leg origins (W1-3), then progress-note keywords. From Week 4, record `recommended_by` on each ticket when it is logged and add an entry here only to correct a guess. Sources: the recommendation ledger (docs/claude-project-dev/recommendation-ledger-2026.md).",
-  "tickets": {
-    "bet_20260928_novig_credit2_5leg_sgp": {"by": "claude", "why": "Ledger D12: Claude's 3-leg confidence SGP plus Claude's two suggested extension legs"},
-    "bet_20260928_beo_mnf_d1_def_3leg": {"by": "claude", "why": "Ledger D13 D1: agreement, placed as proposed"},
-    "bet_20260928_beo_mnf_d3_def_6leg": {"by": "mixed", "why": "Ledger D13 D3: Claude DEF-ladder moonshot; Andy kept Saquon 16+ carries against advice and added Keenum 27+ att"},
-    "bet_20260928_betonline_1000554327": {"by": "andy", "why": "Ledger: Andy-built, independent action"},
-    "bet_20260928_betonline_1000553845": {"by": "mixed", "why": "Ledger: Andy-built from Claude's yardage-moonshot list at softer lines"},
-    "bet_20260928_betonline_1000553267": {"by": "andy", "why": "Ledger: Andy-built, independent action"},
-    "bet_20260927_novig_credit1_phi_ml_u415": {"by": "claude", "why": "Claude rec: credit 1 = PHI ML + Under"}
+ "_about": "Who a ticket came from, for the Claude-recommended vs Andy-built split in weekly_review.py. by = claude | mixed | andy. Tickets not listed fall back to a `recommended_by` field on the ticket, then Team 1 leg origins (W1-3), then progress-note keywords. From Week 4, record `recommended_by` on each ticket when it is logged and add an entry here only to correct a guess. Sources: the recommendation ledger (docs/claude-project-dev/recommendation-ledger-2026.md).",
+ "tickets": {
+  "bet_20260928_novig_credit2_5leg_sgp": {
+   "by": "claude",
+   "why": "Ledger D12: Claude's 3-leg confidence SGP plus Claude's two suggested extension legs"
+  },
+  "bet_20260928_beo_mnf_d1_def_3leg": {
+   "by": "claude",
+   "why": "Ledger D13 D1: agreement, placed as proposed"
+  },
+  "bet_20260928_beo_mnf_d3_def_6leg": {
+   "by": "mixed",
+   "why": "Ledger D13 D3: Claude DEF-ladder moonshot; Andy kept Saquon 16+ carries against advice and added Keenum 27+ att"
+  },
+  "bet_20260928_betonline_1000554327": {
+   "by": "andy",
+   "why": "Ledger: Andy-built, independent action"
+  },
+  "bet_20260928_betonline_1000553845": {
+   "by": "mixed",
+   "why": "Ledger: Andy-built from Claude's yardage-moonshot list at softer lines"
+  },
+  "bet_20260928_betonline_1000553267": {
+   "by": "andy",
+   "why": "Ledger: Andy-built, independent action"
+  },
+  "bet_20260927_novig_credit1_phi_ml_u415": {
+   "by": "claude",
+   "why": "Claude rec: credit 1 = PHI ML + Under"
+  },
+  "bet_20261001_betonline_1001392960": {
+   "by": "andy",
+   "why": "Week 4 post-mortem leg origins (0% in AI record)"
+  },
+  "bet_20261001_betonline_1001390385": {
+   "by": "mixed",
+   "why": "Week 4 post-mortem leg origins (12% in AI record)"
+  },
+  "bet_20261001_betonline_1001388000": {
+   "by": "mixed",
+   "why": "Week 4 post-mortem leg origins (20% in AI record)"
+  },
+  "bet_20261001_bkr_739565346": {
+   "by": "mixed",
+   "why": "Week 4 post-mortem leg origins (40% in AI record)"
+  },
+  "bet_20260930_bkr_739527199": {
+   "by": "claude",
+   "why": "Week 4 post-mortem leg origins (50% in AI record)"
+  },
+  "bet_20261002_w04_jays_lockbox_promo_2team": {
+   "by": "andy",
+   "why": "Week 4 post-mortem leg origins (0% in AI record)"
+  },
+  "bet_20261004_bkr_739714646_round_robin_8x4": {
+   "by": "claude",
+   "why": "Week 4 post-mortem leg origins (75% in AI record)"
+  },
+  "bet_20261004_bkr_739714534_6team_parlay": {
+   "by": "mixed",
+   "why": "Week 4 post-mortem leg origins (33% in AI record)"
+  },
+  "bet_20261004_bkr_739714258_5team_parlay": {
+   "by": "claude",
+   "why": "Ledger D16: Slot 3 morning parlay placed as proposed (Under 40 for 38.5)"
+  },
+  "bet_20261004_bkr_739713560_round_robin_6x2": {
+   "by": "claude",
+   "why": "Week 4 post-mortem leg origins (50% in AI record)"
+  },
+  "bet_20261004_bkr_739713279_round_robin_5x2": {
+   "by": "mixed",
+   "why": "Ledger D18: official SuperContest five as a 2-team RR"
+  },
+  "bet_20261004_bkr_739713278_5team_parlay": {
+   "by": "mixed",
+   "why": "Ledger D18: official SuperContest five as a parlay (SF -2.5 / NE +7 replace AI DEN / TEN)"
+  },
+  "bet_20261004_betonline_1002306890_ne_buf_spread": {
+   "by": "claude",
+   "why": "Week 4 post-mortem leg origins (100% in AI record)"
+  },
+  "bet_20261004_betonline_1002306704_2td_parlay": {
+   "by": "mixed",
+   "why": "Week 4 post-mortem leg origins (40% in AI record)"
+  },
+  "bet_20261004_betonline_1002306303_hybrid_prop_parlay": {
+   "by": "mixed",
+   "why": "Week 4 post-mortem leg origins (38% in AI record)"
+  },
+  "bet_20261004_betonline_1002304945_morning_prop_parlay": {
+   "by": "mixed",
+   "why": "Ledger D20: 7a build at 1.5 pass-TD lines plus Andy adds"
+  },
+  "bet_20261004_betonline_1002303293_atd_parlay": {
+   "by": "mixed",
+   "why": "Week 4 post-mortem leg origins (33% in AI record)"
+  },
+  "bet_20261004_betonline_1002396982_late_prop_parlay": {
+   "by": "mixed",
+   "why": "Week 4 post-mortem leg origins (25% in AI record)"
+  },
+  "bet_20261004_betonline_afternoon_8leg_20261004": {
+   "by": "mixed",
+   "why": "Ledger D21: 7b-A core (3 of 4 legs) plus five Andy adds"
+  },
+  "bet_20261004_betonline_afternoon_8leg_b_20261004": {
+   "by": "claude",
+   "why": "Ledger D22: 7b-C as proposed (Warner 8+) plus Waller ATD"
+  },
+  "bet_20261004_betonline_afternoon_7leg_c_20261004": {
+   "by": "andy",
+   "why": "Week 4 post-mortem leg origins (0% in AI record)"
+  },
+  "bet_20261004_bkr_739761492_5team_parlay": {
+   "by": "mixed",
+   "why": "Week 4 post-mortem leg origins (40% in AI record)"
+  },
+  "bet_20261004_betonline_snf_island_8leg_20261004": {
+   "by": "mixed",
+   "why": "Ledger D24: SNF ladder legs across tiers plus Waller ATD"
+  },
+  "bet_20261004_betonline_snf_7leg_b_20261004": {
+   "by": "mixed",
+   "why": "Week 4 post-mortem leg origins (14% in AI record)"
+  },
+  "bet_20261005_kalshi_mnf_3td_combo": {
+   "by": "andy",
+   "why": "Ledger Week 4: MNF tickets built from the ATL@NO prop planner, no AI card"
+  },
+  "bet_20261005_betonline_1002759127": {
+   "by": "andy",
+   "why": "Ledger Week 4: MNF tickets built from the ATL@NO prop planner, no AI card"
+  },
+  "bet_20261005_betonline_1002756348": {
+   "by": "andy",
+   "why": "Ledger Week 4: MNF tickets built from the ATL@NO prop planner, no AI card"
+  },
+  "bet_20261005_betonline_1002754993": {
+   "by": "andy",
+   "why": "Ledger Week 4: MNF tickets built from the ATL@NO prop planner, no AI card"
+  },
+  "bet_20261005_bkr_739813995": {
+   "by": "andy",
+   "why": "Ledger Week 4: MNF tickets built from the ATL@NO prop planner, no AI card"
   }
+ }
 }

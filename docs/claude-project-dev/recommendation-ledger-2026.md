@@ -4,7 +4,7 @@
 
 **2026-09-25 rebuild note:** This doc previously lived at this same path but had gone missing (the attached "dev" Project showed 0 docs when this session checked). The prior D1–D12 divergence history could not be recovered from the repo, handoffs, or any other accessible source — if Andy has it saved elsewhere, it can be merged back in. **Update 2026-09-29 (Claude Team 2): recovered.** The older version was still in the claude.ai DEV project; it is preserved verbatim as `claude/recommendation-ledger-2026-pre-rebuild.md` (repo mirror `docs/claude-project-dev/recommendation-ledger-2026-pre-rebuild.md`). Cite its entries as **P-D1…P-D15** (Week 2 D1–D12 all IRRELEVANT; Week 3 TNF P-D13–P-D15 overlap D1–D4 here). Numbering restarts at **D1** below, picking up from Week 3 (the earliest material still fully documented in the repo/handoffs). Everything from here forward is kept current per-session.
 
-**Last updated:** 2026-09-28 ~20:40 PT by Claude Team 2 (MNF graded — CHI 27, PHI 7 — and Week 3 closed: −$459.20 on $498.41 cash). Earlier: 2026-09-28 ~19:15 PT (Team 3, MNF placements), 2026-09-27 ~10:20 PT.
+**Last updated:** 2026-10-07 ~00:40 PT by Claude Team 2 (Week 4 section added from the graded paper tickets and the Week 4 post-mortem; Week 4 closed: −$274.93 cash, −$266.23 with the $8.70 free-bet win). Earlier: 2026-09-28 ~20:40 PT (Week 3 closed).
 
 ---
 
@@ -123,8 +123,45 @@ Read: PHI threw 26 times — its receiving legs on our tickets went 2 of 8 and b
 
 ---
 
+## Week 4 (2026-10-01 TNF PIT @ CLE through MNF ATL @ NO, 2026-10-05)
+
+Built 2026-10-07 by Claude Team 2 from the graded AI paper tickets (`data/official-picks/paper-wagers-2026.json`, Andy's 10/05 instruction), the unbooked Sunday/SNF/TNF builds and the placed tickets. All grades come from the ESPN box scores (`reports/bets/season-recap/w4games.json`, `w4paper.json`, `w4legs.json`); the full write-up is `reports/bets/season-recap/week4-post-mortem.html`. AI sources: `reports/bets/2026-w04-card.md`, `2026-w04-afternoon-props.md`, `2026-w04-snf-island.md`, `reports/analysis/week4-intel/tnf-pit-cle-source-check-and-scenario-drafts-2026-10-01.md`. MNF had no AI card (tickets were built from the ATL@NO prop planner).
+
+**Week 4: 27 cash tickets, $401.32 staked, $126.39 returned (three Bookmaker round robins), net −$274.93; with the BEO NE +7 free bet (+$8.70) −$266.23.** No straight ticket cashed. The $100 Jay's Lock Box promo lost (no cash).
+
+### TNF PIT @ CLE (final CLE 27, PIT 24, total 51)
+**D14 — Scenario S2 not placed.** Claude's drafts were S1 (Warren over rush yds + Rodgers under completions, optional PIT −2.5) and S2 (CLE ML + Rodgers 1+ INT), "competing, never both", and the checklist said not to add the full-game Under. Placed: BKR SGP Under 40 + CLE +3.5 ($21.20), 10-team parlay led by CLE +3.5 ($10.08) and three BEO prop parlays (4-, 8-, 5-leg; $20.09). **Result: S2 hit both legs** (CLE won outright, Rodgers 2 INT); S1 lost (Rodgers 22 completions; Warren 93 hit). The Under lost at 51 and sank the SGP; the prop parlays went 1/4, 4/8 and 4/5 (Mason Graham left injured, no sack). **Grade: Claude right.**
+
+### Sunday game lines
+**D15 — Bills credit.** Card default NE +7 (the Bills' opponent + points); placed as the BEO free bet NE +7. **Agreement — won** (NE 29–26), +$8.70.
+**D16 — Slot 3 morning parlay.** Placed as proposed (#739714258, $20) with GB/TB Under 40 for 38.5. **Agreement — lost 3/5** (NYJ +3.5 and DET ML lost; Under at 31 hit either way). IRRELEVANT.
+**D17 — Slot 4 afternoon, Slot 5 Hybrid, ARI + JAX ML 2-leg not placed.** Paper: Slot 4 2/5, Hybrid 2/4, ARI+JAX 1/2 — all lost (ARI ML and DEN lost in each). Andy's replacements: SC-card 5-team #739713278 ($25; ARI −1.5 / NE +7 / SF −2.5 / MIA +10.5 / LAR −3) 4/5, lost on ARI; afternoon-to-SNF 5-team #739761492 ($25; DEN +3.5 / LV +5 / SEA −6.5 / MIA-MIN U40 / DET-CAR O50.5) 4/5, lost on DEN. **Grade: all lost; Andy closer** (one leg short twice; taking SF over DEN was the better read).
+**D18 — SuperContest.** AI five ARI −1.5 / MIA +10.5 / LAR −3 / TEN +11.5 / DEN +2.5 went **3/5**. Official five (Andy & Amanda) SF −2.5 / ARI −1.5 / MIA +10.5 / LAR −3 / NE +6.5 went **4/5**. The same five as a 5x2 RR (#739713279, $15) returned $29.64 (+$14.64, the week's only profit). **Grade: Andy right** (SF instead of DEN).
+**D19 — Round robins.** Card skipped the master RR (playbook: 4-team master RRs 0 for 3, cap $35 or skip). Placed: 8-selection 4-team RR #739714646 ($105; 5/8 legs) returned $84.47 (−$20.53); 6-selection ML RR #739713560 ($30; JAX ✓ / CAR ✓, DEN / LV / NYJ / WSH ✗) returned $12.28 (−$17.72). **Grade: Claude right** — skipping saved $38.25.
+**D26 — Wong teaser JAX / DEN / ATL +8.5 not placed.** Paper 2/3 (DEN lost by 10). **Grade: Andy right** to pass.
+Andy-built, independent: 6-team #739714534 ($20; 4/6, BUF ML and DET ML lost) and the Thursday 10-team #739565346 (5/10).
+
+### Sunday props (BetOnline)
+**D20 — 7a morning.** AI 7-leg (Brissett / Stafford 2+ TD, Winston / Daniels INT, Nacua / Meyers / Pollard ATD) paper 5/7. Placed morning 8-leg #1002304945 ($5) at 1.5 pass-TD lines with Cook 76+, P. Washington 6+, Adams and Javonte ATD: 4/8. Both died on Stafford's 0 TD. **IRRELEVANT.**
+**D21 — 7b-A afternoon four.** Claude proposed Darnold 2+ TD / Purdy 2+ TD / Bolton 9+ T+A / Cashman 8+ T+A ($5 @ +769 → $38.45). Placed afternoon 8-leg ($5 @ +6100): Darnold, Purdy, Cashman + Herbert INT, Dean 8+ T+A, K. Walker ATD, Goff 2+ TD, Willis INT. **Result: 7b-A went 4/4 (would have cashed $38.45); placed 5/8** (Dean 5, Goff 1 TD, Willis 0 INT). **Grade: Claude right.**
+**D22 — 7b-C afternoon #2.** Placed as proposed with Warner at 8+ and Waller ATD added (#…8leg_b, $3.15): 4/8. AI 7-leg 4/7 (Kelce, JSN 5 rec, Warner 7). **IRRELEVANT.**
+**D23 — TD ladders.** 8b (Henry / Montgomery / Gibbs 2+ TD) paper 0/3; 7e (M. Wilson / G. Wilson / Lamar / J. Williams ATD) paper 0/4; 8a first TD (Cook / Henry / Kelce) paper 1/3 (Henry hit). Placed: 2+ TD 5-leg 0/5, ATD 6-leg 1/6. **IRRELEVANT** (everything lost).
+Not placed, lost on paper: 7b (Darnold / Mahomes 2+ TD / Willis INT) 2/3; 7d hybrid 3/7; 7b-B 3/6 (Rashee Rice no box line).
+Andy-built, independent: hybrid 8-leg + DET ($6.83, 1/8), late 8-leg ($5, 3/8), afternoon 7-leg TD/receptions ($5 @ +16300, **6/7 — Jeanty no TD**).
+
+### SNF DET @ CAR (final CAR 32, DET 26)
+**D24 — Island ladder.** AI T1 (Young 233+ / Gibbs 5+ rec / Barnes 5+ T+A / Goff 23+ comp) 2/4; T2 (Hubbard ATD / Lloyd 9+ / Clark 7+ / J. Williams 4+ rec / Hutchinson sack) 4/5; T3 (McMillan 94+ / TeSlaa ATD / Tremble 3+ / Okereke 8+) 2/4. Placed 8-leg ($5) mixing tier legs at softer lines plus Waller ATD: 6/8 (Gibbs 4 rec, Waller). 7-leg #2 "DET leads" ($7.16, Andy-built) 2/7. **IRRELEVANT** (shared Gibbs leg). DET ML, the card's SNF cap, lost on Slots 3/4 and the 6-team.
+
+### MNF ATL @ NO (final ATL 45, NO 24, total 69)
+**D25 — ATL side.** The only AI MNF position was ATL +8.5 in the Wong teaser. Placed (Andy-built from the prop planner): BKR NO −1 / Over 46 ($26.39), three BEO SGPs ($21.61), Kalshi TD combo ($9.81) — all lost (−$57.81). **Grade: Claude right** on the side; no MNF props were proposed.
+
+### Week 4 close-out
+Divergence tally: Claude right — D14 (TNF S2), D19 (RR skip), D21 (7b-A), D25 (ATL). Andy right — D18 (SuperContest SF), D26 (teaser pass); Andy closer on D17 (all lost). Agreements D15 (won), D16 (lost). IRRELEVANT — D20, D22, D23, D24. Leg rates: placed props in the AI record hit 22/36 (61%) vs 25/63 (40%) for other placed props (Sunday only: 20/34 vs 11/30). **Season through Week 4: $1,699.29 cash staked, $377.40 back, −$1,321.89 (−$1,313.19 counting the free-bet win).**
+
+---
+
 ## Season scorecard reference
-Per-leg/per-type performance (Weeks 1–2, regraded standalone) lives separately in `docs/tracked-wagers/week2_2026_analysis.md` in the repo — season net P&L through Week 2 was **−$587.76** (61 tickets, 5 paid). Week 3 (TNF through MNF): **−$459.20** on $498.41 (38 cash tickets, 1 paid). Season through Week 3: **−$1,046.96** on $1,297.97. Week-by-week cuts (book, ticket family, legs, price band, Claude vs Andy) are rebuilt each week by `reports/analysis/season/claude/scripts/weekly_review.py` and published as the "Platinum Rose Season Review" artifact.
+Per-leg/per-type performance (Weeks 1–2, regraded standalone) lives separately in `docs/tracked-wagers/week2_2026_analysis.md` in the repo — season net P&L through Week 2 was **−$587.76** (61 tickets, 5 paid). Week 3 (TNF through MNF): **−$459.20** on $498.41 (38 cash tickets, 1 paid). Season through Week 3: **−$1,046.96** on $1,297.97. Week 4: **−$274.93** on $401.32 (27 cash tickets, 1 paid — the 5x2 RR; −$266.23 with the free-bet win). Season through Week 4: **−$1,321.89** on $1,699.29. Week-by-week cuts (book, ticket family, legs, price band, Claude vs Andy) are rebuilt each week by `reports/analysis/season/claude/scripts/weekly_review.py` and published as the "Platinum Rose Season Review" artifact.
 
 ## Known data-hygiene note
 739211245's `progress_notes` field in the repo ledger carries a leftover note ("Leg 1 (SF +4) WON...") that actually describes ticket 738490212's leg 1, not this ticket's — looks like copy/paste residue from an earlier session, not something that affects grading, but worth a cleanup pass sometime.

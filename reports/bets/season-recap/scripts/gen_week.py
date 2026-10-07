@@ -157,7 +157,8 @@ def expert_row(k,r):
         for t in EXP['games'].get(k,{}).get('takeaways',[]):
             if t['src'] not in seen: seen.append(t['src'])
         links=' '.join(f'<a class="src" href="{e(EXP["sources"][x]["url"])}" target="_blank" rel="noopener">{e(EXP["sources"][x]["outlet"].split(" (")[0])}</a>' for x in seen if x in EXP['sources'])
-    return f'<div><dt>Expert view</dt><dd>{e(r["experts"])}{(" <span class=\"srcs\">"+links+"</span>") if links else ""}</dd></div>'
+    srcs=(' <span class="srcs">'+links+'</span>') if links else ''
+    return f'<div><dt>Expert view</dt><dd>{e(r["experts"])}{srcs}</dd></div>'
 def gcard(k):
     g=GM[k]; r=R.get(k); a,h=g['score']; A_,H_=g['away'],g['home']
     ls=g['ls']; nq=max(len(ls[0]),len(ls[1]))

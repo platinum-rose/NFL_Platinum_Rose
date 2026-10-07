@@ -66,10 +66,18 @@ def stat(p, key, g, pname):
     if key=='sacks': return num(de.get('SACKS'))
     if key=='tackles': return num(de.get('TOT'))
     if key=='def_int': return num(it.get('INT'))
+    if key=='kicking_points': return num(P.get('kicking',{}).get('PTS'))
     if key=='fgm': return num((P.get('kicking',{}).get('FG') or '0/0').split('/')[0])
     if key in ('atd','tds'):
-        return float(sum(1 for sc,_ in td_list(g) if norm(sc)==norm(pname) or (norm(sc).split()[-1]==norm(pname).split()[-1] and norm(sc)[0]==norm(pname)[0])))
+        tl=td_list(g); n=norm(pname)
+        exact=sum(1 for sc,_ in tl if norm(sc)==n)
+        if exact: return float(exact)
+        # fuzzy (last name + first initial) only when the box name never appears exactly, and only if one such scorer
+        fz={norm(sc) for sc,_ in tl if norm(sc).split()[-1]==n.split()[-1] and norm(sc)[0]==n[0]}
+        return float(sum(1 for sc,_ in tl if norm(sc) in fz)) if len(fz)==1 else 0.0
     raise KeyError(key)
+def dst_tds(g,team):
+    return float(sum(1 for s_ in g['scoring'] if FIX.get(s_.get('team'),s_.get('team'))==team and 'Touchdown' in s_['type'] and re.search(r'(Interception|Fumble|Punt|Kickoff|Blocked|Defensive|Return)',s_['type']+' '+s_['text'])))
 def first_td(g):
     t=td_list(g); return t[0][0] if t else None
 def grade_prop(player,key,thr,dirn,gamestr=None):
