@@ -6,9 +6,9 @@
 
 ## Current pick-up point
 
-**Latest session (2026-10-07 01:05 PT, Claude Team 2 — Week 4 post-mortem + ledger closed, Week 5 prep):** `handoffs/2026-10-07-0105-claude-week4-postmortem-done-week5-prep-handoff.md`. `reports/bets/season-recap/week4-post-mortem.html` built; recommendation ledger Week 4 (D14–D26) written (repo + DEV project); Week 5 prep note `reports/analysis/week5-intel/w05-prep-2026-10-07.md`. **Next:** read the Wednesday cadence reports, then the Week 5 evidence cadence.
+**Latest session (2026-10-07 15:55 PT, Claude Team 2 — Week 5 market lines next):** `handoffs/2026-10-07-1555-claude-week5-market-lines-handoff.md`. Week 4 closed (post-mortem, ledger D14–D26, data validator); Wednesday cadences ran (reports in `logs/cadence-reports/`). **Next:** compile the Week 5 market lines (AN openers, BKR paste for all 15 games, SuperContest W5 lines, consolidated line table).
 
-Previous: `handoffs/2026-10-06-2345-claude-week4-archive-automation-postmortem-next-handoff.md` (Week 4 settled + archived, automation).
+Previous: `handoffs/2026-10-07-0105-claude-week4-postmortem-done-week5-prep-handoff.md` (Week 4 post-mortem, Week 5 prep).
 
 **H2C2 transfer to Claude Team 2 (Week 4 close-out / Week 5 launch):**
 
