@@ -39,7 +39,6 @@ function findPython() {
     la && [path.join(la, 'Python', 'pythoncore-3.14-64', 'python.exe')],
     la && [path.join(la, 'Python', 'bin', 'python.exe')],
     ['C:\\Users\\andre\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe'],
-    ['C:\\Users\\andre\\anaconda3\\python.exe'],
   ].filter(Boolean);
   for (const [cmd, ...pre] of cands) {
     const r = spawnSync(cmd, [...pre, '-c', 'import sys; print(sys.version_info[0])'], { encoding: 'utf8', timeout: 20000 });

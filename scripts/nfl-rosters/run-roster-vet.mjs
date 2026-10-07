@@ -15,7 +15,7 @@ const la = process.env.LOCALAPPDATA || '';
 const cands = [
   process.env.PYTHON && [process.env.PYTHON], ['python3'], ['python'], ['py', '-3'],
   la && [path.join(la, 'Python', 'pythoncore-3.14-64', 'python.exe')], la && [path.join(la, 'Python', 'bin', 'python.exe')],
-  ['C:\\Users\\andre\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe'], ['C:\\Users\\andre\\anaconda3\\python.exe'],
+  ['C:\\Users\\andre\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe'],
 ].filter(Boolean);
 const py = cands.find(([cmd, ...pre]) => {
   const r = spawnSync(cmd, [...pre, '-c', 'import sys; print(sys.version_info[0])'], { encoding: 'utf8', timeout: 20000 });
