@@ -346,18 +346,18 @@
  },
  "legs": {
   "instances": 553,
-  "unique": 474,
+  "unique": 473,
   "won_unique": 220,
-  "from_box": 2
+  "from_box": 0
  },
  "by_market": {
   "Anytime TD": {
-   "n": 80,
+   "n": 79,
    "won": 33,
-   "hit": 0.412,
+   "hit": 0.418,
    "ci": [
-    0.311,
-    0.522
+    0.315,
+    0.528
    ],
    "priced": 40,
    "ret_per_1": 1.201,
@@ -713,12 +713,12 @@
    "evidence": "strong (\u22652 SE)"
   },
   "TD scorer": {
-   "n": 93,
+   "n": 92,
    "won": 38,
-   "hit": 0.409,
+   "hit": 0.413,
    "ci": [
-    0.314,
-    0.51
+    0.318,
+    0.515
    ],
    "priced": 49,
    "ret_per_1": 1.246,
@@ -818,12 +818,12 @@
     "evidence": "hypothesis (<1.5 SE)"
    },
    "team <3 TDs": {
-    "n": 31,
+    "n": 30,
     "won": 9,
-    "hit": 0.29,
+    "hit": 0.3,
     "ci": [
-     0.161,
-     0.466
+     0.167,
+     0.479
     ],
     "priced": 16,
     "ret_per_1": 1.18,
@@ -831,7 +831,7 @@
     "z_vs_price": -0.2,
     "evidence": "hypothesis (<1.5 SE)"
    },
-   "z_diff": 1.77,
+   "z_diff": 1.66,
    "evidence": "hypothesis (1.5\u20132 SE)"
   },
   "H3": {
@@ -926,12 +926,12 @@
   },
   "H6": {
    "prop on losing team": {
-    "n": 164,
+    "n": 163,
     "won": 67,
-    "hit": 0.409,
+    "hit": 0.411,
     "ci": [
-     0.336,
-     0.485
+     0.338,
+     0.488
     ],
     "priced": 96,
     "ret_per_1": 0.931,
@@ -953,7 +953,7 @@
     "z_vs_price": 0.34,
     "evidence": "hypothesis (<1.5 SE)"
    },
-   "z_diff": -2.05,
+   "z_diff": -2.0,
    "evidence": "strong (\u22652 SE)"
   }
  },

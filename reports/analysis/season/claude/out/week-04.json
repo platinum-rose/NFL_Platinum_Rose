@@ -223,10 +223,10 @@
   }
  },
  "legs": {
-  "instances": 170,
-  "unique": 139,
+  "instances": 171,
+  "unique": 140,
   "won_unique": 70,
-  "from_box": 8
+  "from_box": 0
  },
  "by_market": {
   "Anytime TD": {
@@ -484,7 +484,22 @@
    "evidence": "hypothesis (<1.5 SE)",
    "grp": "volume/yardage"
   },
-  "Other": {
+  "Kicker points": {
+   "n": 1,
+   "won": 0,
+   "hit": 0.0,
+   "ci": [
+    0,
+    0.793
+   ],
+   "priced": 0,
+   "ret_per_1": null,
+   "breakeven": null,
+   "z_vs_price": null,
+   "evidence": "unpriced",
+   "grp": "volume/yardage"
+  },
+  "D/ST TD": {
    "n": 1,
    "won": 0,
    "hit": 0.0,
@@ -497,7 +512,7 @@
    "breakeven": 0.14,
    "z_vs_price": -0.4,
    "evidence": "hypothesis (<1.5 SE)",
-   "grp": "other"
+   "grp": "volume/yardage"
   }
  },
  "by_group": {
@@ -544,17 +559,17 @@
    "evidence": "hypothesis (<1.5 SE)"
   },
   "volume/yardage": {
-   "n": 27,
+   "n": 29,
    "won": 16,
-   "hit": 0.593,
+   "hit": 0.552,
    "ci": [
-    0.407,
-    0.755
+    0.375,
+    0.716
    ],
-   "priced": 15,
-   "ret_per_1": 1.128,
-   "breakeven": 0.599,
-   "z_vs_price": 0.53,
+   "priced": 16,
+   "ret_per_1": 1.058,
+   "breakeven": 0.57,
+   "z_vs_price": 0.44,
    "evidence": "hypothesis (<1.5 SE)"
   },
   "defense": {
@@ -729,12 +744,12 @@
   },
   "H6": {
    "prop on losing team": {
-    "n": 47,
+    "n": 48,
     "won": 25,
-    "hit": 0.532,
+    "hit": 0.521,
     "ci": [
-     0.392,
-     0.667
+     0.383,
+     0.655
     ],
     "priced": 24,
     "ret_per_1": 0.937,
@@ -756,7 +771,7 @@
     "z_vs_price": 0.47,
     "evidence": "hypothesis (<1.5 SE)"
    },
-   "z_diff": 0.79,
+   "z_diff": 0.68,
    "evidence": "hypothesis (<1.5 SE)"
   }
  },

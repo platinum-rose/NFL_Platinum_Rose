@@ -16,7 +16,7 @@
  *   5 notes     build Obsidian notes -> data/archive/<season>/week-NN/vault/ (staging, committed)
  *   6 vault     write the staged notes into VAULT_DIR/NFL/<season>/Week NN/ via agents/lib/vaultWriter.js
  *   7 rollups   season CSVs in data/archive/<season>/season/
- * Guardrails: read-only APIs, local files only, no Supabase, no paid models. The only ledger write is grade_week.py --apply
+ * Guardrails: read-only APIs, local files only, no Supabase writes (the validator only GETs game_results/player_stats with the anon key), no paid models. The only ledger write is grade_week.py --apply
  * (box-score facts; never payouts it cannot see — those stay open for Andy).
  * Run natively on Windows (Task Scheduler) — never write the vault through a Linux VM mount.
  */
@@ -117,11 +117,15 @@ async function betting() {
   const exists = (p) => fs.existsSync(path.join(ROOT, p));
   if (BACKFILL && exists(`reports/bets/season-recap/w${WEEK}gamesum.json`)) r.espn_week = 'skipped (backfill; w' + WEEK + 'gamesum.json exists)';
   else r.espn_week = runPy('reports/bets/season-recap/scripts/espn_week.py', ['--week', String(WEEK)], path.join(d, 'espn_week.log'));
-  try { r.grade_apply = runPy('reports/analysis/season/claude/scripts/grade_week.py', ['--week', String(WEEK), '--apply'], path.join(d, 'grade-apply.txt')); } catch (e) { r.grade_apply = `error: ${e.message}`; }
+  // --fill-dead-legs also writes the box-score result onto legs left PENDING inside already-settled tickets (statuses only)
+  try { r.grade_apply = runPy('reports/analysis/season/claude/scripts/grade_week.py', ['--week', String(WEEK), '--apply', '--fill-dead-legs'], path.join(d, 'grade-apply.txt')); } catch (e) { r.grade_apply = `error: ${e.message}`; }
   r.left_open = leftOpen(path.join(d, 'grade-apply.txt'));
   if (BACKFILL && exists(`reports/analysis/season/claude/out/week-${WK}.json`)) r.weekly_review = 'skipped (backfill; week review exists)';
   else { try { r.weekly_review = runPy('reports/analysis/season/claude/scripts/weekly_review.py', ['--week', String(WEEK)], path.join(d, 'weekly_review.log')); } catch (e) { r.weekly_review = `error: ${e.message}`; } }
-  for (const f of [`week-${WK}-teams.json`, `week-${WK}-teams.csv`, `week-${WK}-teams-summary.md`, `week-${WK}-summary.md`, `week-${WK}.json`]) {
+  // canonical player-game table (ESPN athlete ids) + post-mortem data validation (read-only; uses the cached Supabase snapshot)
+  try { r.player_games = runPy('reports/analysis/season/claude/scripts/build_player_games.py', ['--week', String(WEEK)], path.join(d, 'player_games.log')); } catch (e) { r.player_games = `error: ${e.message}`; }
+  try { r.validation = runPy('reports/analysis/season/claude/scripts/validate_postmortem_data.py', ['--weeks', `1-${WEEK}`, '--fetch-supabase'], path.join(d, 'validation.log')); } catch (e) { r.validation = `ERRORS FOUND (see out/data-validation.md): ${e.message.slice(0, 200)}`; }
+  for (const f of [`week-${WK}-teams.json`, `week-${WK}-teams.csv`, `week-${WK}-teams-summary.md`, `week-${WK}-summary.md`, `week-${WK}.json`, 'data-validation.md']) {
     const src = path.join(ROOT, 'reports', 'analysis', 'season', 'claude', 'out', f); if (fs.existsSync(src)) fs.copyFileSync(src, path.join(d, f));
   }
   for (const f of [`w${WEEK}gamesum.json`, `w${WEEK}expert-commentary.json`]) {

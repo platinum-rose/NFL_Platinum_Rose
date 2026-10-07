@@ -92,7 +92,7 @@ Promo/credit: 7 tickets, $59.78 credit → $0.00 value.
 
 | Market | Hit | n | 95% CI | Priced | $ back per $1 | Break-even | z vs price |
 |---|---|---|---|---|---|---|---|
-| Anytime TD | 23/59 (39%) | 59 | 28–52% | 32 | $0.93 | 46% | -0.22 |
+| Anytime TD | 23/58 (40%) | 58 | 28–52% | 32 | $0.93 | 46% | -0.22 |
 | Receiving yds | 19/41 (46%) | 41 | 32–61% | 24 | $0.78 | 54% | -1.24 |
 | Receptions | 16/32 (50%) | 32 | 34–66% | 25 | $0.85 | 60% | -0.76 |
 | Spread (dog) | 10/29 (34%) | 29 | 20–53% | 28 | $0.58 | 54% | -2.35 |
@@ -123,8 +123,8 @@ Promo/credit: 7 tickets, $59.78 credit → $0.00 value.
 
 **H2. Anytime TDs hit when the team scores 3+ TDs.** Baseline: W1–3: 54% with 3+ team TDs vs 26% otherwise.
 - team 3+ TDs: 17/36, $1.11 per $1 on 21 priced — hypothesis (<1.5 SE)
-- team <3 TDs: 6/23, $0.60 per $1 on 11 priced — hypothesis (<1.5 SE)
-- difference: 1.62 SE
+- team <3 TDs: 6/22, $0.60 per $1 on 11 priced — hypothesis (<1.5 SE)
+- difference: 1.51 SE
 
 **H3. QB markets (pass-TD overs, INT yes) are positive.** Baseline: W1–3: INT yes $1.41/$1 (n=8), pass-TD over $1.25 (n=20).
 - Passing TD over: 8/11, $1.18 per $1 on 7 priced — hypothesis (<1.5 SE)
@@ -139,9 +139,9 @@ Promo/credit: 7 tickets, $59.78 credit → $0.00 value.
 - Spread (fav): 6/13, $0.68 per $1 on 11 priced — hypothesis (<1.5 SE)
 
 **H6. Props on the losing team underperform.** Baseline: W1–3: 70/157 on the losing team (−1.0 SE).
-- prop on losing team: 35/91, $0.75 per $1 on 54 priced — hypothesis (1.5–2 SE)
+- prop on losing team: 35/90, $0.75 per $1 on 54 priced — hypothesis (1.5–2 SE)
 - prop on winning team: 57/105, $1.02 per $1 on 72 priced — hypothesis (<1.5 SE)
-- difference: -2.21 SE
+- difference: -2.15 SE
 
 ## Build-checklist compliance (season to date)
 
@@ -158,34 +158,11 @@ Tickets that kept every rule: 5 · $88.07 staked · net +$43.17
 | 5+ side-leg parlay | 12 | $212.76 | $0.00 | −$212.76 |
 | 4-team master RR | 2 | $210.00 | $0.00 | −$210.00 |
 
-## Cash exposure over $25 on one game
+## Cash exposure over $25 on one game (top 3 per week; a parlay counts its full stake against every game in it)
 
-- Week 1 DAL@NYG: $92.00 across 4 tickets
-- Week 1 ARI@LAC: $82.00 across 6 tickets
-- Week 1 WAS@PHI: $77.69 across 6 tickets
-- Week 1 ATL@PIT: $75.00 across 4 tickets
-- Week 1 CHI@CAR: $60.69 across 4 tickets
-- Week 1 GB@MIN: $57.00 across 4 tickets
-- Week 1 NO@DET: $55.69 across 5 tickets
-- Week 1 CLE@JAX: $55.69 across 3 tickets
-- Week 1 SF@LAR: $50.69 across 5 tickets
-- Week 1 TB@CIN: $50.69 across 3 tickets
-- Week 1 NE@SEA: $45.08 across 3 tickets
-- Week 1 BAL@IND: $35.00 across 2 tickets
-- Week 1 BUF@HOU: $30.00 across 3 tickets
-- Week 1 MIA@LV: $27.00 across 2 tickets
-- Week 1 WISCONSIN@NOTREDAMECFB: $25.13 across 1 tickets
-- Week 2 IND@KC: $110.85 across 11 tickets
-- Week 2 WAS@DAL: $105.95 across 12 tickets
-- Week 2 NYG@LAR: $105.00 across 9 tickets
-- Week 2 MIA@SF: $86.02 across 10 tickets
-- Week 2 LV@LAC: $85.07 across 7 tickets
-- Week 2 JAX@DEN: $85.07 across 7 tickets
-- Week 2 PHI@TEN: $80.00 across 8 tickets
-- Week 2 GB@NYJ: $65.07 across 6 tickets
-- Week 2 MIN@CHI: $55.07 across 6 tickets
-- Week 2 DET@BUF: $52.04 across 6 tickets
-- Week 2 SEA@ARI: $50.95 across 6 tickets
-- Week 2 PIT@NE: $35.07 across 4 tickets
-- Week 2 CIN@HOU: $35.00 across 4 tickets
-- Week 2 NO@BAL: $30.07 across 3 tickets
+- Week 1 DAL@NYG: $92.00 across 4 tickets (15 games over $25 that week)
+- Week 1 ARI@LAC: $82.00 across 6 tickets (15 games over $25 that week)
+- Week 1 WAS@PHI: $77.69 across 6 tickets (15 games over $25 that week)
+- Week 2 IND@KC: $110.85 across 11 tickets (14 games over $25 that week)
+- Week 2 WAS@DAL: $105.95 across 12 tickets (14 games over $25 that week)
+- Week 2 NYG@LAR: $105.00 across 9 tickets (14 games over $25 that week)

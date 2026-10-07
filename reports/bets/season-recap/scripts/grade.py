@@ -30,14 +30,17 @@ def num(x):
     except: return 0.0
 def find_player(name, g=None):
     n=norm(name); pools=[g] if g else G
-    best=None
+    cand=[]
     for gg in pools:
         for pn,p in gg['players'].items():
             pnn=norm(pn)
             if pnn==n: return gg,pn,p
-            a=n.split(); b=pnn.split()
-            if a and b and a[-1]==b[-1] and (a[0]==b[0] or a[0][0]==b[0][0]): best=(gg,pn,p)
-    return best if best else (g,None,None)
+    for gg in pools:
+        for pn,p in gg['players'].items():
+            a=n.split(); b=norm(pn).split()
+            if a and b and a[-1]==b[-1] and (a[0]==b[0] or a[0][0]==b[0][0]): cand.append((gg,pn,p))
+    # fuzzy fallback only when exactly one box player fits (never Bijan -> Brian Robinson Jr.)
+    return cand[0] if len(cand)==1 else (g,None,None)
 def scorer(text):
     m0=re.search(r"lateral to (.+?) for \d+",text)
     if m0: return m0.group(1).strip()
@@ -86,7 +89,8 @@ def grade_prop(player,key,thr,dirn,gamestr=None):
     g=g or g2
     if g is None: return dict(result='pending',actual=None,note='no game')
     if key=='first_td':
-        f=first_td(g); hit = f is not None and (norm(f)==norm(player) or norm(f).split()[-1]==norm(player).split()[-1] and norm(f)[0]==norm(player)[0])
+        f=first_td(g); pl=norm(player); exact_in_box=any(norm(x)==pl for x in g['players'])
+        hit = f is not None and (norm(f)==pl or (not exact_in_box and norm(f).split()[-1]==pl.split()[-1] and norm(f)[0]==pl[0]))
         return dict(result='W' if hit else 'L',actual=f,margin=None,game=f"{g['away']}@{g['home']}",pname=pn)
     if pn is None and key not in ('atd','tds'):
         return dict(result='L',actual=0,margin=None if thr is None else (0-thr if dirn=='over' else thr-0),game=f"{g['away']}@{g['home']}",pname=None,note='no box line (DNP/0)')

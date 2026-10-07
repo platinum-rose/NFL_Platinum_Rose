@@ -97,7 +97,7 @@ Promo/credit: 9 tickets, $79.78 credit → $0.00 value.
 
 | Market | Hit | n | 95% CI | Priced | $ back per $1 | Break-even | z vs price |
 |---|---|---|---|---|---|---|---|
-| Anytime TD | 33/80 (41%) | 80 | 31–52% | 40 | $1.20 | 44% | 0.47 |
+| Anytime TD | 33/79 (42%) | 79 | 32–53% | 40 | $1.20 | 44% | 0.47 |
 | Receiving yds | 27/55 (49%) | 55 | 36–62% | 31 | $0.83 | 55% | -1.07 |
 | Receptions | 23/52 (44%) | 52 | 32–58% | 35 | $0.85 | 58% | -0.82 |
 | Spread (dog) | 13/35 (37%) | 35 | 23–54% | 33 | $0.67 | 54% | -2.07 |
@@ -130,8 +130,8 @@ Promo/credit: 9 tickets, $79.78 credit → $0.00 value.
 
 **H2. Anytime TDs hit when the team scores 3+ TDs.** Baseline: W1–3: 54% with 3+ team TDs vs 26% otherwise.
 - team 3+ TDs: 24/49, $1.22 per $1 on 24 priced — hypothesis (<1.5 SE)
-- team <3 TDs: 9/31, $1.18 per $1 on 16 priced — hypothesis (<1.5 SE)
-- difference: 1.77 SE
+- team <3 TDs: 9/30, $1.18 per $1 on 16 priced — hypothesis (<1.5 SE)
+- difference: 1.66 SE
 
 **H3. QB markets (pass-TD overs, INT yes) are positive.** Baseline: W1–3: INT yes $1.41/$1 (n=8), pass-TD over $1.25 (n=20).
 - Passing TD over: 15/24, $1.12 per $1 on 12 priced — hypothesis (<1.5 SE)
@@ -146,9 +146,9 @@ Promo/credit: 9 tickets, $79.78 credit → $0.00 value.
 - Spread (fav): 10/24, $0.68 per $1 on 22 priced — hypothesis (1.5–2 SE)
 
 **H6. Props on the losing team underperform.** Baseline: W1–3: 70/157 on the losing team (−1.0 SE).
-- prop on losing team: 67/164, $0.93 per $1 on 96 priced — hypothesis (<1.5 SE)
+- prop on losing team: 67/163, $0.93 per $1 on 96 priced — hypothesis (<1.5 SE)
 - prop on winning team: 87/167, $1.05 per $1 on 100 priced — hypothesis (<1.5 SE)
-- difference: -2.05 SE
+- difference: -2.0 SE
 
 ## Build-checklist compliance (season to date)
 

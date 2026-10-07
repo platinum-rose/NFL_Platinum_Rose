@@ -97,7 +97,7 @@ Promo/credit: 11 tickets, $189.78 credit → $8.70 value.
 
 | Market | Hit | n | 95% CI | Priced | $ back per $1 | Break-even | z vs price |
 |---|---|---|---|---|---|---|---|
-| Anytime TD | 44/111 (40%) | 111 | 31–49% | 57 | $1.06 | 42% | 0.24 |
+| Anytime TD | 44/110 (40%) | 110 | 31–49% | 57 | $1.06 | 42% | 0.24 |
 | Receptions | 31/65 (48%) | 65 | 36–60% | 46 | $0.91 | 58% | -0.54 |
 | Receiving yds | 32/63 (51%) | 63 | 39–63% | 33 | $0.87 | 55% | -0.79 |
 | Spread (dog) | 20/45 (44%) | 45 | 31–59% | 43 | $0.80 | 55% | -1.36 |
@@ -120,7 +120,8 @@ Promo/credit: 11 tickets, $189.78 credit → $8.70 value.
 | Defensive INT | 0/2 (0%) | 2 | 0–66% | 2 | $0.00 | 11% | -0.49 |
 | CFB | 1/1 (100%) | 1 | 21–100% | 1 | $1.77 | 56% | 0.88 |
 | Kicker FGs | 1/1 (100%) | 1 | 21–100% | 0 | — | — | — |
-| Other | 0/1 (0%) | 1 | 0–79% | 1 | $0.00 | 14% | -0.4 |
+| Kicker points | 0/1 (0%) | 1 | 0–79% | 0 | — | — | — |
+| D/ST TD | 0/1 (0%) | 1 | 0–79% | 1 | $0.00 | 14% | -0.4 |
 
 ## W1–3 hypotheses re-tested (season to date)
 
@@ -131,8 +132,8 @@ Promo/credit: 11 tickets, $189.78 credit → $8.70 value.
 
 **H2. Anytime TDs hit when the team scores 3+ TDs.** Baseline: W1–3: 54% with 3+ team TDs vs 26% otherwise.
 - team 3+ TDs: 33/72, $1.03 per $1 on 38 priced — hypothesis (<1.5 SE)
-- team <3 TDs: 11/39, $1.14 per $1 on 19 priced — hypothesis (<1.5 SE)
-- difference: 1.81 SE
+- team <3 TDs: 11/38, $1.14 per $1 on 19 priced — hypothesis (<1.5 SE)
+- difference: 1.72 SE
 
 **H3. QB markets (pass-TD overs, INT yes) are positive.** Baseline: W1–3: INT yes $1.41/$1 (n=8), pass-TD over $1.25 (n=20).
 - Passing TD over: 21/33, $1.24 per $1 on 17 priced — hypothesis (<1.5 SE)

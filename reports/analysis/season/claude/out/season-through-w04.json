@@ -378,19 +378,19 @@
   }
  },
  "legs": {
-  "instances": 723,
+  "instances": 724,
   "unique": 613,
   "won_unique": 290,
-  "from_box": 10
+  "from_box": 0
  },
  "by_market": {
   "Anytime TD": {
-   "n": 111,
+   "n": 110,
    "won": 44,
-   "hit": 0.396,
+   "hit": 0.4,
    "ci": [
-    0.31,
-    0.489
+    0.313,
+    0.493
    ],
    "priced": 57,
    "ret_per_1": 1.064,
@@ -729,7 +729,22 @@
    "evidence": "unpriced",
    "grp": "volume/yardage"
   },
-  "Other": {
+  "Kicker points": {
+   "n": 1,
+   "won": 0,
+   "hit": 0.0,
+   "ci": [
+    0,
+    0.793
+   ],
+   "priced": 0,
+   "ret_per_1": null,
+   "breakeven": null,
+   "z_vs_price": null,
+   "evidence": "unpriced",
+   "grp": "volume/yardage"
+  },
+  "D/ST TD": {
    "n": 1,
    "won": 0,
    "hit": 0.0,
@@ -742,7 +757,7 @@
    "breakeven": 0.14,
    "z_vs_price": -0.4,
    "evidence": "hypothesis (<1.5 SE)",
-   "grp": "other"
+   "grp": "volume/yardage"
   }
  },
  "by_group": {
@@ -761,12 +776,12 @@
    "evidence": "hypothesis (1.5\u20132 SE)"
   },
   "TD scorer": {
-   "n": 129,
+   "n": 128,
    "won": 49,
-   "hit": 0.38,
+   "hit": 0.383,
    "ci": [
-    0.301,
-    0.466
+    0.303,
+    0.469
    ],
    "priced": 66,
    "ret_per_1": 1.116,
@@ -789,17 +804,17 @@
    "evidence": "hypothesis (<1.5 SE)"
   },
   "volume/yardage": {
-   "n": 165,
+   "n": 167,
    "won": 85,
-   "hit": 0.515,
+   "hit": 0.509,
    "ci": [
-    0.439,
-    0.59
+    0.434,
+    0.584
    ],
-   "priced": 98,
-   "ret_per_1": 0.908,
-   "breakeven": 0.578,
-   "z_vs_price": -0.95,
+   "priced": 99,
+   "ret_per_1": 0.899,
+   "breakeven": 0.574,
+   "z_vs_price": -0.98,
    "evidence": "hypothesis (<1.5 SE)"
   },
   "defense": {
@@ -866,12 +881,12 @@
     "evidence": "hypothesis (<1.5 SE)"
    },
    "team <3 TDs": {
-    "n": 39,
+    "n": 38,
     "won": 11,
-    "hit": 0.282,
+    "hit": 0.289,
     "ci": [
-     0.165,
-     0.438
+     0.17,
+     0.448
     ],
     "priced": 19,
     "ret_per_1": 1.14,
@@ -879,7 +894,7 @@
     "z_vs_price": -0.43,
     "evidence": "hypothesis (<1.5 SE)"
    },
-   "z_diff": 1.81,
+   "z_diff": 1.72,
    "evidence": "hypothesis (1.5\u20132 SE)"
   },
   "H3": {

@@ -126,15 +126,18 @@ def game_for(G, week, gstr):
     return G.get((week, f'{a}@{h}')) or G.get((week, f'{h}@{a}'))
 
 
-def player_in(g, name):
+def player_in(g, name, team=None):
+    """Exact normalised name first. The last-name + first-initial fallback is used only when exactly one box player
+    matches (on the leg's team when known), so 'Bijan Robinson' can never resolve to 'Brian Robinson Jr.'."""
     if not g or not name: return None, None
     n = norm(name)
     for pn, p in g['players'].items():
         if norm(pn) == n: return pn, p
+    nn = n.split(); cand = []
     for pn, p in g['players'].items():
-        q = norm(pn).split(); nn = n.split()
-        if q and nn and q[-1] == nn[-1] and q[0][0] == nn[0][0]: return pn, p
-    return None, None
+        q = norm(pn).split()
+        if q and nn and q[-1] == nn[-1] and q[0][0] == nn[0][0] and (not team or p.get('team') == team): cand.append((pn, p))
+    return cand[0] if len(cand) == 1 else (None, None)
 
 
 def player_tds(p):
@@ -162,6 +165,7 @@ MKT = {'spread': 'spread', 'moneyline': 'ml', 'total': 'total', 'alternate_total
        'passing_touchdowns': 'pass_td', 'passing_tds': 'pass_td', 'passing_yards': 'pass_yds', 'pass_attempts': 'pass_att',
        'completions': 'completions', 'pass_completions': 'completions', 'pass_interceptions': 'int_thrown',
        'interceptions_thrown': 'int_thrown', 'sacks': 'sacks', 'tackles_assists': 'tackles', 'field_goals_made': 'fgm',
+       'kicking_points': 'kick_pts', 'dst_touchdown': 'dst_td',
        'open_slot': 'open'}
 QBRUSH = {'jordan love', 'tyler shough', 'lamar jackson', 'baker mayfield', 'jalen hurts', 'josh allen', 'brock purdy', 'drake maye',
           'jaxson dart', 'malik willis', 'jayden daniels', 'justin fields', 'kyler murray', 'anthony richardson', 'bo nix', 'caleb williams'}
@@ -178,7 +182,7 @@ def norm_leg(l, w):
     gm = l.get('game') or w.get('game') or ''
     if '(cfb)' in gm.lower() or 'cfb' in (w.get('game_title') or '').lower() and key in ('spread', 'ml', 'total', 'other') and ' @ ' in gm and len(gm) > 12:
         key = 'cfb'
-    kind = key if key in ('spread', 'ml', 'total', 'team_total', 'open', 'other', 'cfb') else 'prop'
+    kind = key if key in ('spread', 'ml', 'total', 'team_total', 'open', 'other', 'cfb', 'dst_td') else 'prop'
     dirn = (l.get('direction') or ('under' if re.search(r'\bunder\b', sl) else 'over')).lower()
     mm = re.search(r'(\d+)\+', sel); need = int(mm.group(1)) if mm else None
     if key == 'int_thrown' and 'at least 1' in sl: need = 1
@@ -186,6 +190,7 @@ def norm_leg(l, w):
     try: line = float(line) if line is not None else None
     except (TypeError, ValueError): line = None
     if key == 'atd' and need and need >= 2: key = 'tds'
+    if key == 'atd' and need is None and dirn != 'under': need = 1
     return dict(kind=kind, key=key, dir=dirn, need=need, line=line, player=l.get('player'),
                 team=T(l.get('team')) if l.get('team') else None, game=gm, sel=sel, price=l.get('price'), dec=dec(l.get('price')))
 
@@ -200,6 +205,7 @@ def category(n):
             'rec_yds': 'Receiving yds', 'pass_td': 'Passing TDs', 'pass_yds': 'QB volume', 'pass_att': 'QB volume',
             'completions': 'QB volume', 'int_thrown': 'QB INT thrown', 'sacks': 'Sacks', 'tackles': 'Tackles+Ast',
             'def_int': 'Defensive INT', 'atd': 'Anytime TD', 'tds': '2+ TD', 'first_td': 'First TD', 'fgm': 'Kicker FGs',
+            'kick_pts': 'Kicker points', 'dst_td': 'D/ST TD',
             'open': 'Open slot', 'other': 'Other'}.get(k, k)
 
 
@@ -255,15 +261,25 @@ def grade(n, g):
     if k == 'first_td':
         tp = td_plays(g)
         if not tp: return 'LOST', 'no TD scored', None
-        who = tp[0][0]; hit = norm(who) == norm(n['player']) or norm(who).split()[-1:] == norm(n['player']).split()[-1:]
+        who = tp[0][0]; pl = norm(n['player']); w_ = norm(who)
+        exact_in_box = any(norm(pn) == pl for pn in g['players'])
+        hit = w_ == pl or (not exact_in_box and w_.split()[-1:] == pl.split()[-1:] and w_[:1] == pl[:1])
         return ('WON' if hit else 'LOST'), f"{who} ({tp[0][1]}) scored 1st TD", None
+    if k == 'dst_td':
+        tm = team_of(dict(n, sel=n.get('player') or n['sel']), g) or n.get('team')
+        if not tm: return None, 'team not resolved', None
+        s = float(sum(1 for x in g['scoring'] if x['team'] == tm and 'Touchdown' in x['type'] and
+                      re.search(r'(Interception|Fumble|Punt|Kickoff|Blocked|Defensive|Return)', x['type'] + ' ' + x['text'])))
+        return _cmp(s, n), f'{tm} D/ST TD {int(s)}', s - 1
     if n['kind'] != 'prop': return None, f'unsupported market {k}', None
-    pn, p = player_in(g, n['player'])
+    pn, p = player_in(g, n['player'], n.get('team'))
     if not p: return 'LOST', 'not in box score (DNP = lost leg)', None
     if k in ('atd', 'tds'):
         s = player_tds(p)
     elif k in ('pass_att', 'completions'):
         ca = ((p.get('passing') or {}).get('C/ATT') or '0/0').split('/'); s = num(ca[1] if k == 'pass_att' else ca[0])
+    elif k == 'kick_pts':
+        s = num((p.get('kicking') or {}).get('PTS'))
     elif k == 'fgm':
         s = num(((p.get('kicking') or {}).get('FG') or '0/0').split('/')[0])
     elif k in PROPSTAT:

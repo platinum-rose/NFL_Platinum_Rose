@@ -1,0 +1,405 @@
+{
+ "summary": {
+  "1": {
+   "games": 16,
+   "legs": {
+    "legs": 136,
+    "no_box_line": 3,
+    "fuzzy": 2,
+    "stored_stale": 0
+   },
+   "nflverse": {
+    "compared": 861,
+    "mismatches": 0,
+    "unmatched_players_with_offense": 2
+   }
+  },
+  "2": {
+   "games": 16,
+   "legs": {
+    "legs": 212,
+    "no_box_line": 2,
+    "stored_stale": 0
+   },
+   "nflverse": {
+    "compared": 900,
+    "mismatches": 0,
+    "unmatched_players_with_offense": 3
+   }
+  },
+  "3": {
+   "games": 16,
+   "legs": {
+    "legs": 206,
+    "stored_stale": 0
+   },
+   "nflverse": {
+    "compared": 880,
+    "mismatches": 0,
+    "unmatched_players_with_offense": 0
+   }
+  },
+  "4": {
+   "games": 16,
+   "legs": {
+    "legs": 171,
+    "no_box_line": 4,
+    "stored_stale": 0
+   },
+   "nflverse": {
+    "compared": 873,
+    "mismatches": 0,
+    "unmatched_players_with_offense": 1
+   }
+  }
+ },
+ "counts": {
+  "INFO": 36,
+  "WARN": 2
+ },
+ "findings": [
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 1,
+   "msg": "ATL@PIT: look-alike names ['Bijan Robinson', 'Brian Robinson Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872658",
+   "names": [
+    "Bijan Robinson",
+    "Brian Robinson Jr."
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 1,
+   "msg": "ATL@PIT: look-alike names ['A.J. Terrell Jr.', 'Avieon Terrell'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872658",
+   "names": [
+    "A.J. Terrell Jr.",
+    "Avieon Terrell"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 1,
+   "msg": "CHI@CAR: look-alike names ['T.J. Edwards', 'TeRah Edwards'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872661",
+   "names": [
+    "T.J. Edwards",
+    "TeRah Edwards"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 1,
+   "msg": "CHI@CAR: look-alike names ['Jaycee Horn', 'Jimmy Horn Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872661",
+   "names": [
+    "Jaycee Horn",
+    "Jimmy Horn Jr."
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 1,
+   "msg": "ARI@LAC: look-alike names ['Mack Wilson Sr.', 'Michael Wilson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872926",
+   "names": [
+    "Mack Wilson Sr.",
+    "Michael Wilson"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 1,
+   "msg": "MIA@LV: look-alike names ['Malik Washington', 'Mike Washington Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872928",
+   "names": [
+    "Malik Washington",
+    "Mike Washington Jr."
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 1,
+   "msg": "leg player has no box line (graded LOST): 'De'Zhaun Stribling' (SF @ LAR, bet_1789078788963_beo_tier2_parlay)"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 1,
+   "msg": "leg player has no box line (graded LOST): 'Myles Garrett' (SF @ LAR, bet_1789080171509_beo_tier3_moonshot)"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 1,
+   "msg": "leg player has no box line (graded LOST): 'De'Zhaun Stribling' (SF @ LAR, bet_1789085490285_dkp_stribling_td)"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 1,
+   "msg": "leg player matched by last name + initial only: 'Cameron Skattebo' -> box 'Cam Skattebo' (bet_20260913_dkp_6pick_combo_snf)"
+  },
+  {
+   "sev": "WARN",
+   "area": "L",
+   "week": 1,
+   "msg": "leg player matched by last name + initial only: 'Cameron Skattebo' -> box 'Cam Skattebo' (bet_20260913_dkp_4pick_combo_snf)"
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 2,
+   "msg": "CAR@ATL: look-alike names ['Bijan Robinson', 'Brian Robinson Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872933",
+   "names": [
+    "Bijan Robinson",
+    "Brian Robinson Jr."
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 2,
+   "msg": "CAR@ATL: look-alike names ['A.J. Terrell Jr.', 'Avieon Terrell'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872933",
+   "names": [
+    "A.J. Terrell Jr.",
+    "Avieon Terrell"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 2,
+   "msg": "PHI@TEN: look-alike names ['Jake Elliott', 'Jordan Elliott'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872939",
+   "names": [
+    "Jake Elliott",
+    "Jordan Elliott"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 2,
+   "msg": "SEA@ARI: look-alike names ['Jeremiyah Love', 'Julian Love'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872943",
+   "names": [
+    "Jeremiyah Love",
+    "Julian Love"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 2,
+   "msg": "SEA@ARI: look-alike names ['Mack Wilson Sr.', 'Michael Wilson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872943",
+   "names": [
+    "Mack Wilson Sr.",
+    "Michael Wilson"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 2,
+   "msg": "PIT@NE: look-alike names ['DaQuan Jones', \"Dre'Mont Jones\"] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872946",
+   "names": [
+    "DaQuan Jones",
+    "Dre'Mont Jones"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 2,
+   "msg": "leg player has no box line (graded LOST): 'Mike Gesicki' (CIN @ HOU, 20260920_997920156_beo_morning_props)"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 2,
+   "msg": "leg player has no box line (graded LOST): 'Tyler Higbee' (NYG @ LAR, 60921_mnf_nyglar_7leg_stafford_under)"
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 3,
+   "msg": "ATL@GB: look-alike names ['Bijan Robinson', 'Brian Robinson Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872948",
+   "names": [
+    "Bijan Robinson",
+    "Brian Robinson Jr."
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 3,
+   "msg": "HOU@IND: look-alike names ['Tim Smith', 'Tremon Smith'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872951",
+   "names": [
+    "Tim Smith",
+    "Tremon Smith"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 3,
+   "msg": "NE@JAX: look-alike names ['Mike Brown', 'Montaric Brown'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872957",
+   "names": [
+    "Mike Brown",
+    "Montaric Brown"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 3,
+   "msg": "NE@JAX: look-alike names ['Brian Thomas Jr.', 'Bryan Thomas Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872957",
+   "names": [
+    "Brian Thomas Jr.",
+    "Bryan Thomas Jr."
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 3,
+   "msg": "ARI@SF: look-alike names ['Mack Wilson Sr.', 'Michael Wilson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872958",
+   "names": [
+    "Mack Wilson Sr.",
+    "Michael Wilson"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 3,
+   "msg": "superseded copy reports/bets/season-recap/work/container/cum/w3legs.json differs from the canonical season-recap table in 45 legs (34 vs 40 tickets); use season-recap/w3legs.json"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 3,
+   "msg": "superseded copy reports/bets/season-recap/work/container/w3/w3legs.json differs from the canonical season-recap table in 45 legs (34 vs 40 tickets); use season-recap/w3legs.json"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 3,
+   "msg": "superseded copy reports/bets/season-recap/work/device-scratch/w3legs.json differs from the canonical season-recap table in 41 legs (34 vs 40 tickets); use season-recap/w3legs.json"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 3,
+   "msg": "superseded copy reports/bets/week3-recap/w3legs.json differs from the canonical season-recap table in 45 legs (34 vs 40 tickets); use season-recap/w3legs.json"
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 4,
+   "msg": "ARI@NYG: look-alike names ['Mack Wilson Sr.', 'Michael Wilson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872966",
+   "names": [
+    "Mack Wilson Sr.",
+    "Michael Wilson"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 4,
+   "msg": "GB@TB: look-alike names ['Kaleb Johnson', 'Kameron Johnson'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872968",
+   "names": [
+    "Kaleb Johnson",
+    "Kameron Johnson"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 4,
+   "msg": "JAX@CIN: look-alike names ['Jonathan Allen', 'Josh Hines-Allen'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872969",
+   "names": [
+    "Jonathan Allen",
+    "Josh Hines-Allen"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 4,
+   "msg": "NYJ@CHI: look-alike names [\"D'Marco Jackson\", 'Darrell Jackson Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872972",
+   "names": [
+    "D'Marco Jackson",
+    "Darrell Jackson Jr."
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 4,
+   "msg": "DET@CAR: look-alike names ['David Moore', 'Derrick Moore'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872978",
+   "names": [
+    "David Moore",
+    "Derrick Moore"
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "R",
+   "week": 4,
+   "msg": "ATL@NO: look-alike names ['Bijan Robinson', 'Brian Robinson Jr.'] (same last name + initial); fuzzy name matching can mix them",
+   "event": "401872979",
+   "names": [
+    "Bijan Robinson",
+    "Brian Robinson Jr."
+   ]
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 4,
+   "msg": "leg player has no box line (graded LOST): 'Mason Graham' (PIT @ CLE, bet_20261001_betonline_1001388000)"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 4,
+   "msg": "leg player has no box line (graded LOST): 'Justin Jefferson' (MIA @ MIN, online_1002306303_hybrid_prop_parlay)"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 4,
+   "msg": "leg player has no box line (graded LOST): 'Noah Fant' (ATL @ NO, bet_20261005_kalshi_mnf_3td_combo)"
+  },
+  {
+   "sev": "INFO",
+   "area": "L",
+   "week": 4,
+   "msg": "leg player has no box line (graded LOST): 'Za'Darius Smith' (ATL @ NO, bet_20261005_betonline_1002759127)"
+  }
+ ]
+}

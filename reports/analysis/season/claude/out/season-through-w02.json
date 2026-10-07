@@ -313,18 +313,18 @@
  },
  "legs": {
   "instances": 347,
-  "unique": 293,
+  "unique": 292,
   "won_unique": 139,
-  "from_box": 2
+  "from_box": 0
  },
  "by_market": {
   "Anytime TD": {
-   "n": 59,
+   "n": 58,
    "won": 23,
-   "hit": 0.39,
+   "hit": 0.397,
    "ci": [
-    0.276,
-    0.517
+    0.281,
+    0.525
    ],
    "priced": 32,
    "ret_per_1": 0.933,
@@ -650,12 +650,12 @@
    "evidence": "hypothesis (1.5\u20132 SE)"
   },
   "TD scorer": {
-   "n": 60,
+   "n": 59,
    "won": 24,
-   "hit": 0.4,
+   "hit": 0.407,
    "ci": [
-    0.286,
-    0.526
+    0.291,
+    0.534
    ],
    "priced": 33,
    "ret_per_1": 0.981,
@@ -755,12 +755,12 @@
     "evidence": "hypothesis (<1.5 SE)"
    },
    "team <3 TDs": {
-    "n": 23,
+    "n": 22,
     "won": 6,
-    "hit": 0.261,
+    "hit": 0.273,
     "ci": [
-     0.125,
-     0.465
+     0.132,
+     0.482
     ],
     "priced": 11,
     "ret_per_1": 0.599,
@@ -768,7 +768,7 @@
     "z_vs_price": -1.03,
     "evidence": "hypothesis (<1.5 SE)"
    },
-   "z_diff": 1.62,
+   "z_diff": 1.51,
    "evidence": "hypothesis (1.5\u20132 SE)"
   },
   "H3": {
@@ -863,12 +863,12 @@
   },
   "H6": {
    "prop on losing team": {
-    "n": 91,
+    "n": 90,
     "won": 35,
-    "hit": 0.385,
+    "hit": 0.389,
     "ci": [
-     0.291,
-     0.487
+     0.295,
+     0.492
     ],
     "priced": 54,
     "ret_per_1": 0.749,
@@ -890,7 +890,7 @@
     "z_vs_price": 0.16,
     "evidence": "hypothesis (<1.5 SE)"
    },
-   "z_diff": -2.21,
+   "z_diff": -2.15,
    "evidence": "strong (\u22652 SE)"
   }
  },
@@ -1633,175 +1633,43 @@
    "week": 1,
    "game": "DAL@NYG",
    "cash": 92.0,
-   "tickets": 4
+   "tickets": 4,
+   "games_over_25_that_week": 15
   },
   {
    "week": 1,
    "game": "ARI@LAC",
    "cash": 82.0,
-   "tickets": 6
+   "tickets": 6,
+   "games_over_25_that_week": 15
   },
   {
    "week": 1,
    "game": "WAS@PHI",
    "cash": 77.69,
-   "tickets": 6
-  },
-  {
-   "week": 1,
-   "game": "ATL@PIT",
-   "cash": 75.0,
-   "tickets": 4
-  },
-  {
-   "week": 1,
-   "game": "CHI@CAR",
-   "cash": 60.69,
-   "tickets": 4
-  },
-  {
-   "week": 1,
-   "game": "GB@MIN",
-   "cash": 57.0,
-   "tickets": 4
-  },
-  {
-   "week": 1,
-   "game": "NO@DET",
-   "cash": 55.69,
-   "tickets": 5
-  },
-  {
-   "week": 1,
-   "game": "CLE@JAX",
-   "cash": 55.69,
-   "tickets": 3
-  },
-  {
-   "week": 1,
-   "game": "SF@LAR",
-   "cash": 50.69,
-   "tickets": 5
-  },
-  {
-   "week": 1,
-   "game": "TB@CIN",
-   "cash": 50.69,
-   "tickets": 3
-  },
-  {
-   "week": 1,
-   "game": "NE@SEA",
-   "cash": 45.08,
-   "tickets": 3
-  },
-  {
-   "week": 1,
-   "game": "BAL@IND",
-   "cash": 35.0,
-   "tickets": 2
-  },
-  {
-   "week": 1,
-   "game": "BUF@HOU",
-   "cash": 30.0,
-   "tickets": 3
-  },
-  {
-   "week": 1,
-   "game": "MIA@LV",
-   "cash": 27.0,
-   "tickets": 2
-  },
-  {
-   "week": 1,
-   "game": "WISCONSIN@NOTREDAMECFB",
-   "cash": 25.13,
-   "tickets": 1
+   "tickets": 6,
+   "games_over_25_that_week": 15
   },
   {
    "week": 2,
    "game": "IND@KC",
    "cash": 110.85,
-   "tickets": 11
+   "tickets": 11,
+   "games_over_25_that_week": 14
   },
   {
    "week": 2,
    "game": "WAS@DAL",
    "cash": 105.95,
-   "tickets": 12
+   "tickets": 12,
+   "games_over_25_that_week": 14
   },
   {
    "week": 2,
    "game": "NYG@LAR",
    "cash": 105.0,
-   "tickets": 9
-  },
-  {
-   "week": 2,
-   "game": "MIA@SF",
-   "cash": 86.02,
-   "tickets": 10
-  },
-  {
-   "week": 2,
-   "game": "LV@LAC",
-   "cash": 85.07,
-   "tickets": 7
-  },
-  {
-   "week": 2,
-   "game": "JAX@DEN",
-   "cash": 85.07,
-   "tickets": 7
-  },
-  {
-   "week": 2,
-   "game": "PHI@TEN",
-   "cash": 80.0,
-   "tickets": 8
-  },
-  {
-   "week": 2,
-   "game": "GB@NYJ",
-   "cash": 65.07,
-   "tickets": 6
-  },
-  {
-   "week": 2,
-   "game": "MIN@CHI",
-   "cash": 55.07,
-   "tickets": 6
-  },
-  {
-   "week": 2,
-   "game": "DET@BUF",
-   "cash": 52.04,
-   "tickets": 6
-  },
-  {
-   "week": 2,
-   "game": "SEA@ARI",
-   "cash": 50.95,
-   "tickets": 6
-  },
-  {
-   "week": 2,
-   "game": "PIT@NE",
-   "cash": 35.07,
-   "tickets": 4
-  },
-  {
-   "week": 2,
-   "game": "CIN@HOU",
-   "cash": 35.0,
-   "tickets": 4
-  },
-  {
-   "week": 2,
-   "game": "NO@BAL",
-   "cash": 30.07,
-   "tickets": 3
+   "tickets": 9,
+   "games_over_25_that_week": 14
   }
  ],
  "provenance": [
