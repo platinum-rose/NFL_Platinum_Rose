@@ -11,7 +11,11 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["metadata_only", "draft_market_context", "no_execution_usable_article_pick_in_local_evidence"],
+      "evidence_basis": [
+        "metadata_only",
+        "draft_market_context",
+        "no_execution_usable_article_pick_in_local_evidence"
+      ],
       "notes": "Treat as draft-market context only. No article body was stored, no NFL team futures selection was available, and no price/venue-backed actual_pick is allowed."
     },
     {
@@ -22,7 +26,11 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["metadata_only", "market_context_only", "no_execution_usable_article_pick_in_local_evidence"],
+      "evidence_basis": [
+        "metadata_only",
+        "market_context_only",
+        "no_execution_usable_article_pick_in_local_evidence"
+      ],
       "notes": "Keep any extracted signal as market/inference context only. Missing article body prevents pick authority and no actual_pick can be promoted."
     },
     {
@@ -33,7 +41,11 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["metadata_only", "market_context_only", "no_execution_usable_article_pick_in_local_evidence"],
+      "evidence_basis": [
+        "metadata_only",
+        "market_context_only",
+        "no_execution_usable_article_pick_in_local_evidence"
+      ],
       "notes": "Teams are market context only. Missing article body and no strict selection/price/venue evidence keep this out of actual_picks."
     },
     {
@@ -44,7 +56,11 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["metadata_only", "week_1_not_futures_authority", "no_execution_usable_article_pick_in_local_evidence"],
+      "evidence_basis": [
+        "metadata_only",
+        "week_1_not_futures_authority",
+        "no_execution_usable_article_pick_in_local_evidence"
+      ],
       "notes": "Potential Week 1 article, not a usable futures source in the stored evidence. Missing body means no article pick may be promoted."
     },
     {
@@ -55,7 +71,11 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["body_available", "preseason_game_not_futures_authority", "no_strict_actual_pick_extracted"],
+      "evidence_basis": [
+        "body_available",
+        "preseason_game_not_futures_authority",
+        "no_strict_actual_pick_extracted"
+      ],
       "notes": "Body was available, but no execution-usable futures actual_pick was extracted. Keep any row as non-futures/preseason context only."
     },
     {
@@ -67,8 +87,13 @@
       "pick_oriented": false,
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["non_nfl_title", "likely_false_positive"],
-      "flags": ["non_nfl_article_excluded"],
+      "evidence_basis": [
+        "non_nfl_title",
+        "likely_false_positive"
+      ],
+      "flags": [
+        "non_nfl_article_excluded"
+      ],
       "notes": "TBT basketball article. Excluded from NFL futures article evidence."
     },
     {
@@ -80,8 +105,13 @@
       "pick_oriented": false,
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["non_nfl_title", "likely_false_positive"],
-      "flags": ["non_nfl_article_excluded"],
+      "evidence_basis": [
+        "non_nfl_title",
+        "likely_false_positive"
+      ],
+      "flags": [
+        "non_nfl_article_excluded"
+      ],
       "notes": "PGA golf article. Excluded from NFL futures article evidence."
     },
     {
@@ -93,8 +123,13 @@
       "pick_oriented": false,
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["non_nfl_title", "likely_false_positive"],
-      "flags": ["non_nfl_article_excluded"],
+      "evidence_basis": [
+        "non_nfl_title",
+        "likely_false_positive"
+      ],
+      "flags": [
+        "non_nfl_article_excluded"
+      ],
       "notes": "PGA golf article. Excluded from NFL futures article evidence."
     },
     {
@@ -105,7 +140,11 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["metadata_only", "fantasy_mock_draft_context", "no_execution_usable_article_pick_in_local_evidence"],
+      "evidence_basis": [
+        "metadata_only",
+        "fantasy_mock_draft_context",
+        "no_execution_usable_article_pick_in_local_evidence"
+      ],
       "notes": "Fantasy mock draft context only. No usable NFL futures selection with price/venue evidence is available."
     },
     {
@@ -116,7 +155,11 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["metadata_only", "analysis_context_only", "no_execution_usable_article_pick_in_local_evidence"],
+      "evidence_basis": [
+        "metadata_only",
+        "analysis_context_only",
+        "no_execution_usable_article_pick_in_local_evidence"
+      ],
       "notes": "Hall of Fame analysis context only. Missing body and no execution evidence keep it outside actual_picks."
     },
     {
@@ -127,7 +170,11 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["suspected_ingest_cap", "fantasy_context", "no_execution_usable_article_pick_in_local_evidence"],
+      "evidence_basis": [
+        "suspected_ingest_cap",
+        "fantasy_context",
+        "no_execution_usable_article_pick_in_local_evidence"
+      ],
       "notes": "Fantasy draft-position article. Truncated body and no price/venue-backed futures selection keep it out of actual_picks."
     },
     {
@@ -138,7 +185,11 @@
       "disposition": "reviewed_selection_needs_execution_verification",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["suspected_ingest_cap", "explicit_selection_visible", "missing_execution_venue_or_complete_body"],
+      "evidence_basis": [
+        "suspected_ingest_cap",
+        "explicit_selection_visible",
+        "missing_execution_venue_or_complete_body"
+      ],
       "notes": "The stored evidence contains a selection mention, but body truncation and incomplete execution evidence mean it remains outside actual_picks pending price/venue verification."
     },
     {
@@ -149,7 +200,11 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["body_available", "no_strict_actual_pick_extracted", "package_or_overview_context"],
+      "evidence_basis": [
+        "body_available",
+        "no_strict_actual_pick_extracted",
+        "package_or_overview_context"
+      ],
       "notes": "Body available but no strict execution-usable article pick was extracted. Keep as overview/context only."
     },
     {
@@ -161,8 +216,13 @@
       "pick_oriented": false,
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["non_nfl_title", "college_football"],
-      "flags": ["non_nfl_article_excluded"],
+      "evidence_basis": [
+        "non_nfl_title",
+        "college_football"
+      ],
+      "flags": [
+        "non_nfl_article_excluded"
+      ],
       "notes": "College football betting article. Excluded from NFL futures article evidence."
     },
     {
@@ -173,7 +233,11 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["suspected_ingest_cap", "preseason_game_not_futures_authority", "no_execution_usable_article_pick_in_local_evidence"],
+      "evidence_basis": [
+        "suspected_ingest_cap",
+        "preseason_game_not_futures_authority",
+        "no_execution_usable_article_pick_in_local_evidence"
+      ],
       "notes": "Preseason game betting context only. Body is truncated, so no execution-usable futures actual_pick is allowed."
     },
     {
@@ -185,8 +249,13 @@
       "pick_oriented": false,
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["non_nfl_title", "college_football"],
-      "flags": ["non_nfl_article_excluded"],
+      "evidence_basis": [
+        "non_nfl_title",
+        "college_football"
+      ],
+      "flags": [
+        "non_nfl_article_excluded"
+      ],
       "notes": "College football futures article. Excluded from NFL futures article evidence."
     },
     {
@@ -198,8 +267,13 @@
       "pick_oriented": false,
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["non_nfl_title", "college_football"],
-      "flags": ["non_nfl_article_excluded"],
+      "evidence_basis": [
+        "non_nfl_title",
+        "college_football"
+      ],
+      "flags": [
+        "non_nfl_article_excluded"
+      ],
       "notes": "College football guide article. Excluded from NFL futures article evidence."
     },
     {
@@ -210,7 +284,11 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["suspected_ingest_cap", "preseason_game_not_futures_authority", "no_execution_usable_article_pick_in_local_evidence"],
+      "evidence_basis": [
+        "suspected_ingest_cap",
+        "preseason_game_not_futures_authority",
+        "no_execution_usable_article_pick_in_local_evidence"
+      ],
       "notes": "Preseason game prediction context only. Body is truncated and no futures actual_pick is allowed."
     },
     {
@@ -221,8 +299,27 @@
       "disposition": "reviewed_no_actionable_actual_pick",
       "reviewed_at": "2026-08-12T05:20:00.000Z",
       "reviewer": "A05",
-      "evidence_basis": ["suspected_ingest_cap", "multi_team_page_chrome_risk", "no_execution_usable_article_pick_in_local_evidence"],
+      "evidence_basis": [
+        "suspected_ingest_cap",
+        "multi_team_page_chrome_risk",
+        "no_execution_usable_article_pick_in_local_evidence"
+      ],
       "notes": "Broad multi-team page with truncated body and page-chrome risk. Retain as context only; no strict actual_pick can be promoted."
+    },
+    {
+      "id": 6822,
+      "source": "Action Network",
+      "title": "NFL Week 5 Buy or Sell: Brandon Anderson Ranks All 12 2-2 Teams & Playoff Futures ...",
+      "url": "https://www.actionnetwork.com/nfl/nfl-week-5-buy-or-sell-brandon-anderson-ranks-2-2-teams-playoff-futures",
+      "disposition": "reviewed_truncated_body_picks_extracted",
+      "reviewed_at": "2026-10-07T21:05:00.000Z",
+      "reviewer": "Claude Team 2 (approved by Andy)",
+      "evidence_basis": [
+        "body_truncated_at_ingest_cap",
+        "four_selections_extracted_before_cap",
+        "priced_bet_present"
+      ],
+      "notes": "Body hit the 20k ingest cap, but 4 selections were extracted, including 'BET: Lions to Win the NFC North (+280 at DraftKings)'. Later-ranked teams past the cap may be missing; extracted picks are kept as-is (no promotion)."
     }
   ]
 }

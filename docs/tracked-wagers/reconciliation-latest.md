@@ -1,6 +1,6 @@
 # NFL Week 5 settlement preview
 
-Generated: 2026-10-06T14:09:52.304Z  
+Generated: 2026-10-07T10:30:02.084Z  
 Season: 2026  
 Mode: completed games only; pending games are never graded.
 
