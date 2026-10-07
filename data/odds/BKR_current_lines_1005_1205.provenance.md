@@ -9,5 +9,6 @@
 - **Missing from the paste (ESPN Week 5 schedule has 15 games):** MIN @ NO (Sun 10:00), BAL @ ATL (SNF) and BUF @ LAR (MNF 10/12).
 - **NYG @ WAS:** the board showed spread and total only, with no moneyline, so `build.py` will not parse that row (its pattern requires moneylines).
 - **Kickoff discrepancy:** BKR lists CHI @ GB at 13:25 PT; ESPN lists it at 10:00 PT (17:00Z). Values copied unchanged.
+  - **Corrected 2026-10-07 (Claude Team 2):** the `_buildfmt` label now reads CHI @ GB 10:00 (ESPN 17:00Z; adopted 10/05). The raw paste `BKR_current_lines_1005_1205` keeps BKR's 13:25 as captured; lines and prices are unchanged.
 - **Build-format copy:** `BKR_current_lines_1005_1205_buildfmt` holds the same values in the one-line-per-game format `scripts/master-intel/build.py` reads (away @ home confirmed against ESPN's Week 5 scoreboard). 12 of 13 rows parse; NYG @ WAS does not (no moneyline).
 - **How `build.py` uses it:** Action Network openers come first; a BKR file is the per-game fallback, and the earliest matching BKR file is kept. No `actionnetwork-openers-2026-w05.json` exists yet, so this file is currently the Week 5 opener baseline for the 12 parsed games. For ATL @ NO, the Week 4 Action Network opener remains the baseline.

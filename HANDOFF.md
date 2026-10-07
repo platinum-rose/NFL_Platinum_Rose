@@ -6,9 +6,9 @@
 
 ## Current pick-up point
 
-**Latest session (2026-10-06 23:45 PT, Claude Team 2 — Week 4 close-out + automation):** `handoffs/2026-10-06-2345-claude-week4-archive-automation-postmortem-next-handoff.md`. Week 4 settled (0 open, net −$266.23) and archived (data/archive + Obsidian); weekly archive, all toolbox cadences and per-cadence Claude reports are now scheduled. **Next:** finish `week4-post-mortem.html` (§4), then Week 5 prep (§5).
+**Latest session (2026-10-07 01:05 PT, Claude Team 2 — Week 4 post-mortem + ledger closed, Week 5 prep):** `handoffs/2026-10-07-0105-claude-week4-postmortem-done-week5-prep-handoff.md`. `reports/bets/season-recap/week4-post-mortem.html` built; recommendation ledger Week 4 (D14–D26) written (repo + DEV project); Week 5 prep note `reports/analysis/week5-intel/w05-prep-2026-10-07.md`. **Next:** read the Wednesday cadence reports, then the Week 5 evidence cadence.
 
-Previous: `handoffs/2026-10-05-1720-claude-mnf-planner-experts-tickets-handoff.md` (MNF tickets, prop planner).
+Previous: `handoffs/2026-10-06-2345-claude-week4-archive-automation-postmortem-next-handoff.md` (Week 4 settled + archived, automation).
 
 **H2C2 transfer to Claude Team 2 (Week 4 close-out / Week 5 launch):**
 
@@ -23,7 +23,6 @@ are at `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/`.
 
 ## Active lanes
 
-- **Week 4 post-mortem page:** paper tickets, AI-rec grading, RR payouts, recommendation ledger (handoff §4).
 - **Week 5 lines and promos:** missing BKR games, CHI@GB time correction, and only
   authorized Bills-credit/reload work.
 - **Week 4 analysis:** paper-ticket grading, recommendation-ledger separation, and
