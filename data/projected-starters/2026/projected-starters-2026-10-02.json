@@ -2,14 +2,14 @@
   "meta": {
     "schema": "projected_starters_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-10-02T00:56:55.104Z",
+    "generated_at": "2026-10-02T18:14:17.486Z",
     "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
-    "player_count": 102,
-    "manual_row_count": 60,
-    "eligible_manual_row_count": 60,
-    "estimated_row_count": 42,
+    "player_count": 114,
+    "manual_row_count": 107,
+    "eligible_manual_row_count": 107,
+    "estimated_row_count": 44,
     "withheld_named_manual_row_count": 0,
-    "human_review_approved_count": 0,
+    "human_review_approved_count": 183,
     "human_review_rejected_count": 0,
     "teams_with_signals": 32,
     "teams_needing_manual_depth_chart": 0,
@@ -29,16 +29,16 @@
     },
     "inputs": {
       "availability": {
-        "path": "data/player-availability/latest.json",
-        "generated_at": "2026-10-02T00:53:45.229Z",
+        "path": "data\\player-availability\\latest.json",
+        "generated_at": "2026-10-02T18:14:13.508Z",
         "evidence_validation_status": "pass"
       },
       "named_status_review": {
-        "path": "data/projected-starters/2026/named-status-review.json",
+        "path": "data\\projected-starters\\2026\\named-status-review.json",
         "reviewed_at": "2026-08-12T03:38:40.822Z",
         "validation_status": "pass"
       },
-      "manual_directory": "data/projected-starters/2026/manual"
+      "manual_directory": "data\\projected-starters\\2026\\manual"
     },
     "recommendation_status": "research_context_only_not_picks",
     "guardrails": {
@@ -164,7 +164,9 @@
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
-          "confidence_basis": "manual_depth_chart"
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_cda3c37b3e7d6d11",
@@ -266,7 +268,9 @@
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
-          "confidence_basis": "manual_depth_chart"
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-22T18:34:00.198Z"
         },
         {
           "id": "starter_d30a1601163289d1",
@@ -278,7 +282,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -286,15 +290,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for ATL (usage score 30.0 vs runner-up 10.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for ATL (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_b44112b040b4f9cc",
@@ -376,7 +390,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 3,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -384,11 +398,27 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for BAL (usage score 20.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-01T17:01:00.000Z",
+              "evidence": "Jackson (back) is participating at the start of Thursday's practice, Cordell Woodland of 105.7 The Fan Baltimore Sports Radio reports."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant",
+            "starter"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -419,8 +449,10 @@
             "weekly_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         }
       ],
       "named_status_reviews": []
@@ -449,7 +481,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -457,11 +489,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for BUF (usage score 26.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for BUF (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -477,7 +517,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -485,15 +525,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for BUF (usage score 24.5 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for BUF (usage score 15.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         }
       ],
       "named_status_reviews": [
@@ -515,7 +565,8 @@
       "known": [
         "Bryce Young QB",
         "Chuba Hubbard RB",
-        "Darren Waller TE"
+        "Darren Waller TE",
+        "Tommy Tremble TE"
       ],
       "estimated": [
         "David Moore WR",
@@ -536,7 +587,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -544,11 +595,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for CAR (usage score 48.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for CAR (usage score 37.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -579,8 +638,10 @@
             "weekly_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-22T18:34:00.198Z"
         },
         {
           "id": "starter_8ee4bd812d860cd2",
@@ -609,6 +670,36 @@
           "impact_bucket": "te_uncertain",
           "needs_human_review": true,
           "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_41af26cca6db6b65",
+          "team": "CAR",
+          "team_nick": "Panthers",
+          "player_name": "Tommy Tremble",
+          "position": "TE",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.8,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at TE for CAR (usage score 5.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "te_uncertain",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_9c117a9a7d469b3c",
@@ -700,7 +791,9 @@
       "coverage_status": "manual_and_estimated_signals",
       "known": [
         "Case Keenum QB",
-        "D'Andre Swift RB"
+        "D'Andre Swift RB",
+        "Caleb Williams QB",
+        "Kalif Raymond WR"
       ],
       "estimated": [
         "Tyson Bagent QB"
@@ -709,6 +802,34 @@
         "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_34612b6b1a2f2c28",
+          "team": "CHI",
+          "team_nick": "Bears",
+          "player_name": "Caleb Williams",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for CHI (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_f0529b2827fd4a4b",
           "team": "CHI",
@@ -791,8 +912,40 @@
             "weekly_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+        },
+        {
+          "id": "starter_81677cf4c2f68d25",
+          "team": "CHI",
+          "team_nick": "Bears",
+          "player_name": "Kalif Raymond",
+          "position": "WR",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.65,
+          "roster_confidence": 0.75,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at WR for CHI (usage score 9.0 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "wr_uncertain",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         }
       ],
       "named_status_reviews": []
@@ -824,7 +977,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -832,11 +985,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for CIN (usage score 37.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for CIN (usage score 35.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -852,7 +1013,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -860,15 +1021,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for CIN (usage score 14.0 vs runner-up 4.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for CIN (usage score 19.0 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_cf9781b5354b03a0",
@@ -995,7 +1166,9 @@
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
-          "confidence_basis": "manual_depth_chart"
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_a5bd568ae71fa7df",
@@ -1007,7 +1180,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1015,15 +1188,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for CLE (usage score 19.0 vs runner-up 3.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for CLE (usage score 13.0 vs runner-up 2.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_fd31c4dd6f382242",
@@ -1049,8 +1232,10 @@
             "starter"
           ],
           "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         }
       ],
       "named_status_reviews": []
@@ -1080,7 +1265,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1088,11 +1273,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for DAL (usage score 40.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for DAL (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -1108,7 +1301,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1116,15 +1309,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for DAL (usage score 20.5 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for DAL (usage score 14.5 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_24d5fc8f24492e38",
@@ -1179,7 +1382,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1187,11 +1390,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for DEN (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for DEN (usage score 28.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -1251,7 +1462,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1259,11 +1470,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for DET (usage score 32.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for DET (usage score 39.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -1279,7 +1498,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1287,15 +1506,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for DET (usage score 24.0 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for DET (usage score 31.5 vs runner-up 2.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         }
       ],
       "named_status_reviews": []
@@ -1305,7 +1534,9 @@
       "team_name": "Green Bay Packers",
       "coverage_status": "manual_and_estimated_signals",
       "known": [
-        "Jordan Love QB"
+        "Jordan Love QB",
+        "MarShawn Lloyd RB",
+        "Tucker Kraft TE"
       ],
       "estimated": [
         "Kevin Zeitler G",
@@ -1326,7 +1557,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1334,15 +1565,83 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for GB (usage score 53.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for GB (usage score 42.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_5a706fe1bc131658",
+          "team": "GB",
+          "team_nick": "Packers",
+          "player_name": "MarShawn Lloyd",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for GB (usage score 13.5 vs runner-up 7.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+        },
+        {
+          "id": "starter_163290b3a8b374a1",
+          "team": "GB",
+          "team_nick": "Packers",
+          "player_name": "Tucker Kraft",
+          "position": "TE",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.8,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at TE for GB (usage score 6.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "te_uncertain",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_fc88fd7bbcc486e8",
@@ -1439,7 +1738,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1447,11 +1746,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for HOU (usage score 27.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -1482,8 +1789,10 @@
             "weekly_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_bd61169f903879fb",
@@ -1509,8 +1818,10 @@
             "starter"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-19T07:27:00.575Z"
         },
         {
           "id": "starter_c47b74218a04f36a",
@@ -1575,7 +1886,8 @@
       "coverage_status": "manual_and_estimated_signals",
       "known": [
         "Daniel Jones QB",
-        "Jonathan Taylor RB"
+        "Jonathan Taylor RB",
+        "Tyler Warren TE"
       ],
       "estimated": [
         "Anthony Gould WR"
@@ -1594,7 +1906,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1602,11 +1914,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for IND (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for IND (usage score 31.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -1622,7 +1942,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1630,15 +1950,55 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for IND (usage score 24.5 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for IND (usage score 21.0 vs runner-up 0.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+        },
+        {
+          "id": "starter_a9059bf1e8b7f27e",
+          "team": "IND",
+          "team_nick": "Colts",
+          "player_name": "Tyler Warren",
+          "position": "TE",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.8,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at TE for IND (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "te_uncertain",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_ae82ff805be8b01c",
@@ -1664,8 +2024,10 @@
             "roster_signal"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-22T18:34:00.198Z"
         }
       ],
       "named_status_reviews": []
@@ -1711,7 +2073,9 @@
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
-          "confidence_basis": "manual_depth_chart"
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_79f001776e03cc13",
@@ -1723,7 +2087,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1731,15 +2095,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for JAX (usage score 16.0 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for JAX (usage score 15.5 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_7e66f20233853604",
@@ -1794,7 +2168,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1802,11 +2176,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for KC (usage score 24.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for KC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -1822,7 +2204,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1830,15 +2212,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for KC (usage score 19.0 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for KC (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         }
       ],
       "named_status_reviews": []
@@ -1884,7 +2276,9 @@
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
-          "confidence_basis": "manual_depth_chart"
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_cfd1eea478973ceb",
@@ -1896,7 +2290,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1904,15 +2298,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for LV (usage score 20.5 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for LV (usage score 26.0 vs runner-up 7.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_ef0ea1e508f377aa",
@@ -1949,7 +2353,9 @@
       "team_name": "Los Angeles Chargers",
       "coverage_status": "manual_and_estimated_signals",
       "known": [
-        "Justin Herbert QB"
+        "Justin Herbert QB",
+        "Omarion Hampton RB",
+        "David Njoku TE"
       ],
       "estimated": [],
       "missing": [
@@ -1966,7 +2372,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1974,15 +2380,83 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for LAC (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for LAC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_b355c4e84eb6cd52",
+          "team": "LAC",
+          "team_nick": "Chargers",
+          "player_name": "Omarion Hampton",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for LAC (usage score 12.0 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+        },
+        {
+          "id": "starter_94e166dfde372d32",
+          "team": "LAC",
+          "team_nick": "Chargers",
+          "player_name": "David Njoku",
+          "position": "TE",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.8,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at TE for LAC (usage score 5.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "te_uncertain",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         }
       ],
       "named_status_reviews": []
@@ -2013,7 +2487,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -2021,11 +2495,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for LAR (usage score 55.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for LA (usage score 25.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -2140,7 +2622,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -2148,11 +2630,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for MIA (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -2231,7 +2721,9 @@
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
-          "confidence_basis": "manual_depth_chart"
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-22T18:34:00.198Z"
         },
         {
           "id": "starter_7c37852b12897a74",
@@ -2258,8 +2750,10 @@
             "weekly_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-22T18:34:00.198Z"
         },
         {
           "id": "starter_22d003a3b5c760a3",
@@ -2285,8 +2779,10 @@
             "roster_signal"
           ],
           "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-22T18:34:00.198Z"
         },
         {
           "id": "starter_84c09e0e1c8b1506",
@@ -2323,7 +2819,8 @@
       "team_name": "New England Patriots",
       "coverage_status": "manual_and_estimated_signals",
       "known": [
-        "Drake Maye QB"
+        "Drake Maye QB",
+        "Rhamondre Stevenson RB"
       ],
       "estimated": [
         "Jaylen Reed S"
@@ -2342,7 +2839,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -2350,15 +2847,53 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for NE (usage score 25.0 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for NE (usage score 33.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_5a5c76d8856c3899",
+          "team": "NE",
+          "team_nick": "Patriots",
+          "player_name": "Rhamondre Stevenson",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for NE (usage score 21.0 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "rb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_4e42063dd1ded7ec",
@@ -2414,7 +2949,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -2422,11 +2957,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for NO (usage score 42.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -2456,8 +2999,10 @@
             "roster_signal"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-22T18:34:00.198Z"
         }
       ],
       "named_status_reviews": []
@@ -2467,7 +3012,8 @@
       "team_name": "New York Giants",
       "coverage_status": "manual_and_estimated_signals",
       "known": [
-        "Cam Skattebo RB"
+        "Cam Skattebo RB",
+        "Jaxson Dart QB"
       ],
       "estimated": [
         "Jihad Ward LB",
@@ -2480,6 +3026,34 @@
       ],
       "players": [
         {
+          "id": "starter_e988f6280b234a2a",
+          "team": "NYG",
+          "team_nick": "Giants",
+          "player_name": "Jaxson Dart",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
           "id": "starter_3e551dcd539d7587",
           "team": "NYG",
           "team_nick": "Giants",
@@ -2489,7 +3063,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -2497,15 +3071,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for NYG (usage score 22.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for NYG (usage score 18.0 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_f23c0981074a1b8d",
@@ -2585,8 +3169,10 @@
             "roster_signal"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-22T18:34:00.198Z"
         },
         {
           "id": "starter_fb5d8abba5c39d1c",
@@ -2644,7 +3230,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -2652,11 +3238,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for NYJ (usage score 37.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for NYJ (usage score 24.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -2672,7 +3266,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -2680,15 +3274,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for NYJ (usage score 14.5 vs runner-up 5.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for NYJ (usage score 23.0 vs runner-up 10.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_d2e43efd236ed00a",
@@ -2741,8 +3345,10 @@
             "roster_signal"
           ],
           "impact_bucket": "depth_only",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-22T18:34:00.198Z"
         }
       ],
       "named_status_reviews": []
@@ -2752,8 +3358,8 @@
       "team_name": "Philadelphia Eagles",
       "coverage_status": "manual_and_estimated_signals",
       "known": [
-        "Jalen Hurts QB",
-        "Saquon Barkley RB"
+        "Saquon Barkley RB",
+        "Jalen Hurts QB"
       ],
       "estimated": [
         "Kenny Moore II CB"
@@ -2763,45 +3369,24 @@
       ],
       "players": [
         {
-          "id": "starter_b54140029c03da99",
-          "team": "PHI",
-          "team_nick": "Eagles",
-          "player_name": "Jalen Hurts",
-          "position": "QB",
-          "unit": "offense",
-          "role": "starter",
-          "starter_confidence": 0.95,
-          "roster_confidence": 0.95,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "week-usage-locks.json",
-              "source_type": "manual_depth_chart",
-              "source_url": null,
-              "published_at": null,
-              "evidence": "Week 3 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-            }
-          ],
-          "evidence_tags": [
-            "locked_starter",
-            "weekly_usage_dominant"
-          ],
-          "impact_bucket": "qb_major",
-          "needs_human_review": false,
-          "confidence_basis": "manual_depth_chart"
-        },
-        {
-          "id": "starter_69e51a1916993cd1",
+          "id": "starter_570f8c3bcca1ddc3",
           "team": "PHI",
           "team_nick": "Eagles",
           "player_name": "Saquon Barkley",
           "position": "RB",
           "unit": "offense",
           "role": "starter",
-          "starter_confidence": 0.8,
-          "roster_confidence": 0.85,
-          "source_count": 1,
+          "starter_confidence": 0.97,
+          "roster_confidence": 0.97,
+          "source_count": 2,
           "sources": [
+            {
+              "source": "skill-position-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Unquestioned RB1, workhorse role, no committee/competition -- verified by Andy 2026-09-15."
+            },
             {
               "source": "week-usage-locks.json",
               "source_type": "manual_depth_chart",
@@ -2812,10 +3397,47 @@
           ],
           "evidence_tags": [
             "locked_starter",
+            "workhorse",
             "weekly_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_b54140029c03da99",
+          "team": "PHI",
+          "team_nick": "Eagles",
+          "player_name": "Jalen Hurts",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 2,
+          "sources": [
+            {
+              "source": "week-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 3 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
         },
         {
@@ -2874,7 +3496,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -2882,11 +3504,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for PIT (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for PIT (usage score 40.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -3002,7 +3632,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -3010,11 +3640,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for SF (usage score 27.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for SF (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -3145,8 +3783,10 @@
             "competition"
           ],
           "impact_bucket": "qb_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_14b281c5bf012d87",
@@ -3220,7 +3860,9 @@
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
-          "confidence_basis": "manual_depth_chart"
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_b3e3dc32968397d2",
@@ -3247,8 +3889,10 @@
             "weekly_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_6e60ab9496a02b66",
@@ -3274,8 +3918,10 @@
             "starter"
           ],
           "impact_bucket": "qb_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_2a3fa8a22c42cb26",
@@ -3313,7 +3959,8 @@
       "coverage_status": "manual_and_estimated_signals",
       "known": [
         "Cam Ward QB",
-        "Tony Pollard RB"
+        "Tony Pollard RB",
+        "Gunnar Helm TE"
       ],
       "estimated": [
         "Michael Carter RB",
@@ -3333,7 +3980,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -3341,11 +3988,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for TEN (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
@@ -3376,8 +4031,40 @@
             "weekly_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+        },
+        {
+          "id": "starter_3663f5e0833514a1",
+          "team": "TEN",
+          "team_nick": "Titans",
+          "player_name": "Gunnar Helm",
+          "position": "TE",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.8,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at TE for TEN (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "te_uncertain",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_0f55a9e6127512ba",
@@ -3442,7 +4129,8 @@
       "coverage_status": "manual_and_estimated_signals",
       "known": [
         "Marcus Mariota QB",
-        "Jacory Croskey-Merritt RB"
+        "Jacory Croskey-Merritt RB",
+        "Jayden Daniels QB"
       ],
       "estimated": [
         "Austin Ekeler RB"
@@ -3451,6 +4139,34 @@
         "independent second-source depth-chart reconciliation"
       ],
       "players": [
+        {
+          "id": "starter_71518245724d7610",
+          "team": "WAS",
+          "team_nick": "Commanders",
+          "player_name": "Jayden Daniels",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at QB for WAS (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            }
+          ],
+          "evidence_tags": [
+            "locked_starter",
+            "week1_usage_dominant"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart"
+        },
         {
           "id": "starter_a3ab401c40554551",
           "team": "WAS",
@@ -3461,7 +4177,7 @@
           "role": "starter",
           "starter_confidence": 0.95,
           "roster_confidence": 0.95,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -3469,15 +4185,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at QB for WAS (usage score 31.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-02T14:13:00.000Z",
+              "evidence": "Mariota will start at quarterback for the Commanders in Sunday's game against the Colts in London, Nicki Jhabvala of The Athletic reports."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "starter"
           ],
           "impact_bucket": "qb_major",
           "needs_human_review": false,
-          "confidence_basis": "manual_depth_chart"
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-22T18:34:00.198Z"
         },
         {
           "id": "starter_59cb1657f3997c8a",
@@ -3489,7 +4215,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -3497,15 +4223,25 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 3 2026 usage leader at RB for WAS (usage score 19.5 vs runner-up 8.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "week1-usage-locks.json",
+              "source_type": "manual_depth_chart",
+              "source_url": null,
+              "published_at": null,
+              "evidence": "Week 1 2026 usage leader at RB for WAS (usage score 16.5 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
-          "needs_human_review": true,
-          "confidence_basis": "manual_depth_chart"
+          "needs_human_review": false,
+          "confidence_basis": "manual_depth_chart",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
           "id": "starter_5940d10a92161cdf",
@@ -3540,6 +4276,42 @@
   },
   "players": [
     {
+      "id": "starter_570f8c3bcca1ddc3",
+      "team": "PHI",
+      "team_nick": "Eagles",
+      "player_name": "Saquon Barkley",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.97,
+      "roster_confidence": 0.97,
+      "source_count": 2,
+      "sources": [
+        {
+          "source": "skill-position-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Unquestioned RB1, workhorse role, no committee/competition -- verified by Andy 2026-09-15."
+        },
+        {
+          "source": "week-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 3 2026 usage leader at RB for PHI (usage score 16.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "workhorse",
+        "weekly_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
       "id": "starter_5e99bdbe6bd921a0",
       "team": "ARI",
       "team_nick": "Cardinals",
@@ -3565,7 +4337,9 @@
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
-      "confidence_basis": "manual_depth_chart"
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_cda3c37b3e7d6d11",
@@ -3621,7 +4395,9 @@
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
-      "confidence_basis": "manual_depth_chart"
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-22T18:34:00.198Z"
     },
     {
       "id": "starter_d30a1601163289d1",
@@ -3633,7 +4409,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -3641,15 +4417,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for ATL (usage score 30.0 vs runner-up 10.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for ATL (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_84b29f7d22163051",
@@ -3661,7 +4447,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 3,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -3669,11 +4455,27 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for BAL (usage score 20.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-01T17:01:00.000Z",
+          "evidence": "Jackson (back) is participating at the start of Thursday's practice, Cordell Woodland of 105.7 The Fan Baltimore Sports Radio reports."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant",
+        "starter"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -3704,8 +4506,10 @@
         "weekly_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_3131b2d449a8bcaa",
@@ -3717,7 +4521,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -3725,11 +4529,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for BUF (usage score 26.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for BUF (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -3745,7 +4557,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -3753,15 +4565,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for BUF (usage score 24.5 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for BUF (usage score 15.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_700d3669dc3cb82c",
@@ -3773,7 +4595,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -3781,11 +4603,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for CAR (usage score 48.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for CAR (usage score 37.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -3816,8 +4646,10 @@
         "weekly_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-22T18:34:00.198Z"
     },
     {
       "id": "starter_8ee4bd812d860cd2",
@@ -3900,8 +4732,10 @@
         "weekly_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_87b67928a016feef",
@@ -3913,7 +4747,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -3921,11 +4755,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for CIN (usage score 37.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for CIN (usage score 35.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -3941,7 +4783,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -3949,15 +4791,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for CIN (usage score 14.0 vs runner-up 4.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for CIN (usage score 19.0 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_9349b5afec0efa20",
@@ -3985,7 +4837,9 @@
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
-      "confidence_basis": "manual_depth_chart"
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_a5bd568ae71fa7df",
@@ -3997,7 +4851,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4005,15 +4859,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for CLE (usage score 19.0 vs runner-up 3.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for CLE (usage score 13.0 vs runner-up 2.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_c57574f736b195ac",
@@ -4025,7 +4889,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4033,11 +4897,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for DAL (usage score 40.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for DAL (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4053,7 +4925,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4061,15 +4933,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for DAL (usage score 20.5 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for DAL (usage score 14.5 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_0e61180a0e5a80a1",
@@ -4081,7 +4963,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4089,11 +4971,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for DEN (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for DEN (usage score 28.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4137,7 +5027,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4145,11 +5035,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for DET (usage score 32.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for DET (usage score 39.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4165,7 +5063,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4173,15 +5071,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for DET (usage score 24.0 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for DET (usage score 31.5 vs runner-up 2.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_a8f70e4bbcccd26e",
@@ -4193,7 +5101,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4201,11 +5109,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for GB (usage score 53.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for GB (usage score 42.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4221,7 +5137,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4229,11 +5145,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for HOU (usage score 27.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4264,8 +5188,10 @@
         "weekly_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_01beb4e5ad3e2782",
@@ -4277,7 +5203,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4285,11 +5211,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for IND (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for IND (usage score 31.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4305,7 +5239,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4313,15 +5247,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for IND (usage score 24.5 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for IND (usage score 21.0 vs runner-up 0.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_676b42b6238a2082",
@@ -4349,7 +5293,9 @@
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
-      "confidence_basis": "manual_depth_chart"
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_79f001776e03cc13",
@@ -4361,7 +5307,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4369,15 +5315,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for JAX (usage score 16.0 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for JAX (usage score 15.5 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_df09c1be35efe411",
@@ -4389,7 +5345,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4397,11 +5353,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for KC (usage score 24.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for KC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4417,7 +5381,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4425,15 +5389,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for KC (usage score 19.0 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for KC (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_05b0cea99fe8862a",
@@ -4445,7 +5419,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4453,11 +5427,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for LAC (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for LAC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4473,7 +5455,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4481,11 +5463,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for LAR (usage score 55.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for LA (usage score 25.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4573,7 +5563,9 @@
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
-      "confidence_basis": "manual_depth_chart"
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_cfd1eea478973ceb",
@@ -4585,7 +5577,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4593,15 +5585,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for LV (usage score 20.5 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for LV (usage score 26.0 vs runner-up 7.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_2cd424aefc9b9048",
@@ -4613,7 +5615,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4621,11 +5623,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for MIA (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4685,7 +5695,9 @@
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
-      "confidence_basis": "manual_depth_chart"
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-22T18:34:00.198Z"
     },
     {
       "id": "starter_7c37852b12897a74",
@@ -4712,8 +5724,10 @@
         "weekly_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-22T18:34:00.198Z"
     },
     {
       "id": "starter_46c88d156968d6cd",
@@ -4725,7 +5739,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4733,11 +5747,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for NE (usage score 25.0 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for NE (usage score 33.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4753,7 +5775,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4761,11 +5783,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for NO (usage score 42.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4781,7 +5811,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4789,15 +5819,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for NYG (usage score 22.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for NYG (usage score 18.0 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_6055f85a25e26f50",
@@ -4809,7 +5849,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4817,11 +5857,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for NYJ (usage score 37.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for NYJ (usage score 24.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -4837,7 +5885,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4845,15 +5893,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for NYJ (usage score 14.5 vs runner-up 5.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for NYJ (usage score 23.0 vs runner-up 10.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_b54140029c03da99",
@@ -4865,7 +5923,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4873,42 +5931,22 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-        }
-      ],
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "confidence_basis": "manual_depth_chart"
-    },
-    {
-      "id": "starter_69e51a1916993cd1",
-      "team": "PHI",
-      "team_nick": "Eagles",
-      "player_name": "Saquon Barkley",
-      "position": "RB",
-      "unit": "offense",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "source_count": 1,
-      "sources": [
+        },
         {
-          "source": "week-usage-locks.json",
+          "source": "week1-usage-locks.json",
           "source_type": "manual_depth_chart",
           "source_url": null,
           "published_at": null,
-          "evidence": "Week 3 2026 usage leader at RB for PHI (usage score 16.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+          "evidence": "Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
       "confidence_basis": "manual_depth_chart"
     },
     {
@@ -4921,7 +5959,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -4929,11 +5967,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for PIT (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for PIT (usage score 40.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -5005,7 +6051,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -5013,11 +6059,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for SF (usage score 27.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for SF (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -5077,7 +6131,9 @@
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
-      "confidence_basis": "manual_depth_chart"
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_b3e3dc32968397d2",
@@ -5104,8 +6160,10 @@
         "weekly_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_c0c26c6ab94cbba5",
@@ -5117,7 +6175,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -5125,11 +6183,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for TEN (usage score 36.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
@@ -5160,8 +6226,10 @@
         "weekly_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "confidence_basis": "manual_depth_chart"
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_a3ab401c40554551",
@@ -5173,7 +6241,7 @@
       "role": "starter",
       "starter_confidence": 0.95,
       "roster_confidence": 0.95,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -5181,15 +6249,25 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at QB for WAS (usage score 31.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-02T14:13:00.000Z",
+          "evidence": "Mariota will start at quarterback for the Commanders in Sunday's game against the Colts in London, Nicki Jhabvala of The Athletic reports."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "starter"
       ],
       "impact_bucket": "qb_major",
       "needs_human_review": false,
-      "confidence_basis": "manual_depth_chart"
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-22T18:34:00.198Z"
     },
     {
       "id": "starter_59cb1657f3997c8a",
@@ -5201,7 +6279,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -5209,14 +6287,378 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 3 2026 usage leader at RB for WAS (usage score 19.5 vs runner-up 8.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for WAS (usage score 16.5 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
-      "needs_human_review": true,
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+    },
+    {
+      "id": "starter_41af26cca6db6b65",
+      "team": "CAR",
+      "team_nick": "Panthers",
+      "player_name": "Tommy Tremble",
+      "position": "TE",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.8,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at TE for CAR (usage score 5.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+    },
+    {
+      "id": "starter_34612b6b1a2f2c28",
+      "team": "CHI",
+      "team_nick": "Bears",
+      "player_name": "Caleb Williams",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for CHI (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_81677cf4c2f68d25",
+      "team": "CHI",
+      "team_nick": "Bears",
+      "player_name": "Kalif Raymond",
+      "position": "WR",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.65,
+      "roster_confidence": 0.75,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at WR for CHI (usage score 9.0 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "wr_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+    },
+    {
+      "id": "starter_5a706fe1bc131658",
+      "team": "GB",
+      "team_nick": "Packers",
+      "player_name": "MarShawn Lloyd",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for GB (usage score 13.5 vs runner-up 7.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+    },
+    {
+      "id": "starter_163290b3a8b374a1",
+      "team": "GB",
+      "team_nick": "Packers",
+      "player_name": "Tucker Kraft",
+      "position": "TE",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.8,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at TE for GB (usage score 6.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+    },
+    {
+      "id": "starter_a9059bf1e8b7f27e",
+      "team": "IND",
+      "team_nick": "Colts",
+      "player_name": "Tyler Warren",
+      "position": "TE",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.8,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at TE for IND (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+    },
+    {
+      "id": "starter_b355c4e84eb6cd52",
+      "team": "LAC",
+      "team_nick": "Chargers",
+      "player_name": "Omarion Hampton",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for LAC (usage score 12.0 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+    },
+    {
+      "id": "starter_94e166dfde372d32",
+      "team": "LAC",
+      "team_nick": "Chargers",
+      "player_name": "David Njoku",
+      "position": "TE",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.8,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at TE for LAC (usage score 5.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+    },
+    {
+      "id": "starter_5a5c76d8856c3899",
+      "team": "NE",
+      "team_nick": "Patriots",
+      "player_name": "Rhamondre Stevenson",
+      "position": "RB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.8,
+      "roster_confidence": 0.85,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at RB for NE (usage score 21.0 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "rb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+    },
+    {
+      "id": "starter_e988f6280b234a2a",
+      "team": "NYG",
+      "team_nick": "Giants",
+      "player_name": "Jaxson Dart",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart"
+    },
+    {
+      "id": "starter_3663f5e0833514a1",
+      "team": "TEN",
+      "team_nick": "Titans",
+      "player_name": "Gunnar Helm",
+      "position": "TE",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.8,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at TE for TEN (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "te_uncertain",
+      "needs_human_review": false,
+      "confidence_basis": "manual_depth_chart",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+    },
+    {
+      "id": "starter_71518245724d7610",
+      "team": "WAS",
+      "team_nick": "Commanders",
+      "player_name": "Jayden Daniels",
+      "position": "QB",
+      "unit": "offense",
+      "role": "starter",
+      "starter_confidence": 0.95,
+      "roster_confidence": 0.95,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "week1-usage-locks.json",
+          "source_type": "manual_depth_chart",
+          "source_url": null,
+          "published_at": null,
+          "evidence": "Week 1 2026 usage leader at QB for WAS (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        }
+      ],
+      "evidence_tags": [
+        "locked_starter",
+        "week1_usage_dominant"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
       "confidence_basis": "manual_depth_chart"
     },
     {
@@ -5243,8 +6685,10 @@
         "roster_signal"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-22T18:34:00.198Z"
     },
     {
       "id": "starter_bbb2d7dbef86016a",
@@ -5513,8 +6957,10 @@
         "roster_signal"
       ],
       "impact_bucket": "defensive_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-22T18:34:00.198Z"
     },
     {
       "id": "starter_84a1d794ee84ccda",
@@ -5783,8 +7229,10 @@
         "roster_signal"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-22T18:34:00.198Z"
     },
     {
       "id": "starter_84c09e0e1c8b1506",
@@ -5837,8 +7285,10 @@
         "roster_signal"
       ],
       "impact_bucket": "depth_only",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-22T18:34:00.198Z"
     },
     {
       "id": "starter_f23c0981074a1b8d",
@@ -5891,8 +7341,10 @@
         "starter"
       ],
       "impact_bucket": "qb_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_91d78327c9efc060",
@@ -5974,8 +7426,10 @@
         "starter"
       ],
       "impact_bucket": "defensive_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_bd61169f903879fb",
@@ -6001,8 +7455,10 @@
         "starter"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-19T07:27:00.575Z"
     },
     {
       "id": "starter_98955fdda64310e6",
@@ -6217,8 +7673,10 @@
         "roster_signal"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-22T18:34:00.198Z"
     },
     {
       "id": "starter_d2e43efd236ed00a",
@@ -6271,8 +7729,10 @@
         "competition"
       ],
       "impact_bucket": "qb_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
       "id": "starter_2aad90cb31253d7c",

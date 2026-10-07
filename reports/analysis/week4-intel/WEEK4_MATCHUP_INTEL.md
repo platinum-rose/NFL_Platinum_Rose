@@ -1,6 +1,6 @@
 # Week 4 matchup intel staging report
 
-Generated 2026-09-30T05:38:51.990Z. This is a read-only first-three-games scouting baseline for all 16 Week 4 matchups. It contains no recommendation, wager, account, ledger, database, or odds refresh action.
+Generated 2026-10-03T06:18:45.277Z. This is a read-only first-three-games scouting baseline for all 16 Week 4 matchups. It contains no recommendation, wager, account, ledger, database, or odds refresh action.
 
 ## Master Intel handoff
 

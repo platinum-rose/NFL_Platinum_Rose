@@ -1,6 +1,6 @@
 # Expert pick verification: 2026 Week 4
 
-Generated 2026-10-03T22:10:11+00:00 by `scripts/master-intel/verify_expert_rows.py`. 371 picks verified, 72 rejected. Rejected picks are not shown or counted anywhere in the report.
+Generated 2026-10-04T02:26:27+00:00 by `scripts/master-intel/verify_expert_rows.py`. 371 picks verified, 76 rejected. Rejected picks are not shown or counted anywhere in the report.
 
 | Kind | Source | Person | Game | Pick | Why rejected |
 |---|---|---|---|---|---|
@@ -29,6 +29,10 @@ Generated 2026-10-03T22:10:11+00:00 by `scripts/master-intel/verify_expert_rows.
 | article | Twitter/X Bookmarks (Personal) | Cody Brown Bets | NYJ@CHI | Rome Odunze: Rome Odunze - longest reception OVER 19.5 (+160 | published Mon 09/28 15:12Z, before both teams' previous game ended; article title names a different week |
 | article | Twitter/X Bookmarks (Personal) | Cody Brown Bets | NYJ@CHI | Rome Odunze: Rome Odunze - longest reception OVER 39.5 (+480 | published Mon 09/28 15:12Z, before both teams' previous game ended; article title names a different week |
 | article | Twitter/X Bookmarks (Personal) | @salbets_ | NYJ@CHI | D&#x27;Andre Swift: D&#x27;Andre Swift - rushing_plus_receiv | published Mon 09/28 14:11Z, before both teams' previous game ended |
+| article | Action Network |  | — | Under 32.5 / Under 32.5 | does not map to one Week 4 NFL game |
+| article | Action Network |  | — | Over 39.5 / Over 39.5 | does not map to one Week 4 NFL game |
+| article | Action Network |  | — | Under 4.5 / Under 4.5 | does not map to one Week 4 NFL game |
+| article | Action Network |  | — | Over 73.5 / Over 73.5 | does not map to one Week 4 NFL game |
 | article | Twitter/X Bookmarks (Personal) | @thepropdealer | — | CLE Browns D/ST: CLE Browns D/ST - touchdowns OVER 0.5 | player 'CLE Browns D/ST' is not on any 2026 ESPN roster; does not map to one Week 4 NFL game |
 | article | VSiN | Dustin Swedelson | — | Over 55.5 / Over 55.5 | does not map to one Week 4 NFL game |
 | article | VSiN |  | — | Over 29.5 / Over 29.5 | does not map to one Week 4 NFL game |

@@ -8,7 +8,7 @@
     "mode": "paper_tracked_human_verified",
     "config_path": "data/futures-imports/platinum-rose-ai-official-2026.json",
     "created_at": "2026-07-24T02:15:17.315Z",
-    "updated_at": "2026-08-29T00:07:29.037Z"
+    "updated_at": "2026-09-20T05:55:25.000Z"
   },
   "bankrolls": {
     "futures_portfolio": {
@@ -985,6 +985,508 @@
         "Bengals +8.5 (teased +6 from +2.5)",
         "Panthers +7.5 (teased +6 from +1.5)"
       ]
+    },
+    {
+      "pick_id": "ca1c9a65-1915-4b65-9623-a3cfb971b543",
+      "expert_key": "platinum_rose_ai",
+      "sport": "NFL",
+      "season": 2026,
+      "pick_scope": "weekly",
+      "lifecycle": "official_paper",
+      "approval_state": "official_paper",
+      "portfolio_name": "in_season_weekly",
+      "bankroll_usd": 1000,
+      "unit_size_usd": 10,
+      "stake_units": 1,
+      "stake_usd": 10,
+      "stake_tier": "standard",
+      "confidence": 68,
+      "confidence_tier": null,
+      "market_type": "parlay",
+      "market": "same_game_parlay",
+      "selection": "Patriots Aerial Volume SGP (Super Bowl Rematch Air Show)",
+      "bet_type": "parlay",
+      "side": null,
+      "team": "NE @ SEA",
+      "opponent": null,
+      "event_id": null,
+      "week": "Week 1",
+      "starts_at": "2026-09-10T00:20:00Z",
+      "book": "DraftKings / FanDuel",
+      "price": 785,
+      "line": null,
+      "observed_at": "2026-09-10T00:31:12.582Z",
+      "source_url": null,
+      "source_ref": "Platinum Rose AI Curated Parlay: Patriots Aerial Volume SGP (Super Bowl Rematch Air Show)",
+      "status": "settled",
+      "result": "loss",
+      "payout_potential_usd": 88.5,
+      "legs": [
+        "Drake Maye: Over 226.5 Passing Yards (-117)",
+        "A.J. Brown: Over 5.5 Receptions (+121)",
+        "Hunter Henry: Over 3.5 Receptions (+148)"
+      ],
+      "detailed_legs": [
+        {
+          "player": "Drake Maye",
+          "team": "NE",
+          "selection": "Over 226.5 Passing Yards",
+          "price": "-117",
+          "analyst": "Zachary Cohen (VSiN)"
+        },
+        {
+          "player": "A.J. Brown",
+          "team": "NE",
+          "selection": "Over 5.5 Receptions",
+          "price": "+121",
+          "analyst": "Phil Wood (BettingPros)"
+        },
+        {
+          "player": "Hunter Henry",
+          "team": "NE",
+          "selection": "Over 3.5 Receptions",
+          "price": "+148",
+          "analyst": "Travis Pulver (BettingPros)"
+        }
+      ],
+      "correlation_rating": "High Positive (+)",
+      "synergy_rationale": "Strong pass-heavy trailing game script: When Maye throws 30+ times, Brown and Henry command over 50% of the team target share. Exploits Seattle's depleted secondary missing Riq Woolen and Nick Emmanwori.",
+      "human_verification_required": false,
+      "human_verified_at": "2026-09-10T00:31:12.582Z",
+      "official_at": "2026-09-10T00:31:12.582Z",
+      "locked_at": "2026-09-10T00:31:12.582Z",
+      "audit_note": "Officially approved and tracked as Platinum Rose AI paper parlay (user specified NOT personal bet).",
+      "created_at": "2026-09-10T00:31:12.582Z",
+      "updated_at": "2026-09-10T00:31:12.582Z",
+      "pnl_usd": -10.0,
+      "settled_at": "2026-09-10T04:15:00Z",
+      "notes": "Final score SEA 13, NE 10. Maye 127 yds, Darnold/Brown exited with injuries."
+    },
+    {
+      "pick_id": "09354e7d-e5ad-4946-9b8a-e332fc75bdde",
+      "expert_key": "platinum_rose_ai",
+      "sport": "NFL",
+      "season": 2026,
+      "pick_scope": "weekly",
+      "lifecycle": "official_paper",
+      "approval_state": "official_paper",
+      "portfolio_name": "in_season_weekly",
+      "bankroll_usd": 1000,
+      "unit_size_usd": 10,
+      "stake_units": 1,
+      "stake_usd": 10,
+      "stake_tier": "standard",
+      "confidence": 68,
+      "confidence_tier": null,
+      "market_type": "parlay",
+      "market": "same_game_parlay",
+      "selection": "Seahawks Dynamic Offense SGP (Lumen Field Fast Start)",
+      "bet_type": "parlay",
+      "side": null,
+      "team": "NE @ SEA",
+      "opponent": null,
+      "event_id": null,
+      "week": "Week 1",
+      "starts_at": "2026-09-10T00:20:00Z",
+      "book": "DraftKings / FanDuel",
+      "price": 810,
+      "line": null,
+      "observed_at": "2026-09-10T00:31:12.582Z",
+      "source_url": null,
+      "source_ref": "Platinum Rose AI Curated Parlay: Seahawks Dynamic Offense SGP (Lumen Field Fast Start)",
+      "status": "settled",
+      "result": "loss",
+      "payout_potential_usd": 91,
+      "legs": [
+        "Jaxon Smith-Njigba: Over 82.5 Receiving Yards (-113)",
+        "Jadarian Price: Over 1.5 Receptions (+124)",
+        "Sam Darnold: 10+ Rushing Yards (+178)"
+      ],
+      "detailed_legs": [
+        {
+          "player": "Jaxon Smith-Njigba",
+          "team": "SEA",
+          "selection": "Over 82.5 Receiving Yards",
+          "price": "-113",
+          "analyst": "Phil Wood (BettingPros)"
+        },
+        {
+          "player": "Jadarian Price",
+          "team": "SEA",
+          "selection": "Over 1.5 Receptions",
+          "price": "+124",
+          "analyst": "Travis Pulver (BettingPros)"
+        },
+        {
+          "player": "Sam Darnold",
+          "team": "SEA",
+          "selection": "10+ Rushing Yards",
+          "price": "+178",
+          "analyst": "Travis Pulver (BettingPros)"
+        }
+      ],
+      "correlation_rating": "High Positive (+)",
+      "synergy_rationale": "Brian Fleury's Shanahan-tree offense spreads the field: JSN controls intermediate and deep passing, Price catches passes in the flat on designed RB screens, and Darnold tucks and runs against aggressive pass-rush angles.",
+      "human_verification_required": false,
+      "human_verified_at": "2026-09-10T00:31:12.582Z",
+      "official_at": "2026-09-10T00:31:12.582Z",
+      "locked_at": "2026-09-10T00:31:12.582Z",
+      "audit_note": "Officially approved and tracked as Platinum Rose AI paper parlay (user specified NOT personal bet).",
+      "created_at": "2026-09-10T00:31:12.582Z",
+      "updated_at": "2026-09-10T00:31:12.582Z",
+      "pnl_usd": -10.0,
+      "settled_at": "2026-09-10T04:15:00Z",
+      "notes": "Final score SEA 13, NE 10. Maye 127 yds, Darnold/Brown exited with injuries."
+    },
+    {
+      "pick_id": "fb0b03ae-e65a-4af4-be4e-8d705e7b5f15",
+      "expert_key": "platinum_rose_ai",
+      "sport": "NFL",
+      "season": 2026,
+      "pick_scope": "weekly",
+      "lifecycle": "official_paper",
+      "approval_state": "official_paper",
+      "portfolio_name": "in_season_weekly",
+      "bankroll_usd": 1000,
+      "unit_size_usd": 10,
+      "stake_units": 1,
+      "stake_usd": 10,
+      "stake_tier": "standard",
+      "confidence": 68,
+      "confidence_tier": null,
+      "market_type": "parlay",
+      "market": "same_game_parlay",
+      "selection": "Melbourne Primetime Shootout SGP (SF @ LAR)",
+      "bet_type": "parlay",
+      "side": null,
+      "team": "SF @ LAR",
+      "opponent": null,
+      "event_id": null,
+      "week": "Week 1",
+      "starts_at": "2026-09-11T00:15:00Z",
+      "book": "DraftKings / BetMGM",
+      "price": 645,
+      "line": null,
+      "observed_at": "2026-09-10T00:31:12.582Z",
+      "source_url": null,
+      "source_ref": "Platinum Rose AI Curated Parlay: Melbourne Primetime Shootout SGP (SF @ LAR)",
+      "status": "pending",
+      "result": "pending",
+      "payout_potential_usd": 74.5,
+      "legs": [
+        "Mike Evans: Anytime Touchdown Scorer (+175)",
+        "Christian McCaffrey: 61+ Rushing Yards (-115)",
+        "Kyle Juszczyk: Over 4.5 Receiving Yards (-120)"
+      ],
+      "detailed_legs": [
+        {
+          "player": "Mike Evans",
+          "team": "SF",
+          "selection": "Anytime Touchdown Scorer",
+          "price": "+175",
+          "analyst": "Mike Spector (BettingPros)"
+        },
+        {
+          "player": "Christian McCaffrey",
+          "team": "SF",
+          "selection": "61+ Rushing Yards",
+          "price": "-115",
+          "analyst": "Steve Krebs (BettingPros)"
+        },
+        {
+          "player": "Kyle Juszczyk",
+          "team": "SF",
+          "selection": "Over 4.5 Receiving Yards",
+          "price": "-120",
+          "analyst": "Zachary Cohen (VSiN)"
+        }
+      ],
+      "correlation_rating": "High Positive (+)",
+      "synergy_rationale": "High game total (48.5): 49ers offensive personnel distribution. Juszczyk clears 4.5 yards on a single flat pass, McCaffrey provides the ground engine, and Mike Evans capitalizes as the 6'5\" red-zone monster against Rams' smaller cornerbacks.",
+      "human_verification_required": false,
+      "human_verified_at": "2026-09-10T00:31:12.582Z",
+      "official_at": "2026-09-10T00:31:12.582Z",
+      "locked_at": "2026-09-10T00:31:12.582Z",
+      "audit_note": "Officially approved and tracked as Platinum Rose AI paper parlay (user specified NOT personal bet).",
+      "created_at": "2026-09-10T00:31:12.582Z",
+      "updated_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "pick_id": "93d84302-3ab7-4898-b8a1-6600ec2ea946",
+      "expert_key": "platinum_rose_ai",
+      "sport": "NFL",
+      "season": 2026,
+      "pick_scope": "weekly",
+      "lifecycle": "official_paper",
+      "approval_state": "official_paper",
+      "portfolio_name": "in_season_weekly",
+      "bankroll_usd": 1000,
+      "unit_size_usd": 10,
+      "stake_units": 1,
+      "stake_usd": 10,
+      "stake_tier": "standard",
+      "confidence": 65,
+      "confidence_tier": null,
+      "market_type": "parlay",
+      "market": "cross_game_parlay",
+      "selection": "Sunday Workhorse Touchdown Trio (Cross-Game Parlay)",
+      "bet_type": "parlay",
+      "side": null,
+      "team": "Multi-Team",
+      "opponent": "Multi-Opponent",
+      "event_id": null,
+      "week": "Week 1",
+      "starts_at": "2026-09-13T17:00:00Z",
+      "book": "Consensus (Shop Across Books)",
+      "price": 765,
+      "line": null,
+      "observed_at": "2026-09-10T00:31:12.582Z",
+      "source_url": null,
+      "source_ref": "Platinum Rose AI Curated Parlay: Sunday Workhorse Touchdown Trio (Cross-Game Parlay)",
+      "status": "pending",
+      "result": "pending",
+      "payout_potential_usd": 86.5,
+      "legs": [
+        "Rhamondre Stevenson: Anytime Touchdown Scorer (+100)",
+        "Mike Evans: Anytime Touchdown Scorer (+175)",
+        "James Cook: First Touchdown Scorer (+550)"
+      ],
+      "detailed_legs": [
+        {
+          "player": "Rhamondre Stevenson",
+          "team": "NE",
+          "selection": "Anytime Touchdown Scorer",
+          "price": "+100",
+          "analyst": "Richard Janvrin (BettingPros)"
+        },
+        {
+          "player": "Mike Evans",
+          "team": "SF",
+          "selection": "Anytime Touchdown Scorer",
+          "price": "+175",
+          "analyst": "Mike Spector (BettingPros)"
+        },
+        {
+          "player": "James Cook",
+          "team": "BUF",
+          "selection": "First Touchdown Scorer",
+          "price": "+550",
+          "analyst": "Adam Burke (VSiN)"
+        }
+      ],
+      "correlation_rating": "Independent Cross-Game (+EV Stacking)",
+      "synergy_rationale": "Anchors three undisputed goal-line alphas who monopolize their teams' inside-the-5 touches without competing against each other in the same game script.",
+      "human_verification_required": false,
+      "human_verified_at": "2026-09-10T00:31:12.582Z",
+      "official_at": "2026-09-10T00:31:12.582Z",
+      "locked_at": "2026-09-10T00:31:12.582Z",
+      "audit_note": "Officially approved and tracked as Platinum Rose AI paper parlay (user specified NOT personal bet).",
+      "created_at": "2026-09-10T00:31:12.582Z",
+      "updated_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "pick_id": "469160b3-e4a2-414b-929e-a937beb7f473",
+      "expert_key": "platinum_rose_ai",
+      "sport": "NFL",
+      "season": 2026,
+      "pick_scope": "weekly",
+      "lifecycle": "official_paper",
+      "approval_state": "official_paper",
+      "portfolio_name": "in_season_weekly",
+      "bankroll_usd": 1000,
+      "unit_size_usd": 10,
+      "stake_units": 1,
+      "stake_usd": 10,
+      "stake_tier": "standard",
+      "confidence": 65,
+      "confidence_tier": null,
+      "market_type": "parlay",
+      "market": "cross_game_parlay",
+      "selection": "Safe Floor Reception & Yardage 3-Leg Parlay",
+      "bet_type": "parlay",
+      "side": null,
+      "team": "Multi-Team",
+      "opponent": "Multi-Opponent",
+      "event_id": null,
+      "week": "Week 1",
+      "starts_at": "2026-09-13T17:00:00Z",
+      "book": "DraftKings / FanDuel",
+      "price": 715,
+      "line": null,
+      "observed_at": "2026-09-10T00:31:12.582Z",
+      "source_url": null,
+      "source_ref": "Platinum Rose AI Curated Parlay: Safe Floor Reception & Yardage 3-Leg Parlay",
+      "status": "pending",
+      "result": "pending",
+      "payout_potential_usd": 81.5,
+      "legs": [
+        "Jadarian Price: Over 1.5 Receptions (+124)",
+        "Bucky Irving: Over 14.5 Rushing Attempts (-103)",
+        "Alec Pierce: Over 44.5 Receiving Yards (-113)"
+      ],
+      "detailed_legs": [
+        {
+          "player": "Jadarian Price",
+          "team": "SEA",
+          "selection": "Over 1.5 Receptions",
+          "price": "+124",
+          "analyst": "Travis Pulver (BettingPros)"
+        },
+        {
+          "player": "Bucky Irving",
+          "team": "TB",
+          "selection": "Over 14.5 Rushing Attempts",
+          "price": "-103",
+          "analyst": "Zachary Cohen (VSiN)"
+        },
+        {
+          "player": "Alec Pierce",
+          "team": "IND",
+          "selection": "Over 44.5 Receiving Yards",
+          "price": "-113",
+          "analyst": "Zachary Cohen (VSiN)"
+        }
+      ],
+      "correlation_rating": "Volume & Metric Edge Stacking",
+      "synergy_rationale": "Combines three plays backed by mathematical models (OptaAI 15.53 carries for Irving, OptaAI 72.60 receiving yards for Pierce, and Shanahan-scheme backfield target funnel for Price).",
+      "human_verification_required": false,
+      "human_verified_at": "2026-09-10T00:31:12.582Z",
+      "official_at": "2026-09-10T00:31:12.582Z",
+      "locked_at": "2026-09-10T00:31:12.582Z",
+      "audit_note": "Officially approved and tracked as Platinum Rose AI paper parlay (user specified NOT personal bet).",
+      "created_at": "2026-09-10T00:31:12.582Z",
+      "updated_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "pick_id": "295a6da0-5f63-4091-a1fb-86f9a4c5be92",
+      "expert_key": "platinum_rose_ai",
+      "sport": "NFL",
+      "season": 2026,
+      "pick_scope": "weekly",
+      "lifecycle": "official_paper",
+      "approval_state": "official_paper",
+      "portfolio_name": "in_season_weekly",
+      "bankroll_usd": 1000,
+      "unit_size_usd": 10,
+      "stake_units": 7,
+      "stake_usd": 70,
+      "stake_tier": "core",
+      "confidence": 60,
+      "confidence_tier": null,
+      "market_type": "round_robin",
+      "market": "round_robin_4_of_8",
+      "selection": "Week 2 Master Round Robin (8 legs, 4-Team Parlays, 70 Combos x $1)",
+      "bet_type": "round_robin",
+      "side": null,
+      "team": "Multi-Team",
+      "opponent": "Multi-Opponent",
+      "event_id": null,
+      "week": "Week 2",
+      "starts_at": "2026-09-20T17:00:00Z",
+      "book": "Bookmaker (BKR)",
+      "price": null,
+      "line": null,
+      "observed_at": "2026-09-20T05:55:25.000Z",
+      "source_url": null,
+      "source_ref": "Platinum Rose AI Week 2 card v2 Slot 1, Option A (IND +6 -> ARI +4), priced on BKR 09-20 lines (data/odds/BKR_current_lines_0920)",
+      "status": "pending",
+      "result": "pending",
+      "payout_potential_usd": 986.95,
+      "legs": [
+        "Denver Broncos -3 (+101)",
+        "Eagles @ Titans Under 39 (-103)",
+        "Tampa Bay Buccaneers -8.5 (-102)",
+        "Minnesota Vikings +5 (-116)",
+        "New York Jets +3 (-102)",
+        "Miami Dolphins +13 (-104)",
+        "Arizona Cardinals +4 (-113)",
+        "Los Angeles Rams -6.5 (-117)"
+      ],
+      "detailed_legs": [
+        {
+          "team": "DEN",
+          "game": "JAX @ DEN",
+          "selection": "Denver Broncos -3",
+          "price": "+101",
+          "kickoff_utc": "2026-09-20T20:05:00Z",
+          "grade": "A-",
+          "rationale": "11 vs 4 expert consensus; standalone"
+        },
+        {
+          "team": "PHI/TEN",
+          "game": "PHI @ TEN",
+          "selection": "Eagles @ Titans Under 39",
+          "price": "-103",
+          "kickoff_utc": "2026-09-20T17:00:00Z",
+          "grade": "B",
+          "rationale": "Consensus best total"
+        },
+        {
+          "team": "TB",
+          "game": "CLE @ TB",
+          "selection": "Tampa Bay Buccaneers -8.5",
+          "price": "-102",
+          "kickoff_utc": "2026-09-20T17:00:00Z",
+          "grade": "B",
+          "rationale": "Survivor consensus; teaser leg"
+        },
+        {
+          "team": "MIN",
+          "game": "MIN @ CHI",
+          "selection": "Minnesota Vikings +5",
+          "price": "-116",
+          "kickoff_utc": "2026-09-20T17:00:00Z",
+          "grade": "A-",
+          "rationale": "Media consensus; MIN->CHI HIGH secondary matchup"
+        },
+        {
+          "team": "NYJ",
+          "game": "GB @ NYJ",
+          "selection": "New York Jets +3",
+          "price": "-102",
+          "kickoff_utc": "2026-09-20T17:00:00Z",
+          "grade": "B+",
+          "rationale": "SuperContest #3"
+        },
+        {
+          "team": "MIA",
+          "game": "MIA @ SF",
+          "selection": "Miami Dolphins +13",
+          "price": "-104",
+          "kickoff_utc": "2026-09-20T20:25:00Z",
+          "grade": "B",
+          "rationale": "Big-dog consensus; shop +13.5"
+        },
+        {
+          "team": "ARI",
+          "game": "SEA @ ARI",
+          "selection": "Arizona Cardinals +4",
+          "price": "-113",
+          "kickoff_utc": "2026-09-20T20:25:00Z",
+          "grade": "Pass (contest) / RR swap for IND",
+          "rationale": "Option A swap: replaces IND +6 (lost the hook)"
+        },
+        {
+          "team": "LAR",
+          "game": "NYG @ LAR",
+          "selection": "Los Angeles Rams -6.5",
+          "price": "-117",
+          "kickoff_utc": "2026-09-22T00:15:00Z",
+          "grade": "B+",
+          "rationale": "MNF last leg; hedge NYG Monday"
+        }
+      ],
+      "combo_payout_range_x": [
+        12.77,
+        15.54
+      ],
+      "human_verification_required": false,
+      "human_verified_at": "2026-09-20T05:55:25.000Z",
+      "official_at": "2026-09-20T05:55:25.000Z",
+      "locked_at": "2026-09-20T05:55:25.000Z",
+      "audit_note": "Official AI benchmark card for the Week 2 Master RR, logged at Andy's request so his placed version can be tracked against it. Paper only; not a personal bet.",
+      "created_at": "2026-09-20T05:55:25.000Z",
+      "updated_at": "2026-09-20T05:55:25.000Z"
     }
   ],
   "events": [
@@ -1073,6 +1575,257 @@
         "stake_units": 0.5
       },
       "created_at": "2026-07-24T04:54:34.853Z"
+    },
+    {
+      "event_id": "c44c415d-252d-47b5-ad4c-65253887a4c1",
+      "pick_id": "ca1c9a65-1915-4b65-9623-a3cfb971b543",
+      "event_type": "proposal_created",
+      "from_state": null,
+      "to_state": "proposal",
+      "note": "Curated by Platinum Rose AI from verified Week 1 player prop research articles.",
+      "payload": {
+        "selection": "Patriots Aerial Volume SGP (Super Bowl Rematch Air Show)",
+        "market_type": "parlay",
+        "estimated_odds": "+785",
+        "stake_units": 1
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "25b4e0a3-296b-492b-beb1-4d2f60fb7a7c",
+      "pick_id": "ca1c9a65-1915-4b65-9623-a3cfb971b543",
+      "event_type": "human_verified",
+      "from_state": "proposal",
+      "to_state": "human_verified",
+      "note": "Verified and approved as Platinum Rose AI paper parlay.",
+      "payload": {
+        "source_ref": "Platinum Rose AI Curated Parlay: Patriots Aerial Volume SGP (Super Bowl Rematch Air Show)",
+        "observed_at": "2026-09-10T00:31:12.582Z"
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "9cad6e2c-fc89-439f-b743-5fb666286aef",
+      "pick_id": "ca1c9a65-1915-4b65-9623-a3cfb971b543",
+      "event_type": "official_locked",
+      "from_state": "human_verified",
+      "to_state": "official_paper",
+      "note": "Officially locked into Platinum Rose AI 2026 weekly portfolio ledger.",
+      "payload": {
+        "selection": "Patriots Aerial Volume SGP (Super Bowl Rematch Air Show)",
+        "price": 785,
+        "stake_units": 1
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "0d6f74d5-bb51-4cb4-8d63-079c85f7a76e",
+      "pick_id": "09354e7d-e5ad-4946-9b8a-e332fc75bdde",
+      "event_type": "proposal_created",
+      "from_state": null,
+      "to_state": "proposal",
+      "note": "Curated by Platinum Rose AI from verified Week 1 player prop research articles.",
+      "payload": {
+        "selection": "Seahawks Dynamic Offense SGP (Lumen Field Fast Start)",
+        "market_type": "parlay",
+        "estimated_odds": "+810",
+        "stake_units": 1
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "99ece58a-b251-47f9-b121-115c3df10d1b",
+      "pick_id": "09354e7d-e5ad-4946-9b8a-e332fc75bdde",
+      "event_type": "human_verified",
+      "from_state": "proposal",
+      "to_state": "human_verified",
+      "note": "Verified and approved as Platinum Rose AI paper parlay.",
+      "payload": {
+        "source_ref": "Platinum Rose AI Curated Parlay: Seahawks Dynamic Offense SGP (Lumen Field Fast Start)",
+        "observed_at": "2026-09-10T00:31:12.582Z"
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "00250b21-6056-4cb8-886e-a0ed79fecae0",
+      "pick_id": "09354e7d-e5ad-4946-9b8a-e332fc75bdde",
+      "event_type": "official_locked",
+      "from_state": "human_verified",
+      "to_state": "official_paper",
+      "note": "Officially locked into Platinum Rose AI 2026 weekly portfolio ledger.",
+      "payload": {
+        "selection": "Seahawks Dynamic Offense SGP (Lumen Field Fast Start)",
+        "price": 810,
+        "stake_units": 1
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "0baf1845-850e-45eb-a947-917b97d84a2c",
+      "pick_id": "fb0b03ae-e65a-4af4-be4e-8d705e7b5f15",
+      "event_type": "proposal_created",
+      "from_state": null,
+      "to_state": "proposal",
+      "note": "Curated by Platinum Rose AI from verified Week 1 player prop research articles.",
+      "payload": {
+        "selection": "Melbourne Primetime Shootout SGP (SF @ LAR)",
+        "market_type": "parlay",
+        "estimated_odds": "+645",
+        "stake_units": 1
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "57d880a7-a605-4744-9d41-bc5a50c32fb5",
+      "pick_id": "fb0b03ae-e65a-4af4-be4e-8d705e7b5f15",
+      "event_type": "human_verified",
+      "from_state": "proposal",
+      "to_state": "human_verified",
+      "note": "Verified and approved as Platinum Rose AI paper parlay.",
+      "payload": {
+        "source_ref": "Platinum Rose AI Curated Parlay: Melbourne Primetime Shootout SGP (SF @ LAR)",
+        "observed_at": "2026-09-10T00:31:12.582Z"
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "49903399-da18-4d94-9862-7e356d511223",
+      "pick_id": "fb0b03ae-e65a-4af4-be4e-8d705e7b5f15",
+      "event_type": "official_locked",
+      "from_state": "human_verified",
+      "to_state": "official_paper",
+      "note": "Officially locked into Platinum Rose AI 2026 weekly portfolio ledger.",
+      "payload": {
+        "selection": "Melbourne Primetime Shootout SGP (SF @ LAR)",
+        "price": 645,
+        "stake_units": 1
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "51ec042e-cd67-4cf3-9471-ee6c1d3b8d34",
+      "pick_id": "93d84302-3ab7-4898-b8a1-6600ec2ea946",
+      "event_type": "proposal_created",
+      "from_state": null,
+      "to_state": "proposal",
+      "note": "Curated by Platinum Rose AI from verified Week 1 player prop research articles.",
+      "payload": {
+        "selection": "Sunday Workhorse Touchdown Trio (Cross-Game Parlay)",
+        "market_type": "parlay",
+        "estimated_odds": "+765",
+        "stake_units": 1
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "0147b0e2-c15c-480c-92b7-9956a1f393a0",
+      "pick_id": "93d84302-3ab7-4898-b8a1-6600ec2ea946",
+      "event_type": "human_verified",
+      "from_state": "proposal",
+      "to_state": "human_verified",
+      "note": "Verified and approved as Platinum Rose AI paper parlay.",
+      "payload": {
+        "source_ref": "Platinum Rose AI Curated Parlay: Sunday Workhorse Touchdown Trio (Cross-Game Parlay)",
+        "observed_at": "2026-09-10T00:31:12.582Z"
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "3b510d29-2b17-4f8f-b18a-af656d628205",
+      "pick_id": "93d84302-3ab7-4898-b8a1-6600ec2ea946",
+      "event_type": "official_locked",
+      "from_state": "human_verified",
+      "to_state": "official_paper",
+      "note": "Officially locked into Platinum Rose AI 2026 weekly portfolio ledger.",
+      "payload": {
+        "selection": "Sunday Workhorse Touchdown Trio (Cross-Game Parlay)",
+        "price": 765,
+        "stake_units": 1
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "7a9804d8-8681-4812-8b0e-59a78d9d83e0",
+      "pick_id": "469160b3-e4a2-414b-929e-a937beb7f473",
+      "event_type": "proposal_created",
+      "from_state": null,
+      "to_state": "proposal",
+      "note": "Curated by Platinum Rose AI from verified Week 1 player prop research articles.",
+      "payload": {
+        "selection": "Safe Floor Reception & Yardage 3-Leg Parlay",
+        "market_type": "parlay",
+        "estimated_odds": "+715",
+        "stake_units": 1
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "f6646f8b-7c15-4be0-b76d-0bb2a97211e8",
+      "pick_id": "469160b3-e4a2-414b-929e-a937beb7f473",
+      "event_type": "human_verified",
+      "from_state": "proposal",
+      "to_state": "human_verified",
+      "note": "Verified and approved as Platinum Rose AI paper parlay.",
+      "payload": {
+        "source_ref": "Platinum Rose AI Curated Parlay: Safe Floor Reception & Yardage 3-Leg Parlay",
+        "observed_at": "2026-09-10T00:31:12.582Z"
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "befb3f4d-429a-4e56-8a1b-6c2fac600fcb",
+      "pick_id": "469160b3-e4a2-414b-929e-a937beb7f473",
+      "event_type": "official_locked",
+      "from_state": "human_verified",
+      "to_state": "official_paper",
+      "note": "Officially locked into Platinum Rose AI 2026 weekly portfolio ledger.",
+      "payload": {
+        "selection": "Safe Floor Reception & Yardage 3-Leg Parlay",
+        "price": 715,
+        "stake_units": 1
+      },
+      "created_at": "2026-09-10T00:31:12.582Z"
+    },
+    {
+      "event_id": "0b0a0302-9692-421b-80d0-709a0dc839a8",
+      "pick_id": "295a6da0-5f63-4091-a1fb-86f9a4c5be92",
+      "event_type": "proposal_created",
+      "from_state": null,
+      "to_state": "proposal",
+      "note": "Curated by Platinum Rose AI from the Week 2 card (Slot 1, Option A).",
+      "payload": {
+        "selection": "Week 2 Master Round Robin (8 legs, 4-Team Parlays, 70 Combos x $1)",
+        "market_type": "round_robin",
+        "stake_units": 7
+      },
+      "created_at": "2026-09-20T05:55:25.000Z"
+    },
+    {
+      "event_id": "7827c162-6c31-41e7-ba5f-4b8b5627b95f",
+      "pick_id": "295a6da0-5f63-4091-a1fb-86f9a4c5be92",
+      "event_type": "human_verified",
+      "from_state": "proposal",
+      "to_state": "human_verified",
+      "note": "Andy asked to log this as the official AI Master RR card.",
+      "payload": {
+        "source_ref": "Platinum Rose AI Week 2 card v2 Slot 1, Option A (IND +6 -> ARI +4), priced on BKR 09-20 lines (data/odds/BKR_current_lines_0920)",
+        "observed_at": "2026-09-20T05:55:25.000Z"
+      },
+      "created_at": "2026-09-20T05:55:25.000Z"
+    },
+    {
+      "event_id": "7c97f687-b5d1-4943-bd0f-980acf24f975",
+      "pick_id": "295a6da0-5f63-4091-a1fb-86f9a4c5be92",
+      "event_type": "official_locked",
+      "from_state": "human_verified",
+      "to_state": "official_paper",
+      "note": "Officially locked into Platinum Rose AI 2026 weekly portfolio ledger.",
+      "payload": {
+        "selection": "Week 2 Master Round Robin (8 legs, 4-Team Parlays, 70 Combos x $1)",
+        "price": null,
+        "stake_units": 7
+      },
+      "created_at": "2026-09-20T05:55:25.000Z"
     }
   ]
 }

@@ -8,39 +8,30 @@ Audio: https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/traffic.omny.fm/d/cli
 
 Transcript chars: 61728
 Speaker turns: 127
-Speaker labels: Guest (Speaker A), Guest (Speaker B), Andrew Erickson (Speaker C)
+Speaker labels: Guest (Speaker B), Andrew Erickson (Speaker C)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Guest
 - Speaker C: Andrew Erickson
 
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+
 ## Existing Host Summary Rows
 
-- Guest (gpt-4o, unknown) futures=16
+- Andrew Erickson (gpt-4o, host_map) futures=7
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:02]
-
-This is an iHeart podcast.
 
 ### Guest (Speaker B) [0:02-0:08]
 
 Guaranteed Human Amazon Health AI presents painful thoughts.
 
-### Guest (Speaker A) [0:09-0:13]
-
-Why did I search the Internet for answers to my cold sore problem?
-
 ### Andrew Erickson (Speaker C) [0:13-0:15]
 
 Now I'm stuck down a rabbit hole
-
-### Guest (Speaker A) [0:15-0:20]
-
-filled with images of alarmingly graphic sores in various stages of ooze.
 
 ### Andrew Erickson (Speaker C) [0:22-0:26]
 
@@ -153,10 +144,6 @@ Yeah, don't hate that at all. They've of course added some questionable receiver
 ### Guest (Speaker B) [18:41-20:24]
 
 I'm taking Jir Gibbs. That's the bet that I like the most on the board. 7 to 1, 8 to 1, 9 to 1. Somewhere in that particular range. Six games without Dave Montgomery averaged over 110 rushing yards per game. We say tongue in cheek, but essentially Jameer gives turns into the daily and Tomlinson from a production standpoint when he plays without Dave Montgomery. And I think that this is the year the Lions just unleash him on defenses, he can get there on big plays. So he doesn't even necessarily need to see 200 or excuse me, 300 type of carry he had in 2024, 1400 rushing yards on 250 carries. So imagine what he could actually do if, hey, we're going to actually give Jamir Gibbs 300 carries this season. You alluded to it when you're talking about Jared Goff in terms of the passing efficiency against the league's easiest schedule. That to me screams hey, they're going to get chances to be able to run the football. And I know that they may want to look at Gibbs as, okay, maybe a player that we need to ease in the second halves of games, but they got Isaiah Pacheco there. That's the only other running back and there's a potential that Pacheco's is not going to be ever been the same guy that he was a couple years ago before all these injuries really kind of derailed his explosiveness. So I think that Gibbs just is set up so well here. I I would expect without Montgomery, he's going to set a career high in carries and to me that makes him so alive, especially with the fact that he may not even need to get 300 carries to leave the NFL in rushing earth because he is so efficient to because he's going to have massive lanes and a high powered offense and he's going to be having leads to get opportunities in the second halves of games. So for me it is a little chalky, but I'm going with the guy that I think should be the number one pick in fantasy football drafts, Jameer Gibbs.
-
-### Guest (Speaker A) [20:24-21:22]
-
-Summer is here at Orderly Meds we know this time is a reminder that life is full of new beginnings. Whether you're celebrating the nice weather, starting a new chapter, planning a vacation, or simply looking ahead to what's next, this season can be the perfect time to invest in yourself and your health. If you've struggled with weight loss and are curious about GLP1 medications, orderly meds can help you learn about your options. Through a simple virtual process, you can connect with licensed medical professionals who can determine whether treatment may be appropriate for you. Getting started is fast, convenient, and happens online from the comfort of home. This summer, consider a new approach to feeling your best. Visit orderly medicine meds.com podcast to learn more. That's orderlymeds.com podcast orderlymeds.com podcast because every new season is an opportunity to take the next step forward, Compounded medications are not FDA approved, eligibility required and determined by a licensed provider. Individual results may vary. See website for details.
 
 ### Guest (Speaker B) [21:24-21:37]
 
@@ -350,10 +337,6 @@ I can't remember his last screaming through their headset. Oh, my God.
 
 Bullock. What is it? Mark Bullock.
 
-### Guest (Speaker A) [42:46-42:46]
-
-Bulger.
-
 ### Andrew Erickson (Speaker C) [42:47-42:48]
 
 Say it one more time.
@@ -478,25 +461,13 @@ All.
 
 Thanks for listening to the Betting Pros Podcast. If you love the show, the best free way to support us is by leaving a positive review on Apple Podcasts or Spotify. Follow us on X and TikTok, eddingpros and Instagram eddingprosnfl. Also, subscribe to our YouTube channel at YouTube.com bettingpros.
 
-### Guest (Speaker A) [55:00-55:00]
-
-Foreign.
-
 ### Andrew Erickson (Speaker C) [55:05-55:33]
 
 I'm U.S. transportation Secretary Sean Duffy. We all seem to be in a rush these days, from work to driving our kids around. But when you're behind the wheel, please do not speed. A few minutes saved by going faster is never worth the risk. So follow the speed limit, enjoy the drive, maybe bring some snacks for the kids. And know that along the way you're getting quality time with your family. Paid for by nhtsa.
 
-### Guest (Speaker A) [55:35-56:04]
-
-Grainger knows when you're a procurement manager for an office park, you're not managing one building, you're managing all of them. And to stay ahead, you need to see through walls and around corners. Lights about to fail, Filters ready to clog H Vac on its last leg. If you wait until something breaks, you're already behind. Count on Grainger for quality products, easy reordering and 24. 7 support. Call 1-800-GRAINGER click grainger.com or just stop by Grainger for the ones who get it done.
-
 ### Guest (Speaker B) [56:06-56:08]
 
 The game started. Goat your dad.
-
-### Guest (Speaker A) [56:08-56:08]
-
-I'm on it.
 
 ### Guest (Speaker B) [56:08-56:19]
 
@@ -525,7 +496,3 @@ US and primary usage must occur in our network.
 ### Guest (Speaker B) [56:31-56:35]
 
 Best Based on analysis by Ooklo Speed Test intelligence data to H2025.
-
-### Guest (Speaker A) [56:35-56:38]
-
-This is an iHeart podcast. Guaranteed Human.

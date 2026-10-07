@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "RFI XVI draft 2023"
-created: "2026-10-06T05:59:42.991Z"
-modified: "2026-10-06T05:59:42.991Z"
+created: "2026-10-06T14:10:38.775Z"
+modified: "2026-10-06T14:10:38.775Z"
 season: 2023
 type: "fantasy-draft"
 league: "RFI XVI"

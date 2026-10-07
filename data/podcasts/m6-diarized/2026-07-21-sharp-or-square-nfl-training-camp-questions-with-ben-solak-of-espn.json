@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-07-23T18:54:09.089Z",
+  "exported_at": "2026-09-19T07:57:40.999Z",
   "feed": {
     "id": "0d5a3fa5-b1e8-41a1-9b8d-1f523536c757",
     "name": "Sharp or Square",
@@ -15,6 +15,56 @@
     "audio_url": "https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/clips/e73c998e-6e60-432f-8610-ae210140c5b1/291fe8ed-f80d-4107-9ee1-b34c015266d0/26c7af54-af14-4eb2-b32e-b48e0108a077/audio.mp3?utm_source=Podcast&amp;in_playlist=51f38aeb-0341-43f7-a21b-b34c01526b07",
     "duration_secs": 3238,
     "status": "done"
+  },
+  "episode_metadata": {
+    "episode_id": "e7cd6499-c58a-41d2-b183-1faa7558dd9f",
+    "title": "NFL TRAINING CAMP QUESTIONS with Ben Solak of ESPN",
+    "source": "youtube",
+    "source_url": "https://www.youtube.com/watch?v=AMS0ckHohNU",
+    "expected_participants": [
+      "Chad Millman",
+      "Simon Hunter",
+      "Ben Solak"
+    ],
+    "summary": "Ben joins hosts Chad Millman and professional gambler Simon Hunter to discuss NFL training camp questions, defensive trends, the Browns, Patriots, Chiefs, Giants, Ravens, NFC North, and Caleb Williams.",
+    "chapters": [
+      {
+        "time": "0:00:00",
+        "title": "START"
+      },
+      {
+        "time": "0:02:15",
+        "title": "GUEST BEN SOLAK OF ESPN"
+      },
+      {
+        "time": "0:06:50",
+        "title": "NFL DEFENSIVE TRENDS 2026"
+      },
+      {
+        "time": "0:17:06",
+        "title": "CLEVELAND BROWNS"
+      },
+      {
+        "time": "0:24:00",
+        "title": "NEW ENGLAND PATRIOTS"
+      },
+      {
+        "time": "0:38:00",
+        "title": "KANSAS CITY CHIEFS"
+      },
+      {
+        "time": "0:47:30",
+        "title": "NEW YORK GIANTS"
+      },
+      {
+        "time": "0:48:30",
+        "title": "BALTIMORE RAVENS"
+      },
+      {
+        "time": "0:49:30",
+        "title": "NFC NORTH & CALEB WILLIAMS"
+      }
+    ]
   },
   "transcript": {
     "episode_id": "e7cd6499-c58a-41d2-b183-1faa7558dd9f",
@@ -924,47 +974,36 @@
         {
           "host": "Chad Millman",
           "lean": "favor",
-          "quote": "Rams are odds on favorites. And then it's going to be Seattle and then it's Buffalo and then it's Kansas City and it's going to be Philadelphia and it's going to be all the same contenders.",
+          "quote": "Rams are odds on favorites. And then it's going to be Seattle and then it's Buffalo and then it's Kansas City and it's going to be Philadelphia.",
           "subject": "Rams",
           "confidence": 65,
           "prediction": "Rams are odds on favorites",
           "stats_cited": [],
+          "action_timing": null,
           "subject_market": "NFC_West",
-          "source_timestamp": "17:36"
+          "extraction_type": "bet",
+          "source_timestamp": "17:36",
+          "trigger_condition": null,
+          "betting_implication": null
         },
         {
           "host": "Chad Millman",
           "lean": "under",
-          "quote": "I'm a big fade on New England this year. There's still. Their win total is nine and a half.",
-          "subject": "Patriots",
+          "quote": "I'm a big fade on New England this year. Their win total is nine and a half. And it's juice to the over.",
+          "subject": "New England Patriots",
           "confidence": 65,
           "prediction": "I'm a big fade on New England this year.",
           "stats_cited": [
-            "win total is nine and a half",
-            "juice to the over",
+            "Their win total is nine and a half",
+            "It's juice to the over",
             "first place schedule"
           ],
+          "action_timing": "bet_now",
           "subject_market": "AFC_East_Win_Total",
-          "source_timestamp": "30:03"
-        }
-      ]
-    },
-    {
-      "episode_id": "e7cd6499-c58a-41d2-b183-1faa7558dd9f",
-      "host": "Guest",
-      "model": "gpt-4o",
-      "attribution_method": "unknown",
-      "futures": [
-        {
-          "host": "Guest",
-          "lean": "favor",
-          "quote": "Our whole view is they're 201 for Super Bowl. If Watson can find what you just talked about, it's what we think is totally gone.",
-          "subject": "Browns",
-          "confidence": 65,
-          "prediction": "they're 201 for Super Bowl",
-          "stats_cited": [],
-          "subject_market": "Super_Bowl",
-          "source_timestamp": "22:15"
+          "extraction_type": "bet",
+          "source_timestamp": "30:03",
+          "trigger_condition": null,
+          "betting_implication": null
         }
       ]
     },
@@ -977,76 +1016,211 @@
         {
           "host": "Simon Hunter",
           "lean": "over",
-          "quote": "I think the Patriots are like a ten win team, so. Okay. I would want to be there on under nine and a half.",
-          "subject": "Patriots",
+          "quote": "Remember they were 6 win team before the season. Me and you took the Rams over six wins.",
+          "subject": "Rams",
           "confidence": 65,
-          "prediction": "I think the Patriots are like a ten win team.",
-          "stats_cited": [
-            "preseason projections have it like 12th",
-            "talent, all three levels"
-          ],
-          "subject_market": "AFC_East_Win_Total",
-          "source_timestamp": "31:04"
-        },
-        {
-          "host": "Simon Hunter",
-          "lean": "favor",
-          "quote": "I think Drake May wins the MVP last year.",
-          "subject": "Drake May",
-          "confidence": 65,
-          "prediction": "I think Drake May wins the MVP last year.",
-          "stats_cited": [
-            "May missed MVP by one first place vote to Stafford"
-          ],
-          "subject_market": "MVP",
-          "source_timestamp": "35:08"
-        },
-        {
-          "host": "Simon Hunter",
-          "lean": "favor",
-          "quote": "This is the cheapest we've been able to buy Pat stock since his first year as a full on starter.",
-          "subject": "Chiefs",
-          "confidence": 65,
-          "prediction": "It's definitely time to shift your view to the Chiefs.",
+          "prediction": "Rams over six wins",
           "stats_cited": [],
+          "action_timing": null,
+          "subject_market": "NFC_West_Win_Total",
+          "extraction_type": "bet",
+          "source_timestamp": "13:41",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Simon Hunter",
+          "lean": "favor",
+          "quote": "It's his award to win this year GM of the year. So it's on the table for this team.",
+          "subject": "Les Snead",
+          "confidence": 65,
+          "prediction": "It's his award to win this year GM of the year.",
+          "stats_cited": [],
+          "action_timing": null,
+          "subject_market": "GM_of_the_Year",
+          "extraction_type": "bet",
+          "source_timestamp": "15:29",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Simon Hunter",
+          "lean": "favor",
+          "quote": "Our whole view is they're 201 for Super Bowl. If Watson can find what you just talked about, it's what we think is totally gone.",
+          "subject": "Browns",
+          "confidence": 65,
+          "prediction": "Our whole view is they're 201 for Super Bowl.",
+          "stats_cited": [],
+          "action_timing": "bet_now",
           "subject_market": "Super_Bowl",
-          "source_timestamp": "48:33"
+          "extraction_type": "bet",
+          "source_timestamp": "22:15",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Simon Hunter",
+          "lean": "favor",
+          "quote": "If you come to me, you say, hey, you want to bet Eagles to beat the Browns at 301, I'm gonna take that bet.",
+          "subject": "Browns",
+          "confidence": 65,
+          "prediction": "If you come to me, you say, hey, you want to bet Eagles to beat the Browns at 301, I'm gonna take that bet.",
+          "stats_cited": [],
+          "action_timing": "bet_now",
+          "subject_market": "Super_Bowl",
+          "extraction_type": "bet",
+          "source_timestamp": "22:44",
+          "trigger_condition": null,
+          "betting_implication": null
         },
         {
           "host": "Simon Hunter",
           "lean": "neutral",
-          "quote": "Am I going to back my doubt with a bet on the under for the Chiefs win total? No. I'm not dumb.",
-          "subject": "Chiefs",
+          "quote": "Yes, Chad, I think we're a year or two early here, but it's like our Carolina Panthers love.",
+          "subject": "Browns",
           "confidence": 65,
-          "prediction": "No bet on the under for the Chiefs win total",
-          "stats_cited": [
-            "lowest explosive run rate on running back carries last year of the century",
-            "third lowest of the century in 2024"
-          ],
-          "subject_market": "AFC_West_Win_Total",
-          "source_timestamp": "52:14"
+          "prediction": "Yes, Chad, I think we're a year or two early here.",
+          "stats_cited": [],
+          "action_timing": "monitor",
+          "subject_market": "Super_Bowl",
+          "extraction_type": "timing_conjecture",
+          "source_timestamp": "24:07",
+          "trigger_condition": "Browns improve over next year or two",
+          "betting_implication": "consider betting Browns futures if they show improvement"
         },
         {
           "host": "Simon Hunter",
+          "lean": "over",
+          "quote": "They have all the elements to be a 13 win team, like a weak division, ton of talent offensively, defensively.",
+          "subject": "New England Patriots",
+          "confidence": 65,
+          "prediction": "They have all the elements to be a 13 win team.",
+          "stats_cited": [
+            "weak division",
+            "ton of talent offensively, defensively"
+          ],
+          "action_timing": "bet_now",
+          "subject_market": "AFC_East_Win_Total",
+          "extraction_type": "bet",
+          "source_timestamp": "35:08",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Simon Hunter",
+          "lean": "favor",
+          "quote": "this is the cheapest we don't we've been able to buy Pat stock so since his first year as a full on starter",
+          "subject": "Chiefs",
+          "confidence": 65,
+          "prediction": "this is the cheapest we've been able to buy Pat stock since his first year as a full on starter",
+          "stats_cited": [],
+          "action_timing": "bet_now",
+          "subject_market": "Super_Bowl",
+          "extraction_type": "bet",
+          "source_timestamp": "48:33",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Simon Hunter",
+          "lean": "favor",
+          "quote": "isn't this when we're supposed to buy on the Chiefs?",
+          "subject": "Chiefs",
+          "confidence": 65,
+          "prediction": "buy on the Chiefs",
+          "stats_cited": [],
+          "action_timing": "bet_now",
+          "subject_market": "Super_Bowl",
+          "extraction_type": "bet",
+          "source_timestamp": "48:33",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Simon Hunter",
+          "lean": "neutral",
+          "quote": "them starting one and three. That's a real possibility.",
+          "subject": "Chiefs",
+          "confidence": 65,
+          "prediction": "Chiefs might start 1-3",
+          "stats_cited": [],
+          "action_timing": "monitor",
+          "subject_market": "AFC_West_Win_Total",
+          "extraction_type": "timing_conjecture",
+          "source_timestamp": "55:07",
+          "trigger_condition": "Chiefs start 1-3",
+          "betting_implication": "wait for a better Chiefs futures entry if the market overreacts"
+        }
+      ]
+    },
+    {
+      "episode_id": "e7cd6499-c58a-41d2-b183-1faa7558dd9f",
+      "host": "Ben Solak",
+      "model": "gpt-4o",
+      "attribution_method": "host_map",
+      "futures": [
+        {
+          "host": "Ben Solak",
+          "lean": "over",
+          "quote": "I think the Patriots are like a ten win team.",
+          "subject": "New England Patriots",
+          "confidence": 65,
+          "prediction": "I think the Patriots are like a ten win team.",
+          "stats_cited": [
+            "schedule isn't actually that hard",
+            "talent, all three levels"
+          ],
+          "action_timing": "bet_now",
+          "subject_market": "AFC_East_Win_Total",
+          "extraction_type": "bet",
+          "source_timestamp": "31:04",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Ben Solak",
+          "lean": "over",
+          "quote": "Am I going to back my doubt with a bet on the under for the Chiefs win total? No.",
+          "subject": "Chiefs",
+          "confidence": 65,
+          "prediction": "not betting the under for the Chiefs win total",
+          "stats_cited": [],
+          "action_timing": "avoid",
+          "subject_market": "AFC_West_Win_Total",
+          "extraction_type": "bet",
+          "source_timestamp": "52:14",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Ben Solak",
           "lean": "favor",
           "quote": "I'm on the Vikings at 5 to 1 because they're the bottom of the group.",
           "subject": "Vikings",
           "confidence": 65,
           "prediction": "I'm on the Vikings at 5 to 1 because they're the bottom of the group.",
           "stats_cited": [],
+          "action_timing": "bet_now",
           "subject_market": "NFC_North",
-          "source_timestamp": "59:15"
+          "extraction_type": "bet",
+          "source_timestamp": "59:15",
+          "trigger_condition": null,
+          "betting_implication": null
         },
         {
-          "host": "Simon Hunter",
+          "host": "Ben Solak",
           "lean": "against",
-          "quote": "I want to be fading the Packers this year.",
+          "quote": "I'm in a spot where I want to be fading the Packers this year.",
           "subject": "Packers",
           "confidence": 65,
           "prediction": "I want to be fading the Packers this year.",
           "stats_cited": [],
+          "action_timing": "bet_now",
           "subject_market": "NFC_North",
-          "source_timestamp": "59:15"
+          "extraction_type": "bet",
+          "source_timestamp": "59:15",
+          "trigger_condition": null,
+          "betting_implication": null
         }
       ]
     }

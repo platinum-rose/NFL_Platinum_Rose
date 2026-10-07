@@ -20,7 +20,7 @@
 8. Dirty tree: ~1,200 pre-existing modified/untracked files remain (other agents/scheduled tasks). Only this session's Week 3 inputs/outputs were committed; see the commit list in git log.
 
 ## Guardrails (unchanged)
-No `git add -A`; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; sportsbook pages read-only; no team power ratings as evidence; manual BKR/BEO lines only (TheOddsAPI ~11 requests left); prediction-market % never mixed with sportsbook odds without the fee/spread check.
+No `git add -A`; never reset/clean/stash; Supabase writes need per-change OK; no bet placement/account actions; sportsbook pages read-only; team power ratings are allowed as evidence; manual BKR/BEO lines only (TheOddsAPI ~11 requests left); prediction-market % never mixed with sportsbook odds without the fee/spread check.
 
 ## Resume prompt (paste into a fresh session)
 > Resume NFL_Dashboard. Read HANDOFF.md, then `handoffs/2026-09-26-2215-claude-master-intel-template-supercontest-handoff.md`, then `docs/MASTER_INTEL_REPORT_FORMAT.md` §8 (SuperContest companion). Goal this session: design our **weekly SuperContest cadence** around the new SuperContest report (line capture → build → review with Amanda → lock the joint five into `data/supercontest/locked-card-week-<N>.json` → grade next week), and save Week 3's final joint five. Same standing constraints as the handoff.

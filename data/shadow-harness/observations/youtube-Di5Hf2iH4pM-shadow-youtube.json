@@ -1,0 +1,225 @@
+{
+  "episode_slug": "youtube-Di5Hf2iH4pM",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
+  "run": {
+    "run_id": "youtube_gemini_f196a354cc51",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=Di5Hf2iH4pM",
+    "latency_ms": 279857,
+    "estimated_cost_usd": 0.034084,
+    "input_tokens": 328088,
+    "output_tokens": 3187,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Brandon Anderson and Brandon Kravitz recap NFL Week 1, separating genuine market shifts from classic overreactions. They analyze team futures, division markets, and award races, highlighting best buy/sell opportunities including Caleb Williams MVP odds and the Buccaneers division outlook.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 3584,\n    \"last_analyzed_timestamp\": 3584,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 180.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Welcome to Brandon's Futures Show via the Action Network presented by DraftKings. Week 1 is in the books and we are looking at our first data points of the season. Brandon, how did Week 1 treat you?\"\n    },\n    {\n      \"start\": 180.0,\n      \"end\": 420.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"It was a roller coaster as always. We finally have real data, but it's only one game. Do we overreact or underreact? Let's talk about Caleb Williams. DK Predict has him up to 23% to be MVP. You have to sell this. This is the biggest sell in the futures market right now.\"\n    },\n    {\n      \"start\": 420.0,\n      \"end\": 650.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"The Chiefs are now up to 54% to win the AFC West after beating Denver on Monday Night, while the Chargers are down to 18%. Let's look at Mahomes' MVP case and the Chargers' outlook under Jim Harbaugh.\"\n    },\n    {\n      \"start\": 650.0,\n      \"end\": 900.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"The Chiefs looked incredibly physical under center. Creed Humphrey and Trey Smith dominated. On the flip side, the Broncos tackle rate was historically bad. 28 missed tackles is unheard of in an NFL game.\"\n    },\n    {\n      \"start\": 900.0,\n      \"end\": 1200.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Let's move on to the 49ers and Rams. San Francisco dominated that game 27-7. The Rams flew in late to Australia and they looked completely jet-lagged. Now Miles Garrett is hurt and on the shelf for the Rams.\"\n    },\n    {\n      \"start\": 1200.0,\n      \"end\": 1500.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Arizona surprised the Chargers 26-14. 30% of survivor pools were knocked out. I'm already looking at the Chargers to miss the playoffs. At -120, that represents solid value given their remaining schedule.\"\n    },\n    {\n      \"start\": 1500.0,\n      \"end\": 1800.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"The Eagles beat the Commanders 24-22, but their offense under Shane Waldron still looks clunky. Saquon Barkley was hit in the backfield way too often, and Landon Dickerson going to IR is a massive blow.\"\n    },\n    {\n      \"start\": 1800.0,\n      \"end\": 2100.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"The Giants beat the Cowboys 28-20, and their new-look offense using Jackson Dart actually looked highly efficient. I think the Giants at +375 to win the NFC East are very live compared to Dallas at 3 to 1.\"\n    },\n    {\n      \"start\": 2100.0,\n      \"end\": 2400.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Baltimore dismantled Indianapolis 41-23. Lamar Jackson and Derrick Henry were unstoppable. On the other side, Daniel Jones had a brutal game for the Colts. The Ravens look like a top-tier powerhouse.\"\n    },\n    {\n      \"start\": 2400.0,\n      \"end\": 2700.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Jacksonville stomped the Browns 34-10. Trevor Lawrence's MVP odds are sitting around 7%, which is a great value buy if you believe this breakout is legit. Deshaun Watson's Browns look like they're in major trouble.\"\n    },\n    {\n      \"start\": 2700.0,\n      \"end\": 3000.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"The Bills beat the Texans 36-31 in a shootout. Josh Allen did whatever he wanted, and Dalton Kincaid had a massive day with 130 receiving yards. Let's look at the Texans' divisional outlook.\"\n    },\n    {\n      \"start\": 3000.0,\n      \"end\": 3300.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Houston's defense struggled, but their offense is legit. FTN projects them at 50% to win the division, but we can buy them at 41% (+144) right now. I'm definitely buying Texans stock.\"\n    },\n    {\n      \"start\": 3300.0,\n      \"end\": 3584.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Finally, the Bengals beat the Bucs 33-27. After Tampa's loss, their division odds dropped to +194, which is a screaming buy. Let's wrap up with our DROY picks and best trends for Week 2.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"CHI\",\n      \"player\": \"Caleb Williams\",\n      \"market\": \"mvp\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": 700,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 230,\n      \"rationale\": \"Caleb Williams' MVP odds are highly inflated after a win against a poor Panthers team. MVP requires team wins and a high seed, which the Bears' defense cannot support.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": null,\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": -120,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1285,\n      \"rationale\": \"With a projected win total down to 7.4 wins at FTN, backing the Chargers to miss the playoffs at -120 is the superior way to play their market.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 144,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2850,\n      \"rationale\": \"FTN projects the Texans with a 50% chance to win the division, but prediction markets currently price them at only 41% (+144), presenting a clear mathematical edge.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 194,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3150,\n      \"rationale\": \"Tampa Bay's division winner odds of +194 (34%) are too cheap compared to FTN's 60% projection, making this a prime double-down opportunity.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": null,\n      \"market\": \"make_playoffs\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 450,\n      \"week\": null,\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 3390,\n      \"rationale\": \"The Jets are trading at +450 to make the playoffs, which is a great entry point given they have the third easiest remaining schedule in the NFL.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": null,\n      \"market\": \"last_place_division\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1210,\n      \"rationale\": \"Green Bay's offensive struggles and quarterback injury context make their ticket to finish last in the division look highly promising.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": \"Sonny Styles\",\n      \"market\": \"droy\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 700,\n      \"week\": null,\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 3140,\n      \"rationale\": \"Styles played every second-half snap, showing elite physical tools. Backing him at 10% (7-1) now with the plan to sell high around the Week 7 bye is an optimal portfolio play.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": \"Rueben Bain\",\n      \"market\": \"droy\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 900,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3210,\n      \"rationale\": \"Bain's quiet Week 1 caused his price to drop to 10% (from being the preseason favorite), creating a perfect buy-the-dip window before his matchup against a weak Browns line.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"DEN\"],\n      \"players\": [],\n      \"topic\": \"Broncos Missed Tackles\",\n      \"summary\": \"Denver's tackling was historically bad in Week 1, recording 28 missed tackles which Brandon Anderson noted is the worst defensive performance in yards allowed off missed tackles since 2018.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 845,\n      \"quote\": \"Denver forgot how to tackle, 28 missed tackles... the most yards allowed off missed tackles since 2018.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"LAR\"],\n      \"players\": [\"Miles Garrett\"],\n      \"topic\": \"Miles Garrett Injury\",\n      \"summary\": \"Miles Garrett suffered an injury and is heading to the shelf, significantly damaging the Rams' defensive ceiling and win total projections.\",\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 955,\n      \"quote\": \"And now Miles Garrett is hurt and on the shelf... the dream feels like it is already over.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"PHI\"],\n      \"players\": [\"Saquon Barkley\"],\n      \"topic\": \"Eagles Offensive Clunkiness\",\n      \"summary\": \"Despite their win, the Eagles' offense under new leadership remains inefficient, frequently seeing Saquon Barkley met behind the line of scrimmage.\",\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 1520,\n      \"quote\": \"The offense still feels like it's broken, Saquon Barkley was hit in the backfield far too often.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"BUF\"],\n      \"players\": [\"Dalton Kincaid\"],\n      \"topic\": \"Kincaid Outperformance\",\n      \"summary\": \"Dalton Kincaid thrived as a de facto receiver in Buffalo's 13 personnel packages, pacing the passing game with 130 receiving yards.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2905,\n      \"quote\": \"Dalton Kincaid mashed in this game, 130 yards, split out basically as a receiver.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Caleb Williams MVP Sell\",\n      \"timestamp\": 230,\n      \"speaker\": \"Brandon Anderson\",\n      \"quote\": \"This is the biggest sell in the futures market right now.\"\n    },\n    {\n      \"topic\": \"Rams projected win total\",\n      \"timestamp\": 1110,\n      \"speaker\": \"Brandon Anderson\",\n      \"quote\": \"They have the Rams now projected at 9.6 wins, well below the under 11.5.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "extracted_picks": [
+      {
+        "team": "CHI",
+        "player": "Caleb Williams",
+        "market": "mvp",
+        "side": "NO",
+        "line": null,
+        "price": 700,
+        "week": null,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 230,
+        "rationale": "Caleb Williams' MVP odds are highly inflated after a win against a poor Panthers team. MVP requires team wins and a high seed, which the Bears' defense cannot support."
+      },
+      {
+        "team": "LAC",
+        "player": null,
+        "market": "make_playoffs",
+        "side": "NO",
+        "line": null,
+        "price": -120,
+        "week": null,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1285,
+        "rationale": "With a projected win total down to 7.4 wins at FTN, backing the Chargers to miss the playoffs at -120 is the superior way to play their market."
+      },
+      {
+        "team": "HOU",
+        "player": null,
+        "market": "division_winner",
+        "side": "YES",
+        "line": null,
+        "price": 144,
+        "week": null,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2850,
+        "rationale": "FTN projects the Texans with a 50% chance to win the division, but prediction markets currently price them at only 41% (+144), presenting a clear mathematical edge."
+      },
+      {
+        "team": "TB",
+        "player": null,
+        "market": "division_winner",
+        "side": "YES",
+        "line": null,
+        "price": 194,
+        "week": null,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3150,
+        "rationale": "Tampa Bay's division winner odds of +194 (34%) are too cheap compared to FTN's 60% projection, making this a prime double-down opportunity."
+      },
+      {
+        "team": "NYJ",
+        "player": null,
+        "market": "make_playoffs",
+        "side": "YES",
+        "line": null,
+        "price": 450,
+        "week": null,
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 3390,
+        "rationale": "The Jets are trading at +450 to make the playoffs, which is a great entry point given they have the third easiest remaining schedule in the NFL."
+      },
+      {
+        "team": "GB",
+        "player": null,
+        "market": "last_place_division",
+        "side": "YES",
+        "line": null,
+        "price": null,
+        "week": null,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1210,
+        "rationale": "Green Bay's offensive struggles and quarterback injury context make their ticket to finish last in the division look highly promising."
+      },
+      {
+        "team": "LAC",
+        "player": "Sonny Styles",
+        "market": "droy",
+        "side": "YES",
+        "line": null,
+        "price": 700,
+        "week": null,
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 3140,
+        "rationale": "Styles played every second-half snap, showing elite physical tools. Backing him at 10% (7-1) now with the plan to sell high around the Week 7 bye is an optimal portfolio play."
+      },
+      {
+        "team": "TB",
+        "player": "Rueben Bain",
+        "market": "droy",
+        "side": "YES",
+        "line": null,
+        "price": 900,
+        "week": null,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3210,
+        "rationale": "Bain's quiet Week 1 caused his price to drop to 10% (from being the preseason favorite), creating a perfect buy-the-dip window before his matchup against a weak Browns line."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "DEN"
+        ],
+        "players": [],
+        "topic": "Broncos Missed Tackles",
+        "summary": "Denver's tackling was historically bad in Week 1, recording 28 missed tackles which Brandon Anderson noted is the worst defensive performance in yards allowed off missed tackles since 2018.",
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 845,
+        "quote": "Denver forgot how to tackle, 28 missed tackles... the most yards allowed off missed tackles since 2018.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "LAR"
+        ],
+        "players": [
+          "Miles Garrett"
+        ],
+        "topic": "Miles Garrett Injury",
+        "summary": "Miles Garrett suffered an injury and is heading to the shelf, significantly damaging the Rams' defensive ceiling and win total projections.",
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 955,
+        "quote": "And now Miles Garrett is hurt and on the shelf... the dream feels like it is already over.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "PHI"
+        ],
+        "players": [
+          "Saquon Barkley"
+        ],
+        "topic": "Eagles Offensive Clunkiness",
+        "summary": "Despite their win, the Eagles' offense under new leadership remains inefficient, frequently seeing Saquon Barkley met behind the line of scrimmage.",
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 1520,
+        "quote": "The offense still feels like it's broken, Saquon Barkley was hit in the backfield far too often.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "BUF"
+        ],
+        "players": [
+          "Dalton Kincaid"
+        ],
+        "topic": "Kincaid Outperformance",
+        "summary": "Dalton Kincaid thrived as a de facto receiver in Buffalo's 13 personnel packages, pacing the passing game with 130 receiving yards.",
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2905,
+        "quote": "Dalton Kincaid mashed in this game, 130 yards, split out basically as a receiver.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Caleb Williams MVP Sell",
+        "timestamp": 230,
+        "speaker": "Brandon Anderson",
+        "quote": "This is the biggest sell in the futures market right now."
+      },
+      {
+        "topic": "Rams projected win total",
+        "timestamp": 1110,
+        "speaker": "Brandon Anderson",
+        "quote": "They have the Rams now projected at 9.6 wins, well below the under 11.5."
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 3584,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 3584,
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 8,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

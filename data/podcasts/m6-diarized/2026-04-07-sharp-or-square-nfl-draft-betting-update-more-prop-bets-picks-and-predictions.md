@@ -8,23 +8,26 @@ Audio: https://podtrac.com/pts/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 62669
 Speaker turns: 174
-Speaker labels: Guest (Speaker A), Guest (Speaker B), Guest (Speaker C), Guest (Speaker D), Guest (Speaker E), Guest (Speaker F), Chad Millman (Speaker G), Simon Hunter (Speaker H), Guest (Speaker I), Guest (Speaker J), Guest (Speaker K), Guest (Speaker L), Guest (Speaker M)
+Speaker labels: Guest (Speaker A), Guest (Speaker B), Guest (Speaker F), Chad Millman (Speaker G), Simon Hunter (Speaker H), Guest (Speaker I), Guest (Speaker J), Guest (Speaker K)
 
 ## Speaker Map
 
 - Speaker A: Guest
 - Speaker B: Guest
-- Speaker C: Guest
-- Speaker D: Guest
-- Speaker E: Guest
 - Speaker F: Guest
 - Speaker G: Chad Millman
 - Speaker H: Simon Hunter
 - Speaker I: Guest
 - Speaker J: Guest
 - Speaker K: Guest
-- Speaker L: Guest
-- Speaker M: Guest
+
+## Ignored Audio
+
+- Speaker C: ad/commercial audio ignored
+- Speaker D: ad/commercial audio ignored
+- Speaker E: ad/commercial audio ignored
+- Speaker L: ad/commercial audio ignored
+- Speaker M: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -39,18 +42,6 @@ This is an iHeart podcast.
 ### Guest (Speaker B) [0:02-0:04]
 
 Guaranteed Human
-
-### Guest (Speaker C) [0:06-0:34]
-
-Introducing B of A Rewards a new way to reward your every ambition. It all starts with a Bank of America checking account and grows from there. You get cash back deals on brands you know and love, plus a credit card rewards bonus, helping you earn more rewards on things you buy every day. Join B of A Rewards today for rewards tailored to your lifestyle. What would you like the power to do? Bank of America Open or enroll your account@bankofamerica.com b ofarewards bank of America Corporation. All rights reserved.
-
-### Guest (Speaker D) [0:34-1:00]
-
-If you've been sitting on a business idea for a while, consider this the sign to take action. It can even be made official today by creating a website with WIX Harmony. Just tell WIX Harmony what you want and it will build the entire site, business features included. And everything can still be edited by hand. It's your website, your call. Try it@wix.com that's Wix.
-
-### Guest (Speaker E) [1:03-1:31]
-
-When you're a maintenance engineer in a beverage manufacturing plant, you keep production lines moving and quality on track because there is no room for slowdowns. With Grainger's vast selection of high quality motors, sensors, belts and hard to find parts, you can get what you need fast and all in one place. So nothing gets in the way of getting the job done. Call 1-800-GRAINGER Click grainger.com or just stop by Grainger for the ones who get it done.
 
 ### Guest (Speaker F) [1:33-2:07]
 
@@ -75,10 +66,6 @@ Yeah, honestly, it's. I'm not gonna beat you down too, too hard, Chad, but yeah,
 ### Chad Millman (Speaker G) [3:37-3:38]
 
 So who cares?
-
-### Guest (Speaker C) [3:40-3:41]
-
-You know what?
 
 ### Chad Millman (Speaker G) [3:41-3:44]
 
@@ -172,10 +159,6 @@ Are you saying loose lips? Loose lips in the last 48 hours before the draft happ
 
 Yeah, no, that's a real, that's a real thing. And it's, you're constantly working these people because everyone is the heightened level where they're trying to get as much info as possible because everyone's worried about Losing their guy. That's why you see these teams trade up and take a guy, you're like, why'd they just try to take him? Because it's all information based. It's all being fed information. And that's how you build relationships.
 
-### Guest (Speaker C) [12:53-12:53]
-
-Right?
-
 ### Simon Hunter (Speaker H) [12:53-13:20]
 
 If you give someone good, really get good info that pays off for them, they will have you in their good graces for a very long time until you burn that bridge, which, unless you're an idiot, you wouldn't do. So, yeah, for me, Chad, it's. I still don't go as hardcore as I used to in the Jeff. Like I said, it's not as profitable as it used to be. But am I gonna have guys boots on the ground? Yeah, I'm not gonna be working the phones. Yeah, it's. I am looking for an edge, looking for an angle. And obviously if I hear anything, I always pass it along on the show.
@@ -212,10 +195,6 @@ What happened? Tell me, tell me.
 
 Well, just Derek gave it a great pick about the offensive lineman in the first round, right? It was over seven. Seven and a half. That was either could have got a plus number of minus 110. It's now minus 175.
 
-### Guest (Speaker D) [14:36-14:36]
-
-That's.
-
 ### Simon Hunter (Speaker H) [14:36-15:12]
 
 That's a heavy movement. Just not. Obviously not off our show. But I think that's just showing people that this offensive line group, more people mock that eighth guy in. That's what you see, right? Daniel Jeremiah puts out a mock that has that eighth offensive lineman in there, boom, this is going to move. That's why we're telling people to get these bets. Early running back, like I told you, I don't think there's gonna be a second running back in the first round, but there are two guys fighting for that back end position. Right. And you know, to me, we gave it out of 550, 575. Plus 575. To be two running backs taking the first round is now down to four. Plus 475.
@@ -243,10 +222,6 @@ Yeah.
 ### Guest (Speaker A) [16:03-16:30]
 
 And also just to throw this out there, we were talking, I was talking about the volatility and Reuben Bain at 1400. He's down to 1000, 1200. And David Bailey's had some movement too, because the steam's kind of coming in on him over the last few days with a lot of mocks and people talking about, you know, if they don't go arvo Reese, then it's going to be Bailey. So again, you know, we're seeing movement in the markets. It's just more condensed and, you know, again, chipping away at a vibe.
-
-### Guest (Speaker D) [16:30-17:13]
-
-Coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. Wix has introduced Wix Harmony, a vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payment security and more built in and Wix Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com what's up everyone?
 
 ### Guest (Speaker B) [17:13-18:04]
 
@@ -295,10 +270,6 @@ Check the dynamic lock screen to get info on battery life, status, time, message
 ### Guest (Speaker J) [19:11-19:14]
 
 JBL Wireless Earbuds Grab a pair@jbl.com
-
-### Guest (Speaker C) [19:17-19:17]
-
-if
 
 ### Guest (Speaker K) [19:17-19:59]
 
@@ -392,10 +363,6 @@ So I, I agree. He totally.
 
 It was the moment completely the numbers. But yeah, like we're talking about here. It's. I'm nitpicking. I'm just getting out the people. The pretense of. Yes. Is the Daniel Orlowski go overboard saying that Tyson was better than him. Yes. But are there GMs out there or scouts that have major questions about Fernando Mendoza? Yes. And I know teams that. They wouldn't be taking them in the top five.
 
-### Guest (Speaker C) [33:38-33:38]
-
-Right.
-
 ### Simon Hunter (Speaker H) [33:38-34:33]
 
 They would kick the can down the road for next year's draft class. And there's nothing wrong with that. Right. These, these teams who all think they're geniuses, they're idiots. There's plenty of teams that passed on My Homes that passed on Josh Allen because they didn't trust that build. But yeah, like I, I keep talking about Fernande Mendoza. I'm excited to see him the next level. I just, I'm just worried that he, like Chad just said he had special moments and everything like that. Is he J.J. mcCarthy? That would be the fear. It's like, was he a really good quarterback on a really good stacked team who did make the plays when he had to and won a national title, but was it all smoke, mirrors? And that's the fear. Like, do I think Mendoza is better than JJ? Of course he's throwing it 10 times the amount of times JJ threw it in college. But I just. The winning stuff unfortunately doesn't really translate to NFL. Like, it just. It's great. I care about it. It's part of the. It's part of what I like Mendoza, but I'm not going to get bogged down in it.
@@ -420,49 +387,25 @@ You know, he's never even watched that ever again. He just burned the tape. Soon
 
 Signetti's out there. He's doing like savage. He is so good. He's doing press conferences right now where he's now going after the old coach at TCU for making snide remarks about IU's new quarterback who was at TCU but threw a lot of picks. And the Signetti was like, well, you know, didn't. He didn't have a defense and he didn't have a running game. So you throw less picks when you got those two things. Like, he just, he is awesome. He is unafraid. Let's do a quick word from our friends at Hard Rock bet. Today's show is brought to you by our presenting sponsor, Hard Rock bet, Florida's sportsbook Spring is in the air, and that can only mean one thing. Baseball is back in full swing.
 
-### Guest (Speaker D) [36:01-36:03]
-
-Hard Rock Bet makes it easy to
-
 ### Chad Millman (Speaker G) [36:03-36:22]
 
 bet on America's pastime in just a few easy taps. And it's not just picking winners. Bet on home runs, strikeouts, and so much more. And if you miss the first pitch, no problem. You can live bet every inning, every at bat, all the way to the final out. But maybe you're more into the NBA.
-
-### Guest (Speaker D) [36:22-36:24]
-
-The hardwood is heating up as the
 
 ### Chad Millman (Speaker G) [36:24-36:34]
 
 playoff push is on. And with Hard Rock Bet, every night is a shot to build the same game parlay and score a major bucket.
 
-### Guest (Speaker D) [36:34-36:35]
-
-However you draw it up, Hard Rock
-
 ### Chad Millman (Speaker G) [36:35-36:57]
 
 Bet gives you tons of ways to stack your picks into an epic same game parlay. Sign up today and double your winnings on your first 10 bets. Maximum $50. That's right, double your winnings on your first 10 bets. So if you would have won a hundred bucks on your bet, now it's 200. Download the hard Rock Bet app today.
-
-### Guest (Speaker D) [36:57-36:58]
-
-Get the party started.
 
 ### Chad Millman (Speaker G) [36:59-37:10]
 
 Offered by the Seminole Tribe of Florida in Florida. Offered by Seminole Hard Rock Digital, LLC and all other states must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey,
 
-### Guest (Speaker D) [37:10-37:12]
-
-Ohio, Tennessee or Virginia to play.
-
 ### Chad Millman (Speaker G) [37:12-37:36]
 
 Terms and conditions apply. Concerned about gambling in Florida, call 1-833-playwise in Indiana, if you or someone you know has a gambling problem and wants help, call 1-809-with it in Ohio, call 1-800-my reset gambling problem. Call 1-800- gambler in Arizona, Colorado, Illinois, Michigan, New Jersey, Tennessee and Virginia. Vibe coding is everywhere right now, but
-
-### Guest (Speaker D) [37:36-38:18]
-
-it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And Wix Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com what's up everyone?
 
 ### Guest (Speaker B) [38:18-39:09]
 
@@ -608,41 +551,17 @@ Like at 1600, definitely. And Mansur Delane, like again matching up their depth 
 
 Derrick Brown bringing it. You are this podcast's number one overall draft pick for Draft Covered Fantasy Prose Podcast. Our friends at the Volume. Listen. Thanks for coming on, brother. You're going to come on again. This has been Sharper Square, part of the Volume Podcast Network. Watch or listen on YouTube @Sharpersquare.
 
-### Guest (Speaker D) [58:33-58:34]
-
-Like this video.
-
 ### Chad Millman (Speaker G) [58:34-58:38]
 
 Subscribe to the channel. Download us from Spotify, Apple Pods, wherever you get your pods.
-
-### Guest (Speaker D) [58:38-58:38]
-
-Rate, review.
 
 ### Chad Millman (Speaker G) [58:38-58:43]
 
 Subscribe. Leave us five stars. Say whatever you want. Feedback is a gift. Until next time.
 
-### Guest (Speaker D) [58:43-58:44]
-
-Love you.
-
-### Guest (Speaker L) [58:45-58:48]
-
-In yesterday's draft, everybody's sizing up the
-
 ### Guest (Speaker A) [58:48-58:49]
 
 winners and the losers.
-
-### Guest (Speaker L) [58:50-59:25]
-
-The winner yesterday was honesty. I'm U.S. transportation Secretary Sean Duffy. We all seem to be in a rush these days, from work to driving our kids around. But when you're behind the wheel, please do not speed. A few minutes saved by going faster is never worth the risk. So follow the speed limit, enjoy the drive. Maybe bring some snacks for the kids. And know that along the way, you're getting quality time with your family. Paid for by nhtsa.
-
-### Guest (Speaker E) [59:27-59:27]
-
-Latte for Keenan.
 
 ### Guest (Speaker K) [59:27-59:28]
 
@@ -676,33 +595,17 @@ online, test drive with a local dealer,
 
 then finish online or at the dealership.
 
-### Guest (Speaker E) [59:37-59:39]
-
-Cool. Enjoy.
-
 ### Simon Hunter (Speaker H) [59:39-59:41]
 
 Buy your car online on Autotrader.
-
-### Guest (Speaker D) [59:41-59:41]
-
-Really?
 
 ### Guest (Speaker B) [59:43-59:44]
 
 The game started.
 
-### Guest (Speaker E) [59:44-59:45]
-
-Call your dad.
-
 ### Chad Millman (Speaker G) [59:45-59:45]
 
 I'm on it, Ma.
-
-### Guest (Speaker C) [59:46-59:47]
-
-Hola.
 
 ### Chad Millman (Speaker G) [59:47-59:49]
 
@@ -715,14 +618,6 @@ I'm at the stadium in Monterrey.
 ### Guest (Speaker K) [59:51-1:00:10]
 
 Cool here Shout Go together Get non stop talk tax and Data in the US, Mexico and Canada with T Mobile America's Best Network. Switch on the TLife app or on t mobile.com connectapy on qualifying plans not for extended international use. You must reside in the US and primary usage must occur in our network. Best based on analysis by Ooklo Speed
-
-### Guest (Speaker M) [1:00:10-1:00:40]
-
-Test intelligence data to H2025 second opinions. You get them with your health, so why not with your wealth? Your stock market investments deserve a second opinion at Henyon and Walsh. It only takes a second to schedule your free second opinion. Call 800-279-5279 henyon and walsh. The second opinion people investing involves risk, including the possible loss of principal. Advisory services provided by Henning and Walsh Asset Management securities offered by Henning and Walsh Inc.
-
-### Guest (Speaker C) [1:00:40-1:00:43]
-
-Member FINRA SIPC this is an iHeart podcast.
 
 ### Guest (Speaker B) [1:00:44-1:00:45]
 

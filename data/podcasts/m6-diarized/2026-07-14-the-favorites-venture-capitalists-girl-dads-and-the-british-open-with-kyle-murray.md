@@ -8,23 +8,26 @@ Audio: https://podtrac.com/pts/redirect.mp3/traffic.omny.fm/d/clips/e73c998e-6e6
 
 Transcript chars: 59447
 Speaker turns: 171
-Speaker labels: Guest (Speaker A), Brandon Kravitz (Speaker B), Guest (Speaker C), Guest (Speaker D), Guest (Speaker E), Guest (Speaker F), Kendra Middleton (Speaker G), Guest (Speaker H), Guest (Speaker I), Guest (Speaker J), Guest (Speaker K), Guest (Speaker L), Guest (Speaker M)
+Speaker labels: Guest (Speaker A), Brandon Kravitz (Speaker B), Guest (Speaker C), Guest (Speaker F), Kendra Middleton (Speaker G), Guest (Speaker H), Guest (Speaker I), Guest (Speaker L), Guest (Speaker M)
 
 ## Speaker Map
 
 - Speaker A: Guest
 - Speaker B: Brandon Kravitz
 - Speaker C: Guest
-- Speaker D: Guest
-- Speaker E: Guest
 - Speaker F: Guest
 - Speaker G: Kendra Middleton
 - Speaker H: Guest
 - Speaker I: Guest
-- Speaker J: Guest
-- Speaker K: Guest
 - Speaker L: Guest
 - Speaker M: Guest
+
+## Ignored Audio
+
+- Speaker D: ad/commercial audio ignored
+- Speaker E: ad/commercial audio ignored
+- Speaker J: ad/commercial audio ignored
+- Speaker K: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -55,14 +58,6 @@ Amazon Health AI gets you the right care fast.
 ### Guest (Speaker C) [0:58-1:00]
 
 Healthcare just got less painful.
-
-### Guest (Speaker D) [1:00-1:36]
-
-This is Tab Ramos from inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right into the net and every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass this is Daniel
-
-### Guest (Speaker E) [1:36-2:10]
-
-Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. Power doesn't wait in the octagon or outside of it Power. You either make the move or you miss the moment. That's why you need a network that's just as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts. Now that's a total power move. Make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless Store. Additional terms apply. See totalwireless.com for details.
 
 ### Guest (Speaker F) [2:10-2:42]
 
@@ -256,17 +251,9 @@ At Edward Jones, we believe Rich is more than caring about the latest and greate
 
 presents Painful Thoughts I I can't stop scratching my downtown.
 
-### Guest (Speaker J) [16:11-16:15]
-
-Mm, yeah, but I'm not itching to go downtown and tell a receptionist I'm
-
 ### Guest (Speaker C) [16:15-16:18]
 
 here to talk about my downtown.
-
-### Guest (Speaker J) [16:18-16:21]
-
-Some things you'd rather type than say out loud.
 
 ### Brandon Kravitz (Speaker B) [16:22-16:25]
 
@@ -275,10 +262,6 @@ There's no question too embarrassing for Amazon Health AI.
 ### Guest (Speaker C) [16:26-16:31]
 
 Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
-
-### Guest (Speaker K) [16:33-18:04]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck, stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills, taking Zeppbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lilly.com awkward time to ask this,
 
 ### Guest (Speaker F) [18:04-18:07]
 
@@ -300,10 +283,6 @@ You're trusting your signal out here.
 
 I'm trusting T Mobile.
 
-### Guest (Speaker K) [18:12-18:13]
-
-They have the best network.
-
 ### Guest (Speaker C) [18:14-18:17]
 
 And if we end up in bumtots nowhere, well, we've got T satellite for backup.
@@ -323,10 +302,6 @@ With America's Best Network and T Satellite, we're keeping you connected in plac
 ### Guest (Speaker M) [18:40-19:02]
 
 Best Mobile Network Based on Analysis by Ooklev Speedtest Intelligence data 2h 2025 with 24 monthly bill credits and 4 eligible port ins on essentials for well qualified customers with autopay plus taxes, fees and $35 connection charge per line credits and imbalance due if you pay off earlier. Cancel Contact Us Finance Agreement example $299.99 MotoEdge 5G required T Satellite available with compatible device in most outdoor areas in the US where you can see the sky. Included with experience beyond or $10 a month auto renews monthly. Cancel anytime.
-
-### Guest (Speaker D) [19:02-19:58]
-
-Visit t mobile.com this is tab Ramos from inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They're not just throwing games on in the background, topgolf is going all in on soccer. They've got a new soccer themed game you can play with your group, special in venue activations, exclusive food and drink items inspired by the global game and at more than 60 locations. They've even installed full size soccer goals so you can try to hit golf balls right into the net and every match all summer long will be on throughout the venue. So it's a great place to watch with friends, hang out, compete a little bit and enjoy the atmosphere. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Summer hits different
 
 ### Brandon Kravitz (Speaker B) [19:58-20:12]
 
@@ -391,10 +366,6 @@ Got it. And then two guys. Hopefully I have better luck. Last time I asked you a
 ### Guest (Speaker C) [30:50-32:41]
 
 Yeah, Henley is a guy who's always pretty steady for me in my model. A very steady player in terms of what we get from him. He. He's had some struggles and majors this year. T65 at the US Open, missed the cut the PGA. But I mentioned, you know, the short game, the scrambling stuff. That really grades out as a positive for Russell Henley in terms of his wind play. He's not someone that's necessarily going to, you know, blow you off the of your seat in terms of his win play. I think I have in the top 40, but he's also not going to hurt himself in that realm. Kind of created a. An open pedigree metric. I think last time at the US Open, I talked about a major pedigree, trying to sort of identify guys who might be able to perform well in certain conditions in certain environments. And for me, this week, it's a little bit different because it comes down to a lot of wind play and whatnot and these sorts of styles of courses. And obviously scrambling is an important part of that metric as well. Russell Henley grades out in the top 15 of Open pedigree for me this week. So I do like Henley. And then you said see with Kim for the next name, right? Yeah, yeah. He's also someone who grades out pretty well. 30th in terms of open pedigree, but six in terms of wind strokes gain, 15th in terms of form. He has sort of struggled with the putter at times, but when looking at some of these, these strokes gain putting metrics on slow greens, this is going to be a very interesting surface in terms of putting greens that we saw it a little bit last week, but when you look at majors like the US Open, where they wanted that to. To play really fast and firm, that's going to be the case. It's going to be very firm. But when you get to the greens, it's going to be these fescue greens that are going to make it extremely slow. I think that's a very different environment for putting. So for, for something like supercam, don't have a lot of data on, on those slow putting greens, but he is someone that gets a fairly decent grade considering what his baseline putting is. He's someone who three putts a lot. He's fairly rough in terms of his overall putting consistency, but he is still someone that he doesn't necessarily lose putting strengths in terms of going to these slow greens.
-
-### Guest (Speaker D) [32:41-32:42]
-
-Got it.
 
 ### Brandon Kravitz (Speaker B) [32:42-33:09]
 
@@ -540,10 +511,6 @@ Yeah, the British Open in, in the US Open, both have like extensive qualifying p
 
 How we get the YouTubers involved. We should do that in the NFL. I want to see that get like one YouTuber a year. That gets me. First, let's make some cash. Time to plant the flag for our bet on the open over at DraftKings. Plant the flag, get it set up.
 
-### Guest (Speaker K) [48:52-48:54]
-
-I'm trying to plant my flag here.
-
 ### Guest (Speaker L) [48:54-48:55]
 
 Okay.
@@ -620,10 +587,6 @@ Who would I have where?
 
 Who did you have?
 
-### Guest (Speaker D) [51:19-51:20]
-
-Who is.
-
 ### Brandon Kravitz (Speaker B) [51:20-51:22]
 
 I missed the name. I need to add it to my list.
@@ -672,17 +635,9 @@ we believe rich is more than caring about the latest and greatest. It's also tak
 
 in for two things. How is this $47? All right, we're going to need a plan here.
 
-### Guest (Speaker J) [53:50-54:03]
-
-Just start simple with bank of America Advantage Safe Balance Banking. No overdraft item fees, no monthly maintenance fee if you're under 25 as a new checking customer, you can earn $100 when you open an account and make qualifying Zeller debit transactions.
-
 ### Guest (Speaker H) [54:03-54:06]
 
 Oh, that's actually actually really simple.
-
-### Guest (Speaker J) [54:06-54:13]
-
-Safe Balance Banking. One less thing to figure out. Learn more atb of a dot com. Earn 100. Terms and conditions apply. Bank of America and a member fdic.
 
 ### Brandon Kravitz (Speaker B) [54:15-54:21]
 
@@ -707,10 +662,6 @@ Select this offer from 6:15 through 7:26 online only.
 ### Guest (Speaker C) [54:40-54:48]
 
 Size availability varies by crust type max 7 topping 6 for Anna New York style crust. Minimum purchase required for delivery prices, participation, delivery area and charges may vary.
-
-### Guest (Speaker K) [54:49-56:21]
-
-Are you looking for support in your weight management journey. Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflation, inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zephybound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lily.com I love the little everyday
 
 ### Guest (Speaker L) [56:21-56:52]
 

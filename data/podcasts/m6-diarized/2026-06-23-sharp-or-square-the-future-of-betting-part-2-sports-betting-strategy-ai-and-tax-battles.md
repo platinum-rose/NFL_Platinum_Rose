@@ -8,21 +8,24 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 45122
 Speaker turns: 90
-Speaker labels: Guest (Speaker A), Guest (Speaker B), Guest (Speaker C), Chad Millman (Speaker D), Guest (Speaker E), Guest (Speaker F), Guest (Speaker G), Simon Hunter (Speaker H), Guest (Speaker I), Guest (Speaker J), Guest (Speaker K)
+Speaker labels: Chad Millman (Speaker D), Simon Hunter (Speaker H), Guest (Speaker I), Guest (Speaker K)
 
 ## Speaker Map
 
-- Speaker A: Guest
-- Speaker B: Guest
-- Speaker C: Guest
 - Speaker D: Chad Millman
-- Speaker E: Guest
-- Speaker F: Guest
-- Speaker G: Guest
 - Speaker H: Simon Hunter
 - Speaker I: Guest
-- Speaker J: Guest
 - Speaker K: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker B: ad/commercial audio ignored
+- Speaker C: ad/commercial audio ignored
+- Speaker E: ad/commercial audio ignored
+- Speaker F: ad/commercial audio ignored
+- Speaker G: ad/commercial audio ignored
+- Speaker J: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -30,41 +33,13 @@ Speaker labels: Guest (Speaker A), Guest (Speaker B), Guest (Speaker C), Chad Mi
 
 ## Diarized Turns
 
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
-
-### Guest (Speaker B) [0:04-0:34]
-
-If you've been sitting on a business idea for a while, consider this the sign to take action. It can even be made official today by creating a website with WIX Harmony. Just tell WIX Harmony what you want and it will build the entire site, business features included. And everything can still be edited by hand. It's your website, your call. Try it@wix.com that's wix.com Amazon Health AI
-
-### Guest (Speaker C) [0:34-0:38]
-
-presents painful thoughts why did I search
-
 ### Chad Millman (Speaker D) [0:38-0:47]
 
 the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores
 
-### Guest (Speaker E) [0:47-0:48]
-
-in various stages of ooze.
-
 ### Chad Millman (Speaker D) [0:50-0:54]
 
 I can clear my search history, but I can never unsee that.
-
-### Guest (Speaker C) [0:55-1:02]
-
-Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker F) [1:03-1:38]
-
-This is Tab Ramos from Inside American Soccer. And this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls race right into the net. And every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass this is Daniel
-
-### Guest (Speaker G) [1:38-2:12]
-
-Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. Power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's just as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts. Now that's a total power move. Make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless Store. Additional terms apply. See totalwireless.com for details.
 
 ### Simon Hunter (Speaker H) [2:14-2:37]
 
@@ -110,53 +85,25 @@ Well, it's also, it's a big country in America. Someone that's been all over, li
 
 I got a strong opinion on it and a couple things you just said. Let's do a quick word from Hard Rock and we'll come back and I will share them. Today's show was brought to you by
 
-### Guest (Speaker B) [14:21-14:37]
-
-our presenting sponsor, Hard Rock. Bat Florida's Sportsbook, the world's biggest soccer tournament is here. Everyone is watching. National pride is on the line. Superstars chasing immortality. And for the next month, every match feels like a final.
-
 ### Simon Hunter (Speaker H) [14:38-14:39]
 
 If you haven't tried Hard Rock Bet
-
-### Guest (Speaker B) [14:39-14:44]
-
-yet, there's no better time to get in the game. Hard Rock Bet is the top rated
 
 ### Simon Hunter (Speaker H) [14:44-14:48]
 
 sportsbook app built to viva la Copa.
 
-### Guest (Speaker B) [14:49-14:51]
-
-And if you're ever late to kickoff, don't worry.
-
 ### Simon Hunter (Speaker H) [14:51-14:53]
 
 Hard Rock Bet lets you live bet
-
-### Guest (Speaker B) [14:53-15:31]
-
-all match long, from the first minute to the final whistle. Plus, Hard Rock Bet has new promos daily. We're talking profit boosts, no sweat bets, bonus bets and more. And be sure to check out no goals, no problem. And Super Sub 2 promos designed to give your bets insurance all tournament long. Sign up with Hard Rock Bet today and place a $5 bet if it wins. You also score $150 in bonus bets, a winning bet plus an extra $150 to bet with. Now, that's how you get this summer's party started. Download the Hard Rock Bet app today. Roll with us.
 
 ### Simon Hunter (Speaker H) [15:31-15:33]
 
 Go with us.
 
-### Guest (Speaker B) [15:33-16:27]
-
-Hard Rock Bet, available in bonus bets. Not a cash offer. Offered by the Seminole Tribe of Florida in Florida. Offered by Seminole hard Rock Digital LLC in all other states. Must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play, terms and conditions apply. Concerned about gambling in Florida, call 1833, playwise in Indiana, if you or someone you know has a gambling problem or wants help, call 1-809-with it. In Arizona, Ohio and Virginia, call 1-800-my reset gambling problem, call 1-800- gambler in Colorado, Illinois, Michigan, New Jersey, Tennessee. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced WIX Harmony, a Vibe coder for websites that lets you type what you want and generate a site
-
 ### Simon Hunter (Speaker H) [16:27-16:29]
 
 ready to use right away, complete with
-
-### Guest (Speaker B) [16:29-16:57]
-
-forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Awkward
-
-### Guest (Speaker C) [16:57-16:59]
-
-time to ask this, but hey, did
 
 ### Simon Hunter (Speaker H) [16:59-17:03]
 
@@ -169,10 +116,6 @@ You're trusting your signal out here.
 ### Simon Hunter (Speaker H) [17:05-17:06]
 
 I'm trusting T Mobile.
-
-### Guest (Speaker A) [17:06-17:08]
-
-They have the best network and if
 
 ### Simon Hunter (Speaker H) [17:08-17:13]
 
@@ -194,10 +137,6 @@ you never thought possible. And if you switch today, you get free phones for zer
 
 Best Mobile Network Based on analysis by Ooklab speed test intelligence data 2H 2025 with 24 monthly bill credits and 4 eligible port ins on essentials for well qualified customers with auto pay taxes fees and 35 connection charge per line credits and imbalance due if you pay off earlier. Cancel Contact Us Finance Agreement example $299.99 Moto Edge 5G required T Satellite available with compatible device in most outdoor areas in the US where you can see the sky. Included with experience beyond or $10 a month auto news monthly cancel anytime.
 
-### Guest (Speaker C) [17:56-18:05]
-
-Visit t mobile.com Amazon Health AI presents painful thoughts I I can't stop scratching my downtown.
-
 ### Chad Millman (Speaker D) [18:06-18:08]
 
 Yeah, but I'm not itching to go
@@ -210,18 +149,6 @@ downtown and tell a receptionist I'm here
 
 to talk about my downtown. Some things you'd rather type than say out loud.
 
-### Guest (Speaker C) [18:16-18:25]
-
-There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful
-
-### Guest (Speaker E) [18:27-18:27]
-
-Are
-
-### Guest (Speaker A) [18:27-19:58]
-
-you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia Syndrome Type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills, taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound Lilly.com all
-
 ### Simon Hunter (Speaker H) [19:58-21:55]
 
 right, first off, none of it's going anywhere. It is from time immemorium. George Washington, Thomas Jefferson. They were gamblers. If they could gamble today, they would be on Kalshee deciding, making bets on who's going to win the next presidential election. I just pointed to that Gallup poll. It has always been a huge contrast between the puritanical values that came over to this country and and the fact that horse racing started almost the second this country was founded. Like that is just part of who we are. It's part of what happens in America. That has always been the tug and pull between gambling, not gambling. Should it be legal? Should it not be legal? We've talked about that so much on this show. You said something really interesting to me about the integration of sports betting into games. That I think is a turn off for people. It's kind of a turnoff for me. I don't actually like when I'm getting updates on the over under or the live spread in the middle of the game. I think there's a huge problem because the broadcasters a lot of times don't really understand the language. It's not authentic to them. And when that happens, it starts to feel crass and commercial and opportunistic and not like something that is core to what is being watched. Van Pelt is amazing because he truly gets gambling and knows how to frame it. I think that's not true for a lot of People who are broadcasting on television, I think that's the big issue. I think people like when you're just reading it because it feels like an ad in the middle of the game, it starts to feel obnoxious.
@@ -233,10 +160,6 @@ Yeah. I would say though, it's, it's fun from my standpoint of I do this profess
 ### Simon Hunter (Speaker H) [24:52-26:18]
 
 You know, what's interesting is, as a professional, better. I want your take on this. Public opinion obviously turns partially because of how many scandals there have been. I'm of the opinion that the scandals have always existed. And the frequency with which we are hearing about the scandals now is just because there's so much more attention being paid. Right. There are integrity monitors who are tracking this. There's every game, every market is being looked at and examined for some kind of impropriety. There are a lot of ways. There are lists that people who shouldn't be betting are on. So if they do start to bet, that's how Sorsby, Brendan Sorsby was caught. It was tracked that he was betting on a particular platform and he was on a list that he shouldn't have been betting because he's an athlete. That's how those things get caught. Back in the day, say from the early 1900s through the early, you know, 2000s, you'd get these big headlines every 10 years. It would be a massive betting scandal. It would Flash, there'd be outrage. People would go to jail. Players would get banned. Leagues would assure everybody that it's just those players. Everything's safe. The games would get bigger than ever.
-
-### Guest (Speaker B) [26:18-26:18]
-
-Right?
 
 ### Simon Hunter (Speaker H) [26:20-26:43]
 
@@ -253,10 +176,6 @@ That was the Brendan Sorsby argument, is that when he was at Indiana and he was 
 ### Chad Millman (Speaker D) [31:23-32:58]
 
 The biggest benefit is that they'll always catch these people. Like we just talking about. These are billion dollar corporations with incredible AI tools themselves and all these things that immediately flag different accounts. I mean my favorite thing I've learned is they flag, they're figuring out how to flag accounts of girlfriends of athletes, which is a whole other world. Which like some of my most interesting stories about this were, you know, they see unusual accounts on some. A woman that's in her 50s or 60s and they'll look it up and go oh well her son is the quarterback at this school. That's like those things are real. That and that's why I'm trying to explain to people why it's so good legalized gambling. Because they can catch these people. They have the money and the resources to catch these people which keep our sports clean. Because the biggest fear of all the sports, obviously professionals were to worry about it's college. College kids are so vulnerable because that not only do they need money, they're so stupid. They are so stupid. Like you're talking about Sworesby here. This kid has millions of dollars laid out in front of him for future and not even Nile money. Just talking about going professional. He could have blown that because he wanted to bet against Fernando Mendoza or whoever the quarterback was in Indiana. I think he was there under a passing yards. Just like weird stuff where it's like dude, you could end your life over, you know, 10, 20 bet the NBA guys like throwing those points, they cost themselves millions of dollars to what, help their friends win $10,000. It's just there's no logic. These people are just so dumb. That's what I want people to realize where there's always going to be an idiot. Like you just said he was going to find a bookie in college. Now would he even bend thousand dollars?
-
-### Guest (Speaker A) [32:58-32:59]
-
-No.
 
 ### Chad Millman (Speaker D) [32:59-34:13]
 
@@ -289,10 +208,6 @@ I can guarantee you this, if he gets drafted by a team, they actually do use a s
 ### Simon Hunter (Speaker H) [35:50-36:59]
 
 You mentioned AI. We've talked a lot about AI and how it's being used. Here's my theory. You would think that if you're a casual better, AI will allow you to become better at betting, maybe catch up to professional betters. I think the gap between professional betters and casual betters because of AI and because of technology is actually getting bigger because professional bettors have access to it, too, and they're smarter at using it. But I also think it's because of mindset. I just think at the end of the day, professional betters, if you want to do this professionally, no matter if you're only going to do this casually, no matter how good you are at technology, you're not going to get to a level where you're competing with professional betters unless your mindset is that of a professional better. I will never be doing what you do. I will not be getting up in the middle of the night to check lines. I will not be active and trying to move money and get out of bad bets. Like, as much modeling as I do, I'm not going to get there. The technology isn't going to help.
-
-### Guest (Speaker F) [37:00-37:00]
-
-Yeah.
 
 ### Chad Millman (Speaker D) [37:00-37:26]
 
@@ -334,58 +249,18 @@ Who are you? Everyone starts from zero. That's what I always say.
 
 Everyone starts from zero. And everyone can figure out if they want to dedicate themselves to it. I think the difference is always going to be mindset. Are you passionate enough about wanting to do it that you're going to spend the time to do it, that you want to be dedicated to do it, that you want to commit to it the way Simon commits to it. Same way I commit to writing a book. Like it becomes you're all encompassing, all purpose, all you think about. Getting up in the middle of the night to take notes, having a line that you think about when you're making dinner, seeing a line that moves that Simon needs to get. I would encourage everybody to experiment with it all though because it is interesting and you should be intellectually honest and self scout at all times. All right, that's our show. We're off on Thursday. We'll be back next week. This has been Sharper Square part of the Volume Podcast Network watch or listen on YouTube at Sharper Square like this video. Subscribe to the channel. Download us from Spotify, Apple Pods, wherever you get your pods. Follow us on Instagram, arpersquare one word Rate Review Subscribe Leave us 5 stars. Say whatever you want.
 
-### Guest (Speaker B) [42:18-42:19]
-
-Feedback is a gift.
-
 ### Simon Hunter (Speaker H) [42:19-42:22]
 
 Until next time. Love you.
-
-### Guest (Speaker C) [42:24-42:25]
-
-Hello.
-
-### Guest (Speaker G) [42:26-42:29]
-
-You play to win the game, you
 
 ### Chad Millman (Speaker D) [42:29-42:31]
 
 don't play to just play it foreign.
 
-### Guest (Speaker J) [42:34-43:02]
-
-I'm U.S. transportation Secretary Sean Duffy. We all seem to be in a rush these days, from work to driving our kids around. But when you're behind the wheel, please do not speed. A few minutes saved by going faster is never worth the risk. So follow the speed limit, enjoy the drive, maybe bring some snacks for the kids. And know the along the way you're getting quality time with your family. Paid for by nhtsa.
-
-### Guest (Speaker G) [43:04-43:40]
-
-This is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. Power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's just as powerful as you are. With Total Wireless, you you get unlimited 5G data keeping you in the action from the walkouts to the knockouts. Now that's a total power move. Make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless Store. Additional terms apply. See totalwireless.com for details.
-
-### Guest (Speaker E) [43:41-43:48]
-
-Maintenance fee Overdraft fee Minimum balance fee Maximum balance fee Banking fees are just a part of modern life.
-
-### Guest (Speaker A) [43:48-43:49]
-
-Or are they?
-
-### Guest (Speaker E) [43:49-44:12]
-
-They're not at Ally Bank. At Ally bank, there are no tricks. No hidden fine print or jumping through hoops for better rates. They just want to help you save automatically while you spend with spending accounts and savings tools with great rates. No tricks, no hidden fees. Banking built for life today. Learn more@ally.com Ally Bank Member FDIC this
-
 ### Guest (Speaker K) [44:12-44:21]
 
 episode is brought to you by Bobcat. They started the compact equipment industry through grit, determination, and a whole lot of think. We can't do that.
 
-### Guest (Speaker J) [44:21-44:22]
-
-Watch us.
-
 ### Guest (Speaker K) [44:22-44:47]
 
 They set standards, broke records, empowered people to build bigger and higher, to dig deeper, to make the impossible possible. We've all been there with doubters telling us what we can't do. Who cares what they think? We don't need their permission or forgiveness. We just get things done. So go ahead and doubt me. Judge me, Challenge me. But when the time comes, watch me. Bobcat.
-
-### Guest (Speaker A) [44:49-44:52]
-
-This is an iHeart podcast. Guaranteed Human.

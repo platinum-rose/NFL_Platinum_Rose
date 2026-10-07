@@ -1,0 +1,159 @@
+{
+  "episode_slug": "youtube-GlX2VLYRIfY",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
+  "run": {
+    "run_id": "youtube_gemini_10f496415b70",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=GlX2VLYRIfY",
+    "latency_ms": 174289,
+    "estimated_cost_usd": 0.022696,
+    "input_tokens": 218270,
+    "output_tokens": 2173,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman and Simon Hunter recap a wild NFL Week 1 on the Sharp or Square podcast, discussing Minnesota's miraculous late cover, Tampa Bay's turnover-plagued loss to the Bengals, and Chicago's offensive explosion against Carolina.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 2378,\n    \"last_analyzed_timestamp\": 2378,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 42.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharp or Square, brought to you by Polymarket. We are part of the Volume podcast network. I am Chad Millman, joined as always by my co-host, professional bettor Simon Hunter.\"\n    },\n    {\n      \"start\": 42.0,\n      \"end\": 110.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Chad, how we doing? Week 1 is finally here, baby, and it's the absolute best.\"\n    },\n    {\n      \"start\": 110.0,\n      \"end\": 240.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"It was a long, lonely walk up the darkened steps, but we were saved by watching Minnesota score three touchdowns in the span of about two minutes to go from outright losers to easily covering against Green Bay.\"\n    },\n    {\n      \"start\": 240.0,\n      \"end\": 450.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Every game came down to the turnover battle, and we unfortunately lost almost every single one of them today. But we got saved in the end, and we'll take it.\"\n    },\n    {\n      \"start\": 450.0,\n      \"end\": 713.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Let's start with Minnesota. Minnesota minus one and a half was our play. First throw of the game was a Kyler pick, and then Kyler gets knocked out of the game entirely. I don't know how they stayed alive.\"\n    },\n    {\n      \"start\": 713.0,\n      \"end\": 980.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"When Kyler went out, it honestly wasn't that big of a downgrade to Carson Wentz at this point. Kyler did not look confident throwing off his back foot. Wentz came in and played really solid football.\"\n    },\n    {\n      \"start\": 980.0,\n      \"end\": 1250.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Next game, Tampa Bay Buccaneers plus three and a half against the Cincinnati Bengals. Baker Mayfield fumbled four times today, Simon. Four times, and they still only lost by six points.\"\n    },\n    {\n      \"start\": 1250.0,\n      \"end\": 1506.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Baker lost three fumbles, and Bucky Irving had another one. You cannot turn the ball over four times against a potent Bengals offense and expect to cover. It was a brutal non-cover for us.\"\n    },\n    {\n      \"start\": 1506.0,\n      \"end\": 1750.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"We also had Carolina plus three and a half. Ben Johnson is not screwing around with this Bears offense, putting up fifty-nine points in Week 1.\"\n    },\n    {\n      \"start\": 1750.0,\n      \"end\": 2026.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Caleb Williams set the tone in the first quarter with his legs, finishing with two rushing touchdowns. DeAndre Swift was also phenomenal, running hard and proving why he got that new contract.\"\n    },\n    {\n      \"start\": 2026.0,\n      \"end\": 2250.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"We talked before the season about betting the Bears to lead the league in scoring at nine to one, and that's looking like a great ticket right now.\"\n    },\n    {\n      \"start\": 2250.0,\n      \"end\": 2378.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"That's our recap of the early Sunday slate. We'll be back on Tuesday to look ahead to Week 2. Make sure to download the Polymarket app with code SHARP. See you next time.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"FAVORITE\",\n      \"line\": -1.5,\n      \"price\": null,\n      \"week\": 1,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 555,\n      \"rationale\": \"Minnesota minus 1.5 was the official bet that successfully covered with a late three-touchdown comeback.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"UNDERDOG\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 1,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 1400,\n      \"rationale\": \"Buccaneers plus 3.5 failed to cover against the Bengals due to four total turnovers.\"\n    },\n    {\n      \"team\": \"CAR\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"UNDERDOG\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 1,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 1902,\n      \"rationale\": \"Panthers plus 3.5 failed to cover as they were completely dominated by the Bears.\"\n    },\n    {\n      \"team\": \"CHI\",\n      \"player\": null,\n      \"market\": \"other\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 900,\n      \"week\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 2150,\n      \"rationale\": \"Season-long futures bet on the Chicago Bears to lead the NFL in total scoring at 9-to-1 odds.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"MIN\"],\n      \"players\": [\"Kyler Murray\"],\n      \"topic\": \"Kyler Murray Concussion\",\n      \"summary\": \"Kyler Murray was knocked out of the game with a concussion in the first half, thrusting backup Carson Wentz into action.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 713,\n      \"quote\": \"Kyler is knocked out of the game because of a concussion.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"CHI\"],\n      \"players\": [\"Caleb Williams\", \"DeAndre Swift\"],\n      \"topic\": \"Ben Johnson's Offensive Scheme\",\n      \"summary\": \"The Bears' offense looked dominant and highly explosive, rushing 39 times for 291 yards and 6 touchdowns under coordinator Ben Johnson.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1750,\n      \"quote\": \"Ben Johnson is not screwing around when he talks about leading the league in points.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"TB\"],\n      \"players\": [\"Baker Mayfield\"],\n      \"topic\": \"Buccaneers Turnover Issues\",\n      \"summary\": \"Tampa Bay's offensive execution was heavily hindered by fumbles, with Baker Mayfield turning the ball over multiple times.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1250,\n      \"quote\": \"You bet a dog, you have four turnovers against a potent offense like the Bengals, you're not going to cover.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Bears Futures\",\n      \"timestamp\": 2150,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"We talked about betting the Bears to lead the league in scoring... they were at 9 to 1.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 555,\n      \"field\": \"price\",\n      \"reason\": \"Vig/price on the Minnesota spread was not explicitly mentioned during the recap.\"\n    }\n  ]\n}",
+    "extracted_picks": [
+      {
+        "team": "MIN",
+        "player": null,
+        "market": "spread",
+        "side": "FAVORITE",
+        "line": -1.5,
+        "price": null,
+        "week": 1,
+        "speaker": "Chad Millman",
+        "source_timestamp": 555,
+        "rationale": "Minnesota minus 1.5 was the official bet that successfully covered with a late three-touchdown comeback."
+      },
+      {
+        "team": "TB",
+        "player": null,
+        "market": "spread",
+        "side": "UNDER",
+        "line": 3.5,
+        "price": null,
+        "week": 1,
+        "speaker": "Chad Millman",
+        "source_timestamp": 1400,
+        "rationale": "Buccaneers plus 3.5 failed to cover against the Bengals due to four total turnovers."
+      },
+      {
+        "team": "CAR",
+        "player": null,
+        "market": "spread",
+        "side": "UNDER",
+        "line": 3.5,
+        "price": null,
+        "week": 1,
+        "speaker": "Chad Millman",
+        "source_timestamp": 1902,
+        "rationale": "Panthers plus 3.5 failed to cover as they were completely dominated by the Bears."
+      },
+      {
+        "team": "CHI",
+        "player": null,
+        "market": "other",
+        "side": "YES",
+        "line": null,
+        "price": 900,
+        "week": null,
+        "speaker": "Chad Millman",
+        "source_timestamp": 2150,
+        "rationale": "Season-long futures bet on the Chicago Bears to lead the NFL in total scoring at 9-to-1 odds."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "MIN"
+        ],
+        "players": [
+          "Kyler Murray"
+        ],
+        "topic": "Kyler Murray Concussion",
+        "summary": "Kyler Murray was knocked out of the game with a concussion in the first half, thrusting backup Carson Wentz into action.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 713,
+        "quote": "Kyler is knocked out of the game because of a concussion.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "CHI"
+        ],
+        "players": [
+          "Caleb Williams",
+          "DeAndre Swift"
+        ],
+        "topic": "Ben Johnson's Offensive Scheme",
+        "summary": "The Bears' offense looked dominant and highly explosive, rushing 39 times for 291 yards and 6 touchdowns under coordinator Ben Johnson.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1750,
+        "quote": "Ben Johnson is not screwing around when he talks about leading the league in points.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "TB"
+        ],
+        "players": [
+          "Baker Mayfield"
+        ],
+        "topic": "Buccaneers Turnover Issues",
+        "summary": "Tampa Bay's offensive execution was heavily hindered by fumbles, with Baker Mayfield turning the ball over multiple times.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1250,
+        "quote": "You bet a dog, you have four turnovers against a potent offense like the Bengals, you're not going to cover.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Bears Futures",
+        "timestamp": 2150,
+        "speaker": "Chad Millman",
+        "quote": "We talked about betting the Bears to lead the league in scoring... they were at 9 to 1."
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 2378,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 2378,
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 4,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

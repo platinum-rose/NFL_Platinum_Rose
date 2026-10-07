@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "CC Bowl XV CHAMPIONS LEAGUE draft 2023"
-created: "2026-10-06T05:59:42.974Z"
-modified: "2026-10-06T05:59:42.974Z"
+created: "2026-10-06T14:10:38.728Z"
+modified: "2026-10-06T14:10:38.728Z"
 season: 2023
 type: "fantasy-draft"
 league: "CC Bowl XV CHAMPIONS LEAGUE"

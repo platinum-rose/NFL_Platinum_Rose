@@ -8,25 +8,24 @@ Audio: https://podtrac.com/pts/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 52235
 Speaker turns: 130
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D), Guest (Speaker E)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker E)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
-- Speaker D: Guest
 - Speaker E: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker D: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - None
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -44,17 +43,9 @@ go downtown and tell a receptionist I'm here to talk about my downtown.
 
 Some things you'd rather type than say out loud. There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
 
-### Guest (Speaker A) [1:03-2:29]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
-
 ### Chad Millman (Speaker B) [2:29-2:34]
 
 visit zepbound.lilly.com this is Tab Ramos from
-
-### Guest (Speaker D) [2:34-3:09]
-
-Inside American Soccer and this summer Topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group. Exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right, right into the net. And every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the top Golf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass welcome to Sharper
 
 ### Chad Millman (Speaker B) [3:09-3:29]
 
@@ -103,10 +94,6 @@ These teams do. I feel like they make it all so complicated. It's like there's n
 ### Simon Hunter (Speaker C) [8:19-8:30]
 
 So I, I don't know, Chad. It's like you said, it's just two. Two teams. I feel like they've lost their ways and since. Yeah, I'll give them credit. They've gone out. I think this is like the fourth or fifth guy they've signed to the defense.
-
-### Guest (Speaker D) [8:31-8:31]
-
-Great.
 
 ### Simon Hunter (Speaker C) [8:31-8:51]
 
@@ -164,10 +151,6 @@ That was fantastic. I think we could have gone further down the rabbit hole by j
 
 All right, quick word from Hard Rock and then we're coming back to get serious about some draft betting. Today's show is brought to you by our presenting sponsor, Hard Rock bet, Florida's sportsbook. It's NBA playoff time where the lights are brighter, the pressure is higher, and every position session can change a series. And on Hard Rock Bet every night is your shot to score a major bucket with win or go home energy on the hardwood. I love building same game parlays. However you draw it up. Hard Rock Bet gives you tons of ways to stack your picks into a same game parlay built for the playoffs. If you're ever late for tip off, don't worry. Hard Rock Bet lets you live bet all game long from the first first bucket to the final buzzer. Sign up today and double your winnings on your first 10 bets. Maximum $50. That's right, double your winnings on your first 10 bets. So if you would have won 100 bucks on your bet, now it's 200. The welcome offer is just the beginning. Hard Rock BET has new promos daily. So open up the app right now to see what promo you've got today. Download the Hard Rock Bet app and let's get the party started. Offered by the Seminole Tribe in Florida. Offered by Seminole Hard Rock Digital, LLC and all other states must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play, terms and conditions apply. Concern about gambling in Florida, call 1833 playwise in Indiana, if you or someone you know has a gambling problem and wants help, call 1-800- now with it in Ohio call 1-800- my reset gambling problem. Call 1-800- gambler in Arizona, Colorado, Illinois, Michigan, New Jersey, Tennessee or Virginia. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced WIX Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's Wix.
 
-### Guest (Speaker A) [15:50-17:17]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 6, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
-
 ### Simon Hunter (Speaker C) [17:17-17:27]
 
 visit zepbound.lilly.com Amazon Health AI presents painful thoughts why did I search the Internet
@@ -195,10 +178,6 @@ I can never unsee that.
 ### Simon Hunter (Speaker C) [17:43-17:50]
 
 Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker D) [17:51-18:47]
-
-This is Tab Ramos from Inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They're not just throwing games on in the background. Topgolf is going all in on soccer. They've got a new soccer themed game you can play with your group. Special in venue activations, exclusive food and drink items inspired by the global game. And at more than 60 locations, they've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. So it's a great place to watch with friends, hang out, compete a little bit and enjoy the atmosphere. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Summer hits different at TopGolf.
 
 ### Chad Millman (Speaker B) [18:47-19:18]
 
@@ -235,10 +214,6 @@ I will. It still, it still would be a stupid pick. It's like if you have 10 guys
 ### Chad Millman (Speaker B) [25:22-25:25]
 
 Like, where the Chiefs just got Kenneth Walker in free agency.
-
-### Guest (Speaker D) [25:25-25:25]
-
-Yeah.
 
 ### Simon Hunter (Speaker C) [25:25-25:58]
 
@@ -320,17 +295,9 @@ feel my best the next day.
 
 Which, you know, we don't bounce back
 
-### Guest (Speaker D) [37:08-37:09]
-
-like we used to.
-
 ### Chad Millman (Speaker B) [37:09-38:46]
 
 Like you said Jeff, we do not. From draft day to basketball playoff games, April is a sprint of outdoor celebrations. Don't let a rough next day keep you on the sidelines. Drink pre alcohol to stay ahead of the game and make the most of every sunny Saturday. Go to zebiotics.com sharpersquare to learn more and get 15% off your first order when you use Sharp or Square at check out. Zebiotics is backed with a 100% money back guarantee, so if you're unsatisfied for any reason, they'll refund your money, no questions asked. Remember to head to ZBiotics.com sharpersquare and use the code Sharp or Square at checkout for 15% off. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation with Wix has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And Wix Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Are
-
-### Guest (Speaker A) [38:46-40:13]
-
-you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia Syndrome Type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills, taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
 
 ### Simon Hunter (Speaker C) [40:13-40:23]
 
@@ -359,10 +326,6 @@ I can clear my search history but I can never unsee that.
 ### Simon Hunter (Speaker C) [40:39-40:46]
 
 Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker D) [40:47-41:43]
-
-This is Tab Ramos from Inside American Soccer and this summer T topgolf is turning into the ultimate soccer destination. They're not just throwing games on in the background. Topgolf is going all in on soccer. They've got a new soccer themed game you can play with your group special in venue activations, exclusive food and drink items inspired by the global game and at more than 60 locations they've even installed full size soccer goals so you can try to hit golf balls right into the net and every match all summer long will be on throughout the venue. So it's a great place to watch with friends, hang out, compete a little bit and enjoy the atmosphere. And if you want to keep the fun Going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Summer hits different at TopGolf.
 
 ### Chad Millman (Speaker B) [41:44-41:52]
 
@@ -420,17 +383,9 @@ We are eagerly anticipating the start of what may go down in history as
 
 the high watermark draft of the entire
 
-### Guest (Speaker D) [51:01-51:03]
-
-decade of the 90s.
-
 ### Guest (Speaker E) [51:03-51:06]
 
 The Indianapolis Colts have been which quarterback
-
-### Guest (Speaker D) [51:06-51:07]
-
-do they go with? Peyton Manning?
 
 ### Simon Hunter (Speaker C) [51:07-51:18]
 
@@ -448,10 +403,6 @@ the official wireless partner of ufc.
 
 Power doesn't wait in the octagon or outside of it.
 
-### Guest (Speaker D) [52:03-52:05]
-
-You either make the move or you miss the moment.
-
 ### Chad Millman (Speaker B) [52:05-52:08]
 
 That's why you need a network that's
@@ -459,10 +410,6 @@ That's why you need a network that's
 ### Guest (Speaker E) [52:08-52:09]
 
 just as powerful as you are.
-
-### Guest (Speaker D) [52:09-52:11]
-
-With Total Wireless, you get unlimited 5G
 
 ### Guest (Speaker E) [52:11-52:14]
 
@@ -479,10 +426,6 @@ Now that's a total power move.
 ### Chad Millman (Speaker B) [52:17-52:24]
 
 Make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless store.
-
-### Guest (Speaker D) [52:24-52:25]
-
-Additional terms apply.
 
 ### Chad Millman (Speaker B) [52:25-52:32]
 
@@ -539,7 +482,3 @@ Max 7 topping 6 rim and New York style crust.
 ### Guest (Speaker E) [53:28-53:32]
 
 Minimum purchase required for delivery. Prices, participation, delivery area and charges may vary.
-
-### Guest (Speaker A) [53:33-53:37]
-
-This is an iHeart podcast. Guaranteed Human.

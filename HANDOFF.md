@@ -6,7 +6,9 @@
 
 ## Current pick-up point
 
-**Latest session (2026-10-05 17:20 PT, Claude Team 2 — MNF ATL@NO):** `handoffs/2026-10-05-1720-claude-mnf-planner-experts-tickets-handoff.md`. Prop planner upgrades + expert prop panel, 56 ATL@NO expert prop picks, 5 MNF tickets live ($57.81). **Next:** settle MNF, then Week 4 team-by-team post-mortem (resume prompt in §4).
+**Latest session (2026-10-06 23:45 PT, Claude Team 2 — Week 4 close-out + automation):** `handoffs/2026-10-06-2345-claude-week4-archive-automation-postmortem-next-handoff.md`. Week 4 settled (0 open, net −$266.23) and archived (data/archive + Obsidian); weekly archive, all toolbox cadences and per-cadence Claude reports are now scheduled. **Next:** finish `week4-post-mortem.html` (§4), then Week 5 prep (§5).
+
+Previous: `handoffs/2026-10-05-1720-claude-mnf-planner-experts-tickets-handoff.md` (MNF tickets, prop planner).
 
 **H2C2 transfer to Claude Team 2 (Week 4 close-out / Week 5 launch):**
 
@@ -21,7 +23,7 @@ are at `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/`.
 
 ## Active lanes
 
-- **MNF live close-out:** tracker, settlement, and pick'em after the game.
+- **Week 4 post-mortem page:** paper tickets, AI-rec grading, RR payouts, recommendation ledger (handoff §4).
 - **Week 5 lines and promos:** missing BKR games, CHI@GB time correction, and only
   authorized Bills-credit/reload work.
 - **Week 4 analysis:** paper-ticket grading, recommendation-ledger separation, and

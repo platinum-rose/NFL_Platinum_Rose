@@ -8,25 +8,26 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 41663
 Speaker turns: 88
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D), Guest (Speaker E)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker E)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
-- Speaker D: Guest
 - Speaker E: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker D: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
-- Guest (gpt-4o, unknown) futures=1
+- Chad Millman (gpt-4o, host_map) futures=1
+- Simon Hunter (gpt-4o, host_map) futures=1
+- Warren Sharp (gpt-4o, host_map) futures=3
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -36,21 +37,9 @@ If you've been sitting on a business idea for a while, consider this the sign to
 
 presents painful thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores
 
-### Guest (Speaker A) [0:47-0:48]
-
-in various stages of ooze.
-
 ### Simon Hunter (Speaker C) [0:50-1:02]
 
 I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker D) [1:03-1:38]
-
-This is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. Power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's just as powerful as you are with with Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts. Now that's a total power move. Make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless Store. Additional terms apply. See totalwireless.com for details.
-
-### Guest (Speaker A) [1:38-3:07]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity, obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zeppbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zeppbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zeppbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2, tell your doctor if you get a lump or swelling in your neck, stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills. Taking zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lilly.com
 
 ### Chad Millman (Speaker B) [3:09-3:35]
 
@@ -192,21 +181,9 @@ my cold sore problem?
 
 Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores
 
-### Guest (Speaker A) [28:27-28:29]
-
-in various stages of ooze.
-
 ### Simon Hunter (Speaker C) [28:31-28:43]
 
 I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker A) [28:43-30:10]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepat peptide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-4-5979 or
-
-### Guest (Speaker D) [30:10-31:09]
-
-visit zepboundlily.com this is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. All UFC fighters know power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in on all the action, from the walkouts to the knockouts. You, you'll never miss a moment. That's coverage that you can count on for every single round. So when the moment happens, you're not catching up. You're already there. Now that, that's a total power move in the ufc, power isn't given. It's taken. So make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless store. 5G access requires a 5G capable device in a 5G service area. Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan. Additional terms apply. See website for details.
 
 ### Chad Millman (Speaker B) [31:10-31:24]
 
@@ -228,10 +205,6 @@ You know what's interesting to me? I feel like after so many years for Roger Goo
 
 That and he I think his main goal he's always been just whatever the owners say. That's his job. Right. He's the punching bag for the owner.
 
-### Guest (Speaker D) [37:29-37:29]
-
-Yeah.
-
 ### Simon Hunter (Speaker C) [37:30-37:31]
 
 None of these ideas are here.
@@ -243,10 +216,6 @@ He's the COVID right? Exactly. By the way, totally true.
 ### Simon Hunter (Speaker C) [37:34-38:00]
 
 The my. Another great example is just this season he put and one of the most important divisions in all football, the NFC west. They're starting the season in Australia with a divisional game between the 49ers and the Rams. I would be losing my mind as a fan where it's like that could easily determine like it did last year who the one seed is going to be. Right. Those divisional games, especially in that big of a division, such a big deal. But Goodell needs to do what's right. Right.
-
-### Guest (Speaker D) [38:00-38:00]
-
-It's.
 
 ### Simon Hunter (Speaker C) [38:00-38:21]
 
@@ -292,10 +261,6 @@ Wait, I came in for two things. How is this $47?
 
 All right, we're gonna need a plan here.
 
-### Guest (Speaker A) [41:04-41:12]
-
-Just start simple with bank of America Advantage Safe Balance Banking. No overdraft item fees, no monthly maintenance fee. If you're under 25 as a new
-
 ### Simon Hunter (Speaker C) [41:12-41:14]
 
 checking customer, you can earn $100 when
@@ -308,17 +273,9 @@ you open an account and make qualifying Zeller debit transactions.
 
 Oh, that's actually really simple.
 
-### Guest (Speaker A) [41:20-41:21]
-
-Safe Balance Banking.
-
 ### Simon Hunter (Speaker C) [41:21-41:22]
 
 One less thing to figure out.
-
-### Guest (Speaker A) [41:22-41:26]
-
-Learn more@bofa.com earn 100 terms and conditions apply.
 
 ### Chad Millman (Speaker B) [41:26-41:27]
 
@@ -335,10 +292,6 @@ Big transfer news today. Who's moving me to the couch with Domino's? Best deal e
 ### Guest (Speaker E) [42:05-42:06]
 
 Crust any pizza?
-
-### Guest (Speaker D) [42:06-42:07]
-
-Any toppings?
 
 ### Simon Hunter (Speaker C) [42:07-42:13]
 
@@ -371,7 +324,3 @@ Max 7 topping 6 for pan and New York style crust. Minimum purchase required for 
 ### Guest (Speaker E) [42:29-42:32]
 
 Prices, participation, delivery area and charges may vary.
-
-### Guest (Speaker A) [42:34-43:07]
-
-Grainger knows. When you're a procurement manager for an office park, you're not managing one building, you're managing all of them. And to stay ahead, you need to see through walls and around corners, lights about to fail, filters ready to clog H Vac on its last leg. If you wait until something breaks, you're already behind. Count on Grainger for quality products, easy reordering and 24. 7 support. Call 1-800-GRAINGER click grainger.com or just stop by Grainger for the ones who get it done. This is an iHeart podcast. Guaranteed Human.

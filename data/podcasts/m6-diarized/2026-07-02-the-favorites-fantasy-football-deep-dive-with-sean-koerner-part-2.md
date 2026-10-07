@@ -8,23 +8,27 @@ Audio: https://podtrac.com/pts/redirect.mp3/traffic.omny.fm/d/clips/e73c998e-6e6
 
 Transcript chars: 32827
 Speaker turns: 117
-Speaker labels: Guest (Speaker A), Guest (Speaker B), Guest (Speaker C), Guest (Speaker D), Guest (Speaker E), Brandon Kravitz (Speaker F), Guest (Speaker G), Guest (Speaker H)
+Speaker labels: Guest (Speaker A), Guest (Speaker C), Guest (Speaker E), Brandon Kravitz (Speaker F), Guest (Speaker G)
 
 ## Speaker Map
 
 - Speaker A: Guest
-- Speaker B: Guest
 - Speaker C: Guest
-- Speaker D: Guest
 - Speaker E: Guest
 - Speaker F: Brandon Kravitz
 - Speaker G: Guest
-- Speaker H: Guest
+
+## Ignored Audio
+
+- Speaker B: ad/commercial audio ignored
+- Speaker D: ad/commercial audio ignored
+- Speaker H: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
-- Guest (gpt-4o, unknown) futures=1
+- Guest (gpt-4o, unknown) futures=2
 - Brandon Kravitz (gpt-4o, host_map) futures=1
+- Sean Koerner (gpt-4o, host_map) futures=2
 
 ## Diarized Turns
 
@@ -32,21 +36,9 @@ Speaker labels: Guest (Speaker A), Guest (Speaker B), Guest (Speaker C), Guest (
 
 Your whole neighborhood goes black in seconds. Except your house. The Patriot Power Generator 2200X from 4 Patriots keeps your lights on when the grid goes down. It's the most powerful generator 4patriots has ever built. 4patriots gives you backup power without gas fumes or a loud engine. Just lights, a cold fridge and peace of mind when the power fails. Right now, save $500 and get two solar panels free. That means you can recharge twice as fast, but only while supplies last. Keep your lights on, your food cold, and your family calm when the grid goes down. Don't wait for the next blackout. Visit fourpatriots.com today. That's the number four P A T R I-O T S.com and see why families trust four Patriots to stay ready.
 
-### Guest (Speaker B) [0:49-0:52]
-
-150 years ago, they were hunting us
-
 ### Guest (Speaker C) [0:52-0:53]
 
 down to kill us.
-
-### Guest (Speaker B) [0:53-0:57]
-
-And now they're hunting down immigrants to deport them.
-
-### Guest (Speaker D) [0:57-1:14]
-
-This is First America, the true story of how the United States came to be and how we got to this present moment. Listen to First America on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
 
 ### Guest (Speaker E) [1:20-1:23]
 
@@ -68,10 +60,6 @@ Evening. Buyer's remorse. Buy a new car. I'll be moving in. Let's get started.
 
 Sorry, I think there's been a mistake. I bought it from Carvana.
 
-### Guest (Speaker B) [2:13-2:13]
-
-You what?
-
 ### Guest (Speaker E) [2:13-2:14]
 
 Yeah, Great price.
@@ -91,10 +79,6 @@ Buyers rejoice. Buy your car today on Carvana. Limitations and exclusions may ap
 ### Guest (Speaker E) [2:30-2:31]
 
 See our 7 day return policy at
-
-### Guest (Speaker H) [2:31-3:02]
-
-Carvana.com introducing B of A rewards. A new way to reward your every ambition. It all starts with a Bank of America checking account and grows from there. You get cash back deals on brands you know and Love plus a credit card rewards bonus, helping you earn more rewards on things you buy every day. Join B of A Rewards today for rewards tailored to your lifestyle. What would you like the power to do? Bank of America Open or enroll your account@bankofamerica.com B of A rewards bank of America Corporation. All rights reserved.
 
 ### Brandon Kravitz (Speaker F) [3:11-4:15]
 
@@ -304,10 +288,6 @@ Well, the good news is you don't have to take him in the first round. Where's he
 
 See?
 
-### Guest (Speaker H) [21:23-21:23]
-
-Yeah.
-
 ### Brandon Kravitz (Speaker F) [21:23-21:30]
 
 And how much of that is just a lesson learned because last year Genti was a first round pick and he flopped.
@@ -336,10 +316,6 @@ Your whole neighborhood goes black in seconds except your house. The patriot pow
 
 All new drinks are now at McDonald's with refreshers like the Strawberry Watermelon Refresher and the Mango Pineapple Refresher with popping Boba to crafted sodas like the Sprite Berry Blast with berry flavors and cold foam. Who knew ice cold drinks could be so fire
 
-### Guest (Speaker D) [25:39-25:39]
-
-six?
-
 ### Brandon Kravitz (Speaker F) [25:39-25:44]
 
 All new drinks are here now at McDonald's.
@@ -356,17 +332,9 @@ The Declaration, which is full of these
 
 beautifully rendered, you know, sentences and paragraphs about enlightenment ideals, does also have this darker history to it.
 
-### Guest (Speaker D) [25:59-26:08]
-
-Why is it important for the darker part of the Declaration of Independence and the American Revolution? Why is it important that Americans know about it?
-
 ### Guest (Speaker C) [26:09-26:20]
 
 Well, if we don't understand the full context in which our nation was founded, we won't understand the full context in which our nation now finds itself.
-
-### Guest (Speaker D) [26:20-26:26]
-
-I'm Rebecca Nagle. Gohin Dawadon. Jalakayetli Que la citizen of Cherokee Nation.
 
 ### Guest (Speaker E) [26:26-26:28]
 
@@ -375,14 +343,6 @@ Are you guys big Chiefs fans?
 ### Brandon Kravitz (Speaker F) [26:28-26:29]
 
 Hell yeah.
-
-### Guest (Speaker D) [26:29-26:44]
-
-This is First America, the true story of how the United States came to be and how we got to this present moment. Listen to First America on the iHeartRadio app, Apple Podcasts or wherever you get your podcasts.
-
-### Guest (Speaker B) [26:46-27:46]
-
-Hi, my love. Starting your day can be tough. You wake up, maybe hit snooze and then scroll on your phone for a while, checking your emails, all before even giving yourself the chance to really open your eyes and breathe. And I want to help you break that cycle. My name is Ryan Weiss, and For the past 15 years I've been an emotional intelligence coach and spiritual guide. And I'm here to share with you my new podcast, Waking Up With Ryan. Waking Up With Ryan is a daily audio video podcast to interrupt the inertia of your fear, your ego and judgment. Here to help you connect with with yourself before the noise of the day takes over. So let's start our days together with a moment of calm, a moment of reflection and meditation. A moment that's just for you. Listen to Waking Up with ryan on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
 
 ### Guest (Speaker G) [27:46-27:53]
 
@@ -463,10 +423,6 @@ Sean Kerner, ladies and gentlemen. You can find all of his work over@actionnetwo
 ### Guest (Speaker C) [32:19-32:22]
 
 Might the flag get it set up? I'm trying to put plant my flag here.
-
-### Guest (Speaker D) [32:22-32:23]
-
-Okay.
 
 ### Guest (Speaker C) [32:23-32:24]
 

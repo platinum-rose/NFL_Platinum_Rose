@@ -4,13 +4,16 @@ description: Use whenever the user says session start, resume, pick up here, or 
 ---
 
 Run Session Start per this project's `AGENTS.md` "Unified Session Context Protocol".
-Before summarizing anything: identify the real state file yourself (`.atlas-bridge/
-memory.json` or `.atlas/memory.json` -- don't assume), read HANDOFF.md's "Pick Up Here"
-section, run `git status --short` and `git log -n 5 --oneline` and show the raw output,
-and compute the open backlog count as the literal length of the open-tasks array in the
-real state file -- never from a prose summary line. Give the user: Last Commit, Active
-Task, Open Backlog Count -- and call out anything in the git output that doesn't match
-what the state file claims (a stale last_commit field, a stale date, a task the state
-file says is open but the code shows is already done, etc.). If any state file conflicts
-with another (e.g. WORKING-CONTEXT.md vs HANDOFF.md), stop and flag the mismatch rather
-than picking one to trust.
+
+Read `HANDOFF.md`, then run `git status -sb`, `git branch --show-current`, and
+`git log -5 --oneline`. Live Git beats handoff prose: report a meaningful mismatch before
+editing.
+
+For a standard handoff, load only the linked dated handoff for the active lane. For an
+H2C2 cross-team handoff, load `H2C2_START_HERE.md`, select the lane, then load only that
+lane's briefing section and named artifacts. Do not load the chain digest, historical
+handoffs, snapshot manifest, or unrelated lanes unless the task requires recovery or a
+contradiction must be resolved.
+
+Return a compact brief: branch/HEAD, dirty-state warning, active lane, stop conditions,
+and the next safe action.

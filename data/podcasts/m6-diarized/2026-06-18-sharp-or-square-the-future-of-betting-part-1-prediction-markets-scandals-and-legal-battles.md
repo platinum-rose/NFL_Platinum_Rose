@@ -8,7 +8,7 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 37870
 Speaker turns: 84
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D), Guest (Speaker E)
+Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
 
 ## Speaker Map
 
@@ -16,7 +16,10 @@ Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speak
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
 - Speaker D: Guest
-- Speaker E: Guest
+
+## Ignored Audio
+
+- Speaker E: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -55,10 +58,6 @@ What's that? Okay, that Hyundai Santa Fe, I only paid.
 ### Simon Hunter (Speaker C) [1:13-1:14]
 
 Nice.
-
-### Guest (Speaker E) [1:14-1:32]
-
-Deal's so right, it almost feels wrong. The Hyundai getaway sales event get 0% APR for 60 months plus 0 payments for 90 days or 1.9% APR for 72 months on the Hyundai Tucson, Santa Fe or Santa Fe hybrid during the Hyundai getaway sales event. Hurry. Offer ends August 3rd. Call 562-314-4603 for details.
 
 ### Guest (Speaker A) [1:33-2:02]
 
@@ -188,25 +187,13 @@ Because Fabuloso combines a powerful clean with the scent that lasts, transformi
 
 Make your world more Fabuloso.
 
-### Guest (Speaker E) [23:16-23:49]
-
-Whether you run a small office or a factory of 500, for businesses of all sizes, connection is everything. That's why T Mobile is reinventing business Internet with Super Broadband Powered by America's fastest 5G Internet and integrated with Starlink, Super Broadband is built from the ground up and the sky down, reaching every zip code in the us even in the most remote locations like this solar farm. Whether it's the boardroom or the emergency
-
 ### Guest (Speaker A) [23:49-23:51]
 
 room, all nurses to the nurses station.
 
-### Guest (Speaker E) [23:51-24:07]
-
-With super broadband, your critical data stays online even through disruptions. T Mobile now delivers super broadband a new era of business Internet. Visit superbroadband.com to learn more. VAST is 5G network based on analysis
-
 ### Chad Millman (Speaker B) [24:07-24:09]
 
 by Oculus BTS Intelligence data 2H 2025.
-
-### Guest (Speaker E) [24:09-24:15]
-
-Speeds vary due to local network characteristics and management. Satellite requires hardware installation and clear view of the sky with a 36 month commitment.
 
 ### Guest (Speaker A) [24:16-24:17]
 
@@ -220,17 +207,9 @@ That's me.
 
 Hey, you're. Yeah, Buying a car online on Autotrader.
 
-### Guest (Speaker E) [24:21-24:27]
-
-Really? But unlike other sites, you can start online, test drive with a local dealer, then finish online or at the dealership.
-
 ### Guest (Speaker A) [24:27-24:28]
 
 Cool. Enjoy.
-
-### Guest (Speaker E) [24:28-24:31]
-
-Buy your car online on autotrader. Really?
 
 ### Chad Millman (Speaker B) [24:31-25:53]
 
@@ -268,17 +247,9 @@ Yeah, yeah, yeah. That would be another one. I don't know how fruitful that's go
 
 Simon, a lot of the guys that I know who are professionals who are using prediction markets right now, it's because, as you noted, they've been kicked off the platforms and you got to hire a network of runners. And your business all of a sudden becomes about managing, finding out instead of doing the work that you want to do and actually being able to go bet and execute and maneuver in a live space. They're essentially becoming bookmakers on the prediction market platforms.
 
-### Guest (Speaker E) [29:20-29:20]
-
-Right.
-
 ### Chad Millman (Speaker B) [29:20-30:08]
 
 They're using their models to create prices, prediction markets. You basically bet yes or no, and they are offering prices on yes or no, and they're betting the no, and they're getting the casuals to bet the yes. And the beauty of this is I'll use golf as an example. If you want to be a professional golf better, and you want to go bet on a sports book, you're really, your only option is to bet yes on a litany of markets of players to win or not make the cut or whatever. But you're only betting yes. When you go to a prediction market, you can bet yes or no. You're essentially the book, you're taking all the no's. So you don't need anyone to do anything. You just need people to not do something. If you're on a prediction market, is that an advantage for you as a professional?
-
-### Guest (Speaker E) [30:08-30:08]
-
-Better.
 
 ### Chad Millman (Speaker B) [30:09-30:21]
 
@@ -328,10 +299,6 @@ Chris is also going to have me on his show when the book comes out because so mu
 
 Love you.
 
-### Guest (Speaker E) [38:40-38:47]
-
-Hello. You play to win the game. You don't play to just play it.
-
 ### Chad Millman (Speaker B) [38:50-39:02]
 
 This is Hoda Kotb from Joy 101 with Hoda Kotb. You know when you walk in a room and you take a big whiff and it sort of smells like home? Well, cleaning isn't just about making a house look clean.
@@ -351,10 +318,6 @@ vibrant, joyful and welcoming.
 ### Chad Millman (Speaker B) [39:16-39:25]
 
 There's something so satisfying about walking back into a room after you've cleaned it and noticing the scent. Make your world more fabuloso.
-
-### Guest (Speaker E) [39:25-41:01]
-
-I'm U.S. transportation Secretary Sean Duffy. The sound of a seatbelt. It's one of the most important sounds in our car. It means everyone is ready and everyone is safe. The more our kids see us put on our seatbelts, the more natural it is for them to put theirs on too. Make it a priority. Buckle up every time. Hear the sound. Make it a habit. Paid for by nhtsa this is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. Power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's just as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts. Now that's a total power move. Make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless Store. Additional terms apply. See totalwireless.com for details. If you want all of your data in one place. If you want a single home for all of your entities, if you want to spend more time working and less time searching, you need the Intuit erp. I know because I'm Damon John and I run my growing business on Intuit Enterprise Suite, the AI native ERP that's powerful, painless, and proven. Learn more at intuit.com ERP this is
 
 ### Guest (Speaker A) [41:01-41:05]
 

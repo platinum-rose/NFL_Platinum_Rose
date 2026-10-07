@@ -8,29 +8,24 @@ Audio: https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/traffic.omny.fm/d/cli
 
 Transcript chars: 20223
 Speaker turns: 21
-Speaker labels: Guest (Speaker A), Guest (Speaker B), Seth Woolcock (Speaker C), one of our greatest (Speaker D), Guest (Speaker E)
+Speaker labels: Seth Woolcock (Speaker C), one of our greatest (Speaker D)
 
 ## Speaker Map
 
-- Speaker A: Guest
-- Speaker B: Guest
 - Speaker C: Seth Woolcock
 - Speaker D: one of our greatest
-- Speaker E: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker B: ad/commercial audio ignored
+- Speaker E: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Seth Woolcock (gpt-4o, host_map) futures=1
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:03]
-
-This is an iHeart podcast. Guaranteed Human.
-
-### Guest (Speaker B) [0:04-0:38]
-
-This is Tab Ramos from inside American Soccer. And this summer, topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass
 
 ### Seth Woolcock (Speaker C) [0:41-1:17]
 
@@ -84,26 +79,6 @@ Yeah, you definitely want to chase the value, not the winners. So professional b
 
 I completely agree. We have a ton of futures bettings episodes out there for the NFL award season win total over under player prop markets right now on The Betting Pros YouTube channel. Myself and Andrea make sure you're checking those out. But as far as this particular role goes, like, I agree and sometimes I get messages like, wow, Seth, you're really backing the Tennessee Titans and the Cleveland Browns today. I don't go into the week and like have a roadmap of hey, here's who I'm going to bet right away, right by looking at the teams and just the matchups or we're looking again at that odds board@bettingpros.com and that is showing us the path. Where are the outliers? Where is the potential value? And I think the good thing that really this does for us as fans as well, Joe, is it gives us unique backing opportunities to potentially bet on some different teams each week, potentially get invested with different player props each week, even betting different angles, which can really be a lot of fun when you find yourself, you know, rooting for your arch nemesis that you didn't usually think you would be invested with or just kind of on a different type of bet than you usually would be. And like, this is another reason why I love the prediction markets, right? Because they will actually let you live cash out a lot of the time if you're beating that market change. So again, we're not looking at who's just going to win this, but are the markets right? Right. Like we're chasing the value. We're not chasing just the W here. So Joe, great stuff. There you have it, Joe. Man's top five NFL betting roles that the professionals are never breaking. Let us know down below your favorite NFL betting rules that you're following this season. Also, be sure give this video a thumbs up if you enjoyed it and subscribe to the channel if you're new. And while you're at it, download the free Betting Pros app today and try the new smart money tool. Mike Mayer and the boys have put in some good work over there. So make sure you're supporting all they're doing in the back end. For my friend Joe Madden, I'm Seth Wilcock. Thank you so much for watching. Take care y'.
 
-### Guest (Speaker E) [15:00-15:00]
-
-All.
-
 ### Seth Woolcock (Speaker C) [15:02-15:19]
 
 Thanks for listening to the Betting Pros Podcast. If you love the show, the best free way to support us is by leaving a positive review on Apple Podcasts or Spotify. Follow us on X and TikTok, eddingpros and Instagram eddingprosnfl. Also subscribe to our YouTube channel at YouTube.com bettingpros.
-
-### Guest (Speaker B) [15:30-16:05]
-
-This is Tab Ramos from Inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right into the net and every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Think about it
-
-### Guest (Speaker A) [16:06-17:03]
-
-when it comes to your own food, you can walk into a restaurant, see what's being made, and know exactly what you're getting. But with dog food, most brands keep that completely hidden. Just Food for Dogs does the opposite. They've built their entire brand around open kitchens. You can actually walk in and watch them prepare your dog's meals with real human grade ingredients like chicken, beef, carrots and peas cooked right there in front of you. No mystery, no behind the scenes, you're not allowed to see. That kind of transparency is rare in the pet food world, and it's a big reason they've become the number one vet recommended fresh dog food, earning trust from pet parents who want to feel confident in what they're feeding. When a brand is willing to show you exactly how your dog's food is made, it says a lot about the care, quality and standards behind every meal they produce. Nothing to hide, everything to love. Go to justfoodfordogs.com and get 50% off your first order.
-
-### Guest (Speaker E) [17:05-18:03]
-
-Summer is here at Orderly Meds. We know this time is a reminder that life is full of new beginnings. Whether you're celebrating the nice weather, starting a new chapter, planning a vacation, or simply looking ahead to what's next, the this season can be the perfect time to invest in yourself and your health. If you've struggled with weight loss and are curious about GLP1 medications, orderly meds can help you learn about your options. Through a simple virtual process, you can connect with licensed medical professionals who can determine whether treatment may be appropriate for you. Getting started is fast, convenient, and happens online from the comfort of home. This summer, consider a new approach to feeling your best. Visit orderlymeds.com podcast to learn more. That's orderlymeds.com podcast orderlymeds.com podcast because every new season is an opportunity to take the next step forward, compounded medications are not FDA approved, eligibility required and determined by a licensed provider. Individual results may vary. See website for details.
-
-### Guest (Speaker A) [18:05-18:09]
-
-This is an iHeart podcast. Guaranteed Human.

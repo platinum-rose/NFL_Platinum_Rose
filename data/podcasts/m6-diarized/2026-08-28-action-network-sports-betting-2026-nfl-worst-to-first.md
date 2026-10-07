@@ -1,0 +1,467 @@
+# Action Network Sports Betting - 2026 NFL Worst To First
+
+Published: 2026-08-28T13:30:00+00:00
+Episode ID: cc4c8108-1c4b-481a-9f55-834a33bace1f
+Status: done
+Duration: 3355 seconds
+Audio: https://podtrac.com/pts/redirect.mp3/traffic.omny.fm/d/clips/e73c998e-6e60-432f-8610-ae210140c5b1/390f52fb-437c-4290-bdaa-b3ec011d3fc8/af793aef-a652-46b1-a267-b4b30129a5b1/audio.mp3?utm_source=Podcast&amp;in_playlist=2d9ae039-d4b2-4a37-8a77-b3ec011d3fce
+
+Transcript chars: 69121
+Speaker turns: 110
+Speaker labels: Sean Koerner (Speaker A), Brandon Anderson (Speaker B)
+
+## Speaker Map
+
+- Speaker A: Sean Koerner
+- Speaker B: Brandon Anderson
+
+## Ignored Audio
+
+- None classified as ad/commercial only.
+
+## Existing Host Summary Rows
+
+- Brandon Anderson (gpt-4o, host_map) futures=18
+- Sean Koerner (gpt-4o, host_map) futures=1
+
+## Diarized Turns
+
+### Sean Koerner (Speaker A) [0:02-0:11]
+
+I love my phone but not my carrier. What do I do? Well, there are 250 reasons to join T Mobile. Like what? You can keep your phone and your number and T Mobile helps pay it
+
+### Brandon Anderson (Speaker B) [0:11-0:14]
+
+off up to $800 per line. So I wouldn't have to buy a new phone?
+
+### Sean Koerner (Speaker A) [0:14-0:14]
+
+Yep.
+
+### Brandon Anderson (Speaker B) [0:14-0:16]
+
+Plus your plan price stays the same
+
+### Sean Koerner (Speaker A) [0:16-0:18]
+
+for 5 years on experience plans.
+
+### Brandon Anderson (Speaker B) [0:18-0:21]
+
+Nice. Find your reason@t mobile.com
+
+### Sean Koerner (Speaker A) [0:23-0:26]
+
+via virtual prebaid guard car typically takes 15 days after
+
+### Brandon Anderson (Speaker B) [0:26-0:30]
+
+rebate submission price guarantee on TalkText and 5G data exclusions like taxes and fees apply.
+
+### Sean Koerner (Speaker A) [0:30-0:36]
+
+Amazon Health AI presents painful thoughts why
+
+### Brandon Anderson (Speaker B) [0:36-0:52]
+
+did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
+
+### Sean Koerner (Speaker A) [0:53-1:02]
+
+Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful. I'm Mangesha Teegular and I'm back with
+
+### Brandon Anderson (Speaker B) [1:02-1:07]
+
+a new season of my podcast Skyline Drive. This time I talk to scientists, biopunks,
+
+### Sean Koerner (Speaker A) [1:07-1:19]
+
+curmudgeons, blue zoners, super seniors, and Goa's top cryotherapy lab to try to understand this obsession with living forever and what it means for all of us. And I get into a bit of trouble along the way.
+
+### Brandon Anderson (Speaker B) [1:19-1:30]
+
+I'd say probably start bone smashing. That doesn't work. Make it look more defined. They say it works. I don't know. Listen to Skyline how to Live Forever on the iHeartRadio app, Apple Podcasts, or
+
+### Sean Koerner (Speaker A) [1:30-1:31]
+
+wherever you get your podcasts.
+
+### Brandon Anderson (Speaker B) [1:32-1:44]
+
+On the new podcast Solita, we share the messy reality of traveling alone. As a woman, I can wait four hours for the next bus or this random dude is offering me a ride on his motorcycle.
+
+### Sean Koerner (Speaker A) [1:44-1:47]
+
+I chose option B. I'm Julie Pinero
+
+### Brandon Anderson (Speaker B) [1:47-2:04]
+
+and I travel by myself because it's a rare space where I can say yes without asking anyone else first. I'm on a mission to reclaim the word Solita, trading the pity for possibility. Listen to Solita on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
+
+### Sean Koerner (Speaker A) [2:11-2:48]
+
+Hey, this is Hayes Davenport and Sean Clements. We host the podcast Hollywood Handbook. Each week we talk to someone in show business and try to help them with their careers and see what they have to offer us. Everyone has a good time and no one gets mad at their publicist for letting them do our lot of great guests like Sarah Sherman, Adam Scott, Danny McBride, Ben Stillard, and a lot of other big shots that wouldn't be where they are without us. Listen to Hollywood handbook on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts. The Action Network podcast. I'm just about that action, boss. All right, here we go. From the 10.
+
+### Brandon Anderson (Speaker B) [2:48-2:51]
+
+Throwing end zone. Spectacular catch.
+
+### Sean Koerner (Speaker A) [2:51-2:52]
+
+They're saying it's a catch.
+
+### Brandon Anderson (Speaker B) [2:52-2:53]
+
+Touchdown.
+
+### Sean Koerner (Speaker A) [2:54-2:59]
+
+You see, most gamblers, when they go to gamble, they go win. Oh, my God, that's incredible.
+
+### Brandon Anderson (Speaker B) [3:00-3:02]
+
+Big bank, small bank.
+
+### Sean Koerner (Speaker A) [3:02-4:03]
+
+I like to make money. All right, that is the ultimate kabash. You want a bet? And we are underway. Welcome to the Action Network podcast presented by DraftKings. I'm your host, Jill Galant, and I'm joined by NFL betting expert and futures analyst Brandon Anderson. Now, today we have a very special NFL episode. We have done rankings for pretty much every phase of a football team that goes on the football field. Brandon has ranked, you know, the offenses, defenses, but now we're going to take a deep dive on the NFL divisions and NFL division markets and trying to find the worst to first angle to bet on the best ones that we can get. So that means we're looking for the teams that finish last in 2025 in their respective division, but that can rebound and win that division and in 2026. Now Brandon, you've had some great winners with this angle over the years. Talk to me a little bit about the approach of how we look at this market, some historical context and what we need to consider before placing any bets.
+
+### Brandon Anderson (Speaker B) [4:04-6:48]
+
+Yeah, it is finally island day here at Action Network. We're ready for it. We're excited. We have had a worst to first division winner in now 20 of the last 23 seasons. So 87% of those seasons, about seven out of every eight. Basically you know the story, right? You get the season from hell, everything goes wrong. You know, the, the guys get injured, you lose in all the coin flip games, your pets, heads are falling off, you get the top draft pick, everyone kind of writes them off. Oh, that team is terrible. And suddenly it's January, you're hosting a playoff game, you won the division. So yeah, just quick review, like over the last decade we had The Cowboys go 4 and 12 to 13 and three Dak Zeke as rookies. It's been a minute now, but 2016, they flipped the script. They made it the next year. We know about the NFC east went to the Eagles 7 and 9 to Super bowl champions. We had Bears and Texans the year after that, Both in a one year worst of first Washington 2021 with the Bengals go worst to first all the way to the Super Bowl. And then recent years, we've had a lot of success. Jaguars 8 to 1 were winning. We gave out here at Action Network the next year, Texans Island 11 to 1 and the double down. Nobody in 2024. But last year on this podcast, Bears island bear down plus 550 and the double down as well. So each year we're trying to find who is the team that's going to go worst to first and who's the right bet, which is an important distinction. It's not just trying to get the win, but how do we get the best profit off of this. So since we got the new division format with the eight divisions, four teams each, that was 2002, we've had 30 teams go worst of first. So it's 1.25 per year. So we basically can expect there should be somebody. Now look at some books. You can just bet on any team goes worst to first. Fair odds of that by that number I just gave you is basically like minus 700. You can bet this at DraftKings, our sponsor. You can just bet any team worst to first. Yes. Minus 210. That's 68%. We're implied 87%. Historically. You can just stop listening. Go bet that if you want, but don't do that. Don't stop listening because we're going to give you a better winner. Why gonna bet -210 when we can get a plus number in front of that? If you hate all this, by the way, the no is there too, plus 170. So if you listen to the whole thing today, we can sell you on anybody. You can go on that side. And look, it is, I think, a particularly tough crop of options. But look, they all finish last every year. That's the whole point of the exercise. So we're going to just go through and I rank the teams from 8 to 1 on not necessarily most and least likely to win the division, but who are we betting? Who is the team that can win and is a good bet at the number will obviously go like the podcast is called from worst to first. So we'll start at the bottom.
+
+### Sean Koerner (Speaker A) [6:49-7:25]
+
+Okay, so eight teams to look at. As you just mentioned, we're going to go worst to first. Worst options, right to the best options. So let's start in tier five. This one's called no Way, no how. Your number eight ranked team to finish first in their division after finishing worst is the Arizona Cardinals. And right now I'm seeing odds for them around 100 to 1 to win the NFC West. Wow. Okay, so we have eight teams that, you know this is the bottom of the barrel, right? Like that we're looking at that finished last year by this logic. If they're the bottom of the eight worst teams, would this make them the worst team in football at this point?
+
+### Brandon Anderson (Speaker B) [7:26-9:28]
+
+You know, not necessarily. Again with this exercise. It's, it's a lot about context when you're looking for an island. You guys check the archipelago also. What else is out there? Take a look around. How's the water out here? How are the other islands? Well, the other islands around Arizona, they're big and thriving and awesome. And Arizona's island is taking water. So look around. You got the defending super bowl champions, the Seahawks, that's one of them in the division. You got the super bowl favorite Rams also there. And then, oh, that's right, the 49ers, who win year after year. And we've talked a lot about legacy with them. Shanahan for all that we give them crap for four NFC championship games in nine seasons there. So that is our top two offenses in the rankings, not just in the division in football. That's two of our top five defenses. It's three of my top five overall teams heading into the year. That's the division. You got to beat all of them. So that's not great. It's arguably the three best teams in the NFC as the entire division. That's not just six games against those teams. You've got to win enough of those and pass all three of those teams. You need like the bear case for all three teams and, and you need this huge, explosive team to come out of the Cardinals. And it's just, it's too big when asked for me. And beyond that, the schedule for Arizona is brutal. You start out double digit underdog into the Chargers. Okay, fine, maybe the Chargers beat you. Fair enough. Okay, well, keep looking. Here's the first 11 weeks. You get five division games against all those teams we just said. And you play the Lions and the Cowboys and the Broncos and the Chiefs through 11 weeks. Jill, this team right now is at least a touchdown underdog in every single game. And they're double digits in most of those games. So just from the start, you have a team that didn't even really try to find the quarterback. And you've got this awful schedule out of the gates as tough as anybody. I don't know how you think anything other than like 2 and 9 at week 11. And how do you go from there to worst of first yeah.
+
+### Sean Koerner (Speaker A) [9:28-9:45]
+
+And given the NFC west and the schedule, it's a pretty tough road. Like not a really great ecosystem to that. That yields itself to thinking about positives. But there has to be something that you're feeling a little bit positive about. With the Cardinals, like when we did the skill position rankings, for example, you were pretty high on that.
+
+### Brandon Anderson (Speaker B) [9:46-10:49]
+
+Yeah. So the skill positions we like. I love Jeremiah Love, love the running back room, the left side of the line, pretty good. We'll just not talk about the right side, but you can always run to the left side. You, Trey McBride, we like him. I kind of like the receivers still. I know you're not as sold, but Michael Wilson, Marvin Harrison Jr. I think there could be something there. Jacoby Brissette, probably a career backup, but did you know that he's actually the all time NFL leader in interception rate at only 1.4%, so no mistakes. Hey, that's pretty good. If you're not going to. If you're going to find some silver linings, just not turning the ball over all the time, that's a good place to start. The defense we talked about Walter Nolan, Will Johnson, there's some talent over there. Mike LaFleur. Yeah, maybe his name is LaFleur. That could work out. We like Nick Rollis on defense. They're probably not as bad as they look last year. I think this is not necessarily the worst team in the league. They won three games by a lot of the underlying metrics. They probably deserve more like five and a half wins. So I don't think this is a terrible, terrible team. I think it's a bad team in a terrible, terrible spot in the division.
+
+### Sean Koerner (Speaker A) [10:49-11:02]
+
+Well, we're going to move on from the Cardinals because I don't think you and I. But I just have to ask about the odds because again, 100 to 1. I mean, if you listen to Kevin Malone from the office, you always take 100 to one bet. Should we take a nibble? Even for five, ten bucks?
+
+### Brandon Anderson (Speaker B) [11:03-11:58]
+
+Yeah, I mean, you always take the 100 to one. You always try to win the M and Ms. In your mouth contest at the office Olympics too. But the reason I'm not taking the 100. Look, I can argue with 100 to 1. That's pretty good logic by you, Kevin Malone, whoever else wants to do it. Football's a weird sport, man. 100 to 1. You could just blind bet that anytime and you're probably going to have the odds slightly in your favor. The problem is the schedule is so bad and the division is so good that I don't even think this is our last chance. Like, I think there's a real chance, Jill, that by sometime in September, this is going to be like 250 to right. Like we're going to start out 0 and 3 with losses to, I think Seattle and I forget one of the other division opponents, the Rams or Niners. And now we're owing three, one of those teams or maybe two or three and zero. Now we'll take a nibble because 250 to 1 with like four months to go still, we'll take. I. We're going to get other shots here. If you want to take like a, you know, not even a pizza money. Give me a slice of New York pizza money. Throw that on there 100 to 1. I think we get even better odds. We wait a little bit.
+
+### Sean Koerner (Speaker A) [11:58-12:38]
+
+All right, 99 cent bet. All right, let's move now to tier four. You have two teams in this tier. This tier is called. Hard to see it, especially in those divisions. And at number seven, we're going to start with the Cleveland Browns seeing right now best price for them to win that division around 23 to 1. Now, if anybody has been listening to these ranking pods that we have done, thank. Thank you for listening. But first thing that you would probably see is that we shat on the Browns quite a bit, especially the. Like any phase of football, they were either bottom five or bottom ten. Give us a little refresher on how you're feeling about the Browns coming into this season.
+
+### Brandon Anderson (Speaker B) [12:38-14:28]
+
+Yeah, Browns fans, put on those earmuffs for a minute here. It's about to get ugly. Number 32 at quarterback. Somehow starting Deshaun Watson in the year of our Lord 2026, we'll see how long that goes. You love a starting quarterback that your defense says, well, if he's not great by week three, home opener, maybe we'll try. Shooter. Great. So happy to hear that. Number 32 offensive line. So you're the worst quarterback and the worst offensive line, if you remember. Jill. The best news I could tell you about the offensive line is that they're returning no starters from last year. We like continuity on the line. We like that the Browns have no continuity. That's how bad it's gotten there. Add that up and you get the number 32 offense look kind of like some of those young receivers they brought in. Casey Concepcion looked pretty good. Denzel. Boston got a lot of hype, but good luck to Todd Monkin. Like, you got your work cut out working around. Basically no quarterback and no blocking and Even if we like Todd Monkin calling the plays. It was a bottom five coaching staff for me as bottom five skill players and we didn't even do this as a podcast. But hilariously, bottom of the league special teams. They were 31st, last drive on 32nd. They were ungodly bad at punting, they're bad at kickoffs. They couldn't return kicks or punts. And they brought everyone back. They're just like, sure, that seems fine, let's do that again. We had them all the way up at 26 in defense. So that's the silver lining on the team is not being. What is that? Bottom six or seven on defense. But even that could get bad. No Miles Garrett and no Jim Schwartz out the door. So this is my worst team in football. This is number 32. They are a full point to the spread, worse than any other team. They're eight points worse than a neutral team. That would make them Jill Week 1 underdogs in Los Angeles at the Rams by 18 points on my model. So it's real bad. It's real, real bad. And they have every incentive to tank for the number one pick and a quarterback. That's the Browns.
+
+### Sean Koerner (Speaker A) [14:28-14:35]
+
+So why wouldn't they just be in the last year then with Arizona? Because, I mean, I don't. It doesn't sound like any optimistic news coming out of Cleveland.
+
+### Brandon Anderson (Speaker B) [14:36-15:46]
+
+Yeah, again, it's the surroundings. It's at least more palatable the surroundings here. And I think if you're looking at the division, you could make a decent case that this is the best you could feel as a Browns fan in the division in years because the Ravens and Steelers finally are in transition. Right? New coaches. No Harbaugh, no Tomlin. The Bengals did not get a new coach. That's just as good of news. We got Zach Taylor running it back. That seems fine for Cleveland. Lamar Jackson, he's uncertain right now. Aaron Rodgers is certain right now. That's not great. The Bengals still don't play a lot of defense. The Browns actually face the third easiest schedule in the first half of the season by dvoa though they are at Jacksonville at Tampa to start out in the Florida heat. Don't love that for them, but there are some cases here you can make on if you just ignore everything about the Browns and look at the setting. The ecosystem is battable and but frankly I don't think it's as good as it looks. I still think the Ravens could be good as anyone in the afc. I still think the Bengals with their offense, the Steelers with Their defense are playoff contenders. I can't blame you if you want to look at the ecosystem, but 23:1, not for me. Now, with this garbage roster.
+
+### Sean Koerner (Speaker A) [15:46-16:17]
+
+Yeah, morally as well, I cannot recommend a desean Watson led Cleveland Browns offense here. All right, that was number seven, Cleveland Browns, number six, Las Vegas Raiders seeing right now, best price right now, 30 to 1 to win the division. So not so much like the AFC north, but the AFC west just loaded, man. Like Broncos, Chargers, they made the playoffs last year. They're expected to contend. We didn't even talk about Patrick Mahomes and the Chiefs. Like, is that pretty much where the problem starts and ends for the Raiders?
+
+### Brandon Anderson (Speaker B) [16:17-17:27]
+
+For sure. You know, the Raiders and Browns, they like to come up often in this, this podcast that we're doing. They, their mainstays annually in the worst of division rankings. Which means you're not going to first, you're staying in a worst. But part of that is the division. And look here we have no, no juggernaut necessarily, but two of our top 10 offenses, that was the Chargers and the Chiefs. Hopefully the Chargers. We'll see how that works out. Two of our top 10 defenses, the Chiefs and the Broncos. So that right there, that's six tough games. Six games where you are a clear underdog. And again, three teams you've got to pass to get ahead of those. Even if Mendoza is good, Mendoza still got to beat Patrick Mahomes and Justin Herbert. And look, even bo nicks is 24 and 10. So you're at a quarterback episode. Even if Clint Kubiak is good, I like Clint Kubiak. Great. Andy Reid, Sean Payton and Jim Harbaugh are the other coaches in the division. So you're just. You're starting at a deficit here. They also lose Patrick Graham from the staff. Defensively, that's a big loss. Rob Leonard, very big unknown there. So even the things you can kind of talk yourself into. And we'll get into why I like some of the things, even those you're still fighting uphill against, better versions right there in the division.
+
+### Sean Koerner (Speaker A) [17:28-17:43]
+
+Okay, but let's talk about that. Like why. Why there's some positivity with the Raiders? Because we talked about the Cardinals. Even as much as we are not high on them winning the NFC west, there were some things that you could maybe feel great about or even feel at least a little positive about. What's that for the Raiders?
+
+### Brandon Anderson (Speaker B) [17:43-19:23]
+
+Yeah. Well, let's start with week one home against the Dolphins. The Raiders are favorite in week one, so that's a pretty good place to start they 1 and 0. Then it's Chargers and the Saints. The Chargers are not healthy yet. Are the Chargers ever healthy? The Saints, they're in the list. We're going to talk about them. You could go 2 and 1. You could go 3, 0. That is not completely inconceivable for this team. So it's a pretty good place to start no matter what the rest of the division is doing. And I kind of don't hate this roster. I think it's more bad than awful. Here's some things to like. The offensive line I think is going to be better this year. Colton Miller, left tackle, he's really good. Really underrated I think played only four games last year. Getting him back, getting Tyler Lindenbaum, the center that they went out and paid a lot of money for. Those guys with Kubiak I think can actually be toward league average on the line. There's some real weapons too. We talked about that. There's a lot of talk about in fantasy football, who's the wide receiver one Is it Trey Tucker? Is it Jack Besh? No stupid, it's Brock Bowers. Brock Bowers is the wide receiver one Is he going to catch so many passes? Do you want him in fantasy? Ashton Genty and Mike Washington look like a really good one two running back punch as long as Genti gets healthy again. And then I do think Mendoza is a really nice fit in the Kubiak system and Kirk Cousins we know is at least solid and he's a great fit in that system will probably start the year at least for a while. So this actually is my 20th ranked offense outside of the Lions who are one of these worst of first teams. We'll get to them. They're kind of obviously the best team of our eight. Outside of that I think you can make the case that offenses and defenses, this is the one unit, the offense here that maybe has the highest upside. So I think you can make at least a quality upside case for the Raiders.
+
+### Sean Koerner (Speaker A) [19:23-19:44]
+
+All right, last question about the Raiders then. Because you just talked about the offense. Clint Kubiak coming in, Fernando Mendoza, I think he might play earlier than people think. I'm not in on Kirk Cousins at this point. So the question more has to do with Mendoza, like what if he comes in and he's rock solid from the jump? Is that something worth being positive about where they could potentially win the division?
+
+### Brandon Anderson (Speaker B) [19:44-21:29]
+
+I think it's possible and we have seen Kubiak elevate these quarterbacks lately. But it's not likely and history is the Reason why. So number one pick quarterbacks have been rough as rookies. If you look back since 2015, which was Jameis Winston, forgot he was a number one pick, didn't we? We've now had 10 quarterbacks go since Jameis number one overall. Those 10 guys have averaged 3.4 wins as a rookie. I know if you remember this, but we play 17 games in a season. 3.4 wins is not a lot. Out of 17 that includes Joe Burrow two wins, Trevor Lawrence three wins, Jared Goff zero nothing. The max is actually Jameis and Baker with six. So all these number one quarterbacks are getting six wins. Now that doesn't even mean these guys are bad. Burrow is a good quarterback, Lawrence is a good quarterback. Goff wins a lot of games now. But you're joining a bad, bad, bad team. You're the number one pick for a reason. That's why you got the pick there. So there is reason for optimism. But I think it takes time. I think this is a late season offense jump maybe or maybe a next season offense jump. Count me in early on. Maybe Raiders island next year. Worst or first on the podcast. I can think about that. But number 31 ranking in our defense. Not really any talent there outside of Max Crosby. Bottom five special teams last year even though they did make some changes. But just you're starting at a real deficit here across the board. And if you are a day trader, if you want to listen to this podcast and buy some stock at 30 to 1 now, maybe get that 30 start, that's fine. Just don't forget to sell. You don't want the stock all the way down to the end of the season. You want to get in early and then sell in a few weeks. I like that that you know prediction markets. You can make some nice profit there. That's about it for me on the
+
+### Sean Koerner (Speaker A) [21:29-22:06]
+
+Raiders football season is here folks. And if you don't already have the Action Network app, now is the time plus to get the most out of the app. You'll want to be an Action Pro subscriber. It's only with Action Pro you get real time pick alerts from myself, Brandon, the entire Action Network team of experts. You can access pro projections which are powered by Sean Kerner and our predictive analytics team and a ton of other benefits. And right now Action Network podcast listeners can save $20 off the annual price. Action Pro just go to actionnetwork.com pro and use code POD20 that's actionnetwork.com pro and use Code POD20 for $20 off the annual price of Action Pro this summer.
+
+### Brandon Anderson (Speaker B) [22:06-22:15]
+
+There are 250 reasons to join T Mobile Girls trip booked and switching to T Mobile help make it happen with
+
+### Sean Koerner (Speaker A) [22:15-22:27]
+
+experience beyond switch and get 100 back plus 650 $50 in value in built in plan benefits. That's 750 dollars in your first year guaranteed.
+
+### Brandon Anderson (Speaker B) [22:27-22:32]
+
+And honestly, that hundred dollars back I'm putting it towards the zipline now.
+
+### Sean Koerner (Speaker A) [22:32-22:33]
+
+That's how you do summer.
+
+### Brandon Anderson (Speaker B) [22:34-22:37]
+
+Exactly. Best switch I ever made.
+
+### Sean Koerner (Speaker A) [22:38-22:41]
+
+This is just one reason to join T Mobile this summer.
+
+### Brandon Anderson (Speaker B) [22:41-22:48]
+
+There are 250 reasons find yours savings
+
+### Sean Koerner (Speaker A) [22:48-22:52]
+
+based on the value of benefits included with experience beyond like entertainment and one
+
+### Brandon Anderson (Speaker B) [22:52-22:55]
+
+year of AAA classic and dash pass on US benefits may require activation C
+
+### Sean Koerner (Speaker A) [22:55-23:05]
+
+plan for details get 100 via virtual prepaid MasterCard with eligible ported, no cash access and expires in six months. Issued by Sunrise Banks and a member FDIC allow eight weeks on the new
+
+### Brandon Anderson (Speaker B) [23:05-24:03]
+
+podcast Solita we share the messy reality of traveling alone. As a woman, I can wait four hours for the next bus or this random dude is offering me a ride on his motorcycle. I chose option B. I'm Julie Pinero and I travel by myself because it's a rare space where I can say yes without asking anyone else first. I'm on a mission to reclaim the word Solita, trading the pity for possibility. Every time I tried to be alone, I kept meeting people and they were like, you smiled at us. Not a lot of people smile around here. It's when you're alone that you're most receptive to the world as it is and not the lies you're sold about it. It can be a time where you push your limits, change your mind, or wake up to a new version of yourself. So whether you're a solo travel veteran or you're too nervous to book your first trip, I hope you listen to Solita on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
+
+### Sean Koerner (Speaker A) [24:05-24:28]
+
+Hey. This is Hayes Davenport and Sean Clements. We host the podcast Hollywood Handbook on the Big Money Players Network. Our show is extremely accessible to first time listeners. Each week we talk to someone in show business, AKA the biz, and try to help them with their careers and see what they have to offer us. Everyone has a good time and no one gets mad at their publicists for letting them do our show. We've had a lot of great guests like Sarah Sherman.
+
+### Brandon Anderson (Speaker B) [24:28-24:30]
+
+Not that great actually. Can you help me?
+
+### Sean Koerner (Speaker A) [24:30-24:32]
+
+Can you help me shape this?
+
+### Brandon Anderson (Speaker B) [24:32-24:43]
+
+How about we flip it on his head? Okay. How about we Flip the script. Okay. What if the surprise woman who actually you think is the straight man is actually the one who's acting weird?
+
+### Sean Koerner (Speaker A) [24:43-25:06]
+
+Adam Scott, this entire time you've been expecting Adam Sandler to come to visit the show? I. I would never let go of that. I have. I would never set expectations for something like that. Seems like if the universe allows for something like that to happen, I'm open to it. I'm always to accept, you know, Danny McBride.
+
+### Brandon Anderson (Speaker B) [25:07-25:08]
+
+Fine. Yeah.
+
+### Sean Koerner (Speaker A) [25:08-25:11]
+
+It's all this fragile masculinity exuding.
+
+### Brandon Anderson (Speaker B) [25:11-25:13]
+
+I could smell it walking down the hallway, to be honest with you.
+
+### Sean Koerner (Speaker A) [25:14-25:17]
+
+I was like, is that weed? Nope.
+
+### Brandon Anderson (Speaker B) [25:17-25:22]
+
+It's fragile masculinity. Yeah. Ben Stiller. No, because a lot of times in
+
+### Sean Koerner (Speaker A) [25:22-25:23]
+
+out of context, people don't get it
+
+### Brandon Anderson (Speaker B) [25:23-25:27]
+
+or even know what a circle is. You know what I mean? Like, they're like, what's the state?
+
+### Sean Koerner (Speaker A) [25:28-25:30]
+
+Everyone's soaked. I'm excited. Fake.
+
+### Brandon Anderson (Speaker B) [25:31-25:33]
+
+Right? Fake. And also not interested.
+
+### Sean Koerner (Speaker A) [25:34-25:36]
+
+Or just like, oh, I've got my life.
+
+### Brandon Anderson (Speaker B) [25:36-25:37]
+
+I don't care about your life.
+
+### Sean Koerner (Speaker A) [25:37-25:52]
+
+And a lot of other big shots that wouldn't be where they are without us. Oh, and by the way, Will Ferrell told us personally, he loves the show and he wants to be a guest on every episode, but he's just so busy. Listen to Hollywood handbook on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
+
+### Brandon Anderson (Speaker B) [25:54-26:04]
+
+Bartown is small taters by most standards, right? But to the people who grew up here, it's everything. What happens when a quiet Tennessee town becomes the front line in a battle
+
+### Sean Koerner (Speaker A) [26:04-26:10]
+
+over the future of America? Developers with right wing ties have purchased hundreds of acres of land in the area.
+
+### Brandon Anderson (Speaker B) [26:10-26:23]
+
+The first thing you see when it pops up is pioneers in Appalachia. But they weren't just planning houses. We need cities on a shining hill that exemplify and embody the Christian way of life. Stop right there.
+
+### Sean Koerner (Speaker A) [26:23-26:24]
+
+Is that normal?
+
+### Brandon Anderson (Speaker B) [26:25-26:30]
+
+A podcast about what happens when a small town becomes the site of a social experiment.
+
+### Sean Koerner (Speaker A) [26:30-26:31]
+
+God need men to rule, period.
+
+### Brandon Anderson (Speaker B) [26:32-27:07]
+
+And decides to fight back. Do not use my hard work to sell your bull. They're not just opposing what's being planned for here. Our hometown is not a test tube. They feel like they're standing in opposition to an entire administration. Guess you didn't move in on a bunch of dumb hillbillies now, did you? Listen to our town on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts. Tyler reddick here from 2311 racing another checkered flag for the books. Time to Celebrate with Chumba jump in@chumbacasino.com
+
+### Sean Koerner (Speaker A) [27:07-28:31]
+
+let's jumba no purchase necessary vtw group void where prohibited by law ctnc21 sponsored by Chumba Casino the Action Network podcast is teamed up with DraftKings and we've got some great news. Football season is almost here and something big is coming to DraftKings Sports. Get ready for DraftKings game day on September 2nd, where we'll be celebrating the return of football with exciting offers and game day deals all day. DraftKings sports app is now available in all 50 states, bringing the excitement straight to your fingertips wherever you are. From Florida to Texas to California, you'll never miss a beat. Sweat all the games you love in a seamless experience, no matter where you're watching with one app. Download the DraftKings sports app now and use code Action Network so you're ready when the action kicks off. DraftKings the Crown is yours. All right, let's move to tier three. We've got two teams in this tier. You've called this one the Lloyd Christmas Special. You're telling me there's a chance. And at number five, you have the Tennessee Titans, the team that was on this list last year. You have them at plus. Right now, I'm seeing plus 950 to win the division. I'll be honest, I'm a bit surprised that this team lasted this long. I thought they might be closer to, you know, the Browns and Cardinals as far as tears go. But talk to me about this because a lot of the time when we were doing the rankings, man, like, it was difficult to find anything positive about the Titans.
+
+### Brandon Anderson (Speaker B) [28:32-30:46]
+
+Yeah, honestly, going into this, like three weeks ago, before I did all the deep dives on the rankings, I would have thought the Titans would be higher up on this list because we'll get to the division in a minute. But it just seemed like a good place to start here. This is really hard to get excited about, this collection of players and coaches. So on my roster is matrix, I kind of keep track all the rankings we've done. I even go like more minuscule from there. Like I'm break it down the skill players into running back rankings and receiver rankings, the tight end rankings all the way down. And then on my spreadsheet, I rank everything from 0 to 4 with decimals. And if you're above average, it lights up green. If you're below average, it lights up red. And out of 32 NFL teams, offense and defense. So 64 units, there's one in the entire NFL where the entire unit is red bad. Guess what? It's the Titans. It's the Titans offense. There's nothing good about the Titans offense. There's everything bad about them. The offensive line, we ranked second lowest. We like Peter Skaronski. We don't like anything else there. It's not come together. The skill players you added Carnell Tate, you added Wanda Robinson. You have a long way to go. They were dead last last year. They're up to 30th now. Cam Ward, you pass the eye test, we can be optimism about last year's number one. He looks rough, man. It's not been great in the preseason. If you look at any metric, you find last year, not a lot of reason for hope right now. It's a long way to go. I kind of think this is just a year two rookie situation for him where he just kind of had a lost year, but offensively just really rough so far. And then we even get to the coaches. Robert Sala, offensive coordinator Brian Dabel, defensive coordinator Gus Bradley. Let me say him again. Robert Sala, Brian Dable and Gus Bradley. The unholy triedumvirate of coaches. Just pure rage bait. As if you're trying to hire the coaching staff to make me the most angry possible. So here we have the number 30 offense on my rankings overall coaches that I don't like at all. And that terrible offense, by the way, starts out against Jets, Eagles, Giants, Ravens, Texans, all top 18 defenses. In my matrix, three of the top six defenses. Good luck starting with that Tennessee Titans.
+
+### Sean Koerner (Speaker A) [30:46-31:16]
+
+Okay, well, I'm trying to figure out how we have the Titans in the middle of the pack because again, so far through these teams, you're like, I asked you for a positive. And I'm like, are we sure that's positive? You know, like. So for me, when I look at the Titans, I think the. Probably the. Correct me if I'm wrong, but I think part of the reason why we have them not necessarily last, like with the Cardinals, is because of being in the AFC south and how some of these teams have very apparent weaknesses. Am I close for that?
+
+### Brandon Anderson (Speaker B) [31:16-34:34]
+
+Definitely. Look, that's why I expected this team to be higher is because, you know, look back at the top, we talked about who we've been hitting as we get some of these worst to first. Texans island one year after Jaguar's island. We love the AFC South. We love worst to first because this division is just wide open. Every year seems like I think maybe a little less so though now Houston pretty good. Our number one defense D' Amico Ryan's double digit wins all three years. Pretty solid floor there for Houston. Even with the offense as bad as it is, that's kind of the floor version of the offense. So that team is going to be tough. The Jacksonville Jaguars, they were above average offense and defense in the rankings. They were in our tier two coaching staff. I think that team might actually be pretty solid now. The Colts, slightly lower, but I think they're at least an average team. Their top three offensive line, there's a lot of floor raising stuff around the division now. I think it's not quite as bad as it used to be. The other south division, we'll get to that one over in the nfc. But the AFC South I think is actually like a pretty solid competitive division now. Frankly, if the Titans were a little better, it could actually be the best division in the AFC by how competitive it is. So with Tennessee, we do like some things. The defense, the defense seems kind of fine. They. They. I had them 21st in the rankings. Jeffrey Simmons, an absolute superstar, overlooked last year because it's the Titans, but I thought he was like a top five defensive player. This team was pretty good defensively till last year. They were 17th to 19th in three straight years by DVOA. I think they probably get back there. Robert Sala, not my head coaching choice, but pretty good coaching up the defense. So I think the defense can at least be fine. Also the Titans featured on last year's podcast here. We predicted big leap in special teams. They were dead last two years ago. They jumped to seventh last year. John Fassell, the special teams coach, top 10 unit on special team, six straight special teams coaches matter. Those guys know what they're doing. I have this as a top five special teams unit that can win you a game or two over the course of a season. And then a couple other notes here. We just gave out that quarterback stat on the last team. Warning you about Fernando Mendoza, number one quarterback, rookie year doesn't work out well. It's not the rookie year for Cam ward. Cam won three games last year. We said the average number one pick wins 3.2. So right on pace. That same set of guys, sophomore year, 8.3 wins, pretty huge jump, 144% increase. Joe Burrow, two wins up to 10. Lawrence three to nine. Goff zero to 11. We just did last year in this podcast. Caleb Williams, five wins up to 11, worst to first. Six of the eight quarterbacks went to eight wins or better. That's going to put you in the mix here. Cam Ward starting lower. So at three wins, that would get him up to like 7, 7.3 wins. I think there's actually a lot of reasons I think the Titans should be improved. I would just at the end of the day rather go over 6.6 and a half wins, plus money I can get there. Getting to the division where the division's gotten a lot better and a lot of floor raises, I don't think I can quite get there now. It's going to be tough to get me excited to bet on this team. With the talent and the coaching staff of it all. I think over six and a half I can buy. But even at under 10 to 1 odds on this group in a division that I think is actually kind of solid now, it's too much for me.
+
+### Sean Koerner (Speaker A) [34:35-35:08]
+
+Okay, eight minutes on the AFC South. Let's see if we can wake up our listeners from their slumber. The AFC south is such a sleepy division sometimes, but the volatility is what makes it fun to bet year over year. Let's talk about the AFC east now. The New York jets, they're your fourth ranked team. Seeing odds right now around 50 to 1 to win the AFC East. Make the case, because again, like I when we did the rankings, I was not. And the fact that they've got the Bills and the Patriots both in their division, it can't just be as simple as what, they get to play Miami twice?
+
+### Brandon Anderson (Speaker B) [35:09-36:24]
+
+Yeah, I mean, they do get to play Miami twice. That's a good start for two wins. But I kind of think the defense could be sort of good here. I know this was a defense that finished near the bottom of a lot of ranking that I've seen out there. I have them closer to league average. You lose Sauce, Gardner, Quinn and Williams. Quincy Williams, those guys are gone. You bring in Minka, Fitzpatrick, Demario Davis, David Onyamada. Some good players there. David Bailey maybe. Finally the pass rusher this team has lacked for years. And now Aaron Glenn. Sauce as a head coach, but pretty good calling plays. He calls that his superpower. That's him leading the defense again, I think is your top reason for optimism. And I know we keep saying it. Special teams. Get to know the name Chris Banjo. The jets were the number one special teams team last year. They were elite punting and kicking. They had crazy good kick and punt returns. That doesn't always carry over, but that should be at least a talented, above average group that can help you out offensively. Got a lot of talent there. Breeze, Hall, Garrett, Wilson, guys that haven't matched up to what? We want them as fantasy players because it's been a tough situation, but a lot of talent there. Sadiq and Omar Cooper in round one this year as weapons. Fishanu and Membu. Round one the last two years at tackle, offensive lines invested a lot. There's a lot of potential here on this team, at least starting out okay.
+
+### Sean Koerner (Speaker A) [36:24-36:49]
+
+So I'm gonna. I'm gonna pivot to this. I just want to. Because you just brought up this trinity of coaches and impact players with the Titans that you were completely sour on with Robert Salah, Gus Bradley, Brian Dable. But now you're trying to talk me into another trio that I just am like no friggin way. And that is Frank Reich, Aaron Glenn and Geno Smith. So here we go. Make the case.
+
+### Brandon Anderson (Speaker B) [36:50-38:12]
+
+I'm telling you, man, I still think Gino is good. At least Gino was good. I don't know if he still is good. He's a top three accurate passer. He's actually finished 500 better four of his six seasons as a starter. Look, one of them was not last year. I'll give you that one. He can be very inconsistent. He struggles under pressure. We need him to not face the pressure he did last year with the Raiders. This year. That's why he was awful. He is 36 years old. Maybe he's just cooked. But I did talk myself into QB21. That's that kind of Goff and Nixon, Darnold type group. It cannot reflect the ecosystem. If it's good enough, so can it be good enough? I don't know. Frank Reich is a tough sell for me. I'll admit that. Aaron Glenn as head coach. I don't know about that part either. We will see. Don't love a coach that fires both the coordinators so they don't take the fall themselves. Frank Reich, last two NFL offenses finished bottom two by DVOA and then immediately got better after he left. But Reich has had some pretty quality teams in the past. And I always think there's a difference too between we fire coaches that have been good, but then not great because we want the team to take the next step. Sometimes those guys can be floor raisers. They can at least get you to a point. And the jets need to start with the floor, not the ceiling. And like you said, you get the Dolphins twice, you get the Titans in week one. We already talked about the Titans. You get the Robert Salah revenge game in week one. So hopefully the jets get revenge on Salah, not the other way around. So you know that's at least a few wins, right?
+
+### Sean Koerner (Speaker A) [38:13-38:31]
+
+Well, that being said, so let's say hypothetically, jets beat the Dolphins twice. You know who else gets to play the Dolphins twice? The Patriots and Bills. So there's probably two wins already in the bag for them as well. So like what, how does that help then for the division? Just talk me into that. Or maybe should we even be pivoting maybe to like the win total?
+
+### Brandon Anderson (Speaker B) [38:31-40:25]
+
+Yeah, I do like the Jets. Over 5.5 and a half wins. I think that's a little bit low. A lot of markings of a team that should improve. If you remember, this team somehow managed to for the first time in NFL history, have zero interceptions last year. Like you can't do that again if you tried. They finished minus 19 on turnovers. They were bottom two on the red zone offense and defense last year. Like you can't help but improve those things. They just have to be a little better. And look, I had the jets lower. I had them basically down in the Cardinals grouping when I started this exercise. But as we went through, I didn't necessarily get so much higher on the Jets. I did get a little lower on those top two teams though, especially the Bills. We talked about them a lot, especially in the defensive podcast. Bottom 10 defense for me, not a coaching staff. I believe in switching off of McDermott. Bottom five special teams there with Buffalo. I think that is a vulnerable team. I like the Patriots more especially defensively to Agassi. Drake may do it again. They last year won 14 games, but the metrics said you deserve 10 wins. And that was against that soft schedule we talked about all year long. And there are a lot of under a lot of regression trends telling you the Patriots come down a little bit. So maybe 10 wins is enough. Maybe we get there and here's the real case. Jets are 50 to 1. We just said I can't fault you for Cardinals 100 to 1. 50 to 1 is half of that, but still a really long number. Week one, Jets, Titans, Jets. Want to know? Maybe week one, Bills at Texans, Patriots at Seahawks. Okay, two weeks from now, heading into week two, you might be sitting on the division leading New York jets and it won't be 50 to 1 anymore. And you have some options there. I'm going to give you my first official bet of the year. I'm taking it, Joe. Give me the jets 50 to 1. Just a nibble. Just a little bit. Sure. I think that is the wrong price and I think this is a team that is worth investing at least for a week. And we'll see what happens from there.
+
+### Sean Koerner (Speaker A) [40:26-41:08]
+
+All right, got some movement here, some bets to be tracked in the action app. All right, so that was tier three, you have the Tennessee Titans at five, New York jets at four. We're moving now to tier two. And you've called this one most likely, but it doesn't necessarily equate to a best bet. So number three, you have the New Orleans Saints. Pretty popular sleeper right now, but still, even despite that, they are around plus 270 to win the division. Honestly, man, like, I. I wanted to be out on the Saints. Like, I still think that's probably the Bucks division to win, but given the rankings and how we've discussed, like the Saints and where they're falling in the pecking order here. Kind of surprised what the quality of this team could be.
+
+### Brandon Anderson (Speaker B) [41:09-42:03]
+
+Yeah, they kind of surprised me along the way. I kept thinking I'd be out. And then you do the units, you look at the overall picture, the Saints could be like, kind of not terrible, which is a pretty good start for them. Invested a lot on the line. David Andrews, big signing, four top two round starters. Next to him on the line, you get Tyler Shock, who had a pretty good finish to this season. I'm not sold yet. I still need to see more in the pocket presence. He had some moments though, for sure. You got Olava and Jordan, Tyson, you got to get those guys healthy. Health is the big, big, big question mark on this team, right? The receivers, Tyler Shock, Camara is already hurt. The offensive line always gets hurt. The defense is kind of old, but the defense is pretty good. Other than the Lions, this is the only unit on the podcast that ranked top half of the league in my rankings. They were 14th under Brandon Staley. They were 13th last year. The run defense took a big step forward. I don't think the Saints are good, but they might not have to be in NFC south, right?
+
+### Sean Koerner (Speaker A) [42:03-42:34]
+
+Well, and you look at the standings, even from last year, if just like one or two of those games had gone a little differently, they're probably winning the division because I remember talking about them like around like week 14, like, is this the team that could end up coming out of it? And then Carolina just kind of swooped in there at the end. But the NFC south in general, like, I mean, last year, panthers won at 8 to 8 and 9 rather. So I think it probably has to start and stop the fact that this division, there's just no real juggernaut, you know?
+
+### Brandon Anderson (Speaker B) [42:34-44:26]
+
+Yeah, the division is in the Saints favor, but it is not Necessarily in Better's favor. So let me explain what I mean by that. So nothing good to say about the Falcons or Panthers, right? Add them bottom 10 offense, bottom 10 defense, bottom 6 overall. I think this is two teams going for the division. I like the Bucks. We've talked a lot about the Bucks. We kept sneaking them in to the top grouping of tiers. As you commented with Baker, the Todd Bowles defense. I like the Bucks a lot actually. But no question, even if you like the Bucks, comparatively, this is the most winnable division. This is the one you want to be in. Unfortunately, sportsbooks have also noticed that and price the saints at plus 270. Plus 270 is not a juicy number. That is a 27% implied ticket and that's just not all that exciting. I still have the Bucs about three points better on a neutral field, so I definitely prefer that team. And The Bucks are plus 185. So you're at less than a plus 100 difference there. The Bucks are 35% implied. That team is the better offense and the better defense, maybe the better coaching staff. I like the Saints coaching staff, but if Zach Robinson is good, I think that works out well with Bulls defensively. You got a winnable schedule for the Bucks. Winnable opening schedule for the Saints. Top first seven games I think are winnable. The Saints are better, but I still Love the Saints, 25th best in the NFL. That puts them ahead of the Falcons and the Panthers, but 25th is the jets is the Raiders. That's basically their peers right now. So you can be better and be one of those teams and be in this division. You're in the mix now. The Bucks probably are going to be my favorite division bet if they're that close to the Saints and the odds. But I like the Bucks a lot better. I'm going to take the plus 185 on Tampa. This is not my division winner. And so even though the Saints are more likely to win it because the division, they also become a bad ticket for. Better is at +270. If you like the Saints, I get it. I think you just do game to game. I think you bet them against the Bucks when they play and you get better profit on your money that way.
+
+### Sean Koerner (Speaker A) [44:26-45:12]
+
+Yeah, that's a good suggestion. Again, the odds have to still justify the bet, right? Like, I mean we can like the Saints, but if the price isn't there, then we have to kind of pivot at that point. Let's now move to the NFC north because I'm sure that this is probably going to be the team that a lot of people think is the most popular to go worst to first in the division just given the talent they have. And that's the Detroit Lions. And they're right now around +170 at DraftKings to win that division. And like we said, like year over year, there's always that one team that I think everybody points to, the Lions, it's this year, 49ers last year, or even the Bengals the year before. But I do think it's worth mentioning like even though those were the popular choices, they didn't end up winning the division. So is that kind of where we're at with the Lions now?
+
+### Brandon Anderson (Speaker B) [45:13-46:29]
+
+Yeah, I think so. And I think it's again, it's about the number that you're getting here at plus 170. Look, there's no question the Lions are the most likely division winner out of these eight teams. Like they're the best team by far out of these eight teams. Even though I've been a lot of lion skeptic as we've done all these rankings, I still have them ranked top half the league. Offense and defense and special teams. I only have three other teams in the NFL like that. Baltimore, Kansas City and Jacksonville. Plus Detroit. So even if I'm skeptical, it's still a good team. We know Dan Campbell is good. We've already seen even the injured versions of these teams be good. And there's some positive regression should be coming. They were a last place team, but they were nine and eight. Think about that. They were, we knew this at the time, but they had a better record in last place than all, all the entire NFC south, the division we just got done with. And they probably deserve 10 wins by the metrics. They were top 10 DVOA team last year. They were the most injured team in the league defensively by adjusted games loss. Hopefully that gets better. Not off to a good start. We'll talk about that in a second. They had terrible, terrible fumble lock last year. They recovered 29% of their fumbles. Basically that's a coin flip historically. So that is a really, really low number. The Lions are a good football team. I wanted to really be out on this team, but I think maybe even they might be the right division favorite. Just plus 170 is something else altogether.
+
+### Sean Koerner (Speaker A) [46:29-46:52]
+
+Well, and it's not often that you get a 9 and 8 team that gets to have a last place schedule. You know what I mean? So the fact that right now that's really aiding it so when people see that plus 170, I don't think they're going to be scared off of it. Maybe the way that me and you might have some trepidation about it. But how should we approach the lines? Like should we bet them here at +170 because their feelings like the best option out of the group.
+
+### Brandon Anderson (Speaker B) [46:52-50:06]
+
+So I thought honestly that I was going to come in here betting on the Lions to not win the division. Right? We can do that now with prediction markets out there. I thought that was going to be the play. But then you look at the schedule and man, is this like the juiciest last place schedule you've ever seen. They have eight games against Saints, Jets, Panthers, Cardinals, Dolphins, Falcons, Titans, Giants. Holy bottom of the league poo poo platter. That's eight games. That's already a winning record. If you win those eight games each team on the schedule, you get three variable games right against your division. Everyone else gets the exact same schedule, but you have three games that are different from one another based on being last place. The Detroit Lions get the Giants, Cardinals, Titans as their three games. Let me make a comparison for you. Here's who the packers got. Cowboys, Rams, Texans instead of Giants, Cardinals, Titans. Here's who the Bears got. Eagles, Seahawks, Jaguars instead of Giants, Cardinals, Titans. That's a huge swing, right? That's like two or three wins different just there on the schedule. I'm so mad about this as a Vikings fan. Stupid team goes on a five game win streak to end last season. Maybe already blew the division last year because of it. This was supposed to be a Vikings worst of first. And I'll tell you listen on the feed with my division preview with Stuckey. The Vikings are my division bet at plus 5 10. I think that is the way to go. In part because this division is so tough. I have this whole division projected between 9.7 and 10.3 wins. So the entire thing is a half a win apart from top to bottom. So even if you like the Lions best, you can't do that at +170.37% implied. If those teams are all so close, they should all be pretty close to 25% likely. So you're just not getting bang for your buck there. And just big picture on the lines. I can't be excited to run and bet the team right now you have an offensive line that was number one two years ago. Now I have them league average missing Cade Mays to start the year. They should get better late in the year, but we're Betting this now, not late in the year. The run game dropped a 10th last year. Now you lose David Montgomery, you get Pacheco instead. That's a downgrade. If the line is worse. Do you get a worse version of Jared Goff now and then I said with the injuries, secondary is in shambles right now, right? Brian Branch and Kirby Joseph, we don't know when we will see them. Best safety duo in football. But will we get them? Terry and Arnold for lots of good reasons. No longer on the team anymore. Make Robertson, that was their top two corners or two of their top three at least last year. That's like the whole secondary. So DJ Reed, good luck finding extra help back there for now. So I wanted to be out on the Lions, but even just the opening schedule where this team is injured right now, no center, no secondary. He goes Saints at Buffalo Thursday night, probably not great. And then Jets, Panthers, Cardinals, then a bye week. That's not bad, man. Like even if you're down on the Lions, you might be 4 and 1. Then you hit the bye week, you get healthy. I think the Lions actually end up as my actual outright division favorite here, but I just can't get the Plus 170. It's too short of a number, especially when they are this injured going into the year. This is a marathon. We got a lot of time here. It's not a sprint. You can't take the short favorite in the stack division with all the injuries up front. It's just you can't do it as
+
+### Sean Koerner (Speaker A) [50:06-50:48]
+
+a better well, especially when you look at the back half of their schedule. Three of their final four games are all divisional games, all on the road. And we talk a lot about the Lions and Jared Goff playing in cold weather and that they don't usually have to play in a cold weather game until latter parts of the season. Well, that's what's going to happen in week 17 they've got at Chicago, week 18 at Green Bay. And I think that those two games they might decide the division. So you might. I'm sure you'll have more NFC north thoughts as we go kind of thing throughout the year that maybe there's more opportunity to jump on the lines. But right now, probably not the best time to do that. But the best time to listen right now is right now because at Tier one, this is Giants Island, New York
+
+### Brandon Anderson (Speaker B) [50:48-50:52]
+
+Giants number one option six to one at draftkings.
+
+### Sean Koerner (Speaker A) [50:52-51:12]
+
+Let's start with this. So in the article that's going up on actionnetwork.com for your worst of first angles. You said that the Giants are one of the more obvious improvement teams that you've seen in recent years. You know, head coach, you know, high draft picks, all that good stuff. Why will the Giants win more this year?
+
+### Brandon Anderson (Speaker B) [51:12-54:07]
+
+Yeah. So start with the improvement case. Just last year alone they were a much better team than the final record. Looked like they finished 4 and 13. The metric said that was more like a six win, probably even a seven win team. They go one in six in one score games. We remember those games because they mattered. That was against the Broncos, that was against the Cowboys. The entire NFC north, all good teams. They blew close games to all six of those teams. They had a fourth quarter lead and five of those. They had a final minute lead in three of those games. Those were like all the win probability charts that crash at the end. Like a heart monitor. Right from like 90% down to nothing at the end. That was the Giants most years. You're going to get a couple of those wins. By a Pythagorean model. This team should have won more than seven games. They won four. So we would feel much different. I think just starting out about Jackson Dart 7 10, not bad for rookie season. And from Bill Barnwell, we've had 23 teams since 1990 that finished two and a half wins or more under the Pythagorean outcome. The Lions I think are 3.1 under. Those teams improved by three wins heading into the following season. So all that alone, you're already looking at more like a seven win team, not a four win team. Okay, well seven doesn't win the division, so we're starting there. How about the coaching staff? Bottom two last year in the rankings to one of my favorite head coaches in John Harbaugh and I know we crap on Harbaugh. He did not push the Ravens to the super bowl and over the top. But again difference between ceiling and floor raising. The ceiling in Baltimore was the problem. I don't know if the ceiling was still there for Harbaugh. The floor is there. 18 years as a head coach in the NFL, eight wins or more. All but one of those years. At least a playoff win in half of those years. Average win pace 10.4 wins per season, 10 wins. Now we're talking. And look, we'll get back to it. Not excited about Matt Nagy and assistants Greg Roman and Brian Callahan. But those guys have been around the NFL for a reason. Maybe those are floor raising guys. Maybe they can get you some semblance. And with Harbaugh you get an adult in the room, what the team is badly needed. And with Harbaugh, you know, I got to do it. Special teams. Harbaugh always brings the special teams with him. Chris Horn, the assistant came with him top 10 unit 11 times already. This was a bottom 10 special teams last year. Awful punting, awful kicking. So look at the roster. They brought in a new punter, a new kicker, a new long snapper, two new kick returners. That is a coach that knew I care about special teams. If you go bottom 10 to top 5 where I have them this year in my system that is worth two points to the spread every game. That's a huge swing of something we don't pay that much attention to. And that starts with the special teams and the coaching. So if you get a seven win team, more or less, you add the special team swing, you have the coaching staff and just add a lot of talent up and down the roster. That's where I think where you start with the Giants love here.
+
+### Sean Koerner (Speaker A) [54:08-54:38]
+
+Okay, so on the defensive side of the ball, I don't really think you have to talk to me too much about it. I feel very good about where they're going to be. I think they're going to be able to really get after the quarterback. And even on offense, even though I might have some reservations about Jackson Dart and the offense, I think they can be effective. But the part that just sticks in my eye right now where I can't get over it, man, is Matt Nagy. Like I need you to help me hurdle this objective here because I can't, I can't let go of the fact that he is right now calling place.
+
+### Brandon Anderson (Speaker B) [54:38-58:19]
+
+Yeah, I mean, let's be fair to Matt Nagy for a second. The man led the 8th, 8th and 12th best offenses in the league the last three years. So it's not like he's been like the trash can from hell coordinator. Like he's actually still been okay. It's just that that's okay with Patrick Mahomes. Start with the defense here for a second because we had this unit I think right in the middle of the pack. I think this could even be an above average defense. Everything comes together, which is kind of weird when you lose Dexter Lawrence, but he wasn't that great last year for them. I think he'll be good this year when it was time for a change. The big problem defensively for this team was the run defense. They were dead last in run defense and that pass rush, which we'll get to, didn't even really matter because you don't need a pass. You could just run on this team all the time. And again I think Harbaugh and the team knew that. They go out and get DJ reader Ron Stouffer. That has been his job over the years in the NFL. Tremaine Edmonds linebacker. The linebackers on this team were so bad last year. Edmonds specifically is a good run. Stopping linebacker Shelby Harris on the line. First round pick Arvella Reese. These are guys that come in and change that culture up front. And if you can stop the run enough. Now the pass rush matters. Abdul Carter was awesome last year. Abdul Carter did not get a lot of sacks, but he got a ton of pressures. He looks like a breakout star. Maybe as early as this year. Adam Brian Burns, Kayvon Thibodeau, the pass rush is there if they can actually be in better position to succeed rather than just giving up runs all game long. And I think too, as much as we don't like the offensive staff necessarily, Denard Wilson I think has done a pretty nice job defensively and that's a big upgrade I thought from Shane Bowen who is just a bad fit for this team. So better run defense might lead to better passing defense. Also to the offensive side of the ball. Into the Matt Nagy of it all. So look, Jackson Dart, Malik Neighbors, Andrew Thomas, Cam Scatterville. These guys gotta stay healthy. That's the starting point. Like if two of those four don't stay healthy, we're cooked. That's it. Giants island underwater. That's the end of it. That's how football goes, right? You got to stay healthy out there. Dart is going to be a hit or miss guy. I don't mind that on an island sort of pick. I don't mind that in a long shot. I mentioned with Caleb Williams. Got to eat your veggies, Caleb. You got to do it game by game. But that's as an 11 win division favorite. If you're the underdog, I don't mind taking some home run shots. Jackson Dart was actually pretty great EPA per play last year, just not success rate. So play by play it's not going great. But you hit the big play sometimes your home run hitter, I kind of like that. And we've said this a few times. If he does get injured some point with one of his runs, we get Jameis Winston, the ultimate home run hitter. Home runs and strikeouts, don't forget those. They're going to be there. But the YOLO upside, I'll take it. Cam Scatterbow. Hopefully my man can actually play A little bit this year and stop flipping and actually play a little football. Pretty good runner last year actually. As long as he can be on the field. This line, this rushing attack got pretty solid last year. Once Andrew Thomas is out there, this isn't a league average offensive line maybe even better. And Malik Neighbors, there's a lot of consternation about him. He looks healthy. He's finally off the PUP list. He's ready to go. That's a top 10 receiver. This is a guy that we thought looked like a young Terrell Owens. So that's at least one real weapon out there. And again with Nagy, Greg Roman, these guys have been in the league a long time. These guys have been employed by Jim Harper, by Andy Reid. These are not trash can coordinators. They're just not our favorites. Admittedly. I'm not going to pretend like they are, but can they set a floor for this team? Can they take this offense from terrible to 20th? How about that? Can we get to 20th with a quality run game and some home run passing offense, 20th defense, 12th, top five special teams. That's a formula for a 10 win team. We might get to 10 if we get there.
+
+### Sean Koerner (Speaker A) [58:19-59:00]
+
+Well, can we just not have 10 visits to the blue tent for Jackson darts every half? Like, man, like, that's my biggest concern if Matt Nagy aside. But just, can we just get through 17 games without you going to the blue tent every quarter after every series? Right. And I think that's where we're at now. But then we pivot to the schedule because not fun right off the jump. Like you got the Cowboys in week one, we talked about some improvements that's coming from Dallas, but then the Rams in week two, top five on both sides of the ball for your rankings. What I ask is because let's say hypothetically they go 02 here, should we maybe hold and then wait to see how these two games play out or should we grab the giants now at 6 to 1?
+
+### Brandon Anderson (Speaker B) [59:00-1:00:27]
+
+Yeah, it's a good question. And look, now is when we're doing the podcast, so now is when we're getting on Giants Island. But don't be surprised if we have to double down at 02. But here's the thing. If you're going to beat the Cowboys and the Eagles in the division, you might have to beat the Cowboys or the Eagles at some point, at some point in the way. And if you're going to have a home game against a team that is debuting a new defensive coordinator that had the worst defense in the league last Year maybe not a terrible spot to have to play Dallas. Look, the Giants are healthy right now. We don't know if they will be later, but at least we get all those guys out there right now. So maybe you want them right now because you might need them to beat Dallas or Philly anyway. You might need that Week one game and if you steal that one, you lose to the Rams. Now you're one and one. You missed the schedule after that, Jill. Tennessee Titans, Week three, Cardinals, Week four. The Commanders. Tough division game, but coming off of a London game. You know, we love our post London trends. They get no rest there. Then the Saints. You can squint a little bit, get to one on one and suddenly you're like the New York Giants are four and two, the Giants are five and one. Who saw this coming? We saw it coming, Jill. That too. So I think if you stay in the mix here, get off to a hot start, you end at Dallas, then a Philly. I don't love that. But again, we're gonna have to beat them sometime to get the division and if we get in the mix still there, we'll at least have some options. So I think now and maybe again later for Giants Island.
+
+### Sean Koerner (Speaker A) [1:00:28-1:00:50]
+
+Well, and all of these are plug your nose bets at the end of the day because again, they didn't finish last in the division by accident, you know. So the fact that is that we're banking on improvement here, even though last year's data doesn't necessarily point to that immediately. Okay, make the closing argument. Giants Island Giants to win the NFC east at 6 to 1.
+
+### Brandon Anderson (Speaker B) [1:00:50-1:02:00]
+
+Yeah, look, Giants have only even gone over the number two of the last 15 seasons. So let's start with that. Over the seven and a half, I have them projected about eight and a half. Basically a 500 team that's not going to get it done in the division. But we didn't really talk about it. I'm tepid on Philly this year. Sean Manion, Jalen hurts. I've been low on that team, that staff. Nick Sirianni, I don't mind at all having a chance to fade Philadelphia a little bit. Even with a really good defense, I am in on Dallas. You and I have hyped Dallas a lot. I know you're a Cowboys fan, but they were the last defense in the league for a reason last year and they have a pretty tough schedule. Can you just kind of get in the mix? Get those teams beating up on each other a little bit, get a 500 team and lock into a win or two, we're going to need some luck here for sure. Most of these teams, you'd need it. Can we get to like 10 wins? Can we get into the mix? I think so. So Giants improved offense, good defense, huge jump forward on the coaching staff and the special teams. Don't forget the stat. That's dead now, but not gone. No. Repeat NFC east champion since 2004. Total Eagles the last two years. But what if it's not the Eagles again? What if we bring the stat back? Let's start a new streak. Giants island plus 600 at DraftKings.
+
+### Sean Koerner (Speaker A) [1:02:00-1:02:15]
+
+Let's go. All right, now before we get out of here, it's time for our DraftKings segment. Now, Brandon, we just got done talking about all the worst NFL teams from last season. Who's the team we're looking AT to be first in their division for the 2026 regular season?
+
+### Brandon Anderson (Speaker B) [1:02:15-1:02:21]
+
+No question about it. Giants Island. Giants in the NFC East? That's the one. That's where we landed.
+
+### Sean Koerner (Speaker A) [1:02:21-1:03:16]
+
+All right, so you can tail this play now, or you can wait until September 2nd, where DraftKings has some big things in store to celebrate the return of football. So download the DraftKings sports app and sign up using Code Action Network. Then mark your calendar for September 2nd. DraftKings game day is coming with some incredible offers. So that'll do it for today's episode of worst of first for the Action Network podcast presented by DraftKings. Thank you for tuning in. Don't forget to leave us that five star rating and review wherever you listen to the podcast and download the Action Network app. You could save $20 off of an annual pro account by using code pod20actionnetwork.com pro and make sure to subscribe to the Action Network podcast. We've got more NFL betting content to come. With week one approaching, it's going to be sneaking up us on us soon. So make sure to subscribe to the Action Network podcast and you won't miss a show. So for Brandon Anderson, I'm Jill Galant. Thank you for listening to to the Action Network podcast Bone Shots.
+
+### Brandon Anderson (Speaker B) [1:03:31-1:03:42]
+
+Action Network reminds you, please gamble responsibly if you or someone you care about has a gambling problem. Help is available 247 at 1-800-GAMBLER.

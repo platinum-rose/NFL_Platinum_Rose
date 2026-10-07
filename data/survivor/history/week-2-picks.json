@@ -1,0 +1,3897 @@
+{
+  "schema": "yahoo_survivor_week_snapshot_v1",
+  "generated_at": "2026-09-22T01:00:02.914Z",
+  "season": 2026,
+  "week": 2,
+  "leagues": [
+    {
+      "group_key": "476.g.6151",
+      "group_id": "6151",
+      "name": "LMS 2022",
+      "week": 2,
+      "is_locked": true,
+      "lock_time_iso": "2026-09-20T17:00:00.000Z",
+      "total_entrants": 100,
+      "alive_count": 30,
+      "eliminated_count": 70,
+      "user_pick": "WAS",
+      "distribution": [
+        {
+          "team": "ATL",
+          "count": 21,
+          "percentage": 70
+        },
+        {
+          "team": "DAL",
+          "count": 7,
+          "percentage": 23.3
+        },
+        {
+          "team": "HOU",
+          "count": 1,
+          "percentage": 3.3
+        },
+        {
+          "team": "IND",
+          "count": 1,
+          "percentage": 3.3
+        }
+      ],
+      "unpicked_count": 0,
+      "entrants": [
+        {
+          "team_key": "476.g.6151.t.1",
+          "team_id": "1",
+          "team_name": "The FULL Commish",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "1",
+            "nickname": "Ahman",
+            "guid": "OOL37FFAOH3MUULCFL3OGO2EKE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/OOL37FFAOH3MUULCFL3OGO2EKE",
+            "is_commissioner": true
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.2",
+          "team_id": "2",
+          "team_name": "Fat Lazy American",
+          "is_user_team": true,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "LAC",
+          "current_pick": "WAS",
+          "manager": {
+            "manager_id": "2",
+            "nickname": "Andy",
+            "guid": "237HS4INDNW2HMVBQGANVN2LKU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/237HS4INDNW2HMVBQGANVN2LKU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.4",
+          "team_id": "4",
+          "team_name": "The New Tweeder Endzone Dance",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "4",
+            "nickname": "Eric Hummer",
+            "guid": "WD7YBADTKNEXRQLNSZTYLPE2FA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/WD7YBADTKNEXRQLNSZTYLPE2FA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.5",
+          "team_id": "5",
+          "team_name": "Trapper Brad",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "5",
+            "nickname": "Brad",
+            "guid": "B6CKH5MV6QCKMCFZJASXGTV6XU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/B6CKH5MV6QCKMCFZJASXGTV6XU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.6",
+          "team_id": "6",
+          "team_name": "Big Andy",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "6",
+            "nickname": "",
+            "guid": "SDH3YHRYQEMR76YS64JXVX4CKQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/SDH3YHRYQEMR76YS64JXVX4CKQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.7",
+          "team_id": "7",
+          "team_name": "MicahMicahMicah",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "7",
+            "nickname": "Greg",
+            "guid": "CVC2MMTRAGURHQ4KCOK22T6434",
+            "profile_url": "https://profiles.sports.yahoo.com/user/CVC2MMTRAGURHQ4KCOK22T6434",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.8",
+          "team_id": "8",
+          "team_name": "Lotz10",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "8",
+            "nickname": "Jim",
+            "guid": "AFSAQXG42SSPQIJ7BVKQUN2SOI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/AFSAQXG42SSPQIJ7BVKQUN2SOI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.9",
+          "team_id": "9",
+          "team_name": "Slick's Picks",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "9",
+            "nickname": "J",
+            "guid": "7UED5EZTEOZFNUH67TWEP4RMEI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/7UED5EZTEOZFNUH67TWEP4RMEI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.10",
+          "team_id": "10",
+          "team_name": "Calbucks",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "10",
+            "nickname": "Jonathan Buck",
+            "guid": "QGWIK24KXVGDOIK5LQC3VEDXZI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/QGWIK24KXVGDOIK5LQC3VEDXZI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.11",
+          "team_id": "11",
+          "team_name": "Greyfoxvt",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "11",
+            "nickname": "Greyfoxvt",
+            "guid": "VAJRTISX6MM35CCGCOQCTSE7M4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/VAJRTISX6MM35CCGCOQCTSE7M4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.12",
+          "team_id": "12",
+          "team_name": "Gweedo",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "12",
+            "nickname": "John",
+            "guid": "D35VBRVAWGO2ICRHAWKPSK6KRR",
+            "profile_url": "https://profiles.sports.yahoo.com/user/D35VBRVAWGO2ICRHAWKPSK6KRR",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.13",
+          "team_id": "13",
+          "team_name": "Free money",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "13",
+            "nickname": "Michael",
+            "guid": "H445MYDBSLC44OET2FMR477HL4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/H445MYDBSLC44OET2FMR477HL4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.14",
+          "team_id": "14",
+          "team_name": "Average Person",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "14",
+            "nickname": "Rick",
+            "guid": "WIEPR335LSG6SBK4XGTZVAGMQM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/WIEPR335LSG6SBK4XGTZVAGMQM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.15",
+          "team_id": "15",
+          "team_name": "My Terrific Pick Set",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "15",
+            "nickname": "Rob",
+            "guid": "IRCQ46VTA4YUVR3TTFDUAFMI64",
+            "profile_url": "https://profiles.sports.yahoo.com/user/IRCQ46VTA4YUVR3TTFDUAFMI64",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.16",
+          "team_id": "16",
+          "team_name": "Triplet Dad",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "16",
+            "nickname": "Craig",
+            "guid": "ZDLPBOUZ3JZM4AD3KCMBGMWEFY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/ZDLPBOUZ3JZM4AD3KCMBGMWEFY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.17",
+          "team_id": "17",
+          "team_name": "Mouth of Milwaukee",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "17",
+            "nickname": "Eric",
+            "guid": "4TTNCLS2646BNKSKXOUIQT4O64",
+            "profile_url": "https://profiles.sports.yahoo.com/user/4TTNCLS2646BNKSKXOUIQT4O64",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.18",
+          "team_id": "18",
+          "team_name": "Crabby",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "18",
+            "nickname": "Andrew",
+            "guid": "XUFK7REU467YG3KUHKAC7PNQXY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/XUFK7REU467YG3KUHKAC7PNQXY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.19",
+          "team_id": "19",
+          "team_name": "Bourbon Sweep",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "19",
+            "nickname": "Matt",
+            "guid": "UPNB4MQXM5VW3DF2AGBEFAVBBM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/UPNB4MQXM5VW3DF2AGBEFAVBBM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.20",
+          "team_id": "20",
+          "team_name": "Wannabe Scratch Golfer",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "20",
+            "nickname": "Matthew",
+            "guid": "7IUVQGVTMFLJTLBM4APWW3ZZTU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/7IUVQGVTMFLJTLBM4APWW3ZZTU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.21",
+          "team_id": "21",
+          "team_name": "Boring Barnacle",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "21",
+            "nickname": "Stephanie",
+            "guid": "A452R7JOAAOEEE3AH2LJBL44EM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/A452R7JOAAOEEE3AH2LJBL44EM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.22",
+          "team_id": "22",
+          "team_name": "Hardywood Blonde",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "22",
+            "nickname": "Michelle",
+            "guid": "FO62W6KGTYQK73KMCK2WQHBF2E",
+            "profile_url": "https://profiles.sports.yahoo.com/user/FO62W6KGTYQK73KMCK2WQHBF2E",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.23",
+          "team_id": "23",
+          "team_name": "Crazy 8's",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "23",
+            "nickname": "Mary",
+            "guid": "3SHA732A5IWK2T4F254V7RJA6A",
+            "profile_url": "https://profiles.sports.yahoo.com/user/3SHA732A5IWK2T4F254V7RJA6A",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.24",
+          "team_id": "24",
+          "team_name": "ShowusyourTDs",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "BAL",
+          "current_pick": "NFL.T.33",
+          "manager": {
+            "manager_id": "24",
+            "nickname": "Marc",
+            "guid": "TW4BHPHXNP4EVY373ABUMFEWV4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/TW4BHPHXNP4EVY373ABUMFEWV4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.25",
+          "team_id": "25",
+          "team_name": "Raiders Rule",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": null,
+          "current_pick": null,
+          "manager": {
+            "manager_id": "25",
+            "nickname": "Sean",
+            "guid": "Z3EXC5R5XVAGUS3QLZBKZ4ZGTY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/Z3EXC5R5XVAGUS3QLZBKZ4ZGTY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.26",
+          "team_id": "26",
+          "team_name": "STINKY BEAVERS",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "BAL",
+          "current_pick": "NFL.T.33",
+          "manager": {
+            "manager_id": "26",
+            "nickname": "mike",
+            "guid": "M6DIIPEU2YQRTSYG25ZUR7QYH4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/M6DIIPEU2YQRTSYG25ZUR7QYH4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.27",
+          "team_id": "27",
+          "team_name": "Tatonka13",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "27",
+            "nickname": "Mike",
+            "guid": "46B5W7Z7SU5VEQ3WZMHLR7HYMM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/46B5W7Z7SU5VEQ3WZMHLR7HYMM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.28",
+          "team_id": "28",
+          "team_name": "Live2Ride",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "28",
+            "nickname": "Cori",
+            "guid": "NOIMAH24AUX4Z4C3JZ3RMMLR7M",
+            "profile_url": "https://profiles.sports.yahoo.com/user/NOIMAH24AUX4Z4C3JZ3RMMLR7M",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.29",
+          "team_id": "29",
+          "team_name": "Romo’s Open Container",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "29",
+            "nickname": "K",
+            "guid": "OOMII2Y5JQEPWMROOK3AYG2H44",
+            "profile_url": "https://profiles.sports.yahoo.com/user/OOMII2Y5JQEPWMROOK3AYG2H44",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.30",
+          "team_id": "30",
+          "team_name": "Big Herm",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "30",
+            "nickname": "Jacob",
+            "guid": "KU4PNZZ3223QLDLFU2P2LQBZ2M",
+            "profile_url": "https://profiles.sports.yahoo.com/user/KU4PNZZ3223QLDLFU2P2LQBZ2M",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.31",
+          "team_id": "31",
+          "team_name": "EasyRider",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "31",
+            "nickname": "BrianK",
+            "guid": "DK6ZVYESBRFYOK72HR3XHAPDMY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/DK6ZVYESBRFYOK72HR3XHAPDMY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.32",
+          "team_id": "32",
+          "team_name": "Kinger",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "32",
+            "nickname": "Todd & Joann",
+            "guid": "U6V6TICTCUMDJX57ZP3Q6A5BIY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/U6V6TICTCUMDJX57ZP3Q6A5BIY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.33",
+          "team_id": "33",
+          "team_name": "Worst2First",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "33",
+            "nickname": "Alan",
+            "guid": "PASVKHU5BQR6ZAMDSJ4XVIAXNQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/PASVKHU5BQR6ZAMDSJ4XVIAXNQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.34",
+          "team_id": "34",
+          "team_name": "Minor Disappointment",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "34",
+            "nickname": "brian",
+            "guid": "VD7C4JXCG2A5KWLLPKYCABXA7Y",
+            "profile_url": "https://profiles.sports.yahoo.com/user/VD7C4JXCG2A5KWLLPKYCABXA7Y",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.35",
+          "team_id": "35",
+          "team_name": "Diamond Dean",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "35",
+            "nickname": "dean",
+            "guid": "4RJ4NK7RN57F7RP6NL2ZATUXLE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/4RJ4NK7RN57F7RP6NL2ZATUXLE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.36",
+          "team_id": "36",
+          "team_name": "Bronco Billy",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "36",
+            "nickname": "Bill",
+            "guid": "F6SRETVYUBHXVZWAQX6HHIP6HY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/F6SRETVYUBHXVZWAQX6HHIP6HY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.37",
+          "team_id": "37",
+          "team_name": "Fish Monster",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "37",
+            "nickname": "Tricia",
+            "guid": "LKL6X43RD7746QTAKFE4IHE2E4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/LKL6X43RD7746QTAKFE4IHE2E4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.38",
+          "team_id": "38",
+          "team_name": "Chickenberry",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "38",
+            "nickname": "McKenzie",
+            "guid": "5VEMHQ25YQQMUHQD2PWTQSQFLE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/5VEMHQ25YQQMUHQD2PWTQSQFLE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.39",
+          "team_id": "39",
+          "team_name": "Randy's Rump Rangers",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "BAL",
+          "current_pick": "NFL.T.33",
+          "manager": {
+            "manager_id": "39",
+            "nickname": "Randy & Brenda",
+            "guid": "XXAO3UKI2R4KWPZHN2USTDH7FY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/XXAO3UKI2R4KWPZHN2USTDH7FY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.40",
+          "team_id": "40",
+          "team_name": "My Super Pick Set",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "40",
+            "nickname": "kelly",
+            "guid": "KH445DYOLKCHMA4QEEIAK6T5KM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/KH445DYOLKCHMA4QEEIAK6T5KM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.41",
+          "team_id": "41",
+          "team_name": "PBRMan",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "41",
+            "nickname": "Trevor",
+            "guid": "QMYQRC3XJHK6ORJQS7JU4AYKQ4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/QMYQRC3XJHK6ORJQS7JU4AYKQ4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.42",
+          "team_id": "42",
+          "team_name": "I Wear Jeans to Church",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "42",
+            "nickname": "gary",
+            "guid": "ZPKO64CL3MEQEA6JQMJBDKV6AA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/ZPKO64CL3MEQEA6JQMJBDKV6AA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.43",
+          "team_id": "43",
+          "team_name": "Karma is a Guy on the Chiefs",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "43",
+            "nickname": "Erica",
+            "guid": "W3MRWGNM5VBMCFNV4R65ONOXRE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/W3MRWGNM5VBMCFNV4R65ONOXRE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.44",
+          "team_id": "44",
+          "team_name": "Crowbar Rick",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "44",
+            "nickname": "Rick",
+            "guid": "I5PCMLDW5FQ4PGKCM7L6IFBMKA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/I5PCMLDW5FQ4PGKCM7L6IFBMKA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.45",
+          "team_id": "45",
+          "team_name": "Soup Nazi",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "45",
+            "nickname": "Nicklaus",
+            "guid": "4Z7JY6PMUCYOH4KZX5XQOOA6AE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/4Z7JY6PMUCYOH4KZX5XQOOA6AE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.46",
+          "team_id": "46",
+          "team_name": "The Cheesehead Crew",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "46",
+            "nickname": "Brianna",
+            "guid": "DNF76MKOHDUNLEHIUCOI5ZLXEI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/DNF76MKOHDUNLEHIUCOI5ZLXEI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.47",
+          "team_id": "47",
+          "team_name": "Green & Golden",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "47",
+            "nickname": "Brianna",
+            "guid": "UAQ5YBRDUUT5NZXWAMREKEQZGY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/UAQ5YBRDUUT5NZXWAMREKEQZGY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.48",
+          "team_id": "48",
+          "team_name": "Intentional Grounding",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "48",
+            "nickname": "Ryan",
+            "guid": "GFPVYENATSHWYMKFKCT67DHFOU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/GFPVYENATSHWYMKFKCT67DHFOU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.49",
+          "team_id": "49",
+          "team_name": "Football Fan",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "49",
+            "nickname": "Stephan",
+            "guid": "VJYLRGRWDK2NFE36LM2ZEZOMVA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/VJYLRGRWDK2NFE36LM2ZEZOMVA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.50",
+          "team_id": "50",
+          "team_name": "Kiss My Grass",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "50",
+            "nickname": "Steve",
+            "guid": "P5F63GYU3TZX7LVNXNRXMGL7WI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/P5F63GYU3TZX7LVNXNRXMGL7WI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.51",
+          "team_id": "51",
+          "team_name": "Shoobieloobie",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "51",
+            "nickname": "Mark",
+            "guid": "X5OPWETIPRVG3YCIHBUNSKTEYE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/X5OPWETIPRVG3YCIHBUNSKTEYE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.52",
+          "team_id": "52",
+          "team_name": "Naked Toe",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "BAL",
+          "current_pick": "NFL.T.33",
+          "manager": {
+            "manager_id": "52",
+            "nickname": "gina",
+            "guid": "3LZAEQ6QVPDLQZYKXYYQRYVW7Y",
+            "profile_url": "https://profiles.sports.yahoo.com/user/3LZAEQ6QVPDLQZYKXYYQRYVW7Y",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.53",
+          "team_id": "53",
+          "team_name": "Buehler",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": null,
+          "current_pick": null,
+          "manager": {
+            "manager_id": "53",
+            "nickname": "Jake",
+            "guid": "GZ2XGWCJEKTQSGSHLJCYKY2N3E",
+            "profile_url": "https://profiles.sports.yahoo.com/user/GZ2XGWCJEKTQSGSHLJCYKY2N3E",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.54",
+          "team_id": "54",
+          "team_name": "Mini bleacher bum",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "54",
+            "nickname": "Jacob",
+            "guid": "43BNFLAK5QHCE2M26ZGXXUBKE4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/43BNFLAK5QHCE2M26ZGXXUBKE4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.55",
+          "team_id": "55",
+          "team_name": "Ares ll",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "55",
+            "nickname": "Michael",
+            "guid": "WUCHGOH4PJGE2STMOSYUZMGOTY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/WUCHGOH4PJGE2STMOSYUZMGOTY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.56",
+          "team_id": "56",
+          "team_name": "Out Week 3",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "56",
+            "nickname": "Tyler",
+            "guid": "D6KAAZHPXSWHYUQQWWS3HQ3NGI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/D6KAAZHPXSWHYUQQWWS3HQ3NGI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.57",
+          "team_id": "57",
+          "team_name": "The Bill Buffaloes",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "57",
+            "nickname": "jarod",
+            "guid": "N4VTCDAEY2RNYOXRBKNY73YD2Y",
+            "profile_url": "https://profiles.sports.yahoo.com/user/N4VTCDAEY2RNYOXRBKNY73YD2Y",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.58",
+          "team_id": "58",
+          "team_name": "Penny Bar Jr.",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "58",
+            "nickname": "Chad",
+            "guid": "V3E32PU6ICLLDJZD64XA3DZVAI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/V3E32PU6ICLLDJZD64XA3DZVAI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.59",
+          "team_id": "59",
+          "team_name": "CeeedeeeezNuts",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "59",
+            "nickname": "Gerard",
+            "guid": "WFYDWFFLEVEM7DJQZSEHW6NDOE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/WFYDWFFLEVEM7DJQZSEHW6NDOE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.60",
+          "team_id": "60",
+          "team_name": "My Tip-Top Pick Set",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "60",
+            "nickname": "Matt",
+            "guid": "HK2BCHOAF3JHJSZHA2MKYS7M5Q",
+            "profile_url": "https://profiles.sports.yahoo.com/user/HK2BCHOAF3JHJSZHA2MKYS7M5Q",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.61",
+          "team_id": "61",
+          "team_name": "Fans Only",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "61",
+            "nickname": "Allen",
+            "guid": "IFARRBPH6N65DPHH3VWACO7FNA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/IFARRBPH6N65DPHH3VWACO7FNA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.62",
+          "team_id": "62",
+          "team_name": "Cable Guy",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "62",
+            "nickname": "Mike",
+            "guid": "QABQ5JJYFBTAXD72HJJYGM3KLM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/QABQ5JJYFBTAXD72HJJYGM3KLM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.63",
+          "team_id": "63",
+          "team_name": "Mongoose Miraculous Picks",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "63",
+            "nickname": "Timothy",
+            "guid": "NS3MOXB2PQKYIFTNV4A7IT7LPA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/NS3MOXB2PQKYIFTNV4A7IT7LPA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.64",
+          "team_id": "64",
+          "team_name": "Living on High Life",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "64",
+            "nickname": "randy",
+            "guid": "VSSM5KURFHGGQCRYXTPAYVKU3U",
+            "profile_url": "https://profiles.sports.yahoo.com/user/VSSM5KURFHGGQCRYXTPAYVKU3U",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.65",
+          "team_id": "65",
+          "team_name": "Smooth Operator",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "65",
+            "nickname": "Randy",
+            "guid": "GMRWGZONHOQTRLHIKWI56RDGYQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/GMRWGZONHOQTRLHIKWI56RDGYQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.66",
+          "team_id": "66",
+          "team_name": "Meatrunner",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "LAC",
+          "current_pick": "WAS",
+          "manager": {
+            "manager_id": "66",
+            "nickname": "Don",
+            "guid": "5NLMWLHOKELJ2UV2ADHL3URFTE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/5NLMWLHOKELJ2UV2ADHL3URFTE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.67",
+          "team_id": "67",
+          "team_name": "Old man knows nothing",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "67",
+            "nickname": "Greg",
+            "guid": "AL2H2HBEOG2YYMIFJXJA6M27VU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/AL2H2HBEOG2YYMIFJXJA6M27VU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.68",
+          "team_id": "68",
+          "team_name": "Poker Pro",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "68",
+            "nickname": "Cliff",
+            "guid": "3IFOWJKVXIPY2WWS3NMJK4T2B4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/3IFOWJKVXIPY2WWS3NMJK4T2B4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.69",
+          "team_id": "69",
+          "team_name": "The Cheddar Shredder",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "69",
+            "nickname": "Geoff",
+            "guid": "24YD2ZGTEWAWV2KXMBDIWDNZB4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/24YD2ZGTEWAWV2KXMBDIWDNZB4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.70",
+          "team_id": "70",
+          "team_name": "No Punt Intended",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "70",
+            "nickname": "Mark",
+            "guid": "WCNKGTSYCU4UHGZPUTYUSPRQ3Y",
+            "profile_url": "https://profiles.sports.yahoo.com/user/WCNKGTSYCU4UHGZPUTYUSPRQ3Y",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.71",
+          "team_id": "71",
+          "team_name": "McQ",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "71",
+            "nickname": "Matt M",
+            "guid": "FWTB6GY3VJKXVYL5LHQCMAZHHY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/FWTB6GY3VJKXVYL5LHQCMAZHHY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.72",
+          "team_id": "72",
+          "team_name": "Nabers in Paris",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "72",
+            "nickname": "Joey",
+            "guid": "OVP722OWIBHOZR22PSAEWZA7GU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/OVP722OWIBHOZR22PSAEWZA7GU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.73",
+          "team_id": "73",
+          "team_name": "Irishspicoli",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "73",
+            "nickname": "sean",
+            "guid": "VWIQK4O2VCGJ2EZKCAXBQOXKBQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/VWIQK4O2VCGJ2EZKCAXBQOXKBQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.74",
+          "team_id": "74",
+          "team_name": "Shough me the money",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "HOU",
+          "manager": {
+            "manager_id": "74",
+            "nickname": "Sean",
+            "guid": "CL6BC5NJC3V6SNUJ4OA2KETSQA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/CL6BC5NJC3V6SNUJ4OA2KETSQA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.75",
+          "team_id": "75",
+          "team_name": "Bowl Bound",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "75",
+            "nickname": "darrenw53",
+            "guid": "K3AKCTHL3XI6BSSFXOQQJ4ZMGU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/K3AKCTHL3XI6BSSFXOQQJ4ZMGU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.76",
+          "team_id": "76",
+          "team_name": "Midwest Mashers",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "IND",
+          "manager": {
+            "manager_id": "76",
+            "nickname": "Midwest",
+            "guid": "WBGIYBCZLS32KW3F573OLSXYMY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/WBGIYBCZLS32KW3F573OLSXYMY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.77",
+          "team_id": "77",
+          "team_name": "Hurricanes Suck",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "77",
+            "nickname": "mike",
+            "guid": "O6J5EHG56CVVJJ22DDD77I6QDA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/O6J5EHG56CVVJJ22DDD77I6QDA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.78",
+          "team_id": "78",
+          "team_name": "jakefromstatefarm",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "BAL",
+          "current_pick": "NFL.T.33",
+          "manager": {
+            "manager_id": "78",
+            "nickname": "Jacob",
+            "guid": "Z2UVY52GFD7P7D6AY5XAYRQIHI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/Z2UVY52GFD7P7D6AY5XAYRQIHI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.79",
+          "team_id": "79",
+          "team_name": "Water Boy",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "79",
+            "nickname": "Robert",
+            "guid": "NUMNW5SYFYMKHE2622JP6PL76M",
+            "profile_url": "https://profiles.sports.yahoo.com/user/NUMNW5SYFYMKHE2622JP6PL76M",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.80",
+          "team_id": "80",
+          "team_name": "OPPS",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "80",
+            "nickname": "Stanley Stefanowski",
+            "guid": "BHO2KXAK6FYBUGNA7UI3OTDYZY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/BHO2KXAK6FYBUGNA7UI3OTDYZY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.81",
+          "team_id": "81",
+          "team_name": "ForeverFavre",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "81",
+            "nickname": "Meghan",
+            "guid": "6Z6V55MLXM5X4Q5PREJQWI7CHY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/6Z6V55MLXM5X4Q5PREJQWI7CHY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.82",
+          "team_id": "82",
+          "team_name": "Slim Pickins",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "82",
+            "nickname": "Steve",
+            "guid": "RL2UPK3Z2ALRFYJOIOJLHBW4RU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/RL2UPK3Z2ALRFYJOIOJLHBW4RU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.83",
+          "team_id": "83",
+          "team_name": "My Awe-Inspiring Pick Set",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "83",
+            "nickname": "Andy",
+            "guid": "JYQYVR36F6AXSS2BSE5O4VTRYM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/JYQYVR36F6AXSS2BSE5O4VTRYM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.84",
+          "team_id": "84",
+          "team_name": "BALLS dEEP",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "84",
+            "nickname": "Jeffrey",
+            "guid": "WUJMVIOOIQVBYRHXBMCBMW3EFI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/WUJMVIOOIQVBYRHXBMCBMW3EFI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.85",
+          "team_id": "85",
+          "team_name": "Prestige Worldwide",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "85",
+            "nickname": "Brian",
+            "guid": "AQ53SPZLVSYP5POZ4CZKYFHAFA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/AQ53SPZLVSYP5POZ4CZKYFHAFA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.86",
+          "team_id": "86",
+          "team_name": "Free Birds",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "86",
+            "nickname": "Kallie",
+            "guid": "OHD56Q2NAI2LXKSX5EFBLTJSWQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/OHD56Q2NAI2LXKSX5EFBLTJSWQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.87",
+          "team_id": "87",
+          "team_name": "OTIS",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "DAL",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "87",
+            "nickname": "Holly",
+            "guid": "3MBSBSAXEJAKPNZE77QE5P2C3E",
+            "profile_url": "https://profiles.sports.yahoo.com/user/3MBSBSAXEJAKPNZE77QE5P2C3E",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.88",
+          "team_id": "88",
+          "team_name": "Roscoe p Coltrain",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "88",
+            "nickname": "Jim",
+            "guid": "YVEFMMBXZXP7QID4N6CCJMNDUM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/YVEFMMBXZXP7QID4N6CCJMNDUM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.89",
+          "team_id": "89",
+          "team_name": "H.E. Pennypacker",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "89",
+            "nickname": "jeffrey",
+            "guid": "AFAZ65ZWOZPY5J35XKB3CZ4ASU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/AFAZ65ZWOZPY5J35XKB3CZ4ASU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.90",
+          "team_id": "90",
+          "team_name": "My Cool Pick Set",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "90",
+            "nickname": "Michael",
+            "guid": "4WXHHEFXEMRRXS4KGIR4I3C4NQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/4WXHHEFXEMRRXS4KGIR4I3C4NQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.91",
+          "team_id": "91",
+          "team_name": "Can I survive the 1st Week?",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "BAL",
+          "current_pick": "NFL.T.33",
+          "manager": {
+            "manager_id": "91",
+            "nickname": "rob",
+            "guid": "YFTQPLE3ZH22BELHOIPXBKW4HQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/YFTQPLE3ZH22BELHOIPXBKW4HQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.92",
+          "team_id": "92",
+          "team_name": "Jdubs",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "92",
+            "nickname": "John",
+            "guid": "EOOJ25MYXCWWZLWLJPQLODNR2E",
+            "profile_url": "https://profiles.sports.yahoo.com/user/EOOJ25MYXCWWZLWLJPQLODNR2E",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.93",
+          "team_id": "93",
+          "team_name": "Polish Power",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "93",
+            "nickname": "Jenny",
+            "guid": "LVT5O6EU5UYPZOOQBHIWVS7MRA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/LVT5O6EU5UYPZOOQBHIWVS7MRA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.94",
+          "team_id": "94",
+          "team_name": "Tiger",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "94",
+            "nickname": "Sherry",
+            "guid": "7LBTETYHZBARF2RV7YACUU33FM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/7LBTETYHZBARF2RV7YACUU33FM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.96",
+          "team_id": "96",
+          "team_name": "Cincinnati Fan",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "96",
+            "nickname": "Joshua",
+            "guid": "65Y24SX7CRD4C2FZRXJ6L4HMSQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/65Y24SX7CRD4C2FZRXJ6L4HMSQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.97",
+          "team_id": "97",
+          "team_name": "TriggerBob",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "97",
+            "nickname": "Jodi",
+            "guid": "IHA7CXXYOK44PI3GVF3HUK7WJE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/IHA7CXXYOK44PI3GVF3HUK7WJE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.98",
+          "team_id": "98",
+          "team_name": "Eric Stratton",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "98",
+            "nickname": "Kevin",
+            "guid": "IAFIIHBVCATUYNBSLQZOMC27LY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/IAFIIHBVCATUYNBSLQZOMC27LY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.99",
+          "team_id": "99",
+          "team_name": "Elmer's Tap",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "99",
+            "nickname": "Tim",
+            "guid": "KEZNNYJLHWI4F2MLL4HMW5SGCU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/KEZNNYJLHWI4F2MLL4HMW5SGCU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.100",
+          "team_id": "100",
+          "team_name": "ALL AMERICAN",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "100",
+            "nickname": "Aaron",
+            "guid": "QUR4GEZBEPY37V3T5NLBZVAXPE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/QUR4GEZBEPY37V3T5NLBZVAXPE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.95",
+          "team_id": "95",
+          "team_name": "The Vins",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "95",
+            "nickname": "Gavin",
+            "guid": "QBWRIVL67BGNT2FM6AQ6QPDC7Q",
+            "profile_url": "https://profiles.sports.yahoo.com/user/QBWRIVL67BGNT2FM6AQ6QPDC7Q",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.6151.t.3",
+          "team_id": "3",
+          "team_name": "Abracapocus",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "3",
+            "nickname": "andrew",
+            "guid": "55DCAISEJQQNNP5RIF5J53COP4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/55DCAISEJQQNNP5RIF5J53COP4",
+            "is_commissioner": false
+          }
+        }
+      ]
+    },
+    {
+      "group_key": "476.g.4571",
+      "group_id": "4571",
+      "name": "Ken's Survival League",
+      "week": 2,
+      "is_locked": true,
+      "lock_time_iso": "2026-09-20T17:00:00.000Z",
+      "total_entrants": 100,
+      "alive_count": 39,
+      "eliminated_count": 61,
+      "user_pick": "NO",
+      "distribution": [
+        {
+          "team": "ATL",
+          "count": 22,
+          "percentage": 56.4
+        },
+        {
+          "team": "DAL",
+          "count": 10,
+          "percentage": 25.6
+        },
+        {
+          "team": "IND",
+          "count": 3,
+          "percentage": 7.7
+        },
+        {
+          "team": "HOU",
+          "count": 1,
+          "percentage": 2.6
+        },
+        {
+          "team": "MIA",
+          "count": 1,
+          "percentage": 2.6
+        },
+        {
+          "team": "ARI",
+          "count": 1,
+          "percentage": 2.6
+        },
+        {
+          "team": "KC",
+          "count": 1,
+          "percentage": 2.6
+        }
+      ],
+      "unpicked_count": 0,
+      "entrants": [
+        {
+          "team_key": "476.g.4571.t.1",
+          "team_id": "1",
+          "team_name": "KillerCa$h",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "1",
+            "nickname": "Kenneth",
+            "guid": "3RL6GWIFSMA56QAPI77PPJMZ3I",
+            "profile_url": "https://profiles.sports.yahoo.com/user/3RL6GWIFSMA56QAPI77PPJMZ3I",
+            "is_commissioner": true
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.2",
+          "team_id": "2",
+          "team_name": "Sewer Rat Jr",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "LAC",
+          "current_pick": "WAS",
+          "manager": {
+            "manager_id": "2",
+            "nickname": "Austin",
+            "guid": "TAZ4NVIFBPVPIKHGMK5U5YHQMQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/TAZ4NVIFBPVPIKHGMK5U5YHQMQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.3",
+          "team_id": "3",
+          "team_name": "Dak To The Future",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "3",
+            "nickname": "Stane",
+            "guid": "6CMV6HEOLTLVL27PX76H64JYFE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/6CMV6HEOLTLVL27PX76H64JYFE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.4",
+          "team_id": "4",
+          "team_name": "Lauren",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "4",
+            "nickname": "lauren",
+            "guid": "4DVQQGBESGMPD223CGEKY2QT54",
+            "profile_url": "https://profiles.sports.yahoo.com/user/4DVQQGBESGMPD223CGEKY2QT54",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.5",
+          "team_id": "5",
+          "team_name": "Leo",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "5",
+            "nickname": "MICHAEL",
+            "guid": "AFL5QHAHGJTN5A2KZBFGRNNZHA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/AFL5QHAHGJTN5A2KZBFGRNNZHA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.6",
+          "team_id": "6",
+          "team_name": "Steve C. Picks",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "6",
+            "nickname": "Steven",
+            "guid": "A3GBQRCZSA5OH6YXZ47LCM57DY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/A3GBQRCZSA5OH6YXZ47LCM57DY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.7",
+          "team_id": "7",
+          "team_name": "CAN WE GET PAST WEEK THREE???",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "7",
+            "nickname": "Bob Truran",
+            "guid": "K65SP36QJNNPBV5FVB7W6UOZFY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/K65SP36QJNNPBV5FVB7W6UOZFY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.8",
+          "team_id": "8",
+          "team_name": "Freshwater Picks",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "8",
+            "nickname": "Fresh",
+            "guid": "5K65M4EAADOLDPPEMDMWQMFJ3M",
+            "profile_url": "https://profiles.sports.yahoo.com/user/5K65M4EAADOLDPPEMDMWQMFJ3M",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.9",
+          "team_id": "9",
+          "team_name": "Crushing with KFC",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "9",
+            "nickname": "Jesse Walker",
+            "guid": "2NMHCIL3VFF3PHALSQYRIBKZVQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/2NMHCIL3VFF3PHALSQYRIBKZVQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.10",
+          "team_id": "10",
+          "team_name": "Bold Strategy Cotton",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "10",
+            "nickname": "Gregg Alsbury",
+            "guid": "Z7U6GS4GTAE2RBZ7EGITVYT5Y4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/Z7U6GS4GTAE2RBZ7EGITVYT5Y4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.11",
+          "team_id": "11",
+          "team_name": "Hillbilly Sewer Rat",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "11",
+            "nickname": "Bill B",
+            "guid": "H35JBLNC75IDFO2DWELYHQ7FKE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/H35JBLNC75IDFO2DWELYHQ7FKE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.12",
+          "team_id": "12",
+          "team_name": "Old man’s winners",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "12",
+            "nickname": "ward",
+            "guid": "UQ2TED3CWXSYG65AEAZQJTHV4Y",
+            "profile_url": "https://profiles.sports.yahoo.com/user/UQ2TED3CWXSYG65AEAZQJTHV4Y",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.13",
+          "team_id": "13",
+          "team_name": "Shawna’s picks",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "13",
+            "nickname": "SHAWNA",
+            "guid": "5ZT5VA3JPXQXVGEYZAMSKDNO6M",
+            "profile_url": "https://profiles.sports.yahoo.com/user/5ZT5VA3JPXQXVGEYZAMSKDNO6M",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.14",
+          "team_id": "14",
+          "team_name": "Spotted Balls",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "14",
+            "nickname": "Brian",
+            "guid": "M43LDGGDYXVCET23H3J5NXQN5U",
+            "profile_url": "https://profiles.sports.yahoo.com/user/M43LDGGDYXVCET23H3J5NXQN5U",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.15",
+          "team_id": "15",
+          "team_name": "WTH!",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "15",
+            "nickname": "Beck",
+            "guid": "GHTPMF3UHXWBJ3T7VY6DIYFFUY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/GHTPMF3UHXWBJ3T7VY6DIYFFUY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.16",
+          "team_id": "16",
+          "team_name": "My Unrivaled Pick Set",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "16",
+            "nickname": "Mike",
+            "guid": "NLNOBX6NHQA4ZCBYMK5YSP6NCM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/NLNOBX6NHQA4ZCBYMK5YSP6NCM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.17",
+          "team_id": "17",
+          "team_name": "KMM Picks",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "17",
+            "nickname": "Kevin",
+            "guid": "FIK6FOBLGM6FKNXXBCPSB3UQ7Q",
+            "profile_url": "https://profiles.sports.yahoo.com/user/FIK6FOBLGM6FKNXXBCPSB3UQ7Q",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.19",
+          "team_id": "19",
+          "team_name": "Bohmzilla",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "19",
+            "nickname": "James Bohm",
+            "guid": "KXCO7TKW576BQHFQYJO6MOTB6Y",
+            "profile_url": "https://profiles.sports.yahoo.com/user/KXCO7TKW576BQHFQYJO6MOTB6Y",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.20",
+          "team_id": "20",
+          "team_name": "TomCrowell",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "20",
+            "nickname": "tom",
+            "guid": "4MTV2DH2WWV4WYDDT45DUR7HXM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/4MTV2DH2WWV4WYDDT45DUR7HXM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.21",
+          "team_id": "21",
+          "team_name": "Mike Fulcher",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "21",
+            "nickname": "Mike Fulcher",
+            "guid": "LQPRMTEZTEYDTY4VR4Y2UOFILY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/LQPRMTEZTEYDTY4VR4Y2UOFILY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.22",
+          "team_id": "22",
+          "team_name": "Sir Nix a lot",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "22",
+            "nickname": "Erin",
+            "guid": "GUMON2S4ZS5TIQTWD3DZYLL75Q",
+            "profile_url": "https://profiles.sports.yahoo.com/user/GUMON2S4ZS5TIQTWD3DZYLL75Q",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.24",
+          "team_id": "24",
+          "team_name": "SQ's Splendid Pick Set",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "24",
+            "nickname": "SQ",
+            "guid": "SEC724ZHP7WZCMCG4HA374ZA7U",
+            "profile_url": "https://profiles.sports.yahoo.com/user/SEC724ZHP7WZCMCG4HA374ZA7U",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.25",
+          "team_id": "25",
+          "team_name": "coolgymnast01",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "25",
+            "nickname": "Heather",
+            "guid": "TW4ZDKNNZRRKIVG5YESRR2AX7A",
+            "profile_url": "https://profiles.sports.yahoo.com/user/TW4ZDKNNZRRKIVG5YESRR2AX7A",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.26",
+          "team_id": "26",
+          "team_name": "Mia",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "BAL",
+          "current_pick": "NFL.T.33",
+          "manager": {
+            "manager_id": "26",
+            "nickname": "Mia",
+            "guid": "EAYUVHOT5FYN7OSDML6PTH2RTQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/EAYUVHOT5FYN7OSDML6PTH2RTQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.27",
+          "team_id": "27",
+          "team_name": "Dylan",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "27",
+            "nickname": "Dylan",
+            "guid": "E4LIJ3UAQVG3AOP5PMPJIP6KIA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/E4LIJ3UAQVG3AOP5PMPJIP6KIA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.28",
+          "team_id": "28",
+          "team_name": "Fat Lazy American",
+          "is_user_team": true,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "28",
+            "nickname": "Andy",
+            "guid": "237HS4INDNW2HMVBQGANVN2LKU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/237HS4INDNW2HMVBQGANVN2LKU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.29",
+          "team_id": "29",
+          "team_name": "Kardigitty",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "29",
+            "nickname": "Karen",
+            "guid": "NGPC3EDHTWRHNXE4YOPVH6KDAA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/NGPC3EDHTWRHNXE4YOPVH6KDAA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.30",
+          "team_id": "30",
+          "team_name": "USETOBECARR",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "30",
+            "nickname": "betty",
+            "guid": "246QX5QGG2J7NWCV5ZHGDFUK7U",
+            "profile_url": "https://profiles.sports.yahoo.com/user/246QX5QGG2J7NWCV5ZHGDFUK7U",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.31",
+          "team_id": "31",
+          "team_name": "TRegNJ",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "31",
+            "nickname": "Tom",
+            "guid": "LH7XKVBIEVVSSCHRKARIL2CBSI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/LH7XKVBIEVVSSCHRKARIL2CBSI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.32",
+          "team_id": "32",
+          "team_name": "⭐️TOP GUN⭐️",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "32",
+            "nickname": "Kevin",
+            "guid": "6NSSMQ2LZWHDY2TBP3XZP4TSSA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/6NSSMQ2LZWHDY2TBP3XZP4TSSA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.33",
+          "team_id": "33",
+          "team_name": "TD Worst Pick",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "HOU",
+          "manager": {
+            "manager_id": "33",
+            "nickname": "Turner",
+            "guid": "R6E5EDFSMEUBRDHIS4INJREUD4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/R6E5EDFSMEUBRDHIS4INJREUD4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.34",
+          "team_id": "34",
+          "team_name": "TB2026",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "34",
+            "nickname": "Terrence",
+            "guid": "KYKIS53XLCSGIOUMHUPIMITI2M",
+            "profile_url": "https://profiles.sports.yahoo.com/user/KYKIS53XLCSGIOUMHUPIMITI2M",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.35",
+          "team_id": "35",
+          "team_name": "Mom Carr",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "35",
+            "nickname": "Karen",
+            "guid": "BOTP5SBFPCEZNAK4DQVY27QJX4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/BOTP5SBFPCEZNAK4DQVY27QJX4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.36",
+          "team_id": "36",
+          "team_name": "My Quality Pick Set",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "36",
+            "nickname": "Jeremy",
+            "guid": "RQULQQBO6MTYRER5EO4MFKHRPQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/RQULQQBO6MTYRER5EO4MFKHRPQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.37",
+          "team_id": "37",
+          "team_name": "Freddy Flintstone",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "37",
+            "nickname": "Ken Carr",
+            "guid": "NI6IJUTZC3WN5IFOPUAYBCS2AA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/NI6IJUTZC3WN5IFOPUAYBCS2AA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.38",
+          "team_id": "38",
+          "team_name": "RJM",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "38",
+            "nickname": "Jean and Bob",
+            "guid": "LKOPL4IHHY65WQN5INGU537HXA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/LKOPL4IHHY65WQN5INGU537HXA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.39",
+          "team_id": "39",
+          "team_name": "Freedivers",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "39",
+            "nickname": "Brian",
+            "guid": "7CYEP2W7LK5LPGU2UJVNDX6GSQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/7CYEP2W7LK5LPGU2UJVNDX6GSQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.40",
+          "team_id": "40",
+          "team_name": "The Really Rottens",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "40",
+            "nickname": "Kirk",
+            "guid": "ELJ2FX6PMLYI5C2FRFBGSPUV5Y",
+            "profile_url": "https://profiles.sports.yahoo.com/user/ELJ2FX6PMLYI5C2FRFBGSPUV5Y",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.41",
+          "team_id": "41",
+          "team_name": "thepenismightier",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "41",
+            "nickname": "BRIAN",
+            "guid": "D2J7JDHA4PGGMNNULOL46FYDCE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/D2J7JDHA4PGGMNNULOL46FYDCE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.42",
+          "team_id": "42",
+          "team_name": "TitansoftheGridiron",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "42",
+            "nickname": "D",
+            "guid": "3BYU2QTJ7IAAETSGT2EWETOXYQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/3BYU2QTJ7IAAETSGT2EWETOXYQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.43",
+          "team_id": "43",
+          "team_name": "Richard Sanchez",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "IND",
+          "manager": {
+            "manager_id": "43",
+            "nickname": "Richard Sanchez",
+            "guid": "35FO5GIY6HW7K33FZVLFA7OEEI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/35FO5GIY6HW7K33FZVLFA7OEEI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.44",
+          "team_id": "44",
+          "team_name": "G-Money",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "44",
+            "nickname": "Gregory",
+            "guid": "JOE3OPLL4EYEKMXKM4SOSBJQMC",
+            "profile_url": "https://profiles.sports.yahoo.com/user/JOE3OPLL4EYEKMXKM4SOSBJQMC",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.45",
+          "team_id": "45",
+          "team_name": "MCSunshine",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "45",
+            "nickname": "Mary",
+            "guid": "JCBJ2CF4M4JUSVE7XFG3QHEBBQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/JCBJ2CF4M4JUSVE7XFG3QHEBBQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.46",
+          "team_id": "46",
+          "team_name": "Gimme a Mulligan",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "46",
+            "nickname": "Nick",
+            "guid": "YKEWMFK6PHIJBBXU22WCP3WQIA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/YKEWMFK6PHIJBBXU22WCP3WQIA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.47",
+          "team_id": "47",
+          "team_name": "BT Bold or Bust",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "47",
+            "nickname": "Brett T",
+            "guid": "X3PHAIDRXCF3I7VDOK327UTGIU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/X3PHAIDRXCF3I7VDOK327UTGIU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.48",
+          "team_id": "48",
+          "team_name": "Awesome Keeley",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "48",
+            "nickname": "The Keeley",
+            "guid": "CQFHIWYZDVIJHAXSQERMP5WVIA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/CQFHIWYZDVIJHAXSQERMP5WVIA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.49",
+          "team_id": "49",
+          "team_name": "Pure Awesomeness",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "49",
+            "nickname": "Pure",
+            "guid": "7QRIU3WNYIVCRHXMI2MHLN6JBQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/7QRIU3WNYIVCRHXMI2MHLN6JBQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.50",
+          "team_id": "50",
+          "team_name": "JJ’s Pick Set",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": null,
+          "current_pick": null,
+          "manager": {
+            "manager_id": "50",
+            "nickname": "Gerardo",
+            "guid": "2PCMBK7X5TFIT5CPCSXYZVK7OA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/2PCMBK7X5TFIT5CPCSXYZVK7OA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.51",
+          "team_id": "51",
+          "team_name": "Stinker Tinker",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "51",
+            "nickname": "Justin",
+            "guid": "AX67I4P43HA7XDFGESN6VF5RFU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/AX67I4P43HA7XDFGESN6VF5RFU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.52",
+          "team_id": "52",
+          "team_name": "Steve",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "52",
+            "nickname": "Stephen",
+            "guid": "4FDKO3HUNBPPRO4ZV5F6MLPHEQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/4FDKO3HUNBPPRO4ZV5F6MLPHEQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.53",
+          "team_id": "53",
+          "team_name": "Seahawks Da Champs",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "53",
+            "nickname": "Antonio",
+            "guid": "SH7PSDNGUJT6DKYI4CDO62NKEM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/SH7PSDNGUJT6DKYI4CDO62NKEM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.54",
+          "team_id": "54",
+          "team_name": "Jess Carbone",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "54",
+            "nickname": "Jessica",
+            "guid": "IGWTTOKQR75Y73K72Q3IW6BJQA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/IGWTTOKQR75Y73K72Q3IW6BJQA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.55",
+          "team_id": "55",
+          "team_name": "Go Raid Go",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "BAL",
+          "current_pick": "NFL.T.33",
+          "manager": {
+            "manager_id": "55",
+            "nickname": "Art Sipriaso",
+            "guid": "ZQFIHRPFPFUQFMEJ63QXROSQTY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/ZQFIHRPFPFUQFMEJ63QXROSQTY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.56",
+          "team_id": "56",
+          "team_name": "Ty's",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "MIA",
+          "manager": {
+            "manager_id": "56",
+            "nickname": "Ty",
+            "guid": "3M6XGOFW4C27YQOA7L6OH24XZI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/3M6XGOFW4C27YQOA7L6OH24XZI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.57",
+          "team_id": "57",
+          "team_name": "LFGSD",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "57",
+            "nickname": "Mike",
+            "guid": "DC6HS57A3OUM6HFB6CREG3WYXY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/DC6HS57A3OUM6HFB6CREG3WYXY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.58",
+          "team_id": "58",
+          "team_name": "Bang bang Niner gang!!",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "58",
+            "nickname": "Grant",
+            "guid": "5MAWTHLIH5CWN2YT6JFLOQOTM4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/5MAWTHLIH5CWN2YT6JFLOQOTM4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.59",
+          "team_id": "59",
+          "team_name": "Wolf",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "59",
+            "nickname": "Erik",
+            "guid": "YO4FQIUQXBVO65YLOMXGT6U62Q",
+            "profile_url": "https://profiles.sports.yahoo.com/user/YO4FQIUQXBVO65YLOMXGT6U62Q",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.18",
+          "team_id": "18",
+          "team_name": "Deshaun’s Massage Parlor",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "18",
+            "nickname": "Gupta",
+            "guid": "WSHE3KQOAZ556Q3XDX4PJFUQEQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/WSHE3KQOAZ556Q3XDX4PJFUQEQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.60",
+          "team_id": "60",
+          "team_name": "JohnnyPats",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "60",
+            "nickname": "j",
+            "guid": "IYM3Q2MF65MA3BHXO2JWCAZYKQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/IYM3Q2MF65MA3BHXO2JWCAZYKQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.61",
+          "team_id": "61",
+          "team_name": "DallasBlows",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "61",
+            "nickname": "Gary",
+            "guid": "AXJX342JAN2NBUONRU4UMAUZQM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/AXJX342JAN2NBUONRU4UMAUZQM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.62",
+          "team_id": "62",
+          "team_name": "Carbone22",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "62",
+            "nickname": "Michael Carbone",
+            "guid": "2LUMQOS4FXC57TQ6I5KS6MTCTU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/2LUMQOS4FXC57TQ6I5KS6MTCTU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.63",
+          "team_id": "63",
+          "team_name": "Ben's Picks",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "63",
+            "nickname": "ben glibert",
+            "guid": "RMPVPAZV5XSIC6RE7NCP2XCQTI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/RMPVPAZV5XSIC6RE7NCP2XCQTI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.64",
+          "team_id": "64",
+          "team_name": "Brady Dallas Blows",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "64",
+            "nickname": "Brady",
+            "guid": "AGDNZAKOCVPQGG4SPS72UFTTLE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/AGDNZAKOCVPQGG4SPS72UFTTLE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.65",
+          "team_id": "65",
+          "team_name": "MikeyGoat19/2",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "65",
+            "nickname": "Michael",
+            "guid": "KOMBCRWMNKU54V6ADU4FHW7AOA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/KOMBCRWMNKU54V6ADU4FHW7AOA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.66",
+          "team_id": "66",
+          "team_name": "Pack attack",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "66",
+            "nickname": "Tomasz T",
+            "guid": "YGQ7RO7SNTWPQKC53DBUDHXLGQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/YGQ7RO7SNTWPQKC53DBUDHXLGQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.67",
+          "team_id": "67",
+          "team_name": "Ro Ro",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "67",
+            "nickname": "Sarah",
+            "guid": "3CHUNSDAVVA3DS4X4RCYMDQ4WM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/3CHUNSDAVVA3DS4X4RCYMDQ4WM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.68",
+          "team_id": "68",
+          "team_name": "Cole’s picks",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "68",
+            "nickname": "Cole",
+            "guid": "NNSHAFNOU46E25LL6FDM2VQUNM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/NNSHAFNOU46E25LL6FDM2VQUNM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.69",
+          "team_id": "69",
+          "team_name": "Saquontum Leap",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "DAL",
+          "manager": {
+            "manager_id": "69",
+            "nickname": "Mike",
+            "guid": "LNQWC7XX6KKFZB4I7WRF3ZYWRI",
+            "profile_url": "https://profiles.sports.yahoo.com/user/LNQWC7XX6KKFZB4I7WRF3ZYWRI",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.70",
+          "team_id": "70",
+          "team_name": "Mikey C's Marvelous Picks",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "70",
+            "nickname": "Mikey C",
+            "guid": "S32BS2CHEY5SJZ5PVFBDE3K73M",
+            "profile_url": "https://profiles.sports.yahoo.com/user/S32BS2CHEY5SJZ5PVFBDE3K73M",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.71",
+          "team_id": "71",
+          "team_name": "🌞 To The Top 🦅",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "71",
+            "nickname": "Kelly",
+            "guid": "LKX4OQJHX3KVP6IPQC5SE7XPAA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/LKX4OQJHX3KVP6IPQC5SE7XPAA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.72",
+          "team_id": "72",
+          "team_name": "Cechmeout",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "72",
+            "nickname": "megan",
+            "guid": "RH7VBUNB7ISERLESE7J7SHT3OQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/RH7VBUNB7ISERLESE7J7SHT3OQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.73",
+          "team_id": "73",
+          "team_name": "Ditka’s Bears",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "73",
+            "nickname": "matt",
+            "guid": "6ZEXEVWB6F7MLURGZJNOCOW5TE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/6ZEXEVWB6F7MLURGZJNOCOW5TE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.74",
+          "team_id": "74",
+          "team_name": "Mike Honcho",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "74",
+            "nickname": "Abe",
+            "guid": "2W4RMZ764E5MSQNSX7FD3UOFQM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/2W4RMZ764E5MSQNSX7FD3UOFQM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.75",
+          "team_id": "75",
+          "team_name": "TheGambler",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "75",
+            "nickname": "Al",
+            "guid": "JC5LESYK6DDTO2FTOQNVUSEEYQ",
+            "profile_url": "https://profiles.sports.yahoo.com/user/JC5LESYK6DDTO2FTOQNVUSEEYQ",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.76",
+          "team_id": "76",
+          "team_name": "The Godson",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ARI",
+          "manager": {
+            "manager_id": "76",
+            "nickname": "Brayden",
+            "guid": "YBH676FZSHFUZ7UXOXUZBTAG7Q",
+            "profile_url": "https://profiles.sports.yahoo.com/user/YBH676FZSHFUZ7UXOXUZBTAG7Q",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.77",
+          "team_id": "77",
+          "team_name": "⚡️Thunderstruck⚡️",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "TEN",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "77",
+            "nickname": "Cole",
+            "guid": "HGGFAML42GNYIR4RS3IP32S44I",
+            "profile_url": "https://profiles.sports.yahoo.com/user/HGGFAML42GNYIR4RS3IP32S44I",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.79",
+          "team_id": "79",
+          "team_name": "ET's Picks",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "79",
+            "nickname": "Eric",
+            "guid": "557KVPFMTUZIAJ4FXBLXRVTPD5",
+            "profile_url": "https://profiles.sports.yahoo.com/user/557KVPFMTUZIAJ4FXBLXRVTPD5",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.80",
+          "team_id": "80",
+          "team_name": "johnny b",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "80",
+            "nickname": "John Bascom",
+            "guid": "JSK5SG4TTKZK77AEMUFRTWV3LA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/JSK5SG4TTKZK77AEMUFRTWV3LA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.81",
+          "team_id": "81",
+          "team_name": "Roken",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "81",
+            "nickname": "gerard",
+            "guid": "ZED2L2QJBDV4WCKU7SJKBVBGE4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/ZED2L2QJBDV4WCKU7SJKBVBGE4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.78",
+          "team_id": "78",
+          "team_name": "ShannyG",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "78",
+            "nickname": "Shannon",
+            "guid": "36ZC4ANVRYWOBHAXVFSNAKMPGE",
+            "profile_url": "https://profiles.sports.yahoo.com/user/36ZC4ANVRYWOBHAXVFSNAKMPGE",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.82",
+          "team_id": "82",
+          "team_name": "Regstoriches",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "82",
+            "nickname": "ryan",
+            "guid": "4WSTMS5ULB2GZ2V736ZL5MTOM4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/4WSTMS5ULB2GZ2V736ZL5MTOM4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.83",
+          "team_id": "83",
+          "team_name": "ImThePrize",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "83",
+            "nickname": "Andee",
+            "guid": "HG7MJD76CXDG4AOYQAEQ4KJ2FM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/HG7MJD76CXDG4AOYQAEQ4KJ2FM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.84",
+          "team_id": "84",
+          "team_name": "JohnnyRegs33$",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "84",
+            "nickname": "john",
+            "guid": "QTI3RN7KYA7PB4AGJE6HBQ6V34",
+            "profile_url": "https://profiles.sports.yahoo.com/user/QTI3RN7KYA7PB4AGJE6HBQ6V34",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.85",
+          "team_id": "85",
+          "team_name": "GoBirds",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "85",
+            "nickname": "Eileen",
+            "guid": "7N7WNXRUDRSK3CSRQ4NDRHMNMA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/7N7WNXRUDRSK3CSRQ4NDRHMNMA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.86",
+          "team_id": "86",
+          "team_name": "Weld",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "BAL",
+          "current_pick": "NFL.T.33",
+          "manager": {
+            "manager_id": "86",
+            "nickname": "Mikey",
+            "guid": "IDQ54OMFMHOVLVHSBHGSFIZBGA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/IDQ54OMFMHOVLVHSBHGSFIZBGA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.87",
+          "team_id": "87",
+          "team_name": "The Taxman",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "87",
+            "nickname": "Amazins13",
+            "guid": "VAT7OM5EZKA2DTYK3H53EEQ5SU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/VAT7OM5EZKA2DTYK3H53EEQ5SU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.88",
+          "team_id": "88",
+          "team_name": "ddeev65",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "BAL",
+          "current_pick": "NFL.T.33",
+          "manager": {
+            "manager_id": "88",
+            "nickname": "dd",
+            "guid": "3H4NIVQVXZMOW67NDIAGAOALUY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/3H4NIVQVXZMOW67NDIAGAOALUY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.89",
+          "team_id": "89",
+          "team_name": "My Brilliant Pick Set",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "89",
+            "nickname": "Lisa",
+            "guid": "4JUVZ4RCUMUI7ESZTGHPAA6GOA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/4JUVZ4RCUMUI7ESZTGHPAA6GOA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.23",
+          "team_id": "23",
+          "team_name": "Gloria Gaynor",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "IND",
+          "manager": {
+            "manager_id": "23",
+            "nickname": "Cathy",
+            "guid": "SW6A4NDNOSYSNLJ6EHEZ7FSEJU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/SW6A4NDNOSYSNLJ6EHEZ7FSEJU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.90",
+          "team_id": "90",
+          "team_name": "Phoolonthehill",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "90",
+            "nickname": "Frank",
+            "guid": "RD5ZFYBIBWHFN4RZACRMNYY7NY",
+            "profile_url": "https://profiles.sports.yahoo.com/user/RD5ZFYBIBWHFN4RZACRMNYY7NY",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.91",
+          "team_id": "91",
+          "team_name": "🦅🏈🍀 Irish Kate 🍀🏈🦅",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "IND",
+          "manager": {
+            "manager_id": "91",
+            "nickname": "Kathi",
+            "guid": "H5ADUMJMZLD7HZZOZA6FWMTAV4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/H5ADUMJMZLD7HZZOZA6FWMTAV4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.92",
+          "team_id": "92",
+          "team_name": "🦅🏈🦴 Bad to the Bone 🦴🏈🦅",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "BAL",
+          "current_pick": "NFL.T.33",
+          "manager": {
+            "manager_id": "92",
+            "nickname": "Kathi",
+            "guid": "BQNPOLLHWUPASSDBD7PXK7HHYM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/BQNPOLLHWUPASSDBD7PXK7HHYM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.93",
+          "team_id": "93",
+          "team_name": "D Pain",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "93",
+            "nickname": "Daniel",
+            "guid": "IHUH3774ECR4RKYEZXRXH6IMTM",
+            "profile_url": "https://profiles.sports.yahoo.com/user/IHUH3774ECR4RKYEZXRXH6IMTM",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.94",
+          "team_id": "94",
+          "team_name": "D-ROCK",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "2",
+          "elimination_pick": "TB",
+          "current_pick": "NO",
+          "manager": {
+            "manager_id": "94",
+            "nickname": "Darren",
+            "guid": "SE55V3F6GY5GHJPXTG374BMNB4",
+            "profile_url": "https://profiles.sports.yahoo.com/user/SE55V3F6GY5GHJPXTG374BMNB4",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.95",
+          "team_id": "95",
+          "team_name": "Steven Seagal",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "95",
+            "nickname": "Jesse",
+            "guid": "3JVPVW373NKU6QNNZANFKDE37Y",
+            "profile_url": "https://profiles.sports.yahoo.com/user/3JVPVW373NKU6QNNZANFKDE37Y",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.96",
+          "team_id": "96",
+          "team_name": "Dvo",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "96",
+            "nickname": "dat",
+            "guid": "G4OLMQDTVK3YFN5MZX4QNA5K6Y",
+            "profile_url": "https://profiles.sports.yahoo.com/user/G4OLMQDTVK3YFN5MZX4QNA5K6Y",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.97",
+          "team_id": "97",
+          "team_name": "My Nifty Pick Set",
+          "is_user_team": false,
+          "status": "dead",
+          "total_strikes": 1,
+          "eliminated": true,
+          "elimination_week": "1",
+          "elimination_pick": "LAC",
+          "current_pick": null,
+          "manager": {
+            "manager_id": "97",
+            "nickname": "Tom",
+            "guid": "J56FKUHVC4KJ5D76GZXCUIZJHU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/J56FKUHVC4KJ5D76GZXCUIZJHU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.98",
+          "team_id": "98",
+          "team_name": "Bia333",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "98",
+            "nickname": "David",
+            "guid": "ACINGCDP66N24MFMO2C7TJQZWU",
+            "profile_url": "https://profiles.sports.yahoo.com/user/ACINGCDP66N24MFMO2C7TJQZWU",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.99",
+          "team_id": "99",
+          "team_name": "The LMC",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "KC",
+          "manager": {
+            "manager_id": "99",
+            "nickname": "Lynn",
+            "guid": "64MYDTRPD3SI2N6EYYE2ZIFONA",
+            "profile_url": "https://profiles.sports.yahoo.com/user/64MYDTRPD3SI2N6EYYE2ZIFONA",
+            "is_commissioner": false
+          }
+        },
+        {
+          "team_key": "476.g.4571.t.100",
+          "team_id": "100",
+          "team_name": "#5 is Alive!!!",
+          "is_user_team": false,
+          "status": "alive",
+          "total_strikes": 0,
+          "eliminated": false,
+          "elimination_week": null,
+          "elimination_pick": null,
+          "current_pick": "ATL",
+          "manager": {
+            "manager_id": "100",
+            "nickname": "Brian E",
+            "guid": "5P6PS6GDYMQP25WOV76IHQHO2U",
+            "profile_url": "https://profiles.sports.yahoo.com/user/5P6PS6GDYMQP25WOV76IHQHO2U",
+            "is_commissioner": false
+          }
+        }
+      ]
+    }
+  ]
+}

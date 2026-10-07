@@ -1,0 +1,1082 @@
+{
+  "evaluated_at": "2026-09-17T01:42:31.485Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 4,
+  "total_episodes_evaluated": 4,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 0,
+  "extraction_failure_count": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.11617,
+  "average_cost_usd": 0.029042,
+  "total_latency_ms": 579562,
+  "average_latency_ms": 144891,
+  "total_extracted_picks": 37,
+  "reprocess_queue": [],
+  "failed_extractions": [],
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-ZdUTA8nG4h4",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_50091383c7e3",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=ZdUTA8nG4h4",
+        "latency_ms": 118442,
+        "estimated_cost_usd": 0.01468,
+        "input_tokens": 139446,
+        "output_tokens": 1838,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Andrew Brandt discusses the sports business landscape, analyzing the proposed Protect College Sports Act (PCSA) and NIL payroll disparities between FBS and FCS teams. He also reviews NFL Week 1 overreactions, Steve Ballmer's NBA cap circumvention penalties, and MLB's salary cap debate.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1511,\n    \"last_analyzed_timestamp\": 1511,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 180.0,\n      \"speaker\": \"Andrew Brandt\",\n      \"text\": \"Brandt introduces the podcast, promotes his book 'Smarter About Sports', and details his upcoming book signing tour in Chicago and Wisconsin.\"\n    },\n    {\n      \"start\": 180.0,\n      \"end\": 450.0,\n      \"speaker\": \"Andrew Brandt\",\n      \"text\": \"He explains his NIL consulting work for Louisville and Villanova, and how he managed his conflict of interest during their recent football game by swapping team gear.\"\n    },\n    {\n      \"start\": 450.0,\n      \"end\": 750.0,\n      \"speaker\": \"Andrew Brandt\",\n      \"text\": \"Brandt analyzes the PCSA (Protect College Sports Act) bill in Congress, covering limited antitrust exemptions and the proposed one-time transfer portal rule.\"\n    },\n    {\n      \"start\": 750.0,\n      \"end\": 1000.0,\n      \"speaker\": \"Andrew Brandt\",\n      \"text\": \"He breaks down proposed college sports agent regulations to cap high fees and discusses conference media pooling rights and expansion limits.\"\n    },\n    {\n      \"start\": 1000.0,\n      \"end\": 1180.0,\n      \"speaker\": \"Andrew Brandt\",\n      \"text\": \"He transitions to the NFL, advising Green Bay Packers fans not to panic after a Week 1 loss to the Vikings, and previews the Cardinals vs. Rams matchup.\"\n    },\n    {\n      \"start\": 1180.0,\n      \"end\": 1380.0,\n      \"speaker\": \"Andrew Brandt\",\n      \"text\": \"Brandt discusses Steve Ballmer and the Clippers' cap circumvention penalties regarding Kawhi Leonard, Wachtell Lipton's report, and the subsequent trade of Leonard to Toronto.\"\n    },\n    {\n      \"start\": 1380.0,\n      \"end\": 1511.0,\n      \"speaker\": \"Andrew Brandt\",\n      \"text\": \"He reviews the MLB postseason qualifications of small-market Brewers and Rays as leverage in CBA salary cap negotiations, before wrapping up the episode.\"\n    }\n  ],\n  \"extracted_picks\": [],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"LOU\", \"VILL\"],\n      \"players\": [],\n      \"topic\": \"Villanova at Louisville NIL Disparity\",\n      \"summary\": \"Brandt highlighted the massive financial chasm between FBS and FCS programs, noting Louisville's NIL/payroll is around $20 million while FCS schools like Villanova operate in the $100,000 to $200,000 range.\",\n      \"speaker\": \"Andrew Brandt\",\n      \"source_timestamp\": 350,\n      \"quote\": \"top schools like Louisville football are payrolls of about 20 million, schools in the FCS like Villanova are payrolls in the 1 to 200,000 range.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"other\",\n      \"teams\": [],\n      \"players\": [],\n      \"topic\": \"PCSA Legislative Analysis\",\n      \"summary\": \"Brandt detailed the key features of the Protect College Sports Act (PCSA), highlighting its limited antitrust exemptions, a one-time transfer portal rule, and much-needed regulations to cap college sports agent fees.\",\n      \"speaker\": \"Andrew Brandt\",\n      \"source_timestamp\": 600,\n      \"quote\": \"This will have a limited antitrust exemption... one-time transfer portal... agent regulation.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"GB\", \"MIN\"],\n      \"players\": [],\n      \"topic\": \"Packers Overreaction Advice\",\n      \"summary\": \"Brandt advised Packers fans to stay calm after a Week 1 defeat against Minnesota, asserting that Green Bay is the superior team despite making critical mistakes against Brian Flores' blitzing defense.\",\n      \"speaker\": \"Andrew Brandt\",\n      \"source_timestamp\": 1110,\n      \"quote\": \"Packer fans, you're not going to play Brian Flores again for many, many weeks... they are better team than the Vikings, we know that.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"ARI\", \"LAR\"],\n      \"players\": [],\n      \"topic\": \"Cardinals vs. Rams Week 2 Preview\",\n      \"summary\": \"Brandt noted the Rams looked terrible in Week 1, and suggested that if the Cardinals are able to beat them in Week 2, it would completely disrupt all preseason narratives.\",\n      \"speaker\": \"Andrew Brandt\",\n      \"source_timestamp\": 1200,\n      \"quote\": \"if the Arizona Cardinals beat the Rams, whoa, that upsets all the narratives coming into the season.\",\n      \"confidence\": \"speculative\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"LAC\", \"TOR\"],\n      \"players\": [\"Kawhi Leonard\"],\n      \"topic\": \"Clippers Cap Circumvention and Kawhi Trade\",\n      \"summary\": \"Brandt analyzed the Wachtell Lipton report detailing Clippers cap circumvention through unrecorded 'no-show' marketing deals for Kawhi Leonard. He explained that Steve Ballmer accepted a $30M fine and 1-year suspension, leading to Kawhi being traded to Toronto.\",\n      \"speaker\": \"Andrew Brandt\",\n      \"source_timestamp\": 1350,\n      \"quote\": \"all the fake manufactured deals they did for Kawhi Leonard... Steve Ballmer has reversed course and is accepting the NBA sanctions.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"market_sentiment\",\n      \"teams\": [\"MIL\", \"TB\", \"NYY\"],\n      \"players\": [],\n      \"topic\": \"MLB CBA Salary Cap Fight\",\n      \"summary\": \"Brandt noted how the small-market Brewers and Rays qualifying first for the playoffs gives the players' union ammunition against a salary cap, while owners use the big-spending Yankees to argue that a cap is necessary.\",\n      \"speaker\": \"Andrew Brandt\",\n      \"source_timestamp\": 1450,\n      \"quote\": \"the first two teams to qualify for the MLB playoffs were the Milwaukee Brewers and the Tampa Bay Rays, two of the smallest markets.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Louisville and Villanova Payroll Disparity\",\n      \"timestamp\": 350,\n      \"speaker\": \"Andrew Brandt\",\n      \"quote\": \"top schools like Louisville football are payrolls of about 20 million, schools in the FCS like Villanova are payrolls in the 1 to 200,000 range.\"\n    },\n    {\n      \"topic\": \"Packers Week 1 Panic\",\n      \"timestamp\": 1110,\n      \"speaker\": \"Andrew Brandt\",\n      \"quote\": \"Packer fans, you're not going to play Brian Flores again for many, many weeks... they are better team than the Vikings, we know that.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [],
+        "analysis_notes": [
+          {
+            "note_type": "matchup_analysis",
+            "teams": [
+              "LOU",
+              "VIL"
+            ],
+            "players": [],
+            "topic": "Villanova at Louisville NIL Disparity",
+            "summary": "Brandt highlighted the massive financial chasm between FBS and FCS programs, noting Louisville's NIL/payroll is around $20 million while FCS schools like Villanova operate in the $100,000 to $200,000 range.",
+            "speaker": "Andrew Brandt",
+            "source_timestamp": 350,
+            "quote": "top schools like Louisville football are payrolls of about 20 million, schools in the FCS like Villanova are payrolls in the 1 to 200,000 range.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "other",
+            "teams": [],
+            "players": [],
+            "topic": "PCSA Legislative Analysis",
+            "summary": "Brandt detailed the key features of the Protect College Sports Act (PCSA), highlighting its limited antitrust exemptions, a one-time transfer portal rule, and much-needed regulations to cap college sports agent fees.",
+            "speaker": "Andrew Brandt",
+            "source_timestamp": 600,
+            "quote": "This will have a limited antitrust exemption... one-time transfer portal... agent regulation.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "GB",
+              "MIN"
+            ],
+            "players": [],
+            "topic": "Packers Overreaction Advice",
+            "summary": "Brandt advised Packers fans to stay calm after a Week 1 defeat against Minnesota, asserting that Green Bay is the superior team despite making critical mistakes against Brian Flores' blitzing defense.",
+            "speaker": "Andrew Brandt",
+            "source_timestamp": 1110,
+            "quote": "Packer fans, you're not going to play Brian Flores again for many, many weeks... they are better team than the Vikings, we know that.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "matchup_analysis",
+            "teams": [
+              "ARI",
+              "LAR"
+            ],
+            "players": [],
+            "topic": "Cardinals vs. Rams Week 2 Preview",
+            "summary": "Brandt noted the Rams looked terrible in Week 1, and suggested that if the Cardinals are able to beat them in Week 2, it would completely disrupt all preseason narratives.",
+            "speaker": "Andrew Brandt",
+            "source_timestamp": 1200,
+            "quote": "if the Arizona Cardinals beat the Rams, whoa, that upsets all the narratives coming into the season.",
+            "confidence": "speculative"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "LAC",
+              "TOR"
+            ],
+            "players": [
+              "Kawhi Leonard"
+            ],
+            "topic": "Clippers Cap Circumvention and Kawhi Trade",
+            "summary": "Brandt analyzed the Wachtell Lipton report detailing Clippers cap circumvention through unrecorded 'no-show' marketing deals for Kawhi Leonard. He explained that Steve Ballmer accepted a $30M fine and 1-year suspension, leading to Kawhi being traded to Toronto.",
+            "speaker": "Andrew Brandt",
+            "source_timestamp": 1350,
+            "quote": "all the fake manufactured deals they did for Kawhi Leonard... Steve Ballmer has reversed course and is accepting the NBA sanctions.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "market_sentiment",
+            "teams": [
+              "MIL",
+              "TB",
+              "NYY"
+            ],
+            "players": [],
+            "topic": "MLB CBA Salary Cap Fight",
+            "summary": "Brandt noted how the small-market Brewers and Rays qualifying first for the playoffs gives the players' union ammunition against a salary cap, while owners use the big-spending Yankees to argue that a cap is necessary.",
+            "speaker": "Andrew Brandt",
+            "source_timestamp": 1450,
+            "quote": "the first two teams to qualify for the MLB playoffs were the Milwaukee Brewers and the Tampa Bay Rays, two of the smallest markets.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Louisville and Villanova Payroll Disparity",
+            "timestamp": 350,
+            "speaker": "Andrew Brandt",
+            "quote": "top schools like Louisville football are payrolls of about 20 million, schools in the FCS like Villanova are payrolls in the 1 to 200,000 range."
+          },
+          {
+            "topic": "Packers Week 1 Panic",
+            "timestamp": 1110,
+            "speaker": "Andrew Brandt",
+            "quote": "Packer fans, you're not going to play Brian Flores again for many, many weeks... they are better team than the Vikings, we know that."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 1511,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 1511,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 0,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-ycfAyDF2Gbw",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_fb38a5472792",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=ycfAyDF2Gbw",
+        "latency_ms": 263115,
+        "estimated_cost_usd": 0.0352,
+        "input_tokens": 336920,
+        "output_tokens": 3769,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Sean Koerner and Kev Mahserejian break down their Week 2 player rankings and projections across all skill positions, sharing their high/low evaluations and selected game total bets.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 3681,\n    \"last_analyzed_timestamp\": 3681,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 11.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Welcome to the Fantasy Flex Podcast...\"\n    },\n    {\n      \"start\": 11.0,\n      \"end\": 57.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"It was excellent, had some great calls...\"\n    },\n    {\n      \"start\": 57.0,\n      \"end\": 122.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"We take the good with the bad, the Chris Godwin call...\"\n    },\n    {\n      \"start\": 122.0,\n      \"end\": 218.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Weird, weird start... I had Shuck over 16.5 rushing yards...\"\n    },\n    {\n      \"start\": 218.0,\n      \"end\": 312.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Three rushes, eight yards... Were you surprised by the Lions offense?\"\n    },\n    {\n      \"start\": 312.0,\n      \"end\": 451.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Yeah, their defense was missing both safeties... Bears offense...\"\n    },\n    {\n      \"start\": 451.0,\n      \"end\": 540.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Colson Loveland, Luther Burden, Rome Odunze...\"\n    },\n    {\n      \"start\": 540.0,\n      \"end\": 607.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Loveland had a goose egg... He's healthy...\"\n    },\n    {\n      \"start\": 607.0,\n      \"end\": 713.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Marvin Harrison Jr... waiver wire episode...\"\n    },\n    {\n      \"start\": 713.0,\n      \"end\": 727.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Top 5 quarterbacks for Week 2...\"\n    },\n    {\n      \"start\": 727.0,\n      \"end\": 738.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"All right, I got Josh Allen back to his rightful throne...\"\n    },\n    {\n      \"start\": 738.0,\n      \"end\": 843.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Nice, Caleb Williams... Jalen Hurts, Jayden Daniels...\"\n    },\n    {\n      \"start\": 843.0,\n      \"end\": 942.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Yeah, Jalen Hurts tricky projection at Tennessee...\"\n    },\n    {\n      \"start\": 942.0,\n      \"end\": 1048.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Caleb Williams against Vikings... Commanders Cowboys game over 50.5...\"\n    },\n    {\n      \"start\": 1048.0,\n      \"end\": 1110.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Ben Johnson schemed against Flores... Caleb QB3...\"\n    },\n    {\n      \"start\": 1110.0,\n      \"end\": 1210.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Burrow matchup with Texans... total is 46.5, I'm on the under...\"\n    },\n    {\n      \"start\": 1210.0,\n      \"end\": 1300.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Texans pass defense... Chase Brown, Mike Gesicki...\"\n    },\n    {\n      \"start\": 1300.0,\n      \"end\": 1347.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Moving on to running backs, who is your top five?\"\n    },\n    {\n      \"start\": 1347.0,\n      \"end\": 1439.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Jahmyr Gibbs, Bijan Robinson, King Henry, Kenneth Walker, Jonathan Taylor...\"\n    },\n    {\n      \"start\": 1439.0,\n      \"end\": 1608.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Bijan, Gibbs, CMC, Derrick Henry, Jonathan Taylor...\"\n    },\n    {\n      \"start\": 1608.0,\n      \"end\": 1849.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Super high on Kalen Black... McCaffrey cramps...\"\n    },\n    {\n      \"start\": 1849.0,\n      \"end\": 2009.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Low on Jeremiah Love... Tony Pollard outside top 40...\"\n    },\n    {\n      \"start\": 2009.0,\n      \"end\": 2159.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Love operating as backup... Tyjae Spears...\"\n    },\n    {\n      \"start\": 2159.0,\n      \"end\": 2230.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Betsync is back in the Action app...\"\n    },\n    {\n      \"start\": 2230.0,\n      \"end\": 2309.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Top 5 wide receivers for Week 2...\"\n    },\n    {\n      \"start\": 2309.0,\n      \"end\": 2405.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Puka Nacua, Amon-Ra, JSN, Justin Jefferson, CeeDee Lamb...\"\n    },\n    {\n      \"start\": 2405.0,\n      \"end\": 2555.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Puka, JSN, Justin Jefferson, Amon-Ra, Chris Olave...\"\n    },\n    {\n      \"start\": 2555.0,\n      \"end\": 2731.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"High on DJ Moore... Quentin Johnston... Ladd McConkey...\"\n    },\n    {\n      \"start\": 2731.0,\n      \"end\": 2847.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Low on Brian Thomas Jr... Parker Washington alpha...\"\n    },\n    {\n      \"start\": 2847.0,\n      \"end\": 2937.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Top 5 tight ends: McBride, Andrews, Loveland, Kincaid, Goedert...\"\n    },\n    {\n      \"start\": 2937.0,\n      \"end\": 3009.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"McBride, Loveland, Warren, Likely, Kincaid...\"\n    },\n    {\n      \"start\": 3009.0,\n      \"end\": 3110.0,\n      \"speaker\": \"Sean Koerner\",\n      \"text\": \"Zay completely in... low on Kyle Pitts...\"\n    },\n    {\n      \"start\": 3110.0,\n      \"end\": 3249.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Dallas Goedert TE5... Outro of show...\"\n    },\n    {\n      \"start\": 3249.0,\n      \"end\": 3681.0,\n      \"speaker\": \"Kev Mahserejian\",\n      \"text\": \"Outro music and final graphics...\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"WAS\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"OVER\",\n      \"line\": 50.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Kev Mahserejian\",\n      \"source_timestamp\": 511,\n      \"rationale\": \"Likes the Commanders vs Cowboys matchup and expects a high-scoring game between Jayden Daniels and Dak Prescott.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"UNDER\",\n      \"line\": 46.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Kev Mahserejian\",\n      \"source_timestamp\": 665,\n      \"rationale\": \"Expects a defensive battle. Respects the Bengals and Texans defenses, and predicts the Texans will run the ball heavily with Malik Montgomery, slowing the game down.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"WAS\",\n        \"DAL\"\n      ],\n      \"players\": [\n        \"Jayden Daniels\",\n        \"Dak Prescott\"\n      ],\n      \"topic\": \"Commanders/Cowboys Shootout Potential\",\n      \"summary\": \"Both hosts expect a shootout in Dallas. Kev loves both QBs this week, leading to his over 50.5 pick, and Sean agrees that both Jaden and Dak will bounce back with big games against subpar defenses.\",\n      \"speaker\": \"Kev Mahserejian\",\n      \"source_timestamp\": 511,\n      \"quote\": \"I really like the Commanders Cowboys game. That's why I have Jaden Daniels and Dak Prescott. I have the over 50.5 on that.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\n        \"CHI\"\n      ],\n      \"players\": [\n        \"Caleb Williams\"\n      ],\n      \"topic\": \"Caleb Williams Projections & Scheme vs. Vikings\",\n      \"summary\": \"Sean ranks Caleb Williams as his QB3 despite a tough matchup against Brian Flores' blitz-heavy Vikings defense, citing Ben Johnson's familiarity with the scheme and Williams' high upside.\",\n      \"speaker\": \"Sean Koerner\",\n      \"source_timestamp\": 648,\n      \"quote\": \"I have Caleb as my QB3... Flores is going to send a ton of blitzes... Ben Johnson has schemed against Flores for a few years now.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\n        \"SF\"\n      ],\n      \"players\": [\n        \"Christian McCaffrey\",\n        \"Kalen Black\"\n      ],\n      \"topic\": \"McCaffrey Health and Kalen Black Upside\",\n      \"summary\": \"McCaffrey dealt with cramps in Week 1, limiting his snap share to 55%. Sean is extremely high on backup Kalen Black, projecting him as a solid RB3/flex play this week who possesses true league-winning RB1 upside if McCaffrey misses extended time.\",\n      \"speaker\": \"Sean Koerner\",\n      \"source_timestamp\": 968,\n      \"quote\": \"Shanahan trusts Black... Kalen Black is the clear number two running back... you can actually start Kalen Black as like an RB3 flex play.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\n        \"LAC\"\n      ],\n      \"players\": [\n        \"Quentin Johnston\",\n        \"Ladd McConkey\"\n      ],\n      \"topic\": \"Quentin Johnston Opportunity\",\n      \"summary\": \"With Ladd McConkey dealing with a rib/chest injury, Kev projects Quentin Johnston (QJ) as a strong Week 2 starter, noting his 6 targets and favorable matchup against the Raiders' weak interior D-line.\",\n      \"speaker\": \"Kev Mahserejian\",\n      \"source_timestamp\": 1445,\n      \"quote\": \"Ladd's dealing with the rib chest issue... Quentin Johnston... QJ is going to be in start territory.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\n        \"JAC\"\n      ],\n      \"players\": [\n        \"Parker Washington\",\n        \"Brian Thomas Jr.\"\n      ],\n      \"topic\": \"Jaguars WR Hierarchy Shifts\",\n      \"summary\": \"Kev is fading Brian Thomas Jr. (BTJ) in Week 2 due to his nagging shoulder injury and tough matchup at Denver. He asserts that Parker Washington has emerged as the clear WR1 in the Jaguars offense.\",\n      \"speaker\": \"Kev Mahserejian\",\n      \"source_timestamp\": 1591,\n      \"quote\": \"Parker Washington is very clearly the alpha wide receiver one of this offense.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\n        \"BAL\"\n      ],\n      \"players\": [\n        \"Mark Andrews\",\n        \"Zay Flowers\"\n      ],\n      \"topic\": \"Mark Andrews Resurgence\",\n      \"summary\": \"Sean ranks Mark Andrews as his TE2 for Week 2, noting that Isaiah Likely's limited route-running and the absence of other receiving threats leaves Andrews with almost no target competition besides WR Zay Flowers.\",\n      \"speaker\": \"Sean Koerner\",\n      \"source_timestamp\": 1735,\n      \"quote\": \"Andrews is the guy... he has no competition... it's really just Zay Flowers he's competing for targets with.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Commanders/Cowboys Shootout Potential\",\n      \"timestamp\": 511,\n      \"speaker\": \"Kev Mahserejian\",\n      \"quote\": \"I really like the Commanders Cowboys game. That's why I have Jaden Daniels and Dak Prescott. I have the over 50.5 on that.\"\n    },\n    {\n      \"topic\": \"Bengals/Texans Under\",\n      \"timestamp\": 665,\n      \"speaker\": \"Kev Mahserejian\",\n      \"quote\": \"total is 46.5, I'm on the under for that game.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "WAS",
+            "player": null,
+            "market": "total",
+            "side": "OVER",
+            "line": 50.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Kev Mahserejian",
+            "source_timestamp": 511,
+            "rationale": "Likes the Commanders vs Cowboys matchup and expects a high-scoring game between Jayden Daniels and Dak Prescott."
+          },
+          {
+            "team": "CIN",
+            "player": null,
+            "market": "total",
+            "side": "UNDER",
+            "line": 46.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Kev Mahserejian",
+            "source_timestamp": 665,
+            "rationale": "Expects a defensive battle. Respects the Bengals and Texans defenses, and predicts the Texans will run the ball heavily with Malik Montgomery, slowing the game down."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "WAS",
+              "DAL"
+            ],
+            "players": [
+              "Jayden Daniels",
+              "Dak Prescott"
+            ],
+            "topic": "Commanders/Cowboys Shootout Potential",
+            "summary": "Both hosts expect a shootout in Dallas. Kev loves both QBs this week, leading to his over 50.5 pick, and Sean agrees that both Jaden and Dak will bounce back with big games against subpar defenses.",
+            "speaker": "Kev Mahserejian",
+            "source_timestamp": 511,
+            "quote": "I really like the Commanders Cowboys game. That's why I have Jaden Daniels and Dak Prescott. I have the over 50.5 on that.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "CHI"
+            ],
+            "players": [
+              "Caleb Williams"
+            ],
+            "topic": "Caleb Williams Projections & Scheme vs. Vikings",
+            "summary": "Sean ranks Caleb Williams as his QB3 despite a tough matchup against Brian Flores' blitz-heavy Vikings defense, citing Ben Johnson's familiarity with the scheme and Williams' high upside.",
+            "speaker": "Sean Koerner",
+            "source_timestamp": 648,
+            "quote": "I have Caleb as my QB3... Flores is going to send a ton of blitzes... Ben Johnson has schemed against Flores for a few years now.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "SF"
+            ],
+            "players": [
+              "Christian McCaffrey",
+              "Kalen Black"
+            ],
+            "topic": "McCaffrey Health and Kalen Black Upside",
+            "summary": "McCaffrey dealt with cramps in Week 1, limiting his snap share to 55%. Sean is extremely high on backup Kalen Black, projecting him as a solid RB3/flex play this week who possesses true league-winning RB1 upside if McCaffrey misses extended time.",
+            "speaker": "Sean Koerner",
+            "source_timestamp": 968,
+            "quote": "Shanahan trusts Black... Kalen Black is the clear number two running back... you can actually start Kalen Black as like an RB3 flex play.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "LAC"
+            ],
+            "players": [
+              "Quentin Johnston",
+              "Ladd McConkey"
+            ],
+            "topic": "Quentin Johnston Opportunity",
+            "summary": "With Ladd McConkey dealing with a rib/chest injury, Kev projects Quentin Johnston (QJ) as a strong Week 2 starter, noting his 6 targets and favorable matchup against the Raiders' weak interior D-line.",
+            "speaker": "Kev Mahserejian",
+            "source_timestamp": 1445,
+            "quote": "Ladd's dealing with the rib chest issue... Quentin Johnston... QJ is going to be in start territory.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "JAC"
+            ],
+            "players": [
+              "Parker Washington",
+              "Brian Thomas Jr."
+            ],
+            "topic": "Jaguars WR Hierarchy Shifts",
+            "summary": "Kev is fading Brian Thomas Jr. (BTJ) in Week 2 due to his nagging shoulder injury and tough matchup at Denver. He asserts that Parker Washington has emerged as the clear WR1 in the Jaguars offense.",
+            "speaker": "Kev Mahserejian",
+            "source_timestamp": 1591,
+            "quote": "Parker Washington is very clearly the alpha wide receiver one of this offense.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "BAL"
+            ],
+            "players": [
+              "Mark Andrews",
+              "Zay Flowers"
+            ],
+            "topic": "Mark Andrews Resurgence",
+            "summary": "Sean ranks Mark Andrews as his TE2 for Week 2, noting that Isaiah Likely's limited route-running and the absence of other receiving threats leaves Andrews with almost no target competition besides WR Zay Flowers.",
+            "speaker": "Sean Koerner",
+            "source_timestamp": 1735,
+            "quote": "Andrews is the guy... he has no competition... it's really just Zay Flowers he's competing for targets with.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Commanders/Cowboys Shootout Potential",
+            "timestamp": 511,
+            "speaker": "Kev Mahserejian",
+            "quote": "I really like the Commanders Cowboys game. That's why I have Jaden Daniels and Dak Prescott. I have the over 50.5 on that."
+          },
+          {
+            "topic": "Bengals/Texans Under",
+            "timestamp": 665,
+            "speaker": "Kev Mahserejian",
+            "quote": "total is 46.5, I'm on the under for that game."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 3681,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 3681,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 2,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-Fyu-Cw13uhg",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_1d8509cede75",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=Fyu-Cw13uhg",
+        "latency_ms": 142224,
+        "estimated_cost_usd": 0.048087,
+        "input_tokens": 463782,
+        "output_tokens": 4273,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman and Simon Hunter preview the NFL Week 2 betting slate, analyzing each matchup's point spread, market movement, and overreactions from Week 1. They highlight value on underdogs and officially introduce their pro football pick'em contest.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 5076,\n    \"last_analyzed_timestamp\": 5076,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 241.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharp or Square presented by Polymarket. We are part of the Volume podcast network. I'm Chad Millman, joined as always by my co-host, Simon Hunter.\"\n    },\n    {\n      \"start\": 241.0,\n      \"end\": 689.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"We are officially announcing that the Sharp or Square pro football pick'em contest is now live. We ran into some legal issues, had to reduce the prize pool, but it is still a free contest giving away $25,000.\"\n    },\n    {\n      \"start\": 689.0,\n      \"end\": 975.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Looking at the Lions and Bills on Thursday night. Lions just played an overtime game on a short week. They are historically bad against the spread in this spot, but I think the contrarian play is to back them and the under.\"\n    },\n    {\n      \"start\": 975.0,\n      \"end\": 1275.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Browns at Bucs. Cleveland looked terrible against Jacksonville. If I have to make a play, I have to take the points with the Browns because the line is inflated.\"\n    },\n    {\n      \"start\": 1275.0,\n      \"end\": 1526.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Packers at Jets. Green Bay is highly overvalued and has defensive issues. If you have to bet it now, take the Jets at +3.5.\"\n    },\n    {\n      \"start\": 1526.0,\n      \"end\": 1819.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Steelers at Patriots. Simon says: give me Pittsburgh plus 5.5. The Patriots look terrible, and the Steelers' pass rush should dominate.\"\n    },\n    {\n      \"start\": 1819.0,\n      \"end\": 2121.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Panthers at Falcons. Atlanta's run defense is questionable and Carolina can run the ball. I'm making this Chad's Choice: Falcons plus 2.\"\n    },\n    {\n      \"start\": 2121.0,\n      \"end\": 2437.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Eagles at Titans. I'm all in on the Eagles. They are a great teaser or survivor leg because the Titans are just not coached or drafted well.\"\n    },\n    {\n      \"start\": 2437.0,\n      \"end\": 2682.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Bengals at Texans. Houston's line moved to -3. I like what Stroud did and I think the Bengals' offense struggled too much in Week 1. Leaning Texans.\"\n    },\n    {\n      \"start\": 2682.0,\n      \"end\": 3007.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Saints at Ravens. Professionals are on the Saints here on the prediction markets. I am backing the Saints at +8.5.\"\n    },\n    {\n      \"start\": 3007.0,\n      \"end\": 3276.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Raiders at Chargers. This is a fishy line at seven. The Chargers' defense looked terrible, and they can't run the ball. Take the Raiders +7.\"\n    },\n    {\n      \"start\": 3276.0,\n      \"end\": 3924.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Seahawks at Cardinals. Arizona is in a great spot at home catching 4.5 against a backup quarterback in Drew Lock.\"\n    },\n    {\n      \"start\": 3924.0,\n      \"end\": 4145.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Colts at Chiefs. I expect the Colts to bounce back and keep this game close. Mahomes historically plays close games rather than blowing teams out. I'll take Colts +6.5.\"\n    },\n    {\n      \"start\": 4145.0,\n      \"end\": 4881.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Giants at Rams. I like the Rams at -7. The Giants' offense peaked in Week 1 and Stafford and the Rams should bounce back.\"\n    },\n    {\n      \"start\": 4881.0,\n      \"end\": 4883.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"That's the Week 2 slate. We will narrow it down to our final five on our Thursday show. Go sign up for the contest.\"\n    },\n    {\n      \"start\": 4883.0,\n      \"end\": 5076.0,\n      \"speaker\": \"Bo Nix\",\n      \"text\": \"Yeah, dropped back, threw it to the other team on the interception. We just have to execute better.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"PIT\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 5.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1526,\n      \"rationale\": \"Simon Says pick. Patriots struggled offensively and the Steelers' pass rush match up is very favorable.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 2.0,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 1819,\n      \"rationale\": \"Chad's Choice pick. The Panthers are poor on the road and have run defense liabilities that the Falcons can exploit.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 4.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 689,\n      \"rationale\": \"Thinks the line has inflated too much and the Lions can keep it within a field goal.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 4.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 689,\n      \"rationale\": \"Lions are in a tough schedule spot but the number has ballooned too much, creating contrarian value.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"UNDER\",\n      \"line\": 53.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 689,\n      \"rationale\": \"Lions played an overtime game and are on a short week; expects sluggish offenses.\"\n    },\n    {\n      \"team\": \"CLE\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 8.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 975,\n      \"rationale\": \"Purely playing the inflated number on a heavy underdog.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1275,\n      \"rationale\": \"Packers are overvalued and the Jets match up well defensively.\"\n    },\n    {\n      \"team\": \"PHI\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"UNDER\",\n      \"line\": -7.0,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 2121,\n      \"rationale\": \"Believes the Titans are fundamentally broken and the Eagles will dominate.\"\n    },\n    {\n      \"team\": \"PHI\",\n      \"player\": null,\n      \"market\": \"survivor_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 2121,\n      \"rationale\": \"Highly confident in Eagles winning straight up against a weak Titans team.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"UNDER\",\n      \"line\": -3.0,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 2437,\n      \"rationale\": \"Impressed with Stroud and expects the Bengals' offensive struggles to continue.\"\n    },\n    {\n      \"team\": \"NO\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 8.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 2682,\n      \"rationale\": \"Professional money is backing the Saints, line is too high.\"\n    },\n    {\n      \"team\": \"NO\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 8.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 2682,\n      \"rationale\": \"Saints' weapons can backdoor cover if the Ravens take their foot off the gas.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 7.0,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 3007,\n      \"rationale\": \"Divisional rival catching seven points is too much to pass up.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 7.0,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3007,\n      \"rationale\": \"Agrees with the public that the Chargers' defense is highly suspect.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 4.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 3276,\n      \"rationale\": \" Cardinals at home facing a backup quarterback in Drew Lock is a great spot.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 4.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3276,\n      \"rationale\": \"Seahawks' backup QB situation makes this line inflated.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 6.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3924,\n      \"rationale\": \"Chiefs historically play tight games and don't cover large spreads.\"\n    },\n    {\n      \"team\": \"LAR\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"UNDER\",\n      \"line\": -7.0,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 4145,\n      \"rationale\": \"Stafford and McVay will bounce back after an embarrassing loss.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OVER\",\n      \"line\": 7.0,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 4145,\n      \"rationale\": \"Rams' defensive injuries make this a bad spot to lay seven points.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"DET\", \"BUF\"],\n      \"players\": [],\n      \"topic\": \"Lions short-week overtime trend\",\n      \"summary\": \"Simon Hunter points out that NFL teams playing on Thursday night after a Week 1 overtime game are 6-25 ATS and 3-16 ATS since 2000.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 689,\n      \"quote\": \"Those teams, which is the Lions, they are 6 and 25 against the spread... since 2000 they are 3 and 16 against the spread.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"CAR\", \"ATL\"],\n      \"players\": [\"Bijan Robinson\"],\n      \"topic\": \"Panthers run defense scheme concerns\",\n      \"summary\": \"Chad Millman notes that the Panthers focused their off-season spending on pass rushers rather than run stoppers, which lets teams run efficiently against them.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 1819,\n      \"quote\": \"The Panthers spent all their money on pass rushers, not on run stoppers... Bijan Robinson still averaged four yards per carry.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"PHI\"],\n      \"players\": [\"Landon Dickerson\"],\n      \"topic\": \"Landon Dickerson injury liability\",\n      \"summary\": \"Landon Dickerson's placement on IR is discussed as a major blow to the Eagles' offensive line functionality.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 2121,\n      \"quote\": \"Landon Dickerson is going on the IR, and he said he was a liability in the game.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"SEA\", \"ARI\"],\n      \"players\": [\"Drew Lock\"],\n      \"topic\": \"Drew Lock road start pressure\",\n      \"summary\": \"Drew Lock starting for the Seahawks is seen as a negative because of his historical struggles with prep time and decision-making on the road.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 3276,\n      \"quote\": \"A backup quarterback who I think gets worse the more time he has to think.\",\n      \"confidence\": \"speculative\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Simon Says: Steelers\",\n      \"timestamp\": 1526,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"Simon Says: give me Pittsburgh plus 5.5.\"\n    },\n    {\n      \"topic\": \"Chad's Choice: Falcons\",\n      \"timestamp\": 1819,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"I'm making this Chad's Choice... Atlanta Falcons plus 2.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 2682,\n      \"field\": \"line\",\n      \"reason\": \"The exact line fluctuated between 8 and 8.5 during the Saints-Ravens market segment.\"\n    }\n  ]\n}",
+        "extracted_picks": [
+          {
+            "team": "PIT",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 5.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 1526,
+            "rationale": "Simon Says pick. Patriots struggled offensively and the Steelers' pass rush match up is very favorable."
+          },
+          {
+            "team": "ATL",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 2,
+            "price": null,
+            "week": 2,
+            "speaker": "Chad Millman",
+            "source_timestamp": 1819,
+            "rationale": "Chad's Choice pick. The Panthers are poor on the road and have run defense liabilities that the Falcons can exploit."
+          },
+          {
+            "team": "DET",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 4.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Chad Millman",
+            "source_timestamp": 689,
+            "rationale": "Thinks the line has inflated too much and the Lions can keep it within a field goal."
+          },
+          {
+            "team": "DET",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 4.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 689,
+            "rationale": "Lions are in a tough schedule spot but the number has ballooned too much, creating contrarian value."
+          },
+          {
+            "team": "DET",
+            "player": null,
+            "market": "total",
+            "side": "UNDER",
+            "line": 53.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 689,
+            "rationale": "Lions played an overtime game and are on a short week; expects sluggish offenses."
+          },
+          {
+            "team": "CLE",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 8.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 975,
+            "rationale": "Purely playing the inflated number on a heavy underdog."
+          },
+          {
+            "team": "NYJ",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 3.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 1275,
+            "rationale": "Packers are overvalued and the Jets match up well defensively."
+          },
+          {
+            "team": "PHI",
+            "player": null,
+            "market": "spread",
+            "side": "UNDER",
+            "line": -7,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 2121,
+            "rationale": "Believes the Titans are fundamentally broken and the Eagles will dominate."
+          },
+          {
+            "team": "PHI",
+            "player": null,
+            "market": "survivor_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 2121,
+            "rationale": "Highly confident in Eagles winning straight up against a weak Titans team."
+          },
+          {
+            "team": "HOU",
+            "player": null,
+            "market": "spread",
+            "side": "UNDER",
+            "line": -3,
+            "price": null,
+            "week": 2,
+            "speaker": "Chad Millman",
+            "source_timestamp": 2437,
+            "rationale": "Impressed with Stroud and expects the Bengals' offensive struggles to continue."
+          },
+          {
+            "team": "NO",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 8.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Chad Millman",
+            "source_timestamp": 2682,
+            "rationale": "Professional money is backing the Saints, line is too high."
+          },
+          {
+            "team": "NO",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 8.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 2682,
+            "rationale": "Saints' weapons can backdoor cover if the Ravens take their foot off the gas."
+          },
+          {
+            "team": "LV",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 7,
+            "price": null,
+            "week": 2,
+            "speaker": "Chad Millman",
+            "source_timestamp": 3007,
+            "rationale": "Divisional rival catching seven points is too much to pass up."
+          },
+          {
+            "team": "LV",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 7,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 3007,
+            "rationale": "Agrees with the public that the Chargers' defense is highly suspect."
+          },
+          {
+            "team": "ARI",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 4.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Chad Millman",
+            "source_timestamp": 3276,
+            "rationale": " Cardinals at home facing a backup quarterback in Drew Lock is a great spot."
+          },
+          {
+            "team": "ARI",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 4.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 3276,
+            "rationale": "Seahawks' backup QB situation makes this line inflated."
+          },
+          {
+            "team": "IND",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 6.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 3924,
+            "rationale": "Chiefs historically play tight games and don't cover large spreads."
+          },
+          {
+            "team": "LAR",
+            "player": null,
+            "market": "spread",
+            "side": "UNDER",
+            "line": -7,
+            "price": null,
+            "week": 2,
+            "speaker": "Chad Millman",
+            "source_timestamp": 4145,
+            "rationale": "Stafford and McVay will bounce back after an embarrassing loss."
+          },
+          {
+            "team": "NYG",
+            "player": null,
+            "market": "spread",
+            "side": "OVER",
+            "line": 7,
+            "price": null,
+            "week": 2,
+            "speaker": "Simon Hunter",
+            "source_timestamp": 4145,
+            "rationale": "Rams' defensive injuries make this a bad spot to lay seven points."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "matchup_analysis",
+            "teams": [
+              "DET",
+              "BUF"
+            ],
+            "players": [],
+            "topic": "Lions short-week overtime trend",
+            "summary": "Simon Hunter points out that NFL teams playing on Thursday night after a Week 1 overtime game are 6-25 ATS and 3-16 ATS since 2000.",
+            "speaker": "Simon Hunter",
+            "source_timestamp": 689,
+            "quote": "Those teams, which is the Lions, they are 6 and 25 against the spread... since 2000 they are 3 and 16 against the spread.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "CAR",
+              "ATL"
+            ],
+            "players": [
+              "Bijan Robinson"
+            ],
+            "topic": "Panthers run defense scheme concerns",
+            "summary": "Chad Millman notes that the Panthers focused their off-season spending on pass rushers rather than run stoppers, which lets teams run efficiently against them.",
+            "speaker": "Chad Millman",
+            "source_timestamp": 1819,
+            "quote": "The Panthers spent all their money on pass rushers, not on run stoppers... Bijan Robinson still averaged four yards per carry.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "PHI"
+            ],
+            "players": [
+              "Landon Dickerson"
+            ],
+            "topic": "Landon Dickerson injury liability",
+            "summary": "Landon Dickerson's placement on IR is discussed as a major blow to the Eagles' offensive line functionality.",
+            "speaker": "Chad Millman",
+            "source_timestamp": 2121,
+            "quote": "Landon Dickerson is going on the IR, and he said he was a liability in the game.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "matchup_analysis",
+            "teams": [
+              "SEA",
+              "ARI"
+            ],
+            "players": [
+              "Drew Lock"
+            ],
+            "topic": "Drew Lock road start pressure",
+            "summary": "Drew Lock starting for the Seahawks is seen as a negative because of his historical struggles with prep time and decision-making on the road.",
+            "speaker": "Chad Millman",
+            "source_timestamp": 3276,
+            "quote": "A backup quarterback who I think gets worse the more time he has to think.",
+            "confidence": "speculative"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Simon Says: Steelers",
+            "timestamp": 1526,
+            "speaker": "Simon Hunter",
+            "quote": "Simon Says: give me Pittsburgh plus 5.5."
+          },
+          {
+            "topic": "Chad's Choice: Falcons",
+            "timestamp": 1819,
+            "speaker": "Chad Millman",
+            "quote": "I'm making this Chad's Choice... Atlanta Falcons plus 2."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 5076,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 5076,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 19,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-htMk7JZbLW8",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_0fc50115b52c",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=htMk7JZbLW8",
+        "latency_ms": 55781,
+        "estimated_cost_usd": 0.018203,
+        "input_tokens": 157930,
+        "output_tokens": 6026,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Ross Tucker and Producer Jack deliver their straight-up winner picks for Week 2 of the 2026 NFL season. They also discuss key roster moves and injury updates in the 'Tuck's Takes' segment.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1715,\n    \"last_analyzed_timestamp\": 1715,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 10.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"They want to try to run it. They want to try to run it with Kenneth Walker. We can't let that happen. Let's make Mahomes, sounds crazy, but let's make Mahomes and those receivers beat us.\"\n    },\n    {\n      \"start\": 10.0,\n      \"end\": 23.0,\n      \"speaker\": \"Announcer\",\n      \"text\": \"You're tuned in to the Ross Tucker Football Podcast. Guiding your gridiron journey, none other than your host, former NFL lineman Ross Tucker.\"\n    },\n    {\n      \"start\": 23.0,\n      \"end\": 115.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Oh yeah it is! But it's not just any Ross Tucker Football Podcast. I never do that. It is a Picks Wednesday presented, of course, by DraftKings. The crown is yours, the code is yours, code Ross, now available in all 50 states on the DraftKings Sportsbook app.\"\n    },\n    {\n      \"start\": 115.0,\n      \"end\": 121.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"All right Ross, let's dive into the games and we're going to begin in Buffalo, where they're hosting the Lions.\"\n    },\n    {\n      \"start\": 121.0,\n      \"end\": 242.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"As a reminder for those of you that are super interested in having these games picked against the spread, that would be the Even Money betting podcast, which we record Tuesdays and Thursdays. This is just who I think is going to win. For Thursday night, can't wait to see the new stadium... but I think it will be the Buffalo Bills. 30 to 23, the Buffalo Bills.\"\n    },\n    {\n      \"start\": 242.0,\n      \"end\": 247.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Next up we got an NFC South battle where the Panthers are traveling to Atlanta to play the Falcons.\"\n    },\n    {\n      \"start\": 247.0,\n      \"end\": 313.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Both these teams desperate for a win after a rough Week 1. I like Carolina on the road in a closer one, but still to get it done. 23-20, Panthers.\"\n    },\n    {\n      \"start\": 313.0,\n      \"end\": 317.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Baltimore Ravens, they're hosting New Orleans Saints.\"\n    },\n    {\n      \"start\": 317.0,\n      \"end\": 381.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Well and you know, I'm a proponent and a believer in the Saints this year... but Ravens looked awfully, awfully good in that opener against the Colts. Give me the Ravens to get this win again, 30 to 20.\"\n    },\n    {\n      \"start\": 381.0,\n      \"end\": 384.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Minnesota Vikings at Chicago Bears.\"\n    },\n    {\n      \"start\": 384.0,\n      \"end\": 463.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"The Minnesota Vikings... so this is a very intriguing game. I don't think the Vikings will be able to get it done. I do think it will be a fairly competitive game. So, I'm going to go 27-24, the Bears get this win.\"\n    },\n    {\n      \"start\": 463.0,\n      \"end\": 467.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Next up, Cincinnati Bengals at Houston Texans.\"\n    },\n    {\n      \"start\": 467.0,\n      \"end\": 601.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"This is a fun game. This is a really, really fun game. The Texans have to get pressure on Joe Burrow. I expect the Texans to bounce back. 24-23, Texans win a barnburner.\"\n    },\n    {\n      \"start\": 601.0,\n      \"end\": 605.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Next up, the New England Patriots are home against Pittsburgh Steelers.\"\n    },\n    {\n      \"start\": 605.0,\n      \"end\": 669.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Fun one, always a classic matchup and has been for years. Steelers offense was not real good against the Falcons. I like the Patriots to get the win here. Let's say it's 23-17, the Patriots get the win.\"\n    },\n    {\n      \"start\": 669.0,\n      \"end\": 673.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Green Bay Packers at the New York Jets.\"\n    },\n    {\n      \"start\": 673.0,\n      \"end\": 881.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Well, this would be bad if the Packers lost this one. I do like the Packers to find a way to win. I think it ends up being 24-20.\"\n    },\n    {\n      \"start\": 881.0,\n      \"end\": 886.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Baker's Revenge, the Buccaneers host the Cleveland Browns.\"\n    },\n    {\n      \"start\": 886.0,\n      \"end\": 961.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Well, probably pretty good timing for Baker Mayfield. He has a chip on his shoulder every game. I think it ends up being 24-13, Bucs.\"\n    },\n    {\n      \"start\": 961.0,\n      \"end\": 965.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Philadelphia Eagles at the Tennessee Titans.\"\n    },\n    {\n      \"start\": 965.0,\n      \"end\": 1025.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Speaking of fans, I bet there's a ton of Eagles fans at this game. I think this is 23-13, 23-14, the Eagles end up getting the victory.\"\n    },\n    {\n      \"start\": 1025.0,\n      \"end\": 1031.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Broncos hosting the Jacksonville Jaguars.\"\n    },\n    {\n      \"start\": 1031.0,\n      \"end\": 1117.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"It's a 4:05 PM Eastern time kick. I'll be in the booth with Ian Eagle. I'll take the Broncos in a very, very close one, 24-23 Denver.\"\n    },\n    {\n      \"start\": 1117.0,\n      \"end\": 1122.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Next up, Raiders at the Chargers.\"\n    },\n    {\n      \"start\": 1122.0,\n      \"end\": 1201.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"I fully expect the Chargers to bounce back in this one. I'll go 24-20, Chargers win.\"\n    },\n    {\n      \"start\": 1201.0,\n      \"end\": 1206.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Seahawks at the Cardinals.\"\n    },\n    {\n      \"start\": 1206.0,\n      \"end\": 1262.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"I'll take the Seahawks with the extra time to rest, extra time to prepare. 23-20, Hawks.\"\n    },\n    {\n      \"start\": 1262.0,\n      \"end\": 1268.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Cowboys hosting the Washington Commanders.\"\n    },\n    {\n      \"start\": 1268.0,\n      \"end\": 1328.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"How about them Cowboys? I like the Cowboys to win the game. Let's go 27-24, Dak and the boys.\"\n    },\n    {\n      \"start\": 1328.0,\n      \"end\": 1332.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"San Francisco 49ers home against the Miami Dolphins.\"\n    },\n    {\n      \"start\": 1332.0,\n      \"end\": 1398.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Just going to be a long year for the Dolphins. I like the Niners. 27-13, Niners.\"\n    },\n    {\n      \"start\": 1398.0,\n      \"end\": 1402.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Indianapolis Colts at the Kansas City Chiefs.\"\n    },\n    {\n      \"start\": 1402.0,\n      \"end\": 1458.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Fun Sunday nighter. I'll take the Chiefs to win, 26-23, Chiefs get to 2-0.\"\n    },\n    {\n      \"start\": 1458.0,\n      \"end\": 1464.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"And we'll wrap things with Monday night, the Giants are in LA playing the Rams.\"\n    },\n    {\n      \"start\": 1464.0,\n      \"end\": 1507.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"I like the Rams. Let's call it Rams 30, Giants 20. 30 to 20, the Rams get their first win.\"\n    },\n    {\n      \"start\": 1507.0,\n      \"end\": 1511.0,\n      \"speaker\": \"Announcer\",\n      \"text\": \"[Transition music / Tuck's Takes]\"\n    },\n    {\n      \"start\": 1511.0,\n      \"end\": 1523.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"All right, let's dive into some news here. We're going to start with the Browns. They placed running back Dylan Samson on IR. The Panthers, they cut wide receiver kick returner Jimmy Horn Jr. and the Cowboys, they signed running back Tyler Goodson.\"\n    },\n    {\n      \"start\": 1523.0,\n      \"end\": 1581.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Yeah, I saw also where the Jaguars, they signed BJ Ojulari. It's a shame about Samson because I think he's a heck of a third down back for the Browns. Jimmy Horn Jr. muffed a punt, so they let him go.\"\n    },\n    {\n      \"start\": 1581.0,\n      \"end\": 1587.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Texans, they put linebacker Henry To'oTo'o on IR and they signed Kenneth Murray.\"\n    },\n    {\n      \"start\": 1587.0,\n      \"end\": 1641.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"You know, that's a good job on the pronunciation, Jack. Henry hurt something in the game, so now they sign Kenneth Murray. Their depth at linebacker was already a little dicey.\"\n    },\n    {\n      \"start\": 1641.0,\n      \"end\": 1648.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"And the Chargers, they put wide receiver Keandre Lambert-Smith on IR and they signed Marquez Valdes-Scantling.\"\n    },\n    {\n      \"start\": 1648.0,\n      \"end\": 1703.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Marquez Valdes-Scantling, but that's okay. Lambert-Smith was a deep threat speed guy, so they bring in MVS who can take the top off the defense.\"\n    },\n    {\n      \"start\": 1703.0,\n      \"end\": 1715.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Shoutout myfrontpagestory.com... Thanks for tuning in to the Ross Tucker Football Podcast. Make sure to also check out the College Draft Podcast and the Even Money betting podcast.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"BUF\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 121,\n      \"rationale\": \"Ross picks Buffalo straight up at home against Detroit.\"\n    },\n    {\n      \"team\": \"CAR\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 247,\n      \"rationale\": \"Ross picks Carolina to win a close divisional game in Atlanta.\"\n    },\n    {\n      \"team\": \"BAL\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 317,\n      \"rationale\": \"Ross backs Baltimore at home following their strong Week 1 showing.\"\n    },\n    {\n      \"team\": \"CHI\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 384,\n      \"rationale\": \"Ross picks the Bears to win a competitive matchup against the Vikings.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 467,\n      \"rationale\": \"Ross picks the Texans to bounce back and win a close game against Cincinnati.\"\n    },\n    {\n      \"team\": \"NE\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 605,\n      \"rationale\": \"Ross picks the Patriots at home against a struggling Steelers offense.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 673,\n      \"rationale\": \"Ross picks Green Bay to find a way to win against the Jets.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 886,\n      \"rationale\": \"Ross backs Baker Mayfield and the Buccaneers to defeat the Browns.\"\n    },\n    {\n      \"team\": \"PHI\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 965,\n      \"rationale\": \"Ross picks the Eagles to win comfortably in Tennessee with a strong fan presence.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1031,\n      \"rationale\": \"Ross picks Denver straight up in a tight, close contest.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1122,\n      \"rationale\": \"Ross predicts a home bounceback win for the Chargers against Oakland.\"\n    },\n    {\n      \"team\": \"SEA\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1206,\n      \"rationale\": \"Ross takes the Seahawks with the extra rest and preparation advantage.\"\n    },\n    {\n      \"team\": \"DAL\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1268,\n      \"rationale\": \"Ross selects Dallas to bounce back and win a close divisional game.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1332,\n      \"rationale\": \"Ross picks the 49ers to win comfortably against a young Dolphins squad.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1402,\n      \"rationale\": \"Ross takes the Chiefs to secure a home victory and move to 2-0.\"\n    },\n    {\n      \"team\": \"LAR\",\n      \"player\": null,\n      \"market\": \"pickem_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1464,\n      \"rationale\": \"Ross picks the Rams to bounce back on Monday Night Football.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"BUF\", \"DET\"],\n      \"players\": [\"Christian Mahogany\", \"Blake Miller\", \"Juice Scruggs\", \"Kerby Joseph\", \"Brian Branch\"],\n      \"topic\": \"Lions O-line & Safety injuries vs Bills\",\n      \"summary\": \"Ross highlights Lions O-line injuries (Mahogany, Miller, Scruggs) and missing safeties (Joseph, Branch on IR) making this a tough road spot against Buffalo.\",\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 121,\n      \"quote\": \"I don't know if their left guard Christian Mahogany will play... Blake Miller... Kirby Joseph and Brian Branch are both on IR for the Lions.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"MIN\", \"CHI\"],\n      \"players\": [\"Carson Wentz\", \"Kyler Murray\", \"Caleb Williams\"],\n      \"topic\": \"Vikings-Bears QB situations\",\n      \"summary\": \"Ross projects Vikings sit Kyler Murray another week, starting Carson Wentz. He expects Brian Flores' defense to confuse Caleb Williams but thinks the Bears win a close one.\",\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 384,\n      \"quote\": \"I think the Vikings will err on the side of caution and give Kyler Murray an extra week... which would mean it's a Carson Wentz game.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"CIN\", \"HOU\"],\n      \"players\": [\"Joe Burrow\", \"Will Anderson\", \"Danielle Hunter\"],\n      \"topic\": \"Texans pass rush vs Burrow\",\n      \"summary\": \"Ross notes Texans must get interior pressure on Joe Burrow and win matchups inside so they don't give Burrow too much time.\",\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 467,\n      \"quote\": \"The Texans have to get pressure on Joe Burrow... they need to win their inside matchups.\",\n      \"confidence\": \"implied\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"CLE\", \"CAR\", \"DAL\", \"JAX\"],\n      \"players\": [\"Dylan Samson\", \"Jimmy Horn Jr.\", \"Tyler Goodson\", \"B.J. Ojulari\"],\n      \"topic\": \"Week 2 Roster Moves\",\n      \"summary\": \"Producer Jack and Ross review roster changes: Browns place Dylan Samson on IR, Panthers cut returner Jimmy Horn Jr., Cowboys sign Tyler Goodson, and Jaguars sign BJ Ojulari.\",\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1511,\n      \"quote\": \"It's a shame about Samson because I think he's a heck of a third down back.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"HOU\"],\n      \"players\": [\"Henry To'oTo'o\", \"Kenneth Murray\"],\n      \"topic\": \"Texans linebacker depth\",\n      \"summary\": \"With Henry To'oTo'o landing on IR, the Texans' already-thin linebacker depth is tested, leading to the signing of Kenneth Murray.\",\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1587,\n      \"quote\": \"Their depth at linebacker was already a little dicey in my mind.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Bills vs Lions Pick\",\n      \"timestamp\": 121,\n      \"speaker\": \"Ross Tucker\",\n      \"quote\": \"For Thursday night, can't wait to see the new stadium... but I think it will be the Buffalo Bills.\"\n    },\n    {\n      \"topic\": \"Bears vs Vikings Pick\",\n      \"timestamp\": 384,\n      \"speaker\": \"Ross Tucker\",\n      \"quote\": \"So, I'm going to go 27-24, the Bears get this win.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "BUF",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 121,
+            "rationale": "Ross picks Buffalo straight up at home against Detroit."
+          },
+          {
+            "team": "CAR",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 247,
+            "rationale": "Ross picks Carolina to win a close divisional game in Atlanta."
+          },
+          {
+            "team": "BAL",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 317,
+            "rationale": "Ross backs Baltimore at home following their strong Week 1 showing."
+          },
+          {
+            "team": "CHI",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 384,
+            "rationale": "Ross picks the Bears to win a competitive matchup against the Vikings."
+          },
+          {
+            "team": "HOU",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 467,
+            "rationale": "Ross picks the Texans to bounce back and win a close game against Cincinnati."
+          },
+          {
+            "team": "NE",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 605,
+            "rationale": "Ross picks the Patriots at home against a struggling Steelers offense."
+          },
+          {
+            "team": "GB",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 673,
+            "rationale": "Ross picks Green Bay to find a way to win against the Jets."
+          },
+          {
+            "team": "TB",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 886,
+            "rationale": "Ross backs Baker Mayfield and the Buccaneers to defeat the Browns."
+          },
+          {
+            "team": "PHI",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 965,
+            "rationale": "Ross picks the Eagles to win comfortably in Tennessee with a strong fan presence."
+          },
+          {
+            "team": "DEN",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1031,
+            "rationale": "Ross picks Denver straight up in a tight, close contest."
+          },
+          {
+            "team": "LAC",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1122,
+            "rationale": "Ross predicts a home bounceback win for the Chargers against Oakland."
+          },
+          {
+            "team": "SEA",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1206,
+            "rationale": "Ross takes the Seahawks with the extra rest and preparation advantage."
+          },
+          {
+            "team": "DAL",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1268,
+            "rationale": "Ross selects Dallas to bounce back and win a close divisional game."
+          },
+          {
+            "team": "SF",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1332,
+            "rationale": "Ross picks the 49ers to win comfortably against a young Dolphins squad."
+          },
+          {
+            "team": "KC",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1402,
+            "rationale": "Ross takes the Chiefs to secure a home victory and move to 2-0."
+          },
+          {
+            "team": "LAR",
+            "player": null,
+            "market": "pickem_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1464,
+            "rationale": "Ross picks the Rams to bounce back on Monday Night Football."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "matchup_analysis",
+            "teams": [
+              "BUF",
+              "DET"
+            ],
+            "players": [
+              "Christian Mahogany",
+              "Blake Miller",
+              "Juice Scruggs",
+              "Kerby Joseph",
+              "Brian Branch"
+            ],
+            "topic": "Lions O-line & Safety injuries vs Bills",
+            "summary": "Ross highlights Lions O-line injuries (Mahogany, Miller, Scruggs) and missing safeties (Joseph, Branch on IR) making this a tough road spot against Buffalo.",
+            "speaker": "Ross Tucker",
+            "source_timestamp": 121,
+            "quote": "I don't know if their left guard Christian Mahogany will play... Blake Miller... Kirby Joseph and Brian Branch are both on IR for the Lions.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "matchup_analysis",
+            "teams": [
+              "MIN",
+              "CHI"
+            ],
+            "players": [
+              "Carson Wentz",
+              "Kyler Murray",
+              "Caleb Williams"
+            ],
+            "topic": "Vikings-Bears QB situations",
+            "summary": "Ross projects Vikings sit Kyler Murray another week, starting Carson Wentz. He expects Brian Flores' defense to confuse Caleb Williams but thinks the Bears win a close one.",
+            "speaker": "Ross Tucker",
+            "source_timestamp": 384,
+            "quote": "I think the Vikings will err on the side of caution and give Kyler Murray an extra week... which would mean it's a Carson Wentz game.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "matchup_analysis",
+            "teams": [
+              "CIN",
+              "HOU"
+            ],
+            "players": [
+              "Joe Burrow",
+              "Will Anderson",
+              "Danielle Hunter"
+            ],
+            "topic": "Texans pass rush vs Burrow",
+            "summary": "Ross notes Texans must get interior pressure on Joe Burrow and win matchups inside so they don't give Burrow too much time.",
+            "speaker": "Ross Tucker",
+            "source_timestamp": 467,
+            "quote": "The Texans have to get pressure on Joe Burrow... they need to win their inside matchups.",
+            "confidence": "implied"
+          },
+          {
+            "note_type": "roster_or_depth_chart",
+            "teams": [
+              "CLE",
+              "CAR",
+              "DAL",
+              "JAX"
+            ],
+            "players": [
+              "Dylan Samson",
+              "Jimmy Horn Jr.",
+              "Tyler Goodson",
+              "B.J. Ojulari"
+            ],
+            "topic": "Week 2 Roster Moves",
+            "summary": "Producer Jack and Ross review roster changes: Browns place Dylan Samson on IR, Panthers cut returner Jimmy Horn Jr., Cowboys sign Tyler Goodson, and Jaguars sign BJ Ojulari.",
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1511,
+            "quote": "It's a shame about Samson because I think he's a heck of a third down back.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "HOU"
+            ],
+            "players": [
+              "Henry To'oTo'o",
+              "Kenneth Murray"
+            ],
+            "topic": "Texans linebacker depth",
+            "summary": "With Henry To'oTo'o landing on IR, the Texans' already-thin linebacker depth is tested, leading to the signing of Kenneth Murray.",
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1587,
+            "quote": "Their depth at linebacker was already a little dicey in my mind.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Bills vs Lions Pick",
+            "timestamp": 121,
+            "speaker": "Ross Tucker",
+            "quote": "For Thursday night, can't wait to see the new stadium... but I think it will be the Buffalo Bills."
+          },
+          {
+            "topic": "Bears vs Vikings Pick",
+            "timestamp": 384,
+            "speaker": "Ross Tucker",
+            "quote": "So, I'm going to go 27-24, the Bears get this win."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 1715,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 1715,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 16,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

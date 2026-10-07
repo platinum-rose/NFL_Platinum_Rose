@@ -8,23 +8,26 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 62938
 Speaker turns: 156
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Guest (Speaker C), Guest (Speaker D), Guest (Speaker E), Guest (Speaker F), Guest (Speaker G), Guest (Speaker H), Guest (Speaker I), Guest (Speaker J), Guest (Speaker K), Guest (Speaker L), Guest (Speaker M)
+Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Guest (Speaker D), Guest (Speaker G), Guest (Speaker H), Guest (Speaker K)
 
 ## Speaker Map
 
 - Speaker A: Guest
 - Speaker B: Chad Millman
-- Speaker C: Guest
 - Speaker D: Guest
-- Speaker E: Guest
-- Speaker F: Guest
 - Speaker G: Guest
 - Speaker H: Guest
-- Speaker I: Guest
-- Speaker J: Guest
 - Speaker K: Guest
-- Speaker L: Guest
-- Speaker M: Guest
+
+## Ignored Audio
+
+- Speaker C: ad/commercial audio ignored
+- Speaker E: ad/commercial audio ignored
+- Speaker F: ad/commercial audio ignored
+- Speaker I: ad/commercial audio ignored
+- Speaker J: ad/commercial audio ignored
+- Speaker L: ad/commercial audio ignored
+- Speaker M: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -40,49 +43,21 @@ This is an iHeart podcast. Guaranteed Human.
 
 If you've been sitting on a business idea for a while, consider this the sign to take action. It can even be made official today by creating a website with Wix Harmony. Just tell WIX Harmony what you want and it will build the entire site, business features included and everything can still be edited by hand. It's your website, your call. Try it@wix.com that's wix.com Amazon Health AI
 
-### Guest (Speaker C) [0:34-0:38]
-
-presents painful thoughts why did I search
-
 ### Guest (Speaker D) [0:38-0:54]
 
 the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
-
-### Guest (Speaker C) [0:55-1:02]
-
-Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker E) [1:03-1:38]
-
-This is Tab Ramos from Inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls race right into the net and every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Are you looking
-
-### Guest (Speaker F) [1:38-1:48]
-
-for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical
 
 ### Guest (Speaker A) [1:48-1:53]
 
 activity to help adults with obesity or some adults with overweight who also have
 
-### Guest (Speaker F) [1:53-1:56]
-
-weight related medical problems to lose excess
-
 ### Guest (Speaker A) [1:56-1:57]
 
 body weight and keep the weight off.
 
-### Guest (Speaker F) [1:58-2:16]
-
-Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children.
-
 ### Guest (Speaker A) [2:16-2:19]
 
 Don't share needles or pens or reuse needles.
-
-### Guest (Speaker F) [2:19-3:06]
-
-Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills. Taking zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lily.com
 
 ### Chad Millman (Speaker B) [3:08-5:24]
 
@@ -288,61 +263,25 @@ That was a real moment in life that I am proud to say I survived.
 
 Let's do a quick word from Hard Rock bet. Today's show was brought to you by our presenting sponsor, Hard Rock bet. Floridus Sportsbook. The world's biggest soccer tournament is here. Everyone is watching. National pride is on the line. Superstars chasing immortality. And for the next month, every match feels like a final. If you haven't tried Hard Rock Bet yet. There's no better time to get in the game. Hard Rock Bet is the top rated sportsbook app built to viva la Copa. And if you're ever late to kickoff, don't worry. Hard Rock Bet lets you live bet all match long from the first minute to the final whistle. Plus, Hard Rock Bet has new promos daily. We're talking profit boosts, no Sweat bets, bonus bets and more. And be sure to check out no Goals, no Problem and Super Sub two promos designed to give your bets insurance all tournament long. Sign up with Hard Rock Bet today in place of $5 bet. If it wins, you also score $150 in bonus bets, a winning bet plus an extra $150 to bet with. Now that's how you get this summer's party started. Download the Hard Rock Bet app today. Roll with us. Go with us. Hard Rock Bet payable and bonus bets not a cash offer offered by the Seminole Tribe of Florida in Florida offered by Seminole hard Rock Digital, LLC and all the SH states must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play terms and conditions apply. Concerned about gambling in Florida, call 1833, playwise in Indiana, if you or someone you know is a gambling problem and wants help, call 1-809-with it. In Arizona, Ohio and Virginia, call 1-800-my reset gambling problem, call 1-800- gambler in Colorado, Illinois, Michigan, New Jersey, Tennessee vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced WIX Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Amazon
 
-### Guest (Speaker C) [22:24-22:29]
-
-Pharmacy presents Painful Thoughts it's been a
-
-### Guest (Speaker I) [22:29-22:42]
-
-long, bumpy road dealing with yet another bladder infection and driving to the pharmacy to pick up meds. I went over a pothole and a little pee came out. So now I get to stand in line with pee pee pants.
-
-### Guest (Speaker C) [22:43-22:50]
-
-Next time, skip the pain and get fast free delivery with Amazon Pharmacy Healthcare just got less painful.
-
-### Guest (Speaker F) [22:53-23:05]
-
-Are you looking for support in your weight management journey. Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical
-
 ### Guest (Speaker A) [23:05-23:10]
 
 activity to help adults with obesity or some adults with overweight who also have
-
-### Guest (Speaker F) [23:10-23:12]
-
-weight related medical problems to lose excess
 
 ### Guest (Speaker A) [23:12-23:14]
 
 body weight and keep the weight off.
 
-### Guest (Speaker F) [23:14-23:33]
-
-Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing proximity products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children.
-
 ### Guest (Speaker A) [23:33-23:35]
 
 Don't share needles or pens or reuse needles.
-
-### Guest (Speaker F) [23:35-24:24]
-
-Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zephone with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound Lilly.com awkward
 
 ### Guest (Speaker G) [24:24-24:28]
 
 time to ask this, but hey, did you download the trail map?
 
-### Guest (Speaker I) [24:28-24:29]
-
-Yeah, no, I don't need to.
-
 ### Guest (Speaker G) [24:29-24:32]
 
 I don't understand. You're trusting your signal out here.
-
-### Guest (Speaker I) [24:32-24:38]
-
-I'm trusting T Mobile. They have the best network. And if we end up in bumtots nowhere, well we've got T satellite for backup.
 
 ### Chad Millman (Speaker B) [24:38-24:38]
 
@@ -351,14 +290,6 @@ Whoa.
 ### Guest (Speaker G) [24:38-24:40]
 
 I don't trust my carrier that much.
-
-### Guest (Speaker I) [24:41-24:43]
-
-We'll just use your phone as a flashlight.
-
-### Guest (Speaker J) [24:44-24:59]
-
-With America's Best network and T T Satellite, we're keeping you connected in places you never thought possible. And if you switch today, you get free phones for zero down and only 25 bucks a month per line for four lines. Find out more@t mobile.com or visit your local store.
 
 ### Guest (Speaker K) [25:01-25:25]
 
@@ -412,10 +343,6 @@ I do. I do. And I think a lot of it is semantics. A lot of it's semantics becaus
 
 Well, look, it is interesting, especially with prediction markets. Betters have always looked at themselves as doing something that is no different than trading. Right? The language is even the same. They want to get the best price, they want to buy low, they want to sell high. Regardless of whether you're talking about buying A stock or buying a number in a betting market. The prediction markets have sort of merged those worlds. And I know a lot of people, and I wrote about this in the book, a lot of people who are completely moving their betting operations from offshore books, from having networks of runners sign in and betting at DraftKings, FanDuel, Hard Rock, all over all the books around the country. And they're moving all of their liquidity into prediction markets, shutting down their entire network of runners. And they're only focused on buying and selling and trading in prediction markets. And it feels. And one of them just said to me, he's like, it just feels like I'm treated as a legitimate executive, not as a degenerate.
 
-### Guest (Speaker J) [37:30-37:30]
-
-Better.
-
 ### Guest (Speaker H) [37:31-38:09]
 
 That's all in the last year, like, that's not. Yeah, this is all new. And Chad knows, like, I. It was hard for me to shut down what I had. But like, we talked a little bit about the show. I haven't got too much into it, but New Jersey is the only state that outlawed runners. And it just so happens that this show is probably one of the biggest gambling shows. And I've talked at news ad nauseam about how I have runners in this state. So, like, do I feel attacked? Am I a little egomaniac in that way? Of course I am. But it's like, okay, lucky for me, this other market has opened up and it's really changed in a lot of ways. I mean, I don't know if you saw the bet the other day, Chad. A guy basically. Basically bet on Spain just to win against this small country, and they ended
@@ -427,10 +354,6 @@ up million dollars on polymarket.
 ### Guest (Speaker H) [38:11-38:22]
 
 Yeah. So a guy had basically made what I always called the sucker of sucker bets. Right. You're placing a bet on something you think can never happen, but it's sports. And when anything can happen, something will eventually happen.
-
-### Guest (Speaker J) [38:22-38:22]
-
-Right.
 
 ### Guest (Speaker H) [38:22-38:41]
 
@@ -456,10 +379,6 @@ But don't you think it was ironic that the thing that gave you the most public s
 
 Yes and no.
 
-### Guest (Speaker L) [43:57-43:57]
-
-Because.
-
 ### Guest (Speaker G) [43:57-45:08]
 
 But what really broke to just what really broke me through to the Hollywood establishment, The people that were rejecting me for 10 years and suddenly I was their favorite. You know, golden boy was not 21. It was a script I wrote that subsequently became a movie called Things who Lost in the Fire with Benicio Del Toro and Halle Berry. That script is really broke through and got me noticed. And that script's about heroin addiction. But all the heroin addiction that the Benicio character played and suffered through was all inspired by my gambling addiction. I just moved it to heroin. I remember I sold that script for a lot of money for like. And it was a weird little drama. In those days, they paid money for weird little dramas. Sold for over a million dollars in 2004, I think it was. And then my mother, you know, was like shocked and proud of me and happy. They're really, really worried about me, obviously. And then proud and happy. But she read the script and then she freaked out again in Jewish mother way. She's like, are you. Are you a heroin addict? I said, no, mom, I'm a gambling addict. Same same thing. But no, I'm not a heroin addict. But that was what broke me through and that was inspired by my gambling addiction. And then 21 came about two years later.
@@ -468,57 +387,25 @@ But what really broke to just what really broke me through to the Hollywood esta
 
 Vibe coding is everywhere right now. But it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced WIX Harmony, a vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Amazon
 
-### Guest (Speaker C) [45:51-45:55]
-
-Health AI presents Painful Thoughts.
-
 ### Guest (Speaker D) [45:56-46:12]
 
 Why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
-
-### Guest (Speaker C) [46:13-46:21]
-
-Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker F) [46:21-46:32]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical
 
 ### Guest (Speaker A) [46:32-46:41]
 
 activity to help adults with obesity or some adults with overweight who also have weight related medical problems. Problems to lose excess body weight and keep the weight off.
 
-### Guest (Speaker F) [46:41-47:00]
-
-Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children.
-
 ### Guest (Speaker A) [47:00-47:03]
 
 Don't share needles or pens or reuse needles.
-
-### Guest (Speaker F) [47:03-47:53]
-
-Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lily.com awkward time to ask this,
 
 ### Guest (Speaker G) [47:53-47:55]
 
 but hey, did you download the trail map?
 
-### Guest (Speaker I) [47:55-47:57]
-
-Yeah. No, I don't need to.
-
-### Guest (Speaker E) [47:57-47:57]
-
-I don't understand.
-
 ### Guest (Speaker G) [47:57-47:59]
 
 You're trusting your signal out here.
-
-### Guest (Speaker I) [47:59-48:06]
-
-I'm trusting T Mobile. They have the best network. And if we end up in bumtots nowhere, well, we've got T satellite for backup.
 
 ### Chad Millman (Speaker B) [48:06-48:06]
 
@@ -527,14 +414,6 @@ Whoa.
 ### Guest (Speaker G) [48:06-48:07]
 
 I don't trust my carrier that much.
-
-### Guest (Speaker I) [48:08-48:10]
-
-We'll just use your phone as a flashlight.
-
-### Guest (Speaker J) [48:12-48:26]
-
-With America's best network and T satellite, we're keeping you connected in places you never thought possible. And if you switch today, you get free phones for zero down and only 25 bucks a month per line for four lines. Find out more@t mobile to.com or visit your local store.
 
 ### Guest (Speaker K) [48:28-48:50]
 
@@ -604,49 +483,17 @@ I am always on the side of irrational optimism. So I'm with you. Alan Loeb. Than
 
 Just ask any of the old time pit bosses.
 
-### Guest (Speaker C) [1:00:32-1:00:33]
-
-They'll know.
-
-### Guest (Speaker M) [1:00:36-1:01:04]
-
-I'm U.S. transportation Secretary Sean Duffy the sound of a Seatbelt it's one of the most important sounds in our car. It means everyone is ready and everyone is safe. The more our kids see us put on our seatbelts, the more natural it is for them to put theirs on too. Make it a priority. Buckle up every time. Hear the sound. Make it a habit. Paid for by NHTSA
-
-### Guest (Speaker F) [1:01:06-1:01:17]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical
-
 ### Guest (Speaker A) [1:01:17-1:01:22]
 
 activity to help adults with obesity or some adults with overweight who also have
-
-### Guest (Speaker F) [1:01:22-1:01:24]
-
-weight related medical problems to lose excess
 
 ### Guest (Speaker A) [1:01:24-1:01:26]
 
 body weight and keep the weight off.
 
-### Guest (Speaker F) [1:01:26-1:01:45]
-
-Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children.
-
 ### Guest (Speaker A) [1:01:45-1:01:48]
 
 Don't share needles or pens or reuse needles.
-
-### Guest (Speaker F) [1:01:48-1:02:35]
-
-Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia Syndrome Type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound lily.com
-
-### Guest (Speaker L) [1:02:37-1:03:24]
-
-sometimes the butt goes through a lot when the butt speaks, you listen. Preparation H is the butt care expert known for helping people care for their hemorrhoids, offering relief in different forms that adapt to needs and moments. Medicated Wipes formulated with witch hazel, aloe and vitamin E to help keep things calm, cool and collected. Rapid relief spray with maximum strength Lidocaine provides fast relief from itching, burning and swelling. There's also a multi symptom relief cream when broader support is needed. Preparation H treats the issue rather than just masking it. No shame here, only solutions. So if a butt has been begging for a little kindness, wipe and treat for better relief with the one doctor Recommended brand Preparation H. T Mobile is
-
-### Guest (Speaker J) [1:03:24-1:03:45]
-
-Reinventing Business Internet with Super Broadband Whether you run a small office or a factory of 500, connection is everything. Powered by America's fastest 5G Internet plus Starlink super broadband from T Mobile reaches every zip code in the US super broadband a new era of business Internet. Visit superbroadband.com to learn more.
 
 ### Guest (Speaker K) [1:03:46-1:03:53]
 

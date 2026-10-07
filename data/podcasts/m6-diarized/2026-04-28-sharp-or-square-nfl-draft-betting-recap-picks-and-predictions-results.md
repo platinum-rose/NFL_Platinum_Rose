@@ -8,25 +8,24 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 64405
 Speaker turns: 133
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D), Guest (Speaker E)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker E)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
-- Speaker D: Guest
 - Speaker E: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker D: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Guest (gpt-4o, unknown) futures=1
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:03]
-
-This is an iHeart podcast. Guaranteed Human
 
 ### Chad Millman (Speaker B) [0:06-0:24]
 
@@ -52,10 +51,6 @@ go downtown and tell a receptionist I'm here to talk about my downtown. Some thi
 
 There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
 
-### Guest (Speaker A) [1:33-3:02]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15 milligram injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills. Taking zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lilly.com
-
 ### Chad Millman (Speaker B) [3:04-3:25]
 
 welcome to Sharper Square, presented by Hard Rock Bet. We are part of the Volume Podcast Network. This is the show that makes the square sharper and makes the wise guys pay attention. I am Chad Millman. I am joined as always by my bff, my companion, my compadre, my co host, professional better Simon Hunter. Hello, Simon.
@@ -75,10 +70,6 @@ Yeah, just the draft. I know we don't talk obviously a lot of NBA, but like LeBr
 ### Chad Millman (Speaker B) [4:15-5:22]
 
 Well, Simon, you bring up the hockey and you've gotten me so into the battle of Pennsylvania that I watched the Flyers Penguins game last night and those last three minutes after the Flyers pulled the goalie were so freaking intense. There were three near misses for empty netters from the Penguins and then the Flyers kept trying to get it down the ice and kept trying to score that game tying goal. That is a crazy intense series. They can't close it out. The Flyers cannot close it out. And you know what I think it is? I sent you and Mitch that picture of the billboard that a buddy of mine sent me who's from Philly. That was on i95 where they had taken out billboard space and there was a picture of Crosby just lying on the ice and I forgot, oh, oh. And they were defining embellishment because Crosby had gotten his first embellishment penalty ever. Ever since then, they can't close the Series out might be a little comeuppance right there.
-
-### Guest (Speaker D) [5:23-5:23]
-
-Yeah.
 
 ### Simon Hunter (Speaker C) [5:23-5:34]
 
@@ -144,10 +135,6 @@ and we love it. I told you, I'm so interested in all these stories, I can't get 
 
 It's just every single week. I do want to bring in our friend Derrick Brown, who has been joining us non Stop Fantasy Pros Football podcast because, look, getting back to the basics of what people really want from us on this show. They want to know who's, what's going to happen and how they can profit because we're all opportunistic, right?
 
-### Guest (Speaker D) [19:20-19:21]
-
-So
-
 ### Chad Millman (Speaker B) [19:23-20:19]
 
 Derek, Simon, you guys both crushed it during the draft. Take your bow, get your flowers. You know, let me just read some of the bets. Okay, what do we have? We had the biggest bet for Simon first given out March 31st at minus 150. Nice job. Matt Mitchell tracking all this down. Matt Mitchell, he's producing. Simon actually specifically said the Rams were going to take Ty Simpson in the first round. The biggest bet he had was over one and a half quarterbacks. And let's see, over one and a half running backs in the first round. That was on giving out on March 31st. That was a plus 500. Matt, you want to play a clip right now?
@@ -167,14 +154,6 @@ Five and one, baby. I gave out six bets on this show and five and one and I got 
 ### Chad Millman (Speaker B) [22:08-22:10]
 
 Listen, it beats nursing.
-
-### Guest (Speaker A) [22:10-22:11]
-
-Yeah.
-
-### Guest (Speaker D) [22:12-22:12]
-
-Yep.
 
 ### Guest (Speaker E) [22:12-22:13]
 
@@ -260,17 +239,9 @@ I mean, they did also get rid of an edge in Grard. Howie, who knows? Howie may h
 
 I know that people get sick of it because it's such a boring answer, right? Oh, he said, what can I do? I have to just trust Howie. Like, even when he does things I don't agree with, it's like, it's gonna probably work out. Like, obviously, he knows what he's doing. He just keeps making the right moves. And, you know, in a draft that I'm sure if someone went to him, said, hey, you can get the. The award winner for the best receiver in college football. The award winner for the best tight end in college football, you want either of those guys, how he's gonna probably want to take them every time, right? Even if their ceiling's not the highest, their floor is what I think Howie always is looking for. He's looking for guys with very low floors. So, you know, both these guys will have to me very high ceilings. And yeah, I every time head into the draft, it's like what, what is how we gonna do something crazy? And I there they were selling T shirts last week already, Chad. Like literally happened that night. They were selling T shirts. Philadelphia 40 against Pittsburgh this week because they were 30 in hockey and then they basically traded above which was a huge drama. So yeah, I, I, every time how he does something like this, it's just like, man, I just feel so lucky because again, we're going to talk about my bets. I lost the Jeremiah Love pick Arizona Cardinals. You have millions of millions of holes in that team and they took a running back at number three. I just, I couldn't imagine if that was my team and that's who I'm rooting for. And it's like when how he does these moves, it just feels like the smart move. And all the pundits on TV are just talking about how genius how he is. It's, I'm not going to lie, Chad.
 
-### Guest (Speaker D) [28:17-28:18]
-
-It's a very good.
-
 ### Chad Millman (Speaker B) [28:18-31:13]
 
 Well, look, the love thing, I want to dig into, I want to do that after the break. Let's do a quick break from Hard Rock and then we can dig into Love and Simon. I want to talk about Ty Simpson and I want to talk about the running backs because that was the biggest bet at plus 500 that we discussed. But first, let's hear from Hard Rock. Today's show is brought to you by our presenting sponsor, Hard Rock bet, the official sportsbook partner of the Orlando Magic. And speaking of the Magic, they're back in the NBA playoffs where the lights are brighter, the pressure is higher, and every possession can change a series. And on Hard Rock Bet, every night is your shot to score a major bucket with win or go home energy on the hardwood. Same game parlays are a great way to get in on the excitement. And Hard Rock Bet gives you tons of ways to stack your your picks into SGPs built for the playoffs. And if you're ever late to tip off, don't worry, Hard Rock Bet lets you live bet all game long. Try your first bet on Hard Rock Bet today and you can score $150 in bonus bets. If you win, just place a $5 bet. And if it hits, you get not only your winnings, but also an extra $150 in bonus bets. And while Hard Rock Bet is Florida's only legal sportsbook, you don't have to be in Florida to join the party. Hard Rock Bet is also live in Arizona, Ohio, New Jersey, Indiana, Tennessee, Virginia, Illinois, Colorado, and Michigan, with more states on the way. Download the Hard Rock Bet app today and let's get the party started Offered by the Seminole Tribe of Florida in Florida. Offered by Seminole Hard Rock Digital LLC and all other states must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play terms and conditions apply. Concerned about gambling in Florida? Call 1-833-Playwise in Indiana. If you or someone you know has a gambling problem and wants help, call 1-809 with it in Ohio, call 1-800-my reset gambling problem, call 1-800- gambler in Arizona, Colorado, Illinois, Michigan, New Jersey, Tennessee, Virginia vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced WIX Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Are
-
-### Guest (Speaker A) [31:13-32:41]
-
-you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit Zepbound. Lilly
 
 ### Simon Hunter (Speaker C) [32:43-32:54]
 
@@ -284,10 +255,6 @@ filled with images of alarmingly graphic source
 
 in various stages of ooze. I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
 
-### Guest (Speaker D) [33:13-34:09]
-
-This is Tab Ramos from Inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They're not just throwing games on in the background. Topgolf is going all in on soccer. They've got a new soccer themed game you can play with your group, special in venue activations, exclusive food and drink items inspired by the global game and at more than 60 locations. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. So it's a great place to watch with friends, hang out, compete a little bit and enjoy the atmosphere. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass, which lets you play every single day and bring up to five, five guests every visit. Get yours now@TopGolf.com FunPass Summer hits different at TopGolf.
-
 ### Chad Millman (Speaker B) [34:10-35:44]
 
 All right, I was going to save Jeremiah Love for later in the show. You both, I mean Simon especially, you were like, these are smoke screens. The Cardinals would be crazy to take Jeremiah Love at number three. And yet that's what they did. And you know, we can talk about the history of running backs taken in the top 10, which Mitch, you know, gave us and we talked about in the show on Thursday. Not a single running back drafted in the top 10, I think over the past 20 years went to the super bowl with the team he was drafted with. Only three have gone to the Super Bowl. Leonard Fournette, drafted by the Jags, went with the bucks and Christian McCaffrey, drafted by the Panthers, went with the Niners. And Saquon, drafted by the Giants, one with the Eagles. So chances are this guy's not going to the super bowl with the Cardinals. But here's the Other thing, a lot of people have talked about this and, and Dan Graziano laid it out in his column on ESPN.com Jeremiah Love is all of a sudden the highest paid with guaranteed money in NFL history for a running back. At number three, he's getting $50 million guaranteed. Saquon was only getting 36. So all of a sudden you put yourself in a position where you're binding the cap tied to a guy who you are overpaying by $18 million. That I think is something that didn't come up enough before the draft and is coming up a lot now. Derek, your thoughts?
@@ -299,10 +266,6 @@ I think it's absolutely insanity, like to take him that high in the draft. And i
 ### Chad Millman (Speaker B) [36:07-36:11]
 
 But what's so interesting is they've got new guys in there.
-
-### Guest (Speaker D) [36:12-36:12]
-
-Yeah.
 
 ### Chad Millman (Speaker B) [36:12-36:15]
 
@@ -384,10 +347,6 @@ It's basically what we talked about, like using these contacts I'll never give u
 
 Yeah, you're done.
 
-### Guest (Speaker D) [42:45-42:45]
-
-Yeah.
-
 ### Simon Hunter (Speaker C) [42:45-43:32]
 
 I thought it was gonna be 29, 30. I thought it was gonna be a sweat. But yeah, they really fell in love with them. And I told you that's all it takes, right, is one organization. So that's the hardest part with this is like, I'm, I'm trying to, trying to weed through the other spread comes. Other people are leaving me because no one can definitely say what's going to happen. Right? You need all these things to fall their way for a team to take a player. And the fact that they took that Simpson there clearly shows that they were worried about someone else jumping up to take them. Like, they didn't want to risk taking Lemon or some other player that they also had a high grade on. They wanted to skip their guy. Because we talk about it, Chad, if you hit the quarterback, you're set your French up franchise up for 10 to 15 years. So, you know, I love McVay standing up for his guy in Stafford that night, being like, you know, humbling the kid, the kids, like, we're going to make history. And he's just like, you're going to
@@ -416,10 +375,6 @@ Listen, yeah, my mentions are on fire. By my fan bases.
 
 I mean, they're so dumb. They're so dumb. And let me just finish the Ty Simpson point and then I can get into the draft grades. But, like, if the Rams are moving up to 13 to get Ty Simpson, anyone who's railing against it is an idiot because none of us know as much about the team, the organization, or the player and what the potential fit is than the Rams themselves. And they've proven that because they've basically rebuilt their team while, you know, the truck was moving, they changed the tires. So kudos to them if they think they can figure it out. I'm like, you, dude. Like, I'm having a debate with my friends on Saturday about the Bears draft picks.
 
-### Guest (Speaker D) [45:35-45:35]
-
-And.
-
 ### Chad Millman (Speaker B) [45:35-46:37]
 
 And as I'm doing it and like, with my kid, we're talking about the safety from Oregon, and all I'm doing is looking to see what the reaction is from the draft experts. Right? And like, I texted my buddy. I'm like, this is what Kuiper just said about the center we drafted from Iowa. Nobody knows shit. None of these things can be graded for three years, like pmt, then and. And PFT on PMT talks about how every year he reads the review for the 2012 draft of the Seahawks because someone gave them an F and eviscerated it and said it's the worst draft ever. And Russell Wilson isn't even the type of quarterback that works for their system. And it was, I think, Bobby Wagner, Bruce Irvin, and Russell Wilson, three guys who were pivotal to them winning a Super bowl within two years. So like nobody can grade this.
@@ -440,10 +395,6 @@ He said, yeah, yeah. Have you heard of it? I said, yeah, I had one before we cam
 
 the, with the work of this tremendous product because it's what I need to feel my best the next day, which, you know, we don't bounce back like we used to. Like you said, we do not. From draft day to basketball playoff games, don't let a rough next day keep you on the sidelines. Drink pre alcohol to stay ahead of the game and make the most of every sunny Saturday. Go to zbiotics.com sharpersquare to learn more and get 15% off your first order when you use Sharp or Square at checkout. Zebiotics is backed with a 100% money back guarantee, so if you're unsatisfied for any reason, then they'll refund your money, no questions asked. Remember to head to ZBiotics.com sharpersquare and use the code Sharp or Square at checkout for 15% off. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced WIX Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free at wix. Com that's wix.
 
-### Guest (Speaker A) [51:33-53:03]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine needles. Neoplasia Syndrome Type 2 Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound Lilly.com Amazon
-
 ### Simon Hunter (Speaker C) [53:03-53:09]
 
 Health AI presents Painful Thoughts I I
@@ -455,10 +406,6 @@ can't stop scratching my downtown. Yeah, but I'm not itching to go downtown and 
 ### Simon Hunter (Speaker C) [53:19-53:31]
 
 Some things you'd rather type than say out loud. There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
-
-### Guest (Speaker D) [53:33-54:30]
-
-This is Tab Ramos from inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They're not just throwing games on in the background. Topgolf is going all in on soccer. They've got a new soccer themed game you can play with your group. Special in venue activations, exclusive food and drink items inspired by the global game and at more than 60 locations. They've even installed full size soccer goals so you can try to hit golf balls right into the net and every match all summer long will be on throughout the venue. So it's a great place to watch with friends and hang out, compete a little bit and enjoy the atmosphere. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass, which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Summer hits different at TopGolf.
 
 ### Chad Millman (Speaker B) [54:30-54:47]
 
@@ -520,10 +467,6 @@ Simon. I think this show today has proven, if nothing else, we can be as hypocri
 
 Down and 1.
 
-### Guest (Speaker D) [1:02:36-1:02:37]
-
-Play action.
-
 ### Guest (Speaker E) [1:02:37-1:02:40]
 
 Fake the lob pass and the ball
@@ -540,18 +483,6 @@ Oh man, is he excited and he. I know why he's so excited and pumped up.
 
 I'm U.S. transportation Secretary Sean Duffy. The sound of a seatbelt. It's one of the most important sounds in our car. It means everyone is ready and everyone is safe. The more our kids see us put on our seatbelts, the more natural it is for them to put theirs on too. Make it a priority. Buckle up every time. Hear the sound. Make it a habit. Paid for by nhtsa.
 
-### Guest (Speaker A) [1:03:23-1:04:55]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems. To lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take of allergic to to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lilly.com When Kohler, Global design leader
-
 ### Chad Millman (Speaker B) [1:04:55-1:05:44]
 
 in luxurious kitchen and bath products, asked me to be their ambassador for timeless, elegant, durable cast iron, I said, I'm in. Soon after, I was in their Kohler Wisconsin foundry watching molten iron, poured enamel applied by hand and the beautiful finished pieces ready to ship. Since 1883, Kohler cast iron has been crafted by incredible artisans and seeing it firsthand gave me a whole new appreciation for their craftsmanship. Now I'm proud to lend my stamp of approval to my favorite Kohler cast iron products for their durability, beauty and enduring style. Shop my curated picks@kohler.com as the Kohler Cast Iron Ambassador, I say long live Cast Iron.
-
-### Guest (Speaker D) [1:05:45-1:06:21]
-
-This is Tab Ramos from inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items and they've even installed full size soccer goals so you can try to hit golf balls right into the net and every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass this is an iHeart podcast.
-
-### Guest (Speaker A) [1:06:21-1:06:23]
-
-Guaranteed human.

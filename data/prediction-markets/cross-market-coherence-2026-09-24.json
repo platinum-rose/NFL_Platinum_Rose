@@ -1,0 +1,1982 @@
+{
+  "meta": {
+    "schema": "prediction_market_cross_market_coherence_v2",
+    "season": 2026,
+    "artifact_date": "2026-09-24",
+    "generated_at": "2026-09-24T01:38:38.603Z",
+    "source_generated_at": "2026-09-24T01:38:37.443Z",
+    "source_schema": "prediction_market_team_map_v2",
+    "source_contract_count": 4639,
+    "explicit_eligibility_contract": true,
+    "eligible_context_contract_count": 637,
+    "actionable_contract_count": 292,
+    "context_only_contract_count": 345,
+    "excluded_contract_count": 4002,
+    "eligible_context_team_count": 32,
+    "team_count": 32,
+    "execution_eligible_contract_count": 0,
+    "liquidity_warned_context_count": 345,
+    "fee_missing_context_count": 0,
+    "source_liquidity_warning_count": 3639,
+    "source_liquidity_warning_rate_pct": 78.44,
+    "incoherent_count": 5,
+    "ladder_inversion_count": 1,
+    "nesting_violation_count": 7,
+    "ladder_tolerance_pct": 1,
+    "nesting_tolerance_pct": 2,
+    "coherence_basis": "actionable_coherence_contracts_only",
+    "recommendation_status": "consensus_context_only_not_execution_source",
+    "execution_source_status": "blocked_settlement_terms_unverified",
+    "target_field": "market_snapshot.cross_market_coherence",
+    "caveats": [
+      "Gross yes-price probabilities drive coherence; fee-adjusted net odds remain in the source map.",
+      "Liquidity-warned and otherwise ineligible rows are excluded from actionable coherence math.",
+      "Settlement terms are not locally verified; this artifact is not an execution source."
+    ],
+    "guardrails": {
+      "live_model_calls": false,
+      "network_fetches": false,
+      "supabase_writes": false,
+      "official_picks_generated": false,
+      "portfolio_mutations": false
+    },
+    "inputs": {
+      "source_path": "data\\prediction-markets\\team-market-map-latest.json",
+      "source_generated_at": "2026-09-24T01:38:37.443Z",
+      "source_schema": "prediction_market_team_map_v2"
+    },
+    "validation_results": {
+      "prediction_market_coherence": {
+        "schema": "prediction_market_cross_market_coherence_v2",
+        "status": "pass",
+        "blockers": [],
+        "warnings": [],
+        "metrics": {
+          "eligible_context_contract_count": 637,
+          "actionable_contract_count": 292,
+          "execution_eligible_contract_count": 0
+        }
+      }
+    }
+  },
+  "teams": [
+    {
+      "team": "ARI",
+      "team_nick": "Cardinals",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 50,
+        "conference": 1,
+        "division": null,
+        "make_playoffs": 6
+      },
+      "fair_american_by_market": {
+        "super_bowl": 100,
+        "conference": 9900,
+        "division": null,
+        "make_playoffs": 1567
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 2,
+            "implied_prob": 96
+          },
+          {
+            "threshold": 3,
+            "implied_prob": 91
+          },
+          {
+            "threshold": 4,
+            "implied_prob": 77
+          },
+          {
+            "threshold": 5,
+            "implied_prob": 65
+          },
+          {
+            "threshold": 6,
+            "implied_prob": 47
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 35
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 7
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 5.83
+      },
+      "championship_ladder": {
+        "coherent": false,
+        "violations": [
+          {
+            "constraint": "super_bowl<=conference",
+            "lower_market": "super_bowl",
+            "lower_pct": 50,
+            "higher_market": "conference",
+            "higher_pct": 1,
+            "divergence_pct": 49
+          },
+          {
+            "constraint": "super_bowl<=make_playoffs",
+            "lower_market": "super_bowl",
+            "lower_pct": 50,
+            "higher_market": "make_playoffs",
+            "higher_pct": 6,
+            "divergence_pct": 44
+          }
+        ]
+      },
+      "max_divergence_pct": 49,
+      "softest_market": "super_bowl",
+      "edge_type": "math",
+      "contract_counts": {
+        "eligible_context": 18,
+        "actionable": 10,
+        "context_only": 8
+      }
+    },
+    {
+      "team": "ATL",
+      "team_nick": "Falcons",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 50,
+        "conference": 1,
+        "division": 6,
+        "make_playoffs": 12
+      },
+      "fair_american_by_market": {
+        "super_bowl": 100,
+        "conference": 9900,
+        "division": 1567,
+        "make_playoffs": 733
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 2,
+            "implied_prob": 92
+          },
+          {
+            "threshold": 3,
+            "implied_prob": 82
+          },
+          {
+            "threshold": 4,
+            "implied_prob": 74
+          },
+          {
+            "threshold": 5,
+            "implied_prob": 62
+          },
+          {
+            "threshold": 6,
+            "implied_prob": 48
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 34
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 23
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 7
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 6
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 5.86
+      },
+      "championship_ladder": {
+        "coherent": false,
+        "violations": [
+          {
+            "constraint": "super_bowl<=conference",
+            "lower_market": "super_bowl",
+            "lower_pct": 50,
+            "higher_market": "conference",
+            "higher_pct": 1,
+            "divergence_pct": 49
+          },
+          {
+            "constraint": "super_bowl<=make_playoffs",
+            "lower_market": "super_bowl",
+            "lower_pct": 50,
+            "higher_market": "make_playoffs",
+            "higher_pct": 12,
+            "divergence_pct": 38
+          }
+        ]
+      },
+      "max_divergence_pct": 49,
+      "softest_market": "super_bowl",
+      "edge_type": "math",
+      "contract_counts": {
+        "eligible_context": 20,
+        "actionable": 13,
+        "context_only": 7
+      }
+    },
+    {
+      "team": "MIA",
+      "team_nick": "Dolphins",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 50,
+        "conference": 50,
+        "division": 1,
+        "make_playoffs": 1
+      },
+      "fair_american_by_market": {
+        "super_bowl": 100,
+        "conference": 100,
+        "division": 9900,
+        "make_playoffs": 9900
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 1,
+            "implied_prob": 91
+          },
+          {
+            "threshold": 2,
+            "implied_prob": 76
+          },
+          {
+            "threshold": 3,
+            "implied_prob": 55
+          },
+          {
+            "threshold": 4,
+            "implied_prob": 35
+          },
+          {
+            "threshold": 5,
+            "implied_prob": 24
+          },
+          {
+            "threshold": 6,
+            "implied_prob": 14
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 8
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 3.25
+      },
+      "championship_ladder": {
+        "coherent": false,
+        "violations": [
+          {
+            "constraint": "conference<=make_playoffs",
+            "lower_market": "conference",
+            "lower_pct": 50,
+            "higher_market": "make_playoffs",
+            "higher_pct": 1,
+            "divergence_pct": 49
+          },
+          {
+            "constraint": "super_bowl<=make_playoffs",
+            "lower_market": "super_bowl",
+            "lower_pct": 50,
+            "higher_market": "make_playoffs",
+            "higher_pct": 1,
+            "divergence_pct": 49
+          }
+        ]
+      },
+      "max_divergence_pct": 49,
+      "softest_market": "conference",
+      "edge_type": "math",
+      "contract_counts": {
+        "eligible_context": 17,
+        "actionable": 11,
+        "context_only": 6
+      }
+    },
+    {
+      "team": "NYJ",
+      "team_nick": "Jets",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 50,
+        "conference": null,
+        "division": null,
+        "make_playoffs": 17
+      },
+      "fair_american_by_market": {
+        "super_bowl": 100,
+        "conference": null,
+        "division": null,
+        "make_playoffs": 488
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 5,
+            "implied_prob": 76
+          },
+          {
+            "threshold": 6,
+            "implied_prob": 63
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 51
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 43
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 7.13
+      },
+      "championship_ladder": {
+        "coherent": false,
+        "violations": [
+          {
+            "constraint": "super_bowl<=make_playoffs",
+            "lower_market": "super_bowl",
+            "lower_pct": 50,
+            "higher_market": "make_playoffs",
+            "higher_pct": 17,
+            "divergence_pct": 33
+          }
+        ]
+      },
+      "max_divergence_pct": 33,
+      "softest_market": "super_bowl",
+      "edge_type": "math",
+      "contract_counts": {
+        "eligible_context": 18,
+        "actionable": 6,
+        "context_only": 12
+      }
+    },
+    {
+      "team": "NO",
+      "team_nick": "Saints",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 1,
+        "conference": 4,
+        "division": 41,
+        "make_playoffs": 54
+      },
+      "fair_american_by_market": {
+        "super_bowl": 9900,
+        "conference": 2400,
+        "division": 144,
+        "make_playoffs": -117
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 5,
+            "implied_prob": 94
+          },
+          {
+            "threshold": 6,
+            "implied_prob": 91
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 79
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 69
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 57
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 48
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 57
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 11
+          }
+        ],
+        "monotonic": false,
+        "violations": [
+          {
+            "from": 10,
+            "to": 11,
+            "delta_pct": 9
+          }
+        ],
+        "implied_median_wins": 9.78
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 9,
+      "softest_market": "win_total_11",
+      "edge_type": "math",
+      "contract_counts": {
+        "eligible_context": 20,
+        "actionable": 13,
+        "context_only": 7
+      }
+    },
+    {
+      "team": "BAL",
+      "team_nick": "Ravens",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 6,
+        "conference": null,
+        "division": null,
+        "make_playoffs": null
+      },
+      "fair_american_by_market": {
+        "super_bowl": 1567,
+        "conference": null,
+        "division": null,
+        "make_playoffs": null
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 10,
+            "implied_prob": 70
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 57
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 41
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 11.44
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 24,
+        "actionable": 4,
+        "context_only": 20
+      }
+    },
+    {
+      "team": "BUF",
+      "team_nick": "Bills",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 12,
+        "conference": 21,
+        "division": 69,
+        "make_playoffs": 91
+      },
+      "fair_american_by_market": {
+        "super_bowl": 733,
+        "conference": 376,
+        "division": -223,
+        "make_playoffs": -1011
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 10,
+            "implied_prob": 85
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 62
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 45
+          },
+          {
+            "threshold": 17,
+            "implied_prob": 2
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 12.71
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 18,
+        "actionable": 8,
+        "context_only": 10
+      }
+    },
+    {
+      "team": "CAR",
+      "team_nick": "Panthers",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 1,
+        "conference": 2,
+        "division": null,
+        "make_playoffs": 35
+      },
+      "fair_american_by_market": {
+        "super_bowl": 9900,
+        "conference": 4900,
+        "division": null,
+        "make_playoffs": 186
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 6,
+            "implied_prob": 74
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 64
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 49
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 42
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 22
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 7.93
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 19,
+        "actionable": 9,
+        "context_only": 10
+      }
+    },
+    {
+      "team": "CHI",
+      "team_nick": "Bears",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 2,
+        "conference": 5.5,
+        "division": 21,
+        "make_playoffs": 39
+      },
+      "fair_american_by_market": {
+        "super_bowl": 4900,
+        "conference": 1718,
+        "division": 376,
+        "make_playoffs": 156
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 8,
+            "implied_prob": 67
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 58
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 40
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 18
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 12
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 9.44
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 21,
+        "actionable": 10,
+        "context_only": 11
+      }
+    },
+    {
+      "team": "CIN",
+      "team_nick": "Bengals",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 6,
+        "conference": 11,
+        "division": null,
+        "make_playoffs": 82
+      },
+      "fair_american_by_market": {
+        "super_bowl": 1567,
+        "conference": 809,
+        "division": null,
+        "make_playoffs": -456
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 10,
+            "implied_prob": 79
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 68
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 52
+          },
+          {
+            "threshold": 14,
+            "implied_prob": 26
+          },
+          {
+            "threshold": 15,
+            "implied_prob": 12
+          },
+          {
+            "threshold": 17,
+            "implied_prob": 2
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 12.15
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 19,
+        "actionable": 9,
+        "context_only": 10
+      }
+    },
+    {
+      "team": "CLE",
+      "team_nick": "Browns",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": null,
+        "conference": null,
+        "division": null,
+        "make_playoffs": 10
+      },
+      "fair_american_by_market": {
+        "super_bowl": null,
+        "conference": null,
+        "division": null,
+        "make_playoffs": 900
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 4,
+            "implied_prob": 80
+          },
+          {
+            "threshold": 5,
+            "implied_prob": 67
+          },
+          {
+            "threshold": 6,
+            "implied_prob": 51
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 36
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 25
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 15
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 6.07
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 16,
+        "actionable": 7,
+        "context_only": 9
+      }
+    },
+    {
+      "team": "DAL",
+      "team_nick": "Cowboys",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 3,
+        "conference": 7,
+        "division": null,
+        "make_playoffs": 48
+      },
+      "fair_american_by_market": {
+        "super_bowl": 3233,
+        "conference": 1329,
+        "division": null,
+        "make_playoffs": 108
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 7,
+            "implied_prob": 84
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 68
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 60
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 46
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 33
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 24
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 9
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 9.71
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 20,
+        "actionable": 10,
+        "context_only": 10
+      }
+    },
+    {
+      "team": "DEN",
+      "team_nick": "Broncos",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 4,
+        "conference": 7,
+        "division": null,
+        "make_playoffs": 58
+      },
+      "fair_american_by_market": {
+        "super_bowl": 2400,
+        "conference": 1329,
+        "division": null,
+        "make_playoffs": -138
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 5,
+            "implied_prob": 96
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 75
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 51
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 33
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 21
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 9
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 10.06
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 24,
+        "actionable": 9,
+        "context_only": 15
+      }
+    },
+    {
+      "team": "DET",
+      "team_nick": "Lions",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 3,
+        "conference": 5,
+        "division": 32,
+        "make_playoffs": 61
+      },
+      "fair_american_by_market": {
+        "super_bowl": 3233,
+        "conference": 1900,
+        "division": 212,
+        "make_playoffs": -156
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 11,
+            "implied_prob": 51
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 30
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 23
+          },
+          {
+            "threshold": 15,
+            "implied_prob": 4
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 11.05
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 21,
+        "actionable": 8,
+        "context_only": 13
+      }
+    },
+    {
+      "team": "GB",
+      "team_nick": "Packers",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 3,
+        "conference": 5,
+        "division": 19,
+        "make_playoffs": 40
+      },
+      "fair_american_by_market": {
+        "super_bowl": 3233,
+        "conference": 1900,
+        "division": 426,
+        "make_playoffs": 150
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 8,
+            "implied_prob": 71
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 52
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 42
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 29
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 9.2
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 21,
+        "actionable": 9,
+        "context_only": 12
+      }
+    },
+    {
+      "team": "HOU",
+      "team_nick": "Texans",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 2,
+        "conference": 6,
+        "division": 40,
+        "make_playoffs": 53
+      },
+      "fair_american_by_market": {
+        "super_bowl": 4900,
+        "conference": 1567,
+        "division": 150,
+        "make_playoffs": -113
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 8,
+            "implied_prob": 75
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 48
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 33
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 20
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 11
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 9.85
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 20,
+        "actionable": 10,
+        "context_only": 10
+      }
+    },
+    {
+      "team": "IND",
+      "team_nick": "Colts",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 1,
+        "conference": 2,
+        "division": 17,
+        "make_playoffs": 29
+      },
+      "fair_american_by_market": {
+        "super_bowl": 9900,
+        "conference": 4900,
+        "division": 488,
+        "make_playoffs": 245
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 6,
+            "implied_prob": 75
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 63
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 33
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 23
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 7.87
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 17,
+        "actionable": 8,
+        "context_only": 9
+      }
+    },
+    {
+      "team": "JAX",
+      "team_nick": "Jaguars",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 3,
+        "conference": null,
+        "division": 45,
+        "make_playoffs": 60
+      },
+      "fair_american_by_market": {
+        "super_bowl": 3233,
+        "conference": null,
+        "division": 122,
+        "make_playoffs": -150
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 10,
+            "implied_prob": 51
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 38
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 28
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 10.08
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 17,
+        "actionable": 6,
+        "context_only": 11
+      }
+    },
+    {
+      "team": "KC",
+      "team_nick": "Chiefs",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 8,
+        "conference": 17,
+        "division": 57,
+        "make_playoffs": 81
+      },
+      "fair_american_by_market": {
+        "super_bowl": 1150,
+        "conference": 488,
+        "division": -133,
+        "make_playoffs": -426
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 10,
+            "implied_prob": 75
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 49
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 33
+          },
+          {
+            "threshold": 14,
+            "implied_prob": 21
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 11.92
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 23,
+        "actionable": 9,
+        "context_only": 14
+      }
+    },
+    {
+      "team": "LAC",
+      "team_nick": "Chargers",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 1,
+        "conference": null,
+        "division": 6,
+        "make_playoffs": 22
+      },
+      "fair_american_by_market": {
+        "super_bowl": 9900,
+        "conference": null,
+        "division": 1567,
+        "make_playoffs": 355
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 3,
+            "implied_prob": 90
+          },
+          {
+            "threshold": 4,
+            "implied_prob": 84
+          },
+          {
+            "threshold": 5,
+            "implied_prob": 68
+          },
+          {
+            "threshold": 6,
+            "implied_prob": 65
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 53
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 35
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 26
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 14
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 9
+          },
+          {
+            "threshold": 14,
+            "implied_prob": 2
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 7.17
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 24,
+        "actionable": 13,
+        "context_only": 11
+      }
+    },
+    {
+      "team": "LAR",
+      "team_nick": "Rams",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 13,
+        "conference": 20,
+        "division": null,
+        "make_playoffs": 75
+      },
+      "fair_american_by_market": {
+        "super_bowl": 669,
+        "conference": 400,
+        "division": null,
+        "make_playoffs": -300
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 7,
+            "implied_prob": 95
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 74
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 65
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 60
+          },
+          {
+            "threshold": 14,
+            "implied_prob": 18
+          },
+          {
+            "threshold": 15,
+            "implied_prob": 7
+          },
+          {
+            "threshold": 16,
+            "implied_prob": 2
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 12.48
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 28,
+        "actionable": 10,
+        "context_only": 18
+      }
+    },
+    {
+      "team": "LV",
+      "team_nick": "Raiders",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 1,
+        "conference": null,
+        "division": 12,
+        "make_playoffs": 31
+      },
+      "fair_american_by_market": {
+        "super_bowl": 9900,
+        "conference": null,
+        "division": 733,
+        "make_playoffs": 223
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 4,
+            "implied_prob": 94
+          },
+          {
+            "threshold": 5,
+            "implied_prob": 86
+          },
+          {
+            "threshold": 6,
+            "implied_prob": 76
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 68
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 54
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 40
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 29
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 8.29
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 18,
+        "actionable": 10,
+        "context_only": 8
+      }
+    },
+    {
+      "team": "MIN",
+      "team_nick": "Vikings",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 3,
+        "conference": 6.5,
+        "division": 35,
+        "make_playoffs": 60
+      },
+      "fair_american_by_market": {
+        "super_bowl": 3233,
+        "conference": 1438,
+        "division": 186,
+        "make_playoffs": -150
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 8,
+            "implied_prob": 86
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 73
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 61
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 48
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 38
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 23
+          },
+          {
+            "threshold": 15,
+            "implied_prob": 12
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 10.85
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 21,
+        "actionable": 12,
+        "context_only": 9
+      }
+    },
+    {
+      "team": "NE",
+      "team_nick": "Patriots",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 4,
+        "conference": 9,
+        "division": 27,
+        "make_playoffs": 62
+      },
+      "fair_american_by_market": {
+        "super_bowl": 2400,
+        "conference": 1011,
+        "division": 270,
+        "make_playoffs": -163
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 10,
+            "implied_prob": 52
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 36
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 24
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 10.13
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 19,
+        "actionable": 7,
+        "context_only": 12
+      }
+    },
+    {
+      "team": "NYG",
+      "team_nick": "Giants",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 1,
+        "conference": 1,
+        "division": 8,
+        "make_playoffs": 17
+      },
+      "fair_american_by_market": {
+        "super_bowl": 9900,
+        "conference": 9900,
+        "division": 1150,
+        "make_playoffs": 488
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 7,
+            "implied_prob": 42
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 34
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 17
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 13
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 1
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": null
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 23,
+        "actionable": 10,
+        "context_only": 13
+      }
+    },
+    {
+      "team": "PHI",
+      "team_nick": "Eagles",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 5,
+        "conference": 12,
+        "division": 60,
+        "make_playoffs": 77
+      },
+      "fair_american_by_market": {
+        "super_bowl": 1900,
+        "conference": 733,
+        "division": -150,
+        "make_playoffs": -335
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 11,
+            "implied_prob": 57
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 39
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 29
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 11.39
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 20,
+        "actionable": 7,
+        "context_only": 13
+      }
+    },
+    {
+      "team": "PIT",
+      "team_nick": "Steelers",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": null,
+        "conference": null,
+        "division": null,
+        "make_playoffs": 26
+      },
+      "fair_american_by_market": {
+        "super_bowl": null,
+        "conference": null,
+        "division": null,
+        "make_playoffs": 285
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 4,
+            "implied_prob": 95
+          },
+          {
+            "threshold": 6,
+            "implied_prob": 76
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 67
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 47
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 39
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 29
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 10
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 7
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 7.85
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 16,
+        "actionable": 9,
+        "context_only": 7
+      }
+    },
+    {
+      "team": "SEA",
+      "team_nick": "Seahawks",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 9,
+        "conference": 14,
+        "division": 34,
+        "make_playoffs": 75
+      },
+      "fair_american_by_market": {
+        "super_bowl": 1011,
+        "conference": 614,
+        "division": 194,
+        "make_playoffs": -300
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 8,
+            "implied_prob": 97
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 83
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 75
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 66
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 53
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 39
+          },
+          {
+            "threshold": 14,
+            "implied_prob": 28
+          },
+          {
+            "threshold": 16,
+            "implied_prob": 5
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 12.21
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 20,
+        "actionable": 13,
+        "context_only": 7
+      }
+    },
+    {
+      "team": "SF",
+      "team_nick": "49ers",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 8,
+        "conference": 16,
+        "division": 35,
+        "make_playoffs": 78
+      },
+      "fair_american_by_market": {
+        "super_bowl": 1150,
+        "conference": 525,
+        "division": 186,
+        "make_playoffs": -355
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 10,
+            "implied_prob": 76
+          },
+          {
+            "threshold": 11,
+            "implied_prob": 67
+          },
+          {
+            "threshold": 12,
+            "implied_prob": 52
+          },
+          {
+            "threshold": 13,
+            "implied_prob": 35
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 12.12
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 20,
+        "actionable": 9,
+        "context_only": 11
+      }
+    },
+    {
+      "team": "TB",
+      "team_nick": "Buccaneers",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": 1,
+        "conference": 2,
+        "division": 27,
+        "make_playoffs": 27
+      },
+      "fair_american_by_market": {
+        "super_bowl": 9900,
+        "conference": 4900,
+        "division": 270,
+        "make_playoffs": 270
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 7,
+            "implied_prob": 57
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 29
+          },
+          {
+            "threshold": 10,
+            "implied_prob": 21
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 7.5
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 19,
+        "actionable": 8,
+        "context_only": 11
+      }
+    },
+    {
+      "team": "TEN",
+      "team_nick": "Titans",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": null,
+        "conference": null,
+        "division": 2,
+        "make_playoffs": 3
+      },
+      "fair_american_by_market": {
+        "super_bowl": null,
+        "conference": null,
+        "division": 4900,
+        "make_playoffs": 3233
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 5,
+            "implied_prob": 45
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 18
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 11
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 8
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": null
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 18,
+        "actionable": 6,
+        "context_only": 12
+      }
+    },
+    {
+      "team": "WAS",
+      "team_nick": "Commanders",
+      "coherence_basis": "actionable_coherence_contracts_only",
+      "implied_win_pct_by_market": {
+        "super_bowl": null,
+        "conference": 1.5,
+        "division": 5,
+        "make_playoffs": 10
+      },
+      "fair_american_by_market": {
+        "super_bowl": null,
+        "conference": 6567,
+        "division": 1900,
+        "make_playoffs": 900
+      },
+      "win_total_ladder": {
+        "points": [
+          {
+            "threshold": 4,
+            "implied_prob": 82
+          },
+          {
+            "threshold": 6,
+            "implied_prob": 54
+          },
+          {
+            "threshold": 7,
+            "implied_prob": 40
+          },
+          {
+            "threshold": 8,
+            "implied_prob": 33
+          },
+          {
+            "threshold": 9,
+            "implied_prob": 13
+          }
+        ],
+        "monotonic": true,
+        "violations": [],
+        "implied_median_wins": 6.29
+      },
+      "championship_ladder": {
+        "coherent": true,
+        "violations": []
+      },
+      "max_divergence_pct": 0,
+      "softest_market": null,
+      "edge_type": null,
+      "contract_counts": {
+        "eligible_context": 18,
+        "actionable": 9,
+        "context_only": 9
+      }
+    }
+  ]
+}

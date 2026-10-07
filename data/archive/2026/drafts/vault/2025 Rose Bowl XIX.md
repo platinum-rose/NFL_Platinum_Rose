@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "Rose Bowl XIX draft 2025"
-created: "2026-10-06T05:59:42.829Z"
-modified: "2026-10-06T05:59:42.829Z"
+created: "2026-10-06T14:10:38.234Z"
+modified: "2026-10-06T14:10:38.234Z"
 season: 2025
 type: "fantasy-draft"
 league: "Rose Bowl XIX"

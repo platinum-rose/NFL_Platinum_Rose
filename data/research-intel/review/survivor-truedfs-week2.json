@@ -1,0 +1,55 @@
+{
+  "show": "TrueDFS",
+  "title": "NFL Survivor Pool Analysis with Sheets and Brave Jayhawk",
+  "video_url": "https://www.youtube.com/watch?v=CFSaUMy21k8",
+  "hosts": [
+    "Sheets",
+    "Brave Jayhawk"
+  ],
+  "week": 2,
+  "season": 2026,
+  "canonical_schedule_alignment": "data/research-intel/review/survivor-schedule-evaluated-week2.json",
+  "historical_broadcast_note": "The raw podcast audio analyzed historical 2024 Week 1-2 examples (Bengals upset, LAC@CAR, BAL vs LV). Canonical 2026 matchups are evaluated in survivor-schedule-evaluated-week2.json.",
+  "top_survivor_picks": [
+    {
+      "team": "LAC",
+      "host": "Both",
+      "pick_tier": "leverage_pivot",
+      "rationale": "Perfect 'burn' team with minimal future value facing a highly vulnerable Carolina Panthers squad. Maximizes portfolio EV by preserving elite options.",
+      "timestamp_seconds": 168
+    },
+    {
+      "team": "BAL",
+      "host": "Sheets",
+      "pick_tier": "secondary",
+      "rationale": "Used strictly as a safety hedge across a diversified multi-entry portfolio due to extremely high future value.",
+      "timestamp_seconds": 178
+    }
+  ],
+  "future_value_saves": [
+    {
+      "team": "BAL",
+      "target_future_weeks": [
+        5,
+        11,
+        15
+      ],
+      "reason_to_save": "Elite home matchups later in the season when viable survivor options become extremely scarce."
+    },
+    {
+      "team": "PHI",
+      "target_future_weeks": [
+        6,
+        12
+      ],
+      "reason_to_save": "Premium team that escaped a close game in Week 1; needs to be held until divisional matchups clarify."
+    }
+  ],
+  "trap_teams_to_avoid": [
+    {
+      "team": "BAL",
+      "opponent": "LV",
+      "risk_factors": "Extremely high public ownership (over 50% in many pools) creates a negative expected value situation if they are shocked by the Raiders, whereas saving them offers massive future leverage."
+    }
+  ]
+}

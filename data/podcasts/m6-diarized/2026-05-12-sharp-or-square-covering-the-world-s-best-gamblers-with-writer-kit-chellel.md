@@ -8,25 +8,24 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 41768
 Speaker turns: 72
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Guest (Speaker C), Guest (Speaker D), Simon Hunter (Speaker E)
+Speaker labels: Chad Millman (Speaker B), Guest (Speaker C), Simon Hunter (Speaker E)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Guest
-- Speaker D: Guest
 - Speaker E: Simon Hunter
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker D: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - None
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -44,10 +43,6 @@ go downtown and tell a receptionist I'm here to talk about my downtown. Some thi
 
 There's no question too embarrassing for Amazon Health AI.
 
-### Guest (Speaker D) [0:56-0:58]
-
-Chat your symptoms and get virtual care 24.
-
 ### Guest (Speaker C) [0:58-1:01]
 
 7 Healthcare just got less painful.
@@ -55,10 +50,6 @@ Chat your symptoms and get virtual care 24.
 ### Chad Millman (Speaker B) [1:02-1:38]
 
 This is Tab Ramos from inside American Soccer. And this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass this is Daniel
-
-### Guest (Speaker D) [1:38-2:13]
-
-Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. Power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's just as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts. Now that's a total power move. Make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless store. Additional terms apply. See totalwireless.com for details.
 
 ### Chad Millman (Speaker B) [2:14-2:37]
 
@@ -140,10 +131,6 @@ I think part of it is that these, when you're really good at this, you don't tal
 
 I want to talk about the book. Just give us one sec to get to the other side of the break and take a second to hear some words from Hard Rock bet. Today's show is brought to you by our presenting sponsor, Hard Rock Bet, Florida's sportsbook the second round of the NBA playoffs is here, and with Win or Go Home energy on the hardwood, same game parlays are a great way to stack picks built especially for the playoff action. If you're ever late to tip off, don't worry. Hard Rock Bet lets you live bet all game long, from the first bucket to the final buzzer. Try your first bet on Hard Rock Bet today and you can score $150 in bonus bets. If you win, just place a $5 bet and if it hits, you get not only your winnings, but also an extra hundred and fifty dollars in bonus bets. Hard Rock Bet has new promos daily, so open up the app right now to see what promo you've got today. And sure, Hard Rock Bet is Florida's only legal sportsbook, but you don't have to be in Florida to join the party. Hard Rock Bet is also live in Arizona, Ohio, New Jersey, Indiana, Tennessee, Virginia, Illinois, Colorado and Michigan, with more states on the way. Download the Hard Rock Bet app today and let's get the party started. Payable in bonus bets. Not a cash offer offered by the Seminole Tribe of Florida in Florida. Offered by Seminole hard Rock Digital LLC in all other states. Must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play, terms and conditions apply. Concerned about gambling in Florida? Call 1833 playwise in Indiana, if you or someone you know has a gambling problem and wants help, call 1-800-with it. In Ohio, call 1-800-my reset gambling problem, call 1-800- gambler in Arizona, Colorado, Illinois, Michigan, New Jersey, Tennessee or Virginia. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's Wix
 
-### Guest (Speaker D) [16:42-16:43]
-
-Amazon
-
 ### Guest (Speaker C) [16:43-16:53]
 
 Health AI presents Painful Thoughts I I can't stop scratching my downtown. Mm, yeah, but I'm not itching to
@@ -155,14 +142,6 @@ go downtown and tell a receptionist I'm here to talk about my downtown.
 ### Guest (Speaker C) [16:58-17:11]
 
 Some things you'd rather type than say out loud. There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
-
-### Guest (Speaker A) [17:13-18:39]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
-
-### Guest (Speaker D) [18:39-19:38]
-
-visit zepbound.lily.com this is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. All UFC fighters know power doesn't wait in the Octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in on all the action, from the walkouts to knockouts. You'll never miss a moment. That's coverage that you can count on for every single round. So when the moment happens, you're not catching up. You're already there. Now that that's a total power move. In the ufc, power isn't given, it's taken. So make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wallet store. 5G access requires a 5G capable device in a 5G service area. Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan. Additional terms apply. See website for details.
 
 ### Chad Millman (Speaker B) [19:38-20:39]
 
@@ -292,22 +271,10 @@ Yeah, just saying it's the lottery. I say it all the time. There's so much stuff
 
 Kit so Bloomberg the book is Lucky Devils everyone go buy. If you're listening to the show, there's no reason you shouldn't be buying this book. It's exactly what you want to read about, especially while we're waiting for football to come back. But great, great book. Lucky Devils kids. Shalel Bloomberg this has been Sharper Square part of the Volume Podcast Network. Watch or listen on YouTube at Sharper Square. Like this video. Subscribe to the channel. Download us from Spotify, Apple pods, wherever you get your pods. Rate Review. Subscribe. Leave us. Five stars. Say whatever you want. Feedback is a gift. Till next time. Love you.
 
-### Guest (Speaker D) [41:52-41:56]
-
-Last week was last week. This week was this week. Next week will be next week.
-
 ### Chad Millman (Speaker B) [42:01-42:29]
 
 I'm U.S. transportation Secretary Sean Duffy. We all get distracted when we drive, whether it's from our phones or kids in the backseat bickering. But how we handle these distractions can be a matter of life or death. Before you get on the road for your next road trip, please put your phones on silent and take a mental note to focus on driving. Paid for by NHTSA.
 
-### Guest (Speaker A) [42:31-43:31]
-
-Maintenance Fee Overdraft Fee Minimum balance Fee Maximum Balance fee Banking fees are just a part of modern life. Or are they? They're not at Ally Bank. At Ally bank, there are no tricks, no hidden fine print or jumping through hoops for better rates. They just want to help you save automatically while you spend with spending accounts and savings tools with great rates. No tricks, no hidden fees. Banking built for life today. Learn more@ally.com Ally bank member FDIC when you're a maintenance engineer in a beverage manufacturing plant, you keep production lines moving and quality on track because there is no room for slowdowns. With Grainger's vast selection of high quality motors, sensors, belts and hard to find parts. You can get what you need fast and all in one place, so nothing gets in the way of getting the job done. Call 1-800-GRAINGER clickranger.com or just stop by Grainger for the ones who get it done.
-
 ### Guest (Speaker C) [43:34-44:02]
 
 Whether it's help with hormone therapy, weight management or sexual health, every woman should have access to affordable prescription medication and personalized care that understands the whole woman. Join me Dr. Doug Lucas, clinical Lead of Hormone Optimization and longevity at LifeMD, along with other leading experts on the podcast. Here's something good on women's health and longevity. To learn more, go to lifemd.com iheart
-
-### Guest (Speaker A) [44:03-44:06]
-
-this is an iheart podcast. Guaranteed human.

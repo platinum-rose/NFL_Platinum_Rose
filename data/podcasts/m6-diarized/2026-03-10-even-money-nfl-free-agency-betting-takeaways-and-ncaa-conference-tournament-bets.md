@@ -15,10 +15,14 @@ Speaker labels: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 - Speaker A: Ross Tucker
 - Speaker B: Steve Fezzik
 
+## Ignored Audio
+
+- None classified as ad/commercial only.
+
 ## Existing Host Summary Rows
 
-- Steve Fezzik (gpt-4o, host_map) futures=2
-- Guest (gpt-4o, unknown) futures=1
+- Steve Fezzik (gpt-4o, host_map) futures=3
+- Ross Tucker (gpt-4o, host_map) futures=2
 
 ## Diarized Turns
 

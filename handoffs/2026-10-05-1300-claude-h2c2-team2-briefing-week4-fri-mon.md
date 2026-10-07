@@ -29,19 +29,19 @@
 
 ---
 
-## 1. Read these first (in order)
+## 1. Start here, then load by lane
 
-| # | File | Why |
-|---|---|---|
-| 1 | this file | Orientation, open items, rules |
-| 2 | `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/README.md` | Snapshot index; points to the manifest, commit list, ticket ledger and chain digest |
-| 3 | `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/handoff-chain-digest.md` | A ~6,000-word digest of all 26 handoffs in the window. Per-workstream state, every command, every path, and 25 contradictions found across the docs. Read §2 and §7 at minimum. |
-| 4 | `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/week4-ticket-ledger.md` | Every Week 4 ticket (24 real, 11 paper) with result and P/L |
-| 5 | `CLAUDE.md`, `AGENTS.md`, `docs/ANTI_PATTERNS.md` (→ Betting Rules & Card Building) | Repo-wide rules |
-| 6 | `agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md` (§5 data rules 1–7, §7.2 standing rules) | **The only betting rules.** Playbook "proposal" bullets are not rules unless Andy confirms them. |
-| 7 | `docs/NFL_WEEKLY_CARD_PROCESS.md`, `docs/BETTING_LESSONS_LEARNED.md` | Card slot templates (1–9) and lessons learned |
-| 8 | `docs/MASTER_INTEL_REPORT_RUNBOOK.md`, `docs/MASTER_INTEL_REPORT_FORMAT.md` | How the weekly report is built and what is locked |
-| 9 | The newest handoffs: `handoffs/2026-10-05-1235-…`, `2026-10-04-1054-…`, `2026-10-04-0300-…`, `2026-10-03-2045-…`, `2026-10-02-2145-…` | Primary sources for this period |
+1. Read `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/H2C2_START_HERE.md`.
+2. Reconcile live Git. The snapshot is a point-in-time record; live Git wins if it differs.
+3. Select one active lane and read only its named sections and source artifacts.
+
+This briefing is the detailed packet. The snapshot README, file manifest, chain digest,
+ticket ledger, prior handoffs, and unrelated lanes are recovery/audit material. Load them
+only when the selected lane needs history, a source record, or contradiction resolution.
+
+For weekly card or Master Intel work, `agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md`
+§5 and §7.2 remain the only betting rules. Read the report runbook/format only when
+building the report.
 
 ---
 
@@ -405,13 +405,11 @@ The digest's §7 lists 25 contradictions. The ones that matter most:
 ## 9. Resume prompt for Claude Team 2
 
 ```
-You are Claude Team 2 taking over NFL_Dashboard ("Platinum Rose") from the Cowork team that ran Week 4 (Fri 10/02 → Mon 10/05). Work in E:\dev\projects\NFL_Dashboard via device_bash ($HOME/mnt/dev/projects/NFL_Dashboard). Read, in order: handoffs/2026-10-05-1300-claude-h2c2-team2-briefing-week4-fri-mon.md (this briefing, end to end); reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/README.md, handoff-chain-digest.md (§2, §4, §7) and week4-ticket-ledger.md; then CLAUDE.md, AGENTS.md, docs/ANTI_PATTERNS.md and agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md §5/§7.2 (the only betting rules). Confirm git: main @ 6887ca8 or later, equal to origin. Commit only through a temp GIT_INDEX_FILE (read-tree HEAD → add explicit paths → write-tree → commit-tree → update-ref → push); never git add -A, reset, clean or stash; the real .git/index is stale.
+You are Claude Team 2 taking over NFL_Dashboard ("Platinum Rose") from the Cowork team that ran Week 4 (Fri 10/02 → Mon 10/05). Work in E:\dev\projects\NFL_Dashboard via device_bash ($HOME/mnt/dev/projects/NFL_Dashboard).
 
-Guardrails: read-only on sportsbooks, no bet placement, no TheOddsAPI, no Supabase writes or game_odds_snapshots pricing without Andy's per-action OK; ledgers change only to record what Andy reports; run the roster gate (python3 scripts/nfl-rosters/roster_vet.py --week <N> --date <capture-date> --fetch --strict --card <file>) before presenting any card; never fix names from memory.
+Start with `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/H2C2_START_HERE.md`, then run `git status -sb`, `git branch --show-current`, and `git log -5 --oneline`. Live Git beats the packet. Select one lane and load only its named H2C2 briefing sections and artifacts. Use the snapshot manifest, detailed chain digest, ticket ledger, and older handoffs only to resolve a contradiction, recover missing context, or audit a result.
 
-Step 0 (tonight): MNF ATL @ NO 5:15 PT. Log any tickets Andy sends, regenerate the desktop and phone trackers (republish https://claude.ai/artifact/R4qQo7h1ds6hjyXmkvZr22), settle from ESPN after the final, and grade pick'em (node scripts/pickem-grade.mjs --week 4).
-Step 1: briefing §6a items 3–4. The NE +7 free bet is already recorded; the unused Bills credit goes on BUF@LAR. Log the $4.83 reloads and give a best-price BUF SB recommendation from a fresh read-only capture. Capture the missing Week 5 games when Andy pastes them, and fix the CHI@GB 10:00 PT note.
-Step 2: §6b Week 4 close-out analysis, with Andy: grade the 11 AI paper tickets, then fill the Week 4 recommendation-ledger section from them (paper = proposed vs Andy's placed tickets; repo copy first, then mirror to the claude.ai project), and write the end-of-week Week 4 analysis.
-Step 3: Week 5 Master Intel cadence per docs/MASTER_INTEL_REPORT_RUNBOOK.md (no wagering synthesis until intel is complete; Action Network openers as the baseline; add coaching trends starting Week 5). Ask Andy which artifact is canonical for the client report.
-Finish every session with a dated handoff in handoffs/ and an update to HANDOFF.md "Current Pick Up Here". For a cross-team handoff, use the H2C2 skill.
+Guardrails: read-only on sportsbooks; no bet placement, TheOddsAPI calls, Supabase writes, or `game_odds_snapshots` pricing without Andy's per-action OK. Ledger changes only record what Andy reports. Never broad-stage, reset, clean, or stash; use the documented temporary index only when a scoped commit is authorized. Run the roster gate before presenting a card; never repair player identity from memory.
+
+Prioritize the lane Andy assigns: MNF live tracking/settlement, Week 5 lines and promos, Week 4 close-out analysis, or Week 5 Master Intel. For a card or Master Intel build, load `agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md` §5/§7.2 and the report runbook only after choosing that lane. Finish each session with a dated standard handoff and a short root pointer. Use the `h2c2` skill only for another zero-context cross-team transfer.
 ```

@@ -1,6 +1,6 @@
 # H2C2 snapshot: Week 4, Fri 10/02 → Mon 10/05/2026
 
-This is the support folder for the cross-team briefing **`handoffs/2026-10-05-1300-claude-h2c2-team2-briefing-week4-fri-mon.md`**. Read that briefing first.
+This is the support folder for the cross-team briefing **`handoffs/2026-10-05-1300-claude-h2c2-team2-briefing-week4-fri-mon.md`**. Start with `H2C2_START_HERE.md`; it routes the incoming team to only the materials needed for its active lane.
 
 Built Mon 10/05 ~13:10 PT. Repo HEAD at the time: `6887ca8`.
 
@@ -14,6 +14,7 @@ Built Mon 10/05 ~13:10 PT. Repo HEAD at the time: `6887ca8`.
 
 | File | What it is |
 |---|---|
+| `H2C2_START_HERE.md` | Required entry brief: live-Git check, guardrails, active lanes, stop conditions, and lane-to-artifact routing. |
 | `handoff-chain-digest.md` | A digest of all 26 handoffs in the window: timeline, workstreams, Andy's decisions, open items, every path, guardrails, and 25 contradictions. Its header lists the corrections the briefing applies. |
 | `week4-ticket-ledger.md` | Every Week 4 ticket (24 real, 11 paper) with stake, odds, result and P/L, generated from the wagers ledger. |
 | `commits.md` | The 64 commits in the window, oldest first, in PT. |

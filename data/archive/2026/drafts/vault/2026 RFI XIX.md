@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "RFI XIX draft 2026"
-created: "2026-10-06T05:59:42.784Z"
-modified: "2026-10-06T05:59:42.784Z"
+created: "2026-10-06T14:10:38.054Z"
+modified: "2026-10-06T14:10:38.054Z"
 season: 2026
 type: "fantasy-draft"
 league: "RFI XIX"

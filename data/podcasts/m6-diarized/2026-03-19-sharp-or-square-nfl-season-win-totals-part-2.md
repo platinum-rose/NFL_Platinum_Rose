@@ -8,23 +8,22 @@ Audio: https://podtrac.com/pts/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 61833
 Speaker turns: 163
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Guest (gpt-4o, unknown) futures=29
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -34,17 +33,9 @@ If you've been sitting on a business idea for a while, consider this the sign to
 
 presents painful thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores
 
-### Guest (Speaker A) [0:47-0:48]
-
-in various stages of ooze.
-
 ### Simon Hunter (Speaker C) [0:50-1:02]
 
 I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker A) [1:03-2:29]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
 
 ### Chad Millman (Speaker B) [2:29-3:27]
 
@@ -290,25 +281,13 @@ I'm taking the under. I get why you're taking the over though, but to me I think
 
 all right, before we get to the eight and a halfs and over, let's take a quick break from our friends at Hard Rock bet. Today's show is brought to you by our presenting sponsor, Hard Rock BET Florida Sportsbook. It's tourney time and my favorite thing to do this time of year is to fill out my bracket. So join me in the volume Bracket contest presented by Hard Rock Bat the grand prize winner Scores of two night stay at the guitar our hotel at Seminole Hard Rock Hotel and casino in Hollywood, Florida plus $1,000 in bonus bets to use on the Hard Rock Bet app. All you have to do is head to bracket.thevolume.com and fill out your bracket. That's bracket.the volume.com to make your picks. Once your bracket is locked in, it's time to hit the hardwood on the Hard Rock Bet app. All tournament long. Hard Rock Bet is rolling out out daily dancing boosts featuring a live profit boost and a parlay profit boost every single day. That's more ways to shoot your shot and cash in with boosted odds. Plus, Hard Rock Bet is giving out $25 bonus bets throughout the tournament if a team you bet to win or cover hits a buzzer beater. If you haven't joined Hard Rock Bet yet, now is the time to check in the game. New signups can double their winnings on their first 10 bets max 50 bucks. That means if you would have won a hundred dollars on your bet, now it's 200. That's how you start March hot. Don't Sit on the bench. Download the Hard Rock Bet app today and let's get the party started. Offered by the Seminole Tribe of Florida in Florida. Offered by Seminole Hard Rock Digital LLC in all other states. Must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play. Terms and conditions apply. Concerned about gambling in Florida? Call 1833 playwise in Indiana. If you or someone you know has a gambling problem and wants help, call 1-809 with it in Ohio, call 1-800-my reset gambling problem, call 1-800- gambler in Arizona, Colorado, Illinois, Michigan, New Jersey, Tennessee and Virginia. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com. that's wix.com Are you looking for support
 
-### Guest (Speaker A) [29:45-31:10]
-
-in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia and if you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
-
 ### Simon Hunter (Speaker C) [31:10-31:27]
 
 visit zepbound.lilly.com Amazon Health AI presents painful thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic source
 
-### Guest (Speaker A) [31:27-31:29]
-
-in various stages of ooze.
-
 ### Simon Hunter (Speaker C) [31:31-31:47]
 
 I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful. Awkward time to ask this, but hey, did you download the trail map?
-
-### Guest (Speaker A) [31:48-31:49]
-
-Yeah, no, I don't need to.
 
 ### Chad Millman (Speaker B) [31:49-31:50]
 
@@ -322,17 +301,9 @@ You're trusting your signal out here?
 
 I'm trusting T Mobile.
 
-### Guest (Speaker A) [31:53-31:54]
-
-They have the best network.
-
 ### Chad Millman (Speaker B) [31:54-31:58]
 
 And if we end up in bumtots nowhere, well, we've got T Satellite for backup.
-
-### Guest (Speaker A) [31:58-31:58]
-
-Whoa.
 
 ### Simon Hunter (Speaker C) [31:58-32:00]
 
@@ -369,10 +340,6 @@ Yes.
 ### Simon Hunter (Speaker C) [33:37-35:22]
 
 And, and Dak was good man. Like a lot of really good. He kept them in it. Like he really. We talked about coming the year. I, I couldn't go over how much I love the Pickens signing where he fit perfectly what Dak wants to do which is pushing the ball downfield and running curl routes. He's really good at it. Like those sideline catches. Pickens lived up to the hype and they handled that right to me they didn't give him a long term deal. They signed him to a one year franchise tag deal. So once again he'll be on his best behavior Spickens. So I like that move a lot from Jerry. Shockingly smart move from Jerry there. And you know CD just like last year, I know he had those horrible drops in that one game but overall he's what a top five receiver. So I, I think agreement. We don't really question the offense did these offseason moves they've made to attack the defense. Is this going to fix this defense? So that's, that's the question. The pros think it is. They're, they're hammering this over. I, I'll wait and see if this gets to nine and a half. I'm happy to take the under on -140 whatever that gets to rather than taking this over just because once again if Washington is a little bit better that's gonna be really tough for them this division because the Giants, you know as much as I think they're going to regress if Dart's healthier in the year, he could easily steal a win from this Cowboys team. I mean people forget Russell Wilson. What do you have 40 points against the Cowboys team last year and Dax stole it with Aubrey field goal in the last second from 65 yards. Like they almost lost the Giants last year. So I think we're in agreement. We, we obviously believe this Cowboys team but that, that's probably one of the lower win totals they've had. I think last year they opened at eight And a half. It might have dropped to seven and a half by the start of the season. I think they landed right on eight. So the books, they've been pretty dialed in here on this Cowboys team.
-
-### Guest (Speaker A) [35:22-35:23]
-
-So.
 
 ### Simon Hunter (Speaker C) [35:23-35:25]
 
@@ -445,10 +412,6 @@ Yeah. So to me like this and the Giants, these are two unders I've been betting 
 ### Chad Millman (Speaker B) [38:54-39:33]
 
 Bizarre line with the sportsbook Minnesota we talked about. Pitt is at eight and a half taking the under on Pittsburgh. I don't know who the quarterback's going to be. I feel like they're revamping their culture. They aren't leaning into players they develop. They're bringing in new guys. Their defense with Watt and everybody else is J. And Hayward is just a year older, not necessarily better. They haven't figured out what their defensive backfield issues are like. This feels like a respect the uniform number. I'm taking the under.
-
-### Guest (Speaker A) [39:34-39:34]
-
-Yeah.
 
 ### Simon Hunter (Speaker C) [39:34-39:41]
 
@@ -546,17 +509,9 @@ His first wealthy NFL went to Super Bowl. So it's like I got. I understand why p
 
 Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced WIX Harmony, a vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com. that's wix.com Are you looking for support
 
-### Guest (Speaker A) [48:46-50:13]
-
-in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound Lilly.com
-
 ### Simon Hunter (Speaker C) [50:15-50:29]
 
 Amazon Health AI presents Painful Thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic source
-
-### Guest (Speaker A) [50:29-50:31]
-
-in various stages of ooze.
 
 ### Simon Hunter (Speaker C) [50:32-50:47]
 
@@ -565,10 +520,6 @@ I can clear my search history, but I can never unsee that. Don't go down the rab
 ### Chad Millman (Speaker B) [50:47-50:49]
 
 did you download the trail map? Yeah.
-
-### Guest (Speaker A) [50:49-50:51]
-
-No, I don't need to.
 
 ### Chad Millman (Speaker B) [50:51-50:52]
 
@@ -581,10 +532,6 @@ You're trusting your signal out here?
 ### Chad Millman (Speaker B) [50:53-50:54]
 
 I'm trusting T Mobile.
-
-### Guest (Speaker A) [50:54-50:56]
-
-They have the best network.
 
 ### Chad Millman (Speaker B) [50:56-51:00]
 
@@ -669,7 +616,3 @@ Hello.
 ### Chad Millman (Speaker B) [1:00:03-1:01:18]
 
 You play to win the game. You don't play to just play it. I'm U.S. transportation Secretary Sean Duffy. The sound of a seatbelt. It's one of the most important sounds in our car. It means everyone is ready and everyone is. The more our kids see us put on our seatbelts, the more natural it is for them to put theirs on too. Make it a priority. Buckle up every time. Hear the sound. Make it a habit. Paid for by nhtsa. This is Tab Ramos from Inside American Soccer. And this summer, topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group. Exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass, which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass maintenance fee overdraft
-
-### Guest (Speaker A) [1:01:18-1:02:22]
-
-Fee Minimum Balance Fee Maximum Balance Fee Banking fees are just a part of modern life. Or are they? They're not at Ally Bank. At Ally bank, there are no tricks, no hidden fine print or jumping through hoops for better rates. They just want to help you save automatically while you spend with spending accounts and savings tools with great rates. No tricks, no hidden fees. Banking built for life today. Learn more@ally.com, ally bank member FDIC when you're a maintenance engineer in a beverage manufacturing plant, you keep production lines moving and quality on track because there is no room for slowdowns. With Grainger's vast selection of high quality motors, sensors, belts and hard to find parts, you can get what you need fast and all in one place so nothing gets in the way of getting the job done. Call 1-800-GRAINGER clickranger.com or just stop by Granger for the ones who get it done. This is an iHeart podcast. Guaranteed Human.

@@ -8,16 +8,19 @@ Audio: https://podtrac.com/pts/redirect.mp3/traffic.omny.fm/d/clips/e73c998e-6e6
 
 Transcript chars: 49171
 Speaker turns: 69
-Speaker labels: Evan Abrams (Speaker A), Guest (Speaker B), Guest (Speaker C), Guest (Speaker D), Guest (Speaker E), Guest (Speaker F)
+Speaker labels: Evan Abrams (Speaker A), Guest (Speaker C), Guest (Speaker E), Guest (Speaker F)
 
 ## Speaker Map
 
 - Speaker A: Evan Abrams
-- Speaker B: Guest
 - Speaker C: Guest
-- Speaker D: Guest
 - Speaker E: Guest
 - Speaker F: Guest
+
+## Ignored Audio
+
+- Speaker B: ad/commercial audio ignored
+- Speaker D: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -29,25 +32,9 @@ Speaker labels: Evan Abrams (Speaker A), Guest (Speaker B), Guest (Speaker C), G
 
 This is Tab Ramos from Inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass, which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Amazon Health AI
 
-### Guest (Speaker B) [0:36-0:40]
-
-presents Painful Thoughts why did I search
-
 ### Guest (Speaker C) [0:40-0:45]
 
 the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole
-
-### Guest (Speaker D) [0:45-0:56]
-
-filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
-
-### Guest (Speaker B) [0:57-1:35]
-
-Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful. A burst pipe? A dead water heater. The AC calling it quits. Who do you call? Homeserve is an easy way to handle unexpected home repairs with plans covering stuff basic homeowners insurance usually won't. Instead of scrambling for a contractor, you make one call to get the repair process. Join the millions of customers who trust HomeServe right now. Go to HomeServe.com podcast for 50% less your first year. That's HomeServe.com podcast savings compared to renewal price void in Florida Bite into a
-
-### Guest (Speaker D) [1:35-2:24]
-
-stacked sandwich made with Hero Bread and the only thing you'll think is delicious. You won't think it has up to 19 grams protein, 11 to 32 grams of fiber, or just 0 to 5 grams net carbs. But it does. Kero bread. No compromises. Just loaves, buns, tortillas, bagels and noodles packed with flavor. Right now. Get 10% off at Hero Co with code iheart. That's H E R O C O code iheart. All figures per serving of Herobread. See Nutrition Facts on Hero Co. There's a fire inside you you can't ignore. Stand still. Not a chance. You're a lifelong learner who's come this far. Now we are here to help you keep going further. Capella University what can't you do? Visit capella.edu to learn more. The Action Network Podcast Better than most.
 
 ### Guest (Speaker C) [2:24-2:25]
 
@@ -57,17 +44,9 @@ Better than most.
 
 Better than most.
 
-### Guest (Speaker B) [2:28-2:28]
-
-Winner. Winner.
-
 ### Guest (Speaker C) [2:28-2:29]
 
 Chicken down
-
-### Guest (Speaker B) [2:32-2:37]
-
-four. You got real talent.
 
 ### Guest (Speaker C) [2:37-2:41]
 
@@ -113,10 +92,6 @@ summer, sweating bets and cooling down with some water ice is good, but the way 
 
 This is Tab Ramos from inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They're not just throwing games on in the background. Topgolf is going all in on soccer. They've got a new soccer themed game you can play with your group. Special in venue activations, exclusive food and drink items inspired by the global game and at more than 60 locations. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. So it's a great place to watch with friends, hang out, compete a little bit and enjoy the atmosphere. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now at topgolf.com/fun pass. Summer hits different at Topgolf.
 
-### Guest (Speaker B) [17:37-17:41]
-
-Amazon Health AI presents Painful Thoughts I
-
 ### Guest (Speaker E) [17:42-17:45]
 
 I can't stop scratching my downtown Mm
@@ -129,17 +104,9 @@ yeah, but I'm not itching to go
 
 downtown and tell a receptionist I'm here to talk about my downtown. Some things you'd rather type than say out loud.
 
-### Guest (Speaker B) [17:56-18:09]
-
-There's no question too embarrassing for Amazon Health. AI chat your symptoms and get virtual care 24. 7 Healthcare just got less painful. Awkward time to ask this, but hey,
-
 ### Guest (Speaker F) [18:09-18:11]
 
 did you download the trail map?
-
-### Guest (Speaker D) [18:11-18:12]
-
-Yeah, no, I don't need to.
 
 ### Guest (Speaker E) [18:13-18:13]
 
@@ -149,17 +116,9 @@ I don't understand.
 
 You're trusting your signal out here?
 
-### Guest (Speaker D) [18:15-18:22]
-
-I'm trusting T Mobile. They have the best network and if we end up in bumtots nowhere, well, we've got T Satellite for backup. Whoa.
-
 ### Guest (Speaker E) [18:22-18:23]
 
 I don't trust my carrier that much.
-
-### Guest (Speaker D) [18:24-18:25]
-
-We'll just use your phone as a flashlight.
 
 ### Guest (Speaker C) [18:27-18:50]
 
@@ -172,14 +131,6 @@ qualified customers with autopay plus 10 taxes
 ### Guest (Speaker C) [18:52-19:06]
 
 fees and $35 connection charge per line credits and a balance too if you pay off early or cancel. Contact Us Finance Agreement example $299.99 MotoEdge 5G required T Satellite available with compatible device in most outdoor areas in the US where you can see the sky included with experience beyond under $10 a month. However, news monthly cancel anytime.
-
-### Guest (Speaker D) [19:06-20:08]
-
-Visit t mobile.com Bite into a stacked sandwich made with Hero Bread or a fully loaded bagel and the only thing you'll think is delicious. You won't think it's up to 19 grams of protein, but it is. You wouldn't believe it has 11 to 32 grams of fiber, but it does. Herobread makes loaves, buns, tortillas, bagels and noodles packed with taste, but without all the net carbs, we're talking 0 to 5 grams net carbs per serving. With HeroBread there are no compromises, just flavor. There's none of the stiff baked goods you'd expect from better for your brands. There's just the soft, fluffy bread you crave, plus small batch drops of indulgent favorites like the popular 2 gram net carb Hero croissant and 3 gram net carb Hero pain au chocolat. And right now, Herobred is offering 10% off your order. Go to Hero Co and use code IHEART at checkout that's code IHEARTO CO. All figures per serving of HeroBread. See Nutrition Facts on Hero CO. A
-
-### Guest (Speaker B) [20:08-20:37]
-
-burst pipe, a dead water heater, the AC calling it quits. Who do you call? HomeServe is an easy way to handle unexpected home repairs with plans covering stuff basic homeowners insurance usually won't. Instead of scrambling for a contractor, you make one call to get the repair process started. Join the millions of customers who trust HomeServe right now. Go to HomeServe.com podcast for 50% less your first year. That's HomeServe.com podcast savings compared to renewal price void in Florida.
 
 ### Guest (Speaker F) [20:37-21:21]
 
@@ -233,10 +184,6 @@ Yeah, I mean, I think I talked about the, you know, the, the clumping or I guess
 
 All right, that's going to do it for us here on the Action Network podcast. Thanks for tuning in. Be sure to check out actionnetwork.com and the Action app for all of our great golf betting and DFS content. And even better, sign up for Action Pro. Go to actionnetwork.compro to take advantage of our new World cup offer. You can get three months of Action Pro for the price of two months. You can find Spencer on X over at T Off Sports and Kyle at KMerDFs. They're on the same handles on our free award winning Action Network app for Spencer Aguiar and Kyle Murray. I'm Mike Calabrese. Best of luck with your bets this weekend and we'll see you here next time on the Action Network Network podcast.
 
-### Guest (Speaker D) [42:36-42:47]
-
-Action Network reminds you, please gamble responsibly. If you or someone you care about has a gambling problem, help is available 247 at 1-800-GAMBLER.
-
 ### Evan Abrams (Speaker A) [42:47-43:21]
 
 This is tab Ramos from inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit get yours now at topgolf.com/fun pass
@@ -245,25 +192,13 @@ This is tab Ramos from inside American Soccer and this summer topgolf is turning
 
 the game started. Call your dad.
 
-### Guest (Speaker D) [43:24-43:25]
-
-I'm on it.
-
 ### Guest (Speaker C) [43:25-43:46]
 
 Ma Holopa hello Hijita I can't hear you. I'm at the stadium in Monterrey. Here shout go all together. Get non stop talk tax and Data in the US, Mexico and Canada with T Mobile America's Best Network. Switch on the TLife app or on t mobile.com connectapy on qualifying plans not for extended international use. You must reside in the US in
 
-### Guest (Speaker B) [43:46-43:48]
-
-primary usage must occur in our network.
-
 ### Guest (Speaker C) [43:48-43:52]
 
 Best Based on analysis by Ooklo Speed Test intelligence data to H 2025 this
-
-### Guest (Speaker D) [43:52-44:28]
-
-is Bethany Frankel from Just Be with Bethenny Frankel. Most dog food is marketing, not nutrition. That is why Biggie and Smalls eat just food for dogs. Real 100% human grade food with ingredients I actually recognize. And yes, I do see the difference. Better digestion, healthier skin skin, more energy. Dogs that feel better. My babies. If you've been on the fence about switching, stop overthinking it. What's more important than your furry babies and their health? Go to justfood for dogs.com right now and get 50% off your first box. No code needed. Just try it.
 
 ### Guest (Speaker E) [44:28-44:29]
 
@@ -296,7 +231,3 @@ a price that'll never go up.
 ### Evan Abrams (Speaker A) [44:48-44:58]
 
 Only at boost mobile. After 30 gigabytes, customers may experience slower speeds. Customers will pay $25 a month as long as they remain active on the Boost Unlimited plan.
-
-### Guest (Speaker D) [44:58-45:28]
-
-You know what quality feels like. You can see it in the way a fabric moves, recognize it in a flawless fit, and appreciate it in the details that make our styles unique. It's the standard Coldwater Creek has honored for over 40 years, derived from a rich Mountain west heritage and designed for today in styles that are distinctively Coldwater Creek. For a wardrobe you can count on season after season, visit coldwatercreek.com shop new arrivals and save 15% on purchases. $75 or more with Code Iheartra.

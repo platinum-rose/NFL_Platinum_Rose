@@ -15,6 +15,10 @@ Speaker labels: Ross Tucker (Speaker A), Steve Fezzik (Speaker B)
 - Speaker A: Ross Tucker
 - Speaker B: Steve Fezzik
 
+## Ignored Audio
+
+- None classified as ad/commercial only.
+
 ## Existing Host Summary Rows
 
 - None

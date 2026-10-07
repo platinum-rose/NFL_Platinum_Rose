@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NFL Week 1 Article Intelligence Summaries — Master Index</title>
+  
+<style>
+  :root {
+    --primary: #1E40AF;
+    --primary-dark: #1E3A8A;
+    --bg: #F8FAFC;
+    --card-bg: #FFFFFF;
+    --text: #0F172A;
+    --text-muted: #64748B;
+    --border: #E2E8F0;
+    --badge-tier1: #DCFCE7;
+    --badge-tier1-text: #15803D;
+    --badge-tier2: #DBEAFE;
+    --badge-tier2-text: #1E40AF;
+    --badge-tier3: #FEF3C7;
+    --badge-tier3-text: #92400E;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  .top-nav {
+    background: #0F172A;
+    color: #F8FAFC;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #3B82F6;
+  }
+  .top-nav a {
+    color: #93C5FD;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-right: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .top-nav a:hover { color: #FFFFFF; text-decoration: underline; }
+  .container {
+    max-width: 1050px;
+    margin: 30px auto;
+    padding: 0 20px;
+  }
+  .header-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 28px 32px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    margin-bottom: 24px;
+  }
+  h1 { margin-top: 0; color: #0F172A; font-size: 1.85rem; }
+  .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    background: #F1F5F9;
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin: 20px 0 10px 0;
+  }
+  .meta-item { font-size: 0.88rem; }
+  .meta-label { color: var(--text-muted); font-size: 0.78rem; text-transform: uppercase; font-weight: 700; }
+  .meta-value { color: #0F172A; font-weight: 600; margin-top: 2px; }
+  .meta-value a { color: var(--primary); text-decoration: none; }
+  .meta-value a:hover { text-decoration: underline; }
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .badge-tier1 { background: var(--badge-tier1); color: var(--badge-tier1-text); border: 1px solid #86EFAC; }
+  .badge-tier2 { background: var(--badge-tier2); color: var(--badge-tier2-text); border: 1px solid #93C5FD; }
+  .badge-tier3 { background: var(--badge-tier3); color: var(--badge-tier3-text); border: 1px solid #FCD34D; }
+  .content-section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 28px 32px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    margin-bottom: 24px;
+  }
+  h2 { color: #1E3A8A; font-size: 1.35rem; margin-top: 0; border-bottom: 2px solid #E2E8F0; padding-bottom: 8px; }
+  h3 { color: #334155; font-size: 1.1rem; margin-top: 18px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 20px 0;
+    font-size: 0.9rem;
+  }
+  th {
+    background: #102C57;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:nth-child(even) td { background: #F8FAFC; }
+  .quote-box {
+    background: #EFF6FF;
+    border-left: 4px solid #3B82F6;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+    font-style: italic;
+    color: #1E3A8A;
+  }
+  .citation-banner {
+    background: #F0FDF4;
+    border: 1px solid #86EFAC;
+    border-radius: 8px;
+    padding: 14px 18px;
+    color: #166534;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .citation-banner a {
+    color: #15803D;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="top-nav">
+  <div>
+    <a href="../scratch/nfl_week1_master_betting_intelligence_summary.html">⬅ Return to Master Betting Intelligence Dossier</a>
+  </div>
+  <div style="font-size:0.85rem;color:#94A3B8;">
+    NFL Week 1 Multi-Page Intelligence Packet
+  </div>
+</div>
+
+<div class="container">
+  <div class="header-card">
+    <span class="badge badge-tier1">13 Vetted Articles</span>
+    <span style="font-size:0.85rem;color:#64748B;margin-left:10px;">Deep-Dive Linked Solo Summaries</span>
+    <h1 style="margin-top:14px;">NFL Week 1 Article Intelligence Summaries: Master Index</h1>
+    <p style="font-size:1.05rem;color:#475569;margin-bottom:0;">
+      This directory houses individual, comprehensive solo report summaries for all articles vetted and folded into the <strong>NFL Week 1 Master Betting Intelligence Dossier</strong>. Each summary provides the full macro thesis, structured selections table, supporting statistical metrics, and bidirectional cross-links to the master dossier.
+    </p>
+  </div>
+
+  <div class="content-section">
+    <h2>Solo Report Directory (13 Dedicated Artifacts)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Source</th>
+          <th>Author / Analyst</th>
+          <th>Article Title / Solo Summary Link</th>
+          <th>Weight Tier</th>
+          <th>Picks</th>
+          <th>Master Dossier Citation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td><b>Walter Football</b></td>
+          <td><strong>Walter Cherepinsky</strong></td>
+          <td><a href="walter-football-week1-early-picks.html" style="font-weight:600;color:#1E40AF;">Walter Football: NFL Week 1 Early Picks & Super Bowl LX Rematch</a></td>
+          <td><span class="badge badge-tier1">Tier 1</span></td>
+          <td><b>4</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#game-patriots-seahawks">Executive Master Board & Section 5.1 / 5.2 / 5.10</a></td>
+        </tr><tr>
+          <td><strong>2</strong></td>
+          <td><b>VSiN (Vegas Stats & Information Network)</b></td>
+          <td><strong>Dave Tuley</strong></td>
+          <td><a href="vsin-dave-tuley-takes-week1.html" style="font-weight:600;color:#1E40AF;">VSiN: Dave Tuley's Takes & Underdog Strategy (NFL Week 1)</a></td>
+          <td><span class="badge badge-tier2">Tier 2</span></td>
+          <td><b>6</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#consensus-49ers-rams">Section 2.1 (Melbourne Under) & Section 4 (Teaser Matrix)</a></td>
+        </tr><tr>
+          <td><strong>3</strong></td>
+          <td><b>VSiN / T-Shoe Index</b></td>
+          <td><strong>Tyler Shoemaker</strong></td>
+          <td><a href="vsin-tyler-shoemaker-t-shoe-index-week1.html" style="font-weight:600;color:#1E40AF;">VSiN: Tyler Shoemaker's T-Shoe Index (TSI) Week 1 Modeling Predictions</a></td>
+          <td><span class="badge badge-tier2">Tier 2</span></td>
+          <td><b>5</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#consensus-titans-jets">Executive Master Board & Section 2.5 (Titans vs. Jets)</a></td>
+        </tr><tr>
+          <td><strong>4</strong></td>
+          <td><b>VSiN</b></td>
+          <td><strong>Zachary Cohen</strong></td>
+          <td><a href="vsin-zachary-cohen-49ers-rams-predictions.html" style="font-weight:600;color:#1E40AF;">VSiN: Zachary Cohen's 49ers vs. Rams Preview, Odds & OptaAI Props</a></td>
+          <td><span class="badge badge-tier1">Tier 1</span></td>
+          <td><b>3</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#game-49ers-rams">Executive Master Board, Section 2.4 & Section 7 (Props)</a></td>
+        </tr><tr>
+          <td><strong>5</strong></td>
+          <td><b>VSiN / OptaAI</b></td>
+          <td><strong>Zachary Cohen</strong></td>
+          <td><a href="vsin-zachary-cohen-opta-ai-player-props.html" style="font-weight:600;color:#1E40AF;">VSiN: Zachary Cohen's Week 1 Player Props — Top OptaAI Edges</a></td>
+          <td><span class="badge badge-tier1">Tier 1</span></td>
+          <td><b>4</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#master-props-card">Executive Master Board, Section 6 & Section 7 (Props)</a></td>
+        </tr><tr>
+          <td><strong>6</strong></td>
+          <td><b>VSiN</b></td>
+          <td><strong>Adam Burke</strong></td>
+          <td><a href="vsin-adam-burke-first-touchdown-predictions.html" style="font-weight:600;color:#1E40AF;">VSiN: Adam Burke's Opening Drive Trends & First Touchdown Models</a></td>
+          <td><span class="badge badge-tier1">Tier 1</span></td>
+          <td><b>4</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#parlay-sunday-td">Executive Master Board, Section 6 (Parlays) & Section 7 (Props)</a></td>
+        </tr><tr>
+          <td><strong>7</strong></td>
+          <td><b>VSiN Pro Picks</b></td>
+          <td><strong>John Hansen ('The Guru')</strong></td>
+          <td><a href="vsin-john-hansen-guru-pro-picks.html" style="font-weight:600;color:#1E40AF;">VSiN: John Hansen's ('The Guru') Pro Picks & Week 1 Player Prop Targets</a></td>
+          <td><span class="badge badge-tier1">Tier 1</span></td>
+          <td><b>2</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#master-props-card">Executive Master Board & Section 7 (Props)</a></td>
+        </tr><tr>
+          <td><strong>8</strong></td>
+          <td><b>BettingPros</b></td>
+          <td><strong>Andrew Erickson</strong></td>
+          <td><a href="bettingpros-andrew-erickson-betting-primer.html" style="font-weight:600;color:#1E40AF;">BettingPros: Andrew Erickson's Patriots vs. Seahawks Betting Primer</a></td>
+          <td><span class="badge badge-tier2">Tier 2</span></td>
+          <td><b>2</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#game-patriots-seahawks">Executive Master Board & Section 5.1</a></td>
+        </tr><tr>
+          <td><strong>9</strong></td>
+          <td><b>BettingPros</b></td>
+          <td><strong>Phil Wood</strong></td>
+          <td><a href="bettingpros-phil-wood-same-game-parlays.html" style="font-weight:600;color:#1E40AF;">BettingPros: Phil Wood's Same Game Parlay Strategy (Patriots vs. Seahawks)</a></td>
+          <td><span class="badge badge-tier2">Tier 2 / Tier 3</span></td>
+          <td><b>2</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#parlay-aerial">Executive Master Board & Section 6 (Parlays)</a></td>
+        </tr><tr>
+          <td><strong>10</strong></td>
+          <td><b>BettingPros</b></td>
+          <td><strong>Steve Krebs</strong></td>
+          <td><a href="bettingpros-steve-krebs-early-parlays.html" style="font-weight:600;color:#1E40AF;">BettingPros: Steve Krebs' Best Early Parlays & Punting Props</a></td>
+          <td><span class="badge badge-tier2">Tier 2 / Tier 3</span></td>
+          <td><b>4</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#master-props-card">Executive Master Board, Section 6 & Section 7 (Props)</a></td>
+        </tr><tr>
+          <td><strong>11</strong></td>
+          <td><b>BettingPros</b></td>
+          <td><strong>Richard Janvrin</strong></td>
+          <td><a href="bettingpros-richard-janvrin-touchdown-scorers.html" style="font-weight:600;color:#1E40AF;">BettingPros: Richard Janvrin's Touchdown Scorer Predictions (Opening Night)</a></td>
+          <td><span class="badge badge-tier3">Tier 3</span></td>
+          <td><b>2</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#master-props-card">Executive Master Board & Section 7 (Props)</a></td>
+        </tr><tr>
+          <td><strong>12</strong></td>
+          <td><b>Sharp Football Analysis</b></td>
+          <td><strong>Curtis Hirsch</strong></td>
+          <td><a href="sharp-football-curtis-hirsch-prop-targets.html" style="font-weight:600;color:#1E40AF;">Sharp Football Analysis: Curtis Hirsch's Opening Night Prop Targets</a></td>
+          <td><span class="badge badge-tier1">Tier 1</span></td>
+          <td><b>2</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#master-props-card">Executive Master Board & Section 7 (Props)</a></td>
+        </tr><tr>
+          <td><strong>13</strong></td>
+          <td><b>Action Network</b></td>
+          <td><strong>Brandon Anderson & Evan Abrams</strong></td>
+          <td><a href="action-network-anderson-abrams-mvp-trends.html" style="font-weight:600;color:#1E40AF;">Action Network: Brandon Anderson & Evan Abrams — 2026 NFL MVP & Trends</a></td>
+          <td><span class="badge badge-tier3">Tier 3</span></td>
+          <td><b>2</b></td>
+          <td><a href="../scratch/nfl_week1_master_betting_intelligence_summary.html#master-quantitative-systems">Executive Master Board & Section 9 (Systems & Trends)</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>

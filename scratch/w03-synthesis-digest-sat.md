@@ -20,7 +20,7 @@ LAR@DEN | LAR ML -125 | LAR | BettingPros LAR -2.5 + Gibbs Rams; Puka DOUBTFUL; 
 LAR@DEN | U44 -108 | Under | BettingPros U44.5 + Gibbs | 2
 SEA@WAS | SEA -7.5 -113 / ML -388 | SEA | BettingPros + SoS SEA -7; WAS = Mariota (Daniels OUT); ML past -350 barrier; WAS O vs SEA D HIGH (counter) | 2
 ARI@SF | SF -8.5 -103 | SF | Anderson + BettingPros SF -8.5; SF O vs ARI D HIGH; SoS ARI +8.5; ML -393 barrier | 1+2
-KC@MIA | skip | — | KC ML -651 barrier; MIA +10.5 experts (rule 2 no dog points); MIA ML +506 | skip
+KC@MIA | skip | — | KC ML -651 barrier; MIA +10.5 has expert support but needs a stronger game-specific case; MIA ML +506 | skip
 LAC@BUF | LAC ML +279 / BUF ML -333 | split | SoS both sides; Even Money BUF teaser; BUF ML ≤-290 chalk flag; hedges Andy's BUF futures | skip/hedge
 PHI@CHI (MNF) | PHI ML -180 / -3 -115 | PHI | secondary HIGH PHI O vs CHI D; Caleb OUT (Bagent Q); Gibbs + Welsh PHI; line moved -4.5→-3 (Goedert, H.Brown OUT); Anderson/SoS CHI +4.5 (pre-news) | 1+2
 PHI@CHI (MNF) | U42 -104 | Under | Gibbs, Bogman U41.5, BettingPros U43.5 | 2

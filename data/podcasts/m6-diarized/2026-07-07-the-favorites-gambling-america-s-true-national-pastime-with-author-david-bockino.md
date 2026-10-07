@@ -8,34 +8,30 @@ Audio: https://podtrac.com/pts/redirect.mp3/traffic.omny.fm/d/clips/e73c998e-6e6
 
 Transcript chars: 56723
 Speaker turns: 140
-Speaker labels: Guest (Speaker A), Guest (Speaker B), Brandon Kravitz (Speaker C), Guest (Speaker D), Guest (Speaker E), Guest (Speaker F), Kendra Middleton (Speaker G), Guest (Speaker H), Guest (Speaker I)
+Speaker labels: Brandon Kravitz (Speaker C), Guest (Speaker D), Guest (Speaker E), Kendra Middleton (Speaker G), Guest (Speaker H)
 
 ## Speaker Map
 
-- Speaker A: Guest
-- Speaker B: Guest
 - Speaker C: Brandon Kravitz
 - Speaker D: Guest
 - Speaker E: Guest
-- Speaker F: Guest
 - Speaker G: Kendra Middleton
 - Speaker H: Guest
-- Speaker I: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker B: ad/commercial audio ignored
+- Speaker F: ad/commercial audio ignored
+- Speaker I: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
-- Guest (gpt-4o, unknown) futures=2
+- Guest (gpt-4o, unknown) futures=1
 - Brandon Kravitz (gpt-4o, host_map) futures=1
+- Kendra Middleton (gpt-4o, host_map) futures=1
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:01-0:30]
-
-Introducing B of A Rewards a new way to reward your every ambition. It all starts with a Bank of America checking account and grows from there. You get cash back deals on brands you know and love, plus a credit card rewards bonus, helping you earn more rewards on things you buy every day. Join B of A Rewards today for rewards tailored to your lifestyle. What would you like the power to do? Bank of America Open or enroll your account@bankofamerica.com bfarewards bank of America Corporation. All rights reserved.
-
-### Guest (Speaker B) [0:31-0:58]
-
-All new drinks are now at McDonald's with refreshers like the Strawberry Watermelon Refresher and the Mango Pineapple Refresher with Popping Boba to crafted sodas like the Sprite Berry Blast with berry flavors and cold foam. Who knew ice cold drinks could be so fire six? All new drinks are here now at McDonald's.
 
 ### Brandon Kravitz (Speaker C) [0:58-1:00]
 
@@ -53,25 +49,13 @@ down to kill us.
 
 And now they're hunting down immigrants to deport them.
 
-### Guest (Speaker F) [1:09-1:33]
-
-This is First America, the true story of how the United States came to be and how we got to this present moment. Listen to First America on the iHeartRadio app, Apple Podcasts or wherever you get your podcasts. Hey, everybody.
-
 ### Kendra Middleton (Speaker G) [1:33-1:35]
 
 I'm Tareka Fosta Brasby. What's up, y'?
 
-### Guest (Speaker B) [1:35-1:35]
-
-All?
-
 ### Kendra Middleton (Speaker G) [1:35-2:13]
 
 I'm your girl, Sheryl Swoops. When you tune in to a new episode of our podcast, Levels to this, you're definitely gonna get some spy CWNBA analysis. But we're more than just hoops and the real conversation is what we actually bring. But it's been really, really cool seeing kind of these women just really step into their power off the court and understand that they are basketball, right? And they're not asking for permission. Listen to levels to this with Strobe Swoops and Tarika Foster brasby on the iHeartRadio app, Apple Podcasts or wherever you get your podcasts.
-
-### Guest (Speaker B) [2:15-2:42]
-
-All new drinks are now at McDonald's with refreshers like the Strawberry Watermelon Refresher and the Mango Pineapple Refresher with Popping Bo to crafted sodas like the Sprite Berry Blast with berry flavors and cold foam. Who knew ice cold drinks could be so fire six. All new drinks are here now at McDonald's.
 
 ### Brandon Kravitz (Speaker C) [2:42-3:39]
 
@@ -173,21 +157,9 @@ So he's getting roasted today. Absolutely barbecued, Fourth of July style. David
 
 The Favorites podcast has teamed up with DraftKings to bring you an incredible brand new offer just in time for the Cup. The DraftKings sports app is now available in all 50 states, bringing the excitement straight to your fingertips wherever you are. From Florida to Texas to California, new DraftKings customers can sign up with code FAVORITES, spend five bucks and get $200 back in bonuses. That's Code Favorites when signing up. Download the DraftKings gap today and stay in the game. The crown is yours.
 
-### Guest (Speaker B) [12:45-13:12]
-
-All new drinks are now at McDonald's with refreshers like the Strawberry Watermelon Refresher and the Mango Pineapple Refresher with popping Boba. To crafted sodas like the Sprite Berry Blast with berry flavors and cold foam. Who knew ice cold drinks could be so fire six? All new drinks are here now at McDonald's.
-
-### Guest (Speaker I) [13:12-13:36]
-
-Refreshers contain caffeine I'm Mangish Shetigulur and I'm back with a new season of the podcast Skyline Drive. This time I'm diving into a rabbit hole of peptides, organoids, blood boys, blue zones, and brain replacement to try to understand what this longevity obsession is all about and what it really means to live forever for all of us. I learned about some rad science.
-
 ### Kendra Middleton (Speaker G) [13:36-13:45]
 
 I can make a brain for you. And then we can test what drug is the best for your brain as opposed to his brain.
-
-### Guest (Speaker I) [13:45-13:47]
-
-Here are some hard truths.
 
 ### Kendra Middleton (Speaker G) [13:47-13:50]
 
@@ -196,10 +168,6 @@ I would expect Indians to age faster,
 ### Guest (Speaker E) [13:50-13:55]
 
 but I did not expect it to be almost a four to five year
-
-### Guest (Speaker I) [13:55-13:59]
-
-acceleration and get myself into a world of trouble.
 
 ### Kendra Middleton (Speaker G) [13:59-14:01]
 
@@ -213,14 +181,6 @@ That doesn't work.
 
 To make it look more defined. They say it works.
 
-### Guest (Speaker F) [14:04-14:05]
-
-I don't know.
-
-### Guest (Speaker I) [14:06-14:12]
-
-Listen to Skyline how to Live Forever on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
-
 ### Brandon Kravitz (Speaker C) [14:15-14:18]
 
 The Declaration, which is full of these
@@ -233,17 +193,9 @@ beautifully rendered, you know, sentences and paragraphs about enlightenment ide
 
 darker history to it.
 
-### Guest (Speaker F) [14:27-14:36]
-
-Why is it important for the darker part of the Declaration of Independence and the American Revolution? Why is it important that Americans know about it?
-
 ### Guest (Speaker D) [14:37-14:48]
 
 Well, if we don't understand the full context in which our nation was founded, we won't understand the full context in which our nation now finds itself.
-
-### Guest (Speaker F) [14:48-14:55]
-
-I'm Rebecca Nagle. Gohin Tawadon. Jalai Kayetli, Que la citizen of Cherokee Nation.
 
 ### Kendra Middleton (Speaker G) [14:55-14:56]
 
@@ -252,10 +204,6 @@ Are you guys big Chiefs fans?
 ### Guest (Speaker D) [14:56-14:57]
 
 Hell yeah.
-
-### Guest (Speaker F) [14:58-15:12]
-
-This is First America, the true story of how the United States came to be and how we got to this present moment. Listen to First America on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
 
 ### Kendra Middleton (Speaker G) [15:14-15:15]
 
@@ -292,10 +240,6 @@ the victims of Laura Owens, she will not stop.
 ### Kendra Middleton (Speaker G) [15:39-15:45]
 
 Listen to Love trapped on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
-
-### Guest (Speaker B) [15:47-16:13]
-
-All new drinks are now at McDonald's with refreshers like the Strawberry Watermelon Refresher and the Mango Pineapple Refresher with popping Boba to crafted sodas like the Sprite Berry Blast with berry flavors and cold foam. Who knew ice cold drinks could be so fire six. All new drinks are here now at McDonald's.
 
 ### Brandon Kravitz (Speaker C) [16:14-16:43]
 
@@ -344,10 +288,6 @@ David, I will say I was supposed to read this over the weekend. Didn't get aroun
 ### Guest (Speaker E) [24:55-25:36]
 
 Yeah, but, you know, I grew up in New York, so I lived in, I lived in Queens for about a decade. And I love the old, like New York gambling hall stories because that, that sort of the grimy part of New York is as slowly been disappearing over the last several decades. But going downtown and just going into this dimly lit place where there was a cage and they threw rats into a cage with a dog and they bet on how many rats a dog could catch in a minute or three minutes or four minutes. And it was disgusting. And you know, they would catch these rats just on the streets. They would pay some dude to basically go on the streets and catch the rats and throw them into the cage.
-
-### Guest (Speaker B) [25:36-25:36]
-
-And.
 
 ### Guest (Speaker E) [25:36-27:50]
 
@@ -413,10 +353,6 @@ This is probably something important for us to understand because we're in the p
 
 Yeah, I mean, I think it's the. The suddenness of the way it's been baked into broadcast, I think has been jarring for some of them. And so there is definitely a faction of. Of young people who just have no interest in betting at all. Right. Then you have like the.
 
-### Guest (Speaker A) [35:45-35:46]
-
-The.
-
 ### Guest (Speaker E) [35:46-37:01]
 
 The small parlay players who kind of go here and there, and then you have like the. The heavy sports bettors who are. Who are really in the muck, right? They're mired in it. They're. They're looking day after day. And I think that people who have no interest in sports betting, they're never going to go away. You're always going to have those. You're not going to get 100% people betting on sports. They just want the broadcast without, you know, Keith Hernandez telling them what money lines are in the middle of the third inning, because they didn't have that for 20 years. And so there needs to be some sort of. Some sort of agreement where it's like, all right, we'll have this a little bit for the people that want it, but it doesn't have to be as in your face. And I think. I think it's gotten to that point in a lot of ways. The other aspect is of the students who don't bet at all is they just get frustrated that when, you know, they get annoyed. The same thing. We get annoyed. It's like, I don't really care what your parlay is, man. Like, you don't have to tell me. Oh, you. You almost hit it. Except for one leg. Like, cool. That's not interesting to me because I have that story with, with, with students all the time. And so it's just the constant. They want to watch sports to see the wins and losses, and they don't care what their friends doing. But that's, you know, that's never going away. We dealt with that fantasy sports forever, right? It's like, dude, I don't.
@@ -428,10 +364,6 @@ They'll do that. Hasn't gone away. You don't want to hear about anybody else's f
 ### Guest (Speaker E) [37:06-37:17]
 
 The most interesting. Yeah, the most interesting team is your fantasy team, and the least interesting is everybody else's, whatever that is. Right. But we still talk about it because we're all narcissists and we like to talk about it. And that's fine.
-
-### Guest (Speaker I) [37:17-37:17]
-
-Also.
 
 ### Guest (Speaker E) [37:17-37:43]
 
@@ -512,10 +444,6 @@ I'm kind of becoming the old angry guy. If sports betting can be more like this,
 ### Guest (Speaker D) [49:47-50:10]
 
 Yeah, a lot of people are. I worry about that too, from a society perspective. I mean, my wife is in the bar business and people are drinking less, which I think is. So you're healthier, you know, physically, but people aren't getting together right in that communal aspect. We're kind of losing that. So socially, what is the impact there? Because people just, I think, are becoming more and more isolated with technology. But that's a conversation for another day.
-
-### Guest (Speaker A) [50:10-50:11]
-
-Sure.
 
 ### Guest (Speaker D) [50:11-50:49]
 

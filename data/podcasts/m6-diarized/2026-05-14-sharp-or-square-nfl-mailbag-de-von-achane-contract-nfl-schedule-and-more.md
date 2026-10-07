@@ -8,25 +8,24 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 58209
 Speaker turns: 179
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D), Guest (Speaker E)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
 - Speaker D: Guest
-- Speaker E: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker E: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Guest (gpt-4o, unknown) futures=3
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -59,10 +58,6 @@ bring up to five guests every visit.
 ### Chad Millman (Speaker B) [1:33-1:38]
 
 Get yours now@TopGolf.com FunPass this is Daniel
-
-### Guest (Speaker E) [1:38-2:13]
-
-Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. Power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's just as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts. Now that's a total power move. Make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless store. Additional terms apply. See totalwireless.com for details.
 
 ### Chad Millman (Speaker B) [2:14-2:37]
 
@@ -176,10 +171,6 @@ Yeah. You're such a good producer. So let's, let's. Let's do it.
 
 Let's. That was a compliment from a human voice, not a computer. So I will accept it and relish it.
 
-### Guest (Speaker A) [13:25-13:26]
-
-Thank you.
-
 ### Chad Millman (Speaker B) [13:26-13:32]
 
 I'm not sure I prefer the human voice humans to the computers. So let's, let's get to it.
@@ -204,17 +195,9 @@ Of course.
 
 Hn's a freak town. A great running back, but I think this puts him now in the top three or top four highest paid running backs in the league. And we've, me and Chad have talked to nauseam about it. It's the last position to fill. When you're building on an organization, you're building out a team. That's not something you want to start off with.
 
-### Guest (Speaker E) [14:49-14:49]
-
-Right.
-
 ### Simon Hunter (Speaker C) [14:49-15:34]
 
 You want to build the other piece. You want to build the offensive line, you want to build the defensive line. You want to get the quarterback, you want to get receivers, and then you can go get the running back and pay them. Because we've seen in this league you can find star running backs in the second, third, fourth, fifth round. Like that happens at the other positions. It just does not happen. So if I was Miami, I wouldn't mind it because he's such a talent and you're so bad, it's like, okay, our goal this year is to be the worst team possible. Right. They want the number one, number two pick. This is a great draft class reporter. Quarterbacks coming out. So to me, everything Miami's done this off season is on par. Right. They're, they're, they're adding players that they think could help them two, three years down the road. Right. Not so much this year. And that's kind of what they need to be thinking.
-
-### Guest (Speaker E) [15:34-15:34]
-
-Right.
 
 ### Simon Hunter (Speaker C) [15:34-15:36]
 
@@ -223,10 +206,6 @@ They're going to be absolutely terrible this upcoming season.
 ### Chad Millman (Speaker B) [15:37-16:38]
 
 I thought it was interesting to me not to punt on Achan, but that Malik Willis signed in Miami, he was a pretty sought after free agent quarterback. Going to Miami with a team that is an entire rebuild, how is that going and on a relatively short term contract, how is that going to benefit him? Because he's not the guy who's going to be the quarterback who can make them win immediately. And he doesn't have the talent around him that can make them win immediately. My mind immediately flashes to, all right, is this a commitment to Achan and their new quarterback that they are going to be building around these. And this is a, not a promise they made to Malik Wills, but like this is the commitment they had made to building around getting him some talent. It doesn't make any sense to me. They have so many needs.
-
-### Guest (Speaker E) [16:40-16:40]
-
-Yeah.
 
 ### Simon Hunter (Speaker C) [16:40-16:41]
 
@@ -260,10 +239,6 @@ My assumption is that they have no plan because they're a poverty franchise and 
 
 Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced WIX Harmony, a vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com. that's Wix.
 
-### Guest (Speaker E) [18:32-19:27]
-
-This is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. All UFC fighters know power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in on all the action, from the walkouts to the knockouts. You'll never miss a moment. That's coverage that you can count on from for every single round. So when the moment happens, you're not catching up. You're already there. Now that that's a total power move. In the ufc, power isn't given. It's taken. So make your total power move today. Visit totalwireless.com or stop by your neighborhood. Total Wireless Store 5G access requires a 5G capable device in a 5G service area. Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan. Additional terms apply. See website for details.
-
 ### Guest (Speaker D) [19:27-19:35]
 
 Amazon Pharmacy Presents Painful Thoughts of course I see my co worker in line at the pharmacy.
@@ -283,10 +258,6 @@ He knows he's going to call me Hemorrhoid Lloyd tomorrow. I know it.
 ### Simon Hunter (Speaker C) [19:46-19:56]
 
 I got to quit my job. Next time avoid awkward conversations and get fast free delivery with Amazon Pharmacy Healthcare just got less painful.
-
-### Guest (Speaker A) [19:57-21:26]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound Lilly.com?
 
 ### Guest (Speaker D) [21:26-22:00]
 
@@ -400,10 +371,6 @@ And with that we'll take a break to hear from Florida Sportsbook.
 
 This is my job. It's listen, you can't come in and bigfoot me. Today's show is brought to you by our presenting sponsor, Hard Rock Bet, Florida's sportsbook. The second round of the NBA Playoffs is here and with win or go home energy on the hardwood, same game parlays are a great way to stack picks built especially for the playoff action. If you're ever late to tip off, don't worry. Hard Rock Bet lets you live bet all game long, from the first bucket to the final buzzer. Try your first bet on Hard Rock Bet today and you can score $150 in bonus bets. If you win, just place a $5 bet and if it hits, you get not only your winnings but also an extra $150 in bonus bets. Hard Rock Bet has new promos dailies, so open up the app right now to see what promo you've got today. And sure, Hard Rock Bet is Florida's only legal sportsbook, but you don't have to be in Florida to join the party. Hard Rock Bet is also live in Arizona, Ohio, New Jersey, Indiana, Tennessee, Virginia, Illinois, Colorado and Michigan, with more states on the way. Download the Hard Rock Bet app today and let's get the party started. Payable in bonus bets. Not a cash offer offered by the Seminole Tribe of Florida in Florida. Offered by Seminole Hard Rock Digital LLC in all other states. Must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play terms and conditions apply. Concerned about gambling in Florida? Call 1833 playwise in Indiana, if you or someone you know has a gambling problem and wants help, call 1809 with it in Ohio, call 1-89-800, my reset gambling problem, call 1-800- gambler in Arizona, Colorado, Illinois, Michigan, New Jersey, Tennessee or Virginia. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And Wix Harmony doesn't require AI for everything. You can still click and edit anything manually, or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com this
 
-### Guest (Speaker E) [36:02-36:57]
-
-is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. All UFC fighters know power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in on all the action, from the walkouts to the knockouts. You'll never miss a moment. That's coverage that you can count on for every single round. So when the moment happens, you're not catching up. You're already there. Now that that's a total power move. In the ufc, power isn't given, it's taken. So make your total power move today. Visit totalwireless.com or stop by your neighborhood. Total Wireless Store 5G access requires a 5G capable device in a 5G service area. Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan. Additional terms apply. See website for details.
-
 ### Simon Hunter (Speaker C) [36:57-37:04]
 
 Amazon Health AI presents Painful Thoughts why did I search the Internet for answers
@@ -423,10 +390,6 @@ in various stages of ooze.
 ### Simon Hunter (Speaker C) [37:15-37:27]
 
 I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker A) [37:28-38:56]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepat peptide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia Syndrome Type 2. Tell your doctor if you get a lump or swelling in your neck, stop Zepbound and call your doctor if you have severe stomach pain or a serious alleged allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zephbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound Lilly.com
 
 ### Guest (Speaker D) [38:59-39:12]
 
@@ -644,10 +607,6 @@ be a matter of life or death.
 
 Before you get on the road for your next road trip, please put your phones on silent and take a mental note to focus on driving. Paid for by nhtsa
 
-### Guest (Speaker A) [58:26-58:55]
-
-Grainger knows When you're a procurement manager for an office park, you're not managing one building, you're managing all of them. And to stay ahead, you need to see through walls and around corners. Lights about to fail, filters ready to clog H Vac on its last leg. If you wait until something breaks, you're already behind. Count on Grainger for quality products, easy reordering and 24. 7 support. Call 1-800-GRAINGER click grainger.com or just stop by Grainger for the ones who get it done.
-
 ### Chad Millman (Speaker B) [58:57-58:58]
 
 The game started.
@@ -660,10 +619,6 @@ Call your dad.
 
 I'm on it, Ma.
 
-### Guest (Speaker A) [59:00-59:01]
-
-Hola.
-
 ### Chad Millman (Speaker B) [59:01-59:03]
 
 Hello, Hijita? I can't hear you.
@@ -671,14 +626,6 @@ Hello, Hijita? I can't hear you.
 ### Simon Hunter (Speaker C) [59:03-59:05]
 
 I'm at the stadium in Monterrey.
-
-### Guest (Speaker E) [59:07-59:07]
-
-Here.
-
-### Guest (Speaker A) [59:07-59:08]
-
-Shout.
 
 ### Guest (Speaker D) [59:08-59:10]
 
@@ -735,7 +682,3 @@ buds and roll up to the multiplex for Super Troopers 3.
 ### Guest (Speaker D) [1:00:06-1:00:07]
 
 Only in theaters August 7th.
-
-### Guest (Speaker A) [1:00:07-1:00:14]
-
-Get tickets. Meow. This is an iHeart podcast. Guaranteed Human.

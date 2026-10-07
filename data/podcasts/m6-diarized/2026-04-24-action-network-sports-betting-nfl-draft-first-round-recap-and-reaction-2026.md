@@ -2,13 +2,13 @@
 
 Published: 2026-04-24T16:47:46+00:00
 Episode ID: b04b88e3-5152-4747-8cbb-eb25082e24d4
-Status: pending
+Status: done
 Duration: 2614 seconds
 Audio: https://podtrac.com/pts/redirect.mp3/traffic.omny.fm/d/clips/e73c998e-6e60-432f-8610-ae210140c5b1/390f52fb-437c-4290-bdaa-b3ec011d3fc8/f759ec35-3308-433d-96d5-b43600f861f8/audio.mp3?utm_source=Podcast&amp;in_playlist=2d9ae039-d4b2-4a37-8a77-b3ec011d3fce
 
 Transcript chars: 52829
 Speaker turns: 381
-Speaker labels: Brandon Anderson (Speaker A), Guest (Speaker B), Evan Abrams (Speaker C), Guest (Speaker D), Guest (Speaker E), Guest (Speaker F), Guest (Speaker G), Guest (Speaker H), Sean Koerner (Speaker I), Guest (Speaker J), Guest (Speaker K), Guest (Speaker L)
+Speaker labels: Brandon Anderson (Speaker A), Guest (Speaker B), Evan Abrams (Speaker C), Guest (Speaker D), Guest (Speaker F), Guest (Speaker G), Guest (Speaker H), Sean Koerner (Speaker I), Guest (Speaker J), Guest (Speaker K), Guest (Speaker L)
 
 ## Speaker Map
 
@@ -16,7 +16,6 @@ Speaker labels: Brandon Anderson (Speaker A), Guest (Speaker B), Evan Abrams (Sp
 - Speaker B: Guest
 - Speaker C: Evan Abrams
 - Speaker D: Guest
-- Speaker E: Guest
 - Speaker F: Guest
 - Speaker G: Guest
 - Speaker H: Guest
@@ -24,6 +23,10 @@ Speaker labels: Brandon Anderson (Speaker A), Guest (Speaker B), Evan Abrams (Sp
 - Speaker J: Guest
 - Speaker K: Guest
 - Speaker L: Guest
+
+## Ignored Audio
+
+- Speaker E: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -62,10 +65,6 @@ I hit 200 on the scratcher.
 ### Brandon Anderson (Speaker A) [1:13-1:15]
 
 Did the scratcher come to your house and hand you a check?
-
-### Guest (Speaker E) [1:15-1:16]
-
-No.
 
 ### Brandon Anderson (Speaker A) [1:16-1:20]
 
@@ -178,10 +177,6 @@ They're saying it's a catch.
 ### Brandon Anderson (Speaker A) [3:06-3:07]
 
 Touchdown.
-
-### Guest (Speaker E) [3:08-3:10]
-
-You see, most gamblers when they go
 
 ### Guest (Speaker D) [3:10-3:11]
 
@@ -595,10 +590,6 @@ Can I make the counterpoint here? I just feel like I do want
 
 to hear arguments for this.
 
-### Guest (Speaker E) [21:25-21:26]
-
-This needs.
-
 ### Guest (Speaker D) [21:26-21:28]
 
 There's probably some. I looked at any.
@@ -682,10 +673,6 @@ So Kelsey Finler, she became the first female solo rower to go from California t
 ### Sean Koerner (Speaker I) [26:16-26:18]
 
 My first thought is, like, what's up with the snacks? Like, what are we?
-
-### Guest (Speaker E) [26:18-26:19]
-
-What are we eating?
 
 ### Guest (Speaker H) [26:19-26:23]
 
@@ -790,10 +777,6 @@ part of my Cultura podcast Network on
 ### Guest (Speaker K) [28:59-29:03]
 
 the iHeartRadio app, Apple Podcast, or wherever you get your podcasts.
-
-### Guest (Speaker E) [29:03-30:07]
-
-I'm Jake Brennan, and on the Disgraceland podcast, I explore the wild lives of rock stars and unbelievable true crime stories from music history. These are the stories you haven't heard. The kind you'll end up telling someone else. Like the time Paul McCartney spent in one of the world's most notorious prisons. Imagine that. You're Paul McCartney. It's 1980, you're an ex Beatle, and you're doing time in one of Japan's worst prisons right there alongside Yakuza gangsters. And for a ridiculous charge or the bizarre crime Lady Gaga is accused of. Who is the artist? Lady Gaga is being accused of doing the unthinkable to after allegedly stealing her music in style to become famous. And what about that time Blondie's Debbie Harry escaped a serial killer. The man who had given her that ride she barely escaped from was Ted Bundy. Listen to Disgrace land on the iHeartRadio app, Apple Podcasts or wherever you get your podcasts.
 
 ### Brandon Anderson (Speaker A) [30:08-30:28]
 

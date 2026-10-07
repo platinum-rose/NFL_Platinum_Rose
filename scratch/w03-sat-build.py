@@ -80,7 +80,6 @@ for name,book,kind,keys,stake in T:
     flags=[]
     conn=[l[0] for l in legs if -120<=l[1]<=-100 and not any(t in l[3] for t in ('1','2'))]
     if conn: flags.append('connector w/o tier1-2: '+', '.join(conn))
-    if any(l[4]=='spread' and l[1] and '+' in l[0].split()[-1] for l in legs): flags.append('dog points')
     chalk=[l[0] for l in legs if l[4]=='ml' and l[1]<=-290]
     if chalk: flags.append('ML<=-290: '+', '.join(chalk))
     short=[l for l in legs if l[1]<-200]

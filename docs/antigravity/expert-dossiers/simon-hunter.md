@@ -1,6 +1,6 @@
 # Expert Dossier: Simon Hunter
 
-Generated: 2026-10-03T05:53:31.582Z
+Generated: 2026-10-06T21:38:29.035Z
 
 > Expert dossiers are context for interpreting analyst priors and possible bias. They are not betting authority, not price evidence, and not official-pick support unless a signal is separately promoted through an approved review gate.
 

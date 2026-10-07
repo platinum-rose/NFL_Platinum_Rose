@@ -8,23 +8,22 @@ Audio: https://podtrac.com/pts/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 35225
 Speaker turns: 108
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Guest (gpt-4o, unknown) futures=14
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -41,10 +40,6 @@ go downtown and tell a receptionist I'm
 ### Simon Hunter (Speaker C) [0:45-1:01]
 
 here to talk about my downtown. Some things you'd rather type than say out loud. There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
-
-### Guest (Speaker A) [1:03-2:31]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lily.com
 
 ### Chad Millman (Speaker B) [2:35-3:28]
 
@@ -65,10 +60,6 @@ Simon, I like that shot. Yeah, I agree, honey.
 ### Chad Millman (Speaker B) [4:15-4:16]
 
 I was just thinking back there that
-
-### Guest (Speaker A) [4:16-4:18]
-
-we fit in completely to the theme
 
 ### Chad Millman (Speaker B) [4:18-4:26]
 
@@ -246,10 +237,6 @@ There's no question too embarrassing for Amazon Health AI.
 
 Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
 
-### Guest (Speaker A) [20:03-21:30]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
-
 ### Chad Millman (Speaker B) [21:30-21:58]
 
 visit zepbound Lilly.com this is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. All UFC fighters know power doesn't wait in the octagon or outside of it, you either make the move or you miss the moment. That's why you need a network that's as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in on all the action from the walkouts to the knockouts. You'll never miss a moment.
@@ -301,10 +288,6 @@ Yeah. I always say to people, when the rest of the world's falling apart, I real
 ### Chad Millman (Speaker B) [26:47-27:15]
 
 one point, this is, this is how much we think about football. It's Saturday night. There's about 15 of us sitting around very late at night. You can only imagine what we've been doing in the four or five hours previous. And one of the guys who's married to one of our close high school friends, her husband says Chad Deshaun Watson
-
-### Guest (Speaker A) [27:16-27:16]
-
-or
 
 ### Chad Millman (Speaker B) [27:20-28:20]
 
@@ -442,14 +425,6 @@ I'm heading straight to DOM.
 
 Prices higher for some locations. Excludes Excel and specialty pizzas. Select this offer from 615 through 726 online only. Size availability varies by crust height, max 7 topping 6 for pan and New York style crust. Minimum purchase required for delivery prices, participation, delivery area and charges may vary.
 
-### Guest (Speaker A) [36:22-37:03]
-
-Grainger knows when you're a procurement manager for an office park, you're not managing one building, you're managing all of them. And to stay ahead, you need to see through walls and around corners. Lights about to fail, Filters ready to clog H Vac on its last leg. If you wait until something breaks, you're already behind. Count on Grainger for quality products, easy reordering and 24. 7 support support call 1-800-grainger click grainger.com or just stop by Grainger for the ones who get it done. I love the little everyday moments with my dog, especially treat time. But dental care? Not always so fun. Until we found Greeny's Dental Treats. These are more than just tasty.
-
 ### Chad Millman (Speaker B) [37:03-37:11]
 
 They're vet recommended and designed to support the four areas. Vets check the plaque, tartar, gums and breath. Their unique texture cleans down to the
-
-### Guest (Speaker A) [37:11-37:27]
-
-gum line and supports cleaner teeth after 28 days when fed daily. It's a simple daily habit that supports their health and gives us another moment to enjoy together. Greenies make health a treat. Shop now@greenies.com this is an I Heart podcast. Guaranteed human.

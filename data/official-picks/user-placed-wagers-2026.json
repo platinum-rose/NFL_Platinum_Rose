@@ -14540,9 +14540,9 @@
     "potential_profit_usd": 4156.85,
     "potential_payout_usd": 4166.66,
     "shares": 4166.66,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official Kalshi combo reported by Andy 2026-10-05 ~15:10 PT (placed 3:07 PM): cost $9.81, max payout $4,166.66 (4,166.66 shares). Leg prices are Kalshi market % at placement (Hooper 11%, Fant 14%, Saints D/ST 14%); American odds derived. Cash-out shown $7.08 at entry. Order ID as displayed: F92AF9DCBF8 (repeated in the paste). Fant questionable (abdomen); per Andy's rule a player missing from the final box score = LOST leg. D/ST leg settles manually (defensive or special-teams TD by NO).",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official Kalshi combo reported by Andy 2026-10-05 ~15:10 PT (placed 3:07 PM): cost $9.81, max payout $4,166.66 (4,166.66 shares). Leg prices are Kalshi market % at placement (Hooper 11%, Fant 14%, Saints D/ST 14%); American odds derived. Cash-out shown $7.08 at entry. Order ID as displayed: F92AF9DCBF8 (repeated in the paste). Fant questionable (abdomen); per Andy's rule a player missing from the final box score = LOST leg. D/ST leg settles manually (defensive or special-teams TD by NO). | Settled 2026-10-06 by Claude Team 2 from ESPN final box score: Hooper 0 TD, Fant inactive (lost), NO D/ST no TD (manual).",
     "legs": [
       {
         "leg_num": 1,
@@ -14557,8 +14557,9 @@
         "price_implied_prob": 0.11,
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_kalshi_mnf_3td_20261005_1_hooper_td"
+        "status": "LOST",
+        "key": "leg_kalshi_mnf_3td_20261005_1_hooper_td",
+        "actual_stat": "0"
       },
       {
         "leg_num": 2,
@@ -14573,8 +14574,9 @@
         "price_implied_prob": 0.14,
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_kalshi_mnf_3td_20261005_2_fant_td"
+        "status": "LOST",
+        "key": "leg_kalshi_mnf_3td_20261005_2_fant_td",
+        "actual_stat": "not in box score (DNP = lost leg)"
       },
       {
         "leg_num": 3,
@@ -14589,10 +14591,14 @@
         "price_implied_prob": 0.14,
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_kalshi_mnf_3td_20261005_3_no_dst_td"
+        "status": "LOST",
+        "key": "leg_kalshi_mnf_3td_20261005_3_no_dst_td",
+        "actual_stat": "0 (no NO defensive/ST TD; ESPN scoring plays: 2 rush TD, 1 pass TD, 1 FG)"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -9.81,
+    "graded_at": "2026-10-06T03:57:00Z"
   },
   {
     "id": "bet_20261005_betonline_1002759127",
@@ -14608,16 +14614,16 @@
     "category": "Prop Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "cash_risk_usd": 6.0,
-    "stake_usd": 6.0,
+    "cash_risk_usd": 6,
+    "stake_usd": 6,
     "units": 0.6,
     "odds_american": "+9200",
-    "odds_decimal": 93.0,
-    "potential_profit_usd": 552.0,
-    "potential_payout_usd": 558.0,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official BetOnline ticket reported by Andy 2026-10-05 ~17:08 PT. Slip shows Accepted Date 10/6/26 (UTC); placed before MNF kickoff.",
+    "odds_decimal": 93,
+    "potential_profit_usd": 552,
+    "potential_payout_usd": 558,
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official BetOnline ticket reported by Andy 2026-10-05 ~17:08 PT. Slip shows Accepted Date 10/6/26 (UTC); placed before MNF kickoff. | Settled 2026-10-06 by Claude Team 2 from ESPN final box score.",
     "legs": [
       {
         "leg_num": 1,
@@ -14632,8 +14638,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002759127_1"
+        "status": "LOST",
+        "key": "leg_1002759127_1",
+        "actual_stat": "5"
       },
       {
         "leg_num": 2,
@@ -14648,8 +14655,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002759127_2"
+        "status": "WON",
+        "key": "leg_1002759127_2",
+        "actual_stat": "2"
       },
       {
         "leg_num": 3,
@@ -14664,8 +14672,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002759127_3"
+        "status": "WON",
+        "key": "leg_1002759127_3",
+        "actual_stat": "19"
       },
       {
         "leg_num": 4,
@@ -14680,8 +14689,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002759127_4"
+        "status": "LOST",
+        "key": "leg_1002759127_4",
+        "actual_stat": "0"
       },
       {
         "leg_num": 5,
@@ -14696,8 +14706,9 @@
         "price_source": "not captured",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002759127_5"
+        "status": "WON",
+        "key": "leg_1002759127_5",
+        "actual_stat": "10"
       },
       {
         "leg_num": 6,
@@ -14712,8 +14723,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002759127_6"
+        "status": "WON",
+        "key": "leg_1002759127_6",
+        "actual_stat": "6"
       },
       {
         "leg_num": 7,
@@ -14728,8 +14740,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002759127_7"
+        "status": "LOST",
+        "key": "leg_1002759127_7",
+        "actual_stat": "not in box score (DNP = lost leg)"
       },
       {
         "leg_num": 8,
@@ -14744,10 +14757,14 @@
         "price_source": "not captured",
         "direction": "under",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002759127_8"
+        "status": "WON",
+        "key": "leg_1002759127_8",
+        "actual_stat": "20"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -6,
+    "graded_at": "2026-10-06T03:55:51Z"
   },
   {
     "id": "bet_20261005_betonline_1002756348",
@@ -14763,16 +14780,16 @@
     "category": "Prop Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "cash_risk_usd": 4.0,
-    "stake_usd": 4.0,
+    "cash_risk_usd": 4,
+    "stake_usd": 4,
     "units": 0.4,
     "odds_american": "+14000",
-    "odds_decimal": 141.0,
-    "potential_profit_usd": 560.0,
-    "potential_payout_usd": 564.0,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official BetOnline ticket reported by Andy 2026-10-05 ~17:08 PT. ",
+    "odds_decimal": 141,
+    "potential_profit_usd": 560,
+    "potential_payout_usd": 564,
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official BetOnline ticket reported by Andy 2026-10-05 ~17:08 PT.  | Settled 2026-10-06 by Claude Team 2 from ESPN final box score.",
     "legs": [
       {
         "leg_num": 1,
@@ -14787,8 +14804,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002756348_1"
+        "status": "LOST",
+        "key": "leg_1002756348_1",
+        "actual_stat": "7"
       },
       {
         "leg_num": 2,
@@ -14803,8 +14821,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002756348_2"
+        "status": "LOST",
+        "key": "leg_1002756348_2",
+        "actual_stat": "0"
       },
       {
         "leg_num": 3,
@@ -14819,8 +14838,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002756348_3"
+        "status": "LOST",
+        "key": "leg_1002756348_3",
+        "actual_stat": "0"
       },
       {
         "leg_num": 4,
@@ -14835,8 +14855,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002756348_4"
+        "status": "WON",
+        "key": "leg_1002756348_4",
+        "actual_stat": "3"
       },
       {
         "leg_num": 5,
@@ -14851,8 +14872,9 @@
         "price_source": "not captured",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002756348_5"
+        "status": "WON",
+        "key": "leg_1002756348_5",
+        "actual_stat": "286"
       },
       {
         "leg_num": 6,
@@ -14867,10 +14889,14 @@
         "price_source": "not captured",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002756348_6"
+        "status": "WON",
+        "key": "leg_1002756348_6",
+        "actual_stat": "54"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -4,
+    "graded_at": "2026-10-06T03:55:51Z"
   },
   {
     "id": "bet_20261005_betonline_1002754993",
@@ -14893,9 +14919,9 @@
     "odds_decimal": 114.723,
     "potential_profit_usd": 1320.32,
     "potential_payout_usd": 1331.93,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official BetOnline tickets reported by Andy 2026-10-05 ~17:08 PT. Two real tickets with identical legs, merged into one tracker row at Andy's request (17:14 PT): #1002754993 $6.61 to win $740.32 (+11200) + #1002746959 $5.00 to win $580.00 (+11600). Combined odds are stake-weighted. Leg prices from the slip Andy had Claude check at 16:06-16:08 (Shough TD later swapped for Bijan TD).",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official BetOnline tickets reported by Andy 2026-10-05 ~17:08 PT. Two real tickets with identical legs, merged into one tracker row at Andy's request (17:14 PT): #1002754993 $6.61 to win $740.32 (+11200) + #1002746959 $5.00 to win $580.00 (+11600). Combined odds are stake-weighted. Leg prices from the slip Andy had Claude check at 16:06-16:08 (Shough TD later swapped for Bijan TD). | Settled 2026-10-06 by Claude Team 2 from ESPN final box score.",
     "legs": [
       {
         "leg_num": 1,
@@ -14910,8 +14936,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002754993_1"
+        "status": "LOST",
+        "key": "leg_1002754993_1",
+        "actual_stat": "0"
       },
       {
         "leg_num": 2,
@@ -14926,8 +14953,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002754993_2"
+        "status": "LOST",
+        "key": "leg_1002754993_2",
+        "actual_stat": "0"
       },
       {
         "leg_num": 3,
@@ -14942,8 +14970,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002754993_3"
+        "status": "LOST",
+        "key": "leg_1002754993_3",
+        "actual_stat": "5"
       },
       {
         "leg_num": 4,
@@ -14958,8 +14987,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002754993_4"
+        "status": "LOST",
+        "key": "leg_1002754993_4",
+        "actual_stat": "0"
       },
       {
         "leg_num": 5,
@@ -14974,8 +15004,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002754993_5"
+        "status": "WON",
+        "key": "leg_1002754993_5",
+        "actual_stat": "2"
       },
       {
         "leg_num": 6,
@@ -14990,8 +15021,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002754993_6"
+        "status": "LOST",
+        "key": "leg_1002754993_6",
+        "actual_stat": "0"
       },
       {
         "leg_num": 7,
@@ -15006,8 +15038,9 @@
         "price_source": "BEO board 2026-10-05 ~12:10 PT (slip shows no per-leg price)",
         "direction": "over",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_1002754993_7"
+        "status": "WON",
+        "key": "leg_1002754993_7",
+        "actual_stat": "286"
       }
     ],
     "component_tickets": [
@@ -15019,11 +15052,14 @@
       },
       {
         "ticket_number": "1002746959",
-        "stake_usd": 5.0,
-        "potential_profit_usd": 580.0,
+        "stake_usd": 5,
+        "potential_profit_usd": 580,
         "odds_american": "+11600"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -11.61,
+    "graded_at": "2026-10-06T03:55:51Z"
   },
   {
     "id": "bet_20261005_bkr_739813995",
@@ -15046,10 +15082,10 @@
     "odds_decimal": 3.57,
     "potential_profit_usd": 67.82,
     "potential_payout_usd": 94.21,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_739813995",
-    "progress_notes": "Official BKR ticket reported by Andy 2026-10-05 ~17:08 PT (placed 16:36 PT). Leg prices not shown on the slip.",
+    "progress_notes": "Official BKR ticket reported by Andy 2026-10-05 ~17:08 PT (placed 16:36 PT). Leg prices not shown on the slip. | Settled 2026-10-06 by Claude Team 2 from ESPN final box score.",
     "legs": [
       {
         "leg_num": 1,
@@ -15063,8 +15099,9 @@
         "price": null,
         "target_stat": "spread",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_739813995_1_no"
+        "status": "LOST",
+        "key": "leg_739813995_1_no",
+        "actual_stat": "NO 24-45"
       },
       {
         "leg_num": 2,
@@ -15078,9 +15115,13 @@
         "price": null,
         "target_stat": "total_points",
         "game_start": "10/05/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_739813995_2_over"
+        "status": "WON",
+        "key": "leg_739813995_2_over",
+        "actual_stat": "total 69"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -26.39,
+    "graded_at": "2026-10-06T03:55:51Z"
   }
 ]

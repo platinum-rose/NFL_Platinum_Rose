@@ -31,6 +31,17 @@
       --highlight: #1e293b;
     }
   }
+  html {
+    scroll-behavior: smooth;
+  }
+  :target {
+    animation: target-pulse 2.5s ease-out;
+    scroll-margin-top: 24px;
+  }
+  @keyframes target-pulse {
+    0% { background-color: rgba(59, 130, 246, 0.25); border-radius: 6px; padding: 2px 6px; }
+    100% { background-color: transparent; }
+  }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg);
@@ -40,7 +51,7 @@
     padding: 32px 20px;
   }
   .container {
-    max-width: 1040px;
+    max-width: 1100px;
     margin: 0 auto;
     background: var(--card);
     border: 1px solid var(--border);
@@ -87,7 +98,9 @@
   }
   .table-responsive {
     overflow-x: auto;
+    overflow-y: visible;
     margin: 16px 0;
+    padding-bottom: 24px;
   }
   table {
     width: 100%;
@@ -103,24 +116,105 @@
     background-color: var(--primary);
     color: #ffffff;
     font-weight: 600;
+    position: relative;
+  }
+  th:hover, th:has(.term-tooltip:hover) {
+    z-index: 100;
   }
   tr:nth-child(even) {
     background-color: var(--highlight);
   }
   .badge {
     display: inline-block;
-    padding: 2px 8px;
+    padding: 3px 8px;
     border-radius: 4px;
     font-size: 11px;
     font-weight: 700;
+    line-height: 1.2;
+    margin: 1px 0;
+  }
+  .badge-cross {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
   }
   .badge-consensus {
     background: #dbeafe;
     color: #1e40af;
+    border: 1px solid #bfdbfe;
   }
   .badge-unit {
     background: #fef3c7;
     color: #92400e;
+    border: 1px solid #fde68a;
+  }
+  .badge-teaser {
+    background: #f3e8ff;
+    color: #6b21a8;
+    border: 1px solid #e9d5ff;
+  }
+  .badge-best {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+  }
+  .badge-stable {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+  }
+  .badge-watch {
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+  }
+  .badge-volatile {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+  }
+  .badge-zero {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+  }
+  .table-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1.5px dashed var(--primary);
+    transition: all 0.2s ease;
+  }
+  .table-link:hover {
+    color: var(--primary-light);
+    border-bottom-style: solid;
+  }
+  .badge a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: none;
+  }
+  .badge a:hover {
+    text-decoration: underline;
+    border-bottom: none;
+  }
+  .back-to-top {
+    display: inline-block;
+    margin: 8px 0 16px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+    background: var(--highlight);
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+  .back-to-top:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
   }
   ul, ol {
     padding-left: 24px;
@@ -145,16 +239,456 @@
   code {
     font-family: Consolas, Monaco, monospace;
   }
+  /* Rollup / Collapsible Box Styles */
+  .global-rollup-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    background: var(--highlight);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin: 20px 0 24px 0;
+  }
+  .global-rollup-bar .bar-title {
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--primary);
+  }
+  .global-rollup-bar .bar-hint {
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .rollup-controls {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0 16px 0;
+  }
+  .btn-toggle {
+    background: var(--highlight);
+    color: var(--primary);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn-toggle:hover {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+  }
+  .btn-primary:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-light);
+  }
+  details.rollup-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin: 14px 0;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  details.rollup-box:hover {
+    border-color: var(--primary-light);
+  }
+  details.rollup-box[open] {
+    border-color: var(--primary);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  }
+  details.rollup-box:target {
+    border-color: #2563eb !important;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.35) !important;
+    animation: target-box-pulse 2.5s ease-out;
+  }
+  @keyframes target-box-pulse {
+    0% { box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.55); border-color: #2563eb; }
+    100% { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+  }
+  details.rollup-box summary {
+    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary);
+    background: var(--highlight);
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    transition: background 0.2s ease;
+  }
+  details.rollup-box summary::-webkit-details-marker {
+    display: none;
+  }
+  details.rollup-box summary:hover {
+    background: #e2e8f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    details.rollup-box summary:hover {
+      background: #334155;
+    }
+  }
+  details.rollup-box summary::after {
+    content: '▼';
+    font-size: 11px;
+    color: var(--muted);
+    transition: transform 0.2s ease;
+    transform: rotate(-90deg);
+  }
+  details.rollup-box[open] summary::after {
+    transform: rotate(0deg);
+  }
+  details.rollup-box .rollup-content {
+    padding: 16px 20px;
+    border-top: 1px solid var(--border);
+  }
+  /* Interactive Laymen Term Tooltips */
+  .term-tooltip {
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 3px;
+    cursor: help;
+    border-bottom: 1.5px dotted #3b82f6;
+    color: inherit;
+    font-weight: inherit;
+  }
+  .term-tooltip:hover {
+    z-index: 101;
+  }
+  .term-tooltip::after {
+    content: ' ⓘ';
+    font-size: 10px;
+    color: #3b82f6;
+    opacity: 0.85;
+    font-weight: bold;
+  }
+  .term-tooltip .tip-text {
+    visibility: hidden;
+    width: 290px;
+    background-color: #0f172a;
+    color: #f8fafc;
+    text-align: left;
+    border-radius: 8px;
+    padding: 10px 14px;
+    position: absolute;
+    z-index: 99999;
+    top: calc(100% + 8px);
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.45;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    border: 1px solid #334155;
+    pointer-events: none;
+    white-space: normal;
+    text-transform: none;
+  }
+  .term-tooltip .tip-text strong {
+    color: #60a5fa;
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12.5px;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 3px;
+  }
+  .term-tooltip .tip-text::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #0f172a transparent;
+  }
+  .term-tooltip:hover .tip-text {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(3px);
+  }
+  th:first-child .term-tooltip .tip-text,
+  th:nth-child(2) .term-tooltip .tip-text {
+    left: 0;
+    transform: none;
+  }
+  th:first-child .term-tooltip .tip-text::after,
+  th:nth-child(2) .term-tooltip .tip-text::after {
+    left: 24px;
+  }
+  th:first-child .term-tooltip:hover .tip-text,
+  th:nth-child(2) .term-tooltip:hover .tip-text {
+    transform: translateY(3px);
+  }
+  th:last-child .term-tooltip .tip-text,
+  th:nth-last-child(2) .term-tooltip .tip-text {
+    left: auto;
+    right: 0;
+    transform: none;
+  }
+  th:last-child .term-tooltip .tip-text::after,
+  th:nth-last-child(2) .term-tooltip .tip-text::after {
+    left: auto;
+    right: 24px;
+  }
+  th:last-child .term-tooltip:hover .tip-text,
+  th:nth-last-child(2) .term-tooltip:hover .tip-text {
+    transform: translateY(3px);
+  }
+  details.section-alternates {
+    margin-top: 18px;
+    border: 1.5px dashed #475569;
+    border-radius: 8px;
+  }
+  details.section-alternates summary {
+    background: rgba(30, 41, 59, 0.7);
+    color: #93c5fd;
+    font-size: 14.5px;
+  }
+  /* Sortable Tables */
+  th.sortable-header {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-right: 22px;
+    transition: background-color 0.2s ease;
+  }
+  th.sortable-header:hover {
+    background-color: var(--primary-light);
+  }
+  .sort-icon {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 11px;
+    opacity: 0.65;
+    vertical-align: middle;
+    transition: opacity 0.2s ease, color 0.2s ease;
+  }
+  th.sortable-header:hover .sort-icon {
+    opacity: 1;
+  }
+  th.sortable-header[data-sort-dir="asc"] .sort-icon,
+  th.sortable-header[data-sort-dir="desc"] .sort-icon {
+    opacity: 1;
+    color: #60a5fa;
+    font-weight: 900;
+  }
+  .team-logo {
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    margin-right: 6px;
+    object-fit: contain;
+    display: inline-block;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+  }
+  .team-logo-sm {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 4px;
+    object-fit: contain;
+    display: inline-block;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+  }
 </style>
 </head>
 <body>
 <div class="container">
-<h1>🏈 Even Money Podcast — NFL Week 1 Comprehensive Betting Intelligence</h1><p><strong>Hosts & Experts:</strong></p><ul><li><strong>Ross Tucker:</strong> Former NFL offensive lineman, national broadcaster (CBS Sports, Westwood One, DraftKings Network).</li><li><strong>Steve Fezzik:</strong> Renowned professional sports bettor and the only two-time back-to-back winner of the Westgate SuperContest.</li></ul><hr/><h2>1. Top-Level Official Best Bets & Primary Wagers</h2><div class="table-responsive"><table><tr><th>Matchup</th><th>Market Line</th><th>Expert</th><th>Selection</th><th>Unit Size</th><th>Market / Strategy</th></tr><tr><td><strong>Ravens @ Colts</strong></td><td>IND +3.5 (-110)</td><td><span class="badge badge-consensus"><strong>Consensus</strong></span></td><td><strong>Indianapolis Colts +3.5</strong></td><td><span class="badge badge-consensus"><strong>2 Units each (4U Total)</strong></span></td><td><span class="badge badge-consensus"><strong>Consensus Best Bet</strong> (Spread)</span></td></tr><tr><td><strong>Cardinals @ Chargers</strong></td><td>ARI +10 (-110)</td><td><span class="badge badge-consensus"><strong>Consensus</strong></span></td><td><strong>Arizona Cardinals +10</strong></td><td><span class="badge badge-consensus"><strong>2 Units each (4U Total)</strong></span></td><td><span class="badge badge-consensus"><strong>Consensus Best Bet</strong> (Spread)</span></td></tr><tr><td><strong>49ers vs. Rams (Aus)</strong></td><td>SF +3.5 (-110)</td><td><strong>Ross Tucker</strong></td><td><strong>San Francisco 49ers +3.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong></span></td><td>Single-game Spread (Travel edge)</td></tr><tr><td><strong>Buccaneers @ Bengals</strong></td><td>TB +3.5 (-110)</td><td><strong>Ross Tucker</strong></td><td><strong>Tampa Bay Buccaneers +3.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong></span></td><td>Single-game Spread (Hook value)</td></tr><tr><td><strong>Falcons @ Steelers</strong></td><td>1H U21.5 (-110)</td><td><strong>Steve Fezzik</strong></td><td><strong>1st Half Under 21.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong></span></td><td>Derivative Total (Offensive lag)</td></tr><tr><td><strong>Bills @ Texans</strong></td><td>HOU +1.5 <em>&rarr;</em> <strong>+7.5</strong></td><td><span class="badge badge-consensus"><strong>Consensus</strong></span></td><td><strong>Houston Texans +7.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong> (in RR)</span></td><td><span class="badge badge-consensus"><strong>Consensus Best Bet Teaser Leg</strong></span></td></tr><tr><td><strong>Jets @ Titans</strong></td><td>NYJ +1.5 <em>&rarr;</em> <strong>+7.5</strong></td><td><span class="badge badge-consensus"><strong>Consensus</strong></span></td><td><strong>New York Jets +7.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong> (in RR)</span></td><td><span class="badge badge-consensus"><strong>Consensus Best Bet Teaser Leg</strong></span></td></tr><tr><td><strong>Packers @ Vikings</strong></td><td>GB +1.5 <em>&rarr;</em> <strong>+7.5</strong></td><td><span class="badge badge-consensus"><strong>Consensus</strong></span></td><td><strong>Green Bay Packers +7.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong> (in RR)</span></td><td><span class="badge badge-consensus"><strong>Consensus Best Bet Teaser Leg</strong></span></td></tr><tr><td><strong>Browns @ Jaguars</strong></td><td>JAX -8.5 <em>&rarr;</em> <strong>-2.5</strong></td><td><strong>Ross Tucker</strong></td><td><strong>Jacksonville Jaguars -2.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong> (in RR)</span></td><td>Primary Teaser Leg (Wong favorite)</td></tr><tr><td><strong>Commanders @ Eagles</strong></td><td>Under 44.5 (-110)</td><td><strong>Ross Tucker</strong></td><td><strong>Full Game Under 44.5</strong></td><td><strong>1 Unit</strong></td><td>Full Game Total (Divisional grind)</td></tr><tr><td><strong>Buccaneers @ Bengals</strong></td><td>Under 50.5 (-110)</td><td><strong>Steve Fezzik</strong></td><td><strong>Full Game Under 50.5</strong></td><td><strong>1 Unit</strong></td><td>Full Game Total (Macro Week 1 rule)</td></tr><tr><td><strong>Dolphins @ Raiders</strong></td><td>MIA +3.5 (-110)</td><td><strong>Ross Tucker</strong></td><td><strong>Miami Dolphins +3.5</strong></td><td><strong>1 Unit</strong></td><td>Single-game Spread (Hook value)</td></tr><tr><td><strong>Dolphins @ Raiders</strong></td><td>Under 41.5 (-110)</td><td><strong>Steve Fezzik</strong></td><td><strong>Full Game Under 41.5</strong></td><td><strong>1 Unit</strong></td><td>Full Game Total (MIA regression)</td></tr><tr><td><strong>Dolphins @ Raiders</strong></td><td>1H U20.5 (-110)</td><td><strong>Steve Fezzik</strong></td><td><strong>1st Half Under 20.5</strong></td><td><strong>1 Unit</strong></td><td>Derivative Total (Slow script)</td></tr><tr><td><strong>Broncos @ Chiefs</strong></td><td>DEN +3 (-110)</td><td><strong>Ross Tucker</strong></td><td><strong>Denver Broncos +3</strong></td><td><strong>1 Unit</strong></td><td>Single-game Spread (Home dog)</td></tr><tr><td><strong>Broncos @ Chiefs</strong></td><td>1H U21.5 (-110)</td><td><strong>Steve Fezzik</strong></td><td><strong>1st Half Under 21.5</strong></td><td><strong>1 Unit</strong></td><td>Derivative Total (Mahomes rust)</td></tr></table></div><hr/><h2>2. In-Depth Analysis of Official Best Bets & Core Wagers</h2><h3>🌟 Consensus Best Bet #1: Indianapolis Colts +3.5 vs. Baltimore Ravens</h3><ul><li><strong>Allocation:</strong> 2 Units each (4 Units total consensus alignment)</li><li><strong>Lines:</strong> Colts +3.5 (-110) | Total: 47.5</li><li><strong>Ross Tucker's Argument:</strong></li><li class="sub-bullet"><strong>Critical Trench Mismatch:</strong> The Ravens enter Week 1 starting interior lineman Javon Gwynn at center—making the very first start of his NFL career—in a hostile, deafening indoor dome in Indianapolis. Tucker, a former NFL offensive lineman, highlighted that silent-count communication and center-quarterback snap exchanges under live pressure represent acute operational vulnerabilities that lead directly to pre-snap penalties and disrupted play timing.</li><li><strong>Steve Fezzik's Argument:</strong></li><li class="sub-bullet"><strong>Underlying Power Rating Misconception:</strong> Fezzik stressed that the public is evaluating the Colts based on how their 2025 season ended rather than how they functioned when intact. Indianapolis was <strong>8–3</strong> and operating efficiently before their starting quarterback suffered a season-ending injury that derailed their campaign.</li><li class="sub-bullet"><strong>The Mathematical +3.5 Hook:</strong> Fezzik’s quantitative model prices Baltimore as a true 3.0-point road favorite. Getting the half-point hook through the most critical key number in football (+3.5) turns a standard push into a win, offering undeniable positive expectancy (+EV).</li></ul><hr/><h3>🌟 Consensus Best Bet #2: Arizona Cardinals +10 at Los Angeles Chargers</h3><ul><li><strong>Allocation:</strong> 2 Units each (4 Units total consensus alignment)</li><li><strong>Lines:</strong> Cardinals +10 (-110) | Total: 47.5</li><li><strong>Steve Fezzik's Argument:</strong></li><li class="sub-bullet"><strong>Historical Week 1 System:</strong> Backing double-digit underdogs (+10 or higher) in Week 1 has historically been one of the most profitable long-term betting systems in the NFL. Early in the year, market spreads over-index on preseason narrative and pedigree before teams have established in-season operational baselines.</li><li><strong>Ross Tucker's Argument:</strong></li><li class="sub-bullet"><strong>Skill Talent & Coaching Transitions:</strong> Tucker noted that Arizona possesses explosive perimeter playmakers capable of keeping pace or producing late back-door cover scoring. Concurrently, the Chargers enter the season breaking in two brand-new coordinators after losing elite defensive coordinator Jesse Minter, introducing schematic instability in their first live contest.</li></ul><hr/><h3>🔀 The Master 6-Point Wong-Teaser Round Robin (Graded at -125 by 2s)</h3><p>Both analysts committed to a 2-unit round-robin teaser structure across four core legs (<em>\binom{4}{2} = 6</em> unique two-team combinations):</p><pre><code>Core Legs:
+<h1>🏈 Even Money Podcast — NFL Week 1 Comprehensive Betting Intelligence</h1><p><strong>Hosts & Experts:</strong></p><ul><li><strong>Ross Tucker:</strong> Former NFL offensive lineman, national broadcaster (CBS Sports, Westwood One, DraftKings Network).</li><li><strong>Steve Fezzik:</strong> Renowned professional sports bettor and the only two-time back-to-back winner of the Westgate SuperContest.</li></ul><hr/><h2>1. Top-Level Official Best Bets & Primary Wagers</h2><div class="table-responsive"><table class="sortable-table"><thead><tr><th>Matchup</th><th>Market Line</th><th>Expert</th><th>Selection</th><th>Unit Size</th><th>Market / Strategy</th></tr></thead><tbody><tr><td><strong>Ravens @ Colts</strong></td><td>IND +3.5 (-110)</td><td><span class="badge badge-consensus"><strong>Consensus</strong></span></td><td><strong>Indianapolis Colts +3.5</strong></td><td><span class="badge badge-consensus"><strong>2 Units each (4U Total)</strong></span></td><td><span class="badge badge-consensus"><strong>Consensus Best Bet</strong> (Spread)</span></td></tr><tr><td><strong>Cardinals @ Chargers</strong></td><td>ARI +10 (-110)</td><td><span class="badge badge-consensus"><strong>Consensus</strong></span></td><td><strong>Arizona Cardinals +10</strong></td><td><span class="badge badge-consensus"><strong>2 Units each (4U Total)</strong></span></td><td><span class="badge badge-consensus"><strong>Consensus Best Bet</strong> (Spread)</span></td></tr><tr><td><strong>49ers vs. Rams (Aus)</strong></td><td>SF +3.5 (-110)</td><td><strong>Ross Tucker</strong></td><td><strong>San Francisco 49ers +3.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong></span></td><td>Single-game Spread (Travel edge)</td></tr><tr><td><strong>Buccaneers @ Bengals</strong></td><td>TB +3.5 (-110)</td><td><strong>Ross Tucker</strong></td><td><strong>Tampa Bay Buccaneers +3.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong></span></td><td>Single-game Spread (Hook value)</td></tr><tr><td><strong>Falcons @ Steelers</strong></td><td>1H U21.5 (-110)</td><td><strong>Steve Fezzik</strong></td><td><strong>1st Half Under 21.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong></span></td><td>Derivative Total (Offensive lag)</td></tr><tr><td><strong>Bills @ Texans</strong></td><td>HOU +1.5 <em>&rarr;</em> <strong>+7.5</strong></td><td><span class="badge badge-consensus"><strong>Consensus</strong></span></td><td><strong>Houston Texans +7.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong> (in RR)</span></td><td><span class="badge badge-consensus"><strong>Consensus Best Bet Teaser Leg</strong></span></td></tr><tr><td><strong>Jets @ Titans</strong></td><td>NYJ +1.5 <em>&rarr;</em> <strong>+7.5</strong></td><td><span class="badge badge-consensus"><strong>Consensus</strong></span></td><td><strong>New York Jets +7.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong> (in RR)</span></td><td><span class="badge badge-consensus"><strong>Consensus Best Bet Teaser Leg</strong></span></td></tr><tr><td><strong>Packers @ Vikings</strong></td><td>GB +1.5 <em>&rarr;</em> <strong>+7.5</strong></td><td><span class="badge badge-consensus"><strong>Consensus</strong></span></td><td><strong>Green Bay Packers +7.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong> (in RR)</span></td><td><span class="badge badge-consensus"><strong>Consensus Best Bet Teaser Leg</strong></span></td></tr><tr><td><strong>Browns @ Jaguars</strong></td><td>JAX -8.5 <em>&rarr;</em> <strong>-2.5</strong></td><td><strong>Ross Tucker</strong></td><td><strong>Jacksonville Jaguars -2.5</strong></td><td><span class="badge badge-unit"><strong>2 Units</strong> (in RR)</span></td><td><span class="badge badge-teaser">Primary Teaser Leg (Wong favorite)</span></td></tr><tr><td><strong>Commanders @ Eagles</strong></td><td>Under 44.5 (-110)</td><td><strong>Ross Tucker</strong></td><td><strong>Full Game Under 44.5</strong></td><td><strong>1 Unit</strong></td><td>Full Game Total (Divisional grind)</td></tr><tr><td><strong>Buccaneers @ Bengals</strong></td><td>Under 50.5 (-110)</td><td><strong>Steve Fezzik</strong></td><td><strong>Full Game Under 50.5</strong></td><td><strong>1 Unit</strong></td><td>Full Game Total (Macro Week 1 rule)</td></tr><tr><td><strong>Dolphins @ Raiders</strong></td><td>MIA +3.5 (-110)</td><td><strong>Ross Tucker</strong></td><td><strong>Miami Dolphins +3.5</strong></td><td><strong>1 Unit</strong></td><td>Single-game Spread (Hook value)</td></tr><tr><td><strong>Dolphins @ Raiders</strong></td><td>Under 41.5 (-110)</td><td><strong>Steve Fezzik</strong></td><td><strong>Full Game Under 41.5</strong></td><td><strong>1 Unit</strong></td><td>Full Game Total (MIA regression)</td></tr><tr><td><strong>Dolphins @ Raiders</strong></td><td>1H U20.5 (-110)</td><td><strong>Steve Fezzik</strong></td><td><strong>1st Half Under 20.5</strong></td><td><strong>1 Unit</strong></td><td>Derivative Total (Slow script)</td></tr><tr><td><strong>Broncos @ Chiefs</strong></td><td>DEN +3 (-110)</td><td><strong>Ross Tucker</strong></td><td><strong>Denver Broncos +3</strong></td><td><strong>1 Unit</strong></td><td>Single-game Spread (Home dog)</td></tr><tr><td><strong>Broncos @ Chiefs</strong></td><td>1H U21.5 (-110)</td><td><strong>Steve Fezzik</strong></td><td><strong>1st Half Under 21.5</strong></td><td><strong>1 Unit</strong></td><td>Derivative Total (Mahomes rust)</td></tr></tbody></table></div><hr/><h2>2. In-Depth Analysis of Official Best Bets & Core Wagers</h2><h3>🌟 Consensus Best Bet #1: Indianapolis Colts +3.5 vs. Baltimore Ravens</h3><ul><li><strong>Allocation:</strong> 2 Units each (4 Units total consensus alignment)</li><li><strong>Lines:</strong> Colts +3.5 (-110) | Total: 47.5</li><li><strong>Ross Tucker's Argument:</strong></li><li class="sub-bullet"><strong>Critical Trench Mismatch:</strong> The Ravens enter Week 1 starting interior lineman Javon Gwynn at center—making the very first start of his NFL career—in a hostile, deafening indoor dome in Indianapolis. Tucker, a former NFL offensive lineman, highlighted that silent-count communication and center-quarterback snap exchanges under live pressure represent acute operational vulnerabilities that lead directly to pre-snap penalties and disrupted play timing.</li><li><strong>Steve Fezzik's Argument:</strong></li><li class="sub-bullet"><strong>Underlying Power Rating Misconception:</strong> Fezzik stressed that the public is evaluating the Colts based on how their 2025 season ended rather than how they functioned when intact. Indianapolis was <strong>8–3</strong> and operating efficiently before their starting quarterback suffered a season-ending injury that derailed their campaign.</li><li class="sub-bullet"><strong>The Mathematical +3.5 Hook:</strong> Fezzik’s quantitative model prices Baltimore as a true 3.0-point road favorite. Getting the half-point hook through the most critical key number in football (+3.5) turns a standard push into a win, offering undeniable positive expectancy (+EV).</li></ul><hr/><h3>🌟 Consensus Best Bet #2: Arizona Cardinals +10 at Los Angeles Chargers</h3><ul><li><strong>Allocation:</strong> 2 Units each (4 Units total consensus alignment)</li><li><strong>Lines:</strong> Cardinals +10 (-110) | Total: 47.5</li><li><strong>Steve Fezzik's Argument:</strong></li><li class="sub-bullet"><strong>Historical Week 1 System:</strong> Backing double-digit underdogs (+10 or higher) in Week 1 has historically been one of the most profitable long-term betting systems in the NFL. Early in the year, market spreads over-index on preseason narrative and pedigree before teams have established in-season operational baselines.</li><li><strong>Ross Tucker's Argument:</strong></li><li class="sub-bullet"><strong>Skill Talent & Coaching Transitions:</strong> Tucker noted that Arizona possesses explosive perimeter playmakers capable of keeping pace or producing late back-door cover scoring. Concurrently, the Chargers enter the season breaking in two brand-new coordinators after losing elite defensive coordinator Jesse Minter, introducing schematic instability in their first live contest.</li></ul><hr/><h3>🔀 The Master 6-Point Wong-Teaser Round Robin (Graded at -125 by 2s)</h3><p>Both analysts committed to a 2-unit round-robin teaser structure across four core legs (<em>\binom{4}{2} = 6</em> unique two-team combinations):</p><pre><code>Core Legs:
 1. Jacksonville Jaguars -2.5   (teased down 6 points from -8.5)
 2. Houston Texans +7.5         (teased up 6 points from +1.5) [Consensus Best Bet Leg]
 3. New York Jets +7.5          (teased up 6 points from +1.5) [Consensus Best Bet Leg]
 4. Green Bay Packers +7.5      (teased up 6 points from +1.5) [Consensus Best Bet Leg]
 </code></pre><ul><li><strong>Houston Texans (+1.5 <em>&rarr;</em> +7.5) vs. Buffalo Bills:</strong></li><li class="sub-bullet">Tucker and Fezzik agreed this is an elite teaser anchor. Houston’s defensive front is built to generate organic pass rush without heavy blitzing, which historically disrupts Josh Allen. Moving through key numbers 3, 4, 6, and 7 gives Houston a cushion over a full touchdown.</li><li><strong>New York Jets (+1.5 <em>&rarr;</em> +7.5) at Tennessee Titans:</strong></li><li class="sub-bullet">Matchup featured a low full-game total (39.5). In low-scoring environments, crossing 3 and 7 is mathematically amplified. Fezzik pointed out that Tennessee’s starting line of scrimmage was physically dominated in preseason by Seattle's backups, whereas the Jets showed steady line play.</li><li><strong>Green Bay Packers (+1.5 <em>&rarr;</em> +7.5) vs. Minnesota Vikings:</strong></li><li class="sub-bullet">Divisional rivalry expected to be a one-score coin flip. Teasing a home divisional dog from +1.5 through key numbers past a touchdown (+7.5) provides extensive margin coverage.</li><li><strong>Jacksonville Jaguars (-8.5 <em>&rarr;</em> -2.5) vs. Cleveland Browns (Ross Tucker):</strong></li><li class="sub-bullet">Classic reverse Wong teaser: moving a heavy home favorite down across 7, 6, 4, and 3 to under a field goal (-2.5), requiring Jacksonville simply to win by a field goal against Deshaun Watson.</li></ul><hr/><h3>🛡️ Single-Expert Best Bets (2 Units)</h3><h4>San Francisco 49ers +3.5 vs. Los Angeles Rams (Ross Tucker — 2 Units)</h4><ul><li><strong>Venue:</strong> Melbourne, Australia (Neutral Site) | <strong>Total:</strong> 48.5</li><li><strong>Tucker's Angle:</strong> The 49ers traveled to Australia a full week ahead of time, following their traditional team-bonding protocol (similar to their extended East Coast stays at The Greenbrier). The Rams chose to arrive right before the game. Tucker argued that the circadian adjustment edge combined with capturing a full +3.5 on a talented team in an international venue makes the Niners a prime 2-unit wager.</li><li><em>Fezzik's Counter:</em> Fezzik passed on the game because his quantitative power ratings heavily favored the Rams (Rams +8 vs. 49ers +3 = Rams -5 true line), which canceled out San Francisco's travel advantage.</li></ul><h4>Tampa Bay Buccaneers +3.5 at Cincinnati Bengals (Ross Tucker — 2 Units)</h4><ul><li><strong>Lines:</strong> Buccaneers +3.5 (-110) | <strong>Total:</strong> 50.5</li><li><strong>Tucker's Angle:</strong> Baker Mayfield enters the season fully healthy with offensive skill continuity after playing through injury last year. Zac Taylor’s Bengals have notoriously started slowly in September across multiple seasons. Getting the +3.5 hook provides vital protection against a sluggish Cincinnati team.</li></ul><h4>Atlanta Falcons at Pittsburgh Steelers — 1st Half Under 21.5 (Steve Fezzik — 2 Units)</h4><ul><li><strong>Lines:</strong> Full Game Total 42.5 | 1H Total 21.5 (-110)</li><li><strong>Fezzik's Angle:</strong> Early in the summer, Fezzik favored Atlanta, but soured completely due to Tua Tagovailoa's concerning preseason tape and multiple injuries along Atlanta's edge-rusher rotation. Combined with Pittsburgh’s conservative offensive nature under Mike Tomlin, Fezzik expects an offensive slog in the opening 30 minutes.</li></ul><hr/><h2>3. Official Leans</h2><ul><li><strong>New England Patriots: Rhamondre Stevenson Over 15.5 Carries</strong> <em>(Steve Fezzik Strong Lean, Endorsed by Ross Tucker)</em></li><li class="sub-bullet">TreVeyon Henderson missed multiple consecutive practices leading into Week 1. With a 10-day mini-bye before Week 2, New England has zero incentive to rush him back. Stevenson is positioned for concentrated bell-cow volume to protect the quarterback and slow down Seattle's crowd noise.</li><li><strong>Seattle Seahawks -3 (-120)</strong> <em>(Steve Fezzik Lean)</em></li><li class="sub-bullet">Fezzik noted Seattle laid -4.5 on a neutral field in the Super Bowl against New England and dominated. Shifting the venue to Lumen Field with the 12th Man makes -3 cheap (market equivalent ~3.2 due to vig). However, defensive personnel departures kept him from making it a full unit play.</li><li><strong>New York Giants +3 vs. Dallas Cowboys</strong> <em>(Consensus Lean)</em></li><li class="sub-bullet">Both experts strongly lean toward New York but exercised discipline by holding out. Because Dallas is heavily backed by the betting public, retail money often pushes spreads toward kickoff. Both are monitoring the board hoping a sportsbook flashes <strong>+3.5</strong>.</li><li><strong>New Orleans Saints +7 at Detroit Lions</strong> <em>(Ross Tucker Lean)</em></li><li class="sub-bullet">Tucker highlighted New Orleans' offensive surge late last season. While he wished for a +7.5 hook, he leans to the Saints keeping it within a touchdown. Fezzik’s model landed at exactly Detroit -7.0, so Fezzik passed.</li><li><strong>Cleveland Browns +8.5 at Jacksonville Jaguars</strong> <em>(Steve Fezzik Trend Lean)</em></li><li class="sub-bullet">Fezzik’s historical system shows Week 1 underdogs of +7 or more hit at a high clip. However, he refused to risk actual capital on Deshaun Watson, citing erratic and untrustworthy quarterback play.</li><li><strong>Washington Commanders at Philadelphia Eagles — Under 44.5</strong> <em>(Steve Fezzik Lean)</em></li><li class="sub-bullet">Fezzik distributed Under 46.5 to private clients earlier in the summer. While he still believes the game stays low-scoring, the line steamed down through 45 to 44.5, so he downgraded it to a lean due to lost closing line value (CLV). Tucker bet it for 1 unit.</li><li><strong>Pittsburgh Steelers -3 vs. Atlanta Falcons</strong> <em>(Steve Fezzik & Ross Tucker Leans on Side)</em></li><li class="sub-bullet">Both lean toward Pittsburgh on the spread due to Atlanta's edge injuries and quarterback concerns, but preferred targeting the 1st Half Under.</li></ul><hr/><h2>4. Remaining Week 1 Matchups (Passes & No Position Taken)</h2><ul><li><strong>Chicago Bears at Carolina Panthers (Bears -3, 47.5):</strong></li><li class="sub-bullet"><strong>Consensus Pass.</strong> Fezzik’s model produced Bears -3.5, but he stated the line failed his "reasonability test." Both experts agreed that both Chicago and Carolina won an unsustainable number of close, one-score coin flips last season, making both teams volatile regression candidates in early September.</li><li><strong>Detroit Lions -7 vs. New Orleans Saints:</strong></li><li class="sub-bullet"><strong>Consensus Pass on Favorite.</strong> Fezzik projects Detroit to win the NFC North, but attributed that primarily to an exceptionally soft regular-season schedule ("cupcake schedule") rather than a dominant talent gap over division opponents. Laying a full touchdown in Week 1 was deemed -EV.</li><li><strong>Philadelphia Eagles -5.5 vs. Washington Commanders:</strong></li><li class="sub-bullet"><strong>Consensus Pass on Spread.</strong> The spread of 5.5 sits in a mathematical "dead zone" (unusable for Wong teasers and away from key numbers 3 and 7).</li><li><strong>Las Vegas Raiders -3.5 vs. Miami Dolphins:</strong></li><li class="sub-bullet"><strong>Steve Fezzik Passed on Side.</strong> While Fezzik expects Miami's offense to regress, he anticipates Las Vegas will execute an ultra-conservative, clock-draining game plan focused on ball security, preferring to bet the game and 1H totals rather than lay points with the Raiders.</li><li><strong>Minnesota Vikings at Green Bay Packers (MIN -1.5):</strong></li><li class="sub-bullet"><strong>Consensus Pass on Spread.</strong> Neither expert saw value picking an outright winner between two closely matched divisional rivals; both channeled their conviction entirely into the Packers +7.5 teaser leg.</li><li><strong>Kansas City Chiefs at Denver Broncos (KC -3):</strong></li><li class="sub-bullet"><strong>Fezzik Passed on Spread.</strong> Anticipates early-season offensive rust from Patrick Mahomes and conservative early play-calling from Andy Reid, choosing to attack the 1H Under 21.5 rather than lay road points in Denver's altitude.</li></ul><hr/><h2>5. Miscellaneous Notes, Futures & In-Season Angles</h2><h3>🛡️ Steve Fezzik's Week 1 Survivor Pool Selection</h3><ul><li><strong>Designated Pick:</strong> <strong>Los Angeles Chargers</strong> (over Arizona Cardinals)</li><li><strong>Strategic Rationale:</strong> Fezzik distinguished between point spread betting and contest survival: while Arizona holds the betting value at +10, the Chargers have the highest straight-up moneyline win expectancy on the board. For Circa Survivor or splash pools, taking the Chargers secures advancement without burning top-tier postseason contenders like Kansas City or San Francisco early.</li></ul><h3>📉 Regular Season Win Totals Highlighted</h3><ul><li><strong>Atlanta Falcons Under 7.5 Wins:</strong> Fezzik holds an active summer position on the Under, citing quarterback concerns and front-seven injury attrition.</li><li><strong>Pittsburgh Steelers Under 8.5 Wins:</strong> Fezzik shorts Pittsburgh's season outlook, projecting offensive ceiling limitations in an unforgiving division.</li></ul><h3>📐 Master Betting Principles Emphasized</h3><ol><li><strong>The Mathematical Chasm Between +3 and +3.5:</strong></li></ol><p>Fezzik broke down why pro handicappers obsess over the half-point hook: assuming a true 3-point game, favorites cover 45% of the time and dogs cover/win 45% of the time, with exactly 3 landing 10% of the time. Betting +3 results in a 45–45 record with 10 pushes (bleeding juice). Betting +3.5 converts all 10 pushes into wins, turning the record into <strong>55–45 (55% win rate)</strong>—the benchmark of elite professional sports betting.</p><ol><li><strong>September Totals & Offensive Lag:</strong></li></ol><p>Because modern collective bargaining agreements limit live contact in training camps, NFL defenses regularly start the season ahead of offensive timing and chemistry. Totals above 50 in Week 1 strongly trend toward the Under.</p><ol><li><strong>Teaser Market Pricing Standards:</strong></li></ol><p>Tucker and Fezzik established <strong>-125</strong> as their benchmark fair price for 6-point, two-team NFL teasers, warning recreational bettors against accepting predatory -135 pricing while advising listeners to hunt for -120 or -110 where available.</p>
 </div>
+<script>
+function toggleRollups(groupClass, expand) {
+  const selector = groupClass ? 'details.' + groupClass : 'details.rollup-box';
+  document.querySelectorAll(selector).forEach(d => {
+    d.open = expand;
+  });
+}
+
+function toggleAllMainSections(expand) {
+  document.querySelectorAll('details.section-main').forEach(d => {
+    d.open = expand;
+  });
+}
+
+function toggleAllRollups(expand) {
+  document.querySelectorAll('details.rollup-box').forEach(d => {
+    d.open = expand;
+  });
+}
+
+function openTargetDetails(hash) {
+  if (!hash || hash === '#') return;
+  const targetId = hash.replace('#', '');
+  const targetEl = document.getElementById(targetId);
+  if (targetEl) {
+    let curr = targetEl;
+    while (curr && curr !== document.body) {
+      if (curr.tagName && curr.tagName.toLowerCase() === 'details') {
+        curr.open = true;
+      }
+      curr = curr.parentElement;
+    }
+    setTimeout(() => {
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
+  }
+}
+
+function parseCellValue(cell) {
+  if (!cell) return { type: 'empty', val: '' };
+  const clone = cell.cloneNode(true);
+  clone.querySelectorAll('.tip-text').forEach(el => el.remove());
+  const txt = (clone.innerText || clone.textContent || '').trim();
+  if (!txt) return { type: 'empty', val: '' };
+
+  // 1. Confidence Index (e.g. "96 / 100", "88 / 100")
+  const mConf = txt.match(/(\d+(?:\.\d+)?)\s*\/\s*100/i);
+  if (mConf) return { type: 'num', val: parseFloat(mConf[1]) };
+
+  // 2. Trench Mismatch SD (e.g. "+3.08 SD", "LAR +3.08 SD", "TB +2.10 SD")
+  const mSD = txt.match(/([+-]?\d+(?:\.\d+)?)\s*SD/i);
+  if (mSD) return { type: 'num', val: parseFloat(mSD[1]) };
+
+  // 3. Units (e.g. "4 Units", "2.0 Units", "0.5 Units", "4U")
+  const mUnit = txt.match(/(\d+(?:\.\d+)?)\s*(?:Units?|U\b)/i);
+  if (mUnit) return { type: 'num', val: parseFloat(mUnit[1]) };
+
+  // 4. Source count consensus (e.g. "5-Source Consensus", "5-Show")
+  const mShow = txt.match(/(\d+)[-\s](?:Source|Show)/i);
+  if (mShow) return { type: 'num', val: parseFloat(mShow[1]) };
+
+  // 5. Market Edge with sign (e.g. "+5.4 on IND", "+2.2", "-4.6")
+  const mEdge = txt.match(/([+-]\d+(?:\.\d+)?)/);
+  if (mEdge) return { type: 'num', val: parseFloat(mEdge[1]) };
+
+  // 6. Odds / Payout (e.g. "+765", "+645", "+371", "+150")
+  const mOdds = txt.match(/[+](\d(2, 5))/);
+  if (mOdds) return { type: 'num', val: parseFloat(mOdds[1]) };
+
+  // 7. General leading number (e.g. "49.1", "25.2", "-1.3")
+  const mNum = txt.match(/^([+-]?\d+(?:\.\d+)?)/);
+  if (mNum) return { type: 'num', val: parseFloat(mNum[1]) };
+
+  return { type: 'str', val: txt.toLowerCase() };
+}
+
+function initSortableTables() {
+  document.querySelectorAll('table.sortable-table').forEach(table => {
+    const thead = table.querySelector('thead');
+    if (!thead) return;
+    const headerRow = thead.querySelector('tr');
+    if (!headerRow) return;
+    const headers = headerRow.querySelectorAll('th');
+    const tbody = table.querySelector('tbody');
+    if (!tbody) return;
+
+    headers.forEach((th, colIdx) => {
+      th.classList.add('sortable-header');
+      const sortIcon = document.createElement('span');
+      sortIcon.className = 'sort-icon';
+      sortIcon.setAttribute('aria-hidden', 'true');
+      sortIcon.innerHTML = ' ↕';
+      th.appendChild(sortIcon);
+
+      th.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+
+        const currentDir = th.getAttribute('data-sort-dir');
+        let newDir = 'desc';
+        if (!currentDir) {
+          const sampleRow = tbody.querySelector('tr');
+          const sampleCell = sampleRow ? sampleRow.children[colIdx] : null;
+          const parsed = parseCellValue(sampleCell);
+          newDir = (parsed.type === 'num') ? 'desc' : 'asc';
+        } else {
+          newDir = currentDir === 'desc' ? 'asc' : 'desc';
+        }
+
+        headers.forEach(h => {
+          h.removeAttribute('data-sort-dir');
+          const icon = h.querySelector('.sort-icon');
+          if (icon) icon.innerHTML = ' ↕';
+        });
+
+        th.setAttribute('data-sort-dir', newDir);
+        sortIcon.innerHTML = newDir === 'desc' ? ' ▼' : ' ▲';
+
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+
+        rows.sort((rowA, rowB) => {
+          const cellA = rowA.children[colIdx];
+          const cellB = rowB.children[colIdx];
+          const valA = parseCellValue(cellA);
+          const valB = parseCellValue(cellB);
+
+          let cmp = 0;
+          if (valA.type === 'num' && valB.type === 'num') {
+            cmp = valA.val - valB.val;
+          } else if (valA.type === 'num') {
+            cmp = 1;
+          } else if (valB.type === 'num') {
+            cmp = -1;
+          } else if (valA.type === 'empty' && valB.type === 'empty') {
+            cmp = 0;
+          } else if (valA.type === 'empty') {
+            cmp = -1;
+          } else if (valB.type === 'empty') {
+            cmp = 1;
+          } else {
+            cmp = String(valA.val).localeCompare(String(valB.val));
+          }
+
+          return newDir === 'desc' ? -cmp : cmp;
+        });
+
+        rows.forEach(r => tbody.appendChild(r));
+      });
+    });
+  });
+}
+
+window.addEventListener('hashchange', () => openTargetDetails(location.hash));
+window.addEventListener('DOMContentLoaded', () => {
+  if (location.hash) {
+    openTargetDetails(location.hash);
+  }
+  initSortableTables();
+});
+if (document.readyState !== 'loading') {
+  initSortableTables();
+}
+
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a[href^="#"]');
+  if (link) {
+    const hash = link.getAttribute('href');
+    if (hash && hash !== '#executive-board') {
+      openTargetDetails(hash);
+    }
+  }
+});
+</script>
 </body>
 </html>

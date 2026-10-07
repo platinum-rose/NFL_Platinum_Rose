@@ -15,6 +15,10 @@ Speaker labels: Brandon Kravitz (Speaker A), Kendra Middleton (Speaker B)
 - Speaker A: Brandon Kravitz
 - Speaker B: Kendra Middleton
 
+## Ignored Audio
+
+- None classified as ad/commercial only.
+
 ## Existing Host Summary Rows
 
 - Brandon Kravitz (gpt-4o, host_map) futures=2

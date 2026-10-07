@@ -8,24 +8,23 @@ Audio: https://podtrac.com/pts/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 41146
 Speaker turns: 104
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
 - Speaker D: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - None
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -50,10 +49,6 @@ Some things you'd rather type than say out loud.
 ### Simon Hunter (Speaker C) [0:52-1:01]
 
 There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
-
-### Guest (Speaker A) [1:03-2:29]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
 
 ### Chad Millman (Speaker B) [2:29-2:47]
 
@@ -223,10 +218,6 @@ I can never unsee that.
 
 Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
 
-### Guest (Speaker A) [23:14-24:41]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine needles neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck, stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills, taking zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
-
 ### Chad Millman (Speaker B) [24:41-24:46]
 
 visit zepbound.lilly.com awkward time to ask this,
@@ -238,10 +229,6 @@ but hey, did you download the trail map?
 ### Chad Millman (Speaker B) [24:49-24:54]
 
 Yeah, no, I don't need to. I don't understand. You're trusting your signal out here. I'm trusting T Mobile.
-
-### Guest (Speaker A) [24:54-24:56]
-
-They have the best network and if
 
 ### Chad Millman (Speaker B) [24:56-24:59]
 
@@ -415,10 +402,6 @@ You either make the move or you miss the moment.
 
 That's why you need a network that's just as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts. Now that's a total power move. Make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless store. Additional terms apply. See totalwireless.com for details.
 
-### Guest (Speaker A) [40:33-41:08]
-
-Okay, laundry stinks. Literally. I mean, you could just keep buying new underwear. Not that I've ever done that. Or maybe sort your clothes into piles based on how re wearable or filthy they are. Or just use Arm and Hammer Deep Clean. It's made for real life stinks and stains. So even if you don't do laundry, the quote right way Deep Clean will knock it out. I mean it is from the number one liquid detergent brand that tackles more loads than any other. Come clean with Arm and Hammer Deep Clean number one claim based on total wash loads sold.
-
 ### Chad Millman (Speaker B) [41:10-41:12]
 
 We learned how to love dogs from
@@ -434,7 +417,3 @@ for us to get home from school. They were the dogs that raised us.
 ### Simon Hunter (Speaker C) [41:19-41:37]
 
 We returned the love with Pedigree Dog Food. It was good then and it's better now. Every bowl has 100% complete nutrition supporting six health essentials and now it includes Vitamin Good Bites, a nutrient boost your dog will love. Pedigree Good then, better now.
-
-### Guest (Speaker A) [41:38-41:41]
-
-This is an iHeart podcast. Guaranteed Human.

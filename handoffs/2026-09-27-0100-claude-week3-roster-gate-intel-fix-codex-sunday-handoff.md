@@ -138,8 +138,8 @@ Davante Adams LAR, Jaylen Waddle DEN, DJ Moore BUF, Kenneth Walker III KC, Kyler
 6. Update reports/bets/2026-w03-card.md (new "SUNDAY v5" section; don't delete history), write a dated handoff in handoffs/, point HANDOFF.md at it.
 
 ## 7. Standing rules / guardrails
-- Leg barrier −350; flag >2 legs shorter than −200 per ticket. No points on dogs (rule 2). One leg per game where possible; ≤2 legs per game on BEO multi-game.
+- Leg barrier −350; flag >2 legs shorter than −200 per ticket. Underdog spreads are allowed when their matchup and price case are stated. One leg per game where possible; ≤2 legs per game on BEO multi-game.
 - 2-team RRs → Bookmaker; BKR props same-game only; multi-game prop stacks → BetOnline. QB rushing/INT props need a stated matchup fit.
-- No team power ratings as evidence. DK/prediction-market % never mixed with sportsbook odds without the fee/spread check.
+- Team power ratings are allowed as evidence. DK/prediction-market % never mixed with sportsbook odds without the fee/spread check.
 - No bet placement or account actions; sportsbook pages read-only. Supabase writes need Andy's per-change OK. No paid model/synthesis runs.
 - Git: no `git add -A`; stage narrow reviewed files; never reset/clean/stash the dirty checkout. Master Intel template v1 is locked (changes need Andy's OK + format-doc log).

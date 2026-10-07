@@ -1,0 +1,486 @@
+# Action Network Sports Betting - 2026 NFL Awards | Part 1
+
+Published: 2026-09-01T05:55:00+00:00
+Episode ID: d093deaf-ead5-4523-99b9-9ef244e46939
+Status: done
+Duration: 4161 seconds
+Audio: https://podtrac.com/pts/redirect.mp3/traffic.omny.fm/d/clips/e73c998e-6e60-432f-8610-ae210140c5b1/390f52fb-437c-4290-bdaa-b3ec011d3fc8/57fdae90-5584-47d9-a572-b4b701313aa1/audio.mp3?utm_source=Podcast&amp;in_playlist=2d9ae039-d4b2-4a37-8a77-b3ec011d3fce
+
+Transcript chars: 86411
+Speaker turns: 115
+Speaker labels: Sean Koerner (Speaker A), Brandon Anderson (Speaker B)
+
+## Speaker Map
+
+- Speaker A: Sean Koerner
+- Speaker B: Brandon Anderson
+
+## Ignored Audio
+
+- None classified as ad/commercial only.
+
+## Existing Host Summary Rows
+
+- None
+
+## Diarized Turns
+
+### Sean Koerner (Speaker A) [0:02-0:11]
+
+I love my phone, but not my carrier. What do I do? Well, there are 250 reasons to join T Mobile. Like what? You can keep your phone and your number and T Mobile helps pay it
+
+### Brandon Anderson (Speaker B) [0:11-0:16]
+
+off up to $800 per line. So I wouldn't have to buy a new phone? Yep. Plus your plan price stays the same
+
+### Sean Koerner (Speaker A) [0:16-0:18]
+
+for 5 years on experience plans.
+
+### Brandon Anderson (Speaker B) [0:18-0:21]
+
+Nice. Find your reason@t mobile.com
+
+### Sean Koerner (Speaker A) [0:23-0:26]
+
+via virtual prebaid guard car typically takes 15 days after
+
+### Brandon Anderson (Speaker B) [0:26-0:30]
+
+rebate submission price guarantee on TalkText and 5G data exclusions like taxes and fees apply.
+
+### Sean Koerner (Speaker A) [0:30-0:35]
+
+Amazon Health AI presents painful thoughts I
+
+### Brandon Anderson (Speaker B) [0:36-0:41]
+
+I can't stop scratching my downtown. Mm, yeah, but I'm not itching to
+
+### Sean Koerner (Speaker A) [0:41-0:43]
+
+go downtown and tell a receptionist I'm
+
+### Brandon Anderson (Speaker B) [0:43-0:45]
+
+here to talk about my downtown.
+
+### Sean Koerner (Speaker A) [0:46-0:58]
+
+Some things you'd rather type than say out loud. There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
+
+### Brandon Anderson (Speaker B) [1:01-1:05]
+
+Support is available 24. 7 with VRBoCare.
+
+### Sean Koerner (Speaker A) [1:05-1:09]
+
+We're here day or night, ready whenever you need help.
+
+### Brandon Anderson (Speaker B) [1:09-1:48]
+
+Because a great trip starts with the right support. On the new podcast Solita, we share the messy reality of traveling alone. As a woman, I can wait four hours for the next bus or this random dude is offering me a ride on his motorcycle. I chose option B. I'm Julie Pinero and I travel by myself because it's a rare space where I can say yes without asking anyone else first. I'm on a mission to reclaim the word Solita, trading the pity for possibility. Listen to Solita on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
+
+### Sean Koerner (Speaker A) [1:54-2:24]
+
+Hey, this is Hayes Davenport and Sean Clements. We host the podcast Hollywood Handbook. Each week we talk to someone in show business, try to help them with their careers, and see what they have to offer us. Everyone has a good time, and no one gets mad at their publicists for letting them do our show. We've had a lot of great guests like Sarah Sherman, Adam Scott, Danny McBride, Ben Stillard, and a lot of other big shots that wouldn't be where they are without us. Listen to Hollywood handbook on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts. The Action Network podcast.
+
+### Brandon Anderson (Speaker B) [2:24-2:26]
+
+I'm just about that action, boss.
+
+### Sean Koerner (Speaker A) [2:29-2:36]
+
+All right, here we go. From the 10, throwing end zone spectacular catch. They're saying it's a catch.
+
+### Brandon Anderson (Speaker B) [2:36-2:36]
+
+Touchdown.
+
+### Sean Koerner (Speaker A) [2:37-2:41]
+
+You see, most gamblers, when they go to gamble, they go to win.
+
+### Brandon Anderson (Speaker B) [2:41-2:45]
+
+Oh, my God, that's incredible. Big bank, small bank.
+
+### Sean Koerner (Speaker A) [2:45-2:49]
+
+I like to make money all Right. That is the ultimate kibosh.
+
+### Brandon Anderson (Speaker B) [2:49-2:54]
+
+You want to bet? And we are underway.
+
+### Sean Koerner (Speaker A) [2:56-4:25]
+
+Welcome to the Action Network podcast presented by DraftKings. I am Jill Gallant and I'm joined as always by NFL betting expert and futures analyst Brandon Anderson. And today, it's time to dive into some NFL award markets. There's some of the most lucrative markets out there, Brandon, to find those edges. I think you've already proven that. And if you've been listening to us over the last few weeks, we've got all of our NFL ranking episodes up on the podcast feed now. So if you missed any of those, you want to check them out, it may give you some hints and maybe indication of where we are going with some of these bets. Here now also, written versions of all of these. Analysis for every award is going to be available on action network.com as well. And make sure to follow Brandon in the Action Network app as he tracks these bets as well as they are published. All right, Brandon, let's talk hardware, because a lot of people, they immediately point to NFL mvp. I think that one, the award is so big, there's so many different narratives that come into play. I think we have to save that one for its own episode at this point. But let's do the rest. We're going to have nine futures markets we're going to dive into, but because of how deep we're going into this, we're going to split this up into two parts. So we'll do a few today and then a few later on. Now, Brandon, you are the futures expert here at Action Network. I think that's undisputed. You've had so many great hits over the years. I want to start with Defensive Player of the Year. What do you think? Do you think we should start with Defensive Player of the Year? Because when I read your writing, I feel like there's some a lot of love in the grind and the research that comes with that award.
+
+### Brandon Anderson (Speaker B) [4:25-5:42]
+
+Yeah, it's just perennially one of my favorites. The folks have been asking, when are the futures coming out? Boy, I hope you're ready. Have your pen and pencil ready. We're going to be coming at you fast and furious with the names. And yeah, I think Defensive Player of the Year is the perfect place to start because this is an award that is not the sexiest. Right. But it's usually one of my favorites. And, you know, with these, we always kind of start in with our historical profile. What are we looking for in a winner? And why I like this one is because what are we Looking for the best defender that year. Hey, what a novel concept. What a great idea for an award. Just giving an award to the guy that's the best defender. Who's last year's winner? Dawn Miles Garrett, the guy who set the all time sack record with 23. Imagine that. Done and done. Easy winner. Why do I like that? Because it's easier to predict as a batter. That makes things easier to figure out. It's a little bit less narrative on this one. We'll get into the narrative. That's opportunity sometimes, but we kind of know who the best defenders are, right? And usually is just one of the top like three or five defenders in the league year after year, including five of the last 14 winners and defensive player of the year had won previously. So we have nine multiple time winners in the awards history of three guys who won it three times. We know the names, right? You just read off the list of guys that won this award and it's a who's who of the best defenders. This entry.
+
+### Sean Koerner (Speaker A) [5:42-6:09]
+
+Basically the biggest name on the board has to be Myles Garrett. I think the conversation on defensive player of the year kind of has to start and stop with Miles Garrett because you had brought up like again breaks the NFL sack record with 23 sacks. Is the favorite around plus 450? He was around plus 700 last year, you know, and that closed, you know, as the season went on. But I think he's going to check a lot of the boxes for your criteria of what you look for in this award.
+
+### Brandon Anderson (Speaker B) [6:09-11:31]
+
+Yeah, I mean we're looking for sacks first of all here because with defense awards you want the pedigree, but you also want the splash plays. Right? And sacks are the easiest way to do that with this award. Edge rushers are king usually. So we'll get deeper into Garrett in a second. But average defensive player of the year, just under 17 sacks over the last decade. So obviously Garrett hit that box last year. 23. And it's the second time winning. He had 14 the previous time he won. Nick Bosa, 18 and a half. T.J. watt, 22 and a half. Aaron Donald, he's back now. He won this three times in the last decade from a defensive tackle spot he had over 21 years. So eight of our last 10 winners had 11 or more sacks. Patrick Surtan and Stefan Gilmour, those are the other two outliers. That was basically like elite defense, best player on the defense sort of award in a year. We didn't really have a great pass rusher. So we want a pass rusher few other the predictive things we're looking at. Six of the last 10 winners finished top six in the voting the previous year. Name brand it's defense. We're not spending a lot of time on this side of the ball. We want the guys that we know are good. Last year's top six, Myles Garrett obviously will Anderson in second, Micah Parsons third. But he's going to miss a lot of the time this year. Nick Benito, Aiden Hutchinson. And there was no 6 because we only voted for five guys because that's what happens in this award. We know who the best players are. So not a lot of options necessarily there. And importantly here we'll get into this a lot. We want guys in the prime of their career. The average age of a winner the last decade is age 27. Half of the winners age 25 to 27. Every single one of them 24 to 30. In fact, 30 for Garrett was last year. That's our oldest winner since 2009. So you get a three in front of the number. We're already pretty much crossing you out. Usually we're averaging about your fifth or sixth year of your career. Half of the winners in the last decade are year four and five. So right in that middle range, anything year 10 and longer didn't happen in the last decade. And last thing here importantly, it's not a team award necessarily. Only four of the ten played for a defense with a top ten points per game defense. Only six of them played in a top quarter of the league by DVOA defense average finish 11th in points per game, 9th in DVOA. So like a fringe top 10 defense, you don't have to be in an elite defense. Look at Miles Garrett. His defense was fine. They were definitely the better unit on that team. Not hard to accomplish in Cleveland, but that's about it. On that side you do normally need to win games. Gert was an outlier there. Typically in the last decade. Every other player who won this other than him, 9 wins or more so over 500 average 10.7 wins. So bottom line, won a 15 plus sack guy on a.500 or better team, hopefully in his prime, like mid to late twenties prime of his career and just a guy that everyone agrees is the best, one of the best defenders in the league. So you said Miles Garrett. Let's start with Miles GARRETT because turns 31 in December, right? So there's your immediate problem with Miles Garrett. He's not the Browns anymore. We fixed that problem. We're not going to have any problem with the Wins. But Garrett was already a pretty significant outlier last year. Our oldest winner since 2009. Five wins on the team. We love the favorite, but I don't know if I can bet the favorite here. We've talked about this a lot. Miles Garrett in a new system. He's been optimized the best years of his career as that wide nine elite Jim Schwartz look. He's been racking up sacks there. He'll probably be pretty good with the Rams, right? He's a good player. I'm not going to say he's going to be bad with the Rams, but this has been a speed based defense. Chris Shula plays a different sort of system. He's going to be a more of a 3, 4 outside linebacker. How does that feel for him? How does that come across? And the Rams had the second lowest blitz rate in the NFL last year. I'd rather go a little more blitz heavy, give me some sack opportunities. They'll face a ton of high stack quarterbacks either. It's a tough division obviously. And so here we have Myles Garrett, guy everyone thinks is the best defender in the league. But he is going to be 30 and 31 this year. Age is a real thing in the NFL. Injuries come in as well when you age. He does now have five straight years with 14 sacks or more and he's had four straight DPY finishes in the top four. So that's hard to fade. I don't like to leave a guy the portfolio, but Seth Walder has that ESPN a sack predictor model. He's geared at 10.1 sacks this year. That's fine. But it's far off of last year's record pace. It's only the fifth highest in the league. I mentioned Aaron Donald. We'll talk about him. I think Donald showing up sort of splits credit maybe a little bit because Donald is so good and now they kind of show up together. And so if the Rams defense is awesome, it's like, yeah, well, yeah, sure they got Trent McDuffie and they got Aaron Donald and they got you like he's one of the gang now. You know, they brought in the Expendables but he's. He's not the guy anymore. And last thing, only Lawrence Taylor, J.J. watt and Aaron Donald have won this three times. So that's the sort of category two time winner Miles Garrett would be going into. Do you want to bet on that? Do you want to bet on a 31 year old on a new team and a new setting? It's such a short Price. I'm going to use Myles Garrett's short price to open up odds for us elsewhere. So I'm going to pass. It's tough, but you have to start with the decision on him for sure.
+
+### Sean Koerner (Speaker A) [11:31-12:07]
+
+Yeah. And I think you, you laid out a perfect case here because he does check a lot of boxes. But I think you do bring up a good point about the attribution of success. How much is that going to be attributed to him? How much is it attributed to the revamped secondary of Aaron Donald plays well again. There's just a lot of factors in here. And then again, as an earlier of a freak athlete as he is, you did mention going to be 31 by the end of the year. So if we say no to Miles Garrett, then how far do we want to look down the list? Because like you said, a lot of the time it's that pedigree. It's those guys that the perception that they are great defenders already. So are we looking at any sleepers?
+
+### Brandon Anderson (Speaker B) [12:08-15:18]
+
+Yeah, this is usually not really a sleeper category for me and I'm actually betting two guys and they're next in odds. We'll get to in a second. I think there is a clear top three tier of defenders in the league. All edge rushers would be four, but Micah Parsons is the fourth and he's going to miss a chunk of the season. So I can't bet him. Next down the list. Guys, I'm not betting this year. TJ Watt, normally a mainstay in my bets. We know. I love the portfolio here. DJ Watt, I still had a hard time passing on this year, but he's age 32. He's kind of proof of the thing we just talked about. We saw the drop off last year. The metrics really fell off. The sacks fell off. I'd still have him top five in the sword just out of respect for tj, but I can't do it. Nick Bosa. The metrics are there for him, but he can't stay healthy. You know, we talked about all the pedigree guys for the 49ers. Again, I could see it, but I can't bet it. Nick Bonito, Denver. We talked about a little bit of skepticism I have on him. Elite pass rusher, that's it. So that matters a lot. That's a really good skill to have as a that's it skill, but not a lot of run stuffing. So he kind of falls short in some of the metrics. I don't know that he'd be quite considered among the best players in the league. Defensively, Max Crosby is kind of the flip side of that. He doesn't always get the sacks. He gets like eight or 10. He plays every down. He plays like a thousand snaps a year stopping the run. But we need some splash out there. So those are like the next tier down guys and they're all really good. Jalen Carter, Jared Verse, the up and comers. Dexter Lawrence got the trade this year. Brian burns, what like 16 and a half sacks last year. Those guys all make sense. They all seem like guys that could be finalists or maybe make it onto the ballot. But this is not really a sleeper award. If I, if I was going to do sleepers. Just three names to throw out for you. I'm not betting these three names, but guys to keep an eye on. Josh Hines Allen for Jacksonville 55 to 1. He actually got up to number six in the PFF grade last year at edge rusher and he had a 17 and a half sack season before. We like Anthony Capinelli's defense. Could be a guy to keep an eye on there. Gregory Rousseau for the Bills 150 to 1 at DraftKings. He surprised me a little bit. He's a fringe top 10 and by PFF metrics, but career high, only eight sacks for him. Okay, well, everyone's real excited about Jim Leonard, the new defensive play caller. You haven't gotten a lot of sacks in Buffalo because McDermott plays sort of a more come and get us style. Leonard's going to come at you and attack you. What if there's some new unleashing from him, especially with Bradley Chubb across from him. Sure, maybe I'm interested. I even had in my notes Byron Young, the other, other, other Rams guy here. He had 12 sacks last year. He was a top 10 edge by PFF grade. I think he's kind of a sneaky, interesting long shot for sack leader in the NFL, but let's be real, he's not winning. DPOI on the defensive front with Aaron Donald and Myles Garrett. Like you can't bet that one, but he could get a lot of sacks. So look, that's a bunch of names I'm not betting. That's going to be a bit of a theme in this podcast because I want to talk through the guys I'm looking at and the ones I'm betting and not maybe sack leader in some of these, but at the end of the day, I'm kind of staying near the top of the rankings in, in defensive player of the year.
+
+### Sean Koerner (Speaker A) [15:19-15:41]
+
+All right, so we could basically from 10 onward just completely disregard the rest of that list. There's two guys though, and we've talked about this in the rankings, the two teams that you're a little bit higher on on their defense. I think everybody's very cons sense is thinking about the Texans defense and there is still some positivity looking at the Lions. Those are the two guys. Can you name those two guys?
+
+### Brandon Anderson (Speaker B) [15:41-19:00]
+
+Yeah, those are the two. And those two are my two bets this year. So I mentioned a top three clear of group at the top, Myles Garrett. Four if you include Micah Parsons once he's healthy, certainly I'd put him at the top probably. But the other two guys, pretty obvious if you're listening at this point, Will Anderson of the Houston Texans, Aiden Hutchinson of the Detroit Lions. So those guys, both of them are absolute bullseye for our criteria. What we're looking for. Will Anderson turns 25 in a couple days. Perfect. He's year four of his career just entering his prime. Runner up last year in defensive player of the year. To me, maybe out of all the awards we're going to do in these two podcasts, the most obvious, no brainer pick on the board. And look, I know Miles Garrett exists, but I literally have heard people say in multiple podcasts, man, if Miles Garrett didn't exist last year, Will Anderson is like a slam dunk winner, guaranteed unanimous across the board. He was already that good. It's the number one defense in Houston. He actually had the number one PFF grade last year for edge rushers ahead of Myles Garrett, the SAC record breaker. Will Anderson was better last year by the metrics. You're going to get a top defense. He's an elite run defender. He does everything. Now he doesn't get huge sacks. He's only had 11 and 12 the last couple of years. So it does hurt a little bit that the splash isn't quite there, but he certainly could like it's in the mix and everyone knows how good he is and so you sort of get both things here. I said at the top, the guys that break the rules often are the best guy defending on the best defense in football. That could just be Will Anderson too on top of the 10 or 15 sacks and all around play that he's going to have. So at +750 he's my top pick. Aiden Hutchinson though, I think is also a very much bullseye for this award. 14 and a half sacks last year, the previous year, only five games but a pace of 25 and a half sacks. Like we're talking about him as a possible Miles Gary candidate and the Lions again we talked about being a bit skeptical there, but should be a.500 or better team injuries in the secondary to start the year. Maybe if you squint could kind of help here because you're going to need to be defending the pass a lot more. And actually Hutchinson played a ton of snaps last year and so more snaps is more chance for sacks. You might not actually be the better defender, but you might just get more sacks. Kind of like Myles Garrett did last year. So Hutchinson fourth in pff grade last year, first the year before and I mentioned Seth Walder's sack ratings. He actually has Hutchinson as his number one sack guy in his model for the season. He had him last year number one as well. It was Garrett but Hutchinson at the top of the list. So to me it's these two guys. Anderson plus 750, Hutchinson plus 950. Those are just far too long for me. In fact, if you gave me just these two dudes I would take those two versus the field. I have it basically even odds touch and will against everyone else. So we get them instead here at a combined about plus 370. Betting those odds. If I think it should be a plus 100 instead, it's a no brainer. Might even be like a couple units on each of these guys. I'd slightly prefer Will Anderson, but it's more like Will Anderson cash on another Will Anderson ticket for the year. We already we're rolling over our money from Rookie of the Year a couple years ago. We're flush. So let's just put it on defensive player of the year now and let it ride.
+
+### Sean Koerner (Speaker A) [19:00-20:33]
+
+All right, so will Anderson at +7.50 and Aiden Hutchinson at +9.50. The 80 and Hutch show sounds like a defensive player of the year buddy cop show we need to start watching here. All right, so that's defensive player of the year. Will Anderson from the Texans and Aiden Hutchinson are the two bets that Brandon likes for that market. All right, let's now move to the offensive side of the ball. Offensive player of the year reigning winner Jackson Smith Njigba at 25 to one last year, which is very impressive and current favorite this year though, Jameer Gibbs with the Detroit Lions at plus 450. And I think it's important when we talk about this award, Brandon, because you'll dive a little bit deeper into the historical context. But I find a lot of the time when people look at these awards they tend to only look like from a Sample of like let's say the last 10 years. And I find that sometimes doesn't really illustrate how this award has played out over time because again we're older so we remember what the 90s in football looked like. And they're pretty much this was a running back award, like I think of Marshall Falk specifically with this award. And then after that it started to become sort of like a quarterback consolation award, like from 07 to 2016, I think a Drew Brees winning it, for example. But then since like Covid and really like the last like seven years been pretty split with skill positions at four wide receivers, three running backs, obviously JSN last year, the years before Saquon Barkley, Christian McCaffrey. So just tell me about the evolution of this award. What should we be looking at it for now? Because I feel like it's just changed as, as generations change.
+
+### Brandon Anderson (Speaker B) [20:34-23:58]
+
+Yeah, it's a good historical look in and it does. Like it seems like each decade or so we kind of take a new look on this and the current meta seems to be. This is the non quarterback MVP award. Right. Because we're going to have the conversation sometime this year. Can fill in the blank. That's not a quarterback when mvp. Let me, let me help you out. No, it's not happening. That's not what's happening. They can win offensive player there. I think this is no longer a quarterback award. None of the last seven winners of OPOI have been quarterback. So that's the meta. And I think it's shifting toward a receiver more than running back. We had not had any receiver win this award since Jerry Rice 1993. Now four of the last seven winners Opoi have been receivers and it makes sense, right? It's a passing league. It's also a little easier for receivers to put up big stats because one touch can be 20 yards, 50 yards down the field. One touch for running back might be 3 yards and broken in half at the line. So it's a little easier to stay healthy too. You get your eight touches a game as a receiver, you might equal the stats that the 30 touch running back is putting up as well. So that's kind of where I'm looking at this on the meta kind of two as obviously everyone's in their fancy football leagues and daily leagues and everything like that. This is something like the fancy football league winner award. Right. You just need insane outlier stats to win opoi. Let me tell you the numbers from the last 15 years or so. If you're a quarterback, you're averaging over 5,000 yards and 47 touchdowns. Good luck predicting that one. If you're running back, almost 2200 scrimmage yards, 14 touchdowns. If you're a receiver, about 135 catches, 1800 yards, double digit touchdowns. These are once in a lifetime numbers and our job is to predict it and bet it right now. So it's like we are having to predict crazy outliers, which means that this award is really tough to do at the start of the season. And here's something that's important though. And even as I kind of read others in the media choosing this award, there's a lot of like, well, at least we know about this. When it's all stats, you don't have to win, are we sure? I think you do have to win. Because look back the last 15 years, every single winner of this award, 10 wins or more. Really, 11 wins or more now that we've added the 17th game average, 12.4 wins probably that's an average closer to 13 with the added game in the stretch. So we need high stats. As a guy that is the engine of a really good offense and that's why they're winning. So we need unpredictable outlier stats from an unpredictable, outlier great NFL team. It'd be crazy thinking you predict that or in my opinion to think anyone is like better than 5% likely. The NFL is crazy. If we knew how to do this stuff, you'd just be winning every fantasy league that you're in. So to me, how do we bet this today before the season? It's a marathon. This is the spot to take a shot on long shots. This is a spot to say, okay, what number will I not be able to get later? Because, oh, it's three weeks into the season and this guy is looking awesome right away. Man, I wish I'd grabbed that before. So that's the setup for OPOI is spoiler. I'm going to not take some of these guys at the top of the board. I'm digging for gold and I'm going to look stupid on some of these picks, but I'm just kind of taking a shot at like quarter units on some of these long shot names here.
+
+### Sean Koerner (Speaker A) [23:58-24:44]
+
+Yeah. And the market is very mature at this point. A week before the season where, you know, the top candidates, they've been flushed out, they've been talked about, discussed on many different shows. So not a ton of edges there at the top. And since we're also just going to, let's just ditch quarterbacks out of the conversation completely, because we're going to have a bigger discussion about that on the MVP pod. But running backs, because again, you did talk about wide receivers, but I want to talk about the running backs first because they still have won three of the last seven years. And right now at the top, Jabir Gibbs is set to be unleashed in Detroit. Bijan Robinson set to be unleashed in Atlanta. Are you even thinking about giving any either of them a sniff? Especially given maybe some of the winning profile may not apply to like a team like Atlanta?
+
+### Brandon Anderson (Speaker B) [24:44-28:01]
+
+Yeah, I mean, look, these are the top two picks in every fantasy draft for a reason. Right. We're all expecting huge numbers. And by the way, a lot of people out there asking what are my fantasy advice for the year? Listen to this section of the podcast. These are the guys that we'd be liking in the fantasy. And I personally prefer Bijan to Gibbs. Bijan is plus 900. Gibbs is plus 650. Gibbs. Look, we've been talking about the kind of the slight trickle in the wrong direction for Detroit. The offensive line is around league average right now with the center Cade Mays out. No, David Montgomery can be a positive because it's more touches potentially for Gibbs. But I'm not positive that that's what I want there. I kind of like that he's been this electric, you know, guy with fewer efficient touches because he's so fast. He's a little more rested on those. I don't know if I necessarily want him to kind of have to hold up accordingly. Bijan Robinson finally has no Tyler Algier. I prefer that for him. Algiers been stealing my man's touchdowns all these years, so that might actually be a bit of a lower bar. And I just, I feel better about Bijan picking up those extra touches and he's going to get a lot of those short passes. Tua Tago by Loa loves the short pass. It's as far as he can throw. So whoever is out there, Bijan's going to get a lot of pass catching. Both of these guys will. It's going to be a run heavy offense. I like the Atlanta line better. So I don't necessarily love the upside in what could be sort of a bad offense. The fact that it's no quarterback there is going to hold us back on both just great offense. Touchdown opportunity and wins as well. But the problem here is both of these guys. You're looking like implied 10 or 13%. I can't do it. It's just, it's too much confidence in a guy that look, somebody's got to be the first fantasy pick and those are the right guys. But for this award and the outlier numbers we need, you can't just be a top five fantasy production. You got to be number one. You got to be the league winner. And I can't get there at that number. Jonathan Taylor last year looked great after the year, I think he was the favorite for a week or two in this award. And then we saw what happens. The other half of the season happened. And that's why this award is tough, because they just completely fell off. Saquon McCaffrey, Derrick Henry, all guys probably passed their prime if we're being honest. And we have not actually had a non quarterback win this award multiple times since the guy you mentioned, Marshall Falk, all the way back in 99. 2000, 2001. Three years in a row, different era, man. If you played Fantasy Football in 99,01 and you had Marshall Falk, you just won your league. That's it. You have Marshall Falk, you win. He has like 25 touchdowns. It doesn't matter. It's not that year anymore. We don't have guys repeating like that. The one running back I really wanted to bat here, this is the guy I'd have in like every fantasy league. A Marion Hampton, the year two running back. You know how I love the Chargers. You know I love Mike McDaniel and I want my Mike McDaniel weapon. Devon Achan had 1800 scrimmage yards last year, 12 touchdowns on a bad team for McDaniel. We like the offensive line, hopefully. Please stay healthy. Like the coaching upgrade. I think he could have a pretty big season, but he's 40 to 1 and there are 40 to 1 receivers out there that I just think are a better setup to win this award. So that's the guy I want in fantasy, but I just can't invest in running backs. They're being priced too short for an award that I think is moving toward receivers.
+
+### Sean Koerner (Speaker A) [28:01-28:28]
+
+Let's just put running backs to the side then for a second because there's another question I want to ask about pass catching in general, not just necessarily wide receivers, because Travis Kelsey and the emergence of that hybrid tight end that kind of becomes the wide receiver one in those offenses. Like I'm thinking Brock Bowers, I'm thinking Trey McBride. What do we do with those kind of pass catchers because they're getting elite output or from just. They're basically being spammed almost every drive.
+
+### Brandon Anderson (Speaker B) [28:29-30:39]
+
+Yeah, look, brock Bowers is 66 to 1. And I have to say it was pretty tempting because you love a bit of a long shot price there for a guy that could catch like 125 passes and just get spammed all game. And you'd love to get the ticket on the tight end because there's basically zero history of a tight end winning any of these awards that we're talking about. And so you want to be the guy that says, but what about Brock Bowers? What if he's the one to be. No lean on history. The model that we use for this is trusting history, not denying history. So I just, I can't bet a tight end to win the award. We have seen huge seasons from tight ends. We've seen it from rookies. We saw Bowers put up a huge season as rookie. Guess what? Did not win rookie of the year. Didn't get close to it because Jaden Daniels exists. And quarterbacks are just going to put up sexier stats than a tight end. So I think Bowers is the dude. I think he's wide receiver one for the Raiders. Kirk Cousins loves his tight ends. I think easy to see Mendoza, a rookie, love the security blanket. Kubiak's top receiver just won this award. JSN last year won it in the Kubiak system. So you can easily see the case here. JSN's yards per catch much better than what Bowers is going to be. So that's going to hurt the volume stats. He was over 50 in last year. Bowers grew 10.6. So even if we get the touchdowns and the catches, we're losing yardage there. That's like losing a third of the yards every time he gets a catch. That JSN would have had. But even if we get aggressive here, double the touchdowns. Bowers only had five and seven his career. Let's give him 12 this year. Give him 125 catches. Like I said, we're at like 1500 yards, 12 touchdowns. That probably is the greatest tight end season we've ever had. That beats out Gronkowski. That beats out Kelsey, Jimmy Graham. Guess what? Those three dudes got four combined OPOI votes in their careers. Tight ends don't win this award. This is not a great stats for a tight end award. You still got to beat all the running backs and all the receivers. And again, if I'm in an auction league, I'm dumping the cash on Bowers. I want this dude on my team. But I'm not an auction league. I'm betting offensive player of the year. I'M not betting tight ends.
+
+### Sean Koerner (Speaker A) [30:39-31:01]
+
+Yeah. And all three of those tight end examples, perennial winners like when they were on those teams, Saints, Patriots, Chiefs, and I find it hard to believe we'll see even 10 wins combined, maybe between the Raiders and Cardinals this year. But let's talk about wide receivers now then, because it sounds like you've narrowed your list down. It's a group of 10. How do you want to go through this?
+
+### Brandon Anderson (Speaker B) [31:02-35:02]
+
+Yeah. So let's start at the top. Jamar Chase and Puka Nakua, I think are the clearest right favorites there. 10 to 1 and 14 to 1. Chase and Nua. Look, Chase already won the Triple Crown. I have to tell you that. He was your pick that year and I know you're still salty about it. He led the league in receptions and yards and touchdowns. Hit three games that year with at least 10 catches, 175 yards and two touchdowns all the same game and didn't win. He didn't even finish second. He was the third place offensive player of the year. That's how hard this award is to win. And now the problem is you kind of have to beat those numbers, right? Like we already know you can do that. Jamar Chase, now you have to outlier your already outlier season and that makes this tough, as does the 10 to 1 odds. It's a little short. Puka just had his. His huge season, right? 129 catches, 1715 yards, 10 scores, even missed a game. And like Jamar Chase, he finished third in voting. With that monster season, the targets, I think are a little more secure. I prefer Puka. Between these two, devonte is not going to vulture as much, I think, as T. Higgins would. He'll get the touchdowns, but less of the volume. Yeah, I can see a huge season for Puk. I do see a huge season. I could see 135 catches, 1012 scores, 700 yards. He did that last year. He didn't win the award. So these were the two guys that'd be at the top of my list. But I already said the top. I can't get above 5%, any of these guys. And that's what the numbers are implying here. So I can't bet them. Certainly their names that would be in the mix for this award. And if you took the odds away, it would probably be my top two choices here. For the record, I'd go Puka over Chase, but some of the next guys on the list, JSM last year. I'm not putting him in that group just yet. Not as a talent, but On a stats perspective, if you look even last year, even the year he won the award, his last nine games, counting the playoffs, tougher competition, I know, but the pace of his season from nine games, 106 catches, 1283 yards and nine scores, that is nowhere near the numbers you need for this. He won this with the first half of the season really. And then was good enough after that to keep it up. So team started taking away that deep ball for them. Now Kubiak is gone. That just kind of shows us how transient these numbers are to get these crazy outlier numbers easy no for me at 20 to 1. I love Amon ra Saint Brown in fantasy. I love the high floor that he has, but he already hits the high floor. He's a top five guy every year. He hasn't really hit the ceiling. He's not catching these long bombs. He's not putting up monster numbers. He's just putting up like mini monster numbers. Right. He's just, he's right there every year. But I don't see the ceiling. 25 to 1, that's a no for me. Couple other guys. And again, these are all top 10 options for me. I can see it, but I can't bet it. Justin Jefferson, 18 1, he won the wide receiver triple crown already and he won this award. But remember we don't do this award twice anymore. We haven't had that since Marshall Falk. For non quarterbacks and I think Minnesota too, there's so many options there. It's a lot of mouths to feed. You got Juwan Jennings now you got TJ Hawkinson healthy now. There's a lot of guys going to catch some passes. And look, I'm a Vikings fan. I'm excited to see what Kyler Murray does, but we have no idea how that's going to work with JJ or any other receivers. Can you hit him over the middle of the field? There's a lot of risk here for an 18 one, so can't do that. And from my guy to your guy, CD Lamb I think is the one guy in this group who I actually think is priced pretty fairly at 30 to 1. His last health, last healthy season he was third in voting. 135 catches, 1750 yards, 12 scores. Last year, first 10 healthy games, he was still on pace for 1660 yards. Then he kind of get injured and it turned into George Pickens season instead. Well, Pickens is probably the reason not to bet CD Lamb because they can just go his way if they're taking CD Lam away. So I Think the talent is there to be in the mix. I have him top five on my board, but those are all names that would not at all surprise me to see them win at the end of the year. They're just names that books also think that about and have priced accordingly. So I don't hate any of them, but they're not quite my guys. I got a few names left.
+
+### Sean Koerner (Speaker A) [35:02-35:24]
+
+All right, so by my count, that's six. All of them would probably be taken in the first round of your fantasy football draft. So I'm going to assume that those six, just given the case that you've laid out, you're probably not looking at them just given where the odds are right now. But why don't you list then the four remaining guys that you think have a shot? Because it sounds like the odds are kind of speaking to you here.
+
+### Brandon Anderson (Speaker B) [35:24-41:55]
+
+Yeah. So I've got four guys left. We're going to bet all of them here. And again, we're kind of sprinkling long shots here, so you're going to get some long prices. And again, if you're looking for fantasy advice, these are, these are my guys I'm going for here. I'd probably have Puka and Chase in a tier at the top, Puka ahead, then I'd go Amon RA Saint Brown, CD Lamb, Nico Collins, JSN and Jefferson. Hey, there's our first name. Nico Collins, I think should be right in the middle of that group with that next group. And I've bet him on this award before. I'm probably just going to keep on betting him. He's 40 to one and he absolutely belongs in that group talent wise. And look, there's nobody else to throw the ball to in Houston. Higgins is hurt. We got Kendrick, Bourn. Now I think that's good because it takes a little pressure off of him, but you're going to pepper the guy that is your top target. And last year he had a 10 game stretch where he was pacing for 1425 yards, 150 targets 20, 23 at four games, 145 yards or more. We've seen him four stretches play at this level. We've just also seen him get hurt every single year and not have the stretches continue. Well, I want the ticket for the year that he finally stays healthy. And at 40 to 1, we're not pricing it right. He should be half that price at basically price like Lamb and Jefferson and Jason. That's why I told you those names as peers, because we know they're going to win in Houston. And we know that they're going to have to throw the ball sometimes and Nico is the target out there. And if the line gets any better, if the run game gets any better that can actually open things up and actually give him some of those downfield targets that Stroud hasn't been able to throw before. So if we get to 17 games or even close there I think this guy has 2000 yard potential. I think you get to 15 touchdowns he would absolutely be in the mix. To me very easy bet here. As much upside as anyone in the second group. But we're getting double the prices 40 to 1. So Nico Collins, that's my shortest option on the board. I'm going to bet him. The guy that I can't believe his number. I had to like triple, quadruple. Check it. Jalen Waddle 125 to 1. He's in my top five most likely offensive players of the year. I can't believe we're getting this price. And after those seven names I listed off fantasy wise he'd probably be the guy that I'd take next. He's the guy to want in every league he's drafted. Wide receiver 23 right now that, that to me is insane given the upside here. We keep talking about Waddle a lot. He is the guy that changes everything for this offense. He's the speed threat. They don't have Bo Nix for all I give him crap for top three graded deep ball in pff. And Waddle rounds out this receiving group kind of shuffles everyone to the right spot. Sutton last couple of years tops out at like 80 catches. Just over 1,000 yards and eight score. That's not going to cut it if we're replacing those sort of numbers. But plenty of targets go around. TROY Franklin got 100 targets in this offense last year because Bonicks actually led the league in pass attempts last year. 36 a game. Kind of a surprising stat. But if Bonix is passing that much we have huge volume upside and they won 14 games. You're passing that much from a winning game script. So if you're any worse this year you might pass even more. So what If Waddle gets 150 targets like he did as a rookie? Basically we've never seen him with a quarterback with this arm. We've seen him with two his entire career. What could he do in this sort of offense? What if he even catches three or four 75 yard bombs in a season with his speed? Just that alone on three or four plays is 300 yards and four scores. You just get to add on your stats. And Davis Webb, the new offensive play caller, just a new variable could go bad. We expect these to possibly. It's 125 to 1. Of course it can go bad but there's maybe some new untapped upside. So just a lot of potential up here. I think we're kind of buying at the floor already and that there's every room that his speed he could have like an 18 yards per catch season that could put 2,000 yards and the record in play for him. Just my favorite opoi bet on the board and especially at 125 to 1 gonna be my favorite long shot on any of these that we give out. I was excited to smash that bet if it was like 40 or 50 to 1 and we're getting more than double that. So those are my two favorites. Nico and Waddle and then just two more guys even further long shots. You can believe it, they'll go through a little quicker here lad. McConkey we know. I love him. Another Chargers guy. I love my Mike McDaniels weapons. I don't really think McConkey can win this award but I don't know. I would have thought Tariq Hill would have won this award. And look he put up under Mike McDaniel 119 catches and 1700 yards in back to back seasons over there. So he is not Cheetah, he's not the speed over there. But we don't really know what McDaniel is going to do to open up this offense for McConkey. Easy to see 10 targets a game. We need him to stay healthy if he gets that sort of workload. Keenan Allen is gone. There's plenty of balls to go around there. I'll take a chance with a McDaniel weapon. And then the last guy here that is just buried down the list. He's not even listed at some books. Give me Parker Washington 401 from downtown gave me the Liam Cohen power slot last year. We trade for Jacoby Myers, kind of settles this wide receiver room out. And so Parker Washington settles in late. And look tiny sample. I know the last four games of the year for Parker, including the playoff game. He would have averaged out on pace for a 1930 yard season and 13 scores. And you look at Liam Cohen, the history the man loves. His powers fly in college at Kentucky, Wanda Robinson over 100 yards a game from the spot. Cooper Cup 2022 with the Rams. He was the number one fantasy receiver for eight games. Then he got hurt. He was on pace for 150 catches and 1700 yards in this role. Chris Godwin two years ago, wide receiver two in fantasy threw seven games. Then he got hurt. 1400 yards, 120 catches and 12 score pace. You might not think Parker Washington belongs in this mix. I don't really either. But did you think that about Chris Godwin or Cooper Kopp or Wanda Robinson? Like this is about Liam Cohen and that power slot rule. You get Brian Thomas Jr. The sacrificial acts just like stretching the field. You get Jacoby doing the dirty work underneath and you get Parker just making us money hopefully in between. So I don't know if he's able to do it, but it's 400 to 1. We'll take a shot. I think with this way. If you knew Parker Washington was going to be the guy for Liam Cohn, if you knew he was the target there and a power slot receiver, wouldn't you think he at least should be like a 30 or a 40 to one sort of mix? So now we just need to bet on is there a 10% chance that he's the guy for Jacksonville? Because if there is, we get an edge on this at 401 Again, a guy that I'm going to have on pretty much every fantasy team. So those are my four bets. We're going deep diving. Offensive player of the year.
+
+### Sean Koerner (Speaker A) [41:55-42:54]
+
+I love all these long shots, especially like Parker Washington. The way he's been talked about this offseason. You would not even know that they had Jacoby Myers on the team anymore. Lad McConkey is going to be the wide receiver one in this offense. We know that with Mike Daniel and then Nico Collins we've he has that pedigree. We just need to see a full 17 games. Jalen Waddle Same thing but all awesome bets here. Great ways to build your portfolio for offensive player of the Year. Football season is here folks. And if you don't already have the Action Network app, now is the time plus to get the most out of the app. You'll want to be an Action Pro subscriber. It's only with Action Pro you get real time pick alerts from myself, Brandon and the entire Action Network team of experts. You can access pro projections powered by Sean Kerner and our predictive analytics team and a ton of other benefits. And right now Action Network podcast listeners can save $20 off the annual price of Action Pro. Just go to actionnetwork.compro and use code POD20. That's actionnetwork.compro and use Code POD20 for $20 off the annual price of Action
+
+### Brandon Anderson (Speaker B) [42:54-43:06]
+
+Pro this summer there are 250 reasons to join T Mobile Girls Trip booked and switching to T Mobile help make it happen with experience beyond switch and
+
+### Sean Koerner (Speaker A) [43:06-43:17]
+
+get $100 back plus $650 in value in built in plan benefits. That's $750 in your first year guaranteed.
+
+### Brandon Anderson (Speaker B) [43:17-43:21]
+
+And honestly, that hundred dollars back I'm putting it towards the zipline now.
+
+### Sean Koerner (Speaker A) [43:21-43:23]
+
+That's how you do summer.
+
+### Brandon Anderson (Speaker B) [43:24-43:29]
+
+Exactly. Best switch I ever made. This is just one reason to join
+
+### Sean Koerner (Speaker A) [43:29-43:31]
+
+T Mobile this summer.
+
+### Brandon Anderson (Speaker B) [43:31-43:34]
+
+There are 250 reasons find yours
+
+### Sean Koerner (Speaker A) [43:37-43:41]
+
+savings based on the value of benefits included with experience beyond like entertainment and one
+
+### Brandon Anderson (Speaker B) [43:41-43:45]
+
+year of AAA classic and dash pass on US benefits may require activation C
+
+### Sean Koerner (Speaker A) [43:45-43:53]
+
+plan for details get $100 via virtual prepaid MasterCard with eligible ported, no cash access and expires in six months. Issued by Sunrise Banks and a member FDIC.
+
+### Brandon Anderson (Speaker B) [43:53-44:16]
+
+Allow eight weeks. Grainger knows when you're a procurement manager for an office park, you're not managing one building, you're managing all of them. And to stay ahead, you need to see through walls and around corners. Lights about to fail, filters ready to clog H Vac on its last leg. If you wait until something breaks, you're already behind. Count on Grainger for quality products, easy reordering and 24.
+
+### Sean Koerner (Speaker A) [44:16-44:17]
+
+7 support.
+
+### Brandon Anderson (Speaker B) [44:17-44:23]
+
+Call 1-800-Grainger click granger.com or just stop by Granger for the ones who get it done.
+
+### Sean Koerner (Speaker A) [44:24-44:47]
+
+Hey. This is Hayes Davenport and Sean Clements. We host the podcast Hollywood Handbook on the Big Money Players Network. Our show is extremely accessible to first time listeners. Each week we talk to someone in show business, AKA the biz, and try to help them with their careers and see what they have to offer us. Everyone has a good time and no one gets mad at their publicist for for letting them do our show. We've had a lot of great guests. Like Sarah Sherman.
+
+### Brandon Anderson (Speaker B) [44:47-45:09]
+
+Not that great actually. Can you help me? Can you help me shape this? How about we flip it on his head? How about we flip the script? Okay. What if the surprise woman who actually you think is the straight man is actually the one who's acting weird? Adam Scott. This entire time you've been expecting Adam
+
+### Sean Koerner (Speaker A) [45:09-45:23]
+
+Sandler to come to visit the show? I. I would never let go of that. I have. I would never set expectations for something like that. Seems like if the universe allows for something like that to happen, I'm open to it.
+
+### Brandon Anderson (Speaker B) [45:23-45:28]
+
+I'm always going to accept, you know Danny McBride. Fine. Yeah.
+
+### Sean Koerner (Speaker A) [45:28-45:31]
+
+It's all this Fragile masculinity exuding.
+
+### Brandon Anderson (Speaker B) [45:31-45:34]
+
+I could smell it walking down the hallway, to be honest with you. I was like, that smell.
+
+### Sean Koerner (Speaker A) [45:34-45:36]
+
+I was like, is that weed?
+
+### Brandon Anderson (Speaker B) [45:36-45:41]
+
+Nope. Fragile masculinity. Yeah. Ben Stiller. No, because a lot of times in
+
+### Sean Koerner (Speaker A) [45:41-45:43]
+
+out of context, people don't get it
+
+### Brandon Anderson (Speaker B) [45:43-45:47]
+
+or even know what a circle is. You know what I mean? Like, they're like, oh, what's the state?
+
+### Sean Koerner (Speaker A) [45:48-45:49]
+
+Everyone's so dumb except for you.
+
+### Brandon Anderson (Speaker B) [45:49-45:53]
+
+Fake. Right? Fake. And. And also not interested.
+
+### Sean Koerner (Speaker A) [45:54-45:55]
+
+Or just like, oh, I've got my life.
+
+### Brandon Anderson (Speaker B) [45:55-45:57]
+
+I don't care about your life.
+
+### Sean Koerner (Speaker A) [45:57-46:12]
+
+And a lot of other big shots that wouldn't be where they are without us. Oh, and by the way, Will Ferrell told us personally he loves the show and he wants to be a guest on every episode, but he's just so busy. Listen to Hollywood handbook on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
+
+### Brandon Anderson (Speaker B) [46:12-47:24]
+
+On the new podcast Solita, we share the messy reality of traveling alone. As a woman, I can wait four hours for the next bus or this random dude is offering me a ride on his motorcycle. I chose option B. I'm Julie Pinero and I travel by myself because it's a rare space where I can say yes without asking anyone else first. I'm on a mission to reclaim the word Solita, trading the pity for possibility. Every time I tried to be alone, I kept meeting people and they were like, you smiled at us. Not a lot of people smile around here. It's when you're alone that you're most receptive to the world as it is and not the lies you're sold about it. It can be a time where you push your limits, change your mind, or wake up to a new version of yourself. So whether you're a solo travel veteran or you're too nervous to book your first trip, I hope you listen to Solita on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts. Our town is small. Taters by most standards, right? But to the people who grew up here, it's everything. What happens when a quiet Tennessee town becomes the front line in a battle over the future of the.
+
+### Sean Koerner (Speaker A) [47:25-47:30]
+
+Developers with right wing ties have purchased hundreds of acres of land in the area.
+
+### Brandon Anderson (Speaker B) [47:30-48:16]
+
+The first thing you see when it pops up is pioneers in Appalachia. But they weren't just planning houses. We need cities on a shining hill that exemplify and embody the Christian way of life. Stop right there. Is that normal? A podcast about what happens when a small town becomes the site of a social experiment. God need men to rule and decides to fight back. Do not use my hard work to sell your bull. They're not just opposing what's being planned for here. Our hometown is not a test tube. They feel like they're standing in opposition to an entire administration. Guess you didn't move in on a bunch of dumb hillbillies now, did you? Listen to Our town on the iHeartRadio app, Apple Podcasts or wherever you get your podcasts.
+
+### Sean Koerner (Speaker A) [48:18-49:56]
+
+The Action Network podcast has teamed up with DraftKings and we've got some great news. Football season is almost here and something big is coming to DraftKings Sports. Get ready for DraftKings game day on September 2nd, where we'll be celebrating the return of football with exciting offers and game day deals all day. DraftKings sports app is now available in all 50 states, bringing the excitement straight to your fingertips. We wherever you are, from Florida to Texas to California, you'll never miss a beat. Sweat all the games you love in a seamless experience, no matter where you're watching, with one app. Download the DraftKings sports app now and use code Action Network so you're ready when the action kicks off. DraftKings, the crown is yours. All right, let's continue our NFL awards talk and we move now to coach of the year. Last year's winner, Mike Vrabel, around 8 to 1 and the favorite this year, John Harbaugh, Mike Frable. Let's. Let's talk about Mike Vrabel as quickly about football as we can because I don't want to talk about what happened from March onward until now. Let's talk about just the last regular season with variable defending coach of the year. 4 wins to 14 wins for the Patriots. They get all the way to the super bowl and it's the second coach of the year win in his career. And there's kind of a through line here. When you look at some of the winners here. Vrabel, Kevin o' Connell with Minnesota, Cleveland, Kevin Stefanski, Brian Dable of all of just kind of seeing that huge improvement in the standings. There has to be more to the criteria, but is that kind of what we're looking for here from a coach of the year standpoint?
+
+### Brandon Anderson (Speaker B) [49:56-53:19]
+
+Yeah, I think that pretty much nails it. This used to be one of my favorite awards, but it's quickly become one of my least favorite because you have the jump in the standings award. But you also have this sort of weird narrative thing that's been hard to grasp here. And look, there's only 32 options and we're going to rule out a whole bunch of them. But you sort of get at the end of the year, like four to six guys where it's like, yeah, he would be a deserving winner. And then it just whoever the voters end up picking between them. I know, like that's the whole point of voting. But it's hard to decide which one of those guys it's going to be and to kind of predict that part of the narrative. So yeah, let's look at criteria. Like you said, you got to win a lot of games, you got to improve a lot from last year. And then the narrative portion, you got to beat your over under. Actually, that's how it turns out. You got to surprise us how much you improve because if we know you're going to be good, that's actually not been quite good enough either. So here's the numbers. Nine out of our last 10 winners won 11 games or more. They're averaging 12 wins. You pretty much definitely need to make the playoffs to even get a vote here. Nine of our last 10 winners increased by four wins or more from the previous season. Half of them by seven wins or more. That's a lot of extra wins. The average coach in this group in the last decade jumped from 6.2 to 12.3 wins. You're basically doubling up your win total. Eight of our 10 won four to seven games the previous year. So you kind of have to start with a lowish bar from last year so there's room to improve enough. And then here's that narrative portion. 14 out of 16 coaches since 2010 to win this award beat their over under by two and a half games or more. You average by four and a half. Eight of our last 13 are at least four and a half over the win total. That is the narrative portion. We thought you were going to be bad. Hey, you're pretty good. Like you beat our expectations. And that doesn't matter because look, Ben Johnson did not win this award last year. We kind of thought Ben Johnson's team was going to be good. So they were good. They just weren't like so good that they blew us away. They didn't totally shock us. We had Bears Island. You saw it coming with him a little bit. You kind of have to not see it coming here. So ideally you want middling expectations. 12 or last 16 coaches started with a win total 7 and a half to 9 and a half. So basically, like, we don't really know. We don't know if you're going to be any good or not. The wind total is somewhere in the middle. And then it turns out you won like 11 or 12 games and here you are in the playoffs. So that's what we're looking for. A few other notes. 10 winners in a row started 18 to 1 or longer until Vrabel last year he was 8 to 1. So again, that's a little bit the tricky part here. If we see it coming like Vrabel or like Ben Johnson, then it doesn't count apparently for the voters because we have to be surprised ourselves. Five of our last nine winners were first year coaches on their team. Seven of the last 15, so about half usually. Well, we got 10 first year coaches. We'll get back to that. You don't win again on your same team. Not great for variable Kevin O'. Connell. You mentioned Sean McVay. They're past winners. You don't win again usually in the same spot. And then seven of our last 10 have been offensive minded coaches. The other three, Rabel twice and John Harbaugh, I call them more like CEO types. No defensive play callers here. So you probably want an offensive minded coach that won 47 games last year, middling expectations, seven and a half to nine half win total. And we want them to jump at least four wins, get to like 12, 13 wins and the playoffs. That's what we're looking for here.
+
+### Sean Koerner (Speaker A) [53:19-53:34]
+
+Okay, so given the fact that There are technically 32 candidates for this, I think it'd be safe if we just. Based on that criteria, I think we just need to start crossing off some teams just so we don't even have to put them in consideration. Who should we cross out first if we do that?
+
+### Brandon Anderson (Speaker B) [53:34-54:03]
+
+Yeah, so 10 teams I think already have too high of expectations because the highest win total any of these guys in the last decade have started with was nine and a half. So let me just give you 10 teams right away. We're just crossing them off. Broncos, Chargers, Packers, Chiefs, Seahawks, Niners, Bengals, Eagles, Rams, Patriots. We already know those teams are really, really good. We already know their coaches are good. They're already at nine and a half or higher win totals. You can't impress me. Much like queue up the Shania Twain. It's not exciting. We just rolled out a third of the options. Just like that.
+
+### Sean Koerner (Speaker A) [54:04-54:25]
+
+Man, I feel like a woman. All right, well let's talk about the coaching changes then. Because first coach, first year coach. Rather like because we had 10 coaching changes, like a third of the league changed head coaches and 10 of the if we take away those 10 teams, like that's 10 of your remaining 20. Are we kind of looking in that direction?
+
+### Brandon Anderson (Speaker B) [54:25-57:05]
+
+That's where I usually start here. But even though we have so many, it's kind of a weird crop of first year coaches. We get three guys who are basically replacing legends, long time coaches and so sky high expectations there. And you get five new coaches with like rock bottom outlooks that might even be tanking this year. So let's start with the first group. Ravens, Bills, Steelers. The Ravens and Bills have win totals at ten and a half. That's already disqualifying. Historically, you never win when you start that low. We already think you're going to be good. Sorry. Guess why? Because you have Lamar Jackson and Josh Allen on your team. So how, how impressed can we really be by Jesse Minter when he goes out and wins 13 games? Because Lamar Jackson is doing Lamar Jackson things and Derrick Henry is doing that. And like we already know they're supposed to be good. The Steelers technically fit a little bit better here at like an eight and a half win total, but they did win 10 last year. And if you need four more wins, you want to bet on 14 and three Pittsburgh, I don't, I don't need anything to do with that one. So I know that it feels like that it makes sense here, but this is just not who has won this award. When last year's production or this year's expectations are that high, then the flip side, there's actually kind of a low bar. You have to pass as well. Remember, we want you to come in with like 47 wins from last year, but if you're below that, you get a long ways to go. You got to still get to 11 or 12 wins in the playoffs. That was part of our profile. So Browns and Raiders, five and a half win total. Cardinals, four and a half. Dolphins, three and a half on the win total. Go listen to our Worst of First podcast. We'll talk about those teams there. It's hard to see 11, 12 wins. That's a huge jump for those teams. It's too low of a start because there's just not enough talent there. The one team you could give a little credit to here maybe is Titans. They're at six and a half on the win total. That's close enough. I think just because they're in the AFC South, I don't know why that the win total is that high. They only won three games last year. They're just outside their parameters. And like, if you want to Bet on Robert Sala and the unholy tried Dunford of coaches. You're not going to get my blessing on that. So it's just too little to start with on all those first year coaches. Few other guys I'm going to cross off real quick. Jets, five and a half win total, not a new coach, but basically in that same group we just talked about. Vikings, Jaguars, Bears, Texans, probably you need 13 or 14 wins and a one seed to get those. Koc just won it. We know they don't usually win. Again, all of those guys are coaches we love Ben Johnson, d', Amico, Ryan's, Liam Cohen. They probably should have won the last few years. They had a case. It's a hard award to win because you get like four possible winners and only one can do it. And I'm going to drop the Commanders and the Panthers. They technically fit. I just don't want to invest in those teams. I don't need 12 win Panthers and Commanders. So we ruled down. I think we're down to seven coaches now.
+
+### Sean Koerner (Speaker A) [57:05-57:41]
+
+Yeah, I was doing the math in my head. I'm like okay, seven, eight. Okay. So part of the thing about coach of the year is that criteria that you mentioned with Vrabel and that jump in the standings and that books and the analytics are kind of anticipating that John Harbaugh kind of fits all of that criteria. Not that I necessarily agree with it, but it just checks all of those boxes. Right. So, and then of course not to spoil our worst of first podcast, but the Giants were pretty highly thought of in that range. So how do we not look at Harbaugh then? Or what's holding you up for wanting to bet Harbaugh?
+
+### Brandon Anderson (Speaker B) [57:41-59:27]
+
+Yeah, Harbaugh would be my pick if I, I ranked all these guys. Like the way I do this is I start from scratch, I don't look at any of the odds. I do all my own rankings and research and Harbaugh was the top of my list. Not surprisingly, since we're on Giants island, he's a perfect fit. He's a first year guy. It's New York. If they win a bunch of games, he's going to get attention. He's won this award before. We know the voters like him. 10 or 11 wins probably puts you in the mix. And this is basically the same price as a Giants island division ticket that we already took six to one. Here we are six to one plus 650 for Harbaugh. So to me here's the question, which one is more likely? The Giants win the division and cash our ticket. But he doesn't win coach of the year or the giants get those 11 wins and sneak into the playoffs, don't win the division and don't cash or bet, but he's still the top coach of the year candidate. I don't really know the answer to those questions, but I've been burned on this one. As far as coaches, I'm like, man, you should win the award. We called Koc and had this great ticket and they won like 14 games or whatever and it still didn't cash. I'll take the one where I can guarantee the outcome. If the Giants have the best record in the division, they will win the division. That's how the awards work, so I'm gonna pet that one. I don't blame you if you want to basically take the same odds and pivot the other direction here, but that's why I'm gonna skip Harbaugh. Our last first year coach is Kevin Stefanski with the Falcons. He honestly kind of fits this criteria really well. At 21, he makes a lot of sense on the surface. You don't really have a quarterback, so he's going to get some credit if they can actually make it work and make that offense look as good as we think it should be. Here's the problem. Stefanski's won this thing twice already in the last five years. We're giving the same dude coach of the year three times since 2020. I just can't see that happening. So I have to cross him off the list for that reason.
+
+### Sean Koerner (Speaker A) [59:28-59:51]
+
+Yeah, and the two reasons that I think he even won was because those two teams were written off as dog at one point. And the fact that they, you know, Joe Flacco comeback player of the year and Kevin Stefanski kind of sweep the awards as a result. All right, five teams left looking at around maybe Tampa, Indie Dallas. You know, there's a couple other teams here. What are we actually going to bet for this market that if we're not going to bet John Harbaugh?
+
+### Brandon Anderson (Speaker B) [59:51-1:03:02]
+
+Yeah, I'm going to go with three guys here and build the portfolio a little bit. Two more I'm going to rule out quickly. The Lions. Dan Campbell just won 10 games. Went to have pretty high expectations there. Team that I'm not looking to invest in right now. Like if the lions are the 1 seed and Campbell does it again with all the injuries and post. Ben Johnson, absolutely a guy that could win the award. Just not the direction I'm looking on this team. The Saints, Kellen Moore makes A lot of sense. It's a buzzy team. They actually didn't even jump that far last year. They only won six games. So they can jump those four wins, get to like 11, get the division. It's possible. Again, just not a team that I wanted to invest in. A lot of injury risk up and down the roster. And why I don't want to invest in the Saints is because I prefer the Buccaneers. So this is my first bet. I can't believe it. Give me Todd Bowles for coach of the year. And we're going to prediction markets here. So give me the 2% on Todd Bowles here. Look, 10 or 11 wins is not going to cut it for Todd Bowles because nobody really thinks he's a coach of the year. Sort of guys winning this division not going to cut it. But I think the Bucks actually have a path to like 13 wins on the one seed and now that's a pretty good way to recognize this team's greatness. You're probably not going Baker Mayfield, mvp. I don't see the other award path for this team. And look, they're a middling expectations team. Here we are at basically eight and a half on the win total. I have them top half the league, offense and defense. I think this is a really smart way to invest in a long tail. Upside for the Buccaneers at 2%. So I'm going to take Todd Bowles. I can't believe I'm doing it. I'm going to take Shane Steichen from the colts as well at 3%. He was a buzzy choice mid last season, had the number one offense in the league, like historic rate offense, and everything fell apart. So what if they actually get it back? I don't really see it happening, but sometimes on these sort of awards, this is a way to invest in a team. Look, we're building portfolios. How many picks are we giving out between these award podcasts? We're not going to hit everything. What if I'm wrong about the Colts? What if Daniel Jones actually does look pretty good again and they're good like last year? I think Steichen is a good way to cover our bases there. So he's that one. And my favorite of the guys here is your guy, Brian Schottenheimer. Six percent and we love the nfc. We went long on Cowboys in my preview with Stuckey. Go back and listen to that podcast if you haven't. But top five offense or better. Christian Parker's defense hopefully gets them at least a league average. I think Dallas could be the 1 or the 2 seed in the NFC. If they are, it's Dallas. They're obviously a national story. So now again, what's the award? Is it dac mvp? Would voters actually do that? I'm not sure, but I think there's a lot of buzz about this coaching staff. They're only like 2 to 1 in the division, basically. And look, we said we're not taking Giants. The hard part for me with taking Giants island was I really like the Cowboys. So I think this is a way to kind of have my cake and eat it too. Giants island, the division, let me cover my bases with Cowboys here and give me shoddy at 6%. So it's a tricky award, but I'm going to just split a small investment here. Schonheimer, 6%, Stichting 3%, Bulls, 2%. In the prediction markets, I think we get three of basically like 10 or 12 guys that can actually win this award. And that gives us a pretty good Corner Only at 11% invested here.
+
+### Sean Koerner (Speaker A) [1:03:02-1:04:06]
+
+Right. And if anything, too like, I mean, you could argue that those could be three decent candidates for first coach fire, depending on how the first couple months of the season goes for all those three. But that being said, the three bets that we're looking at for coach of the year, that is going to be Todd Bowles with the Tampa Bay Buccaneers, Shane Steichen with the Indianapolis Colts, and Brian Schottenheimer with the Dallas Cowboys. Let's stick with coaching though. We'll round out this part here with assistant coach of the year last year. Josh McDaniels is part of Mike Vrabel staff. He took this award and a favorite this year, Mike McDaniel with the Los Angeles Chargers. Now, this award has been around for a while, but it's only been readily available to bet like in the last couple seasons. Like Todd Bowles, we just mentioned, like he won that back in 2014 as an assistant with the Cardinals. When we did the coaching rankings, like we went through, you know, all 32 coaching staffs. We had 32 coaches, OCS defensive coordinators. I just have to ask for the sanity. You did not actually go through like all 64o season DCs to try to narrow this down. Right.
+
+### Brandon Anderson (Speaker B) [1:04:06-1:04:32]
+
+I, I did look at all 64 names. We're not going to rule out 64 options here. In part, some of the guys who are head coach play callers, they're not really options here. So it's really more like 40 or 50 options. We're not going through all those either. In part Because I think we actually can build a bit of a historical profile here and there are a lot of guys that history says, even though it's a short amount of history, have maybe zero win equity. And I think there's actually a lot of value that could be on this award.
+
+### Sean Koerner (Speaker A) [1:04:32-1:04:50]
+
+So about the profile though, because again we do have history, we just haven't don't necessarily have the betting like the historical odds history. But based on this, like what we've seen the winners over the last few years, like what kind of profile or pattern would you see that takes this award?
+
+### Brandon Anderson (Speaker B) [1:04:50-1:09:01]
+
+Yeah. So Josh McDaniels and Ben Johnson as offense the last two years. D' Amico Ryan's and Jim Schwartz on defense the previous two years. I'm not finding a pattern offense or defense. There's six offense, six defense in kind of random order. I don't think we're going to get a lot of help there. So unfortunately we can't knock out half the field that way. That's a bummer. It's like if you play the game, guess who, when you're a kid and you're like, is your person a woman and man, do you hope the answer is not yes for that you are losing that game. If your person, they even it out now, now it's half and half but still you can knock out half the field. We can't do that here. You do have to win games. Dot like it's kind of like similar coach of the year. You're averaging about 12 and a half wins and a almost four win improvement, 3.7 over last year. So obviously you got to have that kind of surprise coach of the year factor in and you want your side of the ball to stand out. Typically the guy that wins this, their side ranks fourth in points per game. The other side ranks 10th on average. So you're the better unit. Duh. That's why we're trying to reward you for your work here. For nine of our 12 winners, their unit's the better one by an average of about 11 spots in the rankings. So like if you, you're the fourth best offense, you had the 15th best defense. Yeah. Turns out we want to reward you for looking good that way. So we're looking for a coordinator of probably like a 12 win team or better that improved by four wins, leading a lopsided team where their unit is elite and carrying the team. But then here's the thing that I found really interesting. So nine of the 12 guys that have won this award won it in their first Two years at the position, at their coach spot here. Half of them first year, half of them not first year. The average is 1.8 years of tenure. So here's where it's interesting. So we got six first year coordinators. All but one of those guys are failed head coaches, guys that return to their old job. Josh McDaniels, perfect example, terrible head coach. You don't want him there. Pretty good play caller. He's the winner from last year. So you go back to a job that you got called up to, it didn't work out for you, you're back down to aaa. Hey, you're pretty good at this job. Notably zero first year play callers that are the rising star without the reputation yet. And that is a lot of our candidates this year. On the flip side, 6 non first year guys. All but one of those guys were young rising play callers in year two or year three. The other one was year four. That was Vic Fangio. So these are the guys that become future head coaches in all likelihood because they're the rising star, but they're rising in year two or year three. They're not winning it in year one. So this is what is fascinating on this award because listen to the coaching podcast. We went long on these dudes. Declan Doyle, Baltimore OC Jim Leonard, Buffalo defense. Christian Parker, we just mentioned him with Dallas. Sean Manion with the Eagles. And offense. Davis Webb, Broncos offense. Everyone's excited about these guys. Everyone wants to grab those tickets and look at the tickets. Doyle 13 to 1. Webb 16 to 1. Manion 18, Parker 19. I'm crossing them all off. There is zero historical precedents for a player, a coach like that, winning this award. And I'm betting on history. It doesn't mean it can't happen. But it's not what has happened on the other end of the equation. Vic Fangio 10 to 1, Vance Joseph 11 to 1, Brian Flores, 16 1. I don't have to tell you what teams those guys are on. We know how good those defenses are going to be and how good those coaches are. There is not precedent for that sort of coach winning this award. This is not a lifetime achievement award. You got to step it up and be the hot young coach or be the failed coach. And look, those guys have been failed coaches before. That's how they got back to their job. But they missed the window. They were supposed to win this year one of the award. Now they're just going to bend around there. So Fangio and Joseph, they're second and third in the Odds. If you look at the odds board for this one, top 10. I just ruled out eight of the top 10 guys on the board by historical standards. And I know it's a lot of names you think should win. I do too. I think they should win also. But history says otherwise. And if we're right, that means there's maybe huge opportunity for betters here. If we're just crossing off almost the entire top 10 list on the board.
+
+### Sean Koerner (Speaker A) [1:09:01-1:09:24]
+
+Okay. So a lot of criteria to digest there just to make sure that I fully understand what we look for here. Because when we cut the field down like that, the two categories that really kind of really stand out is that failed head coaches kind of returning to the job. Like, we have 10 fired head coaches. So, like, what are the options here? Like, I don't know what to do.
+
+### Brandon Anderson (Speaker B) [1:09:24-1:11:13]
+
+Yeah, I hate to tell you, but let me give you some options. New jets offensive coordinator Frank Reich. How about new Titans offensive coordinator Brian Dable? There's a reason these guys are fired coaches. Reich, obviously not last year. Niners defense, according to Raheem Morris. Maybe not quite as bad of a taste in your mouth, but these are not fun choices. You're not going to convince me or me you to bet on a Reich or Dable. And those teams are not winning enough anyway. Morris, who's going to win? But the offense is the better unit there. Fred Warner is back. Nick Bosa is back. I don't know we're going to give Raheem Morris credit for those guys playing again. Can't get there on those guys. We can't get there on one obvious guy. Again, I didn't rank all 64. There is a clear obvious favorite who should win this award and it's our guy, Mike McDaniel and he is the favorite. He's plus 450. He's. There is your fired head coach. Look at the setup is just perfect here. You get a guy who is building all these great offenses and just the locker room parts. All the other stuff with the coaching, he didn't seem like the right fit for him. But we know he can call a player right. I think he's still a top five play caller. Everyone's talking. Everyone will be watching this team. We just spent two weeks talking about the Chargers improvement on the staff and on the offensive line and just the offense Overall. Obvious pick here. Easily my favorite for this award. But he's plus 450. That is implied 18%. There's 50 like options for this award. That would be about 2% per person I can't do it, man. I can at 18%. Just go out and bet the odds favorite here. And look, we've got other options because I made my list and we're gonna about to get to them in a second. But my top seven, I've got McDaniel at the top of the list and I was like, great, so does everyone else. No value there. Spoiler. The next six names on my list were nowhere near the top of the list, so that's where I'm looking.
+
+### Sean Koerner (Speaker A) [1:11:13-1:11:36]
+
+Well, Mike McDaniel makes sense as the obvious golden child, especially given what we saw in Miami's offense to his limitations. All that good stuff, but plus 450. No, we're not going to do that at this time of the year. Let's do some long shots then, because that's what we've done for every award so far. You've got a few lined up for here. So give me some long shot assistant coaches we can nail for this award market.
+
+### Brandon Anderson (Speaker B) [1:11:36-1:15:33]
+
+All right, well, we're building a portfolio and I am actually indeed betting six dudes. My number two through number seven on my list. We're sprinkled in the field because it's a quarter unit on each. And again, if we're right that the odds board is totally wrong, then there's a lot of value here and we're going to have a hard time predicting it. So I'm taking six shots at it. And for the third time on the podcast, I rocked the tight or the Houston Texans shirt. Today we're taking Houston Texans offensive coordinator offensive coordinator Nick Caylee, 45 to 1. Actually the shortest of our long shots here. I'm going reverse order from who I like least to most. So I don't love investing in Houston's offense. I'll be honest, the defense is clearly the better unit, so that doesn't exactly fit what we like. But it's such a big story that what if he gets CJ Stroud back on track? What if this offense is like kind of good? Like the perception is so low on them it's low hanging fruit. And he does have an interesting pedigree and a lot of coaching tree in the background. If they can even be like a top 10 or 15 offense, I think this is a coach that would get some attention. Next up, Patriots defensive Coach Zach Kerr. 50 to 1. He's kind of a buzzy name. He got the team to the super bowl and I think this was the better unit in the playoffs. This defense carried. And what if that continues this season we talked about a lot of names on the defense. I like this defense a lot. I ranked them higher than I ranked the Patriots offense. If that happens, could Zach Kerr get some of the noise here? Pittsburgh Steelers defensive coordinator Patrick Graham, 80 to 1. Technically, we're cheating on this one. He's year one. He's not a fire head coach. I think he's a future head coach, but he's kind of failed his way up on getting from the Raiders to the Steelers. That's a nice promotion for me if I'm going to Pittsburgh now. I've heard a lot of buzz about him. And if the Steelers do win 12 or 13 games, we don't want to reward Aaron Rodgers or Mike McCarthy. It's going to be because the defense, why not let it be Patrick Graham? So sort of cheating and slipping him in here at 80 to 1. Three more Calvin shepherd defense, Detroit Lions, 50 to 1. We talked about the injuries there in the secondary, but they just keep putting out top DVOA, like fringe top 10 with this group. And this is a defense that should get healthy later in the year. That means peaking later in the year when voters are looking to get out some votes. And if Jared Goff and the offense take a bit of a step back, but the Lions defense kind of carries a little bit, I think that could put them in the mix there. 50 to 1. A guy that has been talked as a future coach. Saints defensive coordinator Brandon Staley, 55 to 1. I think we kind of get both sides here fired. Head coach and sort of a buzzy name. I wouldn't be surprised if you got another shot here. Too far down the line. The Saints defense, not the offense. That was the big jump for them last year. If I'm wrong on the Saints, I think it'll be because the defense was even better than I thought. So this gives us a shot there. And then my favorite out of these six, our guy, Clayton Adams with the Cowboys 50 to 1. A bullseye. So we're gonna. We're gonna double up on Cowboys. We already took Schlenheimer earlier. This is the buzzy name. He was at Arizona Cardinals with a creative run game. He did the same thing with Dallas last year. Obvious media story. A name you're going to hear a lot about on all the podcasts this year. Breakout offense. This offense, clearly the better unit. We hope Christian Parker side gets better. Christian Parker, year one, not the guy that wins this. Clayton Adams, year two, that's the guy that can win this. So I love this as a way to invest in the Cowboys. We are looking for ways to say how can we get some long upside on the Cowboys. I think this is the way. And by the way, last year Rabel and McDaniels both just won the award together. So yeah, I'm fine betting Schottenheimer coach and Clayton Adams assistant coach. They can both win. It just happened last year. So Here are the 6. Clayton Adams, Brandon Staley, Kelvin Shepard, Patrick Graham, Zach Kerr, Nick Caylee, and yes, I am betting all six of them. They're all year two except one. They're all 45 to one or longer, 0.25 units each. We're building a portfolio. Let's have some fun.
+
+### Sean Koerner (Speaker A) [1:15:33-1:15:45]
+
+All right, Assistant coach of the year. We got a six long shots lined up now, Brandon, before we get out of here, let's get to your favorite bet from the show Today presented by DraftKings. What do you like?
+
+### Brandon Anderson (Speaker B) [1:15:45-1:15:57]
+
+Gotta be Will Anderson, right? Rocking the Texans shirt. It's Will Anderson, defensive player of the year. Just the obvious bull. I didn't have to do any work on that one. Now he was the first name I was thinking about on awards anyway. He's the guy.
+
+### Sean Koerner (Speaker A) [1:15:57-1:16:40]
+
+All right, Will Anderson, defensive player of the year from the Houston Texans. And you can tail Brandon's favorite play today. Or you can wait until tomor September 2nd because DraftKings is bringing something big to celebrate the return of football. That's right, DraftKings game day is coming. So mark your calendars. Tomorrow is the day, September 2nd. And check out the incredible offers to celebrate the return of football from DraftKings. All right, that'll do it for part one of our NFL awards preview and deep dive presented by DraftKings. Keep an eye out for part two in the podcast feed that's coming out later in the week. Don't forget to to download the Action Network app and use code POD20 for $20 off a year of action Pro for Brandon Anderson. I'm Jill Galant. Thank you again for listening to the Action Network podcast. Bo sh.
+
+### Brandon Anderson (Speaker B) [1:16:56-1:17:06]
+
+Action Network reminds you please gamble responsibly. If you or someone you care about has a gambling problem, help is available 247 at 1-800-GAMBLER.
+
+### Sean Koerner (Speaker A) [1:17:07-1:17:18]
+
+T Mobile is reinventing business Internet with super broadband. Whether you run a small office or a factory of 500 connection is everything. Powered by America's fastest 5G Internet plus
+
+### Brandon Anderson (Speaker B) [1:17:18-1:17:23]
+
+Starlink super broadband from T Mobile reaches every zip code in the US super
+
+### Sean Koerner (Speaker A) [1:17:23-1:17:26]
+
+broadband a new era of business Internet.
+
+### Brandon Anderson (Speaker B) [1:17:26-1:17:32]
+
+Visit superbroadband.com to learn more. 5G network based on analysis by Eucalypt Speed Test Intelligence data 2H 2025.
+
+### Sean Koerner (Speaker A) [1:17:32-1:17:34]
+
+Speeds vary due to local network characteristics and management.
+
+### Brandon Anderson (Speaker B) [1:17:34-1:17:36]
+
+Satellite requires hardware installation to clear view
+
+### Sean Koerner (Speaker A) [1:17:36-1:17:37]
+
+of the sky for 36 month commitment.
+
+### Brandon Anderson (Speaker B) [1:17:37-1:18:12]
+
+On the new podcast Solita, we share the messy reality of traveling alone. As a woman, I can wait four hours for the next bus or this random dude is offering me a ride on his motorcycle. I chose option B. I'm Julie Pinero and I travel by myself because it's a rare space where I can say yes without asking anyone else first. I'm on a mission to reclaim the word Solita, trading the pity for possibility. Listen to Solita on the iHeartRadio app, Apple Podcasts or wherever you get your podcast. Foreign
+
+### Sean Koerner (Speaker A) [1:18:16-1:18:31]
+
+hey, this is Hayes Davenport and Sean Clements. We host the podcast Hollywood Handbook. Each week we talk to someone in show business and try to help them with their careers and see what they have to offer us. Everyone has a good time and no one gets mad at their publicists for letting them do our show. We've had a lot of great guests
+
+### Brandon Anderson (Speaker B) [1:18:31-1:18:35]
+
+like Sarah Sherman, Adam Scott, Danny McBride, Ben Stiller, and a lot of other
+
+### Sean Koerner (Speaker A) [1:18:35-1:18:42]
+
+big shots that wouldn't be where they are without us. Listen to Hollywood handbook on the iHeartRadio app, Apple Podcasts or wherever you get your podcasts.
+
+### Brandon Anderson (Speaker B) [1:18:44-1:18:52]
+
+Our hometown is not a test tube. 90 miles northeast of Nashville, a battle for the future of America plays out in one small town.
+
+### Sean Koerner (Speaker A) [1:18:52-1:18:56]
+
+Developers with right wing ties have purchased hundreds of acres of land.
+
+### Brandon Anderson (Speaker B) [1:18:56-1:19:15]
+
+We need cities on a shining hill. This is Our Town, A podcast about what happens when a small town becomes the site of of a social experiment and fights back. Guess you didn't move in on a bunch of dumb hillbillies now, did you? Listen to Our town on the iHeartRadio app, Apple Podcasts or wherever you get your podcasts.
+
+### Sean Koerner (Speaker A) [1:19:18-1:19:20]
+
+I'm Mangesha Teekodar and I'm back with
+
+### Brandon Anderson (Speaker B) [1:19:20-1:19:28]
+
+a new season of my podcast, Skyline Drive. This time I talk to scientists, biopunks, curmudgeons, blue zoners, super seniors, and Goa's
+
+### Sean Koerner (Speaker A) [1:19:28-1:19:37]
+
+top cryotherapy therapy lab to try to understand this obsession with living forever and what it means for all of us. And I get into a bit of trouble along the way.
+
+### Brandon Anderson (Speaker B) [1:19:37-1:19:39]
+
+I'd say probably start bone smashing.
+
+### Sean Koerner (Speaker A) [1:19:39-1:19:39]
+
+That doesn't work.
+
+### Brandon Anderson (Speaker B) [1:19:39-1:19:47]
+
+To make it look more defined, they say it works. I don't know. Listen to Skyline Drive how to Live Forever on the iHeartRadio app, Apple Podcasts
+
+### Sean Koerner (Speaker A) [1:19:47-1:19:49]
+
+or wherever you get your podcasts.

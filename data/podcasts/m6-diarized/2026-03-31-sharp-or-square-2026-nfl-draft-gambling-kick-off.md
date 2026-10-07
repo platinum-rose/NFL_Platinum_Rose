@@ -8,25 +8,24 @@ Audio: https://podtrac.com/pts/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 59197
 Speaker turns: 116
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D), Guest (Speaker E)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
 - Speaker D: Guest
-- Speaker E: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker E: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Guest (gpt-4o, unknown) futures=1
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -43,10 +42,6 @@ go downtown and tell a receptionist I'm
 ### Simon Hunter (Speaker C) [0:45-1:01]
 
 here to talk about my downtown. Some things you'd rather type than say out loud. There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
-
-### Guest (Speaker A) [1:03-2:29]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
 
 ### Chad Millman (Speaker B) [2:29-2:45]
 
@@ -164,10 +159,6 @@ Health AI presents painful thoughts why did I search the Internet for answers to
 
 my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores
 
-### Guest (Speaker A) [25:54-25:55]
-
-in various stages of ooze.
-
 ### Simon Hunter (Speaker C) [25:57-26:00]
 
 I can clear my search history, but
@@ -180,17 +171,9 @@ I can never unsee that.
 
 Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
 
-### Guest (Speaker A) [26:10-27:41]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zephone with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound Lilly.com awkward time to ask
-
 ### Simon Hunter (Speaker C) [27:41-27:44]
 
 this, but hey, did you download the trail map?
-
-### Guest (Speaker E) [27:44-27:44]
-
-Yeah.
 
 ### Guest (Speaker D) [27:44-27:45]
 
@@ -200,33 +183,17 @@ No, I don't need to.
 
 I don't understand.
 
-### Guest (Speaker E) [27:46-27:48]
-
-You're trusting your signal out here?
-
 ### Guest (Speaker D) [27:48-27:49]
 
 I'm trusting T Mobile.
-
-### Guest (Speaker A) [27:49-27:50]
-
-They have the best network.
 
 ### Guest (Speaker D) [27:51-27:55]
 
 And if we end up in bumtots nowhere, well, we've got T Satellite for backup. Whoa.
 
-### Guest (Speaker E) [27:55-27:56]
-
-I don't trust my carrier that much.
-
 ### Guest (Speaker D) [27:57-27:59]
 
 We'll just use your phone as a flashlight.
-
-### Guest (Speaker E) [28:00-28:39]
-
-With America's Best Network Network and T Satellite, we're keeping you connected in places you never thought possible. And if you switch today, you get free phones for zero down and only 25 bucks a month per line for four lines. Find out more@t mobile.com or visit your local store. Best Mobile Network Based on analysis by Ooklib speed test intelligence data 2h 2025 with 24 monthly bill credits and 4 eligible port ins on essentials for well qualified customers with auto pay taxes fees and 35 connection charge per line credit standing balance due if you pay off earlier. Cancel Contact Us Finance Agreement example $299.99 Moto Edge 5G required T Satellite available with compatible device in most outdoor areas in the US where you can see the sky included with experience beyond your $10 a month. Harbor News Monthly cancel anytime visit t
 
 ### Chad Millman (Speaker B) [28:39-29:14]
 
@@ -284,10 +251,6 @@ Derek gave us the best piece of advice that we've had about the draft since the 
 
 Pharmacy presents painful Thoughts of course I
 
-### Guest (Speaker E) [41:55-41:58]
-
-see my co worker in line at the pharmacy.
-
 ### Guest (Speaker D) [41:58-42:03]
 
 Can you tell I'm picking up prescription hemorrhoid cream? I'm probably standing weird.
@@ -304,10 +267,6 @@ He knows he's gonna call me hemorrhoid Lloyd tomorrow. I know it. I gotta quit m
 
 Next time, avoid awkward conversations and get fast free delivery with Amazon Pharmacy. Healthcare just got less painful.
 
-### Guest (Speaker A) [42:20-43:51]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your favor family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound.lilly.com awkward time
-
 ### Chad Millman (Speaker B) [43:51-43:53]
 
 to ask this, but hey, did you
@@ -316,21 +275,9 @@ to ask this, but hey, did you
 
 download the trail map?
 
-### Guest (Speaker A) [43:54-43:56]
-
-Yeah, no, I don't need to.
-
-### Guest (Speaker E) [43:56-43:58]
-
-I don't understand you're trusting your signal out here.
-
 ### Guest (Speaker D) [43:58-44:00]
 
 Well, I'm trusting t Mobile.
-
-### Guest (Speaker A) [44:00-44:01]
-
-They have the best network and if
 
 ### Guest (Speaker D) [44:01-44:05]
 
@@ -343,10 +290,6 @@ Whoa, I don't trust my carrier that much.
 ### Guest (Speaker D) [44:07-44:09]
 
 We'll just use your phone as a flashlight.
-
-### Guest (Speaker E) [44:11-44:49]
-
-With America's Best Network and T Satellite, we're keeping you connected in places you never thought possible. And if you switch today, you get free phones for zero down and only 25 bucks a month per line for four lines. Find out more@t mobile.com or visit your local store. Best Mobile Network Based on analysis by Ooklib speed test intelligence data 2h 2025 with 24 monthly bill credits and 4 eligible port ins on essentials for well qualified customers with autopay plus taxes, fees and $35 connection charge per line credits and imbalance due if you pay off earlier. Cancel Contact Us Finance Agreement example $299.99 Moto Edge 5G required T Satellite available with compatible device in most outdoor areas in the US where you can see the sky included with experience beyond or $10 a month. However, news monthly cancel anytime Visit T
 
 ### Guest (Speaker D) [44:49-45:51]
 
@@ -420,17 +363,9 @@ jets just don't understand what the draft's all about.
 
 Wait, I came in for two things. How is this $47? All right, we're gonna need a plan here.
 
-### Guest (Speaker A) [55:55-56:08]
-
-Just start simple with bank of America Advantage Safe Balance Banking. No overdraft item fees, no monthly maintenance fee. If you're under 25 plus as a new checking customer, you can earn $100 when you open an account and make qualifying Zeller debit transactions.
-
 ### Guest (Speaker D) [56:08-56:10]
 
 Oh, that's actually really simple.
-
-### Guest (Speaker A) [56:10-56:18]
-
-Safe Balance Banking. One less thing to figure out. Learn more@bofa.com earn 100 terms and conditions apply. Bank of America and a member FDIC.
 
 ### Chad Millman (Speaker B) [56:19-56:28]
 
@@ -460,14 +395,6 @@ phones on silent and take a mental
 
 note to focus on driving. Paid for by NHTSA
 
-### Guest (Speaker A) [56:49-57:17]
-
-when you're a maintenance engineer in a beverage manufacturing plant, you keep production lines moving and quality on track because there is no room for slowdowns. With Grainger's vast selection of high quality motors, sensors, belts and hard to find parts, you can get what you need fast and all in one place so nothing gets in the way of getting the job done. Call 1-800-GRAINGER clickranger.com or just stop by Grainger for the ones who get it done.
-
-### Guest (Speaker E) [57:20-57:21]
-
-The game started.
-
 ### Guest (Speaker D) [57:21-57:22]
 
 Call your dad.
@@ -479,11 +406,3 @@ I'm on it, Ma. Hello Hijita. I can't hear you.
 ### Simon Hunter (Speaker C) [57:26-57:28]
 
 I'm at the stadium in Monterrey.
-
-### Guest (Speaker E) [57:28-57:47]
-
-Cool. Hear a shout go together get non stop talk tax and Data in the US, Mexico and Canada with T Mobile, America's best network. Switch on the TLife app or on T mobile.com connectupy on qualifying plans not for extended international use, you must resign in the US and primary usage must occur in our network. Best Based on analysis by Ooklo Speed
-
-### Guest (Speaker A) [57:47-57:52]
-
-Test intelligence data to H2025 this is an iHeart podcast. Guaranteed human.

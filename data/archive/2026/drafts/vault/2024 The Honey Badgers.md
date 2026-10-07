@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "The Honey Badgers draft 2024"
-created: "2026-10-06T05:59:42.882Z"
-modified: "2026-10-06T05:59:42.882Z"
+created: "2026-10-06T14:10:38.430Z"
+modified: "2026-10-06T14:10:38.430Z"
 season: 2024
 type: "fantasy-draft"
 league: "The Honey Badgers"

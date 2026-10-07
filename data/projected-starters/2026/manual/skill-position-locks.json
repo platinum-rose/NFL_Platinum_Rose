@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "description": "Manual depth-chart backstop for players who are unambiguous starters and therefore never trigger the injury-report/competition-language heuristic in build-projected-starters.js. Added because that heuristic only catches players mentioned in a competition/backup/injury context -- a true lock at the position generates no such chatter and silently drops out of the projected-starters snapshot otherwise.",
+    "maintained_by": "Andy, verified manually",
+    "last_updated": "2026-09-15"
+  },
+  "players": [
+    {
+      "player_name": "Saquon Barkley",
+      "team": "PHI",
+      "position": "RB",
+      "role": "starter",
+      "starter_confidence": 0.97,
+      "roster_confidence": 0.97,
+      "confidence_basis": "manual_depth_chart",
+      "impact_bucket": "rb_major",
+      "needs_human_review": false,
+      "evidence_tags": ["locked_starter", "workhorse"],
+      "evidence": "Unquestioned RB1, workhorse role, no committee/competition -- verified by Andy 2026-09-15."
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Week 3 synthesis digest (2026) — scratch
 Format: game | market | lean | source | tier. Tier per WEEKLY_SYNTHESIS §6 (1 matchup/role, 2 named expert, 3 PM beats book, 4 price). "sys" = Bet Labs system / historical trend (untiered context, not a pick).
-Rule 2 reminder: dog leans below are for ML only — no points on dogs.
+Strategy reminder: underdog spreads are allowed when the matchup and price case are stated; do not use points merely to make a parlay leg feel safer.
 
 ## Article queue parse — Wed 9/23 02:30 PT (5 queued; 4 parsed, 1 paywalled)
 
@@ -37,7 +37,7 @@ Rule 2 reminder: dog leans below are for ML only — no points on dogs.
 - NE@JAX | Under 44.5 | Pamela Maldonado, ESPN 9/21 — now 45.5 (better number) | 2
 
 ### Systems / trends (AN primer, Abrams) — context, conflicts flagged
-- ATL@GB | ATL (+5.5 -> ML only per rule 2) | GB off OT on short week; teams off OT laying 3+ = 2-12 ATS; plus 3 dog systems fire on ATL | sys — CONFLICTS with Moody GB -7
+- ATL@GB | ATL +5.5 | GB off OT on short week; teams off OT laying 3+ = 2-12 ATS; plus 3 dog systems fire on ATL | sys — CONFLICTS with Moody GB -7
 - LAC@BUF | Under 50.5 | wind (11 mph) + "rising totals early" systems; 86% of tickets on Under | sys; separately LAC +7 fires 2 systems — CONFLICTS with Radowitz BUF -7
 - NYJ@DET | NYJ | 3 systems fire | sys — CONFLICTS with Bowen DET -6.5
 - ARI@SF | Under 47.5 (div unders high total, +11.8% ROI) ; ARI +8 (div road dog); SF 0-8 ATS last 8 home vs NFC West | sys
@@ -57,7 +57,7 @@ Rule 2 reminder: dog leans below are for ML only — no points on dogs.
 
 ## Podcast expert picks (pick-extraction, fixed week-scoped run 9/23 ~11:10 PT) — 64 picks, 7 transcripts, 5 sources, all on Week 3 slate
 Sources: Sharp or Square (Wk3 preview + Wk2 reactions), BettingPros (Wk3 early picks + survivor), Even Money (Wk3 bets), The Favorites, Action Network (Futures Watch Wk3 — only CHI +3 is a game pick; futures skipped by design)
-Multi-source (2+ shows) — dog leans are ML-only under rule 2:
+Multi-source (2+ shows) — dog spreads require an explicit matchup and price case:
 - PHI@CHI | CHI (+3/+4.5) | Action Network pod + Sharp or Square (x2) | 2 — also AN primer dog systems on CHI; CHI QB unresolved (Bagent concussion, Keenum?)
 - CAR@CLE | CLE (+2.5/+3) | BettingPros + Sharp or Square (x2) | 2 — CONFLICTS with Radowitz CAR -3 (BP article); also Under 40.5/42.5 (BettingPros + Even Money) matches wind-unders system
 - NE@JAX | JAX -2.5 | BettingPros + Sharp or Square | 2 — Even Money has NE +3; Maldonado (ESPN) Under

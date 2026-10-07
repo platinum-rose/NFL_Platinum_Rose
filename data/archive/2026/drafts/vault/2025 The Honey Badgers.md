@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "The Honey Badgers draft 2025"
-created: "2026-10-06T05:59:42.815Z"
-modified: "2026-10-06T05:59:42.815Z"
+created: "2026-10-06T14:10:38.204Z"
+modified: "2026-10-06T14:10:38.204Z"
 season: 2025
 type: "fantasy-draft"
 league: "The Honey Badgers"

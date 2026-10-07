@@ -8,24 +8,23 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 65185
 Speaker turns: 162
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
 - Speaker D: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - None
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:33]
 
@@ -51,17 +50,9 @@ of mind when the power fails.
 
 Right now, save $500 and get two solar panels free. That means you can recharge twice as fast, but only while supplies last. Keep your lights on, your food cold, and your family calm when the grid goes down. Don't wait for the next blackout. Visit fourpatriots.com today. That's the number four P A T R I-O-T S.com and see why families trust four Patriots to stay ready.
 
-### Guest (Speaker A) [1:21-1:55]
-
-The Sherwin Williams summer sale is here. Get 30% off select paints and stains or 35% off our newest product, Emerald Symmetry, July 17th through the 27th. Whether you're refreshing your interior or exterior, we've got the colors to bring your vision to life. And with delivery, getting everything to your door is easier than ever. Shop online to have it delivered or visit your neighborhood Sherwin Williams store. Click the banner to learn more. Retail sales only. Some exclusions apply. See store for details. Delivery available on qualifying orders. Hey, everybody, I'm Tareka Foster Brasby. What's up, y'?
-
 ### Chad Millman (Speaker B) [1:55-1:55]
 
 All?
-
-### Guest (Speaker A) [1:55-2:33]
-
-I'm your girl, Sheryl Swoops. When you tune in to a new episode of our podcast, Levels to this, you're definitely gonna get some spicy WNBA analysis. But we're more than just hoops, and the real conversation is what we actually bring. It's been really, really cool seeing kind of these women just really step into their power off the court and understand that they are basketball, right? And they're not asking for permission. Listen to Levels to this with Sheryl Swoopes and Tarika Foster brasby on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
 
 ### Chad Millman (Speaker B) [2:35-2:59]
 
@@ -323,25 +314,13 @@ the
 
 Declaration, which is full of these beautifully rendered sentences and paragraphs about enlightenment ideals, does also have this darker history to it.
 
-### Guest (Speaker A) [35:18-35:27]
-
-Why is it important for the darker part of the Declaration of Independence and the American Revolution? Why is it important that Americans know about it?
-
 ### Simon Hunter (Speaker C) [35:29-35:39]
 
 Well, if we don't understand the full context in which our nation was founded, we won't understand the full context in which our nation now finds itself.
 
-### Guest (Speaker A) [35:40-35:46]
-
-I'm Rebecca Nagle. Gohin Tawadon Jalecayetli Gay la citizen of Cherokee Nation.
-
 ### Simon Hunter (Speaker C) [35:46-35:48]
 
 Are you guys big Chiefs fans? Hell yeah.
-
-### Guest (Speaker A) [35:49-36:11]
-
-This is First America, the true story of how the United States came to be and how we got to this present moment. Listen to First America on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts. Remember, always be generous with the nutmeg. Just eyeball it, okay?
 
 ### Guest (Speaker D) [36:11-36:14]
 
@@ -350,10 +329,6 @@ Mom's wisdom has served you well, but
 ### Simon Hunter (Speaker C) [36:14-36:16]
 
 now it may be your turn to guide her.
-
-### Guest (Speaker A) [36:17-36:22]
-
-Hey, I'm worried about Mom. She keeps forgetting her famous sweet potato pie recipe.
 
 ### Simon Hunter (Speaker C) [36:22-36:24]
 
@@ -495,25 +470,13 @@ Vibe coding is everywhere right now, but it's not just for apps anymore. Now it'
 
 declaration, which is full of these beautifully rendered, you know, sentences and paragraphs about enlightenment ideals, does also have this darker history to it.
 
-### Guest (Speaker A) [49:27-49:36]
-
-Why is it important for the darker part of the Declaration of Independence and the American Revolution, why is it important that Americans know about it?
-
 ### Simon Hunter (Speaker C) [49:37-49:48]
 
 Well, if we don't understand the full context in which our nation was founded, we won't understand the full context in which our nation now finds itself.
 
-### Guest (Speaker A) [49:48-49:54]
-
-I'm Rebecca Nagle. Gohin Tawa Don Jalecayetli. Que la citizen of Cherokee Nation.
-
 ### Simon Hunter (Speaker C) [49:54-49:57]
 
 Are you guys big Chiefs fans? Hell yeah.
-
-### Guest (Speaker A) [49:57-50:20]
-
-This is First America, the true story of how the United States came to be and how we got to this present moment. Listen to First America on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts. Remember, always be generous with the nutmeg. Just eyeball it, okay?
 
 ### Guest (Speaker D) [50:20-50:23]
 
@@ -523,10 +486,6 @@ Mom's wisdom has served you well, but
 
 now it may be your turn to guide her.
 
-### Guest (Speaker A) [50:26-50:30]
-
-Hey, I'm worried about Mom. She keeps forgetting her famous sweet potato pie recipe.
-
 ### Simon Hunter (Speaker C) [50:30-50:33]
 
 Some things come with age, sis, and some don't.
@@ -535,25 +494,13 @@ Some things come with age, sis, and some don't.
 
 Knowing the early Signs of Alzheimer's and a loved one will help you make the best decisions for for your family. Visit 10Signs.org to learn the signs brought to you by the Alzheimer's association and the AD Council.
 
-### Guest (Speaker A) [50:46-50:49]
-
-Hey, everybody. I'm Tareka Foster Brasby. What's up, y'?
-
 ### Chad Millman (Speaker B) [50:49-50:49]
 
 All?
 
-### Guest (Speaker A) [50:49-51:21]
-
-I'm your girl, Sheryl Swoopes. When you tune in to a new episode of our podcast, Levels to this, you're definitely gonna get some spy CWMBA analysis. I see a lot of men who get into the space because now it's a hot product, and that grinds my gears to dust. But then the conversation goes on and levels up beyond basketball. It's been really, really cool seeing kind of these women just really step into their power off the court and understand that they are basketball.
-
 ### Chad Millman (Speaker B) [51:21-51:22]
 
 Right.
-
-### Guest (Speaker A) [51:22-51:49]
-
-And they're not asking for permission because on Levels to this, the game is always the starting point. But we're more than just hoops, and the real conversation is what we actually bring. This is Levels to this, the podcast about all the levels of stuff that women go through. Listen to Levels to this with Sheryl Swoopes and Tarika Foster brasby on the iHeartRadio app, Apple podcast, or wherever you get your podcasts.
 
 ### Guest (Speaker D) [51:51-52:03]
 
@@ -643,10 +590,6 @@ We love it. I want to wish everybody a happy Independence Day. We're going to be
 
 14. Too many.
 
-### Guest (Speaker A) [1:02:03-1:02:03]
-
-18.
-
 ### Simon Hunter (Speaker C) [1:02:03-1:02:05]
 
 14. What's the count?
@@ -666,7 +609,3 @@ Always stand by the first count.
 ### Simon Hunter (Speaker C) [1:02:13-1:02:14]
 
 The odds are you're right.
-
-### Guest (Speaker A) [1:02:19-1:02:22]
-
-This is an iHeart podcast. Guaranteed Human.

@@ -8,23 +8,22 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 65037
 Speaker turns: 156
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Guest (gpt-4o, unknown) futures=6
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:35]
 
@@ -41,10 +40,6 @@ Can you tell I'm picking up prescription hemorrhoid cream? I'm probably standing
 ### Simon Hunter (Speaker C) [0:46-1:03]
 
 Why is he smiling? He knows he's going to call me Hemorrhoid Lloyd tomorrow. I know it. I got to quit my job. Next time avoid awkward conversations and get fast free delivery with Amazon Pharmacy. Healthcare just got less painful Are you
-
-### Guest (Speaker A) [1:03-2:29]
-
-looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15 mg inj. Zepound contains tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stick stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
 
 ### Chad Millman (Speaker B) [2:29-3:30]
 
@@ -166,25 +161,13 @@ Yeah, like to me, this was a draft of confidence. Teams that know what they need
 
 Health AI presents painful thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic source
 
-### Guest (Speaker A) [24:17-24:18]
-
-in various stages of ooze.
-
 ### Simon Hunter (Speaker C) [24:20-24:32]
 
 I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast Healthcare just got less painful.
 
-### Guest (Speaker A) [24:33-26:04]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection Zepbound contains Tirzepatide and should not be used with other Tirzepat peptide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound.lilly.com Awkward time
-
 ### Simon Hunter (Speaker C) [26:04-26:07]
 
 to ask this, but hey, did you download the trail map?
-
-### Guest (Speaker A) [26:07-26:08]
-
-Yeah, no, I don't need to.
 
 ### Chad Millman (Speaker B) [26:09-26:09]
 
@@ -197,10 +180,6 @@ You're trusting your signal out here.
 ### Chad Millman (Speaker B) [26:11-26:12]
 
 I'm trusting T Mobile.
-
-### Guest (Speaker A) [26:12-26:14]
-
-They have the best network and if
 
 ### Chad Millman (Speaker B) [26:14-26:17]
 
@@ -426,25 +405,13 @@ Which, you know, we don't bounce back like we used to. Like you said Jeb. We do 
 
 Amazon Health AI presents Painful Thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores
 
-### Guest (Speaker A) [47:12-47:14]
-
-in various stages of ooze.
-
 ### Simon Hunter (Speaker C) [47:15-47:28]
 
 I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
 
-### Guest (Speaker A) [47:28-48:59]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is approved as a 2.0, 8.5, 5, 7.5, 10, 12.5 or 15 mg injection Zepbound contains Tirzepatide and should not be used with other tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound.lilly.com Awkward time
-
 ### Simon Hunter (Speaker C) [48:59-49:02]
 
 to ask this, but hey, did you download the trail map?
-
-### Guest (Speaker A) [49:02-49:04]
-
-Yeah, no, I don't need to.
 
 ### Chad Millman (Speaker B) [49:04-49:05]
 
@@ -457,10 +424,6 @@ You're trusting your signal out here.
 ### Chad Millman (Speaker B) [49:06-49:08]
 
 I'm trusting T Mobile.
-
-### Guest (Speaker A) [49:08-49:10]
-
-They have the best network and if
 
 ### Chad Millman (Speaker B) [49:10-49:13]
 
@@ -634,14 +597,6 @@ a franchise quarterback to pass up a Trent Dilfer when all you have is Jim Harba
 
 I'm U.S. transportation Secretary Sean Duffy. We all get distracted when we drive, whether it's from our phones or kids in the backseat bickering. But how we handle these distractions can be a matter of life or death. Before you get on the road for your next road trip, please put your phones on silent and take a mental note to focus on driving. Paid for by NHTSA
 
-### Guest (Speaker A) [1:02:45-1:03:45]
-
-Maintenance Fee Overdraft Fee Minimum Balance Fee Maximum Balance fee Banking fees are just a part of modern life. Or are they? They're not at Ally Bank. At Ally bank, there are no tricks, no hidden fine print or jumping through hoops for better rates. They just want to help you save automatically while you spend with spending accounts and savings tools with great rates. No tricks, no hidden fees. Banking built for life today. Learn more@ally.com Ally bank member FDIC when you're a maintenance engineer in a beverage manufacturing plant, you keep production lines moving and quality on track because there is no room for slowdowns. With Grainger's vast selection of high quality motors, sensors, belts and hard to find parts, you can get what you need fast and all in one place so nothing gets in the way of getting the job done. Call 1-800-GRAINGER click granger.com or just stop by Granger for the ones who get it done.
-
 ### Simon Hunter (Speaker C) [1:03:48-1:04:16]
 
 Whether it's help with hormone therapy, weight management or sexual health, every woman should have access to affordable prescription medication and personalized care that understands the whole woman. Join me Dr. Doug Lucas, clinical lead of Hormone optimization and longevity at LifeMD, along with other leading experts on the podcast. Here's something good on women's health and longevity. To learn more, go to lifemd.com iheart
-
-### Guest (Speaker A) [1:04:17-1:04:20]
-
-this is an iheart podcast. Guaranteed human.

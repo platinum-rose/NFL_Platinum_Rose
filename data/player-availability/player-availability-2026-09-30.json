@@ -1,0 +1,2987 @@
+{
+  "meta": {
+    "schema": "player_availability_snapshot_v1",
+    "season": 2026,
+    "generated_at": "2026-09-30T23:30:01.595Z",
+    "event_count": 24,
+    "synthesis_eligible_count": 24,
+    "conflicted_intel_count": 0,
+    "needs_confirmation_count": 0,
+    "unique_evidence_count": 24,
+    "teams_with_events": 15,
+    "improving_count": 0,
+    "worsening_count": 24,
+    "major_count": 2,
+    "offensive_line_worsening_count": 0,
+    "defensive_front_worsening_count": 0,
+    "teams_with_ol_cluster_risk": 0,
+    "teams_with_defensive_front_cluster_risk": 0,
+    "recommendation_status": "availability_intel_only_not_picks",
+    "guardrails": {
+      "live_model_calls": false,
+      "supabase_writes": false,
+      "official_picks_generated": false
+    },
+    "source_health": [
+      {
+        "source": "ESPN injuries API",
+        "status": "error",
+        "reason": "fetch failed"
+      },
+      {
+        "source": "FantasyPros injuries API",
+        "status": "error",
+        "reason": "fetch failed"
+      },
+      {
+        "source": "Training camp snapshot",
+        "status": "available",
+        "evidence": "62 availability-like item(s) from 225 camp item(s)."
+      }
+    ],
+    "team_identity_validation": {
+      "schema": "team_identity_validation_v1",
+      "status": "pass",
+      "row_count": 24,
+      "unique_evidence_count": 24,
+      "duplicate_evidence_rows": 0,
+      "source_prefix_rows": 20,
+      "authoritative_source_rows": 20,
+      "primary_source_mismatch_count": 0,
+      "missing_primary_team_count": 0,
+      "missing_evidence_id_count": 0,
+      "related_team_reference_count": 19,
+      "ambiguous_inferred_primary_count": 0,
+      "corrected_source_assignment_count": 17
+    },
+    "availability_evidence_validation": {
+      "schema": "availability_evidence_validation_v1",
+      "status": "pass",
+      "event_count": 24,
+      "detected_conflict_count": 0,
+      "unflagged_contradiction_count": 0,
+      "conflicts_missing_source_count": 0,
+      "conflicts_missing_review_flag_count": 0,
+      "conflicts_still_eligible_count": 0
+    },
+    "named_status_review_validation": {
+      "schema": "named_status_review_validation_v1",
+      "status": "pass",
+      "required_case_count": 2,
+      "recorded_case_count": 2,
+      "confirmed_count": 0,
+      "withheld_count": 2,
+      "synthesis_eligible_count": 0,
+      "missing_required_case_count": 0,
+      "missing_required_cases": [],
+      "invalid_case_count": 0,
+      "invalid_cases": [],
+      "duplicate_case_count": 0
+    }
+  },
+  "events": [
+    {
+      "id": "avail_d64a57ed9dcda1c7",
+      "evidence_id": "availability_evidence_4a388bb2318e9d7570f3",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "LAR",
+      "primary_team": "LAR",
+      "related_teams": [
+        "KC"
+      ],
+      "team_identity": {
+        "primary_team": "LAR",
+        "related_teams": [
+          "KC"
+        ],
+        "mentioned_teams": [
+          "LAR",
+          "KC"
+        ],
+        "source_team": "LAR",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Rams",
+      "position": null,
+      "source": "LAR Beat - Turf Show Times",
+      "source_type": "rss",
+      "source_url": "https://www.turfshowtimes.com/los-angeles-rams-analysis/146100/rams-nick-andersen-chiefs",
+      "published_at": "2026-08-16T00:06:03.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Undrafted safety steals show for Rams against Chiefs",
+      "supporting_quote": "While it would seem impossible to outshine quarterback Ty Simpson in his preseason debut, L.A. Rams safety Nick Andersen gave the first-round pick all the competition for attention that he could handle. Andersen, an undrafted rookie out of Wake Forest, has made an outstanding case to make the Rams 53-man roster after his debut performance [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.turfshowtimes.com/los-angeles-rams-analysis/146100/rams-nick-andersen-chiefs",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_ca6aaeae30118a2f",
+      "evidence_id": "availability_evidence_c308d4a72d81eff334d5",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "KC",
+      "primary_team": "KC",
+      "related_teams": [
+        "LAR"
+      ],
+      "team_identity": {
+        "primary_team": "KC",
+        "related_teams": [
+          "LAR"
+        ],
+        "mentioned_teams": [
+          "KC",
+          "LAR"
+        ],
+        "source_team": "KC",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Chiefs",
+      "position": null,
+      "source": "KC Beat - Arrowhead Pride",
+      "source_type": "rss",
+      "source_url": "https://www.arrowheadpride.com/kansas-city-chiefs-injuries/207726/andy-reid-single-chiefs-injury-update-preseason-week-1",
+      "published_at": "2026-08-16T00:00:00.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Andy Reid gives single Chiefs injury update after preseason Week 1",
+      "supporting_quote": "The Kansas City Chiefs dropped their preseason opener to the Los Angeles Rams 20-12 on Saturday. Frustrating as even exhibition losses can be, most NFL fans know that player health can be the most important indicator of a successful preseason contest. With one exception, the Chiefs seemed to come out of Saturday’s game healthy. In [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.arrowheadpride.com/kansas-city-chiefs-injuries/207726/andy-reid-single-chiefs-injury-update-preseason-week-1",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_682366c7e3b393a8",
+      "evidence_id": "availability_evidence_39397abba7bad8cc2ced",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "NE",
+      "primary_team": "NE",
+      "related_teams": [
+        "IND"
+      ],
+      "team_identity": {
+        "primary_team": "NE",
+        "related_teams": [
+          "IND"
+        ],
+        "mentioned_teams": [
+          "NE",
+          "IND"
+        ],
+        "source_team": "NE",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Patriots",
+      "position": null,
+      "source": "NE Beat - Pats Pulpit",
+      "source_type": "rss",
+      "source_url": "https://www.patspulpit.com/new-england-patriots-analysis/133519/offensive-line-moves-andrew-rupcich-niko-lalos-analysis",
+      "published_at": "2026-08-15T22:56:25.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "ir",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "What signing two O-linemen, other Saturday moves mean for the Patriots",
+      "supporting_quote": "Coming out of their preseason opener against the Indianapolis Colts, the New England Patriots made some changes to their roster. In light of some injuries along the offensive line, they signed free agents Darrian Dalcourt and Joe Michalski on Saturday. In corresponding moves, the team placed fellow O-lineman Andrew Rupcich on injured reserve and released [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins",
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.patspulpit.com/new-england-patriots-analysis/133519/offensive-line-moves-andrew-rupcich-niko-lalos-analysis",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_04067c61fed9151b",
+      "evidence_id": "availability_evidence_345c3857966db14d1261",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "TEN",
+      "primary_team": "TEN",
+      "related_teams": [],
+      "team_identity": {
+        "primary_team": "TEN",
+        "related_teams": [],
+        "mentioned_teams": [
+          "TEN"
+        ],
+        "source_team": null,
+        "ownership_source": "declared_team",
+        "flags": [],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Titans",
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/titans-te-jaren-kanak-de-jaylen-harrell-out-for-season-with-injuries",
+      "published_at": "2026-08-15T22:36:43.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Titans TE Jaren Kanak, DE Jaylen Harrell out for season with injuries",
+      "supporting_quote": "The Titans lost a pair of players to season-ending injuries in their preseason opener on Thursday.",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins",
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/titans-te-jaren-kanak-de-jaylen-harrell-out-for-season-with-injuries",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_e456c63ab28426d0",
+      "evidence_id": "availability_evidence_20404d356ff4cb960012",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "ARI",
+      "primary_team": "ARI",
+      "related_teams": [],
+      "team_identity": {
+        "primary_team": "ARI",
+        "related_teams": [],
+        "mentioned_teams": [
+          "ARI"
+        ],
+        "source_team": "ARI",
+        "ownership_source": "source_prefix",
+        "flags": [],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Cardinals",
+      "position": null,
+      "source": "ARI Beat - Revenge of the Birds",
+      "source_type": "rss",
+      "source_url": "https://www.revengeofthebirds.com/arizona-cardinals-news/93550/arizona-cardinals-place-chase-bisontis-on-injured-reserve",
+      "published_at": "2026-08-15T19:54:53.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "ir",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Arizona Cardinals place Chase Bisontis on injured reserve",
+      "supporting_quote": "The Arizona Cardinals made a bevy of moves today, including placing rookie guard Chase Bisontis on injured reserve Does this end Bisontis’ season… not definitely, but it is most likely if he has a grade three tear and needs surgery. The Cardinals placed two other players on IR and brought in three additions to the [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.revengeofthebirds.com/arizona-cardinals-news/93550/arizona-cardinals-place-chase-bisontis-on-injured-reserve",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_98b6e95b7963d2a4",
+      "evidence_id": "availability_evidence_aa0568c9d74d055cec00",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "KC",
+      "primary_team": "KC",
+      "related_teams": [
+        "LAR"
+      ],
+      "team_identity": {
+        "primary_team": "KC",
+        "related_teams": [
+          "LAR"
+        ],
+        "mentioned_teams": [
+          "KC",
+          "LAR"
+        ],
+        "source_team": "KC",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Chiefs",
+      "position": null,
+      "source": "KC Beat - Arrowhead Pride",
+      "source_type": "rss",
+      "source_url": "https://www.arrowheadpride.com/kansas-city-chiefs-news/207685/patrick-mahomes-was-on-the-field-throwing-before-saturdays-game",
+      "published_at": "2026-08-15T19:15:00.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Patrick Mahomes was on the field throwing before Saturday’s game",
+      "supporting_quote": "Heading into the Kansas City Chiefs’ preseason opener against the Los Angeles Rams, we knew that star quarterback Patrick Mahomes would not play. You may have heard that Mahomes is working his way back from a serious knee injury suffered in December. Mahomes recently explained that, while the decision to play or not was out [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
+      ],
+      "impact_bucket": "starter_uncertain",
+      "availability_group": "other",
+      "dedupe_key": "https://www.arrowheadpride.com/kansas-city-chiefs-news/207685/patrick-mahomes-was-on-the-field-throwing-before-saturdays-game",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_80fd1e739d276f8b",
+      "evidence_id": "availability_evidence_2f1bca5d23fb1871e528",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "CAR",
+      "primary_team": "CAR",
+      "related_teams": [],
+      "team_identity": {
+        "primary_team": "CAR",
+        "related_teams": [],
+        "mentioned_teams": [
+          "CAR"
+        ],
+        "source_team": null,
+        "ownership_source": "declared_team",
+        "flags": [],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Panthers",
+      "position": null,
+      "source": "Pro Football Talk",
+      "source_type": "rss",
+      "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bryce-young-and-panthers-offense-go-three-and-out-on-all-three-drives",
+      "published_at": "2026-08-15T18:11:27.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Bryce Young and Panthers' offense go three-and-out on all three drives",
+      "supporting_quote": "Panthers quarterback Bryce Young is not off to a good start this preseason.",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bryce-young-and-panthers-offense-go-three-and-out-on-all-three-drives",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_229185bc1d59c3a1",
+      "evidence_id": "availability_evidence_5ee420954cef63b0917f",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "MIN",
+      "primary_team": "MIN",
+      "related_teams": [
+        "NYG"
+      ],
+      "team_identity": {
+        "primary_team": "MIN",
+        "related_teams": [
+          "NYG"
+        ],
+        "mentioned_teams": [
+          "NYG",
+          "MIN"
+        ],
+        "source_team": "MIN",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Vikings",
+      "position": null,
+      "source": "MIN Beat - Daily Norseman",
+      "source_type": "rss",
+      "source_url": "https://www.dailynorseman.com/minnesota-vikings-injuries/98167/jamal-adams-carted-off-field-minnesota-vikings-new-york-giants",
+      "published_at": "2026-08-15T18:06:51.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "setback",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Jamal Adams Carted Off Field Against Giants",
+      "supporting_quote": "The primary objective of every preseason game is to just make it through without any significant injuries. Unfortunately for the Minnesota Vikings, it looks like they might not have met that first objective in their preseason opener against the New York Giants. During the second quarter of the preseason opener, the Vikings had to call [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.dailynorseman.com/minnesota-vikings-injuries/98167/jamal-adams-carted-off-field-minnesota-vikings-new-york-giants",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_fc50c1eafb9c08f0",
+      "evidence_id": "availability_evidence_b61f859d12bc3715c155",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "ATL",
+      "primary_team": "ATL",
+      "related_teams": [],
+      "team_identity": {
+        "primary_team": "ATL",
+        "related_teams": [],
+        "mentioned_teams": [
+          "ATL"
+        ],
+        "source_team": null,
+        "ownership_source": "declared_team",
+        "flags": [],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Falcons",
+      "position": null,
+      "source": "CBS Sports NFL",
+      "source_type": "rss",
+      "source_url": "https://www.cbssports.com/nfl/news/nfl-suspensions-falcons-james-pearce-jr/",
+      "published_at": "2026-08-15T15:53:28.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "NFL hands down four suspensions before preseason action, with Falcons&#039; James Pearce Jr. hit hardest",
+      "supporting_quote": "The NFL announced four suspensions before Friday&#039;s preseason slate, with Falcons edge rusher James Pearce Jr. ordered to sit out eight games",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.cbssports.com/nfl/news/nfl-suspensions-falcons-james-pearce-jr/",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_11f24ab8361dd7e7",
+      "evidence_id": "availability_evidence_867b0bce9724e4e62b01",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "PHI",
+      "primary_team": "PHI",
+      "related_teams": [],
+      "team_identity": {
+        "primary_team": "PHI",
+        "related_teams": [],
+        "mentioned_teams": [
+          "PHI"
+        ],
+        "source_team": "PHI",
+        "ownership_source": "source_prefix",
+        "flags": [],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Eagles",
+      "position": null,
+      "source": "PHI Beat - Bleeding Green Nation",
+      "source_type": "rss",
+      "source_url": "https://www.bleedinggreennation.com/news/179428/eagles-news-did-philadelphia-tease-a-new-old-helmet",
+      "published_at": "2026-08-15T15:40:34.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": "old",
+      "short_summary": "Eagles News: Did Philadelphia tease a new (old) helmet?",
+      "supporting_quote": "Let’s get to the Philadelphia Eagles news and links … Eagles fans are freaking out after the Eagles posted a video featuring a helmet they haven’t worn since 1973 &#8211; InquirerIt’s been a while since Eagles fans last saw white helmets paired with kelly green wings on the field in Philly. The last time came [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.bleedinggreennation.com/news/179428/eagles-news-did-philadelphia-tease-a-new-old-helmet",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_115a8b6832753c01",
+      "evidence_id": "availability_evidence_1fe96f19b487154dbdbf",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "LAR",
+      "primary_team": "LAR",
+      "related_teams": [
+        "KC"
+      ],
+      "team_identity": {
+        "primary_team": "LAR",
+        "related_teams": [
+          "KC"
+        ],
+        "mentioned_teams": [
+          "LAR",
+          "KC"
+        ],
+        "source_team": "LAR",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Rams",
+      "position": null,
+      "source": "LAR Beat - Turf Show Times",
+      "source_type": "rss",
+      "source_url": "https://www.turfshowtimes.com/los-angeles-rams-roster/146047/rams-rookies-max-klare-cj-daniels-preseason-opportunity",
+      "published_at": "2026-08-15T14:00:00.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Rookie pass catchers have major opportunity in preseason opener",
+      "supporting_quote": "If you’ve been waiting to see Max Klare and C.J. Daniels take the field for the Los Angeles Rams, your wait is finally almost over. With a slew of Rams expected to sit out the preseason opener against the Kansas City Chiefs Saturday, younger potential contributors will get a chance to shine. Klare and Daniels, [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.turfshowtimes.com/los-angeles-rams-roster/146047/rams-rookies-max-klare-cj-daniels-preseason-opportunity",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_5fee1cce213bd6be",
+      "evidence_id": "availability_evidence_048b818193c20695bd19",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "PIT",
+      "primary_team": "PIT",
+      "related_teams": [
+        "GB"
+      ],
+      "team_identity": {
+        "primary_team": "PIT",
+        "related_teams": [
+          "GB"
+        ],
+        "mentioned_teams": [
+          "PIT",
+          "GB"
+        ],
+        "source_team": "PIT",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Steelers",
+      "position": null,
+      "source": "PIT Beat - Behind The Steel Curtain",
+      "source_type": "rss",
+      "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-news/173356/steelers-sell-out-of-drew-allar-jerseys-after-preseason-debut",
+      "published_at": "2026-08-15T12:00:00.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Steelers sell out of Drew Allar jerseys after preseason debut",
+      "supporting_quote": "Not often do you see a rookie quarterback play just two quarters of a preseason game and immediately become the hottest commodity for fan gear and apparel. However, that unlikelihood became reality for the Pittsburgh Steelers after the team’s preseason opener against the Green Bay Packers, as rookie quarterback Drew Allar became a fan-favorite in [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-news/173356/steelers-sell-out-of-drew-allar-jerseys-after-preseason-debut",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_37e8334f18ac7cce",
+      "evidence_id": "availability_evidence_a4aa10410443f9fe0109",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "TEN",
+      "primary_team": "TEN",
+      "related_teams": [],
+      "team_identity": {
+        "primary_team": "TEN",
+        "related_teams": [],
+        "mentioned_teams": [
+          "TEN"
+        ],
+        "source_team": "TEN",
+        "ownership_source": "source_prefix",
+        "flags": [],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Titans",
+      "position": null,
+      "source": "TEN Beat - Music City Miracles",
+      "source_type": "rss",
+      "source_url": "https://www.musiccitymiracles.com/tennessee-titans-roster/66124/tony-pollard-john-franklin-myers-and-fernando-carmona-jr-underrated",
+      "published_at": "2026-08-15T12:00:00.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Titans roster 2026: Tony Pollard, John Franklin-Myers and Fernando Carmona Jr. are underrated",
+      "supporting_quote": "Nobody reading this site on a regular basis needs to be told that the Tennessee Titans’ two straight 3-14 seasons are not good enough. That falls into the “Well, DUH” category for any NFL team. So, instead of reliving the mistakes of years past, let’s focus on how the Titans can rise out of the [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.musiccitymiracles.com/tennessee-titans-roster/66124/tony-pollard-john-franklin-myers-and-fernando-carmona-jr-underrated",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_bbd22958b1b259b8",
+      "evidence_id": "availability_evidence_937048fd3cdcf66e597b",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "NYJ",
+      "primary_team": "NYJ",
+      "related_teams": [
+        "TB"
+      ],
+      "team_identity": {
+        "primary_team": "NYJ",
+        "related_teams": [
+          "TB"
+        ],
+        "mentioned_teams": [
+          "NYJ",
+          "TB"
+        ],
+        "source_team": "NYJ",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Jets",
+      "position": null,
+      "source": "NYJ Beat - Gang Green Nation",
+      "source_type": "rss",
+      "source_url": "https://www.ganggreennation.com/new-york-jets-discussion/95531/jets-vs-buccaneers-game-thread",
+      "published_at": "2026-08-14T22:30:00.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Jets vs Buccaneers Game Thread",
+      "supporting_quote": "The long NFL offseason ends for the New York Jets tonight at 7:00 pm EDT. The Jets are at home in East Rutherford, New Jersey to take on the Tampa Bay Buccaneers in both teams’ 2026 preseason opener. NFL teams in recent years have increasingly held their starters out of preseason games in a bid [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.ganggreennation.com/new-york-jets-discussion/95531/jets-vs-buccaneers-game-thread",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_466066f6713cb88e",
+      "evidence_id": "availability_evidence_259b88c55669de36aee8",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "GB",
+      "primary_team": "GB",
+      "related_teams": [
+        "PIT"
+      ],
+      "team_identity": {
+        "primary_team": "GB",
+        "related_teams": [
+          "PIT"
+        ],
+        "mentioned_teams": [
+          "GB",
+          "PIT"
+        ],
+        "source_team": "GB",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Packers",
+      "position": null,
+      "source": "GB Beat - Acme Packing Co",
+      "source_type": "rss",
+      "source_url": "https://www.acmepackingcompany.com/green-bay-packers-discussion/84727/packers-fans-still-favor-anthony-belton-to-start-at-right-guard",
+      "published_at": "2026-08-14T19:35:00.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Packers fans still favor Anthony Belton to start at right guard",
+      "supporting_quote": "On Thursday night, the Green Bay Packers played a game for the first time this preseason, giving other teams and their own fans the first look at a potential lineup. Several key players sat out in the team’s exhibition debut against the Pittsburgh Steelers, including starting right tackle Zach Bako-Bewele, but there were several notable [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "starter_uncertain",
+      "availability_group": "other",
+      "dedupe_key": "https://www.acmepackingcompany.com/green-bay-packers-discussion/84727/packers-fans-still-favor-anthony-belton-to-start-at-right-guard",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_26650ac172df23af",
+      "evidence_id": "availability_evidence_0d6367da175c0d96a606",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "LAC",
+      "primary_team": "LAC",
+      "related_teams": [
+        "HOU"
+      ],
+      "team_identity": {
+        "primary_team": "LAC",
+        "related_teams": [
+          "HOU"
+        ],
+        "mentioned_teams": [
+          "LAC",
+          "HOU"
+        ],
+        "source_team": "LAC",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Chargers",
+      "position": null,
+      "source": "LAC Beat - Bolts From The Blue",
+      "source_type": "rss",
+      "source_url": "https://www.boltsfromtheblue.com/los-angeles-chargers-news/65070/chargers-texans-pff-grades-jake-slaughter-akheem-mesidor",
+      "published_at": "2026-08-14T19:25:49.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Best and worst Chargers PFF grades vs. the Texans",
+      "supporting_quote": "The Chargers came out and “out-physical’d” the Texans for the majority of the game, per Houston head coach DeMeco Ryans. After a back-and-forth game through the first half, the Chargers’ depth continued to pour it on during the final 30 minutes. And that goes for both sides of the ball. Unsurprisingly, that was reflected in [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.boltsfromtheblue.com/los-angeles-chargers-news/65070/chargers-texans-pff-grades-jake-slaughter-akheem-mesidor",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_9c2f23e0d6e819ad",
+      "evidence_id": "availability_evidence_b53e07086140e7b4a92e",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "NYJ",
+      "primary_team": "NYJ",
+      "related_teams": [
+        "HOU"
+      ],
+      "team_identity": {
+        "primary_team": "NYJ",
+        "related_teams": [
+          "HOU"
+        ],
+        "mentioned_teams": [
+          "NYJ",
+          "HOU"
+        ],
+        "source_team": "NYJ",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Jets",
+      "position": null,
+      "source": "NYJ Beat - Gang Green Nation",
+      "source_type": "rss",
+      "source_url": "https://www.ganggreennation.com/new-york-jets-analysis/95495/scouting-jets-defensive-tackle-junior-tafuna",
+      "published_at": "2026-08-14T15:00:00.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Scouting Jets defensive tackle Junior Tafuna",
+      "supporting_quote": "The Jets recently claimed defensive tackle Junior Tafuna off waivers from the Houston Texans. Today, we break Tafuna down in detail. The 25-year old Tafuna is listed at 6’3” and 305 pounds and was a three-time all-Pac 12 second-teamer who went undrafted out of Utah. He spent last season on the Houston Texans&#8217; practice squad. [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.ganggreennation.com/new-york-jets-analysis/95495/scouting-jets-defensive-tackle-junior-tafuna",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_9fb5dc18b7cfbfce",
+      "evidence_id": "availability_evidence_0c02857416a6b8ebccaa",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "TEN",
+      "primary_team": "TEN",
+      "related_teams": [
+        "SF"
+      ],
+      "team_identity": {
+        "primary_team": "TEN",
+        "related_teams": [
+          "SF"
+        ],
+        "mentioned_teams": [
+          "TEN",
+          "SF"
+        ],
+        "source_team": "TEN",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Titans",
+      "position": null,
+      "source": "TEN Beat - Music City Miracles",
+      "source_type": "rss",
+      "source_url": "https://www.musiccitymiracles.com/tennessee-titans-roster/66093/tennessee-titans-roster-by-jersey-number-last-name",
+      "published_at": "2026-08-13T16:02:00.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Tennessee Titans roster by jersey number, last name",
+      "supporting_quote": "The Tennessee Titans officially kick off their 2026 preseason tonight against the San Francisco 49ers. They currently have 90 players on the roster, so I thought it would be helpful to post a roster by both jersey number and last name so that we can identify the players out there making huge plays. One note [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.musiccitymiracles.com/tennessee-titans-roster/66093/tennessee-titans-roster-by-jersey-number-last-name",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_d7e87bfb585a4164",
+      "evidence_id": "availability_evidence_bb7143086680622e2b80",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "LAC",
+      "primary_team": "LAC",
+      "related_teams": [
+        "HOU"
+      ],
+      "team_identity": {
+        "primary_team": "LAC",
+        "related_teams": [
+          "HOU"
+        ],
+        "mentioned_teams": [
+          "LAC",
+          "HOU"
+        ],
+        "source_team": "LAC",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Chargers",
+      "position": null,
+      "source": "LAC Beat - Bolts From The Blue",
+      "source_type": "rss",
+      "source_url": "https://www.boltsfromtheblue.com/los-angeles-chargers-game-information/65044/chargers-texans-preseason-how-to-watch-game-time-tv-schedule-streaming",
+      "published_at": "2026-08-13T15:57:23.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Chargers vs. Texans Preseason Week 1: How to watch, game time, TV schedule, streaming, and more",
+      "supporting_quote": "With most of the starters out for Thursday night, it will be backup quarterback Trey Lance who will lead the Chargers against the Texans on the road in their preseason debut. While the first preseason exhibition is always the least-polished product of the season, it’s still the first time fans will get to see some [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins",
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.boltsfromtheblue.com/los-angeles-chargers-game-information/65044/chargers-texans-preseason-how-to-watch-game-time-tv-schedule-streaming",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_54d7b564d4fa8ec3",
+      "evidence_id": "availability_evidence_cec43a1d282a30583612",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "CLE",
+      "primary_team": "CLE",
+      "related_teams": [
+        "LAR",
+        "DAL"
+      ],
+      "team_identity": {
+        "primary_team": "CLE",
+        "related_teams": [
+          "LAR",
+          "DAL"
+        ],
+        "mentioned_teams": [
+          "CLE",
+          "LAR",
+          "DAL"
+        ],
+        "source_team": null,
+        "ownership_source": "declared_team",
+        "flags": [
+          "multiple_declared_teams"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Browns",
+      "position": null,
+      "source": "Yahoo Sports NFL",
+      "source_type": "rss",
+      "source_url": "https://sports.yahoo.com/nfl/live/nfl-news-preseason-schedule-whos-playing-live-updates-today-152512676.html",
+      "published_at": "2026-08-13T15:25:12.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "NFL news, live updates: Mixed bag for Browns QBs Deshaun Watson, Shedeur Sanders; Rams&#39; Ty Simpson impresses; Cowboys rookie shines",
+      "supporting_quote": "Follow along with the latest NFL news and updates as the preseason plays out.",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://sports.yahoo.com/nfl/live/nfl-news-preseason-schedule-whos-playing-live-updates-today-152512676.html",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_7d336ce7f2ac1b39",
+      "evidence_id": "availability_evidence_ac801429f68328e22e37",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "NYJ",
+      "primary_team": "NYJ",
+      "related_teams": [
+        "CIN"
+      ],
+      "team_identity": {
+        "primary_team": "NYJ",
+        "related_teams": [
+          "CIN"
+        ],
+        "mentioned_teams": [
+          "NYJ",
+          "CIN"
+        ],
+        "source_team": "NYJ",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Jets",
+      "position": null,
+      "source": "NYJ Beat - Gang Green Nation",
+      "source_type": "rss",
+      "source_url": "https://www.ganggreennation.com/new-york-jets-injuries/95479/jets-injury-update-joseph-ossai-is-off-the-physically-unable-to-perform-list",
+      "published_at": "2026-08-13T14:37:39.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "pup",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": "pup",
+      "short_summary": "Jets injury update: Joseph Ossai is off the physically unable to perform list",
+      "supporting_quote": "The Jets have activated defensive end Joseph Ossai from the physically unable to perform (PUP) list. Ossai (6-4, 263) was placed on the Active/PUP list on July 28. He signed with the Jets in March after playing his first four seasons with the Cincinnati Bengals. During his time with the Bengals from 2022-25, Ossai played [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins",
+        "make_playoffs",
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.ganggreennation.com/new-york-jets-injuries/95479/jets-injury-update-joseph-ossai-is-off-the-physically-unable-to-perform-list",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_b421a37304cfafe8",
+      "evidence_id": "availability_evidence_ce72d4c59fbd5ccbfe89",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "MIA",
+      "primary_team": "MIA",
+      "related_teams": [
+        "WAS"
+      ],
+      "team_identity": {
+        "primary_team": "MIA",
+        "related_teams": [
+          "WAS"
+        ],
+        "mentioned_teams": [
+          "MIA",
+          "WAS"
+        ],
+        "source_team": "MIA",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Dolphins",
+      "position": null,
+      "source": "MIA Beat - The Phinsider",
+      "source_type": "rss",
+      "source_url": "https://www.thephinsider.com/miami-dolphins-news/121536/miami-dolphins-washington-commanders-pratice-training-camp-2026-devon-achane-caleb-douglas-malik-willis",
+      "published_at": "2026-08-13T11:38:24.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "Miami Dolphins news: Joint practice with Commanders recap and reactions",
+      "supporting_quote": "The Miami Dolphins joined the Washington Commanders in Ashburn, Virginia on Wednesday for a joint practice ahead of their 2026 preseason opening game on Friday. The practice gave both teams a chance to work out against someone other than themselves and was the first of two joint practices the Dolphins planned for this summer. They [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.thephinsider.com/miami-dolphins-news/121536/miami-dolphins-washington-commanders-pratice-training-camp-2026-devon-achane-caleb-douglas-malik-willis",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_ff75a3a83522eac5",
+      "evidence_id": "availability_evidence_8dea92577458abce83bc",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "NYJ",
+      "primary_team": "NYJ",
+      "related_teams": [
+        "TB"
+      ],
+      "team_identity": {
+        "primary_team": "NYJ",
+        "related_teams": [
+          "TB"
+        ],
+        "mentioned_teams": [
+          "NYJ",
+          "TB"
+        ],
+        "source_team": "NYJ",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Jets",
+      "position": null,
+      "source": "NYJ Beat - Gang Green Nation",
+      "source_type": "rss",
+      "source_url": "https://www.ganggreennation.com/new-york-jets-news/95475/new-york-jets-flight-connections-08-13-26",
+      "published_at": "2026-08-13T11:01:16.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "New York Jets Flight Connections 08/13/26",
+      "supporting_quote": "Good morning Gang Green Nation! The New York Jets got some good news yesterday. After collapsing at the Jets’ first practice against the Tampa Bay Buccaneers on Tuesday, Qwan’tez Stiggers was sent to the hospital. Yesterday he checked out and is doing well. Stiggers has been placed on the concussion protocol. He is expected back [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "wins"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.ganggreennation.com/new-york-jets-news/95475/new-york-jets-flight-connections-08-13-26",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    },
+    {
+      "id": "avail_352d81c351ec2367",
+      "evidence_id": "availability_evidence_4beaeb353c008f266054",
+      "season": 2026,
+      "player_name": null,
+      "team_abbr": "LAC",
+      "primary_team": "LAC",
+      "related_teams": [
+        "HOU"
+      ],
+      "team_identity": {
+        "primary_team": "LAC",
+        "related_teams": [
+          "HOU"
+        ],
+        "mentioned_teams": [
+          "LAC",
+          "HOU"
+        ],
+        "source_team": "LAC",
+        "ownership_source": "source_prefix",
+        "flags": [
+          "declared_source_team_mismatch"
+        ],
+        "contract_origin": "resolved_v1"
+      },
+      "team_nick": "Chargers",
+      "position": null,
+      "source": "LAC Beat - Bolts From The Blue",
+      "source_type": "rss",
+      "source_url": "https://www.boltsfromtheblue.com/los-angeles-chargers-preseason/65020/los-angeles-chargers-texans-preseason-tre-harris-jake-slaughter",
+      "published_at": "2026-08-12T19:33:35.000Z",
+      "captured_at": "2026-08-16T09:05:04.499Z",
+      "event_type": "out",
+      "availability_trend": "worsening",
+      "status_raw": null,
+      "normalized_status": null,
+      "injury_type": null,
+      "short_summary": "6 players to watch in Chargers-Texans",
+      "supporting_quote": "The Chargers begin their preseason slate with a road trip to Houston. With the majority of starters expected to sit out, this will be our first look at a lot of the team’s young players. You should not expect a performance for the ages, but predicting one or two players to standout is always worth [&#8230;]",
+      "confidence": 0.68,
+      "needs_human_review": true,
+      "linked_markets": [
+        "week_1_spread"
+      ],
+      "impact_bucket": "depth_only",
+      "availability_group": "other",
+      "dedupe_key": "https://www.boltsfromtheblue.com/los-angeles-chargers-preseason/65020/los-angeles-chargers-texans-preseason-tre-harris-jake-slaughter",
+      "evidence_status": "unverified_no_conflict_detected",
+      "status_conflict": null,
+      "synthesis_eligible": true
+    }
+  ],
+  "teams": {
+    "LAR": {
+      "team_abbr": "LAR",
+      "team_nick": "Rams",
+      "event_count": 2,
+      "synthesis_eligible_count": 2,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 2,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_d64a57ed9dcda1c7",
+          "evidence_id": "availability_evidence_4a388bb2318e9d7570f3",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "LAR",
+          "primary_team": "LAR",
+          "related_teams": [
+            "KC"
+          ],
+          "team_identity": {
+            "primary_team": "LAR",
+            "related_teams": [
+              "KC"
+            ],
+            "mentioned_teams": [
+              "LAR",
+              "KC"
+            ],
+            "source_team": "LAR",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Rams",
+          "position": null,
+          "source": "LAR Beat - Turf Show Times",
+          "source_type": "rss",
+          "source_url": "https://www.turfshowtimes.com/los-angeles-rams-analysis/146100/rams-nick-andersen-chiefs",
+          "published_at": "2026-08-16T00:06:03.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Undrafted safety steals show for Rams against Chiefs",
+          "supporting_quote": "While it would seem impossible to outshine quarterback Ty Simpson in his preseason debut, L.A. Rams safety Nick Andersen gave the first-round pick all the competition for attention that he could handle. Andersen, an undrafted rookie out of Wake Forest, has made an outstanding case to make the Rams 53-man roster after his debut performance [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.turfshowtimes.com/los-angeles-rams-analysis/146100/rams-nick-andersen-chiefs",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        },
+        {
+          "id": "avail_115a8b6832753c01",
+          "evidence_id": "availability_evidence_1fe96f19b487154dbdbf",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "LAR",
+          "primary_team": "LAR",
+          "related_teams": [
+            "KC"
+          ],
+          "team_identity": {
+            "primary_team": "LAR",
+            "related_teams": [
+              "KC"
+            ],
+            "mentioned_teams": [
+              "LAR",
+              "KC"
+            ],
+            "source_team": "LAR",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Rams",
+          "position": null,
+          "source": "LAR Beat - Turf Show Times",
+          "source_type": "rss",
+          "source_url": "https://www.turfshowtimes.com/los-angeles-rams-roster/146047/rams-rookies-max-klare-cj-daniels-preseason-opportunity",
+          "published_at": "2026-08-15T14:00:00.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Rookie pass catchers have major opportunity in preseason opener",
+          "supporting_quote": "If you’ve been waiting to see Max Klare and C.J. Daniels take the field for the Los Angeles Rams, your wait is finally almost over. With a slew of Rams expected to sit out the preseason opener against the Kansas City Chiefs Saturday, younger potential contributors will get a chance to shine. Klare and Daniels, [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.turfshowtimes.com/los-angeles-rams-roster/146047/rams-rookies-max-klare-cj-daniels-preseason-opportunity",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "KC": {
+      "team_abbr": "KC",
+      "team_nick": "Chiefs",
+      "event_count": 2,
+      "synthesis_eligible_count": 2,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 2,
+      "major_count": 1,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_ca6aaeae30118a2f",
+          "evidence_id": "availability_evidence_c308d4a72d81eff334d5",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "KC",
+          "primary_team": "KC",
+          "related_teams": [
+            "LAR"
+          ],
+          "team_identity": {
+            "primary_team": "KC",
+            "related_teams": [
+              "LAR"
+            ],
+            "mentioned_teams": [
+              "KC",
+              "LAR"
+            ],
+            "source_team": "KC",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Chiefs",
+          "position": null,
+          "source": "KC Beat - Arrowhead Pride",
+          "source_type": "rss",
+          "source_url": "https://www.arrowheadpride.com/kansas-city-chiefs-injuries/207726/andy-reid-single-chiefs-injury-update-preseason-week-1",
+          "published_at": "2026-08-16T00:00:00.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Andy Reid gives single Chiefs injury update after preseason Week 1",
+          "supporting_quote": "The Kansas City Chiefs dropped their preseason opener to the Los Angeles Rams 20-12 on Saturday. Frustrating as even exhibition losses can be, most NFL fans know that player health can be the most important indicator of a successful preseason contest. With one exception, the Chiefs seemed to come out of Saturday’s game healthy. In [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.arrowheadpride.com/kansas-city-chiefs-injuries/207726/andy-reid-single-chiefs-injury-update-preseason-week-1",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        },
+        {
+          "id": "avail_98b6e95b7963d2a4",
+          "evidence_id": "availability_evidence_aa0568c9d74d055cec00",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "KC",
+          "primary_team": "KC",
+          "related_teams": [
+            "LAR"
+          ],
+          "team_identity": {
+            "primary_team": "KC",
+            "related_teams": [
+              "LAR"
+            ],
+            "mentioned_teams": [
+              "KC",
+              "LAR"
+            ],
+            "source_team": "KC",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Chiefs",
+          "position": null,
+          "source": "KC Beat - Arrowhead Pride",
+          "source_type": "rss",
+          "source_url": "https://www.arrowheadpride.com/kansas-city-chiefs-news/207685/patrick-mahomes-was-on-the-field-throwing-before-saturdays-game",
+          "published_at": "2026-08-15T19:15:00.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Patrick Mahomes was on the field throwing before Saturday’s game",
+          "supporting_quote": "Heading into the Kansas City Chiefs’ preseason opener against the Los Angeles Rams, we knew that star quarterback Patrick Mahomes would not play. You may have heard that Mahomes is working his way back from a serious knee injury suffered in December. Mahomes recently explained that, while the decision to play or not was out [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "impact_bucket": "starter_uncertain",
+          "availability_group": "other",
+          "dedupe_key": "https://www.arrowheadpride.com/kansas-city-chiefs-news/207685/patrick-mahomes-was-on-the-field-throwing-before-saturdays-game",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "NE": {
+      "team_abbr": "NE",
+      "team_nick": "Patriots",
+      "event_count": 1,
+      "synthesis_eligible_count": 1,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 1,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_682366c7e3b393a8",
+          "evidence_id": "availability_evidence_39397abba7bad8cc2ced",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "NE",
+          "primary_team": "NE",
+          "related_teams": [
+            "IND"
+          ],
+          "team_identity": {
+            "primary_team": "NE",
+            "related_teams": [
+              "IND"
+            ],
+            "mentioned_teams": [
+              "NE",
+              "IND"
+            ],
+            "source_team": "NE",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Patriots",
+          "position": null,
+          "source": "NE Beat - Pats Pulpit",
+          "source_type": "rss",
+          "source_url": "https://www.patspulpit.com/new-england-patriots-analysis/133519/offensive-line-moves-andrew-rupcich-niko-lalos-analysis",
+          "published_at": "2026-08-15T22:56:25.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "ir",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "What signing two O-linemen, other Saturday moves mean for the Patriots",
+          "supporting_quote": "Coming out of their preseason opener against the Indianapolis Colts, the New England Patriots made some changes to their roster. In light of some injuries along the offensive line, they signed free agents Darrian Dalcourt and Joe Michalski on Saturday. In corresponding moves, the team placed fellow O-lineman Andrew Rupcich on injured reserve and released [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins",
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.patspulpit.com/new-england-patriots-analysis/133519/offensive-line-moves-andrew-rupcich-niko-lalos-analysis",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "TEN": {
+      "team_abbr": "TEN",
+      "team_nick": "Titans",
+      "event_count": 3,
+      "synthesis_eligible_count": 3,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 3,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_04067c61fed9151b",
+          "evidence_id": "availability_evidence_345c3857966db14d1261",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "TEN",
+          "primary_team": "TEN",
+          "related_teams": [],
+          "team_identity": {
+            "primary_team": "TEN",
+            "related_teams": [],
+            "mentioned_teams": [
+              "TEN"
+            ],
+            "source_team": null,
+            "ownership_source": "declared_team",
+            "flags": [],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Titans",
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/titans-te-jaren-kanak-de-jaylen-harrell-out-for-season-with-injuries",
+          "published_at": "2026-08-15T22:36:43.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Titans TE Jaren Kanak, DE Jaylen Harrell out for season with injuries",
+          "supporting_quote": "The Titans lost a pair of players to season-ending injuries in their preseason opener on Thursday.",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins",
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/titans-te-jaren-kanak-de-jaylen-harrell-out-for-season-with-injuries",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        },
+        {
+          "id": "avail_37e8334f18ac7cce",
+          "evidence_id": "availability_evidence_a4aa10410443f9fe0109",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "TEN",
+          "primary_team": "TEN",
+          "related_teams": [],
+          "team_identity": {
+            "primary_team": "TEN",
+            "related_teams": [],
+            "mentioned_teams": [
+              "TEN"
+            ],
+            "source_team": "TEN",
+            "ownership_source": "source_prefix",
+            "flags": [],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Titans",
+          "position": null,
+          "source": "TEN Beat - Music City Miracles",
+          "source_type": "rss",
+          "source_url": "https://www.musiccitymiracles.com/tennessee-titans-roster/66124/tony-pollard-john-franklin-myers-and-fernando-carmona-jr-underrated",
+          "published_at": "2026-08-15T12:00:00.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Titans roster 2026: Tony Pollard, John Franklin-Myers and Fernando Carmona Jr. are underrated",
+          "supporting_quote": "Nobody reading this site on a regular basis needs to be told that the Tennessee Titans’ two straight 3-14 seasons are not good enough. That falls into the “Well, DUH” category for any NFL team. So, instead of reliving the mistakes of years past, let’s focus on how the Titans can rise out of the [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.musiccitymiracles.com/tennessee-titans-roster/66124/tony-pollard-john-franklin-myers-and-fernando-carmona-jr-underrated",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        },
+        {
+          "id": "avail_9fb5dc18b7cfbfce",
+          "evidence_id": "availability_evidence_0c02857416a6b8ebccaa",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "TEN",
+          "primary_team": "TEN",
+          "related_teams": [
+            "SF"
+          ],
+          "team_identity": {
+            "primary_team": "TEN",
+            "related_teams": [
+              "SF"
+            ],
+            "mentioned_teams": [
+              "TEN",
+              "SF"
+            ],
+            "source_team": "TEN",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Titans",
+          "position": null,
+          "source": "TEN Beat - Music City Miracles",
+          "source_type": "rss",
+          "source_url": "https://www.musiccitymiracles.com/tennessee-titans-roster/66093/tennessee-titans-roster-by-jersey-number-last-name",
+          "published_at": "2026-08-13T16:02:00.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Tennessee Titans roster by jersey number, last name",
+          "supporting_quote": "The Tennessee Titans officially kick off their 2026 preseason tonight against the San Francisco 49ers. They currently have 90 players on the roster, so I thought it would be helpful to post a roster by both jersey number and last name so that we can identify the players out there making huge plays. One note [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.musiccitymiracles.com/tennessee-titans-roster/66093/tennessee-titans-roster-by-jersey-number-last-name",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "ARI": {
+      "team_abbr": "ARI",
+      "team_nick": "Cardinals",
+      "event_count": 1,
+      "synthesis_eligible_count": 1,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 1,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_e456c63ab28426d0",
+          "evidence_id": "availability_evidence_20404d356ff4cb960012",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "ARI",
+          "primary_team": "ARI",
+          "related_teams": [],
+          "team_identity": {
+            "primary_team": "ARI",
+            "related_teams": [],
+            "mentioned_teams": [
+              "ARI"
+            ],
+            "source_team": "ARI",
+            "ownership_source": "source_prefix",
+            "flags": [],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Cardinals",
+          "position": null,
+          "source": "ARI Beat - Revenge of the Birds",
+          "source_type": "rss",
+          "source_url": "https://www.revengeofthebirds.com/arizona-cardinals-news/93550/arizona-cardinals-place-chase-bisontis-on-injured-reserve",
+          "published_at": "2026-08-15T19:54:53.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "ir",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Arizona Cardinals place Chase Bisontis on injured reserve",
+          "supporting_quote": "The Arizona Cardinals made a bevy of moves today, including placing rookie guard Chase Bisontis on injured reserve Does this end Bisontis’ season… not definitely, but it is most likely if he has a grade three tear and needs surgery. The Cardinals placed two other players on IR and brought in three additions to the [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.revengeofthebirds.com/arizona-cardinals-news/93550/arizona-cardinals-place-chase-bisontis-on-injured-reserve",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "CAR": {
+      "team_abbr": "CAR",
+      "team_nick": "Panthers",
+      "event_count": 1,
+      "synthesis_eligible_count": 1,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 1,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_80fd1e739d276f8b",
+          "evidence_id": "availability_evidence_2f1bca5d23fb1871e528",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "CAR",
+          "primary_team": "CAR",
+          "related_teams": [],
+          "team_identity": {
+            "primary_team": "CAR",
+            "related_teams": [],
+            "mentioned_teams": [
+              "CAR"
+            ],
+            "source_team": null,
+            "ownership_source": "declared_team",
+            "flags": [],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Panthers",
+          "position": null,
+          "source": "Pro Football Talk",
+          "source_type": "rss",
+          "source_url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bryce-young-and-panthers-offense-go-three-and-out-on-all-three-drives",
+          "published_at": "2026-08-15T18:11:27.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Bryce Young and Panthers' offense go three-and-out on all three drives",
+          "supporting_quote": "Panthers quarterback Bryce Young is not off to a good start this preseason.",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/bryce-young-and-panthers-offense-go-three-and-out-on-all-three-drives",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "MIN": {
+      "team_abbr": "MIN",
+      "team_nick": "Vikings",
+      "event_count": 1,
+      "synthesis_eligible_count": 1,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 1,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_229185bc1d59c3a1",
+          "evidence_id": "availability_evidence_5ee420954cef63b0917f",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "MIN",
+          "primary_team": "MIN",
+          "related_teams": [
+            "NYG"
+          ],
+          "team_identity": {
+            "primary_team": "MIN",
+            "related_teams": [
+              "NYG"
+            ],
+            "mentioned_teams": [
+              "NYG",
+              "MIN"
+            ],
+            "source_team": "MIN",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Vikings",
+          "position": null,
+          "source": "MIN Beat - Daily Norseman",
+          "source_type": "rss",
+          "source_url": "https://www.dailynorseman.com/minnesota-vikings-injuries/98167/jamal-adams-carted-off-field-minnesota-vikings-new-york-giants",
+          "published_at": "2026-08-15T18:06:51.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "setback",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Jamal Adams Carted Off Field Against Giants",
+          "supporting_quote": "The primary objective of every preseason game is to just make it through without any significant injuries. Unfortunately for the Minnesota Vikings, it looks like they might not have met that first objective in their preseason opener against the New York Giants. During the second quarter of the preseason opener, the Vikings had to call [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.dailynorseman.com/minnesota-vikings-injuries/98167/jamal-adams-carted-off-field-minnesota-vikings-new-york-giants",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "ATL": {
+      "team_abbr": "ATL",
+      "team_nick": "Falcons",
+      "event_count": 1,
+      "synthesis_eligible_count": 1,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 1,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_fc50c1eafb9c08f0",
+          "evidence_id": "availability_evidence_b61f859d12bc3715c155",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "ATL",
+          "primary_team": "ATL",
+          "related_teams": [],
+          "team_identity": {
+            "primary_team": "ATL",
+            "related_teams": [],
+            "mentioned_teams": [
+              "ATL"
+            ],
+            "source_team": null,
+            "ownership_source": "declared_team",
+            "flags": [],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Falcons",
+          "position": null,
+          "source": "CBS Sports NFL",
+          "source_type": "rss",
+          "source_url": "https://www.cbssports.com/nfl/news/nfl-suspensions-falcons-james-pearce-jr/",
+          "published_at": "2026-08-15T15:53:28.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "NFL hands down four suspensions before preseason action, with Falcons&#039; James Pearce Jr. hit hardest",
+          "supporting_quote": "The NFL announced four suspensions before Friday&#039;s preseason slate, with Falcons edge rusher James Pearce Jr. ordered to sit out eight games",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.cbssports.com/nfl/news/nfl-suspensions-falcons-james-pearce-jr/",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "PHI": {
+      "team_abbr": "PHI",
+      "team_nick": "Eagles",
+      "event_count": 1,
+      "synthesis_eligible_count": 1,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 1,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_11f24ab8361dd7e7",
+          "evidence_id": "availability_evidence_867b0bce9724e4e62b01",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "PHI",
+          "primary_team": "PHI",
+          "related_teams": [],
+          "team_identity": {
+            "primary_team": "PHI",
+            "related_teams": [],
+            "mentioned_teams": [
+              "PHI"
+            ],
+            "source_team": "PHI",
+            "ownership_source": "source_prefix",
+            "flags": [],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Eagles",
+          "position": null,
+          "source": "PHI Beat - Bleeding Green Nation",
+          "source_type": "rss",
+          "source_url": "https://www.bleedinggreennation.com/news/179428/eagles-news-did-philadelphia-tease-a-new-old-helmet",
+          "published_at": "2026-08-15T15:40:34.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": "old",
+          "short_summary": "Eagles News: Did Philadelphia tease a new (old) helmet?",
+          "supporting_quote": "Let’s get to the Philadelphia Eagles news and links … Eagles fans are freaking out after the Eagles posted a video featuring a helmet they haven’t worn since 1973 &#8211; InquirerIt’s been a while since Eagles fans last saw white helmets paired with kelly green wings on the field in Philly. The last time came [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.bleedinggreennation.com/news/179428/eagles-news-did-philadelphia-tease-a-new-old-helmet",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "PIT": {
+      "team_abbr": "PIT",
+      "team_nick": "Steelers",
+      "event_count": 1,
+      "synthesis_eligible_count": 1,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 1,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_5fee1cce213bd6be",
+          "evidence_id": "availability_evidence_048b818193c20695bd19",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "PIT",
+          "primary_team": "PIT",
+          "related_teams": [
+            "GB"
+          ],
+          "team_identity": {
+            "primary_team": "PIT",
+            "related_teams": [
+              "GB"
+            ],
+            "mentioned_teams": [
+              "PIT",
+              "GB"
+            ],
+            "source_team": "PIT",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Steelers",
+          "position": null,
+          "source": "PIT Beat - Behind The Steel Curtain",
+          "source_type": "rss",
+          "source_url": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-news/173356/steelers-sell-out-of-drew-allar-jerseys-after-preseason-debut",
+          "published_at": "2026-08-15T12:00:00.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Steelers sell out of Drew Allar jerseys after preseason debut",
+          "supporting_quote": "Not often do you see a rookie quarterback play just two quarters of a preseason game and immediately become the hottest commodity for fan gear and apparel. However, that unlikelihood became reality for the Pittsburgh Steelers after the team’s preseason opener against the Green Bay Packers, as rookie quarterback Drew Allar became a fan-favorite in [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.behindthesteelcurtain.com/pittsburgh-steelers-news/173356/steelers-sell-out-of-drew-allar-jerseys-after-preseason-debut",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "NYJ": {
+      "team_abbr": "NYJ",
+      "team_nick": "Jets",
+      "event_count": 4,
+      "synthesis_eligible_count": 4,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 4,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_bbd22958b1b259b8",
+          "evidence_id": "availability_evidence_937048fd3cdcf66e597b",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "NYJ",
+          "primary_team": "NYJ",
+          "related_teams": [
+            "TB"
+          ],
+          "team_identity": {
+            "primary_team": "NYJ",
+            "related_teams": [
+              "TB"
+            ],
+            "mentioned_teams": [
+              "NYJ",
+              "TB"
+            ],
+            "source_team": "NYJ",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Jets",
+          "position": null,
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_type": "rss",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-discussion/95531/jets-vs-buccaneers-game-thread",
+          "published_at": "2026-08-14T22:30:00.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Jets vs Buccaneers Game Thread",
+          "supporting_quote": "The long NFL offseason ends for the New York Jets tonight at 7:00 pm EDT. The Jets are at home in East Rutherford, New Jersey to take on the Tampa Bay Buccaneers in both teams’ 2026 preseason opener. NFL teams in recent years have increasingly held their starters out of preseason games in a bid [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.ganggreennation.com/new-york-jets-discussion/95531/jets-vs-buccaneers-game-thread",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        },
+        {
+          "id": "avail_9c2f23e0d6e819ad",
+          "evidence_id": "availability_evidence_b53e07086140e7b4a92e",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "NYJ",
+          "primary_team": "NYJ",
+          "related_teams": [
+            "HOU"
+          ],
+          "team_identity": {
+            "primary_team": "NYJ",
+            "related_teams": [
+              "HOU"
+            ],
+            "mentioned_teams": [
+              "NYJ",
+              "HOU"
+            ],
+            "source_team": "NYJ",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Jets",
+          "position": null,
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_type": "rss",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-analysis/95495/scouting-jets-defensive-tackle-junior-tafuna",
+          "published_at": "2026-08-14T15:00:00.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Scouting Jets defensive tackle Junior Tafuna",
+          "supporting_quote": "The Jets recently claimed defensive tackle Junior Tafuna off waivers from the Houston Texans. Today, we break Tafuna down in detail. The 25-year old Tafuna is listed at 6’3” and 305 pounds and was a three-time all-Pac 12 second-teamer who went undrafted out of Utah. He spent last season on the Houston Texans&#8217; practice squad. [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.ganggreennation.com/new-york-jets-analysis/95495/scouting-jets-defensive-tackle-junior-tafuna",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        },
+        {
+          "id": "avail_7d336ce7f2ac1b39",
+          "evidence_id": "availability_evidence_ac801429f68328e22e37",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "NYJ",
+          "primary_team": "NYJ",
+          "related_teams": [
+            "CIN"
+          ],
+          "team_identity": {
+            "primary_team": "NYJ",
+            "related_teams": [
+              "CIN"
+            ],
+            "mentioned_teams": [
+              "NYJ",
+              "CIN"
+            ],
+            "source_team": "NYJ",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Jets",
+          "position": null,
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_type": "rss",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-injuries/95479/jets-injury-update-joseph-ossai-is-off-the-physically-unable-to-perform-list",
+          "published_at": "2026-08-13T14:37:39.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "pup",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": "pup",
+          "short_summary": "Jets injury update: Joseph Ossai is off the physically unable to perform list",
+          "supporting_quote": "The Jets have activated defensive end Joseph Ossai from the physically unable to perform (PUP) list. Ossai (6-4, 263) was placed on the Active/PUP list on July 28. He signed with the Jets in March after playing his first four seasons with the Cincinnati Bengals. During his time with the Bengals from 2022-25, Ossai played [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins",
+            "make_playoffs",
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.ganggreennation.com/new-york-jets-injuries/95479/jets-injury-update-joseph-ossai-is-off-the-physically-unable-to-perform-list",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        },
+        {
+          "id": "avail_ff75a3a83522eac5",
+          "evidence_id": "availability_evidence_8dea92577458abce83bc",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "NYJ",
+          "primary_team": "NYJ",
+          "related_teams": [
+            "TB"
+          ],
+          "team_identity": {
+            "primary_team": "NYJ",
+            "related_teams": [
+              "TB"
+            ],
+            "mentioned_teams": [
+              "NYJ",
+              "TB"
+            ],
+            "source_team": "NYJ",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Jets",
+          "position": null,
+          "source": "NYJ Beat - Gang Green Nation",
+          "source_type": "rss",
+          "source_url": "https://www.ganggreennation.com/new-york-jets-news/95475/new-york-jets-flight-connections-08-13-26",
+          "published_at": "2026-08-13T11:01:16.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "New York Jets Flight Connections 08/13/26",
+          "supporting_quote": "Good morning Gang Green Nation! The New York Jets got some good news yesterday. After collapsing at the Jets’ first practice against the Tampa Bay Buccaneers on Tuesday, Qwan’tez Stiggers was sent to the hospital. Yesterday he checked out and is doing well. Stiggers has been placed on the concussion protocol. He is expected back [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.ganggreennation.com/new-york-jets-news/95475/new-york-jets-flight-connections-08-13-26",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "GB": {
+      "team_abbr": "GB",
+      "team_nick": "Packers",
+      "event_count": 1,
+      "synthesis_eligible_count": 1,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 1,
+      "major_count": 1,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_466066f6713cb88e",
+          "evidence_id": "availability_evidence_259b88c55669de36aee8",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "GB",
+          "primary_team": "GB",
+          "related_teams": [
+            "PIT"
+          ],
+          "team_identity": {
+            "primary_team": "GB",
+            "related_teams": [
+              "PIT"
+            ],
+            "mentioned_teams": [
+              "GB",
+              "PIT"
+            ],
+            "source_team": "GB",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Packers",
+          "position": null,
+          "source": "GB Beat - Acme Packing Co",
+          "source_type": "rss",
+          "source_url": "https://www.acmepackingcompany.com/green-bay-packers-discussion/84727/packers-fans-still-favor-anthony-belton-to-start-at-right-guard",
+          "published_at": "2026-08-14T19:35:00.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Packers fans still favor Anthony Belton to start at right guard",
+          "supporting_quote": "On Thursday night, the Green Bay Packers played a game for the first time this preseason, giving other teams and their own fans the first look at a potential lineup. Several key players sat out in the team’s exhibition debut against the Pittsburgh Steelers, including starting right tackle Zach Bako-Bewele, but there were several notable [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "starter_uncertain",
+          "availability_group": "other",
+          "dedupe_key": "https://www.acmepackingcompany.com/green-bay-packers-discussion/84727/packers-fans-still-favor-anthony-belton-to-start-at-right-guard",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "LAC": {
+      "team_abbr": "LAC",
+      "team_nick": "Chargers",
+      "event_count": 3,
+      "synthesis_eligible_count": 3,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 3,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_26650ac172df23af",
+          "evidence_id": "availability_evidence_0d6367da175c0d96a606",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "LAC",
+          "primary_team": "LAC",
+          "related_teams": [
+            "HOU"
+          ],
+          "team_identity": {
+            "primary_team": "LAC",
+            "related_teams": [
+              "HOU"
+            ],
+            "mentioned_teams": [
+              "LAC",
+              "HOU"
+            ],
+            "source_team": "LAC",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Chargers",
+          "position": null,
+          "source": "LAC Beat - Bolts From The Blue",
+          "source_type": "rss",
+          "source_url": "https://www.boltsfromtheblue.com/los-angeles-chargers-news/65070/chargers-texans-pff-grades-jake-slaughter-akheem-mesidor",
+          "published_at": "2026-08-14T19:25:49.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Best and worst Chargers PFF grades vs. the Texans",
+          "supporting_quote": "The Chargers came out and “out-physical’d” the Texans for the majority of the game, per Houston head coach DeMeco Ryans. After a back-and-forth game through the first half, the Chargers’ depth continued to pour it on during the final 30 minutes. And that goes for both sides of the ball. Unsurprisingly, that was reflected in [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.boltsfromtheblue.com/los-angeles-chargers-news/65070/chargers-texans-pff-grades-jake-slaughter-akheem-mesidor",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        },
+        {
+          "id": "avail_d7e87bfb585a4164",
+          "evidence_id": "availability_evidence_bb7143086680622e2b80",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "LAC",
+          "primary_team": "LAC",
+          "related_teams": [
+            "HOU"
+          ],
+          "team_identity": {
+            "primary_team": "LAC",
+            "related_teams": [
+              "HOU"
+            ],
+            "mentioned_teams": [
+              "LAC",
+              "HOU"
+            ],
+            "source_team": "LAC",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Chargers",
+          "position": null,
+          "source": "LAC Beat - Bolts From The Blue",
+          "source_type": "rss",
+          "source_url": "https://www.boltsfromtheblue.com/los-angeles-chargers-game-information/65044/chargers-texans-preseason-how-to-watch-game-time-tv-schedule-streaming",
+          "published_at": "2026-08-13T15:57:23.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Chargers vs. Texans Preseason Week 1: How to watch, game time, TV schedule, streaming, and more",
+          "supporting_quote": "With most of the starters out for Thursday night, it will be backup quarterback Trey Lance who will lead the Chargers against the Texans on the road in their preseason debut. While the first preseason exhibition is always the least-polished product of the season, it’s still the first time fans will get to see some [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "wins",
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.boltsfromtheblue.com/los-angeles-chargers-game-information/65044/chargers-texans-preseason-how-to-watch-game-time-tv-schedule-streaming",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        },
+        {
+          "id": "avail_352d81c351ec2367",
+          "evidence_id": "availability_evidence_4beaeb353c008f266054",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "LAC",
+          "primary_team": "LAC",
+          "related_teams": [
+            "HOU"
+          ],
+          "team_identity": {
+            "primary_team": "LAC",
+            "related_teams": [
+              "HOU"
+            ],
+            "mentioned_teams": [
+              "LAC",
+              "HOU"
+            ],
+            "source_team": "LAC",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Chargers",
+          "position": null,
+          "source": "LAC Beat - Bolts From The Blue",
+          "source_type": "rss",
+          "source_url": "https://www.boltsfromtheblue.com/los-angeles-chargers-preseason/65020/los-angeles-chargers-texans-preseason-tre-harris-jake-slaughter",
+          "published_at": "2026-08-12T19:33:35.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "6 players to watch in Chargers-Texans",
+          "supporting_quote": "The Chargers begin their preseason slate with a road trip to Houston. With the majority of starters expected to sit out, this will be our first look at a lot of the team’s young players. You should not expect a performance for the ages, but predicting one or two players to standout is always worth [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.boltsfromtheblue.com/los-angeles-chargers-preseason/65020/los-angeles-chargers-texans-preseason-tre-harris-jake-slaughter",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "CLE": {
+      "team_abbr": "CLE",
+      "team_nick": "Browns",
+      "event_count": 1,
+      "synthesis_eligible_count": 1,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 1,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_54d7b564d4fa8ec3",
+          "evidence_id": "availability_evidence_cec43a1d282a30583612",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "CLE",
+          "primary_team": "CLE",
+          "related_teams": [
+            "LAR",
+            "DAL"
+          ],
+          "team_identity": {
+            "primary_team": "CLE",
+            "related_teams": [
+              "LAR",
+              "DAL"
+            ],
+            "mentioned_teams": [
+              "CLE",
+              "LAR",
+              "DAL"
+            ],
+            "source_team": null,
+            "ownership_source": "declared_team",
+            "flags": [
+              "multiple_declared_teams"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Browns",
+          "position": null,
+          "source": "Yahoo Sports NFL",
+          "source_type": "rss",
+          "source_url": "https://sports.yahoo.com/nfl/live/nfl-news-preseason-schedule-whos-playing-live-updates-today-152512676.html",
+          "published_at": "2026-08-13T15:25:12.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "NFL news, live updates: Mixed bag for Browns QBs Deshaun Watson, Shedeur Sanders; Rams&#39; Ty Simpson impresses; Cowboys rookie shines",
+          "supporting_quote": "Follow along with the latest NFL news and updates as the preseason plays out.",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://sports.yahoo.com/nfl/live/nfl-news-preseason-schedule-whos-playing-live-updates-today-152512676.html",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    },
+    "MIA": {
+      "team_abbr": "MIA",
+      "team_nick": "Dolphins",
+      "event_count": 1,
+      "synthesis_eligible_count": 1,
+      "conflicted_intel_count": 0,
+      "improving_count": 0,
+      "worsening_count": 1,
+      "major_count": 0,
+      "offensive_line_count": 0,
+      "offensive_line_worsening_count": 0,
+      "defensive_front_count": 0,
+      "defensive_front_worsening_count": 0,
+      "cluster_risks": {
+        "offensive_line": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false
+        },
+        "defensive_front": {
+          "total": 0,
+          "worsening": 0,
+          "improving": 0,
+          "cluster_risk": false,
+          "opponent_offense_boost_risk": false
+        }
+      },
+      "events": [
+        {
+          "id": "avail_b421a37304cfafe8",
+          "evidence_id": "availability_evidence_ce72d4c59fbd5ccbfe89",
+          "season": 2026,
+          "player_name": null,
+          "team_abbr": "MIA",
+          "primary_team": "MIA",
+          "related_teams": [
+            "WAS"
+          ],
+          "team_identity": {
+            "primary_team": "MIA",
+            "related_teams": [
+              "WAS"
+            ],
+            "mentioned_teams": [
+              "MIA",
+              "WAS"
+            ],
+            "source_team": "MIA",
+            "ownership_source": "source_prefix",
+            "flags": [
+              "declared_source_team_mismatch"
+            ],
+            "contract_origin": "resolved_v1"
+          },
+          "team_nick": "Dolphins",
+          "position": null,
+          "source": "MIA Beat - The Phinsider",
+          "source_type": "rss",
+          "source_url": "https://www.thephinsider.com/miami-dolphins-news/121536/miami-dolphins-washington-commanders-pratice-training-camp-2026-devon-achane-caleb-douglas-malik-willis",
+          "published_at": "2026-08-13T11:38:24.000Z",
+          "captured_at": "2026-08-16T09:05:04.499Z",
+          "event_type": "out",
+          "availability_trend": "worsening",
+          "status_raw": null,
+          "normalized_status": null,
+          "injury_type": null,
+          "short_summary": "Miami Dolphins news: Joint practice with Commanders recap and reactions",
+          "supporting_quote": "The Miami Dolphins joined the Washington Commanders in Ashburn, Virginia on Wednesday for a joint practice ahead of their 2026 preseason opening game on Friday. The practice gave both teams a chance to work out against someone other than themselves and was the first of two joint practices the Dolphins planned for this summer. They [&#8230;]",
+          "confidence": 0.68,
+          "needs_human_review": true,
+          "linked_markets": [
+            "week_1_spread"
+          ],
+          "impact_bucket": "depth_only",
+          "availability_group": "other",
+          "dedupe_key": "https://www.thephinsider.com/miami-dolphins-news/121536/miami-dolphins-washington-commanders-pratice-training-camp-2026-devon-achane-caleb-douglas-malik-willis",
+          "evidence_status": "unverified_no_conflict_detected",
+          "status_conflict": null,
+          "synthesis_eligible": true
+        }
+      ]
+    }
+  }
+}

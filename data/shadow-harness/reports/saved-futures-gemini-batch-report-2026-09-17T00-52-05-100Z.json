@@ -1,0 +1,1075 @@
+{
+  "evaluated_at": "2026-09-17T00:52:05.099Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 5,
+  "total_episodes_evaluated": 5,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 0,
+  "extraction_failure_count": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.110857,
+  "average_cost_usd": 0.022171,
+  "total_latency_ms": 676407,
+  "average_latency_ms": 135281,
+  "total_extracted_picks": 30,
+  "reprocess_queue": [],
+  "failed_extractions": [],
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-ZmBVzYR15UU",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_62bbdd0594fb",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=ZmBVzYR15UU",
+        "latency_ms": 89264,
+        "estimated_cost_usd": 0.018556,
+        "input_tokens": 171660,
+        "output_tokens": 3476,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Scott Bogman and Jo Madden host the live BettingPros preview for a simulated matchup between the Denver Broncos and Kansas City Chiefs. Both analysts side strongly with the Broncos, highlighting Kansas City's offensive line injuries and Patrick Mahomes' premature return from a knee injury.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1865,\n    \"last_analyzed_timestamp\": 1865,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 182.0,\n      \"speaker\": null,\n      \"text\": \"[Stream waiting screen / Intro music]\"\n    },\n    {\n      \"start\": 182.0,\n      \"end\": 300.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"Welcome in everybody, it is the BettingPros Monday Night Football Live Preview, and I am your host Scott Bogman joined by Jo Madden. We're going to talk Broncos vs. Chiefs here in Arrowhead. Jo, what is going on, Monday Night Football live for the first time? I'm excited for it after a massive Sunday slate.\"\n    },\n    {\n      \"start\": 300.0,\n      \"end\": 573.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"Oh, this AFC West battle right straight out of the gate on Monday night. I'm looking for a competitive one, and I've got high hopes. We'll see how Patrick Mahomes does coming out after coming back from those injuries, but this is all about Denver and their defense for me. I find this line completely disrespectful to the Denver Broncos. They went 14 and 3 last season, won the AFC West, and their defense allowed the third best 18.3 points per game. And now KC is favored even though they went 6 and 11 last season, with Mahomes coming back from the ACL and MCL.\"\n    },\n    {\n      \"start\": 573.0,\n      \"end\": 669.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"Yeah, I think you're absolutely right. Let's get to our first official bets. I'm going to take the points with the Broncos at +2.5 (-110). I also have a sprinkle on the moneyline as well, but this is my tracked bet. What is your first bet, Jo?\"\n    },\n    {\n      \"start\": 669.0,\n      \"end\": 742.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"My first bet has to be straight up on that moneyline for the Denver Broncos at +112. I think the points are great to have in your pocket, but I have full faith in Bo Nix and this defense to shut the door on the Chiefs tonight.\"\n    },\n    {\n      \"start\": 742.0,\n      \"end\": 885.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"I love it. For my second bet, I'm going with Jaylen Waddle Over 54.5 receiving yards. I think this is just a little bit too low with the changes in the Chiefs' secondary. Their rookie Mansoor Delane is good, but it's his first NFL game, and Shamari Connor is out. Waddle is moving to a more competent quarterback than Tua and Quinn Ewers last season.\"\n    },\n    {\n      \"start\": 885.0,\n      \"end\": 1062.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"I love that. My second bet is RJ Harvey Over 39.5 rushing and receiving yards. I know he is behind J.K. Dobbins and Coleman, but this Denver running back depth chart is elite. Harvey averaged 52.7 scrimmage yards per game as a rookie and had 76 total yards against Arrowhead last season. This line is way too low.\"\n    },\n    {\n      \"start\": 1062.0,\n      \"end\": 1268.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"For my third bet, I'm going with Emmett Johnson anytime touchdown at +600. It's a sprinkle, but I'm a naysayer on Kenneth Walker's durability. Emmett Johnson had almost 300 touches at Nebraska and will likely fill a goal-line 'Charbonnet' role to preserve Walker. At +600, that is great value.\"\n    },\n    {\n      \"start\": 1268.0,\n      \"end\": 1475.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"My third bet is Nik Bonitto to record a sack at -102. Mahomes is going to be in danger tonight on his blindside with starting tackle Josh Simmons out. Undrafted rookie Benson is starting in his place. Bonitto had 14 sacks last season and should feast tonight.\"\n    },\n    {\n      \"start\": 1475.0,\n      \"end\": 1689.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"Let's look at some chat questions. Darragh from Ireland asks about a treble with Cyrus Allen Over 15 receiving yards, a Walker touchdown, and Jaylen Waddle Over 70 yards at 9/1.\"\n    },\n    {\n      \"start\": 1689.0,\n      \"end\": 1865.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"I'd be cautious on Cyrus Allen since Rashee Rice gets the main workload and Mahomes won't have time for deep shots. For another question on Bo Nix vs. Mahomes passing yards: I like Bo Nix Over 1.5 passing touchdowns (+134) and Mahomes Under 223.5 passing yards. Thank you everyone, enjoy the game and win your bets!\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"DEN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"underdog\",\n      \"line\": 2.5,\n      \"price\": -110,\n      \"week\": 2,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 573,\n      \"rationale\": \"Believes the line is incorrect and should be closer to pick'em; expects a very tight game where the Broncos can win outright.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 112,\n      \"week\": 2,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 669,\n      \"rationale\": \"Has full faith in rookie quarterback Bo Nix and the Denver defense to shut down the Chiefs on the road.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": \"Jaylen Waddle\",\n      \"market\": \"receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 54.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 742,\n      \"rationale\": \"Expects Waddle to exploit a young Chiefs secondary that is missing safety Shamari Connor and starting rookie Mansoor Delane.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": \"RJ Harvey\",\n      \"market\": \"rushing_receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 39.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 885,\n      \"rationale\": \"Harvey averaged 52.7 scrimmage yards per game as a rookie and had 76 combined yards against Kansas City last year. This total is far too low.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"player\": \"Emmett Johnson\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 600,\n      \"week\": 2,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 1062,\n      \"rationale\": \"Walker is not built for a heavy workload, so the Chiefs are expected to use Nebraska rookie Emmett Johnson in a goal-line/short-yardage role.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": \"Nik Bonitto\",\n      \"market\": \"sack\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": -102,\n      \"week\": 2,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1268,\n      \"rationale\": \"Chiefs starting tackle Josh Simmons is out, leaving undrafted rookie Benson to block Bonitto on Mahomes' blindside.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"player\": \"Patrick Mahomes\",\n      \"market\": \"passing_yards\",\n      \"side\": \"UNDER\",\n      \"line\": 223.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1689,\n      \"rationale\": \"Mahomes is rushing back early from a severe knee injury and will struggle with protection issues on his blindside.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": \"Bo Nix\",\n      \"market\": \"passing_touchdowns\",\n      \"side\": \"OVER\",\n      \"line\": 1.5,\n      \"price\": 134,\n      \"week\": 2,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1689,\n      \"rationale\": \"Nix has elite targets in Jaylen Waddle, Courtland Sutton, and Marvin Mims, and Denver has a strong red zone package.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"DEN\"],\n      \"players\": [],\n      \"topic\": \"Denver defensive strength\",\n      \"summary\": \"Jo highlights Denver's strong defense from the prior simulated season, where they allowed only 18.3 points per game (3rd best in the league), and believes they will control the tempo.\",\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 361,\n      \"quote\": \"their defense only allowed 18.3 points per game, third best in the NFL\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"KC\"],\n      \"players\": [\"Patrick Mahomes\"],\n      \"topic\": \"Mahomes injury return concern\",\n      \"summary\": \"Both analysts express deep concern regarding Mahomes returning to play so soon after tearing his ACL and MCL in December.\",\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1205,\n      \"quote\": \"with Mahomes coming back from the ACL and MCL, I'm just not buying it\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"KC\"],\n      \"players\": [\"Josh Simmons\"],\n      \"topic\": \"Simmons injury impact on Chiefs O-Line\",\n      \"summary\": \"Starting tackle Josh Simmons is out, forcing undrafted rookie Benson to start on Mahomes' blind side, creating a severe mismatch against Denver's pass rush.\",\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1285,\n      \"quote\": \"with Simmons out of the lineup, we're going to see an undrafted rookie coming in, Benson, in his place\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"KC\"],\n      \"players\": [\"Kenneth Walker\", \"Emmett Johnson\"],\n      \"topic\": \"Chiefs running back usage strategy\",\n      \"summary\": \"Scott suggests Emmett Johnson was drafted to serve in a short-yardage/goal-line role similar to Zach Charbonnet's role with Walker in Seattle to preserve Walker's health.\",\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 1115,\n      \"quote\": \"take what the Seahawks did last season with him and Charbonnet... put Emmett Johnson in that Charbonnet role\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"DEN\"],\n      \"players\": [\"Jaylen Waddle\"],\n      \"topic\": \"Waddle WR1 transition\",\n      \"summary\": \"Scott expects Jaylen Waddle to thrive as Denver's true WR1 with Courtland Sutton slotting into the WR2 role, catching passes from Bo Nix.\",\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 820,\n      \"quote\": \"now that Sutton is the number two, it's going to be great for him, even better for Waddle\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Denver Defense PPG\",\n      \"timestamp\": 361,\n      \"speaker\": \"Jo Madden\",\n      \"quote\": \"their defense only allowed 18.3 points per game, third best in the NFL\"\n    },\n    {\n      \"topic\": \"Chiefs Spread disrespect\",\n      \"timestamp\": 361,\n      \"speaker\": \"Jo Madden\",\n      \"quote\": \"I find this line completely disrespectful to the Denver Broncos.\"\n    },\n    {\n      \"topic\": \"Nik Bonitto Sack\",\n      \"timestamp\": 1268,\n      \"speaker\": \"Jo Madden\",\n      \"quote\": \"Mahomes is going to be in danger tonight on his blind side from Nik Bonitto\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 742,\n      \"field\": \"price\",\n      \"reason\": \"No price was specified for the Jaylen Waddle receiving yards over prop.\"\n    },\n    {\n      \"timestamp\": 885,\n      \"field\": \"price\",\n      \"reason\": \"No price was specified for the RJ Harvey scrimmage yards over prop.\"\n    },\n    {\n      \"timestamp\": 1689,\n      \"field\": \"price\",\n      \"reason\": \"No price was specified for the Patrick Mahomes passing yards under prop.\"\n    }\n  ]\n}",
+        "extracted_picks": [
+          {
+            "team": "DEN",
+            "player": null,
+            "market": "spread",
+            "side": "UNDER",
+            "line": 2.5,
+            "price": -110,
+            "week": 2,
+            "speaker": "Scott Bogman",
+            "source_timestamp": 573,
+            "rationale": "Believes the line is incorrect and should be closer to pick'em; expects a very tight game where the Broncos can win outright."
+          },
+          {
+            "team": "DEN",
+            "player": null,
+            "market": "moneyline",
+            "side": "YES",
+            "line": null,
+            "price": 112,
+            "week": 2,
+            "speaker": "Jo Madden",
+            "source_timestamp": 669,
+            "rationale": "Has full faith in rookie quarterback Bo Nix and the Denver defense to shut down the Chiefs on the road."
+          },
+          {
+            "team": "DEN",
+            "player": "Jaylen Waddle",
+            "market": "season_receiving_yards",
+            "side": "OVER",
+            "line": 54.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Scott Bogman",
+            "source_timestamp": 742,
+            "rationale": "Expects Waddle to exploit a young Chiefs secondary that is missing safety Shamari Connor and starting rookie Mansoor Delane."
+          },
+          {
+            "team": "DEN",
+            "player": "RJ Harvey",
+            "market": "season_receiving_yards",
+            "side": "OVER",
+            "line": 39.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Jo Madden",
+            "source_timestamp": 885,
+            "rationale": "Harvey averaged 52.7 scrimmage yards per game as a rookie and had 76 combined yards against Kansas City last year. This total is far too low."
+          },
+          {
+            "team": "KC",
+            "player": "Emmett Johnson",
+            "market": "anytime_touchdown",
+            "side": "YES",
+            "line": null,
+            "price": 600,
+            "week": 2,
+            "speaker": "Scott Bogman",
+            "source_timestamp": 1062,
+            "rationale": "Walker is not built for a heavy workload, so the Chiefs are expected to use Nebraska rookie Emmett Johnson in a goal-line/short-yardage role."
+          },
+          {
+            "team": "DEN",
+            "player": "Nik Bonitto",
+            "market": "sack",
+            "side": "YES",
+            "line": null,
+            "price": -102,
+            "week": 2,
+            "speaker": "Jo Madden",
+            "source_timestamp": 1268,
+            "rationale": "Chiefs starting tackle Josh Simmons is out, leaving undrafted rookie Benson to block Bonitto on Mahomes' blindside."
+          },
+          {
+            "team": "KC",
+            "player": "Patrick Mahomes",
+            "market": "season_passing_yards",
+            "side": "UNDER",
+            "line": 223.5,
+            "price": null,
+            "week": 2,
+            "speaker": "Jo Madden",
+            "source_timestamp": 1689,
+            "rationale": "Mahomes is rushing back early from a severe knee injury and will struggle with protection issues on his blindside."
+          },
+          {
+            "team": "DEN",
+            "player": "Bo Nix",
+            "market": "season_passing_tds",
+            "side": "OVER",
+            "line": 1.5,
+            "price": 134,
+            "week": 2,
+            "speaker": "Jo Madden",
+            "source_timestamp": 1689,
+            "rationale": "Nix has elite targets in Jaylen Waddle, Courtland Sutton, and Marvin Mims, and Denver has a strong red zone package."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "DEN"
+            ],
+            "players": [],
+            "topic": "Denver defensive strength",
+            "summary": "Jo highlights Denver's strong defense from the prior simulated season, where they allowed only 18.3 points per game (3rd best in the league), and believes they will control the tempo.",
+            "speaker": "Jo Madden",
+            "source_timestamp": 361,
+            "quote": "their defense only allowed 18.3 points per game, third best in the NFL",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "KC"
+            ],
+            "players": [
+              "Patrick Mahomes"
+            ],
+            "topic": "Mahomes injury return concern",
+            "summary": "Both analysts express deep concern regarding Mahomes returning to play so soon after tearing his ACL and MCL in December.",
+            "speaker": "Jo Madden",
+            "source_timestamp": 1205,
+            "quote": "with Mahomes coming back from the ACL and MCL, I'm just not buying it",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "KC"
+            ],
+            "players": [
+              "Josh Simmons"
+            ],
+            "topic": "Simmons injury impact on Chiefs O-Line",
+            "summary": "Starting tackle Josh Simmons is out, forcing undrafted rookie Benson to start on Mahomes' blind side, creating a severe mismatch against Denver's pass rush.",
+            "speaker": "Jo Madden",
+            "source_timestamp": 1285,
+            "quote": "with Simmons out of the lineup, we're going to see an undrafted rookie coming in, Benson, in his place",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "roster_or_depth_chart",
+            "teams": [
+              "KC"
+            ],
+            "players": [
+              "Kenneth Walker",
+              "Emmett Johnson"
+            ],
+            "topic": "Chiefs running back usage strategy",
+            "summary": "Scott suggests Emmett Johnson was drafted to serve in a short-yardage/goal-line role similar to Zach Charbonnet's role with Walker in Seattle to preserve Walker's health.",
+            "speaker": "Scott Bogman",
+            "source_timestamp": 1115,
+            "quote": "take what the Seahawks did last season with him and Charbonnet... put Emmett Johnson in that Charbonnet role",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "DEN"
+            ],
+            "players": [
+              "Jaylen Waddle"
+            ],
+            "topic": "Waddle WR1 transition",
+            "summary": "Scott expects Jaylen Waddle to thrive as Denver's true WR1 with Courtland Sutton slotting into the WR2 role, catching passes from Bo Nix.",
+            "speaker": "Scott Bogman",
+            "source_timestamp": 820,
+            "quote": "now that Sutton is the number two, it's going to be great for him, even better for Waddle",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Denver Defense PPG",
+            "timestamp": 361,
+            "speaker": "Jo Madden",
+            "quote": "their defense only allowed 18.3 points per game, third best in the NFL"
+          },
+          {
+            "topic": "Chiefs Spread disrespect",
+            "timestamp": 361,
+            "speaker": "Jo Madden",
+            "quote": "I find this line completely disrespectful to the Denver Broncos."
+          },
+          {
+            "topic": "Nik Bonitto Sack",
+            "timestamp": 1268,
+            "speaker": "Jo Madden",
+            "quote": "Mahomes is going to be in danger tonight on his blind side from Nik Bonitto"
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 1865,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 1865,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 8,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-Di5Hf2iH4pM",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_f196a354cc51",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=Di5Hf2iH4pM",
+        "latency_ms": 279857,
+        "estimated_cost_usd": 0.034084,
+        "input_tokens": 328088,
+        "output_tokens": 3187,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Brandon Anderson and Brandon Kravitz recap NFL Week 1, separating genuine market shifts from classic overreactions. They analyze team futures, division markets, and award races, highlighting best buy/sell opportunities including Caleb Williams MVP odds and the Buccaneers division outlook.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 3584,\n    \"last_analyzed_timestamp\": 3584,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 180.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Welcome to Brandon's Futures Show via the Action Network presented by DraftKings. Week 1 is in the books and we are looking at our first data points of the season. Brandon, how did Week 1 treat you?\"\n    },\n    {\n      \"start\": 180.0,\n      \"end\": 420.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"It was a roller coaster as always. We finally have real data, but it's only one game. Do we overreact or underreact? Let's talk about Caleb Williams. DK Predict has him up to 23% to be MVP. You have to sell this. This is the biggest sell in the futures market right now.\"\n    },\n    {\n      \"start\": 420.0,\n      \"end\": 650.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"The Chiefs are now up to 54% to win the AFC West after beating Denver on Monday Night, while the Chargers are down to 18%. Let's look at Mahomes' MVP case and the Chargers' outlook under Jim Harbaugh.\"\n    },\n    {\n      \"start\": 650.0,\n      \"end\": 900.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"The Chiefs looked incredibly physical under center. Creed Humphrey and Trey Smith dominated. On the flip side, the Broncos tackle rate was historically bad. 28 missed tackles is unheard of in an NFL game.\"\n    },\n    {\n      \"start\": 900.0,\n      \"end\": 1200.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Let's move on to the 49ers and Rams. San Francisco dominated that game 27-7. The Rams flew in late to Australia and they looked completely jet-lagged. Now Miles Garrett is hurt and on the shelf for the Rams.\"\n    },\n    {\n      \"start\": 1200.0,\n      \"end\": 1500.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Arizona surprised the Chargers 26-14. 30% of survivor pools were knocked out. I'm already looking at the Chargers to miss the playoffs. At -120, that represents solid value given their remaining schedule.\"\n    },\n    {\n      \"start\": 1500.0,\n      \"end\": 1800.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"The Eagles beat the Commanders 24-22, but their offense under Shane Waldron still looks clunky. Saquon Barkley was hit in the backfield way too often, and Landon Dickerson going to IR is a massive blow.\"\n    },\n    {\n      \"start\": 1800.0,\n      \"end\": 2100.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"The Giants beat the Cowboys 28-20, and their new-look offense using Jackson Dart actually looked highly efficient. I think the Giants at +375 to win the NFC East are very live compared to Dallas at 3 to 1.\"\n    },\n    {\n      \"start\": 2100.0,\n      \"end\": 2400.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Baltimore dismantled Indianapolis 41-23. Lamar Jackson and Derrick Henry were unstoppable. On the other side, Daniel Jones had a brutal game for the Colts. The Ravens look like a top-tier powerhouse.\"\n    },\n    {\n      \"start\": 2400.0,\n      \"end\": 2700.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Jacksonville stomped the Browns 34-10. Trevor Lawrence's MVP odds are sitting around 7%, which is a great value buy if you believe this breakout is legit. Deshaun Watson's Browns look like they're in major trouble.\"\n    },\n    {\n      \"start\": 2700.0,\n      \"end\": 3000.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"The Bills beat the Texans 36-31 in a shootout. Josh Allen did whatever he wanted, and Dalton Kincaid had a massive day with 130 receiving yards. Let's look at the Texans' divisional outlook.\"\n    },\n    {\n      \"start\": 3000.0,\n      \"end\": 3300.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Houston's defense struggled, but their offense is legit. FTN projects them at 50% to win the division, but we can buy them at 41% (+144) right now. I'm definitely buying Texans stock.\"\n    },\n    {\n      \"start\": 3300.0,\n      \"end\": 3584.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Finally, the Bengals beat the Bucs 33-27. After Tampa's loss, their division odds dropped to +194, which is a screaming buy. Let's wrap up with our DROY picks and best trends for Week 2.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"CHI\",\n      \"player\": \"Caleb Williams\",\n      \"market\": \"mvp\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": 700,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 230,\n      \"rationale\": \"Caleb Williams' MVP odds are highly inflated after a win against a poor Panthers team. MVP requires team wins and a high seed, which the Bears' defense cannot support.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": null,\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": -120,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1285,\n      \"rationale\": \"With a projected win total down to 7.4 wins at FTN, backing the Chargers to miss the playoffs at -120 is the superior way to play their market.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 144,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2850,\n      \"rationale\": \"FTN projects the Texans with a 50% chance to win the division, but prediction markets currently price them at only 41% (+144), presenting a clear mathematical edge.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"division_winner\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 194,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3150,\n      \"rationale\": \"Tampa Bay's division winner odds of +194 (34%) are too cheap compared to FTN's 60% projection, making this a prime double-down opportunity.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": null,\n      \"market\": \"make_playoffs\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 450,\n      \"week\": null,\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 3390,\n      \"rationale\": \"The Jets are trading at +450 to make the playoffs, which is a great entry point given they have the third easiest remaining schedule in the NFL.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": null,\n      \"market\": \"last_place_division\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1210,\n      \"rationale\": \"Green Bay's offensive struggles and quarterback injury context make their ticket to finish last in the division look highly promising.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": \"Sonny Styles\",\n      \"market\": \"droy\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 700,\n      \"week\": null,\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 3140,\n      \"rationale\": \"Styles played every second-half snap, showing elite physical tools. Backing him at 10% (7-1) now with the plan to sell high around the Week 7 bye is an optimal portfolio play.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": \"Rueben Bain\",\n      \"market\": \"droy\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 900,\n      \"week\": null,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3210,\n      \"rationale\": \"Bain's quiet Week 1 caused his price to drop to 10% (from being the preseason favorite), creating a perfect buy-the-dip window before his matchup against a weak Browns line.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"DEN\"],\n      \"players\": [],\n      \"topic\": \"Broncos Missed Tackles\",\n      \"summary\": \"Denver's tackling was historically bad in Week 1, recording 28 missed tackles which Brandon Anderson noted is the worst defensive performance in yards allowed off missed tackles since 2018.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 845,\n      \"quote\": \"Denver forgot how to tackle, 28 missed tackles... the most yards allowed off missed tackles since 2018.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"LAR\"],\n      \"players\": [\"Miles Garrett\"],\n      \"topic\": \"Miles Garrett Injury\",\n      \"summary\": \"Miles Garrett suffered an injury and is heading to the shelf, significantly damaging the Rams' defensive ceiling and win total projections.\",\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 955,\n      \"quote\": \"And now Miles Garrett is hurt and on the shelf... the dream feels like it is already over.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"PHI\"],\n      \"players\": [\"Saquon Barkley\"],\n      \"topic\": \"Eagles Offensive Clunkiness\",\n      \"summary\": \"Despite their win, the Eagles' offense under new leadership remains inefficient, frequently seeing Saquon Barkley met behind the line of scrimmage.\",\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 1520,\n      \"quote\": \"The offense still feels like it's broken, Saquon Barkley was hit in the backfield far too often.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"BUF\"],\n      \"players\": [\"Dalton Kincaid\"],\n      \"topic\": \"Kincaid Outperformance\",\n      \"summary\": \"Dalton Kincaid thrived as a de facto receiver in Buffalo's 13 personnel packages, pacing the passing game with 130 receiving yards.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2905,\n      \"quote\": \"Dalton Kincaid mashed in this game, 130 yards, split out basically as a receiver.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Caleb Williams MVP Sell\",\n      \"timestamp\": 230,\n      \"speaker\": \"Brandon Anderson\",\n      \"quote\": \"This is the biggest sell in the futures market right now.\"\n    },\n    {\n      \"topic\": \"Rams projected win total\",\n      \"timestamp\": 1110,\n      \"speaker\": \"Brandon Anderson\",\n      \"quote\": \"They have the Rams now projected at 9.6 wins, well below the under 11.5.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "CHI",
+            "player": "Caleb Williams",
+            "market": "mvp",
+            "side": "NO",
+            "line": null,
+            "price": 700,
+            "week": null,
+            "speaker": "Brandon Anderson",
+            "source_timestamp": 230,
+            "rationale": "Caleb Williams' MVP odds are highly inflated after a win against a poor Panthers team. MVP requires team wins and a high seed, which the Bears' defense cannot support."
+          },
+          {
+            "team": "LAC",
+            "player": null,
+            "market": "make_playoffs",
+            "side": "NO",
+            "line": null,
+            "price": -120,
+            "week": null,
+            "speaker": "Brandon Anderson",
+            "source_timestamp": 1285,
+            "rationale": "With a projected win total down to 7.4 wins at FTN, backing the Chargers to miss the playoffs at -120 is the superior way to play their market."
+          },
+          {
+            "team": "HOU",
+            "player": null,
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 144,
+            "week": null,
+            "speaker": "Brandon Anderson",
+            "source_timestamp": 2850,
+            "rationale": "FTN projects the Texans with a 50% chance to win the division, but prediction markets currently price them at only 41% (+144), presenting a clear mathematical edge."
+          },
+          {
+            "team": "TB",
+            "player": null,
+            "market": "division_winner",
+            "side": "YES",
+            "line": null,
+            "price": 194,
+            "week": null,
+            "speaker": "Brandon Anderson",
+            "source_timestamp": 3150,
+            "rationale": "Tampa Bay's division winner odds of +194 (34%) are too cheap compared to FTN's 60% projection, making this a prime double-down opportunity."
+          },
+          {
+            "team": "NYJ",
+            "player": null,
+            "market": "make_playoffs",
+            "side": "YES",
+            "line": null,
+            "price": 450,
+            "week": null,
+            "speaker": "Brandon Kravitz",
+            "source_timestamp": 3390,
+            "rationale": "The Jets are trading at +450 to make the playoffs, which is a great entry point given they have the third easiest remaining schedule in the NFL."
+          },
+          {
+            "team": "GB",
+            "player": null,
+            "market": "last_place_division",
+            "side": "YES",
+            "line": null,
+            "price": null,
+            "week": null,
+            "speaker": "Brandon Anderson",
+            "source_timestamp": 1210,
+            "rationale": "Green Bay's offensive struggles and quarterback injury context make their ticket to finish last in the division look highly promising."
+          },
+          {
+            "team": "LAC",
+            "player": "Sonny Styles",
+            "market": "droy",
+            "side": "YES",
+            "line": null,
+            "price": 700,
+            "week": null,
+            "speaker": "Brandon Kravitz",
+            "source_timestamp": 3140,
+            "rationale": "Styles played every second-half snap, showing elite physical tools. Backing him at 10% (7-1) now with the plan to sell high around the Week 7 bye is an optimal portfolio play."
+          },
+          {
+            "team": "TB",
+            "player": "Rueben Bain",
+            "market": "droy",
+            "side": "YES",
+            "line": null,
+            "price": 900,
+            "week": null,
+            "speaker": "Brandon Anderson",
+            "source_timestamp": 3210,
+            "rationale": "Bain's quiet Week 1 caused his price to drop to 10% (from being the preseason favorite), creating a perfect buy-the-dip window before his matchup against a weak Browns line."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "DEN"
+            ],
+            "players": [],
+            "topic": "Broncos Missed Tackles",
+            "summary": "Denver's tackling was historically bad in Week 1, recording 28 missed tackles which Brandon Anderson noted is the worst defensive performance in yards allowed off missed tackles since 2018.",
+            "speaker": "Brandon Anderson",
+            "source_timestamp": 845,
+            "quote": "Denver forgot how to tackle, 28 missed tackles... the most yards allowed off missed tackles since 2018.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "LAR"
+            ],
+            "players": [
+              "Miles Garrett"
+            ],
+            "topic": "Miles Garrett Injury",
+            "summary": "Miles Garrett suffered an injury and is heading to the shelf, significantly damaging the Rams' defensive ceiling and win total projections.",
+            "speaker": "Brandon Kravitz",
+            "source_timestamp": 955,
+            "quote": "And now Miles Garrett is hurt and on the shelf... the dream feels like it is already over.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "PHI"
+            ],
+            "players": [
+              "Saquon Barkley"
+            ],
+            "topic": "Eagles Offensive Clunkiness",
+            "summary": "Despite their win, the Eagles' offense under new leadership remains inefficient, frequently seeing Saquon Barkley met behind the line of scrimmage.",
+            "speaker": "Brandon Kravitz",
+            "source_timestamp": 1520,
+            "quote": "The offense still feels like it's broken, Saquon Barkley was hit in the backfield far too often.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "BUF"
+            ],
+            "players": [
+              "Dalton Kincaid"
+            ],
+            "topic": "Kincaid Outperformance",
+            "summary": "Dalton Kincaid thrived as a de facto receiver in Buffalo's 13 personnel packages, pacing the passing game with 130 receiving yards.",
+            "speaker": "Brandon Anderson",
+            "source_timestamp": 2905,
+            "quote": "Dalton Kincaid mashed in this game, 130 yards, split out basically as a receiver.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Caleb Williams MVP Sell",
+            "timestamp": 230,
+            "speaker": "Brandon Anderson",
+            "quote": "This is the biggest sell in the futures market right now."
+          },
+          {
+            "topic": "Rams projected win total",
+            "timestamp": 1110,
+            "speaker": "Brandon Anderson",
+            "quote": "They have the Rams now projected at 9.6 wins, well below the under 11.5."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 3584,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 3584,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 8,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-rguRQZVoQtQ",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_9971780ec25a",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=rguRQZVoQtQ",
+        "latency_ms": 87941,
+        "estimated_cost_usd": 0.01995,
+        "input_tokens": 187505,
+        "output_tokens": 2998,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Warren Sharp and Curtis Hirsch analyze Week 1 of the NFL season, detailing the notable shift to under-center offenses, underperforming quarterbacks, and surprising team turnarounds. They also break down player props and betting strategies for the Monday Night Football game between the Denver Broncos and Kansas City Chiefs.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 2040,\n    \"last_analyzed_timestamp\": 2040,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 15.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"I'm Warren Sharp and this is Sharp Football Analysis. Today we're going to be breaking down some of the biggest reactions to an outstanding Week 1 in the NFL, plus we're going to have some best bets for you guys for Monday Night Football.\"\n    },\n    {\n      \"start\": 15.0,\n      \"end\": 18.0,\n      \"speaker\": \"Theme Music\",\n      \"text\": \"[Music playing]\"\n    },\n    {\n      \"start\": 18.0,\n      \"end\": 201.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"All right guys, a lot to discuss here, Week 1 reactions. I'm not going to run through every single game, just going to talk about some of the biggest things I was taking notes on... under-center rate for quarterbacks... quarterbacks ended up going under center in Week 1 on 43% of snaps... Burrow was 94% shotgun in the second half... Aaron Rodgers pushing the ball deeper downfield under Mike McCarthy... Daniel Jones' low air yards...\"\n    },\n    {\n      \"start\": 201.0,\n      \"end\": 279.0,\n      \"speaker\": \"Curtis Hirsch\",\n      \"text\": \"Yeah, I kind of like Xavier Worthy. He's kind of a forgotten man in Kansas City... Rashee Rice has had a quiet offseason... his line is at 37.5 yards right now. I don't mind going the over on that because I think he's a player they want to use more this year.\"\n    },\n    {\n      \"start\": 279.0,\n      \"end\": 318.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"I'm seeing right now 35.5 over at FanDuel, Caesars, DraftKings, Caesars, Hard Rock. My best bet for this week was Kenneth Walker receptions over 2.5... I think he's going to hit 4 or 5 receptions. I don't think they're going to trust other running backs in pass protection as much.\"\n    },\n    {\n      \"start\": 318.0,\n      \"end\": 348.0,\n      \"speaker\": \"Curtis Hirsch\",\n      \"text\": \"Another angle to play is Patrick Mahomes completions over. They are going to run the ball, but they still have a rookie left tackle and a good Denver pass rush... quick passes are going to keep Mahomes completions racking up over the completion total.\"\n    },\n    {\n      \"start\": 348.0,\n      \"end\": 369.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"Mahomes 21.5 completions is as good as -109, also 20.5 for -116... There has been some preseason chatter for Pat Bryant and his receptions number is 2.5... Pat Bryant closed out the season with 3+ receptions in 5 straight games. I want to say it's plus money to the over.\"\n    },\n    {\n      \"start\": 369.0,\n      \"end\": 383.0,\n      \"speaker\": \"Curtis Hirsch\",\n      \"text\": \"Good question, Pat Bryant's a player I do like the season-long kind of total on... Sean Payton likes his makeup and I think he's going to use him throughout the season, but tonight we're going to see Jaylen Waddle featured quite exclusively.\"\n    },\n    {\n      \"start\": 383.0,\n      \"end\": 2040.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"All right guys, well that will get you covered for a little bit of action... make sure you hit that subscribe button. We'll be back here later this week with more previews. Good luck tonight! [Outro music / Silence]\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"KC\",\n      \"player\": \"Xavier Worthy\",\n      \"market\": \"receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 37.5,\n      \"price\": null,\n      \"week\": 1,\n      \"speaker\": \"Curtis Hirsch\",\n      \"source_timestamp\": 219,\n      \"rationale\": \"Forgotten man in Kansas City with high athletic upside; the team will look to integrate him more as Rashee Rice has had a quiet offseason. Warren notes better lines are available at 35.5 and 36.5 at various books.\"\n    },\n    {\n      \"team\": \"SEA\",\n      \"player\": \"Kenneth Walker\",\n      \"market\": \"receptions\",\n      \"side\": \"OVER\",\n      \"line\": 2.5,\n      \"price\": null,\n      \"week\": 1,\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 286,\n      \"rationale\": \"Warren's best bet. Expects Walker to get 4 or 5 receptions out of the backfield as the Seahawks won't trust other running backs in pass protection.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"player\": \"Patrick Mahomes\",\n      \"market\": \"completions\",\n      \"side\": \"OVER\",\n      \"line\": 21.5,\n      \"price\": -109,\n      \"week\": 1,\n      \"speaker\": \"Curtis Hirsch\",\n      \"source_timestamp\": 318,\n      \"rationale\": \"Due to a rookie left tackle and a strong Denver pass rush, Kansas City is expected to utilize quick, short passes, leading to a high volume of completed throws.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": \"Pat Bryant\",\n      \"market\": \"receptions\",\n      \"side\": \"OVER\",\n      \"line\": 2.5,\n      \"price\": 106,\n      \"week\": 1,\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 348,\n      \"rationale\": \"Bryant finished last season with 3+ receptions in five straight games and has positive preseason buzz under Sean Payton, providing value at plus money.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [],\n      \"players\": [],\n      \"topic\": \"Surge in Under Center Snap Rates\",\n      \"summary\": \"Warren highlighted a massive league-wide surge in under-center rates during Week 1, hitting 43% of total snaps, which represents the highest rate since 2012.\",\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 38,\n      \"quote\": \"Quarterbacks ended up going under center in week one, 43% of snaps. That was the highest rate in the NFL for a week one since 2012.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\n        \"CIN\"\n      ],\n      \"players\": [\n        \"Joe Burrow\"\n      ],\n      \"topic\": \"Joe Burrow Under Center vs. Shotgun Split\",\n      \"summary\": \"The Bengals offense operated under center for 36% of first-half early downs but dropped to just 17% in the second half, with Burrow playing 94% out of the shotgun on passes.\",\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 139,\n      \"quote\": \"Joe Burrow was 94% shotgun in the second half on passes.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\n        \"GB\"\n      ],\n      \"players\": [\n        \"Aaron Rodgers\"\n      ],\n      \"topic\": \"Aaron Rodgers Air Yards Depth Under Mike McCarthy\",\n      \"summary\": \"In Mike McCarthy's deeper-passing scheme, Aaron Rodgers pushed the ball downfield aggressively, averaging 8.8 air yards per attempt (11th highest) compared to 5.9 air yards last year (lowest in the league).\",\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 295,\n      \"quote\": \"Aaron Rodgers averaged 8.8 air yards per attempt.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\n        \"IND\"\n      ],\n      \"players\": [\n        \"Daniel Jones\"\n      ],\n      \"topic\": \"Daniel Jones Low Air Yards vs. Ravens\",\n      \"summary\": \"Daniel Jones averaged just 5.9 air yards per attempt against Baltimore's defense despite trailing, which was a sharp drop from his 8.1 average last season.\",\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 416,\n      \"quote\": \"Daniel Jones averaged only 5.9 air yards per attempt.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"NO\"\n      ],\n      \"players\": [],\n      \"topic\": \"Saints Historical Offensive Splits\",\n      \"summary\": \"The Saints struggled heavily in the first half of their game with 0 points and a dismal 24% success rate, but exploded for 30 points in the second half.\",\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 821,\n      \"quote\": \"The Saints offense, they scored zero points in the first half... and then they scored 30 points in the second half.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"TB\"\n      ],\n      \"players\": [\n        \"Baker Mayfield\"\n      ],\n      \"topic\": \"Buccaneers Turnover Impact and High Completion Percentage\",\n      \"summary\": \"Tampa Bay lost the game due to 4 fumbles despite not punting a single time and Baker Mayfield registering an outstanding 82% completion rate.\",\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 1045,\n      \"quote\": \"Tampa Bay never punted and they lost the game.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"CHI\",\n        \"CAR\"\n      ],\n      \"players\": [\n        \"Caleb Williams\",\n        \"Bryce Young\"\n      ],\n      \"topic\": \"Bears vs. Panthers Offensive Efficiencies\",\n      \"summary\": \"The Bears easily won by 22 points. Conversely, Bryce Young registered strong statistics with 353 yards and 9.5 yards per attempt, but Carolina was unable to stay competitive.\",\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 1203,\n      \"quote\": \"Bryce Young, who throws 353 yards, 9.5 yards per attempt... and yet you still lose the game by 22 points.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Under Center Rate Surge\",\n      \"timestamp\": 38,\n      \"speaker\": \"Warren Sharp\",\n      \"quote\": \"Quarterbacks ended up going under center in week one, 43% of snaps. That was the highest rate in the NFL for a week one since 2012.\"\n    },\n    {\n      \"topic\": \"Mahomes completions over\",\n      \"timestamp\": 318,\n      \"speaker\": \"Curtis Hirsch\",\n      \"quote\": \"They are going to run the ball, but they still have a rookie left tackle... completions are going to rack up over the completion total.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 348,\n      \"field\": \"player\",\n      \"reason\": \"The audio references 'Pat Bryant' as a Denver Broncos player and mentions Jaylen Waddle being on Denver, which is likely a name hallucination/substitution error in the synthetic voice-over.\"\n    }\n  ]\n}",
+        "extracted_picks": [
+          {
+            "team": "KC",
+            "player": "Xavier Worthy",
+            "market": "season_receiving_yards",
+            "side": "OVER",
+            "line": 37.5,
+            "price": null,
+            "week": 1,
+            "speaker": "Curtis Hirsch",
+            "source_timestamp": 219,
+            "rationale": "Forgotten man in Kansas City with high athletic upside; the team will look to integrate him more as Rashee Rice has had a quiet offseason. Warren notes better lines are available at 35.5 and 36.5 at various books."
+          },
+          {
+            "team": "SEA",
+            "player": "Kenneth Walker",
+            "market": "receptions",
+            "side": "OVER",
+            "line": 2.5,
+            "price": null,
+            "week": 1,
+            "speaker": "Warren Sharp",
+            "source_timestamp": 286,
+            "rationale": "Warren's best bet. Expects Walker to get 4 or 5 receptions out of the backfield as the Seahawks won't trust other running backs in pass protection."
+          },
+          {
+            "team": "KC",
+            "player": "Patrick Mahomes",
+            "market": "completions",
+            "side": "OVER",
+            "line": 21.5,
+            "price": -109,
+            "week": 1,
+            "speaker": "Curtis Hirsch",
+            "source_timestamp": 318,
+            "rationale": "Due to a rookie left tackle and a strong Denver pass rush, Kansas City is expected to utilize quick, short passes, leading to a high volume of completed throws."
+          },
+          {
+            "team": "DEN",
+            "player": "Pat Bryant",
+            "market": "receptions",
+            "side": "OVER",
+            "line": 2.5,
+            "price": 106,
+            "week": 1,
+            "speaker": "Warren Sharp",
+            "source_timestamp": 348,
+            "rationale": "Bryant finished last season with 3+ receptions in five straight games and has positive preseason buzz under Sean Payton, providing value at plus money."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [],
+            "players": [],
+            "topic": "Surge in Under Center Snap Rates",
+            "summary": "Warren highlighted a massive league-wide surge in under-center rates during Week 1, hitting 43% of total snaps, which represents the highest rate since 2012.",
+            "speaker": "Warren Sharp",
+            "source_timestamp": 38,
+            "quote": "Quarterbacks ended up going under center in week one, 43% of snaps. That was the highest rate in the NFL for a week one since 2012.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "CIN"
+            ],
+            "players": [
+              "Joe Burrow"
+            ],
+            "topic": "Joe Burrow Under Center vs. Shotgun Split",
+            "summary": "The Bengals offense operated under center for 36% of first-half early downs but dropped to just 17% in the second half, with Burrow playing 94% out of the shotgun on passes.",
+            "speaker": "Warren Sharp",
+            "source_timestamp": 139,
+            "quote": "Joe Burrow was 94% shotgun in the second half on passes.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "GB"
+            ],
+            "players": [
+              "Aaron Rodgers"
+            ],
+            "topic": "Aaron Rodgers Air Yards Depth Under Mike McCarthy",
+            "summary": "In Mike McCarthy's deeper-passing scheme, Aaron Rodgers pushed the ball downfield aggressively, averaging 8.8 air yards per attempt (11th highest) compared to 5.9 air yards last year (lowest in the league).",
+            "speaker": "Warren Sharp",
+            "source_timestamp": 295,
+            "quote": "Aaron Rodgers averaged 8.8 air yards per attempt.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "IND"
+            ],
+            "players": [
+              "Daniel Jones"
+            ],
+            "topic": "Daniel Jones Low Air Yards vs. Ravens",
+            "summary": "Daniel Jones averaged just 5.9 air yards per attempt against Baltimore's defense despite trailing, which was a sharp drop from his 8.1 average last season.",
+            "speaker": "Warren Sharp",
+            "source_timestamp": 416,
+            "quote": "Daniel Jones averaged only 5.9 air yards per attempt.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "NO"
+            ],
+            "players": [],
+            "topic": "Saints Historical Offensive Splits",
+            "summary": "The Saints struggled heavily in the first half of their game with 0 points and a dismal 24% success rate, but exploded for 30 points in the second half.",
+            "speaker": "Warren Sharp",
+            "source_timestamp": 821,
+            "quote": "The Saints offense, they scored zero points in the first half... and then they scored 30 points in the second half.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "TB"
+            ],
+            "players": [
+              "Baker Mayfield"
+            ],
+            "topic": "Buccaneers Turnover Impact and High Completion Percentage",
+            "summary": "Tampa Bay lost the game due to 4 fumbles despite not punting a single time and Baker Mayfield registering an outstanding 82% completion rate.",
+            "speaker": "Warren Sharp",
+            "source_timestamp": 1045,
+            "quote": "Tampa Bay never punted and they lost the game.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "CHI",
+              "CAR"
+            ],
+            "players": [
+              "Caleb Williams",
+              "Bryce Young"
+            ],
+            "topic": "Bears vs. Panthers Offensive Efficiencies",
+            "summary": "The Bears easily won by 22 points. Conversely, Bryce Young registered strong statistics with 353 yards and 9.5 yards per attempt, but Carolina was unable to stay competitive.",
+            "speaker": "Warren Sharp",
+            "source_timestamp": 1203,
+            "quote": "Bryce Young, who throws 353 yards, 9.5 yards per attempt... and yet you still lose the game by 22 points.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Under Center Rate Surge",
+            "timestamp": 38,
+            "speaker": "Warren Sharp",
+            "quote": "Quarterbacks ended up going under center in week one, 43% of snaps. That was the highest rate in the NFL for a week one since 2012."
+          },
+          {
+            "topic": "Mahomes completions over",
+            "timestamp": 318,
+            "speaker": "Curtis Hirsch",
+            "quote": "They are going to run the ball, but they still have a rookie left tackle... completions are going to rack up over the completion total."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 2040,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 2040,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 4,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-GlX2VLYRIfY",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_10f496415b70",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=GlX2VLYRIfY",
+        "latency_ms": 174289,
+        "estimated_cost_usd": 0.022696,
+        "input_tokens": 218270,
+        "output_tokens": 2173,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman and Simon Hunter recap a wild NFL Week 1 on the Sharp or Square podcast, discussing Minnesota's miraculous late cover, Tampa Bay's turnover-plagued loss to the Bengals, and Chicago's offensive explosion against Carolina.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 2378,\n    \"last_analyzed_timestamp\": 2378,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 42.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharp or Square, brought to you by Polymarket. We are part of the Volume podcast network. I am Chad Millman, joined as always by my co-host, professional bettor Simon Hunter.\"\n    },\n    {\n      \"start\": 42.0,\n      \"end\": 110.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Chad, how we doing? Week 1 is finally here, baby, and it's the absolute best.\"\n    },\n    {\n      \"start\": 110.0,\n      \"end\": 240.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"It was a long, lonely walk up the darkened steps, but we were saved by watching Minnesota score three touchdowns in the span of about two minutes to go from outright losers to easily covering against Green Bay.\"\n    },\n    {\n      \"start\": 240.0,\n      \"end\": 450.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Every game came down to the turnover battle, and we unfortunately lost almost every single one of them today. But we got saved in the end, and we'll take it.\"\n    },\n    {\n      \"start\": 450.0,\n      \"end\": 713.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Let's start with Minnesota. Minnesota minus one and a half was our play. First throw of the game was a Kyler pick, and then Kyler gets knocked out of the game entirely. I don't know how they stayed alive.\"\n    },\n    {\n      \"start\": 713.0,\n      \"end\": 980.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"When Kyler went out, it honestly wasn't that big of a downgrade to Carson Wentz at this point. Kyler did not look confident throwing off his back foot. Wentz came in and played really solid football.\"\n    },\n    {\n      \"start\": 980.0,\n      \"end\": 1250.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Next game, Tampa Bay Buccaneers plus three and a half against the Cincinnati Bengals. Baker Mayfield fumbled four times today, Simon. Four times, and they still only lost by six points.\"\n    },\n    {\n      \"start\": 1250.0,\n      \"end\": 1506.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Baker lost three fumbles, and Bucky Irving had another one. You cannot turn the ball over four times against a potent Bengals offense and expect to cover. It was a brutal non-cover for us.\"\n    },\n    {\n      \"start\": 1506.0,\n      \"end\": 1750.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"We also had Carolina plus three and a half. Ben Johnson is not screwing around with this Bears offense, putting up fifty-nine points in Week 1.\"\n    },\n    {\n      \"start\": 1750.0,\n      \"end\": 2026.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Caleb Williams set the tone in the first quarter with his legs, finishing with two rushing touchdowns. DeAndre Swift was also phenomenal, running hard and proving why he got that new contract.\"\n    },\n    {\n      \"start\": 2026.0,\n      \"end\": 2250.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"We talked before the season about betting the Bears to lead the league in scoring at nine to one, and that's looking like a great ticket right now.\"\n    },\n    {\n      \"start\": 2250.0,\n      \"end\": 2378.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"That's our recap of the early Sunday slate. We'll be back on Tuesday to look ahead to Week 2. Make sure to download the Polymarket app with code SHARP. See you next time.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"FAVORITE\",\n      \"line\": -1.5,\n      \"price\": null,\n      \"week\": 1,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 555,\n      \"rationale\": \"Minnesota minus 1.5 was the official bet that successfully covered with a late three-touchdown comeback.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"UNDERDOG\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 1,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 1400,\n      \"rationale\": \"Buccaneers plus 3.5 failed to cover against the Bengals due to four total turnovers.\"\n    },\n    {\n      \"team\": \"CAR\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"UNDERDOG\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 1,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 1902,\n      \"rationale\": \"Panthers plus 3.5 failed to cover as they were completely dominated by the Bears.\"\n    },\n    {\n      \"team\": \"CHI\",\n      \"player\": null,\n      \"market\": \"other\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 900,\n      \"week\": null,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 2150,\n      \"rationale\": \"Season-long futures bet on the Chicago Bears to lead the NFL in total scoring at 9-to-1 odds.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"MIN\"],\n      \"players\": [\"Kyler Murray\"],\n      \"topic\": \"Kyler Murray Concussion\",\n      \"summary\": \"Kyler Murray was knocked out of the game with a concussion in the first half, thrusting backup Carson Wentz into action.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 713,\n      \"quote\": \"Kyler is knocked out of the game because of a concussion.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"CHI\"],\n      \"players\": [\"Caleb Williams\", \"DeAndre Swift\"],\n      \"topic\": \"Ben Johnson's Offensive Scheme\",\n      \"summary\": \"The Bears' offense looked dominant and highly explosive, rushing 39 times for 291 yards and 6 touchdowns under coordinator Ben Johnson.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1750,\n      \"quote\": \"Ben Johnson is not screwing around when he talks about leading the league in points.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"TB\"],\n      \"players\": [\"Baker Mayfield\"],\n      \"topic\": \"Buccaneers Turnover Issues\",\n      \"summary\": \"Tampa Bay's offensive execution was heavily hindered by fumbles, with Baker Mayfield turning the ball over multiple times.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1250,\n      \"quote\": \"You bet a dog, you have four turnovers against a potent offense like the Bengals, you're not going to cover.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Bears Futures\",\n      \"timestamp\": 2150,\n      \"speaker\": \"Chad Millman\",\n      \"quote\": \"We talked about betting the Bears to lead the league in scoring... they were at 9 to 1.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 555,\n      \"field\": \"price\",\n      \"reason\": \"Vig/price on the Minnesota spread was not explicitly mentioned during the recap.\"\n    }\n  ]\n}",
+        "extracted_picks": [
+          {
+            "team": "MIN",
+            "player": null,
+            "market": "spread",
+            "side": "FAVORITE",
+            "line": -1.5,
+            "price": null,
+            "week": 1,
+            "speaker": "Chad Millman",
+            "source_timestamp": 555,
+            "rationale": "Minnesota minus 1.5 was the official bet that successfully covered with a late three-touchdown comeback."
+          },
+          {
+            "team": "TB",
+            "player": null,
+            "market": "spread",
+            "side": "UNDER",
+            "line": 3.5,
+            "price": null,
+            "week": 1,
+            "speaker": "Chad Millman",
+            "source_timestamp": 1400,
+            "rationale": "Buccaneers plus 3.5 failed to cover against the Bengals due to four total turnovers."
+          },
+          {
+            "team": "CAR",
+            "player": null,
+            "market": "spread",
+            "side": "UNDER",
+            "line": 3.5,
+            "price": null,
+            "week": 1,
+            "speaker": "Chad Millman",
+            "source_timestamp": 1902,
+            "rationale": "Panthers plus 3.5 failed to cover as they were completely dominated by the Bears."
+          },
+          {
+            "team": "CHI",
+            "player": null,
+            "market": "other",
+            "side": "YES",
+            "line": null,
+            "price": 900,
+            "week": null,
+            "speaker": "Chad Millman",
+            "source_timestamp": 2150,
+            "rationale": "Season-long futures bet on the Chicago Bears to lead the NFL in total scoring at 9-to-1 odds."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "MIN"
+            ],
+            "players": [
+              "Kyler Murray"
+            ],
+            "topic": "Kyler Murray Concussion",
+            "summary": "Kyler Murray was knocked out of the game with a concussion in the first half, thrusting backup Carson Wentz into action.",
+            "speaker": "Chad Millman",
+            "source_timestamp": 713,
+            "quote": "Kyler is knocked out of the game because of a concussion.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "CHI"
+            ],
+            "players": [
+              "Caleb Williams",
+              "DeAndre Swift"
+            ],
+            "topic": "Ben Johnson's Offensive Scheme",
+            "summary": "The Bears' offense looked dominant and highly explosive, rushing 39 times for 291 yards and 6 touchdowns under coordinator Ben Johnson.",
+            "speaker": "Simon Hunter",
+            "source_timestamp": 1750,
+            "quote": "Ben Johnson is not screwing around when he talks about leading the league in points.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "TB"
+            ],
+            "players": [
+              "Baker Mayfield"
+            ],
+            "topic": "Buccaneers Turnover Issues",
+            "summary": "Tampa Bay's offensive execution was heavily hindered by fumbles, with Baker Mayfield turning the ball over multiple times.",
+            "speaker": "Simon Hunter",
+            "source_timestamp": 1250,
+            "quote": "You bet a dog, you have four turnovers against a potent offense like the Bengals, you're not going to cover.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Bears Futures",
+            "timestamp": 2150,
+            "speaker": "Chad Millman",
+            "quote": "We talked about betting the Bears to lead the league in scoring... they were at 9 to 1."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 2378,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 2378,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 4,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    },
+    {
+      "episode_slug": "youtube-4EscNiaKK_g",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_3146db718cc0",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=4EscNiaKK_g",
+        "latency_ms": 45056,
+        "estimated_cost_usd": 0.015571,
+        "input_tokens": 138450,
+        "output_tokens": 4314,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Matt Perrault and Pat Fitzmaurice break down NFL Week 2, offering their survivor pool recommendations and highlighting key matchups. They discuss the merits of backing the Buccaneers and 49ers, and look at early spread lines for several games.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1500,\n    \"last_analyzed_timestamp\": 1500,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 160.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"Well if you are alive in a survivor contest congratulations, you avoided the dreaded LA Chargers. Welcome to what will be a fun breakdown if you are still alive in a survivor contest here on BettingPros, our Week 2 survivor pool picks. Teams you can take a look at and some leans and locks that you may want to play and bet coming up for Week 2 of the NFL. He is Pat Fitzmaurice, I'm Matt Perrault. Pat, oh my gosh, I took the Jags, you were on the Jags, I came around to your side although I had the Jaguars, the Steelers, and the Lions as my three options. All three did win, but my gosh, gotta feel for those who took the Chargers.\"\n    },\n    {\n      \"start\": 160.0,\n      \"end\": 200.0,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"text\": \"That was tough. Yeah, they would have been my runner-up pick too, and even with the Lions and Steelers, I think you had sweaty palms in those games, Lions especially coming down to a two-point conversion try for the Saints in overtime. But, yeah, the Chargers, did not expect them to lay that sort of egg. But I feel pretty good about the advice we gave here on last week's show, just bet against Deshaun Watson while you can.\"\n    },\n    {\n      \"start\": 200.0,\n      \"end\": 461.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"And we'll get into it here in just one second, but I think from a cost of ownership, if you want to call it that, with the Chargers, everyone was trying to get a layup, and I'm just going to reiterate to you guys again, even though the Jaguars did wind up going off as the number one selected team for Circa Survivor, you have to be careful about chalk and groupthink when it comes to Survivor. All summer long, dating back to July when people were talking survivor, it was Chargers Week 1, Chargers Week 1. And I just had a feeling, I was like, man, I've seen this story too many times. And the Jaguars eventually became like, well if you're not going to take the Chargers, don't be cute, take the other guaranteed W team, and that would be the Jags at home against the Browns. I will say this though, I didn't think it was going to be 31-3 at halftime, or whatever the heck it was, 31-3 early in the third quarter in that game. Were you even surprised at how bad the Browns looked?\"\n    },\n    {\n      \"start\": 461.0,\n      \"end\": 520.0,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"text\": \"I knew it was not off the table for them to look completely non-functional on offense with Deshaun Watson. Like, the vibes were so bad with him directing that offense all summer, I was shocked when they actually gave him the job. It is in their best interest to tank, you said it on Sunday, Matt, this is not a team that really wants to win games. So I guess it was not that stunning to me.\"\n    },\n    {\n      \"start\": 520.0,\n      \"end\": 740.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"Nope. All right, that takes us to the Tampa Bay Buccaneers. Baker Mayfield is the starting quarterback for Tampa, who turned the ball over a bazillion times in the Week 1 loss to the Bengals for this offense. He fumbled the ball that was returned for a touchdown, he fumbled as he was about to score a touchdown, he fumbled the ball into the endzone, he threw picks. But Baker Mayfield was drafted by the Browns number one overall, he's only played them one time, that was back in 2022, he's 0-1 in his history up against his former team. But I think you and I like the same team here, going at the Browns once again for survivor, yes?\"\n    },\n    {\n      \"start\": 740.0,\n      \"end\": 835.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"Guys, football is back, that means it's time to level up your approach to the NFL and college football this season. Polymarket is here, Polymarket is a legal prediction market now available in all 50 states, and unlike traditional sportsbooks, on Polymarket you can trade all things football. From the Saturday and Sunday slates to who wins the Heisman, Polymarket gives you the freedom to cash out instantly. If the momentum swings, you can sell it off in real-time, no one is going to lock you out. Use the promo code FPPOD at Polymarket.us to get a fifty-dollar bonus when you deposit just ten dollars.\"\n    },\n    {\n      \"start\": 835.0,\n      \"end\": 939.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"So we both are in agreement that the chalk play, the consensus, is going to be Tampa. I'm not sure really where else I would want to use Tampa, I've got this very scientific and very cool grid of all the teams that was handed out when I was in Vegas. So there's no other really place I would want to use the Bucs other than potentially this week, so that's I think in terms of spot plays, this is the best opportunity. They play Minnesota and Green Bay in their next two games, and then Green Bay in Week 4, then they're at Dallas, then Pittsburgh, at Carolina. So not really, I think this spot here is the best time to use the Bucs and take them off the board. But other teams that I'm looking at, potentially the 49ers, as what they might look like coming up against the Dolphins, who lost to the Raiders in Vegas. If you're not going to take the Bucs, what's another team that you're looking at?\"\n    },\n    {\n      \"start\": 939.0,\n      \"end\": 1048.0,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"text\": \"I mean, the 49ers are the biggest favorites on the board, but you know the whole hullabaloo about when the Rams and the 49ers traveled to Australia for that game, and the Rams seemed to be sacrificing maybe the travel for that game to keep their circadian rhythms intact for subsequent games. Does this throw the 49ers off at all? I mean, we know they're technically getting extra rest, I don't expect them to lose to the Dolphins, but maybe are they a little flatter than they were in that Australia game? Plus there are so many other good opportunities to use the 49ers. Just wait a week and you can take them at home against the Cardinals, once they're maybe back in sync a little bit. Week 6 you could have them at home against the Commanders, Week 9 you could have them at home against the Raiders. So there will be other opportunities to use the 49ers.\"\n    },\n    {\n      \"start\": 1048.0,\n      \"end\": 1100.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"Agreed, I'm petrified of the travel, that makes me very concerned. Week 1 to Week 2, if you're supposed to be bad and you win Week 1, what happens in Week 2? Fading the Cardinals, maybe we go and take a look at Seattle, it's a divisional game so I do not like divisional games, but what do you make of the Seahawks as being a potential option here? If you're not going to take the 49ers or the Bucs, maybe it's time to burn Seattle.\"\n    },\n    {\n      \"start\": 1100.0,\n      \"end\": 1209.0,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"text\": \"I'd consider it if it were Sam Darnold at quarterback, I can't get there with Drew Lock, Matt, just can't. It sounds like there's a good chance of Darnold returning soon, there was nothing with the hip socket, no hip fracture, and I've heard some speculate that maybe it was like a glute muscle tear. He basically tore a muscle in his rear end or something like that, which seems like it would be a faster recovery than some damage to the hip.\"\n    },\n    {\n      \"start\": 1209.0,\n      \"end\": 1247.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"Interesting, I hadn't heard that, but yeah. But then you gotta worry about the passing motion, can he run, is he mobile? Like, there are some questions that will come out of this for Sam Darnold as he does come back from this injury, whatever the injury may have been for him in the opener. Who else could you see yourself targeting? Anybody else that you like?\"\n    },\n    {\n      \"start\": 1247.0,\n      \"end\": 1350.0,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"text\": \"Dare we consider the Chargers, Matt, coming off a bad loss with a taste of blood in their mouth against the Raiders? It is a divisional game, and I think we saw that the Raiders are probably going to be a little spunkier under Clint Kubiak than they were last year under Pete Carroll. So I'm with you on that. The Eagles, who kind of played with their food a little bit in that win over the Commanders, maybe they have an easier go of it against the Titans this year. And then, not really a game I love, Matt, but just worth mentioning, tell me if you feel this is a potential trap, the Patriots with the extra rest and coming off the loss, at home against the Steelers.\"\n    },\n    {\n      \"start\": 1350.0,\n      \"end\": 1500.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"You know, I looked at it, I just don't know if this is the time to burn the Patriots. I mean, the Steelers did not look good, so I'm not going to sit here and be like okay, yeah, really dangerous team to back because they're up against the Steelers. But the Patriots, I mean put it this way, if they lose this game, they could open up 0-4. So I think that there's a really big worry for New England and New England fans about what this game is going to look like. So I think maybe backs against the wall, home opener, they play three of the first four games on the road. So you got to win the home game, you lost the road game, you got to win the home game. So I really wonder how much that factors into it. Which of those teams seems like the biggest trap to you, Chargers, Eagles, Patriots? Chargers, because of what everyone just assumes, oh well they can't lose back-to-back games, and the Raiders on the road, but it's a home game for the Raiders, like there's more black in that building than gold, and that's the problem. So I'd be careful with the Chargers. All right, let's wrap it back around here. If we're picking survivor, ranking one to three, your top three survivor picks would be what? The Buccaneers over the Browns number one, number two the 49ers over the Dolphins, and a distant third the Chargers over the Raiders. Yeah, I'm with you on the top two, the third one I'm gonna have to think about. Guys, bet smarter with the Smart Money Tool from BettingPros. See where the sharp money is flowing in prediction markets, compare it with sportsbook odds, and uncover potential mispriced lines. We'll be back next week, hopefully Tampa Bay will come through for us. Talk to you next week for Week 3.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"survivor_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 840,\n      \"rationale\": \"Selected as the number one survivor option for Week 2.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": null,\n      \"market\": \"survivor_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 843,\n      \"rationale\": \"Ranked as the number two survivor pick for Week 2.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": null,\n      \"market\": \"survivor_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 1152,\n      \"rationale\": \"Selected as a distant third survivor pick for Week 2.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"survivor_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Matt Perrault\",\n      \"source_timestamp\": 519,\n      \"rationale\": \"Agreed that Tampa is the consensus chalk survivor play with the best spot on their schedule to burn them.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"HOU\",\n      \"line\": -2.5,\n      \"price\": -145,\n      \"week\": 2,\n      \"speaker\": \"Matt Perrault\",\n      \"source_timestamp\": 967,\n      \"rationale\": \"Liking Houston to lay less than a field goal against the Bengals.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"GB\",\n      \"line\": -4.5,\n      \"price\": -200,\n      \"week\": 2,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 1040,\n      \"rationale\": \"Likes the Packers to rebound and cover the spread against the Jets.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"TB\"],\n      \"players\": [\"Baker Mayfield\"],\n      \"topic\": \"Baker Mayfield turnovers\",\n      \"summary\": \"Mayfield struggled heavily with fumbles and interceptions in Week 1, but remains the starter against the Browns.\",\n      \"speaker\": \"Matt Perrault\",\n      \"source_timestamp\": 167,\n      \"quote\": \"Baker Mayfield is the starting quarterback for Tampa, who turned the ball over a bazillion times in the Week 1 loss.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"SF\"],\n      \"players\": [\"Sam Darnold\"],\n      \"topic\": \"Sam Darnold return timeline\",\n      \"summary\": \"Speculation that Darnold suffered a glute muscle tear rather than a hip fracture, pointing to a quicker return timeline.\",\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 687,\n      \"quote\": \"I've heard some speculate that maybe it was like a glute muscle tear. He basically tore a muscle in his rear end.\",\n      \"confidence\": \"speculative\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"DET\"],\n      \"players\": [\"Ben Johnson\"],\n      \"topic\": \"Bears offensive coordinator\",\n      \"summary\": \"Pat heavily praises the Bears scheme, labeling coordinator Ben Johnson as the best run game designer in the league.\",\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 1221,\n      \"quote\": \"Ben Johnson, the best running game designer probably in the NFL.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"MIN\"],\n      \"players\": [\"Kyler Murray\"],\n      \"topic\": \"Kyler Murray concussion\",\n      \"summary\": \"Kevin O'Connell stated Murray is expected to return for Week 2 despite a scary head injury in Week 1.\",\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 1254,\n      \"quote\": \"Kevin O'Connell was saying today he expects to have Kyler back for Week 2.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Chalk Tampa\",\n      \"timestamp\": 519,\n      \"speaker\": \"Matt Perrault\",\n      \"quote\": \"We both are in agreement that the chalk play, the consensus, is going to be Tampa.\"\n    },\n    {\n      \"topic\": \"Texans Spread\",\n      \"timestamp\": 967,\n      \"speaker\": \"Matt Perrault\",\n      \"quote\": \"I'm laying the points with the Texans... I like Houston laying less than a field goal.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 1134,\n      \"field\": \"line\",\n      \"reason\": \"Darnold's injury and status makes the Seattle vs Arizona line highly uncertain\"\n    }\n  ]\n}",
+        "extracted_picks": [
+          {
+            "team": "TB",
+            "player": null,
+            "market": "survivor_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 840,
+            "rationale": "Selected as the number one survivor option for Week 2."
+          },
+          {
+            "team": "SF",
+            "player": null,
+            "market": "survivor_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 843,
+            "rationale": "Ranked as the number two survivor pick for Week 2."
+          },
+          {
+            "team": "LAC",
+            "player": null,
+            "market": "survivor_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 1152,
+            "rationale": "Selected as a distant third survivor pick for Week 2."
+          },
+          {
+            "team": "TB",
+            "player": null,
+            "market": "survivor_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 2,
+            "speaker": "Matt Perrault",
+            "source_timestamp": 519,
+            "rationale": "Agreed that Tampa is the consensus chalk survivor play with the best spot on their schedule to burn them."
+          },
+          {
+            "team": "HOU",
+            "player": null,
+            "market": "spread",
+            "side": "HOU",
+            "line": -2.5,
+            "price": -145,
+            "week": 2,
+            "speaker": "Matt Perrault",
+            "source_timestamp": 967,
+            "rationale": "Liking Houston to lay less than a field goal against the Bengals."
+          },
+          {
+            "team": "GB",
+            "player": null,
+            "market": "spread",
+            "side": "GB",
+            "line": -4.5,
+            "price": -200,
+            "week": 2,
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 1040,
+            "rationale": "Likes the Packers to rebound and cover the spread against the Jets."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "TB"
+            ],
+            "players": [
+              "Baker Mayfield"
+            ],
+            "topic": "Baker Mayfield turnovers",
+            "summary": "Mayfield struggled heavily with fumbles and interceptions in Week 1, but remains the starter against the Browns.",
+            "speaker": "Matt Perrault",
+            "source_timestamp": 167,
+            "quote": "Baker Mayfield is the starting quarterback for Tampa, who turned the ball over a bazillion times in the Week 1 loss.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "SF"
+            ],
+            "players": [
+              "Sam Darnold"
+            ],
+            "topic": "Sam Darnold return timeline",
+            "summary": "Speculation that Darnold suffered a glute muscle tear rather than a hip fracture, pointing to a quicker return timeline.",
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 687,
+            "quote": "I've heard some speculate that maybe it was like a glute muscle tear. He basically tore a muscle in his rear end.",
+            "confidence": "speculative"
+          },
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "DET"
+            ],
+            "players": [
+              "Ben Johnson"
+            ],
+            "topic": "Bears offensive coordinator",
+            "summary": "Pat heavily praises the Bears scheme, labeling coordinator Ben Johnson as the best run game designer in the league.",
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 1221,
+            "quote": "Ben Johnson, the best running game designer probably in the NFL.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "MIN"
+            ],
+            "players": [
+              "Kyler Murray"
+            ],
+            "topic": "Kyler Murray concussion",
+            "summary": "Kevin O'Connell stated Murray is expected to return for Week 2 despite a scary head injury in Week 1.",
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 1254,
+            "quote": "Kevin O'Connell was saying today he expects to have Kyler back for Week 2.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Chalk Tampa",
+            "timestamp": 519,
+            "speaker": "Matt Perrault",
+            "quote": "We both are in agreement that the chalk play, the consensus, is going to be Tampa."
+          },
+          {
+            "topic": "Texans Spread",
+            "timestamp": 967,
+            "speaker": "Matt Perrault",
+            "quote": "I'm laying the points with the Texans... I like Houston laying less than a field goal."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 1500,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 1500,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 6,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

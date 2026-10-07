@@ -8,23 +8,22 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 69353
 Speaker turns: 145
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Guest (gpt-4o, unknown) futures=3
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -34,17 +33,9 @@ If you've been sitting on a business idea for a while, consider this the sign to
 
 presents painful thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole
 
-### Guest (Speaker A) [0:43-0:54]
-
-filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
-
 ### Simon Hunter (Speaker C) [0:55-1:02]
 
 Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker A) [1:03-2:31]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lilly.com
 
 ### Chad Millman (Speaker B) [2:35-2:41]
 
@@ -198,10 +189,6 @@ My choice. We can't run from who we are.
 
 Sharp dudes can just see it, you
 
-### Guest (Speaker A) [19:58-19:59]
-
-know what I mean?
-
 ### Chad Millman (Speaker B) [20:02-20:42]
 
 I love Jesse Minter. I feel like he's going to bring a different energy to that team. I think he's really going to move that defense into a position where it's not having to wait half a year before it figures out what it is and how to play. I think they're lined up to be perfectly dominant against a Colts team that there are so many quarterbacking issues and I think we saw what their problems are when they don't have Daniel Jones and things aren't going perfectly for them. Executive decision. Chad's choice. Chad loves love. Baltimore Ravens minus three and a half. Am I stealing it from you? Tell me if you feel strongly about it, I can move off it.
@@ -221,10 +208,6 @@ Yeah, it's most likely gonna be Anthony Richardson. So I, I. You could be catchi
 ### Chad Millman (Speaker B) [22:05-22:52]
 
 I love when we're in agreement so early in the year. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. Wix has introd used WIX Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And Wix Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Are
-
-### Guest (Speaker A) [22:52-24:23]
-
-you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia Syndrome Type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills. Taking zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound.lilly.com Amazon Pharmacy
 
 ### Simon Hunter (Speaker C) [24:23-24:27]
 
@@ -250,17 +233,9 @@ I know it. I gotta quit my job. Next time, avoid awkward conversations and get f
 
 did you download the trail map?
 
-### Guest (Speaker A) [24:56-24:57]
-
-Yeah, no, I don't need to.
-
 ### Chad Millman (Speaker B) [24:57-25:01]
 
 I don't understand. You're trusting your signal out here? I'm trusting T Mobile.
-
-### Guest (Speaker A) [25:01-25:03]
-
-They have the best network and if
 
 ### Chad Millman (Speaker B) [25:03-25:06]
 
@@ -386,10 +361,6 @@ is back then though. That's what it was.
 
 And now you would take an Uber. The other two movies which he's watched, which. Which are going to be part of our quintuple feature. Moneyball and Superbad. It was inspired because we listened to Jonah Hill on Smart List and it was a great episode and it made us laugh. And then we started talking about those movies. And when I thought of Wall street, but Fox, I thought of movies that are classics. All right. Nice detour. Let's hear from Hard Rock. Today's show is brought to you by our presenting sponsor, Hard Rock Bet, Florida's Sportsbook the second round of the NBA playoffs is here, and with win or go home energy on the hardwood, same game parlays are a great way to stack picks built especially for the playoff action. If you're ever late to tip off, don't worry, Hard Rock Bet lets you live bet all game long, from the first bucket to the final buzzer. Try your first bet on Hard Rock Bet today and you can score $150 in bonus bets. If you win, just place a $5 bet and if it hits, you get not only your winnings but also an extra $150 in bonus bets. Hard Rock Bet has new promos daily, so open up the app right now to see what promo you've got today. And sure, Hard Rock Bet is Florida's only legal sportsbook, but you don't have to be in Florida to join the party. Hard Rock Bet is also live in Arizona, Ohio, New Jersey, Indiana, Tennessee, Virginia, Illinois, Colorado and Michigan, with more states on the way. Download the Hard Rock Bet app today and let's get the party started. Payable in bonus bets, not a cash offer Offered by the Seminole Tribe of Florida in Florida. Offered by Seminole Hard Rock Digital, LLC and all other states must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play terms and conditions apply. Concerned about gambling in Florida? Call 1-833-Playwise in Indiana. If you or someone you know has a gambling problem and wants help, call 1-800-9 with it in Ohio, call 1-800-my reset gambling problem, call 1-800- gambler in Arizona, Colorado, Illinois, Michigan, New Jersey, Tennessee or Virginia. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually, or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Are
 
-### Guest (Speaker A) [39:57-41:27]
-
-you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zeppbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound.lilly.com Amazon Health
-
 ### Simon Hunter (Speaker C) [41:27-41:37]
 
 AI presents painful thoughts I can't stop scratching my downtown. Yeah, but I'm not itching to go
@@ -414,17 +385,9 @@ Chat your symptoms and get virtual care 24.
 
 did you download the trail map?
 
-### Guest (Speaker A) [42:01-42:02]
-
-Yeah, no, I don't need to.
-
 ### Chad Millman (Speaker B) [42:02-42:06]
 
 I don't understand. You're trusting your signal out here? I'm trusting T Mobile.
-
-### Guest (Speaker A) [42:06-42:07]
-
-They have the best network.
 
 ### Chad Millman (Speaker B) [42:07-42:11]
 
@@ -453,10 +416,6 @@ Find out more@t mobile.com or visit your local store. Best Mobile Network Based 
 ### Chad Millman (Speaker B) [42:35-42:39]
 
 Oklahoma speed test intelligence data 2H 2025 with 24 monthly bill credits and 4
-
-### Guest (Speaker A) [42:39-42:40]
-
-eligible port ins on essentials for well
 
 ### Chad Millman (Speaker B) [42:40-42:50]
 
@@ -597,7 +556,3 @@ Look at my man Janakowski like he looks like an imposter. Look at him. He looks 
 ### Chad Millman (Speaker B) [1:04:56-1:05:24]
 
 I'm U.S. transportation Secretary Sean Duffy. We all seem to be in a rush these days, from work to driving our kids around. But when you're behind the wheel, please do not speed. A few minutes saved by going faster is never worth the risk. So follow the speed limit, enjoy the drive, maybe bring some snacks for the kids. And know that along the way you're getting quality time with your family paid for by nhtsa.
-
-### Guest (Speaker A) [1:05:26-1:08:07]
-
-When you're a maintenance engineer in a beverage manufacturing plant, you keep production lines moving and quality on track because there is no room for slowdowns. With Grainger's vast selection of high quality motors, sensors, belts and hard to find parts, you can get what you need fast and all in one place so nothing gets in the way of getting the job done. Call 1-800-GRAINGER clickranger.com or just stop by Grainger for the ones who get it done. Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have some severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zephone with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lily.com the Hulu original series Furious is now streaming on Hulu and Hulu on Disney. Starring Emmy Rossom as Alice Black, Furious follows a rookie FBI agent on the hunt for Catherine, played by Lola Petticrew, a mysterious and calculating female serial killer. While Alice upholds justice, Catherine kills for it, terrorizing the rich and powerful men of New York in her pursuit of vengeance. With secrets that change everything, Alice discovers there's a thin line between hunter and prey. Watch the Hulu Original series Furious on July 27, streaming on Hulu and Hulu on Disney for bundle subscribers. Terms apply. This is an iHeart podcast. Guaranteed Human.

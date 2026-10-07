@@ -8,48 +8,35 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 69499
 Speaker turns: 148
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Guest (Speaker C), Ben Solak (Speaker D), Guest (Speaker E), Simon Hunter (Speaker F)
+Speaker labels: Chad Millman (Speaker B), Ben Solak (Speaker D), Simon Hunter (Speaker F)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
-- Speaker C: Guest
 - Speaker D: Ben Solak
-- Speaker E: Guest
 - Speaker F: Simon Hunter
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker C: ad/commercial audio ignored
+- Speaker E: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Chad Millman (gpt-4o, host_map) futures=2
-- Guest (gpt-4o, unknown) futures=1
-- Simon Hunter (gpt-4o, host_map) futures=6
+- Simon Hunter (gpt-4o, host_map) futures=9
+- Ben Solak (gpt-4o, host_map) futures=4
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
 If you've been sitting on a business idea for a while, consider this the sign to take action. It can even be made official today by creating a website with Wix Harmony. Just tell Wix Harmony what you want and it will build the entire site, business features included and everything can still be edited by hand. It's your website, your call. Try it@wix.com that's wix.com this episode sponsored
 
-### Guest (Speaker C) [0:34-1:10]
-
-by Apollo still moving deals forward from your desk. With Apollo, you can go to market on the go, find leads, research accounts and launch outreach right Inside Claude and ChatGPT. You can even make calls or research leads from Gmail, your CRM or company websites. So whether you're at the airport or on a coffee run, Apollo works where you work. No more switching tabs or devices. Grow boldly with Apollo, the revenue engine trusted by over 3 million teams. Visit Apollo I.O. anywhere and start free today. That's Apollo Ioannywhere.
-
-### Guest (Speaker A) [1:11-1:39]
-
-This is the story of the One As a maintenance engineer at a beverage manufacturing plant, he starts his day knowing every line is ready to run because Grainger delivers the industrial grade products he needs to to keep mixers, conveyors and packaging equipment moving. With Grainger's vast selection of bearings, belts and motors, he keeps operations running smoothly so nothing grinds to a halt. Call 1-800-GRAINGER Click grainger.com or just stop by Grainger for the ones who get it done.
-
 ### Ben Solak (Speaker D) [1:42-1:50]
 
 150 years ago, they were hunting us down to kill us. And now they're hunting down immigrants to deport them.
-
-### Guest (Speaker E) [1:50-1:53]
-
-This is First America, the true story
 
 ### Ben Solak (Speaker D) [1:53-2:06]
 
@@ -207,65 +194,29 @@ I know a guy, Chad, that does take that kind of action if you want to get some m
 
 So I feel like you and I need to get a piece of that action. That's what we need to do. Let's do a quick word from Hard Rock. Maybe they can come up with that and get it posted before we get back on the other side. Today's show is brought to you by our presenting sponsor, Hard Rock BET Sportsbook. Some folks call this the slow period until football season. But on Hard Rock bat, we call it baseball season. There's a full slate almost every day to bet on building up the same game. Part parlays and even live betting every inning. However you like to play ball, Hard Rock Bet has you covered. So if you're ready to step into the batter's box, sign up with Hard Rock Bet today and place a five dollar bet. If it wins, you bet 150 in bonus bets on top of your winnings. That's right, an extra 150 in your account. Plus, Hard Rock Bet gives you new promos every single day. We're talking no sweat bets, profit boost, bonus bets and more. Open Hard Rock Bet now and see what you've got today. And sure, Hard Rock Bet is Florida's only legal sports book, but you don't have to be in Florida to join the party. Hard Rock Bet is also live in Arizona, Ohio, New Jersey, Indiana, Tennessee, Virginia, Illinois, Colorado and Michigan, with more states on the way. So download Hard Rock Bet and swing for the fences today. Payable and bonus bets not a cash offer offered by the Seminole Tribe of Florida in Florida offered by Seminole Hard Rock Digital, LLC and all other states must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play. Terms and conditions apply. Concerned about gambling in Florida, call 1-833-Playwise in Indiana. If you or someone you know has a gambling problem and wants help, call 1-809 with it in Arizona, Ohio and Virginia, call 1-800-my reset gambling problem, call 1-800- gambler in Colorado, Illinois, Michigan, New Jersey and Tennessee. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. WIX has introduced WIX Harmony, a Vibe coder for websites that lets you type what you want and and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually, or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com. that's Wix
 
-### Guest (Speaker C) [27:25-28:03]
-
-this episode sponsored by Apollo still moving deals forward from your desk? With Apollo, you can go to market on the go, find leads, research accounts, and launch outreach right Inside Claude and ChatGPT. You can even make calls or research leads from Gmail, your CRM or company websites. So whether you're at the airport or on a coffee run, Apollo works where you work. No more switching tabs or devices. Grow boldly with Apollo, the revenue engine trusted by over 3 million teams. Visit Apollo IO anywhere and start free today. That's Apollo IO anywhere.
-
-### Guest (Speaker E) [28:03-28:14]
-
-Hey guys, Paul Verze here and I want to talk to you about Paul's best podcast, Will Ferrell's Big Money Players Network, and iHeartRadio. I sit down each week with a special guest and we discuss the absolute best of things.
-
 ### Simon Hunter (Speaker F) [28:15-28:17]
 
 It's that and then there's everything else.
-
-### Guest (Speaker E) [28:17-28:19]
-
-He would just shout one line. Yeah, it would murder.
 
 ### Chad Millman (Speaker B) [28:19-28:21]
 
 Marie, lunch.
 
-### Guest (Speaker E) [28:22-28:24]
-
-Let's talk about the best moments that
-
 ### Chad Millman (Speaker B) [28:24-28:25]
 
 we had on the road.
-
-### Guest (Speaker E) [28:26-28:41]
-
-I would love a cocktail. Dude, Joker get last row, middle seat on a Southwest Airlines flight. Joe, how was your flight? It was great. The guy in Penn State on the field, and the player thought Joe is his former coach. And he hugged him, and he hugged him, and Joe just went with it. And, you know, the guy goes, what
 
 ### Chad Millman (Speaker B) [28:41-28:42]
 
 are you doing here coaching Joe?
 
-### Guest (Speaker E) [28:42-28:43]
-
-Just go.
-
 ### Ben Solak (Speaker D) [28:45-28:53]
 
 And you walk in and it is bananas. I mean, it's a feast for the eyes. And I was like, it's like, it's not my thing either. But we're here.
 
-### Guest (Speaker E) [28:53-29:03]
-
-When in Rome, top athletes, chefs, musicians, everybody listen to Paul's best podcast on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
-
-### Guest (Speaker A) [29:03-29:36]
-
-Hey, I'm Nora Jones, and I love playing music with people so much that my podcast called Playing along is Back. I sit down with musicians from all musical styles to play songs together in an intimate setting. Every episode's a little different, but it all involves music and conversation with some of my favorite musicians. Over the past two seasons, I've had special guests like Dave Grohl, Levy, Mavis Staples, Remy Wolf, Jeff Tweedy. Really too many to name. And this season I've sat down with Joshua Homme, Sarah McLachlan, John Legend, and more. Check out my new episode with Finneas.
-
 ### Ben Solak (Speaker D) [29:36-29:56]
 
 So I went home and I asked Billie if she wanted to sing it. She immediately made it her own thing. No fair. You really know how to make me cry when you give me those oceans.
-
-### Guest (Speaker A) [29:56-30:03]
-
-So come hang out with us in the studio and listen to playing along on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
 
 ### Chad Millman (Speaker B) [30:04-30:58]
 
@@ -383,37 +334,17 @@ It's these little bottles you knock them
 
 back, you feel your best the next day. Couldn't recommend it more. All right, well listen, go to zbiotics.com sharpersquare to learn more and get 15% off your first order when you use Sharper Square at checkout. Zebiotics is backed with 100% money back guarantee, so if you're unsatisfied for any reason, they'll refund your money, no questions asked. Remember to head to zebiotics.com sharp or square and use the code Sharp or Square at checkout for 15% off. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. Wix has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com this
 
-### Guest (Speaker C) [44:51-45:29]
-
-episode sponsored by Apollo still moving deals forward from your desk. With Apollo, you can go to market on the go, find leads, research accounts, and launch outreach right Inside Claude and ChatGPT. You can even make calls or research leads from Gmail, your CRM or company websites. So whether you're at the airport or on a coffee run, Apollo works where you work. No more switching tabs or devices. Grow boldly with Apollo, the revenue engine trusted by over 3 million teams. Visit Apollo IO anywhere and start free today. That's Apollo IO anywhere.
-
-### Guest (Speaker E) [45:29-45:41]
-
-Hey guys, Paul Verze here and I want to talk to you about Paul's best podcast, Will Ferrell's Big Money Players Network and iHeartRadio. I sit down each week with a special, special guest and we discuss the absolute best of things. Davidson.
-
 ### Simon Hunter (Speaker F) [45:41-45:43]
 
 It's that and then there's everything else.
-
-### Guest (Speaker E) [45:43-45:45]
-
-He would just shout one line and it would murder.
 
 ### Chad Millman (Speaker B) [45:45-45:47]
 
 Marie, lunch.
 
-### Guest (Speaker E) [45:48-45:58]
-
-Let's talk about the best moments that we had on the road. I would love a cocktail. Dude, Joker get last row, middle seat on a Southwest Airlines flight. Joe, how was your flight?
-
 ### Chad Millman (Speaker B) [45:58-45:59]
 
 It was great.
-
-### Guest (Speaker E) [45:59-46:08]
-
-The guy state we were on the field and the player thought Joe was his former coach and he hugged him and hugged him and Joe just went with it. The guy goes, what are you doing here, coach?
 
 ### Ben Solak (Speaker D) [46:08-46:16]
 
@@ -431,21 +362,9 @@ It's like it's not my thing either.
 
 But we're here.
 
-### Guest (Speaker E) [46:19-46:29]
-
-When in Rome, top athletes, chefs, musicians, everybody listen to Paul's best podcast on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
-
-### Guest (Speaker A) [46:29-47:02]
-
-Hey, I'm Nora Jones and I love playing music with people so much that my podcast called Playing along is back. I sit down with musicians from all musical styles to play songs together in an intimate setting. Every episode's a little different, but it all involves music and conversation with some of my favorite musicians. Over the past two seasons, I've had special guests like Dave Grohl, Leve Mavis Staples, Remy Wolf, Jeff Tweedy. Really too many to name. And this season I've sat down with Joshua Homme, Sarah McLachlan, John Legend, and more. Check out my new episode with Finneas.
-
 ### Ben Solak (Speaker D) [47:02-47:22]
 
 So I went home and I asked Billie if she wanted to sing it. She immediately made it her own thing. No fear. You really know how to make me cry when you give me the those ocean.
-
-### Guest (Speaker A) [47:22-47:29]
-
-So come hang out with us in the studio and listen to Playing along on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
 
 ### Chad Millman (Speaker B) [47:30-47:33]
 
@@ -583,10 +502,6 @@ This time next year we're going to be asking Caleb or Josh Allen.
 
 Wow.
 
-### Guest (Speaker E) [1:00:21-1:00:21]
-
-Wow.
-
 ### Simon Hunter (Speaker F) [1:00:22-1:00:40]
 
 We were high too high on Caleb. Let's go Ben. But yeah, this is, this goes back to our point though where you don't know what first track Coach will be where last year me and you were sitting here chat or saying, the Bears, we love Ben Johnson. This is all here. What is he gonna be like when hits the fan? Apparently pretty damn good. But I mean like he was better
@@ -614,7 +529,3 @@ I am all freaking in. I like what he just said about Caleb Williams and Josh All
 ### Ben Solak (Speaker D) [1:02:37-1:02:48]
 
 I mean there's been a lot of guys that have done really well for two days in pajamas. I'm done with the hype of the pajama party in May. We'll find out in training camp who's who. It's going to be good across the board.
-
-### Guest (Speaker A) [1:02:51-1:02:55]
-
-This is an I heart podcast. Guaranteed human.

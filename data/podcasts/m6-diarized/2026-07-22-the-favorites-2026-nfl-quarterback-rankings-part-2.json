@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-07-23T18:54:09.056Z",
+  "exported_at": "2026-09-19T07:57:40.953Z",
   "feed": {
     "id": "6988f8cb-356e-4205-abce-5c6e067e8a9f",
     "name": "The Favorites",
@@ -15,6 +15,27 @@
     "audio_url": "https://podtrac.com/pts/redirect.mp3/traffic.omny.fm/d/clips/e73c998e-6e60-432f-8610-ae210140c5b1/f806745c-9af9-4941-bf75-ae3300346a6c/cb2432db-5a83-4938-8c2e-b48e00f33620/audio.mp3?utm_source=Podcast&amp;in_playlist=012b8953-dca4-461c-becc-ae3300346a7a",
     "duration_secs": 3318,
     "status": "done"
+  },
+  "episode_metadata": {
+    "episode_id": "ee80231e-26ab-46c7-9f99-f1f47566e3ff",
+    "title": "2026 NFL Quarterback Rankings | Part 2",
+    "show": "The Favorites",
+    "pub_date": "2026-07-22",
+    "source": "episode_intro",
+    "expected_participants": [
+      "Brandon Kravitz",
+      "Kendra Middleton",
+      "Evan Abrams"
+    ],
+    "summary": "Brandon Kravitz and Kendra Middleton continue their 2026 NFL quarterback rankings, with Evan Abrams grading the lists near the end of the episode.",
+    "topics": [
+      "2026 NFL quarterback rankings",
+      "Patrick Mahomes",
+      "Josh Allen",
+      "Jared Goff",
+      "Drake Maye",
+      "Trevor Lawrence"
+    ]
   },
   "transcript": {
     "episode_id": "ee80231e-26ab-46c7-9f99-f1f47566e3ff",
@@ -1446,109 +1467,130 @@
         {
           "host": "Kendra Middleton",
           "lean": "favor",
-          "quote": "He was in the MVP discussion last year towards the end of the season.",
-          "subject": "Trevor Lawrence",
-          "confidence": 65,
-          "prediction": "He was in the MVP discussion last year towards the end of the season.",
-          "stats_cited": [],
-          "subject_market": "MVP",
-          "source_timestamp": "17:56"
-        },
-        {
-          "host": "Kendra Middleton",
-          "lean": "favor",
-          "quote": "I think Allen is a better overall quarterback right now than Patrick Mahomes is.",
-          "subject": "Josh Allen",
-          "confidence": 65,
-          "prediction": "Josh Allen is a better overall quarterback right now than Patrick Mahomes",
-          "stats_cited": [],
-          "subject_market": "MVP",
-          "source_timestamp": "51:19"
-        },
-        {
-          "host": "Kendra Middleton",
-          "lean": "over",
-          "quote": "There's just so much consistency that you can bank on get me to the playoffs.",
-          "subject": "Buffalo Bills",
-          "confidence": 65,
-          "prediction": "Josh Allen has put this great offensive system around him",
-          "stats_cited": [],
-          "subject_market": "AFC_East_Win_Total",
-          "source_timestamp": "50:52"
-        },
-        {
-          "host": "Kendra Middleton",
-          "lean": "favor",
-          "quote": "But Josh Allen's going to compete for the mvp.",
-          "subject": "Josh Allen",
-          "confidence": 65,
-          "prediction": "Josh Allen's going to compete for the MVP.",
-          "stats_cited": [],
-          "subject_market": "MVP",
-          "source_timestamp": "52:43"
-        },
-        {
-          "host": "Kendra Middleton",
-          "lean": "over",
-          "quote": "I think they're a good bet for their win total over.",
-          "subject": "Jacksonville Jaguars",
-          "confidence": 65,
-          "prediction": "I think they're a good bet for their win total over.",
-          "stats_cited": [],
-          "subject_market": "AFC_South_Win_Total",
-          "source_timestamp": "59:03"
-        }
-      ]
-    },
-    {
-      "episode_id": "ee80231e-26ab-46c7-9f99-f1f47566e3ff",
-      "host": "Guest",
-      "model": "gpt-4o",
-      "attribution_method": "unknown",
-      "futures": [
-        {
-          "host": "Guest",
-          "lean": "favor",
-          "quote": "I do have them winning the division this year",
+          "quote": "I do have them winning the division this year, but I just don't know if in that biggest moment, on the largest stage, if Jared Goff can find that extra gear to get it done.",
           "subject": "Lions",
           "confidence": 65,
           "prediction": "I do have them winning the division this year",
           "stats_cited": [],
+          "action_timing": "bet_now",
           "subject_market": "NFC_North",
-          "source_timestamp": "24:05"
+          "extraction_type": "bet",
+          "source_timestamp": "24:05",
+          "trigger_condition": null,
+          "betting_implication": null
         },
         {
-          "host": "Guest",
+          "host": "Kendra Middleton",
           "lean": "favor",
-          "quote": "I cannot deny him from being the number one quarterback in the league, from everything that he's shown me.",
+          "quote": "He's the best quarterback in the league. He was the goat at one moment on the trajectory to be.",
           "subject": "Patrick Mahomes",
           "confidence": 65,
-          "prediction": "Patrick Mahomes is the best quarterback in the league",
+          "prediction": "Patrick Mahomes is the best quarterback in the league and a winner.",
           "stats_cited": [],
-          "subject_market": "MVP",
-          "source_timestamp": "48:29"
+          "action_timing": "bet_now",
+          "subject_market": "Super_Bowl",
+          "extraction_type": "bet",
+          "source_timestamp": "48:29",
+          "trigger_condition": null,
+          "betting_implication": null
         },
         {
-          "host": "Guest",
-          "lean": "favor",
-          "quote": "Josh Allen's going to compete for the MVP.",
-          "subject": "Josh Allen",
-          "confidence": 65,
-          "prediction": "Josh Allen is going to compete for the MVP",
-          "stats_cited": [],
-          "subject_market": "MVP",
-          "source_timestamp": "52:43"
-        },
-        {
-          "host": "Guest",
+          "host": "Kendra Middleton",
           "lean": "favor",
           "quote": "If he wins that division, that will give him all the bump he needs to be in an MVP conversation.",
           "subject": "Patrick Mahomes",
           "confidence": 65,
           "prediction": "If he wins that division, that will give him all the bump he needs to be in an MVP conversation.",
           "stats_cited": [],
+          "action_timing": null,
           "subject_market": "MVP",
-          "source_timestamp": "52:48"
+          "extraction_type": "bet",
+          "source_timestamp": "52:48",
+          "trigger_condition": null,
+          "betting_implication": null
+        }
+      ]
+    },
+    {
+      "episode_id": "ee80231e-26ab-46c7-9f99-f1f47566e3ff",
+      "host": "Brandon Kravitz",
+      "model": "gpt-4o",
+      "attribution_method": "host_map",
+      "futures": [
+        {
+          "host": "Brandon Kravitz",
+          "lean": "favor",
+          "quote": "He's the best quarterback in the league. He was the goat at one moment on the trajectory to be. So he still could win more Super Bowls than Tom Brady.",
+          "subject": "Patrick Mahomes",
+          "confidence": 65,
+          "prediction": "Patrick Mahomes is the best quarterback in the league and could win more Super Bowls than Tom Brady.",
+          "stats_cited": [],
+          "action_timing": "bet_now",
+          "subject_market": "Super_Bowl",
+          "extraction_type": "bet",
+          "source_timestamp": "48:29",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Brandon Kravitz",
+          "lean": "favor",
+          "quote": "I think Allen is a better overall quarterback right now than Patrick Mahomes is.",
+          "subject": "Josh Allen",
+          "confidence": 65,
+          "prediction": "Josh Allen is a better overall quarterback right now than Patrick Mahomes.",
+          "stats_cited": [],
+          "action_timing": "bet_now",
+          "subject_market": "AFC_Championship",
+          "extraction_type": "bet",
+          "source_timestamp": "51:54",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Brandon Kravitz",
+          "lean": "favor",
+          "quote": "But Josh Allen's going to compete for the MVP.",
+          "subject": "Josh Allen",
+          "confidence": 65,
+          "prediction": "Josh Allen's going to compete for the MVP.",
+          "stats_cited": [],
+          "action_timing": null,
+          "subject_market": "MVP",
+          "extraction_type": "bet",
+          "source_timestamp": "52:43",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Brandon Kravitz",
+          "lean": "over",
+          "quote": "I think the Titans are actually going to be pretty okay this year, and it scares the crap out of me.",
+          "subject": "Tennessee Titans",
+          "confidence": 65,
+          "prediction": "I think the Titans are actually going to be pretty okay this year.",
+          "stats_cited": [],
+          "action_timing": null,
+          "subject_market": "AFC_South_Win_Total",
+          "extraction_type": "bet",
+          "source_timestamp": "58:53",
+          "trigger_condition": null,
+          "betting_implication": null
+        },
+        {
+          "host": "Brandon Kravitz",
+          "lean": "over",
+          "quote": "I think they're a good bet for their win total over.",
+          "subject": "Jacksonville Jaguars",
+          "confidence": 65,
+          "prediction": "I think they're a good bet for their win total over.",
+          "stats_cited": [],
+          "action_timing": null,
+          "subject_market": "AFC_South_Win_Total",
+          "extraction_type": "bet",
+          "source_timestamp": "59:03",
+          "trigger_condition": null,
+          "betting_implication": null
         }
       ]
     }

@@ -19,6 +19,10 @@ Speaker labels: Evan Abrams (Speaker A), Guest (Speaker B), Guest (Speaker C), G
 - Speaker E: Guest
 - Speaker F: Guest
 
+## Ignored Audio
+
+- None classified as ad/commercial only.
+
 ## Existing Host Summary Rows
 
 - None

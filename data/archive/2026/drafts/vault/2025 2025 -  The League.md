@@ -5,8 +5,8 @@ source_system: yahoo-draft-results
 source_type: fantasy-draft
 canonical_status: generated
 title: "2025 -  The League draft 2025"
-created: "2026-10-06T05:59:42.798Z"
-modified: "2026-10-06T05:59:42.798Z"
+created: "2026-10-06T14:10:38.125Z"
+modified: "2026-10-06T14:10:38.125Z"
 season: 2025
 type: "fantasy-draft"
 league: "2025 -  The League"

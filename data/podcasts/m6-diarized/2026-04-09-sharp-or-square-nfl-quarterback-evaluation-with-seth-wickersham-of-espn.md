@@ -8,25 +8,24 @@ Audio: https://podtrac.com/pts/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 61648
 Speaker turns: 112
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D), Guest (Speaker E)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
 - Speaker D: Guest
-- Speaker E: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker E: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Chad Millman (gpt-4o, host_map) futures=1
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -36,17 +35,9 @@ If you've been sitting on a business idea for a while, consider this the sign to
 
 presents painful thoughts why did I search
 
-### Guest (Speaker A) [0:38-0:54]
-
-the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
-
 ### Guest (Speaker D) [0:55-1:02]
 
 Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker A) [1:03-2:29]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
 
 ### Chad Millman (Speaker B) [2:29-2:37]
 
@@ -55,10 +46,6 @@ visit zepbound.lilly.com this is Tab Ramos from Inside American Soccer and this 
 ### Simon Hunter (Speaker C) [2:37-2:44]
 
 is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive
-
-### Guest (Speaker E) [2:44-2:45]
-
-food and drink items.
 
 ### Chad Millman (Speaker B) [2:45-2:47]
 
@@ -140,10 +127,6 @@ And I think that guy's pretty excited. I think the thing that's most interesting
 
 Agree more. I definitely think Brady sees a lot of himself mentally in Mendoza. The question is, can he get there the NFL career wise, which is the 5am to midnight type of days, right? And like that's, that's why I think Mendoza is so pro for the Raiders is he seems like he's that kind of guy that like, like Tebow Thibaut is going to outwork everyone. Thibaut just didn't have the skill. Mendoza has the skill. He's got the arm throwing motion, he's got the footwork. You know, to me, especially when I talk to scouts, the question is always going to be the number one pick. The pressure is just so insane. The expectations are so insane. I talk to Chad all the time. The number one pick thing is so tough because it just doesn't work out. And the expectations are so tough that like Stafford is honestly the only number one pick that's really worked out in the last 15 years. Like you can go through all these number one picks. Not only does it matter so much about the team around these guys, it matters the organization, right? A lot of these number one picks are going to bad organizations. And you know, as much as we want to say how great Tom Brady is coming in there trying to change the culture of the Raiders, there's so much work to do. Mike, Madoc, Gruden, they sent the Raiders back to the stone age like it's it. It's taken them so many drafts now to catch up to it. And I look at Mendoza, love the talent, very excited for him. My. I try to explain to people though, you need to bring back expectations. If he, if he can reach Matt Ryan, which I compare a lot to him, a lot of his game reminds me of Matt Ryan. To me, that would be successful, an MVP season, reaching a Super bowl with the Raiders and that would be incredible to other people. That would be a bust which again, it's just. I would love to get your angle on this. Like, where do you see Mendoza's career? Projecting? What, what kind of envision do you have for him? Is he the type of guy where I can't see, but could you see him being at the league in eight years, Right, that his body doesn't hold up. Right. That he put too much stress on his body, that he, you know, as big as a frame as he has and as much as he carries that weight, can he keep adding to that? Because when I look at this class, he's the only guy to me worthy of the number one, the first round pick.
 
-### Guest (Speaker E) [14:20-14:21]
-
-Right?
-
 ### Guest (Speaker D) [14:21-14:48]
 
 Like Ty Simpson. That kid's body to me just will not hold up in this league. Like, he's just, he's built lesser than Brock Purdy and we've seen Brock Purdy as good as Brock Purdy is. He's not held up. Mendota's got the body, Mendoza's got the big broad shoulders. He's like you said, he's 6, 4, 6 5. He is exactly what these scouts are looking for. Like, can you. Do you agree with me there? Is he more likely to be a bust or do you think the way you project out for him, can he be a solidified 15 year, 10 year starter in this league?
@@ -200,21 +183,9 @@ There's a lot in there. Number one, you know how, how when you were broken, how 
 
 Let's do a quick break here from our friends at Hard Rock and we'll come right back. Today's show is brought to you by our presenting sponsor, Hard Rock bet. Florida's sportsbook. Spring is in the air, and that can only mean one thing. Baseball is back in full swing. Hard Rock Bet makes it easy to bet on America's pass time in just a few easy taps. And it's not just picking winners. Bet on home runs, strikeouts, and so much more. And if you miss the first pitch, no problem. You can live bet every inning, every at all, the way to the final out. But maybe you're more into the NBA. The hardwood is heating up as the playoff push is on. And with Hard Rock Bet, every night is a shot to build the same game parlay and score a major bucket. However you draw it up, Hard Rock Bet gives you tons of ways to stack your picks into an epic same game parlay. Sign up today and double your winnings on your first 10 bets. Maximum $50. That's right, double your winnings on your first 10 bets. So if you would have won a hundred bucks on your bet, now it's 200. Download the hard Rock Bet app today. Get the party started. Offered by the Seminole Tribe of Florida in Florida. Offered by Seminole Hard Rock Digital, LLC and all other states must be 21 or over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee, or Virginia to play Terms and conditions apply. Concerned about gambling in Florida? Call 1-833-playwise in Indiana, if you or someone you know has a gambling problem and wants help, call 1809 with it in Ohio, call 1-800-My reset gambling problem, call 1-800- gambler in Arizona, Colorado, Illinois, Michigan, New Jersey, Tennessee and Virginia. Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. Wix has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Are
 
-### Guest (Speaker A) [32:09-33:40]
-
-you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepat appetite containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck, stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound Lilly.com this is Daniel Cormier
-
-### Guest (Speaker E) [33:40-34:34]
-
-from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. All UFC fighters know power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in on all the action from the walkouts to the knockouts. You'll never miss a moment. That's coverage that you can count on for every single round. So when the moment happens, you're not catching up. You're already there. Now that that's a total power move. In the ufc, power isn't given, it's taken. So make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless store. 5G access requires a 5G capable device in a 5G service area. Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan. Additional terms apply. See website for details.
-
 ### Guest (Speaker D) [34:34-34:39]
 
 Amazon Health AI presents Painful Thoughts why
-
-### Guest (Speaker A) [34:39-34:56]
-
-did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
 
 ### Guest (Speaker D) [34:57-35:04]
 
@@ -275,14 +246,6 @@ Yeah, I mean it's hard to ever, ever bet against 15 because he's done it more ti
 ### Chad Millman (Speaker B) [48:10-48:53]
 
 Vibe coding is everywhere right now, but it's not just for apps anymore. Now it's making its way into website creation. Wix has introduced Wix Harmony, a Vibe coder for websites that lets you type what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And WIX Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Are
-
-### Guest (Speaker A) [48:53-50:23]
-
-you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and check keep the weight off. Zepbound is Approved as a 2.55 7.5, 10, 12.5 or 15mg injection Zepbound contains tirzepatide and should not be used with other tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zephybound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit zepbound Lilly.com this
-
-### Guest (Speaker E) [50:23-51:17]
-
-is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. All UFC fighters know power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in on all the action, from the walkouts to the knockouts. You'll never miss a moment. That's coverage that you can count on for every single round. So when the moment happens, you're not catching up. You're already there. Now that that's a total power move. In the ufc, power isn't given. It's taken. So make your total power move today. Visit totalwireless.com or stop by your neighborhood. Total Wireless Store 5G access requires a 5G capable device in a 5G service area. Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan. Additional terms apply. See website for details.
 
 ### Guest (Speaker D) [51:18-51:23]
 
@@ -404,25 +367,13 @@ drive, maybe bring some snacks for the kids. And know that along the way, you're
 
 getting quality time with your family, paid for by nhtsa.
 
-### Guest (Speaker A) [1:04:47-1:05:55]
-
-Grainger knows. When you're a procurement manager for an office park, you're not managing one building. You're managing all of them. And to stay ahead, you need to see through walls and around corners. Lights about to fail, Filters ready to clog H Vac on its last leg. If you wait until something breaks, you're already behind. Count on Grainger for quality products, easy reordering and 24. 7 support. Call 1-800-GRAINGER, click grainger.com or just stop by Grainger for the ones who get it done. The Hulu Original Series Furious is now streaming on Hulu and Hulu on Disney. Starring Emmy Rossum as Alice Black, Furious follows a rookie FBI agent on the hunt for Catherine, played by Lola Petticrew, a mysterious and calculating female serial killer. While Alice upholds justice, Catherine kills for it, terrorizing the rich and powerful men of New York in her pursuit of vengeance. With secrets that change everything, Alice discovers there's a thin line between hunter and prey. Watch the Hulu Original series Furious on July 27, streaming on Hulu and Hulu on Disney for bundle subscribers terms apply.
-
 ### Simon Hunter (Speaker C) [1:05:56-1:05:57]
 
 The game started.
 
-### Guest (Speaker A) [1:05:57-1:05:58]
-
-Call your dad.
-
 ### Chad Millman (Speaker B) [1:05:58-1:05:59]
 
 I'm on it, Ma.
-
-### Guest (Speaker A) [1:06:00-1:06:00]
-
-Hola.
 
 ### Chad Millman (Speaker B) [1:06:00-1:06:02]
 
@@ -436,29 +387,13 @@ I'm at the stadium in Monterrey.
 
 Cool.
 
-### Guest (Speaker E) [1:06:07-1:06:07]
-
-Here.
-
-### Guest (Speaker A) [1:06:07-1:06:08]
-
-Shout Go together.
-
 ### Chad Millman (Speaker B) [1:06:08-1:06:09]
 
 Get non stop talk, tax and Data
 
-### Guest (Speaker A) [1:06:09-1:06:11]
-
-in the U.S. mexico and Canada with
-
 ### Simon Hunter (Speaker C) [1:06:11-1:06:16]
 
 T Mobile, America's best network. Switch on the TLife app or on T mobile.com connectivity.
-
-### Guest (Speaker A) [1:06:17-1:06:20]
-
-On qualifying plans not for extended international use, you must reside in the US
 
 ### Guest (Speaker D) [1:06:20-1:06:22]
 
@@ -467,7 +402,3 @@ and primary usage must occur in our network.
 ### Chad Millman (Speaker B) [1:06:22-1:06:25]
 
 Best Based on analysis by Ooklo Speed Test intelligence data to H 2025 this
-
-### Guest (Speaker A) [1:06:25-1:06:29]
-
-is an iHeart podcast. Guaranteed human.

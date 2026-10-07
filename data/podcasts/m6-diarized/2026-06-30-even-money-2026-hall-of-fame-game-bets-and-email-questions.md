@@ -8,13 +8,16 @@ Audio: https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/arttrk.com/p/DF7K3/cla
 
 Transcript chars: 23518
 Speaker turns: 33
-Speaker labels: Ross Tucker (Speaker A), Guest (Speaker B), Steve Fezzik (Speaker C)
+Speaker labels: Ross Tucker (Speaker A), Steve Fezzik (Speaker C)
 
 ## Speaker Map
 
 - Speaker A: Ross Tucker
-- Speaker B: Guest
 - Speaker C: Steve Fezzik
+
+## Ignored Audio
+
+- Speaker B: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -26,25 +29,13 @@ Speaker labels: Ross Tucker (Speaker A), Guest (Speaker B), Steve Fezzik (Speake
 
 Whatever you are watching this summer baseball, Golf, soccer, racing DraftKings has you covered for every single moment of it. The DraftKings sports app is now available in all 50 states, bringing the game straight to your fingertips wherever you are. New DraftKings customers sign up with code Ross spend 5 bucks to get 150 in rewards within 14 days. Includes all markets. That's Code Ross in partnership with DraftKings. The Crown is yours bet with DK
 
-### Guest (Speaker B) [0:35-1:13]
-
-Sports Book gambling problem call 1-800- GAMBLER-1800, my reset Connecticut called 888-789-7777 visit ccpg.org on behalf of Boothill Casino in Kansas. Bet Tax Pass through May apply in Illinois 21 and over Boyd in Canada Event contract trading with DraftKings predictions involves risk of loss Availability varies Predictions offer void in New York bet to get bonus bets that expire in seven days trade to get predictions dollars that expire in one year DOL rewards issued every seven days via click to claim for 14 days one non withdrawable reward redeemable terms at DKNG Co offer limited time Offer pays Checkout is offered by your banks and credit unions, so when you
-
 ### Steve Fezzik (Speaker C) [1:13-1:15]
 
 shop online at participating merchants, your cards
 
-### Guest (Speaker B) [1:15-1:22]
-
-appear in one place. PAYS it checks out activation required. See PAYS.com to learn more. Terms and conditions apply.
-
 ### Steve Fezzik (Speaker C) [1:26-1:29]
 
 You're listening to DraftKings Network.
-
-### Guest (Speaker B) [1:33-1:42]
-
-If you like to make your NFL games a little bit more interesting, you've come to the right place. It's the Even Money Podcast with Ross Tucker and Steve Pesic.
 
 ### Ross Tucker (Speaker A) [1:44-4:14]
 

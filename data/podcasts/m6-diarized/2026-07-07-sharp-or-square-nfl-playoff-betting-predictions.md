@@ -8,56 +8,41 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 56221
 Speaker turns: 109
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
 
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+
 ## Existing Host Summary Rows
 
-- Guest (gpt-4o, unknown) futures=10
-- Chad Millman (gpt-4o, host_map) futures=10
+- Chad Millman (gpt-4o, host_map) futures=8
+- Simon Hunter (gpt-4o, host_map) futures=15
+- Simon Hunter (antigravity-master-100pct, antigravity_master_extraction) futures=5
+- Chad Millman (antigravity-master-100pct, antigravity_master_extraction) futures=2
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human
 
 ### Chad Millman (Speaker B) [0:06-0:10]
 
 Introducing B of A Rewards a new way to reward your every ambition.
 
-### Guest (Speaker A) [0:10-0:11]
-
-It all starts with a Bank of
-
 ### Chad Millman (Speaker B) [0:11-0:19]
 
 America checking account and grows from there. You get cash back deals on brands you know and love, plus a credit card rewards bonus, helping you earn more
-
-### Guest (Speaker A) [0:19-0:21]
-
-rewards on things you buy every day.
 
 ### Chad Millman (Speaker B) [0:21-1:11]
 
 Join B of A Rewards today for rewards tailored to your lifestyle. What would you like the power to do? Bank of America Open or enroll your account@bankofamerica.com b ofarewards bank of America Corporation. All rights reserved. If you've been sitting on a business idea for a while, consider this the sign to take action. It can even be made official today by creating a website with WIX Harmony. Just tell WIX Harmony what you want and it will build the entire site, business features included. And everything can still be edited by hand. It's your website, your call. Try it@wix.com that's wix.com 150 years ago, they were hunting us down to kill us. And now they're hunting down immigrants to deport them.
 
-### Guest (Speaker A) [1:12-1:38]
-
-This is First America, the true story of how the United States came to be and how we got to this present moment. Listen to First America on the iHeartRadio app, Apple Podcasts or wherever you get your podcasts. Hey everybody, I'm Tareka Foster Brasby. What's up y'?
-
 ### Simon Hunter (Speaker C) [1:38-1:38]
 
 All?
-
-### Guest (Speaker A) [1:38-2:15]
-
-I'm your girl, Sherrill Swoops. When you tune in to a new episode of our podcast levels to this, you're definitely gonna get some spicy WNBA analysis. But we're more than just hoops and the real conversation is what we actually bring. It's been really, really cool seeing kind of these women just really step into off the court and understand that they are basketball, right? And they're not asking for permission. Listen to levels to this with Sho Swoopes and Tarika Foster brasby on the iHeartRadio app, Apple Podcasts or wherever you get your podcasts.
 
 ### Chad Millman (Speaker B) [2:17-2:40]
 
@@ -211,57 +196,29 @@ Let's do a quick break from Hard Rock because then I want to talk about the Chie
 
 the declaration, which is full of these beautifully rendered sentences and paragraphs about enlightenment ideals, does also have this darker history to it.
 
-### Guest (Speaker A) [26:32-26:41]
-
-Why is it important for the darker part of the Declaration of Independence and the American Revolution? Why is it important that Americans know about it?
-
 ### Simon Hunter (Speaker C) [26:42-26:52]
 
 Well, if we don't understand the full context in which our nation was founded, we won't understand the full context in which our nation now finds itself.
-
-### Guest (Speaker A) [26:53-27:00]
-
-I'm Rebecca Nagle. Gohin Tawa. Don Tchuleka. Yetlike a citizen of Cherokee Nation. Are you guys big Chiefs fans?
 
 ### Simon Hunter (Speaker C) [27:00-27:01]
 
 Hell yeah.
 
-### Guest (Speaker A) [27:02-27:22]
-
-This is First America, the true story of how the United States came to be and how we got to this present moment. Listen to First America on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts. What did Black music, food and culture teach us about who we were becoming?
-
 ### Chad Millman (Speaker B) [27:22-27:25]
 
 2016 was sort of that last era
-
-### Guest (Speaker A) [27:26-27:33]
-
-of monoculture where we still consumed things in community. From Beyonce and Rihanna.
 
 ### Chad Millman (Speaker B) [27:33-27:37]
 
 Everybody wanted to be Beyonce. I don't think we'll ever see another Rihanna.
 
-### Guest (Speaker A) [27:37-27:41]
-
-To soul food, memory, identity and the stories we carry through black culture.
-
 ### Chad Millman (Speaker B) [27:42-27:43]
 
 What does it mean to be black
 
-### Guest (Speaker A) [27:43-28:46]
-
-and eat in America? So we were this group of people who knew how to work the land, who knew how to live with the Land we make it do what it do. Therapy for black girls is bringing together the conversation, shaping black life right now. You will never make me feel bad for being a black girl, for being a black American girl ever. Therapy for black girls is bringing it all to the mic. Listen to Therapy for black Girls on the iHeartRadio app, Apple Podcasts, or wherever you get your podcast. Hey, everybody, I'm Tareka Foster Brasby. What's up, y'? All? I'm your girl, Sheryl Swoooops. When you tune in to a new episode of our podcast, Levels to this, you're definitely gonna get some by CWNBA analysis. I see a lot of men who get into the space because now it's a hot product and that grinds my gears to dust. But then the conversation goes on and levels up. Beyond basketball, it's been really, really cool seeing kind of these women just really step into their power off the court and understand that they are basketball.
-
 ### Chad Millman (Speaker B) [28:46-28:46]
 
 Right?
-
-### Guest (Speaker A) [28:46-29:14]
-
-And they're not asking for commission because on levels to this, the game is always the starting point. But we're more than just hoops. And the real conversation is what we actually bring. This is Levels to this, the podcast about all the levels of stuff that women go through. Listen to Levels to this with Sheryl Swoopes and Tareka Foster brasby on the iHeartRadio app, Apple Podcasts, or wherever you get your podcasts.
 
 ### Chad Millman (Speaker B) [29:15-29:49]
 
@@ -454,7 +411,3 @@ All right. So our Simon says presented by Hard Rock bets Eagles to beat the Chie
 ### Simon Hunter (Speaker C) [55:14-55:16]
 
 And he has trouble getting separation.
-
-### Guest (Speaker A) [55:19-55:22]
-
-This is an iHeart podcast. Guaranteed Human.

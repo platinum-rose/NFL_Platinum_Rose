@@ -8,15 +8,18 @@ Audio: https://podtrac.com/pts/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 53309
 Speaker turns: 146
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D), my co host (Speaker E)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C), my co host (Speaker E)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
-- Speaker D: Guest
 - Speaker E: my co host
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker D: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -24,10 +27,6 @@ Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speak
 - Guest (gpt-4o, unknown) futures=1
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -37,21 +36,9 @@ If you've been sitting on a business idea for a while, consider this the sign to
 
 presents painful thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores
 
-### Guest (Speaker A) [0:47-0:48]
-
-in various stages of ooze.
-
 ### Simon Hunter (Speaker C) [0:50-1:02]
 
 I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker D) [1:03-1:38]
-
-This is Tab Ramos from Inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls race right into the net and every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Are you looking
-
-### Guest (Speaker A) [1:38-3:06]
-
-for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills. Taking zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea, and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lily.com
 
 ### Chad Millman (Speaker B) [3:08-3:45]
 
@@ -109,10 +96,6 @@ He is amazing.
 
 Yeah, I honestly, there was a couple like random really good ones. I. I'm a big EDM guy. Like, I saw Fat Boy Slim. I never saw him before. He was pretty incredible. I don't even remember him from back in the 90s, of course.
 
-### Guest (Speaker D) [6:05-6:06]
-
-Yeah. Yep.
-
 ### my co host (Speaker E) [6:06-6:08]
 
 But we're old enough. Simon. The.
@@ -152,10 +135,6 @@ camera, by the way. Derek, nice, nice catching up. The keep there wasn't whether
 ### my co host (Speaker E) [7:43-7:49]
 
 Did you sleep in a car? Like, what are we talking about? This is like a, a compact. Are you sleeping in a Prius? Are we going SUV here?
-
-### Guest (Speaker D) [7:49-7:50]
-
-Back seat.
 
 ### my co host (Speaker E) [7:50-7:54]
 
@@ -265,10 +244,6 @@ You know, why not? I don't mind it. Go against the grain a little bit. There's a
 
 Probably gonna get burned on it again, but I might like. I might throw a little bit on the Rams to take them. It just feels like a fun bet that could possibly happen. But let's give props to Derek again here. It's down to. Let's see the update line. It's the over, under now, one and a half quarterbacks. In the first round, when Derek said not to take it, it was minus 250 to the over one and a half. It is now down to minus 130 to the over one and a half.
 
-### Guest (Speaker D) [17:11-17:11]
-
-Chad.
-
 ### Simon Hunter (Speaker C) [17:12-19:23]
 
 And a lot of people that reached out and asked about why this movement happened and we can talk about all the lines that have moved. Honestly, I can't believe it. But Peter Schrager moves the market more than anyone else that puts on mock drafts right now. Chad. Which is crazy to think, but Peter Schrager is that locked in. And I think enough betters now respect his opinion enough that they do move of what he says he did not have Ty Simpson the first round and that moved the market huge. Like it was the last show. I said it was minus 170 or minus 180. First round over one and a half quarterbacks. Like I said, now it's down to minus 130. He end up putting price that second running back I told you about. He ended up putting him at Seattle at the 32nd pick. Chad. So now what? I gave out a plus 550 over one and a half running backs. It's now down to plus 400. And again, this is all Peter Schrager. Like Peter Schrager has totally moved the market. Wide receivers. I believe he had six in the first round. Now that was plus 190. It's now down to plus 140, plus 135 over five and a half receivers. So like we talked last week about following these mock drafts. Peter Schrager put out his first mock. I don't believe he puts out another one until the day before the draft. You got to be on it. Like clearly this man is plugged in and the market is moving with him. So yeah, Derek with a Ty Simpson call saying he doesn't believe is a first rounder. Like I said, I agree with him. I think he's a second rounder. I did not think the market would move the way it's moved with him. So I am tempted now. Chad. It's moved so much over one and a half. I'm tempted to do it. But if you want to deal with like Matt Mitchell's put in our chat, which is like betting these individual teams, I think that's really fun too. I just. Because I put so much money. I'd rather play the safe market. I'll probably just do the over one and a half which at this point minus 130. I. I gotta do it, Chad. I've been waiting. I've been on the sideline. But I just think it's too tempting these teams to get that fifth year on the contract, right? Even if I said I think he's a second round quarterback to trade up into pick 32 or 31 and you get that fifth year guaranteed on Ty Simpson just in case he hits, that's a big deal to me. So I, I can't believe it's moved this much, but it's, it's too tempting. I can't pass on it. Jeff.
@@ -277,17 +252,9 @@ And a lot of people that reached out and asked about why this movement happened 
 
 Derek, you're laughing.
 
-### Guest (Speaker D) [19:26-19:26]
-
-Yeah.
-
 ### my co host (Speaker E) [19:26-20:12]
 
 I mean, I'm looking back at all the draft bets that I made right now. On March 30, it was plus 200 for under the one and a half. And now seeing that line movement all the way down to plus 100 is, is wonderful. And then this last week I was talking to people that I trust around the league and all I was hearing was he's going to be a second round pick, he's going to be a second round pick. And yeah, Uncle Mitch here was, was definitely on point with the odds here. Like, I mean, look, I, I would love to tell everybody a lot of long shots. If I was going to take any long shot on a landing spot, it'd be the Cleveland Browns at 1100 here only because they've done a ton of work. The two teams that I've heard with people that I've talked with, Arizona, and they're the clear favorite here, which, you know, it. Do I want to bet it at +130?
-
-### Guest (Speaker D) [20:12-20:13]
-
-No.
 
 ### my co host (Speaker E) [20:13-20:35]
 
@@ -305,10 +272,6 @@ Not a move I'd make.
 
 I don't get it. I'm right there with each other. It's like, you know, next year's class is stacked. Why not kick the can down the road like we talk all the time. You need to nail it. Like if you take the wrong quarterback, it can set you back three to four to five years or totally, totally destroy your organization.
 
-### Guest (Speaker D) [21:52-21:53]
-
-Right?
-
 ### Simon Hunter (Speaker C) [21:53-24:04]
 
 I mean Detroit Lions, God bless them, they have what, three, three playoff wins in 67 years. And it's like little did they know that golf would be their savior, right? And it's like that's how important is to find the right quarterback with the right coaching staff. And I look at Arizona, they don't. They maybe they have found the right coaching staff. They don't have the team to support a young quarterback right now. So to me they're the perfect team to keep filling holes. And then next year which is we expect to be a loaded class for quarterbacks. Go get one of the top guys. Like it just doesn't make sense. Like you know, as a Bears fan, you guys as much as respect to be given Justin Fields, you saw immediately the difference between Caleb Williams and Justin Fields. Chad, as a fan, you saw the difference immediately. I mean think about that. Think about if you guys would have kept Justin Fields and traded out of that pick on Caleb Williams. Like it's just. You can't even imagine doing that. That's how stupid would be. That's how stupid it feels that these teams I would reach to take Simpson like I'm right there with Derek. I just as good as this kid's upside could be to me his peak upside is Brock Purdy. Is Brock Purdy really worth mortgage in your future on? Like I like Brock Purdy, but I rather have a body typer for Mano Mendoza, right. Big as hell, built like a shit brick house. Right. That's gonna be all take hits. We've seen Purdy not hold up. That's my same concern of this kid Ty Simpson. I don't think he can hold up. He hasn't taken enough reps in college. It's. I'm with you. The whole thing is bizarre. I'm just, I'm going based off these teams I think are going to panic come come the draft day that we always see where right organizational pressure. Your owner Especially Arizona. They have a bad ownership. Who knows if they're calling down the front office saying, I want this kid, this kid's still there, pick 30, trade up. I want them. So that's. That's what I'm banking here is a stupid organization that stays stupid and makes stupid moves. And that's. That's what I'm banking on. I think Derek is thinking way too sensible. He's thinking like, I totally agree with him. We've seen these drafts, man. These teams, they're not sensible. They panic. And it happens every year, right? It just takes one or two teams to fall in love with a guy to make something stupid happen. And that's what I think might happen here.
@@ -324,14 +287,6 @@ Today's show is brought to you by our presenting sponsor, Hard Rock Bet. Florida
 ### Simon Hunter (Speaker C) [27:22-27:51]
 
 Health AI presents painful thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic source in various stages of ooze. I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker A) [27:52-29:23]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide can containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia Syndrome Type 2. Tell your doctor if you get a lump or swelling in your neck. Stop zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound Lilly.com this is Tab Ramos
-
-### Guest (Speaker D) [29:23-30:18]
-
-from Inside American Soccer and this summer Topgolf is turning into the ultimate soccer destination. They're not just throwing games on in the background. Topgolf is going all in on soccer. They've got a new soccer themed game you can play with your group, special in venue activations, exclusive food and drink items inspired by the global game and at more than 60 locations. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. So it's a great place to watch with friends, hang out, compete a little bit and enjoy the atmosphere. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Summer hits different at TopGolf.
 
 ### Chad Millman (Speaker B) [30:19-31:37]
 
@@ -425,14 +380,6 @@ go downtown and tell a receptionist I'm
 
 here to talk about my downtown. Some things you'd rather type than say out loud. There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
 
-### Guest (Speaker A) [41:48-43:19]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepat peptide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zeppbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound Lilly.com this is Tab Ramos
-
-### Guest (Speaker D) [43:19-44:14]
-
-from Inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They're not just throwing games on in the background. Topgolf is going all in on soccer. They've got a new soccer themed game you can play with your group. Special in venue activations, exclusive food and drink items inspired by the global game. And at more than 60 locations, they've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. So it's a great place to watch with friends, hang out, compete a little bit and enjoy the atmosphere. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun pass, which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass. Summer hits different at TopGolf.
-
 ### Chad Millman (Speaker B) [44:15-45:30]
 
 By the way, when I was just going on that riff about the Cardinals, it reminded me, here's a stat that is crazy. So, you know, I'm finishing this book and Derek, I've been writing this book about this world of sports betting that I gotta finish, right? The connections, we've talked about this on the show between sports betting and professional sports going back to the beginning of professional sports. Really, it's so interconnected because anyone with any money who had cash that wasn't, you know, donating to civic institutions like museums or parks or preservation of some kind, they were the people who were bookies and action junkies and they had cash to buy professional sports, which none of the, you know, the Vanderbilts and the Rockefellers were interested in. They thought it was a joke. So a lot of times in the early days, professional franchises were owned by bookies and professional betters, including the now Arizona Cardinals, the Pittsburgh Steelers, and the New York football giants. Those three franchises were bought for a combined $8,000. They are now worth a combined $22 billion owned by the same families. Isn't that wild?
@@ -468,10 +415,6 @@ the McKay Coppin story in the Atlantic? Yeah, we haven't even talked about that 
 ### my co host (Speaker E) [46:00-46:01]
 
 Jeez, man.
-
-### Guest (Speaker D) [46:01-46:01]
-
-Yeah.
 
 ### Simon Hunter (Speaker C) [46:01-46:08]
 
@@ -530,10 +473,6 @@ Simon Dantavian Wicks, Derek just mentioned it. Traded from Green Bay to Philly.
 I don't know. It's. It was an interesting move because it's. I actually think it's a good move. I like him as a receiver. I don't really understood why Green Bay moved off of him. Where Golden's unproven. They don't really have a good receiving core in Green Bay. On the flip side, if A.J. brown doesn't get traded on June 1st and it's Wicks, AJ and Devonte Smith, that's, that's a pretty strong three, especially blocking wise. Like, you know, he's a great blocker as well. So yeah, the Eagles one kind of didn't make sense because all the rumors I heard all past two weeks where the Eagles were going to take a receiver in the first round, so maybe they still will and AJ's still going to get traded before the draft. It's just I never know what Howie's doing. Howie's just always making random moves and you know, Jahad Dachshund, I think we got him from. Was it the commanders we traded?
 
 ### Chad Millman (Speaker B) [51:30-51:30]
-
-Yeah.
-
-### Guest (Speaker D) [51:30-51:30]
 
 Yeah.
 
@@ -597,14 +536,6 @@ Max 7 topping 6 for Han and New York style crust.
 
 Minimum purchase required for delivery participation. Delivery area and charges may vary.
 
-### Guest (Speaker A) [54:14-54:43]
-
-Grainger knows when you're a procurement manager for an office park, you're not managing one building, you're managing all of them. And to stay ahead, you need to see through walls and around corners. Lights about to fail, Filters ready to clog H Vac on its last leg. If you wait until something breaks, you're already behind. Count on Grainger for quality products, easy reordering and tools. 24. 7 support call 1-800-grainger, click grainger.com or just stop by Granger for the ones who get it done.
-
 ### Simon Hunter (Speaker C) [54:44-54:58]
 
 Across America, money is being abandoned. By taking a few seconds to check Lyft before your next ride, you can give money a better home inside your wallet. Save the money. Check Lyft.
-
-### Guest (Speaker A) [54:59-55:02]
-
-This is an Iheart podcast. Guaranteed human.

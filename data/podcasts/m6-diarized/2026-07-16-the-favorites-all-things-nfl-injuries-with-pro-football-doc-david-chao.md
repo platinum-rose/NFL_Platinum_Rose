@@ -17,6 +17,10 @@ Speaker labels: Guest (Speaker A), Kendra Middleton (Speaker B), Guest (Speaker 
 - Speaker C: Guest
 - Speaker D: Brandon Kravitz
 
+## Ignored Audio
+
+- None classified as ad/commercial only.
+
 ## Existing Host Summary Rows
 
 - Guest (gpt-4o, unknown) futures=1

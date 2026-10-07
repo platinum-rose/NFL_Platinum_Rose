@@ -348,12 +348,14 @@ If a previous session's fix is incomplete, **amend the original bug entry** — 
 ### Session Start Protocol (Targeted Read)
 1. **Root State Read**: Read `HANDOFF.md`. Treat it as the current-state index, not a transcript.
 2. **Git State Verification**: Run `git status -sb`, `git branch --show-current`, and `git log -5 --oneline`.
-3. **Targeted Detail Read**: Read only the dated handoff(s) linked from `HANDOFF.md` for the active lane.
+3. **Choose the handoff mode**:
+   - **Standard handoff:** read only the dated handoff linked for the active lane.
+   - **H2C2 cross-team handoff:** read its `H2C2_START_HERE.md` first, reconcile Git, select a lane, then read only the matching briefing section and source artifacts. The detailed packet, chain digest, historical handoffs, and snapshot manifest are on-demand recovery material unless the brief identifies a contradiction or the task needs them.
 4. **Surface Brief**: Print compact summary (branch/HEAD, dirty-state warning, active task, stop conditions) and confirm next steps when needed.
 
 ### Session Close Protocol (State Persistence)
-1. **Write Detail Handoff**: Put full session history in a dated `handoffs/` file.
-2. **Update Root Handoff**: Keep `HANDOFF.md` short: current pickup, guardrails, open decisions, and links.
+1. **Write the right handoff**: use a dated standard handoff for same-team continuation. For a zero-context transfer to another team/platform, use the `h2c2` skill to create a layered cross-team packet and a local manifest of nonportable inputs.
+2. **Update Root Handoff**: Keep `HANDOFF.md` short: one current pickup, guardrails, open decisions, and links. Do not append superseded handoff summaries; keep them in `handoffs/` or the H2C2 packet.
 3. **Update Backlogs**: Reconcile open items in tracking backlog files.
 4. **Snapshot Audit**: Log immutable session state if the lane has a supported logger.
 <!-- END UNIFIED SESSION CONTEXT PROTOCOL -->

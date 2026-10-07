@@ -8,15 +8,18 @@ Audio: https://www.podtrac.com/pts/redirect.mp3/pdst.fm/e/arttrk.com/p/DF7K3/cla
 
 Transcript chars: 24712
 Speaker turns: 41
-Speaker labels: Ross Tucker (Speaker A), Steve Fezzik (Speaker B), Guest (Speaker C), Guest (Speaker D), Guest (Speaker E)
+Speaker labels: Ross Tucker (Speaker A), Steve Fezzik (Speaker B), Guest (Speaker D), Guest (Speaker E)
 
 ## Speaker Map
 
 - Speaker A: Ross Tucker
 - Speaker B: Steve Fezzik
-- Speaker C: Guest
 - Speaker D: Guest
 - Speaker E: Guest
+
+## Ignored Audio
+
+- Speaker C: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -31,10 +34,6 @@ Whatever you are watching this summer baseball, Golf, soccer, racing DraftKings 
 ### Steve Fezzik (Speaker B) [0:34-1:07]
 
 Bet with DK Sports Book Gambling Problem Call 1-800-Gambler-1-800, My Reset Connecticut called 888-789-7777 visit ccpg.org on behalf of Boothill Casino in Kansas. Bet Tax Pass through May apply in Illinois 21 and over Boyd in Canada Event contract trading with DraftKings predictions involves risk of loss Availability varies Predictions offer void in New York Bet to get bonus bets that expire in 7 days Trade to get predictions dollars that expire in 1 year DOL rewards issued every 7 days via click to claim for 14 days 1 non withdrawable reward redeemable terms at DKNG Co Offer Limited time
-
-### Guest (Speaker C) [1:07-1:22]
-
-Offer pays Checkout is offered by your banks and credit unions, so when you shop online at participating merchants, your cards appear in one place. PAYS it checks out. Activation required. See PAYS.com to learn more. Terms and conditions apply.
 
 ### Guest (Speaker D) [1:26-1:29]
 

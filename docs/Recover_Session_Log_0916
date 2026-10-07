@@ -1,0 +1,101 @@
+Continuing Toolbox development on the NFL_Dashboard repo (E:\dev\projects\NFL_Dashboard, connected folder). Read the project doc claude/handoff-2026-09-16-fantasy-and-toolbox.md in the DEV project first for full context — it covers the Toolbox diagnostics "Run Now" buttons already built, the betting-splits Supabase migration, and the fantasy waiver-tracking automation now running in the background (don't touch that automation unless I ask).
+Main thing to pick up: deciding whether/how to wire the free-agent/waiver-scanner scripts (scripts/find-waiver-targets.mjs, scripts/find-available-pool.mjs — currently untracked in git) into the Toolbox UI as an on-demand tool, similar to the existing Diagnostics "Run Now" pattern. Also worth revisiting: the Yahoo /ownership data gap in find-waiver-targets.mjs (percentOwned/ownershipType always null).
+Reminder before we start troubleshooting anything: Yahoo and Supabase are unreachable from both the cloud sandbox and the device_bash local VM — only my own unsandboxed terminal has real network access to them. Don't spend time re-diagnosing that.
+
+
+Used the browser (33 actions), loaded tools, used Claude in Chrome · 10 notes
+
+
+
+
+
+
+
+Used the browser (33 actions), loaded tools, used Claude in Chrome · 10 notes
+Here's the full picture now that the threads are unrolled — six of the eight resolved completely, one image was legible, one wasn't.
+
+@DanGambleAI — full hit-rate sheet (this was the big one, previously cut off)
+
+Detroit: Gibbs 3+ receptions (90%), Gibbs 20+ rec yards (90%), Gibbs 1+ 10-yard reception (90%), Jameson Williams 30+ rec yards (90%), J. Williams 1+ 20-yard reception (90%), LaPorta 25+ rec yards (90%), Goff 225+ pass yards (80%), St. Brown 50+ rec yards (80%), Jameson Williams 3+ receptions (80%), Jake Bates 6+ kicking points (80%), Goff 1+ 30-yard pass (70%), St. Brown 1+ 20-yard reception (70%), LaPorta 4+ receptions (70%).
+
+Buffalo: Dawson Knox 5+ rec yards (100%) and 1+ reception (100%), Joshua Palmer 1+ reception (100%), Kincaid 1+ 15-yard reception (90%), Keon Coleman 1+ reception (90%), Josh Allen 20+ rush yards (80%) and 1+ 10-yard rush (80%), Palmer 5+ rec yards (80%), Kincaid 25+ rec yards (80%), Coleman 5+ rec yards (80%), James Cook 60+ rush yards (70%) and 2+ receptions (70%), Khalil Shakir 25+ rec yards (70%) and 4+ receptions (70%), Kincaid 3+ receptions (70%), Tyler Bass 6+ kicking points (70%).
+
+@thejoeholkashow — full 5-player parlay thread
+
+Josh Allen (passing yards, vs. a Lions defense that just allowed 410 to Tyler Shough); Amon-Ra St. Brown (led NFL with 14 targets/10 catches Week 1, 48% first-read target share); Khalil Shakir (4-of-6 targets, 50 yards Week 1, Lions allowed 2nd-most slot-WR yards); Dalton Kincaid (Lions allowed most TE targets in NFL last week; Kincaid had 5-130 vs. Houston); DJ Moore (5-of-8 targets in Bills debut, usage jumped from 15.3% to 30.8% route participation).
+
+@NoExpertFS — all three threads
+
+Thread 1 ($8,000 lotto): St. Brown Over 7.5 receptions, LaPorta Over 47.5 rec yards, James Cook Over 2.5 receptions.
+Thread 2 ($2,560 Polymarket combo — team totals, not player props): Bills 350+ total yards, Bills 27+ points, Lions 25+ points.
+Thread 3 (3 picks): Shakir Over 44.5 rec yards, Allen Over 249.5 pass yards, Goff Under 269.5 pass yards.
+
+@DynatyzePicks — full $4,000 lotto
+
+James Cook Over 14.5 rec yards, Dalton Kincaid Over 51.5 rec yards, Jared Goff Under 268.5 pass yards.
+
+@yourlinemate — image, successfully read
+
+General Week 2 streaks: Shakir 4+ receptions (6/6 games), Gibbs 20+ rec yards (6/6), Josh Allen 225+ pass yards (4/4), Kincaid 3+ receptions (4/4). Head-to-head vs. this exact opponent: Josh Allen 225+ pass yards is 1-for-1 vs. DET, Shakir 4+ receptions is 1-for-1 vs. DET, St. Brown 60+ rec yards is 1-for-1 vs. BUF, Jameson Williams 3+ receptions is 1-for-1 vs. BUF.
+
+@ParlayScience — couldn't reliably read
+
+The graphic is legible enough to confirm it's a "Detroit at Buffalo" consistency sheet with the same shape as the others (passing yards/TDs/rushing yards for Goff, Allen, Cook, Gibbs, Ray Davis on one side; receiving yards/receptions/anytime-TD for LaPorta, St. Brown, Kincaid, Jameson Williams, Shakir, DJ Moore on the other), but the actual hit-rate percentages are too small at this resolution to transcribe without risking getting numbers wrong. The browser pane I used doesn't support cropping into an image for a closer look, and the login-gated lightbox view blocks a full-res version. Your Claude in Chrome extension supports true zoom-crop and would solve this immediately — worth retrying once that computer's Chrome is back online. Otherwise, easiest is just opening that one tweet yourself.
+
+Want me to write this consolidated prop sheet into the vault as a supplementary note (e.g. NFL/GamePreps/2026-09-17-BUF-DET-player-props.md) so it's there for reference alongside the raw bookmarks?
+
+yes, and give me the URL for the ParlayScience tweet
+
+
+Used Supabase integration, used 3 tools · 2 notes
+Used Supabase integration, used 3 tools · 2 notes
+Saved successfully both places.
+
+Saved:
+
+Local: .nfl\reports\game-preps\2026-09-17-BUF-DET-player-props.md
+Supabase: vault_notes at NFL/GamePreps/2026-09-17-BUF-DET-player-props.md
+It's a full write-up of everything unrolled — the DanGambleAI hit-rate sheet, the thejoeholkashow 5-player thread, all three NoExpertFS threads, DynatyzePicks, the Linemate head-to-head splits, plus the supporting context (Gibbs workload fade, Lions O-line injuries, the OT-into-TNF trend), each with source links.
+
+ParlayScience tweet URL: https://x.com/ParlayScience/status/2100041985759265002
+
+I saved the 2 images from that tweet to docs/twitter, can you try again
+
+
+Listed files on your computer
+Listed files on your computer
+Found the two images. Let me stage them into the workspace so I can view them directly.
+
+
+Read a file, ran a command, used a tool
+Read a file, ran a command, used a tool
+These are actually high-res (2100×2400) — that's great for reading fine print. Let me recompress them under the size limit, and also crop them into halves so I can read each stat table at full resolution.
+
+
+Read 2 files, ran a command, used Supabase integration · 4 notes
+
+
+Read 2 files, ran a command, used Supabase integration · 4 notes
+That worked — the images came in at full 2100×2400 resolution, fully legible once resized under the size limit. Here's the complete ParlayScience data:
+
+Passing: Goff 200+/225+/250+ yds — 89%/72%/61%; Allen 175+/200+/250+ yds — 76%/65%/53%. Goff 1+/2+ pass TD — 100%/61%; Allen 1+/2+ pass TD — 76%/59%.
+
+Rushing: Cook 50+/75+/100+ yds — 78%/61%/50%; Gibbs 40+/60+/75+ yds — 72%/56%/39%; Ray Davis 10+/20+ yds — 28%/17%.
+
+Receiving yards: LaPorta 25+ — 90%; St. Brown 45+/60+/75+ — 89%/67%/50%; Kincaid 25+ — 85%; Jameson Williams 35+/45+ — 78%/61%; Shakir 25+/35+ — 76%/65%; DJ Moore 25+ — 61%.
+
+Receptions: LaPorta 3+ — 100%; St. Brown 5+/6+ — 78%/72%; Shakir 3+/4+ — 76%/71%; Kincaid 3+ — 69%.
+
+Anytime TD: Gibbs 61%, Cook 50%, St. Brown 44%, J. Williams 39%, Kincaid 38%, LaPorta 30%.
+
+One thing worth flagging: this sheet's sample is labeled "2025 + Wk1 2026, games played only" — a much bigger sample than DanGambleAI's "last 10 games" framing. Where they overlap and disagree (e.g. Goff 225+ passing yards: DanGambleAI's 80% vs. this sheet's 72%), I'd trust the ParlayScience numbers more given the larger base — I noted that in the file.
+
+Updated both copies of the note with the full transcription — the local file at .nfl\reports\game-preps\2026-09-17-BUF-DET-player-props.md and the Supabase vault_notes row at the same path. The prop summary is now complete across all eight sources.
+
+My twitter feed just absolutely exploded with new threads that I have bookmarked.  I'm going to run the ingest again.  Should I worry about the script picking up duplicates that have already been ingested?
+
+No, you're covered — just don't add --force. The pipeline has three separate layers of dedup:
+
+The primary gate checks whether a local report file already exists at .nfl\reports\twitter-bookmarks\<date>-<author>-<tweet-id>.md before doing anything else, and skips it as "already-processed" if so — that's what prevented reprocessing during your recent runs. Even if something slipped past that, the Supabase insert into research_intel_notes checks by URL and logs "already exists for this URL — skipping duplicate insert" rather than inserting a second row (we saw this happen live during your --force run). And the vault_notes write is an upsert keyed on path, so even a re-write just overwrites the same row instead of duplicating.
+
+So just run npm run twitter:bookmarks:cron (or the plain live command) normally — it'll walk through the whole new batch, skip everything it's already touched, and only actually ingest what's genuinely new. The one thing to keep in mind given the feed explosion: the 8-day recency window is still active, so anything in that flood that's older than about a week will get filtered as stale rather than ingested — which is the behavior you asked for, just worth knowing if you notice fewer new items than you bookmarked.

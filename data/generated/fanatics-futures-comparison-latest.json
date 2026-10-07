@@ -1,0 +1,2654 @@
+{
+  "schema": "fanatics_futures_reference_comparison_v1",
+  "generated_at": "2026-09-22T23:20:04.073Z",
+  "access": "local read-only inputs only",
+  "safety": "Reference only. Do not use this artifact to select a venue or place an order until a current executable Fanatics ask and fee treatment are captured.",
+  "sources": {
+    "fanatics": "Fanatics Markets rendered public pages",
+    "betonline": "BetOnline authenticated rendered pages"
+  },
+  "counts": {
+    "fanatics_contracts": 120,
+    "aligned_betonline_rows": 119,
+    "comparison_eligible_rows": 0
+  },
+  "entries": [
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Los Angeles Rams",
+      "fanatics": {
+        "yes_price_cents": 15,
+        "no_price_cents": 87,
+        "gross_decimal_return": 6.6667,
+        "gross_american_equivalent": 567,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 675,
+        "decimal_return": 7.75
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -1.0833,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Buffalo Bills",
+      "fanatics": {
+        "yes_price_cents": 12,
+        "no_price_cents": 89,
+        "gross_decimal_return": 8.3333,
+        "gross_american_equivalent": 733,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 750,
+        "decimal_return": 8.5
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.1667,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Seattle Seahawks",
+      "fanatics": {
+        "yes_price_cents": 9,
+        "no_price_cents": 93,
+        "gross_decimal_return": 11.1111,
+        "gross_american_equivalent": 1011,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1200,
+        "decimal_return": 13
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -1.8889,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "San Francisco 49ers",
+      "fanatics": {
+        "yes_price_cents": 8,
+        "no_price_cents": 93,
+        "gross_decimal_return": 12.5,
+        "gross_american_equivalent": 1150,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1200,
+        "decimal_return": 13
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.5,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Kansas City Chiefs",
+      "fanatics": {
+        "yes_price_cents": 8,
+        "no_price_cents": 93,
+        "gross_decimal_return": 12.5,
+        "gross_american_equivalent": 1150,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1200,
+        "decimal_return": 13
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.5,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Baltimore Ravens",
+      "fanatics": {
+        "yes_price_cents": 7,
+        "no_price_cents": 95,
+        "gross_decimal_return": 14.2857,
+        "gross_american_equivalent": 1329,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1100,
+        "decimal_return": 12
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 2.2857,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Cincinnati Bengals",
+      "fanatics": {
+        "yes_price_cents": 7,
+        "no_price_cents": 96,
+        "gross_decimal_return": 14.2857,
+        "gross_american_equivalent": 1329,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1800,
+        "decimal_return": 19
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -4.7143,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Philadelphia Eagles",
+      "fanatics": {
+        "yes_price_cents": 5,
+        "no_price_cents": 96,
+        "gross_decimal_return": 20,
+        "gross_american_equivalent": 1900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1800,
+        "decimal_return": 19
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 1,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Denver Broncos",
+      "fanatics": {
+        "yes_price_cents": 4,
+        "no_price_cents": 97,
+        "gross_decimal_return": 25,
+        "gross_american_equivalent": 2400,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 2500,
+        "decimal_return": 26
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -1,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Dallas Cowboys",
+      "fanatics": {
+        "yes_price_cents": 4,
+        "no_price_cents": 97,
+        "gross_decimal_return": 25,
+        "gross_american_equivalent": 2400,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 2200,
+        "decimal_return": 23
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 2,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Detroit Lions",
+      "fanatics": {
+        "yes_price_cents": 4,
+        "no_price_cents": 97,
+        "gross_decimal_return": 25,
+        "gross_american_equivalent": 2400,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 2200,
+        "decimal_return": 23
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 2,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "New England Patriots",
+      "fanatics": {
+        "yes_price_cents": 4,
+        "no_price_cents": 97,
+        "gross_decimal_return": 25,
+        "gross_american_equivalent": 2400,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 2200,
+        "decimal_return": 23
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 2,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Minnesota Vikings",
+      "fanatics": {
+        "yes_price_cents": 4,
+        "no_price_cents": 98,
+        "gross_decimal_return": 25,
+        "gross_american_equivalent": 2400,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 3300,
+        "decimal_return": 34
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -9,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Chicago Bears",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 98,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 3300,
+        "decimal_return": 34
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.6667,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Jacksonville Jaguars",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 98,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 2800,
+        "decimal_return": 29
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 4.3333,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Green Bay Packers",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 98,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 3300,
+        "decimal_return": 34
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.6667,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Houston Texans",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 98,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 2800,
+        "decimal_return": 29
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 4.3333,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Los Angeles Chargers",
+      "fanatics": {
+        "yes_price_cents": 2,
+        "no_price_cents": 99,
+        "gross_decimal_return": 50,
+        "gross_american_equivalent": 4900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 4500,
+        "decimal_return": 46
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 4,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Carolina Panthers",
+      "fanatics": {
+        "yes_price_cents": 2,
+        "no_price_cents": 98,
+        "gross_decimal_return": 50,
+        "gross_american_equivalent": 4900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 10000,
+        "decimal_return": 101
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -51,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Cleveland Browns",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 75000,
+        "decimal_return": 751
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -651,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Tampa Bay Buccaneers",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 7500,
+        "decimal_return": 76
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 24,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Arizona Cardinals",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 40000,
+        "decimal_return": 401
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -301,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Indianapolis Colts",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 8000,
+        "decimal_return": 81
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 19,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Washington Commanders",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 15000,
+        "decimal_return": 151
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -51,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Miami Dolphins",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 100000,
+        "decimal_return": 1001
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -901,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Atlanta Falcons",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 20000,
+        "decimal_return": 201
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -101,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "New York Giants",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 10000,
+        "decimal_return": 101
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -1,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "New York Jets",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 25000,
+        "decimal_return": 251
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -151,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Las Vegas Raiders",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 12500,
+        "decimal_return": 126
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -26,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "New Orleans Saints",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 8000,
+        "decimal_return": 81
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 19,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Pittsburgh Steelers",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 8000,
+        "decimal_return": 81
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 19,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "super_bowl",
+      "division": null,
+      "team": "Tennessee Titans",
+      "fanatics": {
+        "yes_price_cents": 1,
+        "no_price_cents": 99,
+        "gross_decimal_return": 100,
+        "gross_american_equivalent": 9900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 75000,
+        "decimal_return": 751
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -651,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Buffalo Bills",
+      "fanatics": {
+        "yes_price_cents": 23,
+        "no_price_cents": 79,
+        "gross_decimal_return": 4.3478,
+        "gross_american_equivalent": 335,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 375,
+        "decimal_return": 4.75
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.4022,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Kansas City Chiefs",
+      "fanatics": {
+        "yes_price_cents": 16,
+        "no_price_cents": 88,
+        "gross_decimal_return": 6.25,
+        "gross_american_equivalent": 525,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 550,
+        "decimal_return": 6.5
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.25,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Baltimore Ravens",
+      "fanatics": {
+        "yes_price_cents": 14,
+        "no_price_cents": 89,
+        "gross_decimal_return": 7.1429,
+        "gross_american_equivalent": 614,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 500,
+        "decimal_return": 6
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 1.1429,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Cincinnati Bengals",
+      "fanatics": {
+        "yes_price_cents": 13,
+        "no_price_cents": 90,
+        "gross_decimal_return": 7.6923,
+        "gross_american_equivalent": 669,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 750,
+        "decimal_return": 8.5
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.8077,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Denver Broncos",
+      "fanatics": {
+        "yes_price_cents": 8,
+        "no_price_cents": 94,
+        "gross_decimal_return": 12.5,
+        "gross_american_equivalent": 1150,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1100,
+        "decimal_return": 12
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 0.5,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Jacksonville Jaguars",
+      "fanatics": {
+        "yes_price_cents": 8,
+        "no_price_cents": 94,
+        "gross_decimal_return": 12.5,
+        "gross_american_equivalent": 1150,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1200,
+        "decimal_return": 13
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.5,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "New England Patriots",
+      "fanatics": {
+        "yes_price_cents": 8,
+        "no_price_cents": 95,
+        "gross_decimal_return": 12.5,
+        "gross_american_equivalent": 1150,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1000,
+        "decimal_return": 11
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 1.5,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Houston Texans",
+      "fanatics": {
+        "yes_price_cents": 7,
+        "no_price_cents": 97,
+        "gross_decimal_return": 14.2857,
+        "gross_american_equivalent": 1329,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1400,
+        "decimal_return": 15
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.7143,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Los Angeles Chargers",
+      "fanatics": {
+        "yes_price_cents": 4,
+        "no_price_cents": 99,
+        "gross_decimal_return": 25,
+        "gross_american_equivalent": 2400,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 2500,
+        "decimal_return": 26
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -1,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Pittsburgh Steelers",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 99,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 4500,
+        "decimal_return": 46
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -12.6667,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Indianapolis Colts",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 97,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 5500,
+        "decimal_return": 56
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -22.6667,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Las Vegas Raiders",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 97,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 6600,
+        "decimal_return": 67
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -33.6667,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Cleveland Browns",
+      "fanatics": {
+        "yes_price_cents": 2,
+        "no_price_cents": 98,
+        "gross_decimal_return": 50,
+        "gross_american_equivalent": 4900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 20000,
+        "decimal_return": 201
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -151,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Miami Dolphins",
+      "fanatics": {
+        "yes_price_cents": 2,
+        "no_price_cents": 98,
+        "gross_decimal_return": 50,
+        "gross_american_equivalent": 4900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 50000,
+        "decimal_return": 501
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -451,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "New York Jets",
+      "fanatics": {
+        "yes_price_cents": 2,
+        "no_price_cents": 98,
+        "gross_decimal_return": 50,
+        "gross_american_equivalent": 4900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 15000,
+        "decimal_return": 151
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -101,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_afc",
+      "division": null,
+      "team": "Tennessee Titans",
+      "fanatics": {
+        "yes_price_cents": 2,
+        "no_price_cents": 98,
+        "gross_decimal_return": 50,
+        "gross_american_equivalent": 4900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 25000,
+        "decimal_return": 251
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -201,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Los Angeles Rams",
+      "fanatics": {
+        "yes_price_cents": 22,
+        "no_price_cents": 82,
+        "gross_decimal_return": 4.5455,
+        "gross_american_equivalent": 355,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 425,
+        "decimal_return": 5.25
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.7045,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "San Francisco 49ers",
+      "fanatics": {
+        "yes_price_cents": 17,
+        "no_price_cents": 87,
+        "gross_decimal_return": 5.8824,
+        "gross_american_equivalent": 488,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 500,
+        "decimal_return": 6
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.1176,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Seattle Seahawks",
+      "fanatics": {
+        "yes_price_cents": 15,
+        "no_price_cents": 89,
+        "gross_decimal_return": 6.6667,
+        "gross_american_equivalent": 567,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 550,
+        "decimal_return": 6.5
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 0.1667,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Philadelphia Eagles",
+      "fanatics": {
+        "yes_price_cents": 13,
+        "no_price_cents": 90,
+        "gross_decimal_return": 7.6923,
+        "gross_american_equivalent": 669,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 700,
+        "decimal_return": 8
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.3077,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Detroit Lions",
+      "fanatics": {
+        "yes_price_cents": 8,
+        "no_price_cents": 95,
+        "gross_decimal_return": 12.5,
+        "gross_american_equivalent": 1150,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1200,
+        "decimal_return": 13
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.5,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Dallas Cowboys",
+      "fanatics": {
+        "yes_price_cents": 7,
+        "no_price_cents": 95,
+        "gross_decimal_return": 14.2857,
+        "gross_american_equivalent": 1329,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1400,
+        "decimal_return": 15
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.7143,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Minnesota Vikings",
+      "fanatics": {
+        "yes_price_cents": 7,
+        "no_price_cents": 95,
+        "gross_decimal_return": 14.2857,
+        "gross_american_equivalent": 1329,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1200,
+        "decimal_return": 13
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 1.2857,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Chicago Bears",
+      "fanatics": {
+        "yes_price_cents": 7,
+        "no_price_cents": 96,
+        "gross_decimal_return": 14.2857,
+        "gross_american_equivalent": 1329,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 2000,
+        "decimal_return": 21
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -6.7143,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Green Bay Packers",
+      "fanatics": {
+        "yes_price_cents": 6,
+        "no_price_cents": 97,
+        "gross_decimal_return": 16.6667,
+        "gross_american_equivalent": 1567,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1600,
+        "decimal_return": 17
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.3333,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "New Orleans Saints",
+      "fanatics": {
+        "yes_price_cents": 4,
+        "no_price_cents": 99,
+        "gross_decimal_return": 25,
+        "gross_american_equivalent": 2400,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 4000,
+        "decimal_return": 41
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -16,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Tampa Bay Buccaneers",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 97,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 4500,
+        "decimal_return": 46
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -12.6667,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Carolina Panthers",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 97,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 5500,
+        "decimal_return": 56
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -22.6667,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Arizona Cardinals",
+      "fanatics": {
+        "yes_price_cents": 2,
+        "no_price_cents": 98,
+        "gross_decimal_return": 50,
+        "gross_american_equivalent": 4900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 20000,
+        "decimal_return": 201
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -151,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Washington Commanders",
+      "fanatics": {
+        "yes_price_cents": 2,
+        "no_price_cents": 98,
+        "gross_decimal_return": 50,
+        "gross_american_equivalent": 4900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 6600,
+        "decimal_return": 67
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -17,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "Atlanta Falcons",
+      "fanatics": {
+        "yes_price_cents": 2,
+        "no_price_cents": 98,
+        "gross_decimal_return": 50,
+        "gross_american_equivalent": 4900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 12500,
+        "decimal_return": 126
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -76,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "conference_nfc",
+      "division": null,
+      "team": "New York Giants",
+      "fanatics": {
+        "yes_price_cents": 2,
+        "no_price_cents": 98,
+        "gross_decimal_return": 50,
+        "gross_american_equivalent": 4900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 5000,
+        "decimal_return": 51
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -1,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Baltimore Ravens",
+      "fanatics": {
+        "yes_price_cents": 91,
+        "no_price_cents": 34,
+        "gross_decimal_return": 1.0989,
+        "gross_american_equivalent": -1011,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -450,
+        "decimal_return": 1.2222
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.1233,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Los Angeles Chargers",
+      "fanatics": {
+        "yes_price_cents": 32,
+        "no_price_cents": 92,
+        "gross_decimal_return": 3.125,
+        "gross_american_equivalent": 213,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 275,
+        "decimal_return": 3.75
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.625,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Seattle Seahawks",
+      "fanatics": {
+        "yes_price_cents": 89,
+        "no_price_cents": 41,
+        "gross_decimal_return": 1.1236,
+        "gross_american_equivalent": -809,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -325,
+        "decimal_return": 1.3077
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.1841,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Kansas City Chiefs",
+      "fanatics": {
+        "yes_price_cents": 91,
+        "no_price_cents": 30,
+        "gross_decimal_return": 1.0989,
+        "gross_american_equivalent": -1011,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -450,
+        "decimal_return": 1.2222
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.1233,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "San Francisco 49ers",
+      "fanatics": {
+        "yes_price_cents": 88,
+        "no_price_cents": 39,
+        "gross_decimal_return": 1.1364,
+        "gross_american_equivalent": -733,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -350,
+        "decimal_return": 1.2857
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.1493,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Los Angeles Rams",
+      "fanatics": {
+        "yes_price_cents": 89,
+        "no_price_cents": 29,
+        "gross_decimal_return": 1.1236,
+        "gross_american_equivalent": -809,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -325,
+        "decimal_return": 1.3077
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.1841,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Cincinnati Bengals",
+      "fanatics": {
+        "yes_price_cents": 92,
+        "no_price_cents": 31,
+        "gross_decimal_return": 1.087,
+        "gross_american_equivalent": -1149,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -450,
+        "decimal_return": 1.2222
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.1352,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Detroit Lions",
+      "fanatics": {
+        "yes_price_cents": 75,
+        "no_price_cents": 52,
+        "gross_decimal_return": 1.3333,
+        "gross_american_equivalent": -300,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -175,
+        "decimal_return": 1.5714
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.2381,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Houston Texans",
+      "fanatics": {
+        "yes_price_cents": 64,
+        "no_price_cents": 61,
+        "gross_decimal_return": 1.5625,
+        "gross_american_equivalent": -178,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -125,
+        "decimal_return": 1.8
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.2375,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Denver Broncos",
+      "fanatics": {
+        "yes_price_cents": 70,
+        "no_price_cents": 55,
+        "gross_decimal_return": 1.4286,
+        "gross_american_equivalent": -233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -145,
+        "decimal_return": 1.6897
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.2611,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Philadelphia Eagles",
+      "fanatics": {
+        "yes_price_cents": 88,
+        "no_price_cents": 42,
+        "gross_decimal_return": 1.1364,
+        "gross_american_equivalent": -733,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -290,
+        "decimal_return": 1.3448
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.2084,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Dallas Cowboys",
+      "fanatics": {
+        "yes_price_cents": 61,
+        "no_price_cents": 61,
+        "gross_decimal_return": 1.6393,
+        "gross_american_equivalent": -156,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 120,
+        "decimal_return": 2.2
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.5607,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Buffalo Bills",
+      "fanatics": {
+        "yes_price_cents": 99,
+        "no_price_cents": 25,
+        "gross_decimal_return": 1.0101,
+        "gross_american_equivalent": -9901,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -1000,
+        "decimal_return": 1.1
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.0899,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Jacksonville Jaguars",
+      "fanatics": {
+        "yes_price_cents": 70,
+        "no_price_cents": 54,
+        "gross_decimal_return": 1.4286,
+        "gross_american_equivalent": -233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -145,
+        "decimal_return": 1.6897
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.2611,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Green Bay Packers",
+      "fanatics": {
+        "yes_price_cents": 54,
+        "no_price_cents": 75,
+        "gross_decimal_return": 1.8519,
+        "gross_american_equivalent": -117,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 130,
+        "decimal_return": 2.3
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.4481,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Chicago Bears",
+      "fanatics": {
+        "yes_price_cents": 57,
+        "no_price_cents": 67,
+        "gross_decimal_return": 1.7544,
+        "gross_american_equivalent": -133,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 145,
+        "decimal_return": 2.45
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.6956,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "New England Patriots",
+      "fanatics": {
+        "yes_price_cents": 72,
+        "no_price_cents": 50,
+        "gross_decimal_return": 1.3889,
+        "gross_american_equivalent": -257,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -190,
+        "decimal_return": 1.5263
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.1374,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Tampa Bay Buccaneers",
+      "fanatics": {
+        "yes_price_cents": 39,
+        "no_price_cents": 83,
+        "gross_decimal_return": 2.5641,
+        "gross_american_equivalent": 156,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 250,
+        "decimal_return": 3.5
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.9359,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Minnesota Vikings",
+      "fanatics": {
+        "yes_price_cents": 72,
+        "no_price_cents": 54,
+        "gross_decimal_return": 1.3889,
+        "gross_american_equivalent": -257,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -165,
+        "decimal_return": 1.6061
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.2172,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Pittsburgh Steelers",
+      "fanatics": {
+        "yes_price_cents": 35,
+        "no_price_cents": 85,
+        "gross_decimal_return": 2.8571,
+        "gross_american_equivalent": 186,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 240,
+        "decimal_return": 3.4
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.5429,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Indianapolis Colts",
+      "fanatics": {
+        "yes_price_cents": 38,
+        "no_price_cents": 86,
+        "gross_decimal_return": 2.6316,
+        "gross_american_equivalent": 163,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 260,
+        "decimal_return": 3.6
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.9684,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "New Orleans Saints",
+      "fanatics": {
+        "yes_price_cents": 61,
+        "no_price_cents": 63,
+        "gross_decimal_return": 1.6393,
+        "gross_american_equivalent": -156,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 115,
+        "decimal_return": 2.15
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.5107,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "New York Giants",
+      "fanatics": {
+        "yes_price_cents": 38,
+        "no_price_cents": 87,
+        "gross_decimal_return": 2.6316,
+        "gross_american_equivalent": 163,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 240,
+        "decimal_return": 3.4
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.7684,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Atlanta Falcons",
+      "fanatics": {
+        "yes_price_cents": 25,
+        "no_price_cents": 94,
+        "gross_decimal_return": 4,
+        "gross_american_equivalent": 300,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 550,
+        "decimal_return": 6.5
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -2.5,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Carolina Panthers",
+      "fanatics": {
+        "yes_price_cents": 47,
+        "no_price_cents": 78,
+        "gross_decimal_return": 2.1277,
+        "gross_american_equivalent": 113,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 220,
+        "decimal_return": 3.2
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -1.0723,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Washington Commanders",
+      "fanatics": {
+        "yes_price_cents": 23,
+        "no_price_cents": 99,
+        "gross_decimal_return": 4.3478,
+        "gross_american_equivalent": 335,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": null,
+      "comparison": {
+        "status": "no_matching_betonline_yes_side_in_selected_board",
+        "gross_decimal_delta_vs_betonline": null,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Tennessee Titans",
+      "fanatics": {
+        "yes_price_cents": 17,
+        "no_price_cents": 98,
+        "gross_decimal_return": 5.8824,
+        "gross_american_equivalent": 488,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1400,
+        "decimal_return": 15
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -9.1176,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Las Vegas Raiders",
+      "fanatics": {
+        "yes_price_cents": 42,
+        "no_price_cents": 77,
+        "gross_decimal_return": 2.381,
+        "gross_american_equivalent": 138,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 210,
+        "decimal_return": 3.1
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.719,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "New York Jets",
+      "fanatics": {
+        "yes_price_cents": 28,
+        "no_price_cents": 93,
+        "gross_decimal_return": 3.5714,
+        "gross_american_equivalent": 257,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 425,
+        "decimal_return": 5.25
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -1.6786,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Cleveland Browns",
+      "fanatics": {
+        "yes_price_cents": 21,
+        "no_price_cents": 99,
+        "gross_decimal_return": 4.7619,
+        "gross_american_equivalent": 376,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 800,
+        "decimal_return": 9
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -4.2381,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Miami Dolphins",
+      "fanatics": {
+        "yes_price_cents": 14,
+        "no_price_cents": 98,
+        "gross_decimal_return": 7.1429,
+        "gross_american_equivalent": 614,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 2500,
+        "decimal_return": 26
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -18.8571,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "playoffs",
+      "division": null,
+      "team": "Arizona Cardinals",
+      "fanatics": {
+        "yes_price_cents": 20,
+        "no_price_cents": 94,
+        "gross_decimal_return": 5,
+        "gross_american_equivalent": 400,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 900,
+        "decimal_return": 10
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -5,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "AFC NORTH",
+      "team": "Baltimore Ravens",
+      "fanatics": {
+        "yes_price_cents": 45,
+        "no_price_cents": 59,
+        "gross_decimal_return": 2.2222,
+        "gross_american_equivalent": 122,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 120,
+        "decimal_return": 2.2
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 0.0222,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "AFC NORTH",
+      "team": "Cincinnati Bengals",
+      "fanatics": {
+        "yes_price_cents": 46,
+        "no_price_cents": 57,
+        "gross_decimal_return": 2.1739,
+        "gross_american_equivalent": 117,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 105,
+        "decimal_return": 2.05
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 0.1239,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "AFC NORTH",
+      "team": "Pittsburgh Steelers",
+      "fanatics": {
+        "yes_price_cents": 10,
+        "no_price_cents": 92,
+        "gross_decimal_return": 10,
+        "gross_american_equivalent": 900,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 1000,
+        "decimal_return": 11
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -1,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "AFC NORTH",
+      "team": "Cleveland Browns",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 99,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 4000,
+        "decimal_return": 41
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -7.6667,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "AFC SOUTH",
+      "team": "Houston Texans",
+      "fanatics": {
+        "yes_price_cents": 41,
+        "no_price_cents": 62,
+        "gross_decimal_return": 2.439,
+        "gross_american_equivalent": 144,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 145,
+        "decimal_return": 2.45
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.011,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "AFC SOUTH",
+      "team": "Jacksonville Jaguars",
+      "fanatics": {
+        "yes_price_cents": 45,
+        "no_price_cents": 58,
+        "gross_decimal_return": 2.2222,
+        "gross_american_equivalent": 122,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 125,
+        "decimal_return": 2.25
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.0278,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "AFC SOUTH",
+      "team": "Indianapolis Colts",
+      "fanatics": {
+        "yes_price_cents": 17,
+        "no_price_cents": 84,
+        "gross_decimal_return": 5.8824,
+        "gross_american_equivalent": 488,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 500,
+        "decimal_return": 6
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.1176,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "AFC SOUTH",
+      "team": "Tennessee Titans",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 99,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 2500,
+        "decimal_return": 26
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 7.3333,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC EAST",
+      "team": "Philadelphia Eagles",
+      "fanatics": {
+        "yes_price_cents": 62,
+        "no_price_cents": 42,
+        "gross_decimal_return": 1.6129,
+        "gross_american_equivalent": -163,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": -145,
+        "decimal_return": 1.6897
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.0768,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC EAST",
+      "team": "Dallas Cowboys",
+      "fanatics": {
+        "yes_price_cents": 31,
+        "no_price_cents": 72,
+        "gross_decimal_return": 3.2258,
+        "gross_american_equivalent": 223,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 250,
+        "decimal_return": 3.5
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.2742,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC EAST",
+      "team": "New York Giants",
+      "fanatics": {
+        "yes_price_cents": 7,
+        "no_price_cents": 96,
+        "gross_decimal_return": 14.2857,
+        "gross_american_equivalent": 1329,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 650,
+        "decimal_return": 7.5
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 6.7857,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC EAST",
+      "team": "Washington Commanders",
+      "fanatics": {
+        "yes_price_cents": 4,
+        "no_price_cents": 99,
+        "gross_decimal_return": 25,
+        "gross_american_equivalent": 2400,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 2200,
+        "decimal_return": 23
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 2,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC NORTH",
+      "team": "Detroit Lions",
+      "fanatics": {
+        "yes_price_cents": 33,
+        "no_price_cents": 68,
+        "gross_decimal_return": 3.0303,
+        "gross_american_equivalent": 203,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 185,
+        "decimal_return": 2.85
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 0.1803,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC NORTH",
+      "team": "Green Bay Packers",
+      "fanatics": {
+        "yes_price_cents": 20,
+        "no_price_cents": 83,
+        "gross_decimal_return": 5,
+        "gross_american_equivalent": 400,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 380,
+        "decimal_return": 4.8
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 0.2,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC NORTH",
+      "team": "Chicago Bears",
+      "fanatics": {
+        "yes_price_cents": 21,
+        "no_price_cents": 82,
+        "gross_decimal_return": 4.7619,
+        "gross_american_equivalent": 376,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 500,
+        "decimal_return": 6
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -1.2381,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC NORTH",
+      "team": "Minnesota Vikings",
+      "fanatics": {
+        "yes_price_cents": 35,
+        "no_price_cents": 68,
+        "gross_decimal_return": 2.8571,
+        "gross_american_equivalent": 186,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 200,
+        "decimal_return": 3
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.1429,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC SOUTH",
+      "team": "Atlanta Falcons",
+      "fanatics": {
+        "yes_price_cents": 8,
+        "no_price_cents": 95,
+        "gross_decimal_return": 12.5,
+        "gross_american_equivalent": 1150,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 900,
+        "decimal_return": 10
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 2.5,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC SOUTH",
+      "team": "Tampa Bay Buccaneers",
+      "fanatics": {
+        "yes_price_cents": 26,
+        "no_price_cents": 78,
+        "gross_decimal_return": 3.8462,
+        "gross_american_equivalent": 285,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 275,
+        "decimal_return": 3.75
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 0.0962,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC SOUTH",
+      "team": "New Orleans Saints",
+      "fanatics": {
+        "yes_price_cents": 44,
+        "no_price_cents": 59,
+        "gross_decimal_return": 2.2727,
+        "gross_american_equivalent": 127,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 130,
+        "decimal_return": 2.3
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.0273,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC SOUTH",
+      "team": "Carolina Panthers",
+      "fanatics": {
+        "yes_price_cents": 26,
+        "no_price_cents": 77,
+        "gross_decimal_return": 3.8462,
+        "gross_american_equivalent": 285,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 290,
+        "decimal_return": 3.9
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.0538,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC WEST",
+      "team": "Los Angeles Rams",
+      "fanatics": {
+        "yes_price_cents": 32,
+        "no_price_cents": 72,
+        "gross_decimal_return": 3.125,
+        "gross_american_equivalent": 213,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 225,
+        "decimal_return": 3.25
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -0.125,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC WEST",
+      "team": "Seattle Seahawks",
+      "fanatics": {
+        "yes_price_cents": 35,
+        "no_price_cents": 66,
+        "gross_decimal_return": 2.8571,
+        "gross_american_equivalent": 186,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 180,
+        "decimal_return": 2.8
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 0.0571,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC WEST",
+      "team": "San Francisco 49ers",
+      "fanatics": {
+        "yes_price_cents": 38,
+        "no_price_cents": 65,
+        "gross_decimal_return": 2.6316,
+        "gross_american_equivalent": 163,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 160,
+        "decimal_return": 2.6
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": 0.0316,
+        "best_price_status": "not_computed"
+      }
+    },
+    {
+      "market": "division",
+      "division": "NFC WEST",
+      "team": "Arizona Cardinals",
+      "fanatics": {
+        "yes_price_cents": 3,
+        "no_price_cents": 99,
+        "gross_decimal_return": 33.3333,
+        "gross_american_equivalent": 3233,
+        "price_basis": "rendered percentage/contract cents; not an executable ask",
+        "fee_adjustment_status": "missing_current_fee_schedule"
+      },
+      "betonline": {
+        "american_odds": 12500,
+        "decimal_return": 126
+      },
+      "comparison": {
+        "status": "reference_only_missing_fanatics_fee_and_executable_ask",
+        "gross_decimal_delta_vs_betonline": -92.6667,
+        "best_price_status": "not_computed"
+      }
+    }
+  ]
+}

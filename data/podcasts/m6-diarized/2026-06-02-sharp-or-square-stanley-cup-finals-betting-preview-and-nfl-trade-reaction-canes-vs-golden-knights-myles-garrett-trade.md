@@ -8,24 +8,23 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 59142
 Speaker turns: 149
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
 - Speaker D: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Guest (gpt-4o, unknown) futures=6
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:34]
 
@@ -38,10 +37,6 @@ presents painful thoughts why did I search the Internet for answers to my cold s
 ### Chad Millman (Speaker B) [1:03-1:38]
 
 This is Tab Ramos from Inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls race right into the net and every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Are you looking
-
-### Guest (Speaker A) [1:38-3:06]
-
-for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing, pregnant, plan to be or taking birth control pills. Taking zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lily.com
 
 ### Chad Millman (Speaker B) [3:08-3:31]
 
@@ -171,10 +166,6 @@ to talk about my downtown.
 
 Some things you'd rather type than say out loud. There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful
 
-### Guest (Speaker A) [25:57-27:25]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor. Call 1-800-545-5979 or visit Zeppbounds. Lilly
-
 ### Simon Hunter (Speaker C) [27:27-27:31]
 
 Awkward time to ask this, but hey, did you download the trail map?
@@ -194,10 +185,6 @@ You're trusting your signal out here?
 ### Chad Millman (Speaker B) [27:35-27:37]
 
 I'm trusting T Mobile.
-
-### Guest (Speaker A) [27:37-27:39]
-
-They have the best network and if
 
 ### Chad Millman (Speaker B) [27:39-27:40]
 
@@ -230,10 +217,6 @@ Ooklab speed test intelligence data to H
 ### Guest (Speaker D) [28:07-28:09]
 
 2025 with 24 monthly bill credits and
-
-### Guest (Speaker A) [28:09-28:11]
-
-4 eligible port ins on essentials for
 
 ### Simon Hunter (Speaker C) [28:11-28:12]
 
@@ -367,10 +350,6 @@ Let's do a quick word from our friends at Hard Rock and come back and touch a li
 
 Health AI presents painful thoughts why did I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that. Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
 
-### Guest (Speaker A) [44:21-45:53]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepat peptide containing products or any GLP1 receptor agonist medicines. It is not known if Zepound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck, stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills, taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepboundlily.com awkward time to ask this,
-
 ### Simon Hunter (Speaker C) [45:53-45:55]
 
 but hey, did you download the trail map?
@@ -390,10 +369,6 @@ You're trusting your signal out here.
 ### Chad Millman (Speaker B) [45:59-46:01]
 
 I'm trusting T Mobile.
-
-### Guest (Speaker A) [46:01-46:02]
-
-They have the best network and if
 
 ### Chad Millman (Speaker B) [46:02-46:04]
 
@@ -599,10 +574,6 @@ Make it a habit. Paid for by NHTSA
 
 if you're alignment in charge of keeping the lights on, Grainger understands that you go to great lengths and sometimes heights to ensure the power is always flowing. Which is why you can count on Grainger for professional grade products and next day delivery so you have everything you need to get the job done. Call 1-800-granger, click grainger.com or just stop by Granger for the ones who get it done.
 
-### Guest (Speaker A) [59:12-1:00:54]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zeppbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lily.com I love the little everyday moments with my dog, especially treat time but dental care not always so fun. Until we found Greenies dental treats. These are more than just tasty.
-
 ### Chad Millman (Speaker B) [1:00:54-1:00:58]
 
 They're vet recommended and designed to support the four areas vets check the most
@@ -614,7 +585,3 @@ plaque, tartar gums and breath. Their unique texture cleans down to the
 ### Simon Hunter (Speaker C) [1:01:02-1:01:04]
 
 gum line and supports cleaner teeth after
-
-### Guest (Speaker A) [1:01:04-1:01:18]
-
-28 days when fed daily. It's a simple daily habit that supports their health and gives us another moment to enjoy together. Greenies make health a treat. Shop now@greenies.com this is an I heart podcast. Guaranteed human.

@@ -1,0 +1,247 @@
+{
+  "episode_slug": "youtube-ZmBVzYR15UU",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
+  "run": {
+    "run_id": "youtube_gemini_62bbdd0594fb",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=ZmBVzYR15UU",
+    "latency_ms": 89264,
+    "estimated_cost_usd": 0.018556,
+    "input_tokens": 171660,
+    "output_tokens": 3476,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Scott Bogman and Jo Madden host the live BettingPros preview for a simulated matchup between the Denver Broncos and Kansas City Chiefs. Both analysts side strongly with the Broncos, highlighting Kansas City's offensive line injuries and Patrick Mahomes' premature return from a knee injury.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1865,\n    \"last_analyzed_timestamp\": 1865,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 182.0,\n      \"speaker\": null,\n      \"text\": \"[Stream waiting screen / Intro music]\"\n    },\n    {\n      \"start\": 182.0,\n      \"end\": 300.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"Welcome in everybody, it is the BettingPros Monday Night Football Live Preview, and I am your host Scott Bogman joined by Jo Madden. We're going to talk Broncos vs. Chiefs here in Arrowhead. Jo, what is going on, Monday Night Football live for the first time? I'm excited for it after a massive Sunday slate.\"\n    },\n    {\n      \"start\": 300.0,\n      \"end\": 573.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"Oh, this AFC West battle right straight out of the gate on Monday night. I'm looking for a competitive one, and I've got high hopes. We'll see how Patrick Mahomes does coming out after coming back from those injuries, but this is all about Denver and their defense for me. I find this line completely disrespectful to the Denver Broncos. They went 14 and 3 last season, won the AFC West, and their defense allowed the third best 18.3 points per game. And now KC is favored even though they went 6 and 11 last season, with Mahomes coming back from the ACL and MCL.\"\n    },\n    {\n      \"start\": 573.0,\n      \"end\": 669.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"Yeah, I think you're absolutely right. Let's get to our first official bets. I'm going to take the points with the Broncos at +2.5 (-110). I also have a sprinkle on the moneyline as well, but this is my tracked bet. What is your first bet, Jo?\"\n    },\n    {\n      \"start\": 669.0,\n      \"end\": 742.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"My first bet has to be straight up on that moneyline for the Denver Broncos at +112. I think the points are great to have in your pocket, but I have full faith in Bo Nix and this defense to shut the door on the Chiefs tonight.\"\n    },\n    {\n      \"start\": 742.0,\n      \"end\": 885.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"I love it. For my second bet, I'm going with Jaylen Waddle Over 54.5 receiving yards. I think this is just a little bit too low with the changes in the Chiefs' secondary. Their rookie Mansoor Delane is good, but it's his first NFL game, and Shamari Connor is out. Waddle is moving to a more competent quarterback than Tua and Quinn Ewers last season.\"\n    },\n    {\n      \"start\": 885.0,\n      \"end\": 1062.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"I love that. My second bet is RJ Harvey Over 39.5 rushing and receiving yards. I know he is behind J.K. Dobbins and Coleman, but this Denver running back depth chart is elite. Harvey averaged 52.7 scrimmage yards per game as a rookie and had 76 total yards against Arrowhead last season. This line is way too low.\"\n    },\n    {\n      \"start\": 1062.0,\n      \"end\": 1268.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"For my third bet, I'm going with Emmett Johnson anytime touchdown at +600. It's a sprinkle, but I'm a naysayer on Kenneth Walker's durability. Emmett Johnson had almost 300 touches at Nebraska and will likely fill a goal-line 'Charbonnet' role to preserve Walker. At +600, that is great value.\"\n    },\n    {\n      \"start\": 1268.0,\n      \"end\": 1475.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"My third bet is Nik Bonitto to record a sack at -102. Mahomes is going to be in danger tonight on his blindside with starting tackle Josh Simmons out. Undrafted rookie Benson is starting in his place. Bonitto had 14 sacks last season and should feast tonight.\"\n    },\n    {\n      \"start\": 1475.0,\n      \"end\": 1689.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"Let's look at some chat questions. Darragh from Ireland asks about a treble with Cyrus Allen Over 15 receiving yards, a Walker touchdown, and Jaylen Waddle Over 70 yards at 9/1.\"\n    },\n    {\n      \"start\": 1689.0,\n      \"end\": 1865.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"I'd be cautious on Cyrus Allen since Rashee Rice gets the main workload and Mahomes won't have time for deep shots. For another question on Bo Nix vs. Mahomes passing yards: I like Bo Nix Over 1.5 passing touchdowns (+134) and Mahomes Under 223.5 passing yards. Thank you everyone, enjoy the game and win your bets!\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"DEN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"underdog\",\n      \"line\": 2.5,\n      \"price\": -110,\n      \"week\": 2,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 573,\n      \"rationale\": \"Believes the line is incorrect and should be closer to pick'em; expects a very tight game where the Broncos can win outright.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 112,\n      \"week\": 2,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 669,\n      \"rationale\": \"Has full faith in rookie quarterback Bo Nix and the Denver defense to shut down the Chiefs on the road.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": \"Jaylen Waddle\",\n      \"market\": \"receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 54.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 742,\n      \"rationale\": \"Expects Waddle to exploit a young Chiefs secondary that is missing safety Shamari Connor and starting rookie Mansoor Delane.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": \"RJ Harvey\",\n      \"market\": \"rushing_receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 39.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 885,\n      \"rationale\": \"Harvey averaged 52.7 scrimmage yards per game as a rookie and had 76 combined yards against Kansas City last year. This total is far too low.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"player\": \"Emmett Johnson\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 600,\n      \"week\": 2,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 1062,\n      \"rationale\": \"Walker is not built for a heavy workload, so the Chiefs are expected to use Nebraska rookie Emmett Johnson in a goal-line/short-yardage role.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": \"Nik Bonitto\",\n      \"market\": \"sack\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": -102,\n      \"week\": 2,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1268,\n      \"rationale\": \"Chiefs starting tackle Josh Simmons is out, leaving undrafted rookie Benson to block Bonitto on Mahomes' blindside.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"player\": \"Patrick Mahomes\",\n      \"market\": \"passing_yards\",\n      \"side\": \"UNDER\",\n      \"line\": 223.5,\n      \"price\": null,\n      \"week\": 2,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1689,\n      \"rationale\": \"Mahomes is rushing back early from a severe knee injury and will struggle with protection issues on his blindside.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": \"Bo Nix\",\n      \"market\": \"passing_touchdowns\",\n      \"side\": \"OVER\",\n      \"line\": 1.5,\n      \"price\": 134,\n      \"week\": 2,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1689,\n      \"rationale\": \"Nix has elite targets in Jaylen Waddle, Courtland Sutton, and Marvin Mims, and Denver has a strong red zone package.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"DEN\"],\n      \"players\": [],\n      \"topic\": \"Denver defensive strength\",\n      \"summary\": \"Jo highlights Denver's strong defense from the prior simulated season, where they allowed only 18.3 points per game (3rd best in the league), and believes they will control the tempo.\",\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 361,\n      \"quote\": \"their defense only allowed 18.3 points per game, third best in the NFL\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"KC\"],\n      \"players\": [\"Patrick Mahomes\"],\n      \"topic\": \"Mahomes injury return concern\",\n      \"summary\": \"Both analysts express deep concern regarding Mahomes returning to play so soon after tearing his ACL and MCL in December.\",\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1205,\n      \"quote\": \"with Mahomes coming back from the ACL and MCL, I'm just not buying it\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"KC\"],\n      \"players\": [\"Josh Simmons\"],\n      \"topic\": \"Simmons injury impact on Chiefs O-Line\",\n      \"summary\": \"Starting tackle Josh Simmons is out, forcing undrafted rookie Benson to start on Mahomes' blind side, creating a severe mismatch against Denver's pass rush.\",\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1285,\n      \"quote\": \"with Simmons out of the lineup, we're going to see an undrafted rookie coming in, Benson, in his place\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"KC\"],\n      \"players\": [\"Kenneth Walker\", \"Emmett Johnson\"],\n      \"topic\": \"Chiefs running back usage strategy\",\n      \"summary\": \"Scott suggests Emmett Johnson was drafted to serve in a short-yardage/goal-line role similar to Zach Charbonnet's role with Walker in Seattle to preserve Walker's health.\",\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 1115,\n      \"quote\": \"take what the Seahawks did last season with him and Charbonnet... put Emmett Johnson in that Charbonnet role\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"DEN\"],\n      \"players\": [\"Jaylen Waddle\"],\n      \"topic\": \"Waddle WR1 transition\",\n      \"summary\": \"Scott expects Jaylen Waddle to thrive as Denver's true WR1 with Courtland Sutton slotting into the WR2 role, catching passes from Bo Nix.\",\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 820,\n      \"quote\": \"now that Sutton is the number two, it's going to be great for him, even better for Waddle\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Denver Defense PPG\",\n      \"timestamp\": 361,\n      \"speaker\": \"Jo Madden\",\n      \"quote\": \"their defense only allowed 18.3 points per game, third best in the NFL\"\n    },\n    {\n      \"topic\": \"Chiefs Spread disrespect\",\n      \"timestamp\": 361,\n      \"speaker\": \"Jo Madden\",\n      \"quote\": \"I find this line completely disrespectful to the Denver Broncos.\"\n    },\n    {\n      \"topic\": \"Nik Bonitto Sack\",\n      \"timestamp\": 1268,\n      \"speaker\": \"Jo Madden\",\n      \"quote\": \"Mahomes is going to be in danger tonight on his blind side from Nik Bonitto\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 742,\n      \"field\": \"price\",\n      \"reason\": \"No price was specified for the Jaylen Waddle receiving yards over prop.\"\n    },\n    {\n      \"timestamp\": 885,\n      \"field\": \"price\",\n      \"reason\": \"No price was specified for the RJ Harvey scrimmage yards over prop.\"\n    },\n    {\n      \"timestamp\": 1689,\n      \"field\": \"price\",\n      \"reason\": \"No price was specified for the Patrick Mahomes passing yards under prop.\"\n    }\n  ]\n}",
+    "extracted_picks": [
+      {
+        "team": "DEN",
+        "player": null,
+        "market": "spread",
+        "side": "UNDER",
+        "line": 2.5,
+        "price": -110,
+        "week": 2,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 573,
+        "rationale": "Believes the line is incorrect and should be closer to pick'em; expects a very tight game where the Broncos can win outright."
+      },
+      {
+        "team": "DEN",
+        "player": null,
+        "market": "moneyline",
+        "side": "YES",
+        "line": null,
+        "price": 112,
+        "week": 2,
+        "speaker": "Jo Madden",
+        "source_timestamp": 669,
+        "rationale": "Has full faith in rookie quarterback Bo Nix and the Denver defense to shut down the Chiefs on the road."
+      },
+      {
+        "team": "DEN",
+        "player": "Jaylen Waddle",
+        "market": "season_receiving_yards",
+        "side": "OVER",
+        "line": 54.5,
+        "price": null,
+        "week": 2,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 742,
+        "rationale": "Expects Waddle to exploit a young Chiefs secondary that is missing safety Shamari Connor and starting rookie Mansoor Delane."
+      },
+      {
+        "team": "DEN",
+        "player": "RJ Harvey",
+        "market": "season_receiving_yards",
+        "side": "OVER",
+        "line": 39.5,
+        "price": null,
+        "week": 2,
+        "speaker": "Jo Madden",
+        "source_timestamp": 885,
+        "rationale": "Harvey averaged 52.7 scrimmage yards per game as a rookie and had 76 combined yards against Kansas City last year. This total is far too low."
+      },
+      {
+        "team": "KC",
+        "player": "Emmett Johnson",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 600,
+        "week": 2,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 1062,
+        "rationale": "Walker is not built for a heavy workload, so the Chiefs are expected to use Nebraska rookie Emmett Johnson in a goal-line/short-yardage role."
+      },
+      {
+        "team": "DEN",
+        "player": "Nik Bonitto",
+        "market": "sack",
+        "side": "YES",
+        "line": null,
+        "price": -102,
+        "week": 2,
+        "speaker": "Jo Madden",
+        "source_timestamp": 1268,
+        "rationale": "Chiefs starting tackle Josh Simmons is out, leaving undrafted rookie Benson to block Bonitto on Mahomes' blindside."
+      },
+      {
+        "team": "KC",
+        "player": "Patrick Mahomes",
+        "market": "season_passing_yards",
+        "side": "UNDER",
+        "line": 223.5,
+        "price": null,
+        "week": 2,
+        "speaker": "Jo Madden",
+        "source_timestamp": 1689,
+        "rationale": "Mahomes is rushing back early from a severe knee injury and will struggle with protection issues on his blindside."
+      },
+      {
+        "team": "DEN",
+        "player": "Bo Nix",
+        "market": "season_passing_tds",
+        "side": "OVER",
+        "line": 1.5,
+        "price": 134,
+        "week": 2,
+        "speaker": "Jo Madden",
+        "source_timestamp": 1689,
+        "rationale": "Nix has elite targets in Jaylen Waddle, Courtland Sutton, and Marvin Mims, and Denver has a strong red zone package."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "DEN"
+        ],
+        "players": [],
+        "topic": "Denver defensive strength",
+        "summary": "Jo highlights Denver's strong defense from the prior simulated season, where they allowed only 18.3 points per game (3rd best in the league), and believes they will control the tempo.",
+        "speaker": "Jo Madden",
+        "source_timestamp": 361,
+        "quote": "their defense only allowed 18.3 points per game, third best in the NFL",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "KC"
+        ],
+        "players": [
+          "Patrick Mahomes"
+        ],
+        "topic": "Mahomes injury return concern",
+        "summary": "Both analysts express deep concern regarding Mahomes returning to play so soon after tearing his ACL and MCL in December.",
+        "speaker": "Jo Madden",
+        "source_timestamp": 1205,
+        "quote": "with Mahomes coming back from the ACL and MCL, I'm just not buying it",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "KC"
+        ],
+        "players": [
+          "Josh Simmons"
+        ],
+        "topic": "Simmons injury impact on Chiefs O-Line",
+        "summary": "Starting tackle Josh Simmons is out, forcing undrafted rookie Benson to start on Mahomes' blind side, creating a severe mismatch against Denver's pass rush.",
+        "speaker": "Jo Madden",
+        "source_timestamp": 1285,
+        "quote": "with Simmons out of the lineup, we're going to see an undrafted rookie coming in, Benson, in his place",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "roster_or_depth_chart",
+        "teams": [
+          "KC"
+        ],
+        "players": [
+          "Kenneth Walker",
+          "Emmett Johnson"
+        ],
+        "topic": "Chiefs running back usage strategy",
+        "summary": "Scott suggests Emmett Johnson was drafted to serve in a short-yardage/goal-line role similar to Zach Charbonnet's role with Walker in Seattle to preserve Walker's health.",
+        "speaker": "Scott Bogman",
+        "source_timestamp": 1115,
+        "quote": "take what the Seahawks did last season with him and Charbonnet... put Emmett Johnson in that Charbonnet role",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "DEN"
+        ],
+        "players": [
+          "Jaylen Waddle"
+        ],
+        "topic": "Waddle WR1 transition",
+        "summary": "Scott expects Jaylen Waddle to thrive as Denver's true WR1 with Courtland Sutton slotting into the WR2 role, catching passes from Bo Nix.",
+        "speaker": "Scott Bogman",
+        "source_timestamp": 820,
+        "quote": "now that Sutton is the number two, it's going to be great for him, even better for Waddle",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Denver Defense PPG",
+        "timestamp": 361,
+        "speaker": "Jo Madden",
+        "quote": "their defense only allowed 18.3 points per game, third best in the NFL"
+      },
+      {
+        "topic": "Chiefs Spread disrespect",
+        "timestamp": 361,
+        "speaker": "Jo Madden",
+        "quote": "I find this line completely disrespectful to the Denver Broncos."
+      },
+      {
+        "topic": "Nik Bonitto Sack",
+        "timestamp": 1268,
+        "speaker": "Jo Madden",
+        "quote": "Mahomes is going to be in danger tonight on his blind side from Nik Bonitto"
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 1865,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 1865,
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 8,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

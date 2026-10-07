@@ -8,32 +8,33 @@ Audio: https://dts.podtrac.com/redirect.mp3/pscrb.fm/rss/p/traffic.omny.fm/d/cli
 
 Transcript chars: 39337
 Speaker turns: 56
-Speaker labels: Guest (Speaker A), Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker D), Guest (Speaker E), Guest (Speaker F), Guest (Speaker G), Guest (Speaker H), Guest (Speaker I), Guest (Speaker J), Guest (Speaker K), Guest (Speaker L)
+Speaker labels: Chad Millman (Speaker B), Simon Hunter (Speaker C), Guest (Speaker H), Guest (Speaker I), Guest (Speaker J), Guest (Speaker L)
 
 ## Speaker Map
 
-- Speaker A: Guest
 - Speaker B: Chad Millman
 - Speaker C: Simon Hunter
-- Speaker D: Guest
-- Speaker E: Guest
-- Speaker F: Guest
-- Speaker G: Guest
 - Speaker H: Guest
 - Speaker I: Guest
 - Speaker J: Guest
-- Speaker K: Guest
 - Speaker L: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker D: ad/commercial audio ignored
+- Speaker E: ad/commercial audio ignored
+- Speaker F: ad/commercial audio ignored
+- Speaker G: ad/commercial audio ignored
+- Speaker K: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Guest (gpt-4o, unknown) futures=4
+- Simon Hunter (gpt-4o, host_map) futures=1
+- Warren Sharp (gpt-4o, host_map) futures=1
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an iHeart podcast. Guaranteed Human.
 
 ### Chad Millman (Speaker B) [0:04-0:12]
 
@@ -46,26 +47,6 @@ by creating a website with WIX Harmony.
 ### Chad Millman (Speaker B) [0:16-0:34]
 
 Just tell WIX Harmony what you want and it will build the entire site, business features included and everything can still be edited by hand. It's your website, your call. Try it@wix.com that's wix.com Amazon Health AI
-
-### Guest (Speaker D) [0:34-0:40]
-
-presents painful thoughts I I can't stop scratching my downtown.
-
-### Guest (Speaker E) [0:41-0:52]
-
-Mm, yeah, but I'm not itching to go downtown and tell a receptionist I'm here to talk about my downtown. Some things you'd rather type than say out loud.
-
-### Guest (Speaker D) [0:52-1:01]
-
-There's no question too embarrassing for Amazon Health AI. Chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
-
-### Guest (Speaker F) [1:02-1:38]
-
-This is Tab Ramos from Inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group, exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass this is Daniel
-
-### Guest (Speaker G) [1:38-2:13]
-
-Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. Power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's just as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in the action from the walkouts to the knockouts. Now that's a total power move. Make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless store. Additional terms apply. See totalwireless.com for details.
 
 ### Chad Millman (Speaker B) [2:13-2:25]
 
@@ -119,10 +100,6 @@ Oh, well, they don't have a rest advantage, so it could have potentially helped 
 
 Simon, I know we've ripped the Bengals forever, but do we feel like there's anything we've seen now that the schedule is fully out that makes us reconsider the Bengals?
 
-### Guest (Speaker D) [12:52-12:52]
-
-No.
-
 ### Guest (Speaker I) [12:52-13:32]
 
 I'll project that for people. What we're gonna be talking a lot about this summer, but I'm, I'm gonna be pretty, pretty big on the Ravens and sleeper team from that division will probably be the Browns. The Bengals, they're just, they could be good like they have. I think they've addressed a lot of weaknesses in the defense of Joe Brookett. Stay healthy. But I'm just laughing when Warren's talking just about how the league doing these schedules now how random is where I said the Chargers and the Eagles are both facing four teams each coming off buys. There's 14 teams that don't play a single team coming off a buy this season. So it's just, there's no like when he's breaking it down like you're looking at all these stats, there's no rhyme or reason. Some of the stuff they're doing here, some teams are just really getting such disadvantages and like yeah, you know, the Rams.
@@ -155,25 +132,9 @@ coder for websites that lets you type
 
 what you want and generate a site ready to use right away, complete with forms, payments, security and more built in. And Wix Harmony doesn't require AI for everything. You can still click and edit anything manually or select an element and have Aria, your AI agent, make updates for you. It's a smart solution to the frustration of repeatedly prompting AI just to make small changes. Try it for free@wix.com that's wix.com Amazon
 
-### Guest (Speaker D) [26:13-26:18]
-
-Health AI presents painful thoughts why did
-
 ### Guest (Speaker J) [26:18-26:34]
 
 I search the Internet for answers to my cold sore problem? Now I'm stuck down a rabbit hole filled with images of alarmingly graphic sores in various stages of ooze. I can clear my search history, but I can never unsee that.
-
-### Guest (Speaker D) [26:35-26:42]
-
-Don't go down the rabbit hole. Amazon Health AI gets you the right care fast. Healthcare just got less painful.
-
-### Guest (Speaker A) [26:43-28:09]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide may be able to help. Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection Zepbound contains Tirzepatide and should not be used with other tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck, stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zephbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or
-
-### Guest (Speaker G) [28:09-29:08]
-
-visit zepboundlily.com this is Daniel Cormier from the Daniel Cormier Show. This podcast is sponsored by Total Wireless, the official wireless partner of ufc. All UFC fighters know power doesn't wait in the octagon or outside of it. You either make the move or you miss the moment. That's why you need a network that's as powerful as you are. With Total Wireless, you get unlimited 5G data keeping you in on all the action, from the walkouts to the knockouts. You you'll never miss a moment. That's coverage that you can count on for every single round. So when the moment happens, you're not catching up. You're already there. Now that that's a total power move in the ufc, power isn't given. It's taken. So make your total power move today. Visit totalwireless.com or stop by your neighborhood Total Wireless store. 5G access requires a 5G capable device in a 5G service area. Monthly rates on the Total Base 5G Unlimited plan for new subscribers applies only to the monthly rate for your plan. Additional terms apply. See website for details.
 
 ### Guest (Speaker I) [29:08-30:33]
 
@@ -203,18 +164,6 @@ So that is a great anecdote. We started last year in 2025 harping on the Niners.
 
 pods Rate Review Subscribe Leave us five stars. Say whatever you want. Feedback is a gift. Until next time. Love you.
 
-### Guest (Speaker G) [36:34-36:38]
-
-Hello. You play to win the game, you
-
-### Guest (Speaker K) [36:38-37:10]
-
-don't play to just play it. I'm U.S. transportation Secretary Sean Duffy. The sound of a seatbelt it's one of the most important sounds in our car. It means everyone is ready and everyone is safe. The more our kids see us put on our seatbelts, the more natural it is for them to put theirs on too. Make it a priority. Buckle up every time. Hear the sound. Make it a habit.
-
-### Guest (Speaker F) [37:10-37:48]
-
-Paid for by NHTSA this is Tab Ramos from Inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They've got a new soccer themed game you can play with your group exclusive food and drink items. They've even installed full size soccer goals so you can try to hit golf balls right into the net and every match all summer long will be on throughout the venue. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com SL FunPass.
-
 ### Guest (Speaker H) [37:48-37:51]
 
 Wait, I came in for two things.
@@ -227,17 +176,9 @@ How is this $47?
 
 All right, we're going to need a plan here.
 
-### Guest (Speaker E) [37:55-38:07]
-
-Just start simple with bank of America Advantage Safe Balance Banking. No overdraft item fees, no monthly maintenance fee if you're under 25 as a new checking customer, you can earn $100 when you open an account and make qualifying Zeller debit transactions.
-
 ### Guest (Speaker I) [38:08-38:10]
 
 Oh, that's actually really simple.
-
-### Guest (Speaker E) [38:10-38:18]
-
-Safe Balance Banking. One less than thing to figure out. Learn more at BofA.com earn 100 terms and conditions apply. Bank of America and a member fdic.
 
 ### Guest (Speaker L) [38:19-38:35]
 
@@ -250,7 +191,3 @@ Yeah, fully.
 ### Guest (Speaker L) [38:36-39:06]
 
 So pineapple Dumbroom ruin it. Get any pizza including stuffed crust with any toppings for 9.99. Finally something everyone can get behind. And if the rest disagree, that's between them and Domino's. Which means the only thing left to fight over is who's ordering. Prices higher for some locations. Excludes XL and specialty pizzas. Select this offer from $6.15 to 726 online only. Size availability varies by crust tank max 7 toppings 6 for pan and New York style crust. Minimum purchase for required for delivery. Prices, participation, delivery area and charges may vary.
-
-### Guest (Speaker A) [39:06-39:10]
-
-This is an iHeart podcast. Guaranteed Human.

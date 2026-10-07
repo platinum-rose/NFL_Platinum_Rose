@@ -8,13 +8,16 @@ Audio: https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/traffic.omny.fm/d/cli
 
 Transcript chars: 54868
 Speaker turns: 103
-Speaker labels: Seth Woolcock (Speaker A), Andrew Erickson (Speaker B), Guest (Speaker C)
+Speaker labels: Seth Woolcock (Speaker A), Andrew Erickson (Speaker B)
 
 ## Speaker Map
 
 - Speaker A: Seth Woolcock
 - Speaker B: Andrew Erickson
-- Speaker C: Guest
+
+## Ignored Audio
+
+- Speaker C: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
@@ -182,10 +185,6 @@ Okay, so you've seen a little Cowboys. You know, you might have been an infant, 
 
 Happens every single year. Actually happened with two teams last year between the Patriots and Bears going from worst to first in their division. This is a trend type of play. It's the Tennessee Titans to win the AFC south at 9 to 1. You look at the roster, you look at the offensive line and yeah, it's really easy to poke holes in this team, but it's just a matter of betting and putting my chips on Cam Ward to take a massive second year leap under Brian Dabel and then everything else you just throw out the window because that's what fueled those worst to first teams last year. Drake May taking a step forward because you had a competent offensive play caller for the first time in these guys careers. So that's why I'm confident that this is a good bet to make right now. I know that this division looks. And again I like a lot of these teams in this division too. I like the Texans, I like the Jaguars kind of get into. The Colts are the one team where I feel confident trying to fade them because of the shaky ground.
 
-### Guest (Speaker C) [12:05-12:05]
-
-Yeah.
-
 ### Andrew Erickson (Speaker B) [12:05-13:07]
 
 So that's one where I'm like, all right, the Titans can definitely beat at least the Colts. However, again, if things are splitting with these other teams in their division, I think Robert Salah stepping in as the brand new head coach. I think that he's going to totally revamp this defense, especially in the secondary. You look at what he did in New York. Those were borderline elite defenses he had with the New York jets and it was the quarterback play that held him back. Bring in Brian Dabel as the opposite coordinator. Cam Ward. I get that if you look at a lot of advanced metrics, he basically looks like the worst quarterback that played last year and it's really bad. But this first half of the year was Callahan who we talked about ad nauseam. You Bet against this guy until he gets fired because he is the worst coach against the spread. And it was not surprised that they moved on from him in the beginning, in the middle of the season. After that, during Cam Ward's last seven games, 11 touchdowns and just one interception, two rushing and nine passing touchdowns. So I think if you're going to bet on the trend, it's like these teams that go from worst to first is because there's a breakout quarterback that to me could be Cam Ward. Which is why I think at 9 to 1, trust the process and let it ride.
@@ -254,10 +253,6 @@ Yeah.
 
 Got to respect the law, baby. Respect t law.
 
-### Guest (Speaker C) [19:12-19:13]
-
-Yeah.
-
 ### Seth Woolcock (Speaker A) [19:13-20:02]
 
 The prince that was promised, man. I mean, there was arguably not a more hyped call college football player coming into the draft in maybe the last decade, probably since Andrew Luck before Trevor Lawrence came in, right? And like he definitely under delivered at different times in his career, but it was hard not to, right? You come into the NFL, Urban Myers, your head coach, you have the disaster of the situation where he stays back, you know, wanders down to Columbus, gets in trouble, you know, phone catches him doing some things, maybe a married man showing it, right? And like it was just craziness after craziness. They replace the head coach, they make a deep run into the playoffs, almost upset the Chiefs at one point, and then they fell back off, right? And this is the second coming of them and we saw it last year. So I don't hate the play there, but I probably honestly like this next one you have still staying with this frisky Jacksonville Jaguar squad.
@@ -273,10 +268,6 @@ Seth yeah, I mean you look at what he did right before he got hurt, he had his b
 ### Andrew Erickson (Speaker B) [21:51-21:54]
 
 return from, from the couch or like from sucking the year before. Exactly.
-
-### Guest (Speaker C) [21:54-21:54]
-
-Yeah.
 
 ### Seth Woolcock (Speaker A) [21:54-22:49]
 
@@ -297,10 +288,6 @@ So no quarter units on Travis Hunter?
 ### Seth Woolcock (Speaker A) [23:43-23:50]
 
 Yes, yes, absolutely. Absolutely. And, you know, I was flirting with the cash out all season long. They were giving it to me. Like, do I. I take it? Do I?
-
-### Guest (Speaker C) [23:50-23:50]
-
-No.
 
 ### Seth Woolcock (Speaker A) [23:50-23:57]
 
@@ -329,10 +316,6 @@ Eli Stowers I think is the one that I like the most and I'm too zay Flowers pill
 ### Seth Woolcock (Speaker A) [30:01-31:43]
 
 And speaking of long shots, there's still some out there available on Hard Rock, BET Florida Sportsbook, that is our presenting sponsor for today's show. The world's biggest soccer tournament is upon us. Winding down, but still here. And everyone's watching. National pride is on the line. Superstars are chasing immortality. And for the next couple of weeks yet, every match is going to feel like a final. And if you haven't tried Hard Rock yet, no worries. There's still time to get in on the game. Hard Rock is the best rated sportsbook app built to viva la Copa. So whether you're betting to back your country, well, we can't do that anymore. But if you're also betting on your favorite superstar, we can certainly still do that. With Holland, Messi, Mbappe and the boys still out there pounding the pitch there, you can build a same game parlay for the biggest matches of the tournament. Hard Rock Bet is your way to get in on the action if you're ever late to kickoff. I know I am. I'm a DVR guy at heart. Hard Rock Bet has you with live betting all match long from that first minute until that final whistle. Plus, Hard Rock also offers new promos every single day. We're talking profit boost, no sweat bets, bonus bets and more more. And be sure to check out no goals, no problems, and the Super Sub, two promos that are designed to give you bet insurance all tournament long. So sign up for Hard Rock Bet today. Place a five dollar bet and if it hits you, not only are going to get your winnings, but also an extra $150 in bonus bets to use. Now that's what I call getting the summer party started. Hard Rock Bet, of course, Florida's only legal sportsbook. But you don't have to be in the great state of Florida to join the party. Hard Rock Bet also live in Arizona, Ohio State, Ohio, New Jersey, Indiana, Tennessee, Virginia, Illinois, Colorado and Michigan. For those pesky Wolverine fans, download the Hard Rock Bet app today. Roll with us. Go with us.
-
-### Guest (Speaker C) [31:43-32:21]
-
-Hard Rock Bet payable in bonus bets. Not a cash offer offered by the Seminole Tribe of Florida in Florida, offered by Seminole hard Rock Digital LLC in all other states must be 21 and over and physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. To play, terms and conditions apply. Concerned about gambling in Florida? Call 1833 play wise in Indiana, if you or someone you know has a gambling problem and wants to help, call 1-800-9 with it. In Arizona, Ohio and Virginia, call 1-800- My reset gambling problem, call 1-800- Gambler in Colorado, Illinois, Michigan, New Jersey and Tennessee.
 
 ### Seth Woolcock (Speaker A) [32:21-32:41]
 
@@ -429,7 +412,3 @@ Oh man, I. I hope so. I got, I got a lot of dirty birds on the card right now be
 ### Andrew Erickson (Speaker B) [46:09-46:09]
 
 All.
-
-### Guest (Speaker C) [46:09-46:27]
-
-Thanks for listening to the Betting Pros podcast. If you love the show, the best free way to support us is by leaving a positive review on Apple Podcasts or Spotify. Follow us on X&TikTok, eddingpros and Instagram eddingpros NFL. Also subscribe to our YouTube channel at YouTube.com betting lighting pros.

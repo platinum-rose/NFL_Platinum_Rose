@@ -8,30 +8,25 @@ Audio: https://pscrb.fm/rss/p/dts.podtrac.com/redirect.mp3/traffic.omny.fm/d/cli
 
 Transcript chars: 43658
 Speaker turns: 77
-Speaker labels: Guest (Speaker A), Guest (Speaker B), Andrew Erickson (Speaker C), Seth Woolcock (Speaker D), Guest (Speaker E), Guest (Speaker F)
+Speaker labels: Andrew Erickson (Speaker C), Seth Woolcock (Speaker D)
 
 ## Speaker Map
 
-- Speaker A: Guest
-- Speaker B: Guest
 - Speaker C: Andrew Erickson
 - Speaker D: Seth Woolcock
-- Speaker E: Guest
-- Speaker F: Guest
+
+## Ignored Audio
+
+- Speaker A: ad/commercial audio ignored
+- Speaker B: ad/commercial audio ignored
+- Speaker E: ad/commercial audio ignored
+- Speaker F: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
 - Guest (gpt-4o, unknown) futures=2
 
 ## Diarized Turns
-
-### Guest (Speaker A) [0:00-0:04]
-
-This is an I heart podcast. Guaranteed human.
-
-### Guest (Speaker B) [0:05-0:08]
-
-Amazon Pharmacy presents painful thoughts.
 
 ### Andrew Erickson (Speaker C) [0:09-0:23]
 
@@ -44,10 +39,6 @@ I know it.
 ### Andrew Erickson (Speaker C) [0:24-0:25]
 
 I gotta quit my job.
-
-### Guest (Speaker B) [0:26-0:33]
-
-Next time, avoid awkward conversations and get fast. Free delivery with Amazon Pharmacy healthc just got less painful.
 
 ### Seth Woolcock (Speaker D) [0:37-1:10]
 
@@ -141,21 +132,9 @@ Yep. So this one, the trend does actually work in my favor with the Tennessee Ti
 
 I certainly agree with you there and I'll add some more thoughts to this game when we get into those total bets. But first, a real quick reminder that when you're betting NFL futures or even game lines, the numbers you get is what matters here, folks. And that's why you should absolutely download the free Betting Pros app today. You can compare odds, track your bets, follow expert picks, monitor line movement and and keep your futures cards all organized all season long. So if you're betting a team to make the playoffs, miss the playoffs, win a division, or chase that number one seed, or you're putting some early week one bets down like we are today. Make sure you're tracking the market and getting the best number available by downloading the Betting Pros app today.
 
-### Guest (Speaker A) [13:45-14:15]
-
-Summer is here, which means we all want to look and feel our best. A GLP1 may be right for you. Visit orderlymeds.com to learn more about which GLP1 you could be eligible for. Getting started is fast, easy, and happens virtually through telemedicine from licensed professionals. Check it out for yourself. Go to orderlymeds.com podcast that's orderlymeds.com podcast taking care of yourself feels great. Compounded medications are not FDA approved, eligibility required and determined by a licensed provider. Individual results may vary. See website for details.
-
-### Guest (Speaker B) [14:16-14:21]
-
-Amazon Health AI presents Painful Thoughts I
-
 ### Andrew Erickson (Speaker C) [14:22-14:35]
 
 I can't stop scratching my downtown. Mm, yeah, but I'm not itching to go downtown and tell a receptionist I'm here to talk about my downtown. Some things you'd rather type than say out loud.
-
-### Guest (Speaker B) [14:36-14:45]
-
-There's no question too embarrassing For Amazon Health AI chat your symptoms and get virtual care 24. 7 Healthcare just got less painful.
 
 ### Seth Woolcock (Speaker D) [14:47-16:25]
 
@@ -212,10 +191,6 @@ Yeah, I mean we usually see offenses start slow in the NFL and the defenses kind
 ### Andrew Erickson (Speaker C) [25:19-25:21]
 
 Hard Rock Bet payable and bonus bets
-
-### Guest (Speaker E) [25:21-25:49]
-
-Not a cash offer offered by the Seminole Tribe of Florida in Florida offered by a Seminole hard Rock Digital LLC in other states must be 21 plus in physically present in Arizona, Colorado, Florida, Illinois, Indiana, Michigan, New Jersey, Ohio, Tennessee or Virginia. Play terms and conditions apply. Concern about gambling in Florida, call 1833 play wise in Indiana. If you or someone you know has a gambling problem wants help, call 1-800-9 with it gambling problem call 1-800- gambler in Arizona, Colorado, Illinois, Michigan, New Jersey, Ohio, Tennessee, Virginia.
 
 ### Seth Woolcock (Speaker D) [25:50-25:54]
 
@@ -281,10 +256,6 @@ Well, does Jeff Halfley count as a first time head coach? Because you know, he h
 
 Yeah, but this trend specifically was the home team.
 
-### Guest (Speaker E) [32:20-32:21]
-
-Right?
-
 ### Andrew Erickson (Speaker C) [32:21-32:21]
 
 So.
@@ -309,26 +280,6 @@ Look, we talked about it earlier. I am fading the divisional home underdogs with
 
 I get it. And you know, like, you know, we're, we're seeing, you know, former NFL reporters out there in the streets calling Minnesota Vikings quarterbacks trash. And I, I don't think Kyler Murray is any better than JJ McCarthy at this point in career. I really don't. Maybe from an optic standpoint and, and maybe just from a veteran leading the offense, but I don't know, man. I think you get down early. Kyler Murray is kind of a quitter to me and he quit on the Cardinals last year and then quits every year when COD comes out. So like I, I just can't back them with confidence. I understand though, like, and even this was another play, I was thinking about going the opposite way of you can I get invested with the packers from an ATS or a moneyline perspective? I can't personally, just because the Vikings have actually had their number pretty well over the past couple of seasons here with Jordan Love under center. So it's not a bad play. Those trends and some of the other trends that you talked about too do kind of point in a good direction towards laying some money here at the Vikings. So I, I like the approach. I just don't have the stomach for it, my friend. But appreciate all the great insight that you brought for us today here, right on the Betting Pros NFL Podcast. Let us know your favorite NFL futures below. We want to hear from you or any Week one plays as well. And also be sure to give this video a thumbs up if you enjoyed it. And don't forget, subscribe right now if you're new on Ben Crows YouTube channel or the audio feed. And don't forget, download that free Betting Pros app today. For Andrew Erickson, I'm seth Wilcock. Happy 4th of July Y'.
 
-### Guest (Speaker F) [35:30-35:30]
-
-All.
-
 ### Seth Woolcock (Speaker D) [35:30-35:50]
 
 Thanks for watching. Take care. Thanks for listening to the Betting Pros Podcast. If you love the show, the best free way to support us is by leaving a positive review on Apple Podcasts or Spotify. Follow us on X and TikTok, bettingpros and Instagram ettingprosnfl. Also subscribe to our YouTube channel at YouTube.com bettingpros.
-
-### Guest (Speaker A) [36:01-36:58]
-
-Summer is here at Orderly Meds. We know this time is a reminder that life is full of new beginnings. Whether you're celebrating the nice weather, starting a new chapter, planning a vacation, or simply looking ahead to what's next, this season can be the perfect time to invest in yourself and your health. If you've struggled with weight loss and are curious about GLP1 medications, orderly meds can help you learn about your options. Through a simple virtual process, you can connect with licensed medical professionals who can determine whether treatment may be appropriate for you. Getting started is fast, convenient, and happens online from the comfort of home. This summer, consider a new approach to feeling your best. Visit orderlymeds.com podcast to learn more. That's orderlymeds.com podcast Orderly Meds because every new season is an opportunity to take the next step forward. Compounded medications are not FDA approved, eligibility required and determined by a licensed provider. Individual results may vary. See website for details.
-
-### Guest (Speaker B) [37:03-37:31]
-
-We learned how to love dogs from the dogs that loved us and waited for us to get home from school. They were the dogs that raised us. We returned the love with Pedigree Dog Food. It was good then and it's better now. Every bowl has 100% complete nutrition supporting six health essentials and now it includes Vitamin Good Bites, a nutrient boost your dog will love. Pedigree Good then, better now.
-
-### Guest (Speaker F) [37:31-37:59]
-
-I'm U.S. transportation Secretary Sean Duffy. The sound of a seatbelt it's one of the most important sounds in our car. It means everyone is ready and everyone is safe. The more our kids see us put on our seatbelts, the more natural it is for them to put theirs on too. Make it a priority. Buckle up every time. Hear the sound, make it a habit. Paid for by NHTSA.
-
-### Guest (Speaker A) [38:01-38:04]
-
-This is an iHeart podcast. Guaranteed Human.

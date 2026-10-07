@@ -38,7 +38,7 @@ All 13 NFL tasks confirmed Ready (Twitter_Harvester Running) after being paused 
 `sync-live-market-lines.mjs` reported **15 requests remaining (485/500 used)**. GitHub `odds-ingest.yml` now runs every 4 h (main's in-season cadence, live since 9/21) and the Thursday/Sunday toolbox cadences also call it → odds ingestion will start failing soon. Decide: upgrade/reset the plan, or cut the cron back (e.g. 2×/day off-game-days) — a workflow edit goes live on push. Also: the SuperContest live comparison still uses Week 2 locked lines (Week 3 not posted).
 
 ## 4. Carry-forward (unchanged)
-Supabase sync of 19 Week 2 ticket numbers (pending OK) · PFF podcast feed URL fix · toolbox dry-run steps · $6.81 free money unassigned (don't lock to BUF without asking) · team power ratings not evidence · no bets/account actions · any Supabase write needs per-change OK · stage narrowly, never reset/clean/stash · this environment can't push.
+Supabase sync of 19 Week 2 ticket numbers (pending OK) · PFF podcast feed URL fix · toolbox dry-run steps · $6.81 free money unassigned (don't lock to BUF without asking) · team power ratings are allowed as evidence · no bets/account actions · any Supabase write needs per-change OK · stage narrowly, never reset/clean/stash · this environment can't push.
 
 ## 5. Resume prompt (fresh session)
 ```
@@ -63,7 +63,7 @@ Today:
 - Separately when I say so: CI-GREEN, props-intel tests update, governance "commit to main" pass, worktree/branch cleanup.
 
 Standing constraints: no git add -A (stage narrowly, check mtimes); never reset/clean/stash the dirty checkout; any Supabase write needs my per-change OK;
-no bet placement or account actions; I push (give me the command); docs/Futures_Odds/ stays untracked; don't use team power ratings as evidence;
+no bet placement or account actions; I push (give me the command); docs/Futures_Odds/ stays untracked; team power ratings are allowed as evidence;
 $6.81 free money unassigned — ask before locking it; local scheduled tasks run from this checkout, so uncommitted script edits go live;
 stale .git/index.lock → confirm no git process, request delete permission on E:\dev, rm, retry. Commit attribution per the session's system reminder.
 ```

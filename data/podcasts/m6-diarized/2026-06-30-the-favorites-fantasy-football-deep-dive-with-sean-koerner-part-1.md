@@ -8,7 +8,7 @@ Audio: https://podtrac.com/pts/redirect.mp3/traffic.omny.fm/d/clips/e73c998e-6e6
 
 Transcript chars: 39822
 Speaker turns: 83
-Speaker labels: Guest (Speaker A), Guest (Speaker B), Kendra Middleton (Speaker C), Guest (Speaker D), Brandon Kravitz (Speaker E), Guest (Speaker F), Guest (Speaker G), Guest (Speaker H), Guest (Speaker I)
+Speaker labels: Guest (Speaker A), Guest (Speaker B), Kendra Middleton (Speaker C), Guest (Speaker D), Brandon Kravitz (Speaker E), Guest (Speaker F), Guest (Speaker G)
 
 ## Speaker Map
 
@@ -19,12 +19,15 @@ Speaker labels: Guest (Speaker A), Guest (Speaker B), Kendra Middleton (Speaker 
 - Speaker E: Brandon Kravitz
 - Speaker F: Guest
 - Speaker G: Guest
-- Speaker H: Guest
-- Speaker I: Guest
+
+## Ignored Audio
+
+- Speaker H: ad/commercial audio ignored
+- Speaker I: ad/commercial audio ignored
 
 ## Existing Host Summary Rows
 
-- None
+- Kendra Middleton (gpt-4o, host_map) futures=1
 
 ## Diarized Turns
 
@@ -176,10 +179,6 @@ Yeah.
 
 Because Fabuloso combines a powerful clean with a scent that lasts, transforming an ordinary home into a Fabuloso one. Make your world more fabuloso.
 
-### Guest (Speaker H) [20:27-21:23]
-
-This is Tab Ramos from inside American Soccer and this summer topgolf is turning into the ultimate soccer destination. They're not just throwing games on in the background. Topgolf is going all in on soccer. They've got a new soccer themed game you can play with your group. Special in venue activations, exclusive food and drink items inspired by the global game and at more than 60 locations. They've even installed full size soccer goals so you can try to hit golf balls right into the net. And every match all summer long will be on throughout the venue. So it's a great place to watch with friends, hang out, compete a little bit and enjoy the atmosphere. And if you want to keep the fun going all summer, you can get the topgolf Summer Fun Pass which lets you play every single day and bring up to five guests every visit. Get yours now@TopGolf.com FunPass Summer hits different at TopGolf.
-
 ### Guest (Speaker D) [21:26-22:08]
 
 If you sometimes turn down the podcast just to hear the hum of your engine, then Shell has the fuel for Shelby Power Nitro plus fuels every drive from the Pacific coast to the high desert with a fuel like no other. It provides engine performance that lasts to give you more time on the road. Because your car's engine matters. That means more protection with active ingredients for longer lasting engines. Shell V Power Nitroplus Premium Gasoline Engine performance that lasts. Chances are you're not far from a Shell station. Find it using The Shell app formulation unique to Shell compared to MIT detergent gasoline with continuous use of Shelby Power Nitro plus and gasoline direct injection engines. Actual effects and benefits may vary. See Shell Us more Dash Protection for more information.
@@ -311,10 +310,6 @@ If you or someone you care about has a gambling problem, help is available 24.
 ### Guest (Speaker B) [36:14-36:51]
 
 7@1800- gambler hey, it's Ashanti Plummer from Futaround. And find out coming out of the draft, it's been a special time for us here at Futaround. I want to thank everyone from the fans to the sponsors, especially geico, not just for supporting az, but for showing up where it matters, like the business of Women's Sports Summit. That kind of thing really moves the needle. And now that AZ is starting a new life in Dallas, we don't know what next season is going to bring, but we know that we're all on the same team and it's been amazing to feel the love and support. So keep showing up for our girl. Show up for each other. Thanks to GEICO and our listeners.
-
-### Guest (Speaker I) [36:51-38:22]
-
-Are you looking for support in your weight management journey? Zepbound Tirzepatide May be able to help Zepbound is a prescription medicine used with a reduced calorie diet and increased physical activity to help adults with obesity or some adults with overweight who also have weight related medical problems to lose excess body weight and keep the weight off. Zepbound is Approved as a 2.5, 5, 7.5, 10, 12.5 or 15mg injection. Zepbound contains Tirzepatide and should not be used with other Tirzepatide containing products or any GLP1 receptor agonist medicines. It is not known if Zepbound is safe and effective for use in children. Don't share needles or pens or reuse needles. Don't take if allergic to it or if you or someone in your family had medullary thyroid cancer or if you've had multiple endocrine neoplasia syndrome type 2. Tell your doctor if you get a lump or swelling in your neck. Stop Zepbound and call your doctor if you have severe stomach pain or a serious allergic reaction. Severe side effects may include inflamed pancreas or gallbladder problems. Tell your doctor if you experience vision changes before scheduled procedures with anesthesia. If you're nursing pregnant, plan to be or taking birth control pills. Taking Zepbound with a sulfonylurea or insulin may cause low blood sugar. Side effects include nausea, diarrhea and vomiting, which can cause dehydration and worsen kidney problems. Talk to your doctor, call 1-800-545-5979 or visit zepbound.lily.com this is Chelsea Handler from
 
 ### Guest (Speaker B) [38:22-38:36]
 

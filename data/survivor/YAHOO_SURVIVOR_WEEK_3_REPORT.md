@@ -1,36 +1,41 @@
 # Yahoo Survival Football — Week 3 Intelligence Report
 
-**Generated:** 2026-09-27T01:00:05.147Z | **Season:** 2026 | **Week:** 3
+**Generated:** 2026-09-29T01:00:05.883Z | **Season:** 2026 | **Week:** 3
 
 ---
 
 ## LMS 2022 (100 Total Entrants)
 
-- **Lock Status:** ⏳ Pre-Lock (Locking at `2026-09-27T17:00:00.000Z`)
-- **Field Status:** 30 Alive | 70 Eliminated
+- **Lock Status:** 🔒 Locked
+- **Field Status:** 21 Alive | 79 Eliminated
 - **Your Selection:** **`UNSELECTED`** (UNSELECTED)
 
 ### Field Pick Distribution
 
 | Team | Entrant Count | Field Share % |
 | :--- | :---: | :---: |
-| **HOU** | 3 | 10% |
-| *Pending / Unpicked* | 27 | 90% |
+| **IND** | 11 | 52.4% |
+| **CIN** | 7 | 33.3% |
+| **NYJ** | 2 | 9.5% |
+| **ATL** | 1 | 4.8% |
 
 ---
 
 ## Ken's Survival League (100 Total Entrants)
 
-- **Lock Status:** ⏳ Pre-Lock (Locking at `2026-09-27T17:00:00.000Z`)
-- **Field Status:** 39 Alive | 61 Eliminated
+- **Lock Status:** 🔒 Locked
+- **Field Status:** 29 Alive | 71 Eliminated
 - **Your Selection:** **`UNSELECTED`** (UNSELECTED)
 
 ### Field Pick Distribution
 
 | Team | Entrant Count | Field Share % |
 | :--- | :---: | :---: |
-| **HOU** | 3 | 7.7% |
-| *Pending / Unpicked* | 36 | 92.3% |
+| **IND** | 20 | 69% |
+| **CIN** | 5 | 17.2% |
+| **ATL** | 2 | 6.9% |
+| **NYJ** | 1 | 3.4% |
+| **DAL** | 1 | 3.4% |
 
 ---
 

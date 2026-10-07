@@ -16,9 +16,13 @@ Speaker labels: Guest (Speaker A), Ross Tucker (Speaker B), Steve Fezzik (Speake
 - Speaker B: Ross Tucker
 - Speaker C: Steve Fezzik
 
+## Ignored Audio
+
+- None classified as ad/commercial only.
+
 ## Existing Host Summary Rows
 
-- None
+- John Daigle (gpt-4o, host_map) futures=2
 
 ## Diarized Turns
 
