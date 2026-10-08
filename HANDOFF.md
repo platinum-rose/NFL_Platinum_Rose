@@ -6,7 +6,7 @@
 
 ## Current pick-up point
 
-**Latest session (2026-10-08 PT, Codex — futures intake and exacta tracking):** `handoffs/2026-10-08-codex-futures-intake-exactas-tnf-props-handoff.md`. All supplied Futures_Odds captures were ingested locally with provenance; the portfolio includes the two new official CHI exactas and $3.96 of available futures funding. **Next:** gather evidence for TB @ DAL TNF player-prop parlays; do not create or place a card without fresh odds and Andy's explicit direction.
+**Latest session (2026-10-08 PT, Codex — TNF props and article-ingestion audit):** `handoffs/2026-10-08-codex-tnf-article-intake-handoff.md`. Fresh TB @ DAL BKR/BEO price captures remain raw evidence; no ticket was proposed, created, or placed. `Mar'Keise Irving` is saved as an alias of Bucky Irving. **Next:** audit the available article corpus and extract only reviewable Week 5/TNF selections; do not promote a lead into a ticket, ledger, or official pick without current authorization.
 
 Previous: `handoffs/2026-10-07-0105-claude-week4-postmortem-done-week5-prep-handoff.md` (Week 4 post-mortem, Week 5 prep).
 
@@ -23,6 +23,9 @@ are at `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/`.
 
 ## Active lanes
 
+- **Article intake (next):** review captured Week 5/TNF articles and extract only
+  attributable, quoted selections with source, timestamp, market, line, and price/book
+  provenance; preserve context/inference separately from picks.
 - **TNF player props:** read-only evidence and current player-prop price gathering for
   TB @ DAL; maintain the roster/evidence gates and keep analysis separate from tickets.
 - **Week 5 lines and promos:** missing BKR games, CHI@GB time correction, and only
