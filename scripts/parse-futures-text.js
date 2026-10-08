@@ -8,6 +8,7 @@ import path from 'node:path';
 const KEYS = [
   'snapshot_time', 'captured_at', 'season', 'book', 'market_type', 'team',
   'selection', 'odds', 'price', 'implied_prob', 'line', 'over_price', 'under_price',
+  'source',
 ];
 
 const FULL_TEAMS = new Set([
@@ -340,7 +341,8 @@ const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/).map(normLine);
 const rows = book === 'bookmaker'
   ? parseBookmaker(lines, book, when, season)
   : parseBetus(lines, book, when, season);
-const normalized = normalizeRows(rows).map((r) => Object.fromEntries(KEYS.map((k) => [k, r[k] ?? null])));
+const source = `Text export from docs/Futures_Odds/${path.basename(file)}`;
+const normalized = normalizeRows(rows).map((r) => Object.fromEntries(KEYS.map((k) => [k, k === 'source' ? source : r[k] ?? null])));
 const counts = new Map();
 for (const r of normalized) counts.set(r.market_type, (counts.get(r.market_type) || 0) + 1);
 console.log(`Parsed ${normalized.length} rows from ${path.basename(file)} book=${book} date=${d}`);

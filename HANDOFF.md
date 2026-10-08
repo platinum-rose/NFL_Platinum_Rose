@@ -6,7 +6,7 @@
 
 ## Current pick-up point
 
-**Latest session (2026-10-07 15:55 PT, Claude Team 2 — Week 5 market lines next):** `handoffs/2026-10-07-1555-claude-week5-market-lines-handoff.md`. Week 4 closed (post-mortem, ledger D14–D26, data validator); Wednesday cadences ran (reports in `logs/cadence-reports/`). **Next:** compile the Week 5 market lines (AN openers, BKR paste for all 15 games, SuperContest W5 lines, consolidated line table).
+**Latest session (2026-10-08 PT, Codex — futures intake and exacta tracking):** `handoffs/2026-10-08-codex-futures-intake-exactas-tnf-props-handoff.md`. All supplied Futures_Odds captures were ingested locally with provenance; the portfolio includes the two new official CHI exactas and $3.96 of available futures funding. **Next:** gather evidence for TB @ DAL TNF player-prop parlays; do not create or place a card without fresh odds and Andy's explicit direction.
 
 Previous: `handoffs/2026-10-07-0105-claude-week4-postmortem-done-week5-prep-handoff.md` (Week 4 post-mortem, Week 5 prep).
 
@@ -23,6 +23,8 @@ are at `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/`.
 
 ## Active lanes
 
+- **TNF player props:** read-only evidence and current player-prop price gathering for
+  TB @ DAL; maintain the roster/evidence gates and keep analysis separate from tickets.
 - **Week 5 lines and promos:** missing BKR games, CHI@GB time correction, and only
   authorized Bills-credit/reload work.
 - **Week 4 analysis:** paper-ticket grading, recommendation-ledger separation, and

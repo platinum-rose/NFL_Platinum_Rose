@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "season": 2026,
-  "updated_at": "2026-10-05",
+  "updated_at": "2026-10-08",
   "purpose": "Running tracker of sportsbook promotions, rewards and bonus cash that change how tickets should be built or funded. Check the 'active' items at every card build. Reward cash is logged here first, then as funding on the ticket it is applied to.",
   "how_promo_type_changes_the_build": {
     "cash_no_strings": "Same as your own money: stake comes back on a win. Just shop the best price.",
@@ -79,6 +79,15 @@
           "detail": "3 reloads at $0.95",
           "applied_to": null,
           "plan": "Packers Super Bowl at BetOnline if +2500 or longer; else hold for exacta market"
+        },
+        {
+          "date": "2026-10-05",
+          "claimed_usd": 4.83,
+          "detail": "3 reloads at $1.61",
+          "source": "handoffs/2026-10-05-1235-claude-week4-closeout-futures-w5-lines-mnf-planner-handoff.md",
+          "verification_status": "reported_in_handoff_unreconciled",
+          "applied_to": null,
+          "plan": "Reported plan: apply the full amount to the best-priced Buffalo Bills Super Bowl market after fresh price shopping."
         }
       ],
       "use": "Boost best available futures price for Packers or Bills, or Super Bowl exacta when BetOnline reposts that market."
@@ -98,7 +107,13 @@
           "plan": "Unassigned. Andy 2026-09-23: do not lock into Bills futures yet."
         }
       ],
-      "use": "Free money for bankroll purposes. Per Andy (2026-09-23), BetOnline promo/casino cash is real cash that can fund bets at any book and still counts as free money in the bankroll."
+      "use": "Free money for bankroll purposes. Per Andy (2026-09-23), BetOnline promo/casino cash is real cash that can fund bets at any book and still counts as free money in the bankroll.",
+      "portfolio_allocation": {
+        "status": "available_unplaced",
+        "amount_usd": 3.96,
+        "allocated_to": "futures_portfolio",
+        "recorded_at": "2026-10-08"
+      }
     },
     {
       "id": "bkr-betpoints",

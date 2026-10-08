@@ -84,6 +84,13 @@
 //                   entry in BOOK_PREFIXES below specifies its own book, so
 //                   this flag only matters if a new prefix is added without
 //                   one, or as a one-off override for testing.
+//   --name-contains TEXT  Restrict matched screenshots to filenames
+//                   containing TEXT (case-insensitive). This keeps a new
+//                   batch separate when older screenshots remain in the
+//                   evidence folder.
+//   --append-existing  Merge normalized rows into an existing same-date
+//                   local JSON artifact. Intended for bounded dry runs when
+//                   a bridge cannot keep a long OCR batch alive.
 //
 // Note: this repo's device-bridge sessions have no network egress to
 // *.supabase.co (confirmed in an earlier session) — if you're running this
@@ -123,10 +130,13 @@ const BOOK_LABEL_BY_KEY = Object.fromEntries(BOOK_PREFIXES.map((b) => [b.book, b
 // identifies the market. Shared across every book in BOOK_PREFIXES.
 const MARKET_SUFFIXES = [
   { suffix: 'SB_ExactaMatchup', market: 'superbowl_matchup', label: 'Super Bowl Exact Matchup' },
+  { suffix: 'SB_Exacta', market: 'superbowl_matchup', label: 'Super Bowl Exact Matchup' },
   { suffix: 'SBMatchup', market: 'superbowl_matchup', label: 'Super Bowl Exact Matchup' },
   { suffix: 'SB_', market: 'superbowl', label: 'Super Bowl Winner' },
   { suffix: 'Conf_', market: 'conference', label: 'Conference Winner' },
+  { suffix: 'Conf', market: 'conference', label: 'Conference Winner' },
   { suffix: 'Div_', market: 'division', label: 'Division Winner' },
+  { suffix: 'Div', market: 'division', label: 'Division Winner' },
   { suffix: 'RegWins', market: 'wins', label: 'Regular Season Win Totals' },
   // 2026-09-03 fix (Andy, production-readiness pass): the 2026-08-29 batch
   // used 'BEO_WinTotals1/2/3_0829.PNG' instead of the 'BEO_RegWins*' prefix
@@ -204,7 +214,8 @@ function todayIso() {
   return `${d.getFullYear()}-${mm}-${dd}`;
 }
 
-function findScreenshots() {
+function findScreenshots(nameContains = '') {
+  const filters = String(nameContains).toLowerCase().split(',').map((s) => s.trim()).filter(Boolean);
   const entries = fs.readdirSync(SCREENSHOT_DIR, { withFileTypes: true });
   const matched = [];
   const unmatched = [];
@@ -213,7 +224,7 @@ function findScreenshots() {
     const ext = path.extname(e.name).toLowerCase();
     if (!VALID_EXTS.has(ext)) continue;
     const hit = PREFIX_MARKET_MAP.find((p) => e.name.toLowerCase().startsWith(p.prefix.toLowerCase()));
-    if (hit) matched.push({ file: e.name, ...hit });
+    if (hit && (!filters.length || filters.some((filter) => e.name.toLowerCase().includes(filter)))) matched.push({ file: e.name, ...hit });
     else unmatched.push(e.name);
   }
   return { matched, unmatched };
@@ -280,6 +291,7 @@ async function ocrScreenshot(env, filePath, market) {
 const OUT_KEYS = [
   'snapshot_time', 'captured_at', 'season', 'book', 'market_type', 'team',
   'selection', 'odds', 'price', 'implied_prob', 'line', 'over_price', 'under_price',
+  'source',
 ];
 
 function normDivision(div) {
@@ -325,6 +337,8 @@ async function main() {
   const date = arg('--date', todayIso());
   const fallbackBook = arg('--book', 'betonline');
   const season = parseInt(arg('--season', String(new Date(date).getFullYear())), 10);
+  const nameContains = arg('--name-contains', '');
+  const appendExisting = hasFlag('--append-existing');
   const capturedAt = `${date}T12:00:00Z`;
 
   console.log('=======================================================');
@@ -333,7 +347,7 @@ async function main() {
   console.log('=======================================================\n');
 
   const env = loadEnv();
-  const { matched, unmatched } = findScreenshots();
+  const { matched, unmatched } = findScreenshots(nameContains);
 
   if (unmatched.length) {
     console.warn(`[warn] ${unmatched.length} image file(s) in docs/Futures_Odds/ did not match a known book+market prefix and were skipped:`);
@@ -383,6 +397,7 @@ async function main() {
         rec.season = season;
         rec.book = book;
         rec.market_type = m.market;
+        rec.source = `OCR from docs/Futures_Odds/${m.file}`;
         const { row, anomaly } = normalizeRow(rec, m.file);
         if (row) allRows.push(row);
         if (anomaly) allAnomalies.push(anomaly);
@@ -406,22 +421,34 @@ async function main() {
     // ── Write the flat-array JSON file ────────────────────────────────────
     fs.mkdirSync(IMPORTS_DIR, { recursive: true });
     const jsonPath = path.join(IMPORTS_DIR, `${book}-${date}.json`);
-    fs.writeFileSync(jsonPath, JSON.stringify(allRows, null, 2), 'utf8');
+    let outputRows = allRows;
+    if (appendExisting && fs.existsSync(jsonPath)) {
+      const existing = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+      const merged = new Map();
+      for (const row of [...existing, ...allRows]) {
+        const key = [row.book, row.snapshot_time, row.market_type, row.team, row.selection, row.line, row.odds, row.source].join('|');
+        merged.set(key, row);
+      }
+      outputRows = [...merged.values()];
+    }
+    fs.writeFileSync(jsonPath, JSON.stringify(outputRows, null, 2), 'utf8');
     console.log(`Wrote ${jsonPath}`);
 
     // ── Write the review markdown ──────────────────────────────────────────
     const mdPath = path.join(DOCS_DIR, `FUTURES_ODDS_${bookLabel.toUpperCase().replace(/[^A-Z0-9]+/g, '')}_${date}_MANUAL_REVIEW.md`);
+    const outputByMarket = {};
+    for (const r of outputRows) outputByMarket[r.market_type] = (outputByMarket[r.market_type] || 0) + 1;
     const mdLines = [
       `# ${bookLabel} Futures Odds — Manual Review (${date})`,
       '',
       `**Snapshot Time:** \`${capturedAt}\``,
       `**Book:** \`${book}\``,
-      `**Total Normalized Records:** \`${allRows.length}\``,
+      `**Total Normalized Records:** \`${outputRows.length}\``,
       `**Persistence Status:** \`${DRY_RUN ? 'local_only_dry_run' : 'pending_supabase_write'}\``,
-      `**Source Screenshots:** ${bookMatched.map((m) => `\`${m.file}\``).join(', ')}`,
+      `**Source Screenshots in this run:** ${bookMatched.map((m) => `\`${m.file}\``).join(', ')}`,
       '',
       '## Market Record Breakdown',
-      ...Object.entries(byMarket).sort().map(([k, v]) => `- ${k}: \`${v}\``),
+      ...Object.entries(outputByMarket).sort().map(([k, v]) => `- ${k}: \`${v}\``),
     ];
     if (allAnomalies.length) {
       mdLines.push('', '## Anomalies (dropped rows)', ...allAnomalies.map((a) => `- ${a}`));
@@ -429,7 +456,7 @@ async function main() {
     fs.writeFileSync(mdPath, mdLines.join('\n') + '\n', 'utf8');
     console.log(`Wrote ${mdPath}`);
 
-    grandTotalRows += allRows.length;
+    grandTotalRows += outputRows.length;
     grandTotalAnomalies += allAnomalies.length;
 
     if (DRY_RUN) {

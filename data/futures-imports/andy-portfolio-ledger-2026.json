@@ -1,7 +1,7 @@
 {
  "schema_version": "1.0",
  "season": 2026,
- "as_of": "2026-10-05",
+ "as_of": "2026-10-08",
  "units": {
   "futures_usd": 20,
   "in_season_usd": 10
@@ -13,6 +13,17 @@
   "in_season_reserve_usd": null,
   "playoff_cash_hedge_reserve_usd": null
  },
+ "available_futures_funding": [
+  {
+   "id": "beo-casino-free-slots-2026-09-23",
+   "amount_usd": 3.96,
+   "funding_type": "promo_cash_free_money",
+   "status": "available_unplaced",
+   "source": "data/sportsbooks/promotions-2026.json#beo-casino-free-slots",
+   "eligible_use": "futures_portfolio",
+   "note": "Real cash won from BetOnline free slots. Added by Andy on 2026-10-08 as available futures-portfolio funding; it is not a placed ticket or position stake."
+  }
+ ],
  "positions": [
   {
    "id": "bills_sb",
@@ -344,6 +355,40 @@
    "to_win_usd": 2415.0,
    "result_status": "pending",
    "estimate_note": "Official exacta position, logged verbatim from Andy's accepted BetOnline ticket text."
+  },
+  {
+   "id": "chi_kc_exacta_1003471850",
+   "market": "superbowl_matchup",
+   "selection": "Chicago Bears vs Kansas City Chiefs",
+   "role": "exacta_amplifier",
+   "stake_usd": 20.0,
+   "price": 5500,
+   "status": "open",
+   "known_input": true,
+   "book": "unspecified_user_reported",
+   "book_confirmed": false,
+   "ticket_number": "1003471850",
+   "accepted_date": "2026-10-08",
+   "to_win_usd": 1100.0,
+   "result_status": "pending",
+   "estimate_note": "Official placed exacta, supplied by Andy on 2026-10-08. Sportsbook was not specified in the ticket text."
+  },
+  {
+   "id": "chi_buf_exacta_1003471850",
+   "market": "superbowl_matchup",
+   "selection": "Chicago Bears vs Buffalo Bills",
+   "role": "exacta_amplifier",
+   "stake_usd": 20.0,
+   "price": 5400,
+   "status": "open",
+   "known_input": true,
+   "book": "unspecified_user_reported",
+   "book_confirmed": false,
+   "ticket_number": "1003471850",
+   "accepted_date": "2026-10-08",
+   "to_win_usd": 1080.0,
+   "result_status": "pending",
+   "estimate_note": "Official placed exacta, supplied by Andy on 2026-10-08. Sportsbook was not specified in the ticket text."
   },
   {
    "id": "bills_wins_over_10_5",
