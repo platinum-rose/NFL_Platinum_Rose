@@ -3,6 +3,9 @@ name: Research Intel Ingest Agent
 on:
   schedule:
     - cron: '0 9 * * *'    # Daily at 09:00 UTC (5:00 AM ET morning sweep)
+    # TNF articles commonly publish in the early afternoon; collect before kickoff.
+    # 18:00 UTC is 2:00 PM EDT / 1:00 PM EST.
+    - cron: '0 18 * * 4'   # Thursday early-afternoon TNF sweep
     - cron: '0 15 * * 0'   # Sunday gameday 15:00 UTC (11:00 AM ET late sharp & beat writer sweep)
     - cron: '0 21 * * *'   # Daily at 21:00 UTC (5:00 PM ET evening sweep)
   workflow_dispatch:        # Manual trigger from GitHub Actions tab
