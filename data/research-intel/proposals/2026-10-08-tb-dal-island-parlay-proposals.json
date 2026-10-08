@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "status": "proposed_analysis_only",
+  "created_at": "2026-10-08T21:39:39.112Z",
+  "event": "Tampa Bay Buccaneers at Dallas Cowboys",
+  "instructions_applied": [
+    "Island tiers use distinct player anchors across tiers.",
+    "No prop round robins.",
+    "No ticket, sportsbook, cashier, portfolio, or official-ledger action."
+  ],
+  "proposals": [
+    {
+      "tier": 1,
+      "target_stake": 10,
+      "target_range": "+600 to +1000",
+      "legs": [
+        "Game over 49 (-113 displayed by Action Network at capture; user-directed side)",
+        "Ted Hurst III longest reception over 14.5 yards (-108, FanDuel; Steve Krebs)",
+        "CeeDee Lamb over 6.5 receptions (+110 displayed in Action Network Picks; Kyle Murray)"
+      ],
+      "raw_product_estimate": "+662",
+      "execution_status": "requires_same_game_quote"
+    },
+    {
+      "tier": 2,
+      "target_stake": 5,
+      "target_range": "+1800 to +3000",
+      "legs": [
+        "Jalon Daniels over 43.5 rushing yards (-110, DraftKings; Josh Shepardson)",
+        "Javonte Williams 3+ receptions (-122, FanDuel; Steve Krebs)",
+        "Chris Godwin anytime touchdown (+500 displayed in Action Network Picks; Grant Neiffer / Prop Bomb)"
+      ],
+      "raw_product_estimate": "+1985",
+      "execution_status": "requires_same_game_quote"
+    },
+    {
+      "tier": 3,
+      "target_stake": 5,
+      "target_range": "+6500 to +20000",
+      "legs": [
+        "George Pickens first touchdown scorer (+800, DraftKings; Mike Spector)",
+        "Bucky Irving anytime touchdown (+195, DraftKings; Mike Spector)",
+        "Ryan Flournoy anytime touchdown (+320 displayed in Action Network Picks; Action Island)"
+      ],
+      "raw_product_estimate": "+11050",
+      "execution_status": "requires_same_game_quote"
+    }
+  ],
+  "weekend_moneyline_review": {
+    "captured_at": "2026-10-08T22:05:01.416Z",
+    "source": "Action Network consensus display",
+    "scope": "Week 5 scheduled favorites displayed at capture",
+    "full_favorite_card": {
+      "legs": [
+        "Dallas Cowboys -525",
+        "Jacksonville Jaguars -385",
+        "Washington Commanders -199",
+        "Houston Texans -395",
+        "Minnesota Vikings -140",
+        "Cincinnati Bengals -325",
+        "New York Jets -135",
+        "Pittsburgh Steelers -146",
+        "New England Patriots -200",
+        "Chicago Bears -130",
+        "Denver Broncos -181",
+        "Seattle Seahawks -167",
+        "Detroit Lions -250",
+        "Atlanta Falcons -174",
+        "Los Angeles Rams -177"
+      ],
+      "raw_product_estimate": "+42096"
+    },
+    "target_around_7500": {
+      "legs": [
+        "Jacksonville Jaguars -385",
+        "Minnesota Vikings -140",
+        "Cincinnati Bengals -325",
+        "New York Jets -135",
+        "Pittsburgh Steelers -146",
+        "New England Patriots -200",
+        "Denver Broncos -181",
+        "Seattle Seahawks -167",
+        "Atlanta Falcons -174",
+        "Los Angeles Rams -177"
+      ],
+      "raw_product_estimate": "+7500",
+      "selection_basis": "mathematical consensus-price subset only; not a confidence ranking or an executable parlay quote"
+    },
+    "market_strongest_at_capture": [
+      "Dallas Cowboys -525",
+      "Houston Texans -395",
+      "Jacksonville Jaguars -385"
+    ],
+    "execution_status": "model_only_requires_current_single_book_parlay_quote"
+  },
+  "risks": [
+    "The raw product is not an executable SGP price; books commonly reprice correlated legs materially.",
+    "A displayed source price is not an executable offer and may have moved.",
+    "The user-directed Over and the cited prop selections are proposals, not placed bets.",
+    "The Action Network consensus display is not a single sportsbook; neither raw moneyline product is an executable price.",
+    "Market strength is not an independent confidence rating."
+  ]
+}
