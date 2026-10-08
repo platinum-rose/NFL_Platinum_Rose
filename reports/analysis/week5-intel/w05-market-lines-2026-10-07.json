@@ -1,0 +1,732 @@
+{
+ "week": 5,
+ "season": 2026,
+ "built": "2026-10-07",
+ "sources": {
+  "books": "Supabase game_odds_snapshots week=5 captured 2026-10-07T21:00Z (DK/FD/MGM, home spread)",
+  "bkr": "data/odds/BKR_current_lines_1005_1205 (Mon 10/05 12:05 PT; stale, 3 games missing)",
+  "kalshi": "data/prediction-markets/latest.json 2026-10-07T22:00Z KXNFLGAME",
+  "an_open": "NOT BUILT (api.actionnetwork.com blocked from bridge shell, 403)",
+  "contest": "NOT AVAILABLE (week-05-lines.json missing)"
+ },
+ "games": [
+  {
+   "game": "TB@DAL",
+   "kickoff_pt": "Thu 10/08 17:15",
+   "home": "DAL",
+   "books": {
+    "DK": {
+     "home_spread": -8.5,
+     "total": 47.5,
+     "away_ml": 360,
+     "home_ml": -470
+    },
+    "FD": {
+     "home_spread": -8.5,
+     "total": 47.5,
+     "away_ml": 370,
+     "home_ml": -480
+    },
+    "MGM": {
+     "home_spread": -8.5,
+     "total": 47.5,
+     "away_ml": 350,
+     "home_ml": -450
+    }
+   },
+   "consensus": {
+    "home_spread": -8.5,
+    "total": 47.5
+   },
+   "bkr_1005": {
+    "home_spread": -10,
+    "total": 47.5,
+    "away_ml": 421,
+    "home_ml": -525
+   },
+   "move_vs_bkr_1005": {
+    "spread": 1.5,
+    "total": 0.0
+   },
+   "kalshi_win_pct": {
+    "TB": 21,
+    "DAL": 80
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "QB: Mayfield OUT (thumb); TB Winfield/Morrison/Dennis OUT, DAL Overshown/Durant OUT",
+   "flags": [
+    "spread move +1.5",
+    "QB change"
+   ],
+   "book_spread_range": 0.0
+  },
+  {
+   "game": "PHI@JAX",
+   "kickoff_pt": "Sun 10/11 06:30",
+   "home": "JAX",
+   "books": {
+    "DK": {
+     "home_spread": -7.0,
+     "total": 42.5,
+     "away_ml": 280,
+     "home_ml": -355
+    },
+    "FD": {
+     "home_spread": -7.5,
+     "total": 41.5,
+     "away_ml": 300,
+     "home_ml": -375
+    },
+    "MGM": {
+     "home_spread": -7.5,
+     "total": 42.0,
+     "away_ml": 280,
+     "home_ml": -350
+    }
+   },
+   "consensus": {
+    "home_spread": -7.5,
+    "total": 42.0
+   },
+   "bkr_1005": {
+    "home_spread": -6,
+    "total": 43,
+    "away_ml": 210,
+    "home_ml": -243
+   },
+   "move_vs_bkr_1005": {
+    "spread": -1.5,
+    "total": -1.0
+   },
+   "kalshi_win_pct": {
+    "PHI": 24,
+    "JAC": 77
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "Barkley hamstring (not seen), L. Johnson retired, Jurgens protocol",
+   "flags": [
+    "spread move -1.5"
+   ],
+   "book_spread_range": 0.5
+  },
+  {
+   "game": "MIN@NO",
+   "kickoff_pt": "Sun 10/11 10:00",
+   "home": "NO",
+   "books": {
+    "DK": {
+     "home_spread": 1.5,
+     "total": 42.5,
+     "away_ml": -125,
+     "home_ml": 105
+    },
+    "FD": {
+     "home_spread": 1.5,
+     "total": 42.5,
+     "away_ml": -134,
+     "home_ml": 114
+    },
+    "MGM": {
+     "home_spread": 2.0,
+     "total": 42.0,
+     "away_ml": -130,
+     "home_ml": 110
+    }
+   },
+   "consensus": {
+    "home_spread": 1.5,
+    "total": 42.5
+   },
+   "bkr_1005": null,
+   "move_vs_bkr_1005": {
+    "spread": null,
+    "total": null
+   },
+   "kalshi_win_pct": {
+    "NO": 45,
+    "MIN": 56
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "Addison, Kamara DNP",
+   "flags": [],
+   "book_spread_range": 0.5
+  },
+  {
+   "game": "IND@PIT",
+   "kickoff_pt": "Sun 10/11 10:00",
+   "home": "PIT",
+   "books": {
+    "DK": {
+     "home_spread": -2.5,
+     "total": 44.5,
+     "away_ml": 124,
+     "home_ml": -148
+    },
+    "FD": {
+     "home_spread": -2.5,
+     "total": 44.5,
+     "away_ml": 114,
+     "home_ml": -134
+    },
+    "MGM": {
+     "home_spread": -2.5,
+     "total": 44.5,
+     "away_ml": 120,
+     "home_ml": -145
+    }
+   },
+   "consensus": {
+    "home_spread": -2.5,
+    "total": 44.5
+   },
+   "bkr_1005": {
+    "home_spread": -2.5,
+    "total": 44.5,
+    "away_ml": 126,
+    "home_ml": -144
+   },
+   "move_vs_bkr_1005": {
+    "spread": 0.0,
+    "total": 0.0
+   },
+   "kalshi_win_pct": {
+    "PIT": 58,
+    "IND": 43
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "Heyward, Ramsey, Dean DNP; K. Allen limited",
+   "flags": [],
+   "book_spread_range": 0.0
+  },
+  {
+   "game": "CLE@NYJ",
+   "kickoff_pt": "Sun 10/11 10:00",
+   "home": "NYJ",
+   "books": {
+    "DK": {
+     "home_spread": -1.5,
+     "total": 39.5,
+     "away_ml": 105,
+     "home_ml": -125
+    },
+    "FD": {
+     "home_spread": -1.5,
+     "total": 40.5,
+     "away_ml": 108,
+     "home_ml": -126
+    },
+    "MGM": {
+     "home_spread": -2.0,
+     "total": 40.0,
+     "away_ml": 110,
+     "home_ml": -130
+    }
+   },
+   "consensus": {
+    "home_spread": -1.5,
+    "total": 40.0
+   },
+   "bkr_1005": {
+    "home_spread": -2.5,
+    "total": 40,
+    "away_ml": 126,
+    "home_ml": -144
+   },
+   "move_vs_bkr_1005": {
+    "spread": 1.0,
+    "total": 0.0
+   },
+   "kalshi_win_pct": {
+    "NYJ": 55,
+    "CLE": 46
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "",
+   "flags": [],
+   "book_spread_range": 0.5
+  },
+  {
+   "game": "CIN@MIA",
+   "kickoff_pt": "Sun 10/11 10:00",
+   "home": "MIA",
+   "books": {
+    "DK": {
+     "home_spread": 6.5,
+     "total": 42.5,
+     "away_ml": -340,
+     "home_ml": 270
+    },
+    "FD": {
+     "home_spread": 6.5,
+     "total": 42.5,
+     "away_ml": -300,
+     "home_ml": 245
+    },
+    "MGM": {
+     "home_spread": 6.5,
+     "total": 42.5,
+     "away_ml": -325,
+     "home_ml": 260
+    }
+   },
+   "consensus": {
+    "home_spread": 6.5,
+    "total": 42.5
+   },
+   "bkr_1005": {
+    "home_spread": 7,
+    "total": 41.5,
+    "away_ml": -359,
+    "home_ml": 300
+   },
+   "move_vs_bkr_1005": {
+    "spread": -0.5,
+    "total": 1.0
+   },
+   "kalshi_win_pct": {
+    "MIA": 26,
+    "CIN": 75
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "Chase concussion protocol, Higgins DNP",
+   "flags": [],
+   "book_spread_range": 0.0
+  },
+  {
+   "game": "LV@NE",
+   "kickoff_pt": "Sun 10/11 10:00",
+   "home": "NE",
+   "books": {
+    "DK": {
+     "home_spread": -3.5,
+     "total": 45.5,
+     "away_ml": 164,
+     "home_ml": -198
+    },
+    "FD": {
+     "home_spread": -3.5,
+     "total": 44.5,
+     "away_ml": 164,
+     "home_ml": -196
+    },
+    "MGM": {
+     "home_spread": -3.5,
+     "total": 45.0,
+     "away_ml": 165,
+     "home_ml": -200
+    }
+   },
+   "consensus": {
+    "home_spread": -3.5,
+    "total": 45.0
+   },
+   "bkr_1005": {
+    "home_spread": -3.5,
+    "total": 45.5,
+    "away_ml": 167,
+    "home_ml": -192
+   },
+   "move_vs_bkr_1005": {
+    "spread": 0.0,
+    "total": -0.5
+   },
+   "kalshi_win_pct": {
+    "NE": 64,
+    "LV": 36
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "",
+   "flags": [],
+   "book_spread_range": 0.0
+  },
+  {
+   "game": "NYG@WAS",
+   "kickoff_pt": "Sun 10/11 10:00",
+   "home": "WAS",
+   "books": {
+    "DK": {
+     "home_spread": -3.5,
+     "total": 42.5,
+     "away_ml": 145,
+     "home_ml": -175
+    },
+    "FD": {
+     "home_spread": -3.5,
+     "total": 42.5,
+     "away_ml": 164,
+     "home_ml": -196
+    },
+    "MGM": {
+     "home_spread": -3.5,
+     "total": 42.5,
+     "away_ml": 155,
+     "home_ml": -190
+    }
+   },
+   "consensus": {
+    "home_spread": -3.5,
+    "total": 42.5
+   },
+   "bkr_1005": {
+    "home_spread": -3,
+    "total": 43.5,
+    "away_ml": null,
+    "home_ml": null
+   },
+   "move_vs_bkr_1005": {
+    "spread": -0.5,
+    "total": -1.0
+   },
+   "kalshi_win_pct": {
+    "WAS": 63,
+    "NYG": 38
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "Nabers, McLaurin, Diggs, Mariota DNP",
+   "flags": [],
+   "book_spread_range": 0.0
+  },
+  {
+   "game": "HOU@TEN",
+   "kickoff_pt": "Sun 10/11 10:00",
+   "home": "TEN",
+   "books": {
+    "DK": {
+     "home_spread": 7.5,
+     "total": 37.5,
+     "away_ml": -355,
+     "home_ml": 280
+    },
+    "FD": {
+     "home_spread": 7.5,
+     "total": 37.5,
+     "away_ml": -370,
+     "home_ml": 295
+    },
+    "MGM": {
+     "home_spread": 7.5,
+     "total": 37.5,
+     "away_ml": -375,
+     "home_ml": 300
+    }
+   },
+   "consensus": {
+    "home_spread": 7.5,
+    "total": 37.5
+   },
+   "bkr_1005": {
+    "home_spread": 7,
+    "total": 40,
+    "away_ml": -302,
+    "home_ml": 257
+   },
+   "move_vs_bkr_1005": {
+    "spread": 0.5,
+    "total": -2.5
+   },
+   "kalshi_win_pct": {
+    "TEN": 24,
+    "HOU": 77
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "Anderson DNP; Collins/Dell limited",
+   "flags": [
+    "total move -2.5"
+   ],
+   "book_spread_range": 0.0
+  },
+  {
+   "game": "CHI@GB",
+   "kickoff_pt": "Sun 10/11 10:00",
+   "home": "GB",
+   "books": {
+    "DK": {
+     "home_spread": 2.5,
+     "total": 45.5,
+     "away_ml": -135,
+     "home_ml": 114
+    },
+    "FD": {
+     "home_spread": 2.5,
+     "total": 45.5,
+     "away_ml": -134,
+     "home_ml": 114
+    },
+    "MGM": {
+     "home_spread": 2.0,
+     "total": 46.0,
+     "away_ml": -135,
+     "home_ml": 110
+    }
+   },
+   "consensus": {
+    "home_spread": 2.5,
+    "total": 45.5
+   },
+   "bkr_1005": {
+    "home_spread": 3,
+    "total": 45,
+    "away_ml": -156,
+    "home_ml": 136
+   },
+   "move_vs_bkr_1005": {
+    "spread": -0.5,
+    "total": 0.5
+   },
+   "kalshi_win_pct": {
+    "GB": 45,
+    "CHI": 56
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "QB: C. Williams out, Bagent starts; GB lost E. Cooper (Achilles)",
+   "flags": [
+    "QB change"
+   ],
+   "book_spread_range": 0.5
+  },
+  {
+   "game": "DEN@LAC",
+   "kickoff_pt": "Sun 10/11 13:05",
+   "home": "LAC",
+   "books": {
+    "DK": {
+     "home_spread": 3.5,
+     "total": 42.5,
+     "away_ml": -185,
+     "home_ml": 154
+    },
+    "FD": {
+     "home_spread": 3.5,
+     "total": 42.5,
+     "away_ml": -176,
+     "home_ml": 148
+    },
+    "MGM": {
+     "home_spread": 3.5,
+     "total": 42.0,
+     "away_ml": -175,
+     "home_ml": 145
+    }
+   },
+   "consensus": {
+    "home_spread": 3.5,
+    "total": 42.5
+   },
+   "bkr_1005": {
+    "home_spread": 3.5,
+    "total": 42,
+    "away_ml": -180,
+    "home_ml": 157
+   },
+   "move_vs_bkr_1005": {
+    "spread": 0.0,
+    "total": 0.5
+   },
+   "kalshi_win_pct": {
+    "LAC": 38,
+    "DEN": 63
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "DEN without Surtain",
+   "flags": [],
+   "book_spread_range": 0.0
+  },
+  {
+   "game": "SF@SEA",
+   "kickoff_pt": "Sun 10/11 13:25",
+   "home": "SEA",
+   "books": {
+    "DK": {
+     "home_spread": -2.5,
+     "total": 45.5,
+     "away_ml": 130,
+     "home_ml": -155
+    },
+    "FD": {
+     "home_spread": -3.0,
+     "total": 45.5,
+     "away_ml": 136,
+     "home_ml": -162
+    },
+    "MGM": {
+     "home_spread": -3.0,
+     "total": 46.0,
+     "away_ml": 138,
+     "home_ml": -165
+    }
+   },
+   "consensus": {
+    "home_spread": -3.0,
+    "total": 45.5
+   },
+   "bkr_1005": {
+    "home_spread": -3,
+    "total": 46.5,
+    "away_ml": 128,
+    "home_ml": -146
+   },
+   "move_vs_bkr_1005": {
+    "spread": 0.0,
+    "total": -1.0
+   },
+   "kalshi_win_pct": {
+    "SF": 40,
+    "SEA": 60
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "",
+   "flags": [],
+   "book_spread_range": 0.5
+  },
+  {
+   "game": "DET@ARI",
+   "kickoff_pt": "Sun 10/11 13:25",
+   "home": "ARI",
+   "books": {
+    "DK": {
+     "home_spread": 5.5,
+     "total": 54.5,
+     "away_ml": -250,
+     "home_ml": 205
+    },
+    "FD": {
+     "home_spread": 5.5,
+     "total": 54.5,
+     "away_ml": -240,
+     "home_ml": 198
+    },
+    "MGM": {
+     "home_spread": 5.5,
+     "total": 54.5,
+     "away_ml": -250,
+     "home_ml": 200
+    }
+   },
+   "consensus": {
+    "home_spread": 5.5,
+    "total": 54.5
+   },
+   "bkr_1005": {
+    "home_spread": 4,
+    "total": 54.5,
+    "away_ml": -204,
+    "home_ml": 177
+   },
+   "move_vs_bkr_1005": {
+    "spread": 1.5,
+    "total": 0.0
+   },
+   "kalshi_win_pct": {
+    "DET": 70,
+    "ARI": 31
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "DET defense ranked last, 4 safeties out",
+   "flags": [
+    "spread move +1.5"
+   ],
+   "book_spread_range": 0.0
+  },
+  {
+   "game": "BAL@ATL",
+   "kickoff_pt": "Sun 10/11 17:20",
+   "home": "ATL",
+   "books": {
+    "DK": {
+     "home_spread": -3.5,
+     "total": 43.5,
+     "away_ml": 150,
+     "home_ml": -180
+    },
+    "FD": {
+     "home_spread": -3.5,
+     "total": 43.5,
+     "away_ml": 152,
+     "home_ml": -180
+    },
+    "MGM": {
+     "home_spread": -3.5,
+     "total": 43.5,
+     "away_ml": 155,
+     "home_ml": -185
+    }
+   },
+   "consensus": {
+    "home_spread": -3.5,
+    "total": 43.5
+   },
+   "bkr_1005": null,
+   "move_vs_bkr_1005": {
+    "spread": null,
+    "total": null
+   },
+   "kalshi_win_pct": {
+    "BAL": 39,
+    "ATL": 62
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "QB: Lamar non-participant (ankle), Huntley likely QB1; Hendrickson/Humphrey DNP",
+   "flags": [
+    "QB change"
+   ],
+   "book_spread_range": 0.0
+  },
+  {
+   "game": "BUF@LAR",
+   "kickoff_pt": "Mon 10/12 17:15",
+   "home": "LAR",
+   "books": {
+    "DK": {
+     "home_spread": -3.0,
+     "total": 54.5,
+     "away_ml": 136,
+     "home_ml": -162
+    },
+    "FD": {
+     "home_spread": -3.0,
+     "total": 54.5,
+     "away_ml": 138,
+     "home_ml": -164
+    },
+    "MGM": {
+     "home_spread": -3.0,
+     "total": 54.5,
+     "away_ml": 135,
+     "home_ml": -160
+    }
+   },
+   "consensus": {
+    "home_spread": -3.0,
+    "total": 54.5
+   },
+   "bkr_1005": null,
+   "move_vs_bkr_1005": {
+    "spread": null,
+    "total": null
+   },
+   "kalshi_win_pct": {
+    "LAR": 61,
+    "BUF": 41
+   },
+   "contest_line": null,
+   "an_open": null,
+   "injury_news": "BUF Allen/Kincaid starters; Bills Wk3 credit -> LAR ATS (Andy places)",
+   "flags": [],
+   "book_spread_range": 0.0
+  }
+ ]
+}
