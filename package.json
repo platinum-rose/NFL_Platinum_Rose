@@ -38,6 +38,7 @@
     "ingest-research-intel": "node agents/research-intel-ingest.js",
     "ingest-research-intel:dry": "node agents/research-intel-ingest.js --dry-run",
     "ingest-research-intel:cron": "node scripts/research-intel-cron.js",
+    "intel:action-picks:capture": "node scripts/capture-action-network-picks.mjs",
     "article:intel-review": "node scripts/build-article-intel-review.js",
     "test:article-intel-review": "vitest run tests/unit/articleIntelReview.test.js",
     "article:player-props": "node scripts/build-player-props-intel.js",
