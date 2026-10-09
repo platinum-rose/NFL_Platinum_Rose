@@ -1,0 +1,86 @@
+{
+  "schema": "article_source_evidence_v1",
+  "captured_at": "2026-10-09T19:05:51.874Z",
+  "scope": "Week 5 Sunday/Monday matchup articles newly surfaced on Action Network archive page 1",
+  "status": "raw_source_evidence_only",
+  "articles": [
+    {
+      "title": "Packers vs. Bears Odds, Picks, Predictions",
+      "url": "https://www.actionnetwork.com/nfl/packers-vs-bears-odds-picks-predictions",
+      "author": "Pablo Planovsky",
+      "published_or_updated_at": "2026-10-09T14:14:00-04:00",
+      "full_body_evidence": true,
+      "attributable_selections": [
+        {"market": "spread", "side": "Green Bay Packers +1.5", "line": "+1.5", "price": null, "quote": "Bears vs Packers pick : Green Bay Packers +1.5"},
+        {"market": "moneyline", "side": "Green Bay Packers", "line": null, "price": null, "quote": "Pick: Packers Moneyline"},
+        {"market": "total", "side": "Over", "line": "45.5", "price": null, "quote": "My Pick: Over 45.5"}
+      ]
+    },
+    {
+      "title": "Polymarket Traders Flip Falcons vs. Ravens Odds, Picks, Predictions After Lamar Jackson Injury Update",
+      "url": "https://www.actionnetwork.com/nfl/falcons-vs-ravens-odds-picks-predictions",
+      "author": "Pablo Planovsky",
+      "published_or_updated_at": "2026-10-09T13:58:00-04:00",
+      "full_body_evidence": true,
+      "attributable_selections": [
+        {"market": "moneyline", "side": "Atlanta Falcons", "line": null, "price": "61c prediction-market contract", "quote": "My Pick: Falcons moneyline"}
+      ]
+    },
+    {
+      "title": "Saints vs. Vikings Odds, Picks, Predictions",
+      "url": "https://www.actionnetwork.com/nfl/saints-vs-vikings-odds-picks-predictions",
+      "author": "Ian Undery",
+      "published_or_updated_at": "2026-10-08T15:18:00-04:00",
+      "full_body_evidence": true,
+      "normalization_status": "withheld_internal_conflict",
+      "raw_conflicts": [
+        "The prose calls Minnesota a -1.5 road favorite, while the page heading states: My Pick: Saints -1.5 on the Spread.",
+        "The embedded expert widgets list NO +2 and MIN -1.5, which do not establish the page author's own spread selection."
+      ],
+      "raw_stated_markets": [
+        {"quote": "My Pick: Saints -1.5 on the Spread, Under 42.5 Totals."},
+        {"quote": "Pick: Aaron Jones 70+ Rushing Yards. Chris Olave 80+ Receiving Yards."}
+      ]
+    },
+    {
+      "title": "Patriots vs. Raiders Odds, Picks, Predictions",
+      "url": "https://www.actionnetwork.com/nfl/patriots-vs-raiders-odds-picks-predictions",
+      "author": "Ian Undery",
+      "published_or_updated_at": "2026-10-08T15:07:00-04:00",
+      "full_body_evidence": true,
+      "attributable_selections": [
+        {"market": "total", "side": "Over", "line": "46.5", "price": "46c prediction-market contract", "quote": "My Pick: Over 46.5 Points"},
+        {"market": "anytime touchdown", "side": "TreVeyon Henderson", "line": "1 touchdown", "price": "50c prediction-market contract", "quote": "His Yes shares are trading at 50 cents, which isn't cheap, but it remains a solid position nonetheless."},
+        {"market": "anytime touchdown", "side": "Brock Bowers", "line": "1 touchdown", "price": "39c prediction-market contract", "quote": "His Yes shares for 1 touchdown are trading at 39 cents, an offer that is hard to pass up."},
+        {"market": "receiving yards", "side": "Brock Bowers", "line": "90+ receiving yards", "price": null, "quote": "At the same time, targeting 90+ receiving yards makes for a great combination if you expect Bowers to have a big game on Sunday."}
+      ]
+    },
+    {
+      "title": "Seahawks vs. 49ers Odds, Picks, Predictions",
+      "url": "https://www.actionnetwork.com/nfl/seahawks-vs-49ers-odds-picks-predictions",
+      "author": "Pablo Planovsky",
+      "published_or_updated_at": "2026-10-08T14:06:00-04:00",
+      "full_body_evidence": true,
+      "attributable_selections": [
+        {"market": "moneyline", "side": "Seattle Seahawks", "line": null, "price": "-163 source-time market display", "quote": "My Pick: Seahawks moneyline."}
+      ]
+    },
+    {
+      "title": "NFL Week 5 Luck Rankings Picks: 3 Luck-Based Games to Consider",
+      "url": "https://www.actionnetwork.com/nfl/nfl-week-5-luck-rankings-picks-3-luck-based-games-to-consider",
+      "author": "Nick Giffen",
+      "published_or_updated_at": "2026-10-09T07:30:00-04:00",
+      "full_body_evidence": true,
+      "normalization_status": "no_remaining_game_selection",
+      "raw_observations": [
+        "The only stated selection is for completed/in-progress TB@DAL: Verdict: Lean Tampa Bay +8.5.",
+        "The Sunday totals sections for CLE@NYJ and DET@ARI each end with Verdict: Pass."
+      ]
+    }
+  ],
+  "risks": [
+    "These are source-time article selections, not current executable prices or official recommendations.",
+    "Archive cards are not treated as body evidence; every record above was opened to its rendered article body.",
+    "Prediction-market cents are preserved as displayed and are not converted to sportsbook odds."
+  ]
+}
