@@ -21,7 +21,11 @@ Usage:
   python scripts/fetch_nflverse_data.py --datasets schedules games ftn_charting
 
 Requirements:
-  pip install nfl_data_py pandas rich
+  pip install pandas rich
+
+`nfl_data_py` is used when available, but is archived and cannot currently be
+installed on Python 3.14 because it pins NumPy 1.x. For schedules/games, this
+script falls back to nflverse's maintained public games.csv feed.
 """
 
 from __future__ import annotations
@@ -114,6 +118,9 @@ def _save_csv(df: "pd.DataFrame", path: Path, label: str) -> None:  # noqa: F821
 _NFLVERSE_BASE = (
     "https://github.com/nflverse/nflverse-data/releases/download"
 )
+_NFLDATA_GAMES_CSV = (
+    "https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv"
+)
 
 
 def _read_parquets(url_tmpl: str, years: list[int], label: str) -> "pd.DataFrame":  # noqa: F821
@@ -140,8 +147,18 @@ class _Cache:
 
     def schedules(self) -> "pd.DataFrame":  # noqa: F821
         if self._schedules is None:
-            import nfl_data_py as nfl
-            self._schedules = nfl.import_schedules(self._years)
+            try:
+                import nfl_data_py as nfl
+            except ModuleNotFoundError:
+                # nfl_data_py is archived and unavailable on current Python releases.
+                # This public CSV is the maintained source behind the schedules release;
+                # keep the selected years so downstream callers retain the old contract.
+                import pandas as pd
+                _log("nfl_data_py unavailable; using nflverse public games.csv fallback")
+                schedules = pd.read_csv(_NFLDATA_GAMES_CSV, low_memory=False)
+                self._schedules = schedules[schedules["season"].isin(self._years)].copy()
+            else:
+                self._schedules = nfl.import_schedules(self._years)
         return self._schedules
 
 
@@ -331,21 +348,24 @@ def run(
     freshness_days: int,
 ) -> int:
     try:
-        import nfl_data_py  # noqa: F401
-    except ImportError:
-        print("ERROR: nfl_data_py not installed.")
-        print("       pip install nfl_data_py pandas rich")
-        return 1
-
-    try:
         import pandas  # noqa: F401
     except ImportError:
         print("ERROR: pandas not installed.  pip install pandas")
         return 1
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-
     selected = [d for d in DATASETS if not selected_names or d["name"] in selected_names]
+    # schedules/games have a direct public-CSV fallback. Keep an explicit error
+    # for the remaining datasets, which still call nfl_data_py APIs directly.
+    needs_nfl_data_py = [d["name"] for d in selected if d["name"] not in {"schedules", "games"}]
+    if needs_nfl_data_py:
+        try:
+            import nfl_data_py  # noqa: F401
+        except ImportError:
+            print("ERROR: nfl_data_py not installed for dataset(s): " + ", ".join(needs_nfl_data_py))
+            print("       Run only schedules/games with the public-CSV fallback, or use a Python environment compatible with nfl_data_py.")
+            return 1
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
     print("\n=== nflverse data fetch ===", flush=True)
 

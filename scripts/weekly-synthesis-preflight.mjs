@@ -57,7 +57,7 @@ const newest = (dir, re) => {
   } catch { return null; }
 };
 function stamp(p, j) {
-  const cands = [j?.generated_at, j?.meta?.generated_at, j?.captured_at, j?.updated_at, j?.as_of];
+  const cands = [j?.generated_at, j?.meta?.generated_at, j?.captured_at, j?.updated_at, j?.pulled_at, j?.as_of];
   const s = cands.find(Boolean);
   const t = s ? new Date(s) : null;
   return t && !Number.isNaN(+t) ? t : mtime(p);
@@ -92,7 +92,18 @@ const SOURCES = [
   }],
   ['Prediction markets', 'data/prediction-markets/latest.json', 48, (j) => ({ note: `${j?.meta?.contract_count ?? '?'} contracts` })],
   ['Cross-market coherence', 'data/prediction-markets/cross-market-coherence-latest.json', 48],
-  ['SuperContest live mkt', 'data/supercontest/live-market-comparison.json', 48],
+  // Prefer the user-verified weekly contest board when it exists. The generic
+  // live-market comparison can retain a recent prior-week payload, so require
+  // its declared contest week to match instead of trusting file freshness alone.
+  ['SuperContest lines', () => {
+    const verified = `data/supercontest/week-${String(WEEK).padStart(2, '0')}-2026-verified-lines.json`;
+    return fs.existsSync(rel(verified)) ? verified : 'data/supercontest/live-market-comparison.json';
+  }, 168, (j) => ({
+    note: j?.verification?.status === 'verified_by_user'
+      ? `user-verified ${j?.lines?.length ?? 0} contest line(s)`
+      : `${j?.games?.length ?? 0} compared game(s)`,
+    fail: Number(j?.week ?? j?.supercontest_week) !== WEEK,
+  })],
   // 2026-09-26: BKR game lines are also captured as a rendered snapshot next to
   // the week's prop boards (docs/Player_Prop_Odds_Weekly/Week<N>/BKR_Week<N>_current_game_lines.md);
   // take whichever of the two locations is newer instead of false-flagging STALE.
@@ -108,7 +119,20 @@ const SOURCES = [
   ['Expert dossiers', () => `data/expert-dossiers/${newest('data/expert-dossiers', /\.json$/)}`, 168],
   ['Host citations', 'data/generated/host-citations-latest.json', 168],
   ['Player-props intel', 'docs/player-props-intel/player-props-intel-latest.md', 168],
-  ['Podcast recs (legacy file)', 'data/podcasts/actionable_betting_recommendations_2026.json', 168],
+  // Canonical weekly podcast evidence is the read-only Master Intel pull of promoted
+  // podcast_gemini_intel rows. The old actionable_betting_recommendations file is an
+  // Alpha/demo artifact and must not block weekly synthesis when current episode work
+  // has been ingested through the promoted-podcast pipeline.
+  ['Promoted podcast intelligence', () => `data/generated/master-intel/w${String(WEEK).padStart(2, '0')}-pull.json`, 168, (j) => {
+    const summary = j?.podcast_gemini_summary;
+    const episodes = Number(summary?.promoted_episodes ?? 0);
+    const picks = Number(summary?.picks ?? 0);
+    const notes = Number(summary?.analysis_notes ?? 0);
+    return {
+      note: `${episodes} promoted episode(s), ${picks} pick(s), ${notes} analysis note(s)`,
+      fail: j?.week !== WEEK || episodes === 0,
+    };
+  }],
   ['Team DVOA / power', 'data/generated/team-profiles/team-power-ratings-2026.json', 240],
   [`Prop boards Week${WEEK}`, null, null, () => {
     let n = 0; try { n = fs.readdirSync(rel(`docs/Player_Prop_Odds_Weekly/Week${WEEK}`)).length; } catch {}

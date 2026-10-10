@@ -6,7 +6,7 @@
 
 ## Current pick-up point
 
-**Latest session (2026-10-08 PT, Codex — TNF props and article-ingestion audit):** `handoffs/2026-10-08-codex-tnf-article-intake-handoff.md`. Fresh TB @ DAL BKR/BEO price captures remain raw evidence; no ticket was proposed, created, or placed. `Mar'Keise Irving` is saved as an alias of Bucky Irving. **Next:** audit the available article corpus and extract only reviewable Week 5/TNF selections; do not promote a lead into a ticket, ledger, or official pick without current authorization.
+**Latest session (2026-10-10 PT, Codex — Week 5 card prep and prop captures):** `handoffs/2026-10-10-codex-week5-card-prep-and-prop-capture-handoff.md`. The Week 5 narrative, review-only proposed card, side/prop hypothesis ledger, BKR/BEO capture evidence, and freshness checks are ready for game-day revalidation. **Next:** refresh executable offers and inactives, then update the review-only card/Master Intel output; do not promote anything to an official ticket, ledger, portfolio, or contest entry without fresh authorization.
 
 Previous: `handoffs/2026-10-07-0105-claude-week4-postmortem-done-week5-prep-handoff.md` (Week 4 post-mortem, Week 5 prep).
 

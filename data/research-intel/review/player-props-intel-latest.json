@@ -1,18 +1,224 @@
 {
   "schema": "player_props_intel_v1",
-  "generated_at": "2026-10-09T20:00:42.013Z",
+  "generated_at": "2026-10-09T22:00:20.525Z",
   "week": 5,
   "season": 2026,
   "summary": {
-    "articles_scanned": 513,
-    "total_props": 5,
-    "tier_1_props": 5,
+    "articles_scanned": 540,
+    "total_props": 9,
+    "tier_1_props": 8,
     "touchdown_props": 1,
-    "curated_parlays": 0,
-    "games_covered": 5
+    "curated_parlays": 1,
+    "games_covered": 8
   },
-  "parlayCards": [],
+  "parlayCards": [
+    {
+      "id": "parlay__NYG_at_WAS__nyg_stack",
+      "title": "NYG Prop Stack SGP (NYG @ WAS)",
+      "game": "NYG @ WAS",
+      "game_slate": "Sunday Early Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__7198__isaiah_likely__receiving_yards",
+          "player": "Isaiah Likely",
+          "team": "NYG",
+          "game": "NYG @ WAS",
+          "game_slate": "Sunday Early Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "40.5",
+          "side": "over",
+          "price": "-125",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Josh Shepardson (Sharp Football)",
+          "source_article_id": 7198,
+          "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-5-2026/",
+          "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 5 Best Prop Bet: Quinshon Judkins Under 59.5 Rushing Yards (-112) Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) but only 28th in rushing yards per game (44.3), 4",
+          "week": 5,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "NYG_offense"
+            ],
+            "positive_correlations": [
+              "Jameis Winston Passing TDs"
+            ]
+          },
+          "selection": "Over 40.5 Receiving Yards"
+        },
+        {
+          "id": "prop__6999__jameis_winston__passing_tds",
+          "player": "Jameis Winston",
+          "team": "NYG",
+          "game": "NYG @ WAS",
+          "game_slate": "Sunday Early Window",
+          "category": "passing_tds",
+          "category_label": "Passing TDs",
+          "stat_type": "passing",
+          "line": "1.5",
+          "side": "over",
+          "price": "+162",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Zachary Cohen (VSiN)",
+          "source_article_id": 6999,
+          "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-5-best-bets-predictions-and-player-props-from-zachary-cohen/",
+          "rationale": "vs. Commanders Week 4 Picks Browns ML (+125 - 1.5 units) vs.",
+          "week": 5,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Passing Volume Anchor",
+            "synergy_tags": [
+              "passing_tds",
+              "NYG_offense"
+            ],
+            "positive_correlations": [
+              "Isaiah Likely Receiving Yards"
+            ]
+          },
+          "selection": "Over 1.5 Passing TDs"
+        }
+      ],
+      "estimated_odds": "+372",
+      "payout_multiplier": "4.72x",
+      "payout_on_10": "$47.16",
+      "payout_on_25": "$117.90",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Josh Shepardson (Sharp Football), Zachary Cohen (VSiN) for NYG @ WAS."
+    }
+  ],
   "props": [
+    {
+      "id": "prop__7202__greg_dulcich__receiving_yards",
+      "player": "Greg Dulcich",
+      "team": "MIA",
+      "game": "CIN @ MIA",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "26.5",
+      "side": "over",
+      "price": "-125",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dustin Swedelson (VSiN)",
+      "source_article_id": 7202,
+      "source_url": "https://vsin.com/nfl/favorite-week-5-nfl-player-props-from-dustin-swedelson-and-optaai/",
+      "rationale": "We bet Greg Dulcich over receiving yards last week. He rewarded our confidence with zero catches for zero yards at Minnesota.",
+      "week": 5,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "MIA_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__7198__sam_laporta__receiving_yards",
+      "player": "Sam LaPorta",
+      "team": "DET",
+      "game": "DET @ ARI",
+      "game_slate": "Sunday Late Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "50.5",
+      "side": "over",
+      "price": "-120",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 7198,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-5-2026/",
+      "rationale": "Isaiah Likely Over 40.5 Receiving Yards (-125) Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 5 Best Prop Bet: Quinshon Judkins Under 59.5 Rushing Yards (-112) Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) bu",
+      "week": 5,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "DET_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__7198__isaiah_likely__receiving_yards",
+      "player": "Isaiah Likely",
+      "team": "NYG",
+      "game": "NYG @ WAS",
+      "game_slate": "Sunday Early Window",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "40.5",
+      "side": "over",
+      "price": "-125",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 7198,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-5-2026/",
+      "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 5 Best Prop Bet: Quinshon Judkins Under 59.5 Rushing Yards (-112) Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) but only 28th in rushing yards per game (44.3), 4",
+      "week": 5,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "NYG_offense"
+        ],
+        "positive_correlations": [
+          "Jameis Winston Passing TDs"
+        ]
+      }
+    },
+    {
+      "id": "prop__7198__quinshon_judkins__rushing_yards",
+      "player": "Quinshon Judkins",
+      "team": "CLE",
+      "game": "CLE @ NYJ",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "59.5",
+      "side": "under",
+      "price": "-112",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 7198,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-5-2026/",
+      "rationale": "Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) but only 28th in rushing yards per game (44.3), 42nd in yards per carry (3.00), 43rd in yards before contact per attempt (1.14), 31st in yards after contact per attempt (1.86), 43rd in explosive run rate (3.6%), tied for 36th in success rate (40.7%), 41st in stuff ra",
+      "week": 5,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "CLE_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
     {
       "id": "prop__7105__zay_flowers__receptions",
       "player": "Zay Flowers",
@@ -130,7 +336,9 @@
           "passing_tds",
           "NYG_offense"
         ],
-        "positive_correlations": []
+        "positive_correlations": [
+          "Isaiah Likely Receiving Yards"
+        ]
       }
     },
     {

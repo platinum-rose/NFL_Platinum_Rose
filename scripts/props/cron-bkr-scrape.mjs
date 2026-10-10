@@ -10,11 +10,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawn } from 'node:child_process';
+import { randomUUID } from 'node:crypto';
 import { chromium } from '@playwright/test';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
+const NFL_GAME_PATH_PREFIX = '/en/sports/football/nfl/game-lines/';
+const LOCK_PATH = path.join(REPO_ROOT, '.chrome-bkr', 'bkr-scraper.lock');
 
 function calculateNflWeek(date = new Date()) {
   const w1Tuesday = new Date('2026-09-08T00:00:00Z');
@@ -70,6 +73,54 @@ async function ensureChromeRunning() {
   throw new Error('Failed to connect to Chrome on port 9222 after launch.');
 }
 
+function acquireLock() {
+  fs.mkdirSync(path.dirname(LOCK_PATH), { recursive: true });
+  const token = randomUUID();
+  const payload = JSON.stringify({ pid: process.pid, token, acquiredAt: new Date().toISOString() });
+  try {
+    fs.writeFileSync(LOCK_PATH, payload, { flag: 'wx' });
+    return token;
+  } catch (err) {
+    if (err.code !== 'EEXIST') throw err;
+    let existing;
+    try { existing = JSON.parse(fs.readFileSync(LOCK_PATH, 'utf8')); } catch { existing = null; }
+    if (existing?.pid) {
+      try {
+        process.kill(existing.pid, 0);
+        console.log('Another Bookmaker capture is already running; leaving its work untouched.');
+        return null;
+      } catch {}
+    }
+    fs.rmSync(LOCK_PATH, { force: true });
+    fs.writeFileSync(LOCK_PATH, payload, { flag: 'wx' });
+    return token;
+  }
+}
+
+function releaseLock(token) {
+  if (!token || !fs.existsSync(LOCK_PATH)) return;
+  try {
+    const existing = JSON.parse(fs.readFileSync(LOCK_PATH, 'utf8'));
+    if (existing.token === token) fs.rmSync(LOCK_PATH, { force: true });
+  } catch {}
+}
+
+function validateNflCapture({ gameLinks, rawDumpText }) {
+  if (!gameLinks.length || gameLinks.some(link => !link.startsWith(NFL_GAME_PATH_PREFIX) || !link.includes('-vs-'))) {
+    throw new Error('Acceptance gate rejected non-NFL or malformed matchup links before any artifact was written.');
+  }
+  const eventPaths = [...rawDumpText.matchAll(/^EVENT\|[^|]*\|([^|]+)\|/gm)].map(match => match[1]);
+  if (eventPaths.length !== gameLinks.length) {
+    throw new Error('Acceptance gate rejected incomplete capture: ' + eventPaths.length + '/' + gameLinks.length + ' NFL matchups produced evidence.');
+  }
+  if (eventPaths.some(link => !link.startsWith(NFL_GAME_PATH_PREFIX)) || new Set(eventPaths).size !== gameLinks.length) {
+    throw new Error('Acceptance gate rejected evidence that was not exclusively one-per-NFL matchup.');
+  }
+  if (!rawDumpText.includes('\nT|') || !rawDumpText.includes('\nI|')) {
+    throw new Error('Acceptance gate rejected an empty NFL prop capture.');
+  }
+}
+
 async function run() {
   const dateStr = new Date().toISOString().slice(0, 10);
   const weekNum = calculateNflWeek();
@@ -77,35 +128,30 @@ async function run() {
   console.log(`🏈 Bookmaker.eu SGP Cron Extraction — Week ${weekNum} (${dateStr})`);
   console.log(`===============================================================\n`);
 
+  const lockToken = acquireLock();
+  if (!lockToken) return;
+
+  try {
   await ensureChromeRunning();
 
   console.log('🔌 Connecting to browser via CDP (http://127.0.0.1:9222)...');
   const browser = await chromium.connectOverCDP('http://127.0.0.1:9222');
   const defaultContext = browser.contexts()[0] || await browser.newContext();
 
-  // Find or create Bookmaker page
-  let page = defaultContext.pages().find(p => p.url().includes('bookmaker.eu'));
-  let createdPage = false;
-  if (!page) {
-    page = await defaultContext.newPage();
-    createdPage = true;
-    console.log('Navigating to Bookmaker NFL lines page...');
-    await page.goto('https://be.bookmaker.eu/en/sports/football/nfl/game-lines/');
-  } else {
-    console.log(`Using existing Bookmaker tab: ${page.url()}`);
-    if (!page.url().includes('/nfl/game-lines/')) {
-      console.log('Navigating active tab to /nfl/game-lines/...');
-      await page.goto('https://be.bookmaker.eu/en/sports/football/nfl/game-lines/');
-    }
-  }
+  // Never reuse or navigate an operator tab. The profile supplies the authenticated session.
+  const page = await defaultContext.newPage();
+  let rawDumpText;
+  try {
+    console.log('Opening an isolated Bookmaker capture tab...');
+    await page.goto('https://be.bookmaker.eu/en/sports/football/nfl/game-lines/', { waitUntil: 'domcontentloaded' });
 
   // Robust Angular selector wait: ensure schedule and matchup cards are fully rendered
   console.log('⏳ Waiting for NFL matchup board to render...');
-  await page.waitForSelector('a[href*="-vs-"]', { timeout: 30000 });
+  await page.waitForSelector('a[href^="/en/sports/football/nfl/game-lines/"][href*="-vs-"]', { timeout: 30000 });
 
-  const gameLinks = await page.$$eval('a[href*="-vs-"]', els => {
+  const gameLinks = await page.$$eval('a[href^="/en/sports/football/nfl/game-lines/"][href*="-vs-"]', els => {
     return els.map(a => a.getAttribute('href'))
-      .filter(h => h && h.includes('/game-lines/'))
+      .filter(h => h && h.startsWith('/en/sports/football/nfl/game-lines/') && h.includes('-vs-'))
       .map(h => h.startsWith('http') ? new URL(h).pathname : h)
       .filter((h, i, arr) => arr.indexOf(h) === i);
   });
@@ -121,7 +167,7 @@ async function run() {
 
   // Inject extraction runner directly with discovered links
   console.log('\n🚀 Extracting SGP prop grids across all games via background iframe...');
-  const rawDumpText = await page.evaluate(async (links) => {
+  rawDumpText = await page.evaluate(async (links) => {
     let iframe = document.getElementById('bkr_extractor_iframe');
     if (!iframe) {
       iframe = document.createElement('iframe');
@@ -180,7 +226,10 @@ async function run() {
     return results.join('\n') + '\nEND|' + results.length + '\n';
   }, gameLinks);
 
-  if (createdPage) await page.close();
+  validateNflCapture({ gameLinks, rawDumpText });
+  } finally {
+    await page.close();
+  }
 
   // Write raw dump files
   const rawPath1 = path.join(REPO_ROOT, 'data', 'generated', 'props', `bookmaker-live-${dateStr}-week${weekNum}.raw.txt`);
@@ -213,7 +262,9 @@ async function run() {
   }
 
   console.log(`\n✅ Bookmaker SGP extraction and parse finished successfully for Week ${weekNum}!`);
-  process.exit(0);
+  } finally {
+    releaseLock(lockToken);
+  }
 }
 
 run().catch(err => {

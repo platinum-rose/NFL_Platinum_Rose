@@ -1,9 +1,9 @@
-# NFL Week 4 Player Prop & Parlay Intelligence Dossier
+# NFL Week 5 Player Prop & Parlay Intelligence Dossier
 
-> **Generated**: 2026-10-02T18:14:21.310Z  
-> **Scope**: Dedicated player prop extraction pass from recent intelligence articles (284 articles scanned).  
-> **Actionable Props Extracted**: **3 player props** across **3 games**.  
-> **Curated Pre-Built Parlay Stacks**: **0 correlated parlay cards** ready for execution.
+> **Generated**: 2026-10-09T22:00:20.525Z  
+> **Scope**: Dedicated player prop extraction pass from recent intelligence articles (540 articles scanned).  
+> **Actionable Props Extracted**: **9 player props** across **8 games**.  
+> **Curated Pre-Built Parlay Stacks**: **1 correlated parlay cards** ready for execution.
 
 ---
 
@@ -13,37 +13,80 @@ This dossier isolates pure player prop intelligence to build high-ROI Same Game 
 
 | Metric | Value | Meaning |
 | :--- | :--- | :--- |
-| **Total Player Props** | **3** | Verified player prop recommendations with lines and odds |
-| **Tier 1 Best Bet Props** | **3** | Official analyst recommended best bets (Weight: 1.00) |
+| **Total Player Props** | **9** | Verified player prop recommendations with lines and odds |
+| **Tier 1 Best Bet Props** | **8** | Official analyst recommended best bets (Weight: 1.00) |
 | **Anytime / First TD Scorers** | **1** | High-leverage end-zone targets for multiplier legs |
-| **Curated Parlay Cards** | **0** | Positively correlated SGP & cross-game cards (+645 to +810) |
-| **Games With Extracted Props** | **3** | TEN @ BAL, DET @ CAR, LAC @ SEA |
+| **Curated Parlay Cards** | **1** | Positively correlated SGP & cross-game cards (+645 to +810) |
+| **Games With Extracted Props** | **8** | CIN @ MIA, DET @ ARI, NYG @ WAS, CLE @ NYJ, BAL @ ATL, CHI @ GB |
 
 ---
 
 ## 2. Curated Pre-Built Parlay Cards (Positive Correlation Synergy)
 
+### 🎯 NYG Prop Stack SGP (NYG @ WAS)
+- **Game / Slate**: `NYG @ WAS` (Sunday Early Window)
+- **Estimated Parlay Odds**: **`+372`** (Payout: **4.72x** | $10 pays $47.16, $25 pays $117.90)
+- **Correlation Rating**: **Same-Team Stack**
+- **Recommended Sportsbook**: DraftKings / FanDuel
+- **Synergy Rationale**: *Combines 2 real props extracted this week from Josh Shepardson (Sharp Football), Zachary Cohen (VSiN) for NYG @ WAS.*
+
+| Leg # | Player | Team | Category | Selection | Stated Odds | Source Analyst |
+| :---: | :--- | :---: | :--- | :--- | :---: | :--- |
+| **#1** | **Isaiah Likely** | NYG | Receiving Yards | `Over 40.5 Receiving Yards` | **-125** | Josh Shepardson (Sharp Football) |
+| **#2** | **Jameis Winston** | NYG | Passing TDs | `Over 1.5 Passing TDs` | **+162** | Zachary Cohen (VSiN) |
+
 ---
 
 ## 3. Master Player Prop Board (Grouped by Game & Category)
 
-### 🏈 Matchup: DET @ CAR (Sunday Night Football)
+### 🏈 Matchup: BAL @ ATL (Sunday Night Football)
 
 | Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
 | :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
-| **Darren Waller** | CAR | 2+ Touchdowns | `2+ OVER` | **+1900** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Phil Wood (BettingPros) | *Complementary Piece* | The Lions have been abysmal against tight ends so far this season. They've allowed two touchdowns to the position in all three of their games so far. |
+| **Zay Flowers** | BAL | Receptions | `6+ OVER` | **-109** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL) | *Pass-Catching Piece* | The Zay Flowers over betting will continue until morale improves. Flowers is on a ridiculous pace to start the season. |
 
-### 🏈 Matchup: LAC @ SEA (Sunday Late Window)
-
-| Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
-| :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
-| **Justin Herbert** | LAC | Passing Yards | `219.5 OVER` | **-111** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Zachary Cohen (VSiN) | *Passing Volume Anchor* | vs. Bills Jaguars -2.5 (-120) vs. |
-
-### 🏈 Matchup: TEN @ BAL (Sunday Early Window)
+### 🏈 Matchup: CHI @ GB (Sunday Early Window)
 
 | Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
 | :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
-| **Lamar Jackson** | BAL | Passing TDs | `4+ OVER` | **+1060** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Phil Wood (BettingPros) | *Passing Volume Anchor* | Through three weeks, Lamar Jackson has just four passing touchdowns. Despite this slow start and the fact that the Titans are tied for the fewest passing touchdowns allowed this season, I love him in this matchup. |
+| **Kalif Raymond** | CHI | Receptions | `4+ OVER` | **+123** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL) | *Pass-Catching Piece* | Raymond's furious start to the season crashed with a two-catch, six-yard performance against the Jets in Week 4, creating a strong buy-low opportunity. Raymond was the deep downfield target on two Tyson Bagent would-be interceptions (both reversed on penalty) and retained a 50% route rate on Bears dropbacks. |
+
+### 🏈 Matchup: CIN @ MIA (Sunday Early Window)
+
+| Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
+| :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
+| **Greg Dulcich** | MIA | Receiving Yards | `26.5 OVER` | **-125** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Dustin Swedelson (VSiN) | *Pass-Catching Piece* | We bet Greg Dulcich over receiving yards last week. He rewarded our confidence with zero catches for zero yards at Minnesota. |
+
+### 🏈 Matchup: CLE @ NYJ (Sunday Early Window)
+
+| Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
+| :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
+| **Quinshon Judkins** | CLE | Rushing Yards | `59.5 UNDER` | **-112** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Josh Shepardson (Sharp Football) | *Ground Game Piece* | Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) but only 28th in rushing yards per game (44.3), 42nd in yards per carry (3.00), 43rd in yards before contact per attempt (1.14), 31st in yards after contact per attempt (1.86), 43rd in explosive run rate (3.6%), tied for 36th in success rate (40.7%), 41st in stuff ra |
+
+### 🏈 Matchup: DET @ ARI (Sunday Late Window)
+
+| Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
+| :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
+| **Sam LaPorta** | DET | Receiving Yards | `50.5 OVER` | **-120** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Josh Shepardson (Sharp Football) | *Pass-Catching Piece* | Isaiah Likely Over 40.5 Receiving Yards (-125) Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 5 Best Prop Bet: Quinshon Judkins Under 59.5 Rushing Yards (-112) Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) bu |
+
+### 🏈 Matchup: LV @ NE (Sunday Early Window)
+
+| Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
+| :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
+| **Romeo Doubs** | NE | Receiving Yards | `50.5 OVER` | **-115** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Zachary Cohen (VSiN) | *Pass-Catching Piece* | vs. Raiders - Vegas is 32nd in the NFL in YAC allowed against wide receivers + 31st in the NFL in ADOT allowed to WR. |
+
+### 🏈 Matchup: NYG @ WAS (Sunday Early Window)
+
+| Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
+| :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
+| **Isaiah Likely** | NYG | Receiving Yards | `40.5 OVER` | **-125** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Josh Shepardson (Sharp Football) | *Pass-Catching Piece* | Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 5 Best Prop Bet: Quinshon Judkins Under 59.5 Rushing Yards (-112) Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) but only 28th in rushing yards per game (44.3), 4 |
+| **Jameis Winston** | NYG | Passing TDs | `1.5 OVER` | **+162** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Zachary Cohen (VSiN) | *Passing Volume Anchor* | vs. Commanders Week 4 Picks Browns ML (+125 - 1.5 units) vs. |
+
+### 🏈 Matchup: PHI @ JAX (Sunday Early Window)
+
+| Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
+| :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
+| **Bhayshul Tuten** | JAX | Rushing Yards | `50+ OVER` | **-184** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Steve Krebs (BettingPros) | *Ground Game Piece* | We close out our parlay with a recency bias play that could easily be eclipsed by halftime. Bhayshul Tuten is averaging 69.2 yards this season on 4.6 yards per carry. |
 
 ---
 
