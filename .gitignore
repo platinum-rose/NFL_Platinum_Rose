@@ -37,10 +37,12 @@ config/youtube-podcast-sources.local.json
 data/secrets/
 data/podcasts/youtube-account-discovery.json
 data/podcasts/youtube-discovery-state.json
-# Playwright
+# Playwright & Chrome Automation Profiles
 playwright-report/
 test-results/
 .playwright/
+.chrome-bkr/
+.chrome-bol/
 # Generated / transient runtime artifacts
 # betting_splits.json: written locally by agents/betting-splits-ingest.js and by the
 # Toolbox's "Run Now" button, but intentionally NOT git-tracked (reverted 2026-09-16).
