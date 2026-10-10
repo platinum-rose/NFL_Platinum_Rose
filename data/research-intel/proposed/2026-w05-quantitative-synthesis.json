@@ -1,0 +1,4069 @@
+{
+  "schema": "week5_quantitative_synthesis_v1",
+  "generated_at": "2026-10-10T16:59:28.476Z",
+  "status": "proposed_analysis_only",
+  "boundary": "Not a card, official recommendation, contest entry, ticket, or sportsbook execution record.",
+  "numeric_model": {
+    "method": "100,000-trial seeded normal-score Monte Carlo per game",
+    "blend": "60% current BKR market-implied score; 25% FTN standardized season-to-date team attack/defense/pacing context; 15% nflverse SRS margin; capped secondary-absence context.",
+    "calibration_status": "provisional: no historical Week 5 backtest or closing-line calibration is claimed.",
+    "excluded_from_numeric_weight": [
+      "expert/podcast selections",
+      "betting splits",
+      "stale DVOA snapshot",
+      "stale coaching-source inputs",
+      "player-prop prices"
+    ]
+  },
+  "source_accounting": {
+    "ftn": {
+      "tables": 36,
+      "records": 4613,
+      "captured": "2026-10-09T21:53:39.961Z",
+      "role": "numeric team analytics"
+    },
+    "power": {
+      "generated": "2026-10-10T07:06:04.898Z",
+      "components": [
+        "srs",
+        "net_points_per_game",
+        "pythag_win_pct"
+      ],
+      "role": "numeric season-to-date SRS component"
+    },
+    "bookmaker": {
+      "captured": "2026-10-10T16:16:12.396Z",
+      "rows": 5376,
+      "role": "market anchor"
+    },
+    "secondary": {
+      "generated": "2026-10-09T22:00:14.791Z",
+      "role": "capped matchup context"
+    },
+    "availability": {
+      "generated": "2026-10-10T16:45:23.831Z",
+      "role": "gate/context; not blanket point adjustments"
+    },
+    "podcast": {
+      "episodes": 18,
+      "picks": 172,
+      "notes": 100,
+      "role": "qualitative corroboration only"
+    },
+    "explicit_staleness": [
+      "team-dvoa-snapshots-2026.json is based on 2026-09-17 data",
+      "coaching tendency source files predate current Week 5 and are context-only"
+    ]
+  },
+  "availability_gates": [
+    {
+      "team": "NYG",
+      "player": "Jaxson Dart",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jaxson Dart IR"
+    },
+    {
+      "team": "BAL",
+      "player": "Lamar Jackson",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:40:54.000Z",
+      "summary": "Lamar Jackson OUT"
+    },
+    {
+      "team": "BAL",
+      "player": "Lamar Jackson",
+      "event_type": "out",
+      "published_at": "2026-10-09T17:34:00.000Z",
+      "summary": "Jackson (ankle) has been ruled out for Sunday night's game against the Falcons, Cordell Woodland of 105.7 The Fan Baltimore reports."
+    },
+    {
+      "team": "BAL",
+      "player": "Skylar Thompson",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Skylar Thompson IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Graham Mertz",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Graham Mertz IR"
+    },
+    {
+      "team": "LAR",
+      "player": "Matthew Caldwell",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Matthew Caldwell IR"
+    },
+    {
+      "team": "CLE",
+      "player": "Dillon Gabriel",
+      "event_type": "ir",
+      "published_at": "2026-10-10T00:37:00.000Z",
+      "summary": "Gabriel (back) has been ruled out ahead of Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+    },
+    {
+      "team": "LAC",
+      "player": "Rashawn Slater",
+      "event_type": "ir",
+      "published_at": "2026-10-10T02:51:00.000Z",
+      "summary": "The Chargers placed Slater (ankle) on injured reserve Friday."
+    },
+    {
+      "team": "DET",
+      "player": "Cade Mays",
+      "event_type": "ir",
+      "published_at": "2026-10-10T02:36:00.000Z",
+      "summary": "Mays (wrist) has been ruled out for Sunday's game against the Cardinals."
+    },
+    {
+      "team": "WAS",
+      "player": "Marcus Mariota",
+      "event_type": "out",
+      "published_at": "2026-10-09T21:35:00.000Z",
+      "summary": "Mariota (knee) has been ruled out for Sunday's game against the Giants."
+    },
+    {
+      "team": "TB",
+      "player": "Baker Mayfield",
+      "event_type": "out",
+      "published_at": "2026-10-09T15:18:00.000Z",
+      "summary": "Head coach Todd Bowles said Friday that Mayfield (thumb) now is in a smaller splint, and the Bucs will see if he can progress to gripping the football next week, Rick Stroud of the Tampa Bay Times reports."
+    },
+    {
+      "team": "CLE",
+      "player": "Dillon Gabriel",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Dillon Gabriel OUT"
+    },
+    {
+      "team": "LAC",
+      "player": "Trey Lance",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Trey Lance OUT"
+    },
+    {
+      "team": "WAS",
+      "player": "Marcus Mariota",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Marcus Mariota OUT"
+    },
+    {
+      "team": "MIN",
+      "player": "Michael Jurgens",
+      "event_type": "ir",
+      "published_at": "2026-10-08T00:07:00.000Z",
+      "summary": "The Vikings designated Jurgens (elbow) for return from injured reserve Wednesday."
+    },
+    {
+      "team": "TB",
+      "player": "Baker Mayfield",
+      "event_type": "out",
+      "published_at": "2026-10-07T07:00:00.000Z",
+      "summary": "Baker Mayfield OUT"
+    },
+    {
+      "team": "LAC",
+      "player": "Branson Taylor",
+      "event_type": "ir",
+      "published_at": "2026-10-07T00:23:00.000Z",
+      "summary": "The Chargers designated Taylor (undisclosed) for return to practice from their injured reserve list Tuesday."
+    },
+    {
+      "team": "CLE",
+      "player": "Kalia Davis",
+      "event_type": "ir",
+      "published_at": "2026-10-10T02:57:00.000Z",
+      "summary": "Davis (quadriceps) has been ruled out ahead of Sunday's game against the Jets, Kelsey Russo of the Browns' official site reports."
+    },
+    {
+      "team": "BAL",
+      "player": "Cam Jurgens",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:13:00.000Z",
+      "summary": "Jurgens (concussion) has been ruled out ahead of Sunday's game against the Falcons, Adam Caplan of SiriusXM NFL Radio reports."
+    },
+    {
+      "team": "LAC",
+      "player": "Trey Lance",
+      "event_type": "doubtful",
+      "published_at": "2026-10-10T00:34:00.000Z",
+      "summary": "Lance (groin) is listed as doubtful for Sunday's game against the Broncos."
+    },
+    {
+      "team": "MIA",
+      "player": "Kenneth Grant",
+      "event_type": "ir",
+      "published_at": "2026-10-07T23:22:00.000Z",
+      "summary": "The Dolphins opened Grant's 21-day practice window Wednesday, and he was a limited participant in the team's first Week 5 session in his return from a toe injury."
+    },
+    {
+      "team": "CAR",
+      "player": "Ikem Ekwonu",
+      "event_type": "out",
+      "published_at": "2026-10-06T01:04:00.000Z",
+      "summary": "Coach Dave Canales said Monday that Ekwonu (knee) is still a considerable time away from returning to action, Mike Kaye of ESPN reports."
+    },
+    {
+      "team": "DAL",
+      "player": "Jonathan Bullard",
+      "event_type": "ir",
+      "published_at": "2026-10-01T00:58:00.000Z",
+      "summary": "The Cowboys placed Bullard (calf) on injured reserve Wednesday, Tommy Yarrish of the Cowboys' official site reports."
+    },
+    {
+      "team": "LV",
+      "player": "Trey Zuhn III",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:03:00.000Z",
+      "summary": "Zuhn (knee) has been ruled out ahead of Sunday's game against the Patriots, Paul Gutierrez of Raiders.com reports."
+    },
+    {
+      "team": "SF",
+      "player": "James Thompson Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:50:00.000Z",
+      "summary": "Thompson (ankle) has been ruled out for Sunday's game against the Seahawks."
+    },
+    {
+      "team": "MIN",
+      "player": "Donovan Jackson",
+      "event_type": "ir",
+      "published_at": "2026-10-07T00:34:00.000Z",
+      "summary": "Jackson (knee) was placed on injured reserve by the Vikings on Tuesday."
+    },
+    {
+      "team": "ARI",
+      "player": "Paris Johnson Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-07T00:29:00.000Z",
+      "summary": "The Cardinals placed Johnson (biceps) on injured reserve Tuesday."
+    },
+    {
+      "team": "CHI",
+      "player": "Braxton Jones",
+      "event_type": "ir",
+      "published_at": "2026-10-04T01:02:00.000Z",
+      "summary": "The Bears placed Jones (knee) on injured reserve Saturday."
+    },
+    {
+      "team": "LAC",
+      "player": "David Njoku",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "David Njoku IR"
+    },
+    {
+      "team": "LV",
+      "player": "Keyron Crawford",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Keyron Crawford IR"
+    },
+    {
+      "team": "MIA",
+      "player": "Trey Moore",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Trey Moore IR"
+    },
+    {
+      "team": "MIA",
+      "player": "Rene Konga",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Rene Konga IR"
+    },
+    {
+      "team": "MIN",
+      "player": "Tyler Batty",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Tyler Batty IR"
+    },
+    {
+      "team": "NE",
+      "player": "Quintayvious Hutchins",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Quintayvious Hutchins IR"
+    },
+    {
+      "team": "NO",
+      "player": "Bryan Bresee",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Bryan Bresee IR"
+    },
+    {
+      "team": "NYG",
+      "player": "Brian Burns",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Brian Burns IR"
+    },
+    {
+      "team": "NYG",
+      "player": "Roy Robertson-Harris",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Roy Robertson-Harris IR"
+    },
+    {
+      "team": "NYJ",
+      "player": "David Onyemata",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "David Onyemata IR"
+    },
+    {
+      "team": "NYJ",
+      "player": "Kingsley Jonathan",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Kingsley Jonathan IR"
+    },
+    {
+      "team": "PIT",
+      "player": "Logan Lee",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Logan Lee IR"
+    },
+    {
+      "team": "PIT",
+      "player": "Derrick Harmon",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Derrick Harmon IR"
+    },
+    {
+      "team": "SF",
+      "player": "Sam Okuayinonu",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Sam Okuayinonu IR"
+    },
+    {
+      "team": "SF",
+      "player": "Alfred Collins",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Alfred Collins IR"
+    },
+    {
+      "team": "SF",
+      "player": "C.J. West",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "C.J. West IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Tanoh Kpassagnon",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Tanoh Kpassagnon IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Jaylen Harrell",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jaylen Harrell IR"
+    },
+    {
+      "team": "WAS",
+      "player": "Jer'Zhan Newton",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jer'Zhan Newton IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Kaleb Proctor",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Kaleb Proctor IR"
+    },
+    {
+      "team": "ATL",
+      "player": "Da'Shawn Hand",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Da'Shawn Hand IR"
+    },
+    {
+      "team": "ATL",
+      "player": "Anterio Thompson",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Anterio Thompson IR"
+    },
+    {
+      "team": "BUF",
+      "player": "Zane Durant",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Zane Durant IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Nic Scourton",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Nic Scourton IR"
+    },
+    {
+      "team": "CLE",
+      "player": "Alex Wright",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Alex Wright IR"
+    },
+    {
+      "team": "DAL",
+      "player": "Kelvin Gilliam Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Kelvin Gilliam Jr. IR"
+    },
+    {
+      "team": "DEN",
+      "player": "Matt Henningsen",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Matt Henningsen IR"
+    },
+    {
+      "team": "DET",
+      "player": "Payton Turner",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Payton Turner IR"
+    },
+    {
+      "team": "GB",
+      "player": "Warren Brinson",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Warren Brinson IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Mario Edwards Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Mario Edwards Jr. IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Ali Gaye",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Ali Gaye IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Dylan Horton",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Dylan Horton IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Solomon Byrd",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Solomon Byrd IR"
+    },
+    {
+      "team": "IND",
+      "player": "Micheal Clemons",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Micheal Clemons IR"
+    },
+    {
+      "team": "JAX",
+      "player": "B.J. Green II",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "B.J. Green II IR"
+    },
+    {
+      "team": "KC",
+      "player": "Ethan Downs",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Ethan Downs IR"
+    },
+    {
+      "team": "LAR",
+      "player": "Myles Garrett",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Myles Garrett IR"
+    },
+    {
+      "team": "LAR",
+      "player": "Keir Thomas II",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Keir Thomas II IR"
+    },
+    {
+      "team": "LAR",
+      "player": "Eddie Walls III",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Eddie Walls III IR"
+    },
+    {
+      "team": "PHI",
+      "player": "Saquon Barkley",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:50:11.000Z",
+      "summary": "Saquon Barkley OUT"
+    },
+    {
+      "team": "IND",
+      "player": "Arden Key",
+      "event_type": "ir",
+      "published_at": "2026-10-10T15:57:00.000Z",
+      "summary": "ir"
+    },
+    {
+      "team": "PHI",
+      "player": "Drew Kendall",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:24:00.000Z",
+      "summary": "Kendall (knee) has been ruled out ahead of Sunday's game against the Jaguars."
+    },
+    {
+      "team": "WAS",
+      "player": "Trey Amos",
+      "event_type": "ir",
+      "published_at": "2026-10-10T01:26:00.000Z",
+      "summary": "Amos (ankle) is listed as questionable for Sunday's game against the Giants."
+    },
+    {
+      "team": "WAS",
+      "player": "Jeremy McNichols",
+      "event_type": "ir",
+      "published_at": "2026-10-10T01:12:00.000Z",
+      "summary": "McNichols (quadriceps) is listed as questionable for Sunday's game against the Giants."
+    },
+    {
+      "team": "IND",
+      "player": "Will Mallory",
+      "event_type": "ir",
+      "published_at": "2026-10-09T23:56:00.000Z",
+      "summary": "Mallory (thumb) has been ruled out ahead of Sunday's game against the Steelers."
+    },
+    {
+      "team": "PIT",
+      "player": "DeShon Elliott",
+      "event_type": "ir",
+      "published_at": "2026-10-09T23:23:00.000Z",
+      "summary": "Elliott (knee) has been ruled out ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports."
+    },
+    {
+      "team": "LV",
+      "player": "Dont'e Thornton Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-09T23:15:00.000Z",
+      "summary": "Thornton (hamstring) has been ruled out ahead of Sunday's game against the Patriots, Paul Gutierrez of Raiders.com reports."
+    },
+    {
+      "team": "MIN",
+      "player": "Ben Yurosek",
+      "event_type": "ir",
+      "published_at": "2026-10-09T22:19:00.000Z",
+      "summary": "Yurosek (ankle) is listed as questionable for Sunday's game against the Saints."
+    },
+    {
+      "team": "GB",
+      "player": "Savion Williams",
+      "event_type": "ir",
+      "published_at": "2026-10-09T22:04:00.000Z",
+      "summary": "Williams (ankle) has been ruled out for Sunday's game against the Bears, Wes Hodkiewicz of the Packers' official site reports."
+    },
+    {
+      "team": "DEN",
+      "player": "Pat Bryant",
+      "event_type": "ir",
+      "published_at": "2026-10-09T21:47:00.000Z",
+      "summary": "Bryant (ankle) was placed on the Broncos' injured reserve Friday."
+    },
+    {
+      "team": "HOU",
+      "player": "Tank Dell",
+      "event_type": "ir",
+      "published_at": "2026-10-09T21:09:00.000Z",
+      "summary": "Dell (knee) has been ruled out for Sunday's game against the Titans."
+    },
+    {
+      "team": "BAL",
+      "player": "Ja'Kobi Lane",
+      "event_type": "ir",
+      "published_at": "2026-10-09T17:56:00.000Z",
+      "summary": "Ravens coach Jesse Minter said Friday that Lane (wrist) is \"doing really well\" and \"has put himself in a great position to be ready to roll when the time permits.\""
+    },
+    {
+      "team": "PHI",
+      "player": "Saquon Barkley",
+      "event_type": "out",
+      "published_at": "2026-10-09T15:32:00.000Z",
+      "summary": "Barkley (hamstring) wasn't spotted at Friday's practice, EJ Smith of The Philadelphia Inquirer reports."
+    },
+    {
+      "team": "IND",
+      "player": "Arden Key",
+      "event_type": "ir",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Arden Key IR"
+    },
+    {
+      "team": "NO",
+      "player": "Jaylan Ford",
+      "event_type": "ir",
+      "published_at": "2026-10-08T00:48:00.000Z",
+      "summary": "The Saints designated Ford (ankle) for return to practice from injured reserve Wednesday, Aaron Wilson of KPRC 2 Houston reports."
+    },
+    {
+      "team": "NO",
+      "player": "Lorenzo Styles Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-08T00:41:00.000Z",
+      "summary": "The Saints designated Styles (calf) to return from injured reserve Wednesday, Aaron Wilson of KPRC 2 Houston reports."
+    },
+    {
+      "team": "TEN",
+      "player": "Joshua Williams",
+      "event_type": "ir",
+      "published_at": "2026-10-08T00:11:00.000Z",
+      "summary": "The Titans opened Williams' (pectoral) 21-day practice window Wednesday, Jim Wyatt of the team's official site reports."
+    },
+    {
+      "team": "NYG",
+      "player": "Braxton Berrios",
+      "event_type": "ir",
+      "published_at": "2026-10-07T23:25:00.000Z",
+      "summary": "The Giants placed Berrios (foot) on their injured reserve list Wednesday, Dan Salomone of the Giants' official site reports."
+    },
+    {
+      "team": "SEA",
+      "player": "Irv Charles",
+      "event_type": "ir",
+      "published_at": "2026-10-07T22:45:00.000Z",
+      "summary": "Charles (undisclosed) practiced Wednesday, John Boyle of the team's official site reports."
+    },
+    {
+      "team": "NYJ",
+      "player": "Braiden McGregor",
+      "event_type": "ir",
+      "published_at": "2026-10-07T21:44:00.000Z",
+      "summary": "McGregor (pectoral) was placed on the Jets' injured reserve list Wednesday, Eric Allen of the team's official site reports."
+    },
+    {
+      "team": "NE",
+      "player": "A.J. Brown",
+      "event_type": "ir",
+      "published_at": "2026-10-07T18:07:00.000Z",
+      "summary": "Brown (ankle) was seen in the locker room Wednesday without a noticeable limp, Doug Kyed of the Boston Herald reports."
+    },
+    {
+      "team": "LAR",
+      "player": "Terrance Ferguson",
+      "event_type": "ir",
+      "published_at": "2026-10-07T17:52:00.000Z",
+      "summary": "Ferguson (ankle) is expected to be ready to return after his four-game stint on injured reserve, Cameron DaSilva of USA Today reports."
+    },
+    {
+      "team": "ARI",
+      "player": "Hunter Long",
+      "event_type": "ir",
+      "published_at": "2026-10-06T23:22:00.000Z",
+      "summary": "The Cardinals placed Long (knee) on injured reserve Tuesday."
+    },
+    {
+      "team": "PHI",
+      "player": "Tank Bigsby",
+      "event_type": "ir",
+      "published_at": "2026-10-06T23:17:00.000Z",
+      "summary": "The Eagles placed Bigsby (abdomen) on injured reserve Tuesday, Zach Berman of The Athletic reports."
+    },
+    {
+      "team": "CAR",
+      "player": "Trevor Etienne",
+      "event_type": "ir",
+      "published_at": "2026-10-05T23:29:00.000Z",
+      "summary": "Head coach Dave Canales said Etienne (ankle) will \"for sure\" be back following the Panthers' Week 5 bye, Mike Kaye of ESPN.com reports."
+    },
+    {
+      "team": "PIT",
+      "player": "Derrick Harmon",
+      "event_type": "ir",
+      "published_at": "2026-10-05T21:23:00.000Z",
+      "summary": "The Steelers placed Harmon (foot) on injured reserve Monday, Teresa Varley of the team's official site reports."
+    },
+    {
+      "team": "SF",
+      "player": "Christian Kirk",
+      "event_type": "ir",
+      "published_at": "2026-10-02T21:08:00.000Z",
+      "summary": "Head coach Kyle Shanahan said Friday that the 49ers could open Kirk's (calf) practice window to return from injured reserve in two weeks, Matt Barrows of The Athletic reports."
+    },
+    {
+      "team": "CIN",
+      "player": "Jalen Davis",
+      "event_type": "ir",
+      "published_at": "2026-09-29T23:16:00.000Z",
+      "summary": "The Bengals placed Davis (hamstring) on injured reserve Tuesday."
+    },
+    {
+      "team": "IND",
+      "player": "Alec Pierce",
+      "event_type": "ir",
+      "published_at": "2026-09-28T18:38:00.000Z",
+      "summary": "Colts head coach Shane Steichen reiterated Monday that Pierce didn't undergo surgery on his left heel and is continuing to rehab the injury, James Boyd of The Athletic reports."
+    },
+    {
+      "team": "DEN",
+      "player": "Jonah Coleman",
+      "event_type": "ir",
+      "published_at": "2026-09-26T20:36:00.000Z",
+      "summary": "Coleman (ankle) is being placed on injured reserve Saturday, Adam Schefter of ESPN reports."
+    },
+    {
+      "team": "DET",
+      "player": "Brian Branch",
+      "event_type": "out",
+      "published_at": "2026-10-10T00:56:00.000Z",
+      "summary": "Branch (Achilles) has been ruled out ahead of Sunday's game against the Cardinals."
+    },
+    {
+      "team": "LAC",
+      "player": "Scott Matlock",
+      "event_type": "ir",
+      "published_at": "2026-10-06T00:02:00.000Z",
+      "summary": "The Chargers opened Matlock's (undisclosed) 21-day practice window Monday, Alex Insdorf of BoltBeat.com reports."
+    },
+    {
+      "team": "JAX",
+      "player": "Christian Braswell",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Christian Braswell IR"
+    },
+    {
+      "team": "NYJ",
+      "player": "Breece Hall",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:49:41.000Z",
+      "summary": "Breece Hall OUT"
+    },
+    {
+      "team": "DEN",
+      "player": "Riley Moss",
+      "event_type": "out",
+      "published_at": "2026-10-10T16:16:00.000Z",
+      "summary": "Moss (ribs) has been ruled out for Sunday's game against the Chargers, Aric DiLalla of the Broncos' official site reports."
+    },
+    {
+      "team": "LAC",
+      "player": "Derwin James Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-10T00:28:00.000Z",
+      "summary": "James (hamstring) has been ruled out against the Broncos on Sunday."
+    },
+    {
+      "team": "CIN",
+      "player": "Kyle Dugger",
+      "event_type": "out",
+      "published_at": "2026-10-10T00:16:00.000Z",
+      "summary": "Dugger (quadriceps) has been ruled out for Sunday's game against the Dolphins, Paul Dehner Jr. of The Athletic reports."
+    },
+    {
+      "team": "HOU",
+      "player": "M.J. Stewart",
+      "event_type": "out",
+      "published_at": "2026-10-09T23:55:00.000Z",
+      "summary": "Stewart (knee) is listed as questionable for Sunday's game against Tennessee."
+    },
+    {
+      "team": "CHI",
+      "player": "Kyler Gordon",
+      "event_type": "out",
+      "published_at": "2026-10-09T23:32:00.000Z",
+      "summary": "Gordon (calf) is listed as questionable ahead of Sunday's game against the Packers."
+    },
+    {
+      "team": "GB",
+      "player": "Chris Brooks",
+      "event_type": "out",
+      "published_at": "2026-10-09T20:15:00.000Z",
+      "summary": "Brooks (ankle) has been ruled out for Sunday's game versus the Bears, Wes Hodkiewicz of the Packers' official site reports."
+    },
+    {
+      "team": "CHI",
+      "player": "Kyle Monangai",
+      "event_type": "out",
+      "published_at": "2026-10-09T17:06:00.000Z",
+      "summary": "Monangai (toe) has been ruled out for Sunday's game against the Packers, Patrick Finley of the Chicago Sun-Times reports."
+    },
+    {
+      "team": "NYJ",
+      "player": "Breece Hall",
+      "event_type": "out",
+      "published_at": "2026-10-09T15:05:00.000Z",
+      "summary": "Hall (quadriceps) has been ruled out for Sunday's game against the Browns, Brian Costello of the New York Post reports."
+    },
+    {
+      "team": "JAX",
+      "player": "Christian Braswell",
+      "event_type": "ir",
+      "published_at": "2026-10-08T00:32:00.000Z",
+      "summary": "Braswell (knee) reverted from waivers to Jacksonville's injured reserve list Wednesday, Aaron Wilson of KPRC 2 Houston reports."
+    },
+    {
+      "team": "WAS",
+      "player": "Deatrich Wise Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-07T22:01:00.000Z",
+      "summary": "Wise (quadriceps) had his 21-day practice window opened Wednesday."
+    },
+    {
+      "team": "DET",
+      "player": "Ben Bartch",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:32:00.000Z",
+      "summary": "Bartch (foot) has been ruled out for Sunday's game against Arizona."
+    },
+    {
+      "team": "LAC",
+      "player": "Trevor Penning",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:19:00.000Z",
+      "summary": "Penning (concussion) was been ruled out ahead of Sunday's game against Denver."
+    },
+    {
+      "team": "LAC",
+      "player": "Kayode Awosika",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:18:00.000Z",
+      "summary": "Awosika (lower leg) has been ruled out for Sunday's game against the Broncos."
+    },
+    {
+      "team": "LAC",
+      "player": "Joe Alt",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:15:00.000Z",
+      "summary": "Alt (neck) has been ruled out for Sunday's game against the Broncos."
+    },
+    {
+      "team": "CLE",
+      "player": "Teven Jenkins",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:09:00.000Z",
+      "summary": "Jenkins (back) has been ruled out for Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+    },
+    {
+      "team": "NO",
+      "player": "Jeremiah Wright",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:58:00.000Z",
+      "summary": "Wright (concussion) has been ruled out ahead of Sunday's game against the Vikings, Emily Leiker of The Minnesota Star Tribune reports."
+    },
+    {
+      "team": "MIN",
+      "player": "Christian Darrisaw",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:48:00.000Z",
+      "summary": "Darrisaw (concussion) has been ruled out for Sunday's game against the Saints."
+    },
+    {
+      "team": "NYJ",
+      "player": "Dylan Parham",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:41:00.000Z",
+      "summary": "Parham (knee) has been ruled out for Sunday's game against the Browns, Brian Costello of the New York Post reports."
+    },
+    {
+      "team": "DAL",
+      "player": "Ajani Cornelius",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:49:00.000Z",
+      "summary": "inactive"
+    },
+    {
+      "team": "TB",
+      "player": "Billy Schrauth",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:48:00.000Z",
+      "summary": "inactive"
+    },
+    {
+      "team": "TB",
+      "player": "Luke Haggard",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:48:00.000Z",
+      "summary": "inactive"
+    },
+    {
+      "team": "ARI",
+      "player": "Isaiah Adams",
+      "event_type": "out",
+      "published_at": "2026-10-08T00:38:00.000Z",
+      "summary": "Cardinals head coach Mike LaFleur said that Adams (ankle) won't play in Sunday's game against Detroit, Darren Urban of the Cardinals' official site reports."
+    },
+    {
+      "team": "DAL",
+      "player": "Drew Shelton",
+      "event_type": "out",
+      "published_at": "2026-10-08T00:26:00.000Z",
+      "summary": "Shelton (hamstring) has been ruled out for Thursday's game against the Buccaneers, Tommy Yarrish of the Cowboys' official site reports."
+    },
+    {
+      "team": "NE",
+      "player": "Channing Canada",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:54:00.000Z",
+      "summary": "Canada (hamstring) has been ruled out for Sunday's game against the Raiders."
+    },
+    {
+      "team": "MIA",
+      "player": "Reese Taylor",
+      "event_type": "out",
+      "published_at": "2026-10-06T01:00:00.000Z",
+      "summary": "Taylor (quadriceps) has been ruled out ahead of the Dolphins' Week 5 matchup with the Bengals, Barry Jackson of the Miami Herald reported Monday."
+    },
+    {
+      "team": "MIA",
+      "player": "Robert Beal Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:58:00.000Z",
+      "summary": "Beal (hamstring) has been ruled out for Sunday's game against the Bengals."
+    },
+    {
+      "team": "WAS",
+      "player": "Charles Omenihu",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:41:00.000Z",
+      "summary": "Omenihu (groin/ankle) has been ruled out for Sunday's game against the Giants."
+    },
+    {
+      "team": "GB",
+      "player": "Jacob Monk",
+      "event_type": "doubtful",
+      "published_at": "2026-10-10T02:27:00.000Z",
+      "summary": "Monk (quadriceps) is doubtful to play against the Bears on Sunday."
+    },
+    {
+      "team": "GB",
+      "player": "Aaron Banks",
+      "event_type": "doubtful",
+      "published_at": "2026-10-10T02:22:00.000Z",
+      "summary": "Banks (toe/knee) is doubtful for Sunday's game against the Bears, Wes Hodkiewicz of the Packers' official site reports."
+    },
+    {
+      "team": "SF",
+      "player": "Mykel Williams",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:46:00.000Z",
+      "summary": "Williams (knee) is listed as questionable ahead of Sunday's game against the Seahawks."
+    },
+    {
+      "team": "SF",
+      "player": "Nick Bosa",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:33:00.000Z",
+      "summary": "Bosa (calf) has been ruled out ahead of Sunday's game against the Seahawks."
+    },
+    {
+      "team": "NYG",
+      "player": "Chauncey Golston",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:07:00.000Z",
+      "summary": "Golston (neck) has been ruled out ahead of Sunday's game against the Commanders."
+    },
+    {
+      "team": "CLE",
+      "player": "Mike Hall Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-10T00:23:00.000Z",
+      "summary": "Hall (ankle) has been ruled out ahead of Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+    },
+    {
+      "team": "CLE",
+      "player": "Mason Graham",
+      "event_type": "out",
+      "published_at": "2026-10-10T00:17:00.000Z",
+      "summary": "Graham (knee/ankle) has been ruled out ahead of Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+    },
+    {
+      "team": "BAL",
+      "player": "Trey Hendrickson",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Trey Hendrickson OUT"
+    },
+    {
+      "team": "CLE",
+      "player": "Mason Graham",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Mason Graham OUT"
+    },
+    {
+      "team": "CLE",
+      "player": "Kalia Davis",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Kalia Davis OUT"
+    },
+    {
+      "team": "CLE",
+      "player": "Mike Hall Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Mike Hall Jr. OUT"
+    },
+    {
+      "team": "MIA",
+      "player": "Rob Beal Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Rob Beal Jr. OUT"
+    },
+    {
+      "team": "NYG",
+      "player": "Chauncey Golston",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Chauncey Golston OUT"
+    },
+    {
+      "team": "PHI",
+      "player": "Jonathan Greenard",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Jonathan Greenard OUT"
+    },
+    {
+      "team": "SF",
+      "player": "Nick Bosa",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Nick Bosa OUT"
+    },
+    {
+      "team": "SF",
+      "player": "James Thompson Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "James Thompson Jr. OUT"
+    },
+    {
+      "team": "WAS",
+      "player": "Charles Omenihu",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Charles Omenihu OUT"
+    },
+    {
+      "team": "TB",
+      "player": "DeMonte Capehart",
+      "event_type": "out",
+      "published_at": "2026-10-09T06:00:03.000Z",
+      "summary": "DeMonte Capehart OUT"
+    },
+    {
+      "team": "TB",
+      "player": "DeMonte Capehart",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:48:00.000Z",
+      "summary": "inactive"
+    },
+    {
+      "team": "DAL",
+      "player": "Jonathan Bullard",
+      "event_type": "out",
+      "published_at": "2026-10-07T19:00:00.000Z",
+      "summary": "injured"
+    },
+    {
+      "team": "LAR",
+      "player": "Dean Connors",
+      "event_type": "ir",
+      "published_at": "2026-09-30T00:14:00.000Z",
+      "summary": "The Rams signed Connors from the practice squad to the active roster Tuesday."
+    },
+    {
+      "team": "LV",
+      "player": "Jack Bech",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jack Bech IR"
+    },
+    {
+      "team": "LV",
+      "player": "Seth Williams",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Seth Williams IR"
+    },
+    {
+      "team": "LV",
+      "player": "Brennan Jackson",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Brennan Jackson IR"
+    },
+    {
+      "team": "LV",
+      "player": "Chigozie Anusiem",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Chigozie Anusiem IR"
+    },
+    {
+      "team": "LV",
+      "player": "Chris Collier",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Chris Collier IR"
+    },
+    {
+      "team": "LV",
+      "player": "Corey Rucker",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Corey Rucker IR"
+    },
+    {
+      "team": "MIA",
+      "player": "Ronnie Harrison Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Ronnie Harrison Jr. IR"
+    },
+    {
+      "team": "MIA",
+      "player": "De'Von Achane",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "De'Von Achane IR"
+    },
+    {
+      "team": "MIA",
+      "player": "Cole Turner",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Cole Turner IR"
+    },
+    {
+      "team": "MIA",
+      "player": "Kyle Louis",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Kyle Louis IR"
+    },
+    {
+      "team": "MIN",
+      "player": "Jordan Mason",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jordan Mason IR"
+    },
+    {
+      "team": "MIN",
+      "player": "Josh Oliver",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Josh Oliver IR"
+    },
+    {
+      "team": "MIN",
+      "player": "Jamal Adams",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jamal Adams IR"
+    },
+    {
+      "team": "NE",
+      "player": "A.J. Brown",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "A.J. Brown IR"
+    },
+    {
+      "team": "NE",
+      "player": "Julian Hill",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Julian Hill IR"
+    },
+    {
+      "team": "NE",
+      "player": "Dell Pettus",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Dell Pettus IR"
+    },
+    {
+      "team": "NE",
+      "player": "Jeremiah Webb",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jeremiah Webb IR"
+    },
+    {
+      "team": "NE",
+      "player": "Myles Montgomery",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Myles Montgomery IR"
+    },
+    {
+      "team": "NE",
+      "player": "Khalil Jacobs",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Khalil Jacobs IR"
+    },
+    {
+      "team": "NO",
+      "player": "Travis Etienne Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Travis Etienne Jr. IR"
+    },
+    {
+      "team": "NO",
+      "player": "Zach Wood",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Zach Wood IR"
+    },
+    {
+      "team": "NO",
+      "player": "David Long Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "David Long Jr. IR"
+    },
+    {
+      "team": "NO",
+      "player": "Ty Chandler",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Ty Chandler IR"
+    },
+    {
+      "team": "NO",
+      "player": "Moliki Matavao",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Moliki Matavao IR"
+    },
+    {
+      "team": "NO",
+      "player": "Rejzohn Wright",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Rejzohn Wright IR"
+    },
+    {
+      "team": "NYG",
+      "player": "Braxton Berrios",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Braxton Berrios IR"
+    },
+    {
+      "team": "NYG",
+      "player": "Gunner Olszewski",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Gunner Olszewski IR"
+    },
+    {
+      "team": "NYG",
+      "player": "Paulson Adebo",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Paulson Adebo IR"
+    },
+    {
+      "team": "NYG",
+      "player": "Calvin Austin III",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Calvin Austin III IR"
+    },
+    {
+      "team": "NYG",
+      "player": "Jarrick Bernard-Converse",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jarrick Bernard-Converse IR"
+    },
+    {
+      "team": "NYG",
+      "player": "Thaddeus Dixon",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Thaddeus Dixon IR"
+    },
+    {
+      "team": "NYJ",
+      "player": "Omar Cooper Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Omar Cooper Jr. IR"
+    },
+    {
+      "team": "NYJ",
+      "player": "Tre Brown",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Tre Brown IR"
+    },
+    {
+      "team": "NYJ",
+      "player": "Arian Smith",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Arian Smith IR"
+    },
+    {
+      "team": "NYJ",
+      "player": "Marcelino McCrary-Ball",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Marcelino McCrary-Ball IR"
+    },
+    {
+      "team": "NYJ",
+      "player": "Braiden McGregor",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Braiden McGregor IR"
+    },
+    {
+      "team": "NYJ",
+      "player": "Chip Trayanum",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Chip Trayanum IR"
+    },
+    {
+      "team": "PHI",
+      "player": "Tank Bigsby",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Tank Bigsby IR"
+    },
+    {
+      "team": "PHI",
+      "player": "Eli Stowers",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Eli Stowers IR"
+    },
+    {
+      "team": "PHI",
+      "player": "Johnny Wilson",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Johnny Wilson IR"
+    },
+    {
+      "team": "PHI",
+      "player": "Andre' Sam",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Andre' Sam IR"
+    },
+    {
+      "team": "PHI",
+      "player": "Tucker Large",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Tucker Large IR"
+    },
+    {
+      "team": "PIT",
+      "player": "Israel Mukuamu",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Israel Mukuamu IR"
+    },
+    {
+      "team": "SEA",
+      "player": "Jadarian Price",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jadarian Price IR"
+    },
+    {
+      "team": "SEA",
+      "player": "Jake Bobo",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jake Bobo IR"
+    },
+    {
+      "team": "SEA",
+      "player": "Robbie Ouzts",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Robbie Ouzts IR"
+    },
+    {
+      "team": "SEA",
+      "player": "Bud Clark",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Bud Clark IR"
+    },
+    {
+      "team": "SF",
+      "player": "De'Zhaun Stribling",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "De'Zhaun Stribling IR"
+    },
+    {
+      "team": "SF",
+      "player": "Jake Tonges",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jake Tonges IR"
+    },
+    {
+      "team": "SF",
+      "player": "Christian Kirk",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Christian Kirk IR"
+    },
+    {
+      "team": "SF",
+      "player": "Brandon Aiyuk",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Brandon Aiyuk IR"
+    },
+    {
+      "team": "SF",
+      "player": "Demarcus Robinson",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Demarcus Robinson IR"
+    },
+    {
+      "team": "SF",
+      "player": "Darrick Forrest",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Darrick Forrest IR"
+    },
+    {
+      "team": "SF",
+      "player": "Nate Hobbs",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Nate Hobbs IR"
+    },
+    {
+      "team": "SF",
+      "player": "Andrew Farmer II",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Andrew Farmer II IR"
+    },
+    {
+      "team": "SF",
+      "player": "Ricky Pearsall",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Ricky Pearsall IR"
+    },
+    {
+      "team": "SF",
+      "player": "Nick Martin",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Nick Martin IR"
+    },
+    {
+      "team": "SF",
+      "player": "Mikail Kamara",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Mikail Kamara IR"
+    },
+    {
+      "team": "TB",
+      "player": "Jalen McMillan",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jalen McMillan IR"
+    },
+    {
+      "team": "TB",
+      "player": "David Sills V",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "David Sills V IR"
+    },
+    {
+      "team": "TB",
+      "player": "Josh Hayes",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Josh Hayes IR"
+    },
+    {
+      "team": "TB",
+      "player": "Mohamed Kamara",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Mohamed Kamara IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Milo Eifler",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Milo Eifler IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Kendell Brooks",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Kendell Brooks IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Dominique Hampton",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Dominique Hampton IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Jaren Kanak",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jaren Kanak IR"
+    },
+    {
+      "team": "WAS",
+      "player": "Leo Chenal",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Leo Chenal IR"
+    },
+    {
+      "team": "WAS",
+      "player": "Jordan Magee",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jordan Magee IR"
+    },
+    {
+      "team": "WAS",
+      "player": "Jaylin Lane",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:03.000Z",
+      "summary": "Jaylin Lane IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Hunter Long",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Hunter Long IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Joey Blount",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Joey Blount IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Trey Benson",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Trey Benson IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Will Johnson",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Will Johnson IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Kitan Crawford",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Kitan Crawford IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Jameson Geers",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jameson Geers IR"
+    },
+    {
+      "team": "ATL",
+      "player": "A.J. Terrell Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "A.J. Terrell Jr. IR"
+    },
+    {
+      "team": "ATL",
+      "player": "Trey Sermon",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Trey Sermon IR"
+    },
+    {
+      "team": "ATL",
+      "player": "JD Bertrand",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "JD Bertrand IR"
+    },
+    {
+      "team": "ATL",
+      "player": "Jalon Walker",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jalon Walker IR"
+    },
+    {
+      "team": "BAL",
+      "player": "Ja'Kobi Lane",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Ja'Kobi Lane IR"
+    },
+    {
+      "team": "BAL",
+      "player": "Durham Smythe",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Durham Smythe IR"
+    },
+    {
+      "team": "BAL",
+      "player": "T.J. Tampa Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "T.J. Tampa Jr. IR"
+    },
+    {
+      "team": "BAL",
+      "player": "Jahquez Robinson",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jahquez Robinson IR"
+    },
+    {
+      "team": "BUF",
+      "player": "Dorian Strong",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Dorian Strong IR"
+    },
+    {
+      "team": "BUF",
+      "player": "Jordan Hancock",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jordan Hancock IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Jonathon Brooks",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jonathon Brooks IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Xavier Legette",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Xavier Legette IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Trevor Etienne",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Trevor Etienne IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Mike Jackson Sr.",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Mike Jackson Sr. IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Jaycee Horn",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jaycee Horn IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Bam Martin-Scott",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Bam Martin-Scott IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Chris Brazzell II",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Chris Brazzell II IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Tony Fields II",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Tony Fields II IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Coby Bryant",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Coby Bryant IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Nephi Sewell",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Nephi Sewell IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Nikola Kalinic",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Nikola Kalinic IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Brittain Brown",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Brittain Brown IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Hayden Large",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Hayden Large IR"
+    },
+    {
+      "team": "CIN",
+      "player": "Andrei Iosivas",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Andrei Iosivas IR"
+    },
+    {
+      "team": "CIN",
+      "player": "Jalen Davis",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jalen Davis IR"
+    },
+    {
+      "team": "CIN",
+      "player": "Ja'Sir Taylor",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Ja'Sir Taylor IR"
+    },
+    {
+      "team": "CLE",
+      "player": "Dylan Sampson",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Dylan Sampson IR"
+    },
+    {
+      "team": "CLE",
+      "player": "Damarri Mathis",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Damarri Mathis IR"
+    },
+    {
+      "team": "CLE",
+      "player": "Joe Royer",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Joe Royer IR"
+    },
+    {
+      "team": "DAL",
+      "player": "Malik Davis",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Malik Davis IR"
+    },
+    {
+      "team": "DAL",
+      "player": "Princeton Fant",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Princeton Fant IR"
+    },
+    {
+      "team": "DAL",
+      "player": "DJ Rogers",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "DJ Rogers IR"
+    },
+    {
+      "team": "DEN",
+      "player": "Jonah Coleman",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jonah Coleman IR"
+    },
+    {
+      "team": "DEN",
+      "player": "Pat Bryant",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Pat Bryant IR"
+    },
+    {
+      "team": "DEN",
+      "player": "Levelle Bailey",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Levelle Bailey IR"
+    },
+    {
+      "team": "DET",
+      "player": "Isiah Pacheco",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Isiah Pacheco IR"
+    },
+    {
+      "team": "DET",
+      "player": "Avonte Maddox",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Avonte Maddox IR"
+    },
+    {
+      "team": "DET",
+      "player": "Damone Clark",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Damone Clark IR"
+    },
+    {
+      "team": "DET",
+      "player": "Kendrick Law",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Kendrick Law IR"
+    },
+    {
+      "team": "DET",
+      "player": "Thomas Harper",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Thomas Harper IR"
+    },
+    {
+      "team": "GB",
+      "player": "Edgerrin Cooper",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Edgerrin Cooper IR"
+    },
+    {
+      "team": "GB",
+      "player": "Jayden Reed",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jayden Reed IR"
+    },
+    {
+      "team": "GB",
+      "player": "Thomas Yassmin",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Thomas Yassmin IR"
+    },
+    {
+      "team": "GB",
+      "player": "Johnathan Baldwin II",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Johnathan Baldwin II IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Henry To'oTo'o",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Henry To'oTo'o IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Jake Hummel",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jake Hummel IR"
+    },
+    {
+      "team": "HOU",
+      "player": "British Brooks",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "British Brooks IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Jayden Higgins",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jayden Higgins IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Jaylin Smith",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jaylin Smith IR"
+    },
+    {
+      "team": "HOU",
+      "player": "K.C. Ossai",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "K.C. Ossai IR"
+    },
+    {
+      "team": "IND",
+      "player": "Alec Pierce",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Alec Pierce IR"
+    },
+    {
+      "team": "IND",
+      "player": "D.J. Montgomery",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "D.J. Montgomery IR"
+    },
+    {
+      "team": "IND",
+      "player": "Cameron Mitchell",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Cameron Mitchell IR"
+    },
+    {
+      "team": "IND",
+      "player": "Carson Towt",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Carson Towt IR"
+    },
+    {
+      "team": "JAX",
+      "player": "Caleb Ransaw",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Caleb Ransaw IR"
+    },
+    {
+      "team": "JAX",
+      "player": "Jared Bartlett",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jared Bartlett IR"
+    },
+    {
+      "team": "JAX",
+      "player": "Parker Hughes",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Parker Hughes IR"
+    },
+    {
+      "team": "KC",
+      "player": "Jimmy Holiday",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jimmy Holiday IR"
+    },
+    {
+      "team": "KC",
+      "player": "Cooper McDonald",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Cooper McDonald IR"
+    },
+    {
+      "team": "KC",
+      "player": "John Michael Gyllenborg",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "John Michael Gyllenborg IR"
+    },
+    {
+      "team": "KC",
+      "player": "Jeff Caldwell",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Jeff Caldwell IR"
+    },
+    {
+      "team": "LAC",
+      "player": "Denzel Perryman",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Denzel Perryman IR"
+    },
+    {
+      "team": "LAC",
+      "player": "KeAndre Lambert-Smith",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "KeAndre Lambert-Smith IR"
+    },
+    {
+      "team": "LAR",
+      "player": "Terrance Ferguson",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Terrance Ferguson IR"
+    },
+    {
+      "team": "LAR",
+      "player": "Ronnie Rivers",
+      "event_type": "ir",
+      "published_at": "2026-10-10T23:30:02.000Z",
+      "summary": "Ronnie Rivers IR"
+    },
+    {
+      "team": "BAL",
+      "player": "Durham Smythe",
+      "event_type": "ir",
+      "published_at": "2026-10-07T23:18:00.000Z",
+      "summary": "The Ravens placed Smythe (Achilles) on their injured reserve list Wednesday, Ryan Mink of the Ravens' official site reports."
+    },
+    {
+      "team": "GB",
+      "player": "Edgerrin Cooper",
+      "event_type": "ir",
+      "published_at": "2026-10-06T23:22:00.000Z",
+      "summary": "Cooper (Achilles) was placed on injured reserve by the Packers on Tuesday."
+    },
+    {
+      "team": "MIN",
+      "player": "Josh Oliver",
+      "event_type": "ir",
+      "published_at": "2026-09-30T00:26:00.000Z",
+      "summary": "The Vikings placed Oliver (biceps) on injured reserve Tuesday, Craig Peters of the team's official site reports."
+    },
+    {
+      "team": "DET",
+      "player": "Thomas Harper",
+      "event_type": "ir",
+      "published_at": "2026-09-26T21:03:00.000Z",
+      "summary": "The Lions placed Harper (ankle) on injured reserve Saturday."
+    },
+    {
+      "team": "PIT",
+      "player": "Michael Pittman Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-08T15:52:00.000Z",
+      "summary": "Pittman is expected to miss multiple weeks after aggravating his foot injury, Ray Fittipaldo of the Pittsburgh Post-Gazette reports Thursday."
+    },
+    {
+      "team": "SEA",
+      "player": "Zach Charbonnet",
+      "event_type": "out",
+      "published_at": "2026-10-05T17:05:00.000Z",
+      "summary": "Seahawks head coach Mike Macdonald said Monday that Charbonnet (knee) won't be activated from the reserve/PUP list in advance of Sunday's game against the 49ers, Gregg Bell of The Tacoma News Tribune reports."
+    },
+    {
+      "team": "NYJ",
+      "player": "Tim Patrick",
+      "event_type": "ir",
+      "published_at": "2026-10-09T22:23:00.000Z",
+      "summary": "Patrick (groin) is listed as questionable for Sunday's game against the Browns."
+    },
+    {
+      "team": "CAR",
+      "player": "Akayleb Evans",
+      "event_type": "ir",
+      "published_at": "2026-10-07T02:31:00.000Z",
+      "summary": "Evans recorded 11 total tackles (nine solo) and a pass defensed during Sunday night's 32-26 win over the Lions."
+    },
+    {
+      "team": "JAX",
+      "player": "Caleb Ransaw",
+      "event_type": "ir",
+      "published_at": "2026-10-07T00:42:00.000Z",
+      "summary": "The Jaguars placed Ransaw (knee) on their injured reserve list Tuesday."
+    },
+    {
+      "team": "HOU",
+      "player": "Jaylin Smith",
+      "event_type": "ir",
+      "published_at": "2026-10-07T00:29:00.000Z",
+      "summary": "Smith (hamstring) was placed on injured reserve by the Texans on Tuesday."
+    },
+    {
+      "team": "WAS",
+      "player": "Jaylin Lane",
+      "event_type": "ir",
+      "published_at": "2026-10-06T23:14:00.000Z",
+      "summary": "The Commanders placed Lane (ankle) on injured reserve Tuesday."
+    },
+    {
+      "team": "CAR",
+      "player": "Xavier Legette",
+      "event_type": "ir",
+      "published_at": "2026-10-03T20:15:00.000Z",
+      "summary": "The Panthers placed Legette (knee) on injured reserve Saturday, Darin Gantt of the team's official site reports."
+    },
+    {
+      "team": "CAR",
+      "player": "Mike Jackson",
+      "event_type": "ir",
+      "published_at": "2026-09-30T19:44:00.000Z",
+      "summary": "Head coach Dave Canales said Wednesday that Jackson (groin) underwent core-muscle surgery and will be sidelined about eight weeks, Joe Person of The Athletic reports."
+    },
+    {
+      "team": "DAL",
+      "player": "Jalen Thompson",
+      "event_type": "ir",
+      "published_at": "2026-09-30T18:33:00.000Z",
+      "summary": "The Cowboys placed Thompson (hamstring) on injured reserve Wednesday, Tommy Yarrish of the Cowboys' official site reports."
+    },
+    {
+      "team": "GB",
+      "player": "Micah Parsons",
+      "event_type": "out",
+      "published_at": "2026-10-05T21:10:00.000Z",
+      "summary": "Parsons (knee), per head coach Matt LaFleur, will not practice this week, Weston Hodkiewicz of the Packers' official site reports."
+    },
+    {
+      "team": "NO",
+      "player": "Anfernee Jennings",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:54:00.000Z",
+      "summary": "Jennings (knee) has been ruled out ahead of Sunday's game against the Vikings, Emily Leiker of The Minnesota Star Tribune reports."
+    },
+    {
+      "team": "HOU",
+      "player": "Braden Smith",
+      "event_type": "ir",
+      "published_at": "2026-10-09T00:59:00.000Z",
+      "summary": "Smith (foot) was a full participant in Thursday's practice."
+    },
+    {
+      "team": "WAS",
+      "player": "Stefon Diggs",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:51:59.000Z",
+      "summary": "Stefon Diggs OUT"
+    },
+    {
+      "team": "PIT",
+      "player": "Michael Pittman Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:50:53.000Z",
+      "summary": "Michael Pittman Jr. OUT"
+    },
+    {
+      "team": "PHI",
+      "player": "Hollywood Brown",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:50:24.000Z",
+      "summary": "Hollywood Brown OUT"
+    },
+    {
+      "team": "PHI",
+      "player": "DeVonta Smith",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:49:59.000Z",
+      "summary": "DeVonta Smith OUT"
+    },
+    {
+      "team": "NYJ",
+      "player": "Adonai Mitchell",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:49:27.000Z",
+      "summary": "Adonai Mitchell OUT"
+    },
+    {
+      "team": "NE",
+      "player": "Mack Hollins",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:48:49.000Z",
+      "summary": "Mack Hollins OUT"
+    },
+    {
+      "team": "MIA",
+      "player": "Caleb Douglas",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:47:45.000Z",
+      "summary": "Caleb Douglas OUT"
+    },
+    {
+      "team": "LAC",
+      "player": "Quentin Johnston",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:46:47.000Z",
+      "summary": "Quentin Johnston OUT"
+    },
+    {
+      "team": "LV",
+      "player": "Jalen Nailor",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:46:07.000Z",
+      "summary": "Jalen Nailor OUT"
+    },
+    {
+      "team": "GB",
+      "player": "Chris Brooks",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:44:51.000Z",
+      "summary": "Chris Brooks OUT"
+    },
+    {
+      "team": "CHI",
+      "player": "Kyle Monangai",
+      "event_type": "out",
+      "published_at": "2026-10-10T18:42:22.000Z",
+      "summary": "Kyle Monangai OUT"
+    },
+    {
+      "team": "CHI",
+      "player": "Anthony Johnson Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-10T16:24:00.000Z",
+      "summary": "out"
+    },
+    {
+      "team": "DEN",
+      "player": "Pat Surtain II",
+      "event_type": "out",
+      "published_at": "2026-10-10T16:13:00.000Z",
+      "summary": "Surtain (ankle) has been ruled out for Sunday's game against the Chargers, Aric DiLalla of the Broncos' official site reports."
+    },
+    {
+      "team": "IND",
+      "player": "Darius Slayton",
+      "event_type": "out",
+      "published_at": "2026-10-10T15:55:00.000Z",
+      "summary": "Slayton (knee) has been downgraded to out for Sunday's game against the Steelers."
+    },
+    {
+      "team": "ARI",
+      "player": "Marvin Harrison Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-10T15:35:00.000Z",
+      "summary": "A trade for Harrison will not be completed \"until after Sunday's games are played,\" but the Cardinals \"feel comfortable enough\" knowing it will occur that they will deactivate him for Sunday's game against the Lions, Adam Schefter of ESPN reports."
+    },
+    {
+      "team": "SEA",
+      "player": "Chazz Surratt",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:47:00.000Z",
+      "summary": "Surratt (calf) has been ruled out ahead of Sunday's game against the 49ers, Bob Condotta of The Seattle Times reports."
+    },
+    {
+      "team": "WAS",
+      "player": "Tyler Owens",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:45:00.000Z",
+      "summary": "Owens (hamstring) has been ruled out for Sunday's game against the Giants."
+    },
+    {
+      "team": "MIA",
+      "player": "Justin Joly",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:41:00.000Z",
+      "summary": "Joly (concussion) has been ruled out ahead of Sunday's game against the Bengals."
+    },
+    {
+      "team": "WAS",
+      "player": "Percy Butler",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:39:00.000Z",
+      "summary": "Butler (hamstring) has been ruled out for Sunday's game against the Giants."
+    },
+    {
+      "team": "NYG",
+      "player": "Jason Pinnock",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:35:00.000Z",
+      "summary": "Pinnock (concussion) has been ruled out ahead of Sunday's game against the Commanders."
+    },
+    {
+      "team": "IND",
+      "player": "Jaylon Carlies",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:08:00.000Z",
+      "summary": "Carlies (ribs) has been ruled out ahead of Sunday's game against the Steelers."
+    },
+    {
+      "team": "ATL",
+      "player": "Yasir Abdullah",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:06:00.000Z",
+      "summary": "Abdullah (hamstring) has been ruled out for Sunday's game against the Ravens, Will McFadden of the Falcons' official site reports."
+    },
+    {
+      "team": "CHI",
+      "player": "Keyshaun Elliott",
+      "event_type": "out",
+      "published_at": "2026-10-10T02:01:00.000Z",
+      "summary": "Elliott (quadriceps) has been ruled out for Sunday's game against the Packers."
+    },
+    {
+      "team": "NE",
+      "player": "Karon Prunty",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:56:00.000Z",
+      "summary": "Prunty (hamstring) has been ruled out for Sunday's game against Las Vegas."
+    },
+    {
+      "team": "MIN",
+      "player": "Charles Demmings",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:52:00.000Z",
+      "summary": "Demmings (hamstring) has been ruled out for Sunday's game against the Saints."
+    },
+    {
+      "team": "SEA",
+      "player": "Julian Neal",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:27:00.000Z",
+      "summary": "Neal (hamstring) has been ruled out for Sunday's game against the 49ers, Bob Condotta of The Seattle Times reports."
+    },
+    {
+      "team": "WAS",
+      "player": "Nick Cross",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:22:00.000Z",
+      "summary": "Cross (illness) has been ruled out ahead of Sunday's game against the Giants."
+    },
+    {
+      "team": "PHI",
+      "player": "Marcus Epps",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:14:00.000Z",
+      "summary": "Epps (groin) has been ruled out for Sunday's game against the Jaguars."
+    },
+    {
+      "team": "DET",
+      "player": "Rock Ya-Sin",
+      "event_type": "out",
+      "published_at": "2026-10-10T01:01:00.000Z",
+      "summary": "Ya-Sin (hamstring) has been ruled out ahead of Sunday's game against the Cardinals."
+    },
+    {
+      "team": "PHI",
+      "player": "Hollywood Brown",
+      "event_type": "out",
+      "published_at": "2026-10-10T00:53:00.000Z",
+      "summary": "Brown (ankle) has been ruled out for Sunday's game against the Jaguars."
+    },
+    {
+      "team": "LAC",
+      "player": "Brenen Thompson",
+      "event_type": "out",
+      "published_at": "2026-10-10T00:37:00.000Z",
+      "summary": "Thompson (quadriceps) has been ruled out for Sunday's game against the Broncos."
+    },
+    {
+      "team": "CLE",
+      "player": "Tylan Wallace",
+      "event_type": "out",
+      "published_at": "2026-10-10T00:35:00.000Z",
+      "summary": "Wallace (knee) has been ruled out ahead of Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+    },
+    {
+      "team": "CLE",
+      "player": "Carsen Ryan",
+      "event_type": "out",
+      "published_at": "2026-10-10T00:29:00.000Z",
+      "summary": "Ryan (calf) has been ruled out ahead of Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+    },
+    {
+      "team": "LAC",
+      "player": "Donte Jackson",
+      "event_type": "out",
+      "published_at": "2026-10-10T00:25:00.000Z",
+      "summary": "Jackson (hamstring) has been ruled out for Sunday's game against the Broncos."
+    },
+    {
+      "team": "IND",
+      "player": "Ashton Dulin",
+      "event_type": "out",
+      "published_at": "2026-10-09T23:53:00.000Z",
+      "summary": "Dulin (hamstring) has been ruled out ahead of Sunday's game against the Steelers."
+    },
+    {
+      "team": "TEN",
+      "player": "Amani Hooker",
+      "event_type": "out",
+      "published_at": "2026-10-09T23:43:00.000Z",
+      "summary": "Hooker (concussion) has been ruled out for Sunday's game against the Texans, Jim Wyatt of the Titans' official site reports."
+    },
+    {
+      "team": "PIT",
+      "player": "Jamel Dean",
+      "event_type": "out",
+      "published_at": "2026-10-09T23:27:00.000Z",
+      "summary": "Dean (ankle) has been ruled out ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports."
+    },
+    {
+      "team": "NE",
+      "player": "Christian Gonzalez",
+      "event_type": "out",
+      "published_at": "2026-10-09T23:08:00.000Z",
+      "summary": "Gonzalez (shoulder) has been ruled out for Sunday's game against Las Vegas."
+    },
+    {
+      "team": "NE",
+      "player": "Carlton Davis III",
+      "event_type": "out",
+      "published_at": "2026-10-09T23:03:00.000Z",
+      "summary": "Davis (neck) has been ruled out for Sunday's game against the Raiders."
+    },
+    {
+      "team": "NO",
+      "player": "Kaden Elliss",
+      "event_type": "out",
+      "published_at": "2026-10-09T22:30:00.000Z",
+      "summary": "Elliss (calf) has been ruled out for Sunday's game against the Vikings, Emily Leiker of The Minnesota Star Tribune reports."
+    },
+    {
+      "team": "ARI",
+      "player": "Andrew Wingard",
+      "event_type": "out",
+      "published_at": "2026-10-09T22:16:00.000Z",
+      "summary": "Wingard (knee) has been ruled out for Sunday's game against the Lions, Bo Brack of GoPHNX.com reports."
+    },
+    {
+      "team": "NYJ",
+      "player": "Kiko Mauigoa",
+      "event_type": "out",
+      "published_at": "2026-10-09T22:11:00.000Z",
+      "summary": "Mauigoa (quadriceps) has been ruled out for Sunday's game against the Browns, Brian Costello of the New York Post reports."
+    },
+    {
+      "team": "MIA",
+      "player": "Caleb Douglas",
+      "event_type": "out",
+      "published_at": "2026-10-09T20:46:00.000Z",
+      "summary": "Douglas (ankle) has been ruled out for Sunday's game against the Bengals, David Furones of the South Florida Sun Sentinel reports."
+    },
+    {
+      "team": "LAC",
+      "player": "Quentin Johnston",
+      "event_type": "out",
+      "published_at": "2026-10-09T20:43:00.000Z",
+      "summary": "Johnston (chest) has been ruled out for Sunday's game against Denver."
+    },
+    {
+      "team": "LV",
+      "player": "Jalen Nailor",
+      "event_type": "out",
+      "published_at": "2026-10-09T19:01:00.000Z",
+      "summary": "Nailor (concussion) has been ruled out for Sunday's game at New England, Paul Gutierrez of ESPN.com reports."
+    },
+    {
+      "team": "NE",
+      "player": "Mack Hollins",
+      "event_type": "out",
+      "published_at": "2026-10-09T17:14:00.000Z",
+      "summary": "Hollins (calf) is ruled out for Sunday's game against the Raiders."
+    },
+    {
+      "team": "WAS",
+      "player": "Stefon Diggs",
+      "event_type": "out",
+      "published_at": "2026-10-09T15:40:00.000Z",
+      "summary": "Diggs (hamstring) wasn't spotted at Friday's practice, Tashan Reed of The Washington Post reports."
+    },
+    {
+      "team": "PHI",
+      "player": "DeVonta Smith",
+      "event_type": "out",
+      "published_at": "2026-10-09T15:34:00.000Z",
+      "summary": "Smith (hamstring) is doing rehab work on a side field at Friday's practice, EJ Smith of The Philadelphia Inquirer reports."
+    },
+    {
+      "team": "NYJ",
+      "player": "Adonai Mitchell",
+      "event_type": "out",
+      "published_at": "2026-10-09T15:09:00.000Z",
+      "summary": "Mitchell (finger) has been ruled out for Sunday's game against the Browns, Brian Costello of the New York Post reports."
+    },
+    {
+      "team": "ARI",
+      "player": "Andrew Wingard",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Andrew Wingard OUT"
+    },
+    {
+      "team": "ATL",
+      "player": "Yasir Abdullah",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Yasir Abdullah OUT"
+    },
+    {
+      "team": "CHI",
+      "player": "Keyshaun Elliott",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Keyshaun Elliott OUT"
+    },
+    {
+      "team": "CIN",
+      "player": "Kyle Dugger",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Kyle Dugger OUT"
+    },
+    {
+      "team": "CLE",
+      "player": "Tylan Wallace",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Tylan Wallace OUT"
+    },
+    {
+      "team": "CLE",
+      "player": "Carsen Ryan",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Carsen Ryan OUT"
+    },
+    {
+      "team": "DEN",
+      "player": "Riley Moss",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Riley Moss OUT"
+    },
+    {
+      "team": "DEN",
+      "player": "Pat Surtain II",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Pat Surtain II OUT"
+    },
+    {
+      "team": "DET",
+      "player": "Brian Branch",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Brian Branch OUT"
+    },
+    {
+      "team": "DET",
+      "player": "Rock Ya-Sin",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Rock Ya-Sin OUT"
+    },
+    {
+      "team": "GB",
+      "player": "Savion Williams",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Savion Williams OUT"
+    },
+    {
+      "team": "HOU",
+      "player": "Tank Dell",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Tank Dell OUT"
+    },
+    {
+      "team": "IND",
+      "player": "Darius Slayton",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Darius Slayton OUT"
+    },
+    {
+      "team": "IND",
+      "player": "Ashton Dulin",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Ashton Dulin OUT"
+    },
+    {
+      "team": "IND",
+      "player": "Will Mallory",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Will Mallory OUT"
+    },
+    {
+      "team": "IND",
+      "player": "Jaylon Carlies",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Jaylon Carlies OUT"
+    },
+    {
+      "team": "JAX",
+      "player": "Jaylon Jones",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Jaylon Jones OUT"
+    },
+    {
+      "team": "LAC",
+      "player": "Brenen Thompson",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Brenen Thompson OUT"
+    },
+    {
+      "team": "LAC",
+      "player": "Derwin James Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Derwin James Jr. OUT"
+    },
+    {
+      "team": "LAC",
+      "player": "Donte Jackson",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Donte Jackson OUT"
+    },
+    {
+      "team": "LV",
+      "player": "Dont'e Thornton Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Dont'e Thornton Jr. OUT"
+    },
+    {
+      "team": "MIA",
+      "player": "Justin Joly",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Justin Joly OUT"
+    },
+    {
+      "team": "MIA",
+      "player": "Reese Taylor",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Reese Taylor OUT"
+    },
+    {
+      "team": "MIN",
+      "player": "Charles Demmings",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Charles Demmings OUT"
+    },
+    {
+      "team": "NE",
+      "player": "Carlton Davis III",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Carlton Davis III OUT"
+    },
+    {
+      "team": "NE",
+      "player": "Reggie Gilliam",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Reggie Gilliam OUT"
+    },
+    {
+      "team": "NE",
+      "player": "Christian Gonzalez",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Christian Gonzalez OUT"
+    },
+    {
+      "team": "NE",
+      "player": "Karon Prunty",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Karon Prunty OUT"
+    },
+    {
+      "team": "NE",
+      "player": "Channing Canada",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Channing Canada OUT"
+    },
+    {
+      "team": "NO",
+      "player": "Kaden Elliss",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Kaden Elliss OUT"
+    },
+    {
+      "team": "NO",
+      "player": "Anfernee Jennings",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Anfernee Jennings OUT"
+    },
+    {
+      "team": "NYG",
+      "player": "Jason Pinnock",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Jason Pinnock OUT"
+    },
+    {
+      "team": "NYJ",
+      "player": "Kiko Mauigoa",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Kiko Mauigoa OUT"
+    },
+    {
+      "team": "PHI",
+      "player": "Marcus Epps",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Marcus Epps OUT"
+    },
+    {
+      "team": "PIT",
+      "player": "DeShon Elliott",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "DeShon Elliott OUT"
+    },
+    {
+      "team": "PIT",
+      "player": "Jamel Dean",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Jamel Dean OUT"
+    },
+    {
+      "team": "SEA",
+      "player": "Zach Charbonnet",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Zach Charbonnet OUT"
+    },
+    {
+      "team": "SEA",
+      "player": "Chazz Surratt",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Chazz Surratt OUT"
+    },
+    {
+      "team": "SEA",
+      "player": "Julian Neal",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Julian Neal OUT"
+    },
+    {
+      "team": "SF",
+      "player": "Kyle Juszczyk",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Kyle Juszczyk OUT"
+    },
+    {
+      "team": "SF",
+      "player": "Marques Sigle",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Marques Sigle OUT"
+    },
+    {
+      "team": "TEN",
+      "player": "Amani Hooker",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Amani Hooker OUT"
+    },
+    {
+      "team": "WAS",
+      "player": "Nick Cross",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Nick Cross OUT"
+    },
+    {
+      "team": "WAS",
+      "player": "Percy Butler",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Percy Butler OUT"
+    },
+    {
+      "team": "WAS",
+      "player": "Tyler Owens",
+      "event_type": "out",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Tyler Owens OUT"
+    },
+    {
+      "team": "DAL",
+      "player": "James Houston",
+      "event_type": "out",
+      "published_at": "2026-10-09T06:00:02.000Z",
+      "summary": "James Houston OUT"
+    },
+    {
+      "team": "DAL",
+      "player": "Joey Porter Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-09T06:00:02.000Z",
+      "summary": "Joey Porter Jr. OUT"
+    },
+    {
+      "team": "DAL",
+      "player": "Camden Brown",
+      "event_type": "out",
+      "published_at": "2026-10-09T06:00:02.000Z",
+      "summary": "Camden Brown OUT"
+    },
+    {
+      "team": "MIA",
+      "player": "Storm Duck",
+      "event_type": "out",
+      "published_at": "2026-10-08T23:51:00.000Z",
+      "summary": "Duck (knee) practiced in full Thursday."
+    },
+    {
+      "team": "DAL",
+      "player": "DeMarvion Overshown",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:49:00.000Z",
+      "summary": "inactive"
+    },
+    {
+      "team": "DAL",
+      "player": "Cobie Durant",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:49:00.000Z",
+      "summary": "inactive"
+    },
+    {
+      "team": "DAL",
+      "player": "James Houston",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:49:00.000Z",
+      "summary": "inactive"
+    },
+    {
+      "team": "DAL",
+      "player": "Camden Brown",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:49:00.000Z",
+      "summary": "inactive"
+    },
+    {
+      "team": "TB",
+      "player": "Antoine Winfield Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:48:00.000Z",
+      "summary": "inactive"
+    },
+    {
+      "team": "TB",
+      "player": "Benjamin Morrison",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:48:00.000Z",
+      "summary": "inactive"
+    },
+    {
+      "team": "TB",
+      "player": "SirVocea Dennis",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:48:00.000Z",
+      "summary": "inactive"
+    },
+    {
+      "team": "DAL",
+      "player": "Joey Porter Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-08T22:45:00.000Z",
+      "summary": "Porter has been ruled out for Thursday's game against the Buccaneers due to an illness, Todd Archer of ESPN.com reports."
+    },
+    {
+      "team": "SEA",
+      "player": "Jacardia Wright",
+      "event_type": "out",
+      "published_at": "2026-10-08T19:00:00.000Z",
+      "summary": "injured"
+    },
+    {
+      "team": "DAL",
+      "player": "Jalen Thompson",
+      "event_type": "out",
+      "published_at": "2026-10-07T19:00:00.000Z",
+      "summary": "injured"
+    },
+    {
+      "team": "DAL",
+      "player": "P.J. Locke",
+      "event_type": "out",
+      "published_at": "2026-10-07T19:00:00.000Z",
+      "summary": "injured"
+    },
+    {
+      "team": "SF",
+      "player": "Marques Sigle",
+      "event_type": "out",
+      "published_at": "2026-10-07T18:39:00.000Z",
+      "summary": "out"
+    },
+    {
+      "team": "DAL",
+      "player": "Cobie Durant",
+      "event_type": "out",
+      "published_at": "2026-10-07T07:00:00.000Z",
+      "summary": "Cobie Durant OUT"
+    },
+    {
+      "team": "DAL",
+      "player": "DeMarvion Overshown",
+      "event_type": "out",
+      "published_at": "2026-10-07T07:00:00.000Z",
+      "summary": "DeMarvion Overshown OUT"
+    },
+    {
+      "team": "TB",
+      "player": "Antoine Winfield Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-07T07:00:00.000Z",
+      "summary": "Antoine Winfield Jr. OUT"
+    },
+    {
+      "team": "TB",
+      "player": "SirVocea Dennis",
+      "event_type": "out",
+      "published_at": "2026-10-07T07:00:00.000Z",
+      "summary": "SirVocea Dennis OUT"
+    },
+    {
+      "team": "TB",
+      "player": "Benjamin Morrison",
+      "event_type": "out",
+      "published_at": "2026-10-07T07:00:00.000Z",
+      "summary": "Benjamin Morrison OUT"
+    },
+    {
+      "team": "KC",
+      "player": "Tyquan Thornton",
+      "event_type": "out",
+      "published_at": "2026-10-06T19:00:00.000Z",
+      "summary": "injured"
+    },
+    {
+      "team": "NO",
+      "player": "Jordyn Tyson",
+      "event_type": "out",
+      "published_at": "2026-10-06T19:00:00.000Z",
+      "summary": "injured"
+    },
+    {
+      "team": "SEA",
+      "player": "Terrion Arnold",
+      "event_type": "out",
+      "published_at": "2026-10-06T19:00:00.000Z",
+      "summary": "injured"
+    },
+    {
+      "team": "KC",
+      "player": "Tyquan Thornton",
+      "event_type": "out",
+      "published_at": "2026-10-05T20:51:00.000Z",
+      "summary": "Thornton is slated to undergo surgery later this week to address the dislocated left ankle he sustained in Sunday's 30-27 win over the Raiders and is facing an expected recovery timeline of 3-to-4 months, Matt Zenitz of CBSSports.com reports."
+    },
+    {
+      "team": "KC",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-15T19:15:00.000Z",
+      "summary": "Patrick Mahomes was on the field throwing before Saturday’s game"
+    },
+    {
+      "team": "JAX",
+      "player": "Travis Hunter (CB)",
+      "event_type": "out",
+      "published_at": "2025-04-03T19:00:00.000Z",
+      "summary": "injury"
+    },
+    {
+      "team": "BAL",
+      "player": "Trey Hendrickson",
+      "event_type": "out",
+      "published_at": "2026-10-10T00:05:00.000Z",
+      "summary": "Hendrickson (finger) has been ruled out ahead of Sunday's game against the Falcons, Adam Caplan of SiriusXM NFL Radio reports."
+    },
+    {
+      "team": "NE",
+      "player": "Reggie Gilliam",
+      "event_type": "out",
+      "published_at": "2026-10-09T23:14:00.000Z",
+      "summary": "Gilliam (ankle/knee) has been ruled out against the Raiders on Sunday."
+    },
+    {
+      "team": "HOU",
+      "player": "Kayden McDonald",
+      "event_type": "ir",
+      "published_at": "2026-10-09T00:48:00.000Z",
+      "summary": "McDonald (ankle) was a full participant in Thursday's practice."
+    },
+    {
+      "team": "SF",
+      "player": "Kyle Juszczyk",
+      "event_type": "out",
+      "published_at": "2026-10-07T18:34:00.000Z",
+      "summary": "San Francisco head coach Kyle Shanahan said Monday that Juszczyk will miss multiple weeks after hyperextending and sustaining a bone bruise to his right knee in Sunday's 24-14 win over the Broncos, Matt Barrows of The Athletic reports."
+    },
+    {
+      "team": "JAX",
+      "player": "Eric Murray",
+      "event_type": "doubtful",
+      "published_at": "2026-10-10T00:02:00.000Z",
+      "summary": "Murray (concussion) is listed as doubtful for Sunday's game against the Eagles, Ryan O'Halloran of The Florida Times-Union reports."
+    },
+    {
+      "team": "JAX",
+      "player": "Eric Murray",
+      "event_type": "doubtful",
+      "published_at": "2026-10-09T07:00:00.000Z",
+      "summary": "Eric Murray DOUBTFUL"
+    },
+    {
+      "team": "GB",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-14T19:35:00.000Z",
+      "summary": "Packers fans still favor Anthony Belton to start at right guard"
+    },
+    {
+      "team": "KC",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-16T00:00:00.000Z",
+      "summary": "Andy Reid gives single Chiefs injury update after preseason Week 1"
+    },
+    {
+      "team": "NE",
+      "player": null,
+      "event_type": "ir",
+      "published_at": "2026-08-15T22:56:25.000Z",
+      "summary": "What signing two O-linemen, other Saturday moves mean for the Patriots"
+    },
+    {
+      "team": "ARI",
+      "player": null,
+      "event_type": "ir",
+      "published_at": "2026-08-15T19:54:53.000Z",
+      "summary": "Arizona Cardinals place Chase Bisontis on injured reserve"
+    },
+    {
+      "team": "TEN",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-15T22:36:43.000Z",
+      "summary": "Titans TE Jaren Kanak, DE Jaylen Harrell out for season with injuries"
+    },
+    {
+      "team": "PHI",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-15T15:40:34.000Z",
+      "summary": "Eagles News: Did Philadelphia tease a new (old) helmet?"
+    },
+    {
+      "team": "TEN",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-15T12:00:00.000Z",
+      "summary": "Titans roster 2026: Tony Pollard, John Franklin-Myers and Fernando Carmona Jr. are underrated"
+    },
+    {
+      "team": "LAC",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-14T19:25:49.000Z",
+      "summary": "Best and worst Chargers PFF grades vs. the Texans"
+    },
+    {
+      "team": "NYJ",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-14T15:00:00.000Z",
+      "summary": "Scouting Jets defensive tackle Junior Tafuna"
+    },
+    {
+      "team": "LAC",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-13T15:57:23.000Z",
+      "summary": "Chargers vs. Texans Preseason Week 1: How to watch, game time, TV schedule, streaming, and more"
+    },
+    {
+      "team": "NYJ",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-13T11:01:16.000Z",
+      "summary": "New York Jets Flight Connections 08/13/26"
+    },
+    {
+      "team": "LAR",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-16T00:06:03.000Z",
+      "summary": "Undrafted safety steals show for Rams against Chiefs"
+    },
+    {
+      "team": "CAR",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-15T18:11:27.000Z",
+      "summary": "Bryce Young and Panthers' offense go three-and-out on all three drives"
+    },
+    {
+      "team": "ATL",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-15T15:53:28.000Z",
+      "summary": "NFL hands down four suspensions before preseason action, with Falcons&#039; James Pearce Jr. hit hardest"
+    },
+    {
+      "team": "LAR",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-15T14:00:00.000Z",
+      "summary": "Rookie pass catchers have major opportunity in preseason opener"
+    },
+    {
+      "team": "PIT",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-15T12:00:00.000Z",
+      "summary": "Steelers sell out of Drew Allar jerseys after preseason debut"
+    },
+    {
+      "team": "NYJ",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-14T22:30:00.000Z",
+      "summary": "Jets vs Buccaneers Game Thread"
+    },
+    {
+      "team": "TEN",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-13T16:02:00.000Z",
+      "summary": "Tennessee Titans roster by jersey number, last name"
+    },
+    {
+      "team": "CLE",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-13T15:25:12.000Z",
+      "summary": "NFL news, live updates: Mixed bag for Browns QBs Deshaun Watson, Shedeur Sanders; Rams&#39; Ty Simpson impresses; Cowboys rookie shines"
+    },
+    {
+      "team": "MIA",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-13T11:38:24.000Z",
+      "summary": "Miami Dolphins news: Joint practice with Commanders recap and reactions"
+    },
+    {
+      "team": "LAC",
+      "player": null,
+      "event_type": "out",
+      "published_at": "2026-08-12T19:33:35.000Z",
+      "summary": "6 players to watch in Chargers-Texans"
+    }
+  ],
+  "games": [
+    {
+      "event": "Philadelphia Eagles @ Jacksonville Jaguars",
+      "away": "PHI",
+      "home": "JAX",
+      "away_name": "Philadelphia Eagles",
+      "home_name": "Jacksonville Jaguars",
+      "market": {
+        "home_spread": -7.5,
+        "total": 42,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "JAX": 0.9315545209082298,
+          "PHI": -1.0544818750095368
+        },
+        "defense_weakness_z": {
+          "JAX": -1.1059421206931759,
+          "PHI": 0.46296896165702284
+        },
+        "tempo_z": {
+          "JAX": 0.5340652030797087,
+          "PHI": -1.1626987583935888
+        },
+        "srs": {
+          "JAX": 14.746,
+          "PHI": -6.319
+        },
+        "secondary_adjustment_points": {
+          "JAX": 0.45,
+          "PHI": 0.6080000000000001
+        }
+      },
+      "means": {
+        "home": 26.026140637824454,
+        "away": 16.921848489995618,
+        "total": 42.94798912782007,
+        "home_margin": 9.104292147828836
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 26.1297951045799,
+        "mean_away": 17.418522971842922,
+        "home_win_pct": 0.70466,
+        "home_cover_pct": 0.53248,
+        "away_cover_pct": 0.46752000000000005,
+        "over_pct": 0.52802,
+        "under_pct": 0.47197999999999996
+      },
+      "model_menu": {
+        "side": "Jacksonville Jaguars",
+        "side_cover_pct": 0.53248,
+        "total": "Over",
+        "total_pct": 0.52802
+      },
+      "contest": {
+        "team": "Jacksonville Jaguars",
+        "favorite_spread": -7.5
+      }
+    },
+    {
+      "event": "Indianapolis Colts @ Pittsburgh Steelers",
+      "away": "IND",
+      "home": "PIT",
+      "away_name": "Indianapolis Colts",
+      "home_name": "Pittsburgh Steelers",
+      "market": {
+        "home_spread": -3,
+        "total": 43.5,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "PIT": -0.9809899611852317,
+          "IND": 0.24329036166600368
+        },
+        "defense_weakness_z": {
+          "PIT": -0.21318720142907271,
+          "IND": 0.5666677921119327
+        },
+        "tempo_z": {
+          "PIT": -0.5154795153573822,
+          "IND": 0.7177355288061992
+        },
+        "srs": {
+          "PIT": -0.624,
+          "IND": -2.243
+        },
+        "secondary_adjustment_points": {
+          "PIT": 0.135,
+          "IND": 0.645
+        }
+      },
+      "means": {
+        "home": 22.950514993622914,
+        "away": 21.364879808730628,
+        "total": 44.31539480235354,
+        "home_margin": 1.5856351848922863
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 23.02398272726094,
+        "mean_away": 21.494316898905783,
+        "home_win_pct": 0.53757,
+        "home_cover_pct": 0.46477,
+        "away_cover_pct": 0.53523,
+        "over_pct": 0.5149,
+        "under_pct": 0.4851
+      },
+      "model_menu": {
+        "side": "Indianapolis Colts",
+        "side_cover_pct": 0.53523,
+        "total": "Over",
+        "total_pct": 0.5149
+      },
+      "contest": {
+        "team": "Pittsburgh Steelers",
+        "favorite_spread": -2.5
+      }
+    },
+    {
+      "event": "Minnesota Vikings @ New Orleans Saints",
+      "away": "MIN",
+      "home": "NO",
+      "away_name": "New Orleans Saints",
+      "home_name": "Minnesota Vikings",
+      "market": {
+        "home_spread": -2.5,
+        "total": 41.5,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "NO": 0.4901901620420403,
+          "MIN": -1.3997493634116442
+        },
+        "defense_weakness_z": {
+          "NO": 2.1758647510417384,
+          "MIN": -2.3827805978412337
+        },
+        "tempo_z": {
+          "NO": 1.0588375622982542,
+          "MIN": -0.043184392060692064
+        },
+        "srs": {
+          "NO": -5.097,
+          "MIN": 8.477
+        },
+        "secondary_adjustment_points": {
+          "NO": 0.255,
+          "MIN": 0.488
+        }
+      },
+      "means": {
+        "home": 20.42125789910636,
+        "away": 21.99948140568521,
+        "total": 42.42073930479157,
+        "home_margin": -1.5782235065788477
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 20.729246398882232,
+        "mean_away": 22.22491066130226,
+        "home_win_pct": 0.46358,
+        "home_cover_pct": 0.40436,
+        "away_cover_pct": 0.59564,
+        "over_pct": 0.5271,
+        "under_pct": 0.4729
+      },
+      "model_menu": {
+        "side": "New Orleans Saints",
+        "side_cover_pct": 0.59564,
+        "total": "Over",
+        "total_pct": 0.5271
+      },
+      "contest": null
+    },
+    {
+      "event": "Cleveland Browns @ New York Jets",
+      "away": "CLE",
+      "home": "NYJ",
+      "away_name": "Cleveland Browns",
+      "home_name": "New York Jets",
+      "market": {
+        "home_spread": -2.5,
+        "total": 39.5,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "NYJ": -0.3860357599446519,
+          "CLE": -0.3444385109682544
+        },
+        "defense_weakness_z": {
+          "NYJ": 0.4491673187547484,
+          "CLE": 0.2162801371695605
+        },
+        "tempo_z": {
+          "NYJ": -0.5941953692401646,
+          "CLE": -0.9615360206931467
+        },
+        "srs": {
+          "NYJ": -4.359,
+          "CLE": 0.405
+        },
+        "secondary_adjustment_points": {
+          "NYJ": 0.135,
+          "CLE": 0.383
+        }
+      },
+      "means": {
+        "home": 20.20089214495953,
+        "away": 19.54485486180214,
+        "total": 39.74574700676167,
+        "home_margin": 0.6560372831573886
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 20.433728745261348,
+        "mean_away": 19.833516154458703,
+        "home_win_pct": 0.51489,
+        "home_cover_pct": 0.45383,
+        "away_cover_pct": 0.54617,
+        "over_pct": 0.50789,
+        "under_pct": 0.49211000000000005
+      },
+      "model_menu": {
+        "side": "Cleveland Browns",
+        "side_cover_pct": 0.54617,
+        "total": "Over",
+        "total_pct": 0.50789
+      },
+      "contest": {
+        "team": "New York Jets",
+        "favorite_spread": -2.5
+      }
+    },
+    {
+      "event": "Cincinnati Bengals @ Miami Dolphins",
+      "away": "CIN",
+      "home": "MIA",
+      "away_name": "Miami Dolphins",
+      "home_name": "Cincinnati Bengals",
+      "market": {
+        "home_spread": -7,
+        "total": 43.5,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "MIA": -2.046519492657563,
+          "CIN": 0.024775780814806494
+        },
+        "defense_weakness_z": {
+          "MIA": 0.605585938313839,
+          "CIN": -0.8633564873388219
+        },
+        "tempo_z": {
+          "MIA": -1.9498572972214072,
+          "CIN": 0.7002431168322474
+        },
+        "srs": {
+          "MIA": -3.623,
+          "CIN": 4.317
+        },
+        "secondary_adjustment_points": {
+          "MIA": 0.541,
+          "CIN": 0.48
+        }
+      },
+      "means": {
+        "home": 23.11273770501047,
+        "away": 21.18957981342142,
+        "total": 44.30231751843189,
+        "home_margin": 1.9231578915890495
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 23.293327228119775,
+        "mean_away": 21.43673003699707,
+        "home_win_pct": 0.54682,
+        "home_cover_pct": 0.38118,
+        "away_cover_pct": 0.6188199999999999,
+        "over_pct": 0.52026,
+        "under_pct": 0.47974000000000006
+      },
+      "model_menu": {
+        "side": "Miami Dolphins",
+        "side_cover_pct": 0.6188199999999999,
+        "total": "Over",
+        "total_pct": 0.52026
+      },
+      "contest": null
+    },
+    {
+      "event": "Las Vegas Raiders @ New England Patriots",
+      "away": "LV",
+      "home": "NE",
+      "away_name": "Las Vegas Raiders",
+      "home_name": "New England Patriots",
+      "market": {
+        "home_spread": -3.5,
+        "total": 45,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "NE": -0.8571271850768536,
+          "LV": 0.3927514448367801
+        },
+        "defense_weakness_z": {
+          "NE": -0.7697291260288119,
+          "LV": -0.32546543152593893
+        },
+        "tempo_z": {
+          "NE": -0.9265511967452444,
+          "LV": 1.032598944337326
+        },
+        "srs": {
+          "NE": 2.402,
+          "LV": 6.191
+        },
+        "secondary_adjustment_points": {
+          "NE": 0.301,
+          "LV": 0.9
+        }
+      },
+      "means": {
+        "home": 23.53251628417847,
+        "away": 22.68704207165014,
+        "total": 46.21955835582861,
+        "home_margin": 0.8454742125283303
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 23.66539789571284,
+        "mean_away": 22.808370764957964,
+        "home_win_pct": 0.521,
+        "home_cover_pct": 0.43734,
+        "away_cover_pct": 0.5626599999999999,
+        "over_pct": 0.52918,
+        "under_pct": 0.47082
+      },
+      "model_menu": {
+        "side": "Las Vegas Raiders",
+        "side_cover_pct": 0.5626599999999999,
+        "total": "Over",
+        "total_pct": 0.52918
+      },
+      "contest": {
+        "team": "New England Patriots",
+        "favorite_spread": -3.5
+      }
+    },
+    {
+      "event": "New York Giants @ Washington Commanders",
+      "away": "NYG",
+      "home": "WAS",
+      "away_name": "New York Giants",
+      "home_name": "Washington Commanders",
+      "market": {
+        "home_spread": -3.5,
+        "total": 41.5,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "WAS": -0.7313032483467585,
+          "NYG": -0.7816741106308326
+        },
+        "defense_weakness_z": {
+          "WAS": 1.0499739719419563,
+          "NYG": -0.16481928170849797
+        },
+        "tempo_z": {
+          "WAS": -0.21810851180020724,
+          "NYG": -0.06942301002161909
+        },
+        "srs": {
+          "WAS": -11.37,
+          "NYG": -4.141
+        },
+        "secondary_adjustment_points": {
+          "WAS": 0.525,
+          "NYG": 0.555
+        }
+      },
+      "means": {
+        "home": 21.644559153513356,
+        "away": 20.885122830167827,
+        "total": 42.529681983681186,
+        "home_margin": 0.759436323345529
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 21.810293745806263,
+        "mean_away": 21.033370487343273,
+        "home_win_pct": 0.51725,
+        "home_cover_pct": 0.43365,
+        "away_cover_pct": 0.56635,
+        "over_pct": 0.52301,
+        "under_pct": 0.47699
+      },
+      "model_menu": {
+        "side": "New York Giants",
+        "side_cover_pct": 0.56635,
+        "total": "Over",
+        "total_pct": 0.52301
+      },
+      "contest": {
+        "team": "Washington Commanders",
+        "favorite_spread": -3.5
+      }
+    },
+    {
+      "event": "Houston Texans @ Tennessee Titans",
+      "away": "HOU",
+      "home": "TEN",
+      "away_name": "Tennessee Titans",
+      "home_name": "Houston Texans",
+      "market": {
+        "home_spread": -7,
+        "total": 37.5,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "TEN": -1.1284898837342923,
+          "HOU": -0.3686949712894789
+        },
+        "defense_weakness_z": {
+          "TEN": -0.3296929617842927,
+          "HOU": 0.09368175967730452
+        },
+        "tempo_z": {
+          "TEN": -1.993588327156286,
+          "HOU": -0.235600923774159
+        },
+        "srs": {
+          "TEN": -10.882,
+          "HOU": -6.688
+        },
+        "secondary_adjustment_points": {
+          "TEN": 0.24,
+          "HOU": 0.585
+        }
+      },
+      "means": {
+        "home": 20.666518587997,
+        "away": 17.345981412003,
+        "total": 38.0125,
+        "home_margin": 3.3205371759940014
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 20.905146250264227,
+        "mean_away": 17.79184018356768,
+        "home_win_pct": 0.57767,
+        "home_cover_pct": 0.40715,
+        "away_cover_pct": 0.59285,
+        "over_pct": 0.51556,
+        "under_pct": 0.48444
+      },
+      "model_menu": {
+        "side": "Tennessee Titans",
+        "side_cover_pct": 0.59285,
+        "total": "Over",
+        "total_pct": 0.51556
+      },
+      "contest": null
+    },
+    {
+      "event": "Denver Broncos @ Los Angeles Chargers",
+      "away": "DEN",
+      "home": "LAC",
+      "away_name": "Los Angeles Chargers",
+      "home_name": "Denver Broncos",
+      "market": {
+        "home_spread": -3.5,
+        "total": 42,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "LAC": -0.9259742447970951,
+          "DEN": -0.8125365856778375
+        },
+        "defense_weakness_z": {
+          "LAC": 0.30729637684941025,
+          "DEN": -0.056022547118515266
+        },
+        "tempo_z": {
+          "LAC": -1.11896772845871,
+          "DEN": -1.0577442865498796
+        },
+        "srs": {
+          "LAC": -9.313,
+          "DEN": 5.862
+        },
+        "secondary_adjustment_points": {
+          "LAC": 0.484,
+          "DEN": 0.54
+        }
+      },
+      "means": {
+        "home": 21.25975341202686,
+        "away": 21.45174658797314,
+        "total": 42.7115,
+        "home_margin": -0.19199317594627985
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 21.502896250977056,
+        "mean_away": 21.655468525190507,
+        "home_win_pct": 0.49474,
+        "home_cover_pct": 0.41072,
+        "away_cover_pct": 0.58928,
+        "over_pct": 0.51743,
+        "under_pct": 0.48257000000000005
+      },
+      "model_menu": {
+        "side": "Los Angeles Chargers",
+        "side_cover_pct": 0.58928,
+        "total": "Over",
+        "total_pct": 0.51743
+      },
+      "contest": null
+    },
+    {
+      "event": "San Francisco 49ers @ Seattle Seahawks",
+      "away": "SF",
+      "home": "SEA",
+      "away_name": "San Francisco 49ers",
+      "home_name": "Seattle Seahawks",
+      "market": {
+        "home_spread": -3,
+        "total": 46.5,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "SEA": 0.3079054432025402,
+          "SF": 1.9709696504177077
+        },
+        "defense_weakness_z": {
+          "SEA": -1.6105102909402136,
+          "SF": -0.5568605436081798
+        },
+        "tempo_z": {
+          "SEA": -0.3667940135787954,
+          "SF": 0.813943794662932
+        },
+        "srs": {
+          "SEA": 1.698,
+          "SF": 14.043
+        },
+        "secondary_adjustment_points": {
+          "SEA": 0.45,
+          "SF": 0.375
+        }
+      },
+      "means": {
+        "home": 23.707676554242504,
+        "away": 23.695574657447217,
+        "total": 47.40325121168972,
+        "home_margin": 0.012101896795286393
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 23.784231024322548,
+        "mean_away": 23.81334340381352,
+        "home_win_pct": 0.49998,
+        "home_cover_pct": 0.42829,
+        "away_cover_pct": 0.5717099999999999,
+        "over_pct": 0.51959,
+        "under_pct": 0.48041
+      },
+      "model_menu": {
+        "side": "San Francisco 49ers",
+        "side_cover_pct": 0.5717099999999999,
+        "total": "Over",
+        "total_pct": 0.51959
+      },
+      "contest": {
+        "team": "Seattle Seahawks",
+        "favorite_spread": -3
+      }
+    },
+    {
+      "event": "Detroit Lions @ Arizona Cardinals",
+      "away": "DET",
+      "home": "ARI",
+      "away_name": "Arizona Cardinals",
+      "home_name": "Detroit Lions",
+      "market": {
+        "home_spread": -5.5,
+        "total": 54.5,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "ARI": 0.009189714821167545,
+          "DET": 1.396452807235013
+        },
+        "defense_weakness_z": {
+          "ARI": 0.6400278760068961,
+          "DET": 1.724140709024121
+        },
+        "tempo_z": {
+          "ARI": 0.3066638474183383,
+          "DET": 1.3124775359205505
+        },
+        "srs": {
+          "ARI": -6.928,
+          "DET": -3.252
+        },
+        "secondary_adjustment_points": {
+          "ARI": 0.9,
+          "DET": 0.6400000000000001
+        }
+      },
+      "means": {
+        "home": 29.719739508284054,
+        "away": 26.603610233800246,
+        "total": 56.323349742084304,
+        "home_margin": 3.116129274483807
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 29.87016373979897,
+        "mean_away": 26.69018337373391,
+        "home_win_pct": 0.57657,
+        "home_cover_pct": 0.44645,
+        "away_cover_pct": 0.55355,
+        "over_pct": 0.544,
+        "under_pct": 0.45599999999999996
+      },
+      "model_menu": {
+        "side": "Arizona Cardinals",
+        "side_cover_pct": 0.55355,
+        "total": "Over",
+        "total_pct": 0.544
+      },
+      "contest": null
+    },
+    {
+      "event": "Chicago Bears @ Green Bay Packers",
+      "away": "CHI",
+      "home": "GB",
+      "away_name": "Green Bay Packers",
+      "home_name": "Chicago Bears",
+      "market": {
+        "home_spread": -1.5,
+        "total": 46,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "GB": -0.8981051201727079,
+          "CHI": 0.9842994197343811
+        },
+        "defense_weakness_z": {
+          "GB": 0.6734751006979868,
+          "CHI": -1.0509842273345769
+        },
+        "tempo_z": {
+          "GB": -0.9790284326670985,
+          "CHI": 1.8809809250739749
+        },
+        "srs": {
+          "GB": -7.417,
+          "CHI": 12.116
+        },
+        "secondary_adjustment_points": {
+          "GB": 0.525,
+          "CHI": 0.135
+        }
+      },
+      "means": {
+        "home": 22.002615968672295,
+        "away": 24.81522571749891,
+        "total": 46.81784168617121,
+        "home_margin": -2.812609748826617
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 22.195564698916897,
+        "mean_away": 24.91009443415755,
+        "home_win_pct": 0.43351,
+        "home_cover_pct": 0.39851,
+        "away_cover_pct": 0.6014900000000001,
+        "over_pct": 0.52101,
+        "under_pct": 0.47899
+      },
+      "model_menu": {
+        "side": "Green Bay Packers",
+        "side_cover_pct": 0.6014900000000001,
+        "total": "Over",
+        "total_pct": 0.52101
+      },
+      "contest": null
+    },
+    {
+      "event": "Baltimore Ravens @ Atlanta Falcons",
+      "away": "BAL",
+      "home": "ATL",
+      "away_name": "Baltimore Ravens",
+      "home_name": "Atlanta Falcons",
+      "market": {
+        "home_spread": -3,
+        "total": 44,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "ATL": 0.8195619275102368,
+          "BAL": 1.4855307870529544
+        },
+        "defense_weakness_z": {
+          "ATL": -1.0494921578316299,
+          "BAL": 0.15610000055064338
+        },
+        "tempo_z": {
+          "ATL": -0.7516270770057281,
+          "BAL": 0.21045558156160418
+        },
+        "srs": {
+          "ATL": 0.381,
+          "BAL": -0.709
+        },
+        "secondary_adjustment_points": {
+          "ATL": 0.525,
+          "BAL": 0.405
+        }
+      },
+      "means": {
+        "home": 23.676449508298802,
+        "away": 21.158845479998476,
+        "total": 44.83529498829728,
+        "home_margin": 2.517604028300326
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 23.782296431235384,
+        "mean_away": 21.325021273347964,
+        "home_win_pct": 0.55902,
+        "home_cover_pct": 0.48652,
+        "away_cover_pct": 0.5134799999999999,
+        "over_pct": 0.51861,
+        "under_pct": 0.48139
+      },
+      "model_menu": {
+        "side": "Baltimore Ravens",
+        "side_cover_pct": 0.5134799999999999,
+        "total": "Over",
+        "total_pct": 0.51861
+      },
+      "contest": {
+        "team": "Atlanta Falcons",
+        "favorite_spread": -3.5
+      }
+    },
+    {
+      "event": "Buffalo Bills @ Los Angeles Rams",
+      "away": "BUF",
+      "home": "LAR",
+      "away_name": "Buffalo Bills",
+      "home_name": "Los Angeles Rams",
+      "market": {
+        "home_spread": -3,
+        "total": 54.5,
+        "captured_at": "2026-10-10T16:16:12.396Z"
+      },
+      "features": {
+        "offense_z": {
+          "LAR": 0.048929022155939104,
+          "BUF": 1.3685836826106268
+        },
+        "defense_weakness_z": {
+          "LAR": -0.9272667977151101,
+          "BUF": 1.1652363410447166
+        },
+        "tempo_z": {
+          "LAR": -0.07816921600859435,
+          "BUF": 0.8226900006499085
+        },
+        "srs": {
+          "LAR": 2.861,
+          "BUF": 0.787
+        },
+        "secondary_adjustment_points": {
+          "LAR": 0.397,
+          "BUF": 0.334
+        }
+      },
+      "means": {
+        "home": 29.029934961327736,
+        "away": 26.331356175984492,
+        "total": 55.36129113731223,
+        "home_margin": 2.698578785343244
+      },
+      "simulation": {
+        "iterations": 100000,
+        "mean_home": 29.066356267459785,
+        "mean_away": 26.431148239495247,
+        "home_win_pct": 0.562,
+        "home_cover_pct": 0.49145,
+        "away_cover_pct": 0.5085500000000001,
+        "over_pct": 0.51988,
+        "under_pct": 0.48012
+      },
+      "model_menu": {
+        "side": "Buffalo Bills",
+        "side_cover_pct": 0.5085500000000001,
+        "total": "Over",
+        "total_pct": 0.51988
+      },
+      "contest": {
+        "team": "Los Angeles Rams",
+        "favorite_spread": -3
+      }
+    }
+  ]
+}

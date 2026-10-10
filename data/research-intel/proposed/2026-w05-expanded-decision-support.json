@@ -1,0 +1,1204 @@
+{
+  "schema_version": "week5_expanded_decision_support_v1",
+  "generated_at": "2026-10-10T16:50:16.917Z",
+  "status": "proposed_analysis_only",
+  "boundary": "No official selections, tickets, account actions, ledger writes, or sportsbook execution are created by this artifact.",
+  "sources": {
+    "bookmaker": {
+      "capturedAt": "2026-10-10T16:16:12.396Z",
+      "rows": 5376
+    },
+    "betonline": {
+      "capturedAt": "2026-10-10T16:46:12.725Z",
+      "rows": 1042
+    },
+    "contest": {
+      "recordedOn": "2026-10-09",
+      "status": "verified_by_user"
+    }
+  },
+  "games": [
+    {
+      "event": "Philadelphia Eagles @ Jacksonville Jaguars",
+      "away": "PHI",
+      "awayPts": 20,
+      "home": "JAX",
+      "homePts": 24,
+      "side": "PHI",
+      "total": "Over",
+      "note": "projection favors the dog number; earlier named-source support was JAX only at a materially lower spread",
+      "sideOffer": {
+        "book": "BKR",
+        "event": "Philadelphia Eagles @ Jacksonville Jaguars",
+        "eventUrl": "https://be.bookmaker.eu/en/sports/football/nfl/game-lines/philadelphia-eagles-vs-jacksonville-jaguars/",
+        "sectionTitle": "Game",
+        "market": "game_lines",
+        "source": "bookmaker_live_dom",
+        "capturedAt": "2026-10-10T16:16:12.396Z",
+        "selection": "Philadelphia Eagles +7.5-103",
+        "player": null,
+        "bet": "spread",
+        "side": "Philadelphia Eagles",
+        "line": 7.5,
+        "odds": -103,
+        "available": true
+      }
+    },
+    {
+      "event": "Indianapolis Colts @ Pittsburgh Steelers",
+      "away": "IND",
+      "awayPts": 20,
+      "home": "PIT",
+      "homePts": 23,
+      "side": "IND",
+      "total": "Under",
+      "note": "projection makes the spread a near-push; keep as a low-conviction menu item only"
+    },
+    {
+      "event": "Minnesota Vikings @ New Orleans Saints",
+      "away": "MIN",
+      "awayPts": 21,
+      "home": "NO",
+      "homePts": 20,
+      "side": "NO",
+      "total": "Under",
+      "note": "projection and multi-source Saints support point toward the dog, subject to final availability"
+    },
+    {
+      "event": "Cleveland Browns @ New York Jets",
+      "away": "CLE",
+      "awayPts": 19,
+      "home": "NYJ",
+      "homePts": 20,
+      "side": "CLE",
+      "total": "Under",
+      "note": "projection supports the dog and the low-total thesis; not a straight-ticket instruction"
+    },
+    {
+      "event": "Cincinnati Bengals @ Miami Dolphins",
+      "away": "CIN",
+      "awayPts": 27,
+      "home": "MIA",
+      "homePts": 17,
+      "side": "CIN",
+      "total": "Over",
+      "note": "projection supports Cincinnati and the Over, but the side is price-sensitive at seven"
+    },
+    {
+      "event": "Las Vegas Raiders @ New England Patriots",
+      "away": "LV",
+      "awayPts": 23,
+      "home": "NE",
+      "homePts": 24,
+      "side": "LV",
+      "total": "Over",
+      "note": "two named source endorsements retain the +3.5 hook; projection is one-point game"
+    },
+    {
+      "event": "New York Giants @ Washington Commanders",
+      "away": "NYG",
+      "awayPts": 17,
+      "home": "WAS",
+      "homePts": 24,
+      "side": "WAS",
+      "total": "Under",
+      "note": "projection likes Washington; prior Giants source case was explicitly QB-status conditional"
+    },
+    {
+      "event": "Houston Texans @ Tennessee Titans",
+      "away": "HOU",
+      "awayPts": 21,
+      "home": "TEN",
+      "homePts": 17,
+      "side": "TEN",
+      "total": "Under",
+      "note": "projection favors the dog at seven while cited Texans support required under seven"
+    },
+    {
+      "event": "Denver Broncos @ Los Angeles Chargers",
+      "away": "DEN",
+      "awayPts": 23,
+      "home": "LAC",
+      "homePts": 20,
+      "side": "LAC",
+      "total": "Over",
+      "note": "projection is Broncos by three; source sides conflict, so this is price/menu context only"
+    },
+    {
+      "event": "San Francisco 49ers @ Seattle Seahawks",
+      "away": "SF",
+      "awayPts": 21,
+      "home": "SEA",
+      "homePts": 24,
+      "side": "SF",
+      "total": "Under",
+      "note": "projection lands exactly SEA -3; under is the cleaner of the source-backed angles"
+    },
+    {
+      "event": "Detroit Lions @ Arizona Cardinals",
+      "away": "DET",
+      "awayPts": 31,
+      "home": "ARI",
+      "homePts": 24,
+      "side": "DET",
+      "total": "Over",
+      "note": "projection favors Detroit and a high score, but source side evidence is split"
+    },
+    {
+      "event": "Chicago Bears @ Green Bay Packers",
+      "away": "CHI",
+      "awayPts": 24,
+      "home": "GB",
+      "homePts": 21,
+      "side": "CHI",
+      "total": "Under",
+      "note": "projection has Chicago by three; display -1.5 versus contest -3 is a material context difference"
+    },
+    {
+      "event": "Baltimore Ravens @ Atlanta Falcons",
+      "away": "BAL",
+      "awayPts": 20,
+      "home": "ATL",
+      "homePts": 24,
+      "side": "ATL",
+      "total": "Push",
+      "note": "projection favors Atlanta, while the contest asks for the worse -3.5 and totals evidence conflicts"
+    },
+    {
+      "event": "Buffalo Bills @ Los Angeles Rams",
+      "away": "BUF",
+      "awayPts": 27,
+      "home": "LAR",
+      "homePts": 28,
+      "side": "BUF",
+      "total": "Over",
+      "note": "multiple source types support the short dog; projection is a one-point Rams win"
+    }
+  ],
+  "side_candidates": [
+    {
+      "rank": 1,
+      "event": "Las Vegas Raiders @ New England Patriots",
+      "team": "LV",
+      "projection": "LV 23–NE 24",
+      "line": 3.5,
+      "odds": -107,
+      "book": "BKR",
+      "rationale": "two named source endorsements retain the +3.5 hook; projection is one-point game"
+    },
+    {
+      "rank": 2,
+      "event": "Buffalo Bills @ Los Angeles Rams",
+      "team": "BUF",
+      "projection": "BUF 27–LAR 28",
+      "line": 3,
+      "odds": 104,
+      "book": "BKR",
+      "rationale": "multiple source types support the short dog; projection is a one-point Rams win"
+    },
+    {
+      "rank": 3,
+      "event": "Baltimore Ravens @ Atlanta Falcons",
+      "team": "ATL",
+      "projection": "BAL 20–ATL 24",
+      "line": -3,
+      "odds": -117,
+      "book": "BKR",
+      "rationale": "projection favors Atlanta, while the contest asks for the worse -3.5 and totals evidence conflicts"
+    },
+    {
+      "rank": 4,
+      "event": "Minnesota Vikings @ New Orleans Saints",
+      "team": "NO",
+      "projection": "MIN 21–NO 20",
+      "line": 2.5,
+      "odds": -109,
+      "book": "BKR",
+      "rationale": "projection and multi-source Saints support point toward the dog, subject to final availability"
+    },
+    {
+      "rank": 5,
+      "event": "Cleveland Browns @ New York Jets",
+      "team": "CLE",
+      "projection": "CLE 19–NYJ 20",
+      "line": 2.5,
+      "odds": -109,
+      "book": "BKR",
+      "rationale": "projection supports the dog and the low-total thesis; not a straight-ticket instruction"
+    },
+    {
+      "rank": 6,
+      "event": "Cincinnati Bengals @ Miami Dolphins",
+      "team": "CIN",
+      "projection": "CIN 27–MIA 17",
+      "line": -7,
+      "odds": -108,
+      "book": "BKR",
+      "rationale": "projection supports Cincinnati and the Over, but the side is price-sensitive at seven"
+    },
+    {
+      "rank": 7,
+      "event": "Philadelphia Eagles @ Jacksonville Jaguars",
+      "team": "PHI",
+      "projection": "PHI 20–JAX 24",
+      "line": 7.5,
+      "odds": -103,
+      "book": "BKR",
+      "rationale": "projection favors the dog number; earlier named-source support was JAX only at a materially lower spread"
+    },
+    {
+      "rank": 8,
+      "event": "Houston Texans @ Tennessee Titans",
+      "team": "TEN",
+      "projection": "HOU 21–TEN 17",
+      "line": 7,
+      "odds": -102,
+      "book": "BKR",
+      "rationale": "projection favors the dog at seven while cited Texans support required under seven"
+    },
+    {
+      "rank": 9,
+      "event": "Detroit Lions @ Arizona Cardinals",
+      "team": "DET",
+      "projection": "DET 31–ARI 24",
+      "line": -5.5,
+      "odds": -110,
+      "book": "BKR",
+      "rationale": "projection favors Detroit and a high score, but source side evidence is split"
+    },
+    {
+      "rank": 10,
+      "event": "New York Giants @ Washington Commanders",
+      "team": "WAS",
+      "projection": "NYG 17–WAS 24",
+      "line": -3.5,
+      "odds": -108,
+      "book": "BKR",
+      "rationale": "projection likes Washington; prior Giants source case was explicitly QB-status conditional"
+    }
+  ],
+  "total_candidates": [
+    {
+      "rank": 1,
+      "event": "Philadelphia Eagles @ Jacksonville Jaguars",
+      "side": "Over",
+      "projection": "44",
+      "line": 42,
+      "odds": -103,
+      "book": "BKR",
+      "rationale": "projection favors the dog number; earlier named-source support was JAX only at a materially lower spread"
+    },
+    {
+      "rank": 2,
+      "event": "Las Vegas Raiders @ New England Patriots",
+      "side": "Over",
+      "projection": "47",
+      "line": 45,
+      "odds": -114,
+      "book": "BKR",
+      "rationale": "two named source endorsements retain the +3.5 hook; projection is one-point game"
+    },
+    {
+      "rank": 3,
+      "event": "San Francisco 49ers @ Seattle Seahawks",
+      "side": "Under",
+      "projection": "45",
+      "line": 46.5,
+      "odds": -112,
+      "book": "BKR",
+      "rationale": "projection lands exactly SEA -3; under is the cleaner of the source-backed angles"
+    },
+    {
+      "rank": 4,
+      "event": "Denver Broncos @ Los Angeles Chargers",
+      "side": "Over",
+      "projection": "43",
+      "line": 42,
+      "odds": -114,
+      "book": "BKR",
+      "rationale": "projection is Broncos by three; source sides conflict, so this is price/menu context only"
+    },
+    {
+      "rank": 5,
+      "event": "Cleveland Browns @ New York Jets",
+      "side": "Under",
+      "projection": "39",
+      "line": 39.5,
+      "odds": -108,
+      "book": "BKR",
+      "rationale": "projection supports the dog and the low-total thesis; not a straight-ticket instruction"
+    },
+    {
+      "rank": 6,
+      "event": "Cincinnati Bengals @ Miami Dolphins",
+      "side": "Over",
+      "projection": "44",
+      "line": 43.5,
+      "odds": -113,
+      "book": "BKR",
+      "rationale": "projection supports Cincinnati and the Over, but the side is price-sensitive at seven"
+    },
+    {
+      "rank": 7,
+      "event": "Detroit Lions @ Arizona Cardinals",
+      "side": "Over",
+      "projection": "55",
+      "line": 54.5,
+      "odds": -107,
+      "book": "BKR",
+      "rationale": "projection favors Detroit and a high score, but source side evidence is split"
+    },
+    {
+      "rank": 8,
+      "event": "Buffalo Bills @ Los Angeles Rams",
+      "side": "Over",
+      "projection": "55",
+      "line": 54.5,
+      "odds": -107,
+      "book": "BKR",
+      "rationale": "multiple source types support the short dog; projection is a one-point Rams win"
+    }
+  ],
+  "supercontest": [
+    {
+      "rank": 1,
+      "bucket": "best_five_proposed",
+      "team": "LV",
+      "event": "Las Vegas Raiders @ New England Patriots",
+      "contest_line": 3.5,
+      "projection": "LV 23–NE 24",
+      "rationale": "two named source endorsements retain the +3.5 hook; projection is one-point game"
+    },
+    {
+      "rank": 2,
+      "bucket": "best_five_proposed",
+      "team": "BUF",
+      "event": "Buffalo Bills @ Los Angeles Rams",
+      "contest_line": 3,
+      "projection": "BUF 27–LAR 28",
+      "rationale": "multiple source types support the short dog; projection is a one-point Rams win"
+    },
+    {
+      "rank": 3,
+      "bucket": "best_five_proposed",
+      "team": "ATL",
+      "event": "Baltimore Ravens @ Atlanta Falcons",
+      "contest_line": -3.5,
+      "projection": "BAL 20–ATL 24",
+      "rationale": "projection favors Atlanta, while the contest asks for the worse -3.5 and totals evidence conflicts"
+    },
+    {
+      "rank": 4,
+      "bucket": "best_five_proposed",
+      "team": "NO",
+      "event": "Minnesota Vikings @ New Orleans Saints",
+      "contest_line": 2.5,
+      "projection": "MIN 21–NO 20",
+      "rationale": "projection and multi-source Saints support point toward the dog, subject to final availability"
+    },
+    {
+      "rank": 5,
+      "bucket": "best_five_proposed",
+      "team": "CLE",
+      "event": "Cleveland Browns @ New York Jets",
+      "contest_line": 2.5,
+      "projection": "CLE 19–NYJ 20",
+      "rationale": "projection supports the dog and the low-total thesis; not a straight-ticket instruction"
+    },
+    {
+      "rank": 6,
+      "bucket": "alternate_five_proposed",
+      "team": "CIN",
+      "event": "Cincinnati Bengals @ Miami Dolphins",
+      "contest_line": -7,
+      "projection": "CIN 27–MIA 17",
+      "rationale": "projection supports Cincinnati and the Over, but the side is price-sensitive at seven"
+    },
+    {
+      "rank": 7,
+      "bucket": "alternate_five_proposed",
+      "team": "PHI",
+      "event": "Philadelphia Eagles @ Jacksonville Jaguars",
+      "contest_line": 7.5,
+      "projection": "PHI 20–JAX 24",
+      "rationale": "projection favors the dog number; earlier named-source support was JAX only at a materially lower spread"
+    },
+    {
+      "rank": 8,
+      "bucket": "alternate_five_proposed",
+      "team": "TEN",
+      "event": "Houston Texans @ Tennessee Titans",
+      "contest_line": 7.5,
+      "projection": "HOU 21–TEN 17",
+      "rationale": "projection favors the dog at seven while cited Texans support required under seven"
+    },
+    {
+      "rank": 9,
+      "bucket": "alternate_five_proposed",
+      "team": "DET",
+      "event": "Detroit Lions @ Arizona Cardinals",
+      "contest_line": -5.5,
+      "projection": "DET 31–ARI 24",
+      "rationale": "projection favors Detroit and a high score, but source side evidence is split"
+    },
+    {
+      "rank": 10,
+      "bucket": "alternate_five_proposed",
+      "team": "WAS",
+      "event": "New York Giants @ Washington Commanders",
+      "contest_line": -3.5,
+      "projection": "NYG 17–WAS 24",
+      "rationale": "projection likes Washington; prior Giants source case was explicitly QB-status conditional"
+    }
+  ],
+  "props": {
+    "Philadelphia Eagles @ Jacksonville Jaguars": [
+      {
+        "player": "Jalen Hurts",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 27.5,
+        "odds": -105,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:12.396Z",
+        "selection": "Jalen Hurts - Over 27.5-105",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Trevor Lawrence",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 225.5,
+        "odds": 110,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:12.396Z",
+        "selection": "Trevor Lawrence - Over 225.5+110",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Brian Thomas",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 24.5,
+        "odds": -104,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:12.396Z",
+        "selection": "Brian Thomas - Over 24.5-104",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "Indianapolis Colts @ Pittsburgh Steelers": [
+      {
+        "player": "Aaron Rodgers",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 223.5,
+        "odds": -114,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:24.024Z",
+        "selection": "Aaron Rodgers - Over 223.5-114",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Keenan Allen",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 30.5,
+        "odds": -103,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:24.024Z",
+        "selection": "Keenan Allen - Over 30.5-103",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Josh Downs",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 57.5,
+        "odds": -109,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:24.024Z",
+        "selection": "Josh Downs - Over 57.5-109",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "Minnesota Vikings @ New Orleans Saints": [
+      {
+        "player": "Tyler Shough",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 237.5,
+        "odds": -105,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:34.772Z",
+        "selection": "Tyler Shough - Over 237.5-105",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Justin Jefferson",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 78.5,
+        "odds": -106,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:34.772Z",
+        "selection": "Justin Jefferson - Over 78.5-106",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "T.J. Hockenson",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 36.5,
+        "odds": 111,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:34.772Z",
+        "selection": "T.J. Hockenson - Over 36.5+111",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "Cleveland Browns @ New York Jets": [
+      {
+        "player": "Quinshon Judkins",
+        "market": "rush_yds",
+        "side": "Under",
+        "line": 59.5,
+        "odds": -108,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:45.348Z",
+        "selection": "Quinshon Judkins - Under 59.5-108",
+        "evidence": "source_supported_market_matched"
+      },
+      {
+        "player": "Deshaun Watson",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 200.5,
+        "odds": -108,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:45.348Z",
+        "selection": "Deshaun Watson - Over 200.5-108",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Garrett Wilson",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 68.5,
+        "odds": -109,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:45.348Z",
+        "selection": "Garrett Wilson - Over 68.5-109",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "Cincinnati Bengals @ Miami Dolphins": [
+      {
+        "player": "Jaylen Wright",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 22.5,
+        "odds": -106,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:56.931Z",
+        "selection": "Jaylen Wright - Over 22.5-106",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Greg Dulcich",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 25.5,
+        "odds": -109,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:56.931Z",
+        "selection": "Greg Dulcich - Over 25.5-109",
+        "evidence": "source_supported_market_matched"
+      },
+      {
+        "player": "Chase Brown",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 67.5,
+        "odds": 101,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:16:56.931Z",
+        "selection": "Chase Brown - Over 67.5+101",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "Las Vegas Raiders @ New England Patriots": [
+      {
+        "player": "Kirk Cousins",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 231.5,
+        "odds": -108,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:07.637Z",
+        "selection": "Kirk Cousins - Over 231.5-108",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Brock Bowers",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 76.5,
+        "odds": -118,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:07.637Z",
+        "selection": "Brock Bowers - Over 76.5-118",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Drake Maye",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 227.5,
+        "odds": -110,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:07.637Z",
+        "selection": "Drake Maye - Over 227.5-110",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "New York Giants @ Washington Commanders": [
+      {
+        "player": "Malik Nabers",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 56.5,
+        "odds": -114,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:16.315Z",
+        "selection": "Malik Nabers - Over 56.5-114",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Jacory Croskey-Merritt",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 53.5,
+        "odds": 107,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:16.315Z",
+        "selection": "Jacory Croskey-Merritt - Over 53.5+107",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Jameis Winston",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 200.5,
+        "odds": -104,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:16.315Z",
+        "selection": "Jameis Winston - Over 200.5-104",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "Houston Texans @ Tennessee Titans": [
+      {
+        "player": "C.J. Stroud",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 239.5,
+        "odds": -101,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:28.903Z",
+        "selection": "C.J. Stroud - Over 239.5-101",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Nico Collins",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 77.5,
+        "odds": -106,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:28.903Z",
+        "selection": "Nico Collins - Over 77.5-106",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Tony Pollard",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 50.5,
+        "odds": 102,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:28.903Z",
+        "selection": "Tony Pollard - Over 50.5+102",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "Denver Broncos @ Los Angeles Chargers": [
+      {
+        "player": "Justin Herbert",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 201.5,
+        "odds": -109,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:38.849Z",
+        "selection": "Justin Herbert - Over 201.5-109",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "J.K. Dobbins",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 52.5,
+        "odds": -117,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:38.849Z",
+        "selection": "J.K. Dobbins - Over 52.5-117",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Courtland Sutton",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 37.5,
+        "odds": -119,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:38.849Z",
+        "selection": "Courtland Sutton - Over 37.5-119",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "San Francisco 49ers @ Seattle Seahawks": [
+      {
+        "player": "Brock Purdy",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 229.5,
+        "odds": -115,
+        "book": "BEO",
+        "selection": "Over 229.5 Passing Yards",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "George Kittle",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 55.5,
+        "odds": -115,
+        "book": "BEO",
+        "selection": "Over 55.5 Receiving Yards",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Sam Darnold",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 230.5,
+        "odds": -115,
+        "book": "BEO",
+        "selection": "Over 230.5 Passing Yards",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "Detroit Lions @ Arizona Cardinals": [
+      {
+        "player": "Jared Goff",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 280.5,
+        "odds": -106,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:58.372Z",
+        "selection": "Jared Goff - Over 280.5-106",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Jahmyr Gibbs",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 89.5,
+        "odds": -108,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:58.372Z",
+        "selection": "Jahmyr Gibbs - Over 89.5-108",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Amon-Ra St. Brown",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 80.5,
+        "odds": -114,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:17:58.372Z",
+        "selection": "Amon-Ra St. Brown - Over 80.5-114",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "Chicago Bears @ Green Bay Packers": [
+      {
+        "player": "Tyson Bagent",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 217.5,
+        "odds": -115,
+        "book": "BEO",
+        "selection": "Over 217.5 Passing Yards",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "D'Andre Swift",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 85.5,
+        "odds": -106,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:18:10.048Z",
+        "selection": "D'Andre Swift - Over 85.5-106",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Tucker Kraft",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 49.5,
+        "odds": -105,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:18:10.048Z",
+        "selection": "Tucker Kraft - Over 49.5-105",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "Baltimore Ravens @ Atlanta Falcons": [
+      {
+        "player": "Tyler Huntley",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 28.5,
+        "odds": -108,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:18:21.649Z",
+        "selection": "Tyler Huntley - Over 28.5-108",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Michael Penix",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 218.5,
+        "odds": 106,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:18:21.649Z",
+        "selection": "Michael Penix - Over 218.5+106",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Bijan Robinson",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 25.5,
+        "odds": -106,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:18:21.649Z",
+        "selection": "Bijan Robinson - Over 25.5-106",
+        "evidence": "parlay_menu_only"
+      }
+    ],
+    "Buffalo Bills @ Los Angeles Rams": [
+      {
+        "player": "Josh Allen",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 244.5,
+        "odds": -116,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:18:34.297Z",
+        "selection": "Josh Allen - Over 244.5-116",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Puka Nacua",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 92.5,
+        "odds": -109,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:18:34.297Z",
+        "selection": "Puka Nacua - Over 92.5-109",
+        "evidence": "parlay_menu_only"
+      },
+      {
+        "player": "Davante Adams",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 63.5,
+        "odds": -109,
+        "book": "BKR",
+        "capturedAt": "2026-10-10T16:18:34.297Z",
+        "selection": "Davante Adams - Over 63.5-109",
+        "evidence": "parlay_menu_only"
+      }
+    ]
+  },
+  "parlay_template_menus": [
+    {
+      "name": "Chalk / volume cross-game menu",
+      "construction": "Three unrelated volume markets; deliberately avoids same-game correlation and TD variance.",
+      "legs": [
+        {
+          "player": "Quinshon Judkins",
+          "market": "rush_yds",
+          "side": "Under",
+          "line": 59.5,
+          "odds": -108,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:16:45.348Z",
+          "selection": "Quinshon Judkins - Under 59.5-108",
+          "evidence": "source_supported_market_matched"
+        },
+        {
+          "player": "Greg Dulcich",
+          "market": "rec_yds",
+          "side": "Over",
+          "line": 25.5,
+          "odds": -109,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:16:56.931Z",
+          "selection": "Greg Dulcich - Over 25.5-109",
+          "evidence": "source_supported_market_matched"
+        },
+        {
+          "player": "Josh Allen",
+          "market": "pass_yds",
+          "side": "Over",
+          "line": 244.5,
+          "odds": -116,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:18:34.297Z",
+          "selection": "Josh Allen - Over 244.5-116",
+          "evidence": "parlay_menu_only"
+        }
+      ]
+    },
+    {
+      "name": "LV dog-plus-over correlation test",
+      "construction": "Competitive LV game script: dog cover, game Over, Raiders pass volume. Confirm builder acceptance and repricing.",
+      "legs": [
+        {
+          "type": "spread",
+          "event": "Las Vegas Raiders @ New England Patriots",
+          "selection": "Las Vegas Raiders +3.5-107",
+          "line": 3.5,
+          "odds": -107,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:17:07.637Z"
+        },
+        {
+          "type": "total",
+          "event": "Las Vegas Raiders @ New England Patriots",
+          "selection": "Over 45-114",
+          "line": 45,
+          "odds": -114,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:17:07.637Z"
+        },
+        {
+          "player": "Kirk Cousins",
+          "market": "pass_yds",
+          "side": "Over",
+          "line": 231.5,
+          "odds": -108,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:17:07.637Z",
+          "selection": "Kirk Cousins - Over 231.5-108",
+          "evidence": "parlay_menu_only"
+        },
+        {
+          "player": "Brock Bowers",
+          "market": "rec_yds",
+          "side": "Over",
+          "line": 76.5,
+          "odds": -118,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:17:07.637Z",
+          "selection": "Brock Bowers - Over 76.5-118",
+          "evidence": "parlay_menu_only"
+        }
+      ]
+    },
+    {
+      "name": "PHI@JAX Island over-anchor test",
+      "construction": "Over anchor plus one passer, one rushing/receiver volume leg; do not add multiple TD anchors.",
+      "legs": [
+        {
+          "type": "total",
+          "event": "Philadelphia Eagles @ Jacksonville Jaguars",
+          "selection": "Over 42-103",
+          "line": 42,
+          "odds": -103,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:16:12.396Z"
+        },
+        {
+          "player": "Trevor Lawrence",
+          "market": "pass_yds",
+          "side": "Over",
+          "line": 225.5,
+          "odds": 110,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:16:12.396Z",
+          "selection": "Trevor Lawrence - Over 225.5+110",
+          "evidence": "parlay_menu_only"
+        },
+        {
+          "player": "Jalen Hurts",
+          "market": "rush_yds",
+          "side": "Over",
+          "line": 27.5,
+          "odds": -105,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:16:12.396Z",
+          "selection": "Jalen Hurts - Over 27.5-105",
+          "evidence": "parlay_menu_only"
+        },
+        {
+          "player": "Brian Thomas",
+          "market": "rec_yds",
+          "side": "Over",
+          "line": 24.5,
+          "odds": -104,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:16:12.396Z",
+          "selection": "Brian Thomas - Over 24.5-104",
+          "evidence": "parlay_menu_only"
+        }
+      ]
+    },
+    {
+      "name": "TD watchlist, isolated from volume stacks",
+      "construction": "Two scoring-role anchors only. Treat as a separate high-variance watchlist, never as proof of the volume thesis.",
+      "legs": [
+        {
+          "player": "Bijan Robinson",
+          "market": "atd_1_plus",
+          "side": "Yes",
+          "line": null,
+          "odds": -225,
+          "book": "BEO",
+          "selection": "Yes",
+          "evidence": "parlay_menu_only"
+        },
+        {
+          "player": "Davante Adams",
+          "market": "atd_1_plus",
+          "side": "Yes",
+          "line": null,
+          "odds": 100,
+          "book": "BKR",
+          "capturedAt": "2026-10-10T16:18:34.297Z",
+          "selection": "Davante Adams +100",
+          "evidence": "parlay_menu_only"
+        }
+      ]
+    }
+  ],
+  "confidence_pool": [
+    {
+      "confidence": 14,
+      "event": "Houston Texans @ Tennessee Titans",
+      "pick": "Houston Texans",
+      "odds": -358,
+      "implied_probability_raw": 0.782
+    },
+    {
+      "confidence": 13,
+      "event": "Philadelphia Eagles @ Jacksonville Jaguars",
+      "pick": "Jacksonville Jaguars",
+      "odds": -353,
+      "implied_probability_raw": 0.779
+    },
+    {
+      "confidence": 12,
+      "event": "Cincinnati Bengals @ Miami Dolphins",
+      "pick": "Cincinnati Bengals",
+      "odds": -334,
+      "implied_probability_raw": 0.77
+    },
+    {
+      "confidence": 11,
+      "event": "Detroit Lions @ Arizona Cardinals",
+      "pick": "Detroit Lions",
+      "odds": -254,
+      "implied_probability_raw": 0.718
+    },
+    {
+      "confidence": 10,
+      "event": "Denver Broncos @ Los Angeles Chargers",
+      "pick": "Denver Broncos",
+      "odds": -194,
+      "implied_probability_raw": 0.66
+    },
+    {
+      "confidence": 9,
+      "event": "Las Vegas Raiders @ New England Patriots",
+      "pick": "New England Patriots",
+      "odds": -191,
+      "implied_probability_raw": 0.656
+    },
+    {
+      "confidence": 8,
+      "event": "Buffalo Bills @ Los Angeles Rams",
+      "pick": "Los Angeles Rams",
+      "odds": -186,
+      "implied_probability_raw": 0.65
+    },
+    {
+      "confidence": 7,
+      "event": "New York Giants @ Washington Commanders",
+      "pick": "Washington Commanders",
+      "odds": -182,
+      "implied_probability_raw": 0.645
+    },
+    {
+      "confidence": 6,
+      "event": "San Francisco 49ers @ Seattle Seahawks",
+      "pick": "Seattle Seahawks",
+      "odds": -171,
+      "implied_probability_raw": 0.631
+    },
+    {
+      "confidence": 5,
+      "event": "Baltimore Ravens @ Atlanta Falcons",
+      "pick": "Atlanta Falcons",
+      "odds": -161,
+      "implied_probability_raw": 0.617
+    },
+    {
+      "confidence": 4,
+      "event": "Indianapolis Colts @ Pittsburgh Steelers",
+      "pick": "Pittsburgh Steelers",
+      "odds": -145,
+      "implied_probability_raw": 0.592
+    },
+    {
+      "confidence": 3,
+      "event": "Minnesota Vikings @ New Orleans Saints",
+      "pick": "Minnesota Vikings",
+      "odds": -137,
+      "implied_probability_raw": 0.578
+    },
+    {
+      "confidence": 2,
+      "event": "Cleveland Browns @ New York Jets",
+      "pick": "New York Jets",
+      "odds": -133,
+      "implied_probability_raw": 0.571
+    },
+    {
+      "confidence": 1,
+      "event": "Chicago Bears @ Green Bay Packers",
+      "pick": "Chicago Bears",
+      "odds": -121,
+      "implied_probability_raw": 0.548
+    }
+  ]
+}

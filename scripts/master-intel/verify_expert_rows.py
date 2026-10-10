@@ -225,6 +225,17 @@ def ts(x):
         t = datetime.datetime.fromisoformat(str(x).replace('Z', '+00:00'))
         return t if t.tzinfo else t.replace(tzinfo=datetime.timezone.utc)
     except Exception: return None
+_MKT = re.compile(r'\s+(anytime|any time|first|last|2\+|2 or more)?\s*(td|tds|touchdowns?)(\s+scorer)?(\s+parlay)?\s*$|\s+(over|under|o|u)\s*[\d.]+.*$|\s+(to score|to record|longest reception|receptions?|rec yards|rush yards|passing yards).*$', re.I)
+def clean_player(pl):
+    # 'Austin Hooper Anytime TD' / 'A.J. Hill A.J. Hill Anytime TD' -> 'Austin Hooper' / 'A.J. Hill'; bare labels ('TD Parlay') -> None
+    t = re.sub(r'\s+(anytime|any time|first|last)\s*(td|tds|touchdowns?)\b.*$', '', str(pl or '').strip(), flags=re.I)
+    t = _MKT.sub('', t).strip()
+    m = re.match(r'^(.{4,}?)\s+\1$', t)
+    if m: t = m.group(1).strip()
+    if not t or re.fullmatch(r'(anytime )?(td|touchdown)s?( parlay)?|anytime|parlay|sgp', t, re.I): return None
+    return t
+for x in rows:
+    x['players'] = [c for c in (clean_player(p_) for p_ in x['players']) if c]
 for x in rows:
     R = x['reasons']; gid = x['game']
     # players first: a prop filed under the wrong game is re-tagged when its player's team plays exactly one Week N game

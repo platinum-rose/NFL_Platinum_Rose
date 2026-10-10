@@ -1,0 +1,220 @@
+{
+ "schema": "historical_market_calibration_v1",
+ "generated_at": "2026-10-10T21:29:09.997833+00:00",
+ "status": "proposed_analysis_context_only",
+ "source": {
+  "path": "data/vault-seed/nflverse/games-full-1999-2026.csv",
+  "sha256": "51f762960b078c5a10ab61e79716cdfc22162ba91a357a42b620f1f816f0fc51",
+  "rows_total": 7548,
+  "reg_season_with_spread_total_result": 6967,
+  "last_season_with_results": 2025,
+  "note": "2026 rows in this file are schedule only (no scores, no lines); file dated 2026-06-05."
+ },
+ "conventions": "nflverse: spread_line > 0 = home favored; result = home - away; residual = result - spread_line; total residual = total - total_line; REG season only.",
+ "default_era": "2018-2025",
+ "eras": {
+  "1999-2025": {
+   "n": 6967,
+   "margin_resid_mean": 0.069,
+   "margin_resid_sd": 13.188,
+   "total_resid_mean": 0.688,
+   "total_resid_sd": 13.395
+  },
+  "2011-2025": {
+   "n": 3919,
+   "margin_resid_mean": 0.097,
+   "margin_resid_sd": 12.998,
+   "total_resid_mean": 0.447,
+   "total_resid_sd": 13.16
+  },
+  "2018-2025": {
+   "n": 2127,
+   "margin_resid_mean": -0.067,
+   "margin_resid_sd": 12.772,
+   "total_resid_mean": 0.566,
+   "total_resid_sd": 13.128
+  },
+  "2021-2025": {
+   "n": 1359,
+   "margin_resid_mean": 0.464,
+   "margin_resid_sd": 12.625,
+   "total_resid_mean": 0.478,
+   "total_resid_sd": 13.069
+  }
+ },
+ "by_closing_spread_abs_default_era": {
+  "0-1": {
+   "n": 142,
+   "fav_win_pct": 45.1,
+   "tie_pct": 0.0,
+   "margin_resid_sd": 12.712,
+   "mean_fav_margin": -1.2
+  },
+  "1.5-3": {
+   "n": 638,
+   "fav_win_pct": 57.5,
+   "tie_pct": 0.47,
+   "margin_resid_sd": 12.992,
+   "mean_fav_margin": 1.82
+  },
+  "10+": {
+   "n": 320,
+   "fav_win_pct": 86.6,
+   "tie_pct": 0.0,
+   "margin_resid_sd": 12.716,
+   "mean_fav_margin": 12.91
+  },
+  "3.5-6": {
+   "n": 622,
+   "fav_win_pct": 64.3,
+   "tie_pct": 0.32,
+   "margin_resid_sd": 12.312,
+   "mean_fav_margin": 4.71
+  },
+  "6.5-9": {
+   "n": 405,
+   "fav_win_pct": 73.8,
+   "tie_pct": 0.74,
+   "margin_resid_sd": 13.127,
+   "mean_fav_margin": 7.55
+  }
+ },
+ "fav_margin_distribution_pct_default_era": {
+  "-14": 1.5,
+  "-13": 0.56,
+  "-12": 0.75,
+  "-11": 0.38,
+  "-10": 1.88,
+  "-9": 0.66,
+  "-8": 1.5,
+  "-7": 3.06,
+  "-6": 2.59,
+  "-5": 1.36,
+  "-4": 1.93,
+  "-3": 6.21,
+  "-2": 2.16,
+  "-1": 2.4,
+  "0": 0.38,
+  "1": 2.44,
+  "2": 2.87,
+  "3": 8.23,
+  "4": 2.91,
+  "5": 2.87,
+  "6": 3.95,
+  "7": 5.45,
+  "8": 2.96,
+  "9": 0.89,
+  "10": 3.01,
+  "11": 1.5,
+  "12": 1.18,
+  "13": 1.27,
+  "14": 3.62,
+  "15": 1.32,
+  "16": 1.69,
+  "17": 2.54,
+  "18": 1.65,
+  "19": 0.85,
+  "20": 1.5,
+  "21": 1.74
+ },
+ "on_the_number_default_era": {
+  "1": {
+   "n": 142,
+   "push_pct": 0.0,
+   "fav_cover_pct_excl_push": 45.1
+  },
+  "2.5": {
+   "n": 210,
+   "push_pct": 0.0,
+   "fav_cover_pct_excl_push": 49.5
+  },
+  "3": {
+   "n": 298,
+   "push_pct": 9.73,
+   "fav_cover_pct_excl_push": 47.2
+  },
+  "3.5": {
+   "n": 217,
+   "push_pct": 0.0,
+   "fav_cover_pct_excl_push": 50.2
+  },
+  "4": {
+   "n": 90,
+   "push_pct": 2.22,
+   "fav_cover_pct_excl_push": 40.9
+  },
+  "5.5": {
+   "n": 106,
+   "push_pct": 0.0,
+   "fav_cover_pct_excl_push": 39.6
+  },
+  "6": {
+   "n": 97,
+   "push_pct": 4.12,
+   "fav_cover_pct_excl_push": 51.6
+  },
+  "6.5": {
+   "n": 104,
+   "push_pct": 0.0,
+   "fav_cover_pct_excl_push": 49.0
+  },
+  "7": {
+   "n": 115,
+   "push_pct": 5.22,
+   "fav_cover_pct_excl_push": 49.5
+  },
+  "7.5": {
+   "n": 116,
+   "push_pct": 0.0,
+   "fav_cover_pct_excl_push": 41.4
+  },
+  "8": {
+   "n": 23,
+   "push_pct": 0.0,
+   "fav_cover_pct_excl_push": 65.2
+  },
+  "9.5": {
+   "n": 42,
+   "push_pct": 0.0,
+   "fav_cover_pct_excl_push": 52.4
+  },
+  "10": {
+   "n": 49,
+   "push_pct": 12.24,
+   "fav_cover_pct_excl_push": 39.5
+  },
+  "14": {
+   "n": 34,
+   "push_pct": 5.88,
+   "fav_cover_pct_excl_push": 46.9
+  }
+ },
+ "by_total_line_default_era": {
+  "40-44": {
+   "n": 683,
+   "total_resid_mean": 0.67,
+   "total_resid_sd": 12.293
+  },
+  "44.5-48": {
+   "n": 696,
+   "total_resid_mean": 0.29,
+   "total_resid_sd": 13.43
+  },
+  "48.5+": {
+   "n": 530,
+   "total_resid_mean": 0.75,
+   "total_resid_sd": 13.467
+  },
+  "<40": {
+   "n": 218,
+   "total_resid_mean": 0.65,
+   "total_resid_sd": 13.823
+  }
+ },
+ "caveats": [
+  "Market-only calibration: how closing lines related to results in past seasons. It says nothing about the 60/25/15 blend, FTN or SRS inputs (no historical series exist locally).",
+  "Closing lines, not the captured Week 5 display numbers; Week 5 captures are earlier than close and will move.",
+  "Rule/kickoff changes make older eras less relevant; the 2018-2025 era is the default and the other eras show sensitivity.",
+  "Integer-line push rates are only reported where n >= 20; key-number frequencies are descriptive, not a price."
+ ]
+}

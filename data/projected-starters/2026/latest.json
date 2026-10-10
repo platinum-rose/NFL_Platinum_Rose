@@ -2,7 +2,7 @@
   "meta": {
     "schema": "projected_starters_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-10-10T02:27:37.580Z",
+    "generated_at": "2026-10-10T16:45:21.042Z",
     "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
     "player_count": 79,
     "manual_row_count": 49,
@@ -30,7 +30,7 @@
     "inputs": {
       "availability": {
         "path": "data\\player-availability\\latest.json",
-        "generated_at": "2026-10-10T02:17:28.700Z",
+        "generated_at": "2026-10-10T16:45:17.848Z",
         "evidence_validation_status": "pass"
       },
       "named_status_review": {
@@ -94,6 +94,7 @@
       "eligible_for_synthesis": false,
       "known": [
         "A user-provided confirmation identifies Parsons as a Green Bay player rehabbing a torn ACL sustained last season; the review-only evidence is retained separately.",
+        "An authenticated Yahoo Fantasy Sports player lookup returned Parsons as GB with PUP-R status; the account-scoped response route is intentionally not persisted.",
         "A current Green Bay beat artifact owns a Micah Parsons Week 6 return-target item under GB, but it remains human-review context rather than an official team/depth-chart confirmation.",
         "The current projected-starters artifact contains no Micah Parsons row."
       ],
@@ -121,6 +122,13 @@
           "evidence_id": "user-confirmation-micah-parsons-gb-2026-10-10",
           "published_at": "2026-10-10T00:00:00-07:00",
           "source": "User-provided confirmation",
+          "source_url": null
+        },
+        {
+          "artifact_path": "data/research-intel/source-evidence/2026-10-10-user-yahoo-availability-conflict-notes.json",
+          "evidence_id": "yahoo-fantasy-player-lookup-micah-parsons-2026-10-10",
+          "published_at": "2026-10-10T00:00:00-07:00",
+          "source": "Yahoo Fantasy Sports API authenticated player lookup",
           "source_url": null
         }
       ],
@@ -304,7 +312,7 @@
               "source_type": "structured_injury",
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
               "published_at": "2026-10-09T17:40:00.000Z",
-              "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic Zrebiec reports."
+              "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."
             }
           ],
           "evidence_tags": [
@@ -353,8 +361,7 @@
         "James Cook RB"
       ],
       "estimated": [
-        "Davison Igbinosun CB",
-        "Joe Andreessen LB"
+        "Davison Igbinosun CB"
       ],
       "missing": [
         "independent second-source depth-chart reconciliation",
@@ -441,33 +448,6 @@
           ],
           "evidence_tags": [
             "starter"
-          ],
-          "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
-          "id": "starter_66430248a24aa879",
-          "team": "BUF",
-          "team_nick": "Bills",
-          "player_name": "Joe Andreessen",
-          "position": "LB",
-          "unit": "defense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-03T17:41:00.000Z",
-              "evidence": "Andreessen and the Bills agreed to terms Saturday on a two-year contract extension, Tom Pelissero of Netflix reports."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
           ],
           "impact_bucket": "defensive_major",
           "needs_human_review": true,
@@ -2354,7 +2334,8 @@
       ],
       "estimated": [
         "Carson Steele RB",
-        "Dameon Pierce RB"
+        "Dameon Pierce RB",
+        "Tanner McKee QB"
       ],
       "missing": [
         "independent second-source depth-chart reconciliation"
@@ -2415,6 +2396,34 @@
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_e3ddb5ceddd51981",
+          "team": "PHI",
+          "team_nick": "Eagles",
+          "player_name": "Tanner McKee",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.78,
+          "roster_confidence": 0.74,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-04T12:55:00.000Z",
+              "evidence": "McKee is expected to be active for Sunday's game against the Rams as the top backup to starter Jalen Hurts, while Andy Dalton serves as the Eagles' No. 3 quarterback, Mike Garafolo of NFL Network reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter",
+            "competition"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
         },
         {
           "id": "starter_f9fb58ce29bccbbe",
@@ -2773,7 +2782,7 @@
               "source_type": "structured_injury",
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
               "published_at": "2026-10-09T15:23:00.000Z",
-              "evidence": "Buccaneers coach Todd Bowles said Friday that he plans on starting Daniels in Week 6 against Pittsburgh, Scott Smith reports."
+              "evidence": "Buccaneers coach Todd Bowles said Friday that he plans on starting Daniels in Week 6 against Pittsburgh, Scott Smith of the team's official site reports."
             }
           ],
           "evidence_tags": [
@@ -4505,7 +4514,7 @@
           "source_type": "structured_injury",
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
           "published_at": "2026-10-09T17:40:00.000Z",
-          "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic Zrebiec reports."
+          "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."
         }
       ],
       "evidence_tags": [
@@ -4532,7 +4541,7 @@
           "source_type": "structured_injury",
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
           "published_at": "2026-10-09T15:23:00.000Z",
-          "evidence": "Buccaneers coach Todd Bowles said Friday that he plans on starting Daniels in Week 6 against Pittsburgh, Scott Smith reports."
+          "evidence": "Buccaneers coach Todd Bowles said Friday that he plans on starting Daniels in Week 6 against Pittsburgh, Scott Smith of the team's official site reports."
         }
       ],
       "evidence_tags": [
@@ -5033,6 +5042,34 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
+      "id": "starter_e3ddb5ceddd51981",
+      "team": "PHI",
+      "team_nick": "Eagles",
+      "player_name": "Tanner McKee",
+      "position": "QB",
+      "unit": "offense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.78,
+      "roster_confidence": 0.74,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-04T12:55:00.000Z",
+          "evidence": "McKee is expected to be active for Sunday's game against the Rams as the top backup to starter Jalen Hurts, while Andy Dalton serves as the Eagles' No. 3 quarterback, Mike Garafolo of NFL Network reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter",
+        "competition"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
       "id": "starter_0ca7da494a992c7f",
       "team": "LAR",
       "team_nick": "Rams",
@@ -5083,33 +5120,6 @@
         "roster_signal"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_66430248a24aa879",
-      "team": "BUF",
-      "team_nick": "Bills",
-      "player_name": "Joe Andreessen",
-      "position": "LB",
-      "unit": "defense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-03T17:41:00.000Z",
-          "evidence": "Andreessen and the Bills agreed to terms Saturday on a two-year contract extension, Tom Pelissero of Netflix reports."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "defensive_major",
       "needs_human_review": true,
       "confidence_basis": "local_availability_starter_language"
     },

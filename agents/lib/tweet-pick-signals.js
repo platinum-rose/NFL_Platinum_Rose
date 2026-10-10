@@ -75,12 +75,27 @@ export function buildVisionGamePickRows(gamePicks, { noteId, eventRef, sourceLab
     }));
 }
 
+const normMarketText = (s) => String(s || '').toLowerCase().replace(/_/g, ' ').replace(/\s+/g, ' ')
+  .replace(/\b(anytime )?(td|touchdowns?)( scorer)?\b/g, 'td').replace(/\b(rush|rushing)\b/g, 'rushing').replace(/\b(rec|receiving)\b/g, 'receiving')
+  .replace(/\b(yds|yards)\b/g, 'yards').trim();
+const leanNorm = (l) => String(l).toLowerCase().replace(/\byes\b/, 'over').replace(/\s+/g, ' ').trim();
+
+// Rows are kept in input order, so callers pass text rows first (they carry the author and win over OCR).
+// Key 1: same player/market/lean after normalising underscores and TD/yards synonyms.
+// Key 2 (player props, line >= 10): same player + same line -- catches an OCR misread of the market or side
+// ("rushing_yards OVER 12.5" read off a "rush attempts 12.5" slip) duplicating a text-extracted pick.
+export const signalKey = (r) => `${normMarketText(r.team_or_market)}|${leanNorm(r.lean)}`;
+
 export function dedupeSignalRows(rows) {
   const seen = new Set();
   return rows.filter((r) => {
-    const key = `${r.team_or_market.toLowerCase()}|${r.bet_type}|${String(r.lean).toLowerCase()}`;
-    if (seen.has(key)) return false;
-    seen.add(key);
+    const tm = String(r.team_or_market || '');
+    const key = `${normMarketText(tm)}|${leanNorm(r.lean)}`;
+    const player = tm.split(' - ')[0].toLowerCase().trim();
+    const line = r.bet_type === 'player_prop' ? Number((String(r.lean).match(/\d+(?:\.\d+)?/) || [])[0]) : NaN;
+    const key2 = Number.isFinite(line) && line >= 10 ? `${player}|line|${line}` : null;
+    if (seen.has(key) || (key2 && seen.has(key2))) return false;
+    seen.add(key); if (key2) seen.add(key2);
     return true;
   });
 }

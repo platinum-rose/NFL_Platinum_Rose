@@ -1,0 +1,26 @@
+{
+  "schema": "week_weather_venue_review_v1",
+  "season": 2026,
+  "week": 5,
+  "generated_at": "2026-10-10T17:56:55.559Z",
+  "status": "research_context_only_not_picks",
+  "source_evidence": "data/research-intel/source-evidence/2026-10-10-week5-weather-openmeteo.json",
+  "coverage": {"remaining_games":14,"outdoor_forecasts_captured":9,"venue_condition_verification_required":5},
+  "rows": [
+    {"game":"PHI@JAX","weather_status":"forecast_captured","source_game":"PHI@JAX","materiality":"no_material_flag_in_current_forecast"},
+    {"game":"IND@PIT","weather_status":"forecast_captured","source_game":"IND@PIT","materiality":"review_required: forecast wind 25.2 km/h, gusts 58.0 km/h, precipitation probability 54%"},
+    {"game":"MIN@NO","weather_status":"venue_condition_verification_required","materiality":"do_not_apply_outdoor_weather_without_current venue/roof confirmation"},
+    {"game":"CLE@NYJ","weather_status":"forecast_captured","source_game":"CLE@NYJ","materiality":"review_required: precipitation probability 78%, forecast precipitation 1.8 mm, gusts 37.1 km/h"},
+    {"game":"CIN@MIA","weather_status":"forecast_captured","source_game":"CIN@MIA","materiality":"heat_context_only: 89.6 F; no precipitation forecast at sampled hour"},
+    {"game":"LV@NE","weather_status":"forecast_captured","source_game":"LV@NE","materiality":"no_material_flag_in_current_forecast"},
+    {"game":"NYG@WAS","weather_status":"forecast_captured","source_game":"NYG@WAS","materiality":"review_required: precipitation probability 72%"},
+    {"game":"HOU@TEN","weather_status":"forecast_captured","source_game":"HOU@TEN","materiality":"no_material_flag_in_current_forecast"},
+    {"game":"DEN@LAC","weather_status":"venue_condition_verification_required","materiality":"do_not_apply_outdoor_weather_without_current venue/roof confirmation"},
+    {"game":"SF@SEA","weather_status":"forecast_captured","source_game":"SF@SEA","materiality":"no_material_flag_in_current_forecast"},
+    {"game":"DET@ARI","weather_status":"venue_condition_verification_required","materiality":"do_not_apply_outdoor_weather_without_current venue/roof confirmation"},
+    {"game":"CHI@GB","weather_status":"forecast_captured","source_game":"CHI@GB","materiality":"review_required: wind 22.3 km/h, gusts 42.1 km/h"},
+    {"game":"BAL@ATL","weather_status":"venue_condition_verification_required","materiality":"do_not_apply_outdoor_weather_without_current venue/roof confirmation"},
+    {"game":"BUF@LAR","weather_status":"venue_condition_verification_required","materiality":"do_not_apply_outdoor_weather_without_current venue/roof confirmation"}
+  ],
+  "guardrails": {"forecast_not_observation":true,"requires_kickoff_refresh_for_material_conditions":true,"no_market_or_ticket_action":true}
+}

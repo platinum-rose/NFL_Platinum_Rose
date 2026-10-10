@@ -45,7 +45,7 @@
 //   node agents/twitter-bookmarks-agent.js --no-threads     # Skip TweetDetail thread expansion
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { existsSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -98,12 +98,13 @@ export function shouldSkipAsAlreadyProcessed(force, localFileExists) {
 // Pure mapping, split out from processBookmarkedTweet() so it's unit-testable
 // without mocking Supabase/Gemini Vision. Only Vision-OCR'd player props ever
 // reach this -- see the header comment on why freeform tweet text doesn't.
-export function buildPropSignalRows(props, { noteId, eventRef, sourceLabel }) {
+export function buildPropSignalRows(props, { noteId, eventRef, sourceLabel, author }) {
   return (props || [])
     .filter((p) => p.player_name && p.prop_type)
     .map((p) => ({
       note_id: noteId,
       source: sourceLabel || 'Twitter/X Bookmarks (Personal)',
+      ...(author ? { author } : {}),
       team_or_market: `${p.player_name} - ${p.prop_type}`,
       bet_type: 'player_prop',
       lean: [p.side, p.line].filter(Boolean).join(' ') || 'unspecified',
@@ -111,6 +112,21 @@ export function buildPropSignalRows(props, { noteId, eventRef, sourceLabel }) {
       event_ref: eventRef,
       confidence: 0.5, // OCR-derived, discounted vs. the 0.65 note-level confidence
     }));
+}
+
+const PLACEHOLDER_AUTHORS = new Set(['twitter_user', 'unknown', 'undefined', 'null', '']);
+export function canonicalReportName(dateStr, author, slug, dir = null) {
+  const fallback = `${dateStr}-${author}-${slug}.md`;
+  try {
+    const d = dir || path.join(path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'), '.nfl', 'reports', 'twitter-bookmarks');
+    const hits = readdirSync(d).filter((f) => f.endsWith(`-${slug}.md`));
+    if (!hits.length) return fallback;
+    if (hits.includes(fallback)) return fallback;
+    // Prefer a real-handle file over a placeholder one; a placeholder author never creates a new name.
+    const real = hits.filter((f) => !PLACEHOLDER_AUTHORS.has(f.slice(11, -(slug.length + 4)).toLowerCase())).sort();
+    if (real.length) return real[0];
+    return PLACEHOLDER_AUTHORS.has(String(author).toLowerCase()) ? hits.sort()[0] : fallback;
+  } catch { return fallback; }
 }
 
 const __filename = fileURLToPath(import.meta.url);
@@ -828,7 +844,9 @@ export async function processBookmarkedTweet(bm, opts = {}) {
     || (refreshIds ? refreshIds.split(',').includes(String(bm.id)) : false)
     || (opts.zeroSignalUrlHashes ? opts.zeroSignalUrlHashes.has(sha256(canonicalizeUrl(bm.url))) : false);
   const slug = bm.id.replace(/[^a-zA-Z0-9]/g, '-');
-  const filename = `${dateStr}-${bm.author}-${slug}.md`;
+  // Reuse an existing report for this tweet id (any author prefix) so a failed handle lookup
+  // ('twitter_user' / 'unknown') can't mint a second file + vault_notes path for the same tweet.
+  const filename = canonicalReportName(dateStr, bm.author, slug);
   const localReportPath = path.join(REPORTS_DIR, filename);
 
   if (shouldSkipAsAlreadyProcessed(FORCE, existsSync(localReportPath))) {
@@ -894,7 +912,7 @@ export async function processBookmarkedTweet(bm, opts = {}) {
   // dateStr, slug, filename, and localReportPath are already defined above.
   // NFL-only scope confirmed 2026-08-28 -- gate.sport is always 'NFL' here,
   // so there is no more NCAA/Bookmarks branch to route into.
-  const vaultPath = `NFL/${vaultCategory}/${dateStr}-${bm.author}-${slug}.md`;
+  const vaultPath = `NFL/${vaultCategory}/${filename}`;
 
   let propSection = '';
   if (visionAnalysis && visionAnalysis.player_props && visionAnalysis.player_props.length > 0) {
@@ -1030,7 +1048,7 @@ ${propSection}${videos.length ? `\n## Attached Video(s) -- pending transcription
       if (noteId && insertSignals) {
         const author = bm.author_name || bm.author;
         const textPicks = await extractTweetPicksWithGemini(bm.text, bm.author);
-        const ocrRows = buildPropSignalRows(visionAnalysis?.player_props || [], { noteId, eventRef: bm.url, sourceLabel });
+        const ocrRows = buildPropSignalRows(visionAnalysis?.player_props || [], { noteId, eventRef: bm.url, sourceLabel, author });
         const gameRows = buildVisionGamePickRows(visionAnalysis?.game_picks || [], { noteId, eventRef: bm.url, sourceLabel, author });
         const textRows = buildTextPickSignalRows(textPicks, { noteId, eventRef: bm.url, sourceLabel, author });
         const signalRows = dedupeSignalRows([...textRows, ...ocrRows, ...gameRows]);

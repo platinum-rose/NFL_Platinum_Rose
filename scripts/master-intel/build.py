@@ -629,6 +629,13 @@ def main():
     for p in yt.get('picks', []):
         gm = p.get('game');
         if gm in ids: YT[gm].append(p)
+    # analysis_notes (film study / matchup context, not bets) from the same digest: attach to a game when a named team is in it
+    YTN = collections.defaultdict(list); YTN_GENERAL = []
+    for n_ in (yt.get('analysis_notes', []) if yt else []):
+        hit = [gid_ for gid_, g_ in ids.items() if (set(n_.get('teams') or []) & {g_['visitor'], g_['home']})]
+        if hit:
+            for gid_ in hit: YTN[gid_].append(n_)
+        else: YTN_GENERAL.append(n_)
 
     # ---------- injuries ----------
     INJ = collections.defaultdict(dict)
@@ -649,8 +656,9 @@ def main():
     LEANS = []
     if digest_p:
         for ln in (ROOT / digest_p).read_text(encoding='utf-8').splitlines():
-            c = [x.strip() for x in ln.split('|')]
-            if len(c) >= 5 and c[0] and not c[0].startswith(('game', '#', 'Sources', 'Live')) and c[-1]:
+            c = [x.strip() for x in re.sub(r'^\s*[-*]\s+', '', ln).split('|')]
+            if c and c[0]: c[0] = re.sub(r'\s*@\s*', '@', c[0].strip('`*'))
+            if len(c) >= 5 and c[0] and re.match(r'^[A-Z]{2,4}@[A-Z]{2,4}$', c[0]) and c[-1]:
                 LEANS.append(dict(game=c[0], market=c[1], lean=c[2], source=c[3], tier=c[4]))
     else: gaps.append(f'No synthesis digest (scratch/w{WW}-synthesis-digest*.md) — sections 1/4 fall back to consensus counts only.')
     # ---------- card tickets ----------
@@ -955,6 +963,7 @@ def main():
           f"| Research signals / articles / expert picks | {len(pull['signals'])} / {len(pull['notes'])} / {len(pull['expert'])} (since {pull['window_start'][:10]}) |",
           f"| Podcast transcripts processed | {pull.get('podcast_transcripts_processed')} |",
           f"| YouTube picks (cleaned) | {len(yt.get('picks', []))} |",
+          f"| YouTube analysis notes | {len(yt.get('analysis_notes', []))} |",
           f"| Betting splits (Action Network) | {len(SPL)} games |",
           f"| Opening lines (line-movement baseline) | {', '.join(f'{n} games: {l}' for l, n in collections.Counter(o.get('label', o['src']) for g_, o in OPEN.items() if g_ in {x['id'] for x in live}).most_common()) or 'none'} |"] + RE
     qb_notes = []
@@ -1379,9 +1388,9 @@ def main():
             L += ['', '</div>', '</details>']
     L += ['', '<a id="expert-registry"></a>', '### 🎙️ Expert pick registry by game', '', 'Every named expert pick we captured this week, by game. The game write-ups in §7 link here when they cite an expert.', '']
     for g in live:
-        ex, yp = EXP.get(g['id'], []), YT.get(g['id'], [])
-        if not ex and not yp: continue
-        L += roll('section-4', f"experts-{slug(g['id'])}", f"🎙️ {matchup(g['id'])} — {len(ex) + len(yp)} picks")
+        ex, yp, yn = EXP.get(g['id'], []), YT.get(g['id'], []), YTN.get(g['id'], [])
+        if not ex and not yp and not yn: continue
+        L += roll('section-4', f"experts-{slug(g['id'])}", f"🎙️ {matchup(g['id'])} — {len(ex) + len(yp)} picks" + (f" · {len(yn)} analysis notes" if yn else ''))
         used = set()
         def anc(name):
             i_ = EXPANCH[g['id']].get(name)
@@ -1391,8 +1400,12 @@ def main():
             items = [f"- {anc(r.get('expert'))}**{esc(r.get('expert'))}** — {esc(r.get('pick_type'))} **{esc(r.get('selection'))}** {esc(r.get('line') or '')} — {esc(r.get('rationale'))[:170]}" for r in ex if exp_kind(r) == kind]
             items += [f"- {anc(p['speaker'])}**{esc(p['speaker'])}** (YouTube, {esc(p['show'].split(' — ')[0])}) — **{esc(p['pick'])}** {p.get('price') or ''}{(' — ⚠ ' + esc(p['verify'])) if p.get('verify') else ''}" for p in yp if yt_kind(p) == kind]
             if items: L += ['', f"**{ {'Side': 'Sides', 'Total': 'Totals', 'Prop': 'Player props'}[kind] }**", ''] + items
+        if yn:
+            L += ['', '**Analysis notes (film study and matchup context, not bets)**', ''] + [f"- **{esc(n_.get('speaker') or '?')}** ({esc((n_.get('show') or '').split(' — ')[0])}) — {esc(n_.get('topic') or '')}: {esc(n_.get('summary') or '')[:260]} [▶]({n_.get('timestamp_url')})" for n_ in yn]
         L += ['', f"[⬆ Back to the {g['id']} game write-up](#{gsid(g['id'])})", '</div>', '</details>']
 
+    if YTN_GENERAL:
+        L += ['', '**League-wide and cross-game analysis notes**', ''] + [f"- **{esc(n_.get('speaker') or '?')}** ({esc((n_.get('show') or '').split(' — ')[0])}) — {esc(n_.get('topic') or '')}: {esc(n_.get('summary') or '')[:260]} [▶]({n_.get('timestamp_url')})" for n_ in YTN_GENERAL]
     # ---------------- 5. Wong teaser ----------------
     L += ['', '<a id="teaser-matrix"></a>', '## 5. The Master 6-Point Wong Teaser Matrix', '',
           '**What a teaser is:** you move the point spread 6 points in your favor on every leg, in exchange for a smaller payout, and every leg must win. The "Wong" version only uses lines where those 6 points cross both **3 and 7**, the two most common NFL winning margins: favorites of −7.5 to −8.5 (teased down to −1.5 / −2.5) and underdogs of +1.5 to +2.5 (teased up to +7.5 / +8.5). Keep teasers to 2 legs.', '',

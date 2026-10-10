@@ -23,9 +23,54 @@ async function all(table, cols, build) {
     out = out.concat(data); if (data.length < 1000) return out; from += 1000;
   }
 }
-const signals = await all('research_pick_signals', 'source,author,bet_type,event_ref,team_or_market,lean,rationale,captured_at', q => q.gte('captured_at', WS));
+const rawSignals = await all('research_pick_signals', 'source,author,bet_type,event_ref,team_or_market,lean,rationale,captured_at', q => q.gte('captured_at', WS));
+// Two extraction passes can write the same pick twice (one with the author set, one null; "anytime TD"
+// vs "touchdowns"; "rushing_yards" vs "rushing yards"). Collapse them per tweet/article + player + market + lean.
+// Keeps the row with an author, then the longer rationale. Rows without an event_ref are never merged.
+const normMarket = (m) => { const x = String(m || '').toLowerCase().replace(/_/g, ' ').replace(/\s+/g, ' ').trim();
+  if (/^(anytime )?(td|touchdowns?)( scorer)?$/.test(x)) return 'td'; if (/^(rush(ing)?) (yds|yards)$/.test(x)) return 'rushing yards';
+  if (/^(rec(eiving)?) (yds|yards)$/.test(x)) return 'receiving yards'; if (/^(pass(ing)?) (yds|yards)$/.test(x)) return 'passing yards'; return x; };
+const normLean = (l) => String(l || '').toUpperCase().replace(/\bYES\b/, 'OVER').replace(/\s+/g, ' ').trim();
+function dedupeSignals(rows) {
+  const keep = new Map(); const out = [];
+  for (const r of rows) {
+    if (!r.event_ref) { out.push(r); continue; }
+    const parts = String(r.team_or_market || '').split(' - ');
+    const key = [r.event_ref, parts[0].toLowerCase().trim(), normMarket(parts.length > 1 ? parts.slice(1).join(' - ') : r.bet_type), normLean(r.lean)].join('|');
+    const prev = keep.get(key);
+    if (!prev) { keep.set(key, out.length); out.push(r); continue; }
+    const cur = out[prev];
+    const better = (!cur.author && r.author) || ((!!cur.author === !!r.author) && (r.rationale || '').length > (cur.rationale || '').length);
+    if (better) out[prev] = r;
+  }
+  return out;
+}
+// Explicit, auditable per-week exclusions (e.g. a prior-week slate thread that landed inside this week's window).
+let exclusions = [];
+try { exclusions = (JSON.parse(fs.readFileSync('data/research-intel/week-exclusions.json', 'utf8'))[String(WEEK)]) || []; } catch {}
+const exRefs = new Map(exclusions.filter(e => e.event_ref).map(e => [e.event_ref, e.reason]));
+const expertEx = exclusions.filter(e => e.expert);
+const isExpertExcluded = (r) => expertEx.find(e => e.expert === r.expert && e.selection === r.selection && (!e.visitor || e.visitor === r.visitor) && (!e.home || e.home === r.home));
+const dedupedSignals = dedupeSignals(rawSignals);
+
+// The loaders (--replace) re-insert rows with captured_at = now, so a Week 2 tweet loaded today looks like a Week ${WEEK} signal.
+// Date X/Twitter signals by the tweet itself (the post time is encoded in the status id) and keep only tweets posted inside the window.
+const tweetPostedMs = (u) => { const m = String(u || '').match(/(?:x|twitter)\.com\/[^/]+\/status\/(\d+)/); return m ? Number((BigInt(m[1]) >> 22n) + 1288834974657n) : null; };
+const WS_MS = Date.parse(WS);
+const preWindow = (r) => { const ms = tweetPostedMs(r.event_ref); return ms != null && ms < WS_MS; };
+const manuallyExcluded = dedupedSignals.filter(r => exRefs.has(r.event_ref));
+const excludedSignals = [
+  ...manuallyExcluded.map(r => ({ ...r, excluded_reason: exRefs.get(r.event_ref) })),
+  ...dedupedSignals.filter(r => !exRefs.has(r.event_ref) && preWindow(r)).map(r => ({ ...r, excluded_reason: 'tweet posted before the week window (loader re-stamped captured_at)' })),
+];
+const stalePosts = dedupedSignals.filter(r => !exRefs.has(r.event_ref) && preWindow(r));
+const signals = dedupedSignals.filter(r => !exRefs.has(r.event_ref) && !preWindow(r));
+console.log(`signals dropped as pre-window tweets: ${stalePosts.length}`);
+if (excludedSignals.length) console.log(`signals excluded for week ${WEEK}: ${excludedSignals.length}`);
+console.log(`signals deduped: ${rawSignals.length} -> ${signals.length}`);
 const notes = await all('research_intel_notes', 'source,title,summary,published_at,captured_at,url', q => q.gte('captured_at', WS));
-const expert = await all('user_picks', 'expert,pick_type,selection,line,visitor,home,rationale,created_at', q => q.eq('source', 'EXPERT').gte('created_at', WS));
+const expertRaw = await all('user_picks', 'expert,pick_type,selection,line,visitor,home,rationale,created_at', q => q.eq('source', 'EXPERT').gte('created_at', WS));
+const expert = expertRaw.filter(r => !isExpertExcluded(r));
 const splits = await all('game_splits', '*', q => q.eq('season', SEASON).eq('week', WEEK));
 const feedHealth = await all('feed_health', 'source,last_status,last_reason,consecutive_failures,last_success_at,last_checked_at');
 const podcasts = await all('podcast_transcripts', 'processed_at', q => q.gte('processed_at', WS));
@@ -63,8 +108,10 @@ const podcastGeminiPickCount = podcastGemini.reduce((total, row) => total + row.
 const podcastGeminiNoteCount = podcastGemini.reduce((total, row) => total + row.analysis_notes.length, 0);
 const out = {
   schema: 'master_intel_pull_v2', week: WEEK, season: SEASON, window_start: WS, pulled_at: new Date().toISOString(),
+  excluded_signals: excludedSignals,
   signals: signals.map(r => ({ ...r, rationale: (r.rationale || '').slice(0, 240) })),
   notes: notes.map(r => ({ ...r, summary: (r.summary || '').slice(0, 300) })),
+  excluded_expert: expertRaw.filter(isExpertExcluded).map(r => ({ ...r, excluded_reason: isExpertExcluded(r).reason })),
   expert: expert.map(r => ({ ...r, rationale: (r.rationale || '').slice(0, 240) })),
   splits, feed_health: feedHealth, podcast_transcripts_processed: podcasts.length,
   // Promoted source material only. These rows remain evidence, not card picks.
