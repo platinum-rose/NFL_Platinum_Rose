@@ -53,7 +53,7 @@ for g in BASE:
 by_total = {k: dict(n=len(v), total_resid_mean=round(st.mean(g['tot'] - g['tl'] for g in v), 2), total_resid_sd=round(st.pstdev(g['tot'] - g['tl'] for g in v), 3)) for k, v in sorted(tb.items())}
 out = dict(schema='historical_market_calibration_v1', generated_at=datetime.datetime.now(datetime.timezone.utc).isoformat(), status='proposed_analysis_context_only',
            source=dict(path=str(SRC.relative_to(ROOT)).replace('\\', '/'), sha256=sha, rows_total=len(rows), reg_season_with_spread_total_result=len(G),
-                       last_season_with_results=max(g['season'] for g in G), note='2026 rows in this file are schedule only (no scores, no lines); file dated 2026-06-05.'),
+                       last_season_with_results=max(g['season'] for g in G), note='2026 rows have no scores or results, and their spread_line/total_line/moneyline values are pre-season (file dated 2026-06-05) placeholders, not closing lines; they are excluded from every statistic here.'),
            conventions='nflverse: spread_line > 0 = home favored; result = home - away; residual = result - spread_line; total residual = total - total_line; REG season only.',
            default_era='2018-2025', eras={k: block(v) for k, v in eras.items()}, by_closing_spread_abs_default_era=by_spread,
            fav_margin_distribution_pct_default_era=margin_dist, on_the_number_default_era=on_line, by_total_line_default_era=by_total,

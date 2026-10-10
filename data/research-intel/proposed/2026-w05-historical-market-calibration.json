@@ -1,6 +1,6 @@
 {
  "schema": "historical_market_calibration_v1",
- "generated_at": "2026-10-10T21:29:09.997833+00:00",
+ "generated_at": "2026-10-10T22:03:55.965010+00:00",
  "status": "proposed_analysis_context_only",
  "source": {
   "path": "data/vault-seed/nflverse/games-full-1999-2026.csv",
@@ -8,7 +8,7 @@
   "rows_total": 7548,
   "reg_season_with_spread_total_result": 6967,
   "last_season_with_results": 2025,
-  "note": "2026 rows in this file are schedule only (no scores, no lines); file dated 2026-06-05."
+  "note": "2026 rows have no scores or results, and their spread_line/total_line/moneyline values are pre-season (file dated 2026-06-05) placeholders, not closing lines; they are excluded from every statistic here."
  },
  "conventions": "nflverse: spread_line > 0 = home favored; result = home - away; residual = result - spread_line; total residual = total - total_line; REG season only.",
  "default_era": "2018-2025",
