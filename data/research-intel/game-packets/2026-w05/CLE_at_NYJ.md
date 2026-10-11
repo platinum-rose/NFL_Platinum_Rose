@@ -1,6 +1,6 @@
 # CLE@NYJ packet — Cleveland Browns @ New York Jets
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -24,6 +24,8 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
+- AVAILABILITY CLE (ESPN 2026-10-11T02:16:11Z): Out: Teven Jenkins G, Tylan Wallace WR, Carsen Ryan TE, Mike Hall Jr. DT, Mason Graham DT | Questionable/Doubtful: none | IR: Kalia Davis DT, Dillon Gabriel QB
+- AVAILABILITY NYJ (ESPN 2026-10-11T02:16:11Z): Out: Dylan Parham G, Kiko Mauigoa LB, Adonai Mitchell WR, Breece Hall RB | Questionable/Doubtful: Will McDonald IV DE, Kingsley Enagbare LB | IR: Braiden McGregor DE
 - BOOK CONFLICT: BKR home line -2.5 vs BEO -1 (>=1.0 pt apart); recapture before relying on either
 - WEATHER: review_required: precipitation probability 78%, forecast precipitation 1.8 mm, gusts 37.1 km/h
 
@@ -127,9 +129,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"CLE": {"season": 2026, "team": "Browns", "team_abbr": "CLE", "games_played": 4, "record": "3-1", "power_rating": {"srs": 0.405, "net_points_per_game": -3.5, "pythag_win_pct": 0.4066, "model_composite_z": -0.3184, "model_rank": 20, "srs_rank": 14, "net_ppg_rank": 22, "pythag_rank": 21, "market_implied_win_total": 8.36, "market_implied_rank": 21, "delta": 0.0521, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "NYJ": {"season": 2026, "team": "Jets", "team_abbr": "NYJ", "games_played": 4, "record": "1-3", "power_rating": {"srs": -4.359, "net_points_per_game": -2, "pythag_win_pct": 0.441, "model_composite_z": -0.4109, "model_rank": 23, "srs_rank": 23, "net_ppg_rank": 18, "pythag_rank": 18, "market_implied_win_total": 6.12, "market_implied_rank": 28, "delta": -0.816, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"CLE": {"net_ppg": -3.5, "recomputed_2026_point_diff_per_game": -3.5, "matches_2026": true}, "NYJ": {"net_ppg": -2, "recomputed_2026_point_diff_per_game": -2.0, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "CLE@NYJ", "weather_status": "forecast_captured", "source_game": "CLE@NYJ", "materiality": "review_required: precipitation probability 78%, forecast precipitation 1.8 mm, gusts 37.1 km/h"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "outdoor", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

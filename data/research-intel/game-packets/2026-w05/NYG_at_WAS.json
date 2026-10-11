@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "NYG@WAS",
- "built_at": "2026-10-11T02:16:45.030365+00:00",
+ "built_at": "2026-10-11T03:13:48.008992+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "NYG",
@@ -882,6 +882,8 @@
  },
  "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
+  "AVAILABILITY NYG (ESPN 2026-10-11T02:16:11Z): Out: Jason Pinnock S | Questionable/Doubtful: none | IR: Chauncey Golston DE, Braxton Berrios WR",
+  "AVAILABILITY WAS (ESPN 2026-10-11T02:16:11Z): Out: Tyler Owens S, Charles Omenihu DE, Percy Butler S, Nick Cross S, Marcus Mariota QB, Stefon Diggs WR | Questionable/Doubtful: Terry McLaurin WR | IR: Trey Amos CB, Jeremy McNichols RB, Jaylin Lane WR",
   "WEATHER: review_required: precipitation probability 72%"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
@@ -2379,5 +2381,23 @@
   "prop_markets": "BKR/BEO rows for event \"New York Giants @ Washington Commanders\" with market != game_lines",
   "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for NYG and WAS",
   "projected_starters": "data/projected-starters/2026/latest.json (teams.NYG, teams.WAS)"
+ },
+ "venue": {
+  "home_team_stadium_roof": "outdoor",
+  "indoor_for_weather": false,
+  "venue_field_in_schedule_data": false,
+  "note": "static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)"
+ },
+ "power_label_check": {
+  "NYG": {
+   "net_ppg": 0.75,
+   "recomputed_2026_point_diff_per_game": 0.75,
+   "matches_2026": true
+  },
+  "WAS": {
+   "net_ppg": -8.5,
+   "recomputed_2026_point_diff_per_game": -8.5,
+   "matches_2026": true
+  }
  }
 }

@@ -1,6 +1,6 @@
 # DET@ARI packet — Detroit Lions @ Arizona Cardinals
 
-Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -22,7 +22,10 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
+- AVAILABILITY DET (ESPN 2026-10-11T02:16:11Z): Out: Ben Bartch G, Rock Ya-Sin CB, Brian Branch S | Questionable/Doubtful: Tyleik Williams DT | IR: Cade Mays C, Thomas Harper S
+- AVAILABILITY ARI (ESPN 2026-10-11T02:16:11Z): Out: Marvin Harrison Jr. WR, Andrew Wingard S | Questionable/Doubtful: Walter Nolen III DT, Karson Sharar LB | IR: Isaiah Adams G, Paris Johnson Jr. OT, Hunter Long TE
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
+- VENUE: ARI has a retractable roof; check game-day roof status before using weather
 
 ## Quarterbacks
 
@@ -124,9 +127,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"DET": {"season": 2026, "team": "Lions", "team_abbr": "DET", "games_played": 4, "record": "2-2", "power_rating": {"srs": -3.252, "net_points_per_game": -2, "pythag_win_pct": 0.4615, "model_composite_z": -0.3187, "model_rank": 21, "srs_rank": 20, "net_ppg_rank": 17, "pythag_rank": 17, "market_implied_win_total": 10.37, "market_implied_rank": 11, "delta": 0.9175, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "ARI": {"season": 2026, "team": "Cardinals", "team_abbr": "ARI", "games_played": 4, "record": "1-3", "power_rating": {"srs": -6.928, "net_points_per_game": -7.5, "pythag_win_pct": 0.3313, "model_composite_z": -1.0047, "model_rank": 27, "srs_rank": 28, "net_ppg_rank": 28, "pythag_rank": 27, "market_implied_win_total": 5.33, "market_implied_rank": 30, "delta": -0.5402, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"DET": {"net_ppg": -2, "recomputed_2026_point_diff_per_game": -2.0, "matches_2026": true}, "ARI": {"net_ppg": -7.5, "recomputed_2026_point_diff_per_game": -7.5, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "DET@ARI", "weather_status": "venue_condition_verification_required", "materiality": "do_not_apply_outdoor_weather_without_current venue/roof confirmation"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "retractable roof (status must be checked)", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

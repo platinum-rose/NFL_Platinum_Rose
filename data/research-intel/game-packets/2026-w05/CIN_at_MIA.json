@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CIN@MIA",
- "built_at": "2026-10-11T02:16:45.030365+00:00",
+ "built_at": "2026-10-11T03:13:48.008992+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CIN",
@@ -910,6 +910,8 @@
  },
  "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
+  "AVAILABILITY CIN (ESPN 2026-10-11T02:16:11Z): Out: Kyle Dugger S | Questionable/Doubtful: Bryan Cook S, Colbie Young WR, Tee Higgins WR, Ja'Marr Chase WR, Swayze Bozeman LB | IR: Jalen Davis CB",
+  "AVAILABILITY MIA (ESPN 2026-10-11T02:16:11Z): Out: Storm Duck CB, Robert Beal Jr. DE, Justin Joly TE, Caleb Douglas WR, Reese Taylor CB | Questionable/Doubtful: Jaylen Wright RB, Jackson Woodard LB | IR: none",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],
@@ -2403,5 +2405,23 @@
   "prop_markets": "BKR/BEO rows for event \"Cincinnati Bengals @ Miami Dolphins\" with market != game_lines",
   "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for CIN and MIA",
   "projected_starters": "data/projected-starters/2026/latest.json (teams.CIN, teams.MIA)"
+ },
+ "venue": {
+  "home_team_stadium_roof": "outdoor",
+  "indoor_for_weather": false,
+  "venue_field_in_schedule_data": false,
+  "note": "static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)"
+ },
+ "power_label_check": {
+  "CIN": {
+   "net_ppg": 3,
+   "recomputed_2026_point_diff_per_game": 3.0,
+   "matches_2026": true
+  },
+  "MIA": {
+   "net_ppg": -13.75,
+   "recomputed_2026_point_diff_per_game": -13.75,
+   "matches_2026": true
+  }
  }
 }

@@ -1,6 +1,6 @@
 # SF@SEA packet — San Francisco 49ers @ Seattle Seahawks
 
-Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC West).
 
@@ -24,6 +24,8 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
+- AVAILABILITY SF (ESPN 2026-10-11T02:16:11Z): Out: James Thompson Jr. DT, Nick Bosa DE, Marques Sigle S, Kyle Juszczyk FB | Questionable/Doubtful: Upton Stout CB | IR: none
+- AVAILABILITY SEA (ESPN 2026-10-11T02:16:11Z): Out: Chazz Surratt LB, Zach Charbonnet RB | Questionable/Doubtful: George Holani RB | IR: Julian Neal CB, Irv Charles WR
 - 2 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
@@ -118,9 +120,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"SF": {"season": 2026, "team": "49ers", "team_abbr": "SF", "games_played": 4, "record": "4-0", "power_rating": {"srs": 14.043, "net_points_per_game": 14.5, "pythag_win_pct": 0.8219, "model_composite_z": 1.9837, "model_rank": 1, "srs_rank": 2, "net_ppg_rank": 1, "pythag_rank": 2, "market_implied_win_total": 12.25, "market_implied_rank": 2, "delta": -0.6613, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "SEA": {"season": 2026, "team": "Seahawks", "team_abbr": "SEA", "games_played": 4, "record": "3-1", "power_rating": {"srs": 1.698, "net_points_per_game": 8, "pythag_win_pct": 0.703, "model_composite_z": 0.8543, "model_rank": 7, "srs_rank": 12, "net_ppg_rank": 6, "pythag_rank": 6, "market_implied_win_total": 11.61, "market_implied_rank": 6, "delta": 0.2346, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"SF": {"net_ppg": 14.5, "recomputed_2026_point_diff_per_game": 14.5, "matches_2026": true}, "SEA": {"net_ppg": 8, "recomputed_2026_point_diff_per_game": 8.0, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "SF@SEA", "weather_status": "forecast_captured", "source_game": "SF@SEA", "materiality": "no_material_flag_in_current_forecast"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "outdoor", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

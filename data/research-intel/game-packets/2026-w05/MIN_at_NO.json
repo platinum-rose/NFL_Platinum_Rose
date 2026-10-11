@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "MIN@NO",
- "built_at": "2026-10-11T02:16:45.030365+00:00",
+ "built_at": "2026-10-11T03:13:48.008992+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "MIN",
@@ -943,9 +943,12 @@
  },
  "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
+  "AVAILABILITY MIN (ESPN 2026-10-11T02:16:11Z): Out: Charles Demmings CB, Christian Darrisaw OT | Questionable/Doubtful: Ben Yurosek TE, Michael Jurgens C, Brian O'Neill OT, Jordan Addison WR, Justin Jefferson WR | IR: Donovan Jackson G, Josh Oliver TE",
+  "AVAILABILITY NO (ESPN 2026-10-11T02:16:11Z): Out: Jeremiah Wright G, Anfernee Jennings LB, Kaden Elliss LB | Questionable/Doubtful: Nathan Shepherd DT, Vernon Broughton DT, Lorenzo Styles Jr. S, Jaylan Ford LB, Christen Miller DT, Julian Blackmon S, Barion Brown WR, Alvin Kamara RB | IR: none",
   "BOOK CONFLICT: BKR home line 2.5 vs BEO 1 (>=1.0 pt apart); recapture before relying on either",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
-  "1 near-miss source row(s) (verbatim but not self-identifying): context only"
+  "1 near-miss source row(s) (verbatim but not self-identifying): context only",
+  "VENUE: NO is a fixed dome (static table); outdoor weather does not apply"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [
@@ -2823,5 +2826,23 @@
   "prop_markets": "BKR/BEO rows for event \"Minnesota Vikings @ New Orleans Saints\" with market != game_lines",
   "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for MIN and NO",
   "projected_starters": "data/projected-starters/2026/latest.json (teams.MIN, teams.NO)"
+ },
+ "venue": {
+  "home_team_stadium_roof": "fixed dome",
+  "indoor_for_weather": true,
+  "venue_field_in_schedule_data": false,
+  "note": "static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)"
+ },
+ "power_label_check": {
+  "MIN": {
+   "net_ppg": 8.75,
+   "recomputed_2026_point_diff_per_game": 8.75,
+   "matches_2026": true
+  },
+  "NO": {
+   "net_ppg": -5.75,
+   "recomputed_2026_point_diff_per_game": -5.75,
+   "matches_2026": true
+  }
  }
 }

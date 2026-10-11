@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "DET@ARI",
- "built_at": "2026-10-11T02:16:45.030365+00:00",
+ "built_at": "2026-10-11T03:13:48.008992+00:00",
  "kickoff_utc": "2026-10-11T20:25:00.000Z",
  "away": {
   "abbr": "DET",
@@ -893,7 +893,10 @@
  },
  "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
-  "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels"
+  "AVAILABILITY DET (ESPN 2026-10-11T02:16:11Z): Out: Ben Bartch G, Rock Ya-Sin CB, Brian Branch S | Questionable/Doubtful: Tyleik Williams DT | IR: Cade Mays C, Thomas Harper S",
+  "AVAILABILITY ARI (ESPN 2026-10-11T02:16:11Z): Out: Marvin Harrison Jr. WR, Andrew Wingard S | Questionable/Doubtful: Walter Nolen III DT, Karson Sharar LB | IR: Isaiah Adams G, Paris Johnson Jr. OT, Hunter Long TE",
+  "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
+  "VENUE: ARI has a retractable roof; check game-day roof status before using weather"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [
@@ -2668,5 +2671,23 @@
   "prop_markets": "BKR/BEO rows for event \"Detroit Lions @ Arizona Cardinals\" with market != game_lines",
   "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for DET and ARI",
   "projected_starters": "data/projected-starters/2026/latest.json (teams.DET, teams.ARI)"
+ },
+ "venue": {
+  "home_team_stadium_roof": "retractable roof (status must be checked)",
+  "indoor_for_weather": false,
+  "venue_field_in_schedule_data": false,
+  "note": "static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)"
+ },
+ "power_label_check": {
+  "DET": {
+   "net_ppg": -2,
+   "recomputed_2026_point_diff_per_game": -2.0,
+   "matches_2026": true
+  },
+  "ARI": {
+   "net_ppg": -7.5,
+   "recomputed_2026_point_diff_per_game": -7.5,
+   "matches_2026": true
+  }
  }
 }

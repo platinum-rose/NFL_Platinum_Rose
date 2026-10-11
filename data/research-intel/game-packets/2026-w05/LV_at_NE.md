@@ -1,6 +1,6 @@
 # LV@NE packet — Las Vegas Raiders @ New England Patriots
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -22,6 +22,8 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
+- AVAILABILITY LV (ESPN 2026-10-11T02:16:11Z): Out: Trey Zuhn III C, Jalen Nailor WR | Questionable/Doubtful: Ashton Jeanty RB | IR: Dont'e Thornton Jr. WR
+- AVAILABILITY NE (ESPN 2026-10-11T02:16:11Z): Out: Karon Prunty CB, Channing Canada CB, Christian Gonzalez CB, Carlton Davis III CB | Questionable/Doubtful: Charles Woods CB, Craig Woodson S, Dre'Mont Jones DE, Christian Elliss LB, Christian Barmore DT, Rhamondre Stevenson RB, Morgan Moses OT | IR: Reggie Gilliam FB, Mack Hollins WR, A.J. Brown WR
 - 3 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
@@ -124,9 +126,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"LV": {"season": 2026, "team": "Raiders", "team_abbr": "LV", "games_played": 4, "record": "3-1", "power_rating": {"srs": 6.191, "net_points_per_game": 7.75, "pythag_win_pct": 0.678, "model_composite_z": 1.0112, "model_rank": 6, "srs_rank": 6, "net_ppg_rank": 7, "pythag_rank": 7, "market_implied_win_total": 8.67, "market_implied_rank": 18, "delta": -1.1934, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "NE": {"season": 2026, "team": "Patriots", "team_abbr": "NE", "games_played": 4, "record": "2-2", "power_rating": {"srs": 2.402, "net_points_per_game": -3, "pythag_win_pct": 0.4009, "model_composite_z": -0.2093, "model_rank": 17, "srs_rank": 11, "net_ppg_rank": 21, "pythag_rank": 22, "market_implied_win_total": 10.35, "market_implied_rank": 12, "delta": 0.7954, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"LV": {"net_ppg": 7.75, "recomputed_2026_point_diff_per_game": 7.75, "matches_2026": true}, "NE": {"net_ppg": -3, "recomputed_2026_point_diff_per_game": -3.0, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "LV@NE", "weather_status": "forecast_captured", "source_game": "LV@NE", "materiality": "no_material_flag_in_current_forecast"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "outdoor", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

@@ -1,6 +1,6 @@
 # NYG@WAS packet — New York Giants @ Washington Commanders
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC East).
 
@@ -26,6 +26,8 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
+- AVAILABILITY NYG (ESPN 2026-10-11T02:16:11Z): Out: Jason Pinnock S | Questionable/Doubtful: none | IR: Chauncey Golston DE, Braxton Berrios WR
+- AVAILABILITY WAS (ESPN 2026-10-11T02:16:11Z): Out: Tyler Owens S, Charles Omenihu DE, Percy Butler S, Nick Cross S, Marcus Mariota QB, Stefon Diggs WR | Questionable/Doubtful: Terry McLaurin WR | IR: Trey Amos CB, Jeremy McNichols RB, Jaylin Lane WR
 - WEATHER: review_required: precipitation probability 72%
 
 ## Quarterbacks
@@ -120,9 +122,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"NYG": {"season": 2026, "team": "Giants", "team_abbr": "NYG", "games_played": 4, "record": "3-1", "power_rating": {"srs": -4.141, "net_points_per_game": 0.75, "pythag_win_pct": 0.5221, "model_composite_z": -0.1154, "model_rank": 14, "srs_rank": 22, "net_ppg_rank": 13, "pythag_rank": 13, "market_implied_win_total": 7.82, "market_implied_rank": 25, "delta": -0.3908, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "WAS": {"season": 2026, "team": "Commanders", "team_abbr": "WAS", "games_played": 4, "record": "1-3", "power_rating": {"srs": -11.37, "net_points_per_game": -8.5, "pythag_win_pct": 0.3156, "model_composite_z": -1.2959, "model_rank": 30, "srs_rank": 32, "net_ppg_rank": 30, "pythag_rank": 28, "market_implied_win_total": 7.29, "market_implied_rank": 26, "delta": 0.6054, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"NYG": {"net_ppg": 0.75, "recomputed_2026_point_diff_per_game": 0.75, "matches_2026": true}, "WAS": {"net_ppg": -8.5, "recomputed_2026_point_diff_per_game": -8.5, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "NYG@WAS", "weather_status": "forecast_captured", "source_game": "NYG@WAS", "materiality": "review_required: precipitation probability 72%"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "outdoor", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

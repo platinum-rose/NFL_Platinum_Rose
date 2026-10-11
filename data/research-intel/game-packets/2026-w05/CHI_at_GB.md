@@ -1,6 +1,6 @@
 # CHI@GB packet — Chicago Bears @ Green Bay Packers
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC North).
 
@@ -25,6 +25,8 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 ## Warnings that touch this game
 
 - QB CHI: ESPN lists Caleb Williams Questionable; (Questionable/Doubtful); starter is ambiguous -- operator says Tyson Bagent
+- AVAILABILITY CHI (ESPN 2026-10-11T02:16:11Z): Out: Anthony Johnson Jr. S, Shemar Turner DT, Kyler Gordon CB, Keyshaun Elliott LB, Kyle Monangai RB | Questionable/Doubtful: Noah Sewell LB, Caleb Williams QB | IR: none
+- AVAILABILITY GB (ESPN 2026-10-11T02:16:11Z): Out: Micah Parsons DE | Questionable/Doubtful: Jacob Monk C, Jager Burton C, Aaron Banks G, Javon Hargrave DT, Anthony Campbell DT | IR: Chris Brooks RB, Savion Williams WR, Edgerrin Cooper LB
 - WEATHER: review_required: wind 22.3 km/h, gusts 42.1 km/h
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
@@ -121,9 +123,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"CHI": {"season": 2026, "team": "Bears", "team_abbr": "CHI", "games_played": 4, "record": "3-1", "power_rating": {"srs": 12.116, "net_points_per_game": 11.75, "pythag_win_pct": 0.7841, "model_composite_z": 1.6883, "model_rank": 3, "srs_rank": 3, "net_ppg_rank": 3, "pythag_rank": 3, "market_implied_win_total": 11, "market_implied_rank": 8, "delta": -0.8929, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "GB": {"season": 2026, "team": "Packers", "team_abbr": "GB", "games_played": 4, "record": "2-2", "power_rating": {"srs": -7.417, "net_points_per_game": -8, "pythag_win_pct": 0.297, "model_composite_z": -1.1172, "model_rank": 28, "srs_rank": 29, "net_ppg_rank": 29, "pythag_rank": 29, "market_implied_win_total": 8.31, "market_implied_rank": 22, "delta": 0.859, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"CHI": {"net_ppg": 11.75, "recomputed_2026_point_diff_per_game": 11.75, "matches_2026": true}, "GB": {"net_ppg": -8, "recomputed_2026_point_diff_per_game": -8.0, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "CHI@GB", "weather_status": "forecast_captured", "source_game": "CHI@GB", "materiality": "review_required: wind 22.3 km/h, gusts 42.1 km/h"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "outdoor", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

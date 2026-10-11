@@ -1,6 +1,6 @@
 # BAL@ATL packet — Baltimore Ravens @ Atlanta Falcons
 
-Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -19,6 +19,12 @@ Market-implied score: {"ATL": 23.5, "BAL": 20.5, "basis": "BKR home line -3 tota
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290915, "away_team": "BAL", "home_team": "ATL", "kickoff_at": "2026-10-12T00:20:00.000Z", "spread": [{"side": "home", "value": -3.5, "price_american": -101, "ticket_pct": 47, "money_pct": 59}, {"side": "away", "value": 3.5, "price_american": -119, "ticket_pct": 53, "money_pct": 41}], "total": [{"side": "over", "value": 44, "price_american": -110, "ticket_pct": 72, "money_pct": 73}, {"side": "under", "value": 44, "price_american": -109, "ticket_pct": 28, "money_pct": 27}], "moneyline": [{"side": "away", "value": 0, "price_american": 150, "ticket_pct": 49, "money_pct": 39}, {"side": "home", "value": 0, "price_american": -177, "ticket_pct": 51, "money_pct": 61}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "BAL", "home_team": "ATL", "favorite": "ATL", "underdog": "BAL", "favorite_spread": -3.5, "kickoff_display": "Sun 8:20 pm"}
+
+## Warnings that touch this game
+
+- AVAILABILITY BAL (ESPN 2026-10-11T02:16:11Z): Out: Cam Jurgens C, Trey Hendrickson LB, Lamar Jackson QB | Questionable/Doubtful: Marlon Humphrey CB, Zay Flowers WR | IR: Ja'Kobi Lane WR, Durham Smythe TE
+- AVAILABILITY ATL (ESPN 2026-10-11T02:16:11Z): Out: Za'Darius Smith DE | Questionable/Doubtful: Jake Matthews OT, Divine Deablo LB, Samson Ebukam DE | IR: Yasir Abdullah LB
+- VENUE: ATL has a retractable roof; check game-day roof status before using weather
 
 ## Quarterbacks
 
@@ -122,9 +128,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"BAL": {"season": 2026, "team": "Ravens", "team_abbr": "BAL", "games_played": 4, "record": "3-1", "power_rating": {"srs": -0.709, "net_points_per_game": 5, "pythag_win_pct": 0.6103, "model_composite_z": 0.4196, "model_rank": 11, "srs_rank": 17, "net_ppg_rank": 9, "pythag_rank": 8, "market_implied_win_total": 11.71, "market_implied_rank": 5, "delta": 0.7284, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "ATL": {"season": 2026, "team": "Falcons", "team_abbr": "ATL", "games_played": 4, "record": "2-2", "power_rating": {"srs": 0.381, "net_points_per_game": 1, "pythag_win_pct": 0.5252, "model_composite_z": 0.12, "model_rank": 13, "srs_rank": 15, "net_ppg_rank": 12, "pythag_rank": 12, "market_implied_win_total": 8.69, "market_implied_rank": 17, "delta": -0.2606, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"BAL": {"net_ppg": 5, "recomputed_2026_point_diff_per_game": 5.0, "matches_2026": true}, "ATL": {"net_ppg": 1, "recomputed_2026_point_diff_per_game": 1.0, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "BAL@ATL", "weather_status": "venue_condition_verification_required", "materiality": "do_not_apply_outdoor_weather_without_current venue/roof confirmation"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "retractable roof (status must be checked)", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

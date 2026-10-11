@@ -1,6 +1,6 @@
 # PHI@JAX packet — Philadelphia Eagles @ Jacksonville Jaguars
 
-Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -19,6 +19,11 @@ Market-implied score: {"JAX": 24.75, "PHI": 17.25, "basis": "BKR home line -7.5 
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290820, "away_team": "PHI", "home_team": "JAC", "kickoff_at": "2026-10-11T13:30:00.000Z", "spread": [{"side": "home", "value": -7.5, "price_american": -110, "ticket_pct": 60, "money_pct": 57}, {"side": "away", "value": 7.5, "price_american": -110, "ticket_pct": 40, "money_pct": 43}], "total": [{"side": "over", "value": 41.5, "price_american": -111, "ticket_pct": 40, "money_pct": 37}, {"side": "under", "value": 41.5, "price_american": -108, "ticket_pct": 60, "money_pct": 63}], "moneyline": [{"side": "home", "value": 0, "price_american": -387, "ticket_pct": 70, "money_pct": 67}, {"side": "away", "value": 0, "price_american": 300, "ticket_pct": 30, "money_pct": 33}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "PHI", "home_team": "JAX", "favorite": "JAX", "underdog": "PHI", "favorite_spread": -7.5, "kickoff_display": "Sun 9:30 am"}
+
+## Warnings that touch this game
+
+- AVAILABILITY PHI (ESPN 2026-10-11T02:16:11Z): Out: Drew Kendall C, Marcus Epps S, Hollywood Brown WR, DeVonta Smith WR, Saquon Barkley RB | Questionable/Doubtful: Jonathan Greenard LB | IR: Tank Bigsby RB
+- AVAILABILITY JAX (ESPN 2026-10-11T02:16:11Z): Out: none | Questionable/Doubtful: Eric Murray S | IR: Caleb Ransaw S
 
 ## Quarterbacks
 
@@ -122,9 +127,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"PHI": {"season": 2026, "team": "Eagles", "team_abbr": "PHI", "games_played": 4, "record": "2-2", "power_rating": {"srs": -6.319, "net_points_per_game": -4.5, "pythag_win_pct": 0.3752, "model_composite_z": -0.7492, "model_rank": 25, "srs_rank": 26, "net_ppg_rank": 23, "pythag_rank": 24, "market_implied_win_total": 9.21, "market_implied_rank": 15, "delta": 0.8647, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "JAX": {"season": 2026, "team": "Jaguars", "team_abbr": "JAX", "games_played": 4, "record": "3-1", "power_rating": {"srs": 14.746, "net_points_per_game": 12.75, "pythag_win_pct": 0.8317, "model_composite_z": 1.953, "model_rank": 2, "srs_rank": 1, "net_ppg_rank": 2, "pythag_rank": 1, "market_implied_win_total": 11.75, "market_implied_rank": 4, "delta": -0.8447, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"PHI": {"net_ppg": -4.5, "recomputed_2026_point_diff_per_game": -4.5, "matches_2026": true}, "JAX": {"net_ppg": 12.75, "recomputed_2026_point_diff_per_game": 12.75, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "PHI@JAX", "weather_status": "forecast_captured", "source_game": "PHI@JAX", "materiality": "no_material_flag_in_current_forecast"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "outdoor", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

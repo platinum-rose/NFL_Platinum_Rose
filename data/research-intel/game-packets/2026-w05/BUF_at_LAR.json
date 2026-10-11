@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "BUF@LAR",
- "built_at": "2026-10-11T02:16:45.030365+00:00",
+ "built_at": "2026-10-11T03:13:48.008992+00:00",
  "kickoff_utc": "2026-10-13T00:15:00.000Z",
  "away": {
   "abbr": "BUF",
@@ -991,6 +991,8 @@
  },
  "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
+  "AVAILABILITY BUF (ESPN 2026-10-11T02:16:11Z): Out: Ed Oliver DT, Joshua Palmer WR | Questionable/Doubtful: Dee Alford CB, Landon Jackson DE, DJ Moore WR, Te'Cory Couch CB | IR: none",
+  "AVAILABILITY LAR (ESPN 2026-10-11T02:16:11Z): Out: none | Questionable/Doubtful: Quentin Lake S | IR: Myles Garrett DE, Terrance Ferguson TE",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
@@ -2619,5 +2621,23 @@
   "prop_markets": "BKR/BEO rows for event \"Buffalo Bills @ Los Angeles Rams\" with market != game_lines",
   "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for BUF and LAR",
   "projected_starters": "data/projected-starters/2026/latest.json (teams.BUF, teams.LAR)"
+ },
+ "venue": {
+  "home_team_stadium_roof": "covered but open-sided (weather can still matter)",
+  "indoor_for_weather": false,
+  "venue_field_in_schedule_data": false,
+  "note": "static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)"
+ },
+ "power_label_check": {
+  "BUF": {
+   "net_ppg": 5,
+   "recomputed_2026_point_diff_per_game": 5.0,
+   "matches_2026": true
+  },
+  "LAR": {
+   "net_ppg": 0.5,
+   "recomputed_2026_point_diff_per_game": 0.5,
+   "matches_2026": true
+  }
  }
 }

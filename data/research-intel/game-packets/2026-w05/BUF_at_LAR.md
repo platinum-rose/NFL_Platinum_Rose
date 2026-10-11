@@ -1,6 +1,6 @@
 # BUF@LAR packet — Buffalo Bills @ Los Angeles Rams
 
-Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -22,6 +22,8 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
+- AVAILABILITY BUF (ESPN 2026-10-11T02:16:11Z): Out: Ed Oliver DT, Joshua Palmer WR | Questionable/Doubtful: Dee Alford CB, Landon Jackson DE, DJ Moore WR, Te'Cory Couch CB | IR: none
+- AVAILABILITY LAR (ESPN 2026-10-11T02:16:11Z): Out: none | Questionable/Doubtful: Quentin Lake S | IR: Myles Garrett DE, Terrance Ferguson TE
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
@@ -126,9 +128,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"BUF": {"season": 2026, "team": "Bills", "team_abbr": "BUF", "games_played": 4, "record": "3-1", "power_rating": {"srs": 0.787, "net_points_per_game": 5, "pythag_win_pct": 0.6002, "model_composite_z": 0.4724, "model_rank": 9, "srs_rank": 13, "net_ppg_rank": 8, "pythag_rank": 9, "market_implied_win_total": 12.22, "market_implied_rank": 3, "delta": 0.8932, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "LAR": {"season": 2026, "team": "Rams", "team_abbr": "LAR", "games_played": 4, "record": "2-2", "power_rating": {"srs": 2.861, "net_points_per_game": 0.5, "pythag_win_pct": 0.5141, "model_composite_z": 0.1945, "model_rank": 12, "srs_rank": 10, "net_ppg_rank": 14, "pythag_rank": 14, "market_implied_win_total": 11.58, "market_implied_rank": 7, "delta": 0.906, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"BUF": {"net_ppg": 5, "recomputed_2026_point_diff_per_game": 5.0, "matches_2026": true}, "LAR": {"net_ppg": 0.5, "recomputed_2026_point_diff_per_game": 0.5, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "BUF@LAR", "weather_status": "venue_condition_verification_required", "materiality": "do_not_apply_outdoor_weather_without_current venue/roof confirmation"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "covered but open-sided (weather can still matter)", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

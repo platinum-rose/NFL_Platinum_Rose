@@ -1,6 +1,6 @@
 # MIN@NO packet — Minnesota Vikings @ New Orleans Saints
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -24,9 +24,12 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
+- AVAILABILITY MIN (ESPN 2026-10-11T02:16:11Z): Out: Charles Demmings CB, Christian Darrisaw OT | Questionable/Doubtful: Ben Yurosek TE, Michael Jurgens C, Brian O'Neill OT, Jordan Addison WR, Justin Jefferson WR | IR: Donovan Jackson G, Josh Oliver TE
+- AVAILABILITY NO (ESPN 2026-10-11T02:16:11Z): Out: Jeremiah Wright G, Anfernee Jennings LB, Kaden Elliss LB | Questionable/Doubtful: Nathan Shepherd DT, Vernon Broughton DT, Lorenzo Styles Jr. S, Jaylan Ford LB, Christen Miller DT, Julian Blackmon S, Barion Brown WR, Alvin Kamara RB | IR: none
 - BOOK CONFLICT: BKR home line 2.5 vs BEO 1 (>=1.0 pt apart); recapture before relying on either
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
+- VENUE: NO is a fixed dome (static table); outdoor weather does not apply
 
 ## Quarterbacks
 
@@ -128,9 +131,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"MIN": {"season": 2026, "team": "Vikings", "team_abbr": "MIN", "games_played": 4, "record": "4-0", "power_rating": {"srs": 8.477, "net_points_per_game": 8.75, "pythag_win_pct": 0.7753, "model_composite_z": 1.3537, "model_rank": 5, "srs_rank": 5, "net_ppg_rank": 5, "pythag_rank": 4, "market_implied_win_total": 11, "market_implied_rank": 9, "delta": -0.5459, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "NO": {"season": 2026, "team": "Saints", "team_abbr": "NO", "games_played": 4, "record": "1-3", "power_rating": {"srs": -5.097, "net_points_per_game": -5.75, "pythag_win_pct": 0.3848, "model_composite_z": -0.7316, "model_rank": 24, "srs_rank": 25, "net_ppg_rank": 25, "pythag_rank": 23, "market_implied_win_total": 7.88, "market_implied_rank": 23, "delta": 0.274, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"MIN": {"net_ppg": 8.75, "recomputed_2026_point_diff_per_game": 8.75, "matches_2026": true}, "NO": {"net_ppg": -5.75, "recomputed_2026_point_diff_per_game": -5.75, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "MIN@NO", "weather_status": "venue_condition_verification_required", "materiality": "do_not_apply_outdoor_weather_without_current venue/roof confirmation"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "fixed dome", "indoor_for_weather": true, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

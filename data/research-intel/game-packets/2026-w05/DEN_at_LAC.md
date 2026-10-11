@@ -1,6 +1,6 @@
 # DEN@LAC packet — Denver Broncos @ Los Angeles Chargers
 
-Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (AFC West).
 
@@ -24,6 +24,8 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
+- AVAILABILITY DEN (ESPN 2026-10-11T02:16:11Z): Out: Riley Moss CB, Pat Surtain II CB | Questionable/Doubtful: none | IR: Pat Bryant WR, Jonah Coleman RB
+- AVAILABILITY LAC (ESPN 2026-10-11T02:16:11Z): Out: Kayode Awosika G, Joe Alt OT, Brenen Thompson WR, Derwin James Jr. S, Donte Jackson CB, Quentin Johnston WR | Questionable/Doubtful: Scott Matlock FB, Branson Taylor G, Charlie Kolar TE, Rodney Shelley CB, Ladd McConkey WR | IR: Trey Lance QB, Rashawn Slater OT, Trevor Penning G
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
@@ -119,9 +121,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"DEN": {"season": 2026, "team": "Broncos", "team_abbr": "DEN", "games_played": 4, "record": "2-2", "power_rating": {"srs": 5.862, "net_points_per_game": -5, "pythag_win_pct": 0.3619, "model_composite_z": -0.212, "model_rank": 18, "srs_rank": 7, "net_ppg_rank": 24, "pythag_rank": 25, "market_implied_win_total": 10.19, "market_implied_rank": 13, "delta": 0.7293, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "LAC": {"season": 2026, "team": "Chargers", "team_abbr": "LAC", "games_played": 4, "record": "0-4", "power_rating": {"srs": -9.313, "net_points_per_game": -9.75, "pythag_win_pct": 0.2521, "model_composite_z": -1.3771, "model_rank": 31, "srs_rank": 30, "net_ppg_rank": 31, "pythag_rank": 31, "market_implied_win_total": 6.07, "market_implied_rank": 29, "delta": 0.1645, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"DEN": {"net_ppg": -5, "recomputed_2026_point_diff_per_game": -5.0, "matches_2026": true}, "LAC": {"net_ppg": -9.75, "recomputed_2026_point_diff_per_game": -9.75, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "DEN@LAC", "weather_status": "venue_condition_verification_required", "materiality": "do_not_apply_outdoor_weather_without_current venue/roof confirmation"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "covered but open-sided (weather can still matter)", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

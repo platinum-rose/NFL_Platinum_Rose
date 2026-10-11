@@ -1,6 +1,6 @@
 # IND@PIT packet — Indianapolis Colts @ Pittsburgh Steelers
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -22,6 +22,8 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
+- AVAILABILITY IND (ESPN 2026-10-11T02:16:11Z): Out: Darius Slayton WR, Jaylon Carlies LB, Ashton Dulin WR | Questionable/Doubtful: Charvarius Ward CB, Keenan Allen WR | IR: Arden Key DE, Will Mallory TE
+- AVAILABILITY PIT (ESPN 2026-10-11T02:16:11Z): Out: Jamel Dean CB | Questionable/Doubtful: Jalen Ramsey CB, Rico Dowdle RB | IR: Michael Pittman Jr. WR, DeShon Elliott S, Derrick Harmon DT
 - WEATHER: review_required: forecast wind 25.2 km/h, gusts 58.0 km/h, precipitation probability 54%
 
 ## Quarterbacks
@@ -124,9 +126,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"IND": {"season": 2026, "team": "Colts", "team_abbr": "IND", "games_played": 4, "record": "2-2", "power_rating": {"srs": -2.243, "net_points_per_game": -0.5, "pythag_win_pct": 0.4885, "model_composite_z": -0.1474, "model_rank": 15, "srs_rank": 19, "net_ppg_rank": 16, "pythag_rank": 16, "market_implied_win_total": 8.8, "market_implied_rank": 16, "delta": 0.0641, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "PIT": {"season": 2026, "team": "Steelers", "team_abbr": "PIT", "games_played": 4, "record": "2-2", "power_rating": {"srs": -0.624, "net_points_per_game": -2.5, "pythag_win_pct": 0.4282, "model_composite_z": -0.2793, "model_rank": 19, "srs_rank": 16, "net_ppg_rank": 20, "pythag_rank": 20, "market_implied_win_total": 7.88, "market_implied_rank": 24, "delta": -0.195, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"IND": {"net_ppg": -0.5, "recomputed_2026_point_diff_per_game": -0.5, "matches_2026": true}, "PIT": {"net_ppg": -2.5, "recomputed_2026_point_diff_per_game": -2.5, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "IND@PIT", "weather_status": "forecast_captured", "source_game": "IND@PIT", "materiality": "review_required: forecast wind 25.2 km/h, gusts 58.0 km/h, precipitation probability 54%"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "outdoor", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 

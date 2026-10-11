@@ -208,6 +208,30 @@ def run_sim(home_line, total, mode='margin'):
     return out
 
 
+
+# Static stadium reference (stable facts, NOT a captured source): roof type by home team. Fixed domes are enclosed; retractable roofs need a game-day status check.
+ROOF = {'DET': 'fixed dome', 'MIN': 'fixed dome', 'NO': 'fixed dome', 'LV': 'fixed dome',
+        'ATL': 'retractable roof (status must be checked)', 'DAL': 'retractable roof (status must be checked)', 'HOU': 'retractable roof (status must be checked)',
+        'IND': 'retractable roof (status must be checked)', 'ARI': 'retractable roof (status must be checked)',
+        'LAR': 'covered but open-sided (weather can still matter)', 'LAC': 'covered but open-sided (weather can still matter)'}
+
+
+def venue_block(home, sched_row):
+    roof = ROOF.get(home, 'outdoor')
+    note = 'static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)'
+    return {'home_team_stadium_roof': roof, 'indoor_for_weather': roof == 'fixed dome', 'venue_field_in_schedule_data': any(k in (sched_row or {}) for k in ('venue', 'stadium', 'neutral_site')), 'note': note}
+
+
+def power_label_check(pw_team, tm):
+    """The power-rating attribution text says prior-season results; test whether net points per game equals the 2026 four-game average."""
+    try:
+        net = pw_team['power_rating']['net_points_per_game']
+        calc = round(tm['point_diff'] / tm['games_played'], 2)
+        return {'net_ppg': net, 'recomputed_2026_point_diff_per_game': calc, 'matches_2026': abs(net - calc) < 0.01}
+    except Exception:  # noqa
+        return {'matches_2026': None}
+
+
 def wx_row_guard(weather, key):
     r = next((x for x in weather['rows'] if x.get('game') == key), None)
     if r and str(r.get('materiality', '')).startswith('review_required'):
@@ -360,6 +384,13 @@ def main():
                 warnings.append('QB %s: operator says %s but ESPN depth/injury resolves %s' % (t, op, e.get('qb_starter')))
             elif not e:
                 warnings.append('QB %s: no ESPN status file; starter unresolved' % t)
+        for t in (away, home):
+            e = espn.get('teams', {}).get(t) or {}
+            nonact = e.get('injury_report_non_active') or []
+            outs = ['%s %s' % (r['player'], r['pos']) for r in nonact if (r['status'] or '').lower() in ('out', 'suspended')]
+            irs = ['%s %s' % (r['player'], r['pos']) for r in nonact if (r['status'] or '').lower() == 'injured reserve']
+            qs = ['%s %s' % (r['player'], r['pos']) for r in nonact if (r['status'] or '').lower() in ('questionable', 'doubtful')]
+            warnings.append('AVAILABILITY %s (ESPN %s): Out: %s | Questionable/Doubtful: %s | IR: %s' % (t, espn.get('fetched_at'), ', '.join(outs) or 'none', ', '.join(qs) or 'none', ', '.join(irs) or 'none'))
         if conflict:
             warnings.append('BOOK CONFLICT: ' + conflict)
         if wx_row_guard(weather, key):
@@ -394,6 +425,12 @@ def main():
                 'projected_starters': 'data/projected-starters/2026/latest.json (teams.%s, teams.%s)' % (away, home)},
         }
         base = os.path.join(a.out, key.replace('@', '_at_'))
+        packet['venue'] = venue_block(home, g)
+        packet['power_label_check'] = {t: power_label_check(pw.get(t), packet['teams'][t]) for t in (away, home)}
+        if packet['venue']['indoor_for_weather']:
+            packet['game_warnings'].append('VENUE: %s is a fixed dome (static table); outdoor weather does not apply' % home)
+        elif 'retractable' in packet['venue']['home_team_stadium_roof']:
+            packet['game_warnings'].append('VENUE: %s has a retractable roof; check game-day roof status before using weather' % home)
         with open(base + '.json', 'w', encoding='utf-8') as f:
             json.dump(packet, f, indent=1)
         md = render_md(packet)
@@ -477,7 +514,7 @@ def render_md(p):
         L += ['## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)', '',
               'Means: %s' % json.dumps(q['means']), 'Simulation: %s' % json.dumps(q['simulation']), 'Features: %s' % json.dumps(q['features']), '']
     L += ['## Calibrated simulator edge sweep (home-margin edge in points vs BKR line)', ''] + table(p['simulator_edge_sweep'], ['home_margin_edge_pts', 'home_cover', 'away_cover', 'side_push', 'over', 'under', 'total_push']) + ['', p['simulator_note'], '', '**Total-edge sweep (margin edge 0):**', ''] + table(p['simulator_total_sweep'], ['total_edge_pts', 'over', 'under', 'total_push']) + ['']
-    L += ['## Power ratings', '', json.dumps(p['power_ratings']), '', '## Weather / venue', '', json.dumps(p['weather_venue_row']), '']
+    L += ['## Power ratings', '', json.dumps(p['power_ratings']), '', 'Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): ' + json.dumps(p['power_label_check']) + ' -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.', '', '## Weather / venue', '', json.dumps(p['weather_venue_row']), '', 'Venue (' + p['venue']['note'] + '): ' + json.dumps({k: v for k, v in p['venue'].items() if k != 'note'}), '']
     L += ['## Availability digest (top events per team)', '', json.dumps(p['availability']), '']
     L += ['## Secondary matchup context (manual; capped, never a dominant driver)', '']
     for m in p['secondary_matchups']:

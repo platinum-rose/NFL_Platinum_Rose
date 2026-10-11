@@ -1,6 +1,6 @@
 # HOU@TEN packet — Houston Texans @ Tennessee Titans
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (AFC South).
 
@@ -24,6 +24,8 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
+- AVAILABILITY HOU (ESPN 2026-10-11T02:16:11Z): Out: none | Questionable/Doubtful: M.J. Stewart S, Kayden McDonald DT, Aireontae Ersery OT, Ed Ingram G, Blake Fisher OT | IR: Tank Dell WR, Braden Smith OT, Jaylin Smith CB
+- AVAILABILITY TEN (ESPN 2026-10-11T02:16:11Z): Out: Amani Hooker S | Questionable/Doubtful: David Martin-Robinson TE, Carnell Tate WR | IR: Joshua Williams CB
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
@@ -119,9 +121,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 {"HOU": {"season": 2026, "team": "Texans", "team_abbr": "HOU", "games_played": 4, "record": "0-4", "power_rating": {"srs": -6.688, "net_points_per_game": -6.25, "pythag_win_pct": 0.3504, "model_composite_z": -0.8974, "model_rank": 26, "srs_rank": 27, "net_ppg_rank": 26, "pythag_rank": 26, "market_implied_win_total": 8.6, "market_implied_rank": 19, "delta": 0.7559, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}, "TEN": {"season": 2026, "team": "Titans", "team_abbr": "TEN", "games_played": 4, "record": "0-4", "power_rating": {"srs": -10.882, "net_points_per_game": -7, "pythag_win_pct": 0.2738, "model_composite_z": -1.2805, "model_rank": 29, "srs_rank": 31, "net_ppg_rank": 27, "pythag_rank": 30, "market_implied_win_total": 4.45, "market_implied_rank": 31, "delta": -0.6329, "delta_basis": "z_score_market_minus_model"}, "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."}}
 
+Label check (the attribution text says prior-season, but these rows are tested against the 2026 point differential): {"HOU": {"net_ppg": -6.25, "recomputed_2026_point_diff_per_game": -6.25, "matches_2026": true}, "TEN": {"net_ppg": -7, "recomputed_2026_point_diff_per_game": -7.0, "matches_2026": true}} -- if matches_2026 is true, the ratings are 2026 four-game values and the attribution wording is stale.
+
 ## Weather / venue
 
 {"game": "HOU@TEN", "weather_status": "forecast_captured", "source_game": "HOU@TEN", "materiality": "no_material_flag_in_current_forecast"}
+
+Venue (static stadium table, not a live capture; the schedule data has no venue field, so neutral-site or relocated games are NOT detected here (check the source quotes)): {"home_team_stadium_roof": "outdoor", "indoor_for_weather": false, "venue_field_in_schedule_data": false}
 
 ## Availability digest (top events per team)
 
