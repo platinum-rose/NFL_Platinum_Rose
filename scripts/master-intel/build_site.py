@@ -122,8 +122,12 @@ SITE_CSS = r"""
 .game-room-kicker{display:inline-flex;align-items:center;gap:7px;margin:0 0 10px;color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}.game-room-kicker::before{content:'◈';font-size:14px}
 .rec-asof{margin:-4px 0 14px;color:var(--muted);font-size:12.5px}
 .market-intel-notice{margin:14px 0 18px;padding:12px 14px;border-left:3px solid var(--accent);border-radius:7px;background:var(--highlight);color:var(--muted);font-size:13px;line-height:1.5}.market-matchup{margin:10px 0}.market-matchup h3{margin:4px 0 10px;font-size:15px}
+.header-card-builder-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(0,210,190,.12);color:var(--accent);border:1px solid var(--accent);border-radius:999px;font-size:12.5px;font-weight:700;cursor:pointer;margin-left:auto;transition:all .15s ease}
+.header-card-builder-btn:hover{background:var(--accent);color:var(--on-accent)}
+.card-builder-trigger{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:9998;display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 10px;background:var(--card);color:var(--accent);border:1px solid var(--accent);border-right:none;border-radius:10px 0 0 10px;box-shadow:-4px 0 20px rgba(0,0,0,.5);cursor:pointer;font-weight:800;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;transition:transform .15s ease,background .15s ease}
+.card-builder-trigger:hover{background:var(--raised);color:var(--primary-light);transform:translateY(-50%) translateX(-4px)}
 @media (min-width:1300px){.container{margin-left:auto !important;margin-right:auto !important;max-width:1180px}}
-@media (max-width:640px){body{padding:0 16px 24px !important}.site-header{margin-left:-16px;margin-right:-16px}.site-header-inner{padding-left:16px;padding-right:16px}.site-brand-row{padding-top:5px}.site-status{max-width:45%;overflow:hidden;text-overflow:ellipsis}.container{padding:20px 16px !important;border-radius:10px}h1{font-size:22px}.page-nav{grid-template-columns:1fr}.page-nav .pn-next{grid-column:1}.nav-more-menu{position:fixed;right:16px;left:16px;top:74px;min-width:0}}
+@media (max-width:640px){body{padding:0 16px 24px !important}.site-header{margin-left:-16px;margin-right:-16px}.site-header-inner{padding-left:16px;padding-right:16px}.site-brand-row{padding-top:5px}.site-status{max-width:40%;overflow:hidden;text-overflow:ellipsis}.header-card-builder-btn{padding:4px 10px;font-size:11.5px}.card-builder-trigger{top:auto;bottom:16px;right:16px;transform:none;border-radius:999px;border-right:1px solid var(--accent);flex-direction:row;padding:9px 16px}.card-builder-trigger:hover{transform:translateY(-2px)}.container{padding:20px 16px !important;border-radius:10px}h1{font-size:22px}.page-nav{grid-template-columns:1fr}.page-nav .pn-next{grid-column:1}.nav-more-menu{position:fixed;right:16px;left:16px;top:74px;min-width:0}}
 """
 
 
@@ -232,12 +236,15 @@ def _matchup_cards(holder, gid, gs):
         anchor = lt.find_previous_sibling()
         d = card(f'mu-{gs}-line', '💵 Bookmaker line', els)
         (anchor.insert_after(d) if anchor else holder.insert(0, d)); cards.append((d['id'], '💵 Line'))
-    for suf, lab in (('side', '⚖️ Sides'), ('total', '📈 Totals'), ('prop', '🧾 Props')):
+    for suf, lab in (('context', '🔑 Key Context'), ('trends', '📊 Trends & Systems'), ('news', '📰 News & Angles'), ('side', '⚖️ Sides'), ('total', '📈 Totals'), ('prop', '🧾 Props')):
         el = holder.find('details', id=f'{gid}-{suf}')
         if el is not None:
             el['class'] = el.get('class', []) + ['mu-card']
             cards.append((el['id'], lab))
-    short = {'proj': '🎯 Projection', 'why': '🧠 Why', 'breaks': '⚠️ What breaks it', 'experts': '🎙️ Experts'}
+    short = {'proj': '🎯 Projection', 'why': '🧠 Why', 'breaks': '⚠️ What breaks it', 'experts': '🎙️ Experts',
+             'line': '💵 Line', 'splits': '📊 Splits', 'context': '🔑 Context', 'trends': '📊 Trends', 'news': '📰 News',
+             'side': '⚖️ Sides', 'total': '📈 Totals', 'prop': '🧾 Props'}
+    cards.sort(key=lambda c: 0 if c[0].endswith('-proj') else 1)   # projection & game script leads the page
     links = []
     for cid, lab in cards:
         k = cid.rsplit('-', 1)[-1]
@@ -247,6 +254,9 @@ def _matchup_cards(holder, gid, gs):
                   + ''.join(links) + '<button type="button" class="btn-toggle mu-all" data-open="1">Open all</button>'
                   '<button type="button" class="btn-toggle mu-all" data-open="0">Close all</button></nav>').nav
     holder.insert(0, bar)
+    proj_card = holder.find('details', id=f'mu-{gs}-proj')
+    if proj_card is not None:
+        bar.insert_after(proj_card.extract())
 
 
 def _rec_filter(box):
@@ -460,9 +470,10 @@ def main(src):
             # keep the logo markup: drop the leading clock/time text from the summary html
             hh = re.sub(r'^\s*⏰\s*\S+ [\d:]+ PT\s*—\s*', '', head_html)
             parts = hh.split(' — ', 1)
-            cards.append(f'<a class="game-card" href="{gfn}"><span class="gc-when">{html.escape(when)}</span>'
+            cards.append(f'<a class="game-card" href="{gfn}" data-game="{html.escape(gid)}"><span class="gc-when">{html.escape(when)}</span>'
                          f'<span class="gc-match">{parts[0]}</span>'
-                         + (f'<span class="gc-line">{parts[1]}</span>' if len(parts) > 1 else '') + '</a>')
+                         + (f'<span class="gc-line">{parts[1]}</span>' if len(parts) > 1 else '')
+                         + '<span class="gc-popup-badge">📖 Full Intel Write-up ↗</span></a>')
         grid = soup_of('<h3>Pick a game</h3><div class="game-grid">' + ''.join(cards) + '</div>')
         sec.insert(0, grid)
         # move the grid below the intro paragraphs
@@ -502,7 +513,10 @@ def main(src):
             for key in (f'board-{gs}', f'{gid}-context', f'{gid}-trends', f'{gid}-news'):
                 el = holder.find('details', id=key)
                 if el:
-                    moved[key] = el.extract()
+                    if key.startswith('board-'):
+                        moved[key] = el.extract()
+                    else:
+                        moved[key] = copy.copy(el)
             MOVED[gid] = (moved, splits)
             narrative = holder.find('div', class_='game-narrative')
             if splits is not None:
@@ -709,7 +723,8 @@ def main(src):
                      ('sources.html', 'Sources')]
         h = ['<header class="site-header"><div class="site-header-inner"><div class="site-brand-row">',
              f'<a class="site-brand" href="index.html">Platinum Rose <span>· NFL Week {week} Intel</span></a>',
-             f'<span class="site-status">{html.escape(built_short or "Research dashboard")}</span></div>',
+             f'<div style="display:flex;align-items:center;gap:12px;margin-left:auto;"><span class="site-status">{html.escape(built_short or "Research dashboard")}</span>',
+             '<button id="header-card-builder-btn" class="header-card-builder-btn" type="button" title="Open Weekend Card Drawer">📋 My Card <span class="bm-count"></span></button></div></div>',
              '<nav class="site-primary-nav" aria-label="Primary report navigation">']
         for fn, label in primary:
             if fn not in pages:
@@ -768,7 +783,9 @@ def main(src):
         rewrite(holder, fn)
         body = (top_nav(fn) + '<div class="container">' + bar(fn) + ''.join(str(x) for x in holder.contents)
                 + pager(fn) + disc + '</div><script src="assets/report.js"></script>')
-        head = (f'<title>{html.escape(page_title(fn))}</title>\n<link rel="stylesheet" href="assets/report.css">\n')
+        head = (f'<title>{html.escape(page_title(fn))}</title>\n'
+                '<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏈</text></svg>">\n'
+                '<link rel="stylesheet" href="assets/report.css">\n')
         full = ('<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="UTF-8">\n'
                 '<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">\n'
                 + head + '</head>\n<body>\n' + body + '\n</body>\n</html>\n')
