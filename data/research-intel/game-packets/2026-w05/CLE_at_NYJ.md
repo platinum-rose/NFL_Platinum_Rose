@@ -1,6 +1,6 @@
 # CLE@NYJ packet — Cleveland Browns @ New York Jets
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -18,8 +18,6 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"NYJ": 21.0, "CLE": 18.5, "basis": "BKR home line -2.5 total 39.5"}
 
-Action Network opener: {"an_game_id": 290908, "kickoff_utc": "2026-10-11T17:00:00Z", "sp": {"NYJ": -1.5, "CLE": 1.5}, "sp_odds_home": -110, "sp_at": "2026-10-05T00:06:56Z", "tot": 40.0, "tot_at": "2026-10-05T00:04:45Z", "ml": {"CLE": -100, "NYJ": -120}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290908, "away_team": "CLE", "home_team": "NYJ", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "away", "value": 2.5, "price_american": -109, "ticket_pct": 84, "money_pct": 74}, {"side": "home", "value": -2.5, "price_american": -110, "ticket_pct": 16, "money_pct": 26}], "total": [{"side": "under", "value": 39.5, "price_american": -109, "ticket_pct": 27, "money_pct": 37}, {"side": "over", "value": 39.5, "price_american": -113, "ticket_pct": 73, "money_pct": 63}], "moneyline": [{"side": "home", "value": 0, "price_american": -137, "ticket_pct": 31, "money_pct": 34}, {"side": "away", "value": 0, "price_american": 114, "ticket_pct": 69, "money_pct": 66}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "CLE", "home_team": "NYJ", "favorite": "NYJ", "underdog": "CLE", "favorite_spread": -2.5, "kickoff_display": "Sun 1:00 pm"}
@@ -31,10 +29,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- CLE: operator-confirmed starter None (at None); projected-starter QB rows: []
-- NYJ: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Geno Smith", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYJ (usage score 24.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- CLE: RESOLVED STARTER Deshaun Watson (from ESPN depth chart + injury report). ESPN depth ['Deshaun Watson', 'Shedeur Sanders', 'Taylen Green', 'Dillon Gabriel'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- NYJ: RESOLVED STARTER Geno Smith (from ESPN depth chart + injury report). ESPN depth ['Geno Smith', 'Cade Klubnik'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Geno Smith", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYJ (usage score 24.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- CLE: Kalia Davis DT Injured Reserve (2026-10-10); Teven Jenkins G Out (2026-10-10); Dillon Gabriel QB Injured Reserve (2026-10-10); Tylan Wallace WR Out (2026-10-10); Carsen Ryan TE Out (2026-10-10); Mike Hall Jr. DT Out (2026-10-10); Mason Graham DT Out (2026-10-10)
+- NYJ: Dylan Parham G Out (2026-10-10); Will McDonald IV DE Questionable (2026-10-10); Kingsley Enagbare LB Questionable (2026-10-10); Kiko Mauigoa LB Out (2026-10-09); Adonai Mitchell WR Out (2026-10-09); Breece Hall RB Out (2026-10-09); Braiden McGregor DE Injured Reserve (2026-10-07)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

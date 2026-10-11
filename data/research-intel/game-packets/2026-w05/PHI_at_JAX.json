@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "PHI@JAX",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T13:30:00.000Z",
  "away": {
   "abbr": "PHI",
@@ -606,23 +606,7 @@
    "basis": "BKR home line -7.5 total 42"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290820,
-  "kickoff_utc": "2026-10-11T13:30:00Z",
-  "sp": {
-   "JAX": -3.5,
-   "PHI": 3.5
-  },
-  "sp_odds_home": -105,
-  "sp_at": "2026-10-05T00:14:25Z",
-  "tot": 43.5,
-  "tot_at": "2026-10-05T00:12:25Z",
-  "ml": {
-   "PHI": 155,
-   "JAX": -182
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290820,
   "away_team": "PHI",
@@ -882,6 +866,17 @@
   "PHI": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Jalen Hurts",
+    "Tanner McKee",
+    "Cole Payton"
+   ],
+   "espn_qb_starter": "Jalen Hurts",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Jalen Hurts",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Jalen Hurts",
@@ -909,10 +904,90 @@
   "JAX": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Trevor Lawrence",
+    "Quinn Ewers"
+   ],
+   "espn_qb_starter": "Trevor Lawrence",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Trevor Lawrence",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "PHI": [
+   {
+    "player": "Drew Kendall",
+    "pos": "C",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Kendall (knee) has been ruled out ahead of Sunday's game against the Jaguars."
+   },
+   {
+    "player": "Marcus Epps",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Epps (groin) has been ruled out for Sunday's game against the Jaguars."
+   },
+   {
+    "player": "Jonathan Greenard",
+    "pos": "LB",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Greenard (ankle) is questionable for Sunday's game against Jacksonville."
+   },
+   {
+    "player": "Hollywood Brown",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Brown (ankle) has been ruled out for Sunday's game against the Jaguars."
+   },
+   {
+    "player": "DeVonta Smith",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Smith (hamstring) is doing rehab work on a side field at Friday's practice, EJ Smith of The Philadelphia Inquirer reports."
+   },
+   {
+    "player": "Saquon Barkley",
+    "pos": "RB",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Barkley (hamstring) wasn't spotted at Friday's practice, EJ Smith of The Philadelphia Inquirer reports."
+   },
+   {
+    "player": "Tank Bigsby",
+    "pos": "RB",
+    "status": "Injured Reserve",
+    "date": "2026-10-06",
+    "comment": "The Eagles placed Bigsby (abdomen) on injured reserve Tuesday, Zach Berman of The Athletic reports."
+   }
+  ],
+  "JAX": [
+   {
+    "player": "Eric Murray",
+    "pos": "S",
+    "status": "Doubtful",
+    "date": "2026-10-10",
+    "comment": "Murray (concussion) is listed as doubtful for Sunday's game against the Eagles, Ryan O'Halloran of The Florida Times-Union reports."
+   },
+   {
+    "player": "Caleb Ransaw",
+    "pos": "S",
+    "status": "Injured Reserve",
+    "date": "2026-10-07",
+    "comment": "The Jaguars placed Ransaw (knee) on their injured reserve list Tuesday."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [

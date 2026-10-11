@@ -1,6 +1,6 @@
 # LV@NE packet — Las Vegas Raiders @ New England Patriots
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -16,8 +16,6 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"NE": 24.25, "LV": 20.75, "basis": "BKR home line -3.5 total 45"}
 
-Action Network opener: {"an_game_id": 290910, "kickoff_utc": "2026-10-11T17:00:00Z", "sp": {"NE": -3.5, "LV": 3.5}, "sp_odds_home": -112, "sp_at": "2026-10-05T00:01:36Z", "tot": 45.5, "tot_at": "2026-10-05T00:01:36Z", "ml": {"LV": 158, "NE": -198}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290910, "away_team": "LV", "home_team": "NE", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": -3.5, "price_american": -111, "ticket_pct": 28, "money_pct": 23}, {"side": "away", "value": 3.5, "price_american": -109, "ticket_pct": 72, "money_pct": 77}], "total": [{"side": "over", "value": 45.5, "price_american": -104, "ticket_pct": 74, "money_pct": 81}, {"side": "under", "value": 45.5, "price_american": -113, "ticket_pct": 26, "money_pct": 19}], "moneyline": [{"side": "home", "value": 0, "price_american": -198, "ticket_pct": 64, "money_pct": 35}, {"side": "away", "value": 0, "price_american": 160, "ticket_pct": 36, "money_pct": 65}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "LV", "home_team": "NE", "favorite": "NE", "underdog": "LV", "favorite_spread": -3.5, "kickoff_display": "Sun 1:00 pm"}
@@ -28,10 +26,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- LV: operator-confirmed starter None (at None); projected-starter QB rows: []
-- NE: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Drake Maye", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NE (usage score 33.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- LV: RESOLVED STARTER Kirk Cousins (from ESPN depth chart + injury report). ESPN depth ['Kirk Cousins', 'Fernando Mendoza', "Aidan O'Connell"], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- NE: RESOLVED STARTER Drake Maye (from ESPN depth chart + injury report). ESPN depth ['Drake Maye', 'Tommy DeVito', 'Behren Morton'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Drake Maye", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NE (usage score 33.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- LV: Trey Zuhn III C Out (2026-10-10); Dont'e Thornton Jr. WR Injured Reserve (2026-10-09); Jalen Nailor WR Out (2026-10-09); Ashton Jeanty RB Questionable (2026-10-09)
+- NE: Reggie Gilliam FB Injured Reserve (2026-10-11); Mack Hollins WR Injured Reserve (2026-10-10); Charles Woods CB Questionable (2026-10-10); Karon Prunty CB Out (2026-10-10); Channing Canada CB Out (2026-10-10); Craig Woodson S Questionable (2026-10-09); Dre'Mont Jones DE Questionable (2026-10-09); Christian Elliss LB Questionable (2026-10-09); Christian Barmore DT Questionable (2026-10-09); Christian Gonzalez CB Out (2026-10-09); Carlton Davis III CB Out (2026-10-09); Rhamondre Stevenson RB Questionable (2026-10-09); Morgan Moses OT Questionable (2026-10-07); A.J. Brown WR Injured Reserve (2026-10-07)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

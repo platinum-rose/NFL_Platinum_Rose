@@ -1,6 +1,6 @@
 # SF@SEA packet — San Francisco 49ers @ Seattle Seahawks
 
-Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC West).
 
@@ -18,8 +18,6 @@ Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"SEA": 24.75, "SF": 21.75, "basis": "BKR home line -3 total 46.5"}
 
-Action Network opener: {"an_game_id": 290912, "kickoff_utc": "2026-10-11T20:25:00Z", "sp": {"SEA": -3.0, "SF": 3.0}, "sp_odds_home": -107, "sp_at": "2026-10-05T00:14:55Z", "tot": 47.0, "tot_at": "2026-10-05T00:06:55Z", "ml": {"SF": 140, "SEA": -175}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290912, "away_team": "SF", "home_team": "SEA", "kickoff_at": "2026-10-11T20:25:00.000Z", "spread": [{"side": "away", "value": 3, "price_american": -104, "ticket_pct": 82, "money_pct": 88}, {"side": "home", "value": -3, "price_american": -118, "ticket_pct": 18, "money_pct": 12}], "total": [{"side": "under", "value": 46.5, "price_american": -113, "ticket_pct": 29, "money_pct": 27}, {"side": "over", "value": 46.5, "price_american": -105, "ticket_pct": 71, "money_pct": 73}], "moneyline": [{"side": "away", "value": 0, "price_american": 137, "ticket_pct": 54, "money_pct": 42}, {"side": "home", "value": 0, "price_american": -166, "ticket_pct": 46, "money_pct": 58}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "SF", "home_team": "SEA", "favorite": "SEA", "underdog": "SF", "favorite_spread": -3, "kickoff_display": "Sun 4:25 pm"}
@@ -30,10 +28,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- SF: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Brock Purdy", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for SF (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- SEA: operator-confirmed starter None (at None); projected-starter QB rows: []
+- SF: RESOLVED STARTER Brock Purdy (from ESPN depth chart + injury report). ESPN depth ['Brock Purdy', 'Mac Jones', 'Kurtis Rourke'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Brock Purdy", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for SF (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- SEA: RESOLVED STARTER Sam Darnold (from ESPN depth chart + injury report). ESPN depth ['Sam Darnold', 'Drew Lock', 'Jalen Milroe'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- SF: James Thompson Jr. DT Out (2026-10-10); Upton Stout CB Questionable (2026-10-10); Nick Bosa DE Out (2026-10-10); Marques Sigle S Out (2026-10-07); Kyle Juszczyk FB Out (2026-10-07)
+- SEA: Julian Neal CB Injured Reserve (2026-10-10); Chazz Surratt LB Out (2026-10-10); George Holani RB Questionable (2026-10-09); Irv Charles WR Injured Reserve (2026-10-07); Zach Charbonnet RB Out (2026-10-05)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

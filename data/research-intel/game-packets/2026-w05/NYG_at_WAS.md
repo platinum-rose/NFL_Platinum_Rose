@@ -1,6 +1,6 @@
 # NYG@WAS packet — New York Giants @ Washington Commanders
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC East).
 
@@ -18,7 +18,7 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"WAS": 22.5, "NYG": 19.0, "basis": "BKR home line -3.5 total 41.5"}
 
-Action Network opener: {"an_game_id": 290904, "kickoff_utc": "2026-10-11T17:00:00Z", "sp": {"WAS": -3.5, "NYG": 3.5}, "sp_odds_home": -107, "sp_at": "2026-10-05T00:12:55Z", "tot": 44.5, "tot_at": "2026-10-05T00:06:55Z", "ml": {"NYG": 147, "WAS": -182}, "carried_from_before_cutoff": false}
+Action Network opener: "Jayden Daniels"
 
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290904, "away_team": "NYG", "home_team": "WAS", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": -4.5, "price_american": -110, "ticket_pct": 26, "money_pct": 25}, {"side": "away", "value": 4.5, "price_american": -112, "ticket_pct": 74, "money_pct": 75}], "total": [{"side": "under", "value": 41.5, "price_american": -109, "ticket_pct": 23, "money_pct": 30}, {"side": "over", "value": 41.5, "price_american": -113, "ticket_pct": 77, "money_pct": 70}], "moneyline": [{"side": "away", "value": 0, "price_american": 162, "ticket_pct": 46, "money_pct": 55}, {"side": "home", "value": 0, "price_american": -200, "ticket_pct": 54, "money_pct": 45}]}
 
@@ -30,10 +30,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- NYG: operator-confirmed starter Jameis Winston (at 2026-10-11T01:54:00Z); projected-starter QB rows: [{"player": "Jaxson Dart", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Jake Haener", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T21:53:00.000Z", "evidence": "The Giants signed Haener to the 53-man roster off their practice squad Wednesday, Mike Garafolo of NFL Network reports."}}]
-- WAS: operator-confirmed starter Jayden Daniels (at 2026-10-11T01:54:00Z); projected-starter QB rows: [{"player": "Jayden Daniels", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T16:54:00.000Z", "evidence": "Head coach Dan Quinn confirmed Friday that Daniels (elbow) will start Sunday's game against the Giants."}}]
+- NYG: RESOLVED STARTER Jameis Winston (from operator). ESPN depth ['Jameis Winston', 'J.J. McCarthy', 'Jake Haener', 'Jaxson Dart'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: Jameis Winston (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Jaxson Dart", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Jake Haener", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T21:53:00.000Z", "evidence": "The Giants signed Haener to the 53-man roster off their practice squad Wednesday, Mike Garafolo of NFL Network reports."}}]
+- WAS: RESOLVED STARTER Jayden Daniels (from operator). ESPN depth ['Jayden Daniels', 'Marcus Mariota', 'Athan Kaliakmanis'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: Jayden Daniels (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Jayden Daniels", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T16:54:00.000Z", "evidence": "Head coach Dan Quinn confirmed Friday that Daniels (elbow) will start Sunday's game against the Giants."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- NYG: Chauncey Golston DE Injured Reserve (2026-10-11); Jason Pinnock S Out (2026-10-10); Braxton Berrios WR Injured Reserve (2026-10-07)
+- WAS: Trey Amos CB Injured Reserve (2026-10-11); Jeremy McNichols RB Injured Reserve (2026-10-11); Terry McLaurin WR Questionable (2026-10-11); Tyler Owens S Out (2026-10-10); Charles Omenihu DE Out (2026-10-10); Percy Butler S Out (2026-10-10); Nick Cross S Out (2026-10-10); Marcus Mariota QB Out (2026-10-09); Stefon Diggs WR Out (2026-10-09); Jaylin Lane WR Injured Reserve (2026-10-06)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

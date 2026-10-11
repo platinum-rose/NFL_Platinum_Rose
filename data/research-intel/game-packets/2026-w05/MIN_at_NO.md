@@ -1,6 +1,6 @@
 # MIN@NO packet — Minnesota Vikings @ New Orleans Saints
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -18,8 +18,6 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"NO": 19.5, "MIN": 22.0, "basis": "BKR home line 2.5 total 41.5"}
 
-Action Network opener: {"an_game_id": 290906, "kickoff_utc": "2026-10-11T17:00:00Z", "sp": {"NO": 1.5, "MIN": -1.5}, "sp_odds_home": -112, "sp_at": "2026-10-05T00:30:25Z", "tot": 43.0, "tot_at": "2026-10-05T00:30:25Z", "ml": {"MIN": -122, "NO": 101}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290906, "away_team": "MIN", "home_team": "NO", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": 2.5, "price_american": -108, "ticket_pct": 44, "money_pct": 48}, {"side": "away", "value": -2.5, "price_american": -110, "ticket_pct": 56, "money_pct": 52}], "total": [{"side": "under", "value": 41.5, "price_american": -110, "ticket_pct": 24, "money_pct": 27}, {"side": "over", "value": 41.5, "price_american": -111, "ticket_pct": 76, "money_pct": 73}], "moneyline": [{"side": "home", "value": 0, "price_american": 119, "ticket_pct": 25, "money_pct": 31}, {"side": "away", "value": 0, "price_american": -143, "ticket_pct": 75, "money_pct": 69}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "NO", "home_team": "MIN", "favorite": "MIN", "underdog": "NO", "favorite_spread": -2.5, "kickoff_display": "Sun 1:00 pm"}
@@ -32,10 +30,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- MIN: operator-confirmed starter None (at None); projected-starter QB rows: []
-- NO: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Tyler Shough", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- MIN: RESOLVED STARTER Kyler Murray (from ESPN depth chart + injury report). ESPN depth ['Kyler Murray', 'Carson Wentz', 'Max Brosmer'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- NO: RESOLVED STARTER Tyler Shough (from ESPN depth chart + injury report). ESPN depth ['Tyler Shough', 'Spencer Rattler', 'Zach Wilson'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Tyler Shough", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- MIN: Ben Yurosek TE Questionable (2026-10-11); Michael Jurgens C Questionable (2026-10-10); Charles Demmings CB Out (2026-10-10); Brian O'Neill OT Questionable (2026-10-10); Christian Darrisaw OT Out (2026-10-10); Jordan Addison WR Questionable (2026-10-09); Justin Jefferson WR Questionable (2026-10-09); Donovan Jackson G Injured Reserve (2026-10-07); Josh Oliver TE Injured Reserve (2026-09-30)
+- NO: Nathan Shepherd DT Questionable (2026-10-11); Vernon Broughton DT Questionable (2026-10-10); Lorenzo Styles Jr. S Questionable (2026-10-10); Jaylan Ford LB Questionable (2026-10-10); Christen Miller DT Questionable (2026-10-10); Jeremiah Wright G Out (2026-10-10); Anfernee Jennings LB Out (2026-10-10); Julian Blackmon S Questionable (2026-10-09); Kaden Elliss LB Out (2026-10-09); Barion Brown WR Questionable (2026-10-09); Alvin Kamara RB Questionable (2026-10-09)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

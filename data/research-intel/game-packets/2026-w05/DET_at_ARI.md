@@ -1,6 +1,6 @@
 # DET@ARI packet — Detroit Lions @ Arizona Cardinals
 
-Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -16,8 +16,6 @@ Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"ARI": 24.5, "DET": 30.0, "basis": "BKR home line 5.5 total 54.5"}
 
-Action Network opener: {"an_game_id": 290913, "kickoff_utc": "2026-10-11T20:25:00Z", "sp": {"ARI": 4.5, "DET": -4.5}, "sp_odds_home": -113, "sp_at": "2026-10-05T04:59:05Z", "tot": 53.5, "tot_at": "2026-10-05T00:01:35Z", "ml": {"DET": -250, "ARI": 207}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290913, "away_team": "DET", "home_team": "ARI", "kickoff_at": "2026-10-11T20:25:00.000Z", "spread": [{"side": "away", "value": -5.5, "price_american": -109, "ticket_pct": 54, "money_pct": 56}, {"side": "home", "value": 5.5, "price_american": -110, "ticket_pct": 46, "money_pct": 44}], "total": [{"side": "over", "value": 54.5, "price_american": -108, "ticket_pct": 56, "money_pct": 58}, {"side": "under", "value": 54.5, "price_american": -110, "ticket_pct": 44, "money_pct": 42}], "moneyline": [{"side": "away", "value": 0, "price_american": -250, "ticket_pct": 92, "money_pct": 97}, {"side": "home", "value": 0, "price_american": 202, "ticket_pct": 8, "money_pct": 3}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "ARI", "home_team": "DET", "favorite": "DET", "underdog": "ARI", "favorite_spread": -5.5, "kickoff_display": "Sun 4:25 pm"}
@@ -28,10 +26,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- DET: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Jared Goff", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for DET (usage score 39.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- ARI: operator-confirmed starter None (at None); projected-starter QB rows: []
+- DET: RESOLVED STARTER Jared Goff (from ESPN depth chart + injury report). ESPN depth ['Jared Goff', 'Joshua Dobbs'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jared Goff", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for DET (usage score 39.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- ARI: RESOLVED STARTER Jacoby Brissett (from ESPN depth chart + injury report). ESPN depth ['Jacoby Brissett', 'Gardner Minshew II', 'Carson Beck'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- DET: Cade Mays C Injured Reserve (2026-10-10); Ben Bartch G Out (2026-10-10); Rock Ya-Sin CB Out (2026-10-10); Brian Branch S Out (2026-10-10); Tyleik Williams DT Questionable (2026-10-07); Thomas Harper S Injured Reserve (2026-09-26)
+- ARI: Isaiah Adams G Injured Reserve (2026-10-10); Marvin Harrison Jr. WR Out (2026-10-10); Walter Nolen III DT Questionable (2026-10-10); Andrew Wingard S Out (2026-10-09); Karson Sharar LB Questionable (2026-10-08); Paris Johnson Jr. OT Injured Reserve (2026-10-07); Hunter Long TE Injured Reserve (2026-10-06)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

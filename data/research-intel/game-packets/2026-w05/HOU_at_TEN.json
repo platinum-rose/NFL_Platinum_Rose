@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "HOU@TEN",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "HOU",
@@ -458,23 +458,7 @@
    "basis": "BKR home line 7 total 37.5"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290905,
-  "kickoff_utc": "2026-10-11T17:00:00Z",
-  "sp": {
-   "TEN": 6.5,
-   "HOU": -6.5
-  },
-  "sp_odds_home": -106,
-  "sp_at": "2026-10-05T00:06:56Z",
-  "tot": 39.5,
-  "tot_at": "2026-10-05T00:06:56Z",
-  "ml": {
-   "HOU": -317,
-   "TEN": 243
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290905,
   "away_team": "HOU",
@@ -734,6 +718,17 @@
   "HOU": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "C.J. Stroud",
+    "Davis Mills",
+    "Graham Mertz"
+   ],
+   "espn_qb_starter": "C.J. Stroud",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "C.J. Stroud",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "C.J. Stroud",
@@ -761,6 +756,16 @@
   "TEN": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Cam Ward",
+    "Mitchell Trubisky"
+   ],
+   "espn_qb_starter": "Cam Ward",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Cam Ward",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Cam Ward",
@@ -776,6 +781,97 @@
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "HOU": [
+   {
+    "player": "M.J. Stewart",
+    "pos": "S",
+    "status": "Questionable",
+    "date": "2026-10-11",
+    "comment": "Stewart (knee) was activated from the reserve/PUP list Saturday but is still questionable for Sunday's game against the Titans."
+   },
+   {
+    "player": "Kayden McDonald",
+    "pos": "DT",
+    "status": "Questionable",
+    "date": "2026-10-11",
+    "comment": "The Texans activated McDonald (ankle) from injured reserve Saturday, though he's still questionable to play against the Titans on Sunday."
+   },
+   {
+    "player": "Tank Dell",
+    "pos": "WR",
+    "status": "Injured Reserve",
+    "date": "2026-10-09",
+    "comment": "Dell (knee) has been ruled out for Sunday's game against the Titans."
+   },
+   {
+    "player": "Braden Smith",
+    "pos": "OT",
+    "status": "Injured Reserve",
+    "date": "2026-10-09",
+    "comment": "Smith (foot) was a full participant in Thursday's practice."
+   },
+   {
+    "player": "Aireontae Ersery",
+    "pos": "OT",
+    "status": "Questionable",
+    "date": "2026-10-08",
+    "comment": "questionable"
+   },
+   {
+    "player": "Ed Ingram",
+    "pos": "G",
+    "status": "Questionable",
+    "date": "2026-10-08",
+    "comment": "questionable"
+   },
+   {
+    "player": "Blake Fisher",
+    "pos": "OT",
+    "status": "Questionable",
+    "date": "2026-10-08",
+    "comment": "questionable"
+   },
+   {
+    "player": "Jaylin Smith",
+    "pos": "CB",
+    "status": "Injured Reserve",
+    "date": "2026-10-07",
+    "comment": "Smith (hamstring) was placed on injured reserve by the Texans on Tuesday."
+   }
+  ],
+  "TEN": [
+   {
+    "player": "Joshua Williams",
+    "pos": "CB",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "Williams (pectoral) has been downgraded to out for Sunday's game against the Texans, Jim Wyatt of the Titans' official site reports."
+   },
+   {
+    "player": "David Martin-Robinson",
+    "pos": "TE",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Martin-Robinson (hamstring) is questionable for Sunday's game against the Texans, Jim Wyatt of the Titans' official site reports."
+   },
+   {
+    "player": "Amani Hooker",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Hooker (concussion) has been ruled out for Sunday's game against the Texans, Jim Wyatt of the Titans' official site reports."
+   },
+   {
+    "player": "Carnell Tate",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Tate (back) is listed as questionable for Sunday's game against the Texans."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"

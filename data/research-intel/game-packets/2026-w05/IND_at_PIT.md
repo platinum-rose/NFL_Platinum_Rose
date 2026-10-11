@@ -1,6 +1,6 @@
 # IND@PIT packet — Indianapolis Colts @ Pittsburgh Steelers
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -16,8 +16,6 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"PIT": 23.25, "IND": 20.25, "basis": "BKR home line -3 total 43.5"}
 
-Action Network opener: {"an_game_id": 290909, "kickoff_utc": "2026-10-11T17:00:00Z", "sp": {"PIT": -2.5, "IND": 2.5}, "sp_odds_home": -110, "sp_at": "2026-10-05T00:08:55Z", "tot": 44.5, "tot_at": "2026-10-05T00:10:55Z", "ml": {"IND": 111, "PIT": -134}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290909, "away_team": "IND", "home_team": "PIT", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": -2.5, "price_american": -116, "ticket_pct": 35, "money_pct": 39}, {"side": "away", "value": 2.5, "price_american": -105, "ticket_pct": 65, "money_pct": 61}], "total": [{"side": "under", "value": 43.5, "price_american": -108, "ticket_pct": 27, "money_pct": 36}, {"side": "over", "value": 43.5, "price_american": -117, "ticket_pct": 73, "money_pct": 64}], "moneyline": [{"side": "away", "value": 0, "price_american": 122, "ticket_pct": 41, "money_pct": 51}, {"side": "home", "value": 0, "price_american": -146, "ticket_pct": 59, "money_pct": 49}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "IND", "home_team": "PIT", "favorite": "PIT", "underdog": "IND", "favorite_spread": -2.5, "kickoff_display": "Sun 1:00 pm"}
@@ -28,10 +26,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- IND: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Daniel Jones", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for IND (usage score 31.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- PIT: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Aaron Rodgers", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PIT (usage score 40.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- IND: RESOLVED STARTER Daniel Jones (from ESPN depth chart + injury report). ESPN depth ['Daniel Jones', 'Anthony Richardson Sr.', 'Riley Leonard'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Daniel Jones", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for IND (usage score 31.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- PIT: RESOLVED STARTER Aaron Rodgers (from ESPN depth chart + injury report). ESPN depth ['Aaron Rodgers', 'Mason Rudolph', 'Will Howard', 'Drew Allar'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Aaron Rodgers", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PIT (usage score 40.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- IND: Arden Key DE Injured Reserve (2026-10-10); Darius Slayton WR Out (2026-10-10); Jaylon Carlies LB Out (2026-10-10); Charvarius Ward CB Questionable (2026-10-10); Will Mallory TE Injured Reserve (2026-10-09); Ashton Dulin WR Out (2026-10-09); Keenan Allen WR Questionable (2026-10-09)
+- PIT: Michael Pittman Jr. WR Injured Reserve (2026-10-10); Jamel Dean CB Out (2026-10-09); DeShon Elliott S Injured Reserve (2026-10-09); Jalen Ramsey CB Questionable (2026-10-09); Rico Dowdle RB Questionable (2026-10-09); Derrick Harmon DT Injured Reserve (2026-10-05)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

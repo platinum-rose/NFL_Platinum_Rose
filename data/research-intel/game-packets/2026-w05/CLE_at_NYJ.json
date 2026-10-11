@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CLE@NYJ",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CLE",
@@ -492,23 +492,7 @@
    "basis": "BKR home line -2.5 total 39.5"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290908,
-  "kickoff_utc": "2026-10-11T17:00:00Z",
-  "sp": {
-   "NYJ": -1.5,
-   "CLE": 1.5
-  },
-  "sp_odds_home": -110,
-  "sp_at": "2026-10-05T00:06:56Z",
-  "tot": 40.0,
-  "tot_at": "2026-10-05T00:04:45Z",
-  "ml": {
-   "CLE": -100,
-   "NYJ": -120
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290908,
   "away_team": "CLE",
@@ -768,12 +752,34 @@
   "CLE": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Deshaun Watson",
+    "Shedeur Sanders",
+    "Taylen Green",
+    "Dillon Gabriel"
+   ],
+   "espn_qb_starter": "Deshaun Watson",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Deshaun Watson",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   },
   "NYJ": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Geno Smith",
+    "Cade Klubnik"
+   ],
+   "espn_qb_starter": "Geno Smith",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Geno Smith",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Geno Smith",
@@ -789,6 +795,111 @@
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "CLE": [
+   {
+    "player": "Kalia Davis",
+    "pos": "DT",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "Davis (quadriceps) has been ruled out ahead of Sunday's game against the Jets, Kelsey Russo of the Browns' official site reports."
+   },
+   {
+    "player": "Teven Jenkins",
+    "pos": "G",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Jenkins (back) has been ruled out for Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+   },
+   {
+    "player": "Dillon Gabriel",
+    "pos": "QB",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "Gabriel (back) has been ruled out ahead of Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+   },
+   {
+    "player": "Tylan Wallace",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Wallace (knee) has been ruled out ahead of Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+   },
+   {
+    "player": "Carsen Ryan",
+    "pos": "TE",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Ryan (calf) has been ruled out ahead of Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+   },
+   {
+    "player": "Mike Hall Jr.",
+    "pos": "DT",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Hall (ankle) has been ruled out ahead of Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+   },
+   {
+    "player": "Mason Graham",
+    "pos": "DT",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Graham (knee/ankle) has been ruled out ahead of Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
+   }
+  ],
+  "NYJ": [
+   {
+    "player": "Dylan Parham",
+    "pos": "G",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Parham (knee) has been ruled out for Sunday's game against the Browns, Brian Costello of the New York Post reports."
+   },
+   {
+    "player": "Will McDonald IV",
+    "pos": "DE",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "McDonald (calf) is listed as questionable for Sunday's game against the Browns, Daniel Oyefusi of ESPN.com reports."
+   },
+   {
+    "player": "Kingsley Enagbare",
+    "pos": "LB",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Enagbare (knee) is listed as questionable for Sunday's game against the Browns, Daniel Oyefusi of ESPN.com reports."
+   },
+   {
+    "player": "Kiko Mauigoa",
+    "pos": "LB",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Mauigoa (quadriceps) has been ruled out for Sunday's game against the Browns, Brian Costello of the New York Post reports."
+   },
+   {
+    "player": "Adonai Mitchell",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Mitchell (finger) has been ruled out for Sunday's game against the Browns, Brian Costello of the New York Post reports."
+   },
+   {
+    "player": "Breece Hall",
+    "pos": "RB",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Hall (quadriceps) has been ruled out for Sunday's game against the Browns, Brian Costello of the New York Post reports."
+   },
+   {
+    "player": "Braiden McGregor",
+    "pos": "DE",
+    "status": "Injured Reserve",
+    "date": "2026-10-07",
+    "comment": "McGregor (pectoral) was placed on the Jets' injured reserve list Wednesday, Eric Allen of the team's official site reports."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
   "BOOK CONFLICT: BKR home line -2.5 vs BEO -1 (>=1.0 pt apart); recapture before relying on either",
   "WEATHER: review_required: precipitation probability 78%, forecast precipitation 1.8 mm, gusts 37.1 km/h"

@@ -30,6 +30,7 @@ P = {
     'sim': 'scripts/intel/margin-simulator.mjs',
     'starters': 'data/projected-starters/2026/latest.json',
     'operator': 'data/research-intel/operator-confirmed-starters-2026-w05.json',
+    'espn': 'data/research-intel/source-evidence/espn-status-w05.json',
 }
 DIV = {
     'AFC East': ['BUF', 'MIA', 'NE', 'NYJ'], 'AFC North': ['BAL', 'CIN', 'CLE', 'PIT'],
@@ -238,7 +239,7 @@ def main():
     splits, openers = load('splits'), load('openers')
     weather, sec, power, avail, ftn = load('weather'), load('secondary'), load('power'), load('avail'), load('ftn')
     sc = load('supercontest')
-    starters, operator = load('starters'), load('operator')
+    starters, operator, espn = load('starters'), load('operator'), load('espn')
     bkr_cap, beo_cap = parse_ts(bkr['capturedAt']), parse_ts(beo['capturedAt'])
     digest = open(P['digest'], encoding='utf-8').read().splitlines()
     vrows = ver['rows']
@@ -344,8 +345,21 @@ def main():
                     rows_q.append({'player': pl.get('player_name'), 'role': pl.get('role'), 'starter_confidence': pl.get('starter_confidence'),
                                    'latest_source': {k: srcs[-1].get(k) for k in ('source', 'published_at', 'evidence')} if srcs else None})
             qbs[t] = {'operator_confirmed_starter': (operator.get('starters') or {}).get(t), 'operator_confirmed_at': operator.get('confirmed_at') if (operator.get('starters') or {}).get(t) else None,
+                      'espn_qb_depth': (espn.get('teams', {}).get(t) or {}).get('qb_depth'), 'espn_qb_starter': (espn.get('teams', {}).get(t) or {}).get('qb_starter'),
+                      'espn_qb_flag': (espn.get('teams', {}).get(t) or {}).get('qb_flag'), 'espn_qb_note': (espn.get('teams', {}).get(t) or {}).get('qb_note'), 'espn_fetched_at': espn.get('fetched_at'),
+                      'resolved_starter': (operator.get('starters') or {}).get(t) or (espn.get('teams', {}).get(t) or {}).get('qb_starter'),
+                      'resolved_from': 'operator' if (operator.get('starters') or {}).get(t) else ('ESPN depth chart + injury report' if (espn.get('teams', {}).get(t) or {}).get('qb_starter') else 'unresolved'),
                       'projected_starter_qb_rows': rows_q, 'note': 'Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.'}
         warnings = []
+        for t in (away, home):
+            e = espn.get('teams', {}).get(t) or {}
+            op = (operator.get('starters') or {}).get(t)
+            if e.get('qb_flag') == 'AMBIGUOUS':
+                warnings.append('QB %s: ESPN lists %s (Questionable/Doubtful); starter is ambiguous%s' % (t, e.get('qb_note'), ' -- operator says ' + op if op else ' -- no operator confirmation'))
+            elif op and e.get('qb_starter') and op != e.get('qb_starter'):
+                warnings.append('QB %s: operator says %s but ESPN depth/injury resolves %s' % (t, op, e.get('qb_starter')))
+            elif not e:
+                warnings.append('QB %s: no ESPN status file; starter unresolved' % t)
         if conflict:
             warnings.append('BOOK CONFLICT: ' + conflict)
         if wx_row_guard(weather, key):
@@ -369,7 +383,7 @@ def main():
                           'note': 'Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.'},
             'same_division_game': TEAM_DIV[away] == TEAM_DIV[home],
             'market': market, 'action_network_opener': op, 'action_network_splits': sp, 'action_network_splits_captured_at': splits.get('captured_at'), 'supercontest_row': scr,
-            'quantitative_row': qg, 'simulator_edge_sweep': simrows, 'simulator_total_sweep': simtot, 'quarterbacks': qbs, 'game_warnings': warnings,
+            'quantitative_row': qg, 'simulator_edge_sweep': simrows, 'simulator_total_sweep': simtot, 'quarterbacks': qbs, 'injury_report_non_active': {t: (espn.get('teams', {}).get(t) or {}).get('injury_report_non_active') for t in (away, home)}, 'espn_status_fetched_at': espn.get('fetched_at'), 'game_warnings': warnings,
             'simulator_note': 'Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.',
             'digest_rows': drows, 'source_rows': {'counts': dict(counts), 'rows': ev},
             'weather_venue_row': wx, 'secondary_matchups': secm, 'power_ratings': pw, 'availability': av, 'ftn_team_level': ft,
@@ -439,8 +453,11 @@ def render_md(p):
         L += ['## Warnings that touch this game', ''] + ['- ' + w for w in p['game_warnings']] + ['']
     L += ['## Quarterbacks', '']
     for t, q in p['quarterbacks'].items():
-        L.append('- %s: operator-confirmed starter %s (at %s); projected-starter QB rows: %s' % (t, q['operator_confirmed_starter'], q['operator_confirmed_at'], json.dumps(q['projected_starter_qb_rows'])))
-    L += ['', q['note'], '']
+        L.append('- %s: RESOLVED STARTER %s (from %s). ESPN depth %s, flag %s %s [ESPN fetched %s]. Operator-confirmed: %s (at %s). Older projected-starter rows (may be weeks old, context only): %s' % (t, q['resolved_starter'], q['resolved_from'], q['espn_qb_depth'], q['espn_qb_flag'], q['espn_qb_note'], q['espn_fetched_at'], q['operator_confirmed_starter'], q['operator_confirmed_at'], json.dumps(q['projected_starter_qb_rows'])))
+    L += ['', q['note'], '', '## ESPN injury report, non-Active entries (fetched %s)' % p.get('espn_status_fetched_at'), '']
+    for t, rows_i in p['injury_report_non_active'].items():
+        L.append('- %s: %s' % (t, '; '.join('%s %s %s (%s)' % (r['player'], r['pos'], r['status'], r['date']) for r in (rows_i or [])) or 'none listed'))
+    L += ['', 'Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.', '']
     L += ['## Team state: schedule, results and standings', '']
     for t in (A, H):
         b = p['teams'][t]

@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CIN@MIA",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CIN",
@@ -492,23 +492,7 @@
    "basis": "BKR home line 7 total 43.5"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290907,
-  "kickoff_utc": "2026-10-11T17:00:00Z",
-  "sp": {
-   "MIA": 7.5,
-   "CIN": -7.5
-  },
-  "sp_odds_home": -110,
-  "sp_at": "2026-10-05T01:01:25Z",
-  "tot": 44.0,
-  "tot_at": "2026-10-05T00:06:56Z",
-  "ml": {
-   "CIN": -425,
-   "MIA": 305
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290907,
   "away_team": "CIN",
@@ -768,6 +752,16 @@
   "CIN": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Joe Burrow",
+    "Joe Flacco"
+   ],
+   "espn_qb_starter": "Joe Burrow",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Joe Burrow",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Joe Burrow",
@@ -785,6 +779,16 @@
   "MIA": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Malik Willis",
+    "Kyle McCord"
+   ],
+   "espn_qb_starter": "Malik Willis",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Malik Willis",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Malik Willis",
@@ -800,6 +804,111 @@
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "CIN": [
+   {
+    "player": "Kyle Dugger",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Dugger (quadriceps) has been ruled out for Sunday's game against the Dolphins, Paul Dehner Jr. of The Athletic reports."
+   },
+   {
+    "player": "Bryan Cook",
+    "pos": "S",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Cook (ankle) is listed as questionable against the Dolphins on Sunday, Paul Dehner Jr. of The Athletic reports."
+   },
+   {
+    "player": "Colbie Young",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Young (knee) is listed as questionable for Sunday's game against the Dolphins, Paul Dehner Jr. of The Athletic reports."
+   },
+   {
+    "player": "Tee Higgins",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Higgins (groin/neck) was a full practice participant Friday but is still listed as questionable for Sunday's game at Miami, Paul Dehner Jr. of The Athletic reports."
+   },
+   {
+    "player": "Ja'Marr Chase",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Chase remains in concussion protocol and will be listed as questionable for Sunday's game at Miami, Charlie Goldsmith of Fox 19 Now Cincinnati reports."
+   },
+   {
+    "player": "Swayze Bozeman",
+    "pos": "LB",
+    "status": "Questionable",
+    "date": "2026-10-06",
+    "comment": "questionable"
+   },
+   {
+    "player": "Jalen Davis",
+    "pos": "CB",
+    "status": "Injured Reserve",
+    "date": "2026-09-29",
+    "comment": "The Bengals placed Davis (hamstring) on injured reserve Tuesday."
+   }
+  ],
+  "MIA": [
+   {
+    "player": "Storm Duck",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-11",
+    "comment": "Duck (knee) has been downgraded to out for Sunday's game against the Bengals, David Furones of the South Florida Sun Sentinel reports."
+   },
+   {
+    "player": "Robert Beal Jr.",
+    "pos": "DE",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Beal (hamstring) has been ruled out for Sunday's game against the Bengals."
+   },
+   {
+    "player": "Justin Joly",
+    "pos": "TE",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Joly (concussion) has been ruled out ahead of Sunday's game against the Bengals."
+   },
+   {
+    "player": "Jaylen Wright",
+    "pos": "RB",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Wright (foot) is listed as questionable for Sunday's game against the Bengals, David Furones of the South Florida Sun Sentinel reports."
+   },
+   {
+    "player": "Caleb Douglas",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Douglas (ankle) has been ruled out for Sunday's game against the Bengals, David Furones of the South Florida Sun Sentinel reports."
+   },
+   {
+    "player": "Reese Taylor",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-06",
+    "comment": "Taylor (quadriceps) has been ruled out ahead of the Dolphins' Week 5 matchup with the Bengals, Barry Jackson of the Miami Herald reported Monday."
+   },
+   {
+    "player": "Jackson Woodard",
+    "pos": "LB",
+    "status": "Questionable",
+    "date": "2026-10-05",
+    "comment": "Woodard suffered an ankle injury during Sunday's 15-10 loss to the Vikings."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"

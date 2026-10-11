@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "IND@PIT",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "IND",
@@ -492,23 +492,7 @@
    "basis": "BKR home line -3 total 43.5"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290909,
-  "kickoff_utc": "2026-10-11T17:00:00Z",
-  "sp": {
-   "PIT": -2.5,
-   "IND": 2.5
-  },
-  "sp_odds_home": -110,
-  "sp_at": "2026-10-05T00:08:55Z",
-  "tot": 44.5,
-  "tot_at": "2026-10-05T00:10:55Z",
-  "ml": {
-   "IND": 111,
-   "PIT": -134
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290909,
   "away_team": "IND",
@@ -768,6 +752,17 @@
   "IND": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Daniel Jones",
+    "Anthony Richardson Sr.",
+    "Riley Leonard"
+   ],
+   "espn_qb_starter": "Daniel Jones",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Daniel Jones",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Daniel Jones",
@@ -785,6 +780,18 @@
   "PIT": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Aaron Rodgers",
+    "Mason Rudolph",
+    "Will Howard",
+    "Drew Allar"
+   ],
+   "espn_qb_starter": "Aaron Rodgers",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Aaron Rodgers",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Aaron Rodgers",
@@ -800,6 +807,104 @@
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "IND": [
+   {
+    "player": "Arden Key",
+    "pos": "DE",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "The Colts placed Key (hamstring) on injured reserve Saturday."
+   },
+   {
+    "player": "Darius Slayton",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Slayton (knee) has been downgraded to out for Sunday's game against the Steelers."
+   },
+   {
+    "player": "Jaylon Carlies",
+    "pos": "LB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Carlies (ribs) has been ruled out ahead of Sunday's game against the Steelers."
+   },
+   {
+    "player": "Charvarius Ward",
+    "pos": "CB",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Ward (groin) is listed as questionable for Sunday's game against the Steelers."
+   },
+   {
+    "player": "Will Mallory",
+    "pos": "TE",
+    "status": "Injured Reserve",
+    "date": "2026-10-09",
+    "comment": "Mallory (thumb) has been ruled out ahead of Sunday's game against the Steelers."
+   },
+   {
+    "player": "Ashton Dulin",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Dulin (hamstring) has been ruled out ahead of Sunday's game against the Steelers."
+   },
+   {
+    "player": "Keenan Allen",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Allen (groin) is listed as questionable for Sunday's game against the Steelers."
+   }
+  ],
+  "PIT": [
+   {
+    "player": "Michael Pittman Jr.",
+    "pos": "WR",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "The Steelers placed Pittman (foot) on injured reserve Saturday."
+   },
+   {
+    "player": "Jamel Dean",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Dean (ankle) has been ruled out ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports."
+   },
+   {
+    "player": "DeShon Elliott",
+    "pos": "S",
+    "status": "Injured Reserve",
+    "date": "2026-10-09",
+    "comment": "Elliott (knee) has been ruled out ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports."
+   },
+   {
+    "player": "Jalen Ramsey",
+    "pos": "CB",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Ramsey (wrist) is listed as questionable ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports."
+   },
+   {
+    "player": "Rico Dowdle",
+    "pos": "RB",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Dowdle (toe) is listed as questionable for Sunday's game against the Colts, Mike DeFabo reports."
+   },
+   {
+    "player": "Derrick Harmon",
+    "pos": "DT",
+    "status": "Injured Reserve",
+    "date": "2026-10-05",
+    "comment": "The Steelers placed Harmon (foot) on injured reserve Monday, Teresa Varley of the team's official site reports."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
   "WEATHER: review_required: forecast wind 25.2 km/h, gusts 58.0 km/h, precipitation probability 54%"
  ],

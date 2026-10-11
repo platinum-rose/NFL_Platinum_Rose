@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "LV@NE",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "LV",
@@ -492,23 +492,7 @@
    "basis": "BKR home line -3.5 total 45"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290910,
-  "kickoff_utc": "2026-10-11T17:00:00Z",
-  "sp": {
-   "NE": -3.5,
-   "LV": 3.5
-  },
-  "sp_odds_home": -112,
-  "sp_at": "2026-10-05T00:01:36Z",
-  "tot": 45.5,
-  "tot_at": "2026-10-05T00:01:36Z",
-  "ml": {
-   "LV": 158,
-   "NE": -198
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290910,
   "away_team": "LV",
@@ -768,12 +752,34 @@
   "LV": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Kirk Cousins",
+    "Fernando Mendoza",
+    "Aidan O'Connell"
+   ],
+   "espn_qb_starter": "Kirk Cousins",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Kirk Cousins",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   },
   "NE": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Drake Maye",
+    "Tommy DeVito",
+    "Behren Morton"
+   ],
+   "espn_qb_starter": "Drake Maye",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Drake Maye",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Drake Maye",
@@ -789,6 +795,139 @@
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "LV": [
+   {
+    "player": "Trey Zuhn III",
+    "pos": "C",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Zuhn (knee) has been ruled out ahead of Sunday's game against the Patriots, Paul Gutierrez of Raiders.com reports."
+   },
+   {
+    "player": "Dont'e Thornton Jr.",
+    "pos": "WR",
+    "status": "Injured Reserve",
+    "date": "2026-10-09",
+    "comment": "Thornton (hamstring) has been ruled out ahead of Sunday's game against the Patriots, Paul Gutierrez of Raiders.com reports."
+   },
+   {
+    "player": "Jalen Nailor",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Nailor (concussion) has been ruled out for Sunday's game at New England, Paul Gutierrez of ESPN.com reports."
+   },
+   {
+    "player": "Ashton Jeanty",
+    "pos": "RB",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Jeanty (ankle/foot) is questionable for Sunday's game against the Patriots, with Raiders coach Klint Kubiak saying Friday that the running back will \"do his best to go,\" Levi Edwards of the team's off"
+   }
+  ],
+  "NE": [
+   {
+    "player": "Reggie Gilliam",
+    "pos": "FB",
+    "status": "Injured Reserve",
+    "date": "2026-10-11",
+    "comment": "The Patriots placed Gilliam (ankle/knee) on injured reserve Saturday, Doug Kyed of the Boston Herald reports."
+   },
+   {
+    "player": "Mack Hollins",
+    "pos": "WR",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "The Patriots placed Hollins (calf) on injured reserve Saturday, Doug Kyed of the Boston Herald reports."
+   },
+   {
+    "player": "Charles Woods",
+    "pos": "CB",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Woods (shoulder) is listed as questionable for Sunday's game against the Raiders."
+   },
+   {
+    "player": "Karon Prunty",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Prunty (hamstring) has been ruled out for Sunday's game against Las Vegas."
+   },
+   {
+    "player": "Channing Canada",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Canada (hamstring) has been ruled out for Sunday's game against the Raiders."
+   },
+   {
+    "player": "Craig Woodson",
+    "pos": "S",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Woodson (shoulder) is listed as questionable for Sunday's game against Las Vegas."
+   },
+   {
+    "player": "Dre'Mont Jones",
+    "pos": "DE",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Jones (shoulder) is listed as questionable for Sunday's game against the Raiders."
+   },
+   {
+    "player": "Christian Elliss",
+    "pos": "LB",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Elliss (chest) is listed as questionable against the Raiders on Sunday."
+   },
+   {
+    "player": "Christian Barmore",
+    "pos": "DT",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Barmore (shoulder) is listed as questionable for Sunday's game against the Raiders."
+   },
+   {
+    "player": "Christian Gonzalez",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Gonzalez (shoulder) has been ruled out for Sunday's game against Las Vegas."
+   },
+   {
+    "player": "Carlton Davis III",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Davis (neck) has been ruled out for Sunday's game against the Raiders."
+   },
+   {
+    "player": "Rhamondre Stevenson",
+    "pos": "RB",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Stevenson (knee) is listed as questionable for Sunday's game against the Raiders."
+   },
+   {
+    "player": "Morgan Moses",
+    "pos": "OT",
+    "status": "Questionable",
+    "date": "2026-10-07",
+    "comment": "questionable"
+   },
+   {
+    "player": "A.J. Brown",
+    "pos": "WR",
+    "status": "Injured Reserve",
+    "date": "2026-10-07",
+    "comment": "Brown (ankle) was seen in the locker room Wednesday without a noticeable limp, Doug Kyed of the Boston Herald reports."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
   "3 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],

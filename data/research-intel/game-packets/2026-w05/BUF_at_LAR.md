@@ -1,6 +1,6 @@
 # BUF@LAR packet — Buffalo Bills @ Los Angeles Rams
 
-Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -16,8 +16,6 @@ Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"LAR": 29.0, "BUF": 25.5, "basis": "BKR home line -3.5 total 54.5"}
 
-Action Network opener: {"an_game_id": 290916, "kickoff_utc": "2026-10-13T00:15:00Z", "sp": {"LAR": -2.5, "BUF": 2.5}, "sp_odds_home": -112, "sp_at": "2026-10-05T00:25:25Z", "tot": 53.5, "tot_at": "2026-10-05T00:06:55Z", "ml": {"BUF": 120, "LAR": -142}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290916, "away_team": "BUF", "home_team": "LA", "kickoff_at": "2026-10-13T00:15:00.000Z", "spread": [{"side": "home", "value": -3.5, "price_american": -112, "ticket_pct": 27, "money_pct": 39}, {"side": "away", "value": 3.5, "price_american": -110, "ticket_pct": 73, "money_pct": 61}], "total": [{"side": "over", "value": 54.5, "price_american": -110, "ticket_pct": 62, "money_pct": 69}, {"side": "under", "value": 54.5, "price_american": -110, "ticket_pct": 38, "money_pct": 31}], "moneyline": [{"side": "away", "value": 0, "price_american": 149, "ticket_pct": 55, "money_pct": 36}, {"side": "home", "value": 0, "price_american": -179, "ticket_pct": 45, "money_pct": 64}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "BUF", "home_team": "LAR", "favorite": "LAR", "underdog": "BUF", "favorite_spread": -3, "kickoff_display": "Mon 8:15 pm"}
@@ -28,10 +26,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- BUF: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Josh Allen", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BUF (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- LAR: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Matthew Stafford", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LA (usage score 25.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- BUF: RESOLVED STARTER Josh Allen (from ESPN depth chart + injury report). ESPN depth ['Josh Allen', 'Kyle Allen'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Josh Allen", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BUF (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- LAR: RESOLVED STARTER Matthew Stafford (from ESPN depth chart + injury report). ESPN depth ['Matthew Stafford', 'Stetson Bennett IV', 'Ty Simpson', 'Matthew Caldwell'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Matthew Stafford", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LA (usage score 25.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- BUF: Dee Alford CB Questionable (2026-10-10); Ed Oliver DT Out (2026-10-10); Landon Jackson DE Questionable (2026-10-10); DJ Moore WR Questionable (2026-10-10); Joshua Palmer WR Out (2026-10-10); Te'Cory Couch CB Questionable (2026-10-04)
+- LAR: Myles Garrett DE Injured Reserve (2026-10-10); Quentin Lake S Questionable (2026-10-09); Terrance Ferguson TE Injured Reserve (2026-10-07)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

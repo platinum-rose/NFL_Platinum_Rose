@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "DEN@LAC",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T20:05:00.000Z",
  "away": {
   "abbr": "DEN",
@@ -458,23 +458,7 @@
    "basis": "BKR home line 3.5 total 42"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290911,
-  "kickoff_utc": "2026-10-11T20:05:00Z",
-  "sp": {
-   "LAC": 3.5,
-   "DEN": -3.5
-  },
-  "sp_odds_home": -110,
-  "sp_at": "2026-10-05T00:12:55Z",
-  "tot": 43.5,
-  "tot_at": "2026-10-05T00:12:55Z",
-  "ml": {
-   "DEN": -190,
-   "LAC": 155
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290911,
   "away_team": "DEN",
@@ -734,6 +718,17 @@
   "DEN": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Bo Nix",
+    "Jarrett Stidham",
+    "Sam Ehlinger"
+   ],
+   "espn_qb_starter": "Bo Nix",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Bo Nix",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Bo Nix",
@@ -751,6 +746,17 @@
   "LAC": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Justin Herbert",
+    "DJ Uiagalelei",
+    "Trey Lance"
+   ],
+   "espn_qb_starter": "Justin Herbert",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Justin Herbert",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Justin Herbert",
@@ -766,6 +772,139 @@
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "DEN": [
+   {
+    "player": "Riley Moss",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Moss (ribs) has been ruled out for Sunday's game against the Chargers, Aric DiLalla of the Broncos' official site reports."
+   },
+   {
+    "player": "Pat Surtain II",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Surtain (ankle) has been ruled out for Sunday's game against the Chargers, Aric DiLalla of the Broncos' official site reports."
+   },
+   {
+    "player": "Pat Bryant",
+    "pos": "WR",
+    "status": "Injured Reserve",
+    "date": "2026-10-09",
+    "comment": "Bryant (ankle) was placed on the Broncos' injured reserve Friday."
+   },
+   {
+    "player": "Jonah Coleman",
+    "pos": "RB",
+    "status": "Injured Reserve",
+    "date": "2026-09-26",
+    "comment": "Coleman (ankle) is being placed on injured reserve Saturday, Adam Schefter of ESPN reports."
+   }
+  ],
+  "LAC": [
+   {
+    "player": "Scott Matlock",
+    "pos": "FB",
+    "status": "Questionable",
+    "date": "2026-10-11",
+    "comment": "The Chargers activated Matlock (foot) from injured reserve Saturday, but he's still listed as questionable for Sunday's game against the Broncos."
+   },
+   {
+    "player": "Trey Lance",
+    "pos": "QB",
+    "status": "Injured Reserve",
+    "date": "2026-10-11",
+    "comment": "The Chargers placed Lance (groin) on injured reserve Saturday."
+   },
+   {
+    "player": "Branson Taylor",
+    "pos": "G",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "questionable"
+   },
+   {
+    "player": "Charlie Kolar",
+    "pos": "TE",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Kolar (forearm) is listed as questionable for Sunday's game against the Broncos."
+   },
+   {
+    "player": "Rashawn Slater",
+    "pos": "OT",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "The Chargers placed Slater (ankle) on injured reserve Friday."
+   },
+   {
+    "player": "Trevor Penning",
+    "pos": "G",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "Penning (concussion) was been ruled out ahead of Sunday's game against Denver."
+   },
+   {
+    "player": "Kayode Awosika",
+    "pos": "G",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Awosika (lower leg) has been ruled out for Sunday's game against the Broncos."
+   },
+   {
+    "player": "Joe Alt",
+    "pos": "OT",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Alt (neck) has been ruled out for Sunday's game against the Broncos."
+   },
+   {
+    "player": "Brenen Thompson",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Thompson (quadriceps) has been ruled out for Sunday's game against the Broncos."
+   },
+   {
+    "player": "Derwin James Jr.",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "James (hamstring) has been ruled out against the Broncos on Sunday."
+   },
+   {
+    "player": "Donte Jackson",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Jackson (hamstring) has been ruled out for Sunday's game against the Broncos."
+   },
+   {
+    "player": "Rodney Shelley",
+    "pos": "CB",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "questionable"
+   },
+   {
+    "player": "Quentin Johnston",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Johnston (chest) has been ruled out for Sunday's game against Denver."
+   },
+   {
+    "player": "Ladd McConkey",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "McConkey (foot) is listed as questionable for Sunday's game against Denver, while teammate Quentin Johnston (chest) has been ruled out."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"

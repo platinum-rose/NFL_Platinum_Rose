@@ -1,6 +1,6 @@
 # DEN@LAC packet — Denver Broncos @ Los Angeles Chargers
 
-Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (AFC West).
 
@@ -18,8 +18,6 @@ Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"LAC": 19.25, "DEN": 22.75, "basis": "BKR home line 3.5 total 42"}
 
-Action Network opener: {"an_game_id": 290911, "kickoff_utc": "2026-10-11T20:05:00Z", "sp": {"LAC": 3.5, "DEN": -3.5}, "sp_odds_home": -110, "sp_at": "2026-10-05T00:12:55Z", "tot": 43.5, "tot_at": "2026-10-05T00:12:55Z", "ml": {"DEN": -190, "LAC": 155}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290911, "away_team": "DEN", "home_team": "LAC", "kickoff_at": "2026-10-11T20:05:00.000Z", "spread": [{"side": "away", "value": -3.5, "price_american": -103, "ticket_pct": 54, "money_pct": 54}, {"side": "home", "value": 3.5, "price_american": -117, "ticket_pct": 46, "money_pct": 46}], "total": [{"side": "over", "value": 41.5, "price_american": -117, "ticket_pct": 69, "money_pct": 61}, {"side": "under", "value": 41.5, "price_american": -107, "ticket_pct": 31, "money_pct": 39}], "moneyline": [{"side": "away", "value": 0, "price_american": -180, "ticket_pct": 86, "money_pct": 81}, {"side": "home", "value": 0, "price_american": 149, "ticket_pct": 14, "money_pct": 19}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "LAC", "home_team": "DEN", "favorite": "DEN", "underdog": "LAC", "favorite_spread": -3.5, "kickoff_display": "Sun 4:05 pm"}
@@ -31,10 +29,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- DEN: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Bo Nix", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for DEN (usage score 28.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- LAC: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Justin Herbert", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LAC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- DEN: RESOLVED STARTER Bo Nix (from ESPN depth chart + injury report). ESPN depth ['Bo Nix', 'Jarrett Stidham', 'Sam Ehlinger'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Bo Nix", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for DEN (usage score 28.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- LAC: RESOLVED STARTER Justin Herbert (from ESPN depth chart + injury report). ESPN depth ['Justin Herbert', 'DJ Uiagalelei', 'Trey Lance'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Justin Herbert", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LAC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- DEN: Riley Moss CB Out (2026-10-10); Pat Surtain II CB Out (2026-10-10); Pat Bryant WR Injured Reserve (2026-10-09); Jonah Coleman RB Injured Reserve (2026-09-26)
+- LAC: Scott Matlock FB Questionable (2026-10-11); Trey Lance QB Injured Reserve (2026-10-11); Branson Taylor G Questionable (2026-10-10); Charlie Kolar TE Questionable (2026-10-10); Rashawn Slater OT Injured Reserve (2026-10-10); Trevor Penning G Injured Reserve (2026-10-10); Kayode Awosika G Out (2026-10-10); Joe Alt OT Out (2026-10-10); Brenen Thompson WR Out (2026-10-10); Derwin James Jr. S Out (2026-10-10); Donte Jackson CB Out (2026-10-10); Rodney Shelley CB Questionable (2026-10-09); Quentin Johnston WR Out (2026-10-09); Ladd McConkey WR Questionable (2026-10-09)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

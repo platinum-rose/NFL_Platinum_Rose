@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CHI@GB",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CHI",
@@ -458,23 +458,7 @@
    "basis": "BKR home line 1.5 total 46"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290914,
-  "kickoff_utc": "2026-10-11T17:00:00Z",
-  "sp": {
-   "GB": 1.5,
-   "CHI": -1.5
-  },
-  "sp_odds_home": -112,
-  "sp_at": "2026-10-05T00:06:55Z",
-  "tot": 44.5,
-  "tot_at": "2026-10-05T00:01:35Z",
-  "ml": {
-   "CHI": -118,
-   "GB": -102
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290914,
   "away_team": "CHI",
@@ -734,6 +718,17 @@
   "CHI": {
    "operator_confirmed_starter": "Tyson Bagent",
    "operator_confirmed_at": "2026-10-11T01:54:00Z",
+   "espn_qb_depth": [
+    "Caleb Williams",
+    "Tyson Bagent",
+    "Case Keenum"
+   ],
+   "espn_qb_starter": "Caleb Williams",
+   "espn_qb_flag": "AMBIGUOUS",
+   "espn_qb_note": "Caleb Williams Questionable;",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Tyson Bagent",
+   "resolved_from": "operator",
    "projected_starter_qb_rows": [
     {
      "player": "Tyson Bagent",
@@ -771,6 +766,16 @@
   "GB": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Jordan Love",
+    "Tyrod Taylor"
+   ],
+   "espn_qb_starter": "Jordan Love",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Jordan Love",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Jordan Love",
@@ -786,7 +791,127 @@
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "CHI": [
+   {
+    "player": "Anthony Johnson Jr.",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-11",
+    "comment": "out"
+   },
+   {
+    "player": "Shemar Turner",
+    "pos": "DT",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Turner (knee) has been downgraded to out for Sunday's game against Green Bay."
+   },
+   {
+    "player": "Kyler Gordon",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Gordon (calf) has been ruled out for Sunday's game against the Packers."
+   },
+   {
+    "player": "Noah Sewell",
+    "pos": "LB",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Sewell (Achilles) was activated from the Bears' reserve/PUP list Saturday."
+   },
+   {
+    "player": "Keyshaun Elliott",
+    "pos": "LB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Elliott (quadriceps) has been ruled out for Sunday's game against the Packers."
+   },
+   {
+    "player": "Caleb Williams",
+    "pos": "QB",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Williams (hamstring) was a limited practice participant Friday and is listed as questionable for Sunday's game at Green Bay."
+   },
+   {
+    "player": "Kyle Monangai",
+    "pos": "RB",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Monangai (toe) has been ruled out for Sunday's game against the Packers, Patrick Finley of the Chicago Sun-Times reports."
+   }
+  ],
+  "GB": [
+   {
+    "player": "Chris Brooks",
+    "pos": "RB",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "The Packers placed Brooks (ankle) on injured reserve Saturday."
+   },
+   {
+    "player": "Jacob Monk",
+    "pos": "C",
+    "status": "Doubtful",
+    "date": "2026-10-10",
+    "comment": "Monk (quadriceps) is doubtful to play against the Bears on Sunday."
+   },
+   {
+    "player": "Jager Burton",
+    "pos": "C",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Burton (back) is listed as questionable for Sunday's game against the Bears, Wes Hodkiewicz of the Packers' official site reports."
+   },
+   {
+    "player": "Aaron Banks",
+    "pos": "G",
+    "status": "Doubtful",
+    "date": "2026-10-10",
+    "comment": "Banks (toe/knee) is doubtful for Sunday's game against the Bears, Wes Hodkiewicz of the Packers' official site reports."
+   },
+   {
+    "player": "Javon Hargrave",
+    "pos": "DT",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Hargrave (toe) is listed as questionable against the Bears on Sunday, Wes Hodkiewicz of the Packers' official site reports."
+   },
+   {
+    "player": "Savion Williams",
+    "pos": "WR",
+    "status": "Injured Reserve",
+    "date": "2026-10-09",
+    "comment": "Williams (ankle) has been ruled out for Sunday's game against the Bears, Wes Hodkiewicz of the Packers' official site reports."
+   },
+   {
+    "player": "Edgerrin Cooper",
+    "pos": "LB",
+    "status": "Injured Reserve",
+    "date": "2026-10-06",
+    "comment": "Cooper (Achilles) was placed on injured reserve by the Packers on Tuesday."
+   },
+   {
+    "player": "Anthony Campbell",
+    "pos": "DT",
+    "status": "Questionable",
+    "date": "2026-10-06",
+    "comment": "questionable"
+   },
+   {
+    "player": "Micah Parsons",
+    "pos": "DE",
+    "status": "Out",
+    "date": "2026-10-05",
+    "comment": "Parsons (knee), per head coach Matt LaFleur, will not practice this week, Weston Hodkiewicz of the Packers' official site reports."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
+  "QB CHI: ESPN lists Caleb Williams Questionable; (Questionable/Doubtful); starter is ambiguous -- operator says Tyson Bagent",
   "WEATHER: review_required: wind 22.3 km/h, gusts 42.1 km/h",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"

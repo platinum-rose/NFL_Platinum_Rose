@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "BAL@ATL",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-12T00:20:00.000Z",
  "away": {
   "abbr": "BAL",
@@ -606,23 +606,7 @@
    "basis": "BKR home line -3 total 44"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290915,
-  "kickoff_utc": "2026-10-12T00:20:00Z",
-  "sp": {
-   "ATL": 4.5,
-   "BAL": -4.5
-  },
-  "sp_odds_home": -113,
-  "sp_at": "2026-10-05T01:51:05Z",
-  "tot": 47.5,
-  "tot_at": "2026-10-05T01:12:15Z",
-  "ml": {
-   "BAL": -210,
-   "ATL": 165
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290915,
   "away_team": "BAL",
@@ -882,6 +866,18 @@
   "BAL": {
    "operator_confirmed_starter": "Tyler Huntley",
    "operator_confirmed_at": "2026-10-11T01:54:00Z",
+   "espn_qb_depth": [
+    "Lamar Jackson",
+    "Tyler Huntley",
+    "Joe Fagnano",
+    "Skylar Thompson"
+   ],
+   "espn_qb_starter": "Tyler Huntley",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "Lamar Jackson Out;",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Tyler Huntley",
+   "resolved_from": "operator",
    "projected_starter_qb_rows": [
     {
      "player": "Lamar Jackson",
@@ -909,10 +905,113 @@
   "ATL": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Michael Penix Jr.",
+    "Tua Tagovailoa",
+    "Cooper Rush",
+    "Jack Strand"
+   ],
+   "espn_qb_starter": "Michael Penix Jr.",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Michael Penix Jr.",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "BAL": [
+   {
+    "player": "Cam Jurgens",
+    "pos": "C",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Jurgens (concussion) has been ruled out ahead of Sunday's game against the Falcons, Adam Caplan of SiriusXM NFL Radio reports."
+   },
+   {
+    "player": "Marlon Humphrey",
+    "pos": "CB",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Humphrey (calf/hamstring) is listed as questionable for Sunday's game against the Falcons, Adam Caplan of SiriusXM NFL Radio reports."
+   },
+   {
+    "player": "Trey Hendrickson",
+    "pos": "LB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Hendrickson (finger) has been ruled out ahead of Sunday's game against the Falcons, Adam Caplan of SiriusXM NFL Radio reports."
+   },
+   {
+    "player": "Zay Flowers",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Flowers (foot) is listed as questionable for Sunday night's game against the Falcons."
+   },
+   {
+    "player": "Ja'Kobi Lane",
+    "pos": "WR",
+    "status": "Injured Reserve",
+    "date": "2026-10-09",
+    "comment": "Ravens coach Jesse Minter said Friday that Lane (wrist) is \"doing really well\" and \"has put himself in a great position to be ready to roll when the time permits.\""
+   },
+   {
+    "player": "Lamar Jackson",
+    "pos": "QB",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Jackson (ankle) has been ruled out for Sunday night's game against the Falcons, Cordell Woodland of 105.7 The Fan Baltimore reports."
+   },
+   {
+    "player": "Durham Smythe",
+    "pos": "TE",
+    "status": "Injured Reserve",
+    "date": "2026-10-07",
+    "comment": "The Ravens placed Smythe (Achilles) on their injured reserve list Wednesday, Ryan Mink of the Ravens' official site reports."
+   }
+  ],
+  "ATL": [
+   {
+    "player": "Za'Darius Smith",
+    "pos": "DE",
+    "status": "Out",
+    "date": "2026-10-11",
+    "comment": "Smith (concussion/neck) has been downgraded to out for Sunday's game against the Ravens, Tori McElhaney of the Falcons' official site reports."
+   },
+   {
+    "player": "Yasir Abdullah",
+    "pos": "LB",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "ir"
+   },
+   {
+    "player": "Jake Matthews",
+    "pos": "OT",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Matthews (groin) is questionable for Sunday's game against the Ravens."
+   },
+   {
+    "player": "Divine Deablo",
+    "pos": "LB",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Deablo (hamstring) is listed as questionable ahead of Sunday's game against the Ravens, Will McFadden of the Falcons' official site  reports."
+   },
+   {
+    "player": "Samson Ebukam",
+    "pos": "DE",
+    "status": "Questionable",
+    "date": "2026-10-08",
+    "comment": "questionable"
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [

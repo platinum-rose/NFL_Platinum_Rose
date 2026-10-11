@@ -1,6 +1,6 @@
 # CIN@MIA packet — Cincinnati Bengals @ Miami Dolphins
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -16,8 +16,6 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"MIA": 18.25, "CIN": 25.25, "basis": "BKR home line 7 total 43.5"}
 
-Action Network opener: {"an_game_id": 290907, "kickoff_utc": "2026-10-11T17:00:00Z", "sp": {"MIA": 7.5, "CIN": -7.5}, "sp_odds_home": -110, "sp_at": "2026-10-05T01:01:25Z", "tot": 44.0, "tot_at": "2026-10-05T00:06:56Z", "ml": {"CIN": -425, "MIA": 305}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290907, "away_team": "CIN", "home_team": "MIA", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": 6.5, "price_american": -102, "ticket_pct": 25, "money_pct": 13}, {"side": "away", "value": -6.5, "price_american": -119, "ticket_pct": 75, "money_pct": 87}], "total": [{"side": "over", "value": 43.5, "price_american": -108, "ticket_pct": 71, "money_pct": 79}, {"side": "under", "value": 43.5, "price_american": -111, "ticket_pct": 29, "money_pct": 21}], "moneyline": [{"side": "away", "value": 0, "price_american": -325, "ticket_pct": 95, "money_pct": 96}, {"side": "home", "value": 0, "price_american": 260, "ticket_pct": 5, "money_pct": 4}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "MIA", "home_team": "CIN", "favorite": "CIN", "underdog": "MIA", "favorite_spread": -7, "kickoff_display": "Sun 1:00 pm"}
@@ -29,10 +27,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- CIN: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Joe Burrow", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CIN (usage score 35.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- MIA: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Malik Willis", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- CIN: RESOLVED STARTER Joe Burrow (from ESPN depth chart + injury report). ESPN depth ['Joe Burrow', 'Joe Flacco'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Joe Burrow", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CIN (usage score 35.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- MIA: RESOLVED STARTER Malik Willis (from ESPN depth chart + injury report). ESPN depth ['Malik Willis', 'Kyle McCord'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Malik Willis", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- CIN: Kyle Dugger S Out (2026-10-10); Bryan Cook S Questionable (2026-10-10); Colbie Young WR Questionable (2026-10-09); Tee Higgins WR Questionable (2026-10-09); Ja'Marr Chase WR Questionable (2026-10-09); Swayze Bozeman LB Questionable (2026-10-06); Jalen Davis CB Injured Reserve (2026-09-29)
+- MIA: Storm Duck CB Out (2026-10-11); Robert Beal Jr. DE Out (2026-10-10); Justin Joly TE Out (2026-10-10); Jaylen Wright RB Questionable (2026-10-09); Caleb Douglas WR Out (2026-10-09); Reese Taylor CB Out (2026-10-06); Jackson Woodard LB Questionable (2026-10-05)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

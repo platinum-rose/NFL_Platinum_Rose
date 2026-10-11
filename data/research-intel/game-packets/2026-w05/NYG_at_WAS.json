@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "NYG@WAS",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "NYG",
@@ -458,23 +458,7 @@
    "basis": "BKR home line -3.5 total 41.5"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290904,
-  "kickoff_utc": "2026-10-11T17:00:00Z",
-  "sp": {
-   "WAS": -3.5,
-   "NYG": 3.5
-  },
-  "sp_odds_home": -107,
-  "sp_at": "2026-10-05T00:12:55Z",
-  "tot": 44.5,
-  "tot_at": "2026-10-05T00:06:55Z",
-  "ml": {
-   "NYG": 147,
-   "WAS": -182
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": "Jayden Daniels",
  "action_network_splits": {
   "game_id": 290904,
   "away_team": "NYG",
@@ -734,6 +718,18 @@
   "NYG": {
    "operator_confirmed_starter": "Jameis Winston",
    "operator_confirmed_at": "2026-10-11T01:54:00Z",
+   "espn_qb_depth": [
+    "Jameis Winston",
+    "J.J. McCarthy",
+    "Jake Haener",
+    "Jaxson Dart"
+   ],
+   "espn_qb_starter": "Jameis Winston",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Jameis Winston",
+   "resolved_from": "operator",
    "projected_starter_qb_rows": [
     {
      "player": "Jaxson Dart",
@@ -761,6 +757,17 @@
   "WAS": {
    "operator_confirmed_starter": "Jayden Daniels",
    "operator_confirmed_at": "2026-10-11T01:54:00Z",
+   "espn_qb_depth": [
+    "Jayden Daniels",
+    "Marcus Mariota",
+    "Athan Kaliakmanis"
+   ],
+   "espn_qb_starter": "Jayden Daniels",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Jayden Daniels",
+   "resolved_from": "operator",
    "projected_starter_qb_rows": [
     {
      "player": "Jayden Daniels",
@@ -776,6 +783,104 @@
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "NYG": [
+   {
+    "player": "Chauncey Golston",
+    "pos": "DE",
+    "status": "Injured Reserve",
+    "date": "2026-10-11",
+    "comment": "The Giants placed Golston (neck) on injured reserve Saturday, Dan Salomone of the Giants' official site reports."
+   },
+   {
+    "player": "Jason Pinnock",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Pinnock (concussion) has been ruled out ahead of Sunday's game against the Commanders."
+   },
+   {
+    "player": "Braxton Berrios",
+    "pos": "WR",
+    "status": "Injured Reserve",
+    "date": "2026-10-07",
+    "comment": "The Giants placed Berrios (foot) on their injured reserve list Wednesday, Dan Salomone of the Giants' official site reports."
+   }
+  ],
+  "WAS": [
+   {
+    "player": "Trey Amos",
+    "pos": "CB",
+    "status": "Injured Reserve",
+    "date": "2026-10-11",
+    "comment": "Amos (ankle) has been downgraded to out for Sunday's game against the Giants."
+   },
+   {
+    "player": "Jeremy McNichols",
+    "pos": "RB",
+    "status": "Injured Reserve",
+    "date": "2026-10-11",
+    "comment": "McNichols (quadriceps) has been ruled out for Sunday's game against the Giants."
+   },
+   {
+    "player": "Terry McLaurin",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-11",
+    "comment": "McLaurin (hamstring) remains a game-time decision for Sunday's game against the Giants, with a \"slight lean\" toward him playing, John Keim of ESPN.com reports."
+   },
+   {
+    "player": "Tyler Owens",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Owens (hamstring) has been ruled out for Sunday's game against the Giants."
+   },
+   {
+    "player": "Charles Omenihu",
+    "pos": "DE",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Omenihu (groin/ankle) has been ruled out for Sunday's game against the Giants."
+   },
+   {
+    "player": "Percy Butler",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Butler (hamstring) has been ruled out for Sunday's game against the Giants."
+   },
+   {
+    "player": "Nick Cross",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Cross (illness) has been ruled out ahead of Sunday's game against the Giants."
+   },
+   {
+    "player": "Marcus Mariota",
+    "pos": "QB",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Mariota (knee) has been ruled out for Sunday's game against the Giants."
+   },
+   {
+    "player": "Stefon Diggs",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Diggs (hamstring) wasn't spotted at Friday's practice, Tashan Reed of The Washington Post reports."
+   },
+   {
+    "player": "Jaylin Lane",
+    "pos": "WR",
+    "status": "Injured Reserve",
+    "date": "2026-10-06",
+    "comment": "The Commanders placed Lane (ankle) on injured reserve Tuesday."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
   "WEATHER: review_required: precipitation probability 72%"
  ],

@@ -86,7 +86,7 @@ def check(model, game):
     # simulator
     if hl is not None and tot is not None and 'simulator' in o:
         try:
-            s = sim(hl, tot, em, et)
+            s = simres = sim(hl, tot, em, et)
             for k_out, k_sim in (('home_cover', 'home_cover'), ('away_cover', 'away_cover'), ('over', 'over'), ('under', 'under')):
                 if o['simulator'].get(k_out) is None or abs(o['simulator'][k_out] - s[k_sim]) > TOL:
                     emit('FAIL', 'simulator.%s %s != recomputed %.4f' % (k_out, o['simulator'].get(k_out), s[k_sim]))
@@ -106,6 +106,30 @@ def check(model, game):
     if o.get('tier') == '2' and len(elig_outlets) < 2:
         emit('FAIL', 'tier 2 needs >= 2 independent tier-eligible outlets; found %s' % sorted(elig_outlets))
     if not o.get('invalidators'): emit('FAIL', 'invalidators is empty')
+    for k in ('home_line', 'total', 'captured_at'):
+        if k not in m: emit('FAIL', 'market missing ' + k)
+    for k in ('side_push', 'total_push'):
+        if 'simulator' in o and o['simulator'].get(k) is None: emit('FAIL', 'simulator.%s missing' % k)
+    if 'simulator' in o and hl is not None and tot is not None:
+        try:
+            for k in ('side_push', 'total_push'):
+                if k in simres and o['simulator'].get(k) is not None and abs(o['simulator'][k] - simres[k]) > TOL:
+                    emit('FAIL', 'simulator.%s %s != recomputed %.4f' % (k, o['simulator'][k], simres[k]))
+        except NameError:
+            pass
+    for k in ('away', 'home'):
+        if not (o.get('context') or {}).get(k): emit('FAIL', 'context.%s missing' % k)
+    mdp = '%s/../../../../reports/intel/games/2026-w05-%s-%s.md' % (PK, model, gk)
+    mdp = os.path.normpath(os.environ.get('W05_MD_DIR', 'reports/intel/games') + '/2026-w05-%s-%s.md' % (model, gk))
+    if os.path.exists(mdp):
+        words = len(open(mdp, encoding='utf-8').read().split())
+        if words > 1100: emit('WARN', 'report is %d words; prompt asks for 600-900 of narrative plus a short gaps list (limit ~1100 total)' % words)
+        elif words < 500: emit('WARN', 'report is only %d words' % words)
+    else:
+        emit('FAIL', 'no report md ' + mdp)
+    gen = o.get('generated_at')
+    if gen and pk['market']['BKR'].get('expires_for_recommendation_at') and str(gen) > str(pk['market']['BKR']['expires_for_recommendation_at']) and o.get('tier') in ('2', '2-'):
+        emit('FAIL', 'output generated after BKR recommendation window expired but tier is %s' % o.get('tier'))
     # freshness
     if not pk['market']['BKR']['fresh_at_build']:
         emit('WARN', 'packet BKR capture was already stale at build time; output must be research_only')

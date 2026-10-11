@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "MIN@NO",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "MIN",
@@ -492,23 +492,7 @@
    "basis": "BKR home line 2.5 total 41.5"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290906,
-  "kickoff_utc": "2026-10-11T17:00:00Z",
-  "sp": {
-   "NO": 1.5,
-   "MIN": -1.5
-  },
-  "sp_odds_home": -112,
-  "sp_at": "2026-10-05T00:30:25Z",
-  "tot": 43.0,
-  "tot_at": "2026-10-05T00:30:25Z",
-  "ml": {
-   "MIN": -122,
-   "NO": 101
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290906,
   "away_team": "MIN",
@@ -768,12 +752,34 @@
   "MIN": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Kyler Murray",
+    "Carson Wentz",
+    "Max Brosmer"
+   ],
+   "espn_qb_starter": "Kyler Murray",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Kyler Murray",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   },
   "NO": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Tyler Shough",
+    "Spencer Rattler",
+    "Zach Wilson"
+   ],
+   "espn_qb_starter": "Tyler Shough",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Tyler Shough",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Tyler Shough",
@@ -789,6 +795,153 @@
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "MIN": [
+   {
+    "player": "Ben Yurosek",
+    "pos": "TE",
+    "status": "Questionable",
+    "date": "2026-10-11",
+    "comment": "The Vikings activated Yurosek (ankle) from injured reserve Saturday, Craig Peters of the team's official site reports."
+   },
+   {
+    "player": "Michael Jurgens",
+    "pos": "C",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "questionable"
+   },
+   {
+    "player": "Charles Demmings",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Demmings (hamstring) has been ruled out for Sunday's game against the Saints."
+   },
+   {
+    "player": "Brian O'Neill",
+    "pos": "OT",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "O'Neill (knee) is questionable against the Saints on Sunday."
+   },
+   {
+    "player": "Christian Darrisaw",
+    "pos": "OT",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Darrisaw (concussion) has been ruled out for Sunday's game against the Saints."
+   },
+   {
+    "player": "Jordan Addison",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Addison (hamstring) is listed as questionable for Sunday's game in New Orleans, Alec Lewis of The Athletic reports."
+   },
+   {
+    "player": "Justin Jefferson",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Jefferson (ankle) and Jordan Addison (hamstring) were at practice Friday, Kevin Seifert of ESPN.com reports."
+   },
+   {
+    "player": "Donovan Jackson",
+    "pos": "G",
+    "status": "Injured Reserve",
+    "date": "2026-10-07",
+    "comment": "Jackson (knee) was placed on injured reserve by the Vikings on Tuesday."
+   },
+   {
+    "player": "Josh Oliver",
+    "pos": "TE",
+    "status": "Injured Reserve",
+    "date": "2026-09-30",
+    "comment": "The Vikings placed Oliver (biceps) on injured reserve Tuesday, Craig Peters of the team's official site reports."
+   }
+  ],
+  "NO": [
+   {
+    "player": "Nathan Shepherd",
+    "pos": "DT",
+    "status": "Questionable",
+    "date": "2026-10-11",
+    "comment": "Shepherd (illness) is now questionable for Sunday's game against the Vikings."
+   },
+   {
+    "player": "Vernon Broughton",
+    "pos": "DT",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "questionable"
+   },
+   {
+    "player": "Lorenzo Styles Jr.",
+    "pos": "S",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "questionable"
+   },
+   {
+    "player": "Jaylan Ford",
+    "pos": "LB",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "questionable"
+   },
+   {
+    "player": "Christen Miller",
+    "pos": "DT",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "questionable"
+   },
+   {
+    "player": "Jeremiah Wright",
+    "pos": "G",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Wright (concussion) has been ruled out ahead of Sunday's game against the Vikings, Emily Leiker of The Minnesota Star Tribune reports."
+   },
+   {
+    "player": "Anfernee Jennings",
+    "pos": "LB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Jennings (knee) has been ruled out ahead of Sunday's game against the Vikings, Emily Leiker of The Minnesota Star Tribune reports."
+   },
+   {
+    "player": "Julian Blackmon",
+    "pos": "S",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Blackmon (shoulder) is listed as questionable against the Vikings on Sunday, Emily Leiker of The Minnesota Star Tribune reports."
+   },
+   {
+    "player": "Kaden Elliss",
+    "pos": "LB",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Elliss (calf) has been ruled out for Sunday's game against the Vikings, Emily Leiker of The Minnesota Star Tribune reports."
+   },
+   {
+    "player": "Barion Brown",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Brown (thigh) is listed as questionable for Sunday's game against the Vikings, Emily Leiker of The Minnesota Star Tribune reports."
+   },
+   {
+    "player": "Alvin Kamara",
+    "pos": "RB",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Kamara (back) is questionable for Sunday's game against the Vikings, Katherine Terrell of ESPN.com reports."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
   "BOOK CONFLICT: BKR home line 2.5 vs BEO 1 (>=1.0 pt apart); recapture before relying on either",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",

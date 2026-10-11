@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "DET@ARI",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T20:25:00.000Z",
  "away": {
   "abbr": "DET",
@@ -492,23 +492,7 @@
    "basis": "BKR home line 5.5 total 54.5"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290913,
-  "kickoff_utc": "2026-10-11T20:25:00Z",
-  "sp": {
-   "ARI": 4.5,
-   "DET": -4.5
-  },
-  "sp_odds_home": -113,
-  "sp_at": "2026-10-05T04:59:05Z",
-  "tot": 53.5,
-  "tot_at": "2026-10-05T00:01:35Z",
-  "ml": {
-   "DET": -250,
-   "ARI": 207
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290913,
   "away_team": "DET",
@@ -768,6 +752,16 @@
   "DET": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Jared Goff",
+    "Joshua Dobbs"
+   ],
+   "espn_qb_starter": "Jared Goff",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Jared Goff",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Jared Goff",
@@ -785,10 +779,119 @@
   "ARI": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Jacoby Brissett",
+    "Gardner Minshew II",
+    "Carson Beck"
+   ],
+   "espn_qb_starter": "Jacoby Brissett",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Jacoby Brissett",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "DET": [
+   {
+    "player": "Cade Mays",
+    "pos": "C",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "Mays (wrist) has been ruled out for Sunday's game against the Cardinals."
+   },
+   {
+    "player": "Ben Bartch",
+    "pos": "G",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Bartch (foot) has been ruled out for Sunday's game against Arizona."
+   },
+   {
+    "player": "Rock Ya-Sin",
+    "pos": "CB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Ya-Sin (hamstring) has been ruled out ahead of Sunday's game against the Cardinals."
+   },
+   {
+    "player": "Brian Branch",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Branch (Achilles) has been ruled out ahead of Sunday's game against the Cardinals."
+   },
+   {
+    "player": "Tyleik Williams",
+    "pos": "DT",
+    "status": "Questionable",
+    "date": "2026-10-07",
+    "comment": "questionable"
+   },
+   {
+    "player": "Thomas Harper",
+    "pos": "S",
+    "status": "Injured Reserve",
+    "date": "2026-09-26",
+    "comment": "The Lions placed Harper (ankle) on injured reserve Saturday."
+   }
+  ],
+  "ARI": [
+   {
+    "player": "Isaiah Adams",
+    "pos": "G",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "ir"
+   },
+   {
+    "player": "Marvin Harrison Jr.",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "A trade for Harrison will not be completed \"until after Sunday's games are played,\" but the Cardinals \"feel comfortable enough\" knowing it will occur that they will deactivate him for Sunday's game ag"
+   },
+   {
+    "player": "Walter Nolen III",
+    "pos": "DT",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Nolen (calf) is questionable against the Lions on Sunday, Zach Gershman of the Cardinals' official site reports."
+   },
+   {
+    "player": "Andrew Wingard",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-09",
+    "comment": "Wingard (knee) has been ruled out for Sunday's game against the Lions, Bo Brack of GoPHNX.com reports."
+   },
+   {
+    "player": "Karson Sharar",
+    "pos": "LB",
+    "status": "Questionable",
+    "date": "2026-10-08",
+    "comment": "questionable"
+   },
+   {
+    "player": "Paris Johnson Jr.",
+    "pos": "OT",
+    "status": "Injured Reserve",
+    "date": "2026-10-07",
+    "comment": "The Cardinals placed Johnson (biceps) on injured reserve Tuesday."
+   },
+   {
+    "player": "Hunter Long",
+    "pos": "TE",
+    "status": "Injured Reserve",
+    "date": "2026-10-06",
+    "comment": "The Cardinals placed Long (knee) on injured reserve Tuesday."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels"
  ],

@@ -1,6 +1,6 @@
 # BAL@ATL packet — Baltimore Ravens @ Atlanta Falcons
 
-Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -16,18 +16,23 @@ Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"ATL": 23.5, "BAL": 20.5, "basis": "BKR home line -3 total 44"}
 
-Action Network opener: {"an_game_id": 290915, "kickoff_utc": "2026-10-12T00:20:00Z", "sp": {"ATL": 4.5, "BAL": -4.5}, "sp_odds_home": -113, "sp_at": "2026-10-05T01:51:05Z", "tot": 47.5, "tot_at": "2026-10-05T01:12:15Z", "ml": {"BAL": -210, "ATL": 165}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290915, "away_team": "BAL", "home_team": "ATL", "kickoff_at": "2026-10-12T00:20:00.000Z", "spread": [{"side": "home", "value": -3.5, "price_american": -101, "ticket_pct": 47, "money_pct": 59}, {"side": "away", "value": 3.5, "price_american": -119, "ticket_pct": 53, "money_pct": 41}], "total": [{"side": "over", "value": 44, "price_american": -110, "ticket_pct": 72, "money_pct": 73}, {"side": "under", "value": 44, "price_american": -109, "ticket_pct": 28, "money_pct": 27}], "moneyline": [{"side": "away", "value": 0, "price_american": 150, "ticket_pct": 49, "money_pct": 39}, {"side": "home", "value": 0, "price_american": -177, "ticket_pct": 51, "money_pct": 61}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "BAL", "home_team": "ATL", "favorite": "ATL", "underdog": "BAL", "favorite_spread": -3.5, "kickoff_display": "Sun 8:20 pm"}
 
 ## Quarterbacks
 
-- BAL: operator-confirmed starter Tyler Huntley (at 2026-10-11T01:54:00Z); projected-starter QB rows: [{"player": "Lamar Jackson", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tyler Huntley", "role": "likely_starter_or_primary", "starter_confidence": 0.7, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T17:40:00.000Z", "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."}}]
-- ATL: operator-confirmed starter None (at None); projected-starter QB rows: []
+- BAL: RESOLVED STARTER Tyler Huntley (from operator). ESPN depth ['Lamar Jackson', 'Tyler Huntley', 'Joe Fagnano', 'Skylar Thompson'], flag ok Lamar Jackson Out; [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: Tyler Huntley (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Lamar Jackson", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tyler Huntley", "role": "likely_starter_or_primary", "starter_confidence": 0.7, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T17:40:00.000Z", "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."}}]
+- ATL: RESOLVED STARTER Michael Penix Jr. (from ESPN depth chart + injury report). ESPN depth ['Michael Penix Jr.', 'Tua Tagovailoa', 'Cooper Rush', 'Jack Strand'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- BAL: Cam Jurgens C Out (2026-10-10); Marlon Humphrey CB Questionable (2026-10-10); Trey Hendrickson LB Out (2026-10-10); Zay Flowers WR Questionable (2026-10-09); Ja'Kobi Lane WR Injured Reserve (2026-10-09); Lamar Jackson QB Out (2026-10-09); Durham Smythe TE Injured Reserve (2026-10-07)
+- ATL: Za'Darius Smith DE Out (2026-10-11); Yasir Abdullah LB Injured Reserve (2026-10-10); Jake Matthews OT Questionable (2026-10-10); Divine Deablo LB Questionable (2026-10-09); Samson Ebukam DE Questionable (2026-10-08)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

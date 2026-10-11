@@ -1,6 +1,6 @@
 # PHI@JAX packet — Philadelphia Eagles @ Jacksonville Jaguars
 
-Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -16,18 +16,23 @@ Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"JAX": 24.75, "PHI": 17.25, "basis": "BKR home line -7.5 total 42"}
 
-Action Network opener: {"an_game_id": 290820, "kickoff_utc": "2026-10-11T13:30:00Z", "sp": {"JAX": -3.5, "PHI": 3.5}, "sp_odds_home": -105, "sp_at": "2026-10-05T00:14:25Z", "tot": 43.5, "tot_at": "2026-10-05T00:12:25Z", "ml": {"PHI": 155, "JAX": -182}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290820, "away_team": "PHI", "home_team": "JAC", "kickoff_at": "2026-10-11T13:30:00.000Z", "spread": [{"side": "home", "value": -7.5, "price_american": -110, "ticket_pct": 60, "money_pct": 57}, {"side": "away", "value": 7.5, "price_american": -110, "ticket_pct": 40, "money_pct": 43}], "total": [{"side": "over", "value": 41.5, "price_american": -111, "ticket_pct": 40, "money_pct": 37}, {"side": "under", "value": 41.5, "price_american": -108, "ticket_pct": 60, "money_pct": 63}], "moneyline": [{"side": "home", "value": 0, "price_american": -387, "ticket_pct": 70, "money_pct": 67}, {"side": "away", "value": 0, "price_american": 300, "ticket_pct": 30, "money_pct": 33}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "PHI", "home_team": "JAX", "favorite": "JAX", "underdog": "PHI", "favorite_spread": -7.5, "kickoff_display": "Sun 9:30 am"}
 
 ## Quarterbacks
 
-- PHI: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Jalen Hurts", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tanner McKee", "role": "likely_starter_or_primary", "starter_confidence": 0.78, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-04T12:55:00.000Z", "evidence": "McKee is expected to be active for Sunday's game against the Rams as the top backup to starter Jalen Hurts, while Andy Dalton serves as the Eagles' No. 3 quarterback, Mike Garafolo of NFL Network reports."}}]
-- JAX: operator-confirmed starter None (at None); projected-starter QB rows: []
+- PHI: RESOLVED STARTER Jalen Hurts (from ESPN depth chart + injury report). ESPN depth ['Jalen Hurts', 'Tanner McKee', 'Cole Payton'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jalen Hurts", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tanner McKee", "role": "likely_starter_or_primary", "starter_confidence": 0.78, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-04T12:55:00.000Z", "evidence": "McKee is expected to be active for Sunday's game against the Rams as the top backup to starter Jalen Hurts, while Andy Dalton serves as the Eagles' No. 3 quarterback, Mike Garafolo of NFL Network reports."}}]
+- JAX: RESOLVED STARTER Trevor Lawrence (from ESPN depth chart + injury report). ESPN depth ['Trevor Lawrence', 'Quinn Ewers'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- PHI: Drew Kendall C Out (2026-10-10); Marcus Epps S Out (2026-10-10); Jonathan Greenard LB Questionable (2026-10-10); Hollywood Brown WR Out (2026-10-10); DeVonta Smith WR Out (2026-10-09); Saquon Barkley RB Out (2026-10-09); Tank Bigsby RB Injured Reserve (2026-10-06)
+- JAX: Eric Murray S Doubtful (2026-10-10); Caleb Ransaw S Injured Reserve (2026-10-07)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

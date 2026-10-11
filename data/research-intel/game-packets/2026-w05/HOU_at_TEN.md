@@ -1,6 +1,6 @@
 # HOU@TEN packet — Houston Texans @ Tennessee Titans
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T02:16:45.030365+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (AFC South).
 
@@ -18,8 +18,6 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. sp
 
 Market-implied score: {"TEN": 15.25, "HOU": 22.25, "basis": "BKR home line 7 total 37.5"}
 
-Action Network opener: {"an_game_id": 290905, "kickoff_utc": "2026-10-11T17:00:00Z", "sp": {"TEN": 6.5, "HOU": -6.5}, "sp_odds_home": -106, "sp_at": "2026-10-05T00:06:56Z", "tot": 39.5, "tot_at": "2026-10-05T00:06:56Z", "ml": {"HOU": -317, "TEN": 243}, "carried_from_before_cutoff": false}
-
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290905, "away_team": "HOU", "home_team": "TEN", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": 7.5, "price_american": -114, "ticket_pct": 30, "money_pct": 34}, {"side": "away", "value": -7.5, "price_american": -104, "ticket_pct": 70, "money_pct": 66}], "total": [{"side": "over", "value": 38, "price_american": -109, "ticket_pct": 77, "money_pct": 70}, {"side": "under", "value": 38, "price_american": -109, "ticket_pct": 23, "money_pct": 30}], "moneyline": [{"side": "away", "value": 0, "price_american": -385, "ticket_pct": 94, "money_pct": 91}, {"side": "home", "value": 0, "price_american": 305, "ticket_pct": 6, "money_pct": 9}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "TEN", "home_team": "HOU", "favorite": "HOU", "underdog": "TEN", "favorite_spread": -7.5, "kickoff_display": "Sun 1:00 pm"}
@@ -31,10 +29,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- HOU: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "C.J. Stroud", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Mark Gronowski", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T22:14:00.000Z", "evidence": "Gronowski signed with the Texans on Wednesday, Jonathan M. Alexander of the Houston Chronicle reports."}}]
-- TEN: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Cam Ward", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- HOU: RESOLVED STARTER C.J. Stroud (from ESPN depth chart + injury report). ESPN depth ['C.J. Stroud', 'Davis Mills', 'Graham Mertz'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "C.J. Stroud", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Mark Gronowski", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T22:14:00.000Z", "evidence": "Gronowski signed with the Texans on Wednesday, Jonathan M. Alexander of the Houston Chronicle reports."}}]
+- TEN: RESOLVED STARTER Cam Ward (from ESPN depth chart + injury report). ESPN depth ['Cam Ward', 'Mitchell Trubisky'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Cam Ward", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
+
+## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+
+- HOU: M.J. Stewart S Questionable (2026-10-11); Kayden McDonald DT Questionable (2026-10-11); Tank Dell WR Injured Reserve (2026-10-09); Braden Smith OT Injured Reserve (2026-10-09); Aireontae Ersery OT Questionable (2026-10-08); Ed Ingram G Questionable (2026-10-08); Blake Fisher OT Questionable (2026-10-08); Jaylin Smith CB Injured Reserve (2026-10-07)
+- TEN: Joshua Williams CB Injured Reserve (2026-10-10); David Martin-Robinson TE Questionable (2026-10-09); Amani Hooker S Out (2026-10-09); Carnell Tate WR Questionable (2026-10-09)
+
+Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
 ## Team state: schedule, results and standings
 

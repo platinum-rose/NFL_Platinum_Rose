@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "BUF@LAR",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-13T00:15:00.000Z",
  "away": {
   "abbr": "BUF",
@@ -606,23 +606,7 @@
    "basis": "BKR home line -3.5 total 54.5"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290916,
-  "kickoff_utc": "2026-10-13T00:15:00Z",
-  "sp": {
-   "LAR": -2.5,
-   "BUF": 2.5
-  },
-  "sp_odds_home": -112,
-  "sp_at": "2026-10-05T00:25:25Z",
-  "tot": 53.5,
-  "tot_at": "2026-10-05T00:06:55Z",
-  "ml": {
-   "BUF": 120,
-   "LAR": -142
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290916,
   "away_team": "BUF",
@@ -882,6 +866,16 @@
   "BUF": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Josh Allen",
+    "Kyle Allen"
+   ],
+   "espn_qb_starter": "Josh Allen",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Josh Allen",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Josh Allen",
@@ -899,6 +893,18 @@
   "LAR": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Matthew Stafford",
+    "Stetson Bennett IV",
+    "Ty Simpson",
+    "Matthew Caldwell"
+   ],
+   "espn_qb_starter": "Matthew Stafford",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Matthew Stafford",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Matthew Stafford",
@@ -914,6 +920,76 @@
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "BUF": [
+   {
+    "player": "Dee Alford",
+    "pos": "CB",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Alford (ankle) is listed as questionable for Monday's game against the Rams, Joe Buscaglia of The Athletic reports."
+   },
+   {
+    "player": "Ed Oliver",
+    "pos": "DT",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Oliver (knee) has been ruled out ahead of Monday's game against the Rams, Joe Buscaglia of The Athletic reports."
+   },
+   {
+    "player": "Landon Jackson",
+    "pos": "DE",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "questionable"
+   },
+   {
+    "player": "DJ Moore",
+    "pos": "WR",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Moore (shoulder) is listed as questionable for Monday's game against the Rams, Katherine Fitzgerald of The Buffalo News reports."
+   },
+   {
+    "player": "Joshua Palmer",
+    "pos": "WR",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Palmer (shoulder) has been ruled out for Monday's game against the Rams, Katherine Fitzgerald of The Buffalo News reports."
+   },
+   {
+    "player": "Te'Cory Couch",
+    "pos": "CB",
+    "status": "Questionable",
+    "date": "2026-10-04",
+    "comment": "Couch suffered a hamstring injury Sunday versus New England and is doubtful to return."
+   }
+  ],
+  "LAR": [
+   {
+    "player": "Myles Garrett",
+    "pos": "DE",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "Garrett (knee), per head coach Sean McVay, is \"on track\" in his recovery but is not expected to return to practice next week, Adam Grosbard of The Orange County Register reports."
+   },
+   {
+    "player": "Quentin Lake",
+    "pos": "S",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Lake (hip) did not participate at practice Thursday, Sarah Barshop of ESPN.com reports."
+   },
+   {
+    "player": "Terrance Ferguson",
+    "pos": "TE",
+    "status": "Injured Reserve",
+    "date": "2026-10-07",
+    "comment": "Ferguson (ankle) is expected to be ready to return after his four-game stint on injured reserve, Cameron DaSilva of USA Today reports."
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],

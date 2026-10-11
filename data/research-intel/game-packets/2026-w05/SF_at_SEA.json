@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "SF@SEA",
- "built_at": "2026-10-11T01:54:18.613127+00:00",
+ "built_at": "2026-10-11T02:16:45.030365+00:00",
  "kickoff_utc": "2026-10-11T20:25:00.000Z",
  "away": {
   "abbr": "SF",
@@ -458,23 +458,7 @@
    "basis": "BKR home line -3 total 46.5"
   }
  },
- "action_network_opener": {
-  "an_game_id": 290912,
-  "kickoff_utc": "2026-10-11T20:25:00Z",
-  "sp": {
-   "SEA": -3.0,
-   "SF": 3.0
-  },
-  "sp_odds_home": -107,
-  "sp_at": "2026-10-05T00:14:55Z",
-  "tot": 47.0,
-  "tot_at": "2026-10-05T00:06:55Z",
-  "ml": {
-   "SF": 140,
-   "SEA": -175
-  },
-  "carried_from_before_cutoff": false
- },
+ "action_network_opener": null,
  "action_network_splits": {
   "game_id": 290912,
   "away_team": "SF",
@@ -734,6 +718,17 @@
   "SF": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Brock Purdy",
+    "Mac Jones",
+    "Kurtis Rourke"
+   ],
+   "espn_qb_starter": "Brock Purdy",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Brock Purdy",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
     {
      "player": "Brock Purdy",
@@ -751,10 +746,98 @@
   "SEA": {
    "operator_confirmed_starter": null,
    "operator_confirmed_at": null,
+   "espn_qb_depth": [
+    "Sam Darnold",
+    "Drew Lock",
+    "Jalen Milroe"
+   ],
+   "espn_qb_starter": "Sam Darnold",
+   "espn_qb_flag": "ok",
+   "espn_qb_note": "",
+   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "resolved_starter": "Sam Darnold",
+   "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
    "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
   }
  },
+ "injury_report_non_active": {
+  "SF": [
+   {
+    "player": "James Thompson Jr.",
+    "pos": "DT",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Thompson (ankle) has been ruled out for Sunday's game against the Seahawks."
+   },
+   {
+    "player": "Upton Stout",
+    "pos": "CB",
+    "status": "Questionable",
+    "date": "2026-10-10",
+    "comment": "Stout (shoulder) is listed as questionable ahead of Sunday's game against the Seahawks."
+   },
+   {
+    "player": "Nick Bosa",
+    "pos": "DE",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Bosa (calf) has been ruled out ahead of Sunday's game against the Seahawks."
+   },
+   {
+    "player": "Marques Sigle",
+    "pos": "S",
+    "status": "Out",
+    "date": "2026-10-07",
+    "comment": "out"
+   },
+   {
+    "player": "Kyle Juszczyk",
+    "pos": "FB",
+    "status": "Out",
+    "date": "2026-10-07",
+    "comment": "San Francisco head coach Kyle Shanahan said Monday that Juszczyk will miss multiple weeks after hyperextending and sustaining a bone bruise to his right knee in Sunday's 24-14 win over the Broncos, Ma"
+   }
+  ],
+  "SEA": [
+   {
+    "player": "Julian Neal",
+    "pos": "CB",
+    "status": "Injured Reserve",
+    "date": "2026-10-10",
+    "comment": "ir"
+   },
+   {
+    "player": "Chazz Surratt",
+    "pos": "LB",
+    "status": "Out",
+    "date": "2026-10-10",
+    "comment": "Surratt (calf) has been ruled out ahead of Sunday's game against the 49ers, Bob Condotta of The Seattle Times reports."
+   },
+   {
+    "player": "George Holani",
+    "pos": "RB",
+    "status": "Questionable",
+    "date": "2026-10-09",
+    "comment": "Holani (ribs/knee) is listed as questionable for Sunday's game against the 49ers, Bob Condotta of The Seattle Times reports."
+   },
+   {
+    "player": "Irv Charles",
+    "pos": "WR",
+    "status": "Injured Reserve",
+    "date": "2026-10-07",
+    "comment": "Charles (undisclosed) practiced Wednesday, John Boyle of the team's official site reports."
+   },
+   {
+    "player": "Zach Charbonnet",
+    "pos": "RB",
+    "status": "Out",
+    "date": "2026-10-05",
+    "comment": "Seahawks head coach Mike Macdonald said Monday that Charbonnet (knee) won't be activated from the reserve/PUP list in advance of Sunday's game against the 49ers, Gregg Bell of The Tacoma News Tribune "
+   }
+  ]
+ },
+ "espn_status_fetched_at": "2026-10-11T02:16:11Z",
  "game_warnings": [
   "2 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],
