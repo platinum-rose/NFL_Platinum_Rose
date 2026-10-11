@@ -1,0 +1,1800 @@
+{
+  "schema": "w05_slate_merge_v1",
+  "model": "opus",
+  "generated_at": "2026-10-11T06:57:23Z",
+  "launch_head": "2660814",
+  "scope": "proposed analysis only; no tickets, stakes, payouts, account, ledger, Supabase or official-pick changes",
+  "preflight": {
+    "command": "python3 scripts/intel/week5-preflight.py --model opus --game SLATE --prompt prompts/2026-w05-slate-merge.md --expect-head 2660814 --espn",
+    "result": "exit 0; 14 pass, 5 warn, 0 fail",
+    "warnings": [
+      "BKR/BEO main lines differ >=1.0 pt on MIN@NO and CLE@NYJ",
+      "11 verbatim-but-not-self-identifying article rows (human review)",
+      "432 corroboration-only rows",
+      "SuperContest label reversals on TEN@HOU, MIA@CIN, NO@MIN, GB@CHI, LAC@DEN, ARI@DET",
+      "ESPN status check skipped (unreachable: HTTPError)"
+    ]
+  },
+  "validator": "python3 scripts/intel/validate-game-output.py --model opus --all: 14/14 ok, 0 fail, 0 warn",
+  "data_quality": [
+    "All 14 outputs carry head fb2ad66, not the launch HEAD 2660814; preflight verified HEAD 2660814 and pinned hashes, validator passed all 14",
+    "ESPN live status not re-checked (unreachable); started/final determined from packet kickoff_utc vs clock only",
+    "TB@DAL (Thursday) is final per preflight and is not in the 14"
+  ],
+  "edge_sanity": {
+    "mean_abs_margin_edge": 0.071,
+    "mean_abs_total_edge": 0.107,
+    "threshold": 1.5,
+    "shrinkage_applied": false,
+    "nonzero_margin": [
+      {
+        "game": "PHI@JAX",
+        "pts": 0.5
+      },
+      {
+        "game": "MIN@NO",
+        "pts": -0.5
+      }
+    ],
+    "nonzero_total": [
+      {
+        "game": "CHI@GB",
+        "pts": -0.5
+      },
+      {
+        "game": "LV@NE",
+        "pts": 0.5
+      },
+      {
+        "game": "IND@PIT",
+        "pts": -0.5
+      }
+    ]
+  },
+  "slate_table": [
+    {
+      "game": "PHI@JAX",
+      "key": "PHI_at_JAX",
+      "kickoff_utc": "2026-10-11T13:30:00.000Z",
+      "disposition": "conflicted",
+      "tier": "skip",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none (edge +0.5 toward JAX at -8; tier-eligible VSiN rows on PHI +7.5/+8: conflicted)",
+      "total_lean": "none",
+      "bkr_home_line": -8,
+      "bkr_total": 41,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.5,
+      "edge_total_pts": 0.0,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.5017,
+        "away_cover": 0.4735,
+        "over": 0.4848,
+        "under": 0.4848,
+        "side_push": 0.0248,
+        "total_push": 0.0304
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "Official inactives: PHI C Drew Kendall / G Landon Dickerson; JAX Greenard status. PHI Out: Barkley, D. Smith, Hollywood Brown (ESPN injury report).",
+      "weather_flag": "none (London; 57.9F, 0% precip)",
+      "decision_relevant_fact": "Neutral London site (from VSiN quote only) removes JAX home field; JAX 3-1 leads AFC South by a game.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T09:21:29.799000+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T09:24:03.238000+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-PHI_at_JAX.json",
+        "json_sha256": "efe87233434d1e56175733e42807eac7f18d48a4479bee5a0a563060ffbea17f",
+        "md": "reports/intel/games/2026-w05-opus-PHI_at_JAX.md",
+        "md_sha256": "a77e8cdf8621ea08968320aa0b16a48c79276ab670965bfdd98c7b944dae5147",
+        "packet": "data/research-intel/game-packets/2026-w05/PHI_at_JAX.json",
+        "packet_sha256": "007b38483e60080846cc0ec4278446a2fdb5fa56c9802b457e3f331d274c3984"
+      },
+      "supercontest": {
+        "file_away": "PHI",
+        "file_home": "JAX",
+        "labels_reversed": false,
+        "favorite": "JAX",
+        "underdog": "PHI",
+        "favorite_spread": -7.5,
+        "bkr_favorite": "JAX",
+        "bkr_favorite_spread": -8,
+        "differs_from_bkr": true
+      }
+    },
+    {
+      "game": "CHI@GB",
+      "key": "CHI_at_GB",
+      "kickoff_utc": "2026-10-11T17:00:00.000Z",
+      "disposition": "pass",
+      "tier": "skip",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none",
+      "total_lean": "none (edge -0.5, weather only, no pick)",
+      "bkr_home_line": 1.5,
+      "bkr_total": 47,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": -0.5,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.5,
+        "away_cover": 0.5,
+        "over": 0.4696,
+        "under": 0.5,
+        "side_push": 0.0,
+        "total_push": 0.0304
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "CHI QB Tyson Bagent (operator-confirmed); output invalidator if Caleb Williams starts. GB Parsons Out; Monk, Banks Doubtful.",
+      "weather_flag": "REVIEW: wind 22.3 km/h, gusts 42.1 km/h (forecast 13h old)",
+      "decision_relevant_fact": "Division game: CHI win -> 4-1; GB loss -> 2-3 and 0-2 in division.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-CHI_at_GB.json",
+        "json_sha256": "753163280c360def2fda1e8869c06d7d016b0c472f5aad1b942f5ce5ebbda05a",
+        "md": "reports/intel/games/2026-w05-opus-CHI_at_GB.md",
+        "md_sha256": "d53a4d875aa6336a07e239c05391e12a315adf842f9ff17d080c5513500c873b",
+        "packet": "data/research-intel/game-packets/2026-w05/CHI_at_GB.json",
+        "packet_sha256": "e3cc9143e0d9347eb6c70b225d2aa39a83e10a7969671a302ea393392a958dee"
+      },
+      "supercontest": {
+        "file_away": "GB",
+        "file_home": "CHI",
+        "labels_reversed": true,
+        "favorite": "CHI",
+        "underdog": "GB",
+        "favorite_spread": -3,
+        "bkr_favorite": "CHI",
+        "bkr_favorite_spread": -1.5,
+        "differs_from_bkr": true
+      }
+    },
+    {
+      "game": "HOU@TEN",
+      "key": "HOU_at_TEN",
+      "kickoff_utc": "2026-10-11T17:00:00.000Z",
+      "disposition": "pass",
+      "tier": "skip",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none (only tier-eligible row is TEN +7.5, a different bet from +7)",
+      "total_lean": "none",
+      "bkr_home_line": 7,
+      "bkr_total": 37.5,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": 0.0,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.4722,
+        "away_cover": 0.4722,
+        "over": 0.5,
+        "under": 0.5,
+        "side_push": 0.0555,
+        "total_push": 0.0
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "Stroud / Ward must start; HOU OL (Braden Smith IR; Ersery, Ingram, Fisher Q); TEN WR Carnell Tate Q.",
+      "weather_flag": "none (66F, gusts 24.8 km/h)",
+      "decision_relevant_fact": "Both 0-4; loser drops to 0-5. First division game for TEN.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-HOU_at_TEN.json",
+        "json_sha256": "7b3d884fd5fd124bdf1756ff723258a4c5a1dcc169797bbea8acbaa6fbf8bdac",
+        "md": "reports/intel/games/2026-w05-opus-HOU_at_TEN.md",
+        "md_sha256": "c2681e6ce309dbef9caca6f766a3fff5b4c081b6ebc1ff9ad420e0d0e4b8187e",
+        "packet": "data/research-intel/game-packets/2026-w05/HOU_at_TEN.json",
+        "packet_sha256": "3fe9a020252085364998930d4293bb11ba06934c7ef2ba3bb3d7d07d786d9308"
+      },
+      "supercontest": {
+        "file_away": "TEN",
+        "file_home": "HOU",
+        "labels_reversed": true,
+        "favorite": "HOU",
+        "underdog": "TEN",
+        "favorite_spread": -7.5,
+        "bkr_favorite": "HOU",
+        "bkr_favorite_spread": -7,
+        "differs_from_bkr": true
+      }
+    },
+    {
+      "game": "CIN@MIA",
+      "key": "CIN_at_MIA",
+      "kickoff_utc": "2026-10-11T17:00:00.000Z",
+      "disposition": "pass",
+      "tier": "skip",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none",
+      "total_lean": "none",
+      "bkr_home_line": 7,
+      "bkr_total": 43.5,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": 0.0,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.4722,
+        "away_cover": 0.4722,
+        "over": 0.5,
+        "under": 0.5,
+        "side_push": 0.0555,
+        "total_push": 0
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "CIN Chase and Higgins Questionable (unresolved passing script).",
+      "weather_flag": "heat context only (89.6F)",
+      "decision_relevant_fact": "MIA 0-4, -55 diff vs 15-1 opponents; both teams bye in Week 6.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-CIN_at_MIA.json",
+        "json_sha256": "1e2a482564f360f91292cecc9ad73ea5f55a4915644394f9fd474842fc06ca68",
+        "md": "reports/intel/games/2026-w05-opus-CIN_at_MIA.md",
+        "md_sha256": "7a7e7a23fc2c505cb63fad59ab93fb0c18a993271fc844b69f5c0759ff209808",
+        "packet": "data/research-intel/game-packets/2026-w05/CIN_at_MIA.json",
+        "packet_sha256": "c4edfbb29d5e006970da14efb0cc8a77ec44be56fe002887ff15cf1e47271455"
+      },
+      "supercontest": {
+        "file_away": "MIA",
+        "file_home": "CIN",
+        "labels_reversed": true,
+        "favorite": "CIN",
+        "underdog": "MIA",
+        "favorite_spread": -7,
+        "bkr_favorite": "CIN",
+        "bkr_favorite_spread": -7,
+        "differs_from_bkr": false
+      }
+    },
+    {
+      "game": "LV@NE",
+      "key": "LV_at_NE",
+      "kickoff_utc": "2026-10-11T17:00:00.000Z",
+      "disposition": "pass",
+      "tier": "skip",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none (VSiN split NE -3.5 / LV +3.5)",
+      "total_lean": "none recorded (edge +0.5 Over, no pick)",
+      "bkr_home_line": -3.5,
+      "bkr_total": 45,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": 0.5,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.5,
+        "away_cover": 0.5,
+        "over": 0.5,
+        "under": 0.4697,
+        "side_push": 0.0,
+        "total_push": 0.0304
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "NE CBs Gonzalez, Davis III, Prunty, Canada Out; Over basis falls if Gonzalez/Davis active. Jeanty Q; Moses Q.",
+      "weather_flag": "none recorded (recheck if sustained wind > ~25 km/h)",
+      "decision_relevant_fact": "LV 3-1 vs 5-11 opponents; NE 2-2 vs 11-5 opponents (schedule-strength offset).",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-LV_at_NE.json",
+        "json_sha256": "59def6eee19f2181127b665266b58b4df99fe6619efa8b3884ffb0d2ecb258a8",
+        "md": "reports/intel/games/2026-w05-opus-LV_at_NE.md",
+        "md_sha256": "7a974e826aa3712bc5bc094891c3195a0730dd26ab33b795dcbdb689ede517e7",
+        "packet": "data/research-intel/game-packets/2026-w05/LV_at_NE.json",
+        "packet_sha256": "a977716e430960468ced04b08a3d2c11dfc9f02a17117f22acf513f85e12be96"
+      },
+      "supercontest": {
+        "file_away": "LV",
+        "file_home": "NE",
+        "labels_reversed": false,
+        "favorite": "NE",
+        "underdog": "LV",
+        "favorite_spread": -3.5,
+        "bkr_favorite": "NE",
+        "bkr_favorite_spread": -3.5,
+        "differs_from_bkr": false
+      }
+    },
+    {
+      "game": "MIN@NO",
+      "key": "MIN_at_NO",
+      "kickoff_utc": "2026-10-11T17:00:00.000Z",
+      "disposition": "conflicted",
+      "tier": "research_only",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none (edge -0.5 toward MIN; book conflict)",
+      "total_lean": "none",
+      "bkr_home_line": 2.5,
+      "bkr_total": 41.5,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": -0.5,
+      "edge_total_pts": 0.0,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.4869,
+        "away_cover": 0.5131,
+        "over": 0.5,
+        "under": 0.5,
+        "side_push": 0.0,
+        "total_push": 0.0
+      },
+      "book_conflict": "BKR home line 2.5 vs BEO 1 (>=1.0 pt apart); recapture before relying on either",
+      "qb_availability_invalidators": "MIN OT Darrisaw Out; O'Neill, Jurgens Q; Jefferson status. NO LBs Elliss, Jennings Out.",
+      "weather_flag": "n/a (dome)",
+      "decision_relevant_fact": "MIN 4-0 level with SF atop NFC; NO 1-3, 0-2 home, 5.7 days rest.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-MIN_at_NO.json",
+        "json_sha256": "5dcdcadadc9813d4bc06ef933b0ff64a9327539b5ec9c5073da015ad7ca71973",
+        "md": "reports/intel/games/2026-w05-opus-MIN_at_NO.md",
+        "md_sha256": "25ec75557761b6752299967449e0e429c17f22cd4d7af8c859c28ab7d55af6d3",
+        "packet": "data/research-intel/game-packets/2026-w05/MIN_at_NO.json",
+        "packet_sha256": "99e06eb8616dde132b0c9a37750c1dcf333aa062d9458c3c202b87a95bd8cee6"
+      },
+      "supercontest": {
+        "file_away": "NO",
+        "file_home": "MIN",
+        "labels_reversed": true,
+        "favorite": "MIN",
+        "underdog": "NO",
+        "favorite_spread": -2.5,
+        "bkr_favorite": "MIN",
+        "bkr_favorite_spread": -2.5,
+        "differs_from_bkr": false
+      }
+    },
+    {
+      "game": "CLE@NYJ",
+      "key": "CLE_at_NYJ",
+      "kickoff_utc": "2026-10-11T17:00:00.000Z",
+      "disposition": "conflicted",
+      "tier": "research_only",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none (book conflict)",
+      "total_lean": "none",
+      "bkr_home_line": -2.5,
+      "bkr_total": 39.5,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": 0.0,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.5,
+        "away_cover": 0.5,
+        "over": 0.5,
+        "under": 0.5,
+        "side_push": 0.0,
+        "total_push": 0.0
+      },
+      "book_conflict": "BKR home line -2.5 vs BEO -1 (>=1.0 pt apart); recapture before relying on either",
+      "qb_availability_invalidators": "Watson (CLE) / Geno Smith (NYJ) must start; NYJ Breece Hall Out (injury report).",
+      "weather_flag": "REVIEW: precip 78%, 1.8 mm, gusts 37.1 km/h",
+      "decision_relevant_fact": "CLE win ties BAL atop AFC North before hosting BAL; NYJ loss = two games behind BUF.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-CLE_at_NYJ.json",
+        "json_sha256": "f2aa51fd674a1904d91d511f9026c787a26b9d05b33251f5dcfbf6036bf9a4d3",
+        "md": "reports/intel/games/2026-w05-opus-CLE_at_NYJ.md",
+        "md_sha256": "c8ce2daae114078498d6d2b3adf5fe68b7f163b473862c19aeefcc1a8fcfdf65",
+        "packet": "data/research-intel/game-packets/2026-w05/CLE_at_NYJ.json",
+        "packet_sha256": "d0b3514caccfb0d2b2261864bd83aedcd0096718e5636f72af7a97e3c3abf534"
+      },
+      "supercontest": {
+        "file_away": "CLE",
+        "file_home": "NYJ",
+        "labels_reversed": false,
+        "favorite": "NYJ",
+        "underdog": "CLE",
+        "favorite_spread": -2.5,
+        "bkr_favorite": "NYJ",
+        "bkr_favorite_spread": -2.5,
+        "differs_from_bkr": false
+      }
+    },
+    {
+      "game": "IND@PIT",
+      "key": "IND_at_PIT",
+      "kickoff_utc": "2026-10-11T17:00:00.000Z",
+      "disposition": "price moved",
+      "tier": "research_only",
+      "side_pick": null,
+      "total_pick": "Under",
+      "side_lean": "none",
+      "total_lean": "Under (research_only; -0.5 weather-only)",
+      "bkr_home_line": -3,
+      "bkr_total": 43.5,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": -0.5,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.4587,
+        "away_cover": 0.4587,
+        "over": 0.4848,
+        "under": 0.5152,
+        "side_push": 0.0827,
+        "total_push": 0.0
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "Daniel Jones / Aaron Rodgers must start; PIT Ramsey Q; IND Allen Q, Slayton and Dulin Out.",
+      "weather_flag": "REVIEW: wind 25.2 km/h, gusts 58 km/h, precip 54%",
+      "decision_relevant_fact": "PIT 9.7 days rest vs IND 7.1 (+2.6); PIT 2-0 home.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-IND_at_PIT.json",
+        "json_sha256": "0c923ab565fb2f058c57e71fb8264d9cb0882239cd82d3ed7e92aa186614b313",
+        "md": "reports/intel/games/2026-w05-opus-IND_at_PIT.md",
+        "md_sha256": "401989afbf5541c95b8aa9f39701b6efb5d587d49ab69285aac8965075258400",
+        "packet": "data/research-intel/game-packets/2026-w05/IND_at_PIT.json",
+        "packet_sha256": "b3f73233330b5cda161722a1be3a64e062971051aced1d30644a891262457bf9"
+      },
+      "supercontest": {
+        "file_away": "IND",
+        "file_home": "PIT",
+        "labels_reversed": false,
+        "favorite": "PIT",
+        "underdog": "IND",
+        "favorite_spread": -2.5,
+        "bkr_favorite": "PIT",
+        "bkr_favorite_spread": -3,
+        "differs_from_bkr": true
+      }
+    },
+    {
+      "game": "NYG@WAS",
+      "key": "NYG_at_WAS",
+      "kickoff_utc": "2026-10-11T17:00:00.000Z",
+      "disposition": "pass",
+      "tier": "skip",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none (VSiN split)",
+      "total_lean": "none",
+      "bkr_home_line": -3.5,
+      "bkr_total": 41.5,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": 0.0,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.5,
+        "away_cover": 0.5,
+        "over": 0.5,
+        "under": 0.5,
+        "side_push": 0.0,
+        "total_push": 0.0
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "Jayden Daniels (elbow) inactive or limited reprices WAS; McLaurin Q.",
+      "weather_flag": "REVIEW: precip probability 72%, gusts 26.3 km/h",
+      "decision_relevant_fact": "Division game: WAS loss -> 1-4, three games behind NYG.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-NYG_at_WAS.json",
+        "json_sha256": "769f818d180917f4b541ad1b198de6853ffdd12f897902ac93a66b14bd121af4",
+        "md": "reports/intel/games/2026-w05-opus-NYG_at_WAS.md",
+        "md_sha256": "d3d32e4c3e4de4cd0f94fdc71901d54600f7bc6d6121008d7c58eb72bfdb26dd",
+        "packet": "data/research-intel/game-packets/2026-w05/NYG_at_WAS.json",
+        "packet_sha256": "14710e1291b292d743d057647579c4d8771251bcd404e8dca25020a7bc1d6f36"
+      },
+      "supercontest": {
+        "file_away": "NYG",
+        "file_home": "WAS",
+        "labels_reversed": false,
+        "favorite": "WAS",
+        "underdog": "NYG",
+        "favorite_spread": -3.5,
+        "bkr_favorite": "WAS",
+        "bkr_favorite_spread": -3.5,
+        "differs_from_bkr": false
+      }
+    },
+    {
+      "game": "DEN@LAC",
+      "key": "DEN_at_LAC",
+      "kickoff_utc": "2026-10-11T20:05:00.000Z",
+      "disposition": "conflicted",
+      "tier": "2-",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none (tier 2- recorded but disposition conflicted, no pick, edge 0.0)",
+      "total_lean": "none",
+      "bkr_home_line": 3.5,
+      "bkr_total": 42,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": 0.0,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.5,
+        "away_cover": 0.5,
+        "over": 0.4848,
+        "under": 0.4848,
+        "side_push": 0.0,
+        "total_push": 0.0304
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "LAC OL (Alt, Awosika Out; Slater, Penning IR; Taylor Q); McConkey Q; DEN CBs Surtain II, Moss Out.",
+      "weather_flag": "none captured (open-sided venue)",
+      "decision_relevant_fact": "Division game: LAC loss -> 0-5, 0-2 division.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T12:21:29.799000+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T12:24:03.238000+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-DEN_at_LAC.json",
+        "json_sha256": "0d66e35c2705735b5893be2e2a377de94f2e6a2398ccf523183124ad18ffb3e6",
+        "md": "reports/intel/games/2026-w05-opus-DEN_at_LAC.md",
+        "md_sha256": "b780cf9b738b7c106b490091c7fb0254b17af4eac55a6e3ac9bd135d0502ae88",
+        "packet": "data/research-intel/game-packets/2026-w05/DEN_at_LAC.json",
+        "packet_sha256": "f1799a1c4a8aad07957f209666e1ffdb4e5e1a24c8f099530c48e74bcc49e6bf"
+      },
+      "supercontest": {
+        "file_away": "LAC",
+        "file_home": "DEN",
+        "labels_reversed": true,
+        "favorite": "DEN",
+        "underdog": "LAC",
+        "favorite_spread": -3.5,
+        "bkr_favorite": "DEN",
+        "bkr_favorite_spread": -3.5,
+        "differs_from_bkr": false
+      }
+    },
+    {
+      "game": "DET@ARI",
+      "key": "DET_at_ARI",
+      "kickoff_utc": "2026-10-11T20:25:00.000Z",
+      "disposition": "pass",
+      "tier": "skip",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none",
+      "total_lean": "none",
+      "bkr_home_line": 5.5,
+      "bkr_total": 54.5,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": 0.0,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.5,
+        "away_cover": 0.5,
+        "over": 0.5,
+        "under": 0.5,
+        "side_push": 0.0,
+        "total_push": 0.0
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "Kerby Joseph / Avonte Maddox (roster group, unconfirmed); ARI Walter Nolen III Q.",
+      "weather_flag": "unknown (retractable roof unconfirmed; no forecast)",
+      "decision_relevant_fact": "DET 0-2 away, 2-0 home; zero tier-eligible rows for this game.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T12:21:29.799000+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T12:24:03.238000+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-DET_at_ARI.json",
+        "json_sha256": "d6e86ebb5147628cde869299cbd13ed63534c3eb7b705db088d0e37b884efc4d",
+        "md": "reports/intel/games/2026-w05-opus-DET_at_ARI.md",
+        "md_sha256": "cfeab7e05cc4b4f5129fe38fbaf43997459036797e1cb23ea5770b06203a57b4",
+        "packet": "data/research-intel/game-packets/2026-w05/DET_at_ARI.json",
+        "packet_sha256": "683c7075f238371eb2d57a9d3e8573b60c8eba1ef5fa08edfaddf96de4493664"
+      },
+      "supercontest": {
+        "file_away": "ARI",
+        "file_home": "DET",
+        "labels_reversed": true,
+        "favorite": "DET",
+        "underdog": "ARI",
+        "favorite_spread": -5.5,
+        "bkr_favorite": "DET",
+        "bkr_favorite_spread": -5.5,
+        "differs_from_bkr": false
+      }
+    },
+    {
+      "game": "SF@SEA",
+      "key": "SF_at_SEA",
+      "kickoff_utc": "2026-10-11T20:25:00.000Z",
+      "disposition": "pass",
+      "tier": "skip",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none",
+      "total_lean": "none",
+      "bkr_home_line": -3,
+      "bkr_total": 46.5,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": 0.0,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.4587,
+        "away_cover": 0.4587,
+        "over": 0.5,
+        "under": 0.5,
+        "side_push": 0.0827,
+        "total_push": 0.0
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "Purdy / Darnold must start; SF Bosa and Thompson Jr. Out; Stout Q.",
+      "weather_flag": "none (59F, gusts 23 km/h)",
+      "decision_relevant_fact": "Division game: SEA win pulls level at 4-1 with SF in NFC West.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T12:21:29.799000+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T12:24:03.238000+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-SF_at_SEA.json",
+        "json_sha256": "0311f3375f57c1e8df56a57450dc4906c47312b8a04a44aa7a5e646078fd2cad",
+        "md": "reports/intel/games/2026-w05-opus-SF_at_SEA.md",
+        "md_sha256": "b4efbc40250af5f8bf826441c3f548b41f9fbae7aa3389c3d55013de1ab0a0db",
+        "packet": "data/research-intel/game-packets/2026-w05/SF_at_SEA.json",
+        "packet_sha256": "560cfd072391617fa76c1265ecb9a09d2657fbc9709a75b584e3d904a31fdc9e"
+      },
+      "supercontest": {
+        "file_away": "SF",
+        "file_home": "SEA",
+        "labels_reversed": false,
+        "favorite": "SEA",
+        "underdog": "SF",
+        "favorite_spread": -3,
+        "bkr_favorite": "SEA",
+        "bkr_favorite_spread": -3,
+        "differs_from_bkr": false
+      }
+    },
+    {
+      "game": "BAL@ATL",
+      "key": "BAL_at_ATL",
+      "kickoff_utc": "2026-10-12T00:20:00.000Z",
+      "disposition": "price moved",
+      "tier": "research_only",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none (source +3.5 vs BKR +3 crosses 3)",
+      "total_lean": "none",
+      "bkr_home_line": -3,
+      "bkr_total": 43.5,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": 0.0,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.4587,
+        "away_cover": 0.4587,
+        "over": 0.5,
+        "under": 0.5,
+        "side_push": 0.0827,
+        "total_push": 0.0
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "Lamar Jackson Out; Tyler Huntley starts (operator-confirmed). Penix must be active.",
+      "weather_flag": "unknown (retractable roof unconfirmed)",
+      "decision_relevant_fact": "BAL leads AFC North on differential over 3-1 CLE (next opponent).",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T12:21:29.799000+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T12:24:03.238000+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-BAL_at_ATL.json",
+        "json_sha256": "1afd657f68f2a24a85b20c8d0f2b719ed4ab1565cf5a1c9644d3eb07b2b214ca",
+        "md": "reports/intel/games/2026-w05-opus-BAL_at_ATL.md",
+        "md_sha256": "1a6c78e67a1a643b12b7740e49ecbc5c3915d6273a28555c1b281d8c5e70adb7",
+        "packet": "data/research-intel/game-packets/2026-w05/BAL_at_ATL.json",
+        "packet_sha256": "2322df6f18982cb0eb73c0258f54fb7fb56b2cae55f998af40157fa36cb560b7"
+      },
+      "supercontest": {
+        "file_away": "BAL",
+        "file_home": "ATL",
+        "labels_reversed": false,
+        "favorite": "ATL",
+        "underdog": "BAL",
+        "favorite_spread": -3.5,
+        "bkr_favorite": "ATL",
+        "bkr_favorite_spread": -3,
+        "differs_from_bkr": true
+      }
+    },
+    {
+      "game": "BUF@LAR",
+      "key": "BUF_at_LAR",
+      "kickoff_utc": "2026-10-13T00:15:00.000Z",
+      "disposition": "pass",
+      "tier": "skip",
+      "side_pick": null,
+      "total_pick": null,
+      "side_lean": "none",
+      "total_lean": "none",
+      "bkr_home_line": -3.5,
+      "bkr_total": 54.5,
+      "bkr_captured_at": "2026-10-11T06:21:29.799Z",
+      "beo_captured_at": "2026-10-11T06:24:03.238Z",
+      "edge_home_margin_pts": 0.0,
+      "edge_total_pts": 0.0,
+      "simulator_conditional_on_hypothesis": {
+        "home_cover": 0.5,
+        "away_cover": 0.5,
+        "over": 0.5,
+        "under": 0.5,
+        "side_push": 0.0,
+        "total_push": 0.0
+      },
+      "book_conflict": null,
+      "qb_availability_invalidators": "Josh Allen / Stafford must start; Ed Oliver Out vs Myles Garrett IR (offsetting).",
+      "weather_flag": "verification required (covered/open-sided)",
+      "decision_relevant_fact": "Monday night; both 8.3 days rest; BUF leads AFC East.",
+      "window": {
+        "bkr_expires_for_recommendation_at": "2026-10-11T12:21:29.799000+00:00",
+        "beo_expires_for_recommendation_at": "2026-10-11T12:24:03.238000+00:00",
+        "bkr_fresh_at_build": true,
+        "beo_fresh_at_build": true,
+        "window_open_at_merge": true,
+        "lapses_before_kickoff": true
+      },
+      "recommendation_status": "stale_for_recommendation",
+      "started_or_final": false,
+      "output_head": "fb2ad66",
+      "inputs": {
+        "json": "data/research-intel/proposed/games/2026-w05-opus-BUF_at_LAR.json",
+        "json_sha256": "499288f80a36cd73cbee786044c2459ab602d65716142c7e1c3f4ed023d6c476",
+        "md": "reports/intel/games/2026-w05-opus-BUF_at_LAR.md",
+        "md_sha256": "e9bf23da8158882f7a72d5a74bbd1b7c12078cccb292861ba617361d1cae12f0",
+        "packet": "data/research-intel/game-packets/2026-w05/BUF_at_LAR.json",
+        "packet_sha256": "5d9ecf815cecdf1a22bceaeaa1c6b02d529a48b613d6d808215e98e968bdb42b"
+      },
+      "supercontest": {
+        "file_away": "BUF",
+        "file_home": "LAR",
+        "labels_reversed": false,
+        "favorite": "LAR",
+        "underdog": "BUF",
+        "favorite_spread": -3,
+        "bkr_favorite": "LAR",
+        "bkr_favorite_spread": -3.5,
+        "differs_from_bkr": true
+      }
+    }
+  ],
+  "rankings": {
+    "sides": [],
+    "totals": [],
+    "rule": "tier 2 and 2- only, ordered by tier then own edge size; not padded",
+    "omitted": [
+      {
+        "game": "PHI@JAX",
+        "tier": "skip",
+        "disposition": "conflicted",
+        "reason": "tier skip (conflicted); stale_for_recommendation"
+      },
+      {
+        "game": "CHI@GB",
+        "tier": "skip",
+        "disposition": "pass",
+        "reason": "tier skip (pass); stale_for_recommendation"
+      },
+      {
+        "game": "HOU@TEN",
+        "tier": "skip",
+        "disposition": "pass",
+        "reason": "tier skip (pass); stale_for_recommendation"
+      },
+      {
+        "game": "CIN@MIA",
+        "tier": "skip",
+        "disposition": "pass",
+        "reason": "tier skip (pass); stale_for_recommendation"
+      },
+      {
+        "game": "LV@NE",
+        "tier": "skip",
+        "disposition": "pass",
+        "reason": "tier skip (pass); stale_for_recommendation"
+      },
+      {
+        "game": "MIN@NO",
+        "tier": "research_only",
+        "disposition": "conflicted",
+        "reason": "tier research_only (conflicted); stale_for_recommendation"
+      },
+      {
+        "game": "CLE@NYJ",
+        "tier": "research_only",
+        "disposition": "conflicted",
+        "reason": "tier research_only (conflicted); stale_for_recommendation"
+      },
+      {
+        "game": "IND@PIT",
+        "tier": "research_only",
+        "disposition": "price moved",
+        "reason": "tier research_only (price moved); stale_for_recommendation"
+      },
+      {
+        "game": "NYG@WAS",
+        "tier": "skip",
+        "disposition": "pass",
+        "reason": "tier skip (pass); stale_for_recommendation"
+      },
+      {
+        "game": "DEN@LAC",
+        "tier": "2-",
+        "disposition": "conflicted",
+        "reason": "tier 2- recorded but disposition conflicted, no side or total pick and edge 0.0; also stale_for_recommendation"
+      },
+      {
+        "game": "DET@ARI",
+        "tier": "skip",
+        "disposition": "pass",
+        "reason": "tier skip (pass); stale_for_recommendation"
+      },
+      {
+        "game": "SF@SEA",
+        "tier": "skip",
+        "disposition": "pass",
+        "reason": "tier skip (pass); stale_for_recommendation"
+      },
+      {
+        "game": "BAL@ATL",
+        "tier": "research_only",
+        "disposition": "price moved",
+        "reason": "tier research_only (price moved); stale_for_recommendation"
+      },
+      {
+        "game": "BUF@LAR",
+        "tier": "skip",
+        "disposition": "pass",
+        "reason": "tier skip (pass); stale_for_recommendation"
+      }
+    ]
+  },
+  "supercontest": {
+    "file": "data/supercontest/week-05-2026-verified-lines.json",
+    "file_sha256": "836b11a4d6f3b4e43d4629e89ee8ef688155c833f22e5740b5d7198b8dfd2544",
+    "rules_in_file": "none beyond lines and verification note (source_capture_time null); lock/submission rules unavailable",
+    "reversed_labels": [
+      "TEN@HOU",
+      "MIA@CIN",
+      "NO@MIN",
+      "GB@CHI",
+      "LAC@DEN",
+      "ARI@DET"
+    ],
+    "contest_vs_bkr": [
+      {
+        "game": "PHI@JAX",
+        "contest": "JAX -7.5",
+        "bkr": "JAX -8",
+        "differs": true,
+        "labels_reversed": false
+      },
+      {
+        "game": "CHI@GB",
+        "contest": "CHI -3",
+        "bkr": "CHI -1.5",
+        "differs": true,
+        "labels_reversed": true
+      },
+      {
+        "game": "HOU@TEN",
+        "contest": "HOU -7.5",
+        "bkr": "HOU -7",
+        "differs": true,
+        "labels_reversed": true
+      },
+      {
+        "game": "CIN@MIA",
+        "contest": "CIN -7",
+        "bkr": "CIN -7",
+        "differs": false,
+        "labels_reversed": true
+      },
+      {
+        "game": "LV@NE",
+        "contest": "NE -3.5",
+        "bkr": "NE -3.5",
+        "differs": false,
+        "labels_reversed": false
+      },
+      {
+        "game": "MIN@NO",
+        "contest": "MIN -2.5",
+        "bkr": "MIN -2.5",
+        "differs": false,
+        "labels_reversed": true
+      },
+      {
+        "game": "CLE@NYJ",
+        "contest": "NYJ -2.5",
+        "bkr": "NYJ -2.5",
+        "differs": false,
+        "labels_reversed": false
+      },
+      {
+        "game": "IND@PIT",
+        "contest": "PIT -2.5",
+        "bkr": "PIT -3",
+        "differs": true,
+        "labels_reversed": false
+      },
+      {
+        "game": "NYG@WAS",
+        "contest": "WAS -3.5",
+        "bkr": "WAS -3.5",
+        "differs": false,
+        "labels_reversed": false
+      },
+      {
+        "game": "DEN@LAC",
+        "contest": "DEN -3.5",
+        "bkr": "DEN -3.5",
+        "differs": false,
+        "labels_reversed": true
+      },
+      {
+        "game": "DET@ARI",
+        "contest": "DET -5.5",
+        "bkr": "DET -5.5",
+        "differs": false,
+        "labels_reversed": true
+      },
+      {
+        "game": "SF@SEA",
+        "contest": "SEA -3",
+        "bkr": "SEA -3",
+        "differs": false,
+        "labels_reversed": false
+      },
+      {
+        "game": "BAL@ATL",
+        "contest": "ATL -3.5",
+        "bkr": "ATL -3",
+        "differs": true,
+        "labels_reversed": false
+      },
+      {
+        "game": "BUF@LAR",
+        "contest": "LAR -3",
+        "bkr": "LAR -3.5",
+        "differs": true,
+        "labels_reversed": false
+      }
+    ],
+    "choices": [
+      {
+        "rank": 1,
+        "game": "HOU@TEN",
+        "pick": "TEN +7.5",
+        "contest_line": "HOU -7.5",
+        "bkr": "HOU -7 (TEN +7)",
+        "differs_from_bkr": true,
+        "output_link": "opus HOU@TEN: disposition pass, tier skip, edge 0.0/0.0. The game's only tier-eligible row (VSiN rows[565]) is \"Titans +7.5\", exactly the contest number; the output says a TEN +7.5 price re-aligns with it (\"reassess as a 2- at most\").",
+        "tie_break": "Contest line crosses key number 7 in the dog's favour vs BKR +7 (simulator side_push at 7 = 0.0555 in the packet sweep) and matches the only tier-eligible source line.",
+        "confidence": "low",
+        "evidence_supports_lean": false,
+        "caveat": "Per-game evidence does not support a lean: edge hypothesis is 0.0 and the source is a single outlet. Invalidators: Stroud/Ward not starting; 2+ HOU OL out strengthens TEN; Tate inactive weakens TEN."
+      },
+      {
+        "rank": 2,
+        "game": "CHI@GB",
+        "pick": "GB +3",
+        "contest_line": "CHI -3 (file lists GB@CHI; labels reversed)",
+        "bkr": "CHI -1.5 (GB +1.5)",
+        "differs_from_bkr": true,
+        "output_link": "opus CHI@GB: pass, skip, margin edge 0.0 (CHI four-game edge offset by backup QB Bagent and CHI defensive absences; market already prices the QB change). VSiN GB rows (+1.5, ML +120) are not tier-supporting.",
+        "tie_break": "Largest contest-vs-BKR gap on the slate: 1.5 pts more than BKR for GB, through key number 3 (side_push at 3 = 0.0827).",
+        "confidence": "low",
+        "evidence_supports_lean": false,
+        "caveat": "Per-game evidence does not support a lean; choice rests on the contest number only. Invalidator: Caleb Williams active and starting instead of Bagent (operator confirms Bagent) reprices CHI upward."
+      },
+      {
+        "rank": 3,
+        "game": "IND@PIT",
+        "pick": "PIT -2.5",
+        "contest_line": "PIT -2.5",
+        "bkr": "PIT -3",
+        "differs_from_bkr": true,
+        "output_link": "opus IND@PIT: price moved, research_only, margin edge 0.0. Two independent tier-eligible outlets (ESPN rows[390] \"Steelers -2.5\", VSiN rows[444] \"Steelers -2.5\") quoted exactly the contest number; the output's first invalidator says a -2.5 price makes them the same bet and re-opens the side.",
+        "tie_break": "Contest line avoids losing on a 3-point PIT win (0.5 better than BKR -3) and is the only game where two independent tier-eligible outlets name this exact number.",
+        "confidence": "low",
+        "evidence_supports_lean": false,
+        "caveat": "The output's own margin edge is still 0.0 (power ratings split; offsetting rushing and secondary absences). Invalidators: Ramsey out, QB change, weather (gusts 58 km/h)."
+      },
+      {
+        "rank": 4,
+        "game": "BAL@ATL",
+        "pick": "BAL +3.5",
+        "contest_line": "ATL -3.5",
+        "bkr": "ATL -3 (BAL +3)",
+        "differs_from_bkr": true,
+        "output_link": "opus BAL@ATL: price moved, research_only, edge 0.0 (Lamar Jackson Out priced before capture). VSiN rows[448]/[451]/[568] quote \"Ravens +3.5\"; the output says a +3.5 price reprices them to the source line (single outlet, 2- at most). VSiN rows[525] \"Falcons +3 (-118)\" contradicts.",
+        "tie_break": "Contest line crosses key number 3 in BAL's favour vs BKR +3 and matches the single-outlet source line.",
+        "confidence": "low",
+        "evidence_supports_lean": false,
+        "caveat": "Single outlet with an internal contradiction; edge 0.0. Invalidators: Huntley not the starter; Penix not active; centre depth (Pocic/Pinter roster-group, unconfirmed)."
+      },
+      {
+        "rank": 5,
+        "game": "DEN@LAC",
+        "pick": "LAC +3.5",
+        "contest_line": "DEN -3.5 (file lists LAC@DEN; labels reversed)",
+        "bkr": "DEN -3.5 (LAC +3.5)",
+        "differs_from_bkr": false,
+        "output_link": "opus DEN@LAC: conflicted, tier 2- (the slate's only 2-), edge 0.0. Two VSiN tier-eligible rows on LAC +3.5 offset by the provisional quant pass (home margin -4.39 toward DEN).",
+        "tie_break": "Only game where the output records a 2- tier and the source line equals the contest line; LAC +3.5 sits above key number 3.",
+        "confidence": "low",
+        "evidence_supports_lean": false,
+        "caveat": "Output disposition is conflicted and records no side pick; LAC is 0-4 with heavy OL absences. Invalidators: McConkey inactive; line to LAC +3."
+      }
+    ],
+    "alternates": [
+      {
+        "rank": 1,
+        "game": "MIN@NO",
+        "pick": "MIN -2.5",
+        "contest_line": "MIN -2.5 (file lists NO@MIN; labels reversed)",
+        "bkr": "MIN -2.5 (BEO MIN -1: book conflict)",
+        "differs_from_bkr": false,
+        "output_link": "opus MIN@NO: conflicted, research_only, margin edge -0.5 toward MIN (FTN defensive DVOA gap, NO LBs Out, offset by MIN OL absences). VSiN rows[518] MIN ML is tier-eligible.",
+        "tie_break": "Output's numeric lean (MIN); contest line stays under 3.",
+        "confidence": "low",
+        "evidence_supports_lean": "weak (+0.5 pt, book conflict blocks pricing)",
+        "caveat": "BEO has MIN -1; O'Neill/Jurgens out pushes the edge to 0 or toward NO."
+      },
+      {
+        "rank": 2,
+        "game": "BUF@LAR",
+        "pick": "LAR -3",
+        "contest_line": "LAR -3",
+        "bkr": "LAR -3.5",
+        "differs_from_bkr": true,
+        "output_link": "opus BUF@LAR: pass, skip, edge 0.0. VSiN rows[446] \"Rams -3 (-120)\" names the contest number; same-outlet near-miss rows[514] \"Buffalo +3\" opposes it.",
+        "tie_break": "Contest line is 0.5 better than BKR for LAR and lands on 3 (push protection on a 3-point LAR win).",
+        "confidence": "low",
+        "evidence_supports_lean": false,
+        "caveat": "Same outlet on both sides; Monday kickoff, ~36h after capture."
+      },
+      {
+        "rank": 3,
+        "game": "CIN@MIA",
+        "pick": "MIA +7",
+        "contest_line": "CIN -7 (file lists MIA@CIN; labels reversed)",
+        "bkr": "CIN -7",
+        "differs_from_bkr": false,
+        "output_link": "opus CIN@MIA: pass, skip, edge 0.0. VSiN rows[562]/[509] MIA +7 (single outlet); quant pass -6.61 leans 0.39 toward MIA (not adopted).",
+        "tie_break": "Single-outlet source side at the contest number; Chase/Higgins Questionable.",
+        "confidence": "low",
+        "evidence_supports_lean": false,
+        "caveat": "If Chase and Higgins both play the MIA case weakens; MIA 0-4, -55 diff."
+      },
+      {
+        "rank": 4,
+        "game": "PHI@JAX",
+        "pick": "JAX -7.5",
+        "contest_line": "JAX -7.5",
+        "bkr": "JAX -8",
+        "differs_from_bkr": true,
+        "output_link": "opus PHI@JAX: conflicted, skip, margin edge +0.5 toward JAX (PHI Out: Barkley, D. Smith, Hollywood Brown; JAX efficiency), against four VSiN tier-eligible rows on PHI +7.5/+8.",
+        "tie_break": "Output's numeric lean (JAX) and the contest line is 0.5 better than BKR for JAX.",
+        "confidence": "low",
+        "evidence_supports_lean": "weak and contradicted by the only tier-eligible source",
+        "caveat": "Neutral London site; earliest kickoff (13:30Z) and earliest window lapse (09:21Z)."
+      },
+      {
+        "rank": 5,
+        "game": "SF@SEA",
+        "pick": "SEA -3",
+        "contest_line": "SEA -3",
+        "bkr": "SEA -3 (-123)",
+        "differs_from_bkr": false,
+        "output_link": "opus SF@SEA: pass, skip, edge 0.0. Single VSiN row on SEA -3 at -123 juice; SF pass rush depleted (Bosa, Thompson Jr. Out) vs SF SRS edge.",
+        "tie_break": "Contest line removes the -123 juice the book charges at -3; single-outlet source side.",
+        "confidence": "low",
+        "evidence_supports_lean": false,
+        "caveat": "Quant pass leans ~2.9 pts toward SF (not adopted); SEA -2.5 or SF +3.5 at a recapture changes the read."
+      }
+    ],
+    "not_proposed": {
+      "LV@NE": "VSiN split on both sides; no lean",
+      "NYG@WAS": "VSiN split on both sides; no lean",
+      "DET@ARI": "zero tier-eligible rows; edge 0.0",
+      "CLE@NYJ": "book conflict (BKR -2.5 vs BEO -1); only source is NYJ ML"
+    },
+    "excluded": [
+      "TB@DAL (final)"
+    ],
+    "note": "Proposed only; every choice is low-confidence and none is backed by a non-zero edge from its output; contest lines are separate from sportsbook prices"
+  },
+  "pools": {
+    "pickem_confidence": "pool rules unavailable",
+    "survivor": "not an output (both pools lost); no survivor file in this stage's read set, so no data-quality findings beyond that"
+  },
+  "props_menu_title": "construction menus - not tickets",
+  "inputs": [
+    {
+      "game": "PHI@JAX",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-PHI_at_JAX.json",
+      "json_sha256": "efe87233434d1e56175733e42807eac7f18d48a4479bee5a0a563060ffbea17f",
+      "md": "reports/intel/games/2026-w05-opus-PHI_at_JAX.md",
+      "md_sha256": "a77e8cdf8621ea08968320aa0b16a48c79276ab670965bfdd98c7b944dae5147",
+      "packet": "data/research-intel/game-packets/2026-w05/PHI_at_JAX.json",
+      "packet_sha256": "007b38483e60080846cc0ec4278446a2fdb5fa56c9802b457e3f331d274c3984"
+    },
+    {
+      "game": "CHI@GB",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-CHI_at_GB.json",
+      "json_sha256": "753163280c360def2fda1e8869c06d7d016b0c472f5aad1b942f5ce5ebbda05a",
+      "md": "reports/intel/games/2026-w05-opus-CHI_at_GB.md",
+      "md_sha256": "d53a4d875aa6336a07e239c05391e12a315adf842f9ff17d080c5513500c873b",
+      "packet": "data/research-intel/game-packets/2026-w05/CHI_at_GB.json",
+      "packet_sha256": "e3cc9143e0d9347eb6c70b225d2aa39a83e10a7969671a302ea393392a958dee"
+    },
+    {
+      "game": "HOU@TEN",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-HOU_at_TEN.json",
+      "json_sha256": "7b3d884fd5fd124bdf1756ff723258a4c5a1dcc169797bbea8acbaa6fbf8bdac",
+      "md": "reports/intel/games/2026-w05-opus-HOU_at_TEN.md",
+      "md_sha256": "c2681e6ce309dbef9caca6f766a3fff5b4c081b6ebc1ff9ad420e0d0e4b8187e",
+      "packet": "data/research-intel/game-packets/2026-w05/HOU_at_TEN.json",
+      "packet_sha256": "3fe9a020252085364998930d4293bb11ba06934c7ef2ba3bb3d7d07d786d9308"
+    },
+    {
+      "game": "CIN@MIA",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-CIN_at_MIA.json",
+      "json_sha256": "1e2a482564f360f91292cecc9ad73ea5f55a4915644394f9fd474842fc06ca68",
+      "md": "reports/intel/games/2026-w05-opus-CIN_at_MIA.md",
+      "md_sha256": "7a7e7a23fc2c505cb63fad59ab93fb0c18a993271fc844b69f5c0759ff209808",
+      "packet": "data/research-intel/game-packets/2026-w05/CIN_at_MIA.json",
+      "packet_sha256": "c4edfbb29d5e006970da14efb0cc8a77ec44be56fe002887ff15cf1e47271455"
+    },
+    {
+      "game": "LV@NE",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-LV_at_NE.json",
+      "json_sha256": "59def6eee19f2181127b665266b58b4df99fe6619efa8b3884ffb0d2ecb258a8",
+      "md": "reports/intel/games/2026-w05-opus-LV_at_NE.md",
+      "md_sha256": "7a974e826aa3712bc5bc094891c3195a0730dd26ab33b795dcbdb689ede517e7",
+      "packet": "data/research-intel/game-packets/2026-w05/LV_at_NE.json",
+      "packet_sha256": "a977716e430960468ced04b08a3d2c11dfc9f02a17117f22acf513f85e12be96"
+    },
+    {
+      "game": "MIN@NO",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-MIN_at_NO.json",
+      "json_sha256": "5dcdcadadc9813d4bc06ef933b0ff64a9327539b5ec9c5073da015ad7ca71973",
+      "md": "reports/intel/games/2026-w05-opus-MIN_at_NO.md",
+      "md_sha256": "25ec75557761b6752299967449e0e429c17f22cd4d7af8c859c28ab7d55af6d3",
+      "packet": "data/research-intel/game-packets/2026-w05/MIN_at_NO.json",
+      "packet_sha256": "99e06eb8616dde132b0c9a37750c1dcf333aa062d9458c3c202b87a95bd8cee6"
+    },
+    {
+      "game": "CLE@NYJ",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-CLE_at_NYJ.json",
+      "json_sha256": "f2aa51fd674a1904d91d511f9026c787a26b9d05b33251f5dcfbf6036bf9a4d3",
+      "md": "reports/intel/games/2026-w05-opus-CLE_at_NYJ.md",
+      "md_sha256": "c8ce2daae114078498d6d2b3adf5fe68b7f163b473862c19aeefcc1a8fcfdf65",
+      "packet": "data/research-intel/game-packets/2026-w05/CLE_at_NYJ.json",
+      "packet_sha256": "d0b3514caccfb0d2b2261864bd83aedcd0096718e5636f72af7a97e3c3abf534"
+    },
+    {
+      "game": "IND@PIT",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-IND_at_PIT.json",
+      "json_sha256": "0c923ab565fb2f058c57e71fb8264d9cb0882239cd82d3ed7e92aa186614b313",
+      "md": "reports/intel/games/2026-w05-opus-IND_at_PIT.md",
+      "md_sha256": "401989afbf5541c95b8aa9f39701b6efb5d587d49ab69285aac8965075258400",
+      "packet": "data/research-intel/game-packets/2026-w05/IND_at_PIT.json",
+      "packet_sha256": "b3f73233330b5cda161722a1be3a64e062971051aced1d30644a891262457bf9"
+    },
+    {
+      "game": "NYG@WAS",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-NYG_at_WAS.json",
+      "json_sha256": "769f818d180917f4b541ad1b198de6853ffdd12f897902ac93a66b14bd121af4",
+      "md": "reports/intel/games/2026-w05-opus-NYG_at_WAS.md",
+      "md_sha256": "d3d32e4c3e4de4cd0f94fdc71901d54600f7bc6d6121008d7c58eb72bfdb26dd",
+      "packet": "data/research-intel/game-packets/2026-w05/NYG_at_WAS.json",
+      "packet_sha256": "14710e1291b292d743d057647579c4d8771251bcd404e8dca25020a7bc1d6f36"
+    },
+    {
+      "game": "DEN@LAC",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-DEN_at_LAC.json",
+      "json_sha256": "0d66e35c2705735b5893be2e2a377de94f2e6a2398ccf523183124ad18ffb3e6",
+      "md": "reports/intel/games/2026-w05-opus-DEN_at_LAC.md",
+      "md_sha256": "b780cf9b738b7c106b490091c7fb0254b17af4eac55a6e3ac9bd135d0502ae88",
+      "packet": "data/research-intel/game-packets/2026-w05/DEN_at_LAC.json",
+      "packet_sha256": "f1799a1c4a8aad07957f209666e1ffdb4e5e1a24c8f099530c48e74bcc49e6bf"
+    },
+    {
+      "game": "DET@ARI",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-DET_at_ARI.json",
+      "json_sha256": "d6e86ebb5147628cde869299cbd13ed63534c3eb7b705db088d0e37b884efc4d",
+      "md": "reports/intel/games/2026-w05-opus-DET_at_ARI.md",
+      "md_sha256": "cfeab7e05cc4b4f5129fe38fbaf43997459036797e1cb23ea5770b06203a57b4",
+      "packet": "data/research-intel/game-packets/2026-w05/DET_at_ARI.json",
+      "packet_sha256": "683c7075f238371eb2d57a9d3e8573b60c8eba1ef5fa08edfaddf96de4493664"
+    },
+    {
+      "game": "SF@SEA",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-SF_at_SEA.json",
+      "json_sha256": "0311f3375f57c1e8df56a57450dc4906c47312b8a04a44aa7a5e646078fd2cad",
+      "md": "reports/intel/games/2026-w05-opus-SF_at_SEA.md",
+      "md_sha256": "b4efbc40250af5f8bf826441c3f548b41f9fbae7aa3389c3d55013de1ab0a0db",
+      "packet": "data/research-intel/game-packets/2026-w05/SF_at_SEA.json",
+      "packet_sha256": "560cfd072391617fa76c1265ecb9a09d2657fbc9709a75b584e3d904a31fdc9e"
+    },
+    {
+      "game": "BAL@ATL",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-BAL_at_ATL.json",
+      "json_sha256": "1afd657f68f2a24a85b20c8d0f2b719ed4ab1565cf5a1c9644d3eb07b2b214ca",
+      "md": "reports/intel/games/2026-w05-opus-BAL_at_ATL.md",
+      "md_sha256": "1a6c78e67a1a643b12b7740e49ecbc5c3915d6273a28555c1b281d8c5e70adb7",
+      "packet": "data/research-intel/game-packets/2026-w05/BAL_at_ATL.json",
+      "packet_sha256": "2322df6f18982cb0eb73c0258f54fb7fb56b2cae55f998af40157fa36cb560b7"
+    },
+    {
+      "game": "BUF@LAR",
+      "json": "data/research-intel/proposed/games/2026-w05-opus-BUF_at_LAR.json",
+      "json_sha256": "499288f80a36cd73cbee786044c2459ab602d65716142c7e1c3f4ed023d6c476",
+      "md": "reports/intel/games/2026-w05-opus-BUF_at_LAR.md",
+      "md_sha256": "e9bf23da8158882f7a72d5a74bbd1b7c12078cccb292861ba617361d1cae12f0",
+      "packet": "data/research-intel/game-packets/2026-w05/BUF_at_LAR.json",
+      "packet_sha256": "5d9ecf815cecdf1a22bceaeaa1c6b02d529a48b613d6d808215e98e968bdb42b"
+    }
+  ],
+  "props_menu": {
+    "source-supported": [
+      {
+        "game": "CHI@GB",
+        "player": "Christian Watson",
+        "team": "GB",
+        "market": "anytime TD",
+        "side": "Yes",
+        "line": 0.5,
+        "price": 180,
+        "book": "BEO",
+        "captured_at": "2026-10-11T06:24:03.238Z",
+        "status": "high-variance TD",
+        "rationale": "Source-supported by tier-eligible ESPN row rows[392] (quoted +195; captured BEO +180). 2026 usage: targets 8/11/10/3 and receiving TDs 2/1/1/0 in wks 1-4 (player_stats_weekly.csv). No probability or edge."
+      }
+    ],
+    "usage context only": [
+      {
+        "game": "PHI@JAX",
+        "player": "Bhayshul Tuten",
+        "team": "JAX",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 66.5,
+        "price": -108,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:21:29.799Z",
+        "status": "usage context only",
+        "rationale": "2026 weeks 1-4 carries 15/13/15/17, rushing yards 66/65/73/73 (player_stats_weekly.csv); main-line row Over -108 / Under -102. No model probability."
+      },
+      {
+        "game": "PHI@JAX",
+        "player": "Brenton Strange",
+        "team": "JAX",
+        "market": "rec_yds",
+        "side": "Under",
+        "line": 31.5,
+        "price": 101,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:21:29.799Z",
+        "status": "usage context only",
+        "rationale": "Action Network (corroboration-only rows[105]) quoted u35.5 -110; captured BKR main line is 31.5 (Under +101), a 4-point move. Weeks 1-4 targets 3/2/5/8, rec yds 23/17/32/95."
+      },
+      {
+        "game": "HOU@TEN",
+        "player": "Tony Pollard",
+        "team": "TEN",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 48.5,
+        "price": 101,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:28.253Z",
+        "status": "usage context only",
+        "rationale": "Carries 7/14/17/16 and rush yards 35/64/74/48 in Weeks 1-4 (nflverse); HOU rush defense FTN rush-analytics EPA/ATT -0.110, DVOA -23.6% is a stout matchup. No probability."
+      },
+      {
+        "game": "HOU@TEN",
+        "player": "Nico Collins",
+        "team": "HOU",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 77.5,
+        "price": -109,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:28.253Z",
+        "status": "usage context only",
+        "rationale": "10 and 8 targets, 75 and 118 yards in Weeks 1 and 4 (no rows Weeks 2-3); TEN pass defense allows FTN passing-analytics EPA/DB 0.196. Not on ESPN injury report. No probability."
+      },
+      {
+        "game": "CIN@MIA",
+        "player": "Greg Dulcich",
+        "team": "MIA",
+        "market": "receiving yards",
+        "side": "Over",
+        "line": 25.5,
+        "price": -114,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:02.242Z",
+        "status": "usage context only",
+        "rationale": "2026 weeks 1-3: 18, 17, 55 yds on 2/3/7 targets; no week 4 row. VSiN rows[383] (corroboration-only) quoted o26.5 -125 vs captured 25.5 -114."
+      },
+      {
+        "game": "CIN@MIA",
+        "player": "Malik Washington",
+        "team": "MIA",
+        "market": "receptions",
+        "side": "Over",
+        "line": 4.5,
+        "price": -114,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:02.242Z",
+        "status": "usage context only",
+        "rationale": "2026 weeks 1-4: 3, 4, 5, 5 receptions on 8/5/10/5 targets; Caleb Douglas Out (ESPN injury report). No source support."
+      },
+      {
+        "game": "LV@NE",
+        "player": "Kirk Cousins",
+        "team": "LV",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 231.5,
+        "price": -108,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:11.947Z",
+        "status": "usage context only",
+        "rationale": "2026 passing yards W1 160, W2 253, W3 248, W4 365 (nflverse); NE four CBs Out per ESPN injury report."
+      },
+      {
+        "game": "LV@NE",
+        "player": "Drake Maye",
+        "team": "NE",
+        "market": "pass_yds",
+        "side": "Under",
+        "line": 229.5,
+        "price": -110,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:11.947Z",
+        "status": "usage context only",
+        "rationale": "2026 passing yards W1 178, W2 208, W3 199, W4 269 (nflverse); LV FTN PRESS% 39.5%."
+      },
+      {
+        "game": "MIN@NO",
+        "player": "Aaron Jones",
+        "team": "MIN",
+        "market": "carries",
+        "side": "Over",
+        "line": 17.5,
+        "price": 101,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:21:44.982Z",
+        "status": "usage context only",
+        "rationale": "Carries W1 12, W2 23, W3 17, W4 20 (player_stats_weekly.csv 2026). VSiN rows[518] quotes rush yds Over 71.5 -110, a different market not open at BKR. Jordan Mason in ESPN roster IR/Out group (unconfirmed)."
+      },
+      {
+        "game": "MIN@NO",
+        "player": "Chris Olave",
+        "team": "NO",
+        "market": "receptions",
+        "side": "Over",
+        "line": 6.5,
+        "price": 104,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:21:44.982Z",
+        "status": "usage context only",
+        "rationale": "Receptions W1 10, W2 8, W3 9, W4 8 on 13/10/13/12 targets (player_stats_weekly.csv 2026)."
+      },
+      {
+        "game": "MIN@NO",
+        "player": "Tyler Shough",
+        "team": "NO",
+        "market": "pass completions",
+        "side": "Over",
+        "line": 22.5,
+        "price": -114,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:21:44.982Z",
+        "status": "usage context only",
+        "rationale": "Completions W1 35, W2 27, W3 29, W4 30 (player_stats_weekly.csv 2026); NO DPBK% 67.8%, but MIN PRESS% 40.9%."
+      },
+      {
+        "game": "CLE@NYJ",
+        "player": "Quinshon Judkins",
+        "team": "CLE",
+        "market": "rush_yds",
+        "side": "Under",
+        "line": 59.5,
+        "price": -110,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:21:53.688Z",
+        "status": "usage context only",
+        "rationale": "Rushing yards wk1-4: 33, 21, 70, 53 on 12/12/18/17 carries (player_stats_weekly.csv); 1 of 4 above 59.5. Source prices -114 (ESPN rows[395]) and -112 (Sharp Football rows[413]) vs captured -110; corroboration-only."
+      },
+      {
+        "game": "IND@PIT",
+        "player": "Jonathan Taylor",
+        "team": "IND",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 86.5,
+        "price": -108,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:21:37.317Z",
+        "status": "usage context only",
+        "rationale": "2026 carries 19/24/23/20 and rush yds 98/92/68/95 (wks 1-4; 3 of 4 over 86.5). ESPN rows[391] (tier-eligible) quotes a different market, OVER 105.5 (-114) total yards; BKR has no rush+rec main line, so it is not the same bet."
+      },
+      {
+        "game": "IND@PIT",
+        "player": "Jonathan Taylor",
+        "team": "IND",
+        "market": "carries",
+        "side": "Over",
+        "line": 19.5,
+        "price": 106,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:21:37.317Z",
+        "status": "usage context only",
+        "rationale": "Carries 19/24/23/20 in wks 1-4 (3 of 4 over 19.5); faces PIT rush D STF% 23.5%."
+      },
+      {
+        "game": "IND@PIT",
+        "player": "Jaylen Warren",
+        "team": "PIT",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 20.5,
+        "price": -113,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:21:37.317Z",
+        "status": "usage context only",
+        "rationale": "Receiving yds 27/34/49/33 on 6/4/4/6 targets wks 1-4 (4 of 4 over). Cody Brown rows[379] OVER 20.5 is corroboration-only, no source price."
+      },
+      {
+        "game": "NYG@WAS",
+        "player": "Isaiah Likely",
+        "team": "NYG",
+        "market": "receiving yards",
+        "side": "Over",
+        "line": 42.5,
+        "price": -112,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:19.476Z",
+        "status": "usage context only",
+        "rationale": "Targets 8/10/5/12 and 78/33/13/66 yds in 2026 weeks 1-4 (player_stats_weekly.csv), 41% target share week 4; Sharp Football row[415] quoted o40.5 -125 (corroboration only) vs captured 42.5 -112: different line and price."
+      },
+      {
+        "game": "NYG@WAS",
+        "player": "Isaiah Likely",
+        "team": "NYG",
+        "market": "receptions",
+        "side": "Over",
+        "line": 4.5,
+        "price": -108,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:19.476Z",
+        "status": "usage context only",
+        "rationale": "Receptions 8/5/2/7 in weeks 1-4 on 35 targets; WAS defense OPEN% 72.1% (FTN). No source price; usage context only."
+      },
+      {
+        "game": "DEN@LAC",
+        "player": "Omarion Hampton",
+        "team": "LAC",
+        "market": "carries",
+        "side": "Over",
+        "line": 10.5,
+        "price": -130,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:36.833Z",
+        "status": "usage context only",
+        "rationale": "Carries wk1-4: 12, 23, 15, 9 (nflverse); Keaton Mitchell rising (4,5,8,10). No source support."
+      },
+      {
+        "game": "DEN@LAC",
+        "player": "Justin Herbert",
+        "team": "LAC",
+        "market": "pass_yds",
+        "side": "Over",
+        "line": 200.5,
+        "price": -108,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:36.833Z",
+        "status": "usage context only",
+        "rationale": "Pass yds wk1-4: 209, 192, 226, 189 (nflverse); WR absences and OL injuries cut both ways. No source support."
+      },
+      {
+        "game": "DET@ARI",
+        "player": "Sam LaPorta",
+        "team": "DET",
+        "market": "rec_yds",
+        "side": "Over",
+        "line": 51.5,
+        "price": -114,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:53.953Z",
+        "status": "usage context only",
+        "rationale": "2026 targets 8/7/4/13 and rec yds 48/52/44/84 (wks 1-4, player_stats_weekly.csv). Sharp Football (rows[414], corroboration-only) quoted OVER 50.5 -120; captured BKR is 51.5 -114. No model probability."
+      },
+      {
+        "game": "SF@SEA",
+        "player": "Brock Purdy",
+        "team": "SF",
+        "market": "passing yards",
+        "side": "Over/Under",
+        "line": 222.5,
+        "price": -106,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:46.401Z",
+        "status": "usage context only",
+        "rationale": "205, 287, 297, 218 yards Weeks 1-4 on 22-34 attempts (nflverse); main-line row, both sides -106."
+      },
+      {
+        "game": "BAL@ATL",
+        "player": "Derrick Henry",
+        "team": "BAL",
+        "market": "rush_yds",
+        "side": "Under",
+        "line": 78.5,
+        "price": -114,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:23:08.132Z",
+        "status": "usage context only",
+        "rationale": "Carries 24/16/26/23 and rush yds 144/68/89/73 (weeks 1-4, player_stats_weekly.csv); ATL FTN rush-analytics EPA/ATT -0.291. No model probability."
+      },
+      {
+        "game": "BAL@ATL",
+        "player": "Bijan Robinson",
+        "team": "ATL",
+        "market": "rush_yds",
+        "side": "Over",
+        "line": 87.5,
+        "price": -114,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:23:08.132Z",
+        "status": "usage context only",
+        "rationale": "Carries 21/16/29/19, rush yds 83/72/194/145 (weeks 1-4; 194 and 145 in Penix starts); BAL FTN rush-analytics EPA/ATT -0.027. No model probability."
+      },
+      {
+        "game": "BUF@LAR",
+        "player": "Kyren Williams",
+        "team": "LAR",
+        "market": "receiving yards",
+        "side": "Over",
+        "line": 22.5,
+        "price": -108,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:23:15.685Z",
+        "status": "usage context only",
+        "rationale": "Targets 3/2/7/13 and rec yds 24/12/70/67 in 2026 wks 1-4 (player_stats_weekly.csv); TE Terrance Ferguson on IR (ESPN). Digest sources quoted o19.5 (Rich Hribar, Tera Roberts; corroboration only, src px not BKR) vs 22.5 now."
+      }
+    ],
+    "high-variance TD": [
+      {
+        "game": "CHI@GB",
+        "player": "Tucker Kraft",
+        "team": "GB",
+        "market": "anytime TD",
+        "side": "Yes",
+        "line": 0.5,
+        "price": 220,
+        "book": "BEO",
+        "captured_at": "2026-10-11T06:24:03.238Z",
+        "status": "high-variance TD",
+        "rationale": "Corroboration-only source (Action Network digest, +250 quoted vs BEO +220). Usage: targets 6/3/8/7, TD in wk4 only. Usage context only."
+      },
+      {
+        "game": "CHI@GB",
+        "player": "Luther Burden III",
+        "team": "CHI",
+        "market": "anytime TD",
+        "side": "Yes",
+        "line": 0.5,
+        "price": 250,
+        "book": "BEO",
+        "captured_at": "2026-10-11T06:24:03.238Z",
+        "status": "high-variance TD",
+        "rationale": "Corroboration-only source (Action Network digest, +240 quoted vs BEO +250). Usage: targets 5/7/11/6, one TD (wk3); QB change to Bagent adds variance. Usage context only."
+      },
+      {
+        "game": "HOU@TEN",
+        "player": "Tony Pollard",
+        "team": "TEN",
+        "market": "atd_1_plus",
+        "side": "Yes",
+        "line": 0.5,
+        "price": 202,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:28.253Z",
+        "status": "high-variance TD",
+        "rationale": "Digest source price +250 (Action Network, corroboration-only) vs captured BKR +202; 1 rushing TD in 4 games (Week 4)."
+      },
+      {
+        "game": "LV@NE",
+        "player": "Brock Bowers",
+        "team": "LV",
+        "market": "atd_1_plus",
+        "side": "Yes",
+        "line": 0.5,
+        "price": 128,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:11.947Z",
+        "status": "high-variance TD",
+        "rationale": "Receiving TDs in W3 (13 tgt) and W4 (11 tgt) per nflverse; no W1-W2 rows. Source price +145 (Action Network rows[16], corroboration-only) vs captured +128."
+      },
+      {
+        "game": "CLE@NYJ",
+        "player": "Garrett Wilson",
+        "team": "NYJ",
+        "market": "atd_1_plus",
+        "side": "Yes",
+        "line": 0.5,
+        "price": 143,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:21:53.688Z",
+        "status": "high-variance TD",
+        "rationale": "Targets wk1-4: 7, 7, 13, 4; receiving TDs in wk2 and wk3 (player_stats_weekly.csv). Source price +140 (BettingPros rows[59]) vs captured +143; corroboration-only."
+      },
+      {
+        "game": "IND@PIT",
+        "player": "Roman Wilson",
+        "team": "PIT",
+        "market": "atd_1_plus",
+        "side": "Yes",
+        "line": 0.5,
+        "price": 250,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:21:37.317Z",
+        "status": "high-variance TD",
+        "rationale": "6 targets in each of wks 1-4, TDs in wks 3 and 4. BettingPros rows[64] (+250) is corroboration-only; digest also lists a +285 source price vs captured +250."
+      },
+      {
+        "game": "SF@SEA",
+        "player": "Christian McCaffrey",
+        "team": "SF",
+        "market": "anytime TD",
+        "side": "Yes",
+        "line": 0.5,
+        "price": -141,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:46.401Z",
+        "status": "high-variance TD",
+        "rationale": "TDs in Weeks 2 (2), 3, 4; 10-15 carries and 4-8 targets per week (nflverse wk1-4). No model edge."
+      },
+      {
+        "game": "SF@SEA",
+        "player": "Jaxon Smith-Njigba",
+        "team": "SEA",
+        "market": "anytime TD",
+        "side": "Yes",
+        "line": 0.5,
+        "price": -120,
+        "book": "BKR",
+        "captured_at": "2026-10-11T06:22:46.401Z",
+        "status": "high-variance TD",
+        "rationale": "6 receiving TDs in 4 games, 6-14 targets per week (nflverse wk1-4). No model edge."
+      }
+    ]
+  }
+}
