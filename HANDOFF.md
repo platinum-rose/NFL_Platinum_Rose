@@ -6,34 +6,27 @@
 
 ## Current pick-up point
 
-**Latest session (2026-10-10 PT, Codex — Week 5 card prep and prop captures):** `handoffs/2026-10-10-codex-week5-card-prep-and-prop-capture-handoff.md`. The Week 5 narrative, review-only proposed card, side/prop hypothesis ledger, BKR/BEO capture evidence, and freshness checks are ready for game-day revalidation. **Next:** refresh executable offers and inactives, then update the review-only card/Master Intel output; do not promote anything to an official ticket, ledger, portfolio, or contest entry without fresh authorization.
+**H2C2 transfer to Claude Team 2 (Week 5 Sunday cards), 2026-10-10 ~23:15 PT:**
 
-Previous: `handoffs/2026-10-07-0105-claude-week4-postmortem-done-week5-prep-handoff.md` (Week 4 post-mortem, Week 5 prep).
-
-**H2C2 transfer to Claude Team 2 (Week 4 close-out / Week 5 launch):**
-
-1. Read `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/H2C2_START_HERE.md`.
+1. Read `reports/handoff-snapshots/2026-10-10-h2c2-week5-sunday/H2C2_START_HERE.md`.
 2. Run `git status -sb`, `git branch --show-current`, and `git log -5 --oneline`.
-3. Choose one lane and load only the matching material from
-   `handoffs/2026-10-05-1300-claude-h2c2-team2-briefing-week4-fri-mon.md`.
+3. Choose one lane and load only the matching section of
+   `handoffs/2026-10-10-2310-claude-h2c2-team2-week5-sunday-briefing.md`.
 
-The snapshot was built at `6887ca8`; later commits may legitimately exist. Live Git is
-authoritative. The detailed H2C2 briefing, its local copies, manifest, and chain digest
-are at `reports/handoff-snapshots/2026-10-05-h2c2-week4-fri-mon/`.
+State: all 14 Week 5 per-game syntheses exist (Opus; Astra for 4) on Saturday-night
+captures that have expired; review notes and the ESPN roster-group availability gap are in
+`reports/intel/games/2026-w05-per-game-review-notes.md` and `...-espn-roster-ir-out-gap.md`.
+Codex's card-prep lane: `handoffs/2026-10-10-codex-week5-card-prep-and-prop-capture-handoff.md`.
 
 ## Active lanes
 
-- **Article intake (next):** review captured Week 5/TNF articles and extract only
-  attributable, quoted selections with source, timestamp, market, line, and price/book
-  provenance; preserve context/inference separately from picks.
-- **TNF player props:** read-only evidence and current player-prop price gathering for
-  TB @ DAL; maintain the roster/evidence gates and keep analysis separate from tickets.
-- **Week 5 lines and promos:** missing BKR games, CHI@GB time correction, and only
-  authorized Bills-credit/reload work.
-- **Week 4 analysis:** paper-ticket grading, recommendation-ledger separation, and
-  end-of-week analysis.
-- **Week 5 Master Intel:** evidence cadence only; no wagering synthesis before the
-  documented readiness gates pass.
+- **A. Sunday-morning refresh (first):** Andy recaptures BKR/BEO; ESPN status, roster vet,
+  packet rebuild, commit, new HEAD. PHI@JAX kicks off 06:30 PT.
+- **B. Pipeline fixes:** ESPN roster-group availability, prompt notes, BEO-expiry check.
+- **C. Per-game reruns** on fresh packets (Opus via Claude agents or Astra via Codex).
+- **D. Sunday card build:** reconcile Codex's review-only card with per-game outputs and
+  fresh prices; proposed only unless Andy authorizes tickets.
+- **E. Slate merge** (optional; untested prompt).
 
 ## Guardrails
 

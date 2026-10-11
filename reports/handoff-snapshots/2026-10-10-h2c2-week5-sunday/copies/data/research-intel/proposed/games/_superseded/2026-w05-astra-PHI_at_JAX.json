@@ -1,0 +1,107 @@
+{
+  "schema": "w05_game_synthesis_v1",
+  "game": "PHI@JAX",
+  "model": "astra",
+  "generated_at": "2026-10-11T02:10:20.981940+00:00",
+  "head": "3f9cc26",
+  "market": {
+    "book": "BKR",
+    "captured_at": "2026-10-11T01:15:40.538Z",
+    "home_line": -7.5,
+    "total": 42
+  },
+  "disposition": "pass",
+  "tier": "research_only",
+  "side": {
+    "pick": null,
+    "line": null,
+    "price": null
+  },
+  "total_lean": {
+    "pick": null
+  },
+  "edge_hypothesis": {
+    "home_margin_pts": 0.0,
+    "total_pts": 0.0,
+    "basis": [
+      "No supported incremental home-margin adjustment: FTN team-offense/efficiency EPA/PLY JAX +0.173 vs PHI -0.107 and defense -0.048 vs +0.045 favor JAX, already a market -7.5 favorite; no validated metrics-to-points mapping supplied.",
+      "PHI pass-protection PRESS% 37.7 and SK% 8.7 versus JAX pass-rush PRESS% 29.7 support the favorite script; conflicting starter/availability rows prevent quantification.",
+      "FTN tempo SEC/PLY JAX 31.1 vs PHI 28.6 and DRV/GM 9.3 vs 10.5 suggest limited possessions but do not establish an adjustment to total 42.",
+      "Open-Meteo PHI@JAX temperature_f 57.9, precipitation_mm 0, precipitation_probability_pct 0, wind_speed_kmh 10.4, wind_gusts_kmh 22.7: weather total adjustment 0.0.",
+      "VSiN eligible PHI +7.5/+8 evidence counts as one outlet and is opposed by corroboration-only moved JAX picks; no numeric edge derived from source counts.",
+      "Power-rating provenance conflict and stale secondary evidence excluded from numerical adjustment; provisional quantitative means are not backtested."
+    ],
+    "cap_exception": null
+  },
+  "simulator": {
+    "home_cover": 0.4999999999999996,
+    "away_cover": 0.5,
+    "over": 0.4848000941170473,
+    "under": 0.48480009411704783,
+    "side_push": 0,
+    "total_push": 0.030399811765904873
+  },
+  "cited_rows": [
+    {
+      "row": "w05-expert-verified.json#rows[198]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[371]",
+      "outlet": "NFL WEEK 5 Betting Preview: Bucs-Cowboys, Bears-Packers and more",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[447]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Eagles +7.5 vs Jaguars (London)"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[516]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Bet: Eagles +8 (-110 - 1.5 units) & Eagles ML (+320 - 0.5 units)"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[517]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Bet: Eagles +8 (-110 - 1.5 units) & Eagles ML (+320 - 0.5 units)"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[559]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Best Bet: Eagles +7.5 or better (Pool Play Percentages: Eagles 67/33 in ATS contests, but Jaguars still 75/25 in SU pools)."
+    }
+  ],
+  "context": {
+    "away": "PHI 2-2, third NFC East, outside displayed NFC top eight; W WAS +2, W TEN +4, L CHI -20, L LAR -4. Opponents 6-10; home/away 1-1, division 1-0. Rest 6.9 days; no bye used, Week 10 ahead. Next CAR, DAL, WAS.",
+    "home": "JAX 3-1, first AFC South, second displayed AFC order; W CLE +24, L DEN -7, W NE +29, W CIN +5. Opponents 9-7; home 2-0, away 1-1, division 0-0. Rest 6.9 days; no bye used, Week 7 ahead. Next HOU, bye, IND, BAL."
+  },
+  "invalidators": [
+    "Official Week 5 starters/inactives must resolve PHI Hurts versus McKee, Barkley availability, and the missing JAX QB projection. A confirmed role change requires rebuilding the thesis.",
+    "Fresh PHI +7.5 or better with corroborated starters and a second independent tier-eligible outlet could reopen a Philadelphia qualitative candidate; PHI +7 or lower removes the hook and must be treated as a different price.",
+    "A fresh JAX -6.5 or better requires a new analysis of the favorite; do not transfer old -4.5/-6.5 source picks onto -7.5.",
+    "Wind sustained >=25 km/h, gusts >=40 km/h, or forecast precipitation >=1 mm at kickoff triggers a weather reassessment; these are review thresholds, not a fitted model or automatic adjustment.",
+    "BKR expiry 2026-10-11T07:15:40.538000+00:00 or BEO expiry 2026-10-11T07:19:56.400000+00:00 makes that capture stale_for_recommendation; remain research_only until recaptured.",
+    "Pre-kickoff delta checklist: official inactives and starters, fresh market capture, weather recheck, game status and London venue/kickoff verification, and repricing of every retained source pick."
+  ],
+  "gaps": [
+    "Preflight: 16 PASS, 4 WARN, 0 FAIL. Global warnings: two other games have BKR/BEO conflicts; 11 near-miss article rows are not tier-eligible; 432 rows are corroboration-only; six other games have reversed SuperContest labels. This packet has game_warnings=[] and no game-line book conflict.",
+    "Quarterbacks: neither team has operator confirmation; JAX has no projected QB row. PHI Jalen Hurts starter evidence is Week 1 usage; Tanner McKee likely_starter_or_primary contradicts its October 4 top-backup source. No official Week 5 inactives are supplied.",
+    "Availability and depth disagree: Saquon Barkley remains a locked starter in projected data but is out in the packet digest. Do not interpret historical usage or a role lock as active status.",
+    "Power ratings label season 2026 and four games but attribution says prior-season results; raw FTN capture timestamps and a calibrated conversion from metrics to point adjustments are absent.",
+    "Secondary severity 6.45 for JAX includes an unverified 2025-04-03 injury row. Omit that row as a current-status claim and apply no secondary points; other manual roles and scheme notes need reconciliation.",
+    "Provisional quantitative means favor JAX by 9.0673 with total 42.985, versus market margin 7.5 and total 42: disagreements +1.5673 margin and +0.985 total. Unbacktested inputs and uncertain provenance do not justify copying its cover probabilities or adjustments.",
+    "Four tier-eligible rows represent VSiN alone, including two rows from the same article. JAX -4.5/-6.5 context picks cross 7 to current -7.5 and are different bets. Source prices for PHI +7.5 are absent.",
+    "Packet standings claim inclusion of the completed Week 5 TB@DAL game while DAL still displays 2-2; conference order is win percentage then point differential, not official tiebreakers. Subsequent opponent records are absent.",
+    "London is identified in a source quote and weather coordinates; explicit venue/neutral-site metadata and travel timing are absent. No ordinary Jacksonville home-field or travel adjustment is added.",
+    "Props withheld: Strange source Under 35.5 -110 (digest; corroboration only) is now BKR Under 31.5 +102 and BEO Under 33.5 -115. Weeks 1-4 targets 3/2/5/8 and yards 23/17/32/95 do not establish a stable under role. No prop probability or edge assigned.",
+    "Roster-vet PASS has blocking=[], but generated_at is absent; roster_source=2026-10-10T02:16:47.619206+00:00 and stored roster_age_h=23.6 is not a live clock. Read under the prompt permitted saved-result option; pre-kickoff revalidation needed.",
+    "At total 42 the zero-edge baseline is 50/50 conditional on no push; unconditional Over/Under are each 48.4800% with 3.0400% push. Prompt shorthand 50/50 does not identify this distinction."
+  ],
+  "props": []
+}

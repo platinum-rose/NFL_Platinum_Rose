@@ -1,0 +1,136 @@
+{
+  "schema": "w05_game_synthesis_v1",
+  "game": "MIN@NO",
+  "model": "opus",
+  "generated_at": "2026-10-11T05:49:37Z",
+  "head": "7ebef66",
+  "market": {
+    "book": "BKR",
+    "captured_at": "2026-10-11T01:15:40.538Z",
+    "home_line": 2.5,
+    "total": 41.5
+  },
+  "disposition": "conflicted",
+  "tier": "research_only",
+  "side": {
+    "pick": null,
+    "line": null,
+    "price": null
+  },
+  "total_lean": {
+    "pick": null
+  },
+  "edge_hypothesis": {
+    "home_margin_pts": 0.0,
+    "total_pts": 0.0,
+    "basis": [
+      "FTN team-defense efficiency EPA/PLY MIN -0.184 vs NO +0.134 and NO LB outs (Elliss, Jennings) point toward MIN",
+      "Offset: MIN OL attrition (Darrisaw Out, D. Jackson IR, O'Neill/Jurgens Questionable), Jefferson Questionable, MIN offense DVOA -23.4% vs 6-11 opponent slate",
+      "Total: FTN tempo NO 73 PLY/GM at 24.9 SEC/PLY vs MIN 60 at 30.3 offsets MIN defense; dome, no weather input",
+      "Default 0.0: no two independent numeric inputs agree on direction; quant pass (home margin -4.5) not copied"
+    ],
+    "cap_exception": null
+  },
+  "simulator": {
+    "home_cover": 0.5,
+    "away_cover": 0.5,
+    "over": 0.5,
+    "under": 0.5,
+    "side_push": 0,
+    "total_push": 0
+  },
+  "cited_rows": [
+    {
+      "row": "w05-expert-verified.json#rows[518]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Bet: Vikings ML (-130) & Jones Over 71.5 Rushing Yards (-110)"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[449]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Wes Reynolds: NFL Week 5 Best Bets"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[40]",
+      "outlet": "Action Network",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[97]",
+      "outlet": "Action Network",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[201]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[131]",
+      "outlet": "Sharp or Square",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[98]",
+      "outlet": "Action Network",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[202]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    }
+  ],
+  "context": {
+    "away": "MIN 4-0 (W 39-22 GB, 9-3 @CHI, 23-16 @TB, 15-10 MIA), +35, opponents 6-11; 2-0 div; 6.9 days rest; Week 6 bye next, then IND, @DET, BUF. Win keeps MIN tied with SF atop NFC and a game ahead of CHI.",
+    "home": "NO 1-3 (L 30-31 @DET, W 24-17 @BAL, L 27-35 LV, L 24-45 ATL), -23, opponents 10-6; 0-2 home, 0-1 div; 5.7 days rest; bye Week 8; next @NYG, PIT. Third in NFC South, a game behind CAR/ATL."
+  },
+  "invalidators": [
+    "Fresh BKR/BEO recapture that agrees within 0.5 pt would lift the conflict and allow re-evaluation",
+    "MIN line moving to -3 or beyond (crosses key number 3) or back to -1.5 or shorter",
+    "Justin Jefferson inactive, or Brian O'Neill and Michael Jurgens both inactive (MIN offense/protection downgrade)",
+    "Alvin Kamara or multiple NO DTs (Shepherd, Broughton, Miller) inactive",
+    "Any venue change from the dome (static table cannot detect relocation)",
+    "A second independent tier-eligible outlet on either side"
+  ],
+  "gaps": [
+    "BOOK CONFLICT: BKR home line +2.5 vs BEO +1 (>=1.0 pt); recapture before any price claim",
+    "Action Network opener missing; no line-movement history",
+    "Only one tier-eligible row (VSiN rows[518], MIN ML); near-miss VSiN rows[449] NO +3 crosses key 3 vs +2.5; rest corroboration-only",
+    "Quant pass home margin -4.5 vs market -2.5 (2.0-pt disagreement toward MIN); provisional, unbacktested, not copied",
+    "Questionable: MIN Jefferson, Addison, O'Neill, Jurgens, Yurosek; NO Kamara, Ford, Shepherd, Broughton, Miller, Styles, Blackmon, B. Brown; official inactives decide",
+    "Open-Meteo has no outdoor entry for MIN@NO (dome); static venue table cannot detect relocation",
+    "BKR Aaron Jones rush/receiving-yard and reception props unavailable at capture; BEO has 8 MIN@NO prop rows",
+    "Power ratings are 2026 four-game values (matches_2026 true); attribution wording stale; no adjustment",
+    "BKR recommendation window ends 2026-10-11T07:15Z (00:15 PT)",
+    "Global: 432 corroboration-only rows; SuperContest labels reversed for 6 games incl. this one (used favorite field MIN -2.5); book conflict also on CLE@NYJ"
+  ],
+  "props": [
+    {
+      "player": "Aaron Jones",
+      "team": "MIN",
+      "market": "carries",
+      "side": "Over",
+      "line": 17.5,
+      "price": 101,
+      "book": "BKR",
+      "captured_at": "2026-10-11T01:15:40.538Z",
+      "status": "usage context only",
+      "rationale": "nflverse 2026 carries: wk1 12, wk2 23, wk3 17, wk4 20; NO run defense DVOA 19.7% with LBs Elliss/Jennings Out. VSiN rows[518] backs Jones rush yards o71.5, a different market unavailable at BKR."
+    },
+    {
+      "player": "Chris Olave",
+      "team": "NO",
+      "market": "receptions",
+      "side": "Over",
+      "line": 6.5,
+      "price": 104,
+      "book": "BKR",
+      "captured_at": "2026-10-11T01:15:40.538Z",
+      "status": "usage context only",
+      "rationale": "nflverse 2026: targets 13/10/13/12 and receptions 10/8/9/8 in wk1-4; NO DPBK% 67.8%. MIN pass defense CPOE -11.87% is the counterweight."
+    }
+  ]
+}

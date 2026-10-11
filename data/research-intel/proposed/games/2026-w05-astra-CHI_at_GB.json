@@ -1,0 +1,102 @@
+{
+  "schema": "w05_game_synthesis_v1",
+  "game": "CHI@GB",
+  "model": "astra",
+  "generated_at": "2026-10-11T05:04:36.303805+00:00",
+  "head": "7ebef66",
+  "market": {
+    "book": "BKR",
+    "captured_at": "2026-10-11T01:15:40.538Z",
+    "home_line": 1.5,
+    "total": 46
+  },
+  "disposition": "pass",
+  "tier": "research_only",
+  "side": {
+    "pick": null,
+    "line": null,
+    "price": null
+  },
+  "total_lean": {
+    "pick": "Under"
+  },
+  "edge_hypothesis": {
+    "home_margin_pts": 0.0,
+    "total_pts": -1.0,
+    "basis": [
+      "Default home-margin adjustment 0.0: FTN team-offense/efficiency EPA/PLY CHI 0.077 vs GB -0.089 and team-defense/efficiency -0.059 vs 0.040 are four-game context, not a demonstrated residual edge; quarterback ambiguity and both defenses injury losses prevent a reliable incremental margin adjustment.",
+      "Open-Meteo CHI@GB sampled 2026-10-11T17:00:00Z, captured 2026-10-10T17:56:55.559Z: wind_speed_kmh 22.3, wind_gusts_kmh 42.1, precipitation_probability_pct 0, temperature_f 73.9. Test total -1.0 as the weather-only cap; assumed scoring effect, not estimated or backtested.",
+      "Power label matches_2026 true for CHI +11.75 and GB -8 net PPG: 2026 four-game ratings despite stale prior-season wording; no point adjustment. Secondary severity GB offense 5.25 vs CHI offense 1.35 adds no points."
+    ],
+    "cap_exception": null
+  },
+  "simulator": {
+    "home_cover": 0.4999999999999996,
+    "away_cover": 0.5000000000000004,
+    "over": 0.4545374074316581,
+    "under": 0.5151618261370405,
+    "side_push": 0,
+    "total_push": 0.030300766431301432
+  },
+  "cited_rows": [
+    {
+      "row": "w05-expert-verified.json#rows[519]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Bet: Packers ML (+120)"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[512]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "NFL Best Bet: I'll back a much more motivated Green Bay +1.5 vs."
+    },
+    {
+      "row": "w05-expert-verified.json#rows[392]",
+      "outlet": "ESPN NFL",
+      "supports_tier": false,
+      "quote": "Watson has scored at least one touchdown in three of four games played, and he has four end zone targets on the season."
+    },
+    {
+      "row": "w05-expert-verified.json#rows[296]",
+      "outlet": "2026 NFL Week 5 Bets",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[195]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    }
+  ],
+  "context": {
+    "away": "CHI 3-1, home 2-1/away 1-0/division 0-1; opponents 9-7. Seven days rest, no bye used, Week 10 bye. Next ATL away, NE home, SEA away. Second NFC North, third simplified NFC order; winning creates two-win separation from GB.",
+    "home": "GB 2-2, home 0-1/away 2-1/division 0-1; opponents 8-9. Seven days rest, no bye used, Week 11 bye. Next DAL home, DET away, CAR home. Fourth NFC North, outside simplified NFC top eight; win ties CHI at 3-2 with head-to-head result."
+  },
+  "invalidators": [
+    "QB CHI ambiguous: ESPN Caleb Williams Questionable versus operator-stated Tyson Bagent; official inactives and starter confirmation required before reassessment, without asking operator.",
+    "Recheck CHI Gordon/Turner defensive losses and GB Parsons/Cooper plus Banks/Monk/Hargrave status; restored or further depleted protection and changed player roles require a new script.",
+    "Fresh capture required before BKR 2026-10-11T07:15:40.538000+00:00 and BEO 2026-10-11T09:15:09.478000+00:00; either expiry means unavailable/research_only.",
+    "Reprice at total 45 or below; current Under hypothesis is relative to 46, not portable. Reassess GB +3, CHI -3, and any crossing of key 7. These are review triggers, not automatic recommendations.",
+    "Weather recheck: wind below 15 km/h and gusts below 30 removes the assumed -1 total adjustment; stronger wind does not authorize exceeding the weather-only cap.",
+    "Confirm venue and game status before kickoff; underway/final means stop.",
+    "Reprice all source selections and obtain independent tier-eligible Under evidence before promoting research; official quarterback resolution alone does not establish a bet."
+  ],
+  "gaps": [
+    "QB CHI: ESPN lists Caleb Williams Questionable; (Questionable/Doubtful); starter is ambiguous -- operator says Tyson Bagent",
+    "AVAILABILITY CHI (ESPN 2026-10-11T04:21:24Z): Out: Shemar Turner DT, Kyler Gordon CB, Keyshaun Elliott LB, Kyle Monangai RB | Questionable/Doubtful: Noah Sewell LB, Caleb Williams QB | IR: Anthony Johnson Jr. S",
+    "AVAILABILITY GB (ESPN 2026-10-11T04:21:24Z): Out: Micah Parsons DE | Questionable/Doubtful: Jacob Monk C, Jager Burton C, Aaron Banks G, Javon Hargrave DT, Anthony Campbell DT | IR: Chris Brooks RB, Savion Williams WR, Edgerrin Cooper LB",
+    "WEATHER: review_required: wind 22.3 km/h, gusts 42.1 km/h",
+    "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
+    "1 near-miss source row(s) (verbatim but not self-identifying): context only",
+    "Global preflight WARNs: 2 other-game book conflicts, 11 near-miss rows, 432 corroboration-only rows, and 6 SuperContest label reversals; corroboration and repeated outlets do not create independent tier support.",
+    "Action Network opener is null; opening-line movement cannot be established. Splits captured 2026-10-09T19:41:08.878Z are historical context only.",
+    "Provisional unbacktested quantitative mean home margin -4.612609748826621 disagrees with BKR -1.5 implied margin; total 46.81784168617121 disagrees with BKR 46 and the conditional Under hypothesis. No cover percentages borrowed.",
+    "Only VSiN rows[519] is eligible side evidence, originally GB ML +120 versus captured +103 BKR/-101 BEO. ESPN rows[392] is an eligible prop row, not independent side or total support. VSiN rows[512] remains near_miss.",
+    "GB +3 source is a different bet after losing key 3; older GB +2.5 rows differ by >=1 point and are downgraded; BettingPros Over 44.5 differs by 1.5 points from BKR 46 and is downgraded. Disagreement preserved, not averaged.",
+    "Static outdoor roof table does not establish venue or detect relocation; forecast is not observed weather. FTN capture time is not exposed in packet.",
+    "Roster-vet PASS, blocking empty, roster_source 2026-10-11T02:38:50.657541+00:00; generated_at absent. Older projected-starter/digest flags do not override packet resolved starters and ESPN injuries.",
+    "Four-game sample, not durable team strength; simplified conference order does not apply official tiebreakers.",
+    "Optional props omitted. Book rows and 2026 CHI/GB usage inspected, without claiming no available props."
+  ],
+  "props": []
+}

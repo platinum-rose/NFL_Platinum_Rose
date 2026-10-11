@@ -1,0 +1,107 @@
+{
+  "schema": "w05_game_synthesis_v1",
+  "game": "BAL@ATL",
+  "model": "astra",
+  "generated_at": "2026-10-11T04:16:30.335408Z",
+  "head": "d36f3f7",
+  "market": {
+    "book": "BKR",
+    "captured_at": "2026-10-11T01:15:40.538Z",
+    "home_line": -3,
+    "total": 44
+  },
+  "disposition": "pass",
+  "tier": "research_only",
+  "side": {
+    "pick": null,
+    "line": null,
+    "price": null
+  },
+  "total_lean": {
+    "pick": null
+  },
+  "edge_hypothesis": {
+    "home_margin_pts": 0,
+    "total_pts": 0,
+    "basis": [
+      "Default zero: market ATL -3/44; known injuries have no supported incremental point valuation.",
+      "FTN ATL defense rush-analytics EPA/ATT -0.291 versus BAL offense -0.031, but replacement-QB and line changes limit transferability.",
+      "FTN tempo BAL/ATL 59.8/57.0 PLY/GM and 29.9/30.4 SEC/PLY suggests limited volume; ATL offensive rushing EPA/ATT +0.122 and both teams' defensive absences oppose a numeric Under adjustment.",
+      "2026 four-game power ratings and manual secondary severity are context only; roof unconfirmed, weather adjustment zero.",
+      "Only one tier-eligible outlet, internally contested; BAL +3.5 loses protection at BKR +3 and ATL +3 source does not support ATL -3."
+    ],
+    "cap_exception": null
+  },
+  "simulator": {
+    "home_cover": 0.4586500515168064,
+    "away_cover": 0.45865005151680627,
+    "over": 0.48480395981336455,
+    "under": 0.48480395981336477,
+    "side_push": 0.08269989696638803,
+    "total_push": 0.030392080373270475
+  },
+  "cited_rows": [
+    {
+      "row": "w05-expert-verified.json#rows[75]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[191]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[448]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Ravens +3.5 at Falcons"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[451]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Baltimore Ravens +3.5 at Atlanta Falcons"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[525]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Falcons +3 (-118) vs."
+    },
+    {
+      "row": "w05-expert-verified.json#rows[568]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Best Bet: Ravens +3.5 (Pool Play Percentages: Ravens 67/33 in ATS contests, but Falcons still 67/33 in SU pools)."
+    }
+  ],
+  "context": {
+    "away": "Baltimore is 3-1 against opponents collectively 5-11; home 1-1, away 2-0, division 0-0. It shares the AFC North's best record with Cleveland and is fifth in the packet conference order. Rest 7.3 days; bye Week 13 unused. Next: at CLE, home CIN, at BUF.",
+    "home": "Atlanta is 2-2 against opponents collectively 7-9; home 0-1, away 2-1, division 1-1. It shares the NFC South's best record with Carolina and is eighth in packet conference order. Rest 6.0 days; bye Week 11 unused. Next: home CHI, home SF, at TB."
+  },
+  "invalidators": [
+    "Official inactives and starters: Huntley is operator-confirmed, not independently verified; Penix is ESPN-resolved. A starter change requires reassessment, not an invented probability.",
+    "Reassess Flowers/Humphrey and Matthews/Deablo/Ebukam status; maintain both teams' Out/IR losses.",
+    "Fresh market capture required before reconsideration: packet BKR expiry 2026-10-11T07:15:40.538000+00:00; BEO expiry 2026-10-11T09:15:09.478000+00:00. Lapsed book window prohibits a price-specific recommendation.",
+    "BAL +3.5 versus +3 or a move across 7 changes source-pick applicability. Reprice all cited selections and resolve Cohen ATL +3 versus market -3.",
+    "Verify game status, site and retractable-roof status; weather recheck required if open. No numeric weather threshold justified by the absent game forecast.",
+    "New independent tier-eligible evidence plus justified incremental points could change pass; source-sign and FTN scoring discrepancies must be resolved."
+  ],
+  "gaps": [
+    "AVAILABILITY BAL (ESPN 2026-10-11T02:16:11Z): Out: Cam Jurgens C, Trey Hendrickson LB, Lamar Jackson QB | Questionable/Doubtful: Marlon Humphrey CB, Zay Flowers WR | IR: Ja'Kobi Lane WR, Durham Smythe TE",
+    "AVAILABILITY ATL (ESPN 2026-10-11T02:16:11Z): Out: Za'Darius Smith DE | Questionable/Doubtful: Jake Matthews OT, Divine Deablo LB, Samson Ebukam DE | IR: Yasir Abdullah LB",
+    "VENUE: ATL has a retractable roof; check game-day roof status before using weather",
+    "Global preflight warnings: two other-game BKR/BEO >=1-point conflicts; 11 near-miss article rows; 432 corroboration-only rows; six other-game SuperContest label reversals. None earns tier support here.",
+    "Provisional, unbacktested quantitative margin 2.427604 versus market 3 and total 44.745295 versus 44 disagree slightly; its cover probabilities were not copied.",
+    "Action Network opener is null; no opener-to-current movement can be established.",
+    "All four tier-eligible rows are VSiN, only one independent outlet. Row 525 quotes ATL +3 (-118), not ATL -3; do not silently correct. BAL +3.5 sources lose key-number protection at BKR +3.",
+    "FTN ATL offense/defense PT/GM 21/20 conflicts with team results PPG/PAPG 24/23; basis absent.",
+    "Standings text says TB@DAL final is included but displayed records remain four games; official tiebreakers are not applied.",
+    "No BAL@ATL entry in outdoor_games; roof status and actual venue unconfirmed.",
+    "Power attribution says prior-season, but matches_2026=true: use 2026 four-game values without standalone adjustment.",
+    "Older availability digest has conflicting statuses; resolved starters and ESPN non-active list control.",
+    "Roster gate PASS with no blocking issues; BEO 'Tyler Huntely' is UNVERIFIED. Props intentionally omitted; captured main-line rows and 2026 weekly usage were not validated."
+  ],
+  "props": []
+}

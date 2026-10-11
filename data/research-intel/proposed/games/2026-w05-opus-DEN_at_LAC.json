@@ -1,0 +1,127 @@
+{
+  "schema": "w05_game_synthesis_v1",
+  "game": "DEN@LAC",
+  "model": "opus",
+  "generated_at": "2026-10-11T05:19:18Z",
+  "head": "7ebef66",
+  "market": {
+    "book": "BKR",
+    "captured_at": "2026-10-11T01:15:40.538Z",
+    "home_line": 3.5,
+    "total": 42
+  },
+  "disposition": "pass",
+  "tier": "research_only",
+  "side": {
+    "pick": null,
+    "line": null,
+    "price": null
+  },
+  "total_lean": {
+    "pick": null
+  },
+  "edge_hypothesis": {
+    "home_margin_pts": 0.0,
+    "total_pts": 0.0,
+    "basis": [
+      "LAC-favorable: single tier-eligible outlet VSiN (rows[455], rows[567]) on LAC +3.5; DEN CBs Pat Surtain II and Riley Moss Out (ESPN 04:21Z)",
+      "DEN-favorable: LAC OL Joe Alt/Kayode Awosika Out, Rashawn Slater/Trevor Penning IR, Branson Taylor Q vs DEN pass-rush PRESS% 31.6 / BLZ% 38.6 (FTN team-defense pass-rush); LAC pass-protection SK% 8.3, TO% 3.67 (FTN team-offense)",
+      "Provisional quant pass DEN by 4.39 (0.89 beyond line) - unbacktested, not copied",
+      "Total: FTN tempo PLY/GM 58.0 DEN / 61.3 LAC and weak offenses (under) offset by two depleted secondaries and quant total 42.71 (over); no weather row",
+      "Net: inputs cancel within 12.77-pt market residual SD -> 0.0 / 0.0"
+    ],
+    "cap_exception": null
+  },
+  "simulator": {
+    "home_cover": 0.5,
+    "away_cover": 0.5,
+    "over": 0.4848,
+    "under": 0.4848,
+    "side_push": 0.0,
+    "total_push": 0.0304
+  },
+  "cited_rows": [
+    {
+      "row": "w05-expert-verified.json#rows[455]",
+      "outlet": "VSiN",
+      "supports_tier": true,
+      "quote": "Los Angeles Chargers +3.5 vs."
+    },
+    {
+      "row": "w05-expert-verified.json#rows[567]",
+      "outlet": "VSiN",
+      "supports_tier": true,
+      "quote": "Best Bet: Chargers +3.5 (Pool Play Percentages: Chargers 67/33 in ATS contests, but Broncos still 67/33 in SU pools)."
+    },
+    {
+      "row": "w05-expert-verified.json#rows[102]",
+      "outlet": "Action Network",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[196]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[197]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[541]",
+      "outlet": "Pro Football Talk",
+      "supports_tier": false
+    }
+  ],
+  "context": {
+    "away": "DEN 2-2 (L 10-31 @KC, W 20-13 JAX, W 30-26 LAR, L 14-24 @SF); opponents 13-3; 0-2 away, 0-1 division; diff -20; 7 days rest; bye wk10; next SEA (H), @ARI, KC (H). Win -> 3-2, 1-1 div.",
+    "home": "LAC 0-4 (L 14-26 ARI, L 14-26 LV, L 16-24 @BUF, L 23-30 @SEA); opponents 10-6; 0-2 home, 0-1 division; diff -39; 7 days rest; bye wk7; next @KC. Loss -> 0-5, 0-2 div, 4 back of KC."
+  },
+  "invalidators": [
+    "Branson Taylor (G) inactive or further LAC OL loss -> reconsider DEN side",
+    "Ladd McConkey active and full role vs DEN without Surtain/Moss -> reconsider LAC side",
+    "Line moves to DEN -3 (LAC +3): VSiN +3.5 rows become a different bet across key number 3",
+    "Line moves to DEN -4 or worse -> reprice; any BKR/BEO split >= 1 pt -> conflicted",
+    "BKR capture 01:15Z becomes stale (3h within 6h of kickoff); window ends 07:15Z -> recapture before any price claim",
+    "Weather/roof recheck at SoFi (open-sided) shows wind/rain -> total review (cap 1.0)",
+    "Missing Action Network opener; no second tier-eligible outlet independent of VSiN"
+  ],
+  "gaps": [
+    "Action Network opener null; movement only vs Friday 19:41Z splits (total 41.5 -> 42)",
+    "No Open-Meteo outdoor_games row for DEN@LAC; venue covered/open-sided per static table; no weather adjustment",
+    "Quant pass (DEN -4.39, total 42.71, home cover 48.1%) disagrees with zero-edge hypothesis; not copied",
+    "Both tier-eligible rows are VSiN (one outlet); tier 2 impossible",
+    "Digest lists David Njoku TE, Matt Henningsen DT, Levelle Bailey LB on IR but ESPN non-active list omits them; Njoku has no 2026 stats after W2",
+    "Questionable: Branson Taylor G, Scott Matlock FB, Charlie Kolar TE, Rodney Shelley CB, Ladd McConkey WR (LAC)",
+    "Near-miss row rows[506] (@thepropdealer ATD) context only; Under source quotes at 41.5/42.5 corroboration-only",
+    "Global: 432 corroboration-only rows, 11 near-miss rows, SuperContest label reversals (incl. this game: LAC@DEN; used favorite DEN -3.5), BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game)",
+    "Power-ratings attribution text says prior-season but matches_2026 true; projected-starter rows are Week 1 usage locks (context only)"
+  ],
+  "props": [
+    {
+      "player": "RJ Harvey",
+      "team": "DEN",
+      "market": "receptions",
+      "side": "Over",
+      "line": 4.5,
+      "price": 122,
+      "book": "BKR",
+      "captured_at": "2026-10-11T01:17:04.298Z",
+      "status": "usage context only",
+      "rationale": "nflverse 2026: 4/6/10 receptions on 4/7/10 targets W1/W3/W4 (no W2 row); Jonah Coleman IR. Main two-way row, not ladder."
+    },
+    {
+      "player": "J.K. Dobbins",
+      "team": "DEN",
+      "market": "rushing yards",
+      "side": "Under",
+      "line": 52.5,
+      "price": -104,
+      "book": "BKR",
+      "captured_at": "2026-10-11T01:17:04.298Z",
+      "status": "usage context only",
+      "rationale": "nflverse 2026: 36/36/49/40 rush yds on 8/10/17/11 carries W1-W4; LAC run D EPA/att -0.165, STF% 22.4 (FTN). Main two-way row."
+    }
+  ]
+}

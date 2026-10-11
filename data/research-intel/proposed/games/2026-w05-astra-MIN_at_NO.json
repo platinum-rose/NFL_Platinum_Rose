@@ -1,0 +1,90 @@
+{
+  "schema": "w05_game_synthesis_v1",
+  "game": "MIN@NO",
+  "model": "astra",
+  "generated_at": "2026-10-11T03:05:37.733332Z",
+  "head": "4a42100",
+  "market": {
+    "book": "BKR",
+    "captured_at": "2026-10-11T01:15:40.538Z",
+    "home_line": 2.5,
+    "total": 41.5
+  },
+  "disposition": "conflicted",
+  "tier": "research_only",
+  "side": {
+    "pick": null,
+    "line": null,
+    "price": null
+  },
+  "total_lean": {
+    "pick": null
+  },
+  "edge_hypothesis": {
+    "home_margin_pts": 0.0,
+    "total_pts": 0.0,
+    "basis": [
+      "Retain default zero: FTN MIN defensive EPA/PLY -0.184 and PRESS% 40.9 favor disruption, but MIN offensive EPA/PLY -0.119 and protection SK% 9.8 counter a quantified side edge.",
+      "NO tempo 24.9 SEC/PLY versus MIN 30.3 counters a defense-only total reduction; no numeric mapping is established.",
+      "SRS 8.477/-5.097 provenance conflicts with season labels; no rating adjustment. Manual secondary scores 4.05/2.55 remain context.",
+      "BKR/BEO home spreads +2.5/+1 conflict; no independent eligible-outlet consensus. No verified venue/weather input supports an adjustment."
+    ],
+    "cap_exception": null
+  },
+  "simulator": {
+    "home_cover": 0.5,
+    "away_cover": 0.5,
+    "over": 0.5,
+    "under": 0.5,
+    "side_push": 0.0,
+    "total_push": 0.0
+  },
+  "cited_rows": [
+    {
+      "row": "w05-expert-verified.json#rows[518]",
+      "outlet": "VSiN",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[449]",
+      "outlet": "VSiN",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[97]",
+      "outlet": "Action Network",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[202]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    }
+  ],
+  "context": {
+    "away": "MIN 4-0, home/away/division all 2-0, against opponents 5-11. Rest 6.9 days; unused bye Week 6; then IND home, DET away, BUF home. Leads NFC North over 3-1 CHI; second in simplified NFC order.",
+    "home": "NO 1-3, home 0-2, away 1-1, division 0-1, against opponents 10-6. Rest 5.7 days; NYG away then PIT home before unused Week 8 bye; CLE home Week 9. Trails 2-2 CAR/ATL and sits outside the displayed NFC top eight."
+  },
+  "invalidators": [
+    "Official inactives or a change from resolved Kyler Murray/Tyler Shough starters requires a fresh matchup review; recheck Christian Darrisaw Out and Brian O'Neill, Justin Jefferson, Jordan Addison, Alvin Kamara Questionable.",
+    "Only a fresh matching BKR/BEO capture removing the >=1-point spread conflict can reopen price-specific consideration; fresh disagreement retains conflicted/research_only.",
+    "NO +3 or MIN -3 changes key-number treatment; reaching 7 requires a separate assessment. Total 42.5 restores the older Under reference but does not establish an edge.",
+    "Confirm venue/roof and game status; weather is not applicable indoors once confirmed. No numeric outdoor weather threshold is defensible from the missing game forecast.",
+    "Clarify power-rating provenance and FTN/schedule scoring discrepancies before using them numerically; an independent tier-eligible outlet could change the evidence assessment.",
+    "Reprice every source pick at the fresh main line, verify player roles and usage, and enforce BKR expiry 2026-10-11T07:15:40.538000+00:00 and BEO expiry 2026-10-11T07:19:56.400000+00:00."
+  ],
+  "gaps": [
+    "BOOK CONFLICT: BKR home line 2.5 vs BEO 1 (>=1.0 pt apart); recapture before relying on either",
+    "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
+    "1 near-miss source row(s) (verbatim but not self-identifying): context only",
+    "Global warnings: 432 corroboration-only rows, 11 near-miss rows, and SuperContest label reversals elsewhere are context only; the narratives-only roster blocker is exempted by preflight and is not reused here.",
+    "Action Network opener is null; opening-to-current movement cannot be established.",
+    "No MIN@NO outdoor weather entry; packet requires venue/roof verification. No outdoor adjustment applied.",
+    "Power rows say season 2026/four games but attribution says prior-season results; FTN MIN PT/GM 20.0 and defensive PT/GM 14.3 differ from schedule PPG 21.5/PAPG 12.8.",
+    "Provisional unbacktested quantitative means imply MIN by 4.495 and total 42.338 versus BKR MIN by 2.5 and 41.5; no copied cover percentages or adopted adjustment.",
+    "Projected starters are incomplete/older; ESPN resolved quarterbacks and injuries take precedence over conflicting digest events.",
+    "Jones rushing main line unavailable at BKR; absent at BEO. BKR also contains unknown-market rows; no prop candidate retained.",
+    "Underlying FTN/power capture timestamps and SuperContest capture timestamp are absent from the packet; packet build time is not an original-source capture time."
+  ],
+  "props": []
+}
