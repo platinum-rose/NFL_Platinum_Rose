@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "BAL@ATL",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-12T00:20:00.000Z",
  "away": {
   "abbr": "BAL",
@@ -505,8 +505,8 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T12:21:29.799000+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -526,14 +526,14 @@
     "total": [
      {
       "side": "Over",
-      "line": 44,
-      "odds": 103,
+      "line": 43.5,
+      "odds": -103,
       "available": true
      },
      {
       "side": "Under",
-      "line": 44,
-      "odds": -120,
+      "line": 43.5,
+      "odds": -113,
       "available": true
      }
     ],
@@ -553,8 +553,8 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T12:24:03.238000+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -601,9 +601,9 @@
   },
   "book_conflict": null,
   "market_implied_score": {
-   "ATL": 23.5,
-   "BAL": 20.5,
-   "basis": "BKR home line -3 total 44"
+   "ATL": 23.25,
+   "BAL": 20.25,
+   "basis": "BKR home line -3 total 43.5"
   }
  },
  "action_network_opener": null,
@@ -738,63 +738,63 @@
    "home_cover": 0.3813,
    "away_cover": 0.5372,
    "side_push": 0.0814,
-   "over": 0.4848,
-   "under": 0.4848,
-   "total_push": 0.0304
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
   },
   {
    "home_margin_edge_pts": -2,
    "home_cover": 0.4067,
    "away_cover": 0.5111,
    "side_push": 0.0822,
-   "over": 0.4848,
-   "under": 0.4848,
-   "total_push": 0.0304
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
   },
   {
    "home_margin_edge_pts": -1,
    "home_cover": 0.4325,
    "away_cover": 0.4849,
    "side_push": 0.0827,
-   "over": 0.4848,
-   "under": 0.4848,
-   "total_push": 0.0304
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
   },
   {
    "home_margin_edge_pts": 0,
    "home_cover": 0.4587,
    "away_cover": 0.4587,
    "side_push": 0.0827,
-   "over": 0.4848,
-   "under": 0.4848,
-   "total_push": 0.0304
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
   },
   {
    "home_margin_edge_pts": 1,
    "home_cover": 0.4851,
    "away_cover": 0.4325,
    "side_push": 0.0824,
-   "over": 0.4848,
-   "under": 0.4848,
-   "total_push": 0.0304
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
   },
   {
    "home_margin_edge_pts": 2,
    "home_cover": 0.5118,
    "away_cover": 0.4066,
    "side_push": 0.0816,
-   "over": 0.4848,
-   "under": 0.4848,
-   "total_push": 0.0304
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
   },
   {
    "home_margin_edge_pts": 3,
    "home_cover": 0.5385,
    "away_cover": 0.381,
    "side_push": 0.0805,
-   "over": 0.4848,
-   "under": 0.4848,
-   "total_push": 0.0304
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
   }
  ],
  "simulator_total_sweep": [
@@ -803,63 +803,63 @@
    "home_cover": 0.4587,
    "away_cover": 0.4587,
    "side_push": 0.0827,
-   "over": 0.395,
-   "under": 0.5754,
-   "total_push": 0.0296
+   "over": 0.4098,
+   "under": 0.5902,
+   "total_push": 0
   },
   {
    "total_edge_pts": -2,
    "home_cover": 0.4587,
    "away_cover": 0.4587,
    "side_push": 0.0827,
-   "over": 0.4246,
-   "under": 0.5454,
-   "total_push": 0.03
+   "over": 0.4396,
+   "under": 0.5604,
+   "total_push": 0
   },
   {
    "total_edge_pts": -1,
    "home_cover": 0.4587,
    "away_cover": 0.4587,
    "side_push": 0.0827,
-   "over": 0.4546,
-   "under": 0.5151,
-   "total_push": 0.0303
+   "over": 0.4697,
+   "under": 0.5303,
+   "total_push": 0
   },
   {
    "total_edge_pts": 0,
    "home_cover": 0.4587,
    "away_cover": 0.4587,
    "side_push": 0.0827,
-   "over": 0.4848,
-   "under": 0.4848,
-   "total_push": 0.0304
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
   },
   {
    "total_edge_pts": 1,
    "home_cover": 0.4587,
    "away_cover": 0.4587,
    "side_push": 0.0827,
-   "over": 0.5152,
-   "under": 0.4545,
-   "total_push": 0.0303
+   "over": 0.5303,
+   "under": 0.4697,
+   "total_push": 0
   },
   {
    "total_edge_pts": 2,
    "home_cover": 0.4587,
    "away_cover": 0.4587,
    "side_push": 0.0827,
-   "over": 0.5454,
-   "under": 0.4245,
-   "total_push": 0.03
+   "over": 0.5605,
+   "under": 0.4395,
+   "total_push": 0
   },
   {
    "total_edge_pts": 3,
    "home_cover": 0.4587,
    "away_cover": 0.4587,
    "side_push": 0.0827,
-   "over": 0.5754,
-   "under": 0.395,
-   "total_push": 0.0296
+   "over": 0.5903,
+   "under": 0.4097,
+   "total_push": 0
   }
  ],
  "quarterbacks": {
@@ -875,7 +875,7 @@
    "espn_qb_starter": "Tyler Huntley",
    "espn_qb_flag": "ok",
    "espn_qb_note": "Lamar Jackson Out;",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Tyler Huntley",
    "resolved_from": "operator",
    "projected_starter_qb_rows": [
@@ -914,7 +914,7 @@
    "espn_qb_starter": "Michael Penix Jr.",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Michael Penix Jr.",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
@@ -1011,10 +1011,108 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "BAL": [
+   {
+    "player": "Adam Randall",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Bilhal Kone",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Danny Pinter",
+    "pos": "C",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Ethan Pocic",
+    "pos": "C",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jahquez Robinson",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jovaughn Gwyn",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Skylar Thompson",
+    "pos": "QB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "T.J. Tampa",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "ATL": [
+   {
+    "player": "A.J. Terrell Jr.",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Anterio Thompson",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Beaux Collins",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Cameron Williams",
+    "pos": "OL",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Da'Shawn Hand",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "DeAngelo Malone",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "JD Bertrand",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Storm Norton",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Trey Sermon",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY BAL (ESPN 2026-10-11T04:21:24Z): Out: Cam Jurgens C, Trey Hendrickson LB, Lamar Jackson QB | Questionable/Doubtful: Marlon Humphrey CB, Zay Flowers WR | IR: Ja'Kobi Lane WR, Durham Smythe TE",
-  "AVAILABILITY ATL (ESPN 2026-10-11T04:21:24Z): Out: Za'Darius Smith DE | Questionable/Doubtful: Jake Matthews OT, Divine Deablo LB, Samson Ebukam DE | IR: Yasir Abdullah LB",
+  "AVAILABILITY BAL (ESPN 2026-10-11T06:35:38Z): Out: Cam Jurgens C, Trey Hendrickson LB, Lamar Jackson QB | Questionable/Doubtful: Marlon Humphrey CB, Zay Flowers WR | IR: Ja'Kobi Lane WR, Durham Smythe TE",
+  "AVAILABILITY BAL ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Adam Randall RB, Bilhal Kone CB, Danny Pinter C, Ethan Pocic C, Jahquez Robinson S, Jovaughn Gwyn G, Skylar Thompson QB, T.J. Tampa CB",
+  "AVAILABILITY ATL (ESPN 2026-10-11T06:35:38Z): Out: Za'Darius Smith DE | Questionable/Doubtful: Jake Matthews OT, Divine Deablo LB, Samson Ebukam DE | IR: Yasir Abdullah LB",
+  "AVAILABILITY ATL ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): A.J. Terrell Jr. CB, Anterio Thompson DT, Beaux Collins WR, Cameron Williams OL, Da'Shawn Hand DT, DeAngelo Malone LB, JD Bertrand LB, Storm Norton OT, Trey Sermon RB",
   "VENUE: ATL has a retractable roof; check game-day roof status before using weather"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",

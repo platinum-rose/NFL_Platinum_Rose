@@ -1,18 +1,18 @@
 # IND@PIT packet — Indianapolis Colts @ Pittsburgh Steelers
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
 - spread: Indianapolis Colts 3 -118; Pittsburgh Steelers -3 103
 - total: Over 43.5 -108; Under 43.5 -108
 - moneyline: Indianapolis Colts  127; Pittsburgh Steelers  -146
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
 - spread: Indianapolis Colts 2.5 -103; Pittsburgh Steelers -2.5 -117
 - total: Over 43.5 -110; Under 43.5 -110
-- moneyline: Indianapolis Colts  128; Pittsburgh Steelers  -148
+- moneyline: Indianapolis Colts  133; Pittsburgh Steelers  -153
 
 Market-implied score: {"PIT": 23.25, "IND": 20.25, "basis": "BKR home line -3 total 43.5"}
 
@@ -22,23 +22,32 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY IND (ESPN 2026-10-11T04:21:24Z): Out: Darius Slayton WR, Jaylon Carlies LB, Ashton Dulin WR | Questionable/Doubtful: Charvarius Ward CB, Keenan Allen WR | IR: Arden Key DE, Will Mallory TE
-- AVAILABILITY PIT (ESPN 2026-10-11T04:21:24Z): Out: Jamel Dean CB | Questionable/Doubtful: Jalen Ramsey CB, Rico Dowdle RB | IR: Michael Pittman Jr. WR, DeShon Elliott S, Derrick Harmon DT
+- AVAILABILITY IND (ESPN 2026-10-11T06:35:38Z): Out: Darius Slayton WR, Jaylon Carlies LB, Ashton Dulin WR | Questionable/Doubtful: Charvarius Ward CB, Keenan Allen WR | IR: Arden Key DE, Will Mallory TE
+- AVAILABILITY IND ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Alec Pierce WR, Cameron Mitchell CB, Carson Towt TE, D.J. Montgomery WR, Micheal Clemons DE, Sean McKeon TE
+- AVAILABILITY PIT (ESPN 2026-10-11T06:35:38Z): Out: Jamel Dean CB | Questionable/Doubtful: Jalen Ramsey CB, Rico Dowdle RB | IR: Michael Pittman Jr. WR, DeShon Elliott S, Derrick Harmon DT
+- AVAILABILITY PIT ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Cole Burgess WR, Daequan Hardy CB, Donte Kent CB, Gennings Dunker G, Jack Driscoll OT, Logan Lee DT, Max Hurleman RB
 - WEATHER: review_required: forecast wind 25.2 km/h, gusts 58.0 km/h, precipitation probability 54%
 
 ## Quarterbacks
 
-- IND: RESOLVED STARTER Daniel Jones (from ESPN depth chart + injury report). ESPN depth ['Daniel Jones', 'Anthony Richardson Sr.', 'Riley Leonard'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Daniel Jones", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for IND (usage score 31.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- PIT: RESOLVED STARTER Aaron Rodgers (from ESPN depth chart + injury report). ESPN depth ['Aaron Rodgers', 'Mason Rudolph', 'Will Howard', 'Drew Allar'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Aaron Rodgers", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PIT (usage score 40.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- IND: RESOLVED STARTER Daniel Jones (from ESPN depth chart + injury report). ESPN depth ['Daniel Jones', 'Anthony Richardson Sr.', 'Riley Leonard'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Daniel Jones", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for IND (usage score 31.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- PIT: RESOLVED STARTER Aaron Rodgers (from ESPN depth chart + injury report). ESPN depth ['Aaron Rodgers', 'Mason Rudolph', 'Will Howard', 'Drew Allar'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Aaron Rodgers", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PIT (usage score 40.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
 - IND: Arden Key DE Injured Reserve (2026-10-10); Darius Slayton WR Out (2026-10-10); Jaylon Carlies LB Out (2026-10-10); Charvarius Ward CB Questionable (2026-10-10); Will Mallory TE Injured Reserve (2026-10-09); Ashton Dulin WR Out (2026-10-09); Keenan Allen WR Questionable (2026-10-09)
 - PIT: Michael Pittman Jr. WR Injured Reserve (2026-10-10); Jamel Dean CB Out (2026-10-09); DeShon Elliott S Injured Reserve (2026-10-09); Jalen Ramsey CB Questionable (2026-10-09); Rico Dowdle RB Questionable (2026-10-09); Derrick Harmon DT Injured Reserve (2026-10-05)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- IND: Alec Pierce WR; Cameron Mitchell CB; Carson Towt TE; D.J. Montgomery WR; Micheal Clemons DE; Sean McKeon TE
+- PIT: Cole Burgess WR; Daequan Hardy CB; Donte Kent CB; Gennings Dunker G; Jack Driscoll OT; Logan Lee DT; Max Hurleman RB
 
 ## Team state: schedule, results and standings
 

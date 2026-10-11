@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CIN@MIA",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CIN",
@@ -391,8 +391,8 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -426,12 +426,12 @@
     "moneyline": [
      {
       "side": "Cincinnati Bengals",
-      "odds": -332,
+      "odds": -337,
       "available": true
      },
      {
       "side": "Miami Dolphins",
-      "odds": 279,
+      "odds": 283,
       "available": true
      }
     ]
@@ -439,21 +439,21 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
      {
       "side": "Cincinnati Bengals",
       "line": -7,
-      "odds": -110,
+      "odds": -112,
       "available": true
      },
      {
       "side": "Miami Dolphins",
       "line": 7,
-      "odds": -110,
+      "odds": -108,
       "available": true
      }
     ],
@@ -759,7 +759,7 @@
    "espn_qb_starter": "Joe Burrow",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Joe Burrow",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -786,7 +786,7 @@
    "espn_qb_starter": "Malik Willis",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Malik Willis",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -908,10 +908,73 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "CIN": [
+   {
+    "player": "Andrei Iosivas",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Brian Parker II",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Ja'Sir Taylor",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "MIA": [
+   {
+    "player": "Cole Turner",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Darrell Baker Jr.",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "De'Von Achane",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Kyle Louis",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Rene Konga",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Ronnie Harrison Jr.",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Trey Moore",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY CIN (ESPN 2026-10-11T04:21:24Z): Out: Kyle Dugger S | Questionable/Doubtful: Bryan Cook S, Colbie Young WR, Tee Higgins WR, Ja'Marr Chase WR, Swayze Bozeman LB | IR: Jalen Davis CB",
-  "AVAILABILITY MIA (ESPN 2026-10-11T04:21:24Z): Out: Storm Duck CB, Robert Beal Jr. DE, Justin Joly TE, Caleb Douglas WR, Reese Taylor CB | Questionable/Doubtful: Jaylen Wright RB, Jackson Woodard LB | IR: none",
+  "AVAILABILITY CIN (ESPN 2026-10-11T06:35:38Z): Out: Kyle Dugger S | Questionable/Doubtful: Bryan Cook S, Colbie Young WR, Tee Higgins WR, Ja'Marr Chase WR, Swayze Bozeman LB | IR: Jalen Davis CB",
+  "AVAILABILITY CIN ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Andrei Iosivas WR, Brian Parker II OT, Ja'Sir Taylor CB",
+  "AVAILABILITY MIA (ESPN 2026-10-11T06:35:38Z): Out: Storm Duck CB, Robert Beal Jr. DE, Justin Joly TE, Caleb Douglas WR, Reese Taylor CB | Questionable/Doubtful: Jaylen Wright RB, Jackson Woodard LB | IR: none",
+  "AVAILABILITY MIA ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Cole Turner TE, Darrell Baker Jr. CB, De'Von Achane RB, Kyle Louis LB, Rene Konga DT, Ronnie Harrison Jr. LB, Trey Moore LB",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],

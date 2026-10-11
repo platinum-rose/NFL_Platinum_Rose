@@ -1,16 +1,16 @@
 # CIN@MIA packet — Cincinnati Bengals @ Miami Dolphins
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
 - spread: Cincinnati Bengals -7 -103; Miami Dolphins 7 -113
 - total: Over 43.5 -113; Under 43.5 -103
-- moneyline: Cincinnati Bengals  -332; Miami Dolphins  279
+- moneyline: Cincinnati Bengals  -337; Miami Dolphins  283
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
-- spread: Cincinnati Bengals -7 -110; Miami Dolphins 7 -110
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
+- spread: Cincinnati Bengals -7 -112; Miami Dolphins 7 -108
 - total: Over 44 -110; Under 44 -110
 - moneyline: Cincinnati Bengals  -340; Miami Dolphins  274
 
@@ -22,24 +22,33 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY CIN (ESPN 2026-10-11T04:21:24Z): Out: Kyle Dugger S | Questionable/Doubtful: Bryan Cook S, Colbie Young WR, Tee Higgins WR, Ja'Marr Chase WR, Swayze Bozeman LB | IR: Jalen Davis CB
-- AVAILABILITY MIA (ESPN 2026-10-11T04:21:24Z): Out: Storm Duck CB, Robert Beal Jr. DE, Justin Joly TE, Caleb Douglas WR, Reese Taylor CB | Questionable/Doubtful: Jaylen Wright RB, Jackson Woodard LB | IR: none
+- AVAILABILITY CIN (ESPN 2026-10-11T06:35:38Z): Out: Kyle Dugger S | Questionable/Doubtful: Bryan Cook S, Colbie Young WR, Tee Higgins WR, Ja'Marr Chase WR, Swayze Bozeman LB | IR: Jalen Davis CB
+- AVAILABILITY CIN ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Andrei Iosivas WR, Brian Parker II OT, Ja'Sir Taylor CB
+- AVAILABILITY MIA (ESPN 2026-10-11T06:35:38Z): Out: Storm Duck CB, Robert Beal Jr. DE, Justin Joly TE, Caleb Douglas WR, Reese Taylor CB | Questionable/Doubtful: Jaylen Wright RB, Jackson Woodard LB | IR: none
+- AVAILABILITY MIA ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Cole Turner TE, Darrell Baker Jr. CB, De'Von Achane RB, Kyle Louis LB, Rene Konga DT, Ronnie Harrison Jr. LB, Trey Moore LB
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
 
-- CIN: RESOLVED STARTER Joe Burrow (from ESPN depth chart + injury report). ESPN depth ['Joe Burrow', 'Joe Flacco'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Joe Burrow", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CIN (usage score 35.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- MIA: RESOLVED STARTER Malik Willis (from ESPN depth chart + injury report). ESPN depth ['Malik Willis', 'Kyle McCord'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Malik Willis", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- CIN: RESOLVED STARTER Joe Burrow (from ESPN depth chart + injury report). ESPN depth ['Joe Burrow', 'Joe Flacco'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Joe Burrow", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CIN (usage score 35.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- MIA: RESOLVED STARTER Malik Willis (from ESPN depth chart + injury report). ESPN depth ['Malik Willis', 'Kyle McCord'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Malik Willis", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
 - CIN: Kyle Dugger S Out (2026-10-10); Bryan Cook S Questionable (2026-10-10); Colbie Young WR Questionable (2026-10-09); Tee Higgins WR Questionable (2026-10-09); Ja'Marr Chase WR Questionable (2026-10-09); Swayze Bozeman LB Questionable (2026-10-06); Jalen Davis CB Injured Reserve (2026-09-29)
 - MIA: Storm Duck CB Out (2026-10-11); Robert Beal Jr. DE Out (2026-10-10); Justin Joly TE Out (2026-10-10); Jaylen Wright RB Questionable (2026-10-09); Caleb Douglas WR Out (2026-10-09); Reese Taylor CB Out (2026-10-06); Jackson Woodard LB Questionable (2026-10-05)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- CIN: Andrei Iosivas WR; Brian Parker II OT; Ja'Sir Taylor CB
+- MIA: Cole Turner TE; Darrell Baker Jr. CB; De'Von Achane RB; Kyle Louis LB; Rene Konga DT; Ronnie Harrison Jr. LB; Trey Moore LB
 
 ## Team state: schedule, results and standings
 

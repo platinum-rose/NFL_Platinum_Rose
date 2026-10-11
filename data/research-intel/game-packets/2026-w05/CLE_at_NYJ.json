@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CLE@NYJ",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CLE",
@@ -391,8 +391,8 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -439,8 +439,8 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -761,7 +761,7 @@
    "espn_qb_starter": "Deshaun Watson",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Deshaun Watson",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
@@ -777,7 +777,7 @@
    "espn_qb_starter": "Geno Smith",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Geno Smith",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -899,10 +899,113 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "CLE": [
+   {
+    "player": "Alex Wright",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Damarri Mathis",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Dylan Sampson",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Edefuan Ulofoshio",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Elijah Chatman",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jeremiah Owusu-Koramoah",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Joe Royer",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "NYJ": [
+   {
+    "player": "Anez Cooper",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Arian Smith",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Caullin Lacy",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Chip Trayanum",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "David Onyemata",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Kingsley Jonathan",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Marcelino McCrary-Ball",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Omar Cooper Jr.",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Tre Brown",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Tyler Baron",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "VJ Payne",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY CLE (ESPN 2026-10-11T04:21:24Z): Out: Teven Jenkins G, Tylan Wallace WR, Carsen Ryan TE, Mike Hall Jr. DT, Mason Graham DT | Questionable/Doubtful: none | IR: Kalia Davis DT, Dillon Gabriel QB",
-  "AVAILABILITY NYJ (ESPN 2026-10-11T04:21:24Z): Out: Dylan Parham G, Kiko Mauigoa LB, Adonai Mitchell WR, Breece Hall RB | Questionable/Doubtful: Will McDonald IV DE, Kingsley Enagbare LB | IR: Braiden McGregor DE",
+  "AVAILABILITY CLE (ESPN 2026-10-11T06:35:38Z): Out: Teven Jenkins G, Tylan Wallace WR, Carsen Ryan TE, Mike Hall Jr. DT, Mason Graham DT | Questionable/Doubtful: none | IR: Kalia Davis DT, Dillon Gabriel QB",
+  "AVAILABILITY CLE ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Alex Wright DE, Damarri Mathis CB, Dylan Sampson RB, Edefuan Ulofoshio LB, Elijah Chatman DT, Jeremiah Owusu-Koramoah LB, Joe Royer TE",
+  "AVAILABILITY NYJ (ESPN 2026-10-11T06:35:38Z): Out: Dylan Parham G, Kiko Mauigoa LB, Adonai Mitchell WR, Breece Hall RB | Questionable/Doubtful: Will McDonald IV DE, Kingsley Enagbare LB | IR: Braiden McGregor DE",
+  "AVAILABILITY NYJ ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Anez Cooper G, Arian Smith WR, Caullin Lacy WR, Chip Trayanum RB, David Onyemata DT, Kingsley Jonathan DE, Marcelino McCrary-Ball LB, Omar Cooper Jr. WR, Tre Brown CB, Tyler Baron DE, VJ Payne S",
   "BOOK CONFLICT: BKR home line -2.5 vs BEO -1 (>=1.0 pt apart); recapture before relying on either",
   "WEATHER: review_required: precipitation probability 78%, forecast precipitation 1.8 mm, gusts 37.1 km/h"
  ],

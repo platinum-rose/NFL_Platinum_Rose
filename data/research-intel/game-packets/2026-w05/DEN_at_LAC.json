@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "DEN@LAC",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T20:05:00.000Z",
  "away": {
   "abbr": "DEN",
@@ -357,8 +357,8 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T12:21:29.799000+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -379,25 +379,25 @@
      {
       "side": "Over",
       "line": 42,
-      "odds": -114,
+      "odds": -108,
       "available": true
      },
      {
       "side": "Under",
       "line": 42,
-      "odds": -102,
+      "odds": -108,
       "available": true
      }
     ],
     "moneyline": [
      {
       "side": "Denver Broncos",
-      "odds": -194,
+      "odds": -195,
       "available": true
      },
      {
       "side": "Los Angeles Chargers",
-      "odds": 170,
+      "odds": 171,
       "available": true
      }
     ]
@@ -405,8 +405,8 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T12:24:03.238000+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -726,7 +726,7 @@
    "espn_qb_starter": "Bo Nix",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Bo Nix",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -754,7 +754,7 @@
    "espn_qb_starter": "Justin Herbert",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Justin Herbert",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -904,10 +904,78 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "DEN": [
+   {
+    "player": "Caleb Lohner",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Frank Crum",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Levelle Bailey",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Matt Henningsen",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Michael Deiter",
+    "pos": "C",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Nick Gargiulo",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "LAC": [
+   {
+    "player": "David Njoku",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Denzel Perryman",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Isaiah World",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "KeAndre Lambert-Smith",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Trey Pipkins III",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY DEN (ESPN 2026-10-11T04:21:24Z): Out: Riley Moss CB, Pat Surtain II CB | Questionable/Doubtful: none | IR: Pat Bryant WR, Jonah Coleman RB",
-  "AVAILABILITY LAC (ESPN 2026-10-11T04:21:24Z): Out: Kayode Awosika G, Joe Alt OT, Brenen Thompson WR, Derwin James Jr. S, Donte Jackson CB, Quentin Johnston WR | Questionable/Doubtful: Branson Taylor G, Scott Matlock FB, Charlie Kolar TE, Rodney Shelley CB, Ladd McConkey WR | IR: Trevor Penning G, Trey Lance QB, Rashawn Slater OT",
+  "AVAILABILITY DEN (ESPN 2026-10-11T06:35:38Z): Out: Riley Moss CB, Pat Surtain II CB | Questionable/Doubtful: none | IR: Pat Bryant WR, Jonah Coleman RB",
+  "AVAILABILITY DEN ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Caleb Lohner TE, Frank Crum OT, Levelle Bailey LB, Matt Henningsen DE, Michael Deiter C, Nick Gargiulo G",
+  "AVAILABILITY LAC (ESPN 2026-10-11T06:35:38Z): Out: Kayode Awosika G, Joe Alt OT, Brenen Thompson WR, Derwin James Jr. S, Donte Jackson CB, Quentin Johnston WR | Questionable/Doubtful: Branson Taylor G, Scott Matlock FB, Charlie Kolar TE, Rodney Shelley CB, Ladd McConkey WR | IR: Trevor Penning G, Trey Lance QB, Rashawn Slater OT",
+  "AVAILABILITY LAC ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): David Njoku TE, Denzel Perryman LB, Isaiah World OT, KeAndre Lambert-Smith WR, Trey Pipkins III OT",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],

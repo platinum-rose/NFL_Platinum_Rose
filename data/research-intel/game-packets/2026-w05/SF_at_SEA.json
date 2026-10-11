@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "SF@SEA",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T20:25:00.000Z",
  "away": {
   "abbr": "SF",
@@ -357,8 +357,8 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T12:21:29.799000+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -379,13 +379,13 @@
      {
       "side": "Over",
       "line": 46.5,
-      "odds": -104,
+      "odds": -103,
       "available": true
      },
      {
       "side": "Under",
       "line": 46.5,
-      "odds": -112,
+      "odds": -113,
       "available": true
      }
     ],
@@ -405,8 +405,8 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T12:24:03.238000+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -726,7 +726,7 @@
    "espn_qb_starter": "Brock Purdy",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Brock Purdy",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -754,7 +754,7 @@
    "espn_qb_starter": "Sam Darnold",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Sam Darnold",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
@@ -837,10 +837,133 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "SF": [
+   {
+    "player": "Alfred Collins",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Andrew Farmer II",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Austen Pleasants",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Brett Toth",
+    "pos": "C",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "C.J. West",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Christian Kirk",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Darrick Forrest",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "De'Zhaun Stribling",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Demarcus Robinson",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Isaac Guerendo",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jake Tonges",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Mikail Kamara",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Nate Hobbs",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Nick Martin",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Nick Zakelj",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Ricky Pearsall",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Sam Okuayinonu",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "SEA": [
+   {
+    "player": "Anthony Bradford",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Bud Clark",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jake Bobo",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Mason Richman",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Robbie Ouzts",
+    "pos": "FB",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY SF (ESPN 2026-10-11T04:21:24Z): Out: James Thompson Jr. DT, Nick Bosa DE, Marques Sigle S, Kyle Juszczyk FB | Questionable/Doubtful: Upton Stout CB | IR: none",
-  "AVAILABILITY SEA (ESPN 2026-10-11T04:21:24Z): Out: Chazz Surratt LB, Zach Charbonnet RB | Questionable/Doubtful: George Holani RB | IR: Julian Neal CB, Irv Charles WR",
+  "AVAILABILITY SF (ESPN 2026-10-11T06:35:38Z): Out: James Thompson Jr. DT, Nick Bosa DE, Marques Sigle S, Kyle Juszczyk FB | Questionable/Doubtful: Upton Stout CB | IR: none",
+  "AVAILABILITY SF ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Alfred Collins DT, Andrew Farmer II DE, Austen Pleasants OT, Brett Toth C, C.J. West DT, Christian Kirk WR, Darrick Forrest S, De'Zhaun Stribling WR, Demarcus Robinson WR, Isaac Guerendo RB, Jake Tonges TE, Mikail Kamara DE, Nate Hobbs CB, Nick Martin LB, Nick Zakelj OT, Ricky Pearsall WR, Sam Okuayinonu DT",
+  "AVAILABILITY SEA (ESPN 2026-10-11T06:35:38Z): Out: Chazz Surratt LB, Zach Charbonnet RB | Questionable/Doubtful: George Holani RB | IR: Julian Neal CB, Irv Charles WR",
+  "AVAILABILITY SEA ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Anthony Bradford G, Bud Clark S, Jake Bobo WR, Mason Richman G, Robbie Ouzts FB",
   "2 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",

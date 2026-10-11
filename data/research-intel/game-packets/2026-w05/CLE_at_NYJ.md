@@ -1,15 +1,15 @@
 # CLE@NYJ packet — Cleveland Browns @ New York Jets
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
 - spread: Cleveland Browns 2.5 -109; New York Jets -2.5 -107
 - total: Over 39.5 -108; Under 39.5 -108
 - moneyline: Cleveland Browns  118; New York Jets  -135
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
 - spread: Cleveland Browns 1 105; New York Jets -1 -125
 - total: Over 39.5 -110; Under 39.5 -110
 - moneyline: Cleveland Browns  120; New York Jets  -140
@@ -24,24 +24,33 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY CLE (ESPN 2026-10-11T04:21:24Z): Out: Teven Jenkins G, Tylan Wallace WR, Carsen Ryan TE, Mike Hall Jr. DT, Mason Graham DT | Questionable/Doubtful: none | IR: Kalia Davis DT, Dillon Gabriel QB
-- AVAILABILITY NYJ (ESPN 2026-10-11T04:21:24Z): Out: Dylan Parham G, Kiko Mauigoa LB, Adonai Mitchell WR, Breece Hall RB | Questionable/Doubtful: Will McDonald IV DE, Kingsley Enagbare LB | IR: Braiden McGregor DE
+- AVAILABILITY CLE (ESPN 2026-10-11T06:35:38Z): Out: Teven Jenkins G, Tylan Wallace WR, Carsen Ryan TE, Mike Hall Jr. DT, Mason Graham DT | Questionable/Doubtful: none | IR: Kalia Davis DT, Dillon Gabriel QB
+- AVAILABILITY CLE ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Alex Wright DE, Damarri Mathis CB, Dylan Sampson RB, Edefuan Ulofoshio LB, Elijah Chatman DT, Jeremiah Owusu-Koramoah LB, Joe Royer TE
+- AVAILABILITY NYJ (ESPN 2026-10-11T06:35:38Z): Out: Dylan Parham G, Kiko Mauigoa LB, Adonai Mitchell WR, Breece Hall RB | Questionable/Doubtful: Will McDonald IV DE, Kingsley Enagbare LB | IR: Braiden McGregor DE
+- AVAILABILITY NYJ ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Anez Cooper G, Arian Smith WR, Caullin Lacy WR, Chip Trayanum RB, David Onyemata DT, Kingsley Jonathan DE, Marcelino McCrary-Ball LB, Omar Cooper Jr. WR, Tre Brown CB, Tyler Baron DE, VJ Payne S
 - BOOK CONFLICT: BKR home line -2.5 vs BEO -1 (>=1.0 pt apart); recapture before relying on either
 - WEATHER: review_required: precipitation probability 78%, forecast precipitation 1.8 mm, gusts 37.1 km/h
 
 ## Quarterbacks
 
-- CLE: RESOLVED STARTER Deshaun Watson (from ESPN depth chart + injury report). ESPN depth ['Deshaun Watson', 'Shedeur Sanders', 'Taylen Green', 'Dillon Gabriel'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
-- NYJ: RESOLVED STARTER Geno Smith (from ESPN depth chart + injury report). ESPN depth ['Geno Smith', 'Cade Klubnik'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Geno Smith", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYJ (usage score 24.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- CLE: RESOLVED STARTER Deshaun Watson (from ESPN depth chart + injury report). ESPN depth ['Deshaun Watson', 'Shedeur Sanders', 'Taylen Green', 'Dillon Gabriel'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- NYJ: RESOLVED STARTER Geno Smith (from ESPN depth chart + injury report). ESPN depth ['Geno Smith', 'Cade Klubnik'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Geno Smith", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYJ (usage score 24.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
 - CLE: Kalia Davis DT Injured Reserve (2026-10-10); Teven Jenkins G Out (2026-10-10); Dillon Gabriel QB Injured Reserve (2026-10-10); Tylan Wallace WR Out (2026-10-10); Carsen Ryan TE Out (2026-10-10); Mike Hall Jr. DT Out (2026-10-10); Mason Graham DT Out (2026-10-10)
 - NYJ: Dylan Parham G Out (2026-10-10); Will McDonald IV DE Questionable (2026-10-10); Kingsley Enagbare LB Questionable (2026-10-10); Kiko Mauigoa LB Out (2026-10-09); Adonai Mitchell WR Out (2026-10-09); Breece Hall RB Out (2026-10-09); Braiden McGregor DE Injured Reserve (2026-10-07)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- CLE: Alex Wright DE; Damarri Mathis CB; Dylan Sampson RB; Edefuan Ulofoshio LB; Elijah Chatman DT; Jeremiah Owusu-Koramoah LB; Joe Royer TE
+- NYJ: Anez Cooper G; Arian Smith WR; Caullin Lacy WR; Chip Trayanum RB; David Onyemata DT; Kingsley Jonathan DE; Marcelino McCrary-Ball LB; Omar Cooper Jr. WR; Tre Brown CB; Tyler Baron DE; VJ Payne S
 
 ## Team state: schedule, results and standings
 

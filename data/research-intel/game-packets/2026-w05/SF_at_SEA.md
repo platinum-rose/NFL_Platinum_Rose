@@ -1,17 +1,17 @@
 # SF@SEA packet — San Francisco 49ers @ Seattle Seahawks
 
-Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC West).
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T12:21:29.799000+00:00; fresh at build: True
 - spread: San Francisco 49ers 3 105; Seattle Seahawks -3 -123
-- total: Over 46.5 -104; Under 46.5 -112
+- total: Over 46.5 -103; Under 46.5 -113
 - moneyline: San Francisco 49ers  149; Seattle Seahawks  -172
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T12:24:03.238000+00:00; fresh at build: True
 - spread: San Francisco 49ers 3 -102; Seattle Seahawks -3 -118
 - total: Over 46.5 -110; Under 46.5 -110
 - moneyline: San Francisco 49ers  149; Seattle Seahawks  -170
@@ -24,23 +24,32 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY SF (ESPN 2026-10-11T04:21:24Z): Out: James Thompson Jr. DT, Nick Bosa DE, Marques Sigle S, Kyle Juszczyk FB | Questionable/Doubtful: Upton Stout CB | IR: none
-- AVAILABILITY SEA (ESPN 2026-10-11T04:21:24Z): Out: Chazz Surratt LB, Zach Charbonnet RB | Questionable/Doubtful: George Holani RB | IR: Julian Neal CB, Irv Charles WR
+- AVAILABILITY SF (ESPN 2026-10-11T06:35:38Z): Out: James Thompson Jr. DT, Nick Bosa DE, Marques Sigle S, Kyle Juszczyk FB | Questionable/Doubtful: Upton Stout CB | IR: none
+- AVAILABILITY SF ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Alfred Collins DT, Andrew Farmer II DE, Austen Pleasants OT, Brett Toth C, C.J. West DT, Christian Kirk WR, Darrick Forrest S, De'Zhaun Stribling WR, Demarcus Robinson WR, Isaac Guerendo RB, Jake Tonges TE, Mikail Kamara DE, Nate Hobbs CB, Nick Martin LB, Nick Zakelj OT, Ricky Pearsall WR, Sam Okuayinonu DT
+- AVAILABILITY SEA (ESPN 2026-10-11T06:35:38Z): Out: Chazz Surratt LB, Zach Charbonnet RB | Questionable/Doubtful: George Holani RB | IR: Julian Neal CB, Irv Charles WR
+- AVAILABILITY SEA ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Anthony Bradford G, Bud Clark S, Jake Bobo WR, Mason Richman G, Robbie Ouzts FB
 - 2 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
 
-- SF: RESOLVED STARTER Brock Purdy (from ESPN depth chart + injury report). ESPN depth ['Brock Purdy', 'Mac Jones', 'Kurtis Rourke'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Brock Purdy", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for SF (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- SEA: RESOLVED STARTER Sam Darnold (from ESPN depth chart + injury report). ESPN depth ['Sam Darnold', 'Drew Lock', 'Jalen Milroe'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- SF: RESOLVED STARTER Brock Purdy (from ESPN depth chart + injury report). ESPN depth ['Brock Purdy', 'Mac Jones', 'Kurtis Rourke'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Brock Purdy", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for SF (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- SEA: RESOLVED STARTER Sam Darnold (from ESPN depth chart + injury report). ESPN depth ['Sam Darnold', 'Drew Lock', 'Jalen Milroe'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
 - SF: James Thompson Jr. DT Out (2026-10-10); Upton Stout CB Questionable (2026-10-10); Nick Bosa DE Out (2026-10-10); Marques Sigle S Out (2026-10-07); Kyle Juszczyk FB Out (2026-10-07)
 - SEA: Julian Neal CB Injured Reserve (2026-10-11); Irv Charles WR Injured Reserve (2026-10-11); Chazz Surratt LB Out (2026-10-10); George Holani RB Questionable (2026-10-09); Zach Charbonnet RB Out (2026-10-05)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- SF: Alfred Collins DT; Andrew Farmer II DE; Austen Pleasants OT; Brett Toth C; C.J. West DT; Christian Kirk WR; Darrick Forrest S; De'Zhaun Stribling WR; Demarcus Robinson WR; Isaac Guerendo RB; Jake Tonges TE; Mikail Kamara DE; Nate Hobbs CB; Nick Martin LB; Nick Zakelj OT; Ricky Pearsall WR; Sam Okuayinonu DT
+- SEA: Anthony Bradford G; Bud Clark S; Jake Bobo WR; Mason Richman G; Robbie Ouzts FB
 
 ## Team state: schedule, results and standings
 

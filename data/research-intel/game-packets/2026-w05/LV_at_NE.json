@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "LV@NE",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "LV",
@@ -391,21 +391,21 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
      {
       "side": "Las Vegas Raiders",
       "line": 3.5,
-      "odds": -107,
+      "odds": -108,
       "available": true
      },
      {
       "side": "New England Patriots",
       "line": -3.5,
-      "odds": -109,
+      "odds": -108,
       "available": true
      }
     ],
@@ -426,12 +426,12 @@
     "moneyline": [
      {
       "side": "Las Vegas Raiders",
-      "odds": 167,
+      "odds": 164,
       "available": true
      },
      {
       "side": "New England Patriots",
-      "odds": -191,
+      "odds": -188,
       "available": true
      }
     ]
@@ -439,21 +439,21 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
      {
       "side": "Las Vegas Raiders",
       "line": 3.5,
-      "odds": -110,
+      "odds": -107,
       "available": true
      },
      {
       "side": "New England Patriots",
       "line": -3.5,
-      "odds": -110,
+      "odds": -113,
       "available": true
      }
     ],
@@ -760,7 +760,7 @@
    "espn_qb_starter": "Kirk Cousins",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Kirk Cousins",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
@@ -777,7 +777,7 @@
    "espn_qb_starter": "Drake Maye",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Drake Maye",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -927,10 +927,118 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "LV": [
+   {
+    "player": "Brennan Jackson",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Carter Runyon",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Chigozie Anusiem",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Chris Collier",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Corey Rucker",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jack Bech",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Justin Pickett",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Keyron Crawford",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "NE": [
+   {
+    "player": "Bryce Baringer",
+    "pos": "P",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Dell Pettus",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Greg Van Roten",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Harold Landry III",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jeremiah Webb",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Julian Hill",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Khalil Jacobs",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Marcus Bryant",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Mike Onwenu",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Myles Montgomery",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Quintayvious Hutchins",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY LV (ESPN 2026-10-11T04:21:24Z): Out: Trey Zuhn III C, Jalen Nailor WR | Questionable/Doubtful: Ashton Jeanty RB | IR: Dont'e Thornton Jr. WR",
-  "AVAILABILITY NE (ESPN 2026-10-11T04:21:24Z): Out: Karon Prunty CB, Channing Canada CB, Christian Gonzalez CB, Carlton Davis III CB | Questionable/Doubtful: Charles Woods CB, Craig Woodson S, Dre'Mont Jones DE, Christian Elliss LB, Christian Barmore DT, Rhamondre Stevenson RB, Morgan Moses OT | IR: Reggie Gilliam FB, Mack Hollins WR, A.J. Brown WR",
+  "AVAILABILITY LV (ESPN 2026-10-11T06:35:38Z): Out: Trey Zuhn III C, Jalen Nailor WR | Questionable/Doubtful: Ashton Jeanty RB | IR: Dont'e Thornton Jr. WR",
+  "AVAILABILITY LV ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Brennan Jackson LB, Carter Runyon TE, Chigozie Anusiem CB, Chris Collier RB, Corey Rucker WR, Jack Bech WR, Justin Pickett G, Keyron Crawford DE",
+  "AVAILABILITY NE (ESPN 2026-10-11T06:35:38Z): Out: Karon Prunty CB, Channing Canada CB, Christian Gonzalez CB, Carlton Davis III CB | Questionable/Doubtful: Charles Woods CB, Craig Woodson S, Dre'Mont Jones DE, Christian Elliss LB, Christian Barmore DT, Rhamondre Stevenson RB, Morgan Moses OT | IR: Reggie Gilliam FB, Mack Hollins WR, A.J. Brown WR",
+  "AVAILABILITY NE ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Bryce Baringer P, Dell Pettus S, Greg Van Roten G, Harold Landry III LB, Jeremiah Webb WR, Julian Hill TE, Khalil Jacobs LB, Marcus Bryant OT, Mike Onwenu G, Myles Montgomery RB, Quintayvious Hutchins LB",
   "3 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",

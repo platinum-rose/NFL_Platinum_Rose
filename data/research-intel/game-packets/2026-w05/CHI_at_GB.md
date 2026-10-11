@@ -1,22 +1,22 @@
 # CHI@GB packet — Chicago Bears @ Green Bay Packers
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC North).
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
 - spread: Chicago Bears -1.5 -101; Green Bay Packers 1.5 -115
-- total: Over 46 -118; Under 46 101
+- total: Over 47 -108; Under 47 -108
 - moneyline: Chicago Bears  -116; Green Bay Packers  103
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
-- spread: Chicago Bears -1 -113; Green Bay Packers 1 -107
-- total: Over 46.5 -116; Under 46.5 -104
-- moneyline: Chicago Bears  -119; Green Bay Packers  -101
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
+- spread: Chicago Bears -1 -116; Green Bay Packers 1 -104
+- total: Over 47 -105; Under 47 -115
+- moneyline: Chicago Bears  -129; Green Bay Packers  109
 
-Market-implied score: {"GB": 22.25, "CHI": 23.75, "basis": "BKR home line 1.5 total 46"}
+Market-implied score: {"GB": 22.75, "CHI": 24.25, "basis": "BKR home line 1.5 total 47"}
 
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290914, "away_team": "CHI", "home_team": "GB", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": 1.5, "price_american": -110, "ticket_pct": 43, "money_pct": 54}, {"side": "away", "value": -1.5, "price_american": -110, "ticket_pct": 57, "money_pct": 46}], "total": [{"side": "under", "value": 45.5, "price_american": -109, "ticket_pct": 26, "money_pct": 32}, {"side": "over", "value": 45.5, "price_american": -111, "ticket_pct": 74, "money_pct": 68}], "moneyline": [{"side": "away", "value": 0, "price_american": -120, "ticket_pct": 72, "money_pct": 66}, {"side": "home", "value": 0, "price_american": -100, "ticket_pct": 28, "money_pct": 34}]}
 
@@ -25,25 +25,34 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 ## Warnings that touch this game
 
 - QB CHI: ESPN lists Caleb Williams Questionable; (Questionable/Doubtful); starter is ambiguous -- operator says Tyson Bagent
-- AVAILABILITY CHI (ESPN 2026-10-11T04:21:24Z): Out: Shemar Turner DT, Kyler Gordon CB, Keyshaun Elliott LB, Kyle Monangai RB | Questionable/Doubtful: Noah Sewell LB, Caleb Williams QB | IR: Anthony Johnson Jr. S
-- AVAILABILITY GB (ESPN 2026-10-11T04:21:24Z): Out: Micah Parsons DE | Questionable/Doubtful: Jacob Monk C, Jager Burton C, Aaron Banks G, Javon Hargrave DT, Anthony Campbell DT | IR: Chris Brooks RB, Savion Williams WR, Edgerrin Cooper LB
+- AVAILABILITY CHI (ESPN 2026-10-11T06:35:38Z): Out: Shemar Turner DT, Kyler Gordon CB, Keyshaun Elliott LB, Kyle Monangai RB | Questionable/Doubtful: Noah Sewell LB, Caleb Williams QB | IR: Anthony Johnson Jr. S
+- AVAILABILITY CHI ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Braxton Jones OT, Brittain Brown RB, Coby Bryant S, Dallis Flowers CB, Hayden Large TE, Jonathan Garvin DE, Nephi Sewell LB, Nikola Kalinic TE, Ruben Hyppolite II LB, Tony Fields II LB
+- AVAILABILITY GB (ESPN 2026-10-11T06:35:38Z): Out: Micah Parsons DE | Questionable/Doubtful: Jacob Monk C, Jager Burton C, Aaron Banks G, Javon Hargrave DT, Anthony Campbell DT | IR: Chris Brooks RB, Savion Williams WR, Edgerrin Cooper LB
+- AVAILABILITY GB ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Collin Oliver DE, Jayden Reed WR, Johnathan Baldwin II S, Jordon Riley DT, Luke Musgrave TE, Thomas Yassmin TE, Warren Brinson DT, Zach Bako-Bewele OT
 - WEATHER: review_required: wind 22.3 km/h, gusts 42.1 km/h
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
 
-- CHI: RESOLVED STARTER Tyson Bagent (from operator). ESPN depth ['Caleb Williams', 'Tyson Bagent', 'Case Keenum'], flag AMBIGUOUS Caleb Williams Questionable; [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: Tyson Bagent (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Tyson Bagent", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-05T16:24:00.000Z", "evidence": "Bears head coach Ben Johnson said that Bagent will start Sunday's game against the Packers in Green Bay, Sean Hammond of the Chicago Tribune reports."}}, {"player": "Caleb Williams", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CHI (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Case Keenum", "role": "likely_starter_or_primary", "starter_confidence": 0.94, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-05T16:38:00.000Z", "evidence": "Keenum is expected to remain in a backup role for Sunday's game against the Packers after head coach Ben Johnson said that Tyson Bagent will start at quarterback in Week 5, Sean Hammond of the Chicago Tribune reports."}}]
-- GB: RESOLVED STARTER Jordan Love (from ESPN depth chart + injury report). ESPN depth ['Jordan Love', 'Tyrod Taylor'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jordan Love", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for GB (usage score 42.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- CHI: RESOLVED STARTER Tyson Bagent (from operator). ESPN depth ['Caleb Williams', 'Tyson Bagent', 'Case Keenum'], flag AMBIGUOUS Caleb Williams Questionable; [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: Tyson Bagent (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Tyson Bagent", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-05T16:24:00.000Z", "evidence": "Bears head coach Ben Johnson said that Bagent will start Sunday's game against the Packers in Green Bay, Sean Hammond of the Chicago Tribune reports."}}, {"player": "Caleb Williams", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CHI (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Case Keenum", "role": "likely_starter_or_primary", "starter_confidence": 0.94, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-05T16:38:00.000Z", "evidence": "Keenum is expected to remain in a backup role for Sunday's game against the Packers after head coach Ben Johnson said that Tyson Bagent will start at quarterback in Week 5, Sean Hammond of the Chicago Tribune reports."}}]
+- GB: RESOLVED STARTER Jordan Love (from ESPN depth chart + injury report). ESPN depth ['Jordan Love', 'Tyrod Taylor'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jordan Love", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for GB (usage score 42.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
 - CHI: Anthony Johnson Jr. S Injured Reserve (2026-10-11); Shemar Turner DT Out (2026-10-10); Kyler Gordon CB Out (2026-10-10); Noah Sewell LB Questionable (2026-10-10); Keyshaun Elliott LB Out (2026-10-10); Caleb Williams QB Questionable (2026-10-09); Kyle Monangai RB Out (2026-10-09)
 - GB: Chris Brooks RB Injured Reserve (2026-10-10); Jacob Monk C Doubtful (2026-10-10); Jager Burton C Questionable (2026-10-10); Aaron Banks G Doubtful (2026-10-10); Javon Hargrave DT Questionable (2026-10-10); Savion Williams WR Injured Reserve (2026-10-09); Edgerrin Cooper LB Injured Reserve (2026-10-06); Anthony Campbell DT Questionable (2026-10-06); Micah Parsons DE Out (2026-10-05)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- CHI: Braxton Jones OT; Brittain Brown RB; Coby Bryant S; Dallis Flowers CB; Hayden Large TE; Jonathan Garvin DE; Nephi Sewell LB; Nikola Kalinic TE; Ruben Hyppolite II LB; Tony Fields II LB
+- GB: Collin Oliver DE; Jayden Reed WR; Johnathan Baldwin II S; Jordon Riley DT; Luke Musgrave TE; Thomas Yassmin TE; Warren Brinson DT; Zach Bako-Bewele OT
 
 ## Team state: schedule, results and standings
 
@@ -116,7 +125,7 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 | -1 | 0.4545 | 0.5152 | 0.0303 |
 | 0 | 0.4848 | 0.4848 | 0.0304 |
 | 1 | 0.5152 | 0.4545 | 0.0303 |
-| 2 | 0.5454 | 0.4245 | 0.03 |
+| 2 | 0.5455 | 0.4245 | 0.03 |
 | 3 | 0.5755 | 0.3949 | 0.0296 |
 
 ## Power ratings

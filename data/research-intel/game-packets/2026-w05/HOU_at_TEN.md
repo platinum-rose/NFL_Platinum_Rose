@@ -1,17 +1,17 @@
 # HOU@TEN packet — Houston Texans @ Tennessee Titans
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (AFC South).
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
-- spread: Houston Texans -7 -103; Tennessee Titans 7 -113
-- total: Over 37.5 -108; Under 37.5 -108
-- moneyline: Houston Texans  -344; Tennessee Titans  289
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
+- spread: Houston Texans -7 -104; Tennessee Titans 7 -112
+- total: Over 37.5 -110; Under 37.5 -106
+- moneyline: Houston Texans  -340; Tennessee Titans  286
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
 - spread: Houston Texans -7 -110; Tennessee Titans 7 -110
 - total: Over 38 -110; Under 38 -110
 - moneyline: Houston Texans  -375; Tennessee Titans  299
@@ -24,24 +24,33 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY HOU (ESPN 2026-10-11T04:21:24Z): Out: none | Questionable/Doubtful: M.J. Stewart S, Kayden McDonald DT, Aireontae Ersery OT, Ed Ingram G, Blake Fisher OT | IR: Braden Smith OT, Tank Dell WR, Jaylin Smith CB
-- AVAILABILITY TEN (ESPN 2026-10-11T04:21:24Z): Out: Amani Hooker S | Questionable/Doubtful: David Martin-Robinson TE, Carnell Tate WR | IR: Joshua Williams CB
+- AVAILABILITY HOU (ESPN 2026-10-11T06:35:38Z): Out: none | Questionable/Doubtful: M.J. Stewart S, Kayden McDonald DT, Aireontae Ersery OT, Ed Ingram G, Blake Fisher OT | IR: Braden Smith OT, Tank Dell WR, Jaylin Smith CB
+- AVAILABILITY HOU ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Ali Gaye DE, British Brooks RB, Dylan Horton DE, E.J. Speed LB, Graham Mertz QB, Henry To'oTo'o LB, Ja'Marcus Ingram CB, Jake Hummel LB, Jayden Higgins WR, K.C. Ossai LB, Mario Edwards Jr. DT, Sam Hagen G, Solomon Byrd DE
+- AVAILABILITY TEN (ESPN 2026-10-11T06:35:38Z): Out: Amani Hooker S | Questionable/Doubtful: David Martin-Robinson TE, Carnell Tate WR | IR: Joshua Williams CB
+- AVAILABILITY TEN ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Dorian Mausi LB, Fernando Carmona G, Jackson Slater G, Jaren Kanak TE, Jaylen Harrell LB, Kendell Brooks S, Milo Eifler LB, Tanoh Kpassagnon DE
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
 
-- HOU: RESOLVED STARTER C.J. Stroud (from ESPN depth chart + injury report). ESPN depth ['C.J. Stroud', 'Davis Mills', 'Graham Mertz'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "C.J. Stroud", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Mark Gronowski", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T22:14:00.000Z", "evidence": "Gronowski signed with the Texans on Wednesday, Jonathan M. Alexander of the Houston Chronicle reports."}}]
-- TEN: RESOLVED STARTER Cam Ward (from ESPN depth chart + injury report). ESPN depth ['Cam Ward', 'Mitchell Trubisky'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Cam Ward", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- HOU: RESOLVED STARTER C.J. Stroud (from ESPN depth chart + injury report). ESPN depth ['C.J. Stroud', 'Davis Mills', 'Graham Mertz'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "C.J. Stroud", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Mark Gronowski", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T22:14:00.000Z", "evidence": "Gronowski signed with the Texans on Wednesday, Jonathan M. Alexander of the Houston Chronicle reports."}}]
+- TEN: RESOLVED STARTER Cam Ward (from ESPN depth chart + injury report). ESPN depth ['Cam Ward', 'Mitchell Trubisky'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Cam Ward", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
 - HOU: Braden Smith OT Injured Reserve (2026-10-11); M.J. Stewart S Questionable (2026-10-11); Kayden McDonald DT Questionable (2026-10-11); Tank Dell WR Injured Reserve (2026-10-09); Aireontae Ersery OT Questionable (2026-10-08); Ed Ingram G Questionable (2026-10-08); Blake Fisher OT Questionable (2026-10-08); Jaylin Smith CB Injured Reserve (2026-10-07)
 - TEN: Joshua Williams CB Injured Reserve (2026-10-10); David Martin-Robinson TE Questionable (2026-10-09); Amani Hooker S Out (2026-10-09); Carnell Tate WR Questionable (2026-10-09)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- HOU: Ali Gaye DE; British Brooks RB; Dylan Horton DE; E.J. Speed LB; Graham Mertz QB; Henry To'oTo'o LB; Ja'Marcus Ingram CB; Jake Hummel LB; Jayden Higgins WR; K.C. Ossai LB; Mario Edwards Jr. DT; Sam Hagen G; Solomon Byrd DE
+- TEN: Dorian Mausi LB; Fernando Carmona G; Jackson Slater G; Jaren Kanak TE; Jaylen Harrell LB; Kendell Brooks S; Milo Eifler LB; Tanoh Kpassagnon DE
 
 ## Team state: schedule, results and standings
 

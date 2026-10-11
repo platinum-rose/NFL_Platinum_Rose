@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "IND@PIT",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "IND",
@@ -391,8 +391,8 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -439,8 +439,8 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -474,12 +474,12 @@
     "moneyline": [
      {
       "side": "Indianapolis Colts",
-      "odds": 128,
+      "odds": 133,
       "available": true
      },
      {
       "side": "Pittsburgh Steelers",
-      "odds": -148,
+      "odds": -153,
       "available": true
      }
     ]
@@ -760,7 +760,7 @@
    "espn_qb_starter": "Daniel Jones",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Daniel Jones",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -789,7 +789,7 @@
    "espn_qb_starter": "Aaron Rodgers",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Aaron Rodgers",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -904,10 +904,88 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "IND": [
+   {
+    "player": "Alec Pierce",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Cameron Mitchell",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Carson Towt",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "D.J. Montgomery",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Micheal Clemons",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Sean McKeon",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "PIT": [
+   {
+    "player": "Cole Burgess",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Daequan Hardy",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Donte Kent",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Gennings Dunker",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jack Driscoll",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Logan Lee",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Max Hurleman",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY IND (ESPN 2026-10-11T04:21:24Z): Out: Darius Slayton WR, Jaylon Carlies LB, Ashton Dulin WR | Questionable/Doubtful: Charvarius Ward CB, Keenan Allen WR | IR: Arden Key DE, Will Mallory TE",
-  "AVAILABILITY PIT (ESPN 2026-10-11T04:21:24Z): Out: Jamel Dean CB | Questionable/Doubtful: Jalen Ramsey CB, Rico Dowdle RB | IR: Michael Pittman Jr. WR, DeShon Elliott S, Derrick Harmon DT",
+  "AVAILABILITY IND (ESPN 2026-10-11T06:35:38Z): Out: Darius Slayton WR, Jaylon Carlies LB, Ashton Dulin WR | Questionable/Doubtful: Charvarius Ward CB, Keenan Allen WR | IR: Arden Key DE, Will Mallory TE",
+  "AVAILABILITY IND ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Alec Pierce WR, Cameron Mitchell CB, Carson Towt TE, D.J. Montgomery WR, Micheal Clemons DE, Sean McKeon TE",
+  "AVAILABILITY PIT (ESPN 2026-10-11T06:35:38Z): Out: Jamel Dean CB | Questionable/Doubtful: Jalen Ramsey CB, Rico Dowdle RB | IR: Michael Pittman Jr. WR, DeShon Elliott S, Derrick Harmon DT",
+  "AVAILABILITY PIT ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Cole Burgess WR, Daequan Hardy CB, Donte Kent CB, Gennings Dunker G, Jack Driscoll OT, Logan Lee DT, Max Hurleman RB",
   "WEATHER: review_required: forecast wind 25.2 km/h, gusts 58.0 km/h, precipitation probability 54%"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",

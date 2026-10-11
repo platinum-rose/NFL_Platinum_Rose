@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "MIN@NO",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "MIN",
@@ -391,8 +391,8 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -413,25 +413,25 @@
      {
       "side": "Over",
       "line": 41.5,
-      "odds": -103,
+      "odds": -108,
       "available": true
      },
      {
       "side": "Under",
       "line": 41.5,
-      "odds": -113,
+      "odds": -107,
       "available": true
      }
     ],
     "moneyline": [
      {
       "side": "Minnesota Vikings",
-      "odds": -131,
+      "odds": -132,
       "available": true
      },
      {
       "side": "New Orleans Saints",
-      "odds": 115,
+      "odds": 116,
       "available": true
      }
     ]
@@ -439,8 +439,8 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -474,12 +474,12 @@
     "moneyline": [
      {
       "side": "Minnesota Vikings",
-      "odds": -135,
+      "odds": -137,
       "available": true
      },
      {
       "side": "New Orleans Saints",
-      "odds": 115,
+      "odds": 117,
       "available": true
      }
     ]
@@ -760,7 +760,7 @@
    "espn_qb_starter": "Kyler Murray",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Kyler Murray",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
@@ -777,7 +777,7 @@
    "espn_qb_starter": "Tyler Shough",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Tyler Shough",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -941,10 +941,108 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "MIN": [
+   {
+    "player": "Dwight McGlothern Jr.",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jamal Adams",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jordan Mason",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Nick Samac",
+    "pos": "C",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Tyler Batty",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "NO": [
+   {
+    "player": "Bryan Bresee",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "David Long Jr.",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Dillon Radunz",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jordyn Tyson",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Kelvin Banks Jr.",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Mason Tipton",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Moliki Matavao",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Nick Saldiveri",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Rejzohn Wright",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Travis Etienne Jr.",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Ty Chandler",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Zach Wood",
+    "pos": "LS",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY MIN (ESPN 2026-10-11T04:21:24Z): Out: Charles Demmings CB, Christian Darrisaw OT | Questionable/Doubtful: Michael Jurgens C, Ben Yurosek TE, Brian O'Neill OT, Jordan Addison WR, Justin Jefferson WR | IR: Donovan Jackson G, Josh Oliver TE",
-  "AVAILABILITY NO (ESPN 2026-10-11T04:21:24Z): Out: Jeremiah Wright G, Anfernee Jennings LB, Kaden Elliss LB | Questionable/Doubtful: Lorenzo Styles Jr. S, Jaylan Ford LB, Nathan Shepherd DT, Vernon Broughton DT, Christen Miller DT, Julian Blackmon S, Barion Brown WR, Alvin Kamara RB | IR: none",
+  "AVAILABILITY MIN (ESPN 2026-10-11T06:35:38Z): Out: Charles Demmings CB, Christian Darrisaw OT | Questionable/Doubtful: Michael Jurgens C, Ben Yurosek TE, Brian O'Neill OT, Jordan Addison WR, Justin Jefferson WR | IR: Donovan Jackson G, Josh Oliver TE",
+  "AVAILABILITY MIN ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Dwight McGlothern Jr. CB, Jamal Adams LB, Jordan Mason RB, Nick Samac C, Tyler Batty LB",
+  "AVAILABILITY NO (ESPN 2026-10-11T06:35:38Z): Out: Jeremiah Wright G, Anfernee Jennings LB, Kaden Elliss LB | Questionable/Doubtful: Lorenzo Styles Jr. S, Jaylan Ford LB, Nathan Shepherd DT, Vernon Broughton DT, Christen Miller DT, Julian Blackmon S, Barion Brown WR, Alvin Kamara RB | IR: none",
+  "AVAILABILITY NO ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Bryan Bresee DT, David Long Jr. CB, Dillon Radunz G, Jordyn Tyson WR, Kelvin Banks Jr. OT, Mason Tipton WR, Moliki Matavao TE, Nick Saldiveri OT, Rejzohn Wright CB, Travis Etienne Jr. RB, Ty Chandler RB, Zach Wood LS",
   "BOOK CONFLICT: BKR home line 2.5 vs BEO 1 (>=1.0 pt apart); recapture before relying on either",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only",

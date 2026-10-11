@@ -1,20 +1,20 @@
 # BAL@ATL packet — Baltimore Ravens @ Atlanta Falcons
 
-Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T12:21:29.799000+00:00; fresh at build: True
 - spread: Baltimore Ravens 3 102; Atlanta Falcons -3 -117
-- total: Over 44 103; Under 44 -120
+- total: Over 43.5 -103; Under 43.5 -113
 - moneyline: Baltimore Ravens  139; Atlanta Falcons  -160
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T12:24:03.238000+00:00; fresh at build: True
 - spread: Baltimore Ravens 3.5 -120; Atlanta Falcons -3.5 100
 - total: Over 43.5 -115; Under 43.5 -105
 - moneyline: Baltimore Ravens  149; Atlanta Falcons  -170
 
-Market-implied score: {"ATL": 23.5, "BAL": 20.5, "basis": "BKR home line -3 total 44"}
+Market-implied score: {"ATL": 23.25, "BAL": 20.25, "basis": "BKR home line -3 total 43.5"}
 
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290915, "away_team": "BAL", "home_team": "ATL", "kickoff_at": "2026-10-12T00:20:00.000Z", "spread": [{"side": "home", "value": -3.5, "price_american": -101, "ticket_pct": 47, "money_pct": 59}, {"side": "away", "value": 3.5, "price_american": -119, "ticket_pct": 53, "money_pct": 41}], "total": [{"side": "over", "value": 44, "price_american": -110, "ticket_pct": 72, "money_pct": 73}, {"side": "under", "value": 44, "price_american": -109, "ticket_pct": 28, "money_pct": 27}], "moneyline": [{"side": "away", "value": 0, "price_american": 150, "ticket_pct": 49, "money_pct": 39}, {"side": "home", "value": 0, "price_american": -177, "ticket_pct": 51, "money_pct": 61}]}
 
@@ -22,23 +22,32 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY BAL (ESPN 2026-10-11T04:21:24Z): Out: Cam Jurgens C, Trey Hendrickson LB, Lamar Jackson QB | Questionable/Doubtful: Marlon Humphrey CB, Zay Flowers WR | IR: Ja'Kobi Lane WR, Durham Smythe TE
-- AVAILABILITY ATL (ESPN 2026-10-11T04:21:24Z): Out: Za'Darius Smith DE | Questionable/Doubtful: Jake Matthews OT, Divine Deablo LB, Samson Ebukam DE | IR: Yasir Abdullah LB
+- AVAILABILITY BAL (ESPN 2026-10-11T06:35:38Z): Out: Cam Jurgens C, Trey Hendrickson LB, Lamar Jackson QB | Questionable/Doubtful: Marlon Humphrey CB, Zay Flowers WR | IR: Ja'Kobi Lane WR, Durham Smythe TE
+- AVAILABILITY BAL ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Adam Randall RB, Bilhal Kone CB, Danny Pinter C, Ethan Pocic C, Jahquez Robinson S, Jovaughn Gwyn G, Skylar Thompson QB, T.J. Tampa CB
+- AVAILABILITY ATL (ESPN 2026-10-11T06:35:38Z): Out: Za'Darius Smith DE | Questionable/Doubtful: Jake Matthews OT, Divine Deablo LB, Samson Ebukam DE | IR: Yasir Abdullah LB
+- AVAILABILITY ATL ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): A.J. Terrell Jr. CB, Anterio Thompson DT, Beaux Collins WR, Cameron Williams OL, Da'Shawn Hand DT, DeAngelo Malone LB, JD Bertrand LB, Storm Norton OT, Trey Sermon RB
 - VENUE: ATL has a retractable roof; check game-day roof status before using weather
 
 ## Quarterbacks
 
-- BAL: RESOLVED STARTER Tyler Huntley (from operator). ESPN depth ['Lamar Jackson', 'Tyler Huntley', 'Joe Fagnano', 'Skylar Thompson'], flag ok Lamar Jackson Out; [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: Tyler Huntley (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Lamar Jackson", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tyler Huntley", "role": "likely_starter_or_primary", "starter_confidence": 0.7, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T17:40:00.000Z", "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."}}]
-- ATL: RESOLVED STARTER Michael Penix Jr. (from ESPN depth chart + injury report). ESPN depth ['Michael Penix Jr.', 'Tua Tagovailoa', 'Cooper Rush', 'Jack Strand'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- BAL: RESOLVED STARTER Tyler Huntley (from operator). ESPN depth ['Lamar Jackson', 'Tyler Huntley', 'Joe Fagnano', 'Skylar Thompson'], flag ok Lamar Jackson Out; [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: Tyler Huntley (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Lamar Jackson", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tyler Huntley", "role": "likely_starter_or_primary", "starter_confidence": 0.7, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T17:40:00.000Z", "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."}}]
+- ATL: RESOLVED STARTER Michael Penix Jr. (from ESPN depth chart + injury report). ESPN depth ['Michael Penix Jr.', 'Tua Tagovailoa', 'Cooper Rush', 'Jack Strand'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
 - BAL: Cam Jurgens C Out (2026-10-10); Marlon Humphrey CB Questionable (2026-10-10); Trey Hendrickson LB Out (2026-10-10); Zay Flowers WR Questionable (2026-10-09); Ja'Kobi Lane WR Injured Reserve (2026-10-09); Lamar Jackson QB Out (2026-10-09); Durham Smythe TE Injured Reserve (2026-10-07)
 - ATL: Yasir Abdullah LB Injured Reserve (2026-10-11); Za'Darius Smith DE Out (2026-10-11); Jake Matthews OT Questionable (2026-10-10); Divine Deablo LB Questionable (2026-10-09); Samson Ebukam DE Questionable (2026-10-08)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- BAL: Adam Randall RB; Bilhal Kone CB; Danny Pinter C; Ethan Pocic C; Jahquez Robinson S; Jovaughn Gwyn G; Skylar Thompson QB; T.J. Tampa CB
+- ATL: A.J. Terrell Jr. CB; Anterio Thompson DT; Beaux Collins WR; Cameron Williams OL; Da'Shawn Hand DT; DeAngelo Malone LB; JD Bertrand LB; Storm Norton OT; Trey Sermon RB
 
 ## Team state: schedule, results and standings
 
@@ -102,13 +111,13 @@ Features: {"offense_z": {"ATL": 0.8195619275102368, "BAL": 1.4855307870529544}, 
 
 | home_margin_edge_pts | home_cover | away_cover | side_push | over | under | total_push |
 |---|---|---|---|---|---|---|
-| -3 | 0.3813 | 0.5372 | 0.0814 | 0.4848 | 0.4848 | 0.0304 |
-| -2 | 0.4067 | 0.5111 | 0.0822 | 0.4848 | 0.4848 | 0.0304 |
-| -1 | 0.4325 | 0.4849 | 0.0827 | 0.4848 | 0.4848 | 0.0304 |
-| 0 | 0.4587 | 0.4587 | 0.0827 | 0.4848 | 0.4848 | 0.0304 |
-| 1 | 0.4851 | 0.4325 | 0.0824 | 0.4848 | 0.4848 | 0.0304 |
-| 2 | 0.5118 | 0.4066 | 0.0816 | 0.4848 | 0.4848 | 0.0304 |
-| 3 | 0.5385 | 0.381 | 0.0805 | 0.4848 | 0.4848 | 0.0304 |
+| -3 | 0.3813 | 0.5372 | 0.0814 | 0.5 | 0.5 | 0 |
+| -2 | 0.4067 | 0.5111 | 0.0822 | 0.5 | 0.5 | 0 |
+| -1 | 0.4325 | 0.4849 | 0.0827 | 0.5 | 0.5 | 0 |
+| 0 | 0.4587 | 0.4587 | 0.0827 | 0.5 | 0.5 | 0 |
+| 1 | 0.4851 | 0.4325 | 0.0824 | 0.5 | 0.5 | 0 |
+| 2 | 0.5118 | 0.4066 | 0.0816 | 0.5 | 0.5 | 0 |
+| 3 | 0.5385 | 0.381 | 0.0805 | 0.5 | 0.5 | 0 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
 
@@ -116,13 +125,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 | total_edge_pts | over | under | total_push |
 |---|---|---|---|
-| -3 | 0.395 | 0.5754 | 0.0296 |
-| -2 | 0.4246 | 0.5454 | 0.03 |
-| -1 | 0.4546 | 0.5151 | 0.0303 |
-| 0 | 0.4848 | 0.4848 | 0.0304 |
-| 1 | 0.5152 | 0.4545 | 0.0303 |
-| 2 | 0.5454 | 0.4245 | 0.03 |
-| 3 | 0.5754 | 0.395 | 0.0296 |
+| -3 | 0.4098 | 0.5902 | 0 |
+| -2 | 0.4396 | 0.5604 | 0 |
+| -1 | 0.4697 | 0.5303 | 0 |
+| 0 | 0.5 | 0.5 | 0 |
+| 1 | 0.5303 | 0.4697 | 0 |
+| 2 | 0.5605 | 0.4395 | 0 |
+| 3 | 0.5903 | 0.4097 | 0 |
 
 ## Power ratings
 

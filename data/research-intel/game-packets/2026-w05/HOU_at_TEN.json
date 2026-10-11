@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "HOU@TEN",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "HOU",
@@ -357,21 +357,21 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
      {
       "side": "Houston Texans",
       "line": -7,
-      "odds": -103,
+      "odds": -104,
       "available": true
      },
      {
       "side": "Tennessee Titans",
       "line": 7,
-      "odds": -113,
+      "odds": -112,
       "available": true
      }
     ],
@@ -379,25 +379,25 @@
      {
       "side": "Over",
       "line": 37.5,
-      "odds": -108,
+      "odds": -110,
       "available": true
      },
      {
       "side": "Under",
       "line": 37.5,
-      "odds": -108,
+      "odds": -106,
       "available": true
      }
     ],
     "moneyline": [
      {
       "side": "Houston Texans",
-      "odds": -344,
+      "odds": -340,
       "available": true
      },
      {
       "side": "Tennessee Titans",
-      "odds": 289,
+      "odds": 286,
       "available": true
      }
     ]
@@ -405,8 +405,8 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -726,7 +726,7 @@
    "espn_qb_starter": "C.J. Stroud",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "C.J. Stroud",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -763,7 +763,7 @@
    "espn_qb_starter": "Cam Ward",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Cam Ward",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -871,10 +871,128 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "HOU": [
+   {
+    "player": "Ali Gaye",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "British Brooks",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Dylan Horton",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "E.J. Speed",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Graham Mertz",
+    "pos": "QB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Henry To'oTo'o",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Ja'Marcus Ingram",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jake Hummel",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jayden Higgins",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "K.C. Ossai",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Mario Edwards Jr.",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Sam Hagen",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Solomon Byrd",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "TEN": [
+   {
+    "player": "Dorian Mausi",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Fernando Carmona",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jackson Slater",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jaren Kanak",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jaylen Harrell",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Kendell Brooks",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Milo Eifler",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Tanoh Kpassagnon",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY HOU (ESPN 2026-10-11T04:21:24Z): Out: none | Questionable/Doubtful: M.J. Stewart S, Kayden McDonald DT, Aireontae Ersery OT, Ed Ingram G, Blake Fisher OT | IR: Braden Smith OT, Tank Dell WR, Jaylin Smith CB",
-  "AVAILABILITY TEN (ESPN 2026-10-11T04:21:24Z): Out: Amani Hooker S | Questionable/Doubtful: David Martin-Robinson TE, Carnell Tate WR | IR: Joshua Williams CB",
+  "AVAILABILITY HOU (ESPN 2026-10-11T06:35:38Z): Out: none | Questionable/Doubtful: M.J. Stewart S, Kayden McDonald DT, Aireontae Ersery OT, Ed Ingram G, Blake Fisher OT | IR: Braden Smith OT, Tank Dell WR, Jaylin Smith CB",
+  "AVAILABILITY HOU ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Ali Gaye DE, British Brooks RB, Dylan Horton DE, E.J. Speed LB, Graham Mertz QB, Henry To'oTo'o LB, Ja'Marcus Ingram CB, Jake Hummel LB, Jayden Higgins WR, K.C. Ossai LB, Mario Edwards Jr. DT, Sam Hagen G, Solomon Byrd DE",
+  "AVAILABILITY TEN (ESPN 2026-10-11T06:35:38Z): Out: Amani Hooker S | Questionable/Doubtful: David Martin-Robinson TE, Carnell Tate WR | IR: Joshua Williams CB",
+  "AVAILABILITY TEN ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Dorian Mausi LB, Fernando Carmona G, Jackson Slater G, Jaren Kanak TE, Jaylen Harrell LB, Kendell Brooks S, Milo Eifler LB, Tanoh Kpassagnon DE",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],

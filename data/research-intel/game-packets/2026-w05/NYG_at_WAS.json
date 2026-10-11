@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "NYG@WAS",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "NYG",
@@ -357,21 +357,21 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
      {
       "side": "New York Giants",
       "line": 3.5,
-      "odds": -108,
+      "odds": -109,
       "available": true
      },
      {
       "side": "Washington Commanders",
       "line": -3.5,
-      "odds": -108,
+      "odds": -107,
       "available": true
      }
     ],
@@ -379,25 +379,25 @@
      {
       "side": "Over",
       "line": 41.5,
-      "odds": -103,
+      "odds": -104,
       "available": true
      },
      {
       "side": "Under",
       "line": 41.5,
-      "odds": -113,
+      "odds": -112,
       "available": true
      }
     ],
     "moneyline": [
      {
       "side": "New York Giants",
-      "odds": 159,
+      "odds": 172,
       "available": true
      },
      {
       "side": "Washington Commanders",
-      "odds": -182,
+      "odds": -197,
       "available": true
      }
     ]
@@ -405,8 +405,8 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -727,7 +727,7 @@
    "espn_qb_starter": "Jameis Winston",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Jameis Winston",
    "resolved_from": "operator",
    "projected_starter_qb_rows": [
@@ -765,7 +765,7 @@
    "espn_qb_starter": "Jayden Daniels",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Jayden Daniels",
    "resolved_from": "operator",
    "projected_starter_qb_rows": [
@@ -880,10 +880,98 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "NYG": [
+   {
+    "player": "Brian Burns",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Calvin Austin III",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "DJ James",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Gunner Olszewski",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jarrick Bernard-Converse",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jaxson Dart",
+    "pos": "QB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Korie Black",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Paulson Adebo",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Rico Payton",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Roy Robertson-Harris",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Thaddeus Dixon",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "WAS": [
+   {
+    "player": "Jer'Zhan Newton",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jordan Magee",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Laremy Tunsil",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Leo Chenal",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY NYG (ESPN 2026-10-11T04:21:24Z): Out: Jason Pinnock S | Questionable/Doubtful: none | IR: Chauncey Golston DE, Braxton Berrios WR",
-  "AVAILABILITY WAS (ESPN 2026-10-11T04:21:24Z): Out: Tyler Owens S, Charles Omenihu DE, Percy Butler S, Nick Cross S, Marcus Mariota QB, Stefon Diggs WR | Questionable/Doubtful: Terry McLaurin WR | IR: Trey Amos CB, Jeremy McNichols RB, Jaylin Lane WR",
+  "AVAILABILITY NYG (ESPN 2026-10-11T06:35:38Z): Out: Jason Pinnock S | Questionable/Doubtful: none | IR: Chauncey Golston DE, Braxton Berrios WR",
+  "AVAILABILITY NYG ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Brian Burns LB, Calvin Austin III WR, DJ James CB, Gunner Olszewski WR, Jarrick Bernard-Converse CB, Jaxson Dart QB, Korie Black CB, Paulson Adebo CB, Rico Payton CB, Roy Robertson-Harris DT, Thaddeus Dixon CB",
+  "AVAILABILITY WAS (ESPN 2026-10-11T06:35:38Z): Out: Tyler Owens S, Charles Omenihu DE, Percy Butler S, Nick Cross S, Marcus Mariota QB, Stefon Diggs WR | Questionable/Doubtful: Terry McLaurin WR | IR: Trey Amos CB, Jeremy McNichols RB, Jaylin Lane WR",
+  "AVAILABILITY WAS ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Jer'Zhan Newton DT, Jordan Magee LB, Laremy Tunsil OT, Leo Chenal LB",
   "WEATHER: review_required: precipitation probability 72%"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",

@@ -1,17 +1,17 @@
 # NYG@WAS packet — New York Giants @ Washington Commanders
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC East).
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
-- spread: New York Giants 3.5 -108; Washington Commanders -3.5 -108
-- total: Over 41.5 -103; Under 41.5 -113
-- moneyline: New York Giants  159; Washington Commanders  -182
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
+- spread: New York Giants 3.5 -109; Washington Commanders -3.5 -107
+- total: Over 41.5 -104; Under 41.5 -112
+- moneyline: New York Giants  172; Washington Commanders  -197
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
 - spread: New York Giants 3.5 -113; Washington Commanders -3.5 -107
 - total: Over 41.5 -110; Under 41.5 -110
 - moneyline: New York Giants  157; Washington Commanders  -180
@@ -26,23 +26,32 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY NYG (ESPN 2026-10-11T04:21:24Z): Out: Jason Pinnock S | Questionable/Doubtful: none | IR: Chauncey Golston DE, Braxton Berrios WR
-- AVAILABILITY WAS (ESPN 2026-10-11T04:21:24Z): Out: Tyler Owens S, Charles Omenihu DE, Percy Butler S, Nick Cross S, Marcus Mariota QB, Stefon Diggs WR | Questionable/Doubtful: Terry McLaurin WR | IR: Trey Amos CB, Jeremy McNichols RB, Jaylin Lane WR
+- AVAILABILITY NYG (ESPN 2026-10-11T06:35:38Z): Out: Jason Pinnock S | Questionable/Doubtful: none | IR: Chauncey Golston DE, Braxton Berrios WR
+- AVAILABILITY NYG ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Brian Burns LB, Calvin Austin III WR, DJ James CB, Gunner Olszewski WR, Jarrick Bernard-Converse CB, Jaxson Dart QB, Korie Black CB, Paulson Adebo CB, Rico Payton CB, Roy Robertson-Harris DT, Thaddeus Dixon CB
+- AVAILABILITY WAS (ESPN 2026-10-11T06:35:38Z): Out: Tyler Owens S, Charles Omenihu DE, Percy Butler S, Nick Cross S, Marcus Mariota QB, Stefon Diggs WR | Questionable/Doubtful: Terry McLaurin WR | IR: Trey Amos CB, Jeremy McNichols RB, Jaylin Lane WR
+- AVAILABILITY WAS ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Jer'Zhan Newton DT, Jordan Magee LB, Laremy Tunsil OT, Leo Chenal LB
 - WEATHER: review_required: precipitation probability 72%
 
 ## Quarterbacks
 
-- NYG: RESOLVED STARTER Jameis Winston (from operator). ESPN depth ['Jameis Winston', 'J.J. McCarthy', 'Jake Haener', 'Jaxson Dart'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: Jameis Winston (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Jaxson Dart", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Jake Haener", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T21:53:00.000Z", "evidence": "The Giants signed Haener to the 53-man roster off their practice squad Wednesday, Mike Garafolo of NFL Network reports."}}]
-- WAS: RESOLVED STARTER Jayden Daniels (from operator). ESPN depth ['Jayden Daniels', 'Marcus Mariota', 'Athan Kaliakmanis'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: Jayden Daniels (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Jayden Daniels", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T16:54:00.000Z", "evidence": "Head coach Dan Quinn confirmed Friday that Daniels (elbow) will start Sunday's game against the Giants."}}]
+- NYG: RESOLVED STARTER Jameis Winston (from operator). ESPN depth ['Jameis Winston', 'J.J. McCarthy', 'Jake Haener', 'Jaxson Dart'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: Jameis Winston (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Jaxson Dart", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Jake Haener", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T21:53:00.000Z", "evidence": "The Giants signed Haener to the 53-man roster off their practice squad Wednesday, Mike Garafolo of NFL Network reports."}}]
+- WAS: RESOLVED STARTER Jayden Daniels (from operator). ESPN depth ['Jayden Daniels', 'Marcus Mariota', 'Athan Kaliakmanis'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: Jayden Daniels (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Jayden Daniels", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T16:54:00.000Z", "evidence": "Head coach Dan Quinn confirmed Friday that Daniels (elbow) will start Sunday's game against the Giants."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
 - NYG: Chauncey Golston DE Injured Reserve (2026-10-11); Jason Pinnock S Out (2026-10-10); Braxton Berrios WR Injured Reserve (2026-10-07)
 - WAS: Trey Amos CB Injured Reserve (2026-10-11); Jeremy McNichols RB Injured Reserve (2026-10-11); Terry McLaurin WR Questionable (2026-10-11); Tyler Owens S Out (2026-10-10); Charles Omenihu DE Out (2026-10-10); Percy Butler S Out (2026-10-10); Nick Cross S Out (2026-10-10); Marcus Mariota QB Out (2026-10-09); Stefon Diggs WR Out (2026-10-09); Jaylin Lane WR Injured Reserve (2026-10-06)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- NYG: Brian Burns LB; Calvin Austin III WR; DJ James CB; Gunner Olszewski WR; Jarrick Bernard-Converse CB; Jaxson Dart QB; Korie Black CB; Paulson Adebo CB; Rico Payton CB; Roy Robertson-Harris DT; Thaddeus Dixon CB
+- WAS: Jer'Zhan Newton DT; Jordan Magee LB; Laremy Tunsil OT; Leo Chenal LB
 
 ## Team state: schedule, results and standings
 

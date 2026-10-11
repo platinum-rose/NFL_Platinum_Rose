@@ -1,6 +1,6 @@
 # Week 5 slate context (shared, read once)
 
-Built 2026-10-11T04:23:31.627736+00:00. Records include Week 5 games ESPN lists as final at fetch time. Order is win% then point differential only.
+Built 2026-10-11T06:35:51.302665+00:00. Records include Week 5 games ESPN lists as final at fetch time. Order is win% then point differential only.
 
 ## AFC East
 

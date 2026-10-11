@@ -1,20 +1,20 @@
 # PHI@JAX packet — Philadelphia Eagles @ Jacksonville Jaguars
 
-Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
-- spread: Philadelphia Eagles 7.5 -103; Jacksonville Jaguars -7.5 -113
-- total: Over 42 -102; Under 42 -114
-- moneyline: Philadelphia Eagles  293; Jacksonville Jaguars  -350
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T09:21:29.799000+00:00; fresh at build: True
+- spread: Philadelphia Eagles 8 -103; Jacksonville Jaguars -8 -113
+- total: Over 41 -108; Under 41 -108
+- moneyline: Philadelphia Eagles  323; Jacksonville Jaguars  -389
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T07:30:00+00:00; fresh at build: True
-- spread: Philadelphia Eagles 7.5 -105; Jacksonville Jaguars -7.5 -115
-- total: Over 41.5 -112; Under 41.5 -108
-- moneyline: Philadelphia Eagles  299; Jacksonville Jaguars  -375
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T09:24:03.238000+00:00; fresh at build: True
+- spread: Philadelphia Eagles 8 -110; Jacksonville Jaguars -8 -110
+- total: Over 41.5 -110; Under 41.5 -110
+- moneyline: Philadelphia Eagles  310; Jacksonville Jaguars  -390
 
-Market-implied score: {"JAX": 24.75, "PHI": 17.25, "basis": "BKR home line -7.5 total 42"}
+Market-implied score: {"JAX": 24.5, "PHI": 16.5, "basis": "BKR home line -8 total 41"}
 
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290820, "away_team": "PHI", "home_team": "JAC", "kickoff_at": "2026-10-11T13:30:00.000Z", "spread": [{"side": "home", "value": -7.5, "price_american": -110, "ticket_pct": 60, "money_pct": 57}, {"side": "away", "value": 7.5, "price_american": -110, "ticket_pct": 40, "money_pct": 43}], "total": [{"side": "over", "value": 41.5, "price_american": -111, "ticket_pct": 40, "money_pct": 37}, {"side": "under", "value": 41.5, "price_american": -108, "ticket_pct": 60, "money_pct": 63}], "moneyline": [{"side": "home", "value": 0, "price_american": -387, "ticket_pct": 70, "money_pct": 67}, {"side": "away", "value": 0, "price_american": 300, "ticket_pct": 30, "money_pct": 33}]}
 
@@ -22,22 +22,31 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY PHI (ESPN 2026-10-11T04:21:24Z): Out: Drew Kendall C, Marcus Epps S, Hollywood Brown WR, DeVonta Smith WR, Saquon Barkley RB | Questionable/Doubtful: Jonathan Greenard LB | IR: Tank Bigsby RB
-- AVAILABILITY JAX (ESPN 2026-10-11T04:21:24Z): Out: none | Questionable/Doubtful: Eric Murray S | IR: Caleb Ransaw S
+- AVAILABILITY PHI (ESPN 2026-10-11T06:35:38Z): Out: Drew Kendall C, Marcus Epps S, Hollywood Brown WR, DeVonta Smith WR, Saquon Barkley RB | Questionable/Doubtful: Chance Campbell LB, Jonathan Greenard LB | IR: Tank Bigsby RB
+- AVAILABILITY PHI ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Andre' Sam S, Eli Stowers TE, Grant Calcaterra TE, Jakorian Bennett CB, Johnny Wilson WR, Landon Dickerson G, Tariq Castro-Fields CB, Tucker Large S
+- AVAILABILITY JAX (ESPN 2026-10-11T06:35:38Z): Out: none | Questionable/Doubtful: Eric Murray S | IR: Caleb Ransaw S
+- AVAILABILITY JAX ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): B.J. Green II DE, Devon Marshall CB, Garrett DiGiorgio OT, Jared Bartlett LB, Parker Hughes LB, Patrick Mekari G, Sam Mustipher C, Zach Durfee DE
 
 ## Quarterbacks
 
-- PHI: RESOLVED STARTER Jalen Hurts (from ESPN depth chart + injury report). ESPN depth ['Jalen Hurts', 'Tanner McKee', 'Cole Payton'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jalen Hurts", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tanner McKee", "role": "likely_starter_or_primary", "starter_confidence": 0.78, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-04T12:55:00.000Z", "evidence": "McKee is expected to be active for Sunday's game against the Rams as the top backup to starter Jalen Hurts, while Andy Dalton serves as the Eagles' No. 3 quarterback, Mike Garafolo of NFL Network reports."}}]
-- JAX: RESOLVED STARTER Trevor Lawrence (from ESPN depth chart + injury report). ESPN depth ['Trevor Lawrence', 'Quinn Ewers'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- PHI: RESOLVED STARTER Jalen Hurts (from ESPN depth chart + injury report). ESPN depth ['Jalen Hurts', 'Tanner McKee', 'Cole Payton'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jalen Hurts", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tanner McKee", "role": "likely_starter_or_primary", "starter_confidence": 0.78, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-04T12:55:00.000Z", "evidence": "McKee is expected to be active for Sunday's game against the Rams as the top backup to starter Jalen Hurts, while Andy Dalton serves as the Eagles' No. 3 quarterback, Mike Garafolo of NFL Network reports."}}]
+- JAX: RESOLVED STARTER Trevor Lawrence (from ESPN depth chart + injury report). ESPN depth ['Trevor Lawrence', 'Quinn Ewers'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
-- PHI: Drew Kendall C Out (2026-10-10); Marcus Epps S Out (2026-10-10); Jonathan Greenard LB Questionable (2026-10-10); Hollywood Brown WR Out (2026-10-10); DeVonta Smith WR Out (2026-10-09); Saquon Barkley RB Out (2026-10-09); Tank Bigsby RB Injured Reserve (2026-10-06)
+- PHI: Chance Campbell LB Questionable (2026-10-11); Drew Kendall C Out (2026-10-10); Marcus Epps S Out (2026-10-10); Jonathan Greenard LB Questionable (2026-10-10); Hollywood Brown WR Out (2026-10-10); DeVonta Smith WR Out (2026-10-09); Saquon Barkley RB Out (2026-10-09); Tank Bigsby RB Injured Reserve (2026-10-06)
 - JAX: Eric Murray S Doubtful (2026-10-10); Caleb Ransaw S Injured Reserve (2026-10-07)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- PHI: Andre' Sam S; Eli Stowers TE; Grant Calcaterra TE; Jakorian Bennett CB; Johnny Wilson WR; Landon Dickerson G; Tariq Castro-Fields CB; Tucker Large S
+- JAX: B.J. Green II DE; Devon Marshall CB; Garrett DiGiorgio OT; Jared Bartlett LB; Parker Hughes LB; Patrick Mekari G; Sam Mustipher C; Zach Durfee DE
 
 ## Team state: schedule, results and standings
 
@@ -101,13 +110,13 @@ Features: {"offense_z": {"JAX": 0.9315545209082298, "PHI": -1.0544818750095368},
 
 | home_margin_edge_pts | home_cover | away_cover | side_push | over | under | total_push |
 |---|---|---|---|---|---|---|
-| -3 | 0.4172 | 0.5828 | 0 | 0.4848 | 0.4848 | 0.0304 |
-| -2 | 0.4444 | 0.5556 | 0 | 0.4848 | 0.4848 | 0.0304 |
-| -1 | 0.4721 | 0.5279 | 0 | 0.4848 | 0.4848 | 0.0304 |
-| 0 | 0.5 | 0.5 | 0 | 0.4848 | 0.4848 | 0.0304 |
-| 1 | 0.5281 | 0.4719 | 0 | 0.4848 | 0.4848 | 0.0304 |
-| 2 | 0.5562 | 0.4438 | 0 | 0.4848 | 0.4848 | 0.0304 |
-| 3 | 0.5843 | 0.4157 | 0 | 0.4848 | 0.4848 | 0.0304 |
+| -3 | 0.4044 | 0.5708 | 0.0249 | 0.4848 | 0.4848 | 0.0304 |
+| -2 | 0.4316 | 0.5434 | 0.025 | 0.4848 | 0.4848 | 0.0304 |
+| -1 | 0.4594 | 0.5156 | 0.025 | 0.4848 | 0.4848 | 0.0304 |
+| 0 | 0.4876 | 0.4876 | 0.0249 | 0.4848 | 0.4848 | 0.0304 |
+| 1 | 0.5159 | 0.4594 | 0.0246 | 0.4848 | 0.4848 | 0.0304 |
+| 2 | 0.5444 | 0.4313 | 0.0243 | 0.4848 | 0.4848 | 0.0304 |
+| 3 | 0.5728 | 0.4034 | 0.0238 | 0.4848 | 0.4848 | 0.0304 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
 
@@ -115,13 +124,13 @@ Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (
 
 | total_edge_pts | over | under | total_push |
 |---|---|---|---|
-| -3 | 0.3951 | 0.5753 | 0.0296 |
-| -2 | 0.4246 | 0.5453 | 0.0301 |
+| -3 | 0.3952 | 0.5752 | 0.0296 |
+| -2 | 0.4247 | 0.5453 | 0.0301 |
 | -1 | 0.4546 | 0.5151 | 0.0303 |
 | 0 | 0.4848 | 0.4848 | 0.0304 |
 | 1 | 0.5151 | 0.4546 | 0.0303 |
-| 2 | 0.5454 | 0.4246 | 0.03 |
-| 3 | 0.5754 | 0.395 | 0.0296 |
+| 2 | 0.5453 | 0.4246 | 0.03 |
+| 3 | 0.5753 | 0.3951 | 0.0296 |
 
 ## Power ratings
 

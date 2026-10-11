@@ -1,18 +1,18 @@
 # MIN@NO packet — Minnesota Vikings @ New Orleans Saints
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
 - spread: Minnesota Vikings -2.5 -103; New Orleans Saints 2.5 -113
-- total: Over 41.5 -103; Under 41.5 -113
-- moneyline: Minnesota Vikings  -131; New Orleans Saints  115
+- total: Over 41.5 -108; Under 41.5 -107
+- moneyline: Minnesota Vikings  -132; New Orleans Saints  116
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T11:00:00+00:00; fresh at build: True
 - spread: Minnesota Vikings -1 -125; New Orleans Saints 1 105
 - total: Over 42 100; Under 42 -120
-- moneyline: Minnesota Vikings  -135; New Orleans Saints  115
+- moneyline: Minnesota Vikings  -137; New Orleans Saints  117
 
 **BOOK CONFLICT:** BKR home line 2.5 vs BEO 1 (>=1.0 pt apart); recapture before relying on either
 
@@ -24,8 +24,10 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY MIN (ESPN 2026-10-11T04:21:24Z): Out: Charles Demmings CB, Christian Darrisaw OT | Questionable/Doubtful: Michael Jurgens C, Ben Yurosek TE, Brian O'Neill OT, Jordan Addison WR, Justin Jefferson WR | IR: Donovan Jackson G, Josh Oliver TE
-- AVAILABILITY NO (ESPN 2026-10-11T04:21:24Z): Out: Jeremiah Wright G, Anfernee Jennings LB, Kaden Elliss LB | Questionable/Doubtful: Lorenzo Styles Jr. S, Jaylan Ford LB, Nathan Shepherd DT, Vernon Broughton DT, Christen Miller DT, Julian Blackmon S, Barion Brown WR, Alvin Kamara RB | IR: none
+- AVAILABILITY MIN (ESPN 2026-10-11T06:35:38Z): Out: Charles Demmings CB, Christian Darrisaw OT | Questionable/Doubtful: Michael Jurgens C, Ben Yurosek TE, Brian O'Neill OT, Jordan Addison WR, Justin Jefferson WR | IR: Donovan Jackson G, Josh Oliver TE
+- AVAILABILITY MIN ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Dwight McGlothern Jr. CB, Jamal Adams LB, Jordan Mason RB, Nick Samac C, Tyler Batty LB
+- AVAILABILITY NO (ESPN 2026-10-11T06:35:38Z): Out: Jeremiah Wright G, Anfernee Jennings LB, Kaden Elliss LB | Questionable/Doubtful: Lorenzo Styles Jr. S, Jaylan Ford LB, Nathan Shepherd DT, Vernon Broughton DT, Christen Miller DT, Julian Blackmon S, Barion Brown WR, Alvin Kamara RB | IR: none
+- AVAILABILITY NO ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Bryan Bresee DT, David Long Jr. CB, Dillon Radunz G, Jordyn Tyson WR, Kelvin Banks Jr. OT, Mason Tipton WR, Moliki Matavao TE, Nick Saldiveri OT, Rejzohn Wright CB, Travis Etienne Jr. RB, Ty Chandler RB, Zach Wood LS
 - BOOK CONFLICT: BKR home line 2.5 vs BEO 1 (>=1.0 pt apart); recapture before relying on either
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
@@ -33,17 +35,24 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- MIN: RESOLVED STARTER Kyler Murray (from ESPN depth chart + injury report). ESPN depth ['Kyler Murray', 'Carson Wentz', 'Max Brosmer'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
-- NO: RESOLVED STARTER Tyler Shough (from ESPN depth chart + injury report). ESPN depth ['Tyler Shough', 'Spencer Rattler', 'Zach Wilson'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Tyler Shough", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- MIN: RESOLVED STARTER Kyler Murray (from ESPN depth chart + injury report). ESPN depth ['Kyler Murray', 'Carson Wentz', 'Max Brosmer'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- NO: RESOLVED STARTER Tyler Shough (from ESPN depth chart + injury report). ESPN depth ['Tyler Shough', 'Spencer Rattler', 'Zach Wilson'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Tyler Shough", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
 - MIN: Michael Jurgens C Questionable (2026-10-11); Ben Yurosek TE Questionable (2026-10-11); Charles Demmings CB Out (2026-10-10); Brian O'Neill OT Questionable (2026-10-10); Christian Darrisaw OT Out (2026-10-10); Jordan Addison WR Questionable (2026-10-09); Justin Jefferson WR Questionable (2026-10-09); Donovan Jackson G Injured Reserve (2026-10-07); Josh Oliver TE Injured Reserve (2026-09-30)
 - NO: Lorenzo Styles Jr. S Questionable (2026-10-11); Jaylan Ford LB Questionable (2026-10-11); Nathan Shepherd DT Questionable (2026-10-11); Vernon Broughton DT Questionable (2026-10-10); Christen Miller DT Questionable (2026-10-10); Jeremiah Wright G Out (2026-10-10); Anfernee Jennings LB Out (2026-10-10); Julian Blackmon S Questionable (2026-10-09); Kaden Elliss LB Out (2026-10-09); Barion Brown WR Questionable (2026-10-09); Alvin Kamara RB Questionable (2026-10-09)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- MIN: Dwight McGlothern Jr. CB; Jamal Adams LB; Jordan Mason RB; Nick Samac C; Tyler Batty LB
+- NO: Bryan Bresee DT; David Long Jr. CB; Dillon Radunz G; Jordyn Tyson WR; Kelvin Banks Jr. OT; Mason Tipton WR; Moliki Matavao TE; Nick Saldiveri OT; Rejzohn Wright CB; Travis Etienne Jr. RB; Ty Chandler RB; Zach Wood LS
 
 ## Team state: schedule, results and standings
 

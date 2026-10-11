@@ -1,17 +1,17 @@
 # DEN@LAC packet — Denver Broncos @ Los Angeles Chargers
 
-Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (AFC West).
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T12:21:29.799000+00:00; fresh at build: True
 - spread: Denver Broncos -3.5 -113; Los Angeles Chargers 3.5 -103
-- total: Over 42 -114; Under 42 -102
-- moneyline: Denver Broncos  -194; Los Angeles Chargers  170
+- total: Over 42 -108; Under 42 -108
+- moneyline: Denver Broncos  -195; Los Angeles Chargers  171
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T12:24:03.238000+00:00; fresh at build: True
 - spread: Denver Broncos -3.5 -112; Los Angeles Chargers 3.5 -108
 - total: Over 42 -110; Under 42 -110
 - moneyline: Denver Broncos  -188; Los Angeles Chargers  164
@@ -24,24 +24,33 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY DEN (ESPN 2026-10-11T04:21:24Z): Out: Riley Moss CB, Pat Surtain II CB | Questionable/Doubtful: none | IR: Pat Bryant WR, Jonah Coleman RB
-- AVAILABILITY LAC (ESPN 2026-10-11T04:21:24Z): Out: Kayode Awosika G, Joe Alt OT, Brenen Thompson WR, Derwin James Jr. S, Donte Jackson CB, Quentin Johnston WR | Questionable/Doubtful: Branson Taylor G, Scott Matlock FB, Charlie Kolar TE, Rodney Shelley CB, Ladd McConkey WR | IR: Trevor Penning G, Trey Lance QB, Rashawn Slater OT
+- AVAILABILITY DEN (ESPN 2026-10-11T06:35:38Z): Out: Riley Moss CB, Pat Surtain II CB | Questionable/Doubtful: none | IR: Pat Bryant WR, Jonah Coleman RB
+- AVAILABILITY DEN ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Caleb Lohner TE, Frank Crum OT, Levelle Bailey LB, Matt Henningsen DE, Michael Deiter C, Nick Gargiulo G
+- AVAILABILITY LAC (ESPN 2026-10-11T06:35:38Z): Out: Kayode Awosika G, Joe Alt OT, Brenen Thompson WR, Derwin James Jr. S, Donte Jackson CB, Quentin Johnston WR | Questionable/Doubtful: Branson Taylor G, Scott Matlock FB, Charlie Kolar TE, Rodney Shelley CB, Ladd McConkey WR | IR: Trevor Penning G, Trey Lance QB, Rashawn Slater OT
+- AVAILABILITY LAC ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): David Njoku TE, Denzel Perryman LB, Isaiah World OT, KeAndre Lambert-Smith WR, Trey Pipkins III OT
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
 
-- DEN: RESOLVED STARTER Bo Nix (from ESPN depth chart + injury report). ESPN depth ['Bo Nix', 'Jarrett Stidham', 'Sam Ehlinger'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Bo Nix", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for DEN (usage score 28.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- LAC: RESOLVED STARTER Justin Herbert (from ESPN depth chart + injury report). ESPN depth ['Justin Herbert', 'DJ Uiagalelei', 'Trey Lance'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Justin Herbert", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LAC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- DEN: RESOLVED STARTER Bo Nix (from ESPN depth chart + injury report). ESPN depth ['Bo Nix', 'Jarrett Stidham', 'Sam Ehlinger'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Bo Nix", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for DEN (usage score 28.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- LAC: RESOLVED STARTER Justin Herbert (from ESPN depth chart + injury report). ESPN depth ['Justin Herbert', 'DJ Uiagalelei', 'Trey Lance'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Justin Herbert", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LAC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
 - DEN: Riley Moss CB Out (2026-10-10); Pat Surtain II CB Out (2026-10-10); Pat Bryant WR Injured Reserve (2026-10-09); Jonah Coleman RB Injured Reserve (2026-09-26)
 - LAC: Trevor Penning G Injured Reserve (2026-10-11); Branson Taylor G Questionable (2026-10-11); Scott Matlock FB Questionable (2026-10-11); Trey Lance QB Injured Reserve (2026-10-11); Charlie Kolar TE Questionable (2026-10-10); Rashawn Slater OT Injured Reserve (2026-10-10); Kayode Awosika G Out (2026-10-10); Joe Alt OT Out (2026-10-10); Brenen Thompson WR Out (2026-10-10); Derwin James Jr. S Out (2026-10-10); Donte Jackson CB Out (2026-10-10); Rodney Shelley CB Questionable (2026-10-09); Quentin Johnston WR Out (2026-10-09); Ladd McConkey WR Questionable (2026-10-09)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- DEN: Caleb Lohner TE; Frank Crum OT; Levelle Bailey LB; Matt Henningsen DE; Michael Deiter C; Nick Gargiulo G
+- LAC: David Njoku TE; Denzel Perryman LB; Isaiah World OT; KeAndre Lambert-Smith WR; Trey Pipkins III OT
 
 ## Team state: schedule, results and standings
 

@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "PHI@JAX",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T13:30:00.000Z",
  "away": {
   "abbr": "PHI",
@@ -505,20 +505,20 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T09:21:29.799000+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
      {
       "side": "Philadelphia Eagles",
-      "line": 7.5,
+      "line": 8,
       "odds": -103,
       "available": true
      },
      {
       "side": "Jacksonville Jaguars",
-      "line": -7.5,
+      "line": -8,
       "odds": -113,
       "available": true
      }
@@ -526,61 +526,13 @@
     "total": [
      {
       "side": "Over",
-      "line": 42,
-      "odds": -102,
+      "line": 41,
+      "odds": -108,
       "available": true
      },
      {
       "side": "Under",
-      "line": 42,
-      "odds": -114,
-      "available": true
-     }
-    ],
-    "moneyline": [
-     {
-      "side": "Philadelphia Eagles",
-      "odds": 293,
-      "available": true
-     },
-     {
-      "side": "Jacksonville Jaguars",
-      "odds": -350,
-      "available": true
-     }
-    ]
-   }
-  },
-  "BEO": {
-   "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T07:30:00+00:00",
-   "fresh_at_build": true,
-   "lines": {
-    "spread": [
-     {
-      "side": "Philadelphia Eagles",
-      "line": 7.5,
-      "odds": -105,
-      "available": true
-     },
-     {
-      "side": "Jacksonville Jaguars",
-      "line": -7.5,
-      "odds": -115,
-      "available": true
-     }
-    ],
-    "total": [
-     {
-      "side": "Over",
-      "line": 41.5,
-      "odds": -112,
-      "available": true
-     },
-     {
-      "side": "Under",
-      "line": 41.5,
+      "line": 41,
       "odds": -108,
       "available": true
      }
@@ -588,12 +540,60 @@
     "moneyline": [
      {
       "side": "Philadelphia Eagles",
-      "odds": 299,
+      "odds": 323,
       "available": true
      },
      {
       "side": "Jacksonville Jaguars",
-      "odds": -375,
+      "odds": -389,
+      "available": true
+     }
+    ]
+   }
+  },
+  "BEO": {
+   "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T09:24:03.238000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Philadelphia Eagles",
+      "line": 8,
+      "odds": -110,
+      "available": true
+     },
+     {
+      "side": "Jacksonville Jaguars",
+      "line": -8,
+      "odds": -110,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 41.5,
+      "odds": -110,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 41.5,
+      "odds": -110,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Philadelphia Eagles",
+      "odds": 310,
+      "available": true
+     },
+     {
+      "side": "Jacksonville Jaguars",
+      "odds": -390,
       "available": true
      }
     ]
@@ -601,9 +601,9 @@
   },
   "book_conflict": null,
   "market_implied_score": {
-   "JAX": 24.75,
-   "PHI": 17.25,
-   "basis": "BKR home line -7.5 total 42"
+   "JAX": 24.5,
+   "PHI": 16.5,
+   "basis": "BKR home line -8 total 41"
   }
  },
  "action_network_opener": null,
@@ -735,63 +735,63 @@
  "simulator_edge_sweep": [
   {
    "home_margin_edge_pts": -3,
-   "home_cover": 0.4172,
-   "away_cover": 0.5828,
-   "side_push": 0,
+   "home_cover": 0.4044,
+   "away_cover": 0.5708,
+   "side_push": 0.0249,
    "over": 0.4848,
    "under": 0.4848,
    "total_push": 0.0304
   },
   {
    "home_margin_edge_pts": -2,
-   "home_cover": 0.4444,
-   "away_cover": 0.5556,
-   "side_push": 0,
+   "home_cover": 0.4316,
+   "away_cover": 0.5434,
+   "side_push": 0.025,
    "over": 0.4848,
    "under": 0.4848,
    "total_push": 0.0304
   },
   {
    "home_margin_edge_pts": -1,
-   "home_cover": 0.4721,
-   "away_cover": 0.5279,
-   "side_push": 0,
+   "home_cover": 0.4594,
+   "away_cover": 0.5156,
+   "side_push": 0.025,
    "over": 0.4848,
    "under": 0.4848,
    "total_push": 0.0304
   },
   {
    "home_margin_edge_pts": 0,
-   "home_cover": 0.5,
-   "away_cover": 0.5,
-   "side_push": 0,
+   "home_cover": 0.4876,
+   "away_cover": 0.4876,
+   "side_push": 0.0249,
    "over": 0.4848,
    "under": 0.4848,
    "total_push": 0.0304
   },
   {
    "home_margin_edge_pts": 1,
-   "home_cover": 0.5281,
-   "away_cover": 0.4719,
-   "side_push": 0,
+   "home_cover": 0.5159,
+   "away_cover": 0.4594,
+   "side_push": 0.0246,
    "over": 0.4848,
    "under": 0.4848,
    "total_push": 0.0304
   },
   {
    "home_margin_edge_pts": 2,
-   "home_cover": 0.5562,
-   "away_cover": 0.4438,
-   "side_push": 0,
+   "home_cover": 0.5444,
+   "away_cover": 0.4313,
+   "side_push": 0.0243,
    "over": 0.4848,
    "under": 0.4848,
    "total_push": 0.0304
   },
   {
    "home_margin_edge_pts": 3,
-   "home_cover": 0.5843,
-   "away_cover": 0.4157,
-   "side_push": 0,
+   "home_cover": 0.5728,
+   "away_cover": 0.4034,
+   "side_push": 0.0238,
    "over": 0.4848,
    "under": 0.4848,
    "total_push": 0.0304
@@ -800,65 +800,65 @@
  "simulator_total_sweep": [
   {
    "total_edge_pts": -3,
-   "home_cover": 0.5,
-   "away_cover": 0.5,
-   "side_push": 0,
-   "over": 0.3951,
-   "under": 0.5753,
+   "home_cover": 0.4876,
+   "away_cover": 0.4876,
+   "side_push": 0.0249,
+   "over": 0.3952,
+   "under": 0.5752,
    "total_push": 0.0296
   },
   {
    "total_edge_pts": -2,
-   "home_cover": 0.5,
-   "away_cover": 0.5,
-   "side_push": 0,
-   "over": 0.4246,
+   "home_cover": 0.4876,
+   "away_cover": 0.4876,
+   "side_push": 0.0249,
+   "over": 0.4247,
    "under": 0.5453,
    "total_push": 0.0301
   },
   {
    "total_edge_pts": -1,
-   "home_cover": 0.5,
-   "away_cover": 0.5,
-   "side_push": 0,
+   "home_cover": 0.4876,
+   "away_cover": 0.4876,
+   "side_push": 0.0249,
    "over": 0.4546,
    "under": 0.5151,
    "total_push": 0.0303
   },
   {
    "total_edge_pts": 0,
-   "home_cover": 0.5,
-   "away_cover": 0.5,
-   "side_push": 0,
+   "home_cover": 0.4876,
+   "away_cover": 0.4876,
+   "side_push": 0.0249,
    "over": 0.4848,
    "under": 0.4848,
    "total_push": 0.0304
   },
   {
    "total_edge_pts": 1,
-   "home_cover": 0.5,
-   "away_cover": 0.5,
-   "side_push": 0,
+   "home_cover": 0.4876,
+   "away_cover": 0.4876,
+   "side_push": 0.0249,
    "over": 0.5151,
    "under": 0.4546,
    "total_push": 0.0303
   },
   {
    "total_edge_pts": 2,
-   "home_cover": 0.5,
-   "away_cover": 0.5,
-   "side_push": 0,
-   "over": 0.5454,
+   "home_cover": 0.4876,
+   "away_cover": 0.4876,
+   "side_push": 0.0249,
+   "over": 0.5453,
    "under": 0.4246,
    "total_push": 0.03
   },
   {
    "total_edge_pts": 3,
-   "home_cover": 0.5,
-   "away_cover": 0.5,
-   "side_push": 0,
-   "over": 0.5754,
-   "under": 0.395,
+   "home_cover": 0.4876,
+   "away_cover": 0.4876,
+   "side_push": 0.0249,
+   "over": 0.5753,
+   "under": 0.3951,
    "total_push": 0.0296
   }
  ],
@@ -874,7 +874,7 @@
    "espn_qb_starter": "Jalen Hurts",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Jalen Hurts",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -911,7 +911,7 @@
    "espn_qb_starter": "Trevor Lawrence",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Trevor Lawrence",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
@@ -920,6 +920,13 @@
  },
  "injury_report_non_active": {
   "PHI": [
+   {
+    "player": "Chance Campbell",
+    "pos": "LB",
+    "status": "Questionable",
+    "date": "2026-10-11",
+    "comment": "questionable"
+   },
    {
     "player": "Drew Kendall",
     "pos": "C",
@@ -987,10 +994,103 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "PHI": [
+   {
+    "player": "Andre' Sam",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Eli Stowers",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Grant Calcaterra",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jakorian Bennett",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Johnny Wilson",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Landon Dickerson",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Tariq Castro-Fields",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Tucker Large",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "JAX": [
+   {
+    "player": "B.J. Green II",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Devon Marshall",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Garrett DiGiorgio",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jared Bartlett",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Parker Hughes",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Patrick Mekari",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Sam Mustipher",
+    "pos": "C",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Zach Durfee",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY PHI (ESPN 2026-10-11T04:21:24Z): Out: Drew Kendall C, Marcus Epps S, Hollywood Brown WR, DeVonta Smith WR, Saquon Barkley RB | Questionable/Doubtful: Jonathan Greenard LB | IR: Tank Bigsby RB",
-  "AVAILABILITY JAX (ESPN 2026-10-11T04:21:24Z): Out: none | Questionable/Doubtful: Eric Murray S | IR: Caleb Ransaw S"
+  "AVAILABILITY PHI (ESPN 2026-10-11T06:35:38Z): Out: Drew Kendall C, Marcus Epps S, Hollywood Brown WR, DeVonta Smith WR, Saquon Barkley RB | Questionable/Doubtful: Chance Campbell LB, Jonathan Greenard LB | IR: Tank Bigsby RB",
+  "AVAILABILITY PHI ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Andre' Sam S, Eli Stowers TE, Grant Calcaterra TE, Jakorian Bennett CB, Johnny Wilson WR, Landon Dickerson G, Tariq Castro-Fields CB, Tucker Large S",
+  "AVAILABILITY JAX (ESPN 2026-10-11T06:35:38Z): Out: none | Questionable/Doubtful: Eric Murray S | IR: Caleb Ransaw S",
+  "AVAILABILITY JAX ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): B.J. Green II DE, Devon Marshall CB, Garrett DiGiorgio OT, Jared Bartlett LB, Parker Hughes LB, Patrick Mekari G, Sam Mustipher C, Zach Durfee DE"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [

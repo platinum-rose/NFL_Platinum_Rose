@@ -1,7 +1,7 @@
 {
  "schema": "espn_status_v1",
- "fetched_at": "2026-10-11T04:21:24Z",
- "espn_injuries_timestamp": "2026-10-11T04:21:16Z",
+ "fetched_at": "2026-10-11T06:35:38Z",
+ "espn_injuries_timestamp": "2026-10-11T06:35:33Z",
  "rule": "Rule: QB1 = first QB on ESPN's depth chart. An injury-report status of Out / Injured Reserve / Suspended moves the starter to the next QB.",
  "teams": {
   "ARI": {
@@ -64,7 +64,69 @@
      "comment": "The Cardinals placed Long (knee) on injured reserve Tuesday."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Chase Bisontis",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "James Conner",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jameson Geers",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Joey Blount",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Josh Minkins",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Kaleb Proctor",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Kitan Crawford",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Tip Reiman",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Trey Benson",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Will Johnson",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Xavier Weaver",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Zachary Carter",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "ATL": {
    "qb_depth": [
@@ -113,7 +175,54 @@
      "comment": "questionable"
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "A.J. Terrell Jr.",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Anterio Thompson",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Beaux Collins",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Cameron Williams",
+     "pos": "OL",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Da'Shawn Hand",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "DeAngelo Malone",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "JD Bertrand",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Storm Norton",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Trey Sermon",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "BAL": {
    "qb_depth": [
@@ -176,7 +285,49 @@
      "comment": "The Ravens placed Smythe (Achilles) on their injured reserve list Wednesday, Ryan Mink of the Ravens' official site reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Adam Randall",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Bilhal Kone",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Danny Pinter",
+     "pos": "C",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Ethan Pocic",
+     "pos": "C",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jahquez Robinson",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jovaughn Gwyn",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Skylar Thompson",
+     "pos": "QB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "T.J. Tampa",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "BUF": {
    "qb_depth": [
@@ -230,7 +381,29 @@
      "comment": "Couch suffered a hamstring injury Sunday versus New England and is doubtful to return."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Dorian Strong",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jordan Hancock",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Tyrell Shavers",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Zane Durant",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "CAR": {
    "qb_depth": [
@@ -306,7 +479,49 @@
      "comment": "Head coach Dave Canales said Wednesday that Jackson (groin) underwent core-muscle surgery and will be sidelined about eight weeks, Joe Person of The Athletic reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Bam Martin-Scott",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Brady Christensen",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Chris Brazzell II",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jaycee Horn",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jonathon Brooks",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Nic Scourton",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Taylor Moton",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Tershawn Wharton",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "CHI": {
    "qb_depth": [
@@ -368,7 +583,59 @@
      "comment": "Monangai (toe) has been ruled out for Sunday's game against the Packers, Patrick Finley of the Chicago Sun-Times reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Braxton Jones",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Brittain Brown",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Coby Bryant",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Dallis Flowers",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Hayden Large",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jonathan Garvin",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Nephi Sewell",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Nikola Kalinic",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Ruben Hyppolite II",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Tony Fields II",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "CIN": {
    "qb_depth": [
@@ -429,7 +696,24 @@
      "comment": "The Bengals placed Davis (hamstring) on injured reserve Tuesday."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Andrei Iosivas",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Brian Parker II",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Ja'Sir Taylor",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "CLE": {
    "qb_depth": [
@@ -492,7 +776,44 @@
      "comment": "Graham (knee/ankle) has been ruled out ahead of Sunday's game against the Jets, Daniel Oyefusi of ESPN.com reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Alex Wright",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Damarri Mathis",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Dylan Sampson",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Edefuan Ulofoshio",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Elijah Chatman",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jeremiah Owusu-Koramoah",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Joe Royer",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "DAL": {
    "qb_depth": [
@@ -588,7 +909,49 @@
      "comment": "The Cowboys placed Thompson (hamstring) on injured reserve Wednesday, Tommy Yarrish of the Cowboys' official site reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "DJ Rogers",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Devin Moore",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Kelvin Gilliam Jr.",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Malik Davis",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Marist Liufau",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Matt Hennessy",
+     "pos": "C",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "P.J. Locke",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Princeton Fant",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "DEN": {
    "qb_depth": [
@@ -629,7 +992,39 @@
      "comment": "Coleman (ankle) is being placed on injured reserve Saturday, Adam Schefter of ESPN reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Caleb Lohner",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Frank Crum",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Levelle Bailey",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Matt Henningsen",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Michael Deiter",
+     "pos": "C",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Nick Gargiulo",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "DET": {
    "qb_depth": [
@@ -683,7 +1078,44 @@
      "comment": "The Lions placed Harper (ankle) on injured reserve Saturday."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Avonte Maddox",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Damone Clark",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Giovanni Manu",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Isiah Pacheco",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Kendrick Law",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Kerby Joseph",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Payton Turner",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "GB": {
    "qb_depth": [
@@ -758,7 +1190,49 @@
      "comment": "Parsons (knee), per head coach Matt LaFleur, will not practice this week, Weston Hodkiewicz of the Packers' official site reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Collin Oliver",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jayden Reed",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Johnathan Baldwin II",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jordon Riley",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Luke Musgrave",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Thomas Yassmin",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Warren Brinson",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Zach Bako-Bewele",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "HOU": {
    "qb_depth": [
@@ -827,7 +1301,74 @@
      "comment": "Smith (hamstring) was placed on injured reserve by the Texans on Tuesday."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Ali Gaye",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "British Brooks",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Dylan Horton",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "E.J. Speed",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Graham Mertz",
+     "pos": "QB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Henry To'oTo'o",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Ja'Marcus Ingram",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jake Hummel",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jayden Higgins",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "K.C. Ossai",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Mario Edwards Jr.",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Sam Hagen",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Solomon Byrd",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "IND": {
    "qb_depth": [
@@ -889,7 +1430,39 @@
      "comment": "Allen (groin) is listed as questionable for Sunday's game against the Steelers."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Alec Pierce",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Cameron Mitchell",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Carson Towt",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "D.J. Montgomery",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Micheal Clemons",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Sean McKeon",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "JAX": {
    "qb_depth": [
@@ -915,7 +1488,49 @@
      "comment": "The Jaguars placed Ransaw (knee) on their injured reserve list Tuesday."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "B.J. Green II",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Devon Marshall",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Garrett DiGiorgio",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jared Bartlett",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Parker Hughes",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Patrick Mekari",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Sam Mustipher",
+     "pos": "C",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Zach Durfee",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "KC": {
    "qb_depth": [
@@ -949,7 +1564,44 @@
      "comment": "Rice (hamstring) is believed to have sustained a \"relatively minor\" injury in Sunday's win over the Raiders and could be ready to play following the Chiefs' Week 5 bye, Ian Rapoport of NFL Network rep"
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Cooper McDonald",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Ethan Downs",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jeff Caldwell",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jimmy Holiday",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "John Michael Gyllenborg",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Matt Waletzko",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Omarr Norman-Lott",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "LV": {
    "qb_depth": [
@@ -990,7 +1642,49 @@
      "comment": "Jeanty (ankle/foot) is questionable for Sunday's game against the Patriots, with Raiders coach Klint Kubiak saying Friday that the running back will \"do his best to go,\" Levi Edwards of the team's off"
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Brennan Jackson",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Carter Runyon",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Chigozie Anusiem",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Chris Collier",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Corey Rucker",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jack Bech",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Justin Pickett",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Keyron Crawford",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "LAC": {
    "qb_depth": [
@@ -1101,7 +1795,34 @@
      "comment": "McConkey (foot) is listed as questionable for Sunday's game against Denver, while teammate Quentin Johnston (chest) has been ruled out."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "David Njoku",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Denzel Perryman",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Isaiah World",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "KeAndre Lambert-Smith",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Trey Pipkins III",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "LAR": {
    "qb_depth": [
@@ -1136,7 +1857,49 @@
      "comment": "Ferguson (ankle) is expected to be ready to return after his four-game stint on injured reserve, Cameron DaSilva of USA Today reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Daniel Rickert",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Eddie Walls III",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Justin Dedich",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Keagen Trost",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Keir Thomas II",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Matthew Caldwell",
+     "pos": "QB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Ronnie Rivers",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Zech McPhearson",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "MIA": {
    "qb_depth": [
@@ -1197,7 +1960,44 @@
      "comment": "Woodard suffered an ankle injury during Sunday's 15-10 loss to the Vikings."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Cole Turner",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Darrell Baker Jr.",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "De'Von Achane",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Kyle Louis",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Rene Konga",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Ronnie Harrison Jr.",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Trey Moore",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "MIN": {
    "qb_depth": [
@@ -1273,7 +2073,34 @@
      "comment": "The Vikings placed Oliver (biceps) on injured reserve Tuesday, Craig Peters of the team's official site reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Dwight McGlothern Jr.",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jamal Adams",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jordan Mason",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Nick Samac",
+     "pos": "C",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Tyler Batty",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "NE": {
    "qb_depth": [
@@ -1384,7 +2211,64 @@
      "comment": "Brown (ankle) was seen in the locker room Wednesday without a noticeable limp, Doug Kyed of the Boston Herald reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Bryce Baringer",
+     "pos": "P",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Dell Pettus",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Greg Van Roten",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Harold Landry III",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jeremiah Webb",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Julian Hill",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Khalil Jacobs",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Marcus Bryant",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Mike Onwenu",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Myles Montgomery",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Quintayvious Hutchins",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "NO": {
    "qb_depth": [
@@ -1474,7 +2358,69 @@
      "comment": "Kamara (back) is questionable for Sunday's game against the Vikings, Katherine Terrell of ESPN.com reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Bryan Bresee",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "David Long Jr.",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Dillon Radunz",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jordyn Tyson",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Kelvin Banks Jr.",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Mason Tipton",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Moliki Matavao",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Nick Saldiveri",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Rejzohn Wright",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Travis Etienne Jr.",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Ty Chandler",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Zach Wood",
+     "pos": "LS",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "NYG": {
    "qb_depth": [
@@ -1509,7 +2455,64 @@
      "comment": "The Giants placed Berrios (foot) on their injured reserve list Wednesday, Dan Salomone of the Giants' official site reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Brian Burns",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Calvin Austin III",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "DJ James",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Gunner Olszewski",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jarrick Bernard-Converse",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jaxson Dart",
+     "pos": "QB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Korie Black",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Paulson Adebo",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Rico Payton",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Roy Robertson-Harris",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Thaddeus Dixon",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "NYJ": {
    "qb_depth": [
@@ -1570,7 +2573,64 @@
      "comment": "McGregor (pectoral) was placed on the Jets' injured reserve list Wednesday, Eric Allen of the team's official site reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Anez Cooper",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Arian Smith",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Caullin Lacy",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Chip Trayanum",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "David Onyemata",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Kingsley Jonathan",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Marcelino McCrary-Ball",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Omar Cooper Jr.",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Tre Brown",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Tyler Baron",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "VJ Payne",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "PHI": {
    "qb_depth": [
@@ -1582,6 +2642,13 @@
    "qb_flag": "ok",
    "qb_note": "",
    "injury_report_non_active": [
+    {
+     "player": "Chance Campbell",
+     "pos": "LB",
+     "status": "Questionable",
+     "date": "2026-10-11",
+     "comment": "questionable"
+    },
     {
      "player": "Drew Kendall",
      "pos": "C",
@@ -1632,7 +2699,49 @@
      "comment": "The Eagles placed Bigsby (abdomen) on injured reserve Tuesday, Zach Berman of The Athletic reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Andre' Sam",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Eli Stowers",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Grant Calcaterra",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jakorian Bennett",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Johnny Wilson",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Landon Dickerson",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Tariq Castro-Fields",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Tucker Large",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "PIT": {
    "qb_depth": [
@@ -1688,7 +2797,44 @@
      "comment": "The Steelers placed Harmon (foot) on injured reserve Monday, Teresa Varley of the team's official site reports."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Cole Burgess",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Daequan Hardy",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Donte Kent",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Gennings Dunker",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jack Driscoll",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Logan Lee",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Max Hurleman",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "SF": {
    "qb_depth": [
@@ -1736,7 +2882,94 @@
      "comment": "San Francisco head coach Kyle Shanahan said Monday that Juszczyk will miss multiple weeks after hyperextending and sustaining a bone bruise to his right knee in Sunday's 24-14 win over the Broncos, Ma"
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Alfred Collins",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Andrew Farmer II",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Austen Pleasants",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Brett Toth",
+     "pos": "C",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "C.J. West",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Christian Kirk",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Darrick Forrest",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "De'Zhaun Stribling",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Demarcus Robinson",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Isaac Guerendo",
+     "pos": "RB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jake Tonges",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Mikail Kamara",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Nate Hobbs",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Nick Martin",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Nick Zakelj",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Ricky Pearsall",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Sam Okuayinonu",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "SEA": {
    "qb_depth": [
@@ -1784,7 +3017,34 @@
      "comment": "Seahawks head coach Mike Macdonald said Monday that Charbonnet (knee) won't be activated from the reserve/PUP list in advance of Sunday's game against the 49ers, Gregg Bell of The Tacoma News Tribune "
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Anthony Bradford",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Bud Clark",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jake Bobo",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Mason Richman",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Robbie Ouzts",
+     "pos": "FB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "TB": {
    "qb_depth": [
@@ -1845,7 +3105,29 @@
      "comment": "inactive"
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "David Sills V",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jalen McMillan",
+     "pos": "WR",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Josh Hayes",
+     "pos": "CB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Mohamed Kamara",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "TEN": {
    "qb_depth": [
@@ -1885,7 +3167,49 @@
      "comment": "Tate (back) is listed as questionable for Sunday's game against the Texans."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Dorian Mausi",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Fernando Carmona",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jackson Slater",
+     "pos": "G",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jaren Kanak",
+     "pos": "TE",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jaylen Harrell",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Kendell Brooks",
+     "pos": "S",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Milo Eifler",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Tanoh Kpassagnon",
+     "pos": "DE",
+     "roster_status": "day-to-day"
+    }
+   ]
   },
   "WAS": {
    "qb_depth": [
@@ -1968,8 +3292,35 @@
      "comment": "The Commanders placed Lane (ankle) on injured reserve Tuesday."
     }
    ],
-   "injury_report_all_count": 25
+   "injury_report_all_count": 25,
+   "roster_ir_out_unconfirmed": [
+    {
+     "player": "Jer'Zhan Newton",
+     "pos": "DT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Jordan Magee",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Laremy Tunsil",
+     "pos": "OT",
+     "roster_status": "day-to-day"
+    },
+    {
+     "player": "Leo Chenal",
+     "pos": "LB",
+     "roster_status": "day-to-day"
+    }
+   ]
   }
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
  },
  "finals": [
   {

@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "DET@ARI",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T20:25:00.000Z",
  "away": {
   "abbr": "DET",
@@ -391,8 +391,8 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T12:21:29.799000+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -439,8 +439,8 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T12:24:03.238000+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -474,12 +474,12 @@
     "moneyline": [
      {
       "side": "Detroit Lions",
-      "odds": -255,
+      "odds": -250,
       "available": true
      },
      {
       "side": "Arizona Cardinals",
-      "odds": 211,
+      "odds": 207,
       "available": true
      }
     ]
@@ -759,7 +759,7 @@
    "espn_qb_starter": "Jared Goff",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Jared Goff",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -787,7 +787,7 @@
    "espn_qb_starter": "Jacoby Brissett",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Jacoby Brissett",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
@@ -891,10 +891,118 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "DET": [
+   {
+    "player": "Avonte Maddox",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Damone Clark",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Giovanni Manu",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Isiah Pacheco",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Kendrick Law",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Kerby Joseph",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Payton Turner",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "ARI": [
+   {
+    "player": "Chase Bisontis",
+    "pos": "G",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "James Conner",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jameson Geers",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Joey Blount",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Josh Minkins",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Kaleb Proctor",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Kitan Crawford",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Tip Reiman",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Trey Benson",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Will Johnson",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Xavier Weaver",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Zachary Carter",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
-  "AVAILABILITY DET (ESPN 2026-10-11T04:21:24Z): Out: Ben Bartch G, Rock Ya-Sin CB, Brian Branch S | Questionable/Doubtful: Tyleik Williams DT | IR: Cade Mays C, Thomas Harper S",
-  "AVAILABILITY ARI (ESPN 2026-10-11T04:21:24Z): Out: Marvin Harrison Jr. WR, Andrew Wingard S | Questionable/Doubtful: Walter Nolen III DT, Karson Sharar LB | IR: Isaiah Adams G, Paris Johnson Jr. OT, Hunter Long TE",
+  "AVAILABILITY DET (ESPN 2026-10-11T06:35:38Z): Out: Ben Bartch G, Rock Ya-Sin CB, Brian Branch S | Questionable/Doubtful: Tyleik Williams DT | IR: Cade Mays C, Thomas Harper S",
+  "AVAILABILITY DET ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Avonte Maddox CB, Damone Clark LB, Giovanni Manu OT, Isiah Pacheco RB, Kendrick Law WR, Kerby Joseph S, Payton Turner DE",
+  "AVAILABILITY ARI (ESPN 2026-10-11T06:35:38Z): Out: Marvin Harrison Jr. WR, Andrew Wingard S | Questionable/Doubtful: Walter Nolen III DT, Karson Sharar LB | IR: Isaiah Adams G, Paris Johnson Jr. OT, Hunter Long TE",
+  "AVAILABILITY ARI ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Chase Bisontis G, James Conner RB, Jameson Geers TE, Joey Blount S, Josh Minkins S, Kaleb Proctor DT, Kitan Crawford S, Tip Reiman TE, Trey Benson RB, Will Johnson CB, Xavier Weaver WR, Zachary Carter DT",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "VENUE: ARI has a retractable roof; check game-day roof status before using weather"
  ],

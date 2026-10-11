@@ -1,15 +1,15 @@
 # BUF@LAR packet — Buffalo Bills @ Los Angeles Rams
 
-Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T06:35:51.302665+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
-**BKR** captured 2026-10-11T01:15:40.538Z; recommendation window ends 2026-10-11T07:15:40.538000+00:00; fresh at build: True
+**BKR** captured 2026-10-11T06:21:29.799Z; recommendation window ends 2026-10-11T12:21:29.799000+00:00; fresh at build: True
 - spread: Buffalo Bills 3.5 -108; Los Angeles Rams -3.5 -106
 - total: Over 54.5 -108; Under 54.5 -108
-- moneyline: Buffalo Bills  156; Los Angeles Rams  -178
+- moneyline: Buffalo Bills  157; Los Angeles Rams  -179
 
-**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T06:24:03.238Z; recommendation window ends 2026-10-11T12:24:03.238000+00:00; fresh at build: True
 - spread: Buffalo Bills 3.5 -115; Los Angeles Rams -3.5 -105
 - total: Over 54.5 -110; Under 54.5 -110
 - moneyline: Buffalo Bills  153; Los Angeles Rams  -175
@@ -22,23 +22,32 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY BUF (ESPN 2026-10-11T04:21:24Z): Out: Ed Oliver DT, Joshua Palmer WR | Questionable/Doubtful: Landon Jackson DE, Dee Alford CB, DJ Moore WR, Te'Cory Couch CB | IR: none
-- AVAILABILITY LAR (ESPN 2026-10-11T04:21:24Z): Out: none | Questionable/Doubtful: Quentin Lake S | IR: Myles Garrett DE, Terrance Ferguson TE
+- AVAILABILITY BUF (ESPN 2026-10-11T06:35:38Z): Out: Ed Oliver DT, Joshua Palmer WR | Questionable/Doubtful: Landon Jackson DE, Dee Alford CB, DJ Moore WR, Te'Cory Couch CB | IR: none
+- AVAILABILITY BUF ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Dorian Strong CB, Jordan Hancock CB, Tyrell Shavers WR, Zane Durant DT
+- AVAILABILITY LAR (ESPN 2026-10-11T06:35:38Z): Out: none | Questionable/Doubtful: Quentin Lake S | IR: Myles Garrett DE, Terrance Ferguson TE
+- AVAILABILITY LAR ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Daniel Rickert DE, Eddie Walls III LB, Justin Dedich G, Keagen Trost OT, Keir Thomas II LB, Matthew Caldwell QB, Ronnie Rivers RB, Zech McPhearson CB
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
 
-- BUF: RESOLVED STARTER Josh Allen (from ESPN depth chart + injury report). ESPN depth ['Josh Allen', 'Kyle Allen'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Josh Allen", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BUF (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- LAR: RESOLVED STARTER Matthew Stafford (from ESPN depth chart + injury report). ESPN depth ['Matthew Stafford', 'Stetson Bennett IV', 'Ty Simpson', 'Matthew Caldwell'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Matthew Stafford", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LA (usage score 25.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- BUF: RESOLVED STARTER Josh Allen (from ESPN depth chart + injury report). ESPN depth ['Josh Allen', 'Kyle Allen'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Josh Allen", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BUF (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- LAR: RESOLVED STARTER Matthew Stafford (from ESPN depth chart + injury report). ESPN depth ['Matthew Stafford', 'Stetson Bennett IV', 'Ty Simpson', 'Matthew Caldwell'], flag ok  [ESPN fetched 2026-10-11T06:35:38Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Matthew Stafford", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LA (usage score 25.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T06:35:38Z)
 
 - BUF: Landon Jackson DE Questionable (2026-10-11); Dee Alford CB Questionable (2026-10-10); Ed Oliver DT Out (2026-10-10); DJ Moore WR Questionable (2026-10-10); Joshua Palmer WR Out (2026-10-10); Te'Cory Couch CB Questionable (2026-10-04)
 - LAR: Quentin Lake S Questionable (2026-10-11); Myles Garrett DE Injured Reserve (2026-10-10); Terrance Ferguson TE Injured Reserve (2026-10-07)
 
-Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+This list is ESPN's injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
+
+## ESPN roster IR/Out group (unconfirmed; roster file 2026-10-11T06:35:36.033564+00:00)
+
+In ESPN's roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.
+
+- BUF: Dorian Strong CB; Jordan Hancock CB; Tyrell Shavers WR; Zane Durant DT
+- LAR: Daniel Rickert DE; Eddie Walls III LB; Justin Dedich G; Keagen Trost OT; Keir Thomas II LB; Matthew Caldwell QB; Ronnie Rivers RB; Zech McPhearson CB
 
 ## Team state: schedule, results and standings
 

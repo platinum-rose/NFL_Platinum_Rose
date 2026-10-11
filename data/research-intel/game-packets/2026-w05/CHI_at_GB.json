@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CHI@GB",
- "built_at": "2026-10-11T04:23:31.627736+00:00",
+ "built_at": "2026-10-11T06:35:51.302665+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CHI",
@@ -357,8 +357,8 @@
  "market": {
   "BKR": {
    "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "captured_at": "2026-10-11T06:21:29.799Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
@@ -378,14 +378,14 @@
     "total": [
      {
       "side": "Over",
-      "line": 46,
-      "odds": -118,
+      "line": 47,
+      "odds": -108,
       "available": true
      },
      {
       "side": "Under",
-      "line": 46,
-      "odds": 101,
+      "line": 47,
+      "odds": -108,
       "available": true
      }
     ],
@@ -405,47 +405,47 @@
   },
   "BEO": {
    "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
-   "captured_at": "2026-10-11T03:15:09.478Z",
-   "expires_for_recommendation_at": "2026-10-11T09:15:09.478000+00:00",
+   "captured_at": "2026-10-11T06:24:03.238Z",
+   "expires_for_recommendation_at": "2026-10-11T11:00:00+00:00",
    "fresh_at_build": true,
    "lines": {
     "spread": [
      {
       "side": "Chicago Bears",
       "line": -1,
-      "odds": -113,
+      "odds": -116,
       "available": true
      },
      {
       "side": "Green Bay Packers",
       "line": 1,
-      "odds": -107,
+      "odds": -104,
       "available": true
      }
     ],
     "total": [
      {
       "side": "Over",
-      "line": 46.5,
-      "odds": -116,
+      "line": 47,
+      "odds": -105,
       "available": true
      },
      {
       "side": "Under",
-      "line": 46.5,
-      "odds": -104,
+      "line": 47,
+      "odds": -115,
       "available": true
      }
     ],
     "moneyline": [
      {
       "side": "Chicago Bears",
-      "odds": -119,
+      "odds": -129,
       "available": true
      },
      {
       "side": "Green Bay Packers",
-      "odds": -101,
+      "odds": 109,
       "available": true
      }
     ]
@@ -453,9 +453,9 @@
   },
   "book_conflict": null,
   "market_implied_score": {
-   "GB": 22.25,
-   "CHI": 23.75,
-   "basis": "BKR home line 1.5 total 46"
+   "GB": 22.75,
+   "CHI": 24.25,
+   "basis": "BKR home line 1.5 total 47"
   }
  },
  "action_network_opener": null,
@@ -700,7 +700,7 @@
    "home_cover": 0.5,
    "away_cover": 0.5,
    "side_push": 0,
-   "over": 0.5454,
+   "over": 0.5455,
    "under": 0.4245,
    "total_push": 0.03
   },
@@ -726,7 +726,7 @@
    "espn_qb_starter": "Caleb Williams",
    "espn_qb_flag": "AMBIGUOUS",
    "espn_qb_note": "Caleb Williams Questionable;",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Tyson Bagent",
    "resolved_from": "operator",
    "projected_starter_qb_rows": [
@@ -773,7 +773,7 @@
    "espn_qb_starter": "Jordan Love",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T04:21:24Z",
+   "espn_fetched_at": "2026-10-11T06:35:38Z",
    "resolved_starter": "Jordan Love",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -909,11 +909,114 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T04:21:24Z",
+ "roster_ir_out_unconfirmed": {
+  "CHI": [
+   {
+    "player": "Braxton Jones",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Brittain Brown",
+    "pos": "RB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Coby Bryant",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Dallis Flowers",
+    "pos": "CB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Hayden Large",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jonathan Garvin",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Nephi Sewell",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Nikola Kalinic",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Ruben Hyppolite II",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Tony Fields II",
+    "pos": "LB",
+    "roster_status": "day-to-day"
+   }
+  ],
+  "GB": [
+   {
+    "player": "Collin Oliver",
+    "pos": "DE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jayden Reed",
+    "pos": "WR",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Johnathan Baldwin II",
+    "pos": "S",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Jordon Riley",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Luke Musgrave",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Thomas Yassmin",
+    "pos": "TE",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Warren Brinson",
+    "pos": "DT",
+    "roster_status": "day-to-day"
+   },
+   {
+    "player": "Zach Bako-Bewele",
+    "pos": "OT",
+    "roster_status": "day-to-day"
+   }
+  ]
+ },
+ "roster_ir_out_source": {
+  "file": "data/nfl-rosters/espn-full-rosters-latest.json",
+  "generated_at": "2026-10-11T06:35:36.033564+00:00",
+  "label": "ESPN roster IR/Out group (unconfirmed)"
+ },
+ "espn_status_fetched_at": "2026-10-11T06:35:38Z",
  "game_warnings": [
   "QB CHI: ESPN lists Caleb Williams Questionable; (Questionable/Doubtful); starter is ambiguous -- operator says Tyson Bagent",
-  "AVAILABILITY CHI (ESPN 2026-10-11T04:21:24Z): Out: Shemar Turner DT, Kyler Gordon CB, Keyshaun Elliott LB, Kyle Monangai RB | Questionable/Doubtful: Noah Sewell LB, Caleb Williams QB | IR: Anthony Johnson Jr. S",
-  "AVAILABILITY GB (ESPN 2026-10-11T04:21:24Z): Out: Micah Parsons DE | Questionable/Doubtful: Jacob Monk C, Jager Burton C, Aaron Banks G, Javon Hargrave DT, Anthony Campbell DT | IR: Chris Brooks RB, Savion Williams WR, Edgerrin Cooper LB",
+  "AVAILABILITY CHI (ESPN 2026-10-11T06:35:38Z): Out: Shemar Turner DT, Kyler Gordon CB, Keyshaun Elliott LB, Kyle Monangai RB | Questionable/Doubtful: Noah Sewell LB, Caleb Williams QB | IR: Anthony Johnson Jr. S",
+  "AVAILABILITY CHI ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Braxton Jones OT, Brittain Brown RB, Coby Bryant S, Dallis Flowers CB, Hayden Large TE, Jonathan Garvin DE, Nephi Sewell LB, Nikola Kalinic TE, Ruben Hyppolite II LB, Tony Fields II LB",
+  "AVAILABILITY GB (ESPN 2026-10-11T06:35:38Z): Out: Micah Parsons DE | Questionable/Doubtful: Jacob Monk C, Jager Burton C, Aaron Banks G, Javon Hargrave DT, Anthony Campbell DT | IR: Chris Brooks RB, Savion Williams WR, Edgerrin Cooper LB",
+  "AVAILABILITY GB ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): Collin Oliver DE, Jayden Reed WR, Johnathan Baldwin II S, Jordon Riley DT, Luke Musgrave TE, Thomas Yassmin TE, Warren Brinson DT, Zach Bako-Bewele OT",
   "WEATHER: review_required: wind 22.3 km/h, gusts 42.1 km/h",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"
