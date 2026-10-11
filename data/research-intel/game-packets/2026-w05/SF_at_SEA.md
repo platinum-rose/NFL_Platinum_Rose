@@ -1,6 +1,6 @@
 # SF@SEA packet — San Francisco 49ers @ Seattle Seahawks
 
-Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC West).
 
@@ -23,6 +23,17 @@ Action Network opener: {"an_game_id": 290912, "kickoff_utc": "2026-10-11T20:25:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290912, "away_team": "SF", "home_team": "SEA", "kickoff_at": "2026-10-11T20:25:00.000Z", "spread": [{"side": "away", "value": 3, "price_american": -104, "ticket_pct": 82, "money_pct": 88}, {"side": "home", "value": -3, "price_american": -118, "ticket_pct": 18, "money_pct": 12}], "total": [{"side": "under", "value": 46.5, "price_american": -113, "ticket_pct": 29, "money_pct": 27}, {"side": "over", "value": 46.5, "price_american": -105, "ticket_pct": 71, "money_pct": 73}], "moneyline": [{"side": "away", "value": 0, "price_american": 137, "ticket_pct": 54, "money_pct": 42}, {"side": "home", "value": 0, "price_american": -166, "ticket_pct": 46, "money_pct": 58}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "SF", "home_team": "SEA", "favorite": "SEA", "underdog": "SF", "favorite_spread": -3, "kickoff_display": "Sun 4:25 pm"}
+
+## Warnings that touch this game
+
+- 2 near-miss source row(s) (verbatim but not self-identifying): context only
+
+## Quarterbacks
+
+- SF: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Brock Purdy", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for SF (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- SEA: operator-confirmed starter None (at None); projected-starter QB rows: []
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -85,6 +96,18 @@ Features: {"offense_z": {"SEA": 0.3079054432025402, "SF": 1.9709696504177077}, "
 | 3 | 0.5385 | 0.381 | 0.0805 | 0.5 | 0.5 | 0 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.4097 | 0.5903 | 0 |
+| -2 | 0.4395 | 0.5605 | 0 |
+| -1 | 0.4697 | 0.5303 | 0 |
+| 0 | 0.5 | 0.5 | 0 |
+| 1 | 0.5303 | 0.4697 | 0 |
+| 2 | 0.5605 | 0.4395 | 0 |
+| 3 | 0.5903 | 0.4097 | 0 |
 
 ## Power ratings
 

@@ -1,6 +1,6 @@
 # CLE@NYJ packet — Cleveland Browns @ New York Jets
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -23,6 +23,18 @@ Action Network opener: {"an_game_id": 290908, "kickoff_utc": "2026-10-11T17:00:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290908, "away_team": "CLE", "home_team": "NYJ", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "away", "value": 2.5, "price_american": -109, "ticket_pct": 84, "money_pct": 74}, {"side": "home", "value": -2.5, "price_american": -110, "ticket_pct": 16, "money_pct": 26}], "total": [{"side": "under", "value": 39.5, "price_american": -109, "ticket_pct": 27, "money_pct": 37}, {"side": "over", "value": 39.5, "price_american": -113, "ticket_pct": 73, "money_pct": 63}], "moneyline": [{"side": "home", "value": 0, "price_american": -137, "ticket_pct": 31, "money_pct": 34}, {"side": "away", "value": 0, "price_american": 114, "ticket_pct": 69, "money_pct": 66}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "CLE", "home_team": "NYJ", "favorite": "NYJ", "underdog": "CLE", "favorite_spread": -2.5, "kickoff_display": "Sun 1:00 pm"}
+
+## Warnings that touch this game
+
+- BOOK CONFLICT: BKR home line -2.5 vs BEO -1 (>=1.0 pt apart); recapture before relying on either
+- WEATHER: review_required: precipitation probability 78%, forecast precipitation 1.8 mm, gusts 37.1 km/h
+
+## Quarterbacks
+
+- CLE: operator-confirmed starter None (at None); projected-starter QB rows: []
+- NYJ: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Geno Smith", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYJ (usage score 24.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -93,6 +105,18 @@ Features: {"offense_z": {"NYJ": -0.3860357599446519, "CLE": -0.3444385109682544}
 | 3 | 0.5785 | 0.4215 | 0 | 0.5 | 0.5 | 0 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.41 | 0.59 | 0 |
+| -2 | 0.4397 | 0.5603 | 0 |
+| -1 | 0.4698 | 0.5302 | 0 |
+| 0 | 0.5 | 0.5 | 0 |
+| 1 | 0.5303 | 0.4697 | 0 |
+| 2 | 0.5604 | 0.4396 | 0 |
+| 3 | 0.5901 | 0.4099 | 0 |
 
 ## Power ratings
 

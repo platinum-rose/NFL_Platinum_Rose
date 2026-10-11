@@ -1,6 +1,6 @@
 # PHI@JAX packet — Philadelphia Eagles @ Jacksonville Jaguars
 
-Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -21,6 +21,13 @@ Action Network opener: {"an_game_id": 290820, "kickoff_utc": "2026-10-11T13:30:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290820, "away_team": "PHI", "home_team": "JAC", "kickoff_at": "2026-10-11T13:30:00.000Z", "spread": [{"side": "home", "value": -7.5, "price_american": -110, "ticket_pct": 60, "money_pct": 57}, {"side": "away", "value": 7.5, "price_american": -110, "ticket_pct": 40, "money_pct": 43}], "total": [{"side": "over", "value": 41.5, "price_american": -111, "ticket_pct": 40, "money_pct": 37}, {"side": "under", "value": 41.5, "price_american": -108, "ticket_pct": 60, "money_pct": 63}], "moneyline": [{"side": "home", "value": 0, "price_american": -387, "ticket_pct": 70, "money_pct": 67}, {"side": "away", "value": 0, "price_american": 300, "ticket_pct": 30, "money_pct": 33}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "PHI", "home_team": "JAX", "favorite": "JAX", "underdog": "PHI", "favorite_spread": -7.5, "kickoff_display": "Sun 9:30 am"}
+
+## Quarterbacks
+
+- PHI: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Jalen Hurts", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tanner McKee", "role": "likely_starter_or_primary", "starter_confidence": 0.78, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-04T12:55:00.000Z", "evidence": "McKee is expected to be active for Sunday's game against the Rams as the top backup to starter Jalen Hurts, while Andy Dalton serves as the Eagles' No. 3 quarterback, Mike Garafolo of NFL Network reports."}}]
+- JAX: operator-confirmed starter None (at None); projected-starter QB rows: []
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -93,6 +100,18 @@ Features: {"offense_z": {"JAX": 0.9315545209082298, "PHI": -1.0544818750095368},
 | 3 | 0.5843 | 0.4157 | 0 | 0.4848 | 0.4848 | 0.0304 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.3951 | 0.5753 | 0.0296 |
+| -2 | 0.4246 | 0.5453 | 0.0301 |
+| -1 | 0.4546 | 0.5151 | 0.0303 |
+| 0 | 0.4848 | 0.4848 | 0.0304 |
+| 1 | 0.5151 | 0.4546 | 0.0303 |
+| 2 | 0.5454 | 0.4246 | 0.03 |
+| 3 | 0.5754 | 0.395 | 0.0296 |
 
 ## Power ratings
 

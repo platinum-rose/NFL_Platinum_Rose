@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CLE@NYJ",
- "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "built_at": "2026-10-11T01:40:10.481184+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CLE",
@@ -698,6 +698,100 @@
    "under": 0.5,
    "total_push": 0
   }
+ ],
+ "simulator_total_sweep": [
+  {
+   "total_edge_pts": -3,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.41,
+   "under": 0.59,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": -2,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4397,
+   "under": 0.5603,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": -1,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4698,
+   "under": 0.5302,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 0,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 1,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5303,
+   "under": 0.4697,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 2,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5604,
+   "under": 0.4396,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 3,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5901,
+   "under": 0.4099,
+   "total_push": 0
+  }
+ ],
+ "quarterbacks": {
+  "CLE": {
+   "operator_confirmed_starter": null,
+   "operator_confirmed_at": null,
+   "projected_starter_qb_rows": [],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  },
+  "NYJ": {
+   "operator_confirmed_starter": null,
+   "operator_confirmed_at": null,
+   "projected_starter_qb_rows": [
+    {
+     "player": "Geno Smith",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "week1-usage-locks.json",
+      "published_at": null,
+      "evidence": "Week 1 2026 usage leader at QB for NYJ (usage score 24.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+     }
+    }
+   ],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  }
+ },
+ "game_warnings": [
+  "BOOK CONFLICT: BKR home line -2.5 vs BEO -1 (>=1.0 pt apart); recapture before relying on either",
+  "WEATHER: review_required: precipitation probability 78%, forecast precipitation 1.8 mm, gusts 37.1 km/h"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [

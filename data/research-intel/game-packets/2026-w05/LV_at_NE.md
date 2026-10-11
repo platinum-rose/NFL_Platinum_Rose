@@ -1,6 +1,6 @@
 # LV@NE packet — Las Vegas Raiders @ New England Patriots
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -21,6 +21,17 @@ Action Network opener: {"an_game_id": 290910, "kickoff_utc": "2026-10-11T17:00:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290910, "away_team": "LV", "home_team": "NE", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": -3.5, "price_american": -111, "ticket_pct": 28, "money_pct": 23}, {"side": "away", "value": 3.5, "price_american": -109, "ticket_pct": 72, "money_pct": 77}], "total": [{"side": "over", "value": 45.5, "price_american": -104, "ticket_pct": 74, "money_pct": 81}, {"side": "under", "value": 45.5, "price_american": -113, "ticket_pct": 26, "money_pct": 19}], "moneyline": [{"side": "home", "value": 0, "price_american": -198, "ticket_pct": 64, "money_pct": 35}, {"side": "away", "value": 0, "price_american": 160, "ticket_pct": 36, "money_pct": 65}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "LV", "home_team": "NE", "favorite": "NE", "underdog": "LV", "favorite_spread": -3.5, "kickoff_display": "Sun 1:00 pm"}
+
+## Warnings that touch this game
+
+- 3 near-miss source row(s) (verbatim but not self-identifying): context only
+
+## Quarterbacks
+
+- LV: operator-confirmed starter None (at None); projected-starter QB rows: []
+- NE: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Drake Maye", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NE (usage score 33.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -91,6 +102,18 @@ Features: {"offense_z": {"NE": -0.8571271850768536, "LV": 0.3927514448367801}, "
 | 3 | 0.58 | 0.42 | 0 | 0.4848 | 0.4848 | 0.0304 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.395 | 0.5754 | 0.0296 |
+| -2 | 0.4246 | 0.5454 | 0.03 |
+| -1 | 0.4545 | 0.5152 | 0.0303 |
+| 0 | 0.4848 | 0.4848 | 0.0304 |
+| 1 | 0.5152 | 0.4545 | 0.0303 |
+| 2 | 0.5454 | 0.4245 | 0.03 |
+| 3 | 0.5754 | 0.3949 | 0.0296 |
 
 ## Power ratings
 

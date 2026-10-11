@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "NYG@WAS",
- "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "built_at": "2026-10-11T01:40:10.481184+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "NYG",
@@ -664,6 +664,120 @@
    "under": 0.5,
    "total_push": 0
   }
+ ],
+ "simulator_total_sweep": [
+  {
+   "total_edge_pts": -3,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4099,
+   "under": 0.5901,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": -2,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4396,
+   "under": 0.5604,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": -1,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4697,
+   "under": 0.5303,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 0,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 1,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5303,
+   "under": 0.4697,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 2,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5604,
+   "under": 0.4396,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 3,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5902,
+   "under": 0.4098,
+   "total_push": 0
+  }
+ ],
+ "quarterbacks": {
+  "NYG": {
+   "operator_confirmed_starter": null,
+   "operator_confirmed_at": null,
+   "projected_starter_qb_rows": [
+    {
+     "player": "Jaxson Dart",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "week1-usage-locks.json",
+      "published_at": null,
+      "evidence": "Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+     }
+    },
+    {
+     "player": "Jake Haener",
+     "role": "roster_depth_signal",
+     "starter_confidence": 0.42,
+     "latest_source": {
+      "source": "ESPN injuries API",
+      "published_at": "2026-10-07T21:53:00.000Z",
+      "evidence": "The Giants signed Haener to the 53-man roster off their practice squad Wednesday, Mike Garafolo of NFL Network reports."
+     }
+    }
+   ],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  },
+  "WAS": {
+   "operator_confirmed_starter": "Jayden Daniels",
+   "operator_confirmed_at": "2026-10-11T00:28:00Z",
+   "projected_starter_qb_rows": [
+    {
+     "player": "Jayden Daniels",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "ESPN injuries API",
+      "published_at": "2026-10-09T16:54:00.000Z",
+      "evidence": "Head coach Dan Quinn confirmed Friday that Daniels (elbow) will start Sunday's game against the Giants."
+     }
+    }
+   ],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  }
+ },
+ "game_warnings": [
+  "WEATHER: review_required: precipitation probability 72%"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [

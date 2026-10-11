@@ -1,6 +1,6 @@
 # NYG@WAS packet — New York Giants @ Washington Commanders
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC East).
 
@@ -23,6 +23,17 @@ Action Network opener: {"an_game_id": 290904, "kickoff_utc": "2026-10-11T17:00:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290904, "away_team": "NYG", "home_team": "WAS", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": -4.5, "price_american": -110, "ticket_pct": 26, "money_pct": 25}, {"side": "away", "value": 4.5, "price_american": -112, "ticket_pct": 74, "money_pct": 75}], "total": [{"side": "under", "value": 41.5, "price_american": -109, "ticket_pct": 23, "money_pct": 30}, {"side": "over", "value": 41.5, "price_american": -113, "ticket_pct": 77, "money_pct": 70}], "moneyline": [{"side": "away", "value": 0, "price_american": 162, "ticket_pct": 46, "money_pct": 55}, {"side": "home", "value": 0, "price_american": -200, "ticket_pct": 54, "money_pct": 45}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "NYG", "home_team": "WAS", "favorite": "WAS", "underdog": "NYG", "favorite_spread": -3.5, "kickoff_display": "Sun 1:00 pm"}
+
+## Warnings that touch this game
+
+- WEATHER: review_required: precipitation probability 72%
+
+## Quarterbacks
+
+- NYG: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Jaxson Dart", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Jake Haener", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T21:53:00.000Z", "evidence": "The Giants signed Haener to the 53-man roster off their practice squad Wednesday, Mike Garafolo of NFL Network reports."}}]
+- WAS: operator-confirmed starter Jayden Daniels (at 2026-10-11T00:28:00Z); projected-starter QB rows: [{"player": "Jayden Daniels", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T16:54:00.000Z", "evidence": "Head coach Dan Quinn confirmed Friday that Daniels (elbow) will start Sunday's game against the Giants."}}]
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -85,6 +96,18 @@ Features: {"offense_z": {"WAS": -0.7313032483467585, "NYG": -0.7816741106308326}
 | 3 | 0.58 | 0.42 | 0 | 0.5 | 0.5 | 0 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.4099 | 0.5901 | 0 |
+| -2 | 0.4396 | 0.5604 | 0 |
+| -1 | 0.4697 | 0.5303 | 0 |
+| 0 | 0.5 | 0.5 | 0 |
+| 1 | 0.5303 | 0.4697 | 0 |
+| 2 | 0.5604 | 0.4396 | 0 |
+| 3 | 0.5902 | 0.4098 | 0 |
 
 ## Power ratings
 

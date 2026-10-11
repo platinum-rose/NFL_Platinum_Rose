@@ -28,6 +28,8 @@ P = {
     'ftn': 'data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json',
     'supercontest': 'data/supercontest/week-05-2026-verified-lines.json',
     'sim': 'scripts/intel/margin-simulator.mjs',
+    'starters': 'data/projected-starters/2026/latest.json',
+    'operator': 'data/research-intel/operator-confirmed-starters-2026-w05.json',
 }
 DIV = {
     'AFC East': ['BUF', 'MIA', 'NE', 'NYJ'], 'AFC North': ['BAL', 'CIN', 'CLE', 'PIT'],
@@ -192,17 +194,28 @@ def book_lines(book, away_full, home_full):
     return out
 
 
-def run_sim(home_line, total):
+def run_sim(home_line, total, mode='margin'):
     out = []
     for adj in (-3, -2, -1, 0, 1, 2, 3):
         try:
-            p = subprocess.run(['node', P['sim'], '--home-line', str(home_line), '--total', str(total), '--margin-adj', str(adj)], capture_output=True, text=True, timeout=60)
+            p = subprocess.run(['node', P['sim'], '--home-line', str(home_line), '--total', str(total), '--margin-adj', str(adj if mode == 'margin' else 0), '--total-adj', str(adj if mode == 'total' else 0)], capture_output=True, text=True, timeout=60)
             j = json.loads(p.stdout)
-            out.append({'home_margin_edge_pts': adj, 'home_cover': round(j['home_cover'], 4), 'away_cover': round(j['away_cover'], 4),
+            out.append({('home_margin_edge_pts' if mode == 'margin' else 'total_edge_pts'): adj, 'home_cover': round(j['home_cover'], 4), 'away_cover': round(j['away_cover'], 4),
                         'side_push': round(j['side_push'], 4), 'over': round(j['over'], 4), 'under': round(j['under'], 4), 'total_push': round(j['total_push'], 4)})
         except Exception as e:  # noqa
-            out.append({'home_margin_edge_pts': adj, 'error': str(e)[:120]})
+            out.append({('home_margin_edge_pts' if mode == 'margin' else 'total_edge_pts'): adj, 'error': str(e)[:120]})
     return out
+
+
+def wx_row_guard(weather, key):
+    r = next((x for x in weather['rows'] if x.get('game') == key), None)
+    if r and str(r.get('materiality', '')).startswith('review_required'):
+        return r['materiality']
+    return None
+
+
+def scr_reversed(scr, away, home):
+    return bool(scr) and scr.get('away_team') == home and scr.get('home_team') == away
 
 
 def main():
@@ -225,6 +238,7 @@ def main():
     splits, openers = load('splits'), load('openers')
     weather, sec, power, avail, ftn = load('weather'), load('secondary'), load('power'), load('avail'), load('ftn')
     sc = load('supercontest')
+    starters, operator = load('starters'), load('operator')
     bkr_cap, beo_cap = parse_ts(bkr['capturedAt']), parse_ts(beo['capturedAt'])
     digest = open(P['digest'], encoding='utf-8').read().splitlines()
     vrows = ver['rows']
@@ -289,6 +303,7 @@ def main():
         # quant
         qg = next((q for q in quant['games'] if q['away'] == away and q['home'] == home), None)
         simrows = run_sim(hl_b, tot_b) if (hl_b is not None and tot_b is not None) else []
+        simtot = run_sim(hl_b, tot_b, 'total') if (hl_b is not None and tot_b is not None) else []
         # digest rows
         drows = [l for l in digest if l.startswith(key + ' |')]
         # evidence rows
@@ -319,6 +334,31 @@ def main():
             recs = (ftn['team_context'].get(t) or {}).get('records', [])
             team_level = [r for r in recs if 'Player' not in (r.get('metrics') or {})]
             ft[t] = {'record_count': len(recs), 'team_level_tables': team_level}
+        # quarterbacks: operator-confirmed starter + projected-starter QB rows (stale rows are labelled by their own evidence text)
+        qbs = {}
+        for t in (away, home):
+            rows_q = []
+            for pl in starters.get('players', []):
+                if pl.get('team') == t and pl.get('position') == 'QB':
+                    srcs = pl.get('sources') or []
+                    rows_q.append({'player': pl.get('player_name'), 'role': pl.get('role'), 'starter_confidence': pl.get('starter_confidence'),
+                                   'latest_source': {k: srcs[-1].get(k) for k in ('source', 'published_at', 'evidence')} if srcs else None})
+            qbs[t] = {'operator_confirmed_starter': (operator.get('starters') or {}).get(t), 'operator_confirmed_at': operator.get('confirmed_at') if (operator.get('starters') or {}).get(t) else None,
+                      'projected_starter_qb_rows': rows_q, 'note': 'Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.'}
+        warnings = []
+        if conflict:
+            warnings.append('BOOK CONFLICT: ' + conflict)
+        if wx_row_guard(weather, key):
+            warnings.append('WEATHER: ' + wx_row_guard(weather, key))
+        if scr_reversed(scr, away, home):
+            warnings.append('SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels')
+        nm = sum(1 for e in ev if e['near_miss'])
+        if nm:
+            warnings.append('%d near-miss source row(s) (verbatim but not self-identifying): context only' % nm)
+        if not market['BKR']['fresh_at_build']:
+            warnings.append('BKR capture already stale at build')
+        if not market['BEO']['fresh_at_build']:
+            warnings.append('BEO capture already stale at build')
         packet = {
             'schema': 'w05_game_packet_v1', 'game': key, 'built_at': now.isoformat(), 'kickoff_utc': g['kickoff_utc'],
             'away': {'abbr': away, 'name': g['visitorName']}, 'home': {'abbr': home, 'name': g['homeName']},
@@ -329,7 +369,7 @@ def main():
                           'note': 'Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.'},
             'same_division_game': TEAM_DIV[away] == TEAM_DIV[home],
             'market': market, 'action_network_opener': op, 'action_network_splits': sp, 'action_network_splits_captured_at': splits.get('captured_at'), 'supercontest_row': scr,
-            'quantitative_row': qg, 'simulator_edge_sweep': simrows,
+            'quantitative_row': qg, 'simulator_edge_sweep': simrows, 'simulator_total_sweep': simtot, 'quarterbacks': qbs, 'game_warnings': warnings,
             'simulator_note': 'Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.',
             'digest_rows': drows, 'source_rows': {'counts': dict(counts), 'rows': ev},
             'weather_venue_row': wx, 'secondary_matchups': secm, 'power_ratings': pw, 'availability': av, 'ftn_team_level': ft,
@@ -395,6 +435,12 @@ def render_md(p):
         L += ['Action Network splits (captured %s): ' % p.get('action_network_splits_captured_at') + json.dumps(p['action_network_splits']), '']
     if p['supercontest_row']:
         L += ['SuperContest row (contest line, not a book price; labels may be reversed): ' + json.dumps(p['supercontest_row']), '']
+    if p.get('game_warnings'):
+        L += ['## Warnings that touch this game', ''] + ['- ' + w for w in p['game_warnings']] + ['']
+    L += ['## Quarterbacks', '']
+    for t, q in p['quarterbacks'].items():
+        L.append('- %s: operator-confirmed starter %s (at %s); projected-starter QB rows: %s' % (t, q['operator_confirmed_starter'], q['operator_confirmed_at'], json.dumps(q['projected_starter_qb_rows'])))
+    L += ['', q['note'], '']
     L += ['## Team state: schedule, results and standings', '']
     for t in (A, H):
         b = p['teams'][t]
@@ -413,7 +459,7 @@ def render_md(p):
     if q:
         L += ['## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)', '',
               'Means: %s' % json.dumps(q['means']), 'Simulation: %s' % json.dumps(q['simulation']), 'Features: %s' % json.dumps(q['features']), '']
-    L += ['## Calibrated simulator edge sweep (home-margin edge in points vs BKR line)', ''] + table(p['simulator_edge_sweep'], ['home_margin_edge_pts', 'home_cover', 'away_cover', 'side_push', 'over', 'under', 'total_push']) + ['', p['simulator_note'], '']
+    L += ['## Calibrated simulator edge sweep (home-margin edge in points vs BKR line)', ''] + table(p['simulator_edge_sweep'], ['home_margin_edge_pts', 'home_cover', 'away_cover', 'side_push', 'over', 'under', 'total_push']) + ['', p['simulator_note'], '', '**Total-edge sweep (margin edge 0):**', ''] + table(p['simulator_total_sweep'], ['total_edge_pts', 'over', 'under', 'total_push']) + ['']
     L += ['## Power ratings', '', json.dumps(p['power_ratings']), '', '## Weather / venue', '', json.dumps(p['weather_venue_row']), '']
     L += ['## Availability digest (top events per team)', '', json.dumps(p['availability']), '']
     L += ['## Secondary matchup context (manual; capped, never a dominant driver)', '']

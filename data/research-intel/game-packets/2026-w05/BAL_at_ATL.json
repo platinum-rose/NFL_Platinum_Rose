@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "BAL@ATL",
- "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "built_at": "2026-10-11T01:40:10.481184+00:00",
  "kickoff_utc": "2026-10-12T00:20:00.000Z",
  "away": {
   "abbr": "BAL",
@@ -813,6 +813,107 @@
    "total_push": 0.0304
   }
  ],
+ "simulator_total_sweep": [
+  {
+   "total_edge_pts": -3,
+   "home_cover": 0.4587,
+   "away_cover": 0.4587,
+   "side_push": 0.0827,
+   "over": 0.395,
+   "under": 0.5754,
+   "total_push": 0.0296
+  },
+  {
+   "total_edge_pts": -2,
+   "home_cover": 0.4587,
+   "away_cover": 0.4587,
+   "side_push": 0.0827,
+   "over": 0.4246,
+   "under": 0.5454,
+   "total_push": 0.03
+  },
+  {
+   "total_edge_pts": -1,
+   "home_cover": 0.4587,
+   "away_cover": 0.4587,
+   "side_push": 0.0827,
+   "over": 0.4546,
+   "under": 0.5151,
+   "total_push": 0.0303
+  },
+  {
+   "total_edge_pts": 0,
+   "home_cover": 0.4587,
+   "away_cover": 0.4587,
+   "side_push": 0.0827,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "total_edge_pts": 1,
+   "home_cover": 0.4587,
+   "away_cover": 0.4587,
+   "side_push": 0.0827,
+   "over": 0.5152,
+   "under": 0.4545,
+   "total_push": 0.0303
+  },
+  {
+   "total_edge_pts": 2,
+   "home_cover": 0.4587,
+   "away_cover": 0.4587,
+   "side_push": 0.0827,
+   "over": 0.5454,
+   "under": 0.4245,
+   "total_push": 0.03
+  },
+  {
+   "total_edge_pts": 3,
+   "home_cover": 0.4587,
+   "away_cover": 0.4587,
+   "side_push": 0.0827,
+   "over": 0.5754,
+   "under": 0.395,
+   "total_push": 0.0296
+  }
+ ],
+ "quarterbacks": {
+  "BAL": {
+   "operator_confirmed_starter": "Tyler Huntley",
+   "operator_confirmed_at": "2026-10-11T00:28:00Z",
+   "projected_starter_qb_rows": [
+    {
+     "player": "Lamar Jackson",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "week1-usage-locks.json",
+      "published_at": null,
+      "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+     }
+    },
+    {
+     "player": "Tyler Huntley",
+     "role": "likely_starter_or_primary",
+     "starter_confidence": 0.7,
+     "latest_source": {
+      "source": "ESPN injuries API",
+      "published_at": "2026-10-09T17:40:00.000Z",
+      "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."
+     }
+    }
+   ],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  },
+  "ATL": {
+   "operator_confirmed_starter": null,
+   "operator_confirmed_at": null,
+   "projected_starter_qb_rows": [],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  }
+ },
+ "game_warnings": [],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [
   "BAL@ATL | BAL +3 / ATL -3 | split | V: VSiN; RO: Action Network, Daniel Jeremiah & Bucky Brooks, Steve Fezzik, Ross Tucker; vs ATL: VSiN, Daniel Jeremiah & Bucky Brooks (RO), Sharp or Square (RO), Robert Mays / The Athletic (RO), Brandon Kravitz (RO), Pro Football Talk \u2026 (src +3.5 vs now +3) | skip",

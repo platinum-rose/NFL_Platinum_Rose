@@ -1,6 +1,6 @@
 # BAL@ATL packet — Baltimore Ravens @ Atlanta Falcons
 
-Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -21,6 +21,13 @@ Action Network opener: {"an_game_id": 290915, "kickoff_utc": "2026-10-12T00:20:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290915, "away_team": "BAL", "home_team": "ATL", "kickoff_at": "2026-10-12T00:20:00.000Z", "spread": [{"side": "home", "value": -3.5, "price_american": -101, "ticket_pct": 47, "money_pct": 59}, {"side": "away", "value": 3.5, "price_american": -119, "ticket_pct": 53, "money_pct": 41}], "total": [{"side": "over", "value": 44, "price_american": -110, "ticket_pct": 72, "money_pct": 73}, {"side": "under", "value": 44, "price_american": -109, "ticket_pct": 28, "money_pct": 27}], "moneyline": [{"side": "away", "value": 0, "price_american": 150, "ticket_pct": 49, "money_pct": 39}, {"side": "home", "value": 0, "price_american": -177, "ticket_pct": 51, "money_pct": 61}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "BAL", "home_team": "ATL", "favorite": "ATL", "underdog": "BAL", "favorite_spread": -3.5, "kickoff_display": "Sun 8:20 pm"}
+
+## Quarterbacks
+
+- BAL: operator-confirmed starter Tyler Huntley (at 2026-10-11T00:28:00Z); projected-starter QB rows: [{"player": "Lamar Jackson", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tyler Huntley", "role": "likely_starter_or_primary", "starter_confidence": 0.7, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T17:40:00.000Z", "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."}}]
+- ATL: operator-confirmed starter None (at None); projected-starter QB rows: []
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -93,6 +100,18 @@ Features: {"offense_z": {"ATL": 0.8195619275102368, "BAL": 1.4855307870529544}, 
 | 3 | 0.5385 | 0.381 | 0.0805 | 0.4848 | 0.4848 | 0.0304 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.395 | 0.5754 | 0.0296 |
+| -2 | 0.4246 | 0.5454 | 0.03 |
+| -1 | 0.4546 | 0.5151 | 0.0303 |
+| 0 | 0.4848 | 0.4848 | 0.0304 |
+| 1 | 0.5152 | 0.4545 | 0.0303 |
+| 2 | 0.5454 | 0.4245 | 0.03 |
+| 3 | 0.5754 | 0.395 | 0.0296 |
 
 ## Power ratings
 

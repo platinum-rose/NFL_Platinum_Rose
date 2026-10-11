@@ -1,6 +1,6 @@
 # DET@ARI packet — Detroit Lions @ Arizona Cardinals
 
-Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -21,6 +21,17 @@ Action Network opener: {"an_game_id": 290913, "kickoff_utc": "2026-10-11T20:25:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290913, "away_team": "DET", "home_team": "ARI", "kickoff_at": "2026-10-11T20:25:00.000Z", "spread": [{"side": "away", "value": -5.5, "price_american": -109, "ticket_pct": 54, "money_pct": 56}, {"side": "home", "value": 5.5, "price_american": -110, "ticket_pct": 46, "money_pct": 44}], "total": [{"side": "over", "value": 54.5, "price_american": -108, "ticket_pct": 56, "money_pct": 58}, {"side": "under", "value": 54.5, "price_american": -110, "ticket_pct": 44, "money_pct": 42}], "moneyline": [{"side": "away", "value": 0, "price_american": -250, "ticket_pct": 92, "money_pct": 97}, {"side": "home", "value": 0, "price_american": 202, "ticket_pct": 8, "money_pct": 3}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "ARI", "home_team": "DET", "favorite": "DET", "underdog": "ARI", "favorite_spread": -5.5, "kickoff_display": "Sun 4:25 pm"}
+
+## Warnings that touch this game
+
+- SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
+
+## Quarterbacks
+
+- DET: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Jared Goff", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for DET (usage score 39.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- ARI: operator-confirmed starter None (at None); projected-starter QB rows: []
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -91,6 +102,18 @@ Features: {"offense_z": {"ARI": 0.009189714821167545, "DET": 1.396452807235013},
 | 3 | 0.5803 | 0.4197 | 0 | 0.5 | 0.5 | 0 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.4096 | 0.5904 | 0 |
+| -2 | 0.4395 | 0.5605 | 0 |
+| -1 | 0.4696 | 0.5304 | 0 |
+| 0 | 0.5 | 0.5 | 0 |
+| 1 | 0.5304 | 0.4696 | 0 |
+| 2 | 0.5605 | 0.4395 | 0 |
+| 3 | 0.5904 | 0.4096 | 0 |
 
 ## Power ratings
 

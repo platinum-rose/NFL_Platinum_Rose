@@ -1,6 +1,6 @@
 # IND@PIT packet — Indianapolis Colts @ Pittsburgh Steelers
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -21,6 +21,17 @@ Action Network opener: {"an_game_id": 290909, "kickoff_utc": "2026-10-11T17:00:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290909, "away_team": "IND", "home_team": "PIT", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": -2.5, "price_american": -116, "ticket_pct": 35, "money_pct": 39}, {"side": "away", "value": 2.5, "price_american": -105, "ticket_pct": 65, "money_pct": 61}], "total": [{"side": "under", "value": 43.5, "price_american": -108, "ticket_pct": 27, "money_pct": 36}, {"side": "over", "value": 43.5, "price_american": -117, "ticket_pct": 73, "money_pct": 64}], "moneyline": [{"side": "away", "value": 0, "price_american": 122, "ticket_pct": 41, "money_pct": 51}, {"side": "home", "value": 0, "price_american": -146, "ticket_pct": 59, "money_pct": 49}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "IND", "home_team": "PIT", "favorite": "PIT", "underdog": "IND", "favorite_spread": -2.5, "kickoff_display": "Sun 1:00 pm"}
+
+## Warnings that touch this game
+
+- WEATHER: review_required: forecast wind 25.2 km/h, gusts 58.0 km/h, precipitation probability 54%
+
+## Quarterbacks
+
+- IND: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Daniel Jones", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for IND (usage score 31.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- PIT: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Aaron Rodgers", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PIT (usage score 40.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -91,6 +102,18 @@ Features: {"offense_z": {"PIT": -0.9809899611852317, "IND": 0.24329036166600368}
 | 3 | 0.5385 | 0.381 | 0.0805 | 0.5 | 0.5 | 0 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.4098 | 0.5902 | 0 |
+| -2 | 0.4396 | 0.5604 | 0 |
+| -1 | 0.4697 | 0.5303 | 0 |
+| 0 | 0.5 | 0.5 | 0 |
+| 1 | 0.5303 | 0.4697 | 0 |
+| 2 | 0.5605 | 0.4395 | 0 |
+| 3 | 0.5903 | 0.4097 | 0 |
 
 ## Power ratings
 

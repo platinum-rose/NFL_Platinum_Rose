@@ -1,6 +1,6 @@
 # DEN@LAC packet — Denver Broncos @ Los Angeles Chargers
 
-Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (AFC West).
 
@@ -23,6 +23,18 @@ Action Network opener: {"an_game_id": 290911, "kickoff_utc": "2026-10-11T20:05:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290911, "away_team": "DEN", "home_team": "LAC", "kickoff_at": "2026-10-11T20:05:00.000Z", "spread": [{"side": "away", "value": -3.5, "price_american": -103, "ticket_pct": 54, "money_pct": 54}, {"side": "home", "value": 3.5, "price_american": -117, "ticket_pct": 46, "money_pct": 46}], "total": [{"side": "over", "value": 41.5, "price_american": -117, "ticket_pct": 69, "money_pct": 61}, {"side": "under", "value": 41.5, "price_american": -107, "ticket_pct": 31, "money_pct": 39}], "moneyline": [{"side": "away", "value": 0, "price_american": -180, "ticket_pct": 86, "money_pct": 81}, {"side": "home", "value": 0, "price_american": 149, "ticket_pct": 14, "money_pct": 19}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "LAC", "home_team": "DEN", "favorite": "DEN", "underdog": "LAC", "favorite_spread": -3.5, "kickoff_display": "Sun 4:05 pm"}
+
+## Warnings that touch this game
+
+- SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
+- 1 near-miss source row(s) (verbatim but not self-identifying): context only
+
+## Quarterbacks
+
+- DEN: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Bo Nix", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for DEN (usage score 28.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- LAC: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Justin Herbert", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LAC (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -85,6 +97,18 @@ Features: {"offense_z": {"LAC": -0.9259742447970951, "DEN": -0.8125365856778375}
 | 3 | 0.579 | 0.421 | 0 | 0.4848 | 0.4848 | 0.0304 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.3951 | 0.5753 | 0.0296 |
+| -2 | 0.4246 | 0.5453 | 0.0301 |
+| -1 | 0.4546 | 0.5151 | 0.0303 |
+| 0 | 0.4848 | 0.4848 | 0.0304 |
+| 1 | 0.5151 | 0.4546 | 0.0303 |
+| 2 | 0.5454 | 0.4246 | 0.03 |
+| 3 | 0.5754 | 0.395 | 0.0296 |
 
 ## Power ratings
 

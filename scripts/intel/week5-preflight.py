@@ -453,7 +453,7 @@ def check_espn(games):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--model', choices=['astra', 'opus'], help='check output-path collisions for this model')
+    ap.add_argument('--model', choices=['astra', 'opus', 'sonnet'], help='check output-path collisions for this model')
     ap.add_argument('--prompt', help='prompt file whose pinned hashes/cleanliness to check (default: the full-slate Astra prompt)')
     ap.add_argument('--game', help='AWAY@HOME: per-game mode; checks the game packet and the per-game output paths for --model')
     ap.add_argument('--now', help='ISO UTC time to evaluate freshness at (default: now)')

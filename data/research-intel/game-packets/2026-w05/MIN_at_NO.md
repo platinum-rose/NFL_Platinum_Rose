@@ -1,6 +1,6 @@
 # MIN@NO packet — Minnesota Vikings @ New Orleans Saints
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -23,6 +23,19 @@ Action Network opener: {"an_game_id": 290906, "kickoff_utc": "2026-10-11T17:00:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290906, "away_team": "MIN", "home_team": "NO", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": 2.5, "price_american": -108, "ticket_pct": 44, "money_pct": 48}, {"side": "away", "value": -2.5, "price_american": -110, "ticket_pct": 56, "money_pct": 52}], "total": [{"side": "under", "value": 41.5, "price_american": -110, "ticket_pct": 24, "money_pct": 27}, {"side": "over", "value": 41.5, "price_american": -111, "ticket_pct": 76, "money_pct": 73}], "moneyline": [{"side": "home", "value": 0, "price_american": 119, "ticket_pct": 25, "money_pct": 31}, {"side": "away", "value": 0, "price_american": -143, "ticket_pct": 75, "money_pct": 69}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "NO", "home_team": "MIN", "favorite": "MIN", "underdog": "NO", "favorite_spread": -2.5, "kickoff_display": "Sun 1:00 pm"}
+
+## Warnings that touch this game
+
+- BOOK CONFLICT: BKR home line 2.5 vs BEO 1 (>=1.0 pt apart); recapture before relying on either
+- SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
+- 1 near-miss source row(s) (verbatim but not self-identifying): context only
+
+## Quarterbacks
+
+- MIN: operator-confirmed starter None (at None); projected-starter QB rows: []
+- NO: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Tyler Shough", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -93,6 +106,18 @@ Features: {"offense_z": {"NO": 0.4901901620420403, "MIN": -1.3997493634116442}, 
 | 3 | 0.578 | 0.422 | 0 | 0.5 | 0.5 | 0 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.4099 | 0.5901 | 0 |
+| -2 | 0.4396 | 0.5604 | 0 |
+| -1 | 0.4697 | 0.5303 | 0 |
+| 0 | 0.5 | 0.5 | 0 |
+| 1 | 0.5303 | 0.4697 | 0 |
+| 2 | 0.5604 | 0.4396 | 0 |
+| 3 | 0.5902 | 0.4098 | 0 |
 
 ## Power ratings
 

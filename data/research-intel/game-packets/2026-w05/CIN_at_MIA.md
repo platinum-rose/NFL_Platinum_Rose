@@ -1,6 +1,6 @@
 # CIN@MIA packet — Cincinnati Bengals @ Miami Dolphins
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -21,6 +21,18 @@ Action Network opener: {"an_game_id": 290907, "kickoff_utc": "2026-10-11T17:00:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290907, "away_team": "CIN", "home_team": "MIA", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": 6.5, "price_american": -102, "ticket_pct": 25, "money_pct": 13}, {"side": "away", "value": -6.5, "price_american": -119, "ticket_pct": 75, "money_pct": 87}], "total": [{"side": "over", "value": 43.5, "price_american": -108, "ticket_pct": 71, "money_pct": 79}, {"side": "under", "value": 43.5, "price_american": -111, "ticket_pct": 29, "money_pct": 21}], "moneyline": [{"side": "away", "value": 0, "price_american": -325, "ticket_pct": 95, "money_pct": 96}, {"side": "home", "value": 0, "price_american": 260, "ticket_pct": 5, "money_pct": 4}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "MIA", "home_team": "CIN", "favorite": "CIN", "underdog": "MIA", "favorite_spread": -7, "kickoff_display": "Sun 1:00 pm"}
+
+## Warnings that touch this game
+
+- SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
+- 1 near-miss source row(s) (verbatim but not self-identifying): context only
+
+## Quarterbacks
+
+- CIN: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Joe Burrow", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CIN (usage score 35.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- MIA: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Malik Willis", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -91,6 +103,18 @@ Features: {"offense_z": {"MIA": -2.046519492657563, "CIN": 0.024775780814806494}
 | 3 | 0.554 | 0.3907 | 0.0553 | 0.5 | 0.5 | 0 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.4098 | 0.5902 | 0 |
+| -2 | 0.4396 | 0.5604 | 0 |
+| -1 | 0.4697 | 0.5303 | 0 |
+| 0 | 0.5 | 0.5 | 0 |
+| 1 | 0.5303 | 0.4697 | 0 |
+| 2 | 0.5605 | 0.4395 | 0 |
+| 3 | 0.5903 | 0.4097 | 0 |
 
 ## Power ratings
 

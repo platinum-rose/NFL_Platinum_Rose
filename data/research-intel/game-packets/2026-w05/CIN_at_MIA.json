@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CIN@MIA",
- "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "built_at": "2026-10-11T01:40:10.481184+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CIN",
@@ -698,6 +698,111 @@
    "under": 0.5,
    "total_push": 0
   }
+ ],
+ "simulator_total_sweep": [
+  {
+   "total_edge_pts": -3,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.4098,
+   "under": 0.5902,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": -2,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.4396,
+   "under": 0.5604,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": -1,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.4697,
+   "under": 0.5303,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 0,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 1,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.5303,
+   "under": 0.4697,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 2,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.5605,
+   "under": 0.4395,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 3,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.5903,
+   "under": 0.4097,
+   "total_push": 0
+  }
+ ],
+ "quarterbacks": {
+  "CIN": {
+   "operator_confirmed_starter": null,
+   "operator_confirmed_at": null,
+   "projected_starter_qb_rows": [
+    {
+     "player": "Joe Burrow",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "week1-usage-locks.json",
+      "published_at": null,
+      "evidence": "Week 1 2026 usage leader at QB for CIN (usage score 35.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+     }
+    }
+   ],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  },
+  "MIA": {
+   "operator_confirmed_starter": null,
+   "operator_confirmed_at": null,
+   "projected_starter_qb_rows": [
+    {
+     "player": "Malik Willis",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "week1-usage-locks.json",
+      "published_at": null,
+      "evidence": "Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+     }
+    }
+   ],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  }
+ },
+ "game_warnings": [
+  "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
+  "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [

@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "DET@ARI",
- "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "built_at": "2026-10-11T01:40:10.481184+00:00",
  "kickoff_utc": "2026-10-11T20:25:00.000Z",
  "away": {
   "abbr": "DET",
@@ -698,6 +698,99 @@
    "under": 0.5,
    "total_push": 0
   }
+ ],
+ "simulator_total_sweep": [
+  {
+   "total_edge_pts": -3,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4096,
+   "under": 0.5904,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": -2,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4395,
+   "under": 0.5605,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": -1,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4696,
+   "under": 0.5304,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 0,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 1,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5304,
+   "under": 0.4696,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 2,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5605,
+   "under": 0.4395,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 3,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5904,
+   "under": 0.4096,
+   "total_push": 0
+  }
+ ],
+ "quarterbacks": {
+  "DET": {
+   "operator_confirmed_starter": null,
+   "operator_confirmed_at": null,
+   "projected_starter_qb_rows": [
+    {
+     "player": "Jared Goff",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "week1-usage-locks.json",
+      "published_at": null,
+      "evidence": "Week 1 2026 usage leader at QB for DET (usage score 39.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+     }
+    }
+   ],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  },
+  "ARI": {
+   "operator_confirmed_starter": null,
+   "operator_confirmed_at": null,
+   "projected_starter_qb_rows": [],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  }
+ },
+ "game_warnings": [
+  "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [

@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "HOU@TEN",
- "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "built_at": "2026-10-11T01:40:10.481184+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "HOU",
@@ -664,6 +664,121 @@
    "under": 0.5,
    "total_push": 0
   }
+ ],
+ "simulator_total_sweep": [
+  {
+   "total_edge_pts": -3,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.4103,
+   "under": 0.5897,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": -2,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.4399,
+   "under": 0.5601,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": -1,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.4698,
+   "under": 0.5302,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 0,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 1,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.5302,
+   "under": 0.4698,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 2,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.5603,
+   "under": 0.4397,
+   "total_push": 0
+  },
+  {
+   "total_edge_pts": 3,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.59,
+   "under": 0.41,
+   "total_push": 0
+  }
+ ],
+ "quarterbacks": {
+  "HOU": {
+   "operator_confirmed_starter": null,
+   "operator_confirmed_at": null,
+   "projected_starter_qb_rows": [
+    {
+     "player": "C.J. Stroud",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "week1-usage-locks.json",
+      "published_at": null,
+      "evidence": "Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+     }
+    },
+    {
+     "player": "Mark Gronowski",
+     "role": "roster_depth_signal",
+     "starter_confidence": 0.42,
+     "latest_source": {
+      "source": "ESPN injuries API",
+      "published_at": "2026-10-07T22:14:00.000Z",
+      "evidence": "Gronowski signed with the Texans on Wednesday, Jonathan M. Alexander of the Houston Chronicle reports."
+     }
+    }
+   ],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  },
+  "TEN": {
+   "operator_confirmed_starter": null,
+   "operator_confirmed_at": null,
+   "projected_starter_qb_rows": [
+    {
+     "player": "Cam Ward",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "week1-usage-locks.json",
+      "published_at": null,
+      "evidence": "Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+     }
+    }
+   ],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  }
+ },
+ "game_warnings": [
+  "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
+  "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [

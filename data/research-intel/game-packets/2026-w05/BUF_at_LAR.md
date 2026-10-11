@@ -1,6 +1,6 @@
 # BUF@LAR packet — Buffalo Bills @ Los Angeles Rams
 
-Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -21,6 +21,17 @@ Action Network opener: {"an_game_id": 290916, "kickoff_utc": "2026-10-13T00:15:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290916, "away_team": "BUF", "home_team": "LA", "kickoff_at": "2026-10-13T00:15:00.000Z", "spread": [{"side": "home", "value": -3.5, "price_american": -112, "ticket_pct": 27, "money_pct": 39}, {"side": "away", "value": 3.5, "price_american": -110, "ticket_pct": 73, "money_pct": 61}], "total": [{"side": "over", "value": 54.5, "price_american": -110, "ticket_pct": 62, "money_pct": 69}, {"side": "under", "value": 54.5, "price_american": -110, "ticket_pct": 38, "money_pct": 31}], "moneyline": [{"side": "away", "value": 0, "price_american": 149, "ticket_pct": 55, "money_pct": 36}, {"side": "home", "value": 0, "price_american": -179, "ticket_pct": 45, "money_pct": 64}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "BUF", "home_team": "LAR", "favorite": "LAR", "underdog": "BUF", "favorite_spread": -3, "kickoff_display": "Mon 8:15 pm"}
+
+## Warnings that touch this game
+
+- 1 near-miss source row(s) (verbatim but not self-identifying): context only
+
+## Quarterbacks
+
+- BUF: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Josh Allen", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BUF (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- LAR: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Matthew Stafford", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LA (usage score 25.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -93,6 +104,18 @@ Features: {"offense_z": {"LAR": 0.048929022155939104, "BUF": 1.3685836826106268}
 | 3 | 0.58 | 0.42 | 0 | 0.5 | 0.5 | 0 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.4096 | 0.5904 | 0 |
+| -2 | 0.4395 | 0.5605 | 0 |
+| -1 | 0.4696 | 0.5304 | 0 |
+| 0 | 0.5 | 0.5 | 0 |
+| 1 | 0.5304 | 0.4696 | 0 |
+| 2 | 0.5605 | 0.4395 | 0 |
+| 3 | 0.5904 | 0.4096 | 0 |
 
 ## Power ratings
 

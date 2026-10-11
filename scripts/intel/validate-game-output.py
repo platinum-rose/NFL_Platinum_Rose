@@ -12,6 +12,7 @@ PK = 'data/research-intel/game-packets/2026-w05'
 OUT = os.environ.get('W05_OUT_DIR', 'data/research-intel/proposed/games')
 DISPOSITIONS = {'quantitative candidate', 'qualitative candidate', 'conflicted', 'price moved', 'unavailable', 'pass'}
 TIERS = {'2', '2-', 'skip', 'research_only'}
+PAIR = {'quantitative candidate': {'2', '2-'}, 'qualitative candidate': {'2', '2-'}, 'conflicted': {'2-', 'skip', 'research_only'}, 'price moved': {'2-', 'skip', 'research_only'}, 'unavailable': {'research_only'}, 'pass': {'skip', 'research_only'}}
 FORBIDDEN = {'ticket', 'stake', 'wager_amount', 'bet_slip', 'payout'}
 SOFT_CAP, HARD_CAP, TOL = 2.0, 3.0, 0.005
 fails = warns = 0
@@ -62,6 +63,8 @@ def check(model, game):
     emit('FAIL' if bad else 'PASS', 'forbidden ticket/stake fields: %s' % sorted(bad) if bad else 'no ticket/stake fields')
     if o.get('disposition') not in DISPOSITIONS: emit('FAIL', 'disposition %r not in %s' % (o.get('disposition'), sorted(DISPOSITIONS)))
     if o.get('tier') not in TIERS: emit('FAIL', 'tier %r not in %s (tier 1 is only decided at slate merge, if ever)' % (o.get('tier'), sorted(TIERS)))
+    if o.get('disposition') in PAIR and o.get('tier') not in PAIR[o['disposition']]:
+        emit('FAIL', 'disposition %r cannot carry tier %r (allowed: %s)' % (o['disposition'], o.get('tier'), sorted(PAIR[o['disposition']])))
     # market must equal packet BKR
     bk = pk['market']['BKR']['lines']
     hl = next((x['line'] for x in bk['spread'] if x['side'] == pk['home']['name']), None)
@@ -117,7 +120,7 @@ def check(model, game):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--model', required=True, choices=['astra', 'opus'])
+    ap.add_argument('--model', required=True, choices=['astra', 'opus', 'sonnet'])
     ap.add_argument('--game')
     ap.add_argument('--all', action='store_true')
     a = ap.parse_args()

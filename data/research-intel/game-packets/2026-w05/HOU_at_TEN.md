@@ -1,6 +1,6 @@
 # HOU@TEN packet — Houston Texans @ Tennessee Titans
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (AFC South).
 
@@ -23,6 +23,18 @@ Action Network opener: {"an_game_id": 290905, "kickoff_utc": "2026-10-11T17:00:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290905, "away_team": "HOU", "home_team": "TEN", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": 7.5, "price_american": -114, "ticket_pct": 30, "money_pct": 34}, {"side": "away", "value": -7.5, "price_american": -104, "ticket_pct": 70, "money_pct": 66}], "total": [{"side": "over", "value": 38, "price_american": -109, "ticket_pct": 77, "money_pct": 70}, {"side": "under", "value": 38, "price_american": -109, "ticket_pct": 23, "money_pct": 30}], "moneyline": [{"side": "away", "value": 0, "price_american": -385, "ticket_pct": 94, "money_pct": 91}, {"side": "home", "value": 0, "price_american": 305, "ticket_pct": 6, "money_pct": 9}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "TEN", "home_team": "HOU", "favorite": "HOU", "underdog": "TEN", "favorite_spread": -7.5, "kickoff_display": "Sun 1:00 pm"}
+
+## Warnings that touch this game
+
+- SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
+- 1 near-miss source row(s) (verbatim but not self-identifying): context only
+
+## Quarterbacks
+
+- HOU: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "C.J. Stroud", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Mark Gronowski", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T22:14:00.000Z", "evidence": "Gronowski signed with the Texans on Wednesday, Jonathan M. Alexander of the Houston Chronicle reports."}}]
+- TEN: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Cam Ward", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -85,6 +97,18 @@ Features: {"offense_z": {"TEN": -1.1284898837342923, "HOU": -0.3686949712894789}
 | 3 | 0.554 | 0.3907 | 0.0553 | 0.5 | 0.5 | 0 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.4103 | 0.5897 | 0 |
+| -2 | 0.4399 | 0.5601 | 0 |
+| -1 | 0.4698 | 0.5302 | 0 |
+| 0 | 0.5 | 0.5 | 0 |
+| 1 | 0.5302 | 0.4698 | 0 |
+| 2 | 0.5603 | 0.4397 | 0 |
+| 3 | 0.59 | 0.41 | 0 |
 
 ## Power ratings
 

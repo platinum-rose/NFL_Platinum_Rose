@@ -1,6 +1,6 @@
 # CHI@GB packet — Chicago Bears @ Green Bay Packers
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:22:14.064268+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC North).
 
@@ -23,6 +23,19 @@ Action Network opener: {"an_game_id": 290914, "kickoff_utc": "2026-10-11T17:00:0
 Action Network splits (captured 2026-10-09T19:41:08.878Z): {"game_id": 290914, "away_team": "CHI", "home_team": "GB", "kickoff_at": "2026-10-11T17:00:00.000Z", "spread": [{"side": "home", "value": 1.5, "price_american": -110, "ticket_pct": 43, "money_pct": 54}, {"side": "away", "value": -1.5, "price_american": -110, "ticket_pct": 57, "money_pct": 46}], "total": [{"side": "under", "value": 45.5, "price_american": -109, "ticket_pct": 26, "money_pct": 32}, {"side": "over", "value": 45.5, "price_american": -111, "ticket_pct": 74, "money_pct": 68}], "moneyline": [{"side": "away", "value": 0, "price_american": -120, "ticket_pct": 72, "money_pct": 66}, {"side": "home", "value": 0, "price_american": -100, "ticket_pct": 28, "money_pct": 34}]}
 
 SuperContest row (contest line, not a book price; labels may be reversed): {"away_team": "GB", "home_team": "CHI", "favorite": "CHI", "underdog": "GB", "favorite_spread": -3, "kickoff_display": "Sun 1:00 pm"}
+
+## Warnings that touch this game
+
+- WEATHER: review_required: wind 22.3 km/h, gusts 42.1 km/h
+- SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
+- 1 near-miss source row(s) (verbatim but not self-identifying): context only
+
+## Quarterbacks
+
+- CHI: operator-confirmed starter Tyson Bagent (at 2026-10-11T00:28:00Z); projected-starter QB rows: [{"player": "Tyson Bagent", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-05T16:24:00.000Z", "evidence": "Bears head coach Ben Johnson said that Bagent will start Sunday's game against the Packers in Green Bay, Sean Hammond of the Chicago Tribune reports."}}, {"player": "Caleb Williams", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CHI (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Case Keenum", "role": "likely_starter_or_primary", "starter_confidence": 0.94, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-05T16:38:00.000Z", "evidence": "Keenum is expected to remain in a backup role for Sunday's game against the Packers after head coach Ben Johnson said that Tyson Bagent will start at quarterback in Week 5, Sean Hammond of the Chicago Tribune reports."}}]
+- GB: operator-confirmed starter None (at None); projected-starter QB rows: [{"player": "Jordan Love", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for GB (usage score 42.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+
+Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
 ## Team state: schedule, results and standings
 
@@ -85,6 +98,18 @@ Features: {"offense_z": {"GB": -0.8981051201727079, "CHI": 0.9842994197343811}, 
 | 3 | 0.5782 | 0.4218 | 0 | 0.4848 | 0.4848 | 0.0304 |
 
 Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.
+
+**Total-edge sweep (margin edge 0):**
+
+| total_edge_pts | over | under | total_push |
+|---|---|---|---|
+| -3 | 0.395 | 0.5754 | 0.0296 |
+| -2 | 0.4245 | 0.5454 | 0.03 |
+| -1 | 0.4545 | 0.5152 | 0.0303 |
+| 0 | 0.4848 | 0.4848 | 0.0304 |
+| 1 | 0.5152 | 0.4545 | 0.0303 |
+| 2 | 0.5454 | 0.4245 | 0.03 |
+| 3 | 0.5755 | 0.3949 | 0.0296 |
 
 ## Power ratings
 

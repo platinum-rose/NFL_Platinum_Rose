@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CHI@GB",
- "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "built_at": "2026-10-11T01:40:10.481184+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CHI",
@@ -664,6 +664,132 @@
    "under": 0.4848,
    "total_push": 0.0304
   }
+ ],
+ "simulator_total_sweep": [
+  {
+   "total_edge_pts": -3,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.395,
+   "under": 0.5754,
+   "total_push": 0.0296
+  },
+  {
+   "total_edge_pts": -2,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4245,
+   "under": 0.5454,
+   "total_push": 0.03
+  },
+  {
+   "total_edge_pts": -1,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4545,
+   "under": 0.5152,
+   "total_push": 0.0303
+  },
+  {
+   "total_edge_pts": 0,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "total_edge_pts": 1,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5152,
+   "under": 0.4545,
+   "total_push": 0.0303
+  },
+  {
+   "total_edge_pts": 2,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5454,
+   "under": 0.4245,
+   "total_push": 0.03
+  },
+  {
+   "total_edge_pts": 3,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5755,
+   "under": 0.3949,
+   "total_push": 0.0296
+  }
+ ],
+ "quarterbacks": {
+  "CHI": {
+   "operator_confirmed_starter": "Tyson Bagent",
+   "operator_confirmed_at": "2026-10-11T00:28:00Z",
+   "projected_starter_qb_rows": [
+    {
+     "player": "Tyson Bagent",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "ESPN injuries API",
+      "published_at": "2026-10-05T16:24:00.000Z",
+      "evidence": "Bears head coach Ben Johnson said that Bagent will start Sunday's game against the Packers in Green Bay, Sean Hammond of the Chicago Tribune reports."
+     }
+    },
+    {
+     "player": "Caleb Williams",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "week1-usage-locks.json",
+      "published_at": null,
+      "evidence": "Week 1 2026 usage leader at QB for CHI (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+     }
+    },
+    {
+     "player": "Case Keenum",
+     "role": "likely_starter_or_primary",
+     "starter_confidence": 0.94,
+     "latest_source": {
+      "source": "ESPN injuries API",
+      "published_at": "2026-10-05T16:38:00.000Z",
+      "evidence": "Keenum is expected to remain in a backup role for Sunday's game against the Packers after head coach Ben Johnson said that Tyson Bagent will start at quarterback in Week 5, Sean Hammond of the Chicago Tribune reports."
+     }
+    }
+   ],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  },
+  "GB": {
+   "operator_confirmed_starter": null,
+   "operator_confirmed_at": null,
+   "projected_starter_qb_rows": [
+    {
+     "player": "Jordan Love",
+     "role": "starter",
+     "starter_confidence": 0.95,
+     "latest_source": {
+      "source": "week1-usage-locks.json",
+      "published_at": null,
+      "evidence": "Week 1 2026 usage leader at QB for GB (usage score 42.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+     }
+    }
+   ],
+   "note": "Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source."
+  }
+ },
+ "game_warnings": [
+  "WEATHER: review_required: wind 22.3 km/h, gusts 42.1 km/h",
+  "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
+  "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
  "digest_rows": [
