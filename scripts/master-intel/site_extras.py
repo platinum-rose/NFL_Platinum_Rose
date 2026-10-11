@@ -677,6 +677,8 @@ def props_lab(ctx):
           '<div class="lf-row">',
           '<button type="button" class="btn-toggle" id="lf-open">Open all categories</button>',
           '<button type="button" class="btn-toggle" id="lf-close">Close all categories</button>',
+          '<button type="button" class="btn-toggle" id="lf-games-open">Open all matchups</button>',
+          '<button type="button" class="btn-toggle" id="lf-games-close">Collapse all matchups</button>',
           '<button type="button" class="btn-toggle" id="lf-expand">Expand all legs</button>',
           '<button type="button" class="btn-toggle" id="lf-collapse">Collapse all legs</button>',
           '</div></div>']
@@ -705,9 +707,11 @@ def props_lab(ctx):
             player = c['player']
             gid = c['gid']
             if gid != _last_gid:
+                if _last_gid is not None: h.append('</div></details>')
                 _last_gid = gid
                 _g0 = ctx['games'].get(gid) or {}
-                h.append(f'<h4 class="cat-game-head" data-game="{E(gid)}">{E(_g0.get("away",""))} @ {E(_g0.get("home",""))} <small>{E(_g0.get("kickoff_pt",""))}</small></h4>')
+                _n0 = sum(1 for x_ in items_sorted if x_['gid'] == gid)
+                h.append(f'<details class="cat-game-head" data-game="{E(gid)}"><summary>{E(_g0.get("away",""))} @ {E(_g0.get("home",""))} <small>{E(_g0.get("kickoff_pt",""))}</small> <span class="cg-count">{_n0}</span></summary><div class="props-game-list">')
             g = ctx['games'].get(gid) or {}
             away = g.get('away', '')
             home = g.get('home', '')
@@ -840,6 +844,7 @@ def props_lab(ctx):
                 f'</details>'
             )
 
+        if _last_gid is not None: h.append('</div></details>')
         h.append('</div><p class="cat-none muted-note" hidden>No props match the active filters in this category.</p></div></details>')
 
     h.append('</div>')
@@ -1187,7 +1192,7 @@ tr.split-big td{background:rgba(250,204,21,.12)}tr.split-lean td{background:rgba
 .prop-category-group{margin:16px 0 24px;border:1px solid var(--border);border-radius:12px;background:var(--card)}
 .prop-category-group summary{padding:12px 16px;font-size:15px;font-weight:800;cursor:pointer}
 .props-cat-list{display:grid;gap:10px;padding:12px 16px 16px}
-.cat-game-head{margin:10px 0 0;padding:6px 10px;border-left:4px solid var(--accent);background:var(--raised);font-size:14px;font-weight:800}.cat-game-head small{font-weight:600;color:var(--muted);margin-left:6px}.cat-game-head[hidden]{display:none}
+.cat-game-head{border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:8px;background:var(--raised)}.cat-game-head>summary{cursor:pointer;padding:8px 12px;font-size:14px;font-weight:800;list-style:none}.cat-game-head>summary::-webkit-details-marker{display:none}.cat-game-head>summary::before{content:"▸ ";color:var(--muted)}.cat-game-head[open]>summary::before{content:"▾ "}.cat-game-head small{font-weight:600;color:var(--muted);margin-left:6px}.cg-count{float:right;font-size:12px;font-weight:800;padding:1px 9px;border-radius:999px;border:1px solid var(--border)}.cat-game-head[hidden]{display:none}.props-game-list{display:grid;gap:10px;padding:4px 10px 12px}
 .prop-card{border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:10px;background:var(--bg);transition:all .15s ease;overflow:hidden}
 .prop-card:hover{border-color:var(--accent);box-shadow:0 3px 12px rgba(0,0,0,.2)}
 .prop-card[open]{border-color:var(--accent);box-shadow:0 4px 16px rgba(0,0,0,.25)}
@@ -1372,7 +1377,12 @@ BOOKMARKS_JS = r"""
           l.hidden = !ok;
           if (ok) n++;
         });
-        catGrp.querySelectorAll('.cat-game-head').forEach(function(hd){ hd.hidden = !catGrp.querySelector('.prop-card[data-game="' + hd.getAttribute('data-game') + '"]:not([hidden])'); });
+        catGrp.querySelectorAll('.cat-game-head').forEach(function(hd){
+          var m = hd.querySelectorAll('.prop-card:not([hidden])').length;
+          hd.hidden = (m === 0);
+          var cc = hd.querySelector('.cg-count'); if (cc) cc.textContent = m;
+          if (term && m) hd.open = true;
+        });
         var c = catGrp.querySelector('.cat-count'); if (c) c.textContent = n;
         var none = catGrp.querySelector('.cat-none'); if (none) none.hidden = n > 0;
         catGrp.hidden = (n === 0);
@@ -1419,6 +1429,8 @@ BOOKMARKS_JS = r"""
     });
     function setAll(sel, v){ document.querySelectorAll(sel).forEach(function(d){ if (!d.hidden) d.open = v; }); }
     var btnOpen = document.getElementById('lf-open'); if (btnOpen) btnOpen.addEventListener('click', function(){ setAll('.prop-category-group, .legs-game', true); });
+    var btnGO = document.getElementById('lf-games-open'); if (btnGO) btnGO.addEventListener('click', function(){ document.querySelectorAll('.cat-game-head').forEach(function(d){ d.open = true; }); });
+    var btnGC = document.getElementById('lf-games-close'); if (btnGC) btnGC.addEventListener('click', function(){ document.querySelectorAll('.cat-game-head').forEach(function(d){ d.open = false; }); });
     var btnClose = document.getElementById('lf-close'); if (btnClose) btnClose.addEventListener('click', function(){ setAll('.prop-category-group, .legs-game', false); });
     var btnExpand = document.getElementById('lf-expand'); if (btnExpand) btnExpand.addEventListener('click', function(){ setAll('.prop-category-group, .legs-game', true); setAll('.prop-card, .prop-card-intel, .leg', true); });
     var btnCollapse = document.getElementById('lf-collapse'); if (btnCollapse) btnCollapse.addEventListener('click', function(){ setAll('.prop-card, .prop-card-intel, .leg', false); });
