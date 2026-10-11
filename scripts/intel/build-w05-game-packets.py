@@ -398,6 +398,8 @@ def main():
             irs = ['%s %s' % (r['player'], r['pos']) for r in nonact if (r['status'] or '').lower() == 'injured reserve']
             qs = ['%s %s' % (r['player'], r['pos']) for r in nonact if (r['status'] or '').lower() in ('questionable', 'doubtful')]
             warnings.append('AVAILABILITY %s (ESPN %s): Out: %s | Questionable/Doubtful: %s | IR: %s' % (t, espn.get('fetched_at'), ', '.join(outs) or 'none', ', '.join(qs) or 'none', ', '.join(irs) or 'none'))
+            ru = e.get('roster_ir_out_unconfirmed') or []
+            warnings.append('AVAILABILITY %s ESPN roster IR/Out group (unconfirmed; NOT in the injury feed; ESPN status day-to-day; not confirmed Out): %s' % (t, ', '.join('%s %s' % (r['player'], r['pos']) for r in ru) or ('none' if 'roster_ir_out_source' in espn else 'roster file not loaded')))
         if conflict:
             warnings.append('BOOK CONFLICT: ' + conflict)
         if wx_row_guard(weather, key):
@@ -421,7 +423,7 @@ def main():
                           'note': 'Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).'},
             'same_division_game': TEAM_DIV[away] == TEAM_DIV[home],
             'market': market, 'action_network_opener': op, 'action_network_splits': sp, 'action_network_splits_captured_at': splits.get('captured_at'), 'supercontest_row': scr,
-            'quantitative_row': qg, 'simulator_edge_sweep': simrows, 'simulator_total_sweep': simtot, 'quarterbacks': qbs, 'injury_report_non_active': {t: (espn.get('teams', {}).get(t) or {}).get('injury_report_non_active') for t in (away, home)}, 'espn_status_fetched_at': espn.get('fetched_at'), 'game_warnings': warnings,
+            'quantitative_row': qg, 'simulator_edge_sweep': simrows, 'simulator_total_sweep': simtot, 'quarterbacks': qbs, 'injury_report_non_active': {t: (espn.get('teams', {}).get(t) or {}).get('injury_report_non_active') for t in (away, home)}, 'roster_ir_out_unconfirmed': {t: (espn.get('teams', {}).get(t) or {}).get('roster_ir_out_unconfirmed') for t in (away, home)}, 'roster_ir_out_source': espn.get('roster_ir_out_source'), 'espn_status_fetched_at': espn.get('fetched_at'), 'game_warnings': warnings,
             'simulator_note': 'Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.',
             'digest_rows': drows, 'source_rows': {'counts': dict(counts), 'rows': ev},
             'weather_venue_row': wx, 'secondary_matchups': secm, 'power_ratings': pw, 'availability': av, 'ftn_team_level': ft,
@@ -501,7 +503,11 @@ def render_md(p):
     L += ['', q['note'], '', '## ESPN injury report, non-Active entries (fetched %s)' % p.get('espn_status_fetched_at'), '']
     for t, rows_i in p['injury_report_non_active'].items():
         L.append('- %s: %s' % (t, '; '.join('%s %s %s (%s)' % (r['player'], r['pos'], r['status'], r['date']) for r in (rows_i or [])) or 'none listed'))
-    L += ['', 'Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.', '']
+    L += ['', 'This list is ESPN\'s injury feed only. Players absent from it may still be on a reserve list: see the next section. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.', '']
+    L += ['## ESPN roster IR/Out group (unconfirmed; roster file %s)' % ((p.get('roster_ir_out_source') or {}).get('generated_at') or 'not loaded'), '', 'In ESPN\'s roster `injuredReserveOrOut` group but NOT in the injury feed above; ESPN marks them day-to-day. Unresolved, likely on a reserve list. Do NOT treat as confirmed Out and do not use as a player leg without official inactives.', '']
+    for t, rows_r in (p.get('roster_ir_out_unconfirmed') or {}).items():
+        L.append('- %s: %s' % (t, '; '.join('%s %s' % (r['player'], r['pos']) for r in (rows_r or [])) or 'none'))
+    L += ['']
     L += ['## Team state: schedule, results and standings', '']
     for t in (A, H):
         b = p['teams'][t]

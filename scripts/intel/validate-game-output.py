@@ -130,6 +130,9 @@ def check(model, game):
     gen = o.get('generated_at')
     if gen and pk['market']['BKR'].get('expires_for_recommendation_at') and str(gen) > str(pk['market']['BKR']['expires_for_recommendation_at']) and o.get('tier') in ('2', '2-'):
         emit('FAIL', 'output generated after BKR recommendation window expired but tier is %s' % o.get('tier'))
+    beo_exp = (pk['market'].get('BEO') or {}).get('expires_for_recommendation_at')
+    if gen and beo_exp and str(gen) > str(beo_exp) and o.get('tier') in ('2', '2-'):
+        emit('FAIL', 'output generated after BEO recommendation window expired but tier is %s' % o.get('tier'))
     # freshness
     if not pk['market']['BKR']['fresh_at_build']:
         emit('WARN', 'packet BKR capture was already stale at build time; output must be research_only')

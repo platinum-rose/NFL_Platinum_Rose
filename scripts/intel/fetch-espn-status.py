@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 
 BASE = 'https://site.api.espn.com/apis/site/v2/sports/football/nfl'
 OUT = 'data/research-intel/source-evidence/espn-status-w05.json'
+ROSTER = 'data/nfl-rosters/espn-full-rosters-latest.json'
 OUTSTAT = ('out', 'injured reserve', 'suspended', 'physically unable to perform', 'non football injury')
 AMBIG = ('questionable', 'doubtful', 'day-to-day')
 
@@ -28,6 +29,7 @@ def main():
         inj[g['displayName']] = [{'player': i['athlete']['displayName'], 'pos': (i['athlete'].get('position') or {}).get('abbreviation'), 'status': i.get('status'), 'date': (i.get('date') or '')[:10], 'comment': (i.get('shortComment') or '')[:200]} for i in g.get('injuries', [])]
     out = {'schema': 'espn_status_v1', 'fetched_at': datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'), 'espn_injuries_timestamp': inj_raw.get('timestamp'),
            'rule': __doc__.strip().splitlines()[1], 'teams': {}}
+    feed_names = {}
     for t in teams:
         ab = 'WAS' if t['abbreviation'] == 'WSH' else t['abbreviation']
         qbs = []
@@ -41,6 +43,7 @@ def main():
             qbs = []
         tinj = inj.get(t['displayName'], [])
         st = {i['player']: i for i in tinj}
+        feed_names[ab] = set(st)
         starter, flag, note = None, 'ok', ''
         for n in qbs:
             s = (st.get(n, {}).get('status') or '').lower()
@@ -55,6 +58,23 @@ def main():
                             'injury_report_non_active': [i for i in tinj if (i['status'] or '').lower() != 'active'],
                             'injury_report_all_count': len(tinj)}
         time.sleep(0.2)
+    # ESPN roster 'injuredReserveOrOut' group (local file from `npm run roster:fetch`; no network). These players are NOT in the injuries feed.
+    # ESPN marks them day-to-day, so they are UNCONFIRMED (likely on a reserve list) - never treat as Out.
+    try:
+        ros = json.load(open(ROSTER, encoding='utf-8'))
+        out['roster_ir_out_source'] = {'file': ROSTER, 'generated_at': ros.get('generated_at'), 'label': 'ESPN roster IR/Out group (unconfirmed)'}
+        for n, lst in ros.get('players', {}).items():
+            for r in lst:
+                if r.get('group') != 'injuredReserveOrOut': continue
+                ab = 'WAS' if r['team'] == 'WSH' else r['team']
+                t = out['teams'].get(ab)
+                if t is None: continue
+                if n in feed_names.get(ab, set()): continue
+                t.setdefault('roster_ir_out_unconfirmed', []).append({'player': n, 'pos': r.get('position'), 'roster_status': r.get('status')})
+        for t in out['teams'].values():
+            t['roster_ir_out_unconfirmed'] = sorted(t.get('roster_ir_out_unconfirmed', []), key=lambda x: x['player'])
+    except Exception as ex:  # noqa
+        out['roster_ir_out_error'] = str(ex)
     # Games ESPN lists as final (schedule.json status can lag): used to complete standings and to exclude finished games
     out['finals'] = []
     try:
