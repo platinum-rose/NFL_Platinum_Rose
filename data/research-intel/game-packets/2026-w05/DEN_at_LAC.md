@@ -1,6 +1,6 @@
 # DEN@LAC packet — Denver Broncos @ Los Angeles Chargers
 
-Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (AFC West).
 

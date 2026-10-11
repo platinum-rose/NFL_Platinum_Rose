@@ -1,6 +1,6 @@
 # Week 5 slate context (shared, read once)
 
-Built 2026-10-11T01:40:10.481184+00:00. Records include the Week 5 TB@DAL final. Order is win% then point differential only.
+Built 2026-10-11T01:54:18.613127+00:00. Records include the Week 5 TB@DAL final. Order is win% then point differential only.
 
 ## AFC East
 

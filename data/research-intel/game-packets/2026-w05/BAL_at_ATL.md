@@ -1,6 +1,6 @@
 # BAL@ATL packet — Baltimore Ravens @ Atlanta Falcons
 
-Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -24,7 +24,7 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- BAL: operator-confirmed starter Tyler Huntley (at 2026-10-11T00:28:00Z); projected-starter QB rows: [{"player": "Lamar Jackson", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tyler Huntley", "role": "likely_starter_or_primary", "starter_confidence": 0.7, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T17:40:00.000Z", "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."}}]
+- BAL: operator-confirmed starter Tyler Huntley (at 2026-10-11T01:54:00Z); projected-starter QB rows: [{"player": "Lamar Jackson", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tyler Huntley", "role": "likely_starter_or_primary", "starter_confidence": 0.7, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T17:40:00.000Z", "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."}}]
 - ATL: operator-confirmed starter None (at None); projected-starter QB rows: []
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.

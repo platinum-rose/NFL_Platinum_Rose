@@ -1,6 +1,6 @@
 # CLE@NYJ packet — Cleveland Browns @ New York Jets
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:40:10.481184+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T01:54:18.613127+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
