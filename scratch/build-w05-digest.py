@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Regenerate scratch/w05-synthesis-digest-sat.md in the standard layout:
    game | market | lean | source | tier        (game = VISITOR@HOME)
-Inputs: w05-pull.json, w05-expert-verified.json (verified rows only set tiers), youtube-extracted-picks-2026-w05.json,
-        player-props-intel-latest.json, w05-article-gemini-picks.json (provenance), BKR 10/10 display board (current numbers).
+Inputs: w05-pull.json, w05-expert-verified.json + 2026-w05-tier-eligible-rows.json (only those rows set tiers), youtube-extracted-picks-2026-w05.json,
+        player-props-intel-latest.json, w05-article-gemini-picks.json (provenance), Bookmaker live capture (current numbers).
 Read-only on every input; writes only the digest."""
 import json, re, collections, datetime, pathlib, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -25,18 +25,38 @@ sched.sort(key=lambda g: g['k'])
 LIVE = [g for g in sched if not g['done']]; DONE = [g['id'] for g in sched if g['done']]
 GM = {g['id']: g for g in LIVE}
 
-# ---------- BKR 10/10 display board ----------
-NUM = r'([+-]\d+(?:\.\d+)?)([+-]\d+)'
-TM = r'([A-Z]{2,4})'
-pat = re.compile('^' + TM + r' @ ' + TM + r' (\d\d:\d\d)\s+' + TM + ' ' + NUM + r' / ' + TM + ' ' + NUM +
-                 r'\s+o(\d+(?:\.\d+)?)([+-]\d+) u\d+(?:\.\d+)?([+-]\d+)\s+' + TM + r' ([+-]\d+) ' + TM + r' ([+-]\d+)')
+# ---------- Bookmaker live capture (timestamped; replaces the undated 10/10 user display board) ----------
+
+def _latest_capture(prefix):
+    import glob as _g, json as _j
+    best = None
+    for p in _g.glob('data/generated/props/%s-live-2026-10-*-week5.json' % prefix):
+        if 'failed' in p:
+            continue
+        try:
+            c = _j.load(open(p, encoding='utf-8')).get('capturedAt') or ''
+        except Exception:
+            continue
+        if best is None or c > best[0]:
+            best = (c, p.replace('\\', '/'))
+    return best[1]
+BKR_PATH = _latest_capture('bookmaker')
+BKR_CAP = J(BKR_PATH)
+BKR_AT = BKR_CAP['capturedAt']
+_by = {}
+for r in BKR_CAP['rows']:
+    if r.get('sectionTitle') != 'Game' or r.get('market') != 'game_lines' or r.get('available') is False: continue
+    _by.setdefault(r['event'], []).append(r)
 BKR = {}
-for ln in (ROOT / 'data/odds/BKR_current_lines_1010_user_provided_buildfmt').read_text(encoding='utf-8').splitlines():
-    m = pat.match(ln.strip())
-    if not m: continue
-    a, h, tm, t1, s1, p1, t2, s2, p2, tot_, op, up, m1, ml1, m2, ml2 = m.groups()
-    BKR[f'{a}@{h}'] = dict(spread={t1: (float(s1), int(p1)), t2: (float(s2), int(p2))}, total=(float(tot_), int(op), int(up)),
-                           ml={m1: int(ml1), m2: int(ml2)}, time=tm)
+for g in LIVE:
+    rs = _by.get(f"{g['visitorName']} @ {g['homeName']}")
+    if not rs: continue
+    ab = {g['visitorName']: g['visitor'], g['homeName']: g['home']}
+    sp = {ab[r['side']]: (float(r['line']), int(r['odds'])) for r in rs if r['bet'] == 'spread' and r['side'] in ab}
+    ml = {ab[r['side']]: int(r['odds']) for r in rs if r['bet'] == 'moneyline' and r['side'] in ab}
+    ov = next((r for r in rs if r['bet'] == 'total' and r['side'] == 'Over'), None); un = next((r for r in rs if r['bet'] == 'total' and r['side'] == 'Under'), None)
+    if len(sp) == 2 and len(ml) == 2 and ov and un:
+        BKR[g['id']] = dict(spread=sp, total=(float(ov['line']), int(ov['odds']), int(un['odds'])), ml=ml, time=None)
 miss = [g['id'] for g in LIVE if g['id'] not in BKR]
 if miss: sys.exit(f'BKR board missing games: {miss}')
 
@@ -46,14 +66,19 @@ GEM_ROWS = [r for a in gem['articles'] for r in a['rows']]
 GEM_Q = {(r.get('rationale') or '').strip() for r in GEM_ROWS}; GEM_U = {r.get('event_ref') for r in GEM_ROWS}
 pull = J('data/generated/master-intel/w05-pull.json')
 ver = J('data/generated/master-intel/w05-expert-verified.json')
-VROWS = [x for x in ver['rows'] if x['verdict'] == 'verified' and x['game'] in GM]
+import hashlib
+ELIG_PATH = 'data/research-intel/proposed/2026-w05-tier-eligible-rows.json'
+try: _el = J(ELIG_PATH)
+except FileNotFoundError: sys.exit(f'{ELIG_PATH} missing: run  python3 scripts/intel/week5-preflight.py --write-eligible {ELIG_PATH}')
+_sha = hashlib.sha256((ROOT / 'data/generated/master-intel/w05-expert-verified.json').read_bytes()).hexdigest()
+if _el['source_sha256'] != _sha: sys.exit('tier-eligible file was built from a different w05-expert-verified.json; regenerate it with the preflight')
+ELIG = {e['index'] for e in _el['eligible']}
+VROWS = [dict(x, _i=i) for i, x in enumerate(ver['rows']) if x['verdict'] == 'verified' and x['game'] in GM]
 
 def cls_of(x):
-    q = (x.get('quote') or '').strip()
-    if x['outlet'] == 'Cody Brown Bets': return 'RO'
-    if x.get('url') in GEM_U and q in GEM_Q: return 'RO'
-    if not q: return 'RO'
-    return 'V'
+    # V only for rows the preflight proved: article + URL + whole quote found verbatim in STORED ARTICLE TEXT + quote names the pick.
+    # Everything else (expert-feed / podcast extractor rationale, Gemini paraphrase, Cody Brown, no quote) is research-only.
+    return 'V' if x.get('_i') in ELIG else 'RO'
 
 def label(x):
     ps = [p for p in (x.get('persons') or []) if p]
@@ -277,7 +302,7 @@ for g in LIVE:
         for sd_, rs in clusters:
             nV = len(lab_set(rs, 'V')); nS = len(lab_set(rs, 'VYP')); nR = len(lab_set(rs, 'RO'))
             cody = any(r['label'] == 'Cody Brown' for r in rs); best = any(r['best'] for r in rs)
-            keep = nS >= 2 or (nV >= 1 and best) or cody or (nR >= 1 and nS >= 1)
+            keep = nS >= 2 or (nV >= 1 and best) or cody or nR >= 2 or (nR >= 1 and nS >= 1)
             if not keep: continue
             lns_ = [r['line'] for r in rs if r['line'] is not None]
             conflict = sd_ != 'Yes' and any(o_sd != sd_ and any(r2['line'] is None or not lns_ or abs(r2['line'] - lns_[0]) <= 1.0 for r2 in o_rs)
@@ -331,13 +356,13 @@ out.append(f'# Week 5 synthesis digest — {STAMP} (regenerated; supersedes the 
 out.append(f'Built by scratch/build-w05-digest.py (rerunnable). Scope: {len(LIVE)} remaining games; excluded as final: {", ".join(DONE) or "none"}. Research digest only: not a card, ticket, recommendation or official record.')
 out.append(f"Inputs: w05-pull.json (pulled {pull['pulled_at']}, window start {pull['window_start']}, signals {len(pull['signals'])}, expert {len(pull['expert'])}); w05-expert-verified.json (generated {ver['generated_at']}; verified {ver['counts']['verified']}, reject {ver['counts']['reject']}, not_pick {ver['counts']['not_pick']}; {len(VROWS)} verified rows on remaining games); "
            f"youtube-extracted-picks-2026-w05.json ({len(yt['picks'])} picks, status {yt['status']}); player-props-intel-latest.json ({len(pi['props'])} props, generated {pi['generated_at']}); w05-article-gemini-picks.json ({len(GEM_ROWS)} rows, provenance only).")
-out.append('Tiers (WEEKLY_SYNTHESIS §6): no tier 1 is assigned here, because matchup/projection inputs were not part of this pull. 2 = two or more independent verified named sources and a clear margin; 2- = single source, contested, or source line moved >= 1 pt against the current number; skip = split.')
-out.append('research-only = not verifier-verified: Gemini article picks and Cody Brown email rows (paraphrased rationales, no verbatim quote), plus rows with no quote. They never set a tier above "2- research-only". YT (YouTube, pending Andy review) and PI (props-intel articles) are corroboration tags only and never set the tier.')
-out.append('Numbers: market cells use the BKR 10/10 user-provided display board (no capture time; not an executable offer). Prop lines and prices are copied from the cited source and are NOT BKR prices. schedule.json spread is the HOME team line and dates from 10/06; it is not used for current numbers.')
+out.append('Tiers (WEEKLY_SYNTHESIS §6): no tier 1 is assigned here, because matchup/projection inputs were not part of this pull. 2 = two or more independent tier-eligible sources and a clear margin; 2- = single tier-eligible source, contested, or source line moved >= 1 pt against the current number; skip = split.')
+out.append(f'Tier-eligible = verifier-verified article rows with a URL whose whole quote is found verbatim in stored article text and names the pick ({len(ELIG)} rows in the pull, from 2026-w05-tier-eligible-rows.json). research-only = every other row, including verified expert-feed and podcast rows (their quotes are extractor rationale, not source text), Gemini article paraphrases and Cody Brown email rows; research-only rows never set a tier above "2- research-only". YT (YouTube, pending Andy review) and PI (props-intel articles) are corroboration tags only and never set the tier.')
+out.append(f'Numbers: market cells use the Bookmaker live capture of {BKR_AT} ({BKR_PATH}); stale for recommendation per the 6h/3h rule, so reprice before any use. Prop lines and prices are copied from the cited source and are NOT Bookmaker prices. schedule.json spread is the HOME team line and dates from 10/06; it is not used for current numbers.')
 if chk:
-    out.append('Lines check (schedule.json vs BKR board):'); out += chk
+    out.append('Lines check (schedule.json vs Bookmaker capture):'); out += chk
 if DROPPED_OUT: out.append('Prop rows dropped because the availability feed has the player OUT/DOUBTFUL: ' + '; '.join(DROPPED_OUT))
-out.append('Tags: V = verified named source; RO = research-only; YT = YouTube; PI = props-intel article. "src X vs now Y" = the source quoted a different number than the current board.')
+out.append('Tags: V = tier-eligible named source; RO = research-only; YT = YouTube; PI = props-intel article. "src X vs now Y" = the source quoted a different number than the current board.')
 out.append('')
 out.append('game | market | lean | source | tier')
 for r in ROWS: out.append(' | '.join(clean(c) for c in r))

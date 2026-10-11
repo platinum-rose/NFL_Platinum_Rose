@@ -1,0 +1,2164 @@
+{
+ "schema": "w05_game_packet_v1",
+ "game": "NYG@WAS",
+ "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "kickoff_utc": "2026-10-11T17:00:00.000Z",
+ "away": {
+  "abbr": "NYG",
+  "name": "New York Giants"
+ },
+ "home": {
+  "abbr": "WAS",
+  "name": "Washington Commanders"
+ },
+ "line_convention": "spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points",
+ "teams": {
+  "NYG": {
+   "team": "NYG",
+   "division": "NFC East",
+   "record": "3-1",
+   "games_played": 4,
+   "points_for": 82,
+   "points_against": 79,
+   "point_diff": 3,
+   "ppg": 20.5,
+   "papg": 19.8,
+   "home_record": "3-0",
+   "away_record": "0-1",
+   "division_record": "1-0",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-14T00:20:00.000Z",
+     "opp": "DAL",
+     "site": "H",
+     "pf": 28,
+     "pa": 20,
+     "result": "W",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-22T00:15:00.000Z",
+     "opp": "LAR",
+     "site": "A",
+     "pf": 6,
+     "pa": 28,
+     "result": "L",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T17:00:00.000Z",
+     "opp": "TEN",
+     "site": "H",
+     "pf": 12,
+     "pa": 7,
+     "result": "W",
+     "opp_record": "0-4"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T17:00:00.000Z",
+     "opp": "ARI",
+     "site": "H",
+     "pf": 36,
+     "pa": 24,
+     "result": "W",
+     "opp_record": "1-3"
+    }
+   ],
+   "opponents_record_to_date": "5-11",
+   "rest_days_before_this_game": 7.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    8
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "WAS",
+     "site": "A",
+     "kickoff_utc": "2026-10-11T17:00:00.000Z",
+     "opp_division": "NFC East"
+    },
+    {
+     "week": 6,
+     "opp": "NO",
+     "site": "H",
+     "kickoff_utc": "2026-10-18T17:00:00.000Z",
+     "opp_division": "NFC South"
+    },
+    {
+     "week": 7,
+     "opp": "HOU",
+     "site": "A",
+     "kickoff_utc": "2026-10-25T17:00:00.000Z",
+     "opp_division": "AFC South"
+    },
+    {
+     "week": 9,
+     "opp": "PHI",
+     "site": "A",
+     "kickoff_utc": "2026-11-08T18:00:00.000Z",
+     "opp_division": "NFC East"
+    }
+   ]
+  },
+  "WAS": {
+   "team": "WAS",
+   "division": "NFC East",
+   "record": "1-3",
+   "games_played": 4,
+   "points_for": 88,
+   "points_against": 122,
+   "point_diff": -34,
+   "ppg": 22.0,
+   "papg": 30.5,
+   "home_record": "1-1",
+   "away_record": "0-2",
+   "division_record": "0-2",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-13T20:25:00.000Z",
+     "opp": "PHI",
+     "site": "A",
+     "pf": 22,
+     "pa": 24,
+     "result": "L",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T20:25:00.000Z",
+     "opp": "DAL",
+     "site": "A",
+     "pf": 20,
+     "pa": 37,
+     "result": "L",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T17:00:00.000Z",
+     "opp": "SEA",
+     "site": "H",
+     "pf": 33,
+     "pa": 31,
+     "result": "W",
+     "opp_record": "3-1"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T13:30:00.000Z",
+     "opp": "IND",
+     "site": "H",
+     "pf": 13,
+     "pa": 30,
+     "result": "L",
+     "opp_record": "2-2"
+    }
+   ],
+   "opponents_record_to_date": "9-7",
+   "rest_days_before_this_game": 7.1,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    7
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "NYG",
+     "site": "H",
+     "kickoff_utc": "2026-10-11T17:00:00.000Z",
+     "opp_division": "NFC East"
+    },
+    {
+     "week": 6,
+     "opp": "SF",
+     "site": "A",
+     "kickoff_utc": "2026-10-20T00:15:00.000Z",
+     "opp_division": "NFC West"
+    },
+    {
+     "week": 8,
+     "opp": "PHI",
+     "site": "H",
+     "kickoff_utc": "2026-11-02T01:20:00.000Z",
+     "opp_division": "NFC East"
+    },
+    {
+     "week": 9,
+     "opp": "LAR",
+     "site": "H",
+     "kickoff_utc": "2026-11-08T18:00:00.000Z",
+     "opp_division": "NFC West"
+    }
+   ]
+  }
+ },
+ "standings": {
+  "divisions": {
+   "NFC East": [
+    {
+     "team": "NYG",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 3,
+     "div": "1-0",
+     "rank": 1
+    },
+    {
+     "team": "DAL",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 10,
+     "div": "1-1",
+     "rank": 2
+    },
+    {
+     "team": "PHI",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -18,
+     "div": "1-0",
+     "rank": 3
+    },
+    {
+     "team": "WAS",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -34,
+     "div": "0-2",
+     "rank": 4
+    }
+   ]
+  },
+  "conference_order_by_record_then_point_diff": {
+   "NFC": [
+    {
+     "team": "SF",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 58,
+     "order": 1
+    },
+    {
+     "team": "MIN",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 35,
+     "order": 2
+    },
+    {
+     "team": "CHI",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 47,
+     "order": 3
+    },
+    {
+     "team": "SEA",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 32,
+     "order": 4
+    },
+    {
+     "team": "NYG",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 3,
+     "order": 5
+    },
+    {
+     "team": "CAR",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "order": 6
+    },
+    {
+     "team": "DAL",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 10,
+     "order": 7
+    },
+    {
+     "team": "ATL",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 4,
+     "order": 8
+    },
+    {
+     "team": "LAR",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 2,
+     "order": 9
+    },
+    {
+     "team": "DET",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -8,
+     "order": 10
+    },
+    {
+     "team": "PHI",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -18,
+     "order": 11
+    },
+    {
+     "team": "GB",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -32,
+     "order": 12
+    },
+    {
+     "team": "NO",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -23,
+     "order": 13
+    },
+    {
+     "team": "ARI",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -30,
+     "order": 14
+    },
+    {
+     "team": "WAS",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -34,
+     "order": 15
+    },
+    {
+     "team": "TB",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -20,
+     "order": 16
+    }
+   ]
+  },
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+ },
+ "same_division_game": true,
+ "market": {
+  "BKR": {
+   "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:15:40.538Z",
+   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "New York Giants",
+      "line": 3.5,
+      "odds": -108,
+      "available": true
+     },
+     {
+      "side": "Washington Commanders",
+      "line": -3.5,
+      "odds": -108,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 41.5,
+      "odds": -103,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 41.5,
+      "odds": -113,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "New York Giants",
+      "odds": 159,
+      "available": true
+     },
+     {
+      "side": "Washington Commanders",
+      "odds": -182,
+      "available": true
+     }
+    ]
+   }
+  },
+  "BEO": {
+   "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:19:56.400Z",
+   "expires_for_recommendation_at": "2026-10-11T07:19:56.400000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "New York Giants",
+      "line": 3.5,
+      "odds": -113,
+      "available": true
+     },
+     {
+      "side": "Washington Commanders",
+      "line": -3.5,
+      "odds": -107,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 41.5,
+      "odds": -110,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 41.5,
+      "odds": -110,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "New York Giants",
+      "odds": 157,
+      "available": true
+     },
+     {
+      "side": "Washington Commanders",
+      "odds": -180,
+      "available": true
+     }
+    ]
+   }
+  },
+  "book_conflict": null,
+  "market_implied_score": {
+   "WAS": 22.5,
+   "NYG": 19.0,
+   "basis": "BKR home line -3.5 total 41.5"
+  }
+ },
+ "action_network_opener": {
+  "an_game_id": 290904,
+  "kickoff_utc": "2026-10-11T17:00:00Z",
+  "sp": {
+   "WAS": -3.5,
+   "NYG": 3.5
+  },
+  "sp_odds_home": -107,
+  "sp_at": "2026-10-05T00:12:55Z",
+  "tot": 44.5,
+  "tot_at": "2026-10-05T00:06:55Z",
+  "ml": {
+   "NYG": 147,
+   "WAS": -182
+  },
+  "carried_from_before_cutoff": false
+ },
+ "action_network_splits": {
+  "game_id": 290904,
+  "away_team": "NYG",
+  "home_team": "WAS",
+  "kickoff_at": "2026-10-11T17:00:00.000Z",
+  "spread": [
+   {
+    "side": "home",
+    "value": -4.5,
+    "price_american": -110,
+    "ticket_pct": 26,
+    "money_pct": 25
+   },
+   {
+    "side": "away",
+    "value": 4.5,
+    "price_american": -112,
+    "ticket_pct": 74,
+    "money_pct": 75
+   }
+  ],
+  "total": [
+   {
+    "side": "under",
+    "value": 41.5,
+    "price_american": -109,
+    "ticket_pct": 23,
+    "money_pct": 30
+   },
+   {
+    "side": "over",
+    "value": 41.5,
+    "price_american": -113,
+    "ticket_pct": 77,
+    "money_pct": 70
+   }
+  ],
+  "moneyline": [
+   {
+    "side": "away",
+    "value": 0,
+    "price_american": 162,
+    "ticket_pct": 46,
+    "money_pct": 55
+   },
+   {
+    "side": "home",
+    "value": 0,
+    "price_american": -200,
+    "ticket_pct": 54,
+    "money_pct": 45
+   }
+  ]
+ },
+ "action_network_splits_captured_at": "2026-10-09T19:41:08.878Z",
+ "supercontest_row": {
+  "away_team": "NYG",
+  "home_team": "WAS",
+  "favorite": "WAS",
+  "underdog": "NYG",
+  "favorite_spread": -3.5,
+  "kickoff_display": "Sun 1:00 pm"
+ },
+ "quantitative_row": {
+  "event": "New York Giants @ Washington Commanders",
+  "away": "NYG",
+  "home": "WAS",
+  "away_name": "New York Giants",
+  "home_name": "Washington Commanders",
+  "market": {
+   "home_spread": -3.5,
+   "total": 41.5,
+   "captured_at": "2026-10-11T01:15:40.538Z"
+  },
+  "features": {
+   "offense_z": {
+    "WAS": -0.7313032483467585,
+    "NYG": -0.7816741106308326
+   },
+   "defense_weakness_z": {
+    "WAS": 1.0499739719419563,
+    "NYG": -0.16481928170849797
+   },
+   "tempo_z": {
+    "WAS": -0.21810851180020724,
+    "NYG": -0.06942301002161909
+   },
+   "srs": {
+    "WAS": -11.37,
+    "NYG": -4.141
+   },
+   "secondary_adjustment_points": {
+    "WAS": 0.525,
+    "NYG": 0.555
+   }
+  },
+  "means": {
+   "home": 21.644559153513356,
+   "away": 20.885122830167827,
+   "total": 42.529681983681186,
+   "home_margin": 0.759436323345529
+  },
+  "simulation": {
+   "iterations": 100000,
+   "mean_home": 21.810293745806263,
+   "mean_away": 21.033370487343273,
+   "home_win_pct": 0.51725,
+   "home_cover_pct": 0.43365,
+   "away_cover_pct": 0.56635,
+   "over_pct": 0.52301,
+   "under_pct": 0.47699
+  },
+  "model_menu": {
+   "side": "New York Giants",
+   "side_cover_pct": 0.56635,
+   "total": "Over",
+   "total_pct": 0.52301
+  },
+  "contest": {
+   "team": "WAS",
+   "favorite_spread": -3.5,
+   "market_favorite": "Washington Commanders",
+   "file_orientation_reversed": false
+  }
+ },
+ "simulator_edge_sweep": [
+  {
+   "home_margin_edge_pts": -3,
+   "home_cover": 0.421,
+   "away_cover": 0.579,
+   "side_push": 0,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": -2,
+   "home_cover": 0.4471,
+   "away_cover": 0.5529,
+   "side_push": 0,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": -1,
+   "home_cover": 0.4734,
+   "away_cover": 0.5266,
+   "side_push": 0,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 0,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 1,
+   "home_cover": 0.5267,
+   "away_cover": 0.4733,
+   "side_push": 0,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 2,
+   "home_cover": 0.5534,
+   "away_cover": 0.4466,
+   "side_push": 0,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 3,
+   "home_cover": 0.58,
+   "away_cover": 0.42,
+   "side_push": 0,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  }
+ ],
+ "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
+ "digest_rows": [
+  "NYG@WAS | NYG +3.5 / WAS -3.5 | split | V: VSiN; RO: Action Network, The Favorites, Steve Fezzik, Ross Tucker, Kendra Middleton; vs WAS: VSiN, Sharp or Square (RO), Simon Hunter (RO), Andrew Erickson (RO), ESPN NFL (RO), Pro Football Talk (RO); YT: NYG +3.5 Brandon Anderson\u2026 | skip",
+  "NYG@WAS | Isaiah Likely o40.5 rec yds -125 | Over | YT/PI: Josh Shepardson (Sharp Football) (PI); RO: Sharp Football; src px not BKR | 2- research-only",
+  "NYG@WAS | Isaiah Likely ATD +245 | Yes | RO: Action Network, Grant Neiffer; src px not BKR | 2- research-only",
+  "NYG@WAS | Jayden Daniels ATD +250 | Yes | RO: Action Network, Grant Neiffer; src px not BKR | 2- research-only",
+  "NYG@WAS | Isaiah Likely rec Over (line n/a) | Over | RO: Cody Brown; no source price; src px not BKR | 2- research-only"
+ ],
+ "source_rows": {
+  "counts": {
+   "corroboration_only": 25,
+   "tier_eligible": 2
+  },
+  "rows": [
+   {
+    "row": "w05-expert-verified.json#rows[29]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 245,
+    "price": null,
+    "published": "2026-10-10T18:25:41.495+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[30]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 250,
+    "price": null,
+    "published": "2026-10-10T18:25:41.495+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[43]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "teaser",
+    "side": "WAS",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-10T18:25:40.812+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[60]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 170,
+    "price": null,
+    "published": "2026-10-10T17:46:02.156+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[103]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "spread",
+    "side": "NYG",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-10T17:46:01.268+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[120]",
+    "kind": "expert_feed",
+    "outlet": "The Favorites",
+    "persons": [],
+    "market": "spread",
+    "side": "NYG",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-09T15:40:52.356+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[132]",
+    "kind": "expert_feed",
+    "outlet": "Sharp or Square",
+    "persons": [],
+    "market": "spread",
+    "side": "WAS",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-09T15:40:52.076+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[158]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "spread",
+    "side": "NYG",
+    "line": null,
+    "price": null,
+    "published": "2026-10-07T15:54:08.831+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[207]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Grant Neiffer"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 245,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[208]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Grant Neiffer"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 250,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[236]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Grant Neiffer"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 245,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[254]",
+    "kind": "podcast",
+    "outlet": "SHARP NFL Week 5 Bets: Bears-Packers, Niners-Seahawks and more",
+    "persons": [
+     "Simon Hunter"
+    ],
+    "market": "spread",
+    "side": "WAS",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-08T17:01:29+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[266]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Prop Bets &amp; Parlays",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "prop",
+    "side": "UNDER",
+    "line": 35.5,
+    "price": null,
+    "published": "2026-10-08T14:06:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[302]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "spread",
+    "side": "NYG",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[303]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Ross Tucker"
+    ],
+    "market": "spread",
+    "side": "NYG",
+    "line": 3,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[322]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Andrew Erickson"
+    ],
+    "market": "spread",
+    "side": "WAS",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[346]",
+    "kind": "podcast",
+    "outlet": "Construction &amp; Big Dog Picks | NFL Week 5 Preview",
+    "persons": [
+     "Kendra Middleton"
+    ],
+    "market": "spread",
+    "side": "NYG",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-08T16:55:35+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[370]",
+    "kind": "podcast",
+    "outlet": "NFL WEEK 5 Betting Preview: Bucs-Cowboys, Bears-Packers and more",
+    "persons": [
+     "Simon Hunter"
+    ],
+    "market": "spread",
+    "side": "WAS",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-06T18:24:28+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[380]",
+    "kind": "article",
+    "outlet": "Cody Brown Bets",
+    "persons": [
+     "Cody Brown"
+    ],
+    "market": "prop",
+    "side": "OVER",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:44:29.028257+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[394]",
+    "kind": "article",
+    "outlet": "ESPN NFL",
+    "persons": [
+     "Ben Solak, Seth Walder, Matt Bowen and Mike Clay"
+    ],
+    "market": "spread",
+    "side": "WAS",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[415]",
+    "kind": "article",
+    "outlet": "Sharp Football",
+    "persons": [
+     "Josh Shepardson"
+    ],
+    "market": "prop",
+    "side": "OVER 40.5 (-125)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:37:38.381786+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[420]",
+    "kind": "article",
+    "outlet": "Action Network",
+    "persons": [
+     "Nick Giffen ..."
+    ],
+    "market": "prop",
+    "side": "OVER 2.5 (-102)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:34:25.131417+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[433]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "Cody Brown Bets"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:33:54.97021+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[452]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Wes Reynolds"
+    ],
+    "market": "spread",
+    "side": "WAS",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-10T12:03:19.165844+00:00",
+    "best_bet": false,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/wes-reynolds-nfl-week-5-best-bets-and-predictions/",
+    "quote": "Washington Commanders -3.5 vs."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[470]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@thepropdealer"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T04:04:06.828628+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[540]",
+    "kind": "article",
+    "outlet": "Pro Football Talk",
+    "persons": [],
+    "market": "moneyline",
+    "side": "WAS",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T16:33:20.970971+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[564]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Dave Tuley"
+    ],
+    "market": "spread",
+    "side": "NYG",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-08T01:33:21.643136+00:00",
+    "best_bet": true,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/tuleys-takes-for-nfl-week-5/",
+    "quote": "Best Bet: Giants +3.5 (Pool Play Percentages: Giants 67/33 in ATS contests, but Commanders still 67/33 in SU pools)."
+   }
+  ]
+ },
+ "weather_venue_row": {
+  "game": "NYG@WAS",
+  "weather_status": "forecast_captured",
+  "source_game": "NYG@WAS",
+  "materiality": "review_required: precipitation probability 72%"
+ },
+ "secondary_matchups": [
+  {
+   "id": "sec_5267e7850ee84f9c",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_NYG_at_WAS",
+   "kickoff_utc": "2026-10-11T17:00:00.000Z",
+   "offense_team": "NYG",
+   "offense_team_nick": "Giants",
+   "defense_team": "WAS",
+   "defense_team_nick": "Commanders",
+   "offense_venue": "away",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "zone_heavy",
+     "two_high"
+    ],
+    "primary_coverage_family": "zone_heavy",
+    "pressure_profile": "passive",
+    "confidence": 0.62,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Dan Quinn Cover 3 / Quarters zone structure featuring Mike Sainristil in nickel."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Tyler Owens",
+     "team": "WAS",
+     "position": "S",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Owens (hamstring) has been ruled out for Sunday's game against the Giants.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T02:45:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Percy Butler",
+     "team": "WAS",
+     "position": "S",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Butler (hamstring) has been ruled out for Sunday's game against the Giants.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T02:39:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Trey Amos",
+     "team": "WAS",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Amos (ankle) is listed as questionable for Sunday's game against the Giants.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-10T01:26:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Nick Cross",
+     "team": "WAS",
+     "position": "S",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Cross (illness) has been ruled out ahead of Sunday's game against the Giants.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T01:22:00.000Z",
+     "role": "strong_safety",
+     "side": "middle",
+     "impact_tier": "starter",
+     "primary_receiver_archetypes_impacted": [
+      "te_middle"
+     ],
+     "weakness_tags": [
+      "te_middle_boost",
+      "slot_wr_boost"
+     ],
+     "severity_score": 1.8,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "slot_wr_boost",
+    "te_middle_boost",
+    "underneath_volume_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Malik Nabers",
+     "team": "NYG",
+     "roles": [
+      "alpha_x",
+      "field_stretcher",
+      "slot"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "boundary",
+      "deep",
+      "slot"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 3,
+     "notes": "NYG Explosive 1st Round Alpha.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Isaiah Likely",
+     "team": "NYG",
+     "roles": [
+      "te_middle",
+      "red_zone"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "seam"
+     ],
+     "matched_weakness_tags": [
+      "te_middle_boost"
+     ],
+     "opportunity_score": 0.8,
+     "notes": "NYG TE.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    }
+   ],
+   "severity_score": 5.55,
+   "elite_absence_count": 0,
+   "vulnerability_tier": "high",
+   "confidence": 0.88,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  },
+  {
+   "id": "sec_2534ff9e9416bc7b",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_NYG_at_WAS",
+   "kickoff_utc": "2026-10-11T17:00:00.000Z",
+   "offense_team": "WAS",
+   "offense_team_nick": "Commanders",
+   "defense_team": "NYG",
+   "defense_team_nick": "Giants",
+   "offense_venue": "home",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "man_heavy",
+     "blitz_heavy"
+    ],
+    "primary_coverage_family": "man_match",
+    "pressure_profile": "blitz_heavy",
+    "confidence": 0.72,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Shane Bowen pressure-heavy scheme utilizing Deonte Banks on outside receivers."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Paulson Adebo",
+     "team": "NYG",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Paulson Adebo IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Jarrick Bernard-Converse",
+     "team": "NYG",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Jarrick Bernard-Converse IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Thaddeus Dixon",
+     "team": "NYG",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Thaddeus Dixon IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Jason Pinnock",
+     "team": "NYG",
+     "position": "S",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Pinnock (concussion) has been ruled out ahead of Sunday's game against the Commanders.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T02:35:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "alpha_wr_boost",
+    "hot_read_boost",
+    "outside_wr_boost",
+    "slot_wr_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Terry McLaurin",
+     "team": "WAS",
+     "roles": [
+      "alpha_x",
+      "field_stretcher"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "boundary",
+      "deep",
+      "intermediate"
+     ],
+     "matched_weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost"
+     ],
+     "opportunity_score": 3,
+     "notes": "WAS Scary Terry WR1.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Antonio Williams",
+     "team": "WAS",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost"
+     ],
+     "opportunity_score": 0.8,
+     "notes": "WSH WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    }
+   ],
+   "severity_score": 5.25,
+   "elite_absence_count": 0,
+   "vulnerability_tier": "high",
+   "confidence": 0.9,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  }
+ ],
+ "power_ratings": {
+  "NYG": {
+   "season": 2026,
+   "team": "Giants",
+   "team_abbr": "NYG",
+   "games_played": 4,
+   "record": "3-1",
+   "power_rating": {
+    "srs": -4.141,
+    "net_points_per_game": 0.75,
+    "pythag_win_pct": 0.5221,
+    "model_composite_z": -0.1154,
+    "model_rank": 14,
+    "srs_rank": 22,
+    "net_ppg_rank": 13,
+    "pythag_rank": 13,
+    "market_implied_win_total": 7.82,
+    "market_implied_rank": 25,
+    "delta": -0.3908,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  },
+  "WAS": {
+   "season": 2026,
+   "team": "Commanders",
+   "team_abbr": "WAS",
+   "games_played": 4,
+   "record": "1-3",
+   "power_rating": {
+    "srs": -11.37,
+    "net_points_per_game": -8.5,
+    "pythag_win_pct": 0.3156,
+    "model_composite_z": -1.2959,
+    "model_rank": 30,
+    "srs_rank": 32,
+    "net_ppg_rank": 30,
+    "pythag_rank": 28,
+    "market_implied_win_total": 7.29,
+    "market_implied_rank": 26,
+    "delta": 0.6054,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  }
+ },
+ "availability": {
+  "NYG": {
+   "event_count": 20,
+   "qb_events": 2,
+   "offensive_line_worsening": 0,
+   "defensive_front_worsening": 4,
+   "top_score": 131,
+   "top_events": [
+    {
+     "player_name": "Jaxson Dart",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "qb_major",
+     "score": 131,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Brian Burns",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Roy Robertson-Harris",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Braxton Berrios",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jake Haener",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "active_news",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 80,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Chauncey Golston",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 77,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Chauncey Golston",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 77,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Braxton Berrios",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    }
+   ]
+  },
+  "WAS": {
+   "event_count": 37,
+   "qb_events": 4,
+   "offensive_line_worsening": 0,
+   "defensive_front_worsening": 4,
+   "top_score": 125,
+   "top_events": [
+    {
+     "player_name": "Jayden Daniels",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "setback",
+     "availability_trend": "worsening",
+     "impact_bucket": "qb_major",
+     "score": 125,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Marcus Mariota",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "qb_major",
+     "score": 104,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Marcus Mariota",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "qb_major",
+     "score": 104,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jayden Daniels",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "status_update",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 94,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Jer'Zhan Newton",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Trey Amos",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jeremy McNichols",
+     "position": "RB",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jacory Croskey-Merritt",
+     "position": "RB",
+     "unit": "offensive_skill",
+     "event_type": "limited_return",
+     "availability_trend": "improving",
+     "impact_bucket": "skill_major",
+     "score": 83,
+     "signal": "positive_availability"
+    }
+   ]
+  }
+ },
+ "ftn_team_level": {
+  "NYG": {
+   "record_count": 145,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "EPA/PLY": "-0.003",
+      "DVOA": "-0.3%",
+      "SUCC%": "46.1%",
+      "EXP%": "8.2%",
+      "CONV%": "46.8%",
+      "TO": "7",
+      "TO%": "3.0%",
+      "3&O": "29.3%",
+      "MTKL%": "14.3%",
+      "PEN%": "4.3%",
+      "PENY": "33.5"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "YD/PLY": "5.5",
+      "PT/GM": "18.3",
+      "FD%": "30.6%",
+      "TO": "7",
+      "DPBK%": "62.1%",
+      "YD": "849",
+      "TD": "9",
+      "INT": "6",
+      "RUSH%": "37.9%",
+      "YD__2": "436",
+      "TD__2": "2"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "DPBK": "144",
+      "SK": "3",
+      "SK%": "2.1%",
+      "QBH%": "9.7%",
+      "PRESS": "39",
+      "PRESS%": "27.1%",
+      "QPRESS%": "56.4%",
+      "TTPR": "2.46",
+      "DISR%": "0.0%",
+      "BLZ%": "33.3%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "EPA/DB": "0.034",
+      "SUCC%": "47.2%",
+      "DVOA": "5.8%",
+      "CPOE": "7.19%",
+      "CBALL%": "72.8%",
+      "EXP%": "9.1%",
+      "INTW%": "5.1%",
+      "TGHT%": "37.5%",
+      "OPEN%": "52.9%",
+      "TA%": "2.9%",
+      "DROP%": "4.4%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "EPA/ATT": "-0.063",
+      "SUCC%": "44.3%",
+      "DVOA": "-9.0%",
+      "aRYOE": "",
+      "EXP%": "11.4%",
+      "STF%": "15.9%",
+      "YBCO": "1.97",
+      "YACO": "2.26"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "EPA/PLY": "-0.058",
+      "DVOA": "-18.8%",
+      "SUCC%": "39.3%",
+      "EXP%": "6.1%",
+      "CONV%": "43.6%",
+      "TO": "5",
+      "TO%": "2.05%",
+      "PENY": "32.8",
+      "PEN%": "7.79%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "YD/PLY": "4.8",
+      "PT/GM": "19.0",
+      "FD%": "26.6%",
+      "TO": "5",
+      "DPBK%": "52.0%",
+      "YD": "729",
+      "TD": "6",
+      "INT": "3",
+      "RUSH%": "48.0%",
+      "YD__2": "444",
+      "TD__2": "1"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "SK": "11",
+      "SK%": "8.7%",
+      "QBSK%": "54.5%",
+      "QBH%": "19.7%",
+      "PRESS%": "33.1%",
+      "UPRES%": "21.2%",
+      "BLITZ%": "29.9%",
+      "TTPR": "2.43",
+      "TTT": "2.56",
+      "EPA/DB": "-0.402",
+      "DVOA": "-100.5%",
+      "SUCC%": "28.6%",
+      "EPA/DB__2": "0.241",
+      "DVOA__2": "20.4%",
+      "SUCC%__2": "50.6%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "EPA/DB": "0.028",
+      "SUCC%": "43.3%",
+      "DVOA": "-1.6%",
+      "CPOE": "-0.4%",
+      "CBALL%": "64.6%",
+      "EXP%": "10.1%",
+      "INTW%": "4.4%",
+      "HLT%": "0.9%",
+      "TA%": "0.9%",
+      "DROP%": "1.8%",
+      "aDOT": "9.3",
+      "aYAC": "3.3"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "EPA/ATT": "-0.152",
+      "SUCC%": "35.0%",
+      "DVOA": "-17.3%",
+      "aRYOE": "",
+      "EXP%": "6.0%",
+      "STF%": "14.5%",
+      "aYBCO": "0.96",
+      "aYACO": "1.89",
+      "CRT%": "52.7%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "PLY/GM": "61.0",
+      "TOP": "30.83",
+      "DRV/GM": "10.0",
+      "SEC/PLY": "30.3",
+      "PLY/DRV": "6.1",
+      "YD/DRV": "29.3",
+      "SEC/DRV": "185",
+      "3&O": "17.5%",
+      "SCD%": "40.0%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "NYG",
+     "metrics": {
+      "Team": "New York Giants",
+      "GP": "4",
+      "DPBK%": "52.0%",
+      "RUSH%": "48.0%",
+      "SHG%": "52.0%",
+      "NH%": "3.7%",
+      "MOT%": "51.6%",
+      "PA%": "22.8%",
+      "IZ%": "12.8%",
+      "OZ%": "15.4%",
+      "MD%": "40.2%",
+      "PWR%": "14.5%",
+      "CTR%": "1.7%"
+     }
+    }
+   ]
+  },
+  "WAS": {
+   "record_count": 146,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "EPA/PLY": "0.031",
+      "DVOA": "5.3%",
+      "SUCC%": "45.1%",
+      "EXP%": "8.9%",
+      "CONV%": "44.2%",
+      "TO": "5",
+      "TO%": "2.1%",
+      "3&O": "21.7%",
+      "MTKL%": "13.8%",
+      "PEN%": "3.8%",
+      "PENY": "19.0"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "YD/PLY": "5.9",
+      "PT/GM": "29.0",
+      "FD%": "30.0%",
+      "TO": "5",
+      "DPBK%": "64.1%",
+      "YD": "1,018",
+      "TD": "11",
+      "INT": "3",
+      "RUSH%": "35.9%",
+      "YD__2": "374",
+      "TD__2": "3"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "DPBK": "152",
+      "SK": "7",
+      "SK%": "4.6%",
+      "QBH%": "14.5%",
+      "PRESS": "39",
+      "PRESS%": "25.7%",
+      "QPRESS%": "35.9%",
+      "TTPR": "2.72",
+      "DISR%": "0.7%",
+      "BLZ%": "47.4%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "EPA/DB": "0.101",
+      "SUCC%": "48.0%",
+      "DVOA": "19.7%",
+      "CPOE": "1.83%",
+      "CBALL%": "75.0%",
+      "EXP%": "13.2%",
+      "INTW%": "2.2%",
+      "TGHT%": "22.8%",
+      "OPEN%": "72.1%",
+      "TA%": "8.1%",
+      "DROP%": "2.9%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "EPA/ATT": "-0.094",
+      "SUCC%": "40.0%",
+      "DVOA": "-17.5%",
+      "aRYOE": "",
+      "EXP%": "7.1%",
+      "STF%": "23.5%",
+      "YBCO": "0.58",
+      "YACO": "2.75"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "EPA/PLY": "-0.051",
+      "DVOA": "-16.6%",
+      "SUCC%": "38.3%",
+      "EXP%": "7.7%",
+      "CONV%": "34.4%",
+      "TO": "1",
+      "TO%": "0.38%",
+      "PENY": "37.0",
+      "PEN%": "8.05%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "YD/PLY": "4.9",
+      "PT/GM": "20.5",
+      "FD%": "25.7%",
+      "TO": "1",
+      "DPBK%": "60.2%",
+      "YD": "786",
+      "TD": "8",
+      "INT": "1",
+      "RUSH%": "39.8%",
+      "YD__2": "496",
+      "TD__2": "1"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "SK": "5",
+      "SK%": "3.2%",
+      "QBSK%": "0.0%",
+      "QBH%": "17.2%",
+      "PRESS%": "34.4%",
+      "UPRES%": "25.0%",
+      "BLITZ%": "19.7%",
+      "TTPR": "2.53",
+      "TTT": "2.79",
+      "EPA/DB": "-0.358",
+      "DVOA": "-81.6%",
+      "SUCC%": "27.8%",
+      "EPA/DB__2": "0.235",
+      "DVOA__2": "25.6%",
+      "SUCC%__2": "45.6%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "EPA/DB": "0.031",
+      "SUCC%": "39.5%",
+      "DVOA": "3.1%",
+      "CPOE": "-1.6%",
+      "CBALL%": "67.4%",
+      "EXP%": "11.5%",
+      "INTW%": "1.4%",
+      "HLT%": "2.2%",
+      "TA%": "8.0%",
+      "DROP%": "5.1%",
+      "aDOT": "9.7",
+      "aYAC": "4.0"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "EPA/ATT": "-0.174",
+      "SUCC%": "36.5%",
+      "DVOA": "-22.0%",
+      "aRYOE": "",
+      "EXP%": "5.8%",
+      "STF%": "21.2%",
+      "aYBCO": "1.40",
+      "aYACO": "2.09",
+      "CRT%": "58.0%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "PLY/GM": "65.3",
+      "TOP": "30.08",
+      "DRV/GM": "11.8",
+      "SEC/PLY": "27.7",
+      "PLY/DRV": "5.6",
+      "YD/DRV": "27.3",
+      "SEC/DRV": "154",
+      "3&O": "25.5%",
+      "SCD%": "34.0%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "WAS",
+     "metrics": {
+      "Team": "Washington Commanders",
+      "GP": "4",
+      "DPBK%": "60.2%",
+      "RUSH%": "39.8%",
+      "SHG%": "64.0%",
+      "NH%": "8.8%",
+      "MOT%": "51.3%",
+      "PA%": "22.3%",
+      "IZ%": "26.0%",
+      "OZ%": "43.3%",
+      "MD%": "16.3%",
+      "PWR%": "3.8%",
+      "CTR%": "1.9%"
+     }
+    }
+   ]
+  }
+ },
+ "files_to_read_directly": {
+  "weather_detail": "data/research-intel/source-evidence/2026-10-10-week5-weather-openmeteo.json (filter to NYG@WAS)",
+  "prop_markets": "BKR/BEO rows for event \"New York Giants @ Washington Commanders\" with market != game_lines",
+  "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for NYG and WAS",
+  "projected_starters": "data/projected-starters/2026/latest.json (teams.NYG, teams.WAS)"
+ }
+}

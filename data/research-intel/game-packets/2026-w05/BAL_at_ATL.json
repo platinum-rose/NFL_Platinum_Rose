@@ -1,0 +1,2639 @@
+{
+ "schema": "w05_game_packet_v1",
+ "game": "BAL@ATL",
+ "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "kickoff_utc": "2026-10-12T00:20:00.000Z",
+ "away": {
+  "abbr": "BAL",
+  "name": "Baltimore Ravens"
+ },
+ "home": {
+  "abbr": "ATL",
+  "name": "Atlanta Falcons"
+ },
+ "line_convention": "spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points",
+ "teams": {
+  "BAL": {
+   "team": "BAL",
+   "division": "AFC North",
+   "record": "3-1",
+   "games_played": 4,
+   "points_for": 116,
+   "points_against": 96,
+   "point_diff": 20,
+   "ppg": 29.0,
+   "papg": 24.0,
+   "home_record": "1-1",
+   "away_record": "2-0",
+   "division_record": "0-0",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-13T17:00:00.000Z",
+     "opp": "IND",
+     "site": "A",
+     "pf": 41,
+     "pa": 23,
+     "result": "W",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T17:00:00.000Z",
+     "opp": "NO",
+     "site": "H",
+     "pf": 17,
+     "pa": 24,
+     "result": "L",
+     "opp_record": "1-3"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T20:25:00.000Z",
+     "opp": "DAL",
+     "site": "A",
+     "pf": 34,
+     "pa": 31,
+     "result": "W",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T17:00:00.000Z",
+     "opp": "TEN",
+     "site": "H",
+     "pf": 24,
+     "pa": 18,
+     "result": "W",
+     "opp_record": "0-4"
+    }
+   ],
+   "opponents_record_to_date": "5-11",
+   "rest_days_before_this_game": 7.3,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    13
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "ATL",
+     "site": "A",
+     "kickoff_utc": "2026-10-12T00:20:00.000Z",
+     "opp_division": "NFC South"
+    },
+    {
+     "week": 6,
+     "opp": "CLE",
+     "site": "A",
+     "kickoff_utc": "2026-10-18T17:00:00.000Z",
+     "opp_division": "AFC North"
+    },
+    {
+     "week": 7,
+     "opp": "CIN",
+     "site": "H",
+     "kickoff_utc": "2026-10-25T17:00:00.000Z",
+     "opp_division": "AFC North"
+    },
+    {
+     "week": 8,
+     "opp": "BUF",
+     "site": "A",
+     "kickoff_utc": "2026-11-01T18:00:00.000Z",
+     "opp_division": "AFC East"
+    }
+   ]
+  },
+  "ATL": {
+   "team": "ATL",
+   "division": "NFC South",
+   "record": "2-2",
+   "games_played": 4,
+   "points_for": 96,
+   "points_against": 92,
+   "point_diff": 4,
+   "ppg": 24.0,
+   "papg": 23.0,
+   "home_record": "0-1",
+   "away_record": "2-1",
+   "division_record": "1-1",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-13T17:00:00.000Z",
+     "opp": "PIT",
+     "site": "A",
+     "pf": 13,
+     "pa": 20,
+     "result": "L",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T17:00:00.000Z",
+     "opp": "CAR",
+     "site": "H",
+     "pf": 3,
+     "pa": 34,
+     "result": "L",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-25T00:15:00.000Z",
+     "opp": "GB",
+     "site": "A",
+     "pf": 35,
+     "pa": 14,
+     "result": "W",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-06T00:15:00.000Z",
+     "opp": "NO",
+     "site": "A",
+     "pf": 45,
+     "pa": 24,
+     "result": "W",
+     "opp_record": "1-3"
+    }
+   ],
+   "opponents_record_to_date": "7-9",
+   "rest_days_before_this_game": 6.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    11
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "BAL",
+     "site": "H",
+     "kickoff_utc": "2026-10-12T00:20:00.000Z",
+     "opp_division": "AFC North"
+    },
+    {
+     "week": 6,
+     "opp": "CHI",
+     "site": "H",
+     "kickoff_utc": "2026-10-18T17:00:00.000Z",
+     "opp_division": "NFC North"
+    },
+    {
+     "week": 7,
+     "opp": "SF",
+     "site": "H",
+     "kickoff_utc": "2026-10-25T17:00:00.000Z",
+     "opp_division": "NFC West"
+    },
+    {
+     "week": 8,
+     "opp": "TB",
+     "site": "A",
+     "kickoff_utc": "2026-11-01T18:00:00.000Z",
+     "opp_division": "NFC South"
+    }
+   ]
+  }
+ },
+ "standings": {
+  "divisions": {
+   "AFC North": [
+    {
+     "team": "BAL",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "div": "0-0",
+     "rank": 1
+    },
+    {
+     "team": "CLE",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": -14,
+     "div": "1-0",
+     "rank": 2
+    },
+    {
+     "team": "CIN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "div": "0-1",
+     "rank": 3
+    },
+    {
+     "team": "PIT",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -10,
+     "div": "1-1",
+     "rank": 4
+    }
+   ],
+   "NFC South": [
+    {
+     "team": "CAR",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "div": "1-0",
+     "rank": 1
+    },
+    {
+     "team": "ATL",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 4,
+     "div": "1-1",
+     "rank": 2
+    },
+    {
+     "team": "NO",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -23,
+     "div": "0-1",
+     "rank": 3
+    },
+    {
+     "team": "TB",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -20,
+     "div": "0-0",
+     "rank": 4
+    }
+   ]
+  },
+  "conference_order_by_record_then_point_diff": {
+   "AFC": [
+    {
+     "team": "KC",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 41,
+     "order": 1
+    },
+    {
+     "team": "JAX",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 51,
+     "order": 2
+    },
+    {
+     "team": "LV",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 31,
+     "order": 3
+    },
+    {
+     "team": "BUF",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "order": 4
+    },
+    {
+     "team": "BAL",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "order": 5
+    },
+    {
+     "team": "CLE",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": -14,
+     "order": 6
+    },
+    {
+     "team": "CIN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "order": 7
+    },
+    {
+     "team": "IND",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -2,
+     "order": 8
+    },
+    {
+     "team": "PIT",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -10,
+     "order": 9
+    },
+    {
+     "team": "NE",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -12,
+     "order": 10
+    },
+    {
+     "team": "DEN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -20,
+     "order": 11
+    },
+    {
+     "team": "NYJ",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -8,
+     "order": 12
+    },
+    {
+     "team": "HOU",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -25,
+     "order": 13
+    },
+    {
+     "team": "TEN",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -28,
+     "order": 14
+    },
+    {
+     "team": "LAC",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -39,
+     "order": 15
+    },
+    {
+     "team": "MIA",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -55,
+     "order": 16
+    }
+   ],
+   "NFC": [
+    {
+     "team": "SF",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 58,
+     "order": 1
+    },
+    {
+     "team": "MIN",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 35,
+     "order": 2
+    },
+    {
+     "team": "CHI",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 47,
+     "order": 3
+    },
+    {
+     "team": "SEA",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 32,
+     "order": 4
+    },
+    {
+     "team": "NYG",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 3,
+     "order": 5
+    },
+    {
+     "team": "CAR",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "order": 6
+    },
+    {
+     "team": "DAL",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 10,
+     "order": 7
+    },
+    {
+     "team": "ATL",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 4,
+     "order": 8
+    },
+    {
+     "team": "LAR",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 2,
+     "order": 9
+    },
+    {
+     "team": "DET",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -8,
+     "order": 10
+    },
+    {
+     "team": "PHI",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -18,
+     "order": 11
+    },
+    {
+     "team": "GB",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -32,
+     "order": 12
+    },
+    {
+     "team": "NO",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -23,
+     "order": 13
+    },
+    {
+     "team": "ARI",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -30,
+     "order": 14
+    },
+    {
+     "team": "WAS",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -34,
+     "order": 15
+    },
+    {
+     "team": "TB",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -20,
+     "order": 16
+    }
+   ]
+  },
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+ },
+ "same_division_game": false,
+ "market": {
+  "BKR": {
+   "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:15:40.538Z",
+   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Baltimore Ravens",
+      "line": 3,
+      "odds": 102,
+      "available": true
+     },
+     {
+      "side": "Atlanta Falcons",
+      "line": -3,
+      "odds": -117,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 44,
+      "odds": 103,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 44,
+      "odds": -120,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Baltimore Ravens",
+      "odds": 139,
+      "available": true
+     },
+     {
+      "side": "Atlanta Falcons",
+      "odds": -160,
+      "available": true
+     }
+    ]
+   }
+  },
+  "BEO": {
+   "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:19:56.400Z",
+   "expires_for_recommendation_at": "2026-10-11T07:19:56.400000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Baltimore Ravens",
+      "line": 3.5,
+      "odds": -120,
+      "available": true
+     },
+     {
+      "side": "Atlanta Falcons",
+      "line": -3.5,
+      "odds": 100,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 43.5,
+      "odds": -115,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 43.5,
+      "odds": -105,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Baltimore Ravens",
+      "odds": 149,
+      "available": true
+     },
+     {
+      "side": "Atlanta Falcons",
+      "odds": -170,
+      "available": true
+     }
+    ]
+   }
+  },
+  "book_conflict": null,
+  "market_implied_score": {
+   "ATL": 23.5,
+   "BAL": 20.5,
+   "basis": "BKR home line -3 total 44"
+  }
+ },
+ "action_network_opener": {
+  "an_game_id": 290915,
+  "kickoff_utc": "2026-10-12T00:20:00Z",
+  "sp": {
+   "ATL": 4.5,
+   "BAL": -4.5
+  },
+  "sp_odds_home": -113,
+  "sp_at": "2026-10-05T01:51:05Z",
+  "tot": 47.5,
+  "tot_at": "2026-10-05T01:12:15Z",
+  "ml": {
+   "BAL": -210,
+   "ATL": 165
+  },
+  "carried_from_before_cutoff": false
+ },
+ "action_network_splits": {
+  "game_id": 290915,
+  "away_team": "BAL",
+  "home_team": "ATL",
+  "kickoff_at": "2026-10-12T00:20:00.000Z",
+  "spread": [
+   {
+    "side": "home",
+    "value": -3.5,
+    "price_american": -101,
+    "ticket_pct": 47,
+    "money_pct": 59
+   },
+   {
+    "side": "away",
+    "value": 3.5,
+    "price_american": -119,
+    "ticket_pct": 53,
+    "money_pct": 41
+   }
+  ],
+  "total": [
+   {
+    "side": "over",
+    "value": 44,
+    "price_american": -110,
+    "ticket_pct": 72,
+    "money_pct": 73
+   },
+   {
+    "side": "under",
+    "value": 44,
+    "price_american": -109,
+    "ticket_pct": 28,
+    "money_pct": 27
+   }
+  ],
+  "moneyline": [
+   {
+    "side": "away",
+    "value": 0,
+    "price_american": 150,
+    "ticket_pct": 49,
+    "money_pct": 39
+   },
+   {
+    "side": "home",
+    "value": 0,
+    "price_american": -177,
+    "ticket_pct": 51,
+    "money_pct": 61
+   }
+  ]
+ },
+ "action_network_splits_captured_at": "2026-10-09T19:41:08.878Z",
+ "supercontest_row": {
+  "away_team": "BAL",
+  "home_team": "ATL",
+  "favorite": "ATL",
+  "underdog": "BAL",
+  "favorite_spread": -3.5,
+  "kickoff_display": "Sun 8:20 pm"
+ },
+ "quantitative_row": {
+  "event": "Baltimore Ravens @ Atlanta Falcons",
+  "away": "BAL",
+  "home": "ATL",
+  "away_name": "Baltimore Ravens",
+  "home_name": "Atlanta Falcons",
+  "market": {
+   "home_spread": -3,
+   "total": 44,
+   "captured_at": "2026-10-11T01:15:40.538Z"
+  },
+  "features": {
+   "offense_z": {
+    "ATL": 0.8195619275102368,
+    "BAL": 1.4855307870529544
+   },
+   "defense_weakness_z": {
+    "ATL": -1.0494921578316299,
+    "BAL": 0.15610000055064338
+   },
+   "tempo_z": {
+    "ATL": -0.7516270770057281,
+    "BAL": 0.21045558156160418
+   },
+   "srs": {
+    "ATL": 0.381,
+    "BAL": -0.709
+   },
+   "secondary_adjustment_points": {
+    "ATL": 0.435,
+    "BAL": 0.405
+   }
+  },
+  "means": {
+   "home": 23.586449508298802,
+   "away": 21.158845479998476,
+   "total": 44.745294988297275,
+   "home_margin": 2.427604028300326
+  },
+  "simulation": {
+   "iterations": 100000,
+   "mean_home": 23.694639041061617,
+   "mean_away": 21.325021273347964,
+   "home_win_pct": 0.55677,
+   "home_cover_pct": 0.4843,
+   "away_cover_pct": 0.5157,
+   "over_pct": 0.51667,
+   "under_pct": 0.48333000000000004
+  },
+  "model_menu": {
+   "side": "Baltimore Ravens",
+   "side_cover_pct": 0.5157,
+   "total": "Over",
+   "total_pct": 0.51667
+  },
+  "contest": {
+   "team": "ATL",
+   "favorite_spread": -3.5,
+   "market_favorite": "Atlanta Falcons",
+   "file_orientation_reversed": false
+  }
+ },
+ "simulator_edge_sweep": [
+  {
+   "home_margin_edge_pts": -3,
+   "home_cover": 0.3813,
+   "away_cover": 0.5372,
+   "side_push": 0.0814,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": -2,
+   "home_cover": 0.4067,
+   "away_cover": 0.5111,
+   "side_push": 0.0822,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": -1,
+   "home_cover": 0.4325,
+   "away_cover": 0.4849,
+   "side_push": 0.0827,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 0,
+   "home_cover": 0.4587,
+   "away_cover": 0.4587,
+   "side_push": 0.0827,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 1,
+   "home_cover": 0.4851,
+   "away_cover": 0.4325,
+   "side_push": 0.0824,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 2,
+   "home_cover": 0.5118,
+   "away_cover": 0.4066,
+   "side_push": 0.0816,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 3,
+   "home_cover": 0.5385,
+   "away_cover": 0.381,
+   "side_push": 0.0805,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  }
+ ],
+ "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
+ "digest_rows": [
+  "BAL@ATL | BAL +3 / ATL -3 | split | V: VSiN; RO: Action Network, Daniel Jeremiah & Bucky Brooks, Steve Fezzik, Ross Tucker; vs ATL: VSiN, Daniel Jeremiah & Bucky Brooks (RO), Sharp or Square (RO), Robert Mays / The Athletic (RO), Brandon Kravitz (RO), Pro Football Talk \u2026 (src +3.5 vs now +3) | skip",
+  "BAL@ATL | total 44 (O +103 / U -120) | split | RO: BettingPros, Even Money, Steve Fezzik; vs Under: BettingPros (RO), Andrew Erickson (RO), Ryan Wormeli (RO); YT: BAL@ATL Over 43.5 Tera Roberts (src 43.5 vs now 44) | skip",
+  "BAL@ATL | Derrick Henry o5.5 rec yds -107 | Over | YT/PI: Scott Bogman (YT); RO: BettingPros; src px not BKR | 2- research-only",
+  "BAL@ATL | Tyler Huntley u23.5 rush yds -107 | Under | YT/PI: Scott Bogman (YT); RO: BettingPros; src px not BKR | 2- research-only",
+  "BAL@ATL | Zay Flowers o68.5 rec yds -115 | Over | YT/PI: Tera Roberts (YT); RO: BettingPros; src px not BKR; QUESTIONABLE per availability feed 2026-10-10T18:40Z | 2- research-only",
+  "BAL@ATL | Austin Hooper ATD +900 | Yes | RO: Action Network, Grant Neiffer; src px not BKR | 2- research-only",
+  "BAL@ATL | Brian Robinson Jr. ATD +240 | Yes | RO: Action Network, Sean Koerner; src px not BKR | 2- research-only",
+  "BAL@ATL | Derrick Henry ATD | Yes | RO: @thepropdealer (X), @thejoeholkashow (X); src px not BKR | 2- research-only"
+ ],
+ "source_rows": {
+  "counts": {
+   "corroboration_only": 43,
+   "tier_eligible": 4
+  },
+  "rows": [
+   {
+    "row": "w05-expert-verified.json#rows[0]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 900,
+    "price": null,
+    "published": "2026-10-10T18:25:41.497+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[1]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 240,
+    "price": null,
+    "published": "2026-10-10T18:25:41.497+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[2]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 10000,
+    "price": null,
+    "published": "2026-10-10T18:25:41.497+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[26]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 260,
+    "price": null,
+    "published": "2026-10-10T18:25:41.496+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[39]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "spread",
+    "side": "BAL",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-10T18:25:40.813+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[75]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "total",
+    "side": "Over",
+    "line": 43.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.03+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[76]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 221.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.03+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[77]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 68.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.03+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[78]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 23.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.03+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[79]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 174.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.03+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[80]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 5.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.029+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[87]",
+    "kind": "expert_feed",
+    "outlet": "Daniel Jeremiah & Bucky Brooks",
+    "persons": [],
+    "market": "moneyline",
+    "side": "ATL",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T17:46:01.834+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[88]",
+    "kind": "expert_feed",
+    "outlet": "Daniel Jeremiah & Bucky Brooks",
+    "persons": [],
+    "market": "moneyline",
+    "side": "BAL",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T17:46:01.834+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[107]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "spread",
+    "side": "BAL",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-10T17:46:01.268+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[124]",
+    "kind": "expert_feed",
+    "outlet": "The Favorites",
+    "persons": [],
+    "market": "teaser",
+    "side": "ATL",
+    "line": 2.5,
+    "price": null,
+    "published": "2026-10-09T15:40:52.356+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[130]",
+    "kind": "expert_feed",
+    "outlet": "Sharp or Square",
+    "persons": [
+     "Simon Hunter"
+    ],
+    "market": "spread",
+    "side": "ATL",
+    "line": -3,
+    "price": null,
+    "published": "2026-10-09T15:40:52.077+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[154]",
+    "kind": "expert_feed",
+    "outlet": "Robert Mays / The Athletic",
+    "persons": [],
+    "market": "moneyline",
+    "side": "ATL",
+    "line": null,
+    "price": null,
+    "published": "2026-10-09T15:40:51.255+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[169]",
+    "kind": "expert_feed",
+    "outlet": "Even Money",
+    "persons": [],
+    "market": "total",
+    "side": "Over",
+    "line": 43.5,
+    "price": null,
+    "published": "2026-10-07T15:54:08.659+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[183]",
+    "kind": "expert_feed",
+    "outlet": "Sharp or Square",
+    "persons": [],
+    "market": "spread",
+    "side": "ATL",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-06T15:30:57.087+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[191]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "total",
+    "side": "Under",
+    "line": 46.5,
+    "price": null,
+    "published": "2026-10-06T15:30:56.924+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[229]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Gilles Gallant"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 260,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[230]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Grant Neiffer"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 900,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[231]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Sean Koerner"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 240,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[311]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "total",
+    "side": "Over",
+    "line": 43.5,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[312]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "spread",
+    "side": "BAL",
+    "line": 3,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[313]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Ross Tucker"
+    ],
+    "market": "spread",
+    "side": "BAL",
+    "line": 3,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[341]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Andrew Erickson"
+    ],
+    "market": "totals",
+    "side": null,
+    "line": 45,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[342]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Ryan Wormeli"
+    ],
+    "market": "totals",
+    "side": null,
+    "line": 45,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[349]",
+    "kind": "podcast",
+    "outlet": "Construction &amp; Big Dog Picks | NFL Week 5 Preview",
+    "persons": [
+     "Brandon Kravitz"
+    ],
+    "market": "spread",
+    "side": "ATL",
+    "line": 2.5,
+    "price": null,
+    "published": "2026-10-08T16:55:35+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[396]",
+    "kind": "article",
+    "outlet": "ESPN NFL",
+    "persons": [
+     "Ben Solak, Seth Walder, Matt Bowen and Mike Clay"
+    ],
+    "market": "prop",
+    "side": "OVER 5.5 (-109)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[448]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Matt Youmans"
+    ],
+    "market": "spread",
+    "side": "BAL",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-10T17:33:20.154087+00:00",
+    "best_bet": false,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/matt-youmans-nfl-week-5-best-bets-and-predictions/",
+    "quote": "Ravens +3.5 at Falcons"
+   },
+   {
+    "row": "w05-expert-verified.json#rows[451]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Wes Reynolds"
+    ],
+    "market": "spread",
+    "side": "BAL",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-10T12:03:19.165844+00:00",
+    "best_bet": false,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/wes-reynolds-nfl-week-5-best-bets-and-predictions/",
+    "quote": "Baltimore Ravens +3.5 at Atlanta Falcons"
+   },
+   {
+    "row": "w05-expert-verified.json#rows[475]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@thepropdealer"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T04:04:06.828628+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[481]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@thejoeholkashow"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T04:03:52.433634+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[525]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Zachary Cohen"
+    ],
+    "market": "spread",
+    "side": "ATL",
+    "line": 3.0,
+    "price": null,
+    "published": "2026-10-08T20:33:26.895291+00:00",
+    "best_bet": false,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/expert-nfl-picks-week-5-best-bets-predictions-and-player-props-from-zachary-cohen/",
+    "quote": "Falcons +3 (-118) vs."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[544]",
+    "kind": "article",
+    "outlet": "Pro Football Talk",
+    "persons": [],
+    "market": "moneyline",
+    "side": "ATL",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T16:33:20.970971+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[568]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Dave Tuley"
+    ],
+    "market": "spread",
+    "side": "BAL",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-08T01:33:21.643136+00:00",
+    "best_bet": true,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/tuleys-takes-for-nfl-week-5/",
+    "quote": "Best Bet: Ravens +3.5 (Pool Play Percentages: Ravens 67/33 in ATS contests, but Falcons still 67/33 in SU pools)."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[593]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@DanGambleAI"
+    ],
+    "market": "prop",
+    "side": "OVER 224.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-05T23:05:56.20366+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[594]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@DanGambleAI"
+    ],
+    "market": "prop",
+    "side": "OVER 87.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-05T23:05:56.20366+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[595]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@DanGambleAI"
+    ],
+    "market": "prop",
+    "side": "UNDER 37.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-05T23:05:56.20366+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[596]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@DanGambleAI"
+    ],
+    "market": "prop",
+    "side": "UNDER 4.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-05T23:05:56.20366+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[597]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@DanGambleAI"
+    ],
+    "market": "prop",
+    "side": "OVER 79.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-05T23:05:56.20366+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[598]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@DanGambleAI"
+    ],
+    "market": "prop",
+    "side": "OVER 39.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-05T23:05:56.20366+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[599]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@DanGambleAI"
+    ],
+    "market": "prop",
+    "side": "OVER 29.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-05T23:05:56.20366+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[600]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@DanGambleAI"
+    ],
+    "market": "prop",
+    "side": "UNDER 19.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-05T23:05:56.20366+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[601]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@DanGambleAI"
+    ],
+    "market": "prop",
+    "side": "UNDER 10.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-05T23:05:56.20366+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[602]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@DanGambleAI"
+    ],
+    "market": "prop",
+    "side": "OVER 6.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-05T23:05:56.20366+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   }
+  ]
+ },
+ "weather_venue_row": {
+  "game": "BAL@ATL",
+  "weather_status": "venue_condition_verification_required",
+  "materiality": "do_not_apply_outdoor_weather_without_current venue/roof confirmation"
+ },
+ "secondary_matchups": [
+  {
+   "id": "sec_fc965527705d8175",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_BAL_at_ATL",
+   "kickoff_utc": "2026-10-12T00:20:00.000Z",
+   "offense_team": "BAL",
+   "offense_team_nick": "Ravens",
+   "defense_team": "ATL",
+   "defense_team_nick": "Falcons",
+   "offense_venue": "away",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "match_zone",
+     "two_high",
+     "quarters"
+    ],
+    "primary_coverage_family": "match_zone",
+    "pressure_profile": "balanced",
+    "confidence": 0.7,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Jimmy Lake quarters/match zone scheme relying on Jessie Bates deep range."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "A.J. Terrell Jr.",
+     "team": "ATL",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "A.J. Terrell Jr. IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:02.000Z",
+     "role": "outside_cb1",
+     "side": "boundary",
+     "impact_tier": "elite",
+     "primary_receiver_archetypes_impacted": [
+      "alpha_x",
+      "boundary_wr_boost"
+     ],
+     "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "severity_score": 4.05,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "alpha_wr_boost",
+    "boundary_wr_boost",
+    "inside_seam_boost",
+    "outside_wr_boost",
+    "post_cross_boost",
+    "slot_wr_boost",
+    "te_middle_boost",
+    "underneath_volume_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Zay Flowers",
+     "team": "BAL",
+     "roles": [
+      "alpha_x",
+      "slot"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "boundary",
+      "slot",
+      "underneath"
+     ],
+     "matched_weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost",
+      "boundary_wr_boost",
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 9,
+     "notes": "BAL Primary Target.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Mark Andrews",
+     "team": "BAL",
+     "roles": [
+      "te_middle",
+      "red_zone"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "middle",
+      "red_zone"
+     ],
+     "matched_weakness_tags": [
+      "te_middle_boost",
+      "inside_seam_boost",
+      "alpha_wr_boost"
+     ],
+     "opportunity_score": 4.5,
+     "notes": "BAL All-Pro TE.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Devontez Walker",
+     "team": "BAL",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 2.4,
+     "notes": "BAL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Rashod Bateman",
+     "team": "BAL",
+     "roles": [
+      "z_receiver",
+      "field_stretcher"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "deep",
+      "boundary"
+     ],
+     "matched_weakness_tags": [
+      "outside_wr_boost",
+      "post_cross_boost"
+     ],
+     "opportunity_score": 1.6,
+     "notes": "BAL Outside WR.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    }
+   ],
+   "severity_score": 4.05,
+   "elite_absence_count": 1,
+   "vulnerability_tier": "medium",
+   "confidence": 0.9,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  },
+  {
+   "id": "sec_817f40a3a1651c4e",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_BAL_at_ATL",
+   "kickoff_utc": "2026-10-12T00:20:00.000Z",
+   "offense_team": "ATL",
+   "offense_team_nick": "Falcons",
+   "defense_team": "BAL",
+   "defense_team_nick": "Ravens",
+   "offense_venue": "home",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "man_heavy",
+     "single_high",
+     "blitz_heavy"
+    ],
+    "primary_coverage_family": "man_match",
+    "pressure_profile": "aggressive",
+    "confidence": 0.85,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Orr aggressive blitz-heavy man match structure with Kyle Hamilton roaming."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "T.J. Tampa Jr.",
+     "team": "BAL",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "T.J. Tampa Jr. IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:02.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Jahquez Robinson",
+     "team": "BAL",
+     "position": "S",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Jahquez Robinson IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:02.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Marlon Humphrey",
+     "team": "BAL",
+     "position": "CB",
+     "event_type": "limited",
+     "availability_trend": "stable",
+     "summary": "Humphrey (calf/hamstring) is listed as questionable for Sunday's game against the Falcons, Adam Caplan of SiriusXM NFL Radio reports.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-10T00:07:00.000Z",
+     "role": "outside_cb1",
+     "side": "boundary",
+     "impact_tier": "elite",
+     "primary_receiver_archetypes_impacted": [
+      "alpha_x",
+      "slot"
+     ],
+     "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "severity_score": 1.65,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "alpha_wr_boost",
+    "boundary_wr_boost",
+    "deep_pass_boost",
+    "hot_read_boost",
+    "outside_wr_boost",
+    "post_cross_boost",
+    "slot_wr_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Drake London",
+     "team": "ATL",
+     "roles": [
+      "alpha_x",
+      "red_zone"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "boundary",
+      "intermediate",
+      "red_zone"
+     ],
+     "matched_weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "opportunity_score": 4.5,
+     "notes": "ATL WR1 Alpha.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Jahan Dotson",
+     "team": "ATL",
+     "roles": [
+      "z_receiver",
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "slot",
+      "boundary"
+     ],
+     "matched_weakness_tags": [
+      "outside_wr_boost",
+      "deep_pass_boost",
+      "post_cross_boost",
+      "slot_wr_boost"
+     ],
+     "opportunity_score": 3.2,
+     "notes": "WAS WR2. [moved from WAS per ESPN roster 2026-09-27]",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Kyle Pitts",
+     "team": "ATL",
+     "roles": [
+      "te_middle",
+      "field_stretcher"
+     ],
+     "target_share_tier": "high",
+     "route_area_tags": [
+      "middle",
+      "deep"
+     ],
+     "matched_weakness_tags": [
+      "deep_pass_boost",
+      "post_cross_boost"
+     ],
+     "opportunity_score": 2.4,
+     "notes": "ATL Hybrid TE.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Olamide Zaccheaus",
+     "team": "ATL",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost"
+     ],
+     "opportunity_score": 0.8,
+     "notes": "ATL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    }
+   ],
+   "severity_score": 4.35,
+   "elite_absence_count": 1,
+   "vulnerability_tier": "medium",
+   "confidence": 0.95,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  }
+ ],
+ "power_ratings": {
+  "BAL": {
+   "season": 2026,
+   "team": "Ravens",
+   "team_abbr": "BAL",
+   "games_played": 4,
+   "record": "3-1",
+   "power_rating": {
+    "srs": -0.709,
+    "net_points_per_game": 5,
+    "pythag_win_pct": 0.6103,
+    "model_composite_z": 0.4196,
+    "model_rank": 11,
+    "srs_rank": 17,
+    "net_ppg_rank": 9,
+    "pythag_rank": 8,
+    "market_implied_win_total": 11.71,
+    "market_implied_rank": 5,
+    "delta": 0.7284,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  },
+  "ATL": {
+   "season": 2026,
+   "team": "Falcons",
+   "team_abbr": "ATL",
+   "games_played": 4,
+   "record": "2-2",
+   "power_rating": {
+    "srs": 0.381,
+    "net_points_per_game": 1,
+    "pythag_win_pct": 0.5252,
+    "model_composite_z": 0.12,
+    "model_rank": 13,
+    "srs_rank": 15,
+    "net_ppg_rank": 12,
+    "pythag_rank": 12,
+    "market_implied_win_total": 8.69,
+    "market_implied_rank": 17,
+    "delta": -0.2606,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  }
+ },
+ "availability": {
+  "BAL": {
+   "event_count": 21,
+   "qb_events": 4,
+   "offensive_line_worsening": 1,
+   "defensive_front_worsening": 1,
+   "top_score": 127,
+   "top_events": [
+    {
+     "player_name": "Lamar Jackson",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "qb_major",
+     "score": 127,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Lamar Jackson",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "qb_major",
+     "score": 127,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Tyler Huntley",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "setback",
+     "availability_trend": "worsening",
+     "impact_bucket": "qb_major",
+     "score": 119,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Skylar Thompson",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "qb_major",
+     "score": 108,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Cam Jurgens",
+     "position": "C",
+     "unit": "offensive_line",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "offensive_line_major",
+     "score": 100,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Ja'Kobi Lane",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Trey Hendrickson",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 77,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Ja'Kobi Lane",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    }
+   ]
+  },
+  "ATL": {
+   "event_count": 20,
+   "qb_events": 0,
+   "offensive_line_worsening": 0,
+   "defensive_front_worsening": 4,
+   "top_score": 86,
+   "top_events": [
+    {
+     "player_name": "Da'Shawn Hand",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Anterio Thompson",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "DeAngelo Malone",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "pup",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 82,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "A.J. Terrell Jr.",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Trey Sermon",
+     "position": "RB",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "JD Bertrand",
+     "position": "LB",
+     "unit": "linebacker",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jalon Walker",
+     "position": "LB",
+     "unit": "linebacker",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "James Pearce Jr.",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "suspension",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 71,
+     "signal": "negative_availability"
+    }
+   ]
+  }
+ },
+ "ftn_team_level": {
+  "BAL": {
+   "record_count": 146,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "EPA/PLY": "-0.015",
+      "DVOA": "-3.0%",
+      "SUCC%": "43.0%",
+      "EXP%": "9.2%",
+      "CONV%": "40.0%",
+      "TO": "2",
+      "TO%": "0.8%",
+      "3&O": "18.6%",
+      "MTKL%": "10.3%",
+      "PEN%": "5.2%",
+      "PENY": "39.5"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "YD/PLY": "5.3",
+      "PT/GM": "24.0",
+      "FD%": "30.1%",
+      "TO": "2",
+      "DPBK%": "62.7%",
+      "YD": "916",
+      "TD": "4",
+      "INT": "2",
+      "RUSH%": "37.3%",
+      "YD__2": "402",
+      "TD__2": "6"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "DPBK": "156",
+      "SK": "7",
+      "SK%": "4.5%",
+      "QBH%": "16.7%",
+      "PRESS": "48",
+      "PRESS%": "30.8%",
+      "QPRESS%": "43.8%",
+      "TTPR": "2.47",
+      "DISR%": "1.3%",
+      "BLZ%": "30.8%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "EPA/DB": "-0.009",
+      "SUCC%": "44.9%",
+      "DVOA": "0.4%",
+      "CPOE": "-1.95%",
+      "CBALL%": "76.1%",
+      "EXP%": "13.2%",
+      "INTW%": "1.4%",
+      "TGHT%": "19.6%",
+      "OPEN%": "54.3%",
+      "TA%": "7.2%",
+      "DROP%": "5.8%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "EPA/ATT": "-0.027",
+      "SUCC%": "39.8%",
+      "DVOA": "-7.6%",
+      "aRYOE": "",
+      "EXP%": "9.7%",
+      "STF%": "21.5%",
+      "YBCO": "1.13",
+      "YACO": "1.63"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "EPA/PLY": "0.165",
+      "DVOA": "23.5%",
+      "SUCC%": "50.6%",
+      "EXP%": "13.8%",
+      "CONV%": "31.7%",
+      "TO": "2",
+      "TO%": "0.84%",
+      "PENY": "42.8",
+      "PEN%": "10.88%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "YD/PLY": "6.9",
+      "PT/GM": "29.0",
+      "FD%": "33.9%",
+      "TO": "2",
+      "DPBK%": "51.5%",
+      "YD": "1,030",
+      "TD": "6",
+      "INT": "1",
+      "RUSH%": "48.5%",
+      "YD__2": "614",
+      "TD__2": "8"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "SK": "7",
+      "SK%": "5.7%",
+      "QBSK%": "0.0%",
+      "QBH%": "10.6%",
+      "PRESS%": "28.5%",
+      "UPRES%": "40.5%",
+      "BLITZ%": "31.7%",
+      "TTPR": "2.59",
+      "TTT": "2.79",
+      "EPA/DB": "-0.237",
+      "DVOA": "-64.2%",
+      "SUCC%": "40.0%",
+      "EPA/DB__2": "0.583",
+      "DVOA__2": "67.1%",
+      "SUCC%__2": "64.8%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "EPA/DB": "0.349",
+      "SUCC%": "57.7%",
+      "DVOA": "69.4%",
+      "CPOE": "1.7%",
+      "CBALL%": "78.1%",
+      "EXP%": "18.4%",
+      "INTW%": "2.9%",
+      "HLT%": "1.9%",
+      "TA%": "3.8%",
+      "DROP%": "4.8%",
+      "aDOT": "9.3",
+      "aYAC": "6.4"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "EPA/ATT": "-0.031",
+      "SUCC%": "43.1%",
+      "DVOA": "5.5%",
+      "aRYOE": "",
+      "EXP%": "11.2%",
+      "STF%": "22.4%",
+      "aYBCO": "1.31",
+      "aYACO": "2.02",
+      "CRT%": "47.0%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "PLY/GM": "59.8",
+      "TOP": "29.76",
+      "DRV/GM": "11.3",
+      "SEC/PLY": "29.9",
+      "PLY/DRV": "5.3",
+      "YD/DRV": "36.5",
+      "SEC/DRV": "159",
+      "3&O": "22.2%",
+      "SCD%": "44.4%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "BAL",
+     "metrics": {
+      "Team": "Baltimore Ravens",
+      "GP": "4",
+      "DPBK%": "51.5%",
+      "RUSH%": "48.5%",
+      "SHG%": "49.4%",
+      "NH%": "4.2%",
+      "MOT%": "61.9%",
+      "PA%": "29.3%",
+      "IZ%": "23.3%",
+      "OZ%": "40.5%",
+      "MD%": "16.4%",
+      "PWR%": "9.5%",
+      "CTR%": "1.7%"
+     }
+    }
+   ]
+  },
+  "ATL": {
+   "record_count": 121,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "EPA/PLY": "-0.069",
+      "DVOA": "-7.0%",
+      "SUCC%": "37.6%",
+      "EXP%": "6.7%",
+      "CONV%": "39.7%",
+      "TO": "2",
+      "TO%": "0.8%",
+      "3&O": "28.3%",
+      "MTKL%": "8.1%",
+      "PEN%": "5.5%",
+      "PENY": "42.0"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "YD/PLY": "5.1",
+      "PT/GM": "20.0",
+      "FD%": "25.9%",
+      "TO": "2",
+      "DPBK%": "72.9%",
+      "YD": "1,106",
+      "TD": "7",
+      "INT": "1",
+      "RUSH%": "27.1%",
+      "YD__2": "193",
+      "TD__2": "2"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "DPBK": "186",
+      "SK": "7",
+      "SK%": "3.8%",
+      "QBH%": "18.8%",
+      "PRESS": "64",
+      "PRESS%": "34.4%",
+      "QPRESS%": "48.4%",
+      "TTPR": "2.65",
+      "DISR%": "1.1%",
+      "BLZ%": "22.6%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "EPA/DB": "0.013",
+      "SUCC%": "40.3%",
+      "DVOA": "1.6%",
+      "CPOE": "-1.21%",
+      "CBALL%": "62.4%",
+      "EXP%": "14.3%",
+      "INTW%": "1.7%",
+      "TGHT%": "27.0%",
+      "OPEN%": "58.4%",
+      "TA%": "5.6%",
+      "DROP%": "3.4%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "EPA/ATT": "-0.291",
+      "SUCC%": "30.4%",
+      "DVOA": "-28.2%",
+      "aRYOE": "",
+      "EXP%": "2.9%",
+      "STF%": "26.1%",
+      "YBCO": "0.51",
+      "YACO": "1.57"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "EPA/PLY": "0.025",
+      "DVOA": "-4.0%",
+      "SUCC%": "52.6%",
+      "EXP%": "11.4%",
+      "CONV%": "37.8%",
+      "TO": "7",
+      "TO%": "3.07%",
+      "PENY": "30.0",
+      "PEN%": "6.58%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "YD/PLY": "6.2",
+      "PT/GM": "21.0",
+      "FD%": "33.8%",
+      "TO": "7",
+      "DPBK%": "40.8%",
+      "YD": "708",
+      "TD": "3",
+      "INT": "5",
+      "RUSH%": "59.2%",
+      "YD__2": "708",
+      "TD__2": "8"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "SK": "6",
+      "SK%": "6.5%",
+      "QBSK%": "16.7%",
+      "QBH%": "9.7%",
+      "PRESS%": "20.4%",
+      "UPRES%": "25.0%",
+      "BLITZ%": "35.5%",
+      "TTPR": "2.57",
+      "TTT": "2.29",
+      "EPA/DB": "-0.723",
+      "DVOA": "-112.2%",
+      "SUCC%": "26.3%",
+      "EPA/DB__2": "0.040",
+      "DVOA__2": "-3.1%",
+      "SUCC%__2": "54.1%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "EPA/DB": "-0.116",
+      "SUCC%": "48.4%",
+      "DVOA": "-12.0%",
+      "CPOE": "-7.2%",
+      "CBALL%": "67.1%",
+      "EXP%": "20.0%",
+      "INTW%": "7.1%",
+      "HLT%": "0.0%",
+      "TA%": "2.4%",
+      "DROP%": "0.0%",
+      "aDOT": "5.4",
+      "aYAC": "8.4"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "EPA/ATT": "0.122",
+      "SUCC%": "51.1%",
+      "DVOA": "13.0%",
+      "aRYOE": "",
+      "EXP%": "10.4%",
+      "STF%": "15.6%",
+      "aYBCO": "1.19",
+      "aYACO": "2.53",
+      "CRT%": "49.6%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "PLY/GM": "57.0",
+      "TOP": "31.32",
+      "DRV/GM": "11.8",
+      "SEC/PLY": "30.4",
+      "PLY/DRV": "5.3",
+      "YD/DRV": "30.1",
+      "SEC/DRV": "160",
+      "3&O": "8.5%",
+      "SCD%": "36.2%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "ATL",
+     "metrics": {
+      "Team": "Atlanta Falcons",
+      "GP": "4",
+      "DPBK%": "40.8%",
+      "RUSH%": "59.2%",
+      "SHG%": "44.7%",
+      "NH%": "3.5%",
+      "MOT%": "67.1%",
+      "PA%": "22.6%",
+      "IZ%": "17.8%",
+      "OZ%": "45.9%",
+      "MD%": "17.0%",
+      "PWR%": "9.6%",
+      "CTR%": "1.5%"
+     }
+    }
+   ]
+  }
+ },
+ "files_to_read_directly": {
+  "weather_detail": "data/research-intel/source-evidence/2026-10-10-week5-weather-openmeteo.json (filter to BAL@ATL)",
+  "prop_markets": "BKR/BEO rows for event \"Baltimore Ravens @ Atlanta Falcons\" with market != game_lines",
+  "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for BAL and ATL",
+  "projected_starters": "data/projected-starters/2026/latest.json (teams.BAL, teams.ATL)"
+ }
+}

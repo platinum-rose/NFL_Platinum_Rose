@@ -1,6 +1,6 @@
 {
   "schema": "week5_quantitative_synthesis_v1",
-  "generated_at": "2026-10-10T16:59:28.476Z",
+  "generated_at": "2026-10-11T01:20:43.713Z",
   "status": "proposed_analysis_only",
   "boundary": "Not a card, official recommendation, contest entry, ticket, or sportsbook execution record.",
   "numeric_model": {
@@ -10,7 +10,7 @@
     "excluded_from_numeric_weight": [
       "expert/podcast selections",
       "betting splits",
-      "stale DVOA snapshot",
+      "retired DVOA snapshot lane",
       "stale coaching-source inputs",
       "player-prop prices"
     ]
@@ -32,12 +32,12 @@
       "role": "numeric season-to-date SRS component"
     },
     "bookmaker": {
-      "captured": "2026-10-10T16:16:12.396Z",
-      "rows": 5376,
+      "captured": "2026-10-11T01:15:40.538Z",
+      "rows": 3686,
       "role": "market anchor"
     },
     "secondary": {
-      "generated": "2026-10-09T22:00:14.791Z",
+      "generated": "2026-10-10T17:31:50.319Z",
       "role": "capped matchup context"
     },
     "availability": {
@@ -51,7 +51,7 @@
       "role": "qualitative corroboration only"
     },
     "explicit_staleness": [
-      "team-dvoa-snapshots-2026.json is based on 2026-09-17 data",
+      "DVOA snapshot lane retired 2026-10-10; FTN is the current-season efficiency source",
       "coaching tendency source files predate current Week 5 and are context-only"
     ]
   },
@@ -3252,7 +3252,7 @@
       "market": {
         "home_spread": -7.5,
         "total": 42,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3273,34 +3273,36 @@
         },
         "secondary_adjustment_points": {
           "JAX": 0.45,
-          "PHI": 0.6080000000000001
+          "PHI": 0.645
         }
       },
       "means": {
         "home": 26.026140637824454,
-        "away": 16.921848489995618,
-        "total": 42.94798912782007,
-        "home_margin": 9.104292147828836
+        "away": 16.958848489995617,
+        "total": 42.98498912782007,
+        "home_margin": 9.067292147828837
       },
       "simulation": {
         "iterations": 100000,
         "mean_home": 26.1297951045799,
-        "mean_away": 17.418522971842922,
-        "home_win_pct": 0.70466,
-        "home_cover_pct": 0.53248,
-        "away_cover_pct": 0.46752000000000005,
-        "over_pct": 0.52802,
-        "under_pct": 0.47197999999999996
+        "mean_away": 17.452505681000254,
+        "home_win_pct": 0.70394,
+        "home_cover_pct": 0.53174,
+        "away_cover_pct": 0.46826,
+        "over_pct": 0.52904,
+        "under_pct": 0.47096000000000005
       },
       "model_menu": {
         "side": "Jacksonville Jaguars",
-        "side_cover_pct": 0.53248,
+        "side_cover_pct": 0.53174,
         "total": "Over",
-        "total_pct": 0.52802
+        "total_pct": 0.52904
       },
       "contest": {
-        "team": "Jacksonville Jaguars",
-        "favorite_spread": -7.5
+        "team": "JAX",
+        "favorite_spread": -7.5,
+        "market_favorite": "Jacksonville Jaguars",
+        "file_orientation_reversed": false
       }
     },
     {
@@ -3312,7 +3314,7 @@
       "market": {
         "home_spread": -3,
         "total": 43.5,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3333,46 +3335,48 @@
         },
         "secondary_adjustment_points": {
           "PIT": 0.135,
-          "IND": 0.645
+          "IND": 0.81
         }
       },
       "means": {
         "home": 22.950514993622914,
-        "away": 21.364879808730628,
-        "total": 44.31539480235354,
-        "home_margin": 1.5856351848922863
+        "away": 21.529879808730627,
+        "total": 44.480394802353544,
+        "home_margin": 1.4206351848922871
       },
       "simulation": {
         "iterations": 100000,
         "mean_home": 23.02398272726094,
-        "mean_away": 21.494316898905783,
-        "home_win_pct": 0.53757,
-        "home_cover_pct": 0.46477,
-        "away_cover_pct": 0.53523,
-        "over_pct": 0.5149,
-        "under_pct": 0.4851
+        "mean_away": 21.652738547257503,
+        "home_win_pct": 0.53339,
+        "home_cover_pct": 0.46078,
+        "away_cover_pct": 0.53922,
+        "over_pct": 0.51889,
+        "under_pct": 0.48111000000000004
       },
       "model_menu": {
         "side": "Indianapolis Colts",
-        "side_cover_pct": 0.53523,
+        "side_cover_pct": 0.53922,
         "total": "Over",
-        "total_pct": 0.5149
+        "total_pct": 0.51889
       },
       "contest": {
-        "team": "Pittsburgh Steelers",
-        "favorite_spread": -2.5
+        "team": "PIT",
+        "favorite_spread": -2.5,
+        "market_favorite": "Pittsburgh Steelers",
+        "file_orientation_reversed": false
       }
     },
     {
       "event": "Minnesota Vikings @ New Orleans Saints",
       "away": "MIN",
       "home": "NO",
-      "away_name": "New Orleans Saints",
-      "home_name": "Minnesota Vikings",
+      "away_name": "Minnesota Vikings",
+      "home_name": "New Orleans Saints",
       "market": {
-        "home_spread": -2.5,
+        "home_spread": 2.5,
         "total": 41.5,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3393,32 +3397,37 @@
         },
         "secondary_adjustment_points": {
           "NO": 0.255,
-          "MIN": 0.488
+          "MIN": 0.405
         }
       },
       "means": {
-        "home": 20.42125789910636,
-        "away": 21.99948140568521,
-        "total": 42.42073930479157,
-        "home_margin": -1.5782235065788477
+        "home": 18.92125789910636,
+        "away": 23.41648140568521,
+        "total": 42.33773930479157,
+        "home_margin": -4.495223506578849
       },
       "simulation": {
         "iterations": 100000,
-        "mean_home": 20.729246398882232,
-        "mean_away": 22.22491066130226,
-        "home_win_pct": 0.46358,
-        "home_cover_pct": 0.40436,
-        "away_cover_pct": 0.59564,
-        "over_pct": 0.5271,
-        "under_pct": 0.4729
+        "mean_home": 19.309341190235397,
+        "mean_away": 23.59861324440686,
+        "home_win_pct": 0.39513,
+        "home_cover_pct": 0.45617,
+        "away_cover_pct": 0.54383,
+        "over_pct": 0.52542,
+        "under_pct": 0.47458
       },
       "model_menu": {
-        "side": "New Orleans Saints",
-        "side_cover_pct": 0.59564,
+        "side": "Minnesota Vikings",
+        "side_cover_pct": 0.54383,
         "total": "Over",
-        "total_pct": 0.5271
+        "total_pct": 0.52542
       },
-      "contest": null
+      "contest": {
+        "team": "MIN",
+        "favorite_spread": -2.5,
+        "market_favorite": "Minnesota Vikings",
+        "file_orientation_reversed": true
+      }
     },
     {
       "event": "Cleveland Browns @ New York Jets",
@@ -3429,7 +3438,7 @@
       "market": {
         "home_spread": -2.5,
         "total": 39.5,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3450,46 +3459,48 @@
         },
         "secondary_adjustment_points": {
           "NYJ": 0.135,
-          "CLE": 0.383
+          "CLE": 0.30000000000000004
         }
       },
       "means": {
         "home": 20.20089214495953,
-        "away": 19.54485486180214,
-        "total": 39.74574700676167,
-        "home_margin": 0.6560372831573886
+        "away": 19.46185486180214,
+        "total": 39.66274700676167,
+        "home_margin": 0.739037283157387
       },
       "simulation": {
         "iterations": 100000,
         "mean_home": 20.433728745261348,
-        "mean_away": 19.833516154458703,
-        "home_win_pct": 0.51489,
-        "home_cover_pct": 0.45383,
-        "away_cover_pct": 0.54617,
-        "over_pct": 0.50789,
-        "under_pct": 0.49211000000000005
+        "mean_away": 19.755044437715263,
+        "home_win_pct": 0.517,
+        "home_cover_pct": 0.45582,
+        "away_cover_pct": 0.54418,
+        "over_pct": 0.50583,
+        "under_pct": 0.49417
       },
       "model_menu": {
         "side": "Cleveland Browns",
-        "side_cover_pct": 0.54617,
+        "side_cover_pct": 0.54418,
         "total": "Over",
-        "total_pct": 0.50789
+        "total_pct": 0.50583
       },
       "contest": {
-        "team": "New York Jets",
-        "favorite_spread": -2.5
+        "team": "NYJ",
+        "favorite_spread": -2.5,
+        "market_favorite": "New York Jets",
+        "file_orientation_reversed": false
       }
     },
     {
       "event": "Cincinnati Bengals @ Miami Dolphins",
       "away": "CIN",
       "home": "MIA",
-      "away_name": "Miami Dolphins",
-      "home_name": "Cincinnati Bengals",
+      "away_name": "Cincinnati Bengals",
+      "home_name": "Miami Dolphins",
       "market": {
-        "home_spread": -7,
+        "home_spread": 7,
         "total": 43.5,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3509,33 +3520,38 @@
           "CIN": 4.317
         },
         "secondary_adjustment_points": {
-          "MIA": 0.541,
-          "CIN": 0.48
+          "MIA": 0.458,
+          "CIN": 0.535
         }
       },
       "means": {
-        "home": 23.11273770501047,
-        "away": 21.18957981342142,
-        "total": 44.30231751843189,
-        "home_margin": 1.9231578915890495
+        "home": 18.82973770501047,
+        "away": 25.444579813421424,
+        "total": 44.27431751843189,
+        "home_margin": -6.614842108410954
       },
       "simulation": {
         "iterations": 100000,
-        "mean_home": 23.293327228119775,
-        "mean_away": 21.43673003699707,
-        "home_win_pct": 0.54682,
-        "home_cover_pct": 0.38118,
-        "away_cover_pct": 0.6188199999999999,
-        "over_pct": 0.52026,
-        "under_pct": 0.47974000000000006
+        "mean_home": 19.195027546372653,
+        "mean_away": 25.57600920836424,
+        "home_win_pct": 0.34712,
+        "home_cover_pct": 0.51434,
+        "away_cover_pct": 0.48566,
+        "over_pct": 0.52039,
+        "under_pct": 0.47961
       },
       "model_menu": {
         "side": "Miami Dolphins",
-        "side_cover_pct": 0.6188199999999999,
+        "side_cover_pct": 0.51434,
         "total": "Over",
-        "total_pct": 0.52026
+        "total_pct": 0.52039
       },
-      "contest": null
+      "contest": {
+        "team": "CIN",
+        "favorite_spread": -7,
+        "market_favorite": "Cincinnati Bengals",
+        "file_orientation_reversed": true
+      }
     },
     {
       "event": "Las Vegas Raiders @ New England Patriots",
@@ -3546,7 +3562,7 @@
       "market": {
         "home_spread": -3.5,
         "total": 45,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3593,8 +3609,10 @@
         "total_pct": 0.52918
       },
       "contest": {
-        "team": "New England Patriots",
-        "favorite_spread": -3.5
+        "team": "NE",
+        "favorite_spread": -3.5,
+        "market_favorite": "New England Patriots",
+        "file_orientation_reversed": false
       }
     },
     {
@@ -3606,7 +3624,7 @@
       "market": {
         "home_spread": -3.5,
         "total": 41.5,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3653,20 +3671,22 @@
         "total_pct": 0.52301
       },
       "contest": {
-        "team": "Washington Commanders",
-        "favorite_spread": -3.5
+        "team": "WAS",
+        "favorite_spread": -3.5,
+        "market_favorite": "Washington Commanders",
+        "file_orientation_reversed": false
       }
     },
     {
       "event": "Houston Texans @ Tennessee Titans",
       "away": "HOU",
       "home": "TEN",
-      "away_name": "Tennessee Titans",
-      "home_name": "Houston Texans",
+      "away_name": "Houston Texans",
+      "home_name": "Tennessee Titans",
       "market": {
-        "home_spread": -7,
+        "home_spread": 7,
         "total": 37.5,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3686,44 +3706,49 @@
           "HOU": -6.688
         },
         "secondary_adjustment_points": {
-          "TEN": 0.24,
+          "TEN": 0.255,
           "HOU": 0.585
         }
       },
       "means": {
-        "home": 20.666518587997,
-        "away": 17.345981412003,
-        "total": 38.0125,
-        "home_margin": 3.3205371759940014
+        "home": 16.481518587997,
+        "away": 21.545981412002998,
+        "total": 38.0275,
+        "home_margin": -5.064462824005997
       },
       "simulation": {
         "iterations": 100000,
-        "mean_home": 20.905146250264227,
-        "mean_away": 17.79184018356768,
-        "home_win_pct": 0.57767,
-        "home_cover_pct": 0.40715,
-        "away_cover_pct": 0.59285,
-        "over_pct": 0.51556,
-        "under_pct": 0.48444
+        "mean_home": 16.989205507982568,
+        "mean_away": 21.755333991750273,
+        "home_win_pct": 0.37941,
+        "home_cover_pct": 0.55315,
+        "away_cover_pct": 0.44684999999999997,
+        "over_pct": 0.51642,
+        "under_pct": 0.48358
       },
       "model_menu": {
         "side": "Tennessee Titans",
-        "side_cover_pct": 0.59285,
+        "side_cover_pct": 0.55315,
         "total": "Over",
-        "total_pct": 0.51556
+        "total_pct": 0.51642
       },
-      "contest": null
+      "contest": {
+        "team": "HOU",
+        "favorite_spread": -7.5,
+        "market_favorite": "Houston Texans",
+        "file_orientation_reversed": true
+      }
     },
     {
       "event": "Denver Broncos @ Los Angeles Chargers",
       "away": "DEN",
       "home": "LAC",
-      "away_name": "Los Angeles Chargers",
-      "home_name": "Denver Broncos",
+      "away_name": "Denver Broncos",
+      "home_name": "Los Angeles Chargers",
       "market": {
-        "home_spread": -3.5,
+        "home_spread": 3.5,
         "total": 42,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3748,28 +3773,33 @@
         }
       },
       "means": {
-        "home": 21.25975341202686,
-        "away": 21.45174658797314,
+        "home": 19.15975341202686,
+        "away": 23.551746587973142,
         "total": 42.7115,
-        "home_margin": -0.19199317594627985
+        "home_margin": -4.391993175946283
       },
       "simulation": {
         "iterations": 100000,
-        "mean_home": 21.502896250977056,
-        "mean_away": 21.655468525190507,
-        "home_win_pct": 0.49474,
-        "home_cover_pct": 0.41072,
-        "away_cover_pct": 0.58928,
-        "over_pct": 0.51743,
-        "under_pct": 0.48257000000000005
+        "mean_home": 19.50573877503157,
+        "mean_away": 23.688424345525146,
+        "home_win_pct": 0.39546,
+        "home_cover_pct": 0.48071,
+        "away_cover_pct": 0.51929,
+        "over_pct": 0.51766,
+        "under_pct": 0.48234
       },
       "model_menu": {
-        "side": "Los Angeles Chargers",
-        "side_cover_pct": 0.58928,
+        "side": "Denver Broncos",
+        "side_cover_pct": 0.51929,
         "total": "Over",
-        "total_pct": 0.51743
+        "total_pct": 0.51766
       },
-      "contest": null
+      "contest": {
+        "team": "DEN",
+        "favorite_spread": -3.5,
+        "market_favorite": "Denver Broncos",
+        "file_orientation_reversed": true
+      }
     },
     {
       "event": "San Francisco 49ers @ Seattle Seahawks",
@@ -3780,7 +3810,7 @@
       "market": {
         "home_spread": -3,
         "total": 46.5,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3800,47 +3830,49 @@
           "SF": 14.043
         },
         "secondary_adjustment_points": {
-          "SEA": 0.45,
+          "SEA": 0.533,
           "SF": 0.375
         }
       },
       "means": {
-        "home": 23.707676554242504,
+        "home": 23.790676554242506,
         "away": 23.695574657447217,
-        "total": 47.40325121168972,
-        "home_margin": 0.012101896795286393
+        "total": 47.48625121168972,
+        "home_margin": 0.09510189679528835
       },
       "simulation": {
         "iterations": 100000,
-        "mean_home": 23.784231024322548,
+        "mean_home": 23.865075832769534,
         "mean_away": 23.81334340381352,
-        "home_win_pct": 0.49998,
-        "home_cover_pct": 0.42829,
-        "away_cover_pct": 0.5717099999999999,
-        "over_pct": 0.51959,
-        "under_pct": 0.48041
+        "home_win_pct": 0.50202,
+        "home_cover_pct": 0.43042,
+        "away_cover_pct": 0.56958,
+        "over_pct": 0.52148,
+        "under_pct": 0.47851999999999995
       },
       "model_menu": {
         "side": "San Francisco 49ers",
-        "side_cover_pct": 0.5717099999999999,
+        "side_cover_pct": 0.56958,
         "total": "Over",
-        "total_pct": 0.51959
+        "total_pct": 0.52148
       },
       "contest": {
-        "team": "Seattle Seahawks",
-        "favorite_spread": -3
+        "team": "SEA",
+        "favorite_spread": -3,
+        "market_favorite": "Seattle Seahawks",
+        "file_orientation_reversed": false
       }
     },
     {
       "event": "Detroit Lions @ Arizona Cardinals",
       "away": "DET",
       "home": "ARI",
-      "away_name": "Arizona Cardinals",
-      "home_name": "Detroit Lions",
+      "away_name": "Detroit Lions",
+      "home_name": "Arizona Cardinals",
       "market": {
-        "home_spread": -5.5,
+        "home_spread": 5.5,
         "total": 54.5,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3861,43 +3893,48 @@
         },
         "secondary_adjustment_points": {
           "ARI": 0.9,
-          "DET": 0.6400000000000001
+          "DET": 0.585
         }
       },
       "means": {
-        "home": 29.719739508284054,
-        "away": 26.603610233800246,
-        "total": 56.323349742084304,
-        "home_margin": 3.116129274483807
+        "home": 26.419739508284053,
+        "away": 29.84861023380025,
+        "total": 56.268349742084304,
+        "home_margin": -3.428870725516198
       },
       "simulation": {
         "iterations": 100000,
-        "mean_home": 29.87016373979897,
-        "mean_away": 26.69018337373391,
-        "home_win_pct": 0.57657,
-        "home_cover_pct": 0.44645,
-        "away_cover_pct": 0.55355,
-        "over_pct": 0.544,
-        "under_pct": 0.45599999999999996
+        "mean_home": 26.60582408195802,
+        "mean_away": 29.901833531460383,
+        "home_win_pct": 0.42112,
+        "home_cover_pct": 0.55249,
+        "away_cover_pct": 0.44750999999999996,
+        "over_pct": 0.54267,
+        "under_pct": 0.45733
       },
       "model_menu": {
         "side": "Arizona Cardinals",
-        "side_cover_pct": 0.55355,
+        "side_cover_pct": 0.55249,
         "total": "Over",
-        "total_pct": 0.544
+        "total_pct": 0.54267
       },
-      "contest": null
+      "contest": {
+        "team": "DET",
+        "favorite_spread": -5.5,
+        "market_favorite": "Detroit Lions",
+        "file_orientation_reversed": true
+      }
     },
     {
       "event": "Chicago Bears @ Green Bay Packers",
       "away": "CHI",
       "home": "GB",
-      "away_name": "Green Bay Packers",
-      "home_name": "Chicago Bears",
+      "away_name": "Chicago Bears",
+      "home_name": "Green Bay Packers",
       "market": {
-        "home_spread": -1.5,
+        "home_spread": 1.5,
         "total": 46,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3922,28 +3959,33 @@
         }
       },
       "means": {
-        "home": 22.002615968672295,
-        "away": 24.81522571749891,
+        "home": 21.102615968672293,
+        "away": 25.715225717498914,
         "total": 46.81784168617121,
-        "home_margin": -2.812609748826617
+        "home_margin": -4.612609748826621
       },
       "simulation": {
         "iterations": 100000,
-        "mean_home": 22.195564698916897,
-        "mean_away": 24.91009443415755,
-        "home_win_pct": 0.43351,
-        "home_cover_pct": 0.39851,
-        "away_cover_pct": 0.6014900000000001,
-        "over_pct": 0.52101,
-        "under_pct": 0.47899
+        "mean_home": 21.32982820395581,
+        "mean_away": 25.79336819086749,
+        "home_win_pct": 0.39173,
+        "home_cover_pct": 0.42768,
+        "away_cover_pct": 0.5723199999999999,
+        "over_pct": 0.52117,
+        "under_pct": 0.47883
       },
       "model_menu": {
-        "side": "Green Bay Packers",
-        "side_cover_pct": 0.6014900000000001,
+        "side": "Chicago Bears",
+        "side_cover_pct": 0.5723199999999999,
         "total": "Over",
-        "total_pct": 0.52101
+        "total_pct": 0.52117
       },
-      "contest": null
+      "contest": {
+        "team": "CHI",
+        "favorite_spread": -3,
+        "market_favorite": "Chicago Bears",
+        "file_orientation_reversed": true
+      }
     },
     {
       "event": "Baltimore Ravens @ Atlanta Falcons",
@@ -3954,7 +3996,7 @@
       "market": {
         "home_spread": -3,
         "total": 44,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -3974,35 +4016,37 @@
           "BAL": -0.709
         },
         "secondary_adjustment_points": {
-          "ATL": 0.525,
+          "ATL": 0.435,
           "BAL": 0.405
         }
       },
       "means": {
-        "home": 23.676449508298802,
+        "home": 23.586449508298802,
         "away": 21.158845479998476,
-        "total": 44.83529498829728,
-        "home_margin": 2.517604028300326
+        "total": 44.745294988297275,
+        "home_margin": 2.427604028300326
       },
       "simulation": {
         "iterations": 100000,
-        "mean_home": 23.782296431235384,
+        "mean_home": 23.694639041061617,
         "mean_away": 21.325021273347964,
-        "home_win_pct": 0.55902,
-        "home_cover_pct": 0.48652,
-        "away_cover_pct": 0.5134799999999999,
-        "over_pct": 0.51861,
-        "under_pct": 0.48139
+        "home_win_pct": 0.55677,
+        "home_cover_pct": 0.4843,
+        "away_cover_pct": 0.5157,
+        "over_pct": 0.51667,
+        "under_pct": 0.48333000000000004
       },
       "model_menu": {
         "side": "Baltimore Ravens",
-        "side_cover_pct": 0.5134799999999999,
+        "side_cover_pct": 0.5157,
         "total": "Over",
-        "total_pct": 0.51861
+        "total_pct": 0.51667
       },
       "contest": {
-        "team": "Atlanta Falcons",
-        "favorite_spread": -3.5
+        "team": "ATL",
+        "favorite_spread": -3.5,
+        "market_favorite": "Atlanta Falcons",
+        "file_orientation_reversed": false
       }
     },
     {
@@ -4012,9 +4056,9 @@
       "away_name": "Buffalo Bills",
       "home_name": "Los Angeles Rams",
       "market": {
-        "home_spread": -3,
+        "home_spread": -3.5,
         "total": 54.5,
-        "captured_at": "2026-10-10T16:16:12.396Z"
+        "captured_at": "2026-10-11T01:15:40.538Z"
       },
       "features": {
         "offense_z": {
@@ -4039,30 +4083,32 @@
         }
       },
       "means": {
-        "home": 29.029934961327736,
-        "away": 26.331356175984492,
+        "home": 29.179934961327735,
+        "away": 26.181356175984494,
         "total": 55.36129113731223,
-        "home_margin": 2.698578785343244
+        "home_margin": 2.9985787853432413
       },
       "simulation": {
         "iterations": 100000,
-        "mean_home": 29.066356267459785,
-        "mean_away": 26.431148239495247,
-        "home_win_pct": 0.562,
-        "home_cover_pct": 0.49145,
-        "away_cover_pct": 0.5085500000000001,
-        "over_pct": 0.51988,
-        "under_pct": 0.48012
+        "mean_home": 29.215029750237452,
+        "mean_away": 26.28347182260453,
+        "home_win_pct": 0.56948,
+        "home_cover_pct": 0.48639,
+        "away_cover_pct": 0.51361,
+        "over_pct": 0.51987,
+        "under_pct": 0.48012999999999995
       },
       "model_menu": {
         "side": "Buffalo Bills",
-        "side_cover_pct": 0.5085500000000001,
+        "side_cover_pct": 0.51361,
         "total": "Over",
-        "total_pct": 0.51988
+        "total_pct": 0.51987
       },
       "contest": {
-        "team": "Los Angeles Rams",
-        "favorite_spread": -3
+        "team": "LAR",
+        "favorite_spread": -3,
+        "market_favorite": "Los Angeles Rams",
+        "file_orientation_reversed": false
       }
     }
   ]

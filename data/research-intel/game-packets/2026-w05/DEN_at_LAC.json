@@ -1,0 +1,2262 @@
+{
+ "schema": "w05_game_packet_v1",
+ "game": "DEN@LAC",
+ "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "kickoff_utc": "2026-10-11T20:05:00.000Z",
+ "away": {
+  "abbr": "DEN",
+  "name": "Denver Broncos"
+ },
+ "home": {
+  "abbr": "LAC",
+  "name": "Los Angeles Chargers"
+ },
+ "line_convention": "spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points",
+ "teams": {
+  "DEN": {
+   "team": "DEN",
+   "division": "AFC West",
+   "record": "2-2",
+   "games_played": 4,
+   "points_for": 74,
+   "points_against": 94,
+   "point_diff": -20,
+   "ppg": 18.5,
+   "papg": 23.5,
+   "home_record": "2-0",
+   "away_record": "0-2",
+   "division_record": "0-1",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-15T00:15:00.000Z",
+     "opp": "KC",
+     "site": "A",
+     "pf": 10,
+     "pa": 31,
+     "result": "L",
+     "opp_record": "4-0"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T20:05:00.000Z",
+     "opp": "JAX",
+     "site": "H",
+     "pf": 20,
+     "pa": 13,
+     "result": "W",
+     "opp_record": "3-1"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-28T00:20:00.000Z",
+     "opp": "LAR",
+     "site": "H",
+     "pf": 30,
+     "pa": 26,
+     "result": "W",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T20:25:00.000Z",
+     "opp": "SF",
+     "site": "A",
+     "pf": 14,
+     "pa": 24,
+     "result": "L",
+     "opp_record": "4-0"
+    }
+   ],
+   "opponents_record_to_date": "13-3",
+   "rest_days_before_this_game": 7.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    10
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "LAC",
+     "site": "A",
+     "kickoff_utc": "2026-10-11T20:05:00.000Z",
+     "opp_division": "AFC West"
+    },
+    {
+     "week": 6,
+     "opp": "SEA",
+     "site": "H",
+     "kickoff_utc": "2026-10-16T00:15:00.000Z",
+     "opp_division": "NFC West"
+    },
+    {
+     "week": 7,
+     "opp": "ARI",
+     "site": "A",
+     "kickoff_utc": "2026-10-25T20:05:00.000Z",
+     "opp_division": "NFC West"
+    },
+    {
+     "week": 8,
+     "opp": "KC",
+     "site": "H",
+     "kickoff_utc": "2026-11-01T21:25:00.000Z",
+     "opp_division": "AFC West"
+    }
+   ]
+  },
+  "LAC": {
+   "team": "LAC",
+   "division": "AFC West",
+   "record": "0-4",
+   "games_played": 4,
+   "points_for": 67,
+   "points_against": 106,
+   "point_diff": -39,
+   "ppg": 16.8,
+   "papg": 26.5,
+   "home_record": "0-2",
+   "away_record": "0-2",
+   "division_record": "0-1",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-13T20:25:00.000Z",
+     "opp": "ARI",
+     "site": "H",
+     "pf": 14,
+     "pa": 26,
+     "result": "L",
+     "opp_record": "1-3"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T20:05:00.000Z",
+     "opp": "LV",
+     "site": "H",
+     "pf": 14,
+     "pa": 26,
+     "result": "L",
+     "opp_record": "3-1"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T17:00:00.000Z",
+     "opp": "BUF",
+     "site": "A",
+     "pf": 16,
+     "pa": 24,
+     "result": "L",
+     "opp_record": "3-1"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T20:25:00.000Z",
+     "opp": "SEA",
+     "site": "A",
+     "pf": 23,
+     "pa": 30,
+     "result": "L",
+     "opp_record": "3-1"
+    }
+   ],
+   "opponents_record_to_date": "10-6",
+   "rest_days_before_this_game": 7.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    7
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "DEN",
+     "site": "H",
+     "kickoff_utc": "2026-10-11T20:05:00.000Z",
+     "opp_division": "AFC West"
+    },
+    {
+     "week": 6,
+     "opp": "KC",
+     "site": "A",
+     "kickoff_utc": "2026-10-18T20:25:00.000Z",
+     "opp_division": "AFC West"
+    },
+    {
+     "week": 8,
+     "opp": "LAR",
+     "site": "A",
+     "kickoff_utc": "2026-11-01T21:05:00.000Z",
+     "opp_division": "NFC West"
+    },
+    {
+     "week": 9,
+     "opp": "HOU",
+     "site": "H",
+     "kickoff_utc": "2026-11-08T21:05:00.000Z",
+     "opp_division": "AFC South"
+    }
+   ]
+  }
+ },
+ "standings": {
+  "divisions": {
+   "AFC West": [
+    {
+     "team": "KC",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 41,
+     "div": "2-0",
+     "rank": 1
+    },
+    {
+     "team": "LV",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 31,
+     "div": "1-1",
+     "rank": 2
+    },
+    {
+     "team": "DEN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -20,
+     "div": "0-1",
+     "rank": 3
+    },
+    {
+     "team": "LAC",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -39,
+     "div": "0-1",
+     "rank": 4
+    }
+   ]
+  },
+  "conference_order_by_record_then_point_diff": {
+   "AFC": [
+    {
+     "team": "KC",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 41,
+     "order": 1
+    },
+    {
+     "team": "JAX",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 51,
+     "order": 2
+    },
+    {
+     "team": "LV",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 31,
+     "order": 3
+    },
+    {
+     "team": "BUF",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "order": 4
+    },
+    {
+     "team": "BAL",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "order": 5
+    },
+    {
+     "team": "CLE",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": -14,
+     "order": 6
+    },
+    {
+     "team": "CIN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "order": 7
+    },
+    {
+     "team": "IND",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -2,
+     "order": 8
+    },
+    {
+     "team": "PIT",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -10,
+     "order": 9
+    },
+    {
+     "team": "NE",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -12,
+     "order": 10
+    },
+    {
+     "team": "DEN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -20,
+     "order": 11
+    },
+    {
+     "team": "NYJ",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -8,
+     "order": 12
+    },
+    {
+     "team": "HOU",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -25,
+     "order": 13
+    },
+    {
+     "team": "TEN",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -28,
+     "order": 14
+    },
+    {
+     "team": "LAC",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -39,
+     "order": 15
+    },
+    {
+     "team": "MIA",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -55,
+     "order": 16
+    }
+   ]
+  },
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+ },
+ "same_division_game": true,
+ "market": {
+  "BKR": {
+   "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:15:40.538Z",
+   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Denver Broncos",
+      "line": -3.5,
+      "odds": -113,
+      "available": true
+     },
+     {
+      "side": "Los Angeles Chargers",
+      "line": 3.5,
+      "odds": -103,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 42,
+      "odds": -114,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 42,
+      "odds": -102,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Denver Broncos",
+      "odds": -194,
+      "available": true
+     },
+     {
+      "side": "Los Angeles Chargers",
+      "odds": 170,
+      "available": true
+     }
+    ]
+   }
+  },
+  "BEO": {
+   "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:19:56.400Z",
+   "expires_for_recommendation_at": "2026-10-11T07:19:56.400000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Denver Broncos",
+      "line": -3.5,
+      "odds": -112,
+      "available": true
+     },
+     {
+      "side": "Los Angeles Chargers",
+      "line": 3.5,
+      "odds": -108,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 42,
+      "odds": -110,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 42,
+      "odds": -110,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Denver Broncos",
+      "odds": -180,
+      "available": true
+     },
+     {
+      "side": "Los Angeles Chargers",
+      "odds": 157,
+      "available": true
+     }
+    ]
+   }
+  },
+  "book_conflict": null,
+  "market_implied_score": {
+   "LAC": 19.25,
+   "DEN": 22.75,
+   "basis": "BKR home line 3.5 total 42"
+  }
+ },
+ "action_network_opener": {
+  "an_game_id": 290911,
+  "kickoff_utc": "2026-10-11T20:05:00Z",
+  "sp": {
+   "LAC": 3.5,
+   "DEN": -3.5
+  },
+  "sp_odds_home": -110,
+  "sp_at": "2026-10-05T00:12:55Z",
+  "tot": 43.5,
+  "tot_at": "2026-10-05T00:12:55Z",
+  "ml": {
+   "DEN": -190,
+   "LAC": 155
+  },
+  "carried_from_before_cutoff": false
+ },
+ "action_network_splits": {
+  "game_id": 290911,
+  "away_team": "DEN",
+  "home_team": "LAC",
+  "kickoff_at": "2026-10-11T20:05:00.000Z",
+  "spread": [
+   {
+    "side": "away",
+    "value": -3.5,
+    "price_american": -103,
+    "ticket_pct": 54,
+    "money_pct": 54
+   },
+   {
+    "side": "home",
+    "value": 3.5,
+    "price_american": -117,
+    "ticket_pct": 46,
+    "money_pct": 46
+   }
+  ],
+  "total": [
+   {
+    "side": "over",
+    "value": 41.5,
+    "price_american": -117,
+    "ticket_pct": 69,
+    "money_pct": 61
+   },
+   {
+    "side": "under",
+    "value": 41.5,
+    "price_american": -107,
+    "ticket_pct": 31,
+    "money_pct": 39
+   }
+  ],
+  "moneyline": [
+   {
+    "side": "away",
+    "value": 0,
+    "price_american": -180,
+    "ticket_pct": 86,
+    "money_pct": 81
+   },
+   {
+    "side": "home",
+    "value": 0,
+    "price_american": 149,
+    "ticket_pct": 14,
+    "money_pct": 19
+   }
+  ]
+ },
+ "action_network_splits_captured_at": "2026-10-09T19:41:08.878Z",
+ "supercontest_row": {
+  "away_team": "LAC",
+  "home_team": "DEN",
+  "favorite": "DEN",
+  "underdog": "LAC",
+  "favorite_spread": -3.5,
+  "kickoff_display": "Sun 4:05 pm"
+ },
+ "quantitative_row": {
+  "event": "Denver Broncos @ Los Angeles Chargers",
+  "away": "DEN",
+  "home": "LAC",
+  "away_name": "Denver Broncos",
+  "home_name": "Los Angeles Chargers",
+  "market": {
+   "home_spread": 3.5,
+   "total": 42,
+   "captured_at": "2026-10-11T01:15:40.538Z"
+  },
+  "features": {
+   "offense_z": {
+    "LAC": -0.9259742447970951,
+    "DEN": -0.8125365856778375
+   },
+   "defense_weakness_z": {
+    "LAC": 0.30729637684941025,
+    "DEN": -0.056022547118515266
+   },
+   "tempo_z": {
+    "LAC": -1.11896772845871,
+    "DEN": -1.0577442865498796
+   },
+   "srs": {
+    "LAC": -9.313,
+    "DEN": 5.862
+   },
+   "secondary_adjustment_points": {
+    "LAC": 0.484,
+    "DEN": 0.54
+   }
+  },
+  "means": {
+   "home": 19.15975341202686,
+   "away": 23.551746587973142,
+   "total": 42.7115,
+   "home_margin": -4.391993175946283
+  },
+  "simulation": {
+   "iterations": 100000,
+   "mean_home": 19.50573877503157,
+   "mean_away": 23.688424345525146,
+   "home_win_pct": 0.39546,
+   "home_cover_pct": 0.48071,
+   "away_cover_pct": 0.51929,
+   "over_pct": 0.51766,
+   "under_pct": 0.48234
+  },
+  "model_menu": {
+   "side": "Denver Broncos",
+   "side_cover_pct": 0.51929,
+   "total": "Over",
+   "total_pct": 0.51766
+  },
+  "contest": {
+   "team": "DEN",
+   "favorite_spread": -3.5,
+   "market_favorite": "Denver Broncos",
+   "file_orientation_reversed": true
+  }
+ },
+ "simulator_edge_sweep": [
+  {
+   "home_margin_edge_pts": -3,
+   "home_cover": 0.42,
+   "away_cover": 0.58,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": -2,
+   "home_cover": 0.4466,
+   "away_cover": 0.5534,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": -1,
+   "home_cover": 0.4733,
+   "away_cover": 0.5267,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 0,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 1,
+   "home_cover": 0.5266,
+   "away_cover": 0.4734,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 2,
+   "home_cover": 0.5529,
+   "away_cover": 0.4471,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 3,
+   "home_cover": 0.579,
+   "away_cover": 0.421,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  }
+ ],
+ "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
+ "digest_rows": [
+  "DEN@LAC | LAC +3.5 -103 / ML +170 | LAC | V: VSiN; RO: Action Network, Daniel Jeremiah & Bucky Brooks, Even Money, Steve Fezzik, Ross Tucker, Ryan Wormeli, Chad Millman; vs DEN: BettingPros (RO), Andrew Erickson (RO), Simon Hunter (RO), Pro Football Talk (RO) | 2-",
+  "DEN@LAC | U42 -102 | Under | RO: BettingPros, Andrew Erickson, Ryan Wormeli (src 41.5/42.5 vs now 42) | 2- research-only",
+  "DEN@LAC | Marquez Valdes-Scantling ATD +1200 | Yes | RO: Action Network, Sean Koerner; src px not BKR | 2- research-only",
+  "DEN@LAC | Troy Franklin ATD +650 | Yes | RO: Action Network, Sean Koerner; src px not BKR | 2- research-only"
+ ],
+ "source_rows": {
+  "counts": {
+   "corroboration_only": 28,
+   "tier_eligible": 2,
+   "near_miss": 1
+  },
+  "rows": [
+   {
+    "row": "w05-expert-verified.json#rows[20]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 650,
+    "price": null,
+    "published": "2026-10-10T18:25:41.496+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[21]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 1200,
+    "price": null,
+    "published": "2026-10-10T18:25:41.496+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[37]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "moneyline",
+    "side": "LAC",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T18:25:40.814+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[58]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 5.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.156+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[61]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 410,
+    "price": null,
+    "published": "2026-10-10T17:46:02.156+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[82]",
+    "kind": "expert_feed",
+    "outlet": "Daniel Jeremiah & Bucky Brooks",
+    "persons": [],
+    "market": "moneyline",
+    "side": "LAC",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T17:46:01.834+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[102]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "spread",
+    "side": "LAC",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-10T17:46:01.269+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[152]",
+    "kind": "expert_feed",
+    "outlet": "Even Money",
+    "persons": [],
+    "market": "spread",
+    "side": "LAC",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-09T15:40:51.479+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[156]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "spread",
+    "side": "LAC",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-07T15:54:08.831+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[167]",
+    "kind": "expert_feed",
+    "outlet": "Even Money",
+    "persons": [],
+    "market": "spread",
+    "side": "LAC",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-07T15:54:08.659+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[196]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "spread",
+    "side": "DEN",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-06T15:30:56.923+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[197]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "total",
+    "side": "Under",
+    "line": 41.5,
+    "price": null,
+    "published": "2026-10-06T15:30:56.923+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[223]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Sean Koerner"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 650,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[224]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Sean Koerner"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 1200,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[262]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Prop Bets &amp; Parlays",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "spread",
+    "side": "LAC",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-08T14:06:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[306]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "spread",
+    "side": "LAC",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[307]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Ross Tucker"
+    ],
+    "market": "spread",
+    "side": "LAC",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[332]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Andrew Erickson"
+    ],
+    "market": "spread",
+    "side": "DEN",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[333]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Andrew Erickson"
+    ],
+    "market": "totals",
+    "side": null,
+    "line": 42.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[334]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Ryan Wormeli"
+    ],
+    "market": "spread",
+    "side": "LAC",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[335]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Ryan Wormeli"
+    ],
+    "market": "totals",
+    "side": null,
+    "line": 42.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[374]",
+    "kind": "podcast",
+    "outlet": "NFL WEEK 5 Betting Preview: Bucs-Cowboys, Bears-Packers and more",
+    "persons": [
+     "Chad Millman"
+    ],
+    "market": "spread",
+    "side": "LAC",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-06T18:24:28+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[375]",
+    "kind": "podcast",
+    "outlet": "NFL WEEK 5 Betting Preview: Bucs-Cowboys, Bears-Packers and more",
+    "persons": [
+     "Simon Hunter"
+    ],
+    "market": "spread",
+    "side": "DEN",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-06T18:24:28+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[385]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Dustin Swedelson"
+    ],
+    "market": "prop",
+    "side": "OVER 38.5 (-113)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[386]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Dustin Swedelson"
+    ],
+    "market": "prop",
+    "side": "OVER 13.5 (-117)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[430]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "Cody Brown Bets"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:33:54.97021+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[455]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Wes Reynolds"
+    ],
+    "market": "spread",
+    "side": "LAC",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-10T12:03:19.165844+00:00",
+    "best_bet": false,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/wes-reynolds-nfl-week-5-best-bets-and-predictions/",
+    "quote": "Los Angeles Chargers +3.5 vs."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[472]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@thepropdealer"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T04:04:06.828628+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[506]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@thepropdealer"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T22:03:37.444734+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": true,
+    "url": "https://x.com/thepropdealer/status/2108253933227635054",
+    "quote": "Anytime TD Scorer"
+   },
+   {
+    "row": "w05-expert-verified.json#rows[541]",
+    "kind": "article",
+    "outlet": "Pro Football Talk",
+    "persons": [],
+    "market": "moneyline",
+    "side": "DEN",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T16:33:20.970971+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[567]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Dave Tuley"
+    ],
+    "market": "spread",
+    "side": "LAC",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-08T01:33:21.643136+00:00",
+    "best_bet": true,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/tuleys-takes-for-nfl-week-5/",
+    "quote": "Best Bet: Chargers +3.5 (Pool Play Percentages: Chargers 67/33 in ATS contests, but Broncos still 67/33 in SU pools)."
+   }
+  ]
+ },
+ "weather_venue_row": {
+  "game": "DEN@LAC",
+  "weather_status": "venue_condition_verification_required",
+  "materiality": "do_not_apply_outdoor_weather_without_current venue/roof confirmation"
+ },
+ "secondary_matchups": [
+  {
+   "id": "sec_36023fd6bafe4158",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_DEN_at_LAC",
+   "kickoff_utc": "2026-10-11T20:05:00.000Z",
+   "offense_team": "DEN",
+   "offense_team_nick": "Broncos",
+   "defense_team": "LAC",
+   "defense_team_nick": "Chargers",
+   "offense_venue": "away",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "match_zone",
+     "two_high",
+     "quarters"
+    ],
+    "primary_coverage_family": "match_zone",
+    "pressure_profile": "coverage_first",
+    "confidence": 0.78,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Jesse Minter Ravens-style match zone structure with Derwin James in hybrid role."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Derwin James Jr.",
+     "team": "LAC",
+     "position": "S",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "James (hamstring) has been ruled out against the Broncos on Sunday.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T00:28:00.000Z",
+     "role": "hybrid_safety",
+     "side": "middle",
+     "impact_tier": "elite",
+     "primary_receiver_archetypes_impacted": [
+      "te_middle",
+      "slot"
+     ],
+     "weakness_tags": [
+      "te_middle_boost",
+      "slot_wr_boost",
+      "deep_pass_boost"
+     ],
+     "severity_score": 3.6,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Donte Jackson",
+     "team": "LAC",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Jackson (hamstring) has been ruled out for Sunday's game against the Broncos.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T00:25:00.000Z",
+     "role": "outside_cb2",
+     "side": "field",
+     "impact_tier": "starter",
+     "primary_receiver_archetypes_impacted": [
+      "z_receiver"
+     ],
+     "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "severity_score": 1.8,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "boundary_wr_boost",
+    "deep_pass_boost",
+    "inside_seam_boost",
+    "outside_wr_boost",
+    "post_cross_boost",
+    "slot_wr_boost",
+    "te_middle_boost",
+    "underneath_volume_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Evan Engram",
+     "team": "DEN",
+     "roles": [
+      "te_middle",
+      "slot"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "middle",
+      "underneath",
+      "slot"
+     ],
+     "matched_weakness_tags": [
+      "te_middle_boost",
+      "inside_seam_boost",
+      "slot_wr_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 6,
+     "notes": "JAX High Volume TE. [moved from JAX per ESPN roster 2026-09-27]",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Courtland Sutton",
+     "team": "DEN",
+     "roles": [
+      "alpha_x",
+      "red_zone"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "boundary",
+      "red_zone"
+     ],
+     "matched_weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost",
+      "te_middle_boost"
+     ],
+     "opportunity_score": 4.5,
+     "notes": "DEN X Receiver.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Jaylen Waddle",
+     "team": "DEN",
+     "roles": [
+      "z_receiver",
+      "field_stretcher"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "deep",
+      "intermediate"
+     ],
+     "matched_weakness_tags": [
+      "outside_wr_boost",
+      "deep_pass_boost",
+      "post_cross_boost"
+     ],
+     "opportunity_score": 4.5,
+     "notes": "MIA Elite Speed WR2. [moved from MIA per ESPN roster 2026-09-27]",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Marvin Mims Jr.",
+     "team": "DEN",
+     "roles": [
+      "field_stretcher",
+      "slot"
+     ],
+     "target_share_tier": "rotational",
+     "route_area_tags": [
+      "deep",
+      "slot"
+     ],
+     "matched_weakness_tags": [
+      "deep_pass_boost",
+      "post_cross_boost",
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 2,
+     "notes": "DEN Speed Threat.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    }
+   ],
+   "severity_score": 5.4,
+   "elite_absence_count": 1,
+   "vulnerability_tier": "high",
+   "confidence": 0.95,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  },
+  {
+   "id": "sec_b63edf5fceb6e851",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_DEN_at_LAC",
+   "kickoff_utc": "2026-10-11T20:05:00.000Z",
+   "offense_team": "LAC",
+   "offense_team_nick": "Chargers",
+   "defense_team": "DEN",
+   "defense_team_nick": "Broncos",
+   "offense_venue": "home",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "man_heavy",
+     "single_high",
+     "blitz_heavy"
+    ],
+    "primary_coverage_family": "man_match",
+    "pressure_profile": "blitz_heavy",
+    "confidence": 0.8,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Vance Joseph heavy blitz and man press around Patrick Surtain II shadow assignments."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Riley Moss",
+     "team": "DEN",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Moss (ribs) has been ruled out for Sunday's game against the Chargers, Aric DiLalla of the Broncos' official site reports.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T16:16:00.000Z",
+     "role": "outside_cb2",
+     "side": "field",
+     "impact_tier": "starter",
+     "primary_receiver_archetypes_impacted": [
+      "z_receiver"
+     ],
+     "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "severity_score": 1.8,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Pat Surtain II",
+     "team": "DEN",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Surtain (ankle) has been ruled out for Sunday's game against the Chargers, Aric DiLalla of the Broncos' official site reports.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T16:13:00.000Z",
+     "role": "outside_cb1",
+     "side": "boundary",
+     "impact_tier": "starter",
+     "primary_receiver_archetypes_impacted": [
+      "alpha_x"
+     ],
+     "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost",
+      "alpha_wr_boost"
+     ],
+     "severity_score": 1.8,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Talanoa Hufanga",
+     "team": "DEN",
+     "position": "S",
+     "event_type": "limited",
+     "availability_trend": "stable",
+     "summary": "Hufanga recorded four total tackles (two solo) during Sunday's 24-14 loss to the 49ers.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-07T01:47:00.000Z",
+     "role": "box_safety",
+     "side": "middle",
+     "impact_tier": "plus",
+     "primary_receiver_archetypes_impacted": [
+      "te_middle"
+     ],
+     "weakness_tags": [
+      "te_middle_boost",
+      "middle_field_boost"
+     ],
+     "severity_score": 1.24,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "alpha_wr_boost",
+    "boundary_wr_boost",
+    "deep_pass_boost",
+    "hot_read_boost",
+    "middle_field_boost",
+    "outside_wr_boost",
+    "post_cross_boost",
+    "slot_wr_boost",
+    "te_middle_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Ladd McConkey",
+     "team": "LAC",
+     "roles": [
+      "slot",
+      "alpha_x"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "slot",
+      "intermediate"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "outside_wr_boost",
+      "alpha_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "opportunity_score": 6,
+     "notes": "LAC Rookie Target Leader.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Charlie Kolar",
+     "team": "LAC",
+     "roles": [
+      "te_middle"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle"
+     ],
+     "matched_weakness_tags": [
+      "te_middle_boost",
+      "middle_field_boost"
+     ],
+     "opportunity_score": 1.6,
+     "notes": "LAC TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Tre' Harris",
+     "team": "LAC",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost"
+     ],
+     "opportunity_score": 0.8,
+     "notes": "LAC WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    }
+   ],
+   "severity_score": 4.84,
+   "elite_absence_count": 1,
+   "vulnerability_tier": "medium",
+   "confidence": 0.94,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  }
+ ],
+ "power_ratings": {
+  "DEN": {
+   "season": 2026,
+   "team": "Broncos",
+   "team_abbr": "DEN",
+   "games_played": 4,
+   "record": "2-2",
+   "power_rating": {
+    "srs": 5.862,
+    "net_points_per_game": -5,
+    "pythag_win_pct": 0.3619,
+    "model_composite_z": -0.212,
+    "model_rank": 18,
+    "srs_rank": 7,
+    "net_ppg_rank": 24,
+    "pythag_rank": 25,
+    "market_implied_win_total": 10.19,
+    "market_implied_rank": 13,
+    "delta": 0.7293,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  },
+  "LAC": {
+   "season": 2026,
+   "team": "Chargers",
+   "team_abbr": "LAC",
+   "games_played": 4,
+   "record": "0-4",
+   "power_rating": {
+    "srs": -9.313,
+    "net_points_per_game": -9.75,
+    "pythag_win_pct": 0.2521,
+    "model_composite_z": -1.3771,
+    "model_rank": 31,
+    "srs_rank": 30,
+    "net_ppg_rank": 31,
+    "pythag_rank": 31,
+    "market_implied_win_total": 6.07,
+    "market_implied_rank": 29,
+    "delta": 0.1645,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  }
+ },
+ "availability": {
+  "DEN": {
+   "event_count": 18,
+   "qb_events": 1,
+   "offensive_line_worsening": 0,
+   "defensive_front_worsening": 1,
+   "top_score": 93,
+   "top_events": [
+    {
+     "player_name": "Bo Nix",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "active_news",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 93,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Matt Henningsen",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Pat Bryant",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jonah Coleman",
+     "position": "RB",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Riley Moss",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 82,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jonah Coleman",
+     "position": "RB",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Pat Bryant",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Levelle Bailey",
+     "position": "LB",
+     "unit": "linebacker",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    }
+   ]
+  },
+  "LAC": {
+   "event_count": 31,
+   "qb_events": 2,
+   "offensive_line_worsening": 5,
+   "defensive_front_worsening": 0,
+   "top_score": 104,
+   "top_events": [
+    {
+     "player_name": "Rashawn Slater",
+     "position": "OT",
+     "unit": "offensive_line",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "offensive_line_major",
+     "score": 104,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Trey Lance",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "qb_major",
+     "score": 104,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Branson Taylor",
+     "position": "G",
+     "unit": "offensive_line",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "offensive_line_major",
+     "score": 104,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Trey Lance",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "doubtful",
+     "availability_trend": "worsening",
+     "impact_bucket": "qb_major",
+     "score": 100,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "David Njoku",
+     "position": "TE",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 89,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Scott Matlock",
+     "position": "FB",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 84,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Derwin James Jr.",
+     "position": "S",
+     "unit": "secondary",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 82,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Trevor Penning",
+     "position": "G",
+     "unit": "offensive_line",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "offensive_line_major",
+     "score": 81,
+     "signal": "negative_availability"
+    }
+   ]
+  }
+ },
+ "ftn_team_level": {
+  "DEN": {
+   "record_count": 144,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "EPA/PLY": "0.048",
+      "DVOA": "-0.6%",
+      "SUCC%": "43.1%",
+      "EXP%": "10.4%",
+      "CONV%": "49.2%",
+      "TO": "4",
+      "TO%": "1.5%",
+      "3&O": "11.6%",
+      "MTKL%": "20.1%",
+      "PEN%": "3.7%",
+      "PENY": "14.5"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "YD/PLY": "5.8",
+      "PT/GM": "22.0",
+      "FD%": "30.1%",
+      "TO": "4",
+      "DPBK%": "58.7%",
+      "YD": "981",
+      "TD": "6",
+      "INT": "4",
+      "RUSH%": "41.3%",
+      "YD__2": "571",
+      "TD__2": "4"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "DPBK": "158",
+      "SK": "8",
+      "SK%": "5.1%",
+      "QBH%": "19.0%",
+      "PRESS": "50",
+      "PRESS%": "31.6%",
+      "QPRESS%": "52.0%",
+      "TTPR": "2.36",
+      "DISR%": "1.3%",
+      "BLZ%": "38.6%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "EPA/DB": "0.054",
+      "SUCC%": "45.6%",
+      "DVOA": "4.3%",
+      "CPOE": "-1.10%",
+      "CBALL%": "65.2%",
+      "EXP%": "16.0%",
+      "INTW%": "4.3%",
+      "TGHT%": "33.3%",
+      "OPEN%": "48.9%",
+      "TA%": "3.5%",
+      "DROP%": "5.0%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "EPA/ATT": "0.041",
+      "SUCC%": "39.6%",
+      "DVOA": "-6.0%",
+      "aRYOE": "",
+      "EXP%": "10.8%",
+      "STF%": "18.9%",
+      "YBCO": "0.59",
+      "YACO": "3.32"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "EPA/PLY": "-0.023",
+      "DVOA": "-2.1%",
+      "SUCC%": "40.9%",
+      "EXP%": "6.9%",
+      "CONV%": "40.0%",
+      "TO": "4",
+      "TO%": "1.72%",
+      "PENY": "32.3",
+      "PEN%": "8.19%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "YD/PLY": "4.9",
+      "PT/GM": "17.0",
+      "FD%": "25.9%",
+      "TO": "4",
+      "DPBK%": "62.1%",
+      "YD": "819",
+      "TD": "5",
+      "INT": "3",
+      "RUSH%": "37.9%",
+      "YD__2": "327",
+      "TD__2": "2"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "SK": "4",
+      "SK%": "2.8%",
+      "QBSK%": "25.0%",
+      "QBH%": "9.0%",
+      "PRESS%": "31.3%",
+      "UPRES%": "25.0%",
+      "BLITZ%": "34.7%",
+      "TTPR": "2.53",
+      "TTT": "2.72",
+      "EPA/DB": "-0.700",
+      "DVOA": "-98.1%",
+      "SUCC%": "15.6%",
+      "EPA/DB__2": "0.311",
+      "DVOA__2": "30.6%",
+      "SUCC%__2": "55.6%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "EPA/DB": "-0.005",
+      "SUCC%": "43.1%",
+      "DVOA": "13.3%",
+      "CPOE": "-3.4%",
+      "CBALL%": "65.7%",
+      "EXP%": "12.3%",
+      "INTW%": "5.1%",
+      "HLT%": "1.5%",
+      "TA%": "7.3%",
+      "DROP%": "2.9%",
+      "aDOT": "5.3",
+      "aYAC": "6.0"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "EPA/ATT": "-0.053",
+      "SUCC%": "37.5%",
+      "DVOA": "-1.6%",
+      "aRYOE": "",
+      "EXP%": "6.8%",
+      "STF%": "17.0%",
+      "aYBCO": "1.28",
+      "aYACO": "1.45",
+      "CRT%": "40.8%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "PLY/GM": "58.0",
+      "TOP": "26.72",
+      "DRV/GM": "10.3",
+      "SEC/PLY": "27.5",
+      "PLY/DRV": "5.7",
+      "YD/DRV": "28.0",
+      "SEC/DRV": "156",
+      "3&O": "26.8%",
+      "SCD%": "31.7%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "DEN",
+     "metrics": {
+      "Team": "Denver Broncos",
+      "GP": "4",
+      "DPBK%": "62.1%",
+      "RUSH%": "37.9%",
+      "SHG%": "64.2%",
+      "NH%": "6.9%",
+      "MOT%": "56.0%",
+      "PA%": "21.5%",
+      "IZ%": "20.5%",
+      "OZ%": "20.5%",
+      "MD%": "28.4%",
+      "PWR%": "8.0%",
+      "CTR%": "2.3%"
+     }
+    }
+   ]
+  },
+  "LAC": {
+   "record_count": 154,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "EPA/PLY": "-0.044",
+      "DVOA": "1.9%",
+      "SUCC%": "42.3%",
+      "EXP%": "9.5%",
+      "CONV%": "39.3%",
+      "TO": "6",
+      "TO%": "2.4%",
+      "3&O": "14.3%",
+      "MTKL%": "16.2%",
+      "PEN%": "4.3%",
+      "PENY": "26.0"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "YD/PLY": "5.5",
+      "PT/GM": "26.0",
+      "FD%": "29.2%",
+      "TO": "6",
+      "DPBK%": "50.6%",
+      "YD": "902",
+      "TD": "6",
+      "INT": "4",
+      "RUSH%": "49.4%",
+      "YD__2": "487",
+      "TD__2": "6"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "DPBK": "128",
+      "SK": "10",
+      "SK%": "7.8%",
+      "QBH%": "21.9%",
+      "PRESS": "40",
+      "PRESS%": "31.3%",
+      "QPRESS%": "45.0%",
+      "TTPR": "2.84",
+      "DISR%": "1.6%",
+      "BLZ%": "26.6%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "EPA/DB": "0.074",
+      "SUCC%": "47.7%",
+      "DVOA": "9.6%",
+      "CPOE": "1.08%",
+      "CBALL%": "77.2%",
+      "EXP%": "17.3%",
+      "INTW%": "4.4%",
+      "TGHT%": "27.2%",
+      "OPEN%": "59.6%",
+      "TA%": "5.3%",
+      "DROP%": "7.9%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "EPA/ATT": "-0.165",
+      "SUCC%": "36.8%",
+      "DVOA": "-5.9%",
+      "aRYOE": "",
+      "EXP%": "8.0%",
+      "STF%": "22.4%",
+      "YBCO": "1.18",
+      "YACO": "2.29"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "EPA/PLY": "-0.159",
+      "DVOA": "-25.4%",
+      "SUCC%": "40.4%",
+      "EXP%": "9.4%",
+      "CONV%": "37.9%",
+      "TO": "9",
+      "TO%": "3.67%",
+      "PENY": "47.3",
+      "PEN%": "11.43%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "YD/PLY": "5.3",
+      "PT/GM": "16.8",
+      "FD%": "27.3%",
+      "TO": "9",
+      "DPBK%": "59.2%",
+      "YD": "816",
+      "TD": "4",
+      "INT": "6",
+      "RUSH%": "40.8%",
+      "YD__2": "486",
+      "TD__2": "3"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "SK": "12",
+      "SK%": "8.3%",
+      "QBSK%": "33.3%",
+      "QBH%": "20.7%",
+      "PRESS%": "39.3%",
+      "UPRES%": "39.7%",
+      "BLITZ%": "24.1%",
+      "TTPR": "2.50",
+      "TTT": "2.51",
+      "EPA/DB": "-0.359",
+      "DVOA": "-83.8%",
+      "SUCC%": "28.1%",
+      "EPA/DB__2": "-0.017",
+      "DVOA__2": "-10.9%",
+      "SUCC%__2": "44.3%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "EPA/DB": "-0.151",
+      "SUCC%": "37.9%",
+      "DVOA": "-11.7%",
+      "CPOE": "-4.2%",
+      "CBALL%": "67.5%",
+      "EXP%": "15.5%",
+      "INTW%": "7.5%",
+      "HLT%": "0.8%",
+      "TA%": "3.3%",
+      "DROP%": "6.7%",
+      "aDOT": "8.8",
+      "aYAC": "5.1"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "EPA/ATT": "-0.170",
+      "SUCC%": "44.0%",
+      "DVOA": "-8.7%",
+      "aRYOE": "",
+      "EXP%": "10.0%",
+      "STF%": "16.0%",
+      "aYBCO": "1.24",
+      "aYACO": "2.83",
+      "CRT%": "69.2%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "PLY/GM": "61.3",
+      "TOP": "28.05",
+      "DRV/GM": "11.8",
+      "SEC/PLY": "27.5",
+      "PLY/DRV": "5.2",
+      "YD/DRV": "27.7",
+      "SEC/DRV": "143",
+      "3&O": "17.0%",
+      "SCD%": "27.7%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "LAC",
+     "metrics": {
+      "Team": "Los Angeles Chargers",
+      "GP": "4",
+      "DPBK%": "59.2%",
+      "RUSH%": "40.8%",
+      "SHG%": "60.0%",
+      "NH%": "5.7%",
+      "MOT%": "71.8%",
+      "PA%": "27.6%",
+      "IZ%": "30.0%",
+      "OZ%": "35.0%",
+      "MD%": "15.0%",
+      "PWR%": "9.0%",
+      "CTR%": "3.0%"
+     }
+    }
+   ]
+  }
+ },
+ "files_to_read_directly": {
+  "weather_detail": "data/research-intel/source-evidence/2026-10-10-week5-weather-openmeteo.json (filter to DEN@LAC)",
+  "prop_markets": "BKR/BEO rows for event \"Denver Broncos @ Los Angeles Chargers\" with market != game_lines",
+  "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for DEN and LAC",
+  "projected_starters": "data/projected-starters/2026/latest.json (teams.DEN, teams.LAC)"
+ }
+}

@@ -1,0 +1,2193 @@
+{
+ "schema": "w05_game_packet_v1",
+ "game": "CIN@MIA",
+ "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "kickoff_utc": "2026-10-11T17:00:00.000Z",
+ "away": {
+  "abbr": "CIN",
+  "name": "Cincinnati Bengals"
+ },
+ "home": {
+  "abbr": "MIA",
+  "name": "Miami Dolphins"
+ },
+ "line_convention": "spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points",
+ "teams": {
+  "CIN": {
+   "team": "CIN",
+   "division": "AFC North",
+   "record": "2-2",
+   "games_played": 4,
+   "points_for": 97,
+   "points_against": 85,
+   "point_diff": 12,
+   "ppg": 24.2,
+   "papg": 21.2,
+   "home_record": "1-1",
+   "away_record": "1-1",
+   "division_record": "0-1",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-13T17:00:00.000Z",
+     "opp": "TB",
+     "site": "H",
+     "pf": 33,
+     "pa": 27,
+     "result": "W",
+     "opp_record": "0-4"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T17:00:00.000Z",
+     "opp": "HOU",
+     "site": "A",
+     "pf": 20,
+     "pa": 6,
+     "result": "W",
+     "opp_record": "0-4"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T17:00:00.000Z",
+     "opp": "PIT",
+     "site": "A",
+     "pf": 27,
+     "pa": 30,
+     "result": "L",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T17:00:00.000Z",
+     "opp": "JAX",
+     "site": "H",
+     "pf": 17,
+     "pa": 22,
+     "result": "L",
+     "opp_record": "3-1"
+    }
+   ],
+   "opponents_record_to_date": "5-11",
+   "rest_days_before_this_game": 7.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    6
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "MIA",
+     "site": "A",
+     "kickoff_utc": "2026-10-11T17:00:00.000Z",
+     "opp_division": "AFC East"
+    },
+    {
+     "week": 7,
+     "opp": "BAL",
+     "site": "A",
+     "kickoff_utc": "2026-10-25T17:00:00.000Z",
+     "opp_division": "AFC North"
+    },
+    {
+     "week": 8,
+     "opp": "TEN",
+     "site": "H",
+     "kickoff_utc": "2026-11-01T18:00:00.000Z",
+     "opp_division": "AFC South"
+    },
+    {
+     "week": 9,
+     "opp": "ATL",
+     "site": "A",
+     "kickoff_utc": "2026-11-08T14:30:00.000Z",
+     "opp_division": "NFC South"
+    }
+   ]
+  },
+  "MIA": {
+   "team": "MIA",
+   "division": "AFC East",
+   "record": "0-4",
+   "games_played": 4,
+   "points_for": 46,
+   "points_against": 101,
+   "point_diff": -55,
+   "ppg": 11.5,
+   "papg": 25.2,
+   "home_record": "0-1",
+   "away_record": "0-3",
+   "division_record": "0-0",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-13T20:25:00.000Z",
+     "opp": "LV",
+     "site": "A",
+     "pf": 13,
+     "pa": 27,
+     "result": "L",
+     "opp_record": "3-1"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T20:25:00.000Z",
+     "opp": "SF",
+     "site": "A",
+     "pf": 13,
+     "pa": 35,
+     "result": "L",
+     "opp_record": "4-0"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T17:00:00.000Z",
+     "opp": "KC",
+     "site": "H",
+     "pf": 10,
+     "pa": 24,
+     "result": "L",
+     "opp_record": "4-0"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T20:05:00.000Z",
+     "opp": "MIN",
+     "site": "A",
+     "pf": 10,
+     "pa": 15,
+     "result": "L",
+     "opp_record": "4-0"
+    }
+   ],
+   "opponents_record_to_date": "15-1",
+   "rest_days_before_this_game": 6.9,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    6
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "CIN",
+     "site": "H",
+     "kickoff_utc": "2026-10-11T17:00:00.000Z",
+     "opp_division": "AFC North"
+    },
+    {
+     "week": 7,
+     "opp": "NYJ",
+     "site": "A",
+     "kickoff_utc": "2026-10-25T17:00:00.000Z",
+     "opp_division": "AFC East"
+    },
+    {
+     "week": 8,
+     "opp": "NE",
+     "site": "H",
+     "kickoff_utc": "2026-11-01T21:25:00.000Z",
+     "opp_division": "AFC East"
+    },
+    {
+     "week": 9,
+     "opp": "DET",
+     "site": "H",
+     "kickoff_utc": "2026-11-08T18:00:00.000Z",
+     "opp_division": "NFC North"
+    }
+   ]
+  }
+ },
+ "standings": {
+  "divisions": {
+   "AFC East": [
+    {
+     "team": "BUF",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "div": "0-1",
+     "rank": 1
+    },
+    {
+     "team": "NE",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -12,
+     "div": "1-0",
+     "rank": 2
+    },
+    {
+     "team": "NYJ",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -8,
+     "div": "0-0",
+     "rank": 3
+    },
+    {
+     "team": "MIA",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -55,
+     "div": "0-0",
+     "rank": 4
+    }
+   ],
+   "AFC North": [
+    {
+     "team": "BAL",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "div": "0-0",
+     "rank": 1
+    },
+    {
+     "team": "CLE",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": -14,
+     "div": "1-0",
+     "rank": 2
+    },
+    {
+     "team": "CIN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "div": "0-1",
+     "rank": 3
+    },
+    {
+     "team": "PIT",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -10,
+     "div": "1-1",
+     "rank": 4
+    }
+   ]
+  },
+  "conference_order_by_record_then_point_diff": {
+   "AFC": [
+    {
+     "team": "KC",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 41,
+     "order": 1
+    },
+    {
+     "team": "JAX",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 51,
+     "order": 2
+    },
+    {
+     "team": "LV",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 31,
+     "order": 3
+    },
+    {
+     "team": "BUF",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "order": 4
+    },
+    {
+     "team": "BAL",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "order": 5
+    },
+    {
+     "team": "CLE",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": -14,
+     "order": 6
+    },
+    {
+     "team": "CIN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "order": 7
+    },
+    {
+     "team": "IND",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -2,
+     "order": 8
+    },
+    {
+     "team": "PIT",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -10,
+     "order": 9
+    },
+    {
+     "team": "NE",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -12,
+     "order": 10
+    },
+    {
+     "team": "DEN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -20,
+     "order": 11
+    },
+    {
+     "team": "NYJ",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -8,
+     "order": 12
+    },
+    {
+     "team": "HOU",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -25,
+     "order": 13
+    },
+    {
+     "team": "TEN",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -28,
+     "order": 14
+    },
+    {
+     "team": "LAC",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -39,
+     "order": 15
+    },
+    {
+     "team": "MIA",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -55,
+     "order": 16
+    }
+   ]
+  },
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+ },
+ "same_division_game": false,
+ "market": {
+  "BKR": {
+   "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:15:40.538Z",
+   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Cincinnati Bengals",
+      "line": -7,
+      "odds": -103,
+      "available": true
+     },
+     {
+      "side": "Miami Dolphins",
+      "line": 7,
+      "odds": -113,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 43.5,
+      "odds": -113,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 43.5,
+      "odds": -103,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Cincinnati Bengals",
+      "odds": -332,
+      "available": true
+     },
+     {
+      "side": "Miami Dolphins",
+      "odds": 279,
+      "available": true
+     }
+    ]
+   }
+  },
+  "BEO": {
+   "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:19:56.400Z",
+   "expires_for_recommendation_at": "2026-10-11T07:19:56.400000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Cincinnati Bengals",
+      "line": -7,
+      "odds": -110,
+      "available": true
+     },
+     {
+      "side": "Miami Dolphins",
+      "line": 7,
+      "odds": -110,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 44,
+      "odds": -110,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 44,
+      "odds": -110,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Cincinnati Bengals",
+      "odds": -340,
+      "available": true
+     },
+     {
+      "side": "Miami Dolphins",
+      "odds": 274,
+      "available": true
+     }
+    ]
+   }
+  },
+  "book_conflict": null,
+  "market_implied_score": {
+   "MIA": 18.25,
+   "CIN": 25.25,
+   "basis": "BKR home line 7 total 43.5"
+  }
+ },
+ "action_network_opener": {
+  "an_game_id": 290907,
+  "kickoff_utc": "2026-10-11T17:00:00Z",
+  "sp": {
+   "MIA": 7.5,
+   "CIN": -7.5
+  },
+  "sp_odds_home": -110,
+  "sp_at": "2026-10-05T01:01:25Z",
+  "tot": 44.0,
+  "tot_at": "2026-10-05T00:06:56Z",
+  "ml": {
+   "CIN": -425,
+   "MIA": 305
+  },
+  "carried_from_before_cutoff": false
+ },
+ "action_network_splits": {
+  "game_id": 290907,
+  "away_team": "CIN",
+  "home_team": "MIA",
+  "kickoff_at": "2026-10-11T17:00:00.000Z",
+  "spread": [
+   {
+    "side": "home",
+    "value": 6.5,
+    "price_american": -102,
+    "ticket_pct": 25,
+    "money_pct": 13
+   },
+   {
+    "side": "away",
+    "value": -6.5,
+    "price_american": -119,
+    "ticket_pct": 75,
+    "money_pct": 87
+   }
+  ],
+  "total": [
+   {
+    "side": "over",
+    "value": 43.5,
+    "price_american": -108,
+    "ticket_pct": 71,
+    "money_pct": 79
+   },
+   {
+    "side": "under",
+    "value": 43.5,
+    "price_american": -111,
+    "ticket_pct": 29,
+    "money_pct": 21
+   }
+  ],
+  "moneyline": [
+   {
+    "side": "away",
+    "value": 0,
+    "price_american": -325,
+    "ticket_pct": 95,
+    "money_pct": 96
+   },
+   {
+    "side": "home",
+    "value": 0,
+    "price_american": 260,
+    "ticket_pct": 5,
+    "money_pct": 4
+   }
+  ]
+ },
+ "action_network_splits_captured_at": "2026-10-09T19:41:08.878Z",
+ "supercontest_row": {
+  "away_team": "MIA",
+  "home_team": "CIN",
+  "favorite": "CIN",
+  "underdog": "MIA",
+  "favorite_spread": -7,
+  "kickoff_display": "Sun 1:00 pm"
+ },
+ "quantitative_row": {
+  "event": "Cincinnati Bengals @ Miami Dolphins",
+  "away": "CIN",
+  "home": "MIA",
+  "away_name": "Cincinnati Bengals",
+  "home_name": "Miami Dolphins",
+  "market": {
+   "home_spread": 7,
+   "total": 43.5,
+   "captured_at": "2026-10-11T01:15:40.538Z"
+  },
+  "features": {
+   "offense_z": {
+    "MIA": -2.046519492657563,
+    "CIN": 0.024775780814806494
+   },
+   "defense_weakness_z": {
+    "MIA": 0.605585938313839,
+    "CIN": -0.8633564873388219
+   },
+   "tempo_z": {
+    "MIA": -1.9498572972214072,
+    "CIN": 0.7002431168322474
+   },
+   "srs": {
+    "MIA": -3.623,
+    "CIN": 4.317
+   },
+   "secondary_adjustment_points": {
+    "MIA": 0.458,
+    "CIN": 0.535
+   }
+  },
+  "means": {
+   "home": 18.82973770501047,
+   "away": 25.444579813421424,
+   "total": 44.27431751843189,
+   "home_margin": -6.614842108410954
+  },
+  "simulation": {
+   "iterations": 100000,
+   "mean_home": 19.195027546372653,
+   "mean_away": 25.57600920836424,
+   "home_win_pct": 0.34712,
+   "home_cover_pct": 0.51434,
+   "away_cover_pct": 0.48566,
+   "over_pct": 0.52039,
+   "under_pct": 0.47961
+  },
+  "model_menu": {
+   "side": "Miami Dolphins",
+   "side_cover_pct": 0.51434,
+   "total": "Over",
+   "total_pct": 0.52039
+  },
+  "contest": {
+   "team": "CIN",
+   "favorite_spread": -7,
+   "market_favorite": "Cincinnati Bengals",
+   "file_orientation_reversed": true
+  }
+ },
+ "simulator_edge_sweep": [
+  {
+   "home_margin_edge_pts": -3,
+   "home_cover": 0.3902,
+   "away_cover": 0.5564,
+   "side_push": 0.0534,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": -2,
+   "home_cover": 0.4174,
+   "away_cover": 0.5283,
+   "side_push": 0.0544,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": -1,
+   "home_cover": 0.4447,
+   "away_cover": 0.5002,
+   "side_push": 0.0551,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 0,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 1,
+   "home_cover": 0.4997,
+   "away_cover": 0.4446,
+   "side_push": 0.0557,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 2,
+   "home_cover": 0.527,
+   "away_cover": 0.4174,
+   "side_push": 0.0556,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 3,
+   "home_cover": 0.554,
+   "away_cover": 0.3907,
+   "side_push": 0.0553,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  }
+ ],
+ "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
+ "digest_rows": [
+  "CIN@MIA | CIN -7 / MIA +7 | split | V: VSiN; RO: BettingPros, Andrew Erickson, Ryan Wormeli, Pro Football Talk; vs MIA: VSiN, Action Network (RO), Sharp or Square (RO), Steve Fezzik (RO), VSiN (RO) | skip",
+  "CIN@MIA | Greg Dulcich o26.5 rec yds -125 | Over | YT/PI: Dustin Swedelson (VSiN) (PI); RO: VSiN; src px not BKR | 2- research-only",
+  "CIN@MIA | Mike Gesicki ATD | Yes | RO: The Favorites, Kendra Middleton; src px not BKR | 2- research-only",
+  "CIN@MIA | Mitchell Tinsley ATD +310 | Yes | RO: Action Network, Grant Neiffer; src px not BKR | 2- research-only"
+ ],
+ "source_rows": {
+  "counts": {
+   "corroboration_only": 19,
+   "near_miss": 1,
+   "tier_eligible": 2
+  },
+  "rows": [
+   {
+    "row": "w05-expert-verified.json#rows[9]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 310,
+    "price": null,
+    "published": "2026-10-10T18:25:41.496+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[38]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [
+     "Doug Kezirian"
+    ],
+    "market": "spread",
+    "side": "MIA",
+    "line": 6.5,
+    "price": null,
+    "published": "2026-10-10T18:25:40.813+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[116]",
+    "kind": "expert_feed",
+    "outlet": "The Favorites",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": null,
+    "price": null,
+    "published": "2026-10-09T15:40:52.356+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[133]",
+    "kind": "expert_feed",
+    "outlet": "Sharp or Square",
+    "persons": [],
+    "market": "spread",
+    "side": "MIA",
+    "line": 6.5,
+    "price": null,
+    "published": "2026-10-09T15:40:52.076+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[199]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "spread",
+    "side": "CIN",
+    "line": -7.5,
+    "price": null,
+    "published": "2026-10-06T15:30:56.922+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[213]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Grant Neiffer"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 500,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[214]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Grant Neiffer"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 310,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[292]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "spread",
+    "side": "MIA",
+    "line": 7.5,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[320]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Andrew Erickson"
+    ],
+    "market": "spread",
+    "side": "CIN",
+    "line": -7.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[321]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Ryan Wormeli"
+    ],
+    "market": "spread",
+    "side": "CIN",
+    "line": -7.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[351]",
+    "kind": "podcast",
+    "outlet": "Construction &amp; Big Dog Picks | NFL Week 5 Preview",
+    "persons": [
+     "Kendra Middleton"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T16:55:35+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[383]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Dustin Swedelson"
+    ],
+    "market": "prop",
+    "side": "OVER 26.5 (-125)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[384]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Dustin Swedelson"
+    ],
+    "market": "prop",
+    "side": "OVER 66.5 (-114)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[422]",
+    "kind": "article",
+    "outlet": "BettingPros",
+    "persons": [
+     "Trent Conner"
+    ],
+    "market": "prop",
+    "side": "OVER 16.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:34:25.131417+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[426]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "Cody Brown Bets"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:33:54.97021+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[434]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "xEP Network | Sports Analytics"
+    ],
+    "market": "prop",
+    "side": "OVER 190.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:33:38.977698+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[464]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@thepropdealer"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T04:04:06.828628+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[509]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Steve Makinen"
+    ],
+    "market": "spread",
+    "side": "MIA",
+    "line": 7.0,
+    "price": null,
+    "published": "2026-10-08T21:33:26.464701+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": true,
+    "url": "https://vsin.com/nfl/steve-makinen-week-5-nfl-best-bets/",
+    "quote": "NFL Best Bet: I'll back Miami +7 to keep it interesting vs."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[521]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Zachary Cohen"
+    ],
+    "market": "moneyline",
+    "side": "CIN",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T20:33:26.895291+00:00",
+    "best_bet": false,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/expert-nfl-picks-week-5-best-bets-predictions-and-player-props-from-zachary-cohen/",
+    "quote": "PARLAY: Bengals ML vs."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[534]",
+    "kind": "article",
+    "outlet": "Pro Football Talk",
+    "persons": [],
+    "market": "moneyline",
+    "side": "CIN",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T16:33:20.970971+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[562]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Dave Tuley"
+    ],
+    "market": "spread",
+    "side": "MIA",
+    "line": 7.0,
+    "price": null,
+    "published": "2026-10-08T01:33:21.643136+00:00",
+    "best_bet": true,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/tuleys-takes-for-nfl-week-5/",
+    "quote": "Best Bet: Dolphins +7 (Pool Play Percentages: Bengals 60/40 in ATS contests, lower at 6.5 and a pass, but Bengals still 75/25 in SU pools)."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[583]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "Cody Brown Bets"
+    ],
+    "market": "prop",
+    "side": "OVER",
+    "line": null,
+    "price": null,
+    "published": "2026-10-06T19:33:46.194938+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   }
+  ]
+ },
+ "weather_venue_row": {
+  "game": "CIN@MIA",
+  "weather_status": "forecast_captured",
+  "source_game": "CIN@MIA",
+  "materiality": "heat_context_only: 89.6 F; no precipitation forecast at sampled hour"
+ },
+ "secondary_matchups": [
+  {
+   "id": "sec_33a2144802e95c46",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_CIN_at_MIA",
+   "kickoff_utc": "2026-10-11T17:00:00.000Z",
+   "offense_team": "CIN",
+   "offense_team_nick": "Bengals",
+   "defense_team": "MIA",
+   "defense_team_nick": "Dolphins",
+   "offense_venue": "away",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "match_zone",
+     "two_high",
+     "quarters"
+    ],
+    "primary_coverage_family": "match_zone",
+    "pressure_profile": "coverage_first",
+    "confidence": 0.78,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Anthony Weaver two-high match zone scheme built around Jalen Ramsey and Jevon Holland."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Ronnie Harrison Jr.",
+     "team": "MIA",
+     "position": "S",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Ronnie Harrison Jr. IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Darrell Baker Jr.",
+     "team": "MIA",
+     "position": "CB",
+     "event_type": "pup",
+     "availability_trend": "worsening",
+     "summary": "Darrell Baker Jr. PUP",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.05,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Dante Trader Jr.",
+     "team": "MIA",
+     "position": "S",
+     "event_type": "limited",
+     "availability_trend": "stable",
+     "summary": "Trader (shin) does not have an injury designation against the Bengals on Sunday, Paul Dehner Jr. of The Athletic reports.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-10T00:11:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 0.55,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Reese Taylor",
+     "team": "MIA",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Reese Taylor OUT",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API",
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-09T07:00:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Storm Duck",
+     "team": "MIA",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Duck (knee) practiced in full Thursday.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API",
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-08T23:51:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "inside_seam_boost",
+    "post_cross_boost",
+    "slot_wr_boost",
+    "te_middle_boost",
+    "underneath_volume_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Ja'Marr Chase",
+     "team": "CIN",
+     "roles": [
+      "alpha_x",
+      "field_stretcher",
+      "slot"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "boundary",
+      "deep",
+      "slot"
+     ],
+     "matched_weakness_tags": [
+      "post_cross_boost",
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 6,
+     "notes": "CIN All-Pro Alpha WR.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Mike Gesicki",
+     "team": "CIN",
+     "roles": [
+      "te_middle",
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "slot"
+     ],
+     "matched_weakness_tags": [
+      "te_middle_boost",
+      "inside_seam_boost",
+      "slot_wr_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 3.2,
+     "notes": "CIN Big Slot TE.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Colbie Young",
+     "team": "CIN",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 2.4,
+     "notes": "CIN WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Tee Higgins",
+     "team": "CIN",
+     "roles": [
+      "z_receiver",
+      "red_zone"
+     ],
+     "target_share_tier": "high",
+     "route_area_tags": [
+      "boundary",
+      "deep",
+      "red_zone"
+     ],
+     "matched_weakness_tags": [
+      "post_cross_boost",
+      "te_middle_boost"
+     ],
+     "opportunity_score": 2.4,
+     "notes": "CIN Premium WR2.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    }
+   ],
+   "severity_score": 5.35,
+   "elite_absence_count": 0,
+   "vulnerability_tier": "high",
+   "confidence": 0.95,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  },
+  {
+   "id": "sec_95342aec31668d63",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_CIN_at_MIA",
+   "kickoff_utc": "2026-10-11T17:00:00.000Z",
+   "offense_team": "MIA",
+   "offense_team_nick": "Dolphins",
+   "defense_team": "CIN",
+   "defense_team_nick": "Bengals",
+   "offense_venue": "home",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "match_zone",
+     "single_high"
+    ],
+    "primary_coverage_family": "match_zone",
+    "pressure_profile": "aggressive",
+    "confidence": 0.72,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Anarumo disguises and post-snap rotation using single-high and match principles."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Jalen Davis",
+     "team": "CIN",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Jalen Davis IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API",
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:02.000Z",
+     "role": "slot_cb",
+     "side": "slot",
+     "impact_tier": "starter",
+     "primary_receiver_archetypes_impacted": [
+      "slot"
+     ],
+     "weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost"
+     ],
+     "severity_score": 2.03,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Ja'Sir Taylor",
+     "team": "CIN",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Ja'Sir Taylor IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:02.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Kyle Dugger",
+     "team": "CIN",
+     "position": "S",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Dugger (quadriceps) has been ruled out for Sunday's game against the Dolphins, Paul Dehner Jr. of The Athletic reports.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T00:16:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "boundary_wr_boost",
+    "deep_pass_boost",
+    "inside_seam_boost",
+    "post_cross_boost",
+    "slot_wr_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Chris Bell",
+     "team": "MIA",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost"
+     ],
+     "opportunity_score": 1.6,
+     "notes": "MIA WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Malik Washington",
+     "team": "MIA",
+     "roles": [
+      "alpha_x"
+     ],
+     "target_share_tier": "high",
+     "route_area_tags": [
+      "boundary",
+      "intermediate"
+     ],
+     "matched_weakness_tags": [
+      "boundary_wr_boost"
+     ],
+     "opportunity_score": 1.2,
+     "notes": "MIA WR1 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Greg Dulcich",
+     "team": "MIA",
+     "roles": [
+      "te_middle"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle"
+     ],
+     "matched_weakness_tags": [
+      "inside_seam_boost"
+     ],
+     "opportunity_score": 0.8,
+     "notes": "MIA TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    }
+   ],
+   "severity_score": 4.58,
+   "elite_absence_count": 0,
+   "vulnerability_tier": "medium",
+   "confidence": 0.9,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  }
+ ],
+ "power_ratings": {
+  "CIN": {
+   "season": 2026,
+   "team": "Bengals",
+   "team_abbr": "CIN",
+   "games_played": 4,
+   "record": "2-2",
+   "power_rating": {
+    "srs": 4.317,
+    "net_points_per_game": 3,
+    "pythag_win_pct": 0.5776,
+    "model_composite_z": 0.5042,
+    "model_rank": 8,
+    "srs_rank": 8,
+    "net_ppg_rank": 11,
+    "pythag_rank": 10,
+    "market_implied_win_total": 10.39,
+    "market_implied_rank": 10,
+    "delta": 0.0726,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  },
+  "MIA": {
+   "season": 2026,
+   "team": "Dolphins",
+   "team_abbr": "MIA",
+   "games_played": 4,
+   "record": "0-4",
+   "power_rating": {
+    "srs": -3.623,
+    "net_points_per_game": -13.75,
+    "pythag_win_pct": 0.1342,
+    "model_composite_z": -1.5176,
+    "model_rank": 32,
+    "srs_rank": 21,
+    "net_ppg_rank": 32,
+    "pythag_rank": 32,
+    "market_implied_win_total": 3.37,
+    "market_implied_rank": 32,
+    "delta": -0.8518,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  }
+ },
+ "availability": {
+  "CIN": {
+   "event_count": 21,
+   "qb_events": 1,
+   "offensive_line_worsening": 0,
+   "defensive_front_worsening": 0,
+   "top_score": 93,
+   "top_events": [
+    {
+     "player_name": "Joe Burrow",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "active_news",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 93,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Jalen Davis",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Kyle Dugger",
+     "position": "S",
+     "unit": "secondary",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 82,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Andrei Iosivas",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jalen Davis",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Ja'Sir Taylor",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Bryan Cook",
+     "position": "S",
+     "unit": "secondary",
+     "event_type": "return_to_practice",
+     "availability_trend": "improving",
+     "impact_bucket": "defensive_major",
+     "score": 66,
+     "signal": "positive_availability"
+    },
+    {
+     "player_name": "Kyle Dugger",
+     "position": "S",
+     "unit": "secondary",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 63,
+     "signal": "negative_availability"
+    }
+   ]
+  },
+  "MIA": {
+   "event_count": 27,
+   "qb_events": 1,
+   "offensive_line_worsening": 0,
+   "defensive_front_worsening": 5,
+   "top_score": 100,
+   "top_events": [
+    {
+     "player_name": "Kenneth Grant",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 100,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Malik Willis",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "active_news",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 93,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Trey Moore",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Rene Konga",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Reese Taylor",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 79,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Robert Beal Jr.",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 77,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Rob Beal Jr.",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 77,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Ronnie Harrison Jr.",
+     "position": "S",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    }
+   ]
+  }
+ },
+ "ftn_team_level": {
+  "CIN": {
+   "record_count": 136,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "EPA/PLY": "-0.037",
+      "DVOA": "2.4%",
+      "SUCC%": "40.6%",
+      "EXP%": "10.7%",
+      "CONV%": "40.7%",
+      "TO": "5",
+      "TO%": "2.0%",
+      "3&O": "12.2%",
+      "MTKL%": "16.0%",
+      "PEN%": "7.0%",
+      "PENY": "34.5"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "YD/PLY": "6.1",
+      "PT/GM": "18.3",
+      "FD%": "29.5%",
+      "TO": "5",
+      "DPBK%": "67.2%",
+      "YD": "1,088",
+      "TD": "4",
+      "INT": "1",
+      "RUSH%": "32.8%",
+      "YD__2": "398",
+      "TD__2": "3"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "DPBK": "164",
+      "SK": "14",
+      "SK%": "8.5%",
+      "QBH%": "17.1%",
+      "PRESS": "48",
+      "PRESS%": "29.3%",
+      "QPRESS%": "39.6%",
+      "TTPR": "2.80",
+      "DISR%": "0.6%",
+      "BLZ%": "15.9%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "EPA/DB": "-0.001",
+      "SUCC%": "45.1%",
+      "DVOA": "9.8%",
+      "CPOE": "-0.23%",
+      "CBALL%": "69.0%",
+      "EXP%": "16.7%",
+      "INTW%": "1.4%",
+      "TGHT%": "31.0%",
+      "OPEN%": "59.2%",
+      "TA%": "4.2%",
+      "DROP%": "2.8%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "EPA/ATT": "-0.112",
+      "SUCC%": "31.3%",
+      "DVOA": "-10.7%",
+      "aRYOE": "",
+      "EXP%": "10.0%",
+      "STF%": "30.0%",
+      "YBCO": "-0.04",
+      "YACO": "3.08"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "EPA/PLY": "0.042",
+      "DVOA": "9.9%",
+      "SUCC%": "44.6%",
+      "EXP%": "8.8%",
+      "CONV%": "49.1%",
+      "TO": "4",
+      "TO%": "1.61%",
+      "PENY": "33.8",
+      "PEN%": "7.63%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "YD/PLY": "5.9",
+      "PT/GM": "21.3",
+      "FD%": "32.1%",
+      "TO": "4",
+      "DPBK%": "68.7%",
+      "YD": "1,171",
+      "TD": "7",
+      "INT": "3",
+      "RUSH%": "31.3%",
+      "YD__2": "297",
+      "TD__2": "2"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "SK": "9",
+      "SK%": "5.3%",
+      "QBSK%": "22.2%",
+      "QBH%": "18.7%",
+      "PRESS%": "26.3%",
+      "UPRES%": "17.9%",
+      "BLITZ%": "26.9%",
+      "TTPR": "2.54",
+      "TTT": "2.38",
+      "EPA/DB": "-0.389",
+      "DVOA": "-79.1%",
+      "SUCC%": "35.6%",
+      "EPA/DB__2": "0.302",
+      "DVOA__2": "31.4%",
+      "SUCC%__2": "52.4%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "EPA/DB": "0.120",
+      "SUCC%": "48.0%",
+      "DVOA": "27.3%",
+      "CPOE": "2.0%",
+      "CBALL%": "77.7%",
+      "EXP%": "12.5%",
+      "INTW%": "1.9%",
+      "HLT%": "3.8%",
+      "TA%": "1.3%",
+      "DROP%": "3.2%",
+      "aDOT": "7.1",
+      "aYAC": "4.0"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "EPA/ATT": "-0.131",
+      "SUCC%": "37.2%",
+      "DVOA": "-1.9%",
+      "aRYOE": "",
+      "EXP%": "10.3%",
+      "STF%": "19.2%",
+      "aYBCO": "0.96",
+      "aYACO": "1.76",
+      "CRT%": "50.2%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "PLY/GM": "62.3",
+      "TOP": "29.41",
+      "DRV/GM": "10.0",
+      "SEC/PLY": "28.3",
+      "PLY/DRV": "6.2",
+      "YD/DRV": "36.7",
+      "SEC/DRV": "176",
+      "3&O": "12.5%",
+      "SCD%": "47.5%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "CIN",
+     "metrics": {
+      "Team": "Cincinnati Bengals",
+      "GP": "4",
+      "DPBK%": "68.7%",
+      "RUSH%": "31.3%",
+      "SHG%": "72.3%",
+      "NH%": "6.0%",
+      "MOT%": "51.8%",
+      "PA%": "17.0%",
+      "IZ%": "57.7%",
+      "OZ%": "12.8%",
+      "MD%": "16.7%",
+      "PWR%": "2.6%",
+      "CTR%": "0.0%"
+     }
+    }
+   ]
+  },
+  "MIA": {
+   "record_count": 125,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "EPA/PLY": "0.063",
+      "DVOA": "12.5%",
+      "SUCC%": "45.1%",
+      "EXP%": "10.1%",
+      "CONV%": "50.0%",
+      "TO": "3",
+      "TO%": "1.3%",
+      "3&O": "15.8%",
+      "MTKL%": "12.6%",
+      "PEN%": "3.8%",
+      "PENY": "17.5"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "YD/PLY": "5.8",
+      "PT/GM": "25.3",
+      "FD%": "32.5%",
+      "TO": "3",
+      "DPBK%": "52.3%",
+      "YD": "940",
+      "TD": "7",
+      "INT": "3",
+      "RUSH%": "47.7%",
+      "YD__2": "436",
+      "TD__2": "4"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "DPBK": "124",
+      "SK": "4",
+      "SK%": "3.2%",
+      "QBH%": "13.7%",
+      "PRESS": "24",
+      "PRESS%": "19.4%",
+      "QPRESS%": "45.8%",
+      "TTPR": "2.51",
+      "DISR%": "1.6%",
+      "BLZ%": "29.0%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "EPA/DB": "0.308",
+      "SUCC%": "52.4%",
+      "DVOA": "33.9%",
+      "CPOE": "4.39%",
+      "CBALL%": "84.1%",
+      "EXP%": "13.6%",
+      "INTW%": "1.8%",
+      "TGHT%": "15.9%",
+      "OPEN%": "72.6%",
+      "TA%": "6.2%",
+      "DROP%": "3.5%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "EPA/ATT": "-0.207",
+      "SUCC%": "37.2%",
+      "DVOA": "-11.1%",
+      "aRYOE": "",
+      "EXP%": "8.8%",
+      "STF%": "28.3%",
+      "YBCO": "1.68",
+      "YACO": "1.86"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "EPA/PLY": "-0.141",
+      "DVOA": "-22.2%",
+      "SUCC%": "34.8%",
+      "EXP%": "9.5%",
+      "CONV%": "37.5%",
+      "TO": "4",
+      "TO%": "1.90%",
+      "PENY": "40.0",
+      "PEN%": "10.95%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "YD/PLY": "5.4",
+      "PT/GM": "11.5",
+      "FD%": "22.9%",
+      "TO": "4",
+      "DPBK%": "60.5%",
+      "YD": "712",
+      "TD": "1",
+      "INT": "2",
+      "RUSH%": "39.5%",
+      "YD__2": "416",
+      "TD__2": "3"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "SK": "11",
+      "SK%": "8.7%",
+      "QBSK%": "36.4%",
+      "QBH%": "13.4%",
+      "PRESS%": "33.1%",
+      "UPRES%": "27.1%",
+      "BLITZ%": "35.4%",
+      "TTPR": "2.62",
+      "TTT": "2.73",
+      "EPA/DB": "-0.661",
+      "DVOA": "-138.9%",
+      "SUCC%": "16.7%",
+      "EPA/DB__2": "0.157",
+      "DVOA__2": "24.7%",
+      "SUCC%__2": "47.1%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "EPA/DB": "-0.113",
+      "SUCC%": "37.0%",
+      "DVOA": "-10.8%",
+      "CPOE": "-5.7%",
+      "CBALL%": "61.2%",
+      "EXP%": "17.2%",
+      "INTW%": "2.9%",
+      "HLT%": "2.9%",
+      "TA%": "0.0%",
+      "DROP%": "1.9%",
+      "aDOT": "10.0",
+      "aYAC": "6.4"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "EPA/ATT": "-0.182",
+      "SUCC%": "31.3%",
+      "DVOA": "-21.9%",
+      "aRYOE": "",
+      "EXP%": "8.4%",
+      "STF%": "19.3%",
+      "aYBCO": "1.00",
+      "aYACO": "2.76",
+      "CRT%": "71.1%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "PLY/GM": "52.5",
+      "TOP": "26.22",
+      "DRV/GM": "9.3",
+      "SEC/PLY": "30.0",
+      "PLY/DRV": "5.7",
+      "YD/DRV": "30.5",
+      "SEC/DRV": "170",
+      "3&O": "24.3%",
+      "SCD%": "27.0%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "MIA",
+     "metrics": {
+      "Team": "Miami Dolphins",
+      "GP": "4",
+      "DPBK%": "60.5%",
+      "RUSH%": "39.5%",
+      "SHG%": "54.3%",
+      "NH%": "1.4%",
+      "MOT%": "80.5%",
+      "PA%": "26.0%",
+      "IZ%": "21.7%",
+      "OZ%": "27.7%",
+      "MD%": "24.1%",
+      "PWR%": "12.0%",
+      "CTR%": "0.0%"
+     }
+    }
+   ]
+  }
+ },
+ "files_to_read_directly": {
+  "weather_detail": "data/research-intel/source-evidence/2026-10-10-week5-weather-openmeteo.json (filter to CIN@MIA)",
+  "prop_markets": "BKR/BEO rows for event \"Cincinnati Bengals @ Miami Dolphins\" with market != game_lines",
+  "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for CIN and MIA",
+  "projected_starters": "data/projected-starters/2026/latest.json (teams.CIN, teams.MIA)"
+ }
+}

@@ -1,0 +1,2201 @@
+{
+ "schema": "w05_game_packet_v1",
+ "game": "HOU@TEN",
+ "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "kickoff_utc": "2026-10-11T17:00:00.000Z",
+ "away": {
+  "abbr": "HOU",
+  "name": "Houston Texans"
+ },
+ "home": {
+  "abbr": "TEN",
+  "name": "Tennessee Titans"
+ },
+ "line_convention": "spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points",
+ "teams": {
+  "HOU": {
+   "team": "HOU",
+   "division": "AFC South",
+   "record": "0-4",
+   "games_played": 4,
+   "points_for": 84,
+   "points_against": 109,
+   "point_diff": -25,
+   "ppg": 21.0,
+   "papg": 27.2,
+   "home_record": "0-3",
+   "away_record": "0-1",
+   "division_record": "0-1",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-13T17:00:00.000Z",
+     "opp": "BUF",
+     "site": "H",
+     "pf": 31,
+     "pa": 36,
+     "result": "L",
+     "opp_record": "3-1"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T17:00:00.000Z",
+     "opp": "CIN",
+     "site": "H",
+     "pf": 6,
+     "pa": 20,
+     "result": "L",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T17:00:00.000Z",
+     "opp": "IND",
+     "site": "A",
+     "pf": 17,
+     "pa": 19,
+     "result": "L",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T17:00:00.000Z",
+     "opp": "DAL",
+     "site": "H",
+     "pf": 30,
+     "pa": 34,
+     "result": "L",
+     "opp_record": "2-2"
+    }
+   ],
+   "opponents_record_to_date": "9-7",
+   "rest_days_before_this_game": 7.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    8
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "TEN",
+     "site": "A",
+     "kickoff_utc": "2026-10-11T17:00:00.000Z",
+     "opp_division": "AFC South"
+    },
+    {
+     "week": 6,
+     "opp": "JAX",
+     "site": "A",
+     "kickoff_utc": "2026-10-18T13:30:00.000Z",
+     "opp_division": "AFC South"
+    },
+    {
+     "week": 7,
+     "opp": "NYG",
+     "site": "H",
+     "kickoff_utc": "2026-10-25T17:00:00.000Z",
+     "opp_division": "NFC East"
+    },
+    {
+     "week": 9,
+     "opp": "LAC",
+     "site": "A",
+     "kickoff_utc": "2026-11-08T21:05:00.000Z",
+     "opp_division": "AFC West"
+    }
+   ]
+  },
+  "TEN": {
+   "team": "TEN",
+   "division": "AFC South",
+   "record": "0-4",
+   "games_played": 4,
+   "points_for": 55,
+   "points_against": 83,
+   "point_diff": -28,
+   "ppg": 13.8,
+   "papg": 20.8,
+   "home_record": "0-2",
+   "away_record": "0-2",
+   "division_record": "0-0",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-13T17:00:00.000Z",
+     "opp": "NYJ",
+     "site": "H",
+     "pf": 10,
+     "pa": 23,
+     "result": "L",
+     "opp_record": "1-3"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T17:00:00.000Z",
+     "opp": "PHI",
+     "site": "H",
+     "pf": 20,
+     "pa": 24,
+     "result": "L",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T17:00:00.000Z",
+     "opp": "NYG",
+     "site": "A",
+     "pf": 7,
+     "pa": 12,
+     "result": "L",
+     "opp_record": "3-1"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T17:00:00.000Z",
+     "opp": "BAL",
+     "site": "A",
+     "pf": 18,
+     "pa": 24,
+     "result": "L",
+     "opp_record": "3-1"
+    }
+   ],
+   "opponents_record_to_date": "9-7",
+   "rest_days_before_this_game": 7.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    9
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "HOU",
+     "site": "H",
+     "kickoff_utc": "2026-10-11T17:00:00.000Z",
+     "opp_division": "AFC South"
+    },
+    {
+     "week": 6,
+     "opp": "IND",
+     "site": "A",
+     "kickoff_utc": "2026-10-18T17:00:00.000Z",
+     "opp_division": "AFC South"
+    },
+    {
+     "week": 7,
+     "opp": "CLE",
+     "site": "H",
+     "kickoff_utc": "2026-10-25T17:00:00.000Z",
+     "opp_division": "AFC North"
+    },
+    {
+     "week": 8,
+     "opp": "CIN",
+     "site": "A",
+     "kickoff_utc": "2026-11-01T18:00:00.000Z",
+     "opp_division": "AFC North"
+    }
+   ]
+  }
+ },
+ "standings": {
+  "divisions": {
+   "AFC South": [
+    {
+     "team": "JAX",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 51,
+     "div": "0-0",
+     "rank": 1
+    },
+    {
+     "team": "IND",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -2,
+     "div": "1-0",
+     "rank": 2
+    },
+    {
+     "team": "HOU",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -25,
+     "div": "0-1",
+     "rank": 3
+    },
+    {
+     "team": "TEN",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -28,
+     "div": "0-0",
+     "rank": 4
+    }
+   ]
+  },
+  "conference_order_by_record_then_point_diff": {
+   "AFC": [
+    {
+     "team": "KC",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 41,
+     "order": 1
+    },
+    {
+     "team": "JAX",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 51,
+     "order": 2
+    },
+    {
+     "team": "LV",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 31,
+     "order": 3
+    },
+    {
+     "team": "BUF",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "order": 4
+    },
+    {
+     "team": "BAL",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "order": 5
+    },
+    {
+     "team": "CLE",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": -14,
+     "order": 6
+    },
+    {
+     "team": "CIN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "order": 7
+    },
+    {
+     "team": "IND",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -2,
+     "order": 8
+    },
+    {
+     "team": "PIT",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -10,
+     "order": 9
+    },
+    {
+     "team": "NE",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -12,
+     "order": 10
+    },
+    {
+     "team": "DEN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -20,
+     "order": 11
+    },
+    {
+     "team": "NYJ",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -8,
+     "order": 12
+    },
+    {
+     "team": "HOU",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -25,
+     "order": 13
+    },
+    {
+     "team": "TEN",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -28,
+     "order": 14
+    },
+    {
+     "team": "LAC",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -39,
+     "order": 15
+    },
+    {
+     "team": "MIA",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -55,
+     "order": 16
+    }
+   ]
+  },
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+ },
+ "same_division_game": true,
+ "market": {
+  "BKR": {
+   "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:15:40.538Z",
+   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Houston Texans",
+      "line": -7,
+      "odds": -103,
+      "available": true
+     },
+     {
+      "side": "Tennessee Titans",
+      "line": 7,
+      "odds": -113,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 37.5,
+      "odds": -108,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 37.5,
+      "odds": -108,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Houston Texans",
+      "odds": -344,
+      "available": true
+     },
+     {
+      "side": "Tennessee Titans",
+      "odds": 289,
+      "available": true
+     }
+    ]
+   }
+  },
+  "BEO": {
+   "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:19:56.400Z",
+   "expires_for_recommendation_at": "2026-10-11T07:19:56.400000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Houston Texans",
+      "line": -7,
+      "odds": -110,
+      "available": true
+     },
+     {
+      "side": "Tennessee Titans",
+      "line": 7,
+      "odds": -110,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 38,
+      "odds": -110,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 38,
+      "odds": -110,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Houston Texans",
+      "odds": -365,
+      "available": true
+     },
+     {
+      "side": "Tennessee Titans",
+      "odds": 292,
+      "available": true
+     }
+    ]
+   }
+  },
+  "book_conflict": null,
+  "market_implied_score": {
+   "TEN": 15.25,
+   "HOU": 22.25,
+   "basis": "BKR home line 7 total 37.5"
+  }
+ },
+ "action_network_opener": {
+  "an_game_id": 290905,
+  "kickoff_utc": "2026-10-11T17:00:00Z",
+  "sp": {
+   "TEN": 6.5,
+   "HOU": -6.5
+  },
+  "sp_odds_home": -106,
+  "sp_at": "2026-10-05T00:06:56Z",
+  "tot": 39.5,
+  "tot_at": "2026-10-05T00:06:56Z",
+  "ml": {
+   "HOU": -317,
+   "TEN": 243
+  },
+  "carried_from_before_cutoff": false
+ },
+ "action_network_splits": {
+  "game_id": 290905,
+  "away_team": "HOU",
+  "home_team": "TEN",
+  "kickoff_at": "2026-10-11T17:00:00.000Z",
+  "spread": [
+   {
+    "side": "home",
+    "value": 7.5,
+    "price_american": -114,
+    "ticket_pct": 30,
+    "money_pct": 34
+   },
+   {
+    "side": "away",
+    "value": -7.5,
+    "price_american": -104,
+    "ticket_pct": 70,
+    "money_pct": 66
+   }
+  ],
+  "total": [
+   {
+    "side": "over",
+    "value": 38,
+    "price_american": -109,
+    "ticket_pct": 77,
+    "money_pct": 70
+   },
+   {
+    "side": "under",
+    "value": 38,
+    "price_american": -109,
+    "ticket_pct": 23,
+    "money_pct": 30
+   }
+  ],
+  "moneyline": [
+   {
+    "side": "away",
+    "value": 0,
+    "price_american": -385,
+    "ticket_pct": 94,
+    "money_pct": 91
+   },
+   {
+    "side": "home",
+    "value": 0,
+    "price_american": 305,
+    "ticket_pct": 6,
+    "money_pct": 9
+   }
+  ]
+ },
+ "action_network_splits_captured_at": "2026-10-09T19:41:08.878Z",
+ "supercontest_row": {
+  "away_team": "TEN",
+  "home_team": "HOU",
+  "favorite": "HOU",
+  "underdog": "TEN",
+  "favorite_spread": -7.5,
+  "kickoff_display": "Sun 1:00 pm"
+ },
+ "quantitative_row": {
+  "event": "Houston Texans @ Tennessee Titans",
+  "away": "HOU",
+  "home": "TEN",
+  "away_name": "Houston Texans",
+  "home_name": "Tennessee Titans",
+  "market": {
+   "home_spread": 7,
+   "total": 37.5,
+   "captured_at": "2026-10-11T01:15:40.538Z"
+  },
+  "features": {
+   "offense_z": {
+    "TEN": -1.1284898837342923,
+    "HOU": -0.3686949712894789
+   },
+   "defense_weakness_z": {
+    "TEN": -0.3296929617842927,
+    "HOU": 0.09368175967730452
+   },
+   "tempo_z": {
+    "TEN": -1.993588327156286,
+    "HOU": -0.235600923774159
+   },
+   "srs": {
+    "TEN": -10.882,
+    "HOU": -6.688
+   },
+   "secondary_adjustment_points": {
+    "TEN": 0.255,
+    "HOU": 0.585
+   }
+  },
+  "means": {
+   "home": 16.481518587997,
+   "away": 21.545981412002998,
+   "total": 38.0275,
+   "home_margin": -5.064462824005997
+  },
+  "simulation": {
+   "iterations": 100000,
+   "mean_home": 16.989205507982568,
+   "mean_away": 21.755333991750273,
+   "home_win_pct": 0.37941,
+   "home_cover_pct": 0.55315,
+   "away_cover_pct": 0.44684999999999997,
+   "over_pct": 0.51642,
+   "under_pct": 0.48358
+  },
+  "model_menu": {
+   "side": "Tennessee Titans",
+   "side_cover_pct": 0.55315,
+   "total": "Over",
+   "total_pct": 0.51642
+  },
+  "contest": {
+   "team": "HOU",
+   "favorite_spread": -7.5,
+   "market_favorite": "Houston Texans",
+   "file_orientation_reversed": true
+  }
+ },
+ "simulator_edge_sweep": [
+  {
+   "home_margin_edge_pts": -3,
+   "home_cover": 0.3902,
+   "away_cover": 0.5564,
+   "side_push": 0.0534,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": -2,
+   "home_cover": 0.4174,
+   "away_cover": 0.5283,
+   "side_push": 0.0544,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": -1,
+   "home_cover": 0.4447,
+   "away_cover": 0.5002,
+   "side_push": 0.0551,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 0,
+   "home_cover": 0.4722,
+   "away_cover": 0.4722,
+   "side_push": 0.0555,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 1,
+   "home_cover": 0.4997,
+   "away_cover": 0.4446,
+   "side_push": 0.0557,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 2,
+   "home_cover": 0.527,
+   "away_cover": 0.4174,
+   "side_push": 0.0556,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 3,
+   "home_cover": 0.554,
+   "away_cover": 0.3907,
+   "side_push": 0.0553,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  }
+ ],
+ "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
+ "digest_rows": [
+  "HOU@TEN | TEN +7 -113 | TEN | V: VSiN; RO: Action Network, Even Money, Steve Fezzik, VSiN; vs HOU: Action Network (RO), Sharp or Square (RO), BettingPros (RO), Chad Millman (RO), Ryan Wormeli (RO), Simon Hunter (RO), Pro Football Talk (RO); YT: TEN +6.5 Matt Moore (src +7.5 vs now +7) | 2-",
+  "HOU@TEN | U37.5 -108 | Under | RO: Action Network (src 38.5 vs now 37.5) | 2- research-only",
+  "HOU@TEN | Brevin Jordan ATD +2500 | Yes | RO: Action Network, Gilles Gallant; src px not BKR | 2- research-only",
+  "HOU@TEN | Nico Collins ATD +140 | Yes | RO: BettingPros, @thepropdealer (X); src px not BKR | 2- research-only",
+  "HOU@TEN | Tony Pollard ATD +250 | Yes | RO: Action Network, Gilles Gallant; src px not BKR | 2- research-only"
+ ],
+ "source_rows": {
+  "counts": {
+   "corroboration_only": 27,
+   "near_miss": 1,
+   "tier_eligible": 1
+  },
+  "rows": [
+   {
+    "row": "w05-expert-verified.json#rows[31]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 250,
+    "price": null,
+    "published": "2026-10-10T18:25:41.495+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[32]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 2500,
+    "price": null,
+    "published": "2026-10-10T18:25:41.495+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[44]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "spread",
+    "side": "HOU",
+    "line": -7,
+    "price": null,
+    "published": "2026-10-10T18:25:40.811+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[57]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 39.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.156+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[62]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 140,
+    "price": null,
+    "published": "2026-10-10T17:46:02.156+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[73]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 5.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.155+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[95]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "total",
+    "side": "Under",
+    "line": 38.5,
+    "price": null,
+    "published": "2026-10-10T17:46:01.269+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[96]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "moneyline",
+    "side": "HOU",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T17:46:01.269+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[101]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "spread",
+    "side": "TEN",
+    "line": 6.5,
+    "price": null,
+    "published": "2026-10-10T17:46:01.269+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[111]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "total",
+    "side": "Under",
+    "line": 38.5,
+    "price": null,
+    "published": "2026-10-10T17:46:01.268+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[134]",
+    "kind": "expert_feed",
+    "outlet": "Sharp or Square",
+    "persons": [],
+    "market": "spread",
+    "side": "HOU",
+    "line": -7,
+    "price": null,
+    "published": "2026-10-09T15:40:52.076+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[151]",
+    "kind": "expert_feed",
+    "outlet": "Even Money",
+    "persons": [],
+    "market": "spread",
+    "side": "TEN",
+    "line": 7.5,
+    "price": null,
+    "published": "2026-10-09T15:40:51.479+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[157]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "futures",
+    "side": null,
+    "line": null,
+    "price": null,
+    "published": "2026-10-07T15:54:08.831+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[203]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "spread",
+    "side": "HOU",
+    "line": -6.5,
+    "price": null,
+    "published": "2026-10-06T15:30:56.922+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[209]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Gilles Gallant"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 250,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[210]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Gilles Gallant"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 2500,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[252]",
+    "kind": "podcast",
+    "outlet": "SHARP NFL Week 5 Bets: Bears-Packers, Niners-Seahawks and more",
+    "persons": [
+     "Chad Millman"
+    ],
+    "market": "spread",
+    "side": "HOU",
+    "line": -7.5,
+    "price": null,
+    "published": "2026-10-08T17:01:29+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[258]",
+    "kind": "podcast",
+    "outlet": "SHARP NFL Week 5 Bets: Bears-Packers, Niners-Seahawks and more",
+    "persons": [
+     "Simon Hunter"
+    ],
+    "market": "survivor_pick",
+    "side": null,
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T17:01:29+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[261]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Prop Bets &amp; Parlays",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "spread",
+    "side": "TEN",
+    "line": 7.5,
+    "price": null,
+    "published": "2026-10-08T14:06:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[293]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "spread",
+    "side": "TEN",
+    "line": 6.5,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[329]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Ryan Wormeli"
+    ],
+    "market": "spread",
+    "side": "HOU",
+    "line": -6.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[372]",
+    "kind": "podcast",
+    "outlet": "NFL WEEK 5 Betting Preview: Bucs-Cowboys, Bears-Packers and more",
+    "persons": [
+     "Simon Hunter"
+    ],
+    "market": "spread",
+    "side": "HOU",
+    "line": -7,
+    "price": null,
+    "published": "2026-10-06T18:24:28+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[402]",
+    "kind": "article",
+    "outlet": "ESPN NFL",
+    "persons": [
+     "Ben Solak, Seth Walder, Matt Bowen and Mike Clay"
+    ],
+    "market": "prop",
+    "side": "OVER 1.5 (+119)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[425]",
+    "kind": "article",
+    "outlet": "BettingPros",
+    "persons": [
+     "Phil Wood"
+    ],
+    "market": "prop",
+    "side": "OVER 259.5 (+505)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:34:25.131417+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[436]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "xEP Network | Sports Analytics"
+    ],
+    "market": "prop",
+    "side": "OVER 77.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:33:38.977698+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[469]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@thepropdealer"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T04:04:06.828628+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[511]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Steve Makinen"
+    ],
+    "market": "spread",
+    "side": "TEN",
+    "line": 7.5,
+    "price": null,
+    "published": "2026-10-08T21:33:26.464701+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": true,
+    "url": "https://vsin.com/nfl/steve-makinen-week-5-nfl-best-bets/",
+    "quote": "NFL Best Bet: It's got to be Tennessee +7.5 here versus Houston"
+   },
+   {
+    "row": "w05-expert-verified.json#rows[539]",
+    "kind": "article",
+    "outlet": "Pro Football Talk",
+    "persons": [],
+    "market": "moneyline",
+    "side": "HOU",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T16:33:20.970971+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[565]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Dave Tuley"
+    ],
+    "market": "spread",
+    "side": "TEN",
+    "line": 7.5,
+    "price": null,
+    "published": "2026-10-08T01:33:21.643136+00:00",
+    "best_bet": true,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/tuleys-takes-for-nfl-week-5/",
+    "quote": "Best Bet: Titans +7.5 (Pool Play Percentages: Titans 67/33 in ATS contests, but Texans 80/20 in SU pools)."
+   }
+  ]
+ },
+ "weather_venue_row": {
+  "game": "HOU@TEN",
+  "weather_status": "forecast_captured",
+  "source_game": "HOU@TEN",
+  "materiality": "no_material_flag_in_current_forecast"
+ },
+ "secondary_matchups": [
+  {
+   "id": "sec_de0d08ce43093296",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_HOU_at_TEN",
+   "kickoff_utc": "2026-10-11T17:00:00.000Z",
+   "offense_team": "HOU",
+   "offense_team_nick": "Texans",
+   "defense_team": "TEN",
+   "defense_team_nick": "Titans",
+   "offense_venue": "away",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "match_zone",
+     "single_high"
+    ],
+    "primary_coverage_family": "match_zone",
+    "pressure_profile": "front_dependent",
+    "confidence": 0.72,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Dennard Wilson Ravens-lineage match zone featuring L'Jarius Sneed shadow coverage."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Kendell Brooks",
+     "team": "TEN",
+     "position": "S",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Kendell Brooks IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Dominique Hampton",
+     "team": "TEN",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Dominique Hampton IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Amani Hooker",
+     "team": "TEN",
+     "position": "S",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Hooker (concussion) has been ruled out for Sunday's game against the Texans, Jim Wyatt of the Titans' official site reports.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-09T23:43:00.000Z",
+     "role": "strong_safety",
+     "side": "middle",
+     "impact_tier": "starter",
+     "primary_receiver_archetypes_impacted": [
+      "te_middle"
+     ],
+     "weakness_tags": [
+      "te_middle_boost",
+      "slot_wr_boost"
+     ],
+     "severity_score": 1.8,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Joshua Williams",
+     "team": "TEN",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "The Titans opened Williams' (pectoral) 21-day practice window Wednesday, Jim Wyatt of the team's official site reports.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-08T00:11:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "boundary_wr_boost",
+    "deep_pass_boost",
+    "inside_seam_boost",
+    "post_cross_boost",
+    "slot_wr_boost",
+    "te_middle_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Nico Collins",
+     "team": "HOU",
+     "roles": [
+      "alpha_x",
+      "field_stretcher"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "boundary",
+      "deep",
+      "intermediate"
+     ],
+     "matched_weakness_tags": [
+      "boundary_wr_boost",
+      "deep_pass_boost",
+      "post_cross_boost"
+     ],
+     "opportunity_score": 4.5,
+     "notes": "HOU Dominant Alpha WR1.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Dalton Schultz",
+     "team": "HOU",
+     "roles": [
+      "te_middle"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "underneath"
+     ],
+     "matched_weakness_tags": [
+      "te_middle_boost",
+      "inside_seam_boost"
+     ],
+     "opportunity_score": 1.6,
+     "notes": "HOU Reliable TE.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Kayshon Boutte",
+     "team": "HOU",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost"
+     ],
+     "opportunity_score": 1.6,
+     "notes": "HOU WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Xavier Hutchinson",
+     "team": "HOU",
+     "roles": [
+      "z_receiver"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "boundary"
+     ],
+     "matched_weakness_tags": [
+      "deep_pass_boost",
+      "post_cross_boost"
+     ],
+     "opportunity_score": 1.6,
+     "notes": "HOU WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    }
+   ],
+   "severity_score": 5.85,
+   "elite_absence_count": 0,
+   "vulnerability_tier": "high",
+   "confidence": 0.95,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  },
+  {
+   "id": "sec_d8b159f498bf0ac2",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_HOU_at_TEN",
+   "kickoff_utc": "2026-10-11T17:00:00.000Z",
+   "offense_team": "TEN",
+   "offense_team_nick": "Titans",
+   "defense_team": "HOU",
+   "defense_team_nick": "Texans",
+   "offense_venue": "home",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "quarters",
+     "two_high",
+     "zone_heavy"
+    ],
+    "primary_coverage_family": "cover_4_quarters",
+    "pressure_profile": "front_dependent",
+    "confidence": 0.8,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "DeMeco Ryans Cover 4/Cover 6 zone shell anchored by Derek Stingley Jr."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Jaylin Smith",
+     "team": "HOU",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Jaylin Smith IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API",
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:02.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "M.J. Stewart",
+     "team": "HOU",
+     "position": "S",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Stewart (knee) is listed as questionable for Sunday's game against Tennessee.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-09T23:55:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "slot_wr_boost",
+    "te_middle_boost",
+    "underneath_volume_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Wan'Dale Robinson",
+     "team": "TEN",
+     "roles": [
+      "slot",
+      "possession"
+     ],
+     "target_share_tier": "high",
+     "route_area_tags": [
+      "slot",
+      "underneath"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 2.4,
+     "notes": "NYG High Volume Slot. [moved from NYG per ESPN roster 2026-09-27]",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Elic Ayomanor",
+     "team": "TEN",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 1.6,
+     "notes": "TEN WR3 per ESPN depth chart 2026-10-02; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Gunnar Helm",
+     "team": "TEN",
+     "roles": [
+      "te_middle"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle"
+     ],
+     "matched_weakness_tags": [
+      "te_middle_boost"
+     ],
+     "opportunity_score": 0.8,
+     "notes": "TEN TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    }
+   ],
+   "severity_score": 2.55,
+   "elite_absence_count": 0,
+   "vulnerability_tier": "medium",
+   "confidence": 0.8,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  }
+ ],
+ "power_ratings": {
+  "HOU": {
+   "season": 2026,
+   "team": "Texans",
+   "team_abbr": "HOU",
+   "games_played": 4,
+   "record": "0-4",
+   "power_rating": {
+    "srs": -6.688,
+    "net_points_per_game": -6.25,
+    "pythag_win_pct": 0.3504,
+    "model_composite_z": -0.8974,
+    "model_rank": 26,
+    "srs_rank": 27,
+    "net_ppg_rank": 26,
+    "pythag_rank": 26,
+    "market_implied_win_total": 8.6,
+    "market_implied_rank": 19,
+    "delta": 0.7559,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  },
+  "TEN": {
+   "season": 2026,
+   "team": "Titans",
+   "team_abbr": "TEN",
+   "games_played": 4,
+   "record": "0-4",
+   "power_rating": {
+    "srs": -10.882,
+    "net_points_per_game": -7,
+    "pythag_win_pct": 0.2738,
+    "model_composite_z": -1.2805,
+    "model_rank": 29,
+    "srs_rank": 31,
+    "net_ppg_rank": 27,
+    "pythag_rank": 30,
+    "market_implied_win_total": 4.45,
+    "market_implied_rank": 31,
+    "delta": -0.6329,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  }
+ },
+ "availability": {
+  "HOU": {
+   "event_count": 29,
+   "qb_events": 2,
+   "offensive_line_worsening": 0,
+   "defensive_front_worsening": 4,
+   "top_score": 108,
+   "top_events": [
+    {
+     "player_name": "Graham Mertz",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "qb_major",
+     "score": 108,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Mario Edwards Jr.",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Ali Gaye",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Dylan Horton",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Solomon Byrd",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Tank Dell",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "M.J. Stewart",
+     "position": "S",
+     "unit": "secondary",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 82,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Mark Gronowski",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "active_news",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 80,
+     "signal": "review_context"
+    }
+   ]
+  },
+  "TEN": {
+   "event_count": 22,
+   "qb_events": 1,
+   "offensive_line_worsening": 0,
+   "defensive_front_worsening": 2,
+   "top_score": 93,
+   "top_events": [
+    {
+     "player_name": "Cam Ward",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "active_news",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 93,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Tanoh Kpassagnon",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jaylen Harrell",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Joshua Williams",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Milo Eifler",
+     "position": "LB",
+     "unit": "linebacker",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Kendell Brooks",
+     "position": "S",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Dominique Hampton",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jaren Kanak",
+     "position": "TE",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    }
+   ]
+  }
+ },
+ "ftn_team_level": {
+  "HOU": {
+   "record_count": 133,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "EPA/PLY": "0.035",
+      "DVOA": "-0.5%",
+      "SUCC%": "39.1%",
+      "EXP%": "9.8%",
+      "CONV%": "42.1%",
+      "TO": "3",
+      "TO%": "1.2%",
+      "3&O": "13.3%",
+      "MTKL%": "15.3%",
+      "PEN%": "3.1%",
+      "PENY": "21.3"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "YD/PLY": "5.6",
+      "PT/GM": "27.3",
+      "FD%": "28.9%",
+      "TO": "3",
+      "DPBK%": "62.5%",
+      "YD": "1,111",
+      "TD": "6",
+      "INT": "1",
+      "RUSH%": "37.5%",
+      "YD__2": "335",
+      "TD__2": "5"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "DPBK": "160",
+      "SK": "14",
+      "SK%": "8.8%",
+      "QBH%": "17.5%",
+      "PRESS": "41",
+      "PRESS%": "25.6%",
+      "QPRESS%": "36.6%",
+      "TTPR": "3.12",
+      "DISR%": "1.9%",
+      "BLZ%": "20.6%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "EPA/DB": "0.122",
+      "SUCC%": "40.0%",
+      "DVOA": "15.5%",
+      "CPOE": "0.71%",
+      "CBALL%": "73.2%",
+      "EXP%": "17.7%",
+      "INTW%": "3.5%",
+      "TGHT%": "32.4%",
+      "OPEN%": "58.5%",
+      "TA%": "2.8%",
+      "DROP%": "2.1%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "EPA/ATT": "-0.110",
+      "SUCC%": "37.5%",
+      "DVOA": "-23.6%",
+      "aRYOE": "",
+      "EXP%": "7.3%",
+      "STF%": "17.7%",
+      "YBCO": "0.68",
+      "YACO": "2.46"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "EPA/PLY": "-0.027",
+      "DVOA": "1.9%",
+      "SUCC%": "41.3%",
+      "EXP%": "10.2%",
+      "CONV%": "34.4%",
+      "TO": "2",
+      "TO%": "0.79%",
+      "PENY": "45.8",
+      "PEN%": "8.27%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "YD/PLY": "5.7",
+      "PT/GM": "21.0",
+      "FD%": "27.6%",
+      "TO": "2",
+      "DPBK%": "67.3%",
+      "YD": "1,141",
+      "TD": "5",
+      "INT": "0",
+      "RUSH%": "32.7%",
+      "YD__2": "316",
+      "TD__2": "4"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "SK": "12",
+      "SK%": "7.0%",
+      "QBSK%": "0.0%",
+      "QBH%": "15.8%",
+      "PRESS%": "24.6%",
+      "UPRES%": "15.7%",
+      "BLITZ%": "19.9%",
+      "TTPR": "2.88",
+      "TTT": "2.82",
+      "EPA/DB": "-0.857",
+      "DVOA": "-149.2%",
+      "SUCC%": "14.3%",
+      "EPA/DB__2": "0.368",
+      "DVOA__2": "45.5%",
+      "SUCC%__2": "57.4%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "EPA/DB": "0.067",
+      "SUCC%": "46.8%",
+      "DVOA": "25.8%",
+      "CPOE": "7.9%",
+      "CBALL%": "64.5%",
+      "EXP%": "20.4%",
+      "INTW%": "0.7%",
+      "HLT%": "2.6%",
+      "TA%": "5.3%",
+      "DROP%": "0.7%",
+      "aDOT": "10.0",
+      "aYAC": "4.3"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "EPA/ATT": "-0.221",
+      "SUCC%": "30.1%",
+      "DVOA": "-19.3%",
+      "aRYOE": "",
+      "EXP%": "4.8%",
+      "STF%": "24.1%",
+      "aYBCO": "0.66",
+      "aYACO": "1.98",
+      "CRT%": "65.1%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "PLY/GM": "63.5",
+      "TOP": "28.25",
+      "DRV/GM": "11.3",
+      "SEC/PLY": "26.7",
+      "PLY/DRV": "5.6",
+      "YD/DRV": "32.4",
+      "SEC/DRV": "151",
+      "3&O": "31.1%",
+      "SCD%": "35.6%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "HOU",
+     "metrics": {
+      "Team": "Houston Texans",
+      "GP": "4",
+      "DPBK%": "67.3%",
+      "RUSH%": "32.7%",
+      "SHG%": "60.2%",
+      "NH%": "7.5%",
+      "MOT%": "54.7%",
+      "PA%": "21.1%",
+      "IZ%": "12.0%",
+      "OZ%": "28.9%",
+      "MD%": "15.7%",
+      "PWR%": "16.9%",
+      "CTR%": "13.3%"
+     }
+    }
+   ]
+  },
+  "TEN": {
+   "record_count": 138,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "EPA/PLY": "0.047",
+      "DVOA": "12.1%",
+      "SUCC%": "42.1%",
+      "EXP%": "9.4%",
+      "CONV%": "40.4%",
+      "TO": "2",
+      "TO%": "0.8%",
+      "3&O": "23.8%",
+      "MTKL%": "11.4%",
+      "PEN%": "4.7%",
+      "PENY": "18.8"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "YD/PLY": "5.4",
+      "PT/GM": "20.8",
+      "FD%": "28.7%",
+      "TO": "2",
+      "DPBK%": "50.0%",
+      "YD": "882",
+      "TD": "4",
+      "INT": "2",
+      "RUSH%": "50.0%",
+      "YD__2": "491",
+      "TD__2": "4"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "DPBK": "127",
+      "SK": "8",
+      "SK%": "6.3%",
+      "QBH%": "12.6%",
+      "PRESS": "29",
+      "PRESS%": "22.8%",
+      "QPRESS%": "31.0%",
+      "TTPR": "2.95",
+      "DISR%": "0.0%",
+      "BLZ%": "22.0%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "EPA/DB": "0.196",
+      "SUCC%": "47.2%",
+      "DVOA": "35.8%",
+      "CPOE": "3.18%",
+      "CBALL%": "82.1%",
+      "EXP%": "15.9%",
+      "INTW%": "1.8%",
+      "TGHT%": "16.1%",
+      "OPEN%": "63.4%",
+      "TA%": "5.4%",
+      "DROP%": "6.3%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "EPA/ATT": "-0.101",
+      "SUCC%": "37.0%",
+      "DVOA": "-7.3%",
+      "aRYOE": "",
+      "EXP%": "7.1%",
+      "STF%": "22.8%",
+      "YBCO": "1.13",
+      "YACO": "1.39"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "EPA/PLY": "-0.085",
+      "DVOA": "-10.8%",
+      "SUCC%": "41.2%",
+      "EXP%": "7.9%",
+      "CONV%": "36.5%",
+      "TO": "2",
+      "TO%": "0.93%",
+      "PENY": "22.5",
+      "PEN%": "5.09%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "YD/PLY": "5.0",
+      "PT/GM": "13.8",
+      "FD%": "25.9%",
+      "TO": "2",
+      "DPBK%": "63.0%",
+      "YD": "726",
+      "TD": "3",
+      "INT": "2",
+      "RUSH%": "37.0%",
+      "YD__2": "356",
+      "TD__2": "3"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "SK": "6",
+      "SK%": "4.4%",
+      "QBSK%": "50.0%",
+      "QBH%": "11.8%",
+      "PRESS%": "27.9%",
+      "UPRES%": "7.9%",
+      "BLITZ%": "22.1%",
+      "TTPR": "2.72",
+      "TTT": "2.78",
+      "EPA/DB": "-0.509",
+      "DVOA": "-122.1%",
+      "SUCC%": "26.3%",
+      "EPA/DB__2": "0.053",
+      "DVOA__2": "18.6%",
+      "SUCC%__2": "50.0%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "EPA/DB": "-0.104",
+      "SUCC%": "43.4%",
+      "DVOA": "0.6%",
+      "CPOE": "0.4%",
+      "CBALL%": "70.8%",
+      "EXP%": "12.0%",
+      "INTW%": "2.5%",
+      "HLT%": "3.3%",
+      "TA%": "10.0%",
+      "DROP%": "3.3%",
+      "aDOT": "6.5",
+      "aYAC": "5.0"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "EPA/ATT": "-0.053",
+      "SUCC%": "37.5%",
+      "DVOA": "-19.7%",
+      "aRYOE": "",
+      "EXP%": "8.8%",
+      "STF%": "15.0%",
+      "aYBCO": "0.93",
+      "aYACO": "1.88",
+      "CRT%": "49.5%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "PLY/GM": "54.0",
+      "TOP": "23.72",
+      "DRV/GM": "10.0",
+      "SEC/PLY": "26.4",
+      "PLY/DRV": "5.4",
+      "YD/DRV": "27.1",
+      "SEC/DRV": "142",
+      "3&O": "35.0%",
+      "SCD%": "25.0%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "TEN",
+     "metrics": {
+      "Team": "Tennessee Titans",
+      "GP": "4",
+      "DPBK%": "63.0%",
+      "RUSH%": "37.0%",
+      "SHG%": "68.5%",
+      "NH%": "13.4%",
+      "MOT%": "45.8%",
+      "PA%": "21.3%",
+      "IZ%": "26.3%",
+      "OZ%": "12.5%",
+      "MD%": "32.5%",
+      "PWR%": "10.0%",
+      "CTR%": "10.0%"
+     }
+    }
+   ]
+  }
+ },
+ "files_to_read_directly": {
+  "weather_detail": "data/research-intel/source-evidence/2026-10-10-week5-weather-openmeteo.json (filter to HOU@TEN)",
+  "prop_markets": "BKR/BEO rows for event \"Houston Texans @ Tennessee Titans\" with market != game_lines",
+  "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for HOU and TEN",
+  "projected_starters": "data/projected-starters/2026/latest.json (teams.HOU, teams.TEN)"
+ }
+}

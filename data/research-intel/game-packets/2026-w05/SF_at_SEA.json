@@ -1,0 +1,2332 @@
+{
+ "schema": "w05_game_packet_v1",
+ "game": "SF@SEA",
+ "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "kickoff_utc": "2026-10-11T20:25:00.000Z",
+ "away": {
+  "abbr": "SF",
+  "name": "San Francisco 49ers"
+ },
+ "home": {
+  "abbr": "SEA",
+  "name": "Seattle Seahawks"
+ },
+ "line_convention": "spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points",
+ "teams": {
+  "SF": {
+   "team": "SF",
+   "division": "NFC West",
+   "record": "4-0",
+   "games_played": 4,
+   "points_for": 122,
+   "points_against": 64,
+   "point_diff": 58,
+   "ppg": 30.5,
+   "papg": 16.0,
+   "home_record": "3-0",
+   "away_record": "1-0",
+   "division_record": "2-0",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-11T00:35:00.000Z",
+     "opp": "LAR",
+     "site": "A",
+     "pf": 27,
+     "pa": 7,
+     "result": "W",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T20:25:00.000Z",
+     "opp": "MIA",
+     "site": "H",
+     "pf": 35,
+     "pa": 13,
+     "result": "W",
+     "opp_record": "0-4"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T20:05:00.000Z",
+     "opp": "ARI",
+     "site": "H",
+     "pf": 36,
+     "pa": 30,
+     "result": "W",
+     "opp_record": "1-3"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T20:25:00.000Z",
+     "opp": "DEN",
+     "site": "H",
+     "pf": 24,
+     "pa": 14,
+     "result": "W",
+     "opp_record": "2-2"
+    }
+   ],
+   "opponents_record_to_date": "5-11",
+   "rest_days_before_this_game": 7.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    8
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "SEA",
+     "site": "A",
+     "kickoff_utc": "2026-10-11T20:25:00.000Z",
+     "opp_division": "NFC West"
+    },
+    {
+     "week": 6,
+     "opp": "WAS",
+     "site": "H",
+     "kickoff_utc": "2026-10-20T00:15:00.000Z",
+     "opp_division": "NFC East"
+    },
+    {
+     "week": 7,
+     "opp": "ATL",
+     "site": "A",
+     "kickoff_utc": "2026-10-25T17:00:00.000Z",
+     "opp_division": "NFC South"
+    },
+    {
+     "week": 9,
+     "opp": "LV",
+     "site": "H",
+     "kickoff_utc": "2026-11-08T21:05:00.000Z",
+     "opp_division": "AFC West"
+    }
+   ]
+  },
+  "SEA": {
+   "team": "SEA",
+   "division": "NFC West",
+   "record": "3-1",
+   "games_played": 4,
+   "points_for": 105,
+   "points_against": 73,
+   "point_diff": 32,
+   "ppg": 26.2,
+   "papg": 18.2,
+   "home_record": "2-0",
+   "away_record": "1-1",
+   "division_record": "1-0",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-10T00:20:00.000Z",
+     "opp": "NE",
+     "site": "H",
+     "pf": 13,
+     "pa": 10,
+     "result": "W",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T20:25:00.000Z",
+     "opp": "ARI",
+     "site": "A",
+     "pf": 31,
+     "pa": 7,
+     "result": "W",
+     "opp_record": "1-3"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T17:00:00.000Z",
+     "opp": "WAS",
+     "site": "A",
+     "pf": 31,
+     "pa": 33,
+     "result": "L",
+     "opp_record": "1-3"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T20:25:00.000Z",
+     "opp": "LAC",
+     "site": "H",
+     "pf": 30,
+     "pa": 23,
+     "result": "W",
+     "opp_record": "0-4"
+    }
+   ],
+   "opponents_record_to_date": "4-12",
+   "rest_days_before_this_game": 7.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    11
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "SF",
+     "site": "H",
+     "kickoff_utc": "2026-10-11T20:25:00.000Z",
+     "opp_division": "NFC West"
+    },
+    {
+     "week": 6,
+     "opp": "DEN",
+     "site": "A",
+     "kickoff_utc": "2026-10-16T00:15:00.000Z",
+     "opp_division": "AFC West"
+    },
+    {
+     "week": 7,
+     "opp": "KC",
+     "site": "H",
+     "kickoff_utc": "2026-10-26T00:20:00.000Z",
+     "opp_division": "AFC West"
+    },
+    {
+     "week": 8,
+     "opp": "CHI",
+     "site": "H",
+     "kickoff_utc": "2026-11-03T01:15:00.000Z",
+     "opp_division": "NFC North"
+    }
+   ]
+  }
+ },
+ "standings": {
+  "divisions": {
+   "NFC West": [
+    {
+     "team": "SF",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 58,
+     "div": "2-0",
+     "rank": 1
+    },
+    {
+     "team": "SEA",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 32,
+     "div": "1-0",
+     "rank": 2
+    },
+    {
+     "team": "LAR",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 2,
+     "div": "0-1",
+     "rank": 3
+    },
+    {
+     "team": "ARI",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -30,
+     "div": "0-2",
+     "rank": 4
+    }
+   ]
+  },
+  "conference_order_by_record_then_point_diff": {
+   "NFC": [
+    {
+     "team": "SF",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 58,
+     "order": 1
+    },
+    {
+     "team": "MIN",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 35,
+     "order": 2
+    },
+    {
+     "team": "CHI",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 47,
+     "order": 3
+    },
+    {
+     "team": "SEA",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 32,
+     "order": 4
+    },
+    {
+     "team": "NYG",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 3,
+     "order": 5
+    },
+    {
+     "team": "CAR",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "order": 6
+    },
+    {
+     "team": "DAL",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 10,
+     "order": 7
+    },
+    {
+     "team": "ATL",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 4,
+     "order": 8
+    },
+    {
+     "team": "LAR",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 2,
+     "order": 9
+    },
+    {
+     "team": "DET",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -8,
+     "order": 10
+    },
+    {
+     "team": "PHI",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -18,
+     "order": 11
+    },
+    {
+     "team": "GB",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -32,
+     "order": 12
+    },
+    {
+     "team": "NO",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -23,
+     "order": 13
+    },
+    {
+     "team": "ARI",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -30,
+     "order": 14
+    },
+    {
+     "team": "WAS",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -34,
+     "order": 15
+    },
+    {
+     "team": "TB",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -20,
+     "order": 16
+    }
+   ]
+  },
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+ },
+ "same_division_game": true,
+ "market": {
+  "BKR": {
+   "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:15:40.538Z",
+   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "San Francisco 49ers",
+      "line": 3,
+      "odds": 105,
+      "available": true
+     },
+     {
+      "side": "Seattle Seahawks",
+      "line": -3,
+      "odds": -123,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 46.5,
+      "odds": -104,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 46.5,
+      "odds": -112,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "San Francisco 49ers",
+      "odds": 149,
+      "available": true
+     },
+     {
+      "side": "Seattle Seahawks",
+      "odds": -172,
+      "available": true
+     }
+    ]
+   }
+  },
+  "BEO": {
+   "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:19:56.400Z",
+   "expires_for_recommendation_at": "2026-10-11T07:19:56.400000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "San Francisco 49ers",
+      "line": 3,
+      "odds": -102,
+      "available": true
+     },
+     {
+      "side": "Seattle Seahawks",
+      "line": -3,
+      "odds": -118,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 46.5,
+      "odds": -110,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 46.5,
+      "odds": -110,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "San Francisco 49ers",
+      "odds": 149,
+      "available": true
+     },
+     {
+      "side": "Seattle Seahawks",
+      "odds": -170,
+      "available": true
+     }
+    ]
+   }
+  },
+  "book_conflict": null,
+  "market_implied_score": {
+   "SEA": 24.75,
+   "SF": 21.75,
+   "basis": "BKR home line -3 total 46.5"
+  }
+ },
+ "action_network_opener": {
+  "an_game_id": 290912,
+  "kickoff_utc": "2026-10-11T20:25:00Z",
+  "sp": {
+   "SEA": -3.0,
+   "SF": 3.0
+  },
+  "sp_odds_home": -107,
+  "sp_at": "2026-10-05T00:14:55Z",
+  "tot": 47.0,
+  "tot_at": "2026-10-05T00:06:55Z",
+  "ml": {
+   "SF": 140,
+   "SEA": -175
+  },
+  "carried_from_before_cutoff": false
+ },
+ "action_network_splits": {
+  "game_id": 290912,
+  "away_team": "SF",
+  "home_team": "SEA",
+  "kickoff_at": "2026-10-11T20:25:00.000Z",
+  "spread": [
+   {
+    "side": "away",
+    "value": 3,
+    "price_american": -104,
+    "ticket_pct": 82,
+    "money_pct": 88
+   },
+   {
+    "side": "home",
+    "value": -3,
+    "price_american": -118,
+    "ticket_pct": 18,
+    "money_pct": 12
+   }
+  ],
+  "total": [
+   {
+    "side": "under",
+    "value": 46.5,
+    "price_american": -113,
+    "ticket_pct": 29,
+    "money_pct": 27
+   },
+   {
+    "side": "over",
+    "value": 46.5,
+    "price_american": -105,
+    "ticket_pct": 71,
+    "money_pct": 73
+   }
+  ],
+  "moneyline": [
+   {
+    "side": "away",
+    "value": 0,
+    "price_american": 137,
+    "ticket_pct": 54,
+    "money_pct": 42
+   },
+   {
+    "side": "home",
+    "value": 0,
+    "price_american": -166,
+    "ticket_pct": 46,
+    "money_pct": 58
+   }
+  ]
+ },
+ "action_network_splits_captured_at": "2026-10-09T19:41:08.878Z",
+ "supercontest_row": {
+  "away_team": "SF",
+  "home_team": "SEA",
+  "favorite": "SEA",
+  "underdog": "SF",
+  "favorite_spread": -3,
+  "kickoff_display": "Sun 4:25 pm"
+ },
+ "quantitative_row": {
+  "event": "San Francisco 49ers @ Seattle Seahawks",
+  "away": "SF",
+  "home": "SEA",
+  "away_name": "San Francisco 49ers",
+  "home_name": "Seattle Seahawks",
+  "market": {
+   "home_spread": -3,
+   "total": 46.5,
+   "captured_at": "2026-10-11T01:15:40.538Z"
+  },
+  "features": {
+   "offense_z": {
+    "SEA": 0.3079054432025402,
+    "SF": 1.9709696504177077
+   },
+   "defense_weakness_z": {
+    "SEA": -1.6105102909402136,
+    "SF": -0.5568605436081798
+   },
+   "tempo_z": {
+    "SEA": -0.3667940135787954,
+    "SF": 0.813943794662932
+   },
+   "srs": {
+    "SEA": 1.698,
+    "SF": 14.043
+   },
+   "secondary_adjustment_points": {
+    "SEA": 0.533,
+    "SF": 0.375
+   }
+  },
+  "means": {
+   "home": 23.790676554242506,
+   "away": 23.695574657447217,
+   "total": 47.48625121168972,
+   "home_margin": 0.09510189679528835
+  },
+  "simulation": {
+   "iterations": 100000,
+   "mean_home": 23.865075832769534,
+   "mean_away": 23.81334340381352,
+   "home_win_pct": 0.50202,
+   "home_cover_pct": 0.43042,
+   "away_cover_pct": 0.56958,
+   "over_pct": 0.52148,
+   "under_pct": 0.47851999999999995
+  },
+  "model_menu": {
+   "side": "San Francisco 49ers",
+   "side_cover_pct": 0.56958,
+   "total": "Over",
+   "total_pct": 0.52148
+  },
+  "contest": {
+   "team": "SEA",
+   "favorite_spread": -3,
+   "market_favorite": "Seattle Seahawks",
+   "file_orientation_reversed": false
+  }
+ },
+ "simulator_edge_sweep": [
+  {
+   "home_margin_edge_pts": -3,
+   "home_cover": 0.3813,
+   "away_cover": 0.5372,
+   "side_push": 0.0814,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": -2,
+   "home_cover": 0.4067,
+   "away_cover": 0.5111,
+   "side_push": 0.0822,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": -1,
+   "home_cover": 0.4325,
+   "away_cover": 0.4849,
+   "side_push": 0.0827,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 0,
+   "home_cover": 0.4587,
+   "away_cover": 0.4587,
+   "side_push": 0.0827,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 1,
+   "home_cover": 0.4851,
+   "away_cover": 0.4325,
+   "side_push": 0.0824,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 2,
+   "home_cover": 0.5118,
+   "away_cover": 0.4066,
+   "side_push": 0.0816,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  },
+  {
+   "home_margin_edge_pts": 3,
+   "home_cover": 0.5385,
+   "away_cover": 0.381,
+   "side_push": 0.0805,
+   "over": 0.5,
+   "under": 0.5,
+   "total_push": 0
+  }
+ ],
+ "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
+ "digest_rows": [
+  "SF@SEA | SEA -3 -123 / ML -172 | SEA | V: VSiN; RO: Action Network, Daniel Jeremiah & Bucky Brooks, The Favorites, Sharp or Square, BettingPros, Ryan Wormeli, Kendra Middleton, Chad Millman, Pro Football Talk; vs SF: PFF (Sam Monson & Steve Palazzolo) (RO), Ross Tucker (RO\u2026 | 2-",
+  "SF@SEA | U46.5 -112 | Under | RO: BettingPros, Seth Woolcock, Andrew Erickson, ESPN NFL (src 46.5/47/47.5/49 vs now 46.5) | 2- research-only",
+  "SF@SEA | Brayden Willis ATD +2200 | Yes | YT/PI: Brandon Anderson (YT); RO: Action Network; src px not BKR | 2- research-only",
+  "SF@SEA | Christian McCaffrey o4.5 rec -116 | Over | YT/PI: Brandon Anderson (YT); RO: Action Network, Cody Brown Bets (X); src px not BKR | 2- research-only",
+  "SF@SEA | AJ Barner ATD +310 | Yes | RO: Action Network, Grant Neiffer; src px not BKR | 2- research-only",
+  "SF@SEA | Mike Evans ATD +210 | Yes | RO: Action Network, Grant Neiffer; src px not BKR | 2- research-only",
+  "SF@SEA | Brock Purdy o22.5 rush yds -114 | Over | RO: Cody Brown; src px not BKR | 2- research-only"
+ ],
+ "source_rows": {
+  "counts": {
+   "corroboration_only": 30,
+   "near_miss": 2,
+   "tier_eligible": 1
+  },
+  "rows": [
+   {
+    "row": "w05-expert-verified.json#rows[22]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 310,
+    "price": null,
+    "published": "2026-10-10T18:25:41.496+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[23]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 210,
+    "price": null,
+    "published": "2026-10-10T18:25:41.496+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[42]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "spread",
+    "side": "SEA",
+    "line": -2.5,
+    "price": null,
+    "published": "2026-10-10T18:25:40.812+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[46]",
+    "kind": "expert_feed",
+    "outlet": "Daniel Jeremiah & Bucky Brooks",
+    "persons": [],
+    "market": "moneyline",
+    "side": "SEA",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T17:46:02.285+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[69]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 32.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.155+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[72]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 94.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.155+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[94]",
+    "kind": "expert_feed",
+    "outlet": "Daniel Jeremiah & Bucky Brooks",
+    "persons": [],
+    "market": "moneyline",
+    "side": "SEA",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T17:46:01.833+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[100]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 2200,
+    "price": null,
+    "published": "2026-10-10T17:46:01.269+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[115]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 4.5,
+    "price": null,
+    "published": "2026-10-10T17:46:01.266+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[123]",
+    "kind": "expert_feed",
+    "outlet": "The Favorites",
+    "persons": [],
+    "market": "spread",
+    "side": "SEA",
+    "line": -2.5,
+    "price": null,
+    "published": "2026-10-09T15:40:52.356+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[141]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "total",
+    "side": "Under",
+    "line": 47.5,
+    "price": null,
+    "published": "2026-10-09T15:40:51.852+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[179]",
+    "kind": "expert_feed",
+    "outlet": "PFF (Sam Monson & Steve Palazzolo)",
+    "persons": [],
+    "market": "moneyline",
+    "side": "SF",
+    "line": null,
+    "price": null,
+    "published": "2026-10-07T15:54:08.086+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[186]",
+    "kind": "expert_feed",
+    "outlet": "Sharp or Square",
+    "persons": [],
+    "market": "spread",
+    "side": "SEA",
+    "line": -2.5,
+    "price": null,
+    "published": "2026-10-06T15:30:57.086+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[189]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "total",
+    "side": "Under",
+    "line": 46.5,
+    "price": null,
+    "published": "2026-10-06T15:30:56.924+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[190]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "spread",
+    "side": "SEA",
+    "line": -3,
+    "price": null,
+    "published": "2026-10-06T15:30:56.924+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[225]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Grant Neiffer"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 310,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[226]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Grant Neiffer"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 210,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[246]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Picks &amp; Predictions: Best Bets, Upset Specials, Parlays &amp; Props (Ep. 1092)",
+    "persons": [
+     "Seth Woolcock"
+    ],
+    "market": "total",
+    "side": "Under",
+    "line": 47.5,
+    "price": -120,
+    "published": "2026-10-08T19:04:10+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[308]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Ross Tucker"
+    ],
+    "market": "spread",
+    "side": "SF",
+    "line": 3,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[339]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Andrew Erickson"
+    ],
+    "market": "totals",
+    "side": null,
+    "line": 47,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[340]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Ryan Wormeli"
+    ],
+    "market": "spread",
+    "side": "SEA",
+    "line": -2.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[348]",
+    "kind": "podcast",
+    "outlet": "Construction &amp; Big Dog Picks | NFL Week 5 Preview",
+    "persons": [
+     "Kendra Middleton"
+    ],
+    "market": "spread",
+    "side": "SEA",
+    "line": -2.5,
+    "price": null,
+    "published": "2026-10-08T16:55:35+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[369]",
+    "kind": "podcast",
+    "outlet": "NFL WEEK 5 Betting Preview: Bucs-Cowboys, Bears-Packers and more",
+    "persons": [
+     "Chad Millman"
+    ],
+    "market": "spread",
+    "side": "SEA",
+    "line": -2.5,
+    "price": null,
+    "published": "2026-10-06T18:24:28+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[377]",
+    "kind": "article",
+    "outlet": "Cody Brown Bets",
+    "persons": [
+     "Cody Brown"
+    ],
+    "market": "prop",
+    "side": "OVER 22.5 (-114)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:44:29.028257+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[393]",
+    "kind": "article",
+    "outlet": "ESPN NFL",
+    "persons": [
+     "Ben Solak, Seth Walder, Matt Bowen and Mike Clay"
+    ],
+    "market": "total",
+    "side": "Under",
+    "line": 49.0,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": true,
+    "url": "https://www.espn.com/espn/betting/story/_/id/50107426/week-5-nfl-odds-props-best-bets-sunday-games",
+    "quote": "In the two games these clubs played last season, the totals hit 30 and 16. Mike Macdonald has the scheme (and personnel) to limit the 49ers' offense."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[423]",
+    "kind": "article",
+    "outlet": "BettingPros",
+    "persons": [
+     "Trent Conner"
+    ],
+    "market": "prop",
+    "side": "OVER 47.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:34:25.131417+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[431]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "Cody Brown Bets"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:33:54.97021+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[437]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "xEP Network | Sports Analytics"
+    ],
+    "market": "prop",
+    "side": "OVER 35.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:33:38.977698+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[450]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Wes Reynolds"
+    ],
+    "market": "spread",
+    "side": "SEA",
+    "line": -3.0,
+    "price": null,
+    "published": "2026-10-10T12:03:19.165844+00:00",
+    "best_bet": false,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/wes-reynolds-nfl-week-5-best-bets-and-predictions/",
+    "quote": "Seattle Seahawks -3 vs."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[473]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@thepropdealer"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T04:04:06.828628+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[505]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@thepropdealer"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T22:03:37.444734+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": true,
+    "url": "https://x.com/thepropdealer/status/2108253933227635054",
+    "quote": "Anytime TD Scorer"
+   },
+   {
+    "row": "w05-expert-verified.json#rows[543]",
+    "kind": "article",
+    "outlet": "Pro Football Talk",
+    "persons": [],
+    "market": "moneyline",
+    "side": "SEA",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T16:33:20.970971+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[582]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "Cody Brown Bets"
+    ],
+    "market": "prop",
+    "side": "OVER 4.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-06T19:33:46.194938+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   }
+  ]
+ },
+ "weather_venue_row": {
+  "game": "SF@SEA",
+  "weather_status": "forecast_captured",
+  "source_game": "SF@SEA",
+  "materiality": "no_material_flag_in_current_forecast"
+ },
+ "secondary_matchups": [
+  {
+   "id": "sec_1dc72d36b0c242d2",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_SF_at_SEA",
+   "kickoff_utc": "2026-10-11T20:25:00.000Z",
+   "offense_team": "SF",
+   "offense_team_nick": "49ers",
+   "defense_team": "SEA",
+   "defense_team_nick": "Seahawks",
+   "offense_venue": "away",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "match_zone",
+     "single_high",
+     "two_high"
+    ],
+    "primary_coverage_family": "match_zone",
+    "pressure_profile": "aggressive",
+    "confidence": 0.8,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Mike Macdonald Ravens-style disguise/match zone featuring Devon Witherspoon."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Bud Clark",
+     "team": "SEA",
+     "position": "S",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Bud Clark IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Julian Neal",
+     "team": "SEA",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Neal (hamstring) has been ruled out for Sunday's game against the 49ers, Bob Condotta of The Seattle Times reports.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T01:27:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Terrion Arnold",
+     "team": "SEA",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "injured",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-06T19:00:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "boundary_wr_boost",
+    "deep_pass_boost",
+    "inside_seam_boost",
+    "post_cross_boost",
+    "slot_wr_boost",
+    "underneath_volume_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Deebo Samuel",
+     "team": "SF",
+     "roles": [
+      "z_receiver",
+      "slot",
+      "possession"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "slot",
+      "underneath",
+      "intermediate"
+     ],
+     "matched_weakness_tags": [
+      "deep_pass_boost",
+      "post_cross_boost",
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 7.5,
+     "notes": "SF All-Pro Wide Back.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "George Kittle",
+     "team": "SF",
+     "roles": [
+      "te_middle",
+      "field_stretcher",
+      "red_zone"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "middle",
+      "deep",
+      "red_zone"
+     ],
+     "matched_weakness_tags": [
+      "inside_seam_boost",
+      "deep_pass_boost",
+      "post_cross_boost"
+     ],
+     "opportunity_score": 4.5,
+     "notes": "SF All-Pro YAC Monster.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Mike Evans",
+     "team": "SF",
+     "roles": [
+      "alpha_x",
+      "field_stretcher",
+      "red_zone"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "boundary",
+      "deep",
+      "red_zone"
+     ],
+     "matched_weakness_tags": [
+      "boundary_wr_boost",
+      "deep_pass_boost",
+      "post_cross_boost"
+     ],
+     "opportunity_score": 4.5,
+     "notes": "TB 1,000-yard Streak HOF WR. [moved from TB per ESPN roster 2026-09-27]",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Brandin Cooks",
+     "team": "SF",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 2.4,
+     "notes": "SF WR3 per ESPN depth chart 2026-10-02; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Jacob Cowing",
+     "team": "SF",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 2.4,
+     "notes": "SF WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    }
+   ],
+   "severity_score": 3.75,
+   "elite_absence_count": 0,
+   "vulnerability_tier": "medium",
+   "confidence": 0.95,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  },
+  {
+   "id": "sec_ab38d15afb7cf215",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_SF_at_SEA",
+   "kickoff_utc": "2026-10-11T20:25:00.000Z",
+   "offense_team": "SEA",
+   "offense_team_nick": "Seahawks",
+   "defense_team": "SF",
+   "defense_team_nick": "49ers",
+   "offense_venue": "home",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "zone_heavy",
+     "two_high",
+     "quarters"
+    ],
+    "primary_coverage_family": "zone_heavy",
+    "pressure_profile": "front_dependent",
+    "confidence": 0.85,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Nick Sorensen 4-3 Cover 3/Cover 4 zone shell anchored by Charvarius Ward and Fred Warner."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Darrick Forrest",
+     "team": "SF",
+     "position": "S",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Darrick Forrest IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Nate Hobbs",
+     "team": "SF",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Nate Hobbs IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Upton Stout",
+     "team": "SF",
+     "position": "CB",
+     "event_type": "limited",
+     "availability_trend": "stable",
+     "summary": "Stout (shoulder) is listed as questionable ahead of Sunday's game against the Seahawks.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-10T01:37:00.000Z",
+     "role": "slot_cb",
+     "side": "slot",
+     "impact_tier": "starter",
+     "primary_receiver_archetypes_impacted": [
+      "slot"
+     ],
+     "weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost"
+     ],
+     "severity_score": 0.83,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Marques Sigle",
+     "team": "SF",
+     "position": "S",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Marques Sigle OUT",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API",
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-09T07:00:00.000Z",
+     "role": "strong_safety",
+     "side": "middle",
+     "impact_tier": "starter",
+     "primary_receiver_archetypes_impacted": [
+      "te_middle"
+     ],
+     "weakness_tags": [
+      "te_middle_boost",
+      "slot_wr_boost"
+     ],
+     "severity_score": 1.8,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "inside_seam_boost",
+    "slot_wr_boost",
+    "te_middle_boost",
+    "underneath_volume_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Cooper Kupp",
+     "team": "SEA",
+     "roles": [
+      "slot",
+      "alpha_x",
+      "possession"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "slot",
+      "intermediate",
+      "underneath"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 4.5,
+     "notes": "LAR Triple Crown WR. [moved from LAR per ESPN roster 2026-09-27]",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Jaxon Smith-Njigba",
+     "team": "SEA",
+     "roles": [
+      "slot",
+      "possession"
+     ],
+     "target_share_tier": "high",
+     "route_area_tags": [
+      "slot",
+      "intermediate"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 3.6,
+     "notes": "SEA Rising Slot Star.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "AJ Barner",
+     "team": "SEA",
+     "roles": [
+      "te_middle"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle"
+     ],
+     "matched_weakness_tags": [
+      "te_middle_boost",
+      "inside_seam_boost"
+     ],
+     "opportunity_score": 1.6,
+     "notes": "SEA TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    }
+   ],
+   "severity_score": 5.33,
+   "elite_absence_count": 0,
+   "vulnerability_tier": "high",
+   "confidence": 0.95,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  }
+ ],
+ "power_ratings": {
+  "SF": {
+   "season": 2026,
+   "team": "49ers",
+   "team_abbr": "SF",
+   "games_played": 4,
+   "record": "4-0",
+   "power_rating": {
+    "srs": 14.043,
+    "net_points_per_game": 14.5,
+    "pythag_win_pct": 0.8219,
+    "model_composite_z": 1.9837,
+    "model_rank": 1,
+    "srs_rank": 2,
+    "net_ppg_rank": 1,
+    "pythag_rank": 2,
+    "market_implied_win_total": 12.25,
+    "market_implied_rank": 2,
+    "delta": -0.6613,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  },
+  "SEA": {
+   "season": 2026,
+   "team": "Seahawks",
+   "team_abbr": "SEA",
+   "games_played": 4,
+   "record": "3-1",
+   "power_rating": {
+    "srs": 1.698,
+    "net_points_per_game": 8,
+    "pythag_win_pct": 0.703,
+    "model_composite_z": 0.8543,
+    "model_rank": 7,
+    "srs_rank": 12,
+    "net_ppg_rank": 6,
+    "pythag_rank": 6,
+    "market_implied_win_total": 11.61,
+    "market_implied_rank": 6,
+    "delta": 0.2346,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  }
+ },
+ "availability": {
+  "SF": {
+   "event_count": 34,
+   "qb_events": 1,
+   "offensive_line_worsening": 1,
+   "defensive_front_worsening": 8,
+   "top_score": 96,
+   "top_events": [
+    {
+     "player_name": "James Thompson Jr.",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 96,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Brock Purdy",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "active_news",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 93,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Sam Okuayinonu",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Alfred Collins",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "C.J. West",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Christian Kirk",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Trent Williams",
+     "position": "OT",
+     "unit": "offensive_line",
+     "event_type": "setback",
+     "availability_trend": "worsening",
+     "impact_bucket": "offensive_line_major",
+     "score": 79,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Mykel Williams",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 77,
+     "signal": "negative_availability"
+    }
+   ]
+  },
+  "SEA": {
+   "event_count": 19,
+   "qb_events": 0,
+   "offensive_line_worsening": 0,
+   "defensive_front_worsening": 0,
+   "top_score": 86,
+   "top_events": [
+    {
+     "player_name": "Irv Charles",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jadarian Price",
+     "position": "RB",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jake Bobo",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Robbie Ouzts",
+     "position": "TE",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Bud Clark",
+     "position": "S",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Zach Charbonnet",
+     "position": "RB",
+     "unit": "offensive_skill",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 68,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Chazz Surratt",
+     "position": "LB",
+     "unit": "linebacker",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 63,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Julian Neal",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 63,
+     "signal": "negative_availability"
+    }
+   ]
+  }
+ },
+ "ftn_team_level": {
+  "SF": {
+   "record_count": 140,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "EPA/PLY": "0.013",
+      "DVOA": "-13.3%",
+      "SUCC%": "45.2%",
+      "EXP%": "3.5%",
+      "CONV%": "46.3%",
+      "TO": "1",
+      "TO%": "0.4%",
+      "3&O": "16.7%",
+      "MTKL%": "8.9%",
+      "PEN%": "3.1%",
+      "PENY": "22.5"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "YD/PLY": "4.9",
+      "PT/GM": "16.0",
+      "FD%": "25.5%",
+      "TO": "1",
+      "DPBK%": "59.8%",
+      "YD": "859",
+      "TD": "4",
+      "INT": "1",
+      "RUSH%": "40.2%",
+      "YD__2": "401",
+      "TD__2": "2"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "DPBK": "155",
+      "SK": "6",
+      "SK%": "3.9%",
+      "QBH%": "12.3%",
+      "PRESS": "40",
+      "PRESS%": "25.8%",
+      "QPRESS%": "50.0%",
+      "TTPR": "2.60",
+      "DISR%": "0.6%",
+      "BLZ%": "31.0%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "EPA/DB": "0.060",
+      "SUCC%": "42.6%",
+      "DVOA": "-5.3%",
+      "CPOE": "0.75%",
+      "CBALL%": "68.3%",
+      "EXP%": "6.4%",
+      "INTW%": "2.1%",
+      "TGHT%": "24.8%",
+      "OPEN%": "53.1%",
+      "TA%": "4.1%",
+      "DROP%": "2.1%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "EPA/ATT": "-0.058",
+      "SUCC%": "49.0%",
+      "DVOA": "-22.5%",
+      "aRYOE": "",
+      "EXP%": "2.9%",
+      "STF%": "17.3%",
+      "YBCO": "1.42",
+      "YACO": "2.14"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "EPA/PLY": "0.278",
+      "DVOA": "44.9%",
+      "SUCC%": "53.5%",
+      "EXP%": "13.6%",
+      "CONV%": "57.1%",
+      "TO": "1",
+      "TO%": "0.44%",
+      "PENY": "20.8",
+      "PEN%": "3.95%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "YD/PLY": "6.8",
+      "PT/GM": "30.5",
+      "FD%": "36.8%",
+      "TO": "1",
+      "DPBK%": "53.9%",
+      "YD": "1,007",
+      "TD": "11",
+      "INT": "1",
+      "RUSH%": "46.1%",
+      "YD__2": "549",
+      "TD__2": "5"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "SK": "0",
+      "SK%": "0.0%",
+      "QBSK%": "",
+      "QBH%": "8.9%",
+      "PRESS%": "20.3%",
+      "UPRES%": "35.0%",
+      "BLITZ%": "32.5%",
+      "TTPR": "2.49",
+      "TTT": "2.64",
+      "EPA/DB": "0.244",
+      "DVOA": "11.1%",
+      "SUCC%": "56.0%",
+      "EPA/DB__2": "0.646",
+      "DVOA__2": "70.0%",
+      "SUCC%__2": "64.3%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "EPA/DB": "0.565",
+      "SUCC%": "62.6%",
+      "DVOA": "89.7%",
+      "CPOE": "5.2%",
+      "CBALL%": "76.1%",
+      "EXP%": "16.5%",
+      "INTW%": "2.7%",
+      "HLT%": "3.5%",
+      "TA%": "2.7%",
+      "DROP%": "2.7%",
+      "aDOT": "7.8",
+      "aYAC": "5.4"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "EPA/ATT": "-0.057",
+      "SUCC%": "42.9%",
+      "DVOA": "2.9%",
+      "aRYOE": "",
+      "EXP%": "12.4%",
+      "STF%": "17.1%",
+      "aYBCO": "1.67",
+      "aYACO": "2.37",
+      "CRT%": "57.4%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "PLY/GM": "57.0",
+      "TOP": "27.30",
+      "DRV/GM": "9.3",
+      "SEC/PLY": "28.7",
+      "PLY/DRV": "6.2",
+      "YD/DRV": "42.1",
+      "SEC/DRV": "177",
+      "3&O": "16.2%",
+      "SCD%": "54.1%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "SF",
+     "metrics": {
+      "Team": "San Francisco 49ers",
+      "GP": "4",
+      "DPBK%": "53.9%",
+      "RUSH%": "46.1%",
+      "SHG%": "43.4%",
+      "NH%": "0.9%",
+      "MOT%": "78.1%",
+      "PA%": "23.6%",
+      "IZ%": "29.5%",
+      "OZ%": "34.3%",
+      "MD%": "8.6%",
+      "PWR%": "3.8%",
+      "CTR%": "1.0%"
+     }
+    }
+   ]
+  },
+  "SEA": {
+   "record_count": 150,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "EPA/PLY": "-0.142",
+      "DVOA": "-22.5%",
+      "SUCC%": "36.4%",
+      "EXP%": "5.7%",
+      "CONV%": "40.3%",
+      "TO": "7",
+      "TO%": "2.8%",
+      "3&O": "30.4%",
+      "MTKL%": "8.8%",
+      "PEN%": "6.5%",
+      "PENY": "51.0"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "YD/PLY": "4.3",
+      "PT/GM": "16.8",
+      "FD%": "23.9%",
+      "TO": "7",
+      "DPBK%": "60.3%",
+      "YD": "645",
+      "TD": "6",
+      "INT": "6",
+      "RUSH%": "39.7%",
+      "YD__2": "408",
+      "TD__2": "1"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "DPBK": "149",
+      "SK": "11",
+      "SK%": "7.4%",
+      "QBH%": "20.8%",
+      "PRESS": "55",
+      "PRESS%": "36.9%",
+      "QPRESS%": "52.7%",
+      "TTPR": "2.47",
+      "DISR%": "6.0%",
+      "BLZ%": "21.5%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "EPA/DB": "-0.078",
+      "SUCC%": "40.9%",
+      "DVOA": "-10.9%",
+      "CPOE": "-0.36%",
+      "CBALL%": "71.8%",
+      "EXP%": "6.4%",
+      "INTW%": "5.6%",
+      "TGHT%": "21.8%",
+      "OPEN%": "59.7%",
+      "TA%": "4.0%",
+      "DROP%": "5.6%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "EPA/ATT": "-0.239",
+      "SUCC%": "29.6%",
+      "DVOA": "-37.4%",
+      "aRYOE": "",
+      "EXP%": "6.1%",
+      "STF%": "24.5%",
+      "YBCO": "0.98",
+      "YACO": "1.51"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "EPA/PLY": "0.001",
+      "DVOA": "-2.7%",
+      "SUCC%": "43.9%",
+      "EXP%": "10.1%",
+      "CONV%": "34.0%",
+      "TO": "5",
+      "TO%": "2.11%",
+      "PENY": "30.8",
+      "PEN%": "8.02%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "YD/PLY": "6.1",
+      "PT/GM": "24.8",
+      "FD%": "32.5%",
+      "TO": "5",
+      "DPBK%": "53.6%",
+      "YD": "996",
+      "TD": "10",
+      "INT": "3",
+      "RUSH%": "46.4%",
+      "YD__2": "441",
+      "TD__2": "3"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "SK": "6",
+      "SK%": "4.7%",
+      "QBSK%": "50.0%",
+      "QBH%": "18.1%",
+      "PRESS%": "28.3%",
+      "UPRES%": "34.5%",
+      "BLITZ%": "40.9%",
+      "TTPR": "3.01",
+      "TTT": "2.86",
+      "EPA/DB": "-0.575",
+      "DVOA": "-104.2%",
+      "SUCC%": "27.8%",
+      "EPA/DB__2": "0.497",
+      "DVOA__2": "56.0%",
+      "SUCC%__2": "60.4%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "EPA/DB": "0.193",
+      "SUCC%": "51.2%",
+      "DVOA": "40.2%",
+      "CPOE": "3.0%",
+      "CBALL%": "78.0%",
+      "EXP%": "16.0%",
+      "INTW%": "2.5%",
+      "HLT%": "2.5%",
+      "TA%": "3.4%",
+      "DROP%": "4.2%",
+      "aDOT": "7.0",
+      "aYAC": "6.1"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "EPA/ATT": "-0.220",
+      "SUCC%": "35.5%",
+      "DVOA": "-28.4%",
+      "aRYOE": "",
+      "EXP%": "9.1%",
+      "STF%": "24.5%",
+      "aYBCO": "1.09",
+      "aYACO": "2.01",
+      "CRT%": "53.4%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "PLY/GM": "59.3",
+      "TOP": "28.86",
+      "DRV/GM": "11.8",
+      "SEC/PLY": "29.2",
+      "PLY/DRV": "5.0",
+      "YD/DRV": "30.6",
+      "SEC/DRV": "147",
+      "3&O": "12.8%",
+      "SCD%": "38.3%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "SEA",
+     "metrics": {
+      "Team": "Seattle Seahawks",
+      "GP": "4",
+      "DPBK%": "53.6%",
+      "RUSH%": "46.4%",
+      "SHG%": "45.1%",
+      "NH%": "1.7%",
+      "MOT%": "56.5%",
+      "PA%": "34.6%",
+      "IZ%": "17.3%",
+      "OZ%": "40.0%",
+      "MD%": "15.5%",
+      "PWR%": "14.5%",
+      "CTR%": "5.5%"
+     }
+    }
+   ]
+  }
+ },
+ "files_to_read_directly": {
+  "weather_detail": "data/research-intel/source-evidence/2026-10-10-week5-weather-openmeteo.json (filter to SF@SEA)",
+  "prop_markets": "BKR/BEO rows for event \"San Francisco 49ers @ Seattle Seahawks\" with market != game_lines",
+  "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for SF and SEA",
+  "projected_starters": "data/projected-starters/2026/latest.json (teams.SF, teams.SEA)"
+ }
+}

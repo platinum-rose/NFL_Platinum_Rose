@@ -1,0 +1,2308 @@
+{
+ "schema": "w05_game_packet_v1",
+ "game": "LV@NE",
+ "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "kickoff_utc": "2026-10-11T17:00:00.000Z",
+ "away": {
+  "abbr": "LV",
+  "name": "Las Vegas Raiders"
+ },
+ "home": {
+  "abbr": "NE",
+  "name": "New England Patriots"
+ },
+ "line_convention": "spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points",
+ "teams": {
+  "LV": {
+   "team": "LV",
+   "division": "AFC West",
+   "record": "3-1",
+   "games_played": 4,
+   "points_for": 115,
+   "points_against": 84,
+   "point_diff": 31,
+   "ppg": 28.8,
+   "papg": 21.0,
+   "home_record": "1-1",
+   "away_record": "2-0",
+   "division_record": "1-1",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-13T20:25:00.000Z",
+     "opp": "MIA",
+     "site": "H",
+     "pf": 27,
+     "pa": 13,
+     "result": "W",
+     "opp_record": "0-4"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T20:05:00.000Z",
+     "opp": "LAC",
+     "site": "A",
+     "pf": 26,
+     "pa": 14,
+     "result": "W",
+     "opp_record": "0-4"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T20:25:00.000Z",
+     "opp": "NO",
+     "site": "A",
+     "pf": 35,
+     "pa": 27,
+     "result": "W",
+     "opp_record": "1-3"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T20:25:00.000Z",
+     "opp": "KC",
+     "site": "H",
+     "pf": 27,
+     "pa": 30,
+     "result": "L",
+     "opp_record": "4-0"
+    }
+   ],
+   "opponents_record_to_date": "5-11",
+   "rest_days_before_this_game": 6.9,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    13
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "NE",
+     "site": "A",
+     "kickoff_utc": "2026-10-11T17:00:00.000Z",
+     "opp_division": "AFC East"
+    },
+    {
+     "week": 6,
+     "opp": "BUF",
+     "site": "H",
+     "kickoff_utc": "2026-10-18T20:25:00.000Z",
+     "opp_division": "AFC East"
+    },
+    {
+     "week": 7,
+     "opp": "LAR",
+     "site": "H",
+     "kickoff_utc": "2026-10-25T20:25:00.000Z",
+     "opp_division": "NFC West"
+    },
+    {
+     "week": 8,
+     "opp": "NYJ",
+     "site": "A",
+     "kickoff_utc": "2026-11-01T18:00:00.000Z",
+     "opp_division": "AFC East"
+    }
+   ]
+  },
+  "NE": {
+   "team": "NE",
+   "division": "AFC East",
+   "record": "2-2",
+   "games_played": 4,
+   "points_for": 65,
+   "points_against": 77,
+   "point_diff": -12,
+   "ppg": 16.2,
+   "papg": 19.2,
+   "home_record": "1-0",
+   "away_record": "1-2",
+   "division_record": "1-0",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-10T00:20:00.000Z",
+     "opp": "SEA",
+     "site": "A",
+     "pf": 10,
+     "pa": 13,
+     "result": "L",
+     "opp_record": "3-1"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T17:00:00.000Z",
+     "opp": "PIT",
+     "site": "H",
+     "pf": 20,
+     "pa": 3,
+     "result": "W",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-27T17:00:00.000Z",
+     "opp": "JAX",
+     "site": "A",
+     "pf": 6,
+     "pa": 35,
+     "result": "L",
+     "opp_record": "3-1"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T17:00:00.000Z",
+     "opp": "BUF",
+     "site": "A",
+     "pf": 29,
+     "pa": 26,
+     "result": "W",
+     "opp_record": "3-1"
+    }
+   ],
+   "opponents_record_to_date": "11-5",
+   "rest_days_before_this_game": 7.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    11
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "LV",
+     "site": "H",
+     "kickoff_utc": "2026-10-11T17:00:00.000Z",
+     "opp_division": "AFC West"
+    },
+    {
+     "week": 6,
+     "opp": "NYJ",
+     "site": "H",
+     "kickoff_utc": "2026-10-18T17:00:00.000Z",
+     "opp_division": "AFC East"
+    },
+    {
+     "week": 7,
+     "opp": "CHI",
+     "site": "A",
+     "kickoff_utc": "2026-10-23T00:15:00.000Z",
+     "opp_division": "NFC North"
+    },
+    {
+     "week": 8,
+     "opp": "MIA",
+     "site": "A",
+     "kickoff_utc": "2026-11-01T21:25:00.000Z",
+     "opp_division": "AFC East"
+    }
+   ]
+  }
+ },
+ "standings": {
+  "divisions": {
+   "AFC East": [
+    {
+     "team": "BUF",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "div": "0-1",
+     "rank": 1
+    },
+    {
+     "team": "NE",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -12,
+     "div": "1-0",
+     "rank": 2
+    },
+    {
+     "team": "NYJ",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -8,
+     "div": "0-0",
+     "rank": 3
+    },
+    {
+     "team": "MIA",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -55,
+     "div": "0-0",
+     "rank": 4
+    }
+   ],
+   "AFC West": [
+    {
+     "team": "KC",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 41,
+     "div": "2-0",
+     "rank": 1
+    },
+    {
+     "team": "LV",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 31,
+     "div": "1-1",
+     "rank": 2
+    },
+    {
+     "team": "DEN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -20,
+     "div": "0-1",
+     "rank": 3
+    },
+    {
+     "team": "LAC",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -39,
+     "div": "0-1",
+     "rank": 4
+    }
+   ]
+  },
+  "conference_order_by_record_then_point_diff": {
+   "AFC": [
+    {
+     "team": "KC",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 41,
+     "order": 1
+    },
+    {
+     "team": "JAX",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 51,
+     "order": 2
+    },
+    {
+     "team": "LV",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 31,
+     "order": 3
+    },
+    {
+     "team": "BUF",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "order": 4
+    },
+    {
+     "team": "BAL",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 20,
+     "order": 5
+    },
+    {
+     "team": "CLE",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": -14,
+     "order": 6
+    },
+    {
+     "team": "CIN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "order": 7
+    },
+    {
+     "team": "IND",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -2,
+     "order": 8
+    },
+    {
+     "team": "PIT",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -10,
+     "order": 9
+    },
+    {
+     "team": "NE",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -12,
+     "order": 10
+    },
+    {
+     "team": "DEN",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -20,
+     "order": 11
+    },
+    {
+     "team": "NYJ",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -8,
+     "order": 12
+    },
+    {
+     "team": "HOU",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -25,
+     "order": 13
+    },
+    {
+     "team": "TEN",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -28,
+     "order": 14
+    },
+    {
+     "team": "LAC",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -39,
+     "order": 15
+    },
+    {
+     "team": "MIA",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -55,
+     "order": 16
+    }
+   ]
+  },
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+ },
+ "same_division_game": false,
+ "market": {
+  "BKR": {
+   "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:15:40.538Z",
+   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Las Vegas Raiders",
+      "line": 3.5,
+      "odds": -107,
+      "available": true
+     },
+     {
+      "side": "New England Patriots",
+      "line": -3.5,
+      "odds": -109,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 45,
+      "odds": -114,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 45,
+      "odds": -102,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Las Vegas Raiders",
+      "odds": 167,
+      "available": true
+     },
+     {
+      "side": "New England Patriots",
+      "odds": -191,
+      "available": true
+     }
+    ]
+   }
+  },
+  "BEO": {
+   "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:19:56.400Z",
+   "expires_for_recommendation_at": "2026-10-11T07:19:56.400000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Las Vegas Raiders",
+      "line": 3.5,
+      "odds": -110,
+      "available": true
+     },
+     {
+      "side": "New England Patriots",
+      "line": -3.5,
+      "odds": -110,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 45,
+      "odds": -114,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 45,
+      "odds": -106,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Las Vegas Raiders",
+      "odds": 160,
+      "available": true
+     },
+     {
+      "side": "New England Patriots",
+      "odds": -183,
+      "available": true
+     }
+    ]
+   }
+  },
+  "book_conflict": null,
+  "market_implied_score": {
+   "NE": 24.25,
+   "LV": 20.75,
+   "basis": "BKR home line -3.5 total 45"
+  }
+ },
+ "action_network_opener": {
+  "an_game_id": 290910,
+  "kickoff_utc": "2026-10-11T17:00:00Z",
+  "sp": {
+   "NE": -3.5,
+   "LV": 3.5
+  },
+  "sp_odds_home": -112,
+  "sp_at": "2026-10-05T00:01:36Z",
+  "tot": 45.5,
+  "tot_at": "2026-10-05T00:01:36Z",
+  "ml": {
+   "LV": 158,
+   "NE": -198
+  },
+  "carried_from_before_cutoff": false
+ },
+ "action_network_splits": {
+  "game_id": 290910,
+  "away_team": "LV",
+  "home_team": "NE",
+  "kickoff_at": "2026-10-11T17:00:00.000Z",
+  "spread": [
+   {
+    "side": "home",
+    "value": -3.5,
+    "price_american": -111,
+    "ticket_pct": 28,
+    "money_pct": 23
+   },
+   {
+    "side": "away",
+    "value": 3.5,
+    "price_american": -109,
+    "ticket_pct": 72,
+    "money_pct": 77
+   }
+  ],
+  "total": [
+   {
+    "side": "over",
+    "value": 45.5,
+    "price_american": -104,
+    "ticket_pct": 74,
+    "money_pct": 81
+   },
+   {
+    "side": "under",
+    "value": 45.5,
+    "price_american": -113,
+    "ticket_pct": 26,
+    "money_pct": 19
+   }
+  ],
+  "moneyline": [
+   {
+    "side": "home",
+    "value": 0,
+    "price_american": -198,
+    "ticket_pct": 64,
+    "money_pct": 35
+   },
+   {
+    "side": "away",
+    "value": 0,
+    "price_american": 160,
+    "ticket_pct": 36,
+    "money_pct": 65
+   }
+  ]
+ },
+ "action_network_splits_captured_at": "2026-10-09T19:41:08.878Z",
+ "supercontest_row": {
+  "away_team": "LV",
+  "home_team": "NE",
+  "favorite": "NE",
+  "underdog": "LV",
+  "favorite_spread": -3.5,
+  "kickoff_display": "Sun 1:00 pm"
+ },
+ "quantitative_row": {
+  "event": "Las Vegas Raiders @ New England Patriots",
+  "away": "LV",
+  "home": "NE",
+  "away_name": "Las Vegas Raiders",
+  "home_name": "New England Patriots",
+  "market": {
+   "home_spread": -3.5,
+   "total": 45,
+   "captured_at": "2026-10-11T01:15:40.538Z"
+  },
+  "features": {
+   "offense_z": {
+    "NE": -0.8571271850768536,
+    "LV": 0.3927514448367801
+   },
+   "defense_weakness_z": {
+    "NE": -0.7697291260288119,
+    "LV": -0.32546543152593893
+   },
+   "tempo_z": {
+    "NE": -0.9265511967452444,
+    "LV": 1.032598944337326
+   },
+   "srs": {
+    "NE": 2.402,
+    "LV": 6.191
+   },
+   "secondary_adjustment_points": {
+    "NE": 0.301,
+    "LV": 0.9
+   }
+  },
+  "means": {
+   "home": 23.53251628417847,
+   "away": 22.68704207165014,
+   "total": 46.21955835582861,
+   "home_margin": 0.8454742125283303
+  },
+  "simulation": {
+   "iterations": 100000,
+   "mean_home": 23.66539789571284,
+   "mean_away": 22.808370764957964,
+   "home_win_pct": 0.521,
+   "home_cover_pct": 0.43734,
+   "away_cover_pct": 0.5626599999999999,
+   "over_pct": 0.52918,
+   "under_pct": 0.47082
+  },
+  "model_menu": {
+   "side": "Las Vegas Raiders",
+   "side_cover_pct": 0.5626599999999999,
+   "total": "Over",
+   "total_pct": 0.52918
+  },
+  "contest": {
+   "team": "NE",
+   "favorite_spread": -3.5,
+   "market_favorite": "New England Patriots",
+   "file_orientation_reversed": false
+  }
+ },
+ "simulator_edge_sweep": [
+  {
+   "home_margin_edge_pts": -3,
+   "home_cover": 0.421,
+   "away_cover": 0.579,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": -2,
+   "home_cover": 0.4471,
+   "away_cover": 0.5529,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": -1,
+   "home_cover": 0.4734,
+   "away_cover": 0.5266,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 0,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 1,
+   "home_cover": 0.5267,
+   "away_cover": 0.4733,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 2,
+   "home_cover": 0.5534,
+   "away_cover": 0.4466,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 3,
+   "home_cover": 0.58,
+   "away_cover": 0.42,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  }
+ ],
+ "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
+ "digest_rows": [
+  "LV@NE | LV +3.5 / NE -3.5 | split | V: VSiN; RO: Daniel Jeremiah & Bucky Brooks, Sharp or Square, Even Money, Simon Hunter, Steve Fezzik, Ross Tucker, VSiN; vs NE: VSiN, Daniel Jeremiah & Bucky Brooks (RO), Andrew Erickson (RO), Ryan Wormeli (RO), Pro Football Talk (RO)\u2026 | skip",
+  "LV@NE | O45 -114 | Over | V: VSiN | 2-",
+  "LV@NE | Ashton Jeanty ATD | Yes | RO: PFF, @thepropdealer (X); src px not BKR; QUESTIONABLE per availability feed 2026-10-10T18:46Z | 2- research-only",
+  "LV@NE | Brock Bowers ATD +145 | Yes | RO: Action Network, Grant Neiffer, Cody Brown Bets (X); src px not BKR | 2- research-only",
+  "LV@NE | Cody White o1.5 rec | Over | RO: The Favorites, Kendra Middleton; no source price; src px not BKR | 2- research-only",
+  "LV@NE | Drake Maye ATD +450 | Yes | RO: Action Network, Grant Neiffer; src px not BKR | 2- research-only"
+ ],
+ "source_rows": {
+  "counts": {
+   "corroboration_only": 25,
+   "near_miss": 3,
+   "tier_eligible": 3
+  },
+  "rows": [
+   {
+    "row": "w05-expert-verified.json#rows[16]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 145,
+    "price": null,
+    "published": "2026-10-10T18:25:41.496+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[17]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 450,
+    "price": null,
+    "published": "2026-10-10T18:25:41.496+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[48]",
+    "kind": "expert_feed",
+    "outlet": "Daniel Jeremiah & Bucky Brooks",
+    "persons": [],
+    "market": "moneyline",
+    "side": "LV",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T17:46:02.285+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[49]",
+    "kind": "expert_feed",
+    "outlet": "Daniel Jeremiah & Bucky Brooks",
+    "persons": [],
+    "market": "moneyline",
+    "side": "NE",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T17:46:02.285+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[90]",
+    "kind": "expert_feed",
+    "outlet": "Daniel Jeremiah & Bucky Brooks",
+    "persons": [],
+    "market": "moneyline",
+    "side": "LV",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T17:46:01.833+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[91]",
+    "kind": "expert_feed",
+    "outlet": "Daniel Jeremiah & Bucky Brooks",
+    "persons": [],
+    "market": "moneyline",
+    "side": "NE",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T17:46:01.833+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[117]",
+    "kind": "expert_feed",
+    "outlet": "The Favorites",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 1.5,
+    "price": null,
+    "published": "2026-10-09T15:40:52.356+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[137]",
+    "kind": "expert_feed",
+    "outlet": "Sharp or Square",
+    "persons": [],
+    "market": "spread",
+    "side": "LV",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-09T15:40:52.076+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[166]",
+    "kind": "expert_feed",
+    "outlet": "Even Money",
+    "persons": [
+     "Ross Tucker"
+    ],
+    "market": "spread",
+    "side": "LV",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-07T15:54:08.659+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[182]",
+    "kind": "expert_feed",
+    "outlet": "Sharp or Square",
+    "persons": [],
+    "market": "spread",
+    "side": "LV",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-06T15:30:57.087+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[219]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Grant Neiffer"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 145,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[220]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Grant Neiffer"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 450,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[257]",
+    "kind": "podcast",
+    "outlet": "SHARP NFL Week 5 Bets: Bears-Packers, Niners-Seahawks and more",
+    "persons": [
+     "Simon Hunter"
+    ],
+    "market": "moneyline",
+    "side": "LV",
+    "line": null,
+    "price": 164,
+    "published": "2026-10-08T17:01:29+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[294]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "spread",
+    "side": "LV",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[295]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Ross Tucker"
+    ],
+    "market": "spread",
+    "side": "LV",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[324]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Andrew Erickson"
+    ],
+    "market": "spread",
+    "side": "NE",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[325]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Ryan Wormeli"
+    ],
+    "market": "spread",
+    "side": "NE",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[352]",
+    "kind": "podcast",
+    "outlet": "Construction &amp; Big Dog Picks | NFL Week 5 Preview",
+    "persons": [
+     "Emerson Lotzia"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T16:55:35+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[353]",
+    "kind": "podcast",
+    "outlet": "Construction &amp; Big Dog Picks | NFL Week 5 Preview",
+    "persons": [
+     "Kendra Middleton"
+    ],
+    "market": "prop",
+    "side": "OVER",
+    "line": 1.5,
+    "price": null,
+    "published": "2026-10-08T16:55:35+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[397]",
+    "kind": "article",
+    "outlet": "ESPN NFL",
+    "persons": [
+     "Ben Solak, Seth Walder, Matt Bowen and Mike Clay"
+    ],
+    "market": "prop",
+    "side": "OVER 30.5 (-109)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[398]",
+    "kind": "article",
+    "outlet": "ESPN NFL",
+    "persons": [
+     "Ben Solak, Seth Walder, Matt Bowen and Mike Clay"
+    ],
+    "market": "prop",
+    "side": "OVER 39.5 (+165)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": true,
+    "url": "https://www.espn.com/espn/betting/story/_/id/50107426/week-5-nfl-odds-props-best-bets-sunday-games",
+    "quote": "Tracking half a unit on 40+ receiving yards at +165."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[417]",
+    "kind": "article",
+    "outlet": "PFF",
+    "persons": [
+     "Judah Fortgang"
+    ],
+    "market": "prop",
+    "side": "Ashton Jeanty",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:37:38.381786+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[421]",
+    "kind": "article",
+    "outlet": "BettingPros",
+    "persons": [
+     "Trent Conner"
+    ],
+    "market": "prop",
+    "side": "OVER 3.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:34:25.131417+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[429]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "Cody Brown Bets"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:33:54.97021+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[445]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Matt Youmans"
+    ],
+    "market": "spread",
+    "side": "NE",
+    "line": -3.5,
+    "price": null,
+    "published": "2026-10-10T17:33:20.154087+00:00",
+    "best_bet": true,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/matt-youmans-nfl-week-5-best-bets-and-predictions/",
+    "quote": "Best Bet: Patriots -3.5"
+   },
+   {
+    "row": "w05-expert-verified.json#rows[453]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Wes Reynolds"
+    ],
+    "market": "total",
+    "side": "Over",
+    "line": 45.0,
+    "price": null,
+    "published": "2026-10-10T12:03:19.165844+00:00",
+    "best_bet": false,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/wes-reynolds-nfl-week-5-best-bets-and-predictions/",
+    "quote": "Las Vegas Raiders/New England Patriots Over 45"
+   },
+   {
+    "row": "w05-expert-verified.json#rows[466]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@thepropdealer"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T04:04:06.828628+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[510]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Steve Makinen"
+    ],
+    "market": "spread",
+    "side": "LV",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-08T21:33:26.464701+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": true,
+    "url": "https://vsin.com/nfl/steve-makinen-week-5-nfl-best-bets/",
+    "quote": "NFL Best Bet: It's Las Vegas +3.5 on the road at New England for me"
+   },
+   {
+    "row": "w05-expert-verified.json#rows[535]",
+    "kind": "article",
+    "outlet": "Pro Football Talk",
+    "persons": [],
+    "market": "moneyline",
+    "side": "NE",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T16:33:20.970971+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[563]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Dave Tuley"
+    ],
+    "market": "spread",
+    "side": "LV",
+    "line": 3.5,
+    "price": null,
+    "published": "2026-10-08T01:33:21.643136+00:00",
+    "best_bet": true,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/tuleys-takes-for-nfl-week-5/",
+    "quote": "Best Bet: Raiders +3.5 (Pool Play Percentages: Raiders 67/33 in ATS contests, but Patriots still 67/33 in SU pools \u2013 do you see what I did there?"
+   },
+   {
+    "row": "w05-expert-verified.json#rows[575]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "Potato Kmish"
+    ],
+    "market": "spread",
+    "side": "NE",
+    "line": -7.0,
+    "price": null,
+    "published": "2026-10-07T08:03:34.297032+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": true,
+    "url": "https://x.com/potatokmish/status/2107650007335895202",
+    "quote": "Next week is a teaser player\u2019s dream"
+   }
+  ]
+ },
+ "weather_venue_row": {
+  "game": "LV@NE",
+  "weather_status": "forecast_captured",
+  "source_game": "LV@NE",
+  "materiality": "no_material_flag_in_current_forecast"
+ },
+ "secondary_matchups": [
+  {
+   "id": "sec_8b126b3caa98ce8d",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_LV_at_NE",
+   "kickoff_utc": "2026-10-11T17:00:00.000Z",
+   "offense_team": "LV",
+   "offense_team_nick": "Raiders",
+   "defense_team": "NE",
+   "defense_team_nick": "Patriots",
+   "offense_venue": "away",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "man_heavy",
+     "single_high"
+    ],
+    "primary_coverage_family": "man_heavy",
+    "pressure_profile": "coverage_first",
+    "confidence": 0.75,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Jerod Mayo Belichick-lineage press man featuring Christian Gonzalez."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Dell Pettus",
+     "team": "NE",
+     "position": "S",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Dell Pettus IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Karon Prunty",
+     "team": "NE",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Prunty (hamstring) has been ruled out for Sunday's game against Las Vegas.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T01:56:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Channing Canada",
+     "team": "NE",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Canada (hamstring) has been ruled out for Sunday's game against the Raiders.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T01:54:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Christian Gonzalez",
+     "team": "NE",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Gonzalez (shoulder) has been ruled out for Sunday's game against Las Vegas.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-09T23:08:00.000Z",
+     "role": "outside_cb1",
+     "side": "boundary",
+     "impact_tier": "elite",
+     "primary_receiver_archetypes_impacted": [
+      "alpha_x"
+     ],
+     "weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "severity_score": 3.6,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Carlton Davis III",
+     "team": "NE",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Davis (neck) has been ruled out for Sunday's game against the Raiders.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API",
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-09T23:03:00.000Z",
+     "role": "outside_cb2",
+     "side": "field",
+     "impact_tier": "plus",
+     "primary_receiver_archetypes_impacted": [
+      "z_receiver"
+     ],
+     "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "severity_score": 2.7,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "alpha_wr_boost",
+    "boundary_wr_boost",
+    "deep_pass_boost",
+    "outside_wr_boost",
+    "post_cross_boost",
+    "slot_wr_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Tre Tucker",
+     "team": "LV",
+     "roles": [
+      "alpha_x"
+     ],
+     "target_share_tier": "high",
+     "route_area_tags": [
+      "boundary",
+      "intermediate"
+     ],
+     "matched_weakness_tags": [
+      "outside_wr_boost",
+      "alpha_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "opportunity_score": 3.6,
+     "notes": "LV WR1 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Brock Bowers",
+     "team": "LV",
+     "roles": [
+      "te_middle",
+      "slot"
+     ],
+     "target_share_tier": "alpha",
+     "route_area_tags": [
+      "middle",
+      "slot",
+      "intermediate"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost"
+     ],
+     "opportunity_score": 1.5,
+     "notes": "LV 1st Round Generational TE.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Cody White",
+     "team": "LV",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost"
+     ],
+     "opportunity_score": 0.8,
+     "notes": "LV WR3 per ESPN depth chart 2026-10-02; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    }
+   ],
+   "severity_score": 10.05,
+   "elite_absence_count": 2,
+   "vulnerability_tier": "high",
+   "confidence": 0.95,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  },
+  {
+   "id": "sec_85f7bdd51791492e",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_LV_at_NE",
+   "kickoff_utc": "2026-10-11T17:00:00.000Z",
+   "offense_team": "NE",
+   "offense_team_nick": "Patriots",
+   "defense_team": "LV",
+   "defense_team_nick": "Raiders",
+   "offense_venue": "home",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "zone_heavy",
+     "single_high"
+    ],
+    "primary_coverage_family": "cover_3_zone",
+    "pressure_profile": "front_dependent",
+    "confidence": 0.68,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Patrick Graham adaptable zone-first scheme featuring Nate Hobbs in nickel."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Chigozie Anusiem",
+     "team": "LV",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Chigozie Anusiem IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:03.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Hezekiah Masses",
+     "team": "LV",
+     "position": "CB",
+     "event_type": "limited",
+     "availability_trend": "stable",
+     "summary": "Head coach Klint Kubiak told reporters Friday that he views both Masses and Darien Porter as viable starters at outside cornerback opposite Eric Stokes, Sam Warren of The Athletic reports.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-02T21:35:00.000Z",
+     "role": "outside_cb2",
+     "side": "field",
+     "impact_tier": "starter",
+     "primary_receiver_archetypes_impacted": [
+      "z_receiver"
+     ],
+     "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "severity_score": 0.83,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Darien Porter",
+     "team": "LV",
+     "position": "CB",
+     "event_type": "limited",
+     "availability_trend": "stable",
+     "summary": "Head coach Klint Kubiak expressed confidence Friday in the play of Porter, who didn't play a single defensive snap during the Raiders' Week 3 win over the Saints, Sam Warren of The Athletic reports.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-02T21:31:00.000Z",
+     "role": "outside_cb2",
+     "side": "field",
+     "impact_tier": "starter",
+     "primary_receiver_archetypes_impacted": [
+      "z_receiver"
+     ],
+     "weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "severity_score": 0.83,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "boundary_wr_boost",
+    "deep_pass_boost",
+    "outside_wr_boost",
+    "post_cross_boost",
+    "slot_wr_boost",
+    "underneath_volume_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "DeMario Douglas",
+     "team": "NE",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "high",
+     "route_area_tags": [
+      "slot",
+      "underneath"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 2.4,
+     "notes": "NE Quick Slot WR.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Romeo Doubs",
+     "team": "NE",
+     "roles": [
+      "alpha_x",
+      "red_zone"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "boundary",
+      "red_zone"
+     ],
+     "matched_weakness_tags": [
+      "outside_wr_boost",
+      "boundary_wr_boost"
+     ],
+     "opportunity_score": 1.6,
+     "notes": "GB Boundary WR. [moved from GB per ESPN roster 2026-09-27]",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    }
+   ],
+   "severity_score": 3.01,
+   "elite_absence_count": 0,
+   "vulnerability_tier": "medium",
+   "confidence": 0.75,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  }
+ ],
+ "power_ratings": {
+  "LV": {
+   "season": 2026,
+   "team": "Raiders",
+   "team_abbr": "LV",
+   "games_played": 4,
+   "record": "3-1",
+   "power_rating": {
+    "srs": 6.191,
+    "net_points_per_game": 7.75,
+    "pythag_win_pct": 0.678,
+    "model_composite_z": 1.0112,
+    "model_rank": 6,
+    "srs_rank": 6,
+    "net_ppg_rank": 7,
+    "pythag_rank": 7,
+    "market_implied_win_total": 8.67,
+    "market_implied_rank": 18,
+    "delta": -1.1934,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  },
+  "NE": {
+   "season": 2026,
+   "team": "Patriots",
+   "team_abbr": "NE",
+   "games_played": 4,
+   "record": "2-2",
+   "power_rating": {
+    "srs": 2.402,
+    "net_points_per_game": -3,
+    "pythag_win_pct": 0.4009,
+    "model_composite_z": -0.2093,
+    "model_rank": 17,
+    "srs_rank": 11,
+    "net_ppg_rank": 21,
+    "pythag_rank": 22,
+    "market_implied_win_total": 10.35,
+    "market_implied_rank": 12,
+    "delta": 0.7954,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  }
+ },
+ "availability": {
+  "LV": {
+   "event_count": 20,
+   "qb_events": 0,
+   "offensive_line_worsening": 1,
+   "defensive_front_worsening": 1,
+   "top_score": 97,
+   "top_events": [
+    {
+     "player_name": "Trey Zuhn III",
+     "position": "C",
+     "unit": "offensive_line",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "offensive_line_major",
+     "score": 97,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Keyron Crawford",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Dont'e Thornton Jr.",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jack Bech",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Seth Williams",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Brennan Jackson",
+     "position": "LB",
+     "unit": "linebacker",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Chigozie Anusiem",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Chris Collier",
+     "position": "RB",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    }
+   ]
+  },
+  "NE": {
+   "event_count": 39,
+   "qb_events": 2,
+   "offensive_line_worsening": 0,
+   "defensive_front_worsening": 1,
+   "top_score": 94,
+   "top_events": [
+    {
+     "player_name": "Drake Maye",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "status_update",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 94,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Drake Maye",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "active_news",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 93,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Quintayvious Hutchins",
+     "position": "DE",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "A.J. Brown",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Channing Canada",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 79,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "A.J. Brown",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Julian Hill",
+     "position": "TE",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 72,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Dell Pettus",
+     "position": "S",
+     "unit": "secondary",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    }
+   ]
+  }
+ },
+ "ftn_team_level": {
+  "LV": {
+   "record_count": 135,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "EPA/PLY": "-0.103",
+      "DVOA": "-5.0%",
+      "SUCC%": "42.4%",
+      "EXP%": "9.5%",
+      "CONV%": "39.3%",
+      "TO": "7",
+      "TO%": "2.9%",
+      "3&O": "21.3%",
+      "MTKL%": "12.8%",
+      "PEN%": "4.1%",
+      "PENY": "9.8"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "YD/PLY": "5.9",
+      "PT/GM": "21.0",
+      "FD%": "28.4%",
+      "TO": "7",
+      "DPBK%": "60.5%",
+      "YD": "892",
+      "TD": "7",
+      "INT": "4",
+      "RUSH%": "39.5%",
+      "YD__2": "538",
+      "TD__2": "4"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "DPBK": "147",
+      "SK": "12",
+      "SK%": "8.2%",
+      "QBH%": "21.8%",
+      "PRESS": "58",
+      "PRESS%": "39.5%",
+      "QPRESS%": "55.2%",
+      "TTPR": "2.60",
+      "DISR%": "2.0%",
+      "BLZ%": "25.2%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "EPA/DB": "-0.077",
+      "SUCC%": "44.2%",
+      "DVOA": "-5.4%",
+      "CPOE": "-4.13%",
+      "CBALL%": "65.4%",
+      "EXP%": "13.5%",
+      "INTW%": "3.1%",
+      "TGHT%": "27.6%",
+      "OPEN%": "72.4%",
+      "TA%": "5.5%",
+      "DROP%": "3.9%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "EPA/ATT": "-0.144",
+      "SUCC%": "39.6%",
+      "DVOA": "-4.4%",
+      "aRYOE": "",
+      "EXP%": "11.5%",
+      "STF%": "18.8%",
+      "YBCO": "1.98",
+      "YACO": "1.94"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "EPA/PLY": "-0.015",
+      "DVOA": "-0.2%",
+      "SUCC%": "41.3%",
+      "EXP%": "7.7%",
+      "CONV%": "44.1%",
+      "TO": "4",
+      "TO%": "1.48%",
+      "PENY": "20.3",
+      "PEN%": "4.80%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "YD/PLY": "5.2",
+      "PT/GM": "28.3",
+      "FD%": "28.4%",
+      "TO": "4",
+      "DPBK%": "57.2%",
+      "YD": "1,026",
+      "TD": "11",
+      "INT": "4",
+      "RUSH%": "42.8%",
+      "YD__2": "372",
+      "TD__2": "1"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "SK": "5",
+      "SK%": "3.2%",
+      "QBSK%": "40.0%",
+      "QBH%": "17.4%",
+      "PRESS%": "32.9%",
+      "UPRES%": "18.9%",
+      "BLITZ%": "26.5%",
+      "TTPR": "2.54",
+      "TTT": "2.65",
+      "EPA/DB": "0.061",
+      "DVOA": "-5.1%",
+      "SUCC%": "45.1%",
+      "EPA/DB__2": "0.210",
+      "DVOA__2": "26.9%",
+      "SUCC%__2": "51.0%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "EPA/DB": "0.161",
+      "SUCC%": "49.0%",
+      "DVOA": "29.6%",
+      "CPOE": "-0.6%",
+      "CBALL%": "72.1%",
+      "EXP%": "14.0%",
+      "INTW%": "3.4%",
+      "HLT%": "1.4%",
+      "TA%": "3.4%",
+      "DROP%": "4.8%",
+      "aDOT": "8.4",
+      "aYAC": "4.0"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "EPA/ATT": "-0.250",
+      "SUCC%": "31.0%",
+      "DVOA": "-25.1%",
+      "aRYOE": "",
+      "EXP%": "6.9%",
+      "STF%": "31.9%",
+      "aYBCO": "1.18",
+      "aYACO": "1.91",
+      "CRT%": "61.7%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "PLY/GM": "67.8",
+      "TOP": "30.35",
+      "DRV/GM": "12.0",
+      "SEC/PLY": "26.9",
+      "PLY/DRV": "5.6",
+      "YD/DRV": "29.1",
+      "SEC/DRV": "152",
+      "3&O": "16.7%",
+      "SCD%": "45.8%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "LV",
+     "metrics": {
+      "Team": "Las Vegas Raiders",
+      "GP": "4",
+      "DPBK%": "57.2%",
+      "RUSH%": "42.8%",
+      "SHG%": "48.7%",
+      "NH%": "5.2%",
+      "MOT%": "63.5%",
+      "PA%": "23.9%",
+      "IZ%": "19.8%",
+      "OZ%": "26.7%",
+      "MD%": "22.4%",
+      "PWR%": "10.3%",
+      "CTR%": "1.7%"
+     }
+    }
+   ]
+  },
+  "NE": {
+   "record_count": 155,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "EPA/PLY": "-0.007",
+      "DVOA": "-7.0%",
+      "SUCC%": "41.7%",
+      "EXP%": "8.7%",
+      "CONV%": "42.0%",
+      "TO": "4",
+      "TO%": "1.7%",
+      "3&O": "23.3%",
+      "MTKL%": "13.1%",
+      "PEN%": "5.7%",
+      "PENY": "16.0"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "YD/PLY": "5.4",
+      "PT/GM": "17.8",
+      "FD%": "27.4%",
+      "TO": "4",
+      "DPBK%": "61.3%",
+      "YD": "822",
+      "TD": "5",
+      "INT": "3",
+      "RUSH%": "38.7%",
+      "YD__2": "416",
+      "TD__2": "4"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "DPBK": "141",
+      "SK": "8",
+      "SK%": "5.7%",
+      "QBH%": "15.6%",
+      "PRESS": "38",
+      "PRESS%": "27.0%",
+      "QPRESS%": "31.6%",
+      "TTPR": "2.89",
+      "DISR%": "1.4%",
+      "BLZ%": "36.9%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "EPA/DB": "-0.046",
+      "SUCC%": "41.8%",
+      "DVOA": "-10.7%",
+      "CPOE": "2.25%",
+      "CBALL%": "70.9%",
+      "EXP%": "12.2%",
+      "INTW%": "3.1%",
+      "TGHT%": "28.3%",
+      "OPEN%": "62.2%",
+      "TA%": "5.5%",
+      "DROP%": "4.7%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "EPA/ATT": "0.056",
+      "SUCC%": "41.6%",
+      "DVOA": "-2.0%",
+      "aRYOE": "",
+      "EXP%": "10.1%",
+      "STF%": "11.2%",
+      "YBCO": "1.51",
+      "YACO": "2.17"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "EPA/PLY": "-0.026",
+      "DVOA": "-16.7%",
+      "SUCC%": "42.7%",
+      "EXP%": "9.5%",
+      "CONV%": "43.1%",
+      "TO": "8",
+      "TO%": "3.16%",
+      "PENY": "30.0",
+      "PEN%": "5.93%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "YD/PLY": "5.4",
+      "PT/GM": "14.8",
+      "FD%": "27.7%",
+      "TO": "8",
+      "DPBK%": "58.5%",
+      "YD": "900",
+      "TD": "4",
+      "INT": "7",
+      "RUSH%": "41.5%",
+      "YD__2": "471",
+      "TD__2": "2"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "SK": "9",
+      "SK%": "6.1%",
+      "QBSK%": "11.1%",
+      "QBH%": "13.5%",
+      "PRESS%": "29.7%",
+      "UPRES%": "16.0%",
+      "BLITZ%": "29.7%",
+      "TTPR": "2.91",
+      "TTT": "2.89",
+      "EPA/DB": "-0.433",
+      "DVOA": "-105.6%",
+      "SUCC%": "29.5%",
+      "EPA/DB__2": "0.268",
+      "DVOA__2": "9.6%",
+      "SUCC%__2": "58.7%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "EPA/DB": "0.059",
+      "SUCC%": "50.0%",
+      "DVOA": "0.1%",
+      "CPOE": "-0.2%",
+      "CBALL%": "66.9%",
+      "EXP%": "15.6%",
+      "INTW%": "6.5%",
+      "HLT%": "2.4%",
+      "TA%": "4.0%",
+      "DROP%": "1.6%",
+      "aDOT": "9.2",
+      "aYAC": "4.4"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "EPA/ATT": "-0.146",
+      "SUCC%": "32.4%",
+      "DVOA": "-19.3%",
+      "aRYOE": "",
+      "EXP%": "5.7%",
+      "STF%": "24.8%",
+      "aYBCO": "0.88",
+      "aYACO": "1.76",
+      "CRT%": "55.6%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "PLY/GM": "63.3",
+      "TOP": "29.48",
+      "DRV/GM": "10.8",
+      "SEC/PLY": "27.9",
+      "PLY/DRV": "5.9",
+      "YD/DRV": "31.9",
+      "SEC/DRV": "165",
+      "3&O": "14.0%",
+      "SCD%": "27.9%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "NE",
+     "metrics": {
+      "Team": "New England Patriots",
+      "GP": "4",
+      "DPBK%": "58.5%",
+      "RUSH%": "41.5%",
+      "SHG%": "49.0%",
+      "NH%": "0.8%",
+      "MOT%": "54.5%",
+      "PA%": "23.6%",
+      "IZ%": "35.2%",
+      "OZ%": "9.5%",
+      "MD%": "30.5%",
+      "PWR%": "8.6%",
+      "CTR%": "3.8%"
+     }
+    }
+   ]
+  }
+ },
+ "files_to_read_directly": {
+  "weather_detail": "data/research-intel/source-evidence/2026-10-10-week5-weather-openmeteo.json (filter to LV@NE)",
+  "prop_markets": "BKR/BEO rows for event \"Las Vegas Raiders @ New England Patriots\" with market != game_lines",
+  "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for LV and NE",
+  "projected_starters": "data/projected-starters/2026/latest.json (teams.LV, teams.NE)"
+ }
+}

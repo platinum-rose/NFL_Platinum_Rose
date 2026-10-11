@@ -1,0 +1,2269 @@
+{
+ "schema": "w05_game_packet_v1",
+ "game": "CHI@GB",
+ "built_at": "2026-10-11T01:22:14.064268+00:00",
+ "kickoff_utc": "2026-10-11T17:00:00.000Z",
+ "away": {
+  "abbr": "CHI",
+  "name": "Chicago Bears"
+ },
+ "home": {
+  "abbr": "GB",
+  "name": "Green Bay Packers"
+ },
+ "line_convention": "spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points",
+ "teams": {
+  "CHI": {
+   "team": "CHI",
+   "division": "NFC North",
+   "record": "3-1",
+   "games_played": 4,
+   "points_for": 112,
+   "points_against": 65,
+   "point_diff": 47,
+   "ppg": 28.0,
+   "papg": 16.2,
+   "home_record": "2-1",
+   "away_record": "1-0",
+   "division_record": "0-1",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-13T17:00:00.000Z",
+     "opp": "CAR",
+     "site": "A",
+     "pf": 59,
+     "pa": 37,
+     "result": "W",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T17:00:00.000Z",
+     "opp": "MIN",
+     "site": "H",
+     "pf": 3,
+     "pa": 9,
+     "result": "L",
+     "opp_record": "4-0"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-29T00:15:00.000Z",
+     "opp": "PHI",
+     "site": "H",
+     "pf": 27,
+     "pa": 7,
+     "result": "W",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T17:00:00.000Z",
+     "opp": "NYJ",
+     "site": "H",
+     "pf": 23,
+     "pa": 12,
+     "result": "W",
+     "opp_record": "1-3"
+    }
+   ],
+   "opponents_record_to_date": "9-7",
+   "rest_days_before_this_game": 7.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    10
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "GB",
+     "site": "A",
+     "kickoff_utc": "2026-10-11T17:00:00.000Z",
+     "opp_division": "NFC North"
+    },
+    {
+     "week": 6,
+     "opp": "ATL",
+     "site": "A",
+     "kickoff_utc": "2026-10-18T17:00:00.000Z",
+     "opp_division": "NFC South"
+    },
+    {
+     "week": 7,
+     "opp": "NE",
+     "site": "H",
+     "kickoff_utc": "2026-10-23T00:15:00.000Z",
+     "opp_division": "AFC East"
+    },
+    {
+     "week": 8,
+     "opp": "SEA",
+     "site": "A",
+     "kickoff_utc": "2026-11-03T01:15:00.000Z",
+     "opp_division": "NFC West"
+    }
+   ]
+  },
+  "GB": {
+   "team": "GB",
+   "division": "NFC North",
+   "record": "2-2",
+   "games_played": 4,
+   "points_for": 73,
+   "points_against": 105,
+   "point_diff": -32,
+   "ppg": 18.2,
+   "papg": 26.2,
+   "home_record": "0-1",
+   "away_record": "2-1",
+   "division_record": "0-1",
+   "results": [
+    {
+     "week": 1,
+     "kickoff_utc": "2026-09-13T20:25:00.000Z",
+     "opp": "MIN",
+     "site": "A",
+     "pf": 22,
+     "pa": 39,
+     "result": "L",
+     "opp_record": "4-0"
+    },
+    {
+     "week": 2,
+     "kickoff_utc": "2026-09-20T17:00:00.000Z",
+     "opp": "NYJ",
+     "site": "A",
+     "pf": 20,
+     "pa": 17,
+     "result": "W",
+     "opp_record": "1-3"
+    },
+    {
+     "week": 3,
+     "kickoff_utc": "2026-09-25T00:15:00.000Z",
+     "opp": "ATL",
+     "site": "H",
+     "pf": 14,
+     "pa": 35,
+     "result": "L",
+     "opp_record": "2-2"
+    },
+    {
+     "week": 4,
+     "kickoff_utc": "2026-10-04T17:00:00.000Z",
+     "opp": "TB",
+     "site": "A",
+     "pf": 17,
+     "pa": 14,
+     "result": "W",
+     "opp_record": "0-4"
+    }
+   ],
+   "opponents_record_to_date": "7-9",
+   "rest_days_before_this_game": 7.0,
+   "bye_weeks_already_used": [],
+   "bye_weeks_remaining": [
+    11
+   ],
+   "upcoming_after_this_game": [
+    {
+     "week": 5,
+     "opp": "CHI",
+     "site": "H",
+     "kickoff_utc": "2026-10-11T17:00:00.000Z",
+     "opp_division": "NFC North"
+    },
+    {
+     "week": 6,
+     "opp": "DAL",
+     "site": "H",
+     "kickoff_utc": "2026-10-19T00:20:00.000Z",
+     "opp_division": "NFC East"
+    },
+    {
+     "week": 7,
+     "opp": "DET",
+     "site": "A",
+     "kickoff_utc": "2026-10-25T20:25:00.000Z",
+     "opp_division": "NFC North"
+    },
+    {
+     "week": 8,
+     "opp": "CAR",
+     "site": "H",
+     "kickoff_utc": "2026-10-30T00:15:00.000Z",
+     "opp_division": "NFC South"
+    }
+   ]
+  }
+ },
+ "standings": {
+  "divisions": {
+   "NFC North": [
+    {
+     "team": "MIN",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 35,
+     "div": "2-0",
+     "rank": 1
+    },
+    {
+     "team": "CHI",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 47,
+     "div": "0-1",
+     "rank": 2
+    },
+    {
+     "team": "DET",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -8,
+     "div": "0-0",
+     "rank": 3
+    },
+    {
+     "team": "GB",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -32,
+     "div": "0-1",
+     "rank": 4
+    }
+   ]
+  },
+  "conference_order_by_record_then_point_diff": {
+   "NFC": [
+    {
+     "team": "SF",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 58,
+     "order": 1
+    },
+    {
+     "team": "MIN",
+     "record": "4-0",
+     "pct": 1.0,
+     "point_diff": 35,
+     "order": 2
+    },
+    {
+     "team": "CHI",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 47,
+     "order": 3
+    },
+    {
+     "team": "SEA",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 32,
+     "order": 4
+    },
+    {
+     "team": "NYG",
+     "record": "3-1",
+     "pct": 0.75,
+     "point_diff": 3,
+     "order": 5
+    },
+    {
+     "team": "CAR",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 12,
+     "order": 6
+    },
+    {
+     "team": "DAL",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 10,
+     "order": 7
+    },
+    {
+     "team": "ATL",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 4,
+     "order": 8
+    },
+    {
+     "team": "LAR",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": 2,
+     "order": 9
+    },
+    {
+     "team": "DET",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -8,
+     "order": 10
+    },
+    {
+     "team": "PHI",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -18,
+     "order": 11
+    },
+    {
+     "team": "GB",
+     "record": "2-2",
+     "pct": 0.5,
+     "point_diff": -32,
+     "order": 12
+    },
+    {
+     "team": "NO",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -23,
+     "order": 13
+    },
+    {
+     "team": "ARI",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -30,
+     "order": 14
+    },
+    {
+     "team": "WAS",
+     "record": "1-3",
+     "pct": 0.25,
+     "point_diff": -34,
+     "order": 15
+    },
+    {
+     "team": "TB",
+     "record": "0-4",
+     "pct": 0.0,
+     "point_diff": -20,
+     "order": 16
+    }
+   ]
+  },
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+ },
+ "same_division_game": true,
+ "market": {
+  "BKR": {
+   "source_path": "data/generated/props/bookmaker-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:15:40.538Z",
+   "expires_for_recommendation_at": "2026-10-11T07:15:40.538000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Chicago Bears",
+      "line": -1.5,
+      "odds": -101,
+      "available": true
+     },
+     {
+      "side": "Green Bay Packers",
+      "line": 1.5,
+      "odds": -115,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 46,
+      "odds": -118,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 46,
+      "odds": 101,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Chicago Bears",
+      "odds": -116,
+      "available": true
+     },
+     {
+      "side": "Green Bay Packers",
+      "odds": 103,
+      "available": true
+     }
+    ]
+   }
+  },
+  "BEO": {
+   "source_path": "data/generated/props/betonline-live-2026-10-11-week5.json",
+   "captured_at": "2026-10-11T01:19:56.400Z",
+   "expires_for_recommendation_at": "2026-10-11T07:19:56.400000+00:00",
+   "fresh_at_build": true,
+   "lines": {
+    "spread": [
+     {
+      "side": "Chicago Bears",
+      "line": -1,
+      "odds": -113,
+      "available": true
+     },
+     {
+      "side": "Green Bay Packers",
+      "line": 1,
+      "odds": -107,
+      "available": true
+     }
+    ],
+    "total": [
+     {
+      "side": "Over",
+      "line": 46.5,
+      "odds": -116,
+      "available": true
+     },
+     {
+      "side": "Under",
+      "line": 46.5,
+      "odds": -104,
+      "available": true
+     }
+    ],
+    "moneyline": [
+     {
+      "side": "Chicago Bears",
+      "odds": -119,
+      "available": true
+     },
+     {
+      "side": "Green Bay Packers",
+      "odds": -101,
+      "available": true
+     }
+    ]
+   }
+  },
+  "book_conflict": null,
+  "market_implied_score": {
+   "GB": 22.25,
+   "CHI": 23.75,
+   "basis": "BKR home line 1.5 total 46"
+  }
+ },
+ "action_network_opener": {
+  "an_game_id": 290914,
+  "kickoff_utc": "2026-10-11T17:00:00Z",
+  "sp": {
+   "GB": 1.5,
+   "CHI": -1.5
+  },
+  "sp_odds_home": -112,
+  "sp_at": "2026-10-05T00:06:55Z",
+  "tot": 44.5,
+  "tot_at": "2026-10-05T00:01:35Z",
+  "ml": {
+   "CHI": -118,
+   "GB": -102
+  },
+  "carried_from_before_cutoff": false
+ },
+ "action_network_splits": {
+  "game_id": 290914,
+  "away_team": "CHI",
+  "home_team": "GB",
+  "kickoff_at": "2026-10-11T17:00:00.000Z",
+  "spread": [
+   {
+    "side": "home",
+    "value": 1.5,
+    "price_american": -110,
+    "ticket_pct": 43,
+    "money_pct": 54
+   },
+   {
+    "side": "away",
+    "value": -1.5,
+    "price_american": -110,
+    "ticket_pct": 57,
+    "money_pct": 46
+   }
+  ],
+  "total": [
+   {
+    "side": "under",
+    "value": 45.5,
+    "price_american": -109,
+    "ticket_pct": 26,
+    "money_pct": 32
+   },
+   {
+    "side": "over",
+    "value": 45.5,
+    "price_american": -111,
+    "ticket_pct": 74,
+    "money_pct": 68
+   }
+  ],
+  "moneyline": [
+   {
+    "side": "away",
+    "value": 0,
+    "price_american": -120,
+    "ticket_pct": 72,
+    "money_pct": 66
+   },
+   {
+    "side": "home",
+    "value": 0,
+    "price_american": -100,
+    "ticket_pct": 28,
+    "money_pct": 34
+   }
+  ]
+ },
+ "action_network_splits_captured_at": "2026-10-09T19:41:08.878Z",
+ "supercontest_row": {
+  "away_team": "GB",
+  "home_team": "CHI",
+  "favorite": "CHI",
+  "underdog": "GB",
+  "favorite_spread": -3,
+  "kickoff_display": "Sun 1:00 pm"
+ },
+ "quantitative_row": {
+  "event": "Chicago Bears @ Green Bay Packers",
+  "away": "CHI",
+  "home": "GB",
+  "away_name": "Chicago Bears",
+  "home_name": "Green Bay Packers",
+  "market": {
+   "home_spread": 1.5,
+   "total": 46,
+   "captured_at": "2026-10-11T01:15:40.538Z"
+  },
+  "features": {
+   "offense_z": {
+    "GB": -0.8981051201727079,
+    "CHI": 0.9842994197343811
+   },
+   "defense_weakness_z": {
+    "GB": 0.6734751006979868,
+    "CHI": -1.0509842273345769
+   },
+   "tempo_z": {
+    "GB": -0.9790284326670985,
+    "CHI": 1.8809809250739749
+   },
+   "srs": {
+    "GB": -7.417,
+    "CHI": 12.116
+   },
+   "secondary_adjustment_points": {
+    "GB": 0.525,
+    "CHI": 0.135
+   }
+  },
+  "means": {
+   "home": 21.102615968672293,
+   "away": 25.715225717498914,
+   "total": 46.81784168617121,
+   "home_margin": -4.612609748826621
+  },
+  "simulation": {
+   "iterations": 100000,
+   "mean_home": 21.32982820395581,
+   "mean_away": 25.79336819086749,
+   "home_win_pct": 0.39173,
+   "home_cover_pct": 0.42768,
+   "away_cover_pct": 0.5723199999999999,
+   "over_pct": 0.52117,
+   "under_pct": 0.47883
+  },
+  "model_menu": {
+   "side": "Chicago Bears",
+   "side_cover_pct": 0.5723199999999999,
+   "total": "Over",
+   "total_pct": 0.52117
+  },
+  "contest": {
+   "team": "CHI",
+   "favorite_spread": -3,
+   "market_favorite": "Chicago Bears",
+   "file_orientation_reversed": true
+  }
+ },
+ "simulator_edge_sweep": [
+  {
+   "home_margin_edge_pts": -3,
+   "home_cover": 0.4216,
+   "away_cover": 0.5784,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": -2,
+   "home_cover": 0.4476,
+   "away_cover": 0.5524,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": -1,
+   "home_cover": 0.4738,
+   "away_cover": 0.5262,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 0,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 1,
+   "home_cover": 0.5262,
+   "away_cover": 0.4738,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 2,
+   "home_cover": 0.5523,
+   "away_cover": 0.4477,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  },
+  {
+   "home_margin_edge_pts": 3,
+   "home_cover": 0.5782,
+   "away_cover": 0.4218,
+   "side_push": 0,
+   "over": 0.4848,
+   "under": 0.4848,
+   "total_push": 0.0304
+  }
+ ],
+ "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",
+ "digest_rows": [
+  "CHI@GB | GB +1.5 -115 / ML +103 | GB | V: VSiN; RO: Action Network, The Favorites, BettingPros, Even Money, Andrew Erickson, Steve Fezzik, Ross Tucker, Ryan Wormeli, Brandon Kravitz, VSiN; vs CHI: Daniel Jeremiah & Bucky Brooks (RO), BettingPros (RO), Sharp or Square (RO),\u2026 | 2-",
+  "CHI@GB | O46 -118 | Over | RO: BettingPros (src 44.5 vs now 46) | 2- research-only",
+  "CHI@GB | Luther Burden ATD +240 | Yes | RO: Action Network, Gilles Gallant; src px not BKR | 2- research-only",
+  "CHI@GB | Tucker Kraft ATD +250 | Yes | RO: Action Network, Gilles Gallant; src px not BKR | 2- research-only"
+ ],
+ "source_rows": {
+  "counts": {
+   "corroboration_only": 32,
+   "tier_eligible": 2,
+   "near_miss": 1
+  },
+  "rows": [
+   {
+    "row": "w05-expert-verified.json#rows[18]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 240,
+    "price": null,
+    "published": "2026-10-10T18:25:41.496+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[19]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 250,
+    "price": null,
+    "published": "2026-10-10T18:25:41.496+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[41]",
+    "kind": "expert_feed",
+    "outlet": "Action Network",
+    "persons": [],
+    "market": "spread",
+    "side": "GB",
+    "line": 2.5,
+    "price": null,
+    "published": "2026-10-10T18:25:40.812+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[71]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 33.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.155+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[74]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "prop",
+    "side": null,
+    "line": 10.5,
+    "price": null,
+    "published": "2026-10-10T17:46:02.155+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[83]",
+    "kind": "expert_feed",
+    "outlet": "Daniel Jeremiah & Bucky Brooks",
+    "persons": [],
+    "market": "moneyline",
+    "side": "CHI",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T17:46:01.834+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[127]",
+    "kind": "expert_feed",
+    "outlet": "The Favorites",
+    "persons": [],
+    "market": "spread",
+    "side": "GB",
+    "line": 2.5,
+    "price": null,
+    "published": "2026-10-09T15:40:52.355+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[140]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "spread",
+    "side": "GB",
+    "line": null,
+    "price": null,
+    "published": "2026-10-09T15:40:51.852+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[153]",
+    "kind": "expert_feed",
+    "outlet": "Even Money",
+    "persons": [],
+    "market": "spread",
+    "side": "GB",
+    "line": 2.5,
+    "price": null,
+    "published": "2026-10-09T15:40:51.479+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[173]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "spread",
+    "side": "CHI",
+    "line": -2.5,
+    "price": null,
+    "published": "2026-10-07T15:54:08.431+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[181]",
+    "kind": "expert_feed",
+    "outlet": "Sharp or Square",
+    "persons": [],
+    "market": "spread",
+    "side": "CHI",
+    "line": -1.5,
+    "price": null,
+    "published": "2026-10-06T15:30:57.087+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[194]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "teaser",
+    "side": "GB",
+    "line": 1.5,
+    "price": null,
+    "published": "2026-10-06T15:30:56.923+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[195]",
+    "kind": "expert_feed",
+    "outlet": "BettingPros",
+    "persons": [],
+    "market": "total",
+    "side": "Over",
+    "line": 44.5,
+    "price": null,
+    "published": "2026-10-06T15:30:56.923+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[221]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Gilles Gallant"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 240,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[222]",
+    "kind": "podcast",
+    "outlet": "Our Anytime Touchdown Picks for Week 5 of The NFL Season!",
+    "persons": [
+     "Gilles Gallant"
+    ],
+    "market": "prop",
+    "side": "YES",
+    "line": null,
+    "price": 250,
+    "published": "2026-10-08T19:00:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[245]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Picks &amp; Predictions: Best Bets, Upset Specials, Parlays &amp; Props (Ep. 1092)",
+    "persons": [
+     "Andrew Erickson"
+    ],
+    "market": "spread",
+    "side": "GB",
+    "line": 2.5,
+    "price": -105,
+    "published": "2026-10-08T19:04:10+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[251]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Picks &amp; Predictions: Best Bets, Upset Specials, Parlays &amp; Props (Ep. 1092)",
+    "persons": [
+     "Seth Woolcock"
+    ],
+    "market": "prop",
+    "side": "OVER",
+    "line": 13.5,
+    "price": null,
+    "published": "2026-10-08T19:04:10+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[263]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Prop Bets &amp; Parlays",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "spread",
+    "side": "GB",
+    "line": 2.5,
+    "price": null,
+    "published": "2026-10-08T14:06:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[264]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Prop Bets &amp; Parlays",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "best_bet",
+    "side": null,
+    "line": 2.5,
+    "price": null,
+    "published": "2026-10-08T14:06:00+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[289]",
+    "kind": "podcast",
+    "outlet": "Early NFL BEST BETS &amp; Survivor Pool Picks: Week 5 Predictions (Ep. 1089)",
+    "persons": [
+     "Matt Perrault"
+    ],
+    "market": "spread",
+    "side": "CHI",
+    "line": -2.5,
+    "price": -114,
+    "published": "2026-10-06T17:32:10+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[296]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Steve Fezzik"
+    ],
+    "market": "spread",
+    "side": "GB",
+    "line": 3,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[297]",
+    "kind": "podcast",
+    "outlet": "2026 NFL Week 5 Bets",
+    "persons": [
+     "Ross Tucker"
+    ],
+    "market": "spread",
+    "side": "GB",
+    "line": 3,
+    "price": null,
+    "published": "2026-10-06T16:20:00+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[330]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Andrew Erickson"
+    ],
+    "market": "spread",
+    "side": "GB",
+    "line": 2.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[331]",
+    "kind": "podcast",
+    "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+    "persons": [
+     "Ryan Wormeli"
+    ],
+    "market": "spread",
+    "side": "GB",
+    "line": 2.5,
+    "price": null,
+    "published": "2026-10-05T17:40:34+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[350]",
+    "kind": "podcast",
+    "outlet": "Construction &amp; Big Dog Picks | NFL Week 5 Preview",
+    "persons": [
+     "Brandon Kravitz"
+    ],
+    "market": "spread",
+    "side": "GB",
+    "line": 2.5,
+    "price": null,
+    "published": "2026-10-08T16:55:35+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[373]",
+    "kind": "podcast",
+    "outlet": "NFL WEEK 5 Betting Preview: Bucs-Cowboys, Bears-Packers and more",
+    "persons": [
+     "Simon Hunter"
+    ],
+    "market": "spread",
+    "side": "CHI",
+    "line": -2.5,
+    "price": null,
+    "published": "2026-10-06T18:24:28+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[392]",
+    "kind": "article",
+    "outlet": "ESPN NFL",
+    "persons": [
+     "Ben Solak, Seth Walder, Matt Bowen and Mike Clay"
+    ],
+    "market": "prop",
+    "side": "Christian Watson (+195)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://www.espn.com/espn/betting/story/_/id/50107426/week-5-nfl-odds-props-best-bets-sunday-games",
+    "quote": "Watson has scored at least one touchdown in three of four games played, and he has four end zone targets on the season."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[399]",
+    "kind": "article",
+    "outlet": "ESPN NFL",
+    "persons": [
+     "Ben Solak, Seth Walder, Matt Bowen and Mike Clay"
+    ],
+    "market": "prop",
+    "side": "OVER 3.5 (+123)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[400]",
+    "kind": "article",
+    "outlet": "ESPN NFL",
+    "persons": [
+     "Ben Solak, Seth Walder, Matt Bowen and Mike Clay"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5 (-102)",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T20:38:37.975821+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[471]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "@thepropdealer"
+    ],
+    "market": "prop",
+    "side": "OVER 0.5",
+    "line": null,
+    "price": null,
+    "published": "2026-10-10T04:04:06.828628+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[512]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Steve Makinen"
+    ],
+    "market": "spread",
+    "side": "GB",
+    "line": 1.5,
+    "price": null,
+    "published": "2026-10-08T21:33:26.464701+00:00",
+    "best_bet": true,
+    "tier_eligible": false,
+    "near_miss": true,
+    "url": "https://vsin.com/nfl/steve-makinen-week-5-nfl-best-bets/",
+    "quote": "NFL Best Bet: I'll back a much more motivated Green Bay +1.5 vs."
+   },
+   {
+    "row": "w05-expert-verified.json#rows[519]",
+    "kind": "article",
+    "outlet": "VSiN",
+    "persons": [
+     "Zachary Cohen"
+    ],
+    "market": "moneyline",
+    "side": "GB",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T20:33:26.895291+00:00",
+    "best_bet": false,
+    "tier_eligible": true,
+    "near_miss": false,
+    "url": "https://vsin.com/nfl/expert-nfl-picks-week-5-best-bets-predictions-and-player-props-from-zachary-cohen/",
+    "quote": "Bet: Packers ML (+120)"
+   },
+   {
+    "row": "w05-expert-verified.json#rows[533]",
+    "kind": "article",
+    "outlet": "Pro Football Talk",
+    "persons": [],
+    "market": "moneyline",
+    "side": "CHI",
+    "line": null,
+    "price": null,
+    "published": "2026-10-08T16:33:20.970971+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[580]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "Cody Brown Bets"
+    ],
+    "market": "prop",
+    "side": "OVER",
+    "line": null,
+    "price": null,
+    "published": "2026-10-06T19:33:46.194938+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   },
+   {
+    "row": "w05-expert-verified.json#rows[581]",
+    "kind": "article",
+    "outlet": "Twitter/X Bookmarks (Personal)",
+    "persons": [
+     "Cody Brown Bets"
+    ],
+    "market": "prop",
+    "side": "OVER",
+    "line": null,
+    "price": null,
+    "published": "2026-10-06T19:33:46.194938+00:00",
+    "best_bet": false,
+    "tier_eligible": false,
+    "near_miss": false
+   }
+  ]
+ },
+ "weather_venue_row": {
+  "game": "CHI@GB",
+  "weather_status": "forecast_captured",
+  "source_game": "CHI@GB",
+  "materiality": "review_required: wind 22.3 km/h, gusts 42.1 km/h"
+ },
+ "secondary_matchups": [
+  {
+   "id": "sec_24138e3ebe62f90b",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_CHI_at_GB",
+   "kickoff_utc": "2026-10-11T17:00:00.000Z",
+   "offense_team": "CHI",
+   "offense_team_nick": "Bears",
+   "defense_team": "GB",
+   "defense_team_nick": "Packers",
+   "offense_venue": "away",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "zone_heavy",
+     "match_zone"
+    ],
+    "primary_coverage_family": "zone_match",
+    "pressure_profile": "balanced",
+    "confidence": 0.7,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Jeff Hafley aggressive zone-match system with Xavier McKinney deep safety range."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Johnathan Baldwin II",
+     "team": "GB",
+     "position": "S",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Johnathan Baldwin II IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:02.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "inside_seam_boost",
+    "post_cross_boost",
+    "slot_wr_boost",
+    "underneath_volume_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Kalif Raymond",
+     "team": "CHI",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 2.4,
+     "notes": "CHI WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Rome Odunze",
+     "team": "CHI",
+     "roles": [
+      "z_receiver",
+      "field_stretcher"
+     ],
+     "target_share_tier": "high",
+     "route_area_tags": [
+      "deep",
+      "boundary"
+     ],
+     "matched_weakness_tags": [
+      "post_cross_boost"
+     ],
+     "opportunity_score": 1.2,
+     "notes": "CHI Rookie 1st Round WR.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Cole Kmet",
+     "team": "CHI",
+     "roles": [
+      "te_middle",
+      "red_zone"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "red_zone"
+     ],
+     "matched_weakness_tags": [
+      "inside_seam_boost"
+     ],
+     "opportunity_score": 0.8,
+     "notes": "CHI TE.",
+     "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+    },
+    {
+     "player_name": "Colston Loveland",
+     "team": "CHI",
+     "roles": [
+      "te_middle"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle"
+     ],
+     "matched_weakness_tags": [
+      "inside_seam_boost"
+     ],
+     "opportunity_score": 0.8,
+     "notes": "CHI TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Luther Burden III",
+     "team": "CHI",
+     "roles": [
+      "z_receiver"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "boundary"
+     ],
+     "matched_weakness_tags": [
+      "post_cross_boost"
+     ],
+     "opportunity_score": 0.8,
+     "notes": "CHI WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    }
+   ],
+   "severity_score": 1.35,
+   "elite_absence_count": 0,
+   "vulnerability_tier": "watch",
+   "confidence": 0.78,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  },
+  {
+   "id": "sec_0d958d4638539533",
+   "season": 2026,
+   "week": 5,
+   "game_id": "nfl_2026_2_w05_CHI_at_GB",
+   "kickoff_utc": "2026-10-11T17:00:00.000Z",
+   "offense_team": "GB",
+   "offense_team_nick": "Packers",
+   "defense_team": "CHI",
+   "defense_team_nick": "Bears",
+   "offense_venue": "home",
+   "coverage_scheme": {
+    "scheme_tags": [
+     "zone_heavy",
+     "two_high"
+    ],
+    "primary_coverage_family": "cover_2_two_high",
+    "pressure_profile": "front_dependent",
+    "confidence": 0.75,
+    "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+    "notes": "Eberflus Tampa 2 / Cover 4 hybrid shell relying on Jaylon Johnson lock down."
+   },
+   "secondary_absences": [
+    {
+     "player_name": "Coby Bryant",
+     "team": "CHI",
+     "position": "CB",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "summary": "Coby Bryant IR",
+     "source": "FantasyPros injuries API",
+     "corroborating_sources": [
+      "FantasyPros injuries API"
+     ],
+     "published_at": "2026-10-10T23:30:02.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.35,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Anthony Johnson Jr.",
+     "team": "CHI",
+     "position": "S",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "out",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-10T16:24:00.000Z",
+     "role": null,
+     "side": null,
+     "impact_tier": "unrated",
+     "primary_receiver_archetypes_impacted": [],
+     "weakness_tags": [],
+     "severity_score": 1.2,
+     "needs_human_review": true
+    },
+    {
+     "player_name": "Kyler Gordon",
+     "team": "CHI",
+     "position": "CB",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "summary": "Gordon (calf) is listed as questionable ahead of Sunday's game against the Packers.",
+     "source": "ESPN injuries API",
+     "corroborating_sources": [
+      "ESPN injuries API"
+     ],
+     "published_at": "2026-10-09T23:32:00.000Z",
+     "role": "slot_cb",
+     "side": "slot",
+     "impact_tier": "plus",
+     "primary_receiver_archetypes_impacted": [
+      "slot"
+     ],
+     "weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost"
+     ],
+     "severity_score": 2.7,
+     "needs_human_review": true
+    }
+   ],
+   "weakness_tags": [
+    "inside_seam_boost",
+    "slot_wr_boost",
+    "underneath_volume_boost"
+   ],
+   "target_receivers": [
+    {
+     "player_name": "Matthew Golden",
+     "team": "GB",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 2.4,
+     "notes": "GB WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Skyy Moore",
+     "team": "GB",
+     "roles": [
+      "slot"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle",
+      "short"
+     ],
+     "matched_weakness_tags": [
+      "slot_wr_boost",
+      "inside_seam_boost",
+      "underneath_volume_boost"
+     ],
+     "opportunity_score": 2.4,
+     "notes": "GB WR3 per ESPN depth chart 2026-10-02; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    },
+    {
+     "player_name": "Tucker Kraft",
+     "team": "GB",
+     "roles": [
+      "te_middle"
+     ],
+     "target_share_tier": "medium",
+     "route_area_tags": [
+      "middle"
+     ],
+     "matched_weakness_tags": [
+      "inside_seam_boost"
+     ],
+     "opportunity_score": 0.8,
+     "notes": "GB TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+     "source_url": "https://www.espn.com/nfl/team/depth/"
+    }
+   ],
+   "severity_score": 5.25,
+   "elite_absence_count": 1,
+   "vulnerability_tier": "high",
+   "confidence": 0.95,
+   "use_cases": [
+    "wr_props",
+    "qb_props",
+    "game_total",
+    "same_game_parlay",
+    "weekly_matchup_context"
+   ],
+   "guardrail": "manual_review_required_not_a_pick",
+   "needs_human_review": true
+  }
+ ],
+ "power_ratings": {
+  "CHI": {
+   "season": 2026,
+   "team": "Bears",
+   "team_abbr": "CHI",
+   "games_played": 4,
+   "record": "3-1",
+   "power_rating": {
+    "srs": 12.116,
+    "net_points_per_game": 11.75,
+    "pythag_win_pct": 0.7841,
+    "model_composite_z": 1.6883,
+    "model_rank": 3,
+    "srs_rank": 3,
+    "net_ppg_rank": 3,
+    "pythag_rank": 3,
+    "market_implied_win_total": 11,
+    "market_implied_rank": 8,
+    "delta": -0.8929,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  },
+  "GB": {
+   "season": 2026,
+   "team": "Packers",
+   "team_abbr": "GB",
+   "games_played": 4,
+   "record": "2-2",
+   "power_rating": {
+    "srs": -7.417,
+    "net_points_per_game": -8,
+    "pythag_win_pct": 0.297,
+    "model_composite_z": -1.1172,
+    "model_rank": 28,
+    "srs_rank": 29,
+    "net_ppg_rank": 29,
+    "pythag_rank": 29,
+    "market_implied_win_total": 8.31,
+    "market_implied_rank": 22,
+    "delta": 0.859,
+    "delta_basis": "z_score_market_minus_model"
+   },
+   "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+  }
+ },
+ "availability": {
+  "CHI": {
+   "event_count": 24,
+   "qb_events": 4,
+   "offensive_line_worsening": 1,
+   "defensive_front_worsening": 0,
+   "top_score": 100,
+   "top_events": [
+    {
+     "player_name": "Caleb Williams",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "limited",
+     "availability_trend": "stable",
+     "impact_bucket": "qb_major",
+     "score": 100,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Caleb Williams",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "status_update",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 94,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Case Keenum",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "active_news",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 93,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Tyson Bagent",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "active_news",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 93,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Braxton Jones",
+     "position": "OT",
+     "unit": "offensive_line",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "offensive_line_major",
+     "score": 90,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Kyler Gordon",
+     "position": "CB",
+     "unit": "secondary",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 82,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Kyle Monangai",
+     "position": "RB",
+     "unit": "offensive_skill",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 82,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Tony Fields II",
+     "position": "LB",
+     "unit": "linebacker",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    }
+   ]
+  },
+  "GB": {
+   "event_count": 29,
+   "qb_events": 1,
+   "offensive_line_worsening": 2,
+   "defensive_front_worsening": 2,
+   "top_score": 93,
+   "top_events": [
+    {
+     "player_name": "Jordan Love",
+     "position": "QB",
+     "unit": "quarterback",
+     "event_type": "active_news",
+     "availability_trend": "unknown",
+     "impact_bucket": "qb_major",
+     "score": 93,
+     "signal": "review_context"
+    },
+    {
+     "player_name": "Warren Brinson",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Savion Williams",
+     "position": "WR",
+     "unit": "offensive_skill",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 86,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jordon Riley",
+     "position": "DT",
+     "unit": "defensive_front",
+     "event_type": "pup",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_front_major",
+     "score": 82,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Chris Brooks",
+     "position": "RB",
+     "unit": "offensive_skill",
+     "event_type": "out",
+     "availability_trend": "worsening",
+     "impact_bucket": "skill_major",
+     "score": 82,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Jacob Monk",
+     "position": "C",
+     "unit": "offensive_line",
+     "event_type": "doubtful",
+     "availability_trend": "worsening",
+     "impact_bucket": "offensive_line_major",
+     "score": 77,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Aaron Banks",
+     "position": "G",
+     "unit": "offensive_line",
+     "event_type": "doubtful",
+     "availability_trend": "worsening",
+     "impact_bucket": "offensive_line_major",
+     "score": 77,
+     "signal": "negative_availability"
+    },
+    {
+     "player_name": "Edgerrin Cooper",
+     "position": "LB",
+     "unit": "linebacker",
+     "event_type": "ir",
+     "availability_trend": "worsening",
+     "impact_bucket": "defensive_major",
+     "score": 72,
+     "signal": "negative_availability"
+    }
+   ]
+  }
+ },
+ "ftn_team_level": {
+  "CHI": {
+   "record_count": 138,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "EPA/PLY": "-0.059",
+      "DVOA": "-7.1%",
+      "SUCC%": "41.1%",
+      "EXP%": "9.9%",
+      "CONV%": "23.8%",
+      "TO": "3",
+      "TO%": "1.6%",
+      "3&O": "30.8%",
+      "MTKL%": "9.2%",
+      "PEN%": "4.7%",
+      "PENY": "8.3"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "YD/PLY": "6.2",
+      "PT/GM": "16.3",
+      "FD%": "27.1%",
+      "TO": "3",
+      "DPBK%": "60.4%",
+      "YD": "776",
+      "TD": "4",
+      "INT": "3",
+      "RUSH%": "39.6%",
+      "YD__2": "410",
+      "TD__2": "3"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "DPBK": "116",
+      "SK": "10",
+      "SK%": "8.6%",
+      "QBH%": "17.2%",
+      "PRESS": "41",
+      "PRESS%": "35.3%",
+      "QPRESS%": "43.9%",
+      "TTPR": "2.66",
+      "DISR%": "0.9%",
+      "BLZ%": "39.7%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "EPA/DB": "-0.095",
+      "SUCC%": "38.8%",
+      "DVOA": "-13.3%",
+      "CPOE": "-0.73%",
+      "CBALL%": "61.6%",
+      "EXP%": "15.5%",
+      "INTW%": "6.1%",
+      "TGHT%": "33.3%",
+      "OPEN%": "54.5%",
+      "TA%": "7.1%",
+      "DROP%": "2.0%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "EPA/ATT": "-0.005",
+      "SUCC%": "44.7%",
+      "DVOA": "1.1%",
+      "aRYOE": "",
+      "EXP%": "10.5%",
+      "STF%": "14.5%",
+      "YBCO": "1.82",
+      "YACO": "2.00"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "EPA/PLY": "0.077",
+      "DVOA": "12.3%",
+      "SUCC%": "47.0%",
+      "EXP%": "10.7%",
+      "CONV%": "49.3%",
+      "TO": "4",
+      "TO%": "1.34%",
+      "PENY": "38.8",
+      "PEN%": "6.71%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "YD/PLY": "5.9",
+      "PT/GM": "28.0",
+      "FD%": "29.9%",
+      "TO": "4",
+      "DPBK%": "50.7%",
+      "YD": "976",
+      "TD": "4",
+      "INT": "2",
+      "RUSH%": "49.3%",
+      "YD__2": "785",
+      "TD__2": "9"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "SK": "7",
+      "SK%": "4.6%",
+      "QBSK%": "0.0%",
+      "QBH%": "11.9%",
+      "PRESS%": "33.8%",
+      "UPRES%": "22.8%",
+      "BLITZ%": "47.7%",
+      "TTPR": "2.85",
+      "TTT": "2.84",
+      "EPA/DB": "0.129",
+      "DVOA": "-21.2%",
+      "SUCC%": "43.1%",
+      "EPA/DB__2": "0.268",
+      "DVOA__2": "33.4%",
+      "SUCC%__2": "55.0%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "EPA/DB": "0.221",
+      "SUCC%": "51.0%",
+      "DVOA": "39.8%",
+      "CPOE": "6.0%",
+      "CBALL%": "72.0%",
+      "EXP%": "15.6%",
+      "INTW%": "2.3%",
+      "HLT%": "1.5%",
+      "TA%": "6.8%",
+      "DROP%": "3.0%",
+      "aDOT": "7.0",
+      "aYAC": "5.2"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "EPA/ATT": "-0.071",
+      "SUCC%": "42.9%",
+      "DVOA": "-2.5%",
+      "aRYOE": "",
+      "EXP%": "10.2%",
+      "STF%": "17.7%",
+      "aYBCO": "1.49",
+      "aYACO": "2.85",
+      "CRT%": "60.9%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "PLY/GM": "74.5",
+      "TOP": "35.11",
+      "DRV/GM": "10.3",
+      "SEC/PLY": "28.3",
+      "PLY/DRV": "7.3",
+      "YD/DRV": "43.0",
+      "SEC/DRV": "206",
+      "3&O": "7.3%",
+      "SCD%": "48.8%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "CHI",
+     "metrics": {
+      "Team": "Chicago Bears",
+      "GP": "4",
+      "DPBK%": "50.7%",
+      "RUSH%": "49.3%",
+      "SHG%": "46.3%",
+      "NH%": "6.0%",
+      "MOT%": "45.6%",
+      "PA%": "32.5%",
+      "IZ%": "28.6%",
+      "OZ%": "44.2%",
+      "MD%": "12.2%",
+      "PWR%": "4.1%",
+      "CTR%": "2.0%"
+     }
+    }
+   ]
+  },
+  "GB": {
+   "record_count": 138,
+   "team_level_tables": [
+    {
+     "category": "team-defense",
+     "subpage": "efficiency",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "EPA/PLY": "0.040",
+      "DVOA": "7.0%",
+      "SUCC%": "44.7%",
+      "EXP%": "6.5%",
+      "CONV%": "51.7%",
+      "TO": "4",
+      "TO%": "1.5%",
+      "3&O": "15.6%",
+      "MTKL%": "9.5%",
+      "PEN%": "6.9%",
+      "PENY": "44.0"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "overview",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "YD/PLY": "5.2",
+      "PT/GM": "26.3",
+      "FD%": "28.6%",
+      "TO": "4",
+      "DPBK%": "54.2%",
+      "YD": "802",
+      "TD": "6",
+      "INT": "4",
+      "RUSH%": "45.8%",
+      "YD__2": "557",
+      "TD__2": "7"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "pass-rush",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "DPBK": "142",
+      "SK": "10",
+      "SK%": "7.0%",
+      "QBH%": "14.8%",
+      "PRESS": "38",
+      "PRESS%": "26.8%",
+      "QPRESS%": "55.3%",
+      "TTPR": "2.39",
+      "DISR%": "1.4%",
+      "BLZ%": "39.4%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "passing-analytics",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "EPA/DB": "0.092",
+      "SUCC%": "47.2%",
+      "DVOA": "9.7%",
+      "CPOE": "2.23%",
+      "CBALL%": "73.1%",
+      "EXP%": "7.6%",
+      "INTW%": "5.0%",
+      "TGHT%": "21.0%",
+      "OPEN%": "66.4%",
+      "TA%": "5.0%",
+      "DROP%": "2.5%"
+     }
+    },
+    {
+     "category": "team-defense",
+     "subpage": "rush-analytics",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "EPA/ATT": "-0.022",
+      "SUCC%": "41.7%",
+      "DVOA": "4.2%",
+      "aRYOE": "",
+      "EXP%": "7.5%",
+      "STF%": "24.2%",
+      "YBCO": "0.95",
+      "YACO": "2.28"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "efficiency",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "EPA/PLY": "-0.089",
+      "DVOA": "-19.0%",
+      "SUCC%": "39.1%",
+      "EXP%": "8.1%",
+      "CONV%": "30.9%",
+      "TO": "6",
+      "TO%": "2.55%",
+      "PENY": "42.0",
+      "PEN%": "10.21%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "overview",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "YD/PLY": "5.4",
+      "PT/GM": "18.3",
+      "FD%": "26.0%",
+      "TO": "6",
+      "DPBK%": "68.9%",
+      "YD": "1,041",
+      "TD": "8",
+      "INT": "3",
+      "RUSH%": "31.1%",
+      "YD__2": "232",
+      "TD__2": "0"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "pass-protection",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "SK": "8",
+      "SK%": "4.9%",
+      "QBSK%": "37.5%",
+      "QBH%": "19.8%",
+      "PRESS%": "27.8%",
+      "UPRES%": "35.0%",
+      "BLITZ%": "40.7%",
+      "TTPR": "2.33",
+      "TTT": "2.17",
+      "EPA/DB": "-0.481",
+      "DVOA": "-83.5%",
+      "SUCC%": "28.9%",
+      "EPA/DB__2": "0.224",
+      "DVOA__2": "19.8%",
+      "SUCC%__2": "45.3%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "passing-analytics",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "EPA/DB": "0.028",
+      "SUCC%": "40.7%",
+      "DVOA": "6.6%",
+      "CPOE": "-8.8%",
+      "CBALL%": "68.2%",
+      "EXP%": "14.9%",
+      "INTW%": "3.9%",
+      "HLT%": "1.3%",
+      "TA%": "1.9%",
+      "DROP%": "7.1%",
+      "aDOT": "8.4",
+      "aYAC": "6.1"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "rushing-analytics",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "EPA/ATT": "-0.349",
+      "SUCC%": "35.6%",
+      "DVOA": "-38.2%",
+      "aRYOE": "",
+      "EXP%": "8.2%",
+      "STF%": "26.0%",
+      "aYBCO": "1.15",
+      "aYACO": "2.00",
+      "CRT%": "62.9%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tempo",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "PLY/GM": "58.8",
+      "TOP": "25.11",
+      "DRV/GM": "11.0",
+      "SEC/PLY": "25.6",
+      "PLY/DRV": "5.3",
+      "YD/DRV": "28.9",
+      "SEC/DRV": "137",
+      "3&O": "27.3%",
+      "SCD%": "31.8%"
+     }
+    },
+    {
+     "category": "team-offense",
+     "subpage": "tendencies",
+     "team_abbr": "GB",
+     "metrics": {
+      "Team": "Green Bay Packers",
+      "GP": "4",
+      "DPBK%": "68.9%",
+      "RUSH%": "31.1%",
+      "SHG%": "64.7%",
+      "NH%": "9.8%",
+      "MOT%": "57.4%",
+      "PA%": "16.0%",
+      "IZ%": "24.7%",
+      "OZ%": "21.9%",
+      "MD%": "21.9%",
+      "PWR%": "12.3%",
+      "CTR%": "5.5%"
+     }
+    }
+   ]
+  }
+ },
+ "files_to_read_directly": {
+  "weather_detail": "data/research-intel/source-evidence/2026-10-10-week5-weather-openmeteo.json (filter to CHI@GB)",
+  "prop_markets": "BKR/BEO rows for event \"Chicago Bears @ Green Bay Packers\" with market != game_lines",
+  "player_stats": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026) for CHI and GB",
+  "projected_starters": "data/projected-starters/2026/latest.json (teams.CHI, teams.GB)"
+ }
+}
