@@ -6,6 +6,17 @@
 
 ## Current pick-up point
 
+**PICK UP HERE: H2C2 round 2, Week 5 Sunday cards (Claude Team 3), 2026-10-11 ~00:50 PT:**
+
+1. Read `reports/handoff-snapshots/2026-10-11-h2c2-week5-cards/H2C2_START_HERE.md`.
+2. Run `git status -sb`, `git branch --show-current`, and `git log -12 --oneline`.
+3. Choose one lane and load only the matching section of
+   `handoffs/2026-10-11-0050-claude-h2c2-week5-cards-round2-briefing.md`.
+
+State: 14 fresh Opus syntheses, slate merge and Master Intel report (gitignored `dist/nfl_week5_master_packet/`; md + single-file html copied to the snapshot) are done on Saturday-night captures that lapse before most kickoffs. Andy recaptures BKR/BEO in the morning. Nothing is pushed.
+
+**Superseded (kept for history):** the 2026-10-10 ~23:15 PT pick-up below.
+
 **H2C2 transfer to Claude Team 2 (Week 5 Sunday cards), 2026-10-10 ~23:15 PT:**
 
 1. Read `reports/handoff-snapshots/2026-10-10-h2c2-week5-sunday/H2C2_START_HERE.md`.
