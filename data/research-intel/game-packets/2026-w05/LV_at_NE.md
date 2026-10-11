@@ -1,6 +1,6 @@
 # LV@NE packet — Las Vegas Raiders @ New England Patriots
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -9,7 +9,7 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. sp
 - total: Over 45 -114; Under 45 -102
 - moneyline: Las Vegas Raiders  167; New England Patriots  -191
 
-**BEO** captured 2026-10-11T01:19:56.400Z; recommendation window ends 2026-10-11T07:19:56.400000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
 - spread: Las Vegas Raiders 3.5 -110; New England Patriots -3.5 -110
 - total: Over 45 -114; Under 45 -106
 - moneyline: Las Vegas Raiders  160; New England Patriots  -183

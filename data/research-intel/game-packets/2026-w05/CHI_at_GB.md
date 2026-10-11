@@ -1,6 +1,6 @@
 # CHI@GB packet — Chicago Bears @ Green Bay Packers
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC North).
 
@@ -11,7 +11,7 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. sp
 - total: Over 46 -118; Under 46 101
 - moneyline: Chicago Bears  -116; Green Bay Packers  103
 
-**BEO** captured 2026-10-11T01:19:56.400Z; recommendation window ends 2026-10-11T07:19:56.400000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
 - spread: Chicago Bears -1 -113; Green Bay Packers 1 -107
 - total: Over 46.5 -116; Under 46.5 -104
 - moneyline: Chicago Bears  -119; Green Bay Packers  -101

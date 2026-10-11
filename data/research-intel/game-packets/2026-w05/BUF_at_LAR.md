@@ -1,6 +1,6 @@
 # BUF@LAR packet — Buffalo Bills @ Los Angeles Rams
 
-Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -9,7 +9,7 @@ Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. sp
 - total: Over 54.5 -108; Under 54.5 -108
 - moneyline: Buffalo Bills  156; Los Angeles Rams  -178
 
-**BEO** captured 2026-10-11T01:19:56.400Z; recommendation window ends 2026-10-11T07:19:56.400000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
 - spread: Buffalo Bills 3.5 -115; Los Angeles Rams -3.5 -105
 - total: Over 54.5 -110; Under 54.5 -110
 - moneyline: Buffalo Bills  153; Los Angeles Rams  -175

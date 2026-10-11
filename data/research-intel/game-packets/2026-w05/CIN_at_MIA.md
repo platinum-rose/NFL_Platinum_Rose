@@ -1,6 +1,6 @@
 # CIN@MIA packet — Cincinnati Bengals @ Miami Dolphins
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -9,7 +9,7 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. sp
 - total: Over 43.5 -113; Under 43.5 -103
 - moneyline: Cincinnati Bengals  -332; Miami Dolphins  279
 
-**BEO** captured 2026-10-11T01:19:56.400Z; recommendation window ends 2026-10-11T07:19:56.400000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
 - spread: Cincinnati Bengals -7 -110; Miami Dolphins 7 -110
 - total: Over 44 -110; Under 44 -110
 - moneyline: Cincinnati Bengals  -340; Miami Dolphins  274

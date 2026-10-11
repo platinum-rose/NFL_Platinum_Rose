@@ -1,6 +1,6 @@
 # CLE@NYJ packet — Cleveland Browns @ New York Jets
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -9,7 +9,7 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. sp
 - total: Over 39.5 -108; Under 39.5 -108
 - moneyline: Cleveland Browns  118; New York Jets  -135
 
-**BEO** captured 2026-10-11T01:19:56.400Z; recommendation window ends 2026-10-11T07:19:56.400000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
 - spread: Cleveland Browns 1 105; New York Jets -1 -125
 - total: Over 39.5 -110; Under 39.5 -110
 - moneyline: Cleveland Browns  120; New York Jets  -140

@@ -1,6 +1,6 @@
 # BAL@ATL packet — Baltimore Ravens @ Atlanta Falcons
 
-Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -9,7 +9,7 @@ Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. sp
 - total: Over 44 103; Under 44 -120
 - moneyline: Baltimore Ravens  139; Atlanta Falcons  -160
 
-**BEO** captured 2026-10-11T01:19:56.400Z; recommendation window ends 2026-10-11T07:19:56.400000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
 - spread: Baltimore Ravens 3.5 -120; Atlanta Falcons -3.5 100
 - total: Over 43.5 -115; Under 43.5 -105
 - moneyline: Baltimore Ravens  149; Atlanta Falcons  -170

@@ -1,6 +1,6 @@
 # MIN@NO packet — Minnesota Vikings @ New Orleans Saints
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -9,10 +9,10 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. sp
 - total: Over 41.5 -103; Under 41.5 -113
 - moneyline: Minnesota Vikings  -131; New Orleans Saints  115
 
-**BEO** captured 2026-10-11T01:19:56.400Z; recommendation window ends 2026-10-11T07:19:56.400000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
 - spread: Minnesota Vikings -1 -125; New Orleans Saints 1 105
 - total: Over 42 100; Under 42 -120
-- moneyline: Minnesota Vikings  -140; New Orleans Saints  120
+- moneyline: Minnesota Vikings  -135; New Orleans Saints  115
 
 **BOOK CONFLICT:** BKR home line 2.5 vs BEO 1 (>=1.0 pt apart); recapture before relying on either
 

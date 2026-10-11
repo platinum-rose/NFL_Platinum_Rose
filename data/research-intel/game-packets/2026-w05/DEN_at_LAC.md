@@ -1,6 +1,6 @@
 # DEN@LAC packet — Denver Broncos @ Los Angeles Chargers
 
-Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (AFC West).
 
@@ -11,10 +11,10 @@ Kickoff 2026-10-11T20:05:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. sp
 - total: Over 42 -114; Under 42 -102
 - moneyline: Denver Broncos  -194; Los Angeles Chargers  170
 
-**BEO** captured 2026-10-11T01:19:56.400Z; recommendation window ends 2026-10-11T07:19:56.400000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
 - spread: Denver Broncos -3.5 -112; Los Angeles Chargers 3.5 -108
 - total: Over 42 -110; Under 42 -110
-- moneyline: Denver Broncos  -180; Los Angeles Chargers  157
+- moneyline: Denver Broncos  -188; Los Angeles Chargers  164
 
 Market-implied score: {"LAC": 19.25, "DEN": 22.75, "basis": "BKR home line 3.5 total 42"}
 

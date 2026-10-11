@@ -1,6 +1,6 @@
 # PHI@JAX packet — Philadelphia Eagles @ Jacksonville Jaguars
 
-Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -9,9 +9,9 @@ Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. sp
 - total: Over 42 -102; Under 42 -114
 - moneyline: Philadelphia Eagles  293; Jacksonville Jaguars  -350
 
-**BEO** captured 2026-10-11T01:19:56.400Z; recommendation window ends 2026-10-11T07:19:56.400000+00:00; fresh at build: True
+**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T07:30:00+00:00; fresh at build: True
 - spread: Philadelphia Eagles 7.5 -105; Jacksonville Jaguars -7.5 -115
-- total: Over 42 -107; Under 42 -113
+- total: Over 41.5 -112; Under 41.5 -108
 - moneyline: Philadelphia Eagles  299; Jacksonville Jaguars  -375
 
 Market-implied score: {"JAX": 24.75, "PHI": 17.25, "basis": "BKR home line -7.5 total 42"}

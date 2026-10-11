@@ -1,6 +1,6 @@
 # IND@PIT packet — Indianapolis Colts @ Pittsburgh Steelers
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -9,8 +9,8 @@ Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:13:48.008992+00:00. sp
 - total: Over 43.5 -108; Under 43.5 -108
 - moneyline: Indianapolis Colts  127; Pittsburgh Steelers  -146
 
-**BEO** captured 2026-10-11T01:19:56.400Z; recommendation window ends 2026-10-11T07:19:56.400000+00:00; fresh at build: True
-- spread: Indianapolis Colts 2.5 -105; Pittsburgh Steelers -2.5 -115
+**BEO** captured 2026-10-11T03:15:09.478Z; recommendation window ends 2026-10-11T09:15:09.478000+00:00; fresh at build: True
+- spread: Indianapolis Colts 2.5 -103; Pittsburgh Steelers -2.5 -117
 - total: Over 43.5 -110; Under 43.5 -110
 - moneyline: Indianapolis Colts  128; Pittsburgh Steelers  -148
 
