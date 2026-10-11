@@ -1,6 +1,6 @@
 # CIN@MIA packet — Cincinnati Bengals @ Miami Dolphins
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -22,19 +22,19 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY CIN (ESPN 2026-10-11T02:16:11Z): Out: Kyle Dugger S | Questionable/Doubtful: Bryan Cook S, Colbie Young WR, Tee Higgins WR, Ja'Marr Chase WR, Swayze Bozeman LB | IR: Jalen Davis CB
-- AVAILABILITY MIA (ESPN 2026-10-11T02:16:11Z): Out: Storm Duck CB, Robert Beal Jr. DE, Justin Joly TE, Caleb Douglas WR, Reese Taylor CB | Questionable/Doubtful: Jaylen Wright RB, Jackson Woodard LB | IR: none
+- AVAILABILITY CIN (ESPN 2026-10-11T04:21:24Z): Out: Kyle Dugger S | Questionable/Doubtful: Bryan Cook S, Colbie Young WR, Tee Higgins WR, Ja'Marr Chase WR, Swayze Bozeman LB | IR: Jalen Davis CB
+- AVAILABILITY MIA (ESPN 2026-10-11T04:21:24Z): Out: Storm Duck CB, Robert Beal Jr. DE, Justin Joly TE, Caleb Douglas WR, Reese Taylor CB | Questionable/Doubtful: Jaylen Wright RB, Jackson Woodard LB | IR: none
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
 
-- CIN: RESOLVED STARTER Joe Burrow (from ESPN depth chart + injury report). ESPN depth ['Joe Burrow', 'Joe Flacco'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Joe Burrow", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CIN (usage score 35.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- MIA: RESOLVED STARTER Malik Willis (from ESPN depth chart + injury report). ESPN depth ['Malik Willis', 'Kyle McCord'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Malik Willis", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- CIN: RESOLVED STARTER Joe Burrow (from ESPN depth chart + injury report). ESPN depth ['Joe Burrow', 'Joe Flacco'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Joe Burrow", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CIN (usage score 35.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- MIA: RESOLVED STARTER Malik Willis (from ESPN depth chart + injury report). ESPN depth ['Malik Willis', 'Kyle McCord'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Malik Willis", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
 
 - CIN: Kyle Dugger S Out (2026-10-10); Bryan Cook S Questionable (2026-10-10); Colbie Young WR Questionable (2026-10-09); Tee Higgins WR Questionable (2026-10-09); Ja'Marr Chase WR Questionable (2026-10-09); Swayze Bozeman LB Questionable (2026-10-06); Jalen Davis CB Injured Reserve (2026-09-29)
 - MIA: Storm Duck CB Out (2026-10-11); Robert Beal Jr. DE Out (2026-10-10); Justin Joly TE Out (2026-10-10); Jaylen Wright RB Questionable (2026-10-09); Caleb Douglas WR Out (2026-10-09); Reese Taylor CB Out (2026-10-06); Jackson Woodard LB Questionable (2026-10-05)
@@ -45,11 +45,11 @@ Players not on this list are not reported injured by ESPN. Only Questionable/Dou
 
 ### CIN (AFC North) 2-2
 - PF 97 / PA 85 (diff +12); PPG 24.2 / PAPG 21.2; home 1-1, away 1-1, division 0-1
-- Opponents faced to date have a combined record of 5-11; rest before this game: 7.0 days; byes used: none; byes remaining: [6]
+- Opponents faced to date have a combined record of 6-11; rest before this game: 7.0 days; byes used: none; byes remaining: [6]
 
 | week | site | opp | opp_record | result | pf | pa |
 |---|---|---|---|---|---|---|
-| 1 | H | TB | 0-4 | W | 33 | 27 |
+| 1 | H | TB | 1-4 | W | 33 | 27 |
 | 2 | A | HOU | 0-4 | W | 20 | 6 |
 | 3 | A | PIT | 2-2 | L | 27 | 30 |
 | 4 | H | JAX | 3-1 | L | 17 | 22 |
@@ -89,7 +89,7 @@ Next games: wk5 H CIN; wk7 A NYJ; wk8 H NE; wk9 H DET
 
 **AFC order (top 8)**: 1 KC 4-0, 2 JAX 3-1, 3 LV 3-1, 4 BUF 3-1, 5 BAL 3-1, 6 CLE 3-1, 7 CIN 2-2, 8 IND 2-2
 
-Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.
+Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).
 
 ## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)
 

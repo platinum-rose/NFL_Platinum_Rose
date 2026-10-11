@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CIN@MIA",
- "built_at": "2026-10-11T03:17:13.359677+00:00",
+ "built_at": "2026-10-11T04:23:31.627736+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CIN",
@@ -35,7 +35,7 @@
      "pf": 33,
      "pa": 27,
      "result": "W",
-     "opp_record": "0-4"
+     "opp_record": "1-4"
     },
     {
      "week": 2,
@@ -68,7 +68,7 @@
      "opp_record": "3-1"
     }
    ],
-   "opponents_record_to_date": "5-11",
+   "opponents_record_to_date": "6-11",
    "rest_days_before_this_game": 7.0,
    "bye_weeks_already_used": [],
    "bye_weeks_remaining": [
@@ -385,7 +385,7 @@
     }
    ]
   },
-  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals)."
  },
  "same_division_game": false,
  "market": {
@@ -759,7 +759,7 @@
    "espn_qb_starter": "Joe Burrow",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Joe Burrow",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -786,7 +786,7 @@
    "espn_qb_starter": "Malik Willis",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Malik Willis",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -908,10 +908,10 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T02:16:11Z",
+ "espn_status_fetched_at": "2026-10-11T04:21:24Z",
  "game_warnings": [
-  "AVAILABILITY CIN (ESPN 2026-10-11T02:16:11Z): Out: Kyle Dugger S | Questionable/Doubtful: Bryan Cook S, Colbie Young WR, Tee Higgins WR, Ja'Marr Chase WR, Swayze Bozeman LB | IR: Jalen Davis CB",
-  "AVAILABILITY MIA (ESPN 2026-10-11T02:16:11Z): Out: Storm Duck CB, Robert Beal Jr. DE, Justin Joly TE, Caleb Douglas WR, Reese Taylor CB | Questionable/Doubtful: Jaylen Wright RB, Jackson Woodard LB | IR: none",
+  "AVAILABILITY CIN (ESPN 2026-10-11T04:21:24Z): Out: Kyle Dugger S | Questionable/Doubtful: Bryan Cook S, Colbie Young WR, Tee Higgins WR, Ja'Marr Chase WR, Swayze Bozeman LB | IR: Jalen Davis CB",
+  "AVAILABILITY MIA (ESPN 2026-10-11T04:21:24Z): Out: Storm Duck CB, Robert Beal Jr. DE, Justin Joly TE, Caleb Douglas WR, Reese Taylor CB | Questionable/Doubtful: Jaylen Wright RB, Jackson Woodard LB | IR: none",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],

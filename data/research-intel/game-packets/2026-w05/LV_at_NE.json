@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "LV@NE",
- "built_at": "2026-10-11T03:17:13.359677+00:00",
+ "built_at": "2026-10-11T04:23:31.627736+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "LV",
@@ -385,7 +385,7 @@
     }
    ]
   },
-  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals)."
  },
  "same_division_game": false,
  "market": {
@@ -760,7 +760,7 @@
    "espn_qb_starter": "Kirk Cousins",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Kirk Cousins",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
@@ -777,7 +777,7 @@
    "espn_qb_starter": "Drake Maye",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Drake Maye",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -927,10 +927,10 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T02:16:11Z",
+ "espn_status_fetched_at": "2026-10-11T04:21:24Z",
  "game_warnings": [
-  "AVAILABILITY LV (ESPN 2026-10-11T02:16:11Z): Out: Trey Zuhn III C, Jalen Nailor WR | Questionable/Doubtful: Ashton Jeanty RB | IR: Dont'e Thornton Jr. WR",
-  "AVAILABILITY NE (ESPN 2026-10-11T02:16:11Z): Out: Karon Prunty CB, Channing Canada CB, Christian Gonzalez CB, Carlton Davis III CB | Questionable/Doubtful: Charles Woods CB, Craig Woodson S, Dre'Mont Jones DE, Christian Elliss LB, Christian Barmore DT, Rhamondre Stevenson RB, Morgan Moses OT | IR: Reggie Gilliam FB, Mack Hollins WR, A.J. Brown WR",
+  "AVAILABILITY LV (ESPN 2026-10-11T04:21:24Z): Out: Trey Zuhn III C, Jalen Nailor WR | Questionable/Doubtful: Ashton Jeanty RB | IR: Dont'e Thornton Jr. WR",
+  "AVAILABILITY NE (ESPN 2026-10-11T04:21:24Z): Out: Karon Prunty CB, Channing Canada CB, Christian Gonzalez CB, Carlton Davis III CB | Questionable/Doubtful: Charles Woods CB, Craig Woodson S, Dre'Mont Jones DE, Christian Elliss LB, Christian Barmore DT, Rhamondre Stevenson RB, Morgan Moses OT | IR: Reggie Gilliam FB, Mack Hollins WR, A.J. Brown WR",
   "3 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",

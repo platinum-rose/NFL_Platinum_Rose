@@ -1,6 +1,6 @@
 # LV@NE packet — Las Vegas Raiders @ New England Patriots
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -22,18 +22,18 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY LV (ESPN 2026-10-11T02:16:11Z): Out: Trey Zuhn III C, Jalen Nailor WR | Questionable/Doubtful: Ashton Jeanty RB | IR: Dont'e Thornton Jr. WR
-- AVAILABILITY NE (ESPN 2026-10-11T02:16:11Z): Out: Karon Prunty CB, Channing Canada CB, Christian Gonzalez CB, Carlton Davis III CB | Questionable/Doubtful: Charles Woods CB, Craig Woodson S, Dre'Mont Jones DE, Christian Elliss LB, Christian Barmore DT, Rhamondre Stevenson RB, Morgan Moses OT | IR: Reggie Gilliam FB, Mack Hollins WR, A.J. Brown WR
+- AVAILABILITY LV (ESPN 2026-10-11T04:21:24Z): Out: Trey Zuhn III C, Jalen Nailor WR | Questionable/Doubtful: Ashton Jeanty RB | IR: Dont'e Thornton Jr. WR
+- AVAILABILITY NE (ESPN 2026-10-11T04:21:24Z): Out: Karon Prunty CB, Channing Canada CB, Christian Gonzalez CB, Carlton Davis III CB | Questionable/Doubtful: Charles Woods CB, Craig Woodson S, Dre'Mont Jones DE, Christian Elliss LB, Christian Barmore DT, Rhamondre Stevenson RB, Morgan Moses OT | IR: Reggie Gilliam FB, Mack Hollins WR, A.J. Brown WR
 - 3 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
 
-- LV: RESOLVED STARTER Kirk Cousins (from ESPN depth chart + injury report). ESPN depth ['Kirk Cousins', 'Fernando Mendoza', "Aidan O'Connell"], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
-- NE: RESOLVED STARTER Drake Maye (from ESPN depth chart + injury report). ESPN depth ['Drake Maye', 'Tommy DeVito', 'Behren Morton'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Drake Maye", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NE (usage score 33.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- LV: RESOLVED STARTER Kirk Cousins (from ESPN depth chart + injury report). ESPN depth ['Kirk Cousins', 'Fernando Mendoza', "Aidan O'Connell"], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- NE: RESOLVED STARTER Drake Maye (from ESPN depth chart + injury report). ESPN depth ['Drake Maye', 'Tommy DeVito', 'Behren Morton'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Drake Maye", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NE (usage score 33.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
 
 - LV: Trey Zuhn III C Out (2026-10-10); Dont'e Thornton Jr. WR Injured Reserve (2026-10-09); Jalen Nailor WR Out (2026-10-09); Ashton Jeanty RB Questionable (2026-10-09)
 - NE: Reggie Gilliam FB Injured Reserve (2026-10-11); Mack Hollins WR Injured Reserve (2026-10-10); Charles Woods CB Questionable (2026-10-10); Karon Prunty CB Out (2026-10-10); Channing Canada CB Out (2026-10-10); Craig Woodson S Questionable (2026-10-09); Dre'Mont Jones DE Questionable (2026-10-09); Christian Elliss LB Questionable (2026-10-09); Christian Barmore DT Questionable (2026-10-09); Christian Gonzalez CB Out (2026-10-09); Carlton Davis III CB Out (2026-10-09); Rhamondre Stevenson RB Questionable (2026-10-09); Morgan Moses OT Questionable (2026-10-07); A.J. Brown WR Injured Reserve (2026-10-07)
@@ -88,7 +88,7 @@ Next games: wk5 H LV; wk6 H NYJ; wk7 A CHI; wk8 A MIA
 
 **AFC order (top 8)**: 1 KC 4-0, 2 JAX 3-1, 3 LV 3-1, 4 BUF 3-1, 5 BAL 3-1, 6 CLE 3-1, 7 CIN 2-2, 8 IND 2-2
 
-Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.
+Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).
 
 ## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)
 

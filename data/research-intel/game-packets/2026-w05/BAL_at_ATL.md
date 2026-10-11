@@ -1,6 +1,6 @@
 # BAL@ATL packet — Baltimore Ravens @ Atlanta Falcons
 
-Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-12T00:20:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -22,21 +22,21 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY BAL (ESPN 2026-10-11T02:16:11Z): Out: Cam Jurgens C, Trey Hendrickson LB, Lamar Jackson QB | Questionable/Doubtful: Marlon Humphrey CB, Zay Flowers WR | IR: Ja'Kobi Lane WR, Durham Smythe TE
-- AVAILABILITY ATL (ESPN 2026-10-11T02:16:11Z): Out: Za'Darius Smith DE | Questionable/Doubtful: Jake Matthews OT, Divine Deablo LB, Samson Ebukam DE | IR: Yasir Abdullah LB
+- AVAILABILITY BAL (ESPN 2026-10-11T04:21:24Z): Out: Cam Jurgens C, Trey Hendrickson LB, Lamar Jackson QB | Questionable/Doubtful: Marlon Humphrey CB, Zay Flowers WR | IR: Ja'Kobi Lane WR, Durham Smythe TE
+- AVAILABILITY ATL (ESPN 2026-10-11T04:21:24Z): Out: Za'Darius Smith DE | Questionable/Doubtful: Jake Matthews OT, Divine Deablo LB, Samson Ebukam DE | IR: Yasir Abdullah LB
 - VENUE: ATL has a retractable roof; check game-day roof status before using weather
 
 ## Quarterbacks
 
-- BAL: RESOLVED STARTER Tyler Huntley (from operator). ESPN depth ['Lamar Jackson', 'Tyler Huntley', 'Joe Fagnano', 'Skylar Thompson'], flag ok Lamar Jackson Out; [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: Tyler Huntley (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Lamar Jackson", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tyler Huntley", "role": "likely_starter_or_primary", "starter_confidence": 0.7, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T17:40:00.000Z", "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."}}]
-- ATL: RESOLVED STARTER Michael Penix Jr. (from ESPN depth chart + injury report). ESPN depth ['Michael Penix Jr.', 'Tua Tagovailoa', 'Cooper Rush', 'Jack Strand'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- BAL: RESOLVED STARTER Tyler Huntley (from operator). ESPN depth ['Lamar Jackson', 'Tyler Huntley', 'Joe Fagnano', 'Skylar Thompson'], flag ok Lamar Jackson Out; [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: Tyler Huntley (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Lamar Jackson", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tyler Huntley", "role": "likely_starter_or_primary", "starter_confidence": 0.7, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T17:40:00.000Z", "evidence": "Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic reports."}}]
+- ATL: RESOLVED STARTER Michael Penix Jr. (from ESPN depth chart + injury report). ESPN depth ['Michael Penix Jr.', 'Tua Tagovailoa', 'Cooper Rush', 'Jack Strand'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
 
 - BAL: Cam Jurgens C Out (2026-10-10); Marlon Humphrey CB Questionable (2026-10-10); Trey Hendrickson LB Out (2026-10-10); Zay Flowers WR Questionable (2026-10-09); Ja'Kobi Lane WR Injured Reserve (2026-10-09); Lamar Jackson QB Out (2026-10-09); Durham Smythe TE Injured Reserve (2026-10-07)
-- ATL: Za'Darius Smith DE Out (2026-10-11); Yasir Abdullah LB Injured Reserve (2026-10-10); Jake Matthews OT Questionable (2026-10-10); Divine Deablo LB Questionable (2026-10-09); Samson Ebukam DE Questionable (2026-10-08)
+- ATL: Yasir Abdullah LB Injured Reserve (2026-10-11); Za'Darius Smith DE Out (2026-10-11); Jake Matthews OT Questionable (2026-10-10); Divine Deablo LB Questionable (2026-10-09); Samson Ebukam DE Questionable (2026-10-08)
 
 Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
@@ -44,13 +44,13 @@ Players not on this list are not reported injured by ESPN. Only Questionable/Dou
 
 ### BAL (AFC North) 3-1
 - PF 116 / PA 96 (diff +20); PPG 29.0 / PAPG 24.0; home 1-1, away 2-0, division 0-0
-- Opponents faced to date have a combined record of 5-11; rest before this game: 7.3 days; byes used: none; byes remaining: [13]
+- Opponents faced to date have a combined record of 5-12; rest before this game: 7.3 days; byes used: none; byes remaining: [13]
 
 | week | site | opp | opp_record | result | pf | pa |
 |---|---|---|---|---|---|---|
 | 1 | A | IND | 2-2 | W | 41 | 23 |
 | 2 | H | NO | 1-3 | L | 17 | 24 |
-| 3 | A | DAL | 2-2 | W | 34 | 31 |
+| 3 | A | DAL | 2-3 | W | 34 | 31 |
 | 4 | H | TEN | 0-4 | W | 24 | 18 |
 
 Next games: wk5 A ATL; wk6 A CLE; wk7 H CIN; wk8 A BUF
@@ -84,13 +84,13 @@ Next games: wk5 H BAL; wk6 H CHI; wk7 H SF; wk8 A TB
 | 1 | CAR | 2-2 | 12 | 1-0 |
 | 2 | ATL | 2-2 | 4 | 1-1 |
 | 3 | NO | 1-3 | -23 | 0-1 |
-| 4 | TB | 0-4 | -20 | 0-0 |
+| 4 | TB | 1-4 | -12 | 0-0 |
 
 **AFC order (top 8)**: 1 KC 4-0, 2 JAX 3-1, 3 LV 3-1, 4 BUF 3-1, 5 BAL 3-1, 6 CLE 3-1, 7 CIN 2-2, 8 IND 2-2
 
-**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 DAL 2-2, 8 ATL 2-2
+**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 ATL 2-2, 8 LAR 2-2
 
-Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.
+Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).
 
 ## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)
 

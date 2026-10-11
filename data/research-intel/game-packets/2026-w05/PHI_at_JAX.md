@@ -1,6 +1,6 @@
 # PHI@JAX packet — Philadelphia Eagles @ Jacksonville Jaguars
 
-Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T13:30:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -22,17 +22,17 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY PHI (ESPN 2026-10-11T02:16:11Z): Out: Drew Kendall C, Marcus Epps S, Hollywood Brown WR, DeVonta Smith WR, Saquon Barkley RB | Questionable/Doubtful: Jonathan Greenard LB | IR: Tank Bigsby RB
-- AVAILABILITY JAX (ESPN 2026-10-11T02:16:11Z): Out: none | Questionable/Doubtful: Eric Murray S | IR: Caleb Ransaw S
+- AVAILABILITY PHI (ESPN 2026-10-11T04:21:24Z): Out: Drew Kendall C, Marcus Epps S, Hollywood Brown WR, DeVonta Smith WR, Saquon Barkley RB | Questionable/Doubtful: Jonathan Greenard LB | IR: Tank Bigsby RB
+- AVAILABILITY JAX (ESPN 2026-10-11T04:21:24Z): Out: none | Questionable/Doubtful: Eric Murray S | IR: Caleb Ransaw S
 
 ## Quarterbacks
 
-- PHI: RESOLVED STARTER Jalen Hurts (from ESPN depth chart + injury report). ESPN depth ['Jalen Hurts', 'Tanner McKee', 'Cole Payton'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jalen Hurts", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tanner McKee", "role": "likely_starter_or_primary", "starter_confidence": 0.78, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-04T12:55:00.000Z", "evidence": "McKee is expected to be active for Sunday's game against the Rams as the top backup to starter Jalen Hurts, while Andy Dalton serves as the Eagles' No. 3 quarterback, Mike Garafolo of NFL Network reports."}}]
-- JAX: RESOLVED STARTER Trevor Lawrence (from ESPN depth chart + injury report). ESPN depth ['Trevor Lawrence', 'Quinn Ewers'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- PHI: RESOLVED STARTER Jalen Hurts (from ESPN depth chart + injury report). ESPN depth ['Jalen Hurts', 'Tanner McKee', 'Cole Payton'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jalen Hurts", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Tanner McKee", "role": "likely_starter_or_primary", "starter_confidence": 0.78, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-04T12:55:00.000Z", "evidence": "McKee is expected to be active for Sunday's game against the Rams as the top backup to starter Jalen Hurts, while Andy Dalton serves as the Eagles' No. 3 quarterback, Mike Garafolo of NFL Network reports."}}]
+- JAX: RESOLVED STARTER Trevor Lawrence (from ESPN depth chart + injury report). ESPN depth ['Trevor Lawrence', 'Quinn Ewers'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
 
 - PHI: Drew Kendall C Out (2026-10-10); Marcus Epps S Out (2026-10-10); Jonathan Greenard LB Questionable (2026-10-10); Hollywood Brown WR Out (2026-10-10); DeVonta Smith WR Out (2026-10-09); Saquon Barkley RB Out (2026-10-09); Tank Bigsby RB Injured Reserve (2026-10-06)
 - JAX: Eric Murray S Doubtful (2026-10-10); Caleb Ransaw S Injured Reserve (2026-10-07)
@@ -81,15 +81,15 @@ Next games: wk5 H PHI; wk6 H HOU; wk8 H IND; wk9 A BAL
 | rank | team | record | point_diff | div |
 |---|---|---|---|---|
 | 1 | NYG | 3-1 | 3 | 1-0 |
-| 2 | DAL | 2-2 | 10 | 1-1 |
-| 3 | PHI | 2-2 | -18 | 1-0 |
+| 2 | PHI | 2-2 | -18 | 1-0 |
+| 3 | DAL | 2-3 | 2 | 1-1 |
 | 4 | WAS | 1-3 | -34 | 0-2 |
 
 **AFC order (top 8)**: 1 KC 4-0, 2 JAX 3-1, 3 LV 3-1, 4 BUF 3-1, 5 BAL 3-1, 6 CLE 3-1, 7 CIN 2-2, 8 IND 2-2
 
-**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 DAL 2-2, 8 ATL 2-2
+**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 ATL 2-2, 8 LAR 2-2
 
-Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.
+Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).
 
 ## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)
 

@@ -1,6 +1,6 @@
 # CLE@NYJ packet — Cleveland Browns @ New York Jets
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -24,19 +24,19 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY CLE (ESPN 2026-10-11T02:16:11Z): Out: Teven Jenkins G, Tylan Wallace WR, Carsen Ryan TE, Mike Hall Jr. DT, Mason Graham DT | Questionable/Doubtful: none | IR: Kalia Davis DT, Dillon Gabriel QB
-- AVAILABILITY NYJ (ESPN 2026-10-11T02:16:11Z): Out: Dylan Parham G, Kiko Mauigoa LB, Adonai Mitchell WR, Breece Hall RB | Questionable/Doubtful: Will McDonald IV DE, Kingsley Enagbare LB | IR: Braiden McGregor DE
+- AVAILABILITY CLE (ESPN 2026-10-11T04:21:24Z): Out: Teven Jenkins G, Tylan Wallace WR, Carsen Ryan TE, Mike Hall Jr. DT, Mason Graham DT | Questionable/Doubtful: none | IR: Kalia Davis DT, Dillon Gabriel QB
+- AVAILABILITY NYJ (ESPN 2026-10-11T04:21:24Z): Out: Dylan Parham G, Kiko Mauigoa LB, Adonai Mitchell WR, Breece Hall RB | Questionable/Doubtful: Will McDonald IV DE, Kingsley Enagbare LB | IR: Braiden McGregor DE
 - BOOK CONFLICT: BKR home line -2.5 vs BEO -1 (>=1.0 pt apart); recapture before relying on either
 - WEATHER: review_required: precipitation probability 78%, forecast precipitation 1.8 mm, gusts 37.1 km/h
 
 ## Quarterbacks
 
-- CLE: RESOLVED STARTER Deshaun Watson (from ESPN depth chart + injury report). ESPN depth ['Deshaun Watson', 'Shedeur Sanders', 'Taylen Green', 'Dillon Gabriel'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
-- NYJ: RESOLVED STARTER Geno Smith (from ESPN depth chart + injury report). ESPN depth ['Geno Smith', 'Cade Klubnik'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Geno Smith", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYJ (usage score 24.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- CLE: RESOLVED STARTER Deshaun Watson (from ESPN depth chart + injury report). ESPN depth ['Deshaun Watson', 'Shedeur Sanders', 'Taylen Green', 'Dillon Gabriel'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- NYJ: RESOLVED STARTER Geno Smith (from ESPN depth chart + injury report). ESPN depth ['Geno Smith', 'Cade Klubnik'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Geno Smith", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYJ (usage score 24.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
 
 - CLE: Kalia Davis DT Injured Reserve (2026-10-10); Teven Jenkins G Out (2026-10-10); Dillon Gabriel QB Injured Reserve (2026-10-10); Tylan Wallace WR Out (2026-10-10); Carsen Ryan TE Out (2026-10-10); Mike Hall Jr. DT Out (2026-10-10); Mason Graham DT Out (2026-10-10)
 - NYJ: Dylan Parham G Out (2026-10-10); Will McDonald IV DE Questionable (2026-10-10); Kingsley Enagbare LB Questionable (2026-10-10); Kiko Mauigoa LB Out (2026-10-09); Adonai Mitchell WR Out (2026-10-09); Breece Hall RB Out (2026-10-09); Braiden McGregor DE Injured Reserve (2026-10-07)
@@ -47,12 +47,12 @@ Players not on this list are not reported injured by ESPN. Only Questionable/Dou
 
 ### CLE (AFC North) 3-1
 - PF 81 / PA 95 (diff -14); PPG 20.2 / PAPG 23.8; home 2-0, away 1-1, division 1-0
-- Opponents faced to date have a combined record of 7-9; rest before this game: 9.7 days; byes used: none; byes remaining: [11]
+- Opponents faced to date have a combined record of 8-9; rest before this game: 9.7 days; byes used: none; byes remaining: [11]
 
 | week | site | opp | opp_record | result | pf | pa |
 |---|---|---|---|---|---|---|
 | 1 | A | JAX | 3-1 | L | 10 | 34 |
-| 2 | A | TB | 0-4 | W | 23 | 19 |
+| 2 | A | TB | 1-4 | W | 23 | 19 |
 | 3 | H | CAR | 2-2 | W | 21 | 18 |
 | 4 | H | PIT | 2-2 | W | 27 | 24 |
 
@@ -91,7 +91,7 @@ Next games: wk5 H CLE; wk6 A NE; wk7 H MIA; wk8 H LV
 
 **AFC order (top 8)**: 1 KC 4-0, 2 JAX 3-1, 3 LV 3-1, 4 BUF 3-1, 5 BAL 3-1, 6 CLE 3-1, 7 CIN 2-2, 8 IND 2-2
 
-Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.
+Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).
 
 ## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)
 

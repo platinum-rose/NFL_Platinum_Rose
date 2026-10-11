@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "HOU@TEN",
- "built_at": "2026-10-11T03:17:13.359677+00:00",
+ "built_at": "2026-10-11T04:23:31.627736+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "HOU",
@@ -65,10 +65,10 @@
      "pf": 30,
      "pa": 34,
      "result": "L",
-     "opp_record": "2-2"
+     "opp_record": "2-3"
     }
    ],
-   "opponents_record_to_date": "9-7",
+   "opponents_record_to_date": "9-8",
    "rest_days_before_this_game": 7.0,
    "bye_weeks_already_used": [],
    "bye_weeks_remaining": [
@@ -351,7 +351,7 @@
     }
    ]
   },
-  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals)."
  },
  "same_division_game": true,
  "market": {
@@ -726,7 +726,7 @@
    "espn_qb_starter": "C.J. Stroud",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "C.J. Stroud",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -763,7 +763,7 @@
    "espn_qb_starter": "Cam Ward",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Cam Ward",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -784,6 +784,13 @@
  "injury_report_non_active": {
   "HOU": [
    {
+    "player": "Braden Smith",
+    "pos": "OT",
+    "status": "Injured Reserve",
+    "date": "2026-10-11",
+    "comment": "Smith (foot) has been downgraded to out for Sunday's game against the Titans."
+   },
+   {
     "player": "M.J. Stewart",
     "pos": "S",
     "status": "Questionable",
@@ -803,13 +810,6 @@
     "status": "Injured Reserve",
     "date": "2026-10-09",
     "comment": "Dell (knee) has been ruled out for Sunday's game against the Titans."
-   },
-   {
-    "player": "Braden Smith",
-    "pos": "OT",
-    "status": "Injured Reserve",
-    "date": "2026-10-09",
-    "comment": "Smith (foot) was a full participant in Thursday's practice."
    },
    {
     "player": "Aireontae Ersery",
@@ -871,10 +871,10 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T02:16:11Z",
+ "espn_status_fetched_at": "2026-10-11T04:21:24Z",
  "game_warnings": [
-  "AVAILABILITY HOU (ESPN 2026-10-11T02:16:11Z): Out: none | Questionable/Doubtful: M.J. Stewart S, Kayden McDonald DT, Aireontae Ersery OT, Ed Ingram G, Blake Fisher OT | IR: Tank Dell WR, Braden Smith OT, Jaylin Smith CB",
-  "AVAILABILITY TEN (ESPN 2026-10-11T02:16:11Z): Out: Amani Hooker S | Questionable/Doubtful: David Martin-Robinson TE, Carnell Tate WR | IR: Joshua Williams CB",
+  "AVAILABILITY HOU (ESPN 2026-10-11T04:21:24Z): Out: none | Questionable/Doubtful: M.J. Stewart S, Kayden McDonald DT, Aireontae Ersery OT, Ed Ingram G, Blake Fisher OT | IR: Braden Smith OT, Tank Dell WR, Jaylin Smith CB",
+  "AVAILABILITY TEN (ESPN 2026-10-11T04:21:24Z): Out: Amani Hooker S | Questionable/Doubtful: David Martin-Robinson TE, Carnell Tate WR | IR: Joshua Williams CB",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],

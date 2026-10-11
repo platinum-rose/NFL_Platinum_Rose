@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CLE@NYJ",
- "built_at": "2026-10-11T03:17:13.359677+00:00",
+ "built_at": "2026-10-11T04:23:31.627736+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CLE",
@@ -45,7 +45,7 @@
      "pf": 23,
      "pa": 19,
      "result": "W",
-     "opp_record": "0-4"
+     "opp_record": "1-4"
     },
     {
      "week": 3,
@@ -68,7 +68,7 @@
      "opp_record": "2-2"
     }
    ],
-   "opponents_record_to_date": "7-9",
+   "opponents_record_to_date": "8-9",
    "rest_days_before_this_game": 9.7,
    "bye_weeks_already_used": [],
    "bye_weeks_remaining": [
@@ -385,7 +385,7 @@
     }
    ]
   },
-  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals)."
  },
  "same_division_game": false,
  "market": {
@@ -761,7 +761,7 @@
    "espn_qb_starter": "Deshaun Watson",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Deshaun Watson",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
@@ -777,7 +777,7 @@
    "espn_qb_starter": "Geno Smith",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Geno Smith",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -899,10 +899,10 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T02:16:11Z",
+ "espn_status_fetched_at": "2026-10-11T04:21:24Z",
  "game_warnings": [
-  "AVAILABILITY CLE (ESPN 2026-10-11T02:16:11Z): Out: Teven Jenkins G, Tylan Wallace WR, Carsen Ryan TE, Mike Hall Jr. DT, Mason Graham DT | Questionable/Doubtful: none | IR: Kalia Davis DT, Dillon Gabriel QB",
-  "AVAILABILITY NYJ (ESPN 2026-10-11T02:16:11Z): Out: Dylan Parham G, Kiko Mauigoa LB, Adonai Mitchell WR, Breece Hall RB | Questionable/Doubtful: Will McDonald IV DE, Kingsley Enagbare LB | IR: Braiden McGregor DE",
+  "AVAILABILITY CLE (ESPN 2026-10-11T04:21:24Z): Out: Teven Jenkins G, Tylan Wallace WR, Carsen Ryan TE, Mike Hall Jr. DT, Mason Graham DT | Questionable/Doubtful: none | IR: Kalia Davis DT, Dillon Gabriel QB",
+  "AVAILABILITY NYJ (ESPN 2026-10-11T04:21:24Z): Out: Dylan Parham G, Kiko Mauigoa LB, Adonai Mitchell WR, Breece Hall RB | Questionable/Doubtful: Will McDonald IV DE, Kingsley Enagbare LB | IR: Braiden McGregor DE",
   "BOOK CONFLICT: BKR home line -2.5 vs BEO -1 (>=1.0 pt apart); recapture before relying on either",
   "WEATHER: review_required: precipitation probability 78%, forecast precipitation 1.8 mm, gusts 37.1 km/h"
  ],

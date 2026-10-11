@@ -1,6 +1,6 @@
 # DET@ARI packet — Detroit Lions @ Arizona Cardinals
 
-Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T20:25:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -22,22 +22,22 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY DET (ESPN 2026-10-11T02:16:11Z): Out: Ben Bartch G, Rock Ya-Sin CB, Brian Branch S | Questionable/Doubtful: Tyleik Williams DT | IR: Cade Mays C, Thomas Harper S
-- AVAILABILITY ARI (ESPN 2026-10-11T02:16:11Z): Out: Marvin Harrison Jr. WR, Andrew Wingard S | Questionable/Doubtful: Walter Nolen III DT, Karson Sharar LB | IR: Isaiah Adams G, Paris Johnson Jr. OT, Hunter Long TE
+- AVAILABILITY DET (ESPN 2026-10-11T04:21:24Z): Out: Ben Bartch G, Rock Ya-Sin CB, Brian Branch S | Questionable/Doubtful: Tyleik Williams DT | IR: Cade Mays C, Thomas Harper S
+- AVAILABILITY ARI (ESPN 2026-10-11T04:21:24Z): Out: Marvin Harrison Jr. WR, Andrew Wingard S | Questionable/Doubtful: Walter Nolen III DT, Karson Sharar LB | IR: Isaiah Adams G, Paris Johnson Jr. OT, Hunter Long TE
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - VENUE: ARI has a retractable roof; check game-day roof status before using weather
 
 ## Quarterbacks
 
-- DET: RESOLVED STARTER Jared Goff (from ESPN depth chart + injury report). ESPN depth ['Jared Goff', 'Joshua Dobbs'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jared Goff", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for DET (usage score 39.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- ARI: RESOLVED STARTER Jacoby Brissett (from ESPN depth chart + injury report). ESPN depth ['Jacoby Brissett', 'Gardner Minshew II', 'Carson Beck'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- DET: RESOLVED STARTER Jared Goff (from ESPN depth chart + injury report). ESPN depth ['Jared Goff', 'Joshua Dobbs'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jared Goff", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for DET (usage score 39.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- ARI: RESOLVED STARTER Jacoby Brissett (from ESPN depth chart + injury report). ESPN depth ['Jacoby Brissett', 'Gardner Minshew II', 'Carson Beck'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
 
 - DET: Cade Mays C Injured Reserve (2026-10-10); Ben Bartch G Out (2026-10-10); Rock Ya-Sin CB Out (2026-10-10); Brian Branch S Out (2026-10-10); Tyleik Williams DT Questionable (2026-10-07); Thomas Harper S Injured Reserve (2026-09-26)
-- ARI: Isaiah Adams G Injured Reserve (2026-10-10); Marvin Harrison Jr. WR Out (2026-10-10); Walter Nolen III DT Questionable (2026-10-10); Andrew Wingard S Out (2026-10-09); Karson Sharar LB Questionable (2026-10-08); Paris Johnson Jr. OT Injured Reserve (2026-10-07); Hunter Long TE Injured Reserve (2026-10-06)
+- ARI: Isaiah Adams G Injured Reserve (2026-10-11); Marvin Harrison Jr. WR Out (2026-10-10); Walter Nolen III DT Questionable (2026-10-10); Andrew Wingard S Out (2026-10-09); Karson Sharar LB Questionable (2026-10-08); Paris Johnson Jr. OT Injured Reserve (2026-10-07); Hunter Long TE Injured Reserve (2026-10-06)
 
 Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
@@ -87,9 +87,9 @@ Next games: wk5 H DET; wk6 A LAR; wk7 H DEN; wk8 A DAL
 | 3 | LAR | 2-2 | 2 | 0-1 |
 | 4 | ARI | 1-3 | -30 | 0-2 |
 
-**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 DAL 2-2, 8 ATL 2-2
+**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 ATL 2-2, 8 LAR 2-2
 
-Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.
+Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).
 
 ## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)
 

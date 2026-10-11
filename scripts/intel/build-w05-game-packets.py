@@ -253,6 +253,13 @@ def main():
     os.makedirs(a.out, exist_ok=True)
 
     sched = load('schedule')
+    patched = []
+    for f in (load('espn').get('finals') or []):
+        for g in sched:
+            if g['visitor'] == f['visitor'] and g['home'] == f['home'] and g.get('week') == WEEK and g.get('status') != 'post':
+                g['status'], g['visitorScore'], g['homeScore'] = 'post', f['visitorScore'], f['homeScore']
+                patched.append('%s@%s %s-%s (ESPN final, schedule.json said pre)' % (f['visitor'], f['home'], f['visitorScore'], f['homeScore']))
+    print('schedule patched from ESPN finals:', patched)
     rec = build_standings(sched)
     w5 = [g for g in sched if g.get('week') == WEEK and g.get('season_type') == 2 and g.get('status') != 'post']
     excl = {x.strip() for x in a.exclude.split(',') if x.strip()}
@@ -411,7 +418,7 @@ def main():
             'teams': {away: team_block(away, rec, sched, kick), home: team_block(home, rec, sched, kick)},
             'standings': {'divisions': {d: division_table(d, rec) for d in sorted({TEAM_DIV[away], TEAM_DIV[home]})},
                           'conference_order_by_record_then_point_diff': {c: conference_order(c, rec) for c in sorted({TEAM_DIV[away][:3], TEAM_DIV[home][:3]})},
-                          'note': 'Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.'},
+                          'note': 'Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).'},
             'same_division_game': TEAM_DIV[away] == TEAM_DIV[home],
             'market': market, 'action_network_opener': op, 'action_network_splits': sp, 'action_network_splits_captured_at': splits.get('captured_at'), 'supercontest_row': scr,
             'quantitative_row': qg, 'simulator_edge_sweep': simrows, 'simulator_total_sweep': simtot, 'quarterbacks': qbs, 'injury_report_non_active': {t: (espn.get('teams', {}).get(t) or {}).get('injury_report_non_active') for t in (away, home)}, 'espn_status_fetched_at': espn.get('fetched_at'), 'game_warnings': warnings,
@@ -442,7 +449,7 @@ def main():
         print('wrote', base + '.json', os.path.getsize(base + '.json'), 'bytes; rows', dict(counts))
 
     # slate context: one standings table, shared
-    L = ['# Week 5 slate context (shared, read once)', '', 'Built %s. Records include the Week 5 TB@DAL final. Order is win%% then point differential only.' % now.isoformat(), '']
+    L = ['# Week 5 slate context (shared, read once)', '', 'Built %s. Records include Week 5 games ESPN lists as final at fetch time. Order is win%% then point differential only.' % now.isoformat(), '']
     for d in DIV:
         L += ['## %s' % d, '', '| # | Team | Record | PF-PA | Div |', '|---:|---|---|---:|---|']
         for x in division_table(d, rec):

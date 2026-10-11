@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "IND@PIT",
- "built_at": "2026-10-11T03:17:13.359677+00:00",
+ "built_at": "2026-10-11T04:23:31.627736+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "IND",
@@ -385,7 +385,7 @@
     }
    ]
   },
-  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals)."
  },
  "same_division_game": false,
  "market": {
@@ -760,7 +760,7 @@
    "espn_qb_starter": "Daniel Jones",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Daniel Jones",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -789,7 +789,7 @@
    "espn_qb_starter": "Aaron Rodgers",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Aaron Rodgers",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -904,10 +904,10 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T02:16:11Z",
+ "espn_status_fetched_at": "2026-10-11T04:21:24Z",
  "game_warnings": [
-  "AVAILABILITY IND (ESPN 2026-10-11T02:16:11Z): Out: Darius Slayton WR, Jaylon Carlies LB, Ashton Dulin WR | Questionable/Doubtful: Charvarius Ward CB, Keenan Allen WR | IR: Arden Key DE, Will Mallory TE",
-  "AVAILABILITY PIT (ESPN 2026-10-11T02:16:11Z): Out: Jamel Dean CB | Questionable/Doubtful: Jalen Ramsey CB, Rico Dowdle RB | IR: Michael Pittman Jr. WR, DeShon Elliott S, Derrick Harmon DT",
+  "AVAILABILITY IND (ESPN 2026-10-11T04:21:24Z): Out: Darius Slayton WR, Jaylon Carlies LB, Ashton Dulin WR | Questionable/Doubtful: Charvarius Ward CB, Keenan Allen WR | IR: Arden Key DE, Will Mallory TE",
+  "AVAILABILITY PIT (ESPN 2026-10-11T04:21:24Z): Out: Jamel Dean CB | Questionable/Doubtful: Jalen Ramsey CB, Rico Dowdle RB | IR: Michael Pittman Jr. WR, DeShon Elliott S, Derrick Harmon DT",
   "WEATHER: review_required: forecast wind 25.2 km/h, gusts 58.0 km/h, precipitation probability 54%"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",

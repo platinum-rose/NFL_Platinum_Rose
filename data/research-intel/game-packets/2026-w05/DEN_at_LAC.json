@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "DEN@LAC",
- "built_at": "2026-10-11T03:17:13.359677+00:00",
+ "built_at": "2026-10-11T04:23:31.627736+00:00",
  "kickoff_utc": "2026-10-11T20:05:00.000Z",
  "away": {
   "abbr": "DEN",
@@ -351,7 +351,7 @@
     }
    ]
   },
-  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals)."
  },
  "same_division_game": true,
  "market": {
@@ -726,7 +726,7 @@
    "espn_qb_starter": "Bo Nix",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Bo Nix",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -754,7 +754,7 @@
    "espn_qb_starter": "Justin Herbert",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Justin Herbert",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -805,6 +805,20 @@
   ],
   "LAC": [
    {
+    "player": "Trevor Penning",
+    "pos": "G",
+    "status": "Injured Reserve",
+    "date": "2026-10-11",
+    "comment": "The Chargers placed Penning (concussion) on injured reserve Saturday."
+   },
+   {
+    "player": "Branson Taylor",
+    "pos": "G",
+    "status": "Questionable",
+    "date": "2026-10-11",
+    "comment": "The Chargers activated Taylor (neck) form injured reserve Saturday."
+   },
+   {
     "player": "Scott Matlock",
     "pos": "FB",
     "status": "Questionable",
@@ -819,13 +833,6 @@
     "comment": "The Chargers placed Lance (groin) on injured reserve Saturday."
    },
    {
-    "player": "Branson Taylor",
-    "pos": "G",
-    "status": "Questionable",
-    "date": "2026-10-10",
-    "comment": "questionable"
-   },
-   {
     "player": "Charlie Kolar",
     "pos": "TE",
     "status": "Questionable",
@@ -838,13 +845,6 @@
     "status": "Injured Reserve",
     "date": "2026-10-10",
     "comment": "The Chargers placed Slater (ankle) on injured reserve Friday."
-   },
-   {
-    "player": "Trevor Penning",
-    "pos": "G",
-    "status": "Injured Reserve",
-    "date": "2026-10-10",
-    "comment": "Penning (concussion) was been ruled out ahead of Sunday's game against Denver."
    },
    {
     "player": "Kayode Awosika",
@@ -904,10 +904,10 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T02:16:11Z",
+ "espn_status_fetched_at": "2026-10-11T04:21:24Z",
  "game_warnings": [
-  "AVAILABILITY DEN (ESPN 2026-10-11T02:16:11Z): Out: Riley Moss CB, Pat Surtain II CB | Questionable/Doubtful: none | IR: Pat Bryant WR, Jonah Coleman RB",
-  "AVAILABILITY LAC (ESPN 2026-10-11T02:16:11Z): Out: Kayode Awosika G, Joe Alt OT, Brenen Thompson WR, Derwin James Jr. S, Donte Jackson CB, Quentin Johnston WR | Questionable/Doubtful: Scott Matlock FB, Branson Taylor G, Charlie Kolar TE, Rodney Shelley CB, Ladd McConkey WR | IR: Trey Lance QB, Rashawn Slater OT, Trevor Penning G",
+  "AVAILABILITY DEN (ESPN 2026-10-11T04:21:24Z): Out: Riley Moss CB, Pat Surtain II CB | Questionable/Doubtful: none | IR: Pat Bryant WR, Jonah Coleman RB",
+  "AVAILABILITY LAC (ESPN 2026-10-11T04:21:24Z): Out: Kayode Awosika G, Joe Alt OT, Brenen Thompson WR, Derwin James Jr. S, Donte Jackson CB, Quentin Johnston WR | Questionable/Doubtful: Branson Taylor G, Scott Matlock FB, Charlie Kolar TE, Rodney Shelley CB, Ladd McConkey WR | IR: Trevor Penning G, Trey Lance QB, Rashawn Slater OT",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"
  ],

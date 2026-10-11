@@ -1,6 +1,6 @@
 # MIN@NO packet — Minnesota Vikings @ New Orleans Saints
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -24,8 +24,8 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY MIN (ESPN 2026-10-11T02:16:11Z): Out: Charles Demmings CB, Christian Darrisaw OT | Questionable/Doubtful: Ben Yurosek TE, Michael Jurgens C, Brian O'Neill OT, Jordan Addison WR, Justin Jefferson WR | IR: Donovan Jackson G, Josh Oliver TE
-- AVAILABILITY NO (ESPN 2026-10-11T02:16:11Z): Out: Jeremiah Wright G, Anfernee Jennings LB, Kaden Elliss LB | Questionable/Doubtful: Nathan Shepherd DT, Vernon Broughton DT, Lorenzo Styles Jr. S, Jaylan Ford LB, Christen Miller DT, Julian Blackmon S, Barion Brown WR, Alvin Kamara RB | IR: none
+- AVAILABILITY MIN (ESPN 2026-10-11T04:21:24Z): Out: Charles Demmings CB, Christian Darrisaw OT | Questionable/Doubtful: Michael Jurgens C, Ben Yurosek TE, Brian O'Neill OT, Jordan Addison WR, Justin Jefferson WR | IR: Donovan Jackson G, Josh Oliver TE
+- AVAILABILITY NO (ESPN 2026-10-11T04:21:24Z): Out: Jeremiah Wright G, Anfernee Jennings LB, Kaden Elliss LB | Questionable/Doubtful: Lorenzo Styles Jr. S, Jaylan Ford LB, Nathan Shepherd DT, Vernon Broughton DT, Christen Miller DT, Julian Blackmon S, Barion Brown WR, Alvin Kamara RB | IR: none
 - BOOK CONFLICT: BKR home line 2.5 vs BEO 1 (>=1.0 pt apart); recapture before relying on either
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
@@ -33,15 +33,15 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Quarterbacks
 
-- MIN: RESOLVED STARTER Kyler Murray (from ESPN depth chart + injury report). ESPN depth ['Kyler Murray', 'Carson Wentz', 'Max Brosmer'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
-- NO: RESOLVED STARTER Tyler Shough (from ESPN depth chart + injury report). ESPN depth ['Tyler Shough', 'Spencer Rattler', 'Zach Wilson'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Tyler Shough", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- MIN: RESOLVED STARTER Kyler Murray (from ESPN depth chart + injury report). ESPN depth ['Kyler Murray', 'Carson Wentz', 'Max Brosmer'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): []
+- NO: RESOLVED STARTER Tyler Shough (from ESPN depth chart + injury report). ESPN depth ['Tyler Shough', 'Spencer Rattler', 'Zach Wilson'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Tyler Shough", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
 
-- MIN: Ben Yurosek TE Questionable (2026-10-11); Michael Jurgens C Questionable (2026-10-10); Charles Demmings CB Out (2026-10-10); Brian O'Neill OT Questionable (2026-10-10); Christian Darrisaw OT Out (2026-10-10); Jordan Addison WR Questionable (2026-10-09); Justin Jefferson WR Questionable (2026-10-09); Donovan Jackson G Injured Reserve (2026-10-07); Josh Oliver TE Injured Reserve (2026-09-30)
-- NO: Nathan Shepherd DT Questionable (2026-10-11); Vernon Broughton DT Questionable (2026-10-10); Lorenzo Styles Jr. S Questionable (2026-10-10); Jaylan Ford LB Questionable (2026-10-10); Christen Miller DT Questionable (2026-10-10); Jeremiah Wright G Out (2026-10-10); Anfernee Jennings LB Out (2026-10-10); Julian Blackmon S Questionable (2026-10-09); Kaden Elliss LB Out (2026-10-09); Barion Brown WR Questionable (2026-10-09); Alvin Kamara RB Questionable (2026-10-09)
+- MIN: Michael Jurgens C Questionable (2026-10-11); Ben Yurosek TE Questionable (2026-10-11); Charles Demmings CB Out (2026-10-10); Brian O'Neill OT Questionable (2026-10-10); Christian Darrisaw OT Out (2026-10-10); Jordan Addison WR Questionable (2026-10-09); Justin Jefferson WR Questionable (2026-10-09); Donovan Jackson G Injured Reserve (2026-10-07); Josh Oliver TE Injured Reserve (2026-09-30)
+- NO: Lorenzo Styles Jr. S Questionable (2026-10-11); Jaylan Ford LB Questionable (2026-10-11); Nathan Shepherd DT Questionable (2026-10-11); Vernon Broughton DT Questionable (2026-10-10); Christen Miller DT Questionable (2026-10-10); Jeremiah Wright G Out (2026-10-10); Anfernee Jennings LB Out (2026-10-10); Julian Blackmon S Questionable (2026-10-09); Kaden Elliss LB Out (2026-10-09); Barion Brown WR Questionable (2026-10-09); Alvin Kamara RB Questionable (2026-10-09)
 
 Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
@@ -49,13 +49,13 @@ Players not on this list are not reported injured by ESPN. Only Questionable/Dou
 
 ### MIN (NFC North) 4-0
 - PF 86 / PA 51 (diff +35); PPG 21.5 / PAPG 12.8; home 2-0, away 2-0, division 2-0
-- Opponents faced to date have a combined record of 5-11; rest before this game: 6.9 days; byes used: none; byes remaining: [6]
+- Opponents faced to date have a combined record of 6-11; rest before this game: 6.9 days; byes used: none; byes remaining: [6]
 
 | week | site | opp | opp_record | result | pf | pa |
 |---|---|---|---|---|---|---|
 | 1 | H | GB | 2-2 | W | 39 | 22 |
 | 2 | A | CHI | 3-1 | W | 9 | 3 |
-| 3 | A | TB | 0-4 | W | 23 | 16 |
+| 3 | A | TB | 1-4 | W | 23 | 16 |
 | 4 | H | MIA | 0-4 | W | 15 | 10 |
 
 Next games: wk5 A NO; wk7 H IND; wk8 A DET; wk9 H BUF
@@ -89,11 +89,11 @@ Next games: wk5 H MIN; wk6 A NYG; wk7 H PIT; wk9 H CLE
 | 1 | CAR | 2-2 | 12 | 1-0 |
 | 2 | ATL | 2-2 | 4 | 1-1 |
 | 3 | NO | 1-3 | -23 | 0-1 |
-| 4 | TB | 0-4 | -20 | 0-0 |
+| 4 | TB | 1-4 | -12 | 0-0 |
 
-**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 DAL 2-2, 8 ATL 2-2
+**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 ATL 2-2, 8 LAR 2-2
 
-Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.
+Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).
 
 ## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)
 

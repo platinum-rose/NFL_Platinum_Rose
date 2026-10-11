@@ -1,6 +1,6 @@
 # NYG@WAS packet — New York Giants @ Washington Commanders
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC East).
 
@@ -26,18 +26,18 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY NYG (ESPN 2026-10-11T02:16:11Z): Out: Jason Pinnock S | Questionable/Doubtful: none | IR: Chauncey Golston DE, Braxton Berrios WR
-- AVAILABILITY WAS (ESPN 2026-10-11T02:16:11Z): Out: Tyler Owens S, Charles Omenihu DE, Percy Butler S, Nick Cross S, Marcus Mariota QB, Stefon Diggs WR | Questionable/Doubtful: Terry McLaurin WR | IR: Trey Amos CB, Jeremy McNichols RB, Jaylin Lane WR
+- AVAILABILITY NYG (ESPN 2026-10-11T04:21:24Z): Out: Jason Pinnock S | Questionable/Doubtful: none | IR: Chauncey Golston DE, Braxton Berrios WR
+- AVAILABILITY WAS (ESPN 2026-10-11T04:21:24Z): Out: Tyler Owens S, Charles Omenihu DE, Percy Butler S, Nick Cross S, Marcus Mariota QB, Stefon Diggs WR | Questionable/Doubtful: Terry McLaurin WR | IR: Trey Amos CB, Jeremy McNichols RB, Jaylin Lane WR
 - WEATHER: review_required: precipitation probability 72%
 
 ## Quarterbacks
 
-- NYG: RESOLVED STARTER Jameis Winston (from operator). ESPN depth ['Jameis Winston', 'J.J. McCarthy', 'Jake Haener', 'Jaxson Dart'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: Jameis Winston (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Jaxson Dart", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Jake Haener", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T21:53:00.000Z", "evidence": "The Giants signed Haener to the 53-man roster off their practice squad Wednesday, Mike Garafolo of NFL Network reports."}}]
-- WAS: RESOLVED STARTER Jayden Daniels (from operator). ESPN depth ['Jayden Daniels', 'Marcus Mariota', 'Athan Kaliakmanis'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: Jayden Daniels (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Jayden Daniels", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T16:54:00.000Z", "evidence": "Head coach Dan Quinn confirmed Friday that Daniels (elbow) will start Sunday's game against the Giants."}}]
+- NYG: RESOLVED STARTER Jameis Winston (from operator). ESPN depth ['Jameis Winston', 'J.J. McCarthy', 'Jake Haener', 'Jaxson Dart'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: Jameis Winston (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Jaxson Dart", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Jake Haener", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T21:53:00.000Z", "evidence": "The Giants signed Haener to the 53-man roster off their practice squad Wednesday, Mike Garafolo of NFL Network reports."}}]
+- WAS: RESOLVED STARTER Jayden Daniels (from operator). ESPN depth ['Jayden Daniels', 'Marcus Mariota', 'Athan Kaliakmanis'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: Jayden Daniels (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Jayden Daniels", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-09T16:54:00.000Z", "evidence": "Head coach Dan Quinn confirmed Friday that Daniels (elbow) will start Sunday's game against the Giants."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
 
 - NYG: Chauncey Golston DE Injured Reserve (2026-10-11); Jason Pinnock S Out (2026-10-10); Braxton Berrios WR Injured Reserve (2026-10-07)
 - WAS: Trey Amos CB Injured Reserve (2026-10-11); Jeremy McNichols RB Injured Reserve (2026-10-11); Terry McLaurin WR Questionable (2026-10-11); Tyler Owens S Out (2026-10-10); Charles Omenihu DE Out (2026-10-10); Percy Butler S Out (2026-10-10); Nick Cross S Out (2026-10-10); Marcus Mariota QB Out (2026-10-09); Stefon Diggs WR Out (2026-10-09); Jaylin Lane WR Injured Reserve (2026-10-06)
@@ -48,11 +48,11 @@ Players not on this list are not reported injured by ESPN. Only Questionable/Dou
 
 ### NYG (NFC East) 3-1
 - PF 82 / PA 79 (diff +3); PPG 20.5 / PAPG 19.8; home 3-0, away 0-1, division 1-0
-- Opponents faced to date have a combined record of 5-11; rest before this game: 7.0 days; byes used: none; byes remaining: [8]
+- Opponents faced to date have a combined record of 5-12; rest before this game: 7.0 days; byes used: none; byes remaining: [8]
 
 | week | site | opp | opp_record | result | pf | pa |
 |---|---|---|---|---|---|---|
-| 1 | H | DAL | 2-2 | W | 28 | 20 |
+| 1 | H | DAL | 2-3 | W | 28 | 20 |
 | 2 | A | LAR | 2-2 | L | 6 | 28 |
 | 3 | H | TEN | 0-4 | W | 12 | 7 |
 | 4 | H | ARI | 1-3 | W | 36 | 24 |
@@ -61,12 +61,12 @@ Next games: wk5 A WAS; wk6 H NO; wk7 A HOU; wk9 A PHI
 
 ### WAS (NFC East) 1-3
 - PF 88 / PA 122 (diff -34); PPG 22.0 / PAPG 30.5; home 1-1, away 0-2, division 0-2
-- Opponents faced to date have a combined record of 9-7; rest before this game: 7.1 days; byes used: none; byes remaining: [7]
+- Opponents faced to date have a combined record of 9-8; rest before this game: 7.1 days; byes used: none; byes remaining: [7]
 
 | week | site | opp | opp_record | result | pf | pa |
 |---|---|---|---|---|---|---|
 | 1 | A | PHI | 2-2 | L | 22 | 24 |
-| 2 | A | DAL | 2-2 | L | 20 | 37 |
+| 2 | A | DAL | 2-3 | L | 20 | 37 |
 | 3 | H | SEA | 3-1 | W | 33 | 31 |
 | 4 | H | IND | 2-2 | L | 13 | 30 |
 
@@ -78,13 +78,13 @@ Next games: wk5 H NYG; wk6 A SF; wk8 H PHI; wk9 H LAR
 | rank | team | record | point_diff | div |
 |---|---|---|---|---|
 | 1 | NYG | 3-1 | 3 | 1-0 |
-| 2 | DAL | 2-2 | 10 | 1-1 |
-| 3 | PHI | 2-2 | -18 | 1-0 |
+| 2 | PHI | 2-2 | -18 | 1-0 |
+| 3 | DAL | 2-3 | 2 | 1-1 |
 | 4 | WAS | 1-3 | -34 | 0-2 |
 
-**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 DAL 2-2, 8 ATL 2-2
+**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 ATL 2-2, 8 LAR 2-2
 
-Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.
+Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).
 
 ## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)
 

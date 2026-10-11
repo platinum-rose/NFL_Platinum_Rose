@@ -1,6 +1,6 @@
 # BUF@LAR packet — Buffalo Bills @ Los Angeles Rams
 
-Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-13T00:15:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 ## Market
 
@@ -22,21 +22,21 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY BUF (ESPN 2026-10-11T02:16:11Z): Out: Ed Oliver DT, Joshua Palmer WR | Questionable/Doubtful: Dee Alford CB, Landon Jackson DE, DJ Moore WR, Te'Cory Couch CB | IR: none
-- AVAILABILITY LAR (ESPN 2026-10-11T02:16:11Z): Out: none | Questionable/Doubtful: Quentin Lake S | IR: Myles Garrett DE, Terrance Ferguson TE
+- AVAILABILITY BUF (ESPN 2026-10-11T04:21:24Z): Out: Ed Oliver DT, Joshua Palmer WR | Questionable/Doubtful: Landon Jackson DE, Dee Alford CB, DJ Moore WR, Te'Cory Couch CB | IR: none
+- AVAILABILITY LAR (ESPN 2026-10-11T04:21:24Z): Out: none | Questionable/Doubtful: Quentin Lake S | IR: Myles Garrett DE, Terrance Ferguson TE
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
 
-- BUF: RESOLVED STARTER Josh Allen (from ESPN depth chart + injury report). ESPN depth ['Josh Allen', 'Kyle Allen'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Josh Allen", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BUF (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
-- LAR: RESOLVED STARTER Matthew Stafford (from ESPN depth chart + injury report). ESPN depth ['Matthew Stafford', 'Stetson Bennett IV', 'Ty Simpson', 'Matthew Caldwell'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Matthew Stafford", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LA (usage score 25.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- BUF: RESOLVED STARTER Josh Allen (from ESPN depth chart + injury report). ESPN depth ['Josh Allen', 'Kyle Allen'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Josh Allen", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for BUF (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- LAR: RESOLVED STARTER Matthew Stafford (from ESPN depth chart + injury report). ESPN depth ['Matthew Stafford', 'Stetson Bennett IV', 'Ty Simpson', 'Matthew Caldwell'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Matthew Stafford", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for LA (usage score 25.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
 
-- BUF: Dee Alford CB Questionable (2026-10-10); Ed Oliver DT Out (2026-10-10); Landon Jackson DE Questionable (2026-10-10); DJ Moore WR Questionable (2026-10-10); Joshua Palmer WR Out (2026-10-10); Te'Cory Couch CB Questionable (2026-10-04)
-- LAR: Myles Garrett DE Injured Reserve (2026-10-10); Quentin Lake S Questionable (2026-10-09); Terrance Ferguson TE Injured Reserve (2026-10-07)
+- BUF: Landon Jackson DE Questionable (2026-10-11); Dee Alford CB Questionable (2026-10-10); Ed Oliver DT Out (2026-10-10); DJ Moore WR Questionable (2026-10-10); Joshua Palmer WR Out (2026-10-10); Te'Cory Couch CB Questionable (2026-10-04)
+- LAR: Quentin Lake S Questionable (2026-10-11); Myles Garrett DE Injured Reserve (2026-10-10); Terrance Ferguson TE Injured Reserve (2026-10-07)
 
 Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
 
@@ -88,9 +88,9 @@ Next games: wk5 H BUF; wk6 H ARI; wk7 A LV; wk8 H LAC
 
 **AFC order (top 8)**: 1 KC 4-0, 2 JAX 3-1, 3 LV 3-1, 4 BUF 3-1, 5 BAL 3-1, 6 CLE 3-1, 7 CIN 2-2, 8 IND 2-2
 
-**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 DAL 2-2, 8 ATL 2-2
+**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 ATL 2-2, 8 LAR 2-2
 
-Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.
+Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).
 
 ## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)
 

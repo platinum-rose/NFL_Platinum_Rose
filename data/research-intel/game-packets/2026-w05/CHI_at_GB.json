@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "CHI@GB",
- "built_at": "2026-10-11T03:17:13.359677+00:00",
+ "built_at": "2026-10-11T04:23:31.627736+00:00",
  "kickoff_utc": "2026-10-11T17:00:00.000Z",
  "away": {
   "abbr": "CHI",
@@ -157,10 +157,10 @@
      "pf": 17,
      "pa": 14,
      "result": "W",
-     "opp_record": "0-4"
+     "opp_record": "1-4"
     }
    ],
-   "opponents_record_to_date": "7-9",
+   "opponents_record_to_date": "8-9",
    "rest_days_before_this_game": 7.0,
    "bye_weeks_already_used": [],
    "bye_weeks_remaining": [
@@ -280,45 +280,45 @@
      "order": 6
     },
     {
-     "team": "DAL",
-     "record": "2-2",
-     "pct": 0.5,
-     "point_diff": 10,
-     "order": 7
-    },
-    {
      "team": "ATL",
      "record": "2-2",
      "pct": 0.5,
      "point_diff": 4,
-     "order": 8
+     "order": 7
     },
     {
      "team": "LAR",
      "record": "2-2",
      "pct": 0.5,
      "point_diff": 2,
-     "order": 9
+     "order": 8
     },
     {
      "team": "DET",
      "record": "2-2",
      "pct": 0.5,
      "point_diff": -8,
-     "order": 10
+     "order": 9
     },
     {
      "team": "PHI",
      "record": "2-2",
      "pct": 0.5,
      "point_diff": -18,
-     "order": 11
+     "order": 10
     },
     {
      "team": "GB",
      "record": "2-2",
      "pct": 0.5,
      "point_diff": -32,
+     "order": 11
+    },
+    {
+     "team": "DAL",
+     "record": "2-3",
+     "pct": 0.4,
+     "point_diff": 2,
      "order": 12
     },
     {
@@ -344,14 +344,14 @@
     },
     {
      "team": "TB",
-     "record": "0-4",
-     "pct": 0.0,
-     "point_diff": -20,
+     "record": "1-4",
+     "pct": 0.2,
+     "point_diff": -12,
      "order": 16
     }
    ]
   },
-  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals)."
  },
  "same_division_game": true,
  "market": {
@@ -726,7 +726,7 @@
    "espn_qb_starter": "Caleb Williams",
    "espn_qb_flag": "AMBIGUOUS",
    "espn_qb_note": "Caleb Williams Questionable;",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Tyson Bagent",
    "resolved_from": "operator",
    "projected_starter_qb_rows": [
@@ -773,7 +773,7 @@
    "espn_qb_starter": "Jordan Love",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Jordan Love",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [
@@ -796,9 +796,9 @@
    {
     "player": "Anthony Johnson Jr.",
     "pos": "S",
-    "status": "Out",
+    "status": "Injured Reserve",
     "date": "2026-10-11",
-    "comment": "out"
+    "comment": "ir"
    },
    {
     "player": "Shemar Turner",
@@ -909,11 +909,11 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T02:16:11Z",
+ "espn_status_fetched_at": "2026-10-11T04:21:24Z",
  "game_warnings": [
   "QB CHI: ESPN lists Caleb Williams Questionable; (Questionable/Doubtful); starter is ambiguous -- operator says Tyson Bagent",
-  "AVAILABILITY CHI (ESPN 2026-10-11T02:16:11Z): Out: Anthony Johnson Jr. S, Shemar Turner DT, Kyler Gordon CB, Keyshaun Elliott LB, Kyle Monangai RB | Questionable/Doubtful: Noah Sewell LB, Caleb Williams QB | IR: none",
-  "AVAILABILITY GB (ESPN 2026-10-11T02:16:11Z): Out: Micah Parsons DE | Questionable/Doubtful: Jacob Monk C, Jager Burton C, Aaron Banks G, Javon Hargrave DT, Anthony Campbell DT | IR: Chris Brooks RB, Savion Williams WR, Edgerrin Cooper LB",
+  "AVAILABILITY CHI (ESPN 2026-10-11T04:21:24Z): Out: Shemar Turner DT, Kyler Gordon CB, Keyshaun Elliott LB, Kyle Monangai RB | Questionable/Doubtful: Noah Sewell LB, Caleb Williams QB | IR: Anthony Johnson Jr. S",
+  "AVAILABILITY GB (ESPN 2026-10-11T04:21:24Z): Out: Micah Parsons DE | Questionable/Doubtful: Jacob Monk C, Jager Burton C, Aaron Banks G, Javon Hargrave DT, Anthony Campbell DT | IR: Chris Brooks RB, Savion Williams WR, Edgerrin Cooper LB",
   "WEATHER: review_required: wind 22.3 km/h, gusts 42.1 km/h",
   "SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels",
   "1 near-miss source row(s) (verbatim but not self-identifying): context only"

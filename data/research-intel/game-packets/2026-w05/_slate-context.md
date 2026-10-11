@@ -1,6 +1,6 @@
 # Week 5 slate context (shared, read once)
 
-Built 2026-10-11T03:17:13.359677+00:00. Records include the Week 5 TB@DAL final. Order is win% then point differential only.
+Built 2026-10-11T04:23:31.627736+00:00. Records include Week 5 games ESPN lists as final at fetch time. Order is win% then point differential only.
 
 ## AFC East
 
@@ -43,8 +43,8 @@ Built 2026-10-11T03:17:13.359677+00:00. Records include the Week 5 TB@DAL final.
 | # | Team | Record | PF-PA | Div |
 |---:|---|---|---:|---|
 | 1 | NYG | 3-1 | 82-79 | 1-0 |
-| 2 | DAL | 2-2 | 122-112 | 1-1 |
-| 3 | PHI | 2-2 | 75-93 | 1-0 |
+| 2 | PHI | 2-2 | 75-93 | 1-0 |
+| 3 | DAL | 2-3 | 138-136 | 1-1 |
 | 4 | WAS | 1-3 | 88-122 | 0-2 |
 
 ## NFC North
@@ -63,7 +63,7 @@ Built 2026-10-11T03:17:13.359677+00:00. Records include the Week 5 TB@DAL final.
 | 1 | CAR | 2-2 | 121-109 | 1-0 |
 | 2 | ATL | 2-2 | 96-92 | 1-1 |
 | 3 | NO | 1-3 | 105-128 | 0-1 |
-| 4 | TB | 0-4 | 76-96 | 0-0 |
+| 4 | TB | 1-4 | 100-112 | 0-0 |
 
 ## NFC West
 

@@ -1,6 +1,6 @@
 # CHI@GB packet — Chicago Bears @ Green Bay Packers
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (NFC North).
 
@@ -25,22 +25,22 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 ## Warnings that touch this game
 
 - QB CHI: ESPN lists Caleb Williams Questionable; (Questionable/Doubtful); starter is ambiguous -- operator says Tyson Bagent
-- AVAILABILITY CHI (ESPN 2026-10-11T02:16:11Z): Out: Anthony Johnson Jr. S, Shemar Turner DT, Kyler Gordon CB, Keyshaun Elliott LB, Kyle Monangai RB | Questionable/Doubtful: Noah Sewell LB, Caleb Williams QB | IR: none
-- AVAILABILITY GB (ESPN 2026-10-11T02:16:11Z): Out: Micah Parsons DE | Questionable/Doubtful: Jacob Monk C, Jager Burton C, Aaron Banks G, Javon Hargrave DT, Anthony Campbell DT | IR: Chris Brooks RB, Savion Williams WR, Edgerrin Cooper LB
+- AVAILABILITY CHI (ESPN 2026-10-11T04:21:24Z): Out: Shemar Turner DT, Kyler Gordon CB, Keyshaun Elliott LB, Kyle Monangai RB | Questionable/Doubtful: Noah Sewell LB, Caleb Williams QB | IR: Anthony Johnson Jr. S
+- AVAILABILITY GB (ESPN 2026-10-11T04:21:24Z): Out: Micah Parsons DE | Questionable/Doubtful: Jacob Monk C, Jager Burton C, Aaron Banks G, Javon Hargrave DT, Anthony Campbell DT | IR: Chris Brooks RB, Savion Williams WR, Edgerrin Cooper LB
 - WEATHER: review_required: wind 22.3 km/h, gusts 42.1 km/h
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
 
-- CHI: RESOLVED STARTER Tyson Bagent (from operator). ESPN depth ['Caleb Williams', 'Tyson Bagent', 'Case Keenum'], flag AMBIGUOUS Caleb Williams Questionable; [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: Tyson Bagent (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Tyson Bagent", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-05T16:24:00.000Z", "evidence": "Bears head coach Ben Johnson said that Bagent will start Sunday's game against the Packers in Green Bay, Sean Hammond of the Chicago Tribune reports."}}, {"player": "Caleb Williams", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CHI (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Case Keenum", "role": "likely_starter_or_primary", "starter_confidence": 0.94, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-05T16:38:00.000Z", "evidence": "Keenum is expected to remain in a backup role for Sunday's game against the Packers after head coach Ben Johnson said that Tyson Bagent will start at quarterback in Week 5, Sean Hammond of the Chicago Tribune reports."}}]
-- GB: RESOLVED STARTER Jordan Love (from ESPN depth chart + injury report). ESPN depth ['Jordan Love', 'Tyrod Taylor'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jordan Love", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for GB (usage score 42.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- CHI: RESOLVED STARTER Tyson Bagent (from operator). ESPN depth ['Caleb Williams', 'Tyson Bagent', 'Case Keenum'], flag AMBIGUOUS Caleb Williams Questionable; [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: Tyson Bagent (at 2026-10-11T01:54:00Z). Older projected-starter rows (may be weeks old, context only): [{"player": "Tyson Bagent", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-05T16:24:00.000Z", "evidence": "Bears head coach Ben Johnson said that Bagent will start Sunday's game against the Packers in Green Bay, Sean Hammond of the Chicago Tribune reports."}}, {"player": "Caleb Williams", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for CHI (usage score 29.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Case Keenum", "role": "likely_starter_or_primary", "starter_confidence": 0.94, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-05T16:38:00.000Z", "evidence": "Keenum is expected to remain in a backup role for Sunday's game against the Packers after head coach Ben Johnson said that Tyson Bagent will start at quarterback in Week 5, Sean Hammond of the Chicago Tribune reports."}}]
+- GB: RESOLVED STARTER Jordan Love (from ESPN depth chart + injury report). ESPN depth ['Jordan Love', 'Tyrod Taylor'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Jordan Love", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for GB (usage score 42.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
 
-- CHI: Anthony Johnson Jr. S Out (2026-10-11); Shemar Turner DT Out (2026-10-10); Kyler Gordon CB Out (2026-10-10); Noah Sewell LB Questionable (2026-10-10); Keyshaun Elliott LB Out (2026-10-10); Caleb Williams QB Questionable (2026-10-09); Kyle Monangai RB Out (2026-10-09)
+- CHI: Anthony Johnson Jr. S Injured Reserve (2026-10-11); Shemar Turner DT Out (2026-10-10); Kyler Gordon CB Out (2026-10-10); Noah Sewell LB Questionable (2026-10-10); Keyshaun Elliott LB Out (2026-10-10); Caleb Williams QB Questionable (2026-10-09); Kyle Monangai RB Out (2026-10-09)
 - GB: Chris Brooks RB Injured Reserve (2026-10-10); Jacob Monk C Doubtful (2026-10-10); Jager Burton C Questionable (2026-10-10); Aaron Banks G Doubtful (2026-10-10); Javon Hargrave DT Questionable (2026-10-10); Savion Williams WR Injured Reserve (2026-10-09); Edgerrin Cooper LB Injured Reserve (2026-10-06); Anthony Campbell DT Questionable (2026-10-06); Micah Parsons DE Out (2026-10-05)
 
 Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
@@ -62,14 +62,14 @@ Next games: wk5 A GB; wk6 A ATL; wk7 H NE; wk8 A SEA
 
 ### GB (NFC North) 2-2
 - PF 73 / PA 105 (diff -32); PPG 18.2 / PAPG 26.2; home 0-1, away 2-1, division 0-1
-- Opponents faced to date have a combined record of 7-9; rest before this game: 7.0 days; byes used: none; byes remaining: [11]
+- Opponents faced to date have a combined record of 8-9; rest before this game: 7.0 days; byes used: none; byes remaining: [11]
 
 | week | site | opp | opp_record | result | pf | pa |
 |---|---|---|---|---|---|---|
 | 1 | A | MIN | 4-0 | L | 22 | 39 |
 | 2 | A | NYJ | 1-3 | W | 20 | 17 |
 | 3 | H | ATL | 2-2 | L | 14 | 35 |
-| 4 | A | TB | 0-4 | W | 17 | 14 |
+| 4 | A | TB | 1-4 | W | 17 | 14 |
 
 Next games: wk5 H CHI; wk6 H DAL; wk7 A DET; wk8 H CAR
 
@@ -83,9 +83,9 @@ Next games: wk5 H CHI; wk6 H DAL; wk7 A DET; wk8 H CAR
 | 3 | DET | 2-2 | -8 | 0-0 |
 | 4 | GB | 2-2 | -32 | 0-1 |
 
-**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 DAL 2-2, 8 ATL 2-2
+**NFC order (top 8)**: 1 SF 4-0, 2 MIN 4-0, 3 CHI 3-1, 4 SEA 3-1, 5 NYG 3-1, 6 CAR 2-2, 7 ATL 2-2, 8 LAR 2-2
 
-Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.
+Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).
 
 ## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)
 

@@ -1,7 +1,7 @@
 {
  "schema": "w05_game_packet_v1",
  "game": "BAL@ATL",
- "built_at": "2026-10-11T03:17:13.359677+00:00",
+ "built_at": "2026-10-11T04:23:31.627736+00:00",
  "kickoff_utc": "2026-10-12T00:20:00.000Z",
  "away": {
   "abbr": "BAL",
@@ -55,7 +55,7 @@
      "pf": 34,
      "pa": 31,
      "result": "W",
-     "opp_record": "2-2"
+     "opp_record": "2-3"
     },
     {
      "week": 4,
@@ -68,7 +68,7 @@
      "opp_record": "0-4"
     }
    ],
-   "opponents_record_to_date": "5-11",
+   "opponents_record_to_date": "5-12",
    "rest_days_before_this_game": 7.3,
    "bye_weeks_already_used": [],
    "bye_weeks_remaining": [
@@ -261,9 +261,9 @@
     },
     {
      "team": "TB",
-     "record": "0-4",
-     "pct": 0.0,
-     "point_diff": -20,
+     "record": "1-4",
+     "pct": 0.2,
+     "point_diff": -12,
      "div": "0-0",
      "rank": 4
     }
@@ -428,45 +428,45 @@
      "order": 6
     },
     {
-     "team": "DAL",
-     "record": "2-2",
-     "pct": 0.5,
-     "point_diff": 10,
-     "order": 7
-    },
-    {
      "team": "ATL",
      "record": "2-2",
      "pct": 0.5,
      "point_diff": 4,
-     "order": 8
+     "order": 7
     },
     {
      "team": "LAR",
      "record": "2-2",
      "pct": 0.5,
      "point_diff": 2,
-     "order": 9
+     "order": 8
     },
     {
      "team": "DET",
      "record": "2-2",
      "pct": 0.5,
      "point_diff": -8,
-     "order": 10
+     "order": 9
     },
     {
      "team": "PHI",
      "record": "2-2",
      "pct": 0.5,
      "point_diff": -18,
-     "order": 11
+     "order": 10
     },
     {
      "team": "GB",
      "record": "2-2",
      "pct": 0.5,
      "point_diff": -32,
+     "order": 11
+    },
+    {
+     "team": "DAL",
+     "record": "2-3",
+     "pct": 0.4,
+     "point_diff": 2,
      "order": 12
     },
     {
@@ -492,14 +492,14 @@
     },
     {
      "team": "TB",
-     "record": "0-4",
-     "pct": 0.0,
-     "point_diff": -20,
+     "record": "1-4",
+     "pct": 0.2,
+     "point_diff": -12,
      "order": 16
     }
    ]
   },
-  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final."
+  "note": "Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals)."
  },
  "same_division_game": false,
  "market": {
@@ -875,7 +875,7 @@
    "espn_qb_starter": "Tyler Huntley",
    "espn_qb_flag": "ok",
    "espn_qb_note": "Lamar Jackson Out;",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Tyler Huntley",
    "resolved_from": "operator",
    "projected_starter_qb_rows": [
@@ -914,7 +914,7 @@
    "espn_qb_starter": "Michael Penix Jr.",
    "espn_qb_flag": "ok",
    "espn_qb_note": "",
-   "espn_fetched_at": "2026-10-11T02:16:11Z",
+   "espn_fetched_at": "2026-10-11T04:21:24Z",
    "resolved_starter": "Michael Penix Jr.",
    "resolved_from": "ESPN depth chart + injury report",
    "projected_starter_qb_rows": [],
@@ -975,18 +975,18 @@
   ],
   "ATL": [
    {
+    "player": "Yasir Abdullah",
+    "pos": "LB",
+    "status": "Injured Reserve",
+    "date": "2026-10-11",
+    "comment": "The Falcons placed Abdullah (hamstring) on injured reserve Saturday, Tori McElhaney of the team's official site reports."
+   },
+   {
     "player": "Za'Darius Smith",
     "pos": "DE",
     "status": "Out",
     "date": "2026-10-11",
     "comment": "Smith (concussion/neck) has been downgraded to out for Sunday's game against the Ravens, Tori McElhaney of the Falcons' official site reports."
-   },
-   {
-    "player": "Yasir Abdullah",
-    "pos": "LB",
-    "status": "Injured Reserve",
-    "date": "2026-10-10",
-    "comment": "ir"
    },
    {
     "player": "Jake Matthews",
@@ -1011,10 +1011,10 @@
    }
   ]
  },
- "espn_status_fetched_at": "2026-10-11T02:16:11Z",
+ "espn_status_fetched_at": "2026-10-11T04:21:24Z",
  "game_warnings": [
-  "AVAILABILITY BAL (ESPN 2026-10-11T02:16:11Z): Out: Cam Jurgens C, Trey Hendrickson LB, Lamar Jackson QB | Questionable/Doubtful: Marlon Humphrey CB, Zay Flowers WR | IR: Ja'Kobi Lane WR, Durham Smythe TE",
-  "AVAILABILITY ATL (ESPN 2026-10-11T02:16:11Z): Out: Za'Darius Smith DE | Questionable/Doubtful: Jake Matthews OT, Divine Deablo LB, Samson Ebukam DE | IR: Yasir Abdullah LB",
+  "AVAILABILITY BAL (ESPN 2026-10-11T04:21:24Z): Out: Cam Jurgens C, Trey Hendrickson LB, Lamar Jackson QB | Questionable/Doubtful: Marlon Humphrey CB, Zay Flowers WR | IR: Ja'Kobi Lane WR, Durham Smythe TE",
+  "AVAILABILITY ATL (ESPN 2026-10-11T04:21:24Z): Out: Za'Darius Smith DE | Questionable/Doubtful: Jake Matthews OT, Divine Deablo LB, Samson Ebukam DE | IR: Yasir Abdullah LB",
   "VENUE: ATL has a retractable roof; check game-day roof status before using weather"
  ],
  "simulator_note": "Zero edge is exactly 50/50. These rows convert a hypothesised home-margin edge (points vs the BKR line) into cover/over probability using the calibrated 2018-2025 key-number-aware model. Use scripts/intel/margin-simulator.mjs for other values; never do this arithmetic by hand.",

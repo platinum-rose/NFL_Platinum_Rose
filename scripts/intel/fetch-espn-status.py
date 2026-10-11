@@ -55,7 +55,22 @@ def main():
                             'injury_report_non_active': [i for i in tinj if (i['status'] or '').lower() != 'active'],
                             'injury_report_all_count': len(tinj)}
         time.sleep(0.2)
+    # Games ESPN lists as final (schedule.json status can lag): used to complete standings and to exclude finished games
+    out['finals'] = []
+    try:
+        sb = get(BASE + '/scoreboard')
+        for e in sb.get('events', []):
+            if e['status']['type']['name'] != 'STATUS_FINAL':
+                continue
+            c = e['competitions'][0]['competitors']
+            m = {('WAS' if t['team']['abbreviation'] == 'WSH' else t['team']['abbreviation']): int(t['score']) for t in c}
+            home = next(('WAS' if t['team']['abbreviation'] == 'WSH' else t['team']['abbreviation']) for t in c if t['homeAway'] == 'home')
+            away = next(('WAS' if t['team']['abbreviation'] == 'WSH' else t['team']['abbreviation']) for t in c if t['homeAway'] == 'away')
+            out['finals'].append({'kickoff_utc': e['date'], 'visitor': away, 'home': home, 'visitorScore': m[away], 'homeScore': m[home], 'espn_event_id': e['id']})
+    except Exception as ex:  # noqa
+        out['finals_error'] = str(ex)
     json.dump(out, open(a.out, 'w', encoding='utf-8'), indent=1)
+    print('finals:', out['finals'])
     for k, v in sorted(out['teams'].items()): print(k, v['qb_starter'], v['qb_flag'], v['qb_note'], '| depth', v['qb_depth'][:3])
 
 

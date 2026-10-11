@@ -1,6 +1,6 @@
 # HOU@TEN packet — Houston Texans @ Tennessee Titans
 
-Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T03:17:13.359677+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
+Kickoff 2026-10-11T17:00:00.000Z UTC. Built 2026-10-11T04:23:31.627736+00:00. spread = HOME team line; favorite has the negative number; marginAdj in the simulator is home-positive points
 
 **Division game** (AFC South).
 
@@ -24,21 +24,21 @@ SuperContest row (contest line, not a book price; labels may be reversed): {"awa
 
 ## Warnings that touch this game
 
-- AVAILABILITY HOU (ESPN 2026-10-11T02:16:11Z): Out: none | Questionable/Doubtful: M.J. Stewart S, Kayden McDonald DT, Aireontae Ersery OT, Ed Ingram G, Blake Fisher OT | IR: Tank Dell WR, Braden Smith OT, Jaylin Smith CB
-- AVAILABILITY TEN (ESPN 2026-10-11T02:16:11Z): Out: Amani Hooker S | Questionable/Doubtful: David Martin-Robinson TE, Carnell Tate WR | IR: Joshua Williams CB
+- AVAILABILITY HOU (ESPN 2026-10-11T04:21:24Z): Out: none | Questionable/Doubtful: M.J. Stewart S, Kayden McDonald DT, Aireontae Ersery OT, Ed Ingram G, Blake Fisher OT | IR: Braden Smith OT, Tank Dell WR, Jaylin Smith CB
+- AVAILABILITY TEN (ESPN 2026-10-11T04:21:24Z): Out: Amani Hooker S | Questionable/Doubtful: David Martin-Robinson TE, Carnell Tate WR | IR: Joshua Williams CB
 - SUPERCONTEST LABELS REVERSED for this game: use its favorite/spread fields, not its away/home labels
 - 1 near-miss source row(s) (verbatim but not self-identifying): context only
 
 ## Quarterbacks
 
-- HOU: RESOLVED STARTER C.J. Stroud (from ESPN depth chart + injury report). ESPN depth ['C.J. Stroud', 'Davis Mills', 'Graham Mertz'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "C.J. Stroud", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Mark Gronowski", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T22:14:00.000Z", "evidence": "Gronowski signed with the Texans on Wednesday, Jonathan M. Alexander of the Houston Chronicle reports."}}]
-- TEN: RESOLVED STARTER Cam Ward (from ESPN depth chart + injury report). ESPN depth ['Cam Ward', 'Mitchell Trubisky'], flag ok  [ESPN fetched 2026-10-11T02:16:11Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Cam Ward", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
+- HOU: RESOLVED STARTER C.J. Stroud (from ESPN depth chart + injury report). ESPN depth ['C.J. Stroud', 'Davis Mills', 'Graham Mertz'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "C.J. Stroud", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}, {"player": "Mark Gronowski", "role": "roster_depth_signal", "starter_confidence": 0.42, "latest_source": {"source": "ESPN injuries API", "published_at": "2026-10-07T22:14:00.000Z", "evidence": "Gronowski signed with the Texans on Wednesday, Jonathan M. Alexander of the Houston Chronicle reports."}}]
+- TEN: RESOLVED STARTER Cam Ward (from ESPN depth chart + injury report). ESPN depth ['Cam Ward', 'Mitchell Trubisky'], flag ok  [ESPN fetched 2026-10-11T04:21:24Z]. Operator-confirmed: None (at None). Older projected-starter rows (may be weeks old, context only): [{"player": "Cam Ward", "role": "starter", "starter_confidence": 0.95, "latest_source": {"source": "week1-usage-locks.json", "published_at": null, "evidence": "Week 1 2026 usage leader at QB for TEN (usage score 32.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."}}]
 
 Operator confirmation is stated, not verified; official inactives decide. Projected-starter rows can be weeks old: read their latest_source.
 
-## ESPN injury report, non-Active entries (fetched 2026-10-11T02:16:11Z)
+## ESPN injury report, non-Active entries (fetched 2026-10-11T04:21:24Z)
 
-- HOU: M.J. Stewart S Questionable (2026-10-11); Kayden McDonald DT Questionable (2026-10-11); Tank Dell WR Injured Reserve (2026-10-09); Braden Smith OT Injured Reserve (2026-10-09); Aireontae Ersery OT Questionable (2026-10-08); Ed Ingram G Questionable (2026-10-08); Blake Fisher OT Questionable (2026-10-08); Jaylin Smith CB Injured Reserve (2026-10-07)
+- HOU: Braden Smith OT Injured Reserve (2026-10-11); M.J. Stewart S Questionable (2026-10-11); Kayden McDonald DT Questionable (2026-10-11); Tank Dell WR Injured Reserve (2026-10-09); Aireontae Ersery OT Questionable (2026-10-08); Ed Ingram G Questionable (2026-10-08); Blake Fisher OT Questionable (2026-10-08); Jaylin Smith CB Injured Reserve (2026-10-07)
 - TEN: Joshua Williams CB Injured Reserve (2026-10-10); David Martin-Robinson TE Questionable (2026-10-09); Amani Hooker S Out (2026-10-09); Carnell Tate WR Questionable (2026-10-09)
 
 Players not on this list are not reported injured by ESPN. Only Questionable/Doubtful are genuinely ambiguous; official inactives decide.
@@ -47,14 +47,14 @@ Players not on this list are not reported injured by ESPN. Only Questionable/Dou
 
 ### HOU (AFC South) 0-4
 - PF 84 / PA 109 (diff -25); PPG 21.0 / PAPG 27.2; home 0-3, away 0-1, division 0-1
-- Opponents faced to date have a combined record of 9-7; rest before this game: 7.0 days; byes used: none; byes remaining: [8]
+- Opponents faced to date have a combined record of 9-8; rest before this game: 7.0 days; byes used: none; byes remaining: [8]
 
 | week | site | opp | opp_record | result | pf | pa |
 |---|---|---|---|---|---|---|
 | 1 | H | BUF | 3-1 | L | 31 | 36 |
 | 2 | H | CIN | 2-2 | L | 6 | 20 |
 | 3 | A | IND | 2-2 | L | 17 | 19 |
-| 4 | H | DAL | 2-2 | L | 30 | 34 |
+| 4 | H | DAL | 2-3 | L | 30 | 34 |
 
 Next games: wk5 A TEN; wk6 A JAX; wk7 H NYG; wk9 A LAC
 
@@ -83,7 +83,7 @@ Next games: wk5 H HOU; wk6 A IND; wk7 H CLE; wk8 A CIN
 
 **AFC order (top 8)**: 1 KC 4-0, 2 JAX 3-1, 3 LV 3-1, 4 BUF 3-1, 5 BAL 3-1, 6 CLE 3-1, 7 CIN 2-2, 8 IND 2-2
 
-Order is win% then point differential only; official NFL tiebreakers are not applied. Includes the Week 5 TB@DAL final.
+Order is win% then point differential only; official NFL tiebreakers are not applied. Includes any Week 5 game ESPN lists as final at the ESPN fetch time (schedule.json status can lag; see espn-status-w05.json finals).
 
 ## Existing quantitative pass (provisional, unbacktested; 60% market / 25% FTN / 15% SRS)
 
