@@ -374,12 +374,13 @@ def check_orientation(games, home_line):
 # ---------------------------------------------------------------- 8 roster
 def check_roster(args):
     r = jload(ROSTER)
-    blob = json.dumps(r)
-    m = re.search(r'"blocking(?:_issues|Issues|_count)?"\s*:\s*(\d+|\[[^\]]*\])', blob)
-    blocking = None
-    if m:
-        v = m.group(1)
-        blocking = int(v) if v.isdigit() else len(json.loads(v))
+    bl = r.get('blocking') if isinstance(r.get('blocking'), list) else []
+    # items are [section, status, name, teams, ...]. Blockers in the hand-written narratives file do not touch per-game runs
+    # (they are forbidden to read it); they stay a WARN here and still block build.py.
+    narr = [b for b in bl if b and b[0] == 'narratives']
+    blocking = len(bl) - len(narr)
+    if narr:
+        emit('WARN', 'roster gate has %d blocker(s) in the narratives file only (affects build.py, not per-game runs): %s' % (len(narr), '; '.join('%s %s' % (b[1], b[2]) for b in narr)))
     gen = r.get('generated_at') or r.get('generatedAt')
     av = jload(AVAIL)
     emit('INFO', f'existing roster-vet result: generated {gen}; blocking {blocking}')

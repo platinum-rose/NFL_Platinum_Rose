@@ -20,7 +20,7 @@ Run exactly:
 
 `python3 scripts/intel/week5-preflight.py --model MODEL --game GAME --prompt prompts/2026-w05-game-synthesis.md --expect-head HEAD`
 
-- Any `[FAIL]`: stop and report it. Do not analyze.
+- Any `[FAIL]`, a Python traceback, or a non-zero exit code from the preflight: stop and report it verbatim. Do not analyze, and do not edit anything to get past it.
 - Starters and injuries: use the packet's `RESOLVED STARTER` lines and ESPN injury section as the status source; do not treat a player as uncertain merely because an older projected-starter row or digest says so, and do not ask the operator to confirm anything. Flag a `QB ... ambiguous` game warning in `gaps` and `invalidators`.
 - `[WARN]` lines: continue. The packet's `game_warnings` section lists the warnings that touch this game: carry each into `gaps`, and mention the global warnings (corroboration-only rows, SuperContest label reversals for other games) once in a single gaps line. A BKR/BEO conflict on this game, a lapsed `expires_for_recommendation_at` for either book (the per-game window is in the packet; do not recompute it), or an existing output file means no price-specific recommendation: disposition `conflicted`, `unavailable` or `pass`, and tier `skip` or `research_only`.
 - Pinned artifacts (the preflight verifies them; do not regenerate): calibration JSON sha256 `0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33`; nflverse CSV sha256 `51f762960b078c5a10ab61e79716cdfc22162ba91a357a42b620f1f816f0fc51`. State the current time in PT and each market capture time. A capture older than 6 hours (3 hours within 6 hours of kickoff) is `stale_for_recommendation`.
