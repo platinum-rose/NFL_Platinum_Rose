@@ -1,56 +1,55 @@
-# SF@SEA, Week 5 single-game synthesis (opus)
+# Week 5 SF@SEA (opus) — pass / skip
 
-Packet = `data/research-intel/game-packets/2026-w05/SF_at_SEA.md` (built 04:23Z). Written Sat 2026-10-10 22:35 PT (device 2026-10-11T05:35:09Z), head 7ebef66. **Pass / skip**, edge 0.0 / 0.0.
+Written Sat 10-10 ~23:50 PT (2026-10-11 ~06:50Z, device clock). Captures: BKR 06:21Z (23:21 PT), BEO 06:24Z (23:24 PT), late Saturday PT / early Sunday UTC. Recommendation windows end 05:21 and 05:24 PT Sunday, about eight hours before the 13:25 PT kickoff, so every price below will be `stale_for_recommendation` by game time and must be recaptured [Source: packet SF_at_SEA.md, market windows, 2026-10-11T06:35Z].
 
 ## Game script
 
-This is the NFC West's top two teams, Sunday 1:25 PM PT, outdoors in Seattle. Bookmaker has SEA -3 (-123), SF +3 (+105), total 46.5 (O -104 / U -112), ML SEA -172 / SF +149 [Source: packet BKR, 2026-10-11T01:15Z]. That implies about SEA 24.75, SF 21.75. The script turns on one question: can San Francisco's efficient passing outpace Seattle's pass rush while its own front plays without Nick Bosa and James Thompson Jr.?
+Division game, NFC West, first 2026 meeting. SEA is a 3-point home favorite at both books (BKR SEA -3 -123 / SF +3 +105; total 46.5, o-103/u-113; ML SEA -172 / SF +149). Market-implied score SEA 24.75, SF 21.75 [Source: packet, BKR, 06:21Z]. My base script is a field-position game where Seattle's run defense forces San Francisco into Purdy dropbacks, and Seattle's offense lives on Darnold's clean-pocket throws against a depleted 49ers front.
 
-## San Francisco (away)
+## Away state: San Francisco (4-0)
 
-The 49ers are 4-0, 122-64. In order: won 27-7 at LAR, 35-13 vs MIA, 36-30 vs ARI, 24-14 vs DEN (+20, +22, +6, +10). Three of the four were at home. They are 2-0 in the division, against opponents a combined 5-11 [Source: packet SF table, 04:23Z]. Four games against weak opposition is a small sample, not a rating. They come in on 7 days' rest with the bye in Week 8; Washington at home comes next, and there is no look-ahead angle.
+Results: W 27-7 at LAR (+20), W 35-13 MIA (+22), W 36-30 ARI (+6), W 24-14 DEN (+10). PF 122, PA 64, +58. Three of four at home; 1-0 away; 2-0 division. Opponents are a combined 5-11. Rest 7 days, bye still ahead (Week 8); next WAS home, at ATL [Source: packet, team state, 2026-10-11]. Four games against weak schedules is a small sample; I do not treat 4-0 as a rating.
 
-## Seattle (home)
+## Home state: Seattle (3-1)
 
-The Seahawks are 3-1, 105-73: won 13-10 vs NE, 31-7 at ARI, lost 31-33 at WAS, won 30-23 vs LAC (+3, +24, -2, +7). They are 2-0 at home and 1-0 in the division, against opponents a combined 4-12. They also have 7 days' rest, with the bye in Week 11; at DEN, then KC, come next. Sam Darnold is the ESPN-resolved starter, but Drew Lock threw most of Weeks 1-2. Darnold started Weeks 3-4 (31/45, 379 yds, 4 TD, 2 INT; then 13/22, 168, 2 TD, 1 INT) [Source: player_stats_weekly.csv, SEA QB wk1-4], so Seattle's season numbers blend two quarterbacks.
-
-Stakes: a SF win means 5-0 and a two-game lead plus the head-to-head. A Seattle win ties both at 4-1, with Seattle 2-0 in the division. The packet order has SF 1st and SEA 4th in the NFC.
+Results: W 13-10 NE (+3), W 31-7 at ARI (+24), L 31-33 at WAS (-2), W 30-23 LAC (+7). PF 105, PA 73, +32; 2-0 home, 1-0 division. Opponents a combined 4-12. Rest 7 days, bye Week 11; next at DEN, then KC and CHI at home. A Seattle win pulls SEA level with SF at 4-1 atop the NFC West (SF 4-0 is NFC 1, SEA 3-1 NFC 4 in the packet order); a SF win opens a two-game division lead. Darnold has started only Weeks 3-4; Drew Lock threw the Week 1-2 passes [Source: nflverse player_stats_weekly.csv, attempts, 2026 wk1-4].
 
 ## Matchup mechanics
 
-The 49ers' passing game is the best unit on the field: passing DVOA 89.7%, EPA/DB 0.565, zero sacks allowed on a 20.3% pressure rate [Source: packet FTN team-offense passing/pass-protection]. Their run game is ordinary (EPA/att -0.057), and Seattle's rush defense is elite (DVOA -37.4%), so expect SF to throw into Seattle's 36.9% pressure rate, 7.4% sack rate and 6 interceptions [Source: packet FTN team-defense pass-rush/overview]. That strength-on-strength matchup decides the side.
+Power ratings favor SF: SRS 14.0 vs 1.7, net 14.5 vs 8.0 points per game, model rank 1 vs 7. The label check confirms these equal 2026 four-game point differential (attribution wording is stale), so they get no point adjustment alone [Source: packet power ratings, matches_2026 true].
 
-Seattle passes well (DVOA 40.2%) but cannot run (EPA/att -0.220). Its backfield is thin: Zach Charbonnet Out, George Holani Questionable, Jadarian Price on IR. Emanuel Wilson had 21 carries in both Weeks 2 and 4. Under pressure Seattle collapses (EPA/DB -0.575). San Francisco's pressure rate was only 25.8% even with Bosa, and Bosa and Thompson are now Out, with three more defensive linemen on IR per the digest [Source: packet ESPN injury report 04:21Z]. Safety Marques Sigle is Out and CB Upton Stout is Questionable. Those losses remove SF's best route to exploiting Seattle's protection; Seattle's own absences (CB Julian Neal IR, LB Chazz Surratt Out) matter less. The capped secondary-context score agrees (5.33 SEA offense vs 3.75).
+SF offense vs SEA defense: FTN team-offense passing-analytics EPA/DB 0.565 and DVOA 89.7%, pass-protection SK% 0.0% and PRESS% 20.3%. Seattle's defense is the best unit it faces: team-defense efficiency EPA/PLY -0.142, DVOA -22.5%, 7 takeaways; pass-rush PRESS% 36.9%, SK% 7.4%; rush-analytics DVOA -37.4%. SF's rushing-analytics EPA/ATT is already -0.057, so the run likely stalls and Purdy carries the load [Source: FTN tables in packet].
 
-The power ratings favor SF (SRS 14.04 vs 1.70). The label check shows these are 2026 four-game values built on soft schedules, so they carry no adjustment. Pace is similar: SF runs 57.0 plays per game and SEA 59.3. On weather, the forecast is 59°F, 0% precipitation and 23 km/h gusts, with no material flag [Source: weather-openmeteo.json, 2026-10-10T17:56Z].
+SEA offense vs SF defense: Seattle's rushing-analytics EPA/ATT -0.220 and DVOA -28.4%, with Charbonnet Out (ESPN injury report) and Holani Questionable (ESPN injury report), leaving Emanuel Wilson (21 carries Weeks 2 and 4). Seattle's pass-protection pressured EPA/DB is -0.575 but clean-pocket EPA/DB__2 is 0.497. That matters because SF's pass rush was already modest (team-defense pass-rush PRESS% 25.8%, SK% 3.9%) and Nick Bosa and James Thompson Jr. are Out (ESPN injury report). Several more SF linemen sit in the ESPN roster IR/Out group (unconfirmed) and are not counted as Out. SF CB Upton Stout is Questionable (ESPN injury report) [Source: ESPN injury feed via packet, 2026-10-11T06:35Z].
 
-## Market comparison
+Pace is neutral: SF 57.0 plays/game, SEA 59.3 (FTN tempo). Venue is outdoor; Open-Meteo shows 59F, 0% precipitation, wind 14.2 km/h, gusts 23 km/h, so no weather adjustment [Source: openmeteo weather json, captured 2026-10-10T17:56Z]. Secondary-matchup severity is 3.75 for SF's offense and 5.33 for SEA's offense; it is capped context only.
 
-BetOnline matches: SEA -3 -118 / SF +3 -102, 46.5 at -110, ML -170/+149 [Source: packet BEO, 03:15Z]. There is no conflict, and both captures are fresh (the BKR window ends 07:15Z). The packet has no Action Network opener. 82% of tickets and 88% of money are on SF +3 [Source: AN splits, 2026-10-09T19:41Z], yet Seattle is the juiced side, so the price leans Seattle against public money. The SuperContest lists SEA as a 3-point favorite. The simulator puts 15.6% on an exact 3-point margin.
+## Market
 
-Only one row is tier-eligible: VSiN Seattle -3 (`w05-expert-verified.json#rows[450]`), quote truncated to "Seattle Seahawks -3 vs." Six SEA -2.5 rows ([42], [123], [186], [340], [348], [369]) are corroboration-only and sit across the key number 3, so they back a different bet. SF backers (PFF ML [179], Ross Tucker +3 [308]) are corroboration-only. So are the Under rows (BettingPros [189]/[141], Woolcock [246], Erickson [339]), and ESPN's Under 49 [393] is a near-miss, downgraded for being 2.5 points off.
+Both books match at SEA -3 / 46.5. The Action Network opener is missing in the packet, so I cannot measure movement. Splits (2026-10-09T19:41Z) show 82% of tickets and 88% of money on SF +3, and 71%/73% on the Over; context only. The SuperContest lists SEA -3 as favorite. Three is the key number: at -3 the simulator's side_push is 8.27%, so many corroboration-only picks quoted at SEA -2.5 are a different bet now.
+
+## Evidence
+
+One tier-eligible row: VSiN (Wes Reynolds), "Seattle Seahawks -3 vs." at the current number [w05-expert-verified.json#rows[450]]. Corroboration-only SEA support: Action Network rows[42], The Favorites rows[123], Sharp or Square rows[186] (all -2.5), BettingPros rows[190], PFT rows[543]. Contrary corroboration-only: PFF SF ML rows[179] and Ross Tucker SF +3 rows[308]. Under picks were quoted at 47.5/47/49 (rows[141], rows[246], rows[339]; near-miss ESPN rows[393] at 49), at least one point above 46.5, so they are downgraded.
 
 ## Thesis and counter-thesis
 
-My edge hypothesis is 0.0 on the margin and 0.0 on the total. SF's efficiency edge and its defensive-front losses offset, and the move toward Seattle against public money suggests the absences are priced. At zero edge the simulator gives home 0.4587, away 0.4587, push 0.0827 (50/50 excluding pushes), and Over/Under 0.50/0.50 with total push 0. These numbers are conditional, not calibrated.
+Edge hypothesis: 0.0 home margin, 0.0 total. Each side has one numeric input pointing its way: SF's ratings and passing efficiency versus Seattle's run defense and pass rush plus SF's missing pass rushers. One tier-eligible outlet, -123 juice at the key number, and a public skewed toward SF do not add up to a priced edge. At zero edge, the simulator gives 45.87% each side, 8.27% push (50/50 excluding pushes), and Over/Under 50/50 with 0% push. These numbers are conditional on the hypothesis, not calibrated edges. Disposition: pass, tier skip.
 
-The strongest case against me is that the market overreacts to one rusher. SF has 0 sacks allowed, and the provisional quant pass makes the game a pick'em (home +0.10), so SF +3 at +105 could be the value side. Invalidators: Stout or Trent Williams inactive, a move to -2.5 or -3.5, gusts above 40 km/h, or a second tier-eligible outlet.
+Counter-thesis: the quantitative pass prices this near pick'em (home margin +0.1), which would favor SF +3. If SF's 0% sack rate holds against Seattle's 36.9% pressure rate, the stronger four-game team is getting a full field goal.
 
 ## Gaps
 
-- AVAILABILITY SF: Out Thompson Jr., Bosa, Sigle, Juszczyk; Questionable Stout.
-- AVAILABILITY SEA: Out Surratt, Charbonnet; Questionable Holani; IR Neal, Charles.
-- 2 near-miss rows ([393], [505]): context only.
-- Global WARNs (corroboration-only rows, SuperContest reversals and book conflicts on other games) are context only.
-- The quant pass (home +0.10, home cover 43.0%) disagrees with the market by about 3 points toward SF; it was not adopted.
-- The digest lists Trent Williams "setback" and Mykel Williams "out"; ESPN does not, and ESPN was used.
-- Preflight WARN: Bookmaker window for this game expires within 120 min (00:15 PT); this file was written before it lapsed.
-- No AN opener; VSiN quote truncated.
+- Recommendation windows lapse before kickoff (05:21/05:24 PT); recapture required.
+- Quant pass vs market disagreement about 2.9 points; not copied.
+- No Action Network opener; BEO prop rows lack row-level capturedAt.
+- Darnold: two 2026 starts only. "Michael Evans" UNVERIFIED in roster gate.
+- Global: 432 corroboration-only rows; SuperContest label reversals for other games.
 
 ## Pre-kickoff delta checklist
 
-- Official inactives and starters
-- Fresh BKR/BEO capture
-- Weather recheck
-- Game status
-- Reprice the -2.5 source picks at -3
+- Official inactives: Stout, Holani, the SF roster IR/Out group, and both starting QBs.
+- Fresh BKR/BEO capture; SEA -2.5 or -3.5 changes the read.
+- Weather recheck (wind gusts above 30 km/h or rain).
+- Game status and venue confirmation.
+- Reprice source picks against the new number.

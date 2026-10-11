@@ -1,54 +1,51 @@
-# PHI@JAX Week 5 synthesis (opus)
+# Week 5 synthesis: PHI@JAX (opus, HEAD fb2ad66)
 
-Written Sat 10-10 22:40 PT (2026-10-11T05:40:55Z), head 7ebef66. BKR captured Sat 18:15 PT (01:15Z), window ends Sun 00:15 PT; BEO captured Sat 20:15 PT (03:15Z), window ends 00:30 PT. Both captures are under 6 hours old and neither window has lapsed. Kickoff Sun 06:30 PT. **Disposition: pass. Tier: skip.**
+Written Sat 10-10 ~23:50 PT (2026-10-11 06:50Z). Kickoff Sun 06:30 PT (13:30Z). BKR captured 23:21 PT, BEO 23:24 PT; both recommendation windows end about 02:21/02:24 PT, roughly four hours before kickoff, so they lapse before the game unless prices are recaptured. These are early-Sunday captures and must not be read as live after that. [Source: game packet, market, 2026-10-11T06:21Z/06:24Z]
 
-## Game script and venue
+## Game script
 
-The roof table calls this an outdoor Jacksonville home game, but it cannot detect neutral sites. Source quotes place it in London ("Eagles +7.5 vs Jaguars (London)") [Source: w05-expert-verified.json#rows[447]], and the weather capture is sampled at Wembley coordinates (51.55, -0.27): 58F, 0% precipitation, wind 10.4 km/h, gusts 22.7 km/h [Source: weather-openmeteo.json, PHI@JAX, 2026-10-10T17:56Z]. No weather adjustment. Jacksonville is the designated home team, but the usual home-field value should be read as reduced. The market script is JAX 24.75, PHI 17.25 [Source: packet, BKR -7.5/42].
+Jacksonville is the listed home team, but VSiN describes this as a London game ("Eagles +7.5 vs Jaguars (London)") [Source: w05-expert-verified.json#rows[447]]. The static roof table cannot detect neutral sites, so home field should be read as reduced. The Open-Meteo sample is for London coordinates: 57.9F, 0% precipitation, wind 10.4 km/h gusting 22.7 [Source: 2026-10-10-week5-weather-openmeteo.json, 13:00Z sample, captured 2026-10-10T17:56Z]. Weather is not material.
 
-## Away state: Philadelphia 2-2
+The likely script is Jacksonville leaning on the run while a short-handed Philadelphia offense struggles to sustain drives. The market-implied score is JAX 24.5, PHI 16.5.
 
-PHI beat WAS 24-22 and TEN 24-20 (combined 1-7 opponents), then lost 7-27 at CHI (3-1) and 20-24 to LAR (2-2). Point differential -18; opponents 6-10 combined; 1-1 away, 1-0 division [Source: packet team state, 2026-10-11T04:23Z]. Rest 6.9 days, bye in Week 10. PHI is second in the NFC East behind NYG (3-1) and outside the NFC top eight. Next come CAR and DAL at home, then WAS away; no look-ahead fact applies.
+## Away state: Philadelphia (2-2)
 
-The availability list matters most here. Out: Saquon Barkley (36 carries), DeVonta Smith (27 targets, team high), Hollywood Brown, C Drew Kendall, S Marcus Epps; Tank Bigsby is on IR (28 carries); Jonathan Greenard is Questionable [Source: ESPN injury report, 2026-10-11T04:21Z]. Barkley and Bigsby took 64 of the 79 carries by those three backs, with Will Shipley the third [Source: player_stats_weekly.csv, weeks 1-4]. Jalen Hurts is the resolved starter.
+Results in order: W 24-22 vs WAS (1-3), W 24-20 at TEN (0-4), L 7-27 at CHI (3-1), L 20-24 vs LAR (2-2). Both wins were by four points or fewer against teams now a combined 1-7. Point differential is -18 and opponents are a combined 6-10. The Eagles are 1-1 on the road, 1-0 in the division and second in the NFC East behind NYG (3-1). They have 6.9 days of rest and their bye is in Week 10. Next up are CAR and DAL at home [Source: game packet, team state]. Four games is a small sample.
 
-## Home state: Jacksonville 3-1
+The ESPN injury report lists RB Saquon Barkley, WRs DeVonta Smith and Hollywood Brown, C Drew Kendall and S Marcus Epps as Out. LBs Jonathan Greenard and Chance Campbell are Questionable, and RB Tank Bigsby is on IR. G Landon Dickerson and TEs Eli Stowers and Grant Calcaterra sit only in ESPN's roster IR/Out group, which is unconfirmed [Source: ESPN injury report and roster group, 2026-10-11T06:35Z]. Losing the lead back, both outside receivers and the center changes the script. Jalen Hurts is the resolved starter.
 
-JAX beat CLE 34-10, lost 13-20 at DEN, beat NE 35-6 and won 22-17 at CIN. Point differential +51 against 9-7 combined opponents; 2-0 home, 0-0 division. Rest 6.9 days, bye in Week 7. JAX leads the AFC South by a game over IND and is AFC No. 2 behind KC. Next is HOU at home, then the bye; no letdown fact applies. Absences: S Eric Murray Doubtful, S Caleb Ransaw on IR; the digest also lists DE B.J. Green II and CB Christian Braswell on IR [Source: availability digest]. Trevor Lawrence is the resolved starter. Four games is a small sample for both teams.
+## Home state: Jacksonville (3-1)
+
+Results in order: W 34-10 vs CLE (3-1), L 13-20 at DEN (2-2), W 35-6 vs NE (2-2), W 22-17 at CIN (2-2). Point differential is +51 against opponents who are a combined 9-7. The Jaguars are 2-0 at home and 0-0 in the division. They lead the AFC South by a game and are second in the AFC by win% and point differential. They also have 6.9 days of rest, with the bye in Week 7. HOU follows at home [Source: game packet, standings]. Trevor Lawrence is the resolved starter. S Eric Murray is Doubtful and S Caleb Ransaw is on IR. DE B.J. Green II, G Patrick Mekari and C Sam Mustipher sit only in the unconfirmed roster group.
 
 ## Matchup mechanics
 
-Power ratings: SRS JAX +14.7 (1st), PHI -6.3 (26th). `matches_2026` is true, so these are four-game 2026 values; no adjustment on them alone. A 21-point SRS gap against a 7.5 line is the market regressing heavily, which is appropriate.
-
-JAX's offense (FTN team-offense efficiency DVOA 21.1%, EPA/PLY 0.173; passing DVOA 47.2%) faces a PHI defense with pass DVOA 12.1% and only 4 sacks (pass-rush SK% 2.6%) [Source: FTN team tables]. Lawrence (104 attempts, 8 TD, 2 INT) should have a clean pocket. PHI's offense is already weak (DVOA -9.2%, SUCC% 37.0%, rushing DVOA -14.6%) and gives up sacks (SK% 8.7%, pressure 37.7%). It now faces a JAX defense at DVOA -19.2%, rush DVOA -32.5%, 6 takeaways and an interceptable-throw rate (INTW%) of 7.2%. Without its top two backs and its center, PHI probably has to pass more into that defense. The counterweight: JAX pass defense allows a 16.8% explosive rate and 71.0% OPEN%, and PHI's remaining receivers, Dontayvion Wicks (197 yards) and Darius Cooper (3 TD), can produce chunk plays. Pace is slow on both sides (PLY/GM 57.5 and 56.5; SEC/PLY 28.6 and 31.1), which argues against a high total. Secondary-matchup severity (6.45 PHI offense, 4.5 JAX offense) is capped context.
+Power ratings show SRS 14.7 for JAX against -6.3 for PHI. These are 2026 four-game values (matches_2026 true) and carry no adjustment on their own. In FTN team-offense/efficiency, JAX has EPA/PLY 0.173 and SUCC% 48.2%, while PHI has -0.107 and 37.0%. FTN team-defense/rush-analytics gives JAX a DVOA of -32.5% against a PHI team-offense/rushing-analytics DVOA of -14.6%, and that was before Barkley was ruled out. In team-offense/pass-protection, PHI shows SK% 8.7% and pressured EPA/DB -0.628, but clean-pocket EPA/DB__2 is 0.226. With a backup center, the pocket matters. Both teams play slowly (team-offense/tempo PLY/GM: PHI 57.5, JAX 56.5), which supports a lower total. JAX defense TO% is 2.5% [Source: FTN team tables, packet]. Secondary severity is 6.45 for PHI's offense against JAX and 4.5 the other way. This is capped context.
 
 ## Market
 
-BKR: JAX -7.5 -113 / PHI +7.5 -103, total 42 (o-102/u-114), ML -350/+293. BEO: JAX -7.5 -115 / +7.5 -105, total 41.5, ML -375/+299. The books do not conflict. Juice on JAX hints at -8 pressure. Simulator exact-margin odds: 3 points 12.8%, 7 points 8.1%; 7 sits half a point inside. The packet has no Action Network opener. Corroboration-only early-line rows quoted JAX -4.5 [rows[198], rows[204], rows[318]], which points to a roughly 3-point move through 7, consistent with PHI's injuries being priced in. Action Network splits (2026-10-09T19:41Z, context only): JAX 60% of tickets and 57% of money; Under 60% and 63%. The SuperContest lists JAX as a 7.5-point favorite.
-
-## Evidence quality
-
-The only tier-eligible outlet is VSiN, with three writers on PHI: Youmans +7.5 [rows[447]], Cohen +8 and ML +320 [rows[516], rows[517]], and Tuley "+7.5 or better" [rows[559]]. They count as one source. Cohen's +8 is 0.5 off and needs no downgrade. Corroboration-only JAX rows include Jeremiah & Brooks ML [rows[85]], Pro Football Talk ML [rows[532]] and BettingPros -7 [rows[139]]. A -7 quote is on the other side of a key number and counts as a different bet.
+BKR has JAX -8 (-113) / PHI +8 (-103), total 41 at -108 both ways and ML -389/+323. BEO has -8 at -110, total 41.5 and ML -390/+310. The sides are in sync, with a 0.5-point gap on the total. Action Network showed -7.5 and 41.5 on 10-09 19:41Z, so the spread has moved half a point toward JAX through the 7.5 hook. No opener is in the packet. Splits (context only): 60% of tickets and 57% of money on JAX; Under 60%/63%. The SuperContest line is JAX -7.5 (favorite field). Seven matters: side_push at -7 is 5.55%, against 0 at -7.5 [Source: margin-simulator.mjs, --home-line -7].
 
 ## Thesis and counter-thesis
 
-Edge hypothesis: +0.5 home margin and -0.5 total against BKR. The PHI availability cluster and the FTN efficiency gaps lean JAX and toward lower PHI scoring, but the move from -4.5 has absorbed most of that. Baseline: 50.0/50.0 side (push 0), 48.5/48.5 total (push 3.0%). Conditional on the hypothesis: JAX cover 51.4%, PHI 48.6%; Over 47.0%, Under 50.0%, push 3.0%. These are conditional, not calibrated edges. Both sit well inside noise (residual SD 12.77), so the answer is a pass.
+The tier-eligible evidence is four VSiN rows (Youmans +7.5, Cohen +8 and ML +320, Tuley "+7.5 or better"). Because independence is counted by outlet, they make one source, and every row backs PHI. All are within 0.5 points of the current +8 and none crosses 7. Every other row backing JAX (BettingPros, The Favorites, Jeremiah/Brooks, PFT, teasers) is corroboration-only.
 
-The counter-thesis has three parts. A London neutral site removes JAX's home edge, so 7.5 may overstate the gap. All three VSiN writers back PHI. JAX's explosive-pass allowance gives a depleted PHI offense a backdoor route.
+The numbers point the other way. The provisional quantitative pass projects a home margin of 9.07, FTN favors JAX on both sides of the ball, and the confirmed Out list falls heavily on Philadelphia's offense. Against that, the line already moved through 7.5 after the injury news, and a neutral London site removes real home field. That leaves a hypothesis of +0.5 home margin and 0.0 on the total. Conditional on that hypothesis, the simulator gives JAX cover 50.17%, PHI 47.35%, push 2.48%; the baseline is 50/50 excluding pushes (push 2.49%, total push 3.04%). These numbers are not calibrated edges. The only eligible source and the numbers disagree, so the disposition is conflicted and the tier is skip.
+
+Counter-thesis: in a neutral-site game, an 8-point favorite whose record rests on four games may be overpriced, and the VSiN authors may be right. A JAX lean also rests on rating Philadelphia's absences above what the market has already priced.
 
 ## Gaps
 
-- Neutral site not detectable by the roof table; London comes from the VSiN quote and the Wembley weather coordinates.
-- Quant pass has JAX by 9.07 and a 42.98 total, against the market's 7.5 and 42; noted, not copied.
-- No AN opener; the move is inferred from corroboration-only -4.5 quotes.
-- BKR prop capture 2026-10-10T22:25Z is over 6 hours old, so no props.
-- Greenard Questionable, Murray Doubtful. Dallas Goedert has no week 3-4 stats and no injury entry.
-- Projected starters lack second-source reconciliation; the power-rating attribution wording is stale.
-- Global: 432 corroboration-only rows, 11 near-miss rows, 6 SuperContest label reversals and BKR/BEO conflicts on other games, and all BKR windows expire within 120 min.
+- No opener or full line history; AN splits are 10-09.
+- Quant pass margin 9.07 vs market 8 (provisional; disagreement noted, not copied).
+- London neutral site comes from a source quote only; venue table says outdoor JAX.
+- Roster IR/Out group unconfirmed both teams; Greenard/Campbell/Murray statuses open.
+- Global: 432 corroboration-only rows; SuperContest label reversals for six other games; MIN@NO and CLE@NYJ book conflicts.
+- Windows lapse ~02:21 PT, before kickoff.
 
 ## Pre-kickoff delta checklist
 
-- Official inactives (Greenard, Murray, Goedert, PHI offensive line) and starters
-- Fresh BKR/BEO capture; recheck 7/7.5/8
-- Wembley weather recheck; game status
-- Reprice VSiN picks against the current number
+- [ ] Official inactives/starters (Kendall, Dickerson, Greenard, Murray)
+- [ ] Fresh BKR/BEO capture; reprice VSiN picks if past +8 / below 7.5
+- [ ] London weather recheck
+- [ ] Game status (neutral site confirmed)

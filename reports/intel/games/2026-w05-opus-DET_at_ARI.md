@@ -1,55 +1,66 @@
-# DET@ARI Week 5 synthesis (opus)
+# Week 5 synthesis (opus): DET@ARI
 
-Generated 2026-10-11T05:34:47Z (Sat 2026-10-10 22:34 PDT). Head 7ebef66. Kickoff Sun 13:25 PT. BKR captured 18:15 PT Sat (window ends 00:15 PT); BEO captured 20:15 PT Sat (window ends 02:15 PT). Both fresh.
+Written Sat 10-10 23:50 PT (06:50Z, device clock). Kickoff Sun 10-11 13:25 PT (20:25Z). BKR captured 23:21 PT Sat (06:21:29Z); BEO 23:24 PT Sat (06:24:03Z). These early-Sunday (UTC) captures' recommendation windows end 05:21 PT (BKR) and 05:24 PT (BEO), about eight hours before kickoff; any price here lapses and must be recaptured. [Source: packet DET_at_ARI.md, Market windows, 2026-10-11T06:35Z]
+
+**Disposition: pass, tier skip. No side, no total lean. Edge 0.0 / 0.0.**
 
 ## Game script
 
-The market reads Detroit 30.0, Arizona 24.5 [Source: data/research-intel/game-packets/2026-w05/DET_at_ARI.md, market-implied score, 2026-10-11T04:23Z]. The likeliest script is Detroit moving the ball through the air against a soft Arizona coverage unit, while Arizona's short passing game, now without Marvin Harrison Jr., tries to keep pace against a Detroit secondary missing three defensive backs. Both forces lift the total and cancel on the margin, so I stay on the market.
+The market expects a Detroit-won shootout: implied DET 30.0, ARI 24.5. The FTN tables fit that shape, so I find no edge. [Source: packet DET_at_ARI.md, market-implied score, 2026-10-11T06:21Z]
 
-## Detroit (away)
+## Away state: Detroit (2-2)
 
-Detroit is 2-2 with every game decided by 10 or fewer: W 31-30 vs NO (+1), L 31-41 at BUF (-10), W 31-24 vs NYJ (+7), L 26-32 at CAR (-6) [Source: data/research-intel/game-packets/2026-w05/DET_at_ARI.md, DET results, 2026-10-11T04:23Z]. Opponents are a combined 7-9. Detroit is 2-0 at home, 0-2 away, 0-0 in the division, scoring 29.8 and allowing 31.8 per game. Rest is 6.8 days; the Week 6 bye comes next, then GB and MIN at home (context only). Detroit sits third in the NFC North, two games behind 4-0 Minnesota, and this is a conference game that feeds NFC tiebreaks. Four games is a small sample.
+Detroit beat NO 31-30 (+1), lost at BUF 31-41 (-10), beat NYJ 31-24 (+7), lost at CAR 26-32 (-6): 2-0 at home, 0-2 away, 0-0 in the division, 29.8 points scored and 31.8 allowed per game against opponents with a combined 7-9 record. Rest is 6.8 days. Week 6 is Detroit's bye, followed by GB and MIN at home. Detroit is third in the NFC North, behind MIN (4-0) and CHI (3-1), and is outside the provisional NFC top eight. A loss leaves it two games behind MIN entering the bye. [Source: packet DET_at_ARI.md, Team state + standings, 2026-10-11T06:35Z]
 
-## Arizona (home)
+## Home state: Arizona (1-3)
 
-Arizona is 1-3: W 26-14 at LAC (+12; LAC is 0-4), L 7-31 vs SEA (-24), L 30-36 at SF (-6), L 24-36 at NYG (-12) [Source: data/research-intel/game-packets/2026-w05/DET_at_ARI.md, ARI results, 2026-10-11T04:23Z]. Opponents are 10-6. Arizona is 0-1 at home, 0-2 in the division, last in the NFC West three games behind 4-0 San Francisco, on 7.1 days of rest with its bye not until Week 14; next are at LAR and DEN at home. The only win came against a winless team, and the SEA blowout drives most of the -30 differential.
+Arizona won at LAC 26-14 (+12), then lost to SEA 7-31 (-24), at SF 30-36 (-6) and at NYG 24-36 (-12). It is 0-1 at home and 0-2 in the division, last in the NFC West behind 4-0 SF. Opponents: combined 10-6. Rest is 7.1 days, with no bye until week 14 and LAR, DEN and DAL next. Four games is a small sample for both teams. [Source: packet DET_at_ARI.md, Team state, 2026-10-11T06:35Z]
 
 ## Matchup mechanics
 
-Detroit's offense posts EPA/PLY 0.137 with zero turnovers, and its passing game EPA/DB 0.242 and DVOA 35.6% [Source: packet FTN, team-offense efficiency, passing-analytics, 2026-10-11T04:23Z]. Arizona's defense is the mirror image: pass DVOA 49.2%, EPA/DB 0.311, EXP% 20.3%, but rush DVOA -19.1% and EPA/ATT -0.230 [Source: packet FTN, team-defense passing/rush-analytics, 2026-10-11T04:23Z]. That steers Detroit toward Jared Goff (412 yards on 52 attempts in Week 4 [Source: data/vault-seed/nflverse/player_stats_weekly.csv, Goff passing, 2026 wk1-4]) rather than Jahmyr Gibbs into Arizona's best unit. The risk to that script is Detroit's interior line: C Cade Mays is on IR and G Ben Bartch is Out [Source: packet ESPN injury report, availability, 2026-10-11T04:21Z], and Detroit's EPA/DB drops to -0.242 under pressure versus 0.407 clean [Source: packet FTN, team-offense pass-protection, 2026-10-11T04:23Z]. Arizona's rush is modest (PRESS% 25.0%, SK% 6.5%) and DT Walter Nolen III is questionable.
+**Detroit's pass offense against Arizona's pass defense is the central mismatch.** Arizona's pass defense allows EPA/DB 0.311, DVOA 49.2% and EXP% 20.3%. Its run defense is much better: EPA/ATT -0.230, DVOA -19.1%. That points Detroit toward early-down dropbacks. Detroit's tendencies table shows DPBK% 65.2% (share of plays that are dropbacks), and its passing-analytics table shows EPA/DB 0.242 with zero turnovers. [Source: packet FTN team-defense passing/rush-analytics ARI; team-offense DET, 2026-10-11T06:35Z]
 
-Arizona's offense is a short-area unit: EPA/PLY -0.039, YD/PLY 4.6, EXP% 3.9%, aDOT 6.2, three-and-out 25.6% [Source: packet FTN, ARI team-offense, 2026-10-11T04:23Z]. Jacoby Brissett is the ESPN-resolved starter, but Harrison is Out and LT Paris Johnson Jr. and G Isaiah Adams are on IR [Source: packet ESPN injury report, availability, 2026-10-11T04:21Z]. Detroit's rush is the best unit on the field (PRESS% 32.1%, SK% 7.8%, 15 sacks), and Arizona's EPA/DB under pressure is -0.561 [Source: packet FTN, pass-rush, pass-protection, 2026-10-11T04:23Z]. Against that, Detroit's coverage is weak (pass DVOA 23.9%, EPA/DB 0.267) and is now without S Brian Branch, CB Rock Ya-Sin (Out) and S Thomas Harper (IR), with DT Tyleik Williams questionable. Trey McBride (10-13 targets each week) and Michael Wilson (17 and 13 targets in Weeks 3-4) are the beneficiaries [Source: data/vault-seed/nflverse/player_stats_weekly.csv, targets, 2026 wk1-4]. The manual secondary-matchup score agrees in direction (12 vs 5.85) but is capped context.
+**Protection decides how much of that edge Detroit can use.** In Detroit's pass-protection table, clean-pocket EPA/DB__2 is 0.407 (SUCC%__2 57.7%) and pressured EPA/DB is -0.242. Arizona's pass rush generates PRESS% 25.0% and SK% 6.5%. Detroit's interior line is thinner: C Cade Mays is on IR and G Ben Bartch is Out on the ESPN injury report. [Source: packet FTN pass-protection DET, pass-rush ARI; ESPN injury report, 2026-10-11T06:35Z]
 
-Pace is nearly identical (66.8 vs 65.8 plays per game). Power ratings are confirmed 2026 four-game values (matches_2026 true): net PPG -2.0 vs -7.5, a 5.5-point gap equal to the spread [Source: data/research-intel/game-packets/2026-w05/DET_at_ARI.md, power ratings, 2026-10-11T04:23Z]; no adjustment on that alone. Arizona's stadium has a retractable roof and has no Open-Meteo entry, so weather is not applied.
+**Arizona's offense is the weaker unit.** It posts EPA/PLY -0.039, YD/PLY 4.6 and EXP% 3.8%. Its pass-protection table shows pressured EPA/DB -0.561 against Detroit's PRESS% 32.1% and 15 sacks (SK% 7.8%). Arizona is also without OT Paris Johnson Jr. and G Isaiah Adams (both IR) and WR Marvin Harrison Jr. (Out), all per the ESPN injury report. **Detroit's secondary has the larger absences:** S Brian Branch and CB Rock Ya-Sin are Out and S Thomas Harper is on IR. Kerby Joseph and Avonte Maddox appear only in ESPN's roster IR/Out group, which is unconfirmed. Detroit's pass defense already allows EPA/DB 0.267, so Brissett's short game (aDOT 6.2) has room against it. The secondary-matchup severity score, which is capped context, is 12 for ARI offense against DET defense and 5.85 the other way. [Source: packet FTN tables; ESPN injury report and roster IR/Out group, 2026-10-11T06:35Z]
 
-## Market
+**Quarterbacks and pace.** Resolved starters (ESPN depth chart, no ambiguity): Jared Goff and Jacoby Brissett. Pace is similar: 66.8 vs 65.8 plays per game. The power ratings are 2026 four-game values (matches_2026 true): SRS DET -3.252 vs ARI -6.928, net PPG -2.0 vs -7.5. They are not adjusted on their own. [Source: packet Quarterbacks, Power ratings, 2026-10-11T06:35Z]
 
-BKR: DET -5.5 -110 / ARI +5.5 -106, total 54.5 (O -107 / U -109), moneyline -254 / +218. BEO: -5.5 -110 both ways, 54.5 -110, -255 / +211 [Source: data/research-intel/game-packets/2026-w05/DET_at_ARI.md, market, 2026-10-11T04:23Z]. No book conflict. At 5.5 the line sits between 3 and 7; the simulator's exact-margin share is 14.3% at 3 and 8.8% at 7. The Action Network opener is missing. Splits are stale (Oct 9, 12:41 PT): 54%/56% tickets/money on DET spread, 56%/58% on the over, 92%/97% on the DET moneyline; context only. SuperContest lists DET -5.5 (favorite field used; labels reversed).
+**Venue.** State Farm Stadium has a retractable roof, and its status is unconfirmed. The Open-Meteo file has no DET@ARI outdoor entry, so no weather is applied. [Source: 2026-10-10-week5-weather-openmeteo.json, outdoor_games, 2026-10-10T17:56Z]
 
-## Evidence quality
+## Market comparison
 
-All 36 verified rows are corroboration_only; none can support a tier. Sources split and several quote a stale number: ARI +4.5 from Even Money/Ross Tucker (rows[168], rows[310]), Steve Fezzik (rows[309]) and Ryan Wormeli (rows[337]) are a full point off and downgraded. BettingPros has both ARI +5.5 (rows[188]) and DET -4.5 (rows[175]); Sharp or Square has DET -5.5 (rows[138]) and ARI +6 (rows[184]); Simon Hunter has DET -5.5 and -4.5 (rows[253], rows[376]). The BettingPros over at 52 (rows[187]) is 2.5 points stale. Disagreement is preserved, not averaged.
+| Book | Captured | Spread | Total | ML |
+|---|---|---|---|---|
+| BKR | 06:21Z | DET -5.5 -110 / ARI +5.5 -106 | 54.5 o-107 u-109 | -254 / +218 |
+| BEO | 06:24Z | DET -5.5 -110 / ARI +5.5 -110 | 54.5 -110 | -250 / +207 |
+
+- Books agree; no Action Network opener in packet. Its splits (captured 10-09 19:41Z) show the spread at 54% tickets / 56% money on DET, the over at 56/58, and the moneyline at 92/97 on DET. These are context only.
+- The SuperContest line is DET -5.5, using its favorite field because its labels are reversed.
+- 5.5 is not a key number. The simulator's side_push is 0.0555 at 7 and 0.0827 at 3, so a move to 7 would matter more than the half-point. [Source: margin-simulator.mjs side_push, 2026-10-11T06:50Z]
 
 ## Thesis and counter-thesis
 
-Edge hypothesis: 0.0 home-margin points and 0.0 total points versus BKR. Zero-edge simulator: ARI cover 0.500, DET cover 0.500, over 0.500, under 0.500, pushes 0 and 0 [Source: scripts/intel/margin-simulator.mjs, calibration 0ea35592, 2026-10-11T05:34:47Z]. These are hypothesis-conditional, not calibrated edges. The provisional quant pass (home margin -3.43, total 56.27) disagrees by about 2 points on each; not adopted, because ratings match the market and FTN signals offset. Disposition pass, tier research_only.
+**No tier-eligible row exists for this game.** All 36 are corroboration-only, and they split. On ARI, Even Money +4.5 (rows[168]), BettingPros +5.5 (rows[188]) and Sharp or Square +6 (rows[184]) take Arizona, and Action Network (rows[35]) and Jeremiah/Brooks (rows[55]) take the ARI moneyline. On DET, The Favorites -4.5 (rows[121]), BettingPros -4.5 (rows[175]), Sharp or Square -5.5 (rows[138]) and PFT on the DET moneyline (rows[542]) take Detroit. BettingPros and Sharp or Square appear on both sides. The 4.5 quotes are a point off and are downgraded. The over at 52 (rows[187]) is downgraded.
 
-Counter-thesis: Arizona's two high-volume targets meet a depleted Detroit secondary while Detroit's interior line is two starters short, so ARI +5.5 and the over are live. The reverse case is Detroit's 15-sack rush against a reshuffled Arizona line. Neither has a tier-eligible source.
+The provisional quant pass projects home margin -3.43 and a total of 56.3, against the market's -5.5 and 54.5. That leans ARI and over, but it is unbacktested. The FTN mechanics point both ways: Detroit's pass offense against Arizona's pass defense favors Detroit, and Detroit's depleted secondary against Arizona's short game favors Arizona. **I hold the edge at 0.0.**
+
+**Strongest counter-thesis.** Arizona's 10-6 opponent slate, two banged-up secondaries in a projected 54.5-point game, and a backdoor-friendly number together could justify ARI +5.5. Its evidence is corroboration-grade only.
 
 ## Gaps
 
-- No tier_eligible rows; all 36 corroboration_only.
-- Quant pass vs market: home margin -3.43 vs -5.5, total 56.27 vs 54.5.
-- Warnings: DET/ARI availability lines; SuperContest labels reversed; retractable roof unchecked.
-- Questionable: Tyleik Williams, Walter Nolen III, Karson Sharar.
-- Action Network opener missing; splits stale.
-- FTN ARI PT/GM 20.3 vs packet PPG 21.8.
-- Global preflight WARNs: corroboration-only rows, SuperContest reversals, two other-game book conflicts, BKR expiry within 120 min.
+- No tier-eligible rows; 36 corroboration-only.
+- Action Network opener missing.
+- Roof status unknown.
+- Roster IR/Out group unresolved for both teams.
+- Questionable: Walter Nolen III, Karson Sharar, Tyleik Williams.
+- Quant pass disagrees with market (-3.43 vs -5.5).
+- Global: 432 corroboration-only and 11 near-miss rows slate-wide; SuperContest reversals on 6 games; BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game).
 
 ## Pre-kickoff delta checklist
 
-- Official inactives and starters (Goff, Brissett, questionable DTs).
-- Fresh BKR/BEO capture after 00:15 PT.
+- Official inactives (Branch, Ya-Sin, Nolen, Williams, roster-group players).
+- Fresh BKR/BEO capture after the 05:21 PT lapse; flag any move to 6.5/7 or 4.5.
 - Roof status and weather recheck.
-- Game status unchanged.
-- Reprice source picks against the fresh line (4.5, 6, 7).
+- Game status.
+- Reprice source picks against the new number.

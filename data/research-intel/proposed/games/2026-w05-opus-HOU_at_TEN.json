@@ -2,15 +2,15 @@
   "schema": "w05_game_synthesis_v1",
   "game": "HOU@TEN",
   "model": "opus",
-  "generated_at": "2026-10-11T05:34:42Z",
-  "head": "7ebef66",
+  "generated_at": "2026-10-11T06:50:32Z",
+  "head": "fb2ad66",
   "market": {
     "book": "BKR",
-    "captured_at": "2026-10-11T01:15:40.538Z",
+    "captured_at": "2026-10-11T06:21:29.799Z",
     "home_line": 7,
     "total": 37.5
   },
-  "disposition": "price moved",
+  "disposition": "pass",
   "tier": "skip",
   "side": {
     "pick": null,
@@ -24,12 +24,10 @@
     "home_margin_pts": 0.0,
     "total_pts": 0.0,
     "basis": [
-      "FTN passing: HOU offense pass DVOA 25.8% / EPA/DB 0.067 vs TEN defense pass DVOA 35.8% / EPA/DB 0.196 (favors HOU)",
-      "Availability: TEN S Amani Hooker Out, CB Joshua Williams IR (favors HOU)",
-      "Availability: HOU OT Braden Smith IR; OT Ersery, G Ingram, OT Fisher Questionable; HOU SK% allowed 7.0% (favors TEN)",
-      "2026 four-game SRS HOU -6.688 vs TEN -10.882 (smaller gap than a 7-pt road line; no adjustment on ratings alone)",
-      "Weather: Open-Meteo 66F, precip prob 4%, wind 13.5 km/h, gusts 24.8 km/h -- no total adjustment",
-      "Offsetting inputs net to the 0.0 default (market residual SD 12.77)"
+      "default 0.0: no tier-eligible source at the current number (only tier-eligible row, VSiN rows[565], is TEN +7.5, which crosses the key number 7 vs BKR +7 and is a different bet)",
+      "power ratings (2026 four-game values, matches_2026 true): HOU SRS -6.688 vs TEN -10.882; consistent with the market, not an adjustment on their own",
+      "FTN offsetting signals: HOU pass offense (passing-analytics EPA/DB 0.067, DVOA 25.8%) vs TEN pass defense (EPA/DB 0.196 allowed) favors HOU; HOU OL with Braden Smith on IR and three OL questionable (Ersery, Ingram, Fisher) cuts against it",
+      "weather (Open-Meteo 2026-10-10T17:56Z): 66F, 4% precip, wind 13.5 km/h, gusts 24.8 km/h; no total adjustment"
     ],
     "cap_exception": null
   },
@@ -53,45 +51,70 @@
       "outlet": "VSiN",
       "supports_tier": false,
       "quote": "NFL Best Bet: It's got to be Tennessee +7.5 here versus Houston"
-    },
-    {
-      "row": "w05-expert-verified.json#rows[95]",
-      "outlet": "Action Network",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[329]",
-      "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
-      "supports_tier": false
     }
   ],
   "context": {
-    "away": "HOU 0-4 (PF 84, PA 109); losses 31-36 BUF, 6-20 CIN, 17-19 @IND, 30-34 DAL vs 9-8 combined opponents; 0-1 division; 7 days rest; bye Wk8; next @JAX, NYG.",
-    "home": "TEN 0-4 (PF 55, PA 83); losses 10-23 NYJ, 20-24 PHI, 7-12 @NYG, 18-24 @BAL vs 9-7 opponents; 0-0 division; 7 days rest; bye Wk9; next @IND, CLE. JAX 3-1 leads AFC South."
+    "away": "HOU 0-4 (PF 84, PA 109); three of four losses by 5 or fewer, all vs teams at 2-2 or better; 0-1 division (L 17-19 at IND); 7 days rest; bye Week 8 ahead; next at JAX (3-1). Loser drops to 0-5, last in the AFC South.",
+    "home": "TEN 0-4 (PF 55, PA 83), 13.8 PPG, never above 20 points; 0-2 home; 0-0 division; 7 days rest; bye Week 9 ahead; next at IND then CLE at home. First division game; SRS -10.882 ranks 31st."
   },
   "invalidators": [
-    "BKR or BEO returns to TEN +7.5 (or +7 at plus money): Tuley rows[565] side becomes a 2- candidate again",
-    "Two or more of HOU OL Ersery / Ingram / Fisher inactive: strengthens TEN side",
-    "HOU OL all active and TEN Carnell Tate inactive: strengthens HOU side",
-    "Line moves to 6.5 or 7.5 at either book: reprice everything (key number 7)",
-    "Weather recheck showing sustained wind >= 25 km/h or heavy precipitation: revisit total",
-    "QB change for either team at inactives (Stroud / Ward currently resolved, flag ok)",
-    "BKR recommendation window lapses at 2026-10-11T07:15:40Z (00:15 PT): any price claim needs a fresh capture"
+    "Official inactives: if two or more of HOU OL Ersery/Ingram/Fisher are out (Braden Smith already IR), the pass-protection case for TEN strengthens; reassess side",
+    "If TEN WR Carnell Tate (questionable) is inactive, TEN's leading 2026 receiver is gone and the Under/HOU case strengthens",
+    "Line: a fresh capture at TEN +7.5 or better (crossing 7) re-aligns with the VSiN tier-eligible row; reassess as a 2- at most",
+    "Line: HOU -6.5 or shorter removes the key-number 7 push value for HOU backers",
+    "Weather recheck: sustained wind above ~25 km/h or rain would justify a capped (<=1.0) Under adjustment",
+    "QB change for either side (Stroud or Ward not starting) invalidates every number here"
   ],
   "gaps": [
-    "AVAILABILITY HOU (ESPN 04:21Z): Questionable M.J. Stewart S, Kayden McDonald DT, Aireontae Ersery OT, Ed Ingram G, Blake Fisher OT; IR Braden Smith OT, Tank Dell WR, Jaylin Smith CB",
-    "AVAILABILITY TEN (ESPN 04:21Z): Out Amani Hooker S; Questionable David Martin-Robinson TE, Carnell Tate WR; IR Joshua Williams CB",
-    "SUPERCONTEST LABELS REVERSED for this game: used favorite HOU -7.5",
-    "1 near-miss source row (rows[511], VSiN Makinen): context only, same outlet as the tier-eligible row",
-    "Global: BKR expires within 120 min (00:15 PT) for all games; BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game); 432 corroboration-only rows; SuperContest reversals on other games",
-    "Tier-eligible VSiN Tuley quote was +7.5; current BKR/BEO +7 lands on the key number -> treated as price moved",
-    "No Action Network opener in packet; movement inferred from source quotes (6.5 early week, 7.5 midweek, 7 now)",
-    "Existing quantitative pass (HOU by 5.06, TEN cover 55.3%) disagrees with market -7; provisional, unbacktested, not copied",
-    "Action Network Under 38.5 (rows[95]/[111]) is 1 pt off current 37.5: downgraded, corroboration-only",
-    "Nico Collins has no nflverse rows for Weeks 2-3; reason not in packet",
-    "Unknown whether HOU DL IR moves (Edwards, Gaye, Horton, Byrd) predate the FTN pass-rush sample",
-    "Roster vet flags BKR alias 'Cameron Ward' as UNVERIFIED (resolved as Cam Ward)",
-    "No 2026 FTN aRYOE values (blank) for either team"
+    "Captures are early-Sunday (BKR 06:21Z, BEO 06:24Z); recommendation window for both books ends 11:00Z (04:00 PT), six hours before the 17:00Z kickoff, so it lapses before kickoff and any later decision needs a fresh capture",
+    "Only one tier-eligible row (VSiN rows[565]) and it is at +7.5, a different bet from +7; rows[511] is the same outlet and a near-miss; all other 27 rows are corroboration-only",
+    "Existing quantitative pass (unbacktested) has home_margin -5.06 vs market -7 and home_cover 55.3%; disagreement with the market recorded, not used",
+    "Action Network opener not in packet; only a 2026-10-09 split at TEN +7.5 / 38, so movement is +7.5 to +7 and 38 to 37.5 at best",
+    "HOU ESPN roster IR/Out group (13 players incl. E.J. Speed, Henry To'oTo'o, Mario Edwards Jr., Jayden Higgins) and TEN group (8 incl. Kendell Brooks, Jaylen Harrell) are unconfirmed, not treated as Out",
+    "Availability digest lists M.J. Stewart as 'out' but the ESPN injury report has him Questionable; injury report used",
+    "Nico Collins has no 2026 stat rows for Weeks 2-3; reason not in packet",
+    "Roster gate flags 'Cameron Ward' (BKR prop name for Cam Ward) as UNVERIFIED name form; Dominique Hampton (TEN) UNVERIFIED",
+    "SuperContest row labels reversed (TEN@HOU); used favorite HOU -7.5 field",
+    "Global warnings: 432 corroboration-only rows slate-wide, SuperContest label reversals for 5 other games, BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game)",
+    "Retractable/neutral-site not applicable: Nashville outdoor per static table; no relocation reported in source quotes",
+    "CHI QB operator resolution (Bagent) does not apply to this game"
   ],
-  "props": []
+  "props": [
+    {
+      "player": "Tony Pollard",
+      "team": "TEN",
+      "market": "rush_yds",
+      "side": "Over",
+      "line": 48.5,
+      "price": 101,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:22:28.253Z",
+      "status": "usage context only",
+      "rationale": "Carries 7/14/17/16 and rush yards 35/64/74/48 in Weeks 1-4 (nflverse); HOU rush defense FTN rush-analytics EPA/ATT -0.110, DVOA -23.6% is a stout matchup. No probability."
+    },
+    {
+      "player": "Nico Collins",
+      "team": "HOU",
+      "market": "rec_yds",
+      "side": "Over",
+      "line": 77.5,
+      "price": -109,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:22:28.253Z",
+      "status": "usage context only",
+      "rationale": "10 and 8 targets, 75 and 118 yards in Weeks 1 and 4 (no rows Weeks 2-3); TEN pass defense allows FTN passing-analytics EPA/DB 0.196. Not on ESPN injury report. No probability."
+    },
+    {
+      "player": "Tony Pollard",
+      "team": "TEN",
+      "market": "atd_1_plus",
+      "side": "Yes",
+      "line": 0.5,
+      "price": 202,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:22:28.253Z",
+      "status": "high-variance TD",
+      "rationale": "Digest source price +250 (Action Network, corroboration-only) vs captured BKR +202; 1 rushing TD in 4 games (Week 4)."
+    }
+  ]
 }

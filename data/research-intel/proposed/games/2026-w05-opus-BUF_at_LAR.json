@@ -2,11 +2,11 @@
   "schema": "w05_game_synthesis_v1",
   "game": "BUF@LAR",
   "model": "opus",
-  "generated_at": "2026-10-11T05:34:01Z",
-  "head": "7ebef66",
+  "generated_at": "2026-10-11T06:51:13Z",
+  "head": "fb2ad66",
   "market": {
     "book": "BKR",
-    "captured_at": "2026-10-11T01:15:40.538Z",
+    "captured_at": "2026-10-11T06:21:29.799Z",
     "home_line": -3.5,
     "total": 54.5
   },
@@ -24,12 +24,12 @@
     "home_margin_pts": 0.0,
     "total_pts": 0.0,
     "basis": [
-      "FTN offense EPA/PLY BUF 0.162 vs LAR 0.003 and FTN defense EPA/PLY LAR -0.122 vs BUF 0.105 point in opposite directions (offsetting)",
-      "Power ratings split: SRS LAR 2.861 vs BUF 0.787; net PPG BUF 5.0 vs LAR 0.5; pythag BUF .600 vs LAR .514 (2026 four-game values, matches_2026 true; no adjustment)",
-      "Opponent records: BUF faced 4-12 combined, LAR faced 11-5 (schedule inflates BUF efficiency)",
-      "Availability offsets: LAR DE Myles Garrett IR vs BUF DT Ed Oliver Out plus BUF CB Alford/Couch and DE Jackson questionable",
-      "No tier-eligible source applies at the current number (VSiN Rams -3 crosses key number 3; VSiN Over 48.5 was a teaser leg)",
-      "Weather: no adjustment; venue covered/open-sided, no Open-Meteo outdoor entry for BUF@LAR"
+      "Default 0.0: market residual SD 12.77; no two independent numeric inputs agree on direction",
+      "FTN team-offense/efficiency EPA/PLY BUF 0.162 vs LAR 0.003 offset by team-defense/efficiency EPA/PLY LAR -0.122 vs BUF 0.105",
+      "Power ratings split: SRS LAR 2.861 vs BUF 0.787; net PPG BUF +5.0 vs LAR +0.5 (matches_2026 true; no adjustment)",
+      "Offsetting absences per ESPN injury report: Myles Garrett DE (LAR, IR) vs Ed Oliver DT (BUF, Out)",
+      "Only tier-eligible rows are one outlet (VSiN) and are different bets: rows[446] LAR -3 crosses 3; rows[570] teaser Over 48.5",
+      "No weather adjustment: not in Open-Meteo outdoor list; venue covered/open-sided, verification required"
     ],
     "cap_exception": null
   },
@@ -38,8 +38,8 @@
     "away_cover": 0.5,
     "over": 0.5,
     "under": 0.5,
-    "side_push": 0,
-    "total_push": 0
+    "side_push": 0.0,
+    "total_push": 0.0
   },
   "cited_rows": [
     {
@@ -62,29 +62,27 @@
     }
   ],
   "context": {
-    "away": "BUF 3-1 (+20) vs opponents 4-12 combined: W36-31 @HOU, W41-31 DET, W24-16 LAC, L26-29 NE. Leads AFC East by one game, 4th in AFC order, 0-1 division. 8.3 days rest; bye Week 7; at LV next.",
-    "home": "LAR 2-2 (+2) vs opponents 11-5: L7-27 SF, W28-6 NYG, L26-30 @DEN, W24-20 @PHI. 3rd NFC West, two games behind 4-0 SF, 8th in NFC order. 8.3 days rest; bye Week 11; ARI next."
+    "away": "BUF 3-1 (+20), leads AFC East; 0-1 division; wins over HOU, DET, LAC, loss to NE 26-29; opponents combined 4-12; 8.3 days rest; bye wk7 ahead; next @LV, BAL. Fourth in AFC order.",
+    "home": "LAR 2-2 (+2), third in NFC West two games behind 4-0 SF; 0-1 division; opponents combined 11-5; 8.3 days rest; bye wk11 ahead; next ARI at home. Eighth in NFC order."
   },
   "invalidators": [
-    "BUF CB Dee Alford, CB Te'Cory Couch or DE Landon Jackson ruled out (further weakens BUF pass defense; would lean LAR)",
-    "BUF WR DJ Moore inactive (thins BUF receiving with Joshua Palmer already Out)",
-    "LAR S Quentin Lake ruled out (weakens LAR secondary; would lean BUF/Over)",
-    "Line moves to LAR -3 (VSiN Youmans row 446 becomes live at its number) or BUF +4",
-    "Total moves 1+ point off 54.5 at either book",
-    "Any change to QB starters Josh Allen or Matthew Stafford, or a venue/game-status change",
-    "Fresh capture needed: BKR recommendation window ends 2026-10-11T07:15:40Z (00:15 PT Sun)"
+    "Line moves to LAR -3 at BKR: BUF +3 / LAR -3 become different bets (side_push 0.0827 at -3); reprice rows[446]/[514]",
+    "Line moves to LAR -4 or beyond, or total moves 1+ pt from 54.5: re-run simulator and re-check sources",
+    "Official inactives: Ed Oliver/Myles Garrett status changes, DJ Moore, Dee Alford, Te'Cory Couch, Landon Jackson, Quentin Lake; ESPN roster IR/Out group CBs (Dorian Strong, Jordan Hancock) unconfirmed",
+    "Khalil Shakir setback (availability digest only) resolved either way",
+    "Venue/roof condition at kickoff contradicts covered/open-sided assumption (wind or rain)",
+    "QB change from resolved starters Josh Allen / Matthew Stafford",
+    "Recommendation windows lapse Sun 10-11 05:21/05:24 PT; any price claim needs a fresh capture"
   ],
   "gaps": [
-    "Action Network opener missing from packet (action_network_opener null); line movement unknown",
-    "Weather/venue: weather_status venue_condition_verification_required; static table says covered but open-sided; no Open-Meteo outdoor_games entry for BUF@LAR",
-    "Quant pass (provisional, unbacktested) home margin +3.0 vs market 3.5 (0.5 toward BUF) and total 55.4 vs 54.5 (+0.9); recorded, not adopted",
-    "Game warning: 1 near-miss source row (VSiN Makinen BUF +3, rows[514]) is context only",
-    "Game warning: AVAILABILITY BUF Out Ed Oliver DT, Joshua Palmer WR; Questionable Landon Jackson DE, Dee Alford CB, DJ Moore WR, Te'Cory Couch CB",
-    "Game warning: AVAILABILITY LAR Questionable Quentin Lake S; IR Myles Garrett DE, Terrance Ferguson TE",
-    "Preflight WARN: Bookmaker expires within 120 min for BUF@LAR (00:15 PT Sun)",
-    "Global warnings (once): 432 corroboration-only rows slate-wide (29 for this game); SuperContest label reversals on 6 other games; BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game); 11 non-self-identifying article rows",
-    "FTN pressure rates may include Garrett snaps before IR; no per-player pressure split in packet",
-    "Only tier-eligible rows are both VSiN (one outlet) and neither applies at the current number"
+    "Packet captures are late Sat PT (06:21Z/06:24Z); recommendation windows end 12:21Z/12:24Z, ~36 h before the Mon 17:15 PT kickoff; prices will be stale_for_recommendation well before kickoff",
+    "Action Network opener is null in packet; movement unmeasurable",
+    "Tier-eligible rows come from one outlet (VSiN); rows[446] crosses 3 (-3 vs -3.5), rows[570] is a teaser total (48.5 vs 54.5); near-miss rows[514] BUF +3 opposes rows[446]",
+    "Quantitative pass (unbacktested) home margin 3.0 vs line 3.5 and total 55.4 vs 54.5; recorded, not used",
+    "Weather/venue row: venue_condition_verification_required; no live roof status",
+    "Availability digest Khalil Shakir setback not on ESPN injury report; BKR team totals captured unavailable",
+    "Global WARNs: 432 corroboration-only rows; SuperContest label reversals for 6 other games (BUF@LAR labels correct, LAR -3); BKR/BEO conflicts only in MIN@NO, CLE@NYJ",
+    "Digest prop row Kyren Williams o19.5 rec yds vs BKR 22.5 now: moved 3 pts, corroboration only"
   ],
   "props": [
     {
@@ -95,9 +93,9 @@
       "line": 22.5,
       "price": -108,
       "book": "BKR",
-      "captured_at": "2026-10-11T01:18:03.215Z",
+      "captured_at": "2026-10-11T06:23:15.685Z",
       "status": "usage context only",
-      "rationale": "2026 receiving yards wk1-4: 24, 12, 70, 67; targets 3, 2, 7, 13 (player_stats_weekly.csv). Digest lists Hribar/Roberts YT o19.5 at a non-BKR price (corroboration-only; quoted line 3 points below BKR 22.5, downgraded). No model probability."
+      "rationale": "Targets 3/2/7/13 and rec yds 24/12/70/67 in 2026 wks 1-4 (player_stats_weekly.csv); TE Terrance Ferguson on IR (ESPN). Digest sources quoted o19.5 (Rich Hribar, Tera Roberts; corroboration only, src px not BKR) vs 22.5 now."
     }
   ]
 }

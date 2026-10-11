@@ -2,11 +2,11 @@
   "schema": "w05_game_synthesis_v1",
   "game": "NYG@WAS",
   "model": "opus",
-  "generated_at": "2026-10-11T05:39:52Z",
-  "head": "7ebef66",
+  "generated_at": "2026-10-11T06:51:22Z",
+  "head": "fb2ad66",
   "market": {
     "book": "BKR",
-    "captured_at": "2026-10-11T01:15:40.538Z",
+    "captured_at": "2026-10-11T06:21:29.799Z",
     "home_line": -3.5,
     "total": 41.5
   },
@@ -21,23 +21,25 @@
     "pick": null
   },
   "edge_hypothesis": {
-    "home_margin_pts": -1.0,
+    "home_margin_pts": 0.0,
     "total_pts": 0.0,
     "basis": [
-      "WAS safeties Tyler Owens, Percy Butler, Nick Cross Out and CB Trey Amos IR (ESPN 2026-10-11T04:21Z)",
-      "FTN team-defense/passing-analytics WAS DVOA 19.7%, EXP% 13.2%, OPEN% 72.1% vs FTN team-offense/passing-analytics NYG EPA/DB 0.028",
-      "Offset: FTN team-offense/pass-protection NYG SK% 8.7%, QBH% 19.7% vs WAS BLZ% 47.4%",
-      "Total 0.0: Open-Meteo precipitation_probability 72% but precipitation_mm 0.0, wind 12.8 km/h, gusts 26.3 km/h (captured 2026-10-10T17:56Z) - no weather adjustment"
+      "Only tier-eligible outlet (VSiN) is split: rows[452] WAS -3.5 vs rows[564] NYG +3.5; one outlet, no direction",
+      "Daniels return (ESPN injuries API 2026-10-09T16:54Z) is public and already in the -3.5 price; no independent numeric input moves the margin",
+      "WAS pass-D weakness (FTN team-defense passing-analytics EPA/DB 0.101, three safeties Out per ESPN injury report) offset by NYG pass-protection SK% 8.7% vs WAS BLZ% 47.4%",
+      "Power ratings equal 2026 four-game values (matches_2026 true): no adjustment on them alone",
+      "Weather: Open-Meteo 2026-10-10T17:56Z precipitation_mm 0, precipitation_probability 72%, wind 12.8 km/h, gusts 26.3 km/h -> no total adjustment",
+      "Provisional quant pass (+0.76 home margin) is unbacktested; recorded in gaps, not applied"
     ],
     "cap_exception": null
   },
   "simulator": {
-    "home_cover": 0.4734,
-    "away_cover": 0.5266,
+    "home_cover": 0.5,
+    "away_cover": 0.5,
     "over": 0.5,
     "under": 0.5,
-    "side_push": 0,
-    "total_push": 0
+    "side_push": 0.0,
+    "total_push": 0.0
   },
   "cited_rows": [
     {
@@ -51,41 +53,81 @@
       "outlet": "VSiN",
       "supports_tier": false,
       "quote": "Best Bet: Giants +3.5 (Pool Play Percentages: Giants 67/33 in ATS contests, but Commanders still 67/33 in SU pools)."
+    },
+    {
+      "row": "w05-expert-verified.json#rows[103]",
+      "outlet": "Action Network",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[120]",
+      "outlet": "The Favorites",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[132]",
+      "outlet": "Sharp or Square",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[394]",
+      "outlet": "ESPN NFL",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[415]",
+      "outlet": "Sharp Football",
+      "supports_tier": false
     }
   ],
   "context": {
-    "away": "NYG 3-1 (+3), NFC East leader (1-0 div), NFC 5th; wins vs DAL/TEN/ARI at home, lost 6-28 at LAR; opponents combined 5-12; 0-1 away; 7.0 days rest; bye wk8; next NO (H), at HOU. Winston has started since wk2.",
-    "home": "WAS 1-3 (-34), last in NFC East (0-2 div); opponents 9-8; 1-1 home; 7.1 days rest; bye wk7; next at SF. Daniels returns from elbow; Diggs and three safeties out, McLaurin questionable. A loss drops them to 0-3 in division."
+    "away": "NYG 3-1 (W DAL +8, L @LAR -22, W TEN +5, W ARI +12), all wins at home, 0-1 away; opponents 5-12 combined; diff +3. NFC East leader (1-0 div), NFC #5. 7.0 days rest, bye Week 8; next H NO.",
+    "home": "WAS 1-3 (L @PHI -2, L @DAL -17, W SEA +2, L IND -17); opponents 9-8; diff -34, 30.5 PA/G; last in NFC East (0-2 div). Loss = 1-4, three games behind NYG. 7.1 days rest, bye Week 7; next @SF."
   },
   "invalidators": [
-    "Terry McLaurin inactive or Daniels limited/aggravated elbow (official inactives)",
-    "Line moves to WAS -3 or -4.5 or beyond at fresh capture",
-    "Weather recheck shows measurable precipitation or gusts materially above 26 km/h",
-    "BKR recommendation window lapses 00:15 PT; any price claim needs a fresh capture",
-    "A second independent tier-eligible outlet on one side would make this re-reviewable"
+    "Daniels inactive or limited (elbow) -> WAS side reprices; rerun",
+    "Brian Burns / Paulson Adebo (NYG) or Laremy Tunsil (WAS) confirmed active or Out via official inactives (currently ESPN roster IR/Out group, unconfirmed)",
+    "Terry McLaurin (Questionable) ruled Out -> WAS passing game thins further",
+    "Line moves to WAS -3 (key number 3, side_push 8.3%) or WAS -4.5+ -> re-evaluate with a fresh capture",
+    "Fresh capture after BKR/BEO recommendation window (11:00Z) required before any price claim",
+    "Weather recheck: measurable rain or sustained wind >25 km/h could justify up to a 1.0-pt weather-only total adjustment",
+    "A second independent tier-eligible outlet on one side would lift this off pass"
   ],
   "gaps": [
-    "Only tier-eligible rows are both VSiN on opposite sides (rows[452] WAS -3.5, rows[564] NYG +3.5): one outlet, conflicted",
-    "Quantitative pass home margin +0.76 (home cover 43.4%) disagrees with market WAS -3.5 by ~2.7 pts toward NYG; provisional, not copied",
-    "Action Network opener field malformed ('Jayden Daniels'); movement inferred only from 10-09 splits row at WAS -4.5",
-    "Digest lists Brian Burns, Roy Robertson-Harris, Jer'Zhan Newton, Jaxson Dart on IR but ESPN non-active list omits them; unresolved",
-    "AVAILABILITY warning: Terry McLaurin Questionable (WAS)",
-    "WEATHER review_required: precipitation probability 72% (0.0 mm forecast)",
-    "BKR expires within 120 min (00:15 PT); global WARNs: corroboration-only rows, SuperContest label reversals on other games, BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game)",
-    "Four-game sample; power ratings matches_2026=true, no adjustment applied"
+    "Only tier-eligible outlet (VSiN rows[452], rows[564]) is split on the side; no second independent outlet",
+    "Existing quantitative pass home margin +0.76 vs market -3.5 (~2.7 pts toward NYG); provisional, unbacktested, not applied",
+    "Action Network opener field malformed ('Jayden Daniels'); splits are from 2026-10-09T19:41Z (WAS -4.5 then)",
+    "Captures are early-Sunday UTC (06:21Z/06:24Z = late Sat PT); both recommendation windows end 2026-10-11T11:00Z, before 17:00Z kickoff, so any price claim lapses",
+    "Daniels has no 2026 game data after Week 2; elbow status from ESPN API note only; operator-confirmed starters stated, not verified",
+    "ESPN roster IR/Out group unresolved: NYG Burns, Robertson-Harris, Adebo, Dart et al.; WAS Tunsil, Newton, Magee, Chenal",
+    "Weather forecast captured 2026-10-10T17:56Z (~13h old); WEATHER warning precipitation probability 72% (review_required)",
+    "Roster gate lists Cameron Skattebo and Chigoziem Okonkwo BKR prop names as UNVERIFIED; not used",
+    "Global warnings: 432 corroboration-only rows; 11 near-miss rows; SuperContest label reversals for 6 other games; BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game)"
   ],
   "props": [
     {
       "player": "Isaiah Likely",
       "team": "NYG",
-      "market": "rec_yds",
+      "market": "receiving yards",
       "side": "Over",
       "line": 42.5,
+      "price": -112,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:22:19.476Z",
+      "status": "usage context only",
+      "rationale": "Targets 8/10/5/12 and 78/33/13/66 yds in 2026 weeks 1-4 (player_stats_weekly.csv), 41% target share week 4; Sharp Football row[415] quoted o40.5 -125 (corroboration only) vs captured 42.5 -112: different line and price."
+    },
+    {
+      "player": "Isaiah Likely",
+      "team": "NYG",
+      "market": "receptions",
+      "side": "Over",
+      "line": 4.5,
       "price": -108,
       "book": "BKR",
-      "captured_at": "2026-10-11T01:16:43.427Z",
+      "captured_at": "2026-10-11T06:22:19.476Z",
       "status": "usage context only",
-      "rationale": "Targets 8/10/5/12, yards 78/33/13/66 in 2026 wks 1-4 (player_stats_weekly.csv). Sharp Football row[415] quoted o40.5 -125 (corroboration-only; 2-pt different number). No model probability."
+      "rationale": "Receptions 8/5/2/7 in weeks 1-4 on 35 targets; WAS defense OPEN% 72.1% (FTN). No source price; usage context only."
     }
   ]
 }

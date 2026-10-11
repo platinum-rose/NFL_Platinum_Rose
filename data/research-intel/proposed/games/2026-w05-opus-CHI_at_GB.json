@@ -2,13 +2,13 @@
   "schema": "w05_game_synthesis_v1",
   "game": "CHI@GB",
   "model": "opus",
-  "generated_at": "2026-10-11T05:40:41Z",
-  "head": "7ebef66",
+  "generated_at": "2026-10-11T06:52:07Z",
+  "head": "fb2ad66",
   "market": {
     "book": "BKR",
-    "captured_at": "2026-10-11T01:15:40.538Z",
+    "captured_at": "2026-10-11T06:21:29.799Z",
     "home_line": 1.5,
-    "total": 46
+    "total": 47
   },
   "disposition": "pass",
   "tier": "skip",
@@ -21,113 +21,144 @@
     "pick": null
   },
   "edge_hypothesis": {
-    "home_margin_pts": -0.5,
+    "home_margin_pts": 0.0,
     "total_pts": -0.5,
     "basis": [
-      "GB interior OL: Monk C Doubtful, Banks G Doubtful, Burton C Questionable (ESPN 2026-10-11T04:21Z) vs CHI FTN team-defense pass-rush PRESS% 35.3% / SK% 8.6% and GB FTN pass-protection under-pressure DVOA -83.5%, EPA/DB -0.481",
-      "Micah Parsons Out (GB pressure already PRESS% 26.8%)",
-      "Offsets: CHI Out/IR Kyler Gordon CB, Anthony Johnson Jr. S, Elliott LB, Turner DT; backup QB Tyson Bagent (operator-confirmed); secondary severity 5.25 GB-off vs 1.35 CHI-off",
-      "Total: Open-Meteo wind_speed_kmh 22.3, wind_gusts_kmh 42.1 at kickoff (weather share <=0.5); CHI FTN tempo TOP 35.11, SEC/DRV 206; 2026 game totals avg CHI 44.25, GB 44.5",
-      "Power ratings (SRS CHI +12.1 vs GB -7.4, matches_2026 true) are four-game values: no point adjustment"
+      "margin 0.0: CHI four-game edge (power ratings SRS 12.116 vs -7.417, matches_2026 true; FTN team-offense efficiency GB EPA/PLY -0.089; GB pass-protection EPA/DB under pressure -0.481 vs CHI pass-rush PRESS% 35.3%) offset by CHI backup QB Tyson Bagent (operator-resolved), CHI defensive absences (Gordon, Turner, Elliott Out; Johnson Jr. IR) and +47 diff concentrated in one 59-37 game; market already prices the QB change",
+      "total -0.5: weather only (Open-Meteo 2026-10-10T17:56Z: wind_speed_kmh 22.3, wind_gusts_kmh 42.1, wind_direction_deg 209, precipitation_probability_pct 0, temperature_f 73.9) against GB DPBK% 68.9%; forecast 13h old, under the 1.0 weather cap"
     ],
     "cap_exception": null
   },
   "simulator": {
-    "home_cover": 0.48687580258299484,
-    "away_cover": 0.5131241974170039,
-    "over": 0.4696492451821921,
-    "under": 0.499984715038398,
-    "side_push": 0,
-    "total_push": 0.030366039779409878,
+    "home_cover": 0.5,
+    "away_cover": 0.5,
+    "over": 0.4696,
+    "under": 0.5,
+    "side_push": 0.0,
+    "total_push": 0.0304,
     "baseline_zero_edge": {
       "home_cover": 0.5,
       "away_cover": 0.5,
-      "side_push": 0,
       "over": 0.4848,
       "under": 0.4848,
+      "side_push": 0.0,
       "total_push": 0.0304
     },
-    "note": "conditional on the hypothesis, not calibrated edges"
+    "key_number_side_push": {
+      "line_3": 0.0827,
+      "line_7": 0.0555,
+      "line_1_BEO": 0.0244
+    },
+    "note": "conditional on the edge hypothesis; not calibrated edges"
   },
   "cited_rows": [
     {
       "row": "w05-expert-verified.json#rows[519]",
       "outlet": "VSiN",
       "supports_tier": false,
-      "quote": "Bet: Packers ML (+120)"
+      "quote": "Bet: Packers ML (+120)",
+      "note": "tier-eligible, but price moved (+120 quoted vs BKR +103 / BEO +109); not used for a tier because disposition is pass"
     },
     {
       "row": "w05-expert-verified.json#rows[512]",
       "outlet": "VSiN",
       "supports_tier": false,
-      "quote": "NFL Best Bet: I'll back a much more motivated Green Bay +1.5 vs."
+      "quote": "NFL Best Bet: I'll back a much more motivated Green Bay +1.5 vs.",
+      "note": "near_miss, same outlet as rows[519]"
     },
     {
       "row": "w05-expert-verified.json#rows[392]",
       "outlet": "ESPN NFL",
       "supports_tier": false,
-      "quote": "Watson has scored at least one touchdown in three of four games played, and he has four end zone targets on the season."
+      "quote": "Watson has scored at least one touchdown in three of four games played, and he has four end zone targets on the season.",
+      "note": "tier-eligible prop row (Watson ATD +195 quoted); prop context only"
     },
     {
       "row": "w05-expert-verified.json#rows[41]",
       "outlet": "Action Network",
-      "supports_tier": false
+      "supports_tier": false,
+      "note": "corroboration-only, GB +2.5 (1 pt off current)"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[173]",
+      "outlet": "BettingPros",
+      "supports_tier": false,
+      "note": "corroboration-only, CHI -2.5 (1 pt off current)"
     },
     {
       "row": "w05-expert-verified.json#rows[296]",
-      "outlet": "2026 NFL Week 5 Bets",
-      "supports_tier": false
+      "outlet": "2026 NFL Week 5 Bets (podcast)",
+      "supports_tier": false,
+      "note": "corroboration-only, GB +3: crosses 3, different bet"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[195]",
+      "outlet": "BettingPros",
+      "supports_tier": false,
+      "note": "corroboration-only, Over 44.5 vs current 47: downgraded"
     }
   ],
   "context": {
-    "away": "CHI 3-1 (+47): W 59-37 @CAR, L 3-9 MIN, W 27-7 PHI, W 23-12 NYJ; opponents 9-7. 0-1 division, 7 days rest, bye wk10. Third starting QB (Bagent) after Williams/Keenum. A win keeps pace with 4-0 MIN; next @ATL, NE, @SEA.",
-    "home": "GB 2-2 (-32): L 22-39 @MIN, W 20-17 @NYJ, L 14-35 ATL, W 17-14 @TB; opponents 8-9. 0-1 home, 0-1 division, 7 days rest, bye wk11. A loss drops them to 2-3 and 0-2 in the NFC North; next DAL, @DET, CAR."
+    "away": "CHI 3-1 (W 59-37 @CAR, L 3-9 MIN, W 27-7 PHI, W 23-12 NYJ), opp 9-7, div 0-1, 7 days rest, bye wk10. Win = 4-1, 2nd behind MIN 4-0. Next @ATL, NE, @SEA. Third QB in five weeks (Bagent).",
+    "home": "GB 2-2 (L 22-39 @MIN, W 20-17 @NYJ, L 14-35 ATL, W 17-14 @TB), opp 8-9, home 0-1, div 0-1, 7 days rest, bye wk11. Win ties CHI at 3-2. Next DAL, @DET, CAR. Parsons Out; Monk, Banks Doubtful."
   },
   "invalidators": [
-    "Caleb Williams active and starting (ESPN Questionable) -> reprice; line likely moves toward CHI",
-    "Monk and Banks both active -> removes the GB interior-OL input; side edge goes to 0",
-    "Line reaches CHI -3 or GB +3 (key number) at either book -> re-run simulator and re-evaluate the GB +2.5/+3 source rows",
-    "Wind sustained >30 km/h or gusts >50 km/h at recheck -> revisit total (weather cap 1.0)",
-    "Hargrave and Campbell both inactive -> CHI run game (Swift) upgrade",
-    "BKR window lapses at 2026-10-11T07:15:40Z / 00:15 PT -> no price-specific claim without recapture"
+    "Caleb Williams active and starting instead of Tyson Bagent (QB CHI ambiguous: ESPN Questionable, operator says Bagent) -> reprice CHI upward",
+    "Both Jacob Monk and Aaron Banks inactive -> strengthens CHI pressure case; could justify a CHI margin edge",
+    "Line crosses 3 either way (CHI -3 or GB favored) or BKR/BEO diverge by >= 1.0 pt",
+    "Recommendation windows lapse 2026-10-11T11:00Z (Sun 04:00 PT); any price claim needs a fresh capture",
+    "Weather recheck: gusts falling well below ~40 km/h removes the -0.5 total input; higher wind or rain extends it (cap 1.0)",
+    "Fresh tier-eligible outlet independent of VSiN at the current number",
+    "Roster IR/Out group players (Braxton Jones, Jayden Reed) confirmed active or out by official inactives"
   ],
   "gaps": [
-    "QB CHI ambiguous: ESPN Caleb Williams Questionable; operator-confirmed starter Tyson Bagent (stated, not verified)",
-    "Action Network opener is null in packet; movement from ~3 to 1.5 is inferred from source quotes and SuperContest CHI -3",
-    "Action Network splits captured 2026-10-09T19:41Z (stale, context only)",
-    "Existing quantitative pass home margin -4.61 / total 46.8 disagrees with market 1.5 / 46 (provisional, unbacktested; not adopted)",
-    "Only tier-eligible side row (VSiN Packers ML +120) has moved to +103 at BKR: price moved; near-miss VSiN GB +1.5 is the same outlet",
-    "Weather review_required: wind 22.3 km/h, gusts 42.1 km/h",
-    "SuperContest labels reversed for this game; favorite CHI -3",
-    "Bookmaker expires within 120 min (00:15 PT) for this game",
-    "Global warnings: 432 corroboration-only rows, 11 near-miss rows, SuperContest label reversals on 6 games, BKR/BEO conflicts on MIN@NO and CLE@NYJ",
-    "Power-rating attribution text says prior-season but matches_2026 is true (stale wording)",
-    "Roster-vet JSON generated field is None (status PASS, blocking 0)"
+    "QB CHI ambiguous: ESPN lists Caleb Williams Questionable; starter resolved by operator as Tyson Bagent (2026-10-11T01:54Z), stated not verified",
+    "Captures are early-Sunday (06:21Z/06:24Z); BKR and BEO recommendation windows end 2026-10-11T11:00Z, 6 h before kickoff: will be stale_for_recommendation",
+    "WEATHER review_required: wind 22.3 km/h, gusts 42.1 km/h; forecast captured 2026-10-10T17:56Z (13 h old)",
+    "SuperContest labels reversed for this game (GB@CHI); used favorite CHI -3 field",
+    "1 near-miss source row (rows[512]) context only; only tier-eligible side row (rows[519]) is price-moved",
+    "Existing quantitative pass (home margin -4.6, CHI) disagrees with BKR CHI -1.5 by ~3.1 pts; provisional, unbacktested, not adopted",
+    "Action Network opener missing (null); movement only from 10-09 splits (total 45.5 -> 47)",
+    "CHI team passing FTN metrics mostly from Williams/Keenum, not Bagent",
+    "BEO prop rows carry no row-level capturedAt; file-level 2026-10-11T06:24:03.238Z used",
+    "Global: 432 corroboration-only rows; 11 verbatim-but-not-self-identifying rows; SuperContest label reversals on 6 games; BKR/BEO conflicts on MIN@NO and CLE@NYJ (other games)"
   ],
   "props": [
     {
       "player": "Christian Watson",
       "team": "GB",
-      "market": "atd_1_plus",
+      "market": "anytime TD",
       "side": "Yes",
-      "line": null,
-      "price": 169,
-      "book": "BKR",
-      "captured_at": "2026-10-11T01:15:40.538Z",
+      "line": 0.5,
+      "price": 180,
+      "book": "BEO",
+      "captured_at": "2026-10-11T06:24:03.238Z",
       "status": "high-variance TD",
-      "rationale": "ESPN tier-eligible row rows[392] quoted +195 (captured BKR +169, BEO +180). nflverse 2026: targets 8/11/10/3 wk1-4, 4 rec TDs in wk1-3."
+      "rationale": "Source-supported by tier-eligible ESPN row rows[392] (quoted +195; captured BEO +180). 2026 usage: targets 8/11/10/3 and receiving TDs 2/1/1/0 in wks 1-4 (player_stats_weekly.csv). No probability or edge."
     },
     {
-      "player": "D'Andre Swift",
+      "player": "Tucker Kraft",
+      "team": "GB",
+      "market": "anytime TD",
+      "side": "Yes",
+      "line": 0.5,
+      "price": 220,
+      "book": "BEO",
+      "captured_at": "2026-10-11T06:24:03.238Z",
+      "status": "high-variance TD",
+      "rationale": "Corroboration-only source (Action Network digest, +250 quoted vs BEO +220). Usage: targets 6/3/8/7, TD in wk4 only. Usage context only."
+    },
+    {
+      "player": "Luther Burden III",
       "team": "CHI",
-      "market": "rush_yds",
-      "side": "Over",
-      "line": 84.5,
-      "price": -102,
-      "book": "BKR",
-      "captured_at": "2026-10-11T01:15:40.538Z",
-      "status": "usage context only",
-      "rationale": "nflverse 2026 carries 18/16/20/15, rush yds 124/45/84/58 wk1-4; Kyle Monangai (30 carries wk4) Out. BEO 81.5 -115. No source support."
+      "market": "anytime TD",
+      "side": "Yes",
+      "line": 0.5,
+      "price": 250,
+      "book": "BEO",
+      "captured_at": "2026-10-11T06:24:03.238Z",
+      "status": "high-variance TD",
+      "rationale": "Corroboration-only source (Action Network digest, +240 quoted vs BEO +250). Usage: targets 5/7/11/6, one TD (wk3); QB change to Bagent adds variance. Usage context only."
     }
   ]
 }

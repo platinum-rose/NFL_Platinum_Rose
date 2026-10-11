@@ -2,16 +2,16 @@
   "schema": "w05_game_synthesis_v1",
   "game": "IND@PIT",
   "model": "opus",
-  "generated_at": "2026-10-11T05:29:27Z",
-  "head": "7ebef66",
+  "generated_at": "2026-10-11T06:52:08Z",
+  "head": "fb2ad66",
   "market": {
     "book": "BKR",
-    "captured_at": "2026-10-11T01:15:40.538Z",
+    "captured_at": "2026-10-11T06:21:29.799Z",
     "home_line": -3,
     "total": 43.5
   },
   "disposition": "price moved",
-  "tier": "2-",
+  "tier": "research_only",
   "side": {
     "pick": null,
     "line": null,
@@ -22,19 +22,19 @@
   },
   "edge_hypothesis": {
     "home_margin_pts": 0.0,
-    "total_pts": -1.0,
+    "total_pts": -0.5,
     "basis": [
-      "Weather only (capped 1.0): Open-Meteo forecast for IND@PIT captured 2026-10-10T17:56Z, wind_speed_kmh 25.2, wind_gusts_kmh 58, precipitation_probability_pct 54 (precipitation_mm 0), outdoor stadium",
-      "Margin held at 0.0: PIT-side tier-eligible picks (VSiN rows[444], ESPN rows[390]) were made at -2.5 and BKR is now -3 (crosses key number 3); offset by IND pass offense vs PIT coverage (FTN PIT pass-def OPEN% 68.4%, DVOA 11.0%; secondary severity 8.1) and quant-pass IND lean",
-      "Context only, not used for points: ESPN Under 44.5 (rows[390]) downgraded, number moved 1.0 to 43.5"
+      "Open-Meteo IND@PIT forecast (captured 2026-10-10T17:56:55Z): wind_speed_kmh 25.2, wind_gusts_kmh 58, precipitation_probability_pct 54, precipitation_mm 0; outdoor venue per static roof table (weather-only total adjustment, well under the 1.0 cap)",
+      "Margin held at 0.0: power ratings split (SRS favors PIT -0.624 vs -2.243; net PPG favors IND -0.5 vs -2.5; matches_2026 true, no adjustment on ratings alone); FTN IND rushing EPA/ATT 0.119 meets PIT rush-defense EPA/ATT -0.074 / STF% 23.5% (offsetting); IND WR absences (Slayton, Dulin Out; Allen Q) offset PIT secondary absences (Dean Out, Elliott IR; Ramsey Q)",
+      "ESPN rows[390] Under 44.5 is directional support only; downgraded because it is 1.0 pt off the current 43.5"
     ],
     "cap_exception": null
   },
   "simulator": {
     "home_cover": 0.4587,
     "away_cover": 0.4587,
-    "over": 0.4697,
-    "under": 0.5303,
+    "over": 0.4848,
+    "under": 0.5152,
     "side_push": 0.0827,
     "total_push": 0.0
   },
@@ -42,7 +42,7 @@
     {
       "row": "w05-expert-verified.json#rows[390]",
       "outlet": "ESPN NFL",
-      "supports_tier": true,
+      "supports_tier": false,
       "quote": "Picks: Steelers -2.5 (-118), Under 44.5 (-118)"
     },
     {
@@ -54,16 +54,22 @@
     {
       "row": "w05-expert-verified.json#rows[391]",
       "outlet": "ESPN NFL",
+      "supports_tier": false,
+      "quote": "Anticipated volume for Taylor, who has had at least 21 touches in all four games played this season, producing at least 110 total yards in two."
+    },
+    {
+      "row": "w05-expert-verified.json#rows[45]",
+      "outlet": "Action Network",
       "supports_tier": false
     },
     {
-      "row": "w05-expert-verified.json#rows[200]",
-      "outlet": "BettingPros",
+      "row": "w05-expert-verified.json#rows[136]",
+      "outlet": "Sharp or Square",
       "supports_tier": false
     },
     {
-      "row": "w05-expert-verified.json#rows[281]",
-      "outlet": "NFL Week 5 Betting Preview (Doug Kezirian)",
+      "row": "w05-expert-verified.json#rows[149]",
+      "outlet": "Even Money",
       "supports_tier": false
     },
     {
@@ -72,34 +78,58 @@
       "supports_tier": false
     },
     {
-      "row": "w05-expert-verified.json#rows[45]",
-      "outlet": "Action Network",
+      "row": "w05-expert-verified.json#rows[50]",
+      "outlet": "Daniel Jeremiah & Bucky Brooks",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[51]",
+      "outlet": "Daniel Jeremiah & Bucky Brooks",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[200]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[379]",
+      "outlet": "Cody Brown Bets",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[64]",
+      "outlet": "BettingPros",
       "supports_tier": false
     }
   ],
   "context": {
-    "away": "IND 2-2 (L BAL 23-41, L @KC 30-33, W HOU 19-17, W @WAS 30-13), opp 8-8, diff -2, div 1-0, 2nd AFC South behind 3-1 JAX, 8th in AFC order; 7.1 days rest, bye Week 13; next TEN home.",
-    "home": "PIT 2-2 (W ATL 20-13, L @NE 3-20, W CIN 30-27, L @CLE 24-27), opp 9-7, diff -10, 2-0 home / 0-2 away, 4th AFC North (BAL, CLE 3-1); 9.7 days rest, bye Week 9; next at TB and NO. Non-division AFC game."
+    "away": "IND 2-2 (PF 102/PA 104): L BAL -18 (H), L @KC -3, W HOU +2 (H), W @WAS +17; opponents 8-8 combined, wins vs 0-4 and 1-3 teams. 1-1 away, 1-0 division, 7.1 days rest, bye wk13. One game behind JAX in AFC South; 8th in AFC order. Next: TEN (H), @MIN, @JAX.",
+    "home": "PIT 2-2 (PF 77/PA 87): W ATL +7, L @NE -17, W CIN +3, L @CLE -3; opponents 9-7. 2-0 home, 0-2 away, 1-1 division, 9.7 days rest (+2.6 vs IND), bye wk9. 4th in AFC North, a game behind BAL/CLE. Next: @TB, @NO, CLE."
   },
   "invalidators": [
-    "Weather recheck: sustained wind below 15 km/h and gusts below 40 km/h removes the only total input (edge to 0, disposition pass)",
-    "BKR total moves to 42.5 or lower (Under value gone) or a fresh capture lapses beyond the 00:15 PT window",
-    "BKR returns to PIT -2.5: VSiN/ESPN side picks are at their quoted number again; re-evaluate the side (still 0.0 margin edge here)",
-    "Either QB (Daniel Jones, Aaron Rodgers) inactive or limited",
-    "Jalen Ramsey and Charvarius Ward statuses; Keenan Allen active vs inactive changes IND's thin WR room",
-    "Official inactives or a venue/time change"
+    "Fresh BKR capture at PIT -2.5: ESPN rows[390] and VSiN rows[444] (two independent tier-eligible outlets) become the same bet; re-evaluate side",
+    "Fresh BKR total at 44.5+ (re-aligns ESPN Under 44.5) or 42.5 or lower (Under value gone)",
+    "Weather recheck: sustained wind well below 25 km/h and gusts under ~40 km/h removes the -0.5 total basis",
+    "Inactives: Jalen Ramsey out (PIT secondary further thinned) or Keenan Allen out / Alec Pierce confirmed out (IND passing further thinned); Rico Dowdle status changes PIT backfield split",
+    "Any starting QB change from Daniel Jones or Aaron Rodgers",
+    "Recommendation windows lapse at 2026-10-11T11:00Z (04:00 PT); without a recapture no price-specific claim is allowed",
+    "Game status / venue change"
   ],
   "gaps": [
-    "Quant pass (provisional, unbacktested): home margin +1.42 vs market +3 (leans IND ~1.6) and total 44.48 (leans Over); disagrees with the market and with this Under lean",
-    "Action Network opener missing (null); no line-movement history",
-    "Weather forecast captured 2026-10-10T17:56Z, 11+ hours old at write; precipitation 54% probability but 0 mm",
-    "WEATHER game warning: review_required (wind 25.2 km/h, gusts 58 km/h, precip prob 54%)",
-    "AVAILABILITY IND: Out Slayton, Carlies, Dulin; Q Ward, Allen; IR Key, Mallory",
-    "AVAILABILITY PIT: Out Dean; Q Ramsey, Dowdle; IR Pittman Jr., Elliott, Harmon",
-    "Alec Pierce sits in ESPN's IR/Out roster group but is absent from the ESPN injury list; no w3/w4 stats",
-    "Only one tier-eligible total row (ESPN, moved 1 point); side picks from VSiN/ESPN are at -2.5, a different bet at BKR -3",
-    "Unidentified-player prop rows (VSiN Under 209.5, BettingPros 31.5, Action 220.5) not used",
-    "Global WARNs: BKR expires 00:15 PT for all games; BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game); 432 corroboration-only rows; SuperContest label reversals for six other games"
+    "BKR and BEO recommendation windows end 2026-10-11T11:00Z (Sun 04:00 PT), six hours before the 17:00Z kickoff; captures (06:21Z/06:24Z) become stale_for_recommendation before the game",
+    "WEATHER review_required (wind 25.2 km/h, gusts 58 km/h, precip prob 54%); forecast captured 2026-10-10T17:56Z, ~13h old at run time",
+    "Existing quantitative pass home margin +1.42 vs market 3.0 (1.6 pts toward IND); provisional, unbacktested, cover percentages not used",
+    "Tier-eligible side sources quoted PIT -2.5 vs BKR -3 (crosses key number 3; different bet); BEO shows -2.5 -117",
+    "ESPN Under 44.5 vs current 43.5 (1.0 pt; downgraded)",
+    "Action Network opener is null in the packet; splits captured 2026-10-09T19:41Z (context only)",
+    "ESPN roster IR/Out group unconfirmed (IND: Pierce, Mitchell, Towt, Montgomery, Clemons, McKeon; PIT: Burgess, Hardy, Kent, Dunker, Driscoll, Lee, Hurleman); not treated as Out",
+    "Questionable: IND Charvarius Ward, Keenan Allen; PIT Jalen Ramsey, Rico Dowdle",
+    "BKR full-game team totals marked unavailable at capture",
+    "Venue from static roof table; neutral-site/relocation not detectable; no source suggests relocation",
+    "Power-ratings attribution text is stale; matches_2026 true (four-game 2026 values)",
+    "Four-game sample for both teams",
+    "Global warnings: 432 corroboration-only rows; 11 near-miss article rows; SuperContest label reversals for 6 other games (not this one); BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game)"
   ],
   "props": [
     {
@@ -108,23 +138,35 @@
       "market": "rush_yds",
       "side": "Over",
       "line": 86.5,
-      "price": -106,
+      "price": -108,
       "book": "BKR",
-      "captured_at": "2026-10-11T01:15:51.176Z",
+      "captured_at": "2026-10-11T06:21:37.317Z",
       "status": "usage context only",
-      "rationale": "Carries 19/24/23/20 and rush yds 98/92/68/95 (w1-w4, nflverse). ESPN rows[391] backs Over 105.5 (-114) on a total-yards market not captured at BKR. PIT rush DVOA -13.7% is the counter."
+      "rationale": "2026 carries 19/24/23/20 and rush yds 98/92/68/95 (wks 1-4; 3 of 4 over 86.5). ESPN rows[391] (tier-eligible) quotes a different market, OVER 105.5 (-114) total yards; BKR has no rush+rec main line, so it is not the same bet."
+    },
+    {
+      "player": "Jonathan Taylor",
+      "team": "IND",
+      "market": "carries",
+      "side": "Over",
+      "line": 19.5,
+      "price": 106,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:21:37.317Z",
+      "status": "usage context only",
+      "rationale": "Carries 19/24/23/20 in wks 1-4 (3 of 4 over 19.5); faces PIT rush D STF% 23.5%."
     },
     {
       "player": "Jaylen Warren",
       "team": "PIT",
       "market": "rec_yds",
       "side": "Over",
-      "line": 18.5,
-      "price": -109,
+      "line": 20.5,
+      "price": -113,
       "book": "BKR",
-      "captured_at": "2026-10-11T01:15:51.176Z",
+      "captured_at": "2026-10-11T06:21:37.317Z",
       "status": "usage context only",
-      "rationale": "Rec yds 27/34/49/33 and targets 6/4/4/6 (w1-w4). Cody Brown rows[379] Over 20.5 is corroboration-only with no source price (source 20.5 vs captured 18.5)."
+      "rationale": "Receiving yds 27/34/49/33 on 6/4/4/6 targets wks 1-4 (4 of 4 over). Cody Brown rows[379] OVER 20.5 is corroboration-only, no source price."
     },
     {
       "player": "Roman Wilson",
@@ -132,23 +174,11 @@
       "market": "atd_1_plus",
       "side": "Yes",
       "line": 0.5,
-      "price": 252,
+      "price": 250,
       "book": "BKR",
-      "captured_at": "2026-10-11T01:15:51.176Z",
+      "captured_at": "2026-10-11T06:21:37.317Z",
       "status": "high-variance TD",
-      "rationale": "6 targets in each of w1-w4; TDs in w3 and w4. BettingPros rows[64] corroboration-only at source +250/+285 vs captured +252."
-    },
-    {
-      "player": "Pat Freiermuth",
-      "team": "PIT",
-      "market": "atd_1_plus",
-      "side": "Yes",
-      "line": 0.5,
-      "price": 281,
-      "book": "BKR",
-      "captured_at": "2026-10-11T01:15:51.176Z",
-      "status": "high-variance TD",
-      "rationale": "4-5 targets weekly, TDs in w1 and w4. Action Network/Sean Koerner corroboration-only rows at source +300 vs captured +281 (BEO +325)."
+      "rationale": "6 targets in each of wks 1-4, TDs in wks 3 and 4. BettingPros rows[64] (+250) is corroboration-only; digest also lists a +285 source price vs captured +250."
     }
   ]
 }

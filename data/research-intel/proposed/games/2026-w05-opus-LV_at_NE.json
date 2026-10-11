@@ -1,154 +1,125 @@
 {
- "schema": "w05_game_synthesis_v1",
- "game": "LV@NE",
- "model": "opus",
- "generated_at": "2026-10-11T05:35:13Z",
- "head": "7ebef66",
- "market": {
-  "book": "BKR",
-  "captured_at": "2026-10-11T01:15:40.538Z",
-  "home_line": -3.5,
-  "total": 45
- },
- "disposition": "conflicted",
- "tier": "skip",
- "side": {
-  "pick": null,
-  "line": null,
-  "price": null
- },
- "total_lean": {
-  "pick": "Over"
- },
- "edge_hypothesis": {
-  "home_margin_pts": -0.5,
-  "total_pts": 0.5,
-  "basis": [
-   "NE CBs Gonzalez, Davis, Prunty, Canada Out; Woods CB and Woodson S Questionable (ESPN 04:21Z); secondary severity 10.05 (capped context)",
-   "FTN team-offense passing-analytics LV DVOA 29.6%, EPA/DB 0.161 vs NE team-defense passing DVOA -10.7% built with the now-absent CBs",
-   "FTN LV team-defense pass-rush PRESS% 39.5%, SK% 8.2% vs NE pass-protection EPA/DB under pressure -0.433",
-   "Offsets: LV C Trey Zuhn III Out; LV opponents 5-11 vs NE 11-5; NE PLY/GM 63.3 slows pace (LV 67.8)",
-   "Weather not used: Open-Meteo 64.6F, precip prob 2%, wind 15.6 km/h, gusts 24.1 km/h"
+  "schema": "w05_game_synthesis_v1",
+  "game": "LV@NE",
+  "model": "opus",
+  "generated_at": "2026-10-11T06:50:42Z",
+  "head": "fb2ad66",
+  "market": {
+    "book": "BKR",
+    "captured_at": "2026-10-11T06:21:29.799Z",
+    "home_line": -3.5,
+    "total": 45
+  },
+  "disposition": "pass",
+  "tier": "skip",
+  "side": {
+    "pick": null,
+    "line": null,
+    "price": null
+  },
+  "total_lean": {
+    "pick": null
+  },
+  "edge_hypothesis": {
+    "home_margin_pts": 0.0,
+    "total_pts": 0.5,
+    "basis": [
+      "ESPN injury report: NE CBs Christian Gonzalez, Carlton Davis III, Karon Prunty, Channing Canada Out (2026-10-11T06:35Z)",
+      "FTN team-offense passing-analytics LV EPA/DB 0.161, DVOA 29.6%",
+      "FTN team-defense pass-rush NE PRESS% 27.0%",
+      "FTN tempo LV PLY/GM 67.8",
+      "Side 0.0: tier-eligible VSiN rows conflict (rows[445] NE, rows[563] LV); NE opponents 11-5 vs LV 5-11 offsets LV SRS edge"
+    ],
+    "cap_exception": null
+  },
+  "simulator": {
+    "home_cover": 0.5,
+    "away_cover": 0.5,
+    "over": 0.49998,
+    "under": 0.46965,
+    "side_push": 0.0,
+    "total_push": 0.03037
+  },
+  "cited_rows": [
+    {
+      "row": "w05-expert-verified.json#rows[445]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Best Bet: Patriots -3.5"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[563]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Best Bet: Raiders +3.5 (Pool Play Percentages: Raiders 67/33 in ATS contests, but Patriots still 67/33 in SU pools – do you see what I did there?"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[453]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Las Vegas Raiders/New England Patriots Over 45"
+    }
   ],
-  "cap_exception": null
- },
- "simulator": {
-  "home_cover": 0.4867,
-  "away_cover": 0.5133,
-  "over": 0.5,
-  "under": 0.4697,
-  "side_push": 0,
-  "total_push": 0.0304,
-  "baseline_zero_edge": {
-   "home_cover": 0.5,
-   "away_cover": 0.5,
-   "over": 0.4848,
-   "under": 0.4848,
-   "side_push": 0,
-   "total_push": 0.0304
+  "context": {
+    "away": "LV 3-1 (+31) vs opponents 5-11; won MIA, at LAC, at NO; lost 27-30 to KC. 2-0 away, 1-1 division, 2nd AFC West. 6.9 days rest, bye wk13; next BUF, LAR at home.",
+    "home": "NE 2-2 (-12) vs opponents 11-5; lost at SEA, beat PIT 20-3, lost at JAX 6-35, won at BUF 29-26. 1-0 home, 1-0 division, 2nd AFC East. 7.0 days rest, bye wk11; next NYJ home."
   },
-  "note": "conditional on the edge hypothesis, not a calibrated edge; LV -107 breakeven ~51.7%, Over -114 breakeven ~53.3% ex-push; neither cleared"
- },
- "cited_rows": [
-  {
-   "row": "w05-expert-verified.json#rows[445]",
-   "outlet": "VSiN",
-   "supports_tier": false,
-   "quote": "Best Bet: Patriots -3.5"
-  },
-  {
-   "row": "w05-expert-verified.json#rows[563]",
-   "outlet": "VSiN",
-   "supports_tier": false,
-   "quote": "Best Bet: Raiders +3.5 (Pool Play Percentages: Raiders 67/33 in ATS contests, but Patriots still 67/33 in SU pools – do you see what I did there?"
-  },
-  {
-   "row": "w05-expert-verified.json#rows[453]",
-   "outlet": "VSiN",
-   "supports_tier": false,
-   "quote": "Las Vegas Raiders/New England Patriots Over 45"
-  },
-  {
-   "row": "w05-expert-verified.json#rows[510]",
-   "outlet": "VSiN",
-   "supports_tier": false,
-   "quote": "NFL Best Bet: It's Las Vegas +3.5 on the road at New England for me"
-  }
- ],
- "context": {
-  "away": "LV 3-1 (+31): W MIA +14, W @LAC +12, W @NO +8, L KC -3. Opponents 5-11; only quality opponent (KC) beat them. 2-0 road, 6.9 days rest, bye wk13. 2nd AFC West behind KC 4-0; 3rd in AFC order. Next: BUF, LAR at home.",
-  "home": "NE 2-2 (-12): L @SEA -3, W PIT +17, L @JAX -29, W @BUF +3. Opponents 11-5. 1-0 home, 1-0 division, 7.0 days rest, bye wk11. 2nd AFC East, one game behind BUF with H2H win. Next: NYJ home, @CHI. Market win total 10.35 vs model rank 17."
- },
- "invalidators": [
-  "Line moves to 3 (either side): the hook disappears and exact-3 (15.1%) becomes a push, so the price comparison must be redone",
-  "Woods (CB) and Woodson (S) both active and NE corner depth restored, removing most of the LV margin/total lean",
-  "Ashton Jeanty inactive or Morgan Moses inactive (changes LV run usage / NE protection vs a 39.5% pressure rush)",
-  "Total moves to 44 or lower with the same juice (Over lean then near breakeven) or to 46+ (lean gone)",
-  "Weather recheck shows gusts above 40 km/h or rain",
-  "Any QB change from ESPN-resolved starters Cousins / Maye",
-  "A second independent tier-eligible outlet on one side (would lift the conflicted disposition)"
- ],
- "gaps": [
-  "AVAILABILITY LV (ESPN 04:21Z): Out Trey Zuhn III C, Jalen Nailor WR; Q Ashton Jeanty RB; IR Dont'e Thornton Jr. WR",
-  "AVAILABILITY NE (ESPN 04:21Z): Out Prunty, Canada, Gonzalez, Davis III (CB); Q Woods CB, Woodson S, Jones DE, Elliss LB, Barmore DT, Stevenson RB, Moses OT; IR Gilliam FB, Hollins WR, A.J. Brown WR",
-  "3 near-miss source rows (verbatim but not self-identifying): context only",
-  "All 3 tier-eligible rows are one outlet (VSiN) and contradict each other on the side",
-  "Quant pass (provisional, unbacktested) home margin +0.85 vs market -3.5 (4.3 pts toward LV), over 52.9%: disagreement recorded, not copied",
-  "Action Network opener missing; splits captured 2026-10-09T19:41Z (stale, context only)",
-  "Global WARNs: BKR expires within 120 min (00:15 PT); book conflicts MIN@NO and CLE@NYJ; 432 corroboration-only rows; SuperContest labels reversed for 6 other games",
-  "BKR prop board: Jeanty yds/rec/carries pulled (available false); ATD board still lists Reggie Gilliam (IR)",
-  "Power-rating attribution text stale (matches_2026 true; no adjustment applied)",
-  "Venue from static table; weather is a forecast captured 2026-10-10T17:56Z",
-  "Bowers has no nflverse rows for weeks 1-2 (two-game usage sample)"
- ],
- "props": [
-  {
-   "player": "Brock Bowers",
-   "team": "LV",
-   "market": "receptions",
-   "side": "Over",
-   "line": 6.5,
-   "price": -111,
-   "book": "BKR",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "status": "usage context only",
-   "rationale": "nflverse wk3 13 tgt/10 rec, wk4 11 tgt/6 rec (no wk1-2 rows); LV WRs Nailor Out, Thornton IR narrow targets. No source pick."
-  },
-  {
-   "player": "Cody White",
-   "team": "LV",
-   "market": "receptions",
-   "side": "Over",
-   "line": 1.5,
-   "price": -160,
-   "book": "BKR",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "status": "usage context only",
-   "rationale": "Corroboration-only rows[117] (The Favorites) and rows[353] (Kendra Middleton), no source price. nflverse receptions wk1-4: 0,2,1,2 (targets 1,2,3,4); WR3 with Nailor Out."
-  },
-  {
-   "player": "Brock Bowers",
-   "team": "LV",
-   "market": "anytime TD",
-   "side": "Yes",
-   "line": 0.5,
-   "price": 130,
-   "book": "BKR",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "status": "high-variance TD",
-   "rationale": "Corroboration-only rows[16]/[219] quoted +145 (captured BKR +130). 1 receiving TD in each of wk3 and wk4."
-  },
-  {
-   "player": "Drake Maye",
-   "team": "NE",
-   "market": "anytime TD",
-   "side": "Yes",
-   "line": 0.5,
-   "price": 351,
-   "book": "BKR",
-   "captured_at": "2026-10-11T01:15:40.538Z",
-   "status": "high-variance TD",
-   "rationale": "Corroboration-only rows[17]/[220] quoted +450 (captured BKR +351). nflverse wk1-4: 23 carries, 136 rush yds, 0 rush TD."
-  }
- ]
+  "invalidators": [
+    "Line moves to NE -3 or LV +4 or beyond at a fresh capture: reprice side",
+    "Total moves to 44 or 46+: reprice total lean",
+    "Any of NE CBs Gonzalez/Davis active (official inactives) removes the Over basis",
+    "Jeanty or Stevenson inactive; Morgan Moses inactive (NE pass protection vs LV PRESS% 39.5%)",
+    "Kickoff wind forecast above ~25 km/h sustained",
+    "Recommendation windows lapse at 2026-10-11T11:00Z; no price claim after that without recapture",
+    "Missing evidence: no Action Network opener; no independent second tier-eligible outlet"
+  ],
+  "gaps": [
+    "Tier-eligible VSiN rows conflict on the side (rows[445] NE -3.5 vs rows[563] LV +3.5); one outlet",
+    "VSiN Over 45 (rows[453]) is a single outlet",
+    "Near-miss rows[398], rows[510], rows[575] and 25 corroboration-only rows are context only",
+    "Quantitative pass (NE +0.85 margin, total 46.2) disagrees with market NE -3.5; provisional, unbacktested",
+    "No Action Network opener in packet; splits capture is 2026-10-09T19:41Z",
+    "Questionable (ESPN injury report): Jeanty; Stevenson, Moses, Barmore, Dre'Mont Jones, Elliss, Woods, Woodson",
+    "ESPN roster IR/Out group (unconfirmed) on both teams unresolved, incl. NE Harold Landry III, Julian Hill; LV Keyron Crawford",
+    "Global: 432 corroboration-only rows; SuperContest label reversals for 6 other games; BKR/BEO conflicts on MIN@NO and CLE@NYJ",
+    "Recommendation windows end 2026-10-11T11:00Z (04:00 PT), before kickoff; captures will be stale"
+  ],
+  "props": [
+    {
+      "player": "Kirk Cousins",
+      "team": "LV",
+      "market": "pass_yds",
+      "side": "Over",
+      "line": 231.5,
+      "price": -108,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:22:11.947Z",
+      "status": "usage context only",
+      "rationale": "2026 passing yards W1 160, W2 253, W3 248, W4 365 (nflverse); NE four CBs Out per ESPN injury report."
+    },
+    {
+      "player": "Drake Maye",
+      "team": "NE",
+      "market": "pass_yds",
+      "side": "Under",
+      "line": 229.5,
+      "price": -110,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:22:11.947Z",
+      "status": "usage context only",
+      "rationale": "2026 passing yards W1 178, W2 208, W3 199, W4 269 (nflverse); LV FTN PRESS% 39.5%."
+    },
+    {
+      "player": "Brock Bowers",
+      "team": "LV",
+      "market": "atd_1_plus",
+      "side": "Yes",
+      "line": 0.5,
+      "price": 128,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:22:11.947Z",
+      "status": "high-variance TD",
+      "rationale": "Receiving TDs in W3 (13 tgt) and W4 (11 tgt) per nflverse; no W1-W2 rows. Source price +145 (Action Network rows[16], corroboration-only) vs captured +128."
+    }
+  ]
 }

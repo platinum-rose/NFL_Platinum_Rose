@@ -1,54 +1,67 @@
-# MIN@NO Week 5 single-game synthesis (opus)
+# MIN@NO, Week 5 single-game synthesis (model label: opus)
 
-Written 2026-10-11T05:48:59Z (Sat 10-10 22:48 PT); HEAD 7ebef66; kickoff Sun 10-11 10:00 PT. Disposition **conflicted**, tier **research_only**. No side, no total lean.
+Written 2026-10-11T06:51Z (Sat 10-10 23:51 PT), HEAD fb2ad66. Kickoff 2026-10-11T17:00Z (Sun 10:00 PT). BKR captured 2026-10-11T06:21:29.799Z (Sat 23:21 PT); BEO captured 2026-10-11T06:24:03.238Z (Sat 23:24 PT). These early-Sunday captures' recommendation windows end 2026-10-11T11:00Z (Sun 04:00 PT), before kickoff; after that they are `stale_for_recommendation`.
+
+**Disposition: conflicted. Tier: research_only. Side: none. Total: none.** Edge hypothesis: home margin -0.5 (toward MIN), total 0.0.
 
 ## Game script
 
-Minnesota arrives 4-0 as a short road favorite built on defense; New Orleans is 1-3 with a pass-heavy, fast offense and a defense that has allowed 32 points per game. The likely script is Aaron Jones carrying a conservative Vikings offense while Minnesota's blitz-heavy front chases Tyler Shough through 45-plus dropbacks. The swing factor is Minnesota's depleted offensive line.
+At BKR the market expects about MIN 22.0, NO 19.5 [Source: packet market_implied_score, BKR NO +2.5 / 41.5, 2026-10-11T06:21:29Z]. Likely script: Minnesota's blitz-heavy defense sets the terms against a pass-first Saints offense while Aaron Jones shields a line without its left tackle.
 
-## Away state: Minnesota
+## Away state: Minnesota (4-0, NFC North 1st)
 
-Results in order: W 39-22 vs GB, W 9-3 at CHI, W 23-16 at TB, W 15-10 vs MIA; 86-51, +35 [Source: MIN_at_NO packet, team state, built 04:23Z]. The opponents are a combined 6-11, and the last two wins came by 7 and 5 over 1-4 and 0-4 teams. Minnesota is 2-0 home, 2-0 away, 2-0 in the division, on 6.9 days of rest, with its bye in Week 6 and then IND, at DET and BUF. A win keeps it level with SF (4-0) atop the NFC order and a game clear of CHI (3-1) in the North. The bye is context, not an adjustment; four games is a small sample.
+Minnesota beat GB 39-22 (+17, H), CHI 9-3 (+6, A), TB 23-16 (+7, A) and MIA 15-10 (+5, H). That is a +35 differential, with records of 2-0 home, 2-0 away and 2-0 in the division [Source: packet team_state MIN, built 2026-10-11T06:35Z]. Opponents are a combined 6-11 and three wins were by seven or fewer; four games is too small a sample for a rating. Rest 6.9 days; bye Week 6, then IND, at DET, BUF. A win keeps it level with SF (4-0) atop the NFC and a game ahead of CHI (3-1) [Source: packet standings].
 
-## Home state: New Orleans
+## Home state: New Orleans (1-3, NFC South 3rd)
 
-Results: L 30-31 at DET, W 24-17 at BAL, L 27-35 vs LV, L 24-45 vs ATL; 105-128, -23 [Source: MIN_at_NO packet, team state, built 04:23Z]. That slate is tougher (opponents 10-6). The Saints are 0-2 at home and 0-1 in the division, on 5.7 days of rest, bye in Week 8, then at NYG and vs PIT. At 1-3 they sit third in the South, one game behind CAR and ATL (2-2); this non-division game affects conference order, not the South race.
+New Orleans lost at DET 30-31 (-1), won at BAL 24-17 (+7), and lost to LV 27-35 (-8, H) and ATL 24-45 (-21, H). That is a -23 differential, 0-2 at home and 0-1 in the division, against opponents with a combined 10-6 record [Source: packet team_state NO]. Rest 5.7 days (a day less); bye Week 8; next at NYG, PIT, CLE. Leader CAR is 2-2: the Saints are one game back.
 
 ## Matchup mechanics
 
-The efficiency gap is on defense. Minnesota's defense posts EPA/PLY -0.184 and DVOA -22.1%; New Orleans' is +0.134 and 20.6% [Source: MIN_at_NO packet, FTN team-defense efficiency]. On offense the order flips: NO -0.008 EPA/PLY vs MIN -0.119 (DVOA -23.4%) [FTN team-offense efficiency]. Pressure is the key mechanic. Minnesota's rush has SK% 10.4%, PRESS% 40.9%, BLZ% 72.1%, and Shough's EPA/DB under pressure is -0.346 against +0.214 clean [FTN pass-rush; pass-protection]. In reverse, Minnesota's protection allows SK% 9.8% with EPA/DB -0.610 under pressure, but New Orleans generates the least heat here (PRESS% 28.1%, BLZ% 33.8%).
+**Saints offense against Vikings defense.** Minnesota's defense allows EPA/PLY -0.184 (DVOA -22.1%) in the FTN team-defense efficiency table, and in the pass-rush table has SK% 10.4% and PRESS% 40.9% on BLZ% 72.1% [Source: FTN team-defense efficiency/pass-rush, MIN]. Dropbacks are 67.8% of New Orleans's plays (FTN tendencies, DPBK%). In the FTN pass-protection table the Saints' pressured EPA/DB is -0.346, against a clean-pocket EPA/DB__2 of 0.214 [Source: FTN team-offense tendencies/pass-protection, NO]. Shough is fine when clean, and Minnesota pressures over 40% of dropbacks.
 
-Availability cuts both ways [Source: MIN_at_NO packet, ESPN injuries, 04:21Z]. MIN: LT Christian Darrisaw and CB Charles Demmings Out; G Donovan Jackson and TE Josh Oliver on IR; RT Brian O'Neill, C Michael Jurgens, WRs Justin Jefferson and Jordan Addison, TE Ben Yurosek Questionable. NO: G Jeremiah Wright and LBs Kaden Elliss and Anfernee Jennings Out; DTs Nathan Shepherd, Vernon Broughton and Christen Miller, LB Jaylan Ford, Ss Lorenzo Styles Jr. and Julian Blackmon, RB Alvin Kamara and WR Barion Brown Questionable. The Saints' thinned front (run-defense DVOA 19.7%, SUCC% 51.4%) helps Jones (20-94 in Week 4); Minnesota's tackle losses meet a weak rush and matter most if O'Neill also sits. Jefferson has no Week 4 line in nflverse; T.J. Hockenson drew 13 targets that week [nflverse player_stats_weekly, 2026 wk1-4].
+**Vikings offense against Saints defense.** Minnesota's offense is weak: EPA/PLY -0.119 in the FTN efficiency table, and a pressured EPA/DB of -0.610 in the pass-protection table [Source: FTN team-offense, MIN]. The New Orleans defense is worse: EPA/PLY 0.134, rush DVOA 19.7% and MTKL% 17.4%. Its PRESS% of only 28.1% limits how much damage Minnesota's line injuries can do [Source: FTN team-defense, NO]. The resolved starters are Kyler Murray and Tyler Shough, from the ESPN depth chart plus injury report. No QB-ambiguous warning [Source: packet Quarterbacks, ESPN 2026-10-11T06:35:38Z].
 
-Resolved starters are Kyler Murray (Carson Wentz started Weeks 1-2; Murray 27/37, 247 in Week 4) and Shough (all four starts, 1,203 yards, 9 TD, 3 INT). Pace clashes: NO 73 plays per game at 24.9 sec/play, MIN 60 at 30.3 [FTN tempo]. Power ratings (SRS MIN 8.477, NO -5.097) are 2026 four-game values (matches_2026 true; the attribution wording is stale) and carry no adjustment. Secondary context (4.05 vs 2.55) is capped. Venue: fixed dome (static table), weather not applicable indoors; no source suggests relocation.
+**Availability.** ESPN injury report: MIN has OT Darrisaw and CB Demmings Out; OT O'Neill, C Jurgens, WR Jefferson, WR Addison and TE Yurosek Questionable; and G Jackson and TE Oliver on IR. NO has G J. Wright and LBs Elliss and Jennings Out, with three DTs, two safeties, LB Ford, RB Kamara and WR B. Brown Questionable [Source: ESPN injury report, 2026-10-11T06:35:38Z]. Script-changing: MIN's tackles and NO's two starting linebackers. Etienne, Bresee and Banks (NO) and Mason (MIN) are in the ESPN roster IR/Out group (unconfirmed), not confirmed Out [Source: ESPN roster IR/Out group (unconfirmed), 2026-10-11T06:35:36Z].
 
-## Market
+**Ratings and venue.** Power ratings are 2026 four-game values (matches_2026 true; attribution wording stale): SRS MIN 8.477, NO -5.097; no adjustment on them alone. Fixed dome: weather not applicable indoors [Source: packet VENUE].
 
-BKR (18:15 PT, 01:15Z): MIN -2.5 -103 / NO +2.5 -113; total 41.5 (o-103/u-113); ML -131/+115. BEO (20:15 PT, 03:15Z): MIN -1 -125 / NO +1 +105; total 42 (o+100/u-120); ML -135/+115 [Source: MIN_at_NO packet, market]. That is a 1.5-point spread conflict, so neither price can support a recommendation. Near-identical moneylines hint BEO's -1 -125 is the outlier (inference only). The implied score is MIN 22.0, NO 19.5. BKR sits half a point inside 3; the simulator puts an exact 3-point margin at 15.9%. The Action Network opener is missing. Splits (Fri 12:41 PT): MIN 56% tickets / 52% money, Over 76% / 73% (context only). SuperContest: MIN -2.5 (favorite field; labels reversed).
+## Market comparison
 
-## Evidence quality
-
-There is one tier-eligible row: VSiN's Zachary Cohen on Vikings ML (-130), which matches BKR -131 [w05-expert-verified.json#rows[518]]. That is one outlet. VSiN's Wes Reynolds on NO +3 is a near miss whose quote does not name the pick, and +3 vs +2.5 crosses the key number [rows[449]]. Corroboration-only rows conflict: Action Network shows NO +1.5 and MIN -1.5 [rows[40], rows[97]], BettingPros NO +1.5 [rows[201]] and Sharp or Square NO +2.5 [rows[131]]. The Under rows quoted 42-42.5 [rows[98], rows[202]]; the 42.5 quote is now a point off and downgraded.
+BKR has MIN -2.5 -103 / NO +2.5 -113, total 41.5 (O -108, U -107) and moneyline MIN -132 / NO +116. BEO has MIN -1 -125 / NO +1 +105, total 42 (O +100, U -120) and moneyline MIN -137 / NO +117 [Source: bookmaker-live-2026-10-11-week5.json 06:21:29Z; betonline-live-2026-10-11-week5.json 06:24:03Z]. The 1.5-point spread gap is a book conflict. The packet has no Action Network opener, so movement cannot be read. Stale splits (2026-10-09T19:41Z): MIN 56% of tickets, Over 76%; context only. The SuperContest favorite field gives MIN -2.5. Key number: at home line +3 the simulator's side_push is 0.0827, so BKR's +2.5 sits just under 3 [Source: margin-simulator.mjs, 2026-10-11T06:49Z].
 
 ## Thesis and counter-thesis
 
-Edge hypothesis: 0.0 points on margin and 0.0 on total versus BKR. Minnesota's defensive edge and New Orleans' linebacker losses point toward MIN. Minnesota's tackle attrition, Jefferson's status, an offense at -23.4% DVOA and a soft schedule point back. On the total, NO's tempo offsets MIN's defense. The provisional quantitative pass (home margin -4.5, two points beyond the market toward MIN) is noted, not copied. Simulator at zero edge: 50.0/50.0 cover and total, 0% pushes at BKR numbers; at BEO +1/42 pushes are 2.4% side, 3.0% total. Conditional on the hypothesis, not calibrated.
+**Thesis.** Two inputs point the same way: the defensive gap (DVOA -22.1% vs 20.6%) and New Orleans's missing linebackers. On those I move the home margin 0.5 points toward Minnesota. Total unchanged: the teams' scoring profiles offset, and it is indoors. The provisional quant pass has a home margin of -4.50, 2.0 points more pro-Minnesota than the market; I record that gap but do not copy it.
 
-Counter-thesis: Minnesota's record is inflated by a 6-11 opponent slate, and Shough's volume against a patched left side could flip a 2.5-point game. The book conflict alone forces the conflicted disposition.
+**Counter-thesis.** Minnesota's one-score wins came against weak opponents, and its offense is poor across every FTN efficiency table. Line injuries could worsen its -0.610 pressured EPA/DB. Corroboration-only feeds (Action Network, BettingPros, Sharp or Square) back NO at +1.5 to +2.5. The only tier-eligible row is one VSiN Minnesota moneyline (rows[518]), and the book conflict blocks any price claim.
+
+Conditional on this hypothesis (not calibrated), BKR simulator: home cover 0.4869, away 0.5131, Over/Under 0.50/0.50, pushes 0; zero-edge baseline 0.50/0.50, no pushes. BEO 1/42 baseline: 0.50/0.50 excluding pushes; side push 0.0244, total push 0.0304.
+
+## Player-prop research candidates (usage context only, no edge)
+
+| player | market | line/price | BKR capturedAt | 2026 usage W1-W4 |
+|---|---|---|---|---|
+| Aaron Jones (MIN) | carries Over | 17.5 / +101 | 2026-10-11T06:21:44.982Z | 12, 23, 17, 20 carries |
+| Chris Olave (NO) | receptions Over | 6.5 / +104 | 2026-10-11T06:21:44.982Z | 10, 8, 9, 8 rec |
+| Tyler Shough (NO) | completions Over | 22.5 / -114 | 2026-10-11T06:21:44.982Z | 35, 27, 29, 30 cmp |
+
+[Source: player_stats_weekly.csv 2026]. Roster gate PASS.
 
 ## Gaps
 
-- BKR/BEO spread conflict (2.5 vs 1); recapture required.
-- Action Network opener missing; no movement history.
-- Single tier-eligible outlet (VSiN); quant pass disagrees with market by 2.0 points (not backtested).
-- Jefferson, Addison, O'Neill, Jurgens, Kamara Questionable; official inactives decide.
-- Prop rows for Aaron Jones rush/receiving markets unavailable at BKR; BEO has only 8 MIN@NO prop rows.
-- Global: 432 corroboration-only rows; SuperContest labels reversed for 6 games incl. this one; book conflict also on CLE@NYJ; BKR window ends 00:15 PT.
+- BOOK CONFLICT: BKR NO +2.5 vs BEO NO +1; no price-specific recommendation.
+- Windows end 11:00Z, before kickoff; recapture required.
+- No Action Network opener; splits dated 2026-10-09.
+- Quant pass margin -4.50 vs BKR +2.5, recorded only.
+- One tier-eligible row (VSiN rows[518]); rows[449] (NO +3) near-miss, crosses 3.
+- Global: 432 corroboration-only rows; SuperContest labels reversed (6 games).
+- Digest says Jurgens/Yurosek IR; ESPN report says Questionable (used).
 
 ## Pre-kickoff delta checklist
 
-- Official inactives (Jefferson, O'Neill, Jurgens, Kamara, NO DTs) and starters.
-- Fresh BKR and BEO capture; does MIN -2.5 hold or reach 3?
-- Weather: not applicable indoors; confirm venue.
-- Game status confirmed scheduled.
-- Reprice source picks (VSiN ML -130, +1.5 rows) on the new line.
+- [ ] Official inactives and starters (MIN tackles, Jefferson, Addison; NO DTs, Kamara)
+- [ ] Fresh BKR/BEO capture; does the conflict resolve or the line reach 3?
+- [ ] Weather: not applicable indoors; confirm dome venue
+- [ ] Game status
+- [ ] Reprice source picks at the current number

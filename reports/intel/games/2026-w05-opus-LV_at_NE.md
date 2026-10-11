@@ -1,52 +1,58 @@
-# LV@NE (Week 5) - opus single-game synthesis
+# Week 5 single-game synthesis: LV@NE (opus)
 
-Written 2026-10-11T05:34:42Z (Sat 10-10 22:34 PT), HEAD 7ebef66. `pkt` = `data/research-intel/game-packets/2026-w05/LV_at_NE.md` (built 04:23Z). Kickoff Sun 10:00 PT, outdoor.
+Generated 2026-10-11 06:50Z (Sat 10-10 23:50 PT, device clock). HEAD fb2ad66. Kickoff 2026-10-11 17:00Z (Sun 10:00 PT), outdoor venue. Disposition **pass**, tier **skip**. Edge hypothesis: home margin 0.0, total +0.5.
 
-**Disposition `conflicted`, tier `skip`. No side; total leans Over, but the price is already shaded. Edge: home margin -0.5, total +0.5.**
+Captures: BKR 2026-10-11T06:21:29Z (Sat 23:21 PT); BEO 2026-10-11T06:24:03Z (Sat 23:24 PT). Both books' recommendation windows end 2026-10-11T11:00Z (Sun 04:00 PT), six hours before kickoff, so these prices will be stale for recommendation well before the game unless re-captured. [Source: data/research-intel/game-packets/2026-w05/LV_at_NE.md, Market section, built 2026-10-11T06:35Z]
 
 ## Game script
 
-The market implies NE 24.25, LV 20.75 [Source: pkt, implied score, BKR 01:15Z]. I expect Las Vegas to throw into a New England secondary missing four corners. New England should rely on short passing and Drake Maye scrambles against the stronger pass rush. That makes the game slightly closer and higher-scoring than the line, but not enough to beat the price.
+The market sees a modest New England home win: BKR Patriots -3.5 (-108 both sides), total 45 (Over -114 / Under -102), moneyline NE -188 / LV +164, an implied score of NE 24.25, LV 20.75. [Source: packet, BKR market, 2026-10-11T06:21Z] Likeliest script: Raiders passing into a depleted Patriots corner room, against a turnover-prone New England offense. Neither run game is efficient.
 
-## Away: Las Vegas (3-1)
+## Away state: Las Vegas
 
-LV beat MIA 27-13 (+14), won 26-14 at LAC (+12) and 35-27 at NO (+8), then lost 27-30 to KC (-3) [Source: pkt, results, 04:23Z]. Its opponents are a combined 5-11, three wins came against teams now 0-4, 0-4 and 1-3, and the only strong opponent beat LV. LV is 2-0 on the road with a +31 differential, 6.9 days of rest and a Week 13 bye. It is second in the AFC West behind KC (4-0) and third in a win%/differential AFC order. BUF visits next. Four games is a small sample, and the +31 is mostly schedule.
+Las Vegas is 3-1 (PF 115, PA 84, +31), with wins over MIA 27-13 (W1, home, +14), at LAC 26-14 (W2, +12) and at NO 35-27 (W3, +8), then a 27-30 home loss to KC in Week 4 (-3). [Source: packet, LV results table, 2026-10-11T06:35Z] Opponents are a combined 5-11; the only winning team faced (KC) beat them. They are 2-0 on the road and 1-1 in the division, sit second in the AFC West behind KC (4-0) and third in the packet's AFC order. Rest is 6.9 days, no bye used, bye in Week 13. Next up are BUF and LAR at home, then at NYJ. Four games is a small sample, not a rating.
 
-## Home: New England (2-2)
+## Home state: New England
 
-NE lost 10-13 at SEA, beat PIT 20-3, lost 6-35 at JAX and won 29-26 at BUF, against opponents with a combined 11-5 record [Source: pkt, results, 04:23Z]. The -12 differential is the JAX game. NE is 1-0 at home and 1-0 in the division, with 7.0 days of rest and a Week 11 bye. It is second in the AFC East, one game behind BUF but holding the head-to-head win, and NYJ is next. The market rates NE well above its results: a 10.35 win total against model rank 17 [Source: pkt, power_rating, 04:23Z].
+New England is 2-2 (PF 65, PA 77, -12): lost at SEA 10-13 (-3), beat PIT 20-3 at home (+17), lost at JAX 6-35 (-29), and won at BUF 29-26 (+3). [Source: packet, NE results table, 2026-10-11T06:35Z] Opponents are a combined 11-5, a far harder slate, so the differentials overstate the gap. They are 1-0 at home, 1-0 in the division, second in the AFC East behind BUF (3-1). Rest is 7.0 days; bye in Week 11. Next come NYJ at home, then at CHI and at MIA. A loss drops them to 2-3 and two games behind LV.
 
 ## Matchup mechanics
 
-The LV passing game is strong: FTN team-offense passing-analytics DVOA 29.6%, EPA/DB 0.161. Its running game is poor: rushing DVOA -25.1%, STF% 31.9% [Source: pkt, FTN, 04:23Z]. NE has ruled out CBs Christian Gonzalez, Carlton Davis III, Karon Prunty and Channing Canada, and CB Charles Woods and S Craig Woodson are questionable [Source: ESPN injuries, 04:21Z]. NE's -10.7% pass-defense DVOA was built with those players. Secondary severity is 10.05 (high) in a man scheme "featuring Christian Gonzalez"; that is capped context. LV is also short at WR: Jalen Nailor is out and Dont'e Thornton Jr. is on IR, so targets narrow to Brock Bowers (24 targets in Weeks 3-4), Michael Mayer and Tre Tucker [Source: nflverse player_stats_weekly.csv, wk1-4]. LV center Trey Zuhn III is out. NE's rush is mild (PRESS% 27.0%, SK% 5.7%), and Dre'Mont Jones and Christian Barmore are questionable, so Kirk Cousins (ESPN-resolved starter) should mostly stay clean.
+Power ratings: LV SRS 6.19 (rank 6), NE SRS 2.40 (rank 11). The label check shows these equal the 2026 four-game point differential (`matches_2026` true for both), so they are 2026 four-game values with stale attribution wording, and they get no point adjustment on their own. Market prior is reversed: NE implied win total 10.35, LV 8.67. [Source: packet, Power ratings, 2026-10-11T06:35Z]
 
-The other side of the ball favors LV's defense. NE's offense has DVOA -16.7%, 8 turnovers and INTW% 6.5%. Under pressure it drops to EPA/DB -0.433, and LV pressures at 39.5% with SK% 8.2% [Source: pkt, FTN pass-rush/protection, 04:23Z]. RT Morgan Moses and RB Rhamondre Stevenson are questionable. On pace, LV runs 67.8 plays per game to NE's 63.3. SRS (LV 6.19, NE 2.40) uses 2026 four-game values, so I make no adjustment for it. The forecast is 64.6F, 2% chance of precipitation, wind 15.6 km/h gusting 24.1 km/h; not material [Source: Open-Meteo, 10-10 17:56Z].
+Raiders passing against the Patriots secondary is the central matchup. In the FTN team-offense passing-analytics table, LV has EPA/DB 0.161 and DVOA 29.6%; their pass-protection table shows a 3.2% SK% and clean-pocket EPA/DB__2 0.210. [Source: packet, FTN team-offense passing-analytics and pass-protection, LV] The ESPN injury report lists four NE corners Out: Christian Gonzalez, Carlton Davis III, Karon Prunty and Channing Canada, with Charles Woods (CB) and Craig Woodson (S) Questionable. [Source: ESPN injury report via packet, NE, 2026-10-11T06:35Z] The NE pass rush in the FTN team-defense pass-rush table is mild (PRESS% 27.0%, SK% 5.7%), so Kirk Cousins (ESPN-resolved starter) should have time. [Source: packet, Quarterbacks, ESPN depth 2026-10-11T06:35Z]
 
-## Market
+In the FTN team-offense efficiency table NE has DVOA -16.7% and TO 8; their passing-analytics INTW% is 6.5%. Under pressure their pass-protection EPA/DB is -0.433, against 0.268 on clean pockets (EPA/DB__2). [Source: packet, FTN team-offense, NE] LV's FTN team-defense pass-rush table shows PRESS% 39.5% and SK% 8.2%, so Maye (ESPN-resolved starter) will face pressure; NE's protection is uncertain with OT Morgan Moses Questionable. On the ground both teams are poor (FTN rushing-analytics: LV EPA/ATT -0.250, NE -0.146). Ashton Jeanty is Questionable for LV and Rhamondre Stevenson Questionable for NE (ESPN injury report). LV's C Trey Zuhn III is Out (ESPN injury report). Pace favors points slightly: LV runs 67.8 PLY/GM, NE 63.3 (FTN tempo).
 
-At BKR (01:15Z, 18:15 PT): LV +3.5 -107 / NE -3.5 -109, Over 45 -114 / Under -102, ML +167/-191. At BEO (03:15Z, 20:15 PT): 3.5 at -110 both ways, Over 45 -114 / Under -106, ML +160/-183. There is no book conflict, both captures are under 6 hours old, and BKR lapses at 00:15 PT [Source: pkt, market, 01:15Z/03:15Z]. The line sits on the hook above 3, where an exact 3 is 15.1% at zero edge. The Action Network opener is missing. The 10-09 splits had 77% of spread money on LV, and 81% of the money on Over 45.5. The total has since dropped to 45 with -114 Over juice, so the Over shading is already priced. SuperContest has NE -3.5, a separate contest reference.
+ESPN roster IR/Out group entries (unconfirmed, not injury-report entries) include NE's Harold Landry III and Julian Hill and LV's Keyron Crawford; treated as unresolved. [Source: packet, ESPN roster IR/Out group, 2026-10-11T06:35:36Z] Secondary matchup context flags LV offense vs NE defense at severity 10.05, capped context only.
 
-## Evidence, thesis, counter-thesis
+Weather is not a factor: 64.6F, 2% precipitation, wind 15.6 km/h gusting 24.1 at kickoff. [Source: data/research-intel/source-evidence/2026-10-10-week5-weather-openmeteo.json, LV@NE forecast]
 
-All three tier-eligible rows are VSiN, so they count as one outlet, and it contradicts itself: "Best Bet: Patriots -3.5" (`w05-expert-verified.json#rows[445]`), Raiders +3.5 (`#rows[563]`) and Over 45 (`#rows[453]`). A VSiN near-miss (`#rows[510]`) takes LV. The corroboration-only rows split the same way: Sharp or Square, Even Money and Fezzik back LV, and Erickson and Wormeli back NE.
+## Market comparison
 
-My hypothesis is margin -0.5 toward LV and total +0.5. The basis is the NE CB absences against LV's pass efficiency, plus LV's pressure against NE's collapse under pressure. The LV center loss and LV's soft schedule offset part of that. The simulator, conditional on this hypothesis rather than a calibrated edge, gives LV cover 51.33%, NE 48.67%, no push; Over 50.00%, Under 46.97%, push 3.04%. The zero-edge baseline is 50/50 on the side and 48.48/48.48 on the total with a 3.04% push. LV at -107 needs about 51.7%, and Over at -114 needs about 53.3% excluding pushes. Neither clears.
+BEO matches BKR at NE -3.5 (-113 / LV -107) and 45 (Over -114 / Under -106). [Source: packet, BEO, 2026-10-11T06:24Z] The line sits on 3.5, the hook past the key number: the simulator's side_push at a -3 line is 8.27%, which is the value LV +3.5 gets over +3. [Source: margin-simulator.mjs, home-line -3] No Action Network opener is in the packet; the splits capture (2026-10-09T19:41Z) had -3.5 and 45.5, with 77% of spread money on LV and 81% on the Over, context only. The SuperContest lists NE as a 3.5-point favorite.
 
-**Counter-thesis.** LV's record is built on a 5-11 schedule, and NE won at BUF. If Bowers carries a narrow LV passing game, NE's replacement corners may matter less. A 3-point result is the single likeliest margin, so the side is a pure price question.
+## Thesis and counter-thesis
+
+The tier-eligible evidence splits within one outlet: VSiN's Youmans has "Best Bet: Patriots -3.5" (rows[445]) while VSiN's Tuley has "Best Bet: Raiders +3.5" (rows[563]). By outlet that is one source disagreeing with itself. The only total row, VSiN Reynolds "Over 45" (rows[453]), is a single outlet. The existing quantitative pass projects NE by 0.85, about 2.7 points short of the line, but it is unbacktested and I do not copy it. The NE corner absences and the LV passing efficiency point to a small Over lean (+0.5), well short of a recommendation. Side edge 0.0: the corner losses help LV; NE's harder schedule and market prior offset them. Counter-thesis: LV's 39.5% pressure rate could turn NE's 6.5% team INTW% (FTN passing-analytics) into short fields and a lopsided game.
+
+Hypothesis-conditional (not calibrated): cover 0.50/0.50 (push 0); Over 0.500 / Under 0.470 (push 0.030) vs zero-edge 0.4848/0.4848.
 
 ## Gaps
 
-- The Action Network opener is missing, and the splits (10-09 19:41Z) are stale.
-- The packet's quant row has the home margin at +0.85 against the market's -3.5 (4.3 points toward LV) and Over at 52.9%. It is unbacktested and not copied here.
-- The tier-eligible rows come from one self-contradicting outlet. There are 3 near-miss rows (game warning).
-- Availability warnings: Jeanty, Woods, Woodson, Jones, Elliss, Barmore, Stevenson and Moses are questionable.
-- Global: BKR lapses within 120 minutes; book conflicts on MIN@NO and CLE@NYJ; 432 rows are corroboration-only; SuperContest labels are reversed on 6 other games.
-- BKR has pulled the Jeanty yardage, receptions and carries props, and its ATD board still lists Reggie Gilliam (IR). The power-rating label is stale (matches_2026 true), and the venue comes from a static table.
+- VSiN side rows conflict (rows[445] vs rows[563]); Over row[453] single-source.
+- Near-miss and corroboration-only rows: context only.
+- Quant pass (NE +0.85) disagrees with NE -3.5.
+- No Action Network opener in the packet.
+- Questionable: Jeanty, Stevenson, Moses, Barmore, Dre'Mont Jones, Elliss, Woods, Woodson.
+- ESPN roster IR/Out group (unconfirmed) on both teams is unresolved.
+- Global: corroboration-only rows; SuperContest reversals in other games.
+- Recommendation windows lapse at 11:00Z, before kickoff.
 
-## Delta checklist
+## Pre-kickoff delta checklist
 
-- [ ] Official inactives (Jeanty, Woods, Woodson, Moses, Barmore, Stevenson)
-- [ ] Fresh BKR/BEO capture: 3.5 vs 3; 45 vs 44/46
-- [ ] Weather recheck (gusts >40 km/h, rain)
-- [ ] ESPN game status, any QB change
-- [ ] Reprice source picks; NE -3 or LV +3 is a different bet
+- Official inactives and starters (Jeanty, Stevenson, Moses, NE CB/S group)
+- Fresh BKR/BEO capture after 11:00Z; any move to NE -3 or -4, or a total of 44/46
+- Weather recheck (wind)
+- Game status
+- Reprice VSiN source picks against the current number

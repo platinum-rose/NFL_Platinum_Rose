@@ -1,53 +1,49 @@
-# CHI@GB Week 5 synthesis (opus)
+# Week 5 CHI@GB synthesis (opus, HEAD fb2ad66)
 
-Written Sat 10-10 ~22:41 PT (2026-10-11 ~05:41Z), head 7ebef66. Kickoff Sun 10-11 10:00 PT. "pkt" = data/research-intel/game-packets/2026-w05/CHI_at_GB.md, built 2026-10-11T04:23Z. BKR captured 18:15 PT (01:15Z, window ends 00:15 PT); BEO captured 20:15 PT (03:15Z). Neither is stale yet.
+Written Sat 10-10 23:52 PT (2026-10-11 06:52Z, device clock). Kickoff Sun 10:00 PT (17:00Z). BKR captured 06:21:29Z (Sat 23:21 PT); BEO 06:24:03Z (Sat 23:24 PT). Both recommendation windows end 11:00Z (Sun 04:00 PT), six hours before kickoff, so these early-Sunday captures will be `stale_for_recommendation` by game time [Source: CHI_at_GB.json, market.expires_for_recommendation_at, 06:35Z build]. Nothing here is price-specific; disposition is pass.
 
 ## Game script
 
-Disposition **pass**, tier **skip**. This is a near pick'em division game where the market has already absorbed Chicago's quarterback change. My evidence nets to a half-point lean toward Chicago and a half-point lean to the Under. Neither lean clears noise against a 12.77-point residual SD.
+The market reads this as a coin flip: BKR Chicago -1.5, total 47, implied 24.25-22.75 [Source: packet, market_implied_score, 06:21Z]. Chicago brings the better four-game profile but a backup quarterback; Green Bay brings the worse profile, no Micah Parsons and two doubtful interior linemen. Expect Chicago to lean on the run and the clock and Green Bay to throw.
 
-## Away state: Chicago (3-1, +47)
+## Away state: Chicago (3-1)
 
-Chicago won 59-37 at Carolina (2-2), lost 3-9 to Minnesota (4-0), beat Philadelphia (2-2) 27-7 and beat the Jets (1-3) 23-12. Its opponents are 9-7 combined. The Bears are 2-1 at home, 1-0 away and 0-1 in the division, on 7 days' rest, with a Week 10 bye still ahead [Source: pkt, team state, 04:23Z]. Three different quarterbacks have started: Williams in Weeks 1-2, Keenum in Week 3 and Bagent in Week 4 (25/34, 268 yards, 0 TD) [Source: nflverse player_stats_weekly.csv, 2026 wk1-4]. Bagent starts here by operator confirmation, which is stated, not verified. ESPN lists Williams as Questionable [Source: pkt, Quarterbacks, ESPN 04:21Z]. Next up: at ATL, NE, at SEA. With only four games, the SRS of +12.1 is a description of results so far, not a rating.
+Results in order: W 59-37 at CAR (+22), L 3-9 vs MIN (-6), W 27-7 vs PHI (+20), W 23-12 vs NYJ (+11); opponents 9-7 combined; 0-1 in the division; 7 days rest, bye in Week 10 [Source: packet, team state, 06:35Z]. The +47 differential leans on the Week 1 shootout: the last three games total 53 points scored. Four games is a small sample. Chicago has started three quarterbacks: Caleb Williams Weeks 1-2, Case Keenum Week 3 (34 att), Tyson Bagent Week 4 (25/34, 268 yds, 0 TD) [Source: player_stats_weekly.csv, 2026 wk1-4]. Tyson Bagent is the operator-resolved starter; Williams is Questionable on the ESPN injury report, so the QB flag stays open in gaps. ESPN injury report Out: CB Kyler Gordon, DT Shemar Turner, LB Keyshaun Elliott, RB Kyle Monangai; S Anthony Johnson Jr. on IR; LB Noah Sewell Questionable [Source: ESPN injury report, 06:35Z]. LT Braxton Jones sits in the ESPN roster IR/Out group (unconfirmed), not on the injury report. Next: at ATL, vs NE, at SEA.
 
-## Home state: Green Bay (2-2, -32)
+## Home state: Green Bay (2-2)
 
-Green Bay lost 22-39 at Minnesota, won 20-17 at the Jets, lost 14-35 at home to Atlanta and won 17-14 at Tampa Bay (1-4). Its opponents are 8-9 combined. The Packers are 0-1 at home and 0-1 in the division, on 7 days' rest, with a Week 11 bye [Source: pkt, team state, 04:23Z]. Minnesota leads the NFC North at 4-0. A loss here would leave Green Bay 2-3 and 0-2 in the division, while a Chicago win keeps the Bears second in the NFC order [Source: pkt, standings, 04:23Z]. Next up: DAL, at DET, CAR. The schedule offers no specific look-ahead fact.
+L 22-39 at MIN (-17), W 20-17 at NYJ (+3), L 14-35 vs ATL (-21), W 17-14 at TB (+3); opponents 8-9; 0-1 at home, 0-1 in the division; 7 days rest, bye Week 11 [Source: packet, team state, 06:35Z]. ESPN injury report: DE Micah Parsons Out, LB Edgerrin Cooper IR, C Jacob Monk and G Aaron Banks Doubtful, C Jager Burton, DT Javon Hargrave and DT Anthony Campbell Questionable [Source: ESPN injury report, 06:35Z]. WR Jayden Reed is in the roster IR/Out group (unconfirmed). A Chicago win puts it 4-1, second behind 4-0 Minnesota; a Green Bay win ties them at 3-2. Next: vs DAL, at DET, vs CAR. No schedule fact supports a look-ahead angle.
 
 ## Matchup mechanics
 
-Green Bay's offense is one-dimensional. Its rushing DVOA is -38.2% (EPA/att -0.349), it passes on 68.9% of dropbacks, and its passing DVOA is a modest +6.6% with CPOE at -8.8% [Source: pkt, FTN team-offense rushing/passing-analytics, 04:23Z]. Under pressure it collapses: DVOA -83.5%, EPA/DB -0.481 [Source: pkt, FTN team-offense pass-protection]. Chicago generates pressure on 35.3% of dropbacks with an 8.6% sack rate [Source: pkt, FTN team-defense pass-rush]. Green Bay's interior line is thin: center Monk and guard Banks are Doubtful and center Burton is Questionable [Source: pkt, ESPN injuries, 04:21Z]. That is the main input pushing toward Chicago.
+Green Bay's offense is the weakest unit on the field: FTN team-offense efficiency EPA/PLY -0.089 and DVOA -19.0%, rushing-analytics EPA/ATT -0.349 and DVOA -38.2%, and dropbacks on 68.9% of plays (tendencies DPBK%) [Source: FTN team-offense, 4 GP]. In the pass-protection table it collapses under pressure (EPA/DB -0.481) but is fine from a clean pocket (EPA/DB__2 0.224). Chicago's pass rush pressures at 35.3% (pass-rush PRESS%) with an 8.6% SK% [Source: FTN team-defense pass-rush]. With Monk and Banks doubtful, that pressure edge is the clearest path to a Chicago win. Against that, Chicago's coverage loses Gordon and Johnson, and the manual secondary context rates GB offense vs CHI defense at 5.25 against 1.35 the other way (capped context only).
 
-Chicago's defense is depleted, though. Nickel CB Kyler Gordon, DT Turner and LB Elliott are Out, S Anthony Johnson Jr. is on IR, and LB Sewell is Questionable. The secondary-context severity is 5.25 for Green Bay's passing against Chicago versus 1.35 the other way (capped) [Source: pkt, secondary matchups]. Love throws often (30-53 attempts per game) and Watson has scored in 3 of 4 games (4 TDs) [Source: nflverse csv, wk1-4], so Green Bay's best path is volume passing at a short-handed back seven.
+Chicago's offense plays 74.5 plays a game with 35.11 minutes of possession against Green Bay's 58.8 (tempo PLY/GM, TOP). Its passing-analytics EPA/DB 0.221 is a team figure built mostly with other quarterbacks and does not describe Bagent. Green Bay's defense allows a 51.7% third-down rate (efficiency CONV%) and, without Parsons, a 26.8% PRESS%.
 
-On Chicago's side, Micah Parsons is Out for Green Bay, and Green Bay already pressured at only 26.8% [Source: pkt, FTN team-defense pass-rush]. Chicago runs on 49.3% of plays and holds the ball 35.1 minutes, at 206 seconds per drive [Source: pkt, FTN tempo]. Monangai is Out after a 30-carry Week 4, which puts more volume on Swift. Left tackle Braxton Jones is on IR [Source: pkt, availability digest].
+Power ratings: CHI SRS 12.116 (rank 3) vs GB -7.417 (rank 29). `matches_2026` is true, so these are four-game 2026 values despite the stale prior-season wording. No points are added for them alone.
 
-Weather: kickoff forecast is 74°F with no rain, wind 22.3 km/h and gusts to 42.1 km/h [Source: openmeteo json, CHI@GB forecast]. The stadium is outdoor.
+Weather: outdoor, 73.9°F, 0% precipitation, wind 22.3 km/h from 209°, gusts 42.1 km/h [Source: Open-Meteo capture, 2026-10-10T17:56Z]. The forecast is 13 hours old. The gusts are a mild headwind against a pass-first home offense and against kickers.
 
 ## Market comparison
 
-At BKR it is CHI -1.5 -101 / GB +1.5 -115, total 46 (O -118 / U +101), moneyline CHI -116 / GB +103. At BEO it is CHI -1 -113, total 46.5, moneyline -119 / -101. That is a 0.5-point spread difference, so no conflict. The implied score is CHI 23.75, GB 22.25 [Source: pkt, Market]. The packet has no Action Network opener. Earlier quotes of GB +2.5/+3 and the SuperContest's CHI -3 suggest the line moved toward Green Bay through 3; that is an inference. Splits as of Oct 9: 57% of spread tickets but only 46% of the money on CHI, and 74% of tickets on the Over [Source: Action Network, splits, 2026-10-09T19:41Z]. These are context only.
+BKR: CHI -1.5 -101 / GB +1.5 -115, O/U 47 -108/-108, ML -116/+103. BEO: CHI -1 -116 / GB +1 -104, O/U 47 -105/-115, ML -129/+109 [Source: bookmaker/betonline-live-2026-10-11-week5.json, 06:21Z/06:24Z]. The books are 0.5 apart, so they don't conflict. A 3 is the live key: side_push at a line of 3 is 8.27% and at 7 is 5.55% [Source: margin-simulator.mjs, side_push]. The Action Network opener is missing. Splits from 10-09 19:41Z show the total at 45.5, now 47, with 74% of tickets on the Over; spread tickets 57% CHI and money 54% GB (context only). The SuperContest has CHI -3 as favorite (labels reversed).
 
 ## Thesis and counter-thesis
 
-Hypothesis: home margin -0.5 and total -0.5 against BKR. On the side, Green Bay's line injuries against Chicago's pressure largely offset Chicago's own defensive absences and its backup-QB status. On the total, Chicago's ball control, wind and both teams' game averages (44.25 and 44.5) point slightly under. The existing quantitative pass has Chicago by 4.6 with a 46.8 total. That pass is unbacktested, and its SRS inputs include Williams's games, so I do not adopt it.
+Edge hypothesis: home margin 0.0, total -0.5 (wind/gust only). The numbers lean Chicago and the market already discounts that for Bagent; the provisional quant row (CHI by 4.6) disagrees with the line by about 3 points but is unbacktested. The source evidence leans Green Bay but is thin. The only tier-eligible side row is VSiN's "Bet: Packers ML (+120)" [Source: w05-expert-verified.json#rows[519]], and that price is now +103/+109, so it has moved. VSiN's GB +1.5 row is the same outlet and is a near miss [rows[512]]. The GB +2.5 and CHI -2.5 rows (corroboration-only) are a point off the current line; the GB +3 rows cross 3 and count as a different bet. Disagreement is preserved, not averaged. Conditional on this hypothesis the simulator gives 50.0/50.0 side (no push at 1.5) and Over 47.0% / Under 50.0% / push 3.0%, against a 48.5/48.5/3.0 baseline. These are not calibrated edges. The verdict is pass.
 
-Evidence quality is thin. The only tier-eligible side row is VSiN's "Packers ML (+120)" (w05-expert-verified.json#rows[519]); the price is now +103, so the price has moved. VSiN's GB +1.5 (rows[512]) is a near-miss from the same outlet. The GB +2.5/+3 rows from Action Network, The Favorites, Even Money and Fezzik (rows[41], [127], [153], [296]) are corroboration-only, at numbers that have moved 1-1.5 points. The +3 rows cross a key number, so they are a different bet. The CHI rows (rows[83], [181], [533]) are corroboration-only too.
-
-The simulator at zero edge gives 50.0/50.0 on the side with no push, and 48.48/48.48 on the total with a 3.04% push. Under my hypothesis it gives CHI cover 51.31%, GB 48.69%, Over 46.96%, Under 50.00%, push 3.04%. These numbers are conditional on the hypothesis, not calibrated edges.
-
-Counter-thesis: Chicago's +11.75 net points per game is real, and the market may be overpricing the QB drop. Or Love's volume could carve up a secondary missing Gordon and Johnson.
+Counter-thesis: Green Bay's pass protection under pressure plus Chicago's pass rush and Green Bay's interior-line absences could make Chicago -1.5 cheap. If so, the 0.0 margin is wrong toward Green Bay.
 
 ## Gaps
 
-- CHI QB ambiguous: Williams Questionable, Bagent operator-confirmed.
-- No Action Network opener; splits are from Oct 9.
-- Quant pass (CHI -4.6) disagrees with the market (CHI -1.5).
-- BKR window ends 00:15 PT.
-- SuperContest labels reversed; use favorite CHI -3.
-- Weather review_required (gusts 42.1 km/h).
-- Global: 432 corroboration-only rows, 11 near-miss rows, SuperContest reversals on 6 games, BKR/BEO conflicts on two other games.
+- QB CHI ambiguous: Caleb Williams Questionable; operator says Tyson Bagent (stated, not verified).
+- Windows lapse 04:00 PT; weather review_required and 13 h old; Action Network opener missing.
+- Quant pass (CHI by 4.6) vs market CHI -1.5 not reconciled.
+- Global: 432 corroboration-only rows; SuperContest label reversals on 6 games; MIN@NO and CLE@NYJ book conflicts (other games).
 
-## Delta checklist
+## Pre-kickoff delta checklist
 
-Official inactives (Williams, Monk, Banks, Burton, Hargrave, Sewell); fresh BKR/BEO capture; wind recheck; game status; reprice the VSiN ML and +2.5/+3 rows at the current number.
+- Official inactives: Williams/Bagent, Monk, Banks, Burton, Hargrave, Sewell; roster-group players (Braxton Jones, Jayden Reed).
+- Fresh BKR/BEO capture after 04:00 PT; watch 3.
+- Weather recheck: gusts above 40 km/h.
+- Game status; reprice every source pick against the new number.

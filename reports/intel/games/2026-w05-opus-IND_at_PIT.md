@@ -1,53 +1,69 @@
-# IND@PIT, Week 5 single-game synthesis (opus)
+# Week 5 synthesis: IND@PIT (opus)
 
-Written Sat 2026-10-10 22:26 PT (05:26Z). Kickoff Sun 10:00 PT (17:00Z). BKR captured Sat 18:15 PT (01:15Z, about 4h old, window ends Sun 00:15 PT); BEO captured Sat 20:15 PT (03:15Z). Neither capture is stale under the 6-hour rule. HEAD 7ebef66.
+Run 06:50Z = Sat 23:50 PT. Kickoff 17:00Z = Sun 10:00 PT. Captures: BKR 06:21Z (23:21 PT), BEO 06:24Z (23:24 PT). Both recommendation windows end 11:00Z (Sun 04:00 PT), six hours before kickoff, so these lines go stale_for_recommendation before the game.
 
-**Disposition: price moved. Tier 2-. Side: none. Total lean: Under 43.5. Edge hypothesis: home margin 0.0, total -1.0 (weather only).**
+**Disposition: price moved. Tier: research_only. Side: none. Total lean: Under (research only). Edge: margin 0.0, total -0.5.**
 
 ## Game script
 
-This is two 2-2 teams with opposite shapes. Indianapolis runs well and passes poorly; Pittsburgh throws on two of every three dropbacks behind a leaky line and stops the run. The likely script is a field-position game: Jonathan Taylor runs into Pittsburgh's best unit, Aaron Rodgers throws into Indianapolis's weakest unit while absorbing sacks, and both offenses stall often. In forecast wind that points toward a game below 43.5. It does not separate the sides.
+BKR has PIT -3 +103 with a total of 43.5, which implies PIT 23.25, IND 20.25 [Source: packet, implied score, BKR 06:21Z]. The expected script: Indianapolis leans on Jonathan Taylor against Pittsburgh's best unit because its depleted receiver room struggles through the air. Rodgers drops back against a thinned Colts rush. Gusty outdoor wind pushes both teams toward the run.
 
-## Away state: Indianapolis
+## Away: Indianapolis 2-2
 
-The Colts lost to BAL 23-41 (home, -18) and at KC 30-33 (-3), then beat HOU 19-17 (home, +2) and won at WAS 30-13 (+17). Opponents are 8-8 combined; the two wins came against teams now 0-4 and 1-3. They are -2 on points, 1-0 in the division, second in the AFC South behind 3-1 JAX, and eighth in the win%-only AFC order. They have 7.1 days of rest, have not had their bye (Week 13), and play TEN at home next. [Source: game-packets/2026-w05/IND_at_PIT.md, results/standings, 04:23Z]
+The Colts lost to BAL by 18 at home and at KC by 3, then beat HOU by 2 at home and won at WAS by 17. Their opponents are a combined 8-8, and both wins came against teams now 0-4 and 1-3. They are 1-1 away and 1-0 in the division, with 7.1 days of rest and a Week 13 bye. They sit a game behind JAX and eighth in the AFC order. Next: TEN at home, @MIN, @JAX [Source: packet, team state].
 
-## Home state: Pittsburgh
+## Home: Pittsburgh 2-2
 
-The Steelers beat ATL 20-13 (home, +7), lost at NE 3-20 (-17), beat CIN 30-27 (home, +3) and lost at CLE 24-27 (-3). Opponents are 9-7. They are -10 on points, 2-0 at home and 0-2 away, fourth in an AFC North where BAL and CLE are 3-1. They have 9.7 days of rest and play at TB and NO next, with the bye in Week 9. This is a non-division AFC game, so it matters for conference tiebreaks, not the division. Four games is a small sample, and neither record becomes a rating here. [Source: game-packets/2026-w05/IND_at_PIT.md, results/standings, 04:23Z]
+The Steelers beat ATL by 7, lost at NE by 17, beat CIN by 3 and lost at CLE by 3. Their opponents are a combined 9-7. They are 2-0 at home, 0-2 away and 1-1 in the division. They have 9.7 days of rest (2.6 more than IND) and a Week 9 bye. They are fourth in the North, a game behind BAL and CLE, and play @TB and @NO next. Four games is a small sample; no schedule adjustment.
 
 ## Matchup mechanics
 
-Pittsburgh's offense posts FTN EPA/play -0.115 and success 40.2%, with a 27.7% three-and-out rate and 13 sacks allowed (SK% 7.6%). It drops back 67.2% of the time [Source: FTN team-offense efficiency/tempo/pass-protection, PIT, packet]. Indianapolis's pass defense is soft (pass DVOA 12.1%, EPA/DB 0.109), but it is now without DE Arden Key (IR) and LB Jaylon Carlies (Out), and CB Charvarius Ward is Questionable [Source: ESPN injury report, 04:21Z]. Rodgers's sack volume and the Colts' thinner front roughly offset.
+**IND run game.** The game turns on strength against strength. IND's rushing-analytics table shows EPA/ATT 0.119 and SUCC% 45.9%. PIT's defensive rush-analytics table shows EPA/ATT -0.074 allowed and STF% 23.5% [Source: FTN team tables, packet].
 
-Indianapolis runs at rush DVOA 9.4% and EPA/att 0.119; Taylor has 19, 24, 23 and 20 carries [Source: nflverse player_stats_weekly 2026 w1-w4]. Pittsburgh's run defense is its strength (rush DVOA -13.7%, stuff rate 23.5%). The Colts' passing is the weak link: pass DVOA -19.4%, CPOE -5.6%, aDOT 5.8, and Daniel Jones has thrown one interception in every game. Pittsburgh's coverage is exploitable (OPEN% 68.4%, pass DVOA 11.0%; secondary severity 8.1 for IND offense vs PIT defense), and CB Jamel Dean is Out, CB Jalen Ramsey Questionable, and S DeShon Elliott on IR. But IND has WRs Darius Slayton and Ashton Dulin Out, Keenan Allen Questionable, and Alec Pierce listed in ESPN's IR/Out roster group. Jones and Rodgers are the resolved starters; neither QB is ambiguous [Source: packet Quarterbacks, ESPN depth 04:21Z].
+**IND passing game.** IND's passing-analytics EPA/DB is -0.205 and INTW% is 4.5%. Its pass-protection table shows a large pressure effect: EPA/DB -1.060 under pressure against 0.112 clean (EPA/DB__2). PIT's pass rush has SK% 7.7% and BLZ% 28.5%.
 
-Power ratings: SRS IND -2.24 vs PIT -0.62; net PPG -0.5 vs -2.5. The label check shows these equal the 2026 four-game values, so they get no point adjustment. Pace is neutral (63.3 vs 64.0 plays per game).
+**PIT secondary.** On the ESPN injury report, Jamel Dean is Out, DeShon Elliott is on IR and Jalen Ramsey is Questionable. The capped secondary-context severity for IND's offense is 8.1. IND has few receivers to exploit it, though. Per the ESPN injury report, Darius Slayton and Ashton Dulin are Out, Keenan Allen is Questionable and Will Mallory is on IR. Alec Pierce appears only in the unconfirmed ESPN roster IR/Out group.
 
-Weather: outdoor stadium (static table; no neutral-site flag). The forecast is 64F, wind 25.2 km/h, gusts 58 km/h, precipitation probability 54% but 0 mm [Source: 2026-10-10-week5-weather-openmeteo.json, IND@PIT, captured 2026-10-10T17:56Z]. Gusts like that hurt deep passing and kicking. This is the only input I let move the total.
+**PIT offense.** PIT's tendencies table shows DPBK% 67.2% (the share of plays that are dropbacks). Its passing-analytics EPA/DB is -0.147 with aDOT 9.2, and its tempo table shows a 3&O rate of 27.7%.
+
+**IND pass defense.** IND allows passing-analytics EPA/DB of 0.109 with DVOA 12.1%, and its pass-rush SK% is 5.9%. Arden Key is on IR per the ESPN injury report, Micheal Clemons is in the unconfirmed roster group and Charvarius Ward is Questionable.
+
+**Pace and quarterbacks.** Pace is neutral: IND runs 63.3 plays per game and PIT 64.0. The resolved starters are Daniel Jones and Aaron Rodgers, from the ESPN depth chart. Neither is operator-confirmed, and the QB flag is ok.
+
+**Power ratings.** These are 2026 four-game values (matches_2026 true) and they are mixed. SRS favors PIT (-0.624 vs -2.243), while net PPG favors IND (-0.5 vs -2.5). I apply no adjustment.
+
+**Weather.** Open-Meteo forecasts 25.2 km/h sustained wind, 58 km/h gusts, 54% precipitation probability, 0 mm of precipitation and 64.4F at an outdoor venue [Source: weather-openmeteo.json, IND@PIT, 2026-10-10T17:56Z]. The forecast is about 13 hours old.
 
 ## Market
 
-BKR: PIT -3 +103 / IND +3 -118, total 43.5 -108/-108, ML -146/+127. BEO: PIT -2.5 -117 / IND +2.5 -103, total 43.5 -110, ML -148/+128 [Source: packet Market, BKR 01:15Z, BEO 03:15Z]. The implied score is PIT 23.25-20.25. BKR's -3 is juiced toward the dog, which is effectively a -2.75 market. The simulator puts an exact 3-point margin at 15.6%, so the half point is worth a lot. No Action Network opener was captured. Splits (Oct 9 19:41Z, context only): IND +2.5 has 65% of tickets and 61% of money, and Over 43.5 has 73% and 64%. The SuperContest line is PIT -2.5 (contest only).
+| Book (capture) | Spread | Total | Moneyline |
+|---|---|---|---|
+| BKR (06:21Z) | PIT -3 +103 / IND +3 -118 | 43.5 -108 / -108 | IND +127 / PIT -146 |
+| BEO (06:24Z) | PIT -2.5 -117 / IND +2.5 -103 | 43.5 -110 / -110 | +133 / -153 |
 
-## Evidence and thesis
+The two books sit on opposite sides of the key number 3. The side_push value at -3 is 8.27%. The packet has no Action Network opener. Its splits (10-09 19:41Z, at -2.5) show IND with 65% of tickets and 61% of money, and the Over with 73% of tickets. These are context only. The SuperContest has PIT -2.5.
 
-There are three tier-eligible rows from two outlets. VSiN's Matt Youmans: "Best Bet: Steelers -2.5" (w05-expert-verified.json#rows[444]). ESPN: "Picks: Steelers -2.5 (-118), Under 44.5 (-118)" (rows[390]). Both side picks were made at -2.5. BKR now hangs -3, which crosses the key number, so at BKR that is a different bet; -2.5 survives only at BEO -117. ESPN's Under was at 44.5. It is now 43.5, a full point worse, so it is downgraded. The corroboration-only rows lean PIT (Action Network, Sharp Football, Sharp or Square, Even Money, PFT) and Over (BettingPros 43.5, Kezirian 44.5). The disagreement is kept, not averaged.
+## Thesis and counter-thesis
 
-I hold the margin at 0.0. The PIT case (sources, home split, rest) is offset by the IND passing-vs-coverage mismatch and the quant pass's IND lean. The total moves -1.0 on wind and gusts alone. Simulator, conditional on this hypothesis and not calibrated: Under 53.0% / Over 47.0% (push 0%); side unchanged at 45.9% / 45.9% with 8.3% push. The zero-edge baseline is 50/50 on both (side push 8.3%).
+Two independent tier-eligible outlets took PIT -2.5: ESPN with "Picks: Steelers -2.5 (-118), Under 44.5 (-118)" `w05-expert-verified.json#rows[390]`, and VSiN with "Best Bet: Steelers -2.5" `w05-expert-verified.json#rows[444]`. BKR -3 crosses the key number, which makes it a different bet. ESPN's Under at 44.5 is a full point off the current 43.5, so it is downgraded. Corroboration-only rows (Action Network rows[45], Sharp or Square rows[136], Even Money rows[149], Sharp Football rows[507]) also back PIT -2.5. Jeremiah/Brooks are split (rows[50] vs rows[51]), and BettingPros has Over 43.5 (rows[200]).
 
-**Counter-thesis:** Indianapolis's defense allows 26.0 PPG. Both teams have hit 30. Precipitation is 0 mm. The quant pass projects 44.5. A calmer forecast deletes my only numeric input.
+My hypothesis is 0.0 on the margin and -0.5 on the total, the total coming from the wind fields alone (below the weather cap of 1.0). Zero-edge baseline: cover 45.87% each way with an 8.27% push, and the total at 50/50 with 0% push. Conditional on my hypothesis, Over is 48.48% and Under is 51.52%. These are not calibrated edges.
+
+Counter-thesis: the provisional quant pass has the home margin at +1.42, which is 1.6 points toward IND. Either depleted secondary could still give up explosive plays.
 
 ## Gaps
-- Quant pass (unbacktested) has home margin +1.42 vs market +3 (leans IND) and total 44.48 (leans Over); it disagrees with the market and my Under.
-- Action Network opener missing; no movement history.
-- Weather forecast is 11+ hours old at write.
-- Alec Pierce: ESPN roster IR/Out group but not on the injury list.
-- Global WARNs: BKR expires 00:15 PT; book conflicts on MIN@NO and CLE@NYJ only; 432 corroboration-only rows; SuperContest label reversals for six other games.
+
+- Both windows end 11:00Z, before kickoff, so a fresh capture is required. The weather forecast (17:56Z Sat) is marked review_required.
+- The quant pass margin (+1.42) disagrees with the market (3.0); I did not use its cover percentages.
+- The source side was taken at -2.5 against BKR -3. The ESPN Under was taken at 44.5 against 43.5 now.
+- The packet has no AN opener, and the splits are about 41 hours old. BKR team totals were unavailable at capture.
+- The ESPN roster IR/Out group is unconfirmed for both teams. The venue comes from a static table (no relocation signal).
+- Global: 432 corroboration-only rows; 11 near-miss rows; SuperContest label reversals in 6 other games; BKR/BEO conflicts in MIN@NO and CLE@NYJ.
 
 ## Pre-kickoff delta checklist
-- Official inactives: Allen, Ward, Ramsey, Dowdle; both QBs.
-- Fresh BKR/BEO capture: does -2.5 return, and does the total hold 43.5?
-- Weather recheck: if wind falls below 15 km/h and gusts below 40 km/h, the total edge goes to 0 and this becomes a pass.
-- Game status (venue, time).
-- Reprice the VSiN/ESPN picks at the live number.
+
+- [ ] Inactives and starters: Ramsey, Dowdle, Allen, Ward, Pierce; both QBs.
+- [ ] Fresh BKR/BEO capture (-2.5 or -3; total).
+- [ ] Weather recheck at 17:00Z.
+- [ ] Game status and venue.
+- [ ] Reprice the source picks (PIT -2.5, Under 44.5).

@@ -1,0 +1,122 @@
+{
+  "schema": "w05_game_synthesis_v1",
+  "game": "PHI@JAX",
+  "model": "opus",
+  "generated_at": "2026-10-11T05:40:55Z",
+  "head": "7ebef66",
+  "market": {
+    "book": "BKR",
+    "captured_at": "2026-10-11T01:15:40.538Z",
+    "home_line": -7.5,
+    "total": 42
+  },
+  "disposition": "pass",
+  "tier": "skip",
+  "side": {
+    "pick": null,
+    "line": null,
+    "price": null
+  },
+  "total_lean": {
+    "pick": null
+  },
+  "edge_hypothesis": {
+    "home_margin_pts": 0.5,
+    "total_pts": -0.5,
+    "basis": [
+      "ESPN injury report 2026-10-11T04:21Z: PHI Out Barkley, D. Smith, H. Brown, C Kendall; Bigsby IR (81% of top-3 RB carries removed)",
+      "FTN team-offense efficiency PHI DVOA -9.2%/EPA/PLY -0.107 vs FTN team-defense efficiency JAX DVOA -19.2% (rush DVOA -32.5%, INTW% 7.2%)",
+      "FTN tempo: PHI 57.5 PLY/GM, JAX 56.5 PLY/GM, SEC/PLY 28.6/31.1 (slow pace, total)",
+      "Offset: line already moved from corroboration-only -4.5 quotes to -7.5; London neutral site; sole tier-eligible outlet (VSiN) on PHI"
+    ],
+    "cap_exception": null
+  },
+  "simulator": {
+    "home_cover": 0.5140387371696771,
+    "away_cover": 0.48596126283032304,
+    "over": 0.4696632886033379,
+    "under": 0.49995725216090253,
+    "side_push": 0,
+    "total_push": 0.030379459235759312
+  },
+  "cited_rows": [
+    {
+      "row": "w05-expert-verified.json#rows[447]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Eagles +7.5 vs Jaguars (London)"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[516]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Bet: Eagles +8 (-110 - 1.5 units) & Eagles ML (+320 - 0.5 units)"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[517]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Bet: Eagles +8 (-110 - 1.5 units) & Eagles ML (+320 - 0.5 units)"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[559]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "Best Bet: Eagles +7.5 or better (Pool Play Percentages: Eagles 67/33 in ATS contests, but Jaguars still 75/25 in SU pools)."
+    },
+    {
+      "row": "w05-expert-verified.json#rows[85]",
+      "outlet": "Daniel Jeremiah & Bucky Brooks",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[532]",
+      "outlet": "Pro Football Talk",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[139]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[198]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[204]",
+      "outlet": "The Favorites",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[318]",
+      "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
+      "supports_tier": false
+    }
+  ],
+  "context": {
+    "away": "PHI 2-2 (-18): wins vs WAS 1-3, TEN 0-4; losses at CHI 7-27, vs LAR 20-24. Opp 6-10. 2nd NFC East behind NYG 3-1; outside NFC top 8. Rest 6.9 days, bye Wk10. Next CAR, DAL home.",
+    "home": "JAX 3-1 (+51): beat CLE, NE, at CIN; lost at DEN 13-20. Opp 9-7. 2-0 home. Leads AFC South by one over IND; AFC No. 2 behind KC. Rest 6.9 days, bye Wk7. Next HOU home. London neutral site per source quotes."
+  },
+  "invalidators": [
+    "BKR line moves to JAX -7 (PHI +7 is a different bet across the key number) or to -8.5 or longer: reprice",
+    "Official inactives: Greenard (Q) out, more PHI OL/WR inactives, Dallas Goedert inactive, or Eric Murray (D) active",
+    "A second independent tier-eligible outlet on PHI with numeric support would warrant a qualitative candidate 2- re-review",
+    "Any QB change (Hurts or Lawrence) flips the analysis",
+    "Wembley weather: sustained wind over 25 km/h or rain at kickoff (forecast fields: wind_speed_10m, precipitation_probability)",
+    "Lapse of BKR window at 00:15 PT / BEO 00:30 PT without recapture: no price-specific claim"
+  ],
+  "gaps": [
+    "Neutral-site (London) game not detectable by the static roof table; venue from VSiN quote rows[447] and Wembley coordinates in the weather capture",
+    "Game warning: AVAILABILITY PHI Out Kendall C, Epps S, H. Brown WR, D. Smith WR, Barkley RB; Greenard Q; Bigsby IR (ESPN 2026-10-11T04:21Z)",
+    "Game warning: AVAILABILITY JAX Eric Murray S Doubtful; Caleb Ransaw IR (ESPN 2026-10-11T04:21Z)",
+    "Existing quantitative pass (provisional) JAX by 9.07, total 42.98 vs market 7.5/42; disagreement recorded, not copied",
+    "No Action Network opener in packet; line movement inferred from corroboration-only -4.5 quotes",
+    "BKR prop capture 2026-10-10T22:25Z older than 6h at write time; no props proposed",
+    "Dallas Goedert absent from week 3-4 stats with no injury entry; status unverified",
+    "Projected starters lack second-source depth-chart reconciliation; power-rating attribution text stale (matches_2026 true)",
+    "Global: 432 corroboration-only rows, 11 near-miss rows, SuperContest label reversals on 6 other games, BKR/BEO conflicts on MIN@NO and CLE@NYJ, all BKR windows expire within 120 min"
+  ],
+  "props": []
+}

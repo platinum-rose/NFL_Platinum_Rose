@@ -1,60 +1,56 @@
-# DEN@LAC Week 5 single-game synthesis (opus)
+# Week 5 DEN@LAC: single-game synthesis (opus)
 
-Written 2026-10-11T05:19:18Z (Sat 10-10 22:19 PT), HEAD 7ebef66. Kickoff Sun 10-11 13:05 PT. **Disposition: pass. Tier: research_only.** No side, no total lean; edge hypothesis 0.0 margin / 0.0 total.
+Now ~06:50Z (Sat 10-10 ~23:50 PT), HEAD fb2ad66; kickoff 20:05Z (Sun 13:05 PT). BKR captured 06:21Z (23:21 PT), BEO 06:24Z (23:24 PT). These early-Sunday captures are fresh now, but the recommendation windows end at 12:21Z / 12:24Z (05:21 / 05:24 PT), before kickoff; after that nothing here is price-valid without a recapture. [Source: game-packets/2026-w05/DEN_at_LAC.md, BKR/BEO captured_at and window, 2026-10-11T06:35Z build]
+
+**Disposition: conflicted. Tier: 2-. No side pick, no total lean. Edge 0.0 / 0.0.**
 
 ## Game script
 
-Denver is a 3.5-point road favorite in an AFC West game between two weak offenses; the market implies DEN 22.75, LAC 19.25 [Source: game-packets/2026-w05/DEN_at_LAC.md, market_implied_score, BKR 01:15Z]. Expect a slow game: Denver runs 58.0 plays per game, LAC 61.3, and both tempo z-scores are below -1.0 [Source: game-packets/2026-w05/DEN_at_LAC.md, FTN tempo PLY/GM]. The game turns on Denver's pass rush against a Chargers line missing most of its starters, and on whether LAC's thinned receivers can attack a Denver secondary without both starting corners.
+The market expects a slow, low-scoring division game: Denver by 3.5, total 42, implied score DEN 22.75 to LAC 19.25. [Source: packet, market-implied score, BKR 06:21Z] Both offenses play at a below-average pace (FTN team-offense tempo PLY/GM: DEN 58.0, LAC 61.3; quant tempo_z about -1.1 for both). I expect the Chargers' patched line to decide most drives. [Source: FTN team-offense/tempo, 2026 GP4]
 
 ## Away state: Denver (2-2)
 
-Denver lost 31-10 at KC, beat JAX 20-13 and LAR 30-26 at home, and lost 24-14 at SF. Its opponents are 13-3 combined, and both losses came on the road to teams now 4-0. Denver is 2-0 home, 0-2 away and 0-1 in the division, -20 in point differential, on seven days' rest, with its bye in Week 10. Next: SEA at home, at ARI, KC at home [Source: game-packets/2026-w05/DEN_at_LAC.md, team state, built 04:23Z]. A win makes it 3-2 and 1-1 in the division, still behind KC (4-0) and LV (3-1).
+Denver beat JAX 20-13 and LAR 30-26 at home. On the road it lost 10-31 at KC and 14-24 at SF. Those four opponents are a combined 13-3, so the -20 point differential overstates the weakness. DEN has 7 days of rest, its bye comes in week 10, and SEA (3-1) visits next. Schedule fact only; four games is a small sample. [Source: packet, team state DEN, 2026-10-11]
 
-## Home state: LA Chargers (0-4)
+## Home state: Los Angeles (0-4)
 
-LAC lost 26-14 to ARI and LV at home, 24-16 at BUF and 30-23 at SEA. Opponents are 10-6 combined; ARI is now 1-3. LAC is 0-2 home and 0-1 in the division, -39 in point differential, on seven days' rest, with its bye in Week 7 and a trip to KC next [Source: game-packets/2026-w05/DEN_at_LAC.md, team state]. A loss means 0-5 and 0-2 in the division. Four games is a small sample, so neither record counts as a rating.
+The Chargers lost to ARI 14-26 and LV 14-26 at home, then 16-24 at BUF and 23-30 at SEA. Every loss came by 7 to 12 points, against opponents with a combined 10-6 record. LAC also has 7 days of rest, its bye comes in week 7, and it plays at KC next. A loss here drops LAC to 0-5 and 0-2 in the division, behind KC (4-0). A Denver win reaches 3-2 and 1-1 in the division. [Source: packet, standings AFC West, 2026-10-11]
 
 ## Matchup mechanics
 
-SRS has Denver +5.86 (rank 7) and LAC -9.31 (rank 30); net points per game are -5.0 and -9.75. These are 2026 four-game values (matches_2026 true; the attribution text is stale), so I make no adjustment on them alone [Source: game-packets/2026-w05/DEN_at_LAC.md, power_ratings label check]. Net points imply a neutral-field gap of about 4.75, close to the line.
+Chargers' protection against Denver's rush is the central matchup. FTN team-offense/pass-protection shows LAC with SK% 8.3%, PRESS% 39.3% and EPA/DB -0.359 under pressure. Even its clean-pocket split (EPA/DB__2 -0.017) is below zero. The ESPN injury report now lists Joe Alt OT and Kayode Awosika G as Out, Rashawn Slater OT and Trevor Penning G on IR, and Branson Taylor G as Questionable. Isaiah World OT and Trey Pipkins III OT sit in the ESPN roster IR/Out group, which is unconfirmed. Denver's FTN team-defense/pass-rush shows PRESS% 31.6%, SK% 5.1% and BLZ% 38.6%. [Source: ESPN injury report, LAC, 2026-10-11T06:35Z] [Source: FTN team-defense/pass-rush DEN]
 
-The main mismatch is Denver's rush against LAC's protection. LAC allows an 8.3% sack rate and 39.3% pressure rate and has 9 turnovers (3.67% of plays) [Source: game-packets/2026-w05/DEN_at_LAC.md, FTN team-offense pass-protection/efficiency, LAC]. Denver pressures 31.6% of dropbacks and blitzes 38.6% [Source: game-packets/2026-w05/DEN_at_LAC.md, FTN team-defense pass-rush, DEN]. ESPN lists tackle Joe Alt and guard Kayode Awosika Out, Rashawn Slater and Trevor Penning on IR, and guard Branson Taylor Questionable [Source: ESPN injury report via packet, 04:21Z]. Justin Herbert should face heavy pressure on passing downs.
+The receiving side cuts the other way. Denver's top two corners, Pat Surtain II and Riley Moss, are both Out on the ESPN injury report. DEN's pass defense was already leaky (FTN team-defense/passing-analytics EPA/DB 0.054, EXP% 16.0%). LAC's FTN aDOT of 8.8 means Justin Herbert would normally attack that. However, Quentin Johnston and Brenen Thompson are Out and Ladd McConkey is Questionable on the injury report, so the targets left to exploit the missing corners are thin. [Source: ESPN injury report, DEN/LAC, 2026-10-11T06:35Z] [Source: FTN team-offense/passing-analytics LAC]
 
-Denver's absences cut the other way: corners Pat Surtain II and Riley Moss are Out. LAC may not be able to exploit that. Quentin Johnston and Brenen Thompson are Out and Ladd McConkey is Questionable, which leaves Tre Harris (21 targets, Weeks 1-4) and TE Oronde Gadsden II (8 targets in Week 4) [Source: nflverse player_stats_weekly.csv, 2026 W1-W4]. LAC's own secondary is missing Derwin James Jr. and Donte Jackson.
+Denver throws short (aDOT 5.3; dropbacks DPBK% 62.1% of plays): clean-pocket EPA/DB__2 0.311 and SUCC%__2 55.6%, but pressured EPA/DB -0.700. LAC pressures at a similar rate (PRESS% 31.3%, SK% 7.8%) but is without Derwin James Jr. and Donte Jackson (injury report Out). Running is poor for Denver: LAC's FTN rush defense allows EPA/ATT -0.165, and DEN's rushing EPA/ATT is -0.053. [Source: FTN team-offense/pass-protection DEN; FTN team-defense/rush-analytics LAC]
 
-Denver's offense posts -0.023 EPA/play and -2.1% DVOA, against LAC's -0.159 and -25.4% [Source: game-packets/2026-w05/DEN_at_LAC.md, FTN team-offense efficiency]. LAC's run defense is its best unit (EPA/att -0.165, stuff rate 22.4%), which pushes Denver toward Bo Nix's short passing (aDOT 5.3, explosive rate 6.9%). The packet resolves Nix and Herbert as starters with no flag. SoFi is listed as covered but open-sided, and there is no weather row for this game, so I make no weather adjustment.
+Turnovers favor Denver: LAC has 9 giveaways (TO% 3.67%, INTW% 7.5%). [Source: FTN team-offense/efficiency and passing-analytics LAC] The ESPN depth chart and injury report resolve the starting QBs as Bo Nix and Justin Herbert. Trey Lance is on IR, which does not affect Herbert. [Source: packet Quarterbacks, ESPN 06:35Z]
+
+Power ratings (SRS DEN +5.862, LAC -9.313; net PPG -5.0 vs -9.75) are 2026 four-game values (matches_2026 true; attribution text stale); no adjustment. Venue is covered but open-sided; the Open-Meteo capture has no DEN@LAC entry, so no weather adjustment. [Source: packet power ratings; 2026-10-10-week5-weather-openmeteo.json, 17:56Z]
 
 ## Market
 
-Bookmaker (Sat 18:15 PT): DEN -3.5 -113 / LAC +3.5 -103, total 42 (O -114 / U -102), moneyline -194 / +170. BetOnline (Sat 20:15 PT): -3.5 -112 / +3.5 -108, total 42 at -110 both ways, moneyline -188 / +164 [Source: game-packets/2026-w05/DEN_at_LAC.md, market]. The books do not conflict. Both captures are fresh now but will be stale before kickoff. The opener is missing. Friday splits had Denver at 54% of spread tickets, the over 41.5 at 69% of tickets and Denver at 86% of moneyline tickets; these are context only. The SuperContest line is DEN -3.5 (labels reversed). An exact 3-point margin carries 15.1% in the simulator, so +3.5 and +3 are different bets.
+BKR (06:21Z): DEN -3.5 -113 / LAC +3.5 -103; total 42, -108 both sides; moneyline -195/+171. BEO (06:24Z): DEN -3.5 -112 / +3.5 -108; total 42, -110; moneyline -188/+164. No book conflict. Action Network (10-09 19:41Z) had DEN -3.5 -103 and a total of 41.5. Since then the spread juice has moved toward Denver and the total is up half a point. The packet carries no Action Network opener. Splits (context only): DEN 54% spread tickets, 86% ML tickets; Over 69% tickets. The line sits just past the key number 3. At home line 3 the simulator's side_push is 8.27%, the value of the hook. The SuperContest labels are reversed for this game; its favorite field shows DEN -3.5. [Source: props files BKR/BEO game_lines; Action Network splits 2026-10-09T19:41Z; margin-simulator.mjs]
 
 ## Thesis and counter-thesis
 
-Two tier-eligible rows back LAC +3.5, but both are VSiN (w05-expert-verified.json#rows[455], Reynolds; w05-expert-verified.json#rows[567], Tuley best bet), so they count as one outlet. The corroboration-only rows split: Action Network, Even Money, Fezzik, Tucker, Wormeli and Millman lean LAC; BettingPros/Erickson, Simon Hunter and PFT lean DEN. The provisional quant pass has DEN by 4.39 with a 42.7 total.
+Only one tier-eligible outlet exists: VSiN, with two rows (w05-expert-verified.json#rows[455] and #rows[567]), both on Chargers +3.5 at the current number. The Action Network, Even Money and Jeremiah/Brooks rows on LAC are corroboration-only, as are the BettingPros, Pro Football Talk and podcast rows on DEN. For the home dog: both DEN starting corners Out, DEN 0-2 away, a hook past 3. Against: the provisional quant pass leans DEN (home margin -4.39 vs -3.5), the protection numbers agree, and the LAC line losses postdate most source rows. One outlet against named mechanical inputs is a conflict, not an edge; I hold 0.0. The strongest reason I am wrong: if Denver's corner losses matter more than LAC's line losses, LAC +3.5 is the right side.
 
-My margin edge is 0.0. The VSiN view and Denver's missing corners favor LAC. LAC's battered line against a blitz-heavy rush, its turnover rate and the quant pass favor Denver. These roughly cancel within 12.77 points of residual noise. My total edge is also 0.0: tempo and weak offenses point under, while two depleted secondaries and the quant 42.7 point over. At zero edge the simulator gives home cover 50.0%, away cover 50.0% and side push 0; over 48.5%, under 48.5% and total push 3.0%. These numbers depend on that hypothesis and are not calibrated edges.
-
-Counter-thesis: I may be passing on a classic spot, a home underdog at +3.5 past the key number with a sharp outlet behind it, against a road team that is 0-2 away and averaging 12 points in those games.
-
-## Props (usage context only)
-
-| player | market | line/price | book, captured | 2026 usage |
-|---|---|---|---|---|
-| RJ Harvey (DEN) | rec Over | 4.5 +122 | BKR 01:17Z | 4/6/10 rec W1/W3/W4 |
-| J.K. Dobbins (DEN) | rush yds Under | 52.5 -104 | BKR 01:17Z | 36/36/49/40 W1-W4 |
+Zero-edge simulator: home cover 0.500, away cover 0.500, side push 0; Over 0.4848, Under 0.4848, total push 0.0304 (50/50 excluding pushes). These are conditional on the hypothesis, not calibrated edges.
 
 ## Gaps
 
-- The opener is null, and the total moved from 41.5 on Friday to 42.
-- There is no weather row; roof status comes from the static table.
-- The quant pass disagrees with the 0.0 edge; I did not copy it.
-- The digest lists Njoku, Henningsen and Bailey on IR, but ESPN does not.
-- Near-miss rows[506] is context only. Global warnings: corroboration-only rows, SuperContest label reversals, and BKR/BEO conflicts on other games.
+- No weather forecast for an open-sided venue; no Action Network opener.
+- The FTN tables predate the current LAC line injuries and the DEN corner injuries.
+- Quant pass (-4.39) disagrees with the market by about 0.9 points toward DEN.
+- ESPN roster IR/Out group (unconfirmed): DEN Lohner, Crum, Bailey, Henningsen, Deiter, Gargiulo; LAC Njoku, Perryman, World, Lambert-Smith, Pipkins.
+- Recommendation windows lapse at 12:21Z / 12:24Z, before kickoff.
+- Global warnings: corroboration-only rows, the SuperContest label reversal (this game included), and MIN@NO and CLE@NYJ book conflicts elsewhere.
 
 ## Pre-kickoff delta checklist
 
-- Inactives: Taylor, McConkey, Kolar, Shelley, Matlock; DEN CB depth
-- Fresh BKR/BEO capture; watch for a move to 3 or 4
-- SoFi weather/roof recheck
-- Game status
-- Reprice VSiN +3.5 if the line moves to +3
+- Official inactives and starters (LAC OL: Taylor; WR: McConkey; TE: Kolar; CB: Shelley).
+- Fresh BKR/BEO capture after 12:21Z; check whether the line moves through 3.
+- Weather and roof recheck for the venue.
+- Game status (not relocated).
+- Reprice the VSiN LAC +3.5 rows if the line reaches +3 or lower.

@@ -2,13 +2,13 @@
   "schema": "w05_game_synthesis_v1",
   "game": "BAL@ATL",
   "model": "opus",
-  "generated_at": "2026-10-11T05:49:19Z",
-  "head": "7ebef66",
+  "generated_at": "2026-10-11T06:51:03Z",
+  "head": "fb2ad66",
   "market": {
     "book": "BKR",
-    "captured_at": "2026-10-11T01:15:40.538Z",
+    "captured_at": "2026-10-11T06:21:29.799Z",
     "home_line": -3,
-    "total": 44
+    "total": 43.5
   },
   "disposition": "price moved",
   "tier": "research_only",
@@ -24,38 +24,39 @@
     "home_margin_pts": 0.0,
     "total_pts": 0.0,
     "basis": [
-      "default 0.0: no two independent numeric inputs agree on direction",
-      "FTN passing tables are QB-confounded (BAL = Jackson, ATL wk1-2 = Rush/Strand); line already moved after Jackson ruled out",
-      "ATL rush defense DVOA -28.2% vs BAL rush 48.5% (FTN) offsets Hendrickson/Za'Darius Smith absences",
-      "weather not applied: retractable roof, status unconfirmed"
+      "default 0.0: Lamar Jackson ruled Out 2026-10-09, before the BKR capture, so the QB change is priced",
+      "FTN team-defense rush-analytics ATL EPA/ATT -0.291 vs BAL RUSH% 48.5% (favors ATL) offset by ATL team-offense efficiency TO% 3.07% / 7 TO (favors BAL)",
+      "power ratings matches_2026 true (BAL net +5.0, ATL +1.0 per game): four-game sample, no adjustment",
+      "no weather input: retractable roof status unconfirmed, no Open-Meteo outdoor entry"
     ],
     "cap_exception": null
   },
   "simulator": {
     "home_cover": 0.4587,
     "away_cover": 0.4587,
-    "over": 0.4848,
-    "under": 0.4848,
+    "over": 0.5,
+    "under": 0.5,
     "side_push": 0.0827,
-    "total_push": 0.0304
+    "total_push": 0.0
   },
   "cited_rows": [
     {
       "row": "w05-expert-verified.json#rows[448]",
       "outlet": "VSiN",
-      "supports_tier": true,
+      "supports_tier": false,
       "quote": "Ravens +3.5 at Falcons"
     },
     {
       "row": "w05-expert-verified.json#rows[451]",
       "outlet": "VSiN",
-      "supports_tier": true,
+      "supports_tier": false,
       "quote": "Baltimore Ravens +3.5 at Atlanta Falcons"
     },
     {
       "row": "w05-expert-verified.json#rows[568]",
       "outlet": "VSiN",
-      "supports_tier": true
+      "supports_tier": false,
+      "quote": "Best Bet: Ravens +3.5 (Pool Play Percentages: Ravens 67/33 in ATS contests, but Falcons still 67/33 in SU pools)."
     },
     {
       "row": "w05-expert-verified.json#rows[525]",
@@ -65,28 +66,53 @@
     }
   ],
   "context": {
-    "away": "BAL 3-1 (+20) vs opponents 5-12, 2-0 away; leads AFC North on differential over 3-1 CLE, its Week 6 opponent; 7.3 days rest, bye Week 13; Jackson Out, Huntley operator-confirmed, all prior games were Jackson starts.",
-    "home": "ATL 2-2 (+4), opponents 7-9, 0-1 home; second in NFC South behind 2-2 CAR, 7th in NFC; 6.0 days rest, bye Week 11; 0-2 with Rush/Strand, 2-0 (+42) with Penix; next CHI, SF at home."
+    "away": "BAL 3-1 (+20), 2-0 away, 0-0 division; beat IND, DAL, TEN, lost to NO; opponents 5-12. 7.3 days rest, bye wk13. Leads AFC North over 3-1 CLE (next opponent) on differential. Lamar Jackson Out; Tyler Huntley starts (operator-confirmed).",
+    "home": "ATL 2-2 (+4), 0-1 home, 1-1 division; lost PIT and CAR with Rush/Strand at QB, won at GB and NO with Penix. Opponents 7-9. 6.0 days rest, bye wk11. Next CHI and SF at home; chasing 2-2 CAR in NFC South."
   },
   "invalidators": [
-    "Zay Flowers or Marlon Humphrey inactive (toward ATL)",
-    "Jake Matthews inactive (toward BAL)",
-    "Huntley not starting / official inactives differ from operator confirmation",
-    "BKR BAL +3.5 at -110 or better restores the VSiN number",
-    "roof open with material weather",
-    "a second independent tier-eligible outlet on either side",
-    "BKR window lapses 00:15 PT Sun without recapture"
+    "Fresh capture returns BAL +3.5 at BKR at standard juice: VSiN rows reprice to the source line; re-check for tier 2- (single outlet)",
+    "Line moves to ATL -2.5 or BAL +4 or wider (crossing 3): re-run simulator and re-evaluate",
+    "Official inactives: any of Pocic/Pinter out with Jurgens (center depth), Penix not active, or Matthews out",
+    "Huntley not the starter at kickoff",
+    "Roof open with material weather: re-check total",
+    "Recommendation windows lapse Sun 05:21/05:24 PT; no price claim after that without recapture"
   ],
   "gaps": [
-    "No opener/line history beyond one Action Network snapshot (2026-10-09T19:41Z)",
-    "Retractable roof status unknown; no weather applied",
-    "Huntley start is operator-stated, not verified",
-    "Questionable: BAL Humphrey, Flowers; ATL Matthews, Deablo, Ebukam",
-    "Quantitative pass home margin +2.43 vs market +3.0 (unbacktested, not used)",
-    "Only tier-eligible outlet is VSiN (one outlet); rows[525] contradicts rows[448]/[451]/[568]; source +3.5 vs BKR +3 crosses key number 3",
-    "Zay Flowers o68.5 digest row flagged QUESTIONABLE",
-    "Global: 432 corroboration-only rows; 6 SuperContest label reversals on other games; BKR expires within 120 min (00:15 PT); BKR/BEO conflicts on MIN@NO, CLE@NYJ",
-    "Roster-vet UNVERIFIED: BEO spelling 'Tyler Huntely'"
+    "BKR/BEO spread differs 0.5 (BAL +3 vs +3.5); not a conflict, but source line +3.5 unavailable at BKR",
+    "Captures are late Saturday PT (06:21Z/06:24Z); recommendation windows end ~12h before the 00:20Z kickoff",
+    "Tier-eligible support is a single outlet (VSiN); row 525 'Falcons +3 (-118)' contradicts rows 448/451/568 on side and label",
+    "Source +3.5 vs BKR +3 crosses key number 3: treated as a different bet",
+    "Quantitative pass home_margin mean +2.43 vs market 3: provisional, unbacktested, not copied",
+    "Action Network opener null; movement unmeasurable; splits captured 2026-10-09T19:41Z at -3.5",
+    "Retractable roof status unconfirmed; no weather entry",
+    "ESPN roster IR/Out group unconfirmed (BAL Pocic, Pinter; ATL Terrell, Hand, A. Thompson)",
+    "Zay Flowers and Marlon Humphrey Questionable (ESPN injury report)",
+    "Global: 432 corroboration-only rows, 11 article rows not naming pick, SuperContest label reversals on other games, BKR/BEO conflicts on MIN@NO and CLE@NYJ"
   ],
-  "props": []
+  "props": [
+    {
+      "player": "Derrick Henry",
+      "team": "BAL",
+      "market": "rush_yds",
+      "side": "Under",
+      "line": 78.5,
+      "price": -114,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:23:08.132Z",
+      "status": "usage context only",
+      "rationale": "Carries 24/16/26/23 and rush yds 144/68/89/73 (weeks 1-4, player_stats_weekly.csv); ATL FTN rush-analytics EPA/ATT -0.291. No model probability."
+    },
+    {
+      "player": "Bijan Robinson",
+      "team": "ATL",
+      "market": "rush_yds",
+      "side": "Over",
+      "line": 87.5,
+      "price": -114,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:23:08.132Z",
+      "status": "usage context only",
+      "rationale": "Carries 21/16/29/19, rush yds 83/72/194/145 (weeks 1-4; 194 and 145 in Penix starts); BAL FTN rush-analytics EPA/ATT -0.027. No model probability."
+    }
+  ]
 }

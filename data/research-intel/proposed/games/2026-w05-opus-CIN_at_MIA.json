@@ -2,16 +2,16 @@
   "schema": "w05_game_synthesis_v1",
   "game": "CIN@MIA",
   "model": "opus",
-  "generated_at": "2026-10-11T05:34:02Z",
-  "head": "7ebef66",
+  "generated_at": "2026-10-11T06:50:33Z",
+  "head": "fb2ad66",
   "market": {
     "book": "BKR",
-    "captured_at": "2026-10-11T01:15:40.538Z",
+    "captured_at": "2026-10-11T06:21:29.799Z",
     "home_line": 7,
     "total": 43.5
   },
   "disposition": "pass",
-  "tier": "research_only",
+  "tier": "skip",
   "side": {
     "pick": null,
     "line": null,
@@ -21,46 +21,35 @@
     "pick": null
   },
   "edge_hypothesis": {
-    "home_margin_pts": 0.5,
+    "home_margin_pts": 0.0,
     "total_pts": 0.0,
     "basis": [
-      "Power ratings (2026 four-game, matches_2026 true): SRS CIN +4.317 vs MIA -3.623; MIA SRS rank 21 vs net-PPG rank 32 after a schedule of opponents combined 15-1",
-      "FTN team-offense/tempo: MIA PLY/GM 52.5, SEC/PLY 30.0 (tempo_z -1.95) shortens the game, favoring the underdog side of a 7-point spread",
-      "Packet provisional quant blend home_margin -6.61 vs BKR -7 (direction only; cover percentages not copied)",
-      "Offsetting, not netted: FTN MIA pass defense EPA/DB 0.308, DVOA 33.9% vs CIN pass offense EPA/DB 0.120, with MIA CBs Storm Duck and Reese Taylor Out",
-      "Total 0.0: MIA tempo and offense (PT/GM 11.5, SCD% 27.0%) argue Under; MIA pass defense argues Over; weather 89.6 F, 2% precip, wind 15.7 km/h is heat context only"
+      "Default 0.0: SRS gap CIN 4.317 vs MIA -3.623 (2026 four-game values, matches_2026 true) is consistent with the 7-point line",
+      "FTN pass-protection (MIA PRESS% 33.1%, under-pressure EPA/DB -0.661) vs FTN pass-rush (CIN PRESS% 29.3%, SK% 8.5%) favors CIN; offset by quant-pass mean home margin -6.61 (+0.39 toward MIA) and single-outlet VSiN MIA +7 lean",
+      "Chase and Higgins Questionable (ESPN injury report) leave the CIN passing script unresolved; no edge assigned",
+      "Weather: 89.6 F, precip prob 2%, wind 15.7 km/h (Open-Meteo) - heat context only, no total adjustment"
     ],
     "cap_exception": null
   },
   "simulator": {
-    "home_cover": 0.48596970239860865,
-    "away_cover": 0.4583701963795315,
+    "home_cover": 0.4722312495484005,
+    "away_cover": 0.472231249548401,
     "over": 0.4999999999999995,
     "under": 0.5000000000000002,
-    "side_push": 0.05566010122185905,
-    "total_push": 0,
-    "baseline_zero_edge": {
-      "home_cover": 0.4722312495484005,
-      "away_cover": 0.472231249548401,
-      "side_push": 0.05553750090319962,
-      "over": 0.5,
-      "under": 0.5,
-      "total_push": 0
-    },
-    "home_cover_excl_push": 0.5146131207919878,
-    "note": "conditional on the +0.5 home-margin hypothesis; not a calibrated edge"
+    "side_push": 0.05553750090319962,
+    "total_push": 0
   },
   "cited_rows": [
     {
       "row": "w05-expert-verified.json#rows[562]",
       "outlet": "VSiN",
-      "supports_tier": true,
+      "supports_tier": false,
       "quote": "Best Bet: Dolphins +7 (Pool Play Percentages: Bengals 60/40 in ATS contests, lower at 6.5 and a pass, but Bengals still 75/25 in SU pools)."
     },
     {
       "row": "w05-expert-verified.json#rows[521]",
       "outlet": "VSiN",
-      "supports_tier": true,
+      "supports_tier": false,
       "quote": "PARLAY: Bengals ML vs."
     },
     {
@@ -68,72 +57,29 @@
       "outlet": "VSiN",
       "supports_tier": false,
       "quote": "NFL Best Bet: I'll back Miami +7 to keep it interesting vs."
-    },
-    {
-      "row": "w05-expert-verified.json#rows[38]",
-      "outlet": "Action Network",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[133]",
-      "outlet": "Sharp or Square",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[292]",
-      "outlet": "2026 NFL Week 5 Bets (Steve Fezzik)",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[199]",
-      "outlet": "BettingPros",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[320]",
-      "outlet": "NFL Week 5 Early Lines (Andrew Erickson)",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[321]",
-      "outlet": "NFL Week 5 Early Lines (Ryan Wormeli)",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[383]",
-      "outlet": "VSiN",
-      "supports_tier": false
     }
   ],
   "context": {
-    "away": "CIN 2-2 (+12): W TB +6, W @HOU +14, L @PIT -3, L JAX -5; opponents 6-11 combined. 0-1 division, 3rd AFC North, 7th in AFC order. 7 days rest; Week 6 bye next, then @BAL, TEN, @ATL.",
-    "home": "MIA 0-4 (-55): L @LV -14, L @SF -22, L KC -14, L @MIN -5; opponents 15-1 combined (incl. wins over MIA). Last in AFC East, 0-0 division. 6.9 days rest; Week 6 bye next, then @NYJ, NE, DET."
+    "away": "CIN 2-2 (W TB +6, W @HOU +14, L @PIT -3, L JAX -5); opponents 6-11; 3rd AFC North behind BAL/CLE 3-1, 7th in AFC order; 7.0 days rest, bye Week 6, then @BAL.",
+    "home": "MIA 0-4 (-14, -22, -14, -5), -55 differential; opponents 15-1, three road games; last in AFC East, 0-0 division; 6.9 days rest, bye Week 6, then @NYJ."
   },
   "invalidators": [
-    "Ja'Marr Chase and/or Tee Higgins inactive: CIN passing edge vs MIA secondary shrinks; MIA +7 research lean strengthens (re-evaluate as a qualitative candidate only with a fresh capture)",
-    "Chase and Higgins both active with full roles: lopsided CIN pass offense vs MIA pass defense (EPA/DB 0.308, two CBs Out) argues for 0.0 or a CIN lean; drop the MIA lean",
-    "Line threshold: MIA +7.5 at BKR changes the bet (crosses 7); CIN -6.5 removes the MIA +7 key-number value (Tuley row quoted +7)",
-    "Bryan Cook (S) ruled out alongside Kyle Dugger and Jalen Davis: CIN safety depth vs MIA aDOT 10.0 / EXP 17.2% raises backdoor risk",
-    "Any MIA QB change from Malik Willis (resolved starter) or CIN QB change from Joe Burrow",
-    "Weather recheck showing thunderstorms (precip probability above ~40%) or sustained wind above 30 km/h would reopen the total",
-    "BKR recommendation window lapses at 2026-10-11T07:15:40Z (00:15 PT); no price-specific claim after that without a fresh capture",
-    "Fresh tier-eligible outlet independent of VSiN on either side"
+    "Chase and/or Higgins ruled inactive: re-evaluate MIA +7 (would need fresh capture and a second independent tier-eligible outlet)",
+    "Line moves off 7 (to 6.5 or 7.5): crossing 7 is a different bet; reprice VSiN MIA +7 row",
+    "Fresh capture required after the 04:00 PT (11:00Z) recommendation window lapse",
+    "ESPN roster IR/Out group (Achane, Iosivas, Ja'Sir Taylor, others) confirmed active/inactive by official inactives",
+    "Weather recheck: storms or heat-related change at Hard Rock Stadium",
+    "Missing evidence: a second independent tier-eligible outlet on either side"
   ],
   "gaps": [
-    "Only one tier-eligible outlet: VSiN (rows[562] Tuley Dolphins +7 best bet, rows[521] Cohen Bengals ML parlay leg); counts as one source",
-    "AVAILABILITY CIN (ESPN 2026-10-11T04:21:24Z): Out Kyle Dugger S | Q Bryan Cook S, Colbie Young WR, Tee Higgins WR, Ja'Marr Chase WR, Swayze Bozeman LB | IR Jalen Davis CB",
-    "AVAILABILITY MIA (ESPN 2026-10-11T04:21:24Z): Out Storm Duck CB, Robert Beal Jr. DE, Justin Joly TE, Caleb Douglas WR, Reese Taylor CB | Q Jaylen Wright RB, Jackson Woodard LB",
-    "SUPERCONTEST LABELS REVERSED for this game: used favorite CIN, favorite_spread -7",
-    "1 near-miss row (VSiN Makinen rows[509], Miami +7): context only",
-    "Global warnings (once): 432 corroboration-only rows; SuperContest label reversals for other games; BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game); BKR window expires 00:15 PT for all games",
-    "BKR capture has no Joe Burrow, Ja'Marr Chase or Tee Higgins prop rows; BEO lists Chase ATD -125 (availability signal unconfirmed)",
-    "De'Von Achane: ESPN roster groups him injuredReserveOrOut but he is absent from the packet's ESPN non-Active list; no Week 4 stat row",
-    "Greg Dulcich has no Week 4 row in player_stats_weekly",
-    "Quant pass (provisional, unbacktested) home_margin -6.61 vs BKR -7; model menu MIA 51.4% cover, Over 52.0%; disagreement recorded, not copied",
-    "No Action Network opener captured (null); splits are from 2026-10-09T19:41Z at 6.5",
-    "Power-ratings attribution text is stale (matches_2026 true); no forward projections (FPI/nfelo/DVOA pending); no home-field parameter in packet",
-    "Venue from static table (outdoor); neutral-site/relocation not detectable; no source quote suggests relocation",
-    "Weather capture 2026-10-10T17:56Z is forecast-only and >11h old at write"
+    "Chase/Higgins Questionable; BKR capture has no CIN WR receiving or Burrow passing props",
+    "Quantitative pass (provisional, unbacktested) home margin -6.61 vs market -7.0; cover percentages not copied",
+    "Recommendation windows (BKR/BEO) end 2026-10-11T11:00Z (04:00 PT), before 10:00 PT kickoff; captures are late Saturday PT",
+    "ESPN roster IR/Out group is unconfirmed (day-to-day), not treated as Out",
+    "Only one tier-eligible outlet (VSiN), split across markets (MIA +7 spread vs CIN ML parlay leg); Makinen row is near-miss context",
+    "SuperContest labels reversed for this game (used favorite/spread fields: CIN -7)",
+    "Global warnings: 432 corroboration-only rows, 11 near-miss rows, SuperContest label reversals on 6 games",
+    "Venue from static roof table; neutral-site/relocation not detectable"
   ],
   "props": [
     {
@@ -142,11 +88,23 @@
       "market": "receiving yards",
       "side": "Over",
       "line": 25.5,
-      "price": -112,
+      "price": -114,
       "book": "BKR",
-      "captured_at": "2026-10-11T01:15:40.538Z",
+      "captured_at": "2026-10-11T06:22:02.242Z",
       "status": "usage context only",
-      "rationale": "Main-line BKR row (Total Receiving Yards). 2026 nflverse: wk1 2-18 (2 tgt), wk2 2-17 (3 tgt), wk3 5-55 (7 tgt), no wk4 row. TE Justin Joly Out. VSiN Swedelson rows[383] quoted OVER 26.5 (-125) vs captured 25.5 -112; corroboration-only row."
+      "rationale": "2026 weeks 1-3: 18, 17, 55 yds on 2/3/7 targets; no week 4 row. VSiN rows[383] (corroboration-only) quoted o26.5 -125 vs captured 25.5 -114."
+    },
+    {
+      "player": "Malik Washington",
+      "team": "MIA",
+      "market": "receptions",
+      "side": "Over",
+      "line": 4.5,
+      "price": -114,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:22:02.242Z",
+      "status": "usage context only",
+      "rationale": "2026 weeks 1-4: 3, 4, 5, 5 receptions on 8/5/10/5 targets; Caleb Douglas Out (ESPN injury report). No source support."
     }
   ]
 }

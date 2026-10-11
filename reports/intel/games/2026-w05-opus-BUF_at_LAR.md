@@ -1,50 +1,53 @@
-# BUF@LAR Week 5 single-game synthesis (opus)
+# Week 5 single-game synthesis: BUF@LAR (opus)
 
-Written Sat 2026-10-10 22:34 PT (2026-10-11T05:34:01Z, device clock). Kickoff Mon 2026-10-12 5:15 PM PT (2026-10-13T00:15Z). HEAD 7ebef66. **Disposition: pass. Tier: skip.** Edge hypothesis 0.0 margin / 0.0 total.
+Run at 2026-10-11 06:49Z = Sat 10-10 23:49 PT (device clock), HEAD fb2ad66. Kickoff Mon 10-12 17:15 PT (2026-10-13T00:15Z). PKT = `data/research-intel/game-packets/2026-w05/BUF_at_LAR.md`. BKR captured Sat 23:21 PT (06:21Z), BEO Sat 23:24 PT (06:24Z); both are fresh now, but their recommendation windows end Sun 05:21 PT and 05:24 PT, about 36 hours before kickoff, so any price here will be stale long before the game. **Disposition: pass, tier skip, edge 0.0 / 0.0.**
 
 ## Game script
 
-BKR LAR -3.5 / 54.5 implies roughly LAR 29.0, BUF 25.5 [Source: BUF_at_LAR packet, market-implied score, BKR 2026-10-11T01:15Z]. The question is whether Buffalo's offense beats the best defense on the field before Stafford's volume beats Buffalo's secondary.
+The market prices this as Rams 29.0, Bills 25.5 (LAR -3.5, total 54.5) [Source: PKT, market-implied score, BKR 2026-10-11T06:21Z]. I agree: a shootout where Buffalo has the best offense on the field, LA the better defense, and the hook past 3 decides the spread.
 
-## Away state: Buffalo
+## Away state: Buffalo (3-1, AFC East leader)
 
-Buffalo is 3-1 (+20): W 36-31 at HOU, W 41-31 vs DET, W 24-16 vs LAC, L 26-29 vs NE. Those opponents are a combined 4-12, including two 0-4 teams [Source: packet results table, built 2026-10-11T04:23Z]. The Bills are 2-1 at home, 1-0 away and 0-1 in the division. They lead the AFC East by a game and sit fourth in the win%-only AFC order. They have 8.3 days of rest, their bye comes in Week 7, and they play at Las Vegas next, so no look-ahead angle applies. Four games against soft opposition is a small sample, and 31.8 points per game is not a rating.
+Buffalo beat HOU 36-31 (away), DET 41-31 and LAC 24-16, then lost 26-29 at home to NE. That is +20 total, 31.8 points scored and 26.8 allowed per game. The four opponents are a combined 4-12, the softest schedule in this matchup, and four games is a small sample [Source: PKT, team state, built 2026-10-11T06:35Z]. Buffalo is 0-1 in the division and fourth in the AFC order on point differential. Rest is 8.3 days and the Week 7 bye is still ahead. Next come @LV (3-1) and BAL at home. A loss costs little in the division (NE 2-2). No look-ahead adjustment.
 
-## Home state: Los Angeles
+## Home state: Los Angeles (2-2, third in the NFC West)
 
-The Rams are 2-2 (+2): L 7-27 vs SF, W 28-6 vs NYG, L 26-30 at DEN, W 24-20 at PHI. Those opponents are a combined 11-5, a much harder schedule than Buffalo's [Source: packet results table]. Los Angeles is third in the NFC West, two games behind 4-0 San Francisco, and eighth in the NFC order. A loss drops them below .500, though in a non-conference game. They also have 8.3 days of rest, their bye comes in Week 11, and Arizona visits next.
+The Rams lost 7-27 to SF, beat NYG 28-6, lost 26-30 at DEN and won 24-20 at PHI: +2, against opponents a combined 11-5 [Source: PKT, team state]. They are 0-1 in the division and two games behind 4-0 SF, eighth in the NFC order, so this is the more urgent game for them. Rest is 8.3 days, the bye comes in Week 11, and ARI (1-3) is next at home.
 
 ## Matchup mechanics
 
-Buffalo's offense posts 0.162 EPA/play and 29.8% DVOA, with 45.5% passing DVOA and a 21.5% explosive-pass rate. Its defense allows 0.105 EPA/play, 22.6% pass DVOA and 18.1% explosive passes [Source: FTN team-offense/team-defense efficiency and passing-analytics, packet 2026-10-11T04:23Z]. The Rams are the mirror image: their defense allows -0.122 EPA/play (-18.7% DVOA, -15.8% pass, -22.2% rush), and their offense sits near neutral at 0.003 EPA/play with seven turnovers, six of them interceptions [Source: same]. Stafford threw 55 and 51 times in Weeks 3-4, and that volume meets a weak pass defense [Source: player_stats_weekly.csv, 2026 wk3-4].
+FTN `team-offense/efficiency` has Buffalo at EPA/PLY 0.162 and DVOA 29.8%, against the Rams' 0.003 and 13.9%. On defense the order flips: LAR `team-defense/efficiency` is EPA/PLY -0.122, DVOA -18.7%, while BUF is 0.105 and 9.5% [Source: PKT, FTN team-level tables, GP 4]. Buffalo's pass defense is the worst unit in the game (`team-defense/passing-analytics` EPA/DB 0.191, EXP% 18.1%). That suits a Rams offense that drops back on 63.8% of plays (`tendencies` DPBK%) and runs 69.0 plays a game (`tempo` PLY/GM, against BUF's 60.0). LA's weakness: 7 offensive turnovers, 6 INTs.
 
-Pressure is the swing factor. Buffalo's EPA per dropback falls from 0.455 when kept clean to -0.208 under pressure, and its line allows a 28.3% pressure rate [Source: FTN pass-protection BUF]. The Rams generate pressure at 30.2%, but Myles Garrett is on IR, and those season numbers may include his snaps [Source: ESPN injuries 2026-10-11T04:21Z]. Buffalo is without DT Ed Oliver (Out). DE Landon Jackson and CBs Dee Alford and Te'Cory Couch are questionable. WR Joshua Palmer is out and DJ Moore is questionable. The Rams list only S Quentin Lake as questionable, plus TE Terrance Ferguson on IR. Both quarterbacks are ESPN-resolved starters: Josh Allen and Matthew Stafford [Source: packet Quarterbacks, ESPN 2026-10-11T04:21Z].
+Protection decides the passing game. Buffalo's `pass-protection` EPA/DB is -0.208 under pressure and 0.455 from a clean pocket (EPA/DB__2), with PRESS% 28.3%. The Rams' pass rush has PRESS% 30.2%, but Myles Garrett DE is on IR per the ESPN injury report, which should leave Josh Allen more clean pockets. Going the other way, Ed Oliver DT is Out (ESPN injury report), which weakens a Buffalo rush with PRESS% 34.7% and 10 sacks [Source: ESPN injury report via PKT, fetched 2026-10-11T06:35Z]. Also on that report: Joshua Palmer WR Out; Dee Alford CB, Te'Cory Couch CB, Landon Jackson DE, DJ Moore WR Questionable. Dorian Strong and Jordan Hancock (CB) and Zane Durant (DT) sit in the ESPN roster IR/Out group (unconfirmed), not Out. For the Rams, Quentin Lake S is Questionable and Terrance Ferguson TE is on IR. The availability digest lists a Khalil Shakir "setback" that the ESPN injury report does not carry, so it is unresolved [Source: availability digest via PKT]. Starters are resolved as Josh Allen and Matthew Stafford [Source: PKT, ESPN depth chart, 2026-10-11T06:35Z].
 
-The ratings split. SRS favors LAR (2.861 vs 0.787) on schedule strength, while net points per game (5.0 vs 0.5) and Pythagorean win% (.600 vs .514) favor Buffalo. All are confirmed 2026 four-game values (`matches_2026` true), so none gets a point adjustment [Source: packet power-ratings label check]. The Rams run more plays per game (69.0 vs 60.0) [Source: FTN tempo]. The venue is listed as covered but open-sided, and Open-Meteo has no outdoor entry for this game, so I apply no weather adjustment. Secondary-matchup severity is similar both ways (3.34 vs 3.97) and stays capped context.
+The absences offset on side and lean toward points. The power ratings disagree too. SRS favors LAR (2.861 vs 0.787) and net PPG favors BUF (+5.0 vs +0.5). The label check (`matches_2026` true) confirms these are four-game 2026 values, and they justify no adjustment.
 
-## Market comparison
+Venue: the static table lists the stadium as covered but open-sided, and BUF@LAR is not in the Open-Meteo outdoor list [Source: `2026-10-10-week5-weather-openmeteo.json`, outdoor_games, 2026-10-10T17:56Z]. No weather adjustment. Confirm before kickoff.
 
-BKR at 6:15 PM PT Saturday: LAR -3.5 -106 / BUF +3.5 -108, total 54.5 at -108 both ways, moneyline -178/+156. BEO at 8:15 PM PT matches at -3.5 and 54.5, with BUF +3.5 at -115 [Source: packet market, BKR 2026-10-11T01:15Z, BEO 2026-10-11T03:15Z]. Both captures are fresh, and the books agree. The half point above 3 matters: the simulator puts 15.1% of outcomes on a margin of exactly 3. The SuperContest favorite field shows LAR -3. Action Network splits put 73% of tickets and 61% of money on Buffalo +3.5, and 62%/69% on the Over. Those splits are context only, and the opener is missing [Source: Action Network splits 2026-10-09T19:41Z].
+## Market
+
+BKR: BUF +3.5 -108 / LAR -3.5 -106, O/U 54.5 -108/-108, ML +157/-179. BEO: +3.5 -115 / -3.5 -105, 54.5 -110/-110, ML +153/-175. The books agree, with no BKR/BEO conflict. The Action Network opener is missing from the packet. Action splits (10-09 19:41Z) show -3.5 then as well, with 73% of tickets and 61% of money on BUF and 69% of money on the Over (context only). The SuperContest line is LAR -3. At the zero-edge baseline, a line of -3 has `side_push` 0.0827 [Source: margin-simulator.mjs, --home-line -3, run 06:49Z]. The half-point at -3.5 therefore removes the most valuable landing spot, and both sources that took a side did so at 3.
 
 ## Thesis and counter-thesis
 
-Both tier-eligible rows are from VSiN, and neither applies at the current number. Matt Youmans' "Best Bet: Rams -3 (-120)" crosses the key number at -3.5, so it is now a different bet [Source: w05-expert-verified.json#rows[446]]. Dave Tuley's Over 48.5 was a teaser leg six points below 54.5 [Source: w05-expert-verified.json#rows[570]]. Steve Makinen's "Buffalo +3", from the same outlet, is a near-miss row and counts as context only [Source: w05-expert-verified.json#rows[514]]. The provisional quant pass, which is unbacktested, puts the home margin at +3.0 and the total at 55.4, half a point toward Buffalo and 0.9 toward the Over. I do not adopt it.
+The evidence does not move the line. The only tier-eligible rows are both VSiN, which counts as one outlet. `rows[446]` "Best Bet: Rams -3 (-120)" crosses 3 against the current -3.5, so it is a different bet. `rows[570]` is a teaser leg at Over 48.5, six points from 54.5, also a different bet. The near-miss `rows[514]` (VSiN, "Buffalo +3", context only) also crosses 3 and takes the other side from rows[446]. The source disagreement stays unresolved. The quantitative pass (home margin 3.0, total 55.4) sits 0.5 and 0.9 points from the market and is unbacktested. Edge hypothesis: 0.0 on margin and 0.0 on total. Simulator conditional on that: home cover 0.50, away cover 0.50, over 0.50, under 0.50, pushes 0 at -3.5/54.5. These are not calibrated edges.
 
-My evidence cancels. Buffalo's offensive efficiency, Garrett's absence and the Rams' interception rate argue for the underdog. The Rams' defense, their tougher schedule, SRS and Oliver's absence argue for the favorite. Edge hypothesis: 0.0 on the margin and 0.0 on the total. At zero edge the simulator returns 50.0/50.0 on the side and 50.0/50.0 on the total, with 0% push on both because both lines sit on half-points. That is conditional on the hypothesis, not a calibrated edge.
-
-The strongest case against passing is Buffalo +3.5: the underdog has the better offense and gets the hook past 3. I still pass because the only tier-eligible side support points the other way, the 4-12 opponent record inflates Buffalo's numbers, and a 0.5-point gap from the quant pass is noise against a 12.77-point residual SD. I would reopen the game if any of these happened: Jackson, Alford or Couch ruled out; Moore inactive; the line moving to -3 or +4; or Lake ruled out.
+Counter-thesis: Buffalo's large efficiency lead, together with Garrett's absence, could be worth more than the market's home-field gap, which would make +3.5 the right side. No two independent inputs agree on direction.
 
 ## Gaps
 
-- Action Network opener missing; movement unknown.
-- Venue verification required; no Open-Meteo entry.
-- Quant pass (+3.0, 55.4) differs from market by 0.5/0.9; not adopted.
-- Preflight WARN: BKR expires within 120 min (00:15 PT Sun) for this game.
-- Near-miss Makinen row context only; global corroboration-only rows and other-game SuperContest label reversals noted once.
+- No Action Network opener in the packet, so the movement can't be measured.
+- Two tier-eligible rows, but both from one outlet (VSiN), and both cross key numbers or are teaser legs.
+- Unbacktested quantitative-pass disagreement (margin 3.0 vs 3.5, total 55.4 vs 54.5) is recorded and not used.
+- The weather/venue row reads `venue_condition_verification_required`. The roof has no live status.
+- Shakir setback appears in the digest only. BKR team totals (BUF 24.5, LAR 29.5) were captured as unavailable.
+- Global: 432 corroboration-only rows; SuperContest label reversals in 6 other games (not this one).
+- Recommendation windows lapse Sun 05:21/05:24 PT, about 36 hours before kickoff.
 
 ## Pre-kickoff delta checklist
 
-- [ ] Inactives: Jackson, Alford, Couch, Moore (BUF); Lake (LAR); Allen/Stafford start.
-- [ ] Fresh BKR/BEO capture (BKR window ends 00:15 PT Sun); watch -3/+4.
-- [ ] Venue/weather recheck; game status.
-- [ ] Reprice VSiN rows 446/514/570.
+1. Official inactives: Oliver, Moore, Alford, Couch, L. Jackson, Lake, plus the unconfirmed roster-group CBs.
+2. Fresh BKR/BEO capture; check whether the line moves to -3 or to -4 and beyond.
+3. Venue/roof and weather recheck.
+4. Game status (MNF, not postponed).
+5. Reprice rows[446]/[514]/[570] against the new line.

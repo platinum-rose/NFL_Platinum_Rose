@@ -2,11 +2,11 @@
   "schema": "w05_game_synthesis_v1",
   "game": "SF@SEA",
   "model": "opus",
-  "generated_at": "2026-10-11T05:35:09Z",
-  "head": "7ebef66",
+  "generated_at": "2026-10-11T06:51:13Z",
+  "head": "fb2ad66",
   "market": {
     "book": "BKR",
-    "captured_at": "2026-10-11T01:15:40.538Z",
+    "captured_at": "2026-10-11T06:21:29.799Z",
     "home_line": -3,
     "total": 46.5
   },
@@ -24,11 +24,11 @@
     "home_margin_pts": 0.0,
     "total_pts": 0.0,
     "basis": [
-      "Offsetting inputs: SF FTN passing DVOA 89.7% / 0 sacks allowed and SRS 14.04 vs 1.70 (four soft-schedule games) favor SF",
-      "SF defensive front out (Bosa DE, Thompson Jr. DT per ESPN 04:21Z; Okuayinonu, Collins, West IR per availability digest) vs SEA EPA/DB under pressure -0.575 favors SEA",
-      "BKR SEA -3 -123 juiced toward SEA against 88% SF money (AN splits 2026-10-09) suggests absences already priced",
-      "Weather 59F, 0% precip, gusts 23 km/h (Open-Meteo 2026-10-10T17:56Z): no total adjustment",
-      "Single tier-eligible row (VSiN rows[450], truncated quote) insufficient to move from 0.0"
+      "Power ratings (2026 four-game, matches_2026 true): SF SRS 14.0 vs SEA 1.7, net 14.5 vs 8.0 ppg -- favors SF, no adjustment alone",
+      "FTN team-offense passing-analytics SF EPA/DB 0.565 vs FTN team-defense efficiency SEA EPA/PLY -0.142 and rush-analytics DVOA -37.4% -- offsetting",
+      "SF pass rush depleted: FTN team-defense pass-rush PRESS% 25.8%, SK% 3.9%; Nick Bosa and James Thompson Jr. Out (ESPN injury report) vs SEA pass-protection clean-pocket EPA/DB__2 0.497 -- favors SEA",
+      "Single tier-eligible outlet (VSiN SEA -3) at -123 juice on key number 3",
+      "Open-Meteo forecast 59F, 0% precip, wind 14.2 km/h, gusts 23 km/h: no weather total adjustment"
     ],
     "cap_exception": null
   },
@@ -50,78 +50,78 @@
     {
       "row": "w05-expert-verified.json#rows[393]",
       "outlet": "ESPN NFL",
-      "supports_tier": false,
-      "quote": "In the two games these clubs played last season, the totals hit 30 and 16. Mike Macdonald has the scheme (and personnel) to limit the 49ers' offense."
-    },
-    {
-      "row": "w05-expert-verified.json#rows[42]",
-      "outlet": "Action Network",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[190]",
-      "outlet": "BettingPros",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[308]",
-      "outlet": "2026 NFL Week 5 Bets",
       "supports_tier": false
     },
     {
       "row": "w05-expert-verified.json#rows[179]",
       "outlet": "PFF (Sam Monson & Steve Palazzolo)",
       "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[308]",
+      "outlet": "2026 NFL Week 5 Bets",
+      "supports_tier": false
     }
   ],
   "context": {
-    "away": "SF 4-0 (+58): W at LAR +20, MIA +22, ARI +6, DEN +10; opponents 5-11; 1-0 away, 2-0 division; 7 days rest, bye Wk8; next WAS (H), at ATL. Win = 5-0 and two-game NFC West lead plus head-to-head.",
-    "home": "SEA 3-1 (+32): W NE +3, at ARI +24, L at WAS -2, W LAC +7; opponents 4-12; 2-0 home, 1-0 division; 7 days rest, bye Wk11; next at DEN, KC, CHI. Lock started Wk1-2, Darnold Wk3-4. Win ties SF at 4-1."
+    "away": "SF 4-0 (+58): W 27-7 at LAR, 35-13 MIA, 36-30 ARI, 24-14 DEN; three home games; opponents combined 5-11; 2-0 division; 7 days rest, bye Week 8; next WAS (H), at ATL. NFC 1 seed in packet order.",
+    "home": "SEA 3-1 (+32): W 13-10 NE, 31-7 at ARI, L 31-33 at WAS, W 30-23 LAC; opponents combined 4-12; 2-0 home; 7 days rest, bye Week 11; next at DEN, KC, CHI. Win pulls level at 4-1 in NFC West."
   },
   "invalidators": [
-    "Upton Stout (SF CB, Questionable) or Trent Williams (digest 'setback', not on ESPN list) inactive/active status at official inactives",
-    "BKR line moves to SEA -2.5 or -3.5 (crosses/leaves key number 3) or BKR window lapses at 00:15 PT without recapture",
-    "Kickoff gusts above 40 km/h or rain in a weather recheck",
-    "A second independent tier-eligible outlet on either side appears",
-    "George Holani inactive leaving Emanuel Wilson as sole SEA back (role change)"
+    "Fresh capture at SEA -2.5 or SF +3.5 (key number 3; side_push 8.27% at -3) reopens a side review",
+    "Official inactives: Upton Stout (SF CB, Questionable), George Holani (SEA RB, Questionable), any SF roster IR/Out group lineman actually active or inactive",
+    "Any change at QB (Purdy or Darnold not starting) per official inactives",
+    "Weather recheck showing gusts above 30 km/h or rain would revisit the total (cap 1.0 pt)",
+    "A second independent tier-eligible outlet at the current number on either side",
+    "Recommendation windows lapse 2026-10-11T12:21Z (BKR) / 12:24Z (BEO), before 20:25Z kickoff: any price claim needs recapture"
   ],
   "gaps": [
-    "AVAILABILITY SF (ESPN 2026-10-11T04:21:24Z): Out: James Thompson Jr. DT, Nick Bosa DE, Marques Sigle S, Kyle Juszczyk FB | Questionable/Doubtful: Upton Stout CB",
-    "AVAILABILITY SEA (ESPN 2026-10-11T04:21:24Z): Out: Chazz Surratt LB, Zach Charbonnet RB | Questionable/Doubtful: George Holani RB | IR: Julian Neal CB, Irv Charles WR",
-    "2 near-miss source rows (rows[393] ESPN, rows[505] X bookmark): context only",
-    "Global WARNs: 432 corroboration-only rows; SuperContest label reversals for 6 other games; BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game)",
-    "Preflight WARN: Bookmaker window for SF@SEA expires within 120 min (00:15 PT / 07:15Z)",
-    "Existing quantitative pass (home margin +0.10, home cover 43.0%) disagrees with market SEA -3 by ~3.1 pts toward SF; not adopted",
-    "Availability digest lists Trent Williams 'setback' and Mykel Williams 'out' but ESPN report does not; ESPN used as status source",
-    "Action Network opener missing; no movement history",
-    "VSiN tier-eligible quote truncated ('Seattle Seahawks -3 vs.'); no reasoning captured",
-    "Power-ratings attribution text stale (matches_2026 true); FTN aRYOE blank; SEA projected-starter file lacks depth chart",
-    "SEA season splits blend Drew Lock (Wk1-2) and Sam Darnold (Wk3-4)"
+    "game_warnings: AVAILABILITY SF (Out: Thompson Jr., Bosa, Sigle, Juszczyk; Q: Stout) and SEA (Out: Surratt, Charbonnet; Q: Holani; IR: Neal, Charles) carried; ESPN roster IR/Out groups for both teams are unconfirmed and not treated as Out",
+    "game_warnings: 2 near-miss source rows (rows[393], rows[505]) are context only",
+    "Existing quantitative pass (provisional) has home margin +0.1 vs market -3, about 2.9 points toward SF; recorded, not copied",
+    "Action Network opener is null in packet: no opener/movement measurable",
+    "BEO prop rows carry no row-level capturedAt, so BEO props are not proposed",
+    "Darnold has only two 2026 starts (Weeks 3-4); Drew Lock started Weeks 1-2",
+    "Roster gate lists 'Michael Evans' (BKR name) as UNVERIFIED; not used",
+    "Weather forecast captured 2026-10-10T17:56Z; needs refresh",
+    "Global: 432 corroboration-only rows, 11 human-review rows, BKR/BEO conflicts on MIN@NO and CLE@NYJ, SuperContest label reversals on other games (not this one)"
   ],
   "props": [
     {
-      "player": "Brock Purdy",
+      "player": "Christian McCaffrey",
       "team": "SF",
-      "market": "rush_yds",
-      "side": "Over",
-      "line": 23.5,
-      "price": -117,
+      "market": "anytime TD",
+      "side": "Yes",
+      "line": 0.5,
+      "price": -141,
       "book": "BKR",
-      "captured_at": "2026-10-11T01:17:16.108Z",
-      "status": "usage context only",
-      "rationale": "Rush yds 29/30/34/29 in Wk1-4 (carries 5/3/2/10). Source Cody Brown o22.5 -114 (rows[377], corroboration-only) vs captured BKR 23.5 -117; BEO 24.5 -125."
+      "captured_at": "2026-10-11T06:22:46.401Z",
+      "status": "high-variance TD",
+      "rationale": "TDs in Weeks 2 (2), 3, 4; 10-15 carries and 4-8 targets per week (nflverse wk1-4). No model edge."
     },
     {
-      "player": "Emanuel Wilson",
+      "player": "Jaxon Smith-Njigba",
       "team": "SEA",
-      "market": "rush_yds",
-      "side": "Over",
-      "line": 62.5,
+      "market": "anytime TD",
+      "side": "Yes",
+      "line": 0.5,
+      "price": -120,
+      "book": "BKR",
+      "captured_at": "2026-10-11T06:22:46.401Z",
+      "status": "high-variance TD",
+      "rationale": "6 receiving TDs in 4 games, 6-14 targets per week (nflverse wk1-4). No model edge."
+    },
+    {
+      "player": "Brock Purdy",
+      "team": "SF",
+      "market": "passing yards",
+      "side": "Over/Under",
+      "line": 222.5,
       "price": -106,
       "book": "BKR",
-      "captured_at": "2026-10-11T01:17:16.108Z",
+      "captured_at": "2026-10-11T06:22:46.401Z",
       "status": "usage context only",
-      "rationale": "21-92 (Wk2), 9-14 (Wk3), 21-81 (Wk4); Charbonnet Out, Price IR, Holani Questionable. Opponent rush DVOA -22.5% (SF), no source support."
+      "rationale": "205, 287, 297, 218 yards Weeks 1-4 on 22-34 attempts (nflverse); main-line row, both sides -106."
     }
   ]
 }

@@ -2,16 +2,16 @@
   "schema": "w05_game_synthesis_v1",
   "game": "DET@ARI",
   "model": "opus",
-  "generated_at": "2026-10-11T05:34:47Z",
-  "head": "7ebef66",
+  "generated_at": "2026-10-11T06:51:15Z",
+  "head": "fb2ad66",
   "market": {
     "book": "BKR",
-    "captured_at": "2026-10-11T01:15:40.538Z",
+    "captured_at": "2026-10-11T06:21:29.799Z",
     "home_line": 5.5,
     "total": 54.5
   },
   "disposition": "pass",
-  "tier": "research_only",
+  "tier": "skip",
   "side": {
     "pick": null,
     "line": null,
@@ -24,12 +24,10 @@
     "home_margin_pts": 0.0,
     "total_pts": 0.0,
     "basis": [
-      "Default 0.0: no tier_eligible source rows for this game (36 corroboration_only)",
-      "Power ratings (2026 four-game, matches_2026 true): net PPG DET -2.0 vs ARI -7.5 = 5.5-pt gap, equal to BKR spread",
-      "FTN offsetting side signals: DET pass offense DVOA 35.6% vs ARI pass defense DVOA 49.2% (favors DET) against DET pass defense DVOA 23.9% with Branch/Ya-Sin Out and Harper IR (favors ARI)",
-      "FTN offsetting total signals: both pass defenses weak (EPA/DB 0.267 DET, 0.311 ARI) vs ARI offense EXP% 3.9%, YD/DRV 28.4 and Harrison Jr. Out; pace 66.8 vs 65.8 plays/gm",
-      "Retractable roof, no Open-Meteo entry: weather not applied",
-      "Provisional quant pass (home margin -3.43, total 56.27) recorded in gaps, not adopted"
+      "default 0.0: zero tier-eligible source rows (36 corroboration_only, split ARI/DET)",
+      "FTN offsetting: DET pass offense EPA/DB 0.242 vs ARI pass defense EPA/DB 0.311 favors DET; ARI short passing (aDOT 6.2) vs DET pass defense EPA/DB 0.267 with Branch/Ya-Sin Out favors ARI",
+      "2026 four-game power ratings (SRS DET -3.252 vs ARI -6.928) not adjusted on alone",
+      "no weather adjustment: retractable roof status unconfirmed, no Open-Meteo entry for DET@ARI"
     ],
     "cap_exception": null
   },
@@ -38,28 +36,13 @@
     "away_cover": 0.5,
     "over": 0.5,
     "under": 0.5,
-    "side_push": 0,
-    "total_push": 0
+    "side_push": 0.0,
+    "total_push": 0.0
   },
   "cited_rows": [
     {
       "row": "w05-expert-verified.json#rows[168]",
       "outlet": "Even Money",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[309]",
-      "outlet": "2026 NFL Week 5 Bets",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[310]",
-      "outlet": "2026 NFL Week 5 Bets",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[337]",
-      "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
       "supports_tier": false
     },
     {
@@ -73,51 +56,6 @@
       "supports_tier": false
     },
     {
-      "row": "w05-expert-verified.json#rows[175]",
-      "outlet": "BettingPros",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[121]",
-      "outlet": "The Favorites",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[138]",
-      "outlet": "Sharp or Square",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[253]",
-      "outlet": "SHARP NFL Week 5 Bets: Bears-Packers, Niners-Seahawks and more",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[376]",
-      "outlet": "NFL WEEK 5 Betting Preview: Bucs-Cowboys, Bears-Packers and more",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[347]",
-      "outlet": "Construction &amp; Big Dog Picks | NFL Week 5 Preview",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[187]",
-      "outlet": "BettingPros",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[336]",
-      "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
-      "supports_tier": false
-    },
-    {
-      "row": "w05-expert-verified.json#rows[338]",
-      "outlet": "NFL Week 5 Early Lines: Best Bets, Early Odds &amp; Betting Picks for Every Game (Ep. 1087)",
-      "supports_tier": false
-    },
-    {
       "row": "w05-expert-verified.json#rows[35]",
       "outlet": "Action Network",
       "supports_tier": false
@@ -128,8 +66,28 @@
       "supports_tier": false
     },
     {
+      "row": "w05-expert-verified.json#rows[121]",
+      "outlet": "The Favorites",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[175]",
+      "outlet": "BettingPros",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[138]",
+      "outlet": "Sharp or Square",
+      "supports_tier": false
+    },
+    {
       "row": "w05-expert-verified.json#rows[542]",
       "outlet": "Pro Football Talk",
+      "supports_tier": false
+    },
+    {
+      "row": "w05-expert-verified.json#rows[187]",
+      "outlet": "BettingPros",
       "supports_tier": false
     },
     {
@@ -139,66 +97,39 @@
     }
   ],
   "context": {
-    "away": "DET 2-2 (W NO +1, L @BUF -10, W NYJ +7, L @CAR -6); opponents 7-9; 0-2 away; PF 29.8/PA 31.8; 6.8 days rest; Week 6 bye next, then GB and MIN at home; third in NFC North, two games behind 4-0 MIN; non-division conference game.",
-    "home": "ARI 1-3 (W @LAC +12, L SEA -24, L @SF -6, L @NYG -12); opponents 10-6; 0-1 home, 0-2 division; diff -30; 7.1 days rest; bye Week 14; next @LAR, DEN; last in NFC West, three games behind 4-0 SF."
+    "away": "DET 2-2 (W NO +1, L @BUF -10, W NYJ +7, L @CAR -6); 2-0 home, 0-2 away; opponents 7-9; 6.8 days rest; bye is Week 6, then GB and MIN at home. 3rd NFC North behind MIN 4-0 and CHI 3-1.",
+    "home": "ARI 1-3 (W @LAC +12, L SEA -24, L @SF -6, L @NYG -12); 0-1 home, 0-2 division; opponents 10-6; 7.1 days rest; bye Week 14; next @LAR, DEN, @DAL. Last in NFC West behind 4-0 SF."
   },
   "invalidators": [
-    "A tier_eligible source row for this game appears in a refreshed packet",
-    "Line moves to DET -7 or more (crosses 7) or to -4.5/-3.5 (ARI +4.5 source rows become current): reprice all source picks",
-    "Total moves to 56+ or 53 or lower",
-    "Official inactives: Tyleik Williams (DET DT), Walter Nolen III (ARI DT), Karson Sharar (ARI LB) questionable; any QB change from Goff or Brissett",
-    "Roof open with material wind or heat in a fresh forecast",
-    "BKR recommendation window lapses 07:15:40Z (00:15 PT): fresh capture required before any price claim"
+    "BKR/BEO recommendation windows lapse Sun 05:21/05:24 PT, about 8h before kickoff; fresh capture required before any price claim",
+    "Line move to DET -6.5/-7 or -4.5 changes the bet (key number 7 side_push 0.0555; 3 at 0.0827)",
+    "Official inactives: if Kerby Joseph/Avonte Maddox (ESPN roster IR/Out group, unconfirmed) are also out, DET secondary depletion strengthens an ARI/over case; if Walter Nolen III (Q) sits, ARI interior front weakens",
+    "Roof open with material wind/heat would require weather recheck before any total view",
+    "A tier-eligible article row (verbatim, about the pick) on either side would allow reconsideration"
   ],
   "gaps": [
-    "No tier_eligible rows: all 36 verified rows for DET@ARI are corroboration_only",
-    "Packet warning: AVAILABILITY DET Out Bartch G, Ya-Sin CB, Branch S; Q Tyleik Williams DT; IR Mays C, Harper S",
-    "Packet warning: AVAILABILITY ARI Out Harrison Jr. WR, Wingard S; Q Nolen III DT, Sharar LB; IR Adams G, Johnson Jr. OT, Long TE",
-    "Packet warning: SuperContest labels reversed for this game; favorite DET -5.5 used",
-    "Packet warning: VENUE retractable roof; game-day roof status not checked; no Open-Meteo entry for DET@ARI",
-    "Quant pass disagrees with market: home margin -3.43 vs -5.5 (about +2.1 toward ARI) and total 56.27 vs 54.5 (+1.8); not adopted",
-    "Action Network opener missing (null); splits captured 2026-10-09T19:41Z are stale, context only",
-    "FTN ARI offense PT/GM 20.3 vs packet PPG 21.8 (and defense 27.8 vs 29.2); unreconciled",
-    "BKR prop yardage/receptions markets list only DET players; ARI yardage props unavailable at BKR",
-    "ARI projected-starter file has no QB row; ESPN-resolved Brissett used",
-    "Global preflight WARNs: corroboration-only rows slate-wide, SuperContest label reversals on 6 matchups, BKR/BEO conflicts on MIN@NO and CLE@NYJ, BKR expiry within 120 min for all games"
+    "No tier-eligible source rows for this game; all 36 verified rows are corroboration_only and split across both sides",
+    "Action Network opener/movement not in packet; splits captured 2026-10-09T19:41Z only",
+    "Retractable roof status unconfirmed; Open-Meteo file has no DET@ARI entry",
+    "AVAILABILITY DET/ARI ESPN roster IR/Out group (Kerby Joseph, Avonte Maddox, Isiah Pacheco; James Conner, Trey Benson, Will Johnson etc.) unresolved, not treated as Out",
+    "Questionable per ESPN injury report: Tyleik Williams (DET), Walter Nolen III and Karson Sharar (ARI)",
+    "SuperContest labels reversed for this game (ARI@DET); used favorite DET -5.5",
+    "Provisional quant pass (home margin -3.43, total 56.3, home cover 55.2%) disagrees with market -5.5/54.5; unbacktested, not copied",
+    "Packet captures are early-Sunday UTC; windows lapse before kickoff",
+    "Global: 432 corroboration-only and 11 near-miss rows slate-wide; SuperContest label reversals on 6 games; BKR/BEO conflicts on MIN@NO and CLE@NYJ (not this game)"
   ],
   "props": [
     {
       "player": "Sam LaPorta",
       "team": "DET",
-      "market": "receiving yards",
+      "market": "rec_yds",
       "side": "Over",
       "line": 51.5,
-      "price": -109,
+      "price": -114,
       "book": "BKR",
-      "captured_at": "2026-10-11T01:17:29.881Z",
+      "captured_at": "2026-10-11T06:22:53.953Z",
       "status": "usage context only",
-      "rationale": "Receiving yards 48/52/44/84 and targets 8/7/4/13 in weeks 1-4 (nflverse). Sharp Football row 414 quoted Over 50.5 -120 (corroboration_only; captured BKR 51.5 -109). No model probability."
-    },
-    {
-      "player": "Amon-Ra St. Brown",
-      "team": "DET",
-      "market": "anytime TD",
-      "side": "Yes",
-      "line": 0.5,
-      "price": -150,
-      "book": "BKR",
-      "captured_at": "2026-10-11T01:17:29.881Z",
-      "status": "high-variance TD",
-      "rationale": "Receiving TDs 2/2/1/0 and targets 14/13/8/11 in weeks 1-4 (nflverse). Digest source price -140 vs captured BKR -150; corroboration-only sources."
-    },
-    {
-      "player": "Trey McBride",
-      "team": "ARI",
-      "market": "anytime TD",
-      "side": "Yes",
-      "line": 0.5,
-      "price": 105,
-      "book": "BKR",
-      "captured_at": "2026-10-11T01:17:29.881Z",
-      "status": "high-variance TD",
-      "rationale": "Targets 13/10/11/12 and receiving TDs 1/1/0/0 in weeks 1-4 (nflverse); Harrison Jr. Out concentrates volume. Digest source price +120 vs captured BKR +105; corroboration-only sources."
+      "rationale": "2026 targets 8/7/4/13 and rec yds 48/52/44/84 (wks 1-4, player_stats_weekly.csv). Sharp Football (rows[414], corroboration-only) quoted OVER 50.5 -120; captured BKR is 51.5 -114. No model probability."
     }
   ]
 }
