@@ -4,6 +4,10 @@
 > Detailed history belongs in dated `handoffs/`; cross-team recovery material belongs in
 > its dated H2C2 snapshot packet.
 
+## Latest (Claude Team 3, 2026-10-12 ~19:15)
+
+**PICK UP HERE (Week 5 prop cards):** read `handoffs/2026-10-12-1915-claude-team3-w5-prop-cards-pickup-handoff.md` (resume prompt at the bottom). Branch `claude/w5-prop-cards-2026-10-11`, commit `050eb21`. Open: verify overnight ledger settlements, NYG@WSH tie, CIN -7 push, MNF BUF@LAR, tests not run.
+
 ## Current pick-up point
 
 **PICK UP HERE: H2C2 round 2, Week 5 Sunday cards (Claude Team 3), 2026-10-11 ~00:50 PT:**
