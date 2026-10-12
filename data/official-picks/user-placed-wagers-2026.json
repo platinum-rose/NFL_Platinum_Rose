@@ -15581,8 +15581,9 @@
         "line": null,
         "price": "+159",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740069722_1_lv_ml"
+        "status": "LOST",
+        "key": "leg_740069722_1_lv_ml",
+        "actual_stat": "17-45"
       },
       {
         "leg_num": 2,
@@ -15594,8 +15595,9 @@
         "line": null,
         "price": "+174",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740069722_2_nyg_ml"
+        "status": "PUSH",
+        "key": "leg_740069722_2_nyg_ml",
+        "actual_stat": "27-27"
       },
       {
         "leg_num": 3,
@@ -15620,8 +15622,9 @@
         "line": null,
         "price": "+149",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_740069722_4_sf_ml"
+        "status": "WON",
+        "key": "leg_740069722_4_sf_ml",
+        "actual_stat": "32-29"
       },
       {
         "leg_num": 5,
@@ -15633,8 +15636,9 @@
         "line": null,
         "price": "+218",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_740069722_5_ari_ml"
+        "status": "LOST",
+        "key": "leg_740069722_5_ari_ml",
+        "actual_stat": "21-45"
       },
       {
         "leg_num": 6,
@@ -15646,8 +15650,9 @@
         "line": null,
         "price": "+172",
         "game_start": "10/11/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_740069722_6_lac_ml"
+        "status": "LOST",
+        "key": "leg_740069722_6_lac_ml",
+        "actual_stat": "17-23"
       }
     ],
     "round_robin": {
@@ -15679,8 +15684,8 @@
     "odds_decimal": 116.746,
     "potential_profit_usd": 578.73,
     "potential_payout_usd": 583.73,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_740070028",
     "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-11; all legs pending. Same eight legs as round robin #740070029.",
     "legs": [
@@ -15694,9 +15699,10 @@
         "line": 44,
         "price": "-116",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740070028_1_ind_pit_under",
-        "direction": "under"
+        "direction": "under",
+        "actual_stat": 56
       },
       {
         "leg_num": 2,
@@ -15708,8 +15714,9 @@
         "line": 4,
         "price": "-108",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740070028_2_lv_spread"
+        "status": "LOST",
+        "key": "leg_740070028_2_lv_spread",
+        "actual_stat": "-28"
       },
       {
         "leg_num": 3,
@@ -15734,8 +15741,9 @@
         "line": null,
         "price": "-172",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_740070028_4_sea_ml"
+        "status": "LOST",
+        "key": "leg_740070028_4_sea_ml",
+        "actual_stat": "29-32"
       },
       {
         "leg_num": 5,
@@ -15747,8 +15755,9 @@
         "line": -3,
         "price": "-117",
         "game_start": "10/11/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_740070028_5_atl_spread"
+        "status": "LOST",
+        "key": "leg_740070028_5_atl_spread",
+        "actual_stat": "-7"
       },
       {
         "leg_num": 6,
@@ -15760,8 +15769,9 @@
         "line": -5,
         "price": "-118",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_740070028_6_det_spread"
+        "status": "WON",
+        "key": "leg_740070028_6_det_spread",
+        "actual_stat": "+24"
       },
       {
         "leg_num": 7,
@@ -15773,8 +15783,9 @@
         "line": -2.5,
         "price": "-156",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740070028_7_was_spread"
+        "status": "LOST",
+        "key": "leg_740070028_7_was_spread",
+        "actual_stat": "0"
       },
       {
         "leg_num": 8,
@@ -15786,10 +15797,14 @@
         "line": -6.5,
         "price": "-111",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740070028_8_cin_spread"
+        "status": "WON",
+        "key": "leg_740070028_8_cin_spread",
+        "actual_stat": "+7"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-12T10:30:03.521Z"
   },
   {
     "id": "bet_20261011_bkr_740070029_round_robin_8x4",
@@ -15827,9 +15842,10 @@
         "line": 44,
         "price": "-116",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740070029_1_ind_pit_under",
-        "direction": "under"
+        "direction": "under",
+        "actual_stat": 56
       },
       {
         "leg_num": 2,
@@ -15841,8 +15857,9 @@
         "line": 4,
         "price": "-108",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740070029_2_lv_spread"
+        "status": "LOST",
+        "key": "leg_740070029_2_lv_spread",
+        "actual_stat": "-28"
       },
       {
         "leg_num": 3,
@@ -15867,8 +15884,9 @@
         "line": null,
         "price": "-172",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_740070029_4_sea_ml"
+        "status": "LOST",
+        "key": "leg_740070029_4_sea_ml",
+        "actual_stat": "29-32"
       },
       {
         "leg_num": 5,
@@ -15880,8 +15898,9 @@
         "line": -3,
         "price": "-117",
         "game_start": "10/11/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_740070029_5_atl_spread"
+        "status": "LOST",
+        "key": "leg_740070029_5_atl_spread",
+        "actual_stat": "-7"
       },
       {
         "leg_num": 6,
@@ -15893,8 +15912,9 @@
         "line": -5,
         "price": "-118",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_740070029_6_det_spread"
+        "status": "WON",
+        "key": "leg_740070029_6_det_spread",
+        "actual_stat": "+24"
       },
       {
         "leg_num": 7,
@@ -15906,8 +15926,9 @@
         "line": -2.5,
         "price": "-156",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740070029_7_was_spread"
+        "status": "LOST",
+        "key": "leg_740070029_7_was_spread",
+        "actual_stat": "0"
       },
       {
         "leg_num": 8,
@@ -15919,8 +15940,9 @@
         "line": -6.5,
         "price": "-111",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740070029_8_cin_spread"
+        "status": "WON",
+        "key": "leg_740070029_8_cin_spread",
+        "actual_stat": "+7"
       }
     ],
     "round_robin": {
@@ -15952,8 +15974,8 @@
     "odds_decimal": 19.511,
     "potential_profit_usd": 370.22,
     "potential_payout_usd": 390.22,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_740070077",
     "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-11. Cash-out offer at ingest: $8.83; all legs pending.",
     "legs": [
@@ -15967,8 +15989,9 @@
         "line": null,
         "price": "-254",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_740070077_1_det_ml"
+        "status": "WON",
+        "key": "leg_740070077_1_det_ml",
+        "actual_stat": "45-21"
       },
       {
         "leg_num": 2,
@@ -15980,8 +16003,9 @@
         "line": null,
         "price": "-165",
         "game_start": "10/11/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_740070077_2_atl_ml"
+        "status": "LOST",
+        "key": "leg_740070077_2_atl_ml",
+        "actual_stat": "23-30"
       },
       {
         "leg_num": 3,
@@ -15993,8 +16017,9 @@
         "line": 4,
         "price": "-108",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740070077_3_lv_spread"
+        "status": "LOST",
+        "key": "leg_740070077_3_lv_spread",
+        "actual_stat": "-28"
       },
       {
         "leg_num": 4,
@@ -16006,9 +16031,10 @@
         "line": 45,
         "price": "-133",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740070077_4_ind_pit_under",
-        "direction": "under"
+        "direction": "under",
+        "actual_stat": 56
       },
       {
         "leg_num": 5,
@@ -16020,8 +16046,9 @@
         "line": 3,
         "price": "-139",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740070077_5_no_spread"
+        "status": "LOST",
+        "key": "leg_740070077_5_no_spread",
+        "actual_stat": "-10"
       },
       {
         "leg_num": 6,
@@ -16033,11 +16060,15 @@
         "line": null,
         "price": "-199",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740070077_6_was_ml"
+        "status": "PUSH",
+        "key": "leg_740070077_6_was_ml",
+        "actual_stat": "27-27"
       }
     ],
-    "cash_out_offer_usd_at_ingest": 8.83
+    "cash_out_offer_usd_at_ingest": 8.83,
+    "settled_payout_usd": 0,
+    "profit_usd": -20,
+    "graded_at": "2026-10-12T10:30:03.521Z"
   },
   {
     "id": "bet_20261011_bkr_740070347_6team_parlay",
@@ -16061,10 +16092,10 @@
     "potential_profit_usd": 321.44,
     "potential_payout_usd": 345.87,
     "cash_out_offer_usd_at_ingest": 13.98,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_740070347",
-    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-11. Cash-out offer at ingest: $13.98; all legs pending.",
+    "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-11. Cash-out offer at ingest: $13.98; all legs pending. | Leg settled 2026-10-11 by Claude Team 3 from ESPN final (PHI@JAX 17-19; Tuten 22 car/72 yds/0 TD).",
     "legs": [
       {
         "leg_num": 1,
@@ -16128,9 +16159,10 @@
         "line": 40,
         "price": "-121",
         "game_start": "10/11/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740070347_5_phi_jax_over",
-        "direction": "over"
+        "direction": "over",
+        "actual_stat": "36"
       },
       {
         "leg_num": 6,
@@ -16145,7 +16177,10 @@
         "status": "PENDING",
         "key": "leg_740070347_6_was_ml"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -24.43,
+    "graded_at": "2026-10-11T18:24:40.002Z"
   },
   {
     "id": "bet_20261011_betonline_1004397711",
@@ -16168,8 +16203,8 @@
     "odds_decimal": 56,
     "potential_profit_usd": 550,
     "potential_payout_usd": 560,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "progress_notes": "Official BetOnline ticket #1004397711 supplied by Andy 2026-10-11 ~02:41 PT, $10 to win $550 (+5500). Same six legs as the Bookmaker 6-leg Claude evaluated. Per-leg prices not shown on slip; null where not on BEO board.",
     "legs": [
       {
@@ -16186,7 +16221,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_1004397711_1"
+        "key": "leg_1004397711_1",
+        "actual_stat": null
       },
       {
         "leg_num": 2,
@@ -16201,8 +16237,9 @@
         "price_source": "BEO board 2026-10-11 06:24Z (slip shows no per-leg price; board reference, may differ from placed price)",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1004397711_2"
+        "status": "WON",
+        "key": "leg_1004397711_2",
+        "actual_stat": 2
       },
       {
         "leg_num": 3,
@@ -16217,8 +16254,9 @@
         "price_source": "not on BEO board capture; slip shows no per-leg price",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1004397711_3"
+        "status": "LOST",
+        "key": "leg_1004397711_3",
+        "actual_stat": 4
       },
       {
         "leg_num": 4,
@@ -16233,8 +16271,9 @@
         "price_source": "BEO board 2026-10-11 06:24Z (slip shows no per-leg price; board reference, may differ from placed price)",
         "direction": "over",
         "game_start": "10/11/2026 @ 5:20 PM",
-        "status": "PENDING",
-        "key": "leg_1004397711_4"
+        "status": "WON",
+        "key": "leg_1004397711_4",
+        "actual_stat": 1
       },
       {
         "leg_num": 5,
@@ -16249,8 +16288,9 @@
         "price_source": "not on BEO board capture; slip shows no per-leg price",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1004397711_5"
+        "status": "WON",
+        "key": "leg_1004397711_5",
+        "actual_stat": 11
       },
       {
         "leg_num": 6,
@@ -16266,9 +16306,13 @@
         "direction": "under",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_1004397711_6"
+        "key": "leg_1004397711_6",
+        "actual_stat": null
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -10,
+    "graded_at": "2026-10-12T10:30:03.522Z"
   },
   {
     "id": "bet_20261011_betonline_1004387953",
@@ -16291,8 +16335,8 @@
     "odds_decimal": 491,
     "potential_profit_usd": 2450,
     "potential_payout_usd": 2455,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "progress_notes": "Official BetOnline ticket #1004387953 supplied by Andy 2026-10-11 ~02:41 PT, $5 to win $2,450. Per-leg prices are BEO board references only.",
     "legs": [
       {
@@ -16308,8 +16352,9 @@
         "price_source": "BEO board 2026-10-11 06:24Z (slip shows no per-leg price; board reference, may differ from placed price)",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1004387953_1"
+        "status": "LOST",
+        "key": "leg_1004387953_1",
+        "actual_stat": 0
       },
       {
         "leg_num": 2,
@@ -16324,8 +16369,9 @@
         "price_source": "BEO board 2026-10-11 06:24Z (slip shows no per-leg price; board reference, may differ from placed price)",
         "direction": "over",
         "game_start": "10/11/2026 @ 1:25 PM",
-        "status": "PENDING",
-        "key": "leg_1004387953_2"
+        "status": "WON",
+        "key": "leg_1004387953_2",
+        "actual_stat": 1
       },
       {
         "leg_num": 3,
@@ -16340,8 +16386,9 @@
         "price_source": "not on BEO board capture; slip shows no per-leg price",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1004387953_3"
+        "status": "WON",
+        "key": "leg_1004387953_3",
+        "actual_stat": 1
       },
       {
         "leg_num": 4,
@@ -16356,8 +16403,9 @@
         "price_source": "not on BEO board capture; slip shows no per-leg price",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1004387953_4"
+        "status": "WON",
+        "key": "leg_1004387953_4",
+        "actual_stat": 1
       },
       {
         "leg_num": 5,
@@ -16372,8 +16420,9 @@
         "price_source": "BEO board 2026-10-11 06:24Z (slip shows no per-leg price; board reference, may differ from placed price)",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1004387953_5"
+        "status": "WON",
+        "key": "leg_1004387953_5",
+        "actual_stat": 2
       },
       {
         "leg_num": 6,
@@ -16388,8 +16437,9 @@
         "price_source": "BEO board 2026-10-11 06:24Z (slip shows no per-leg price; board reference, may differ from placed price)",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1004387953_6"
+        "status": "LOST",
+        "key": "leg_1004387953_6",
+        "actual_stat": 0
       },
       {
         "leg_num": 7,
@@ -16404,10 +16454,14 @@
         "price_source": "BEO board 2026-10-11 06:24Z (slip shows no per-leg price; board reference, may differ from placed price)",
         "direction": "over",
         "game_start": "10/11/2026 @ 1:25 PM",
-        "status": "PENDING",
-        "key": "leg_1004387953_7"
+        "status": "WON",
+        "key": "leg_1004387953_7",
+        "actual_stat": 1
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-12T10:30:03.522Z"
   },
   {
     "id": "bet_20261010_betonline_1004236400",
@@ -16430,9 +16484,9 @@
     "odds_decimal": 221,
     "potential_profit_usd": 1100,
     "potential_payout_usd": 1105,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Official BetOnline ticket #1004236400 accepted 10/10/26, supplied by Andy 2026-10-11 ~02:41 PT, $5 to win $1,100. Per-leg prices are BEO board references only (2+ TD legs use td_2_plus market).",
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official BetOnline ticket #1004236400 accepted 10/10/26, supplied by Andy 2026-10-11 ~02:41 PT, $5 to win $1,100. Per-leg prices are BEO board references only (2+ TD legs use td_2_plus market). | Leg settled 2026-10-11 by Claude Team 3 from ESPN final (PHI@JAX 17-19; Tuten 22 car/72 yds/0 TD).",
     "legs": [
       {
         "leg_num": 1,
@@ -16543,10 +16597,14 @@
         "price_source": "BEO board 2026-10-11 06:24Z (slip shows no per-leg price; board reference, may differ from placed price)",
         "direction": "over",
         "game_start": "10/11/2026 @ 6:30 AM",
-        "status": "PENDING",
-        "key": "leg_1004236400_7"
+        "status": "LOST",
+        "key": "leg_1004236400_7",
+        "actual_stat": "0"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-11T18:24:40.002Z"
   },
   {
     "id": "bet_20261011_betonline_1004398638",
@@ -16569,8 +16627,8 @@
     "odds_decimal": 64,
     "potential_profit_usd": 315,
     "potential_payout_usd": 320,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "progress_notes": "Official BetOnline ticket #1004398638 supplied by Andy 2026-10-11 ~02:54 PT, $5 to win $315 (+6300). Ticket lines: Bijan Over 88.5 rush yds and LaPorta Over 51.5 rec yds (the pre-placement slip showed 89 and 52). Book inferred from ticket-number format.",
     "legs": [
       {
@@ -16586,8 +16644,9 @@
         "price_source": "pre-placement slip Andy pasted 2026-10-11 ~02:50-02:53 PT (slip shows no per-leg price on the ticket)",
         "direction": "over",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_1004398638_1"
+        "status": "WON",
+        "key": "leg_1004398638_1",
+        "actual_stat": 2
       },
       {
         "leg_num": 2,
@@ -16603,7 +16662,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 05:20 PM",
         "status": "PENDING",
-        "key": "leg_1004398638_2"
+        "key": "leg_1004398638_2",
+        "actual_stat": null
       },
       {
         "leg_num": 3,
@@ -16618,8 +16678,9 @@
         "price_source": "pre-placement slip Andy pasted 2026-10-11 ~02:50-02:53 PT (slip shows no per-leg price on the ticket)",
         "direction": "over",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_1004398638_3"
+        "status": "WON",
+        "key": "leg_1004398638_3",
+        "actual_stat": 1
       },
       {
         "leg_num": 4,
@@ -16635,7 +16696,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 01:25 PM",
         "status": "PENDING",
-        "key": "leg_1004398638_4"
+        "key": "leg_1004398638_4",
+        "actual_stat": null
       },
       {
         "leg_num": 5,
@@ -16650,8 +16712,9 @@
         "price_source": "pre-placement slip Andy pasted 2026-10-11 ~02:50-02:53 PT (slip shows no per-leg price on the ticket)",
         "direction": "over",
         "game_start": "10/11/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_1004398638_5"
+        "status": "LOST",
+        "key": "leg_1004398638_5",
+        "actual_stat": 0
       },
       {
         "leg_num": 6,
@@ -16666,10 +16729,14 @@
         "price_source": "pre-placement slip Andy pasted 2026-10-11 ~02:50-02:53 PT (slip shows no per-leg price on the ticket)",
         "direction": "over",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_1004398638_6"
+        "status": "LOST",
+        "key": "leg_1004398638_6",
+        "actual_stat": 0
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-12T10:30:03.522Z"
   },
   {
     "id": "bet_20261011_betonline_8b_2plus_td_3leg",
@@ -16710,7 +16777,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_8b_1"
+        "key": "leg_8b_1",
+        "actual_stat": null
       },
       {
         "leg_num": 2,
@@ -16726,7 +16794,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 01:25 PM",
         "status": "PENDING",
-        "key": "leg_8b_2"
+        "key": "leg_8b_2",
+        "actual_stat": null
       },
       {
         "leg_num": 3,
@@ -16742,7 +16811,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 01:25 PM",
         "status": "PENDING",
-        "key": "leg_8b_3"
+        "key": "leg_8b_3",
+        "actual_stat": null
       }
     ]
   },
@@ -16769,7 +16839,7 @@
     "potential_payout_usd": 775,
     "status": "PENDING",
     "result": null,
-    "progress_notes": "Placed by Andy 2026-10-11 ~03:13 PT at $5 (template slot is $10). Confirmation screen showed no ticket number (add when supplied). Book inferred from format; Andy to confirm. $5 returns $775. | Ticket number 1004400836 added from Andy's ticket list 2026-10-11 ~10:45 PT.",
+    "progress_notes": "Placed by Andy 2026-10-11 ~03:13 PT at $5 (template slot is $10). Confirmation screen showed no ticket number (add when supplied). Book inferred from format; Andy to confirm. $5 returns $775. | Ticket number 1004400836 added from Andy's ticket list 2026-10-11 ~10:45 PT. | Leg settled 2026-10-11 by Claude Team 3 from ESPN final (PHI@JAX 17-19; Tuten 22 car/72 yds/0 TD).",
     "legs": [
       {
         "leg_num": 1,
@@ -16785,7 +16855,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 06:30 AM",
         "status": "PENDING",
-        "key": "leg_7d_1"
+        "key": "leg_7d_1",
+        "actual_stat": null
       },
       {
         "leg_num": 2,
@@ -16801,7 +16872,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_7d_2"
+        "key": "leg_7d_2",
+        "actual_stat": null
       },
       {
         "leg_num": 3,
@@ -16817,7 +16889,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_7d_3"
+        "key": "leg_7d_3",
+        "actual_stat": null
       },
       {
         "leg_num": 4,
@@ -16832,8 +16905,9 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_7d_4"
+        "status": "WON",
+        "key": "leg_7d_4",
+        "actual_stat": 6
       },
       {
         "leg_num": 5,
@@ -16849,7 +16923,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_7d_5"
+        "key": "leg_7d_5",
+        "actual_stat": null
       },
       {
         "leg_num": 6,
@@ -16864,8 +16939,9 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_7d_6"
+        "status": "WON",
+        "key": "leg_7d_6",
+        "actual_stat": 1
       },
       {
         "leg_num": 7,
@@ -16881,7 +16957,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_7d_7"
+        "key": "leg_7d_7",
+        "actual_stat": null
       },
       {
         "leg_num": 8,
@@ -16897,7 +16974,8 @@
         "direction": "under",
         "game_start": "10/11/2026 @ 05:20 PM",
         "status": "PENDING",
-        "key": "leg_7d_8"
+        "key": "leg_7d_8",
+        "actual_stat": null
       }
     ]
   },
@@ -16940,7 +17018,8 @@
         "direction": "yes",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_8a_1"
+        "key": "leg_8a_1",
+        "actual_stat": null
       },
       {
         "leg_num": 2,
@@ -16956,7 +17035,8 @@
         "direction": "yes",
         "game_start": "10/11/2026 @ 01:25 PM",
         "status": "PENDING",
-        "key": "leg_8a_2"
+        "key": "leg_8a_2",
+        "actual_stat": null
       },
       {
         "leg_num": 3,
@@ -16972,7 +17052,8 @@
         "direction": "yes",
         "game_start": "10/11/2026 @ 01:25 PM",
         "status": "PENDING",
-        "key": "leg_8a_3"
+        "key": "leg_8a_3",
+        "actual_stat": null
       }
     ]
   },
@@ -16994,11 +17075,11 @@
     "stake_usd": 5,
     "units": 0.5,
     "odds_american": "+104600",
-    "odds_decimal": 1047.0,
+    "odds_decimal": 1047,
     "potential_profit_usd": 5230,
     "potential_payout_usd": 5235,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "progress_notes": "Placed by Andy 2026-10-11 ~03:35 PT. Confirmation screen showed no ticket number (add when supplied). BetOnline-only build at Andy's request. $5 returns $5,235. 7c SNF combos to be placed after the morning slate ends. | Ticket number 1004403046 added from Andy's ticket list 2026-10-11 ~10:45 PT.",
     "legs": [
       {
@@ -17014,8 +17095,9 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_7e_1"
+        "status": "LOST",
+        "key": "leg_7e_1",
+        "actual_stat": 0
       },
       {
         "leg_num": 2,
@@ -17030,8 +17112,9 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_7e_2"
+        "status": "WON",
+        "key": "leg_7e_2",
+        "actual_stat": 1
       },
       {
         "leg_num": 3,
@@ -17046,8 +17129,9 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_7e_3"
+        "status": "WON",
+        "key": "leg_7e_3",
+        "actual_stat": 1
       },
       {
         "leg_num": 4,
@@ -17062,8 +17146,9 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_7e_4"
+        "status": "LOST",
+        "key": "leg_7e_4",
+        "actual_stat": 0
       },
       {
         "leg_num": 5,
@@ -17078,8 +17163,9 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_7e_5"
+        "status": "LOST",
+        "key": "leg_7e_5",
+        "actual_stat": 0
       },
       {
         "leg_num": 6,
@@ -17094,8 +17180,9 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_7e_6"
+        "status": "WON",
+        "key": "leg_7e_6",
+        "actual_stat": 2
       },
       {
         "leg_num": 7,
@@ -17110,10 +17197,14 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_7e_7"
+        "status": "LOST",
+        "key": "leg_7e_7",
+        "actual_stat": 0
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-12T10:30:03.522Z"
   },
   {
     "id": "bet_20261011_bkr_740087500_supercontest_5team_parlay",
@@ -17141,8 +17232,9 @@
         "line": -7,
         "price": "-101",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740087500_1_cin_spread"
+        "status": "PUSH",
+        "key": "leg_740087500_1_cin_spread",
+        "actual_stat": "+7"
       },
       {
         "leg_num": 2,
@@ -17154,8 +17246,9 @@
         "line": 6,
         "price": "-113",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_740087500_2_ari_spread"
+        "status": "LOST",
+        "key": "leg_740087500_2_ari_spread",
+        "actual_stat": "-24"
       },
       {
         "leg_num": 3,
@@ -17167,8 +17260,9 @@
         "line": -3,
         "price": "-118",
         "game_start": "10/11/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_740087500_3_atl_spread"
+        "status": "LOST",
+        "key": "leg_740087500_3_atl_spread",
+        "actual_stat": "-7"
       },
       {
         "leg_num": 4,
@@ -17180,8 +17274,9 @@
         "line": 3.5,
         "price": "-113",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740087500_4_lv_spread"
+        "status": "LOST",
+        "key": "leg_740087500_4_lv_spread",
+        "actual_stat": "-28"
       },
       {
         "leg_num": 5,
@@ -17193,8 +17288,9 @@
         "line": 3,
         "price": "-138",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740087500_5_no_spread"
+        "status": "LOST",
+        "key": "leg_740087500_5_no_spread",
+        "actual_stat": "-10"
       }
     ],
     "season": 2026,
@@ -17203,10 +17299,13 @@
     "book": "Bookmaker",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "placed_at": "2026-10-11T09:00:00-07:00",
-    "date": "2026-10-11"
+    "date": "2026-10-11",
+    "settled_payout_usd": 0,
+    "profit_usd": -25,
+    "graded_at": "2026-10-12T10:30:03.522Z"
   },
   {
     "id": "bet_20261011_bkr_740087501_supercontest_rr_5x2",
@@ -17232,8 +17331,9 @@
         "line": -7,
         "price": "-101",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740087501_1_cin_spread"
+        "status": "PUSH",
+        "key": "leg_740087501_1_cin_spread",
+        "actual_stat": "+7"
       },
       {
         "leg_num": 2,
@@ -17245,8 +17345,9 @@
         "line": 6,
         "price": "-113",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_740087501_2_ari_spread"
+        "status": "LOST",
+        "key": "leg_740087501_2_ari_spread",
+        "actual_stat": "-24"
       },
       {
         "leg_num": 3,
@@ -17258,8 +17359,9 @@
         "line": -3,
         "price": "-118",
         "game_start": "10/11/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_740087501_3_atl_spread"
+        "status": "LOST",
+        "key": "leg_740087501_3_atl_spread",
+        "actual_stat": "-7"
       },
       {
         "leg_num": 4,
@@ -17271,8 +17373,9 @@
         "line": 3.5,
         "price": "-113",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740087501_4_lv_spread"
+        "status": "LOST",
+        "key": "leg_740087501_4_lv_spread",
+        "actual_stat": "-28"
       },
       {
         "leg_num": 5,
@@ -17284,8 +17387,9 @@
         "line": 3,
         "price": "-138",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740087501_5_no_spread"
+        "status": "LOST",
+        "key": "leg_740087501_5_no_spread",
+        "actual_stat": "-10"
       }
     ],
     "round_robin": {
@@ -17301,10 +17405,14 @@
     "book": "Bookmaker",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "placed_at": "2026-10-11T09:00:00-07:00",
-    "date": "2026-10-11"
+    "date": "2026-10-11",
+    "settled_payout_usd": 0,
+    "profit_usd": -15,
+    "payout_source": "computed_from_leg_prices",
+    "graded_at": "2026-10-12T10:30:03.522Z"
   },
   {
     "id": "bet_20261011_bkr_740093896_7team_parlay",
@@ -17328,8 +17436,8 @@
     "potential_profit_usd": 553.41,
     "potential_payout_usd": 578.41,
     "cash_out_offer_usd_at_ingest": 9.99,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "external_url": "https://be.bookmaker.eu/#ticket_740093896",
     "progress_notes": "Official user-placed ticket supplied by Andy on 2026-10-11 ~09:45 PT. Cash-out offer at ingest: $9.99; all legs pending. Odds derived from risk/win; leg prices multiply to the same payout.",
     "legs": [
@@ -17343,8 +17451,9 @@
         "line": null,
         "price": "-359",
         "game_start": "10/11/2026 @ 10:10 AM",
-        "status": "PENDING",
-        "key": "leg_740093896_1_cin_ml"
+        "status": "WON",
+        "key": "leg_740093896_1_cin_ml",
+        "actual_stat": "31-24"
       },
       {
         "leg_num": 2,
@@ -17356,8 +17465,9 @@
         "line": null,
         "price": "-300",
         "game_start": "10/11/2026 @ 10:10 AM",
-        "status": "PENDING",
-        "key": "leg_740093896_2_hou_ml"
+        "status": "WON",
+        "key": "leg_740093896_2_hou_ml",
+        "actual_stat": "26-3"
       },
       {
         "leg_num": 3,
@@ -17369,8 +17479,9 @@
         "line": -5,
         "price": "-108",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_740093896_3_det_spread"
+        "status": "WON",
+        "key": "leg_740093896_3_det_spread",
+        "actual_stat": "+24"
       },
       {
         "leg_num": 4,
@@ -17382,8 +17493,9 @@
         "line": null,
         "price": "-165",
         "game_start": "10/11/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_740093896_4_atl_ml"
+        "status": "LOST",
+        "key": "leg_740093896_4_atl_ml",
+        "actual_stat": "23-30"
       },
       {
         "leg_num": 5,
@@ -17395,8 +17507,9 @@
         "line": null,
         "price": "-176",
         "game_start": "10/11/2026 @ 10:10 AM",
-        "status": "PENDING",
-        "key": "leg_740093896_5_was_ml"
+        "status": "PUSH",
+        "key": "leg_740093896_5_was_ml",
+        "actual_stat": "27-27"
       },
       {
         "leg_num": 6,
@@ -17408,8 +17521,9 @@
         "line": null,
         "price": "-188",
         "game_start": "10/11/2026 @ 01:05 PM",
-        "status": "PENDING",
-        "key": "leg_740093896_6_den_ml"
+        "status": "WON",
+        "key": "leg_740093896_6_den_ml",
+        "actual_stat": "23-17"
       },
       {
         "leg_num": 7,
@@ -17424,7 +17538,10 @@
         "status": "PENDING",
         "key": "leg_740093896_7_buf_spread"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -25,
+    "graded_at": "2026-10-12T10:30:03.522Z"
   },
   {
     "id": "bet_20261011_betonline_td_rebuild_6leg",
@@ -17444,11 +17561,11 @@
     "stake_usd": 2.73,
     "units": 0.273,
     "odds_american": "+24700",
-    "odds_decimal": 248.0,
+    "odds_decimal": 248,
     "potential_profit_usd": 674.31,
     "potential_payout_usd": 677.04,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "progress_notes": "Placed by Andy 2026-10-11 ~09:58 PT at a $2.73 book-limited stake. Replacement for the Tuten-containing #1004236400: Tuten replaced by Zay Flowers, and Braelon Allen 1+ TD was left off (6 legs). Confirmation screen showed no ticket number (add when supplied). Book inferred; Andy to confirm. | Ticket number 1004495970 added from Andy's ticket list 2026-10-11 ~10:45 PT.",
     "legs": [
       {
@@ -17464,8 +17581,9 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_tdrebuild_1"
+        "status": "LOST",
+        "key": "leg_tdrebuild_1",
+        "actual_stat": 0
       },
       {
         "leg_num": 2,
@@ -17481,7 +17599,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 01:25 PM",
         "status": "PENDING",
-        "key": "leg_tdrebuild_2"
+        "key": "leg_tdrebuild_2",
+        "actual_stat": null
       },
       {
         "leg_num": 3,
@@ -17496,8 +17615,9 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_tdrebuild_3"
+        "status": "WON",
+        "key": "leg_tdrebuild_3",
+        "actual_stat": 1
       },
       {
         "leg_num": 4,
@@ -17513,7 +17633,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_tdrebuild_4"
+        "key": "leg_tdrebuild_4",
+        "actual_stat": null
       },
       {
         "leg_num": 5,
@@ -17528,8 +17649,9 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_tdrebuild_5"
+        "status": "WON",
+        "key": "leg_tdrebuild_5",
+        "actual_stat": 1
       },
       {
         "leg_num": 6,
@@ -17544,10 +17666,14 @@
         "price_source": "bet confirmation screen",
         "direction": "over",
         "game_start": "10/11/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_tdrebuild_6"
+        "status": "LOST",
+        "key": "leg_tdrebuild_6",
+        "actual_stat": 0
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -2.73,
+    "graded_at": "2026-10-12T10:30:03.522Z"
   },
   {
     "id": "bet_20261011_betonline_1004494024",
@@ -17567,7 +17693,7 @@
     "stake_usd": 5,
     "units": 0.5,
     "odds_american": "+19600",
-    "odds_decimal": 197.0,
+    "odds_decimal": 197,
     "potential_profit_usd": 980,
     "potential_payout_usd": 985,
     "status": "PENDING",
@@ -17588,7 +17714,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_1004494024_1"
+        "key": "leg_1004494024_1",
+        "actual_stat": null
       },
       {
         "leg_num": 2,
@@ -17603,8 +17730,9 @@
         "price_source": "pre-placement slip Andy pasted 2026-10-11 ~09:52 PT (ticket shows no per-leg price)",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1004494024_2"
+        "status": "WON",
+        "key": "leg_1004494024_2",
+        "actual_stat": 1
       },
       {
         "leg_num": 3,
@@ -17620,7 +17748,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_1004494024_3"
+        "key": "leg_1004494024_3",
+        "actual_stat": null
       },
       {
         "leg_num": 4,
@@ -17636,7 +17765,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 01:25 PM",
         "status": "PENDING",
-        "key": "leg_1004494024_4"
+        "key": "leg_1004494024_4",
+        "actual_stat": null
       },
       {
         "leg_num": 5,
@@ -17651,8 +17781,9 @@
         "price_source": "pre-placement slip Andy pasted 2026-10-11 ~09:52 PT (ticket shows no per-leg price)",
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_1004494024_5"
+        "status": "WON",
+        "key": "leg_1004494024_5",
+        "actual_stat": 6
       },
       {
         "leg_num": 6,
@@ -17668,7 +17799,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_1004494024_6"
+        "key": "leg_1004494024_6",
+        "actual_stat": null
       },
       {
         "leg_num": 7,
@@ -17684,7 +17816,8 @@
         "direction": "over",
         "game_start": "10/11/2026 @ 10:00 AM",
         "status": "PENDING",
-        "key": "leg_1004494024_7"
+        "key": "leg_1004494024_7",
+        "actual_stat": null
       },
       {
         "leg_num": 8,
@@ -17700,8 +17833,619 @@
         "direction": "under",
         "game_start": "10/11/2026 @ 05:20 PM",
         "status": "PENDING",
-        "key": "leg_1004494024_8"
+        "key": "leg_1004494024_8",
+        "actual_stat": null
       }
     ]
+  },
+  {
+    "id": "bet_20261011_betonline_1004549505_5team_parlay",
+    "ticket_number": "1004549505",
+    "placed_at": "2026-10-11",
+    "season": 2026,
+    "week": 5,
+    "date": "2026-10-11",
+    "game": "Week 5 Sunday/Monday Multi-Game",
+    "category": "Parlay",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "status": "SETTLED",
+    "result": "loss",
+    "game_title": "Week 5 5-team parlay (SF +3.5 / DET ML / BUF-LAR O54 / ATL ML / DEN-LAC U43, bought half-points)",
+    "book": "BetOnline",
+    "ticket_type": "Parlay (5 Teams)",
+    "cash_risk_usd": 17.29,
+    "stake_usd": 17.29,
+    "units": 1.729,
+    "odds_american": "+1206",
+    "odds_decimal": 13.06,
+    "potential_profit_usd": 208.52,
+    "potential_payout_usd": 225.81,
+    "progress_notes": "Official BetOnline ticket #1004549505 accepted 10/11/26, supplied by Andy 2026-10-11 ~13:02 PT, $17.29 to win $208.52. Half-points bought on SF (+3.5), BUF/LAR total (54) and DEN/LAC total (43). Game times on slip are ET; converted to PT. Odds derived from risk/win.",
+    "legs": [
+      {
+        "leg_num": 1,
+        "game": "SF @ SEA",
+        "team": "SF",
+        "opponent": "SEA",
+        "market": "spread",
+        "selection": "San Francisco 49ers +3.5 (bought half point)",
+        "line": 3.5,
+        "price": "-134",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "WON",
+        "key": "leg_1004549505_1_sf_spread",
+        "actual_stat": "+3"
+      },
+      {
+        "leg_num": 2,
+        "game": "DET @ ARI",
+        "team": "DET",
+        "opponent": "ARI",
+        "market": "moneyline",
+        "selection": "Detroit Lions Moneyline",
+        "line": null,
+        "price": "-245",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "WON",
+        "key": "leg_1004549505_2_det_ml",
+        "actual_stat": "45-21"
+      },
+      {
+        "leg_num": 3,
+        "game": "BUF @ LAR",
+        "team": null,
+        "opponent": null,
+        "market": "total",
+        "selection": "Over 54 (Buffalo Bills vs Los Angeles Rams) (bought half point)",
+        "line": 54,
+        "price": "-120",
+        "game_start": "10/12/2026 @ 05:15 PM",
+        "status": "PENDING",
+        "key": "leg_1004549505_3_buf_lar_over",
+        "direction": "over"
+      },
+      {
+        "leg_num": 4,
+        "game": "BAL @ ATL",
+        "team": "ATL",
+        "opponent": "BAL",
+        "market": "moneyline",
+        "selection": "Atlanta Falcons Moneyline",
+        "line": null,
+        "price": "-175",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "LOST",
+        "key": "leg_1004549505_4_atl_ml",
+        "actual_stat": "23-30"
+      },
+      {
+        "leg_num": 5,
+        "game": "DEN @ LAC",
+        "team": null,
+        "opponent": null,
+        "market": "total",
+        "selection": "Under 43 (Denver Broncos vs Los Angeles Chargers) (bought half point)",
+        "line": 43,
+        "price": "-120",
+        "game_start": "10/11/2026 @ 01:05 PM",
+        "status": "WON",
+        "key": "leg_1004549505_5_den_lac_under",
+        "direction": "under",
+        "actual_stat": 40
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -17.29,
+    "graded_at": "2026-10-12T10:30:03.522Z"
+  },
+  {
+    "id": "bet_20261011_bkr_740111777_5team_parlay",
+    "ticket_number": "740111777",
+    "placed_at": "2026-10-11T12:55:00-07:00",
+    "season": 2026,
+    "week": 5,
+    "date": "2026-10-11",
+    "game": "Week 5 Sunday/Monday Multi-Game",
+    "category": "Parlay",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "status": "SETTLED",
+    "result": "loss",
+    "game_title": "Week 5 5-team parlay (DET -4.5 / BUF +3.5 / DEN -3 / ATL ML / SF +3.5)",
+    "book": "Bookmaker",
+    "ticket_type": "Parlay (5 Teams)",
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
+    "units": 1,
+    "odds_american": "+1666",
+    "odds_decimal": 17.656,
+    "potential_profit_usd": 166.56,
+    "potential_payout_usd": 176.56,
+    "cash_out_offer_usd_at_ingest": 4.84,
+    "external_url": "https://be.bookmaker.eu/#ticket_740111777",
+    "progress_notes": "Official Bookmaker ticket #740111777 placed 10/11/2026 12:55 PM PT, supplied by Andy ~13:02 PT. $10 to win $166.56; cash-out offer at ingest $4.84. Odds derived from risk/win.",
+    "legs": [
+      {
+        "leg_num": 1,
+        "game": "DET @ ARI",
+        "team": "DET",
+        "opponent": "ARI",
+        "market": "spread",
+        "selection": "Detroit Lions -4.5",
+        "line": -4.5,
+        "price": "-117",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "WON",
+        "key": "leg_740111777_1_det_spread",
+        "actual_stat": "+24"
+      },
+      {
+        "leg_num": 2,
+        "game": "BUF @ LAR",
+        "team": "BUF",
+        "opponent": "LAR",
+        "market": "spread",
+        "selection": "Buffalo Bills +3.5",
+        "line": 3.5,
+        "price": "-113",
+        "game_start": "10/12/2026 @ 05:15 PM",
+        "status": "PENDING",
+        "key": "leg_740111777_2_buf_spread"
+      },
+      {
+        "leg_num": 3,
+        "game": "DEN @ LAC",
+        "team": "DEN",
+        "opponent": "LAC",
+        "market": "spread",
+        "selection": "Denver Broncos -3",
+        "line": -3,
+        "price": "-124",
+        "game_start": "10/11/2026 @ 01:05 PM",
+        "status": "WON",
+        "key": "leg_740111777_3_den_spread",
+        "actual_stat": "+6"
+      },
+      {
+        "leg_num": 4,
+        "game": "BAL @ ATL",
+        "team": "ATL",
+        "opponent": "BAL",
+        "market": "moneyline",
+        "selection": "Atlanta Falcons Moneyline",
+        "line": null,
+        "price": "-165",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "LOST",
+        "key": "leg_740111777_4_atl_ml",
+        "actual_stat": "23-30"
+      },
+      {
+        "leg_num": 5,
+        "game": "SF @ SEA",
+        "team": "SF",
+        "opponent": "SEA",
+        "market": "spread",
+        "selection": "San Francisco 49ers +3.5",
+        "line": 3.5,
+        "price": "-135",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "WON",
+        "key": "leg_740111777_5_sf_spread",
+        "actual_stat": "+3"
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -10,
+    "graded_at": "2026-10-12T10:30:03.522Z"
+  },
+  {
+    "season": 2026,
+    "week": 5,
+    "date": "2026-10-11",
+    "placed_at": "2026-10-11",
+    "game": "Week 5 Sunday Multi-Game",
+    "category": "Prop Parlay",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "book": "BetOnline",
+    "status": "SETTLED",
+    "result": "loss",
+    "id": "bet_20261011_betonline_1004562475",
+    "ticket_number": "1004562475",
+    "game_title": "Week 5 6-leg TD prop parlay (Deebo / St. Brown 2+ / Bijan / JSN / Henry / Love)",
+    "ticket_type": "Future/Prop Parlay (6 Legs)",
+    "cash_risk_usd": 4.35,
+    "stake_usd": 4.35,
+    "units": 0.435,
+    "odds_american": "+10700",
+    "odds_decimal": 108,
+    "potential_profit_usd": 465.45,
+    "potential_payout_usd": 469.8,
+    "progress_notes": "Official BetOnline ticket #1004562475 accepted 10/11/26, supplied by Andy 2026-10-11 ~13:25 PT, $4.35 to win $465.45. Odds derived from risk/win. Slip shows no per-leg prices.",
+    "legs": [
+      {
+        "leg_num": 1,
+        "game": "SF @ SEA",
+        "player": "Deebo Samuel Sr.",
+        "team": "SF",
+        "opponent": "SEA",
+        "market": "anytime_touchdown",
+        "selection": "Deebo Samuel Sr. 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "LOST",
+        "key": "leg_1004562475_1_deebo_atd",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 2,
+        "game": "DET @ ARI",
+        "player": "Amon-Ra St. Brown",
+        "team": "DET",
+        "opponent": "ARI",
+        "market": "touchdowns_2_plus",
+        "selection": "Amon-Ra St. Brown 2+ Touchdowns",
+        "line": 1.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_1004562475_2_arsb_2td",
+        "actual_stat": null
+      },
+      {
+        "leg_num": 3,
+        "game": "BAL @ ATL",
+        "player": "Bijan Robinson",
+        "team": "ATL",
+        "opponent": "BAL",
+        "market": "anytime_touchdown",
+        "selection": "Bijan Robinson 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "LOST",
+        "key": "leg_1004562475_3_bijan_atd",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 4,
+        "game": "SF @ SEA",
+        "player": "Jaxon Smith-Njigba",
+        "team": "SEA",
+        "opponent": "SF",
+        "market": "anytime_touchdown",
+        "selection": "Jaxon Smith-Njigba 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "WON",
+        "key": "leg_1004562475_4_jsn_atd",
+        "actual_stat": 1
+      },
+      {
+        "leg_num": 5,
+        "game": "BAL @ ATL",
+        "player": "Derrick Henry",
+        "team": "BAL",
+        "opponent": "ATL",
+        "market": "anytime_touchdown",
+        "selection": "Derrick Henry 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "WON",
+        "key": "leg_1004562475_5_henry_atd",
+        "actual_stat": 1
+      },
+      {
+        "leg_num": 6,
+        "game": "DET @ ARI",
+        "player": "Jeremiyah Love",
+        "team": "ARI",
+        "opponent": "DET",
+        "market": "anytime_touchdown",
+        "selection": "Jeremiyah Love 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "LOST",
+        "key": "leg_1004562475_6_love_atd",
+        "actual_stat": 0
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -4.35,
+    "graded_at": "2026-10-12T10:30:03.522Z"
+  },
+  {
+    "season": 2026,
+    "week": 5,
+    "date": "2026-10-11",
+    "placed_at": "2026-10-11",
+    "game": "Week 5 Sunday Multi-Game",
+    "category": "Prop Parlay",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "book": "BetOnline",
+    "status": "PENDING",
+    "result": null,
+    "id": "bet_20261011_betonline_1004561835",
+    "ticket_number": "1004561835",
+    "game_title": "Week 5 6-leg hybrid parlay (Purdy / Bijan / JSN TD / LaPorta / Evans TD / Henry U / DET ML)",
+    "ticket_type": "Future/Prop Parlay (7 Legs)",
+    "cash_risk_usd": 5,
+    "stake_usd": 5,
+    "units": 0.5,
+    "odds_american": "+6400",
+    "odds_decimal": 65,
+    "potential_profit_usd": 320,
+    "potential_payout_usd": 325,
+    "progress_notes": "Official BetOnline ticket #1004561835 accepted 10/11/26, supplied by Andy 2026-10-11 ~13:25 PT, $5 to win $320. Slip lists 6 prop legs plus a DET (DET @ ARI) win leg, so 7 legs logged; Andy to confirm leg count. Odds derived from risk/win. Slip shows no per-leg prices.",
+    "legs": [
+      {
+        "leg_num": 1,
+        "game": "SF @ SEA",
+        "player": "Brock Purdy",
+        "team": "SF",
+        "opponent": "SEA",
+        "market": "pass_yds",
+        "selection": "Brock Purdy Over 228.5 Passing Yards",
+        "line": 228.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_1004561835_1_purdy_pyds",
+        "actual_stat": null
+      },
+      {
+        "leg_num": 2,
+        "game": "BAL @ ATL",
+        "player": "Bijan Robinson",
+        "team": "ATL",
+        "opponent": "BAL",
+        "market": "rush_yds",
+        "selection": "Bijan Robinson Over 86.5 Rushing Yards",
+        "line": 86.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "PENDING",
+        "key": "leg_1004561835_2_bijan_ryds",
+        "actual_stat": null
+      },
+      {
+        "leg_num": 3,
+        "game": "SF @ SEA",
+        "player": "Jaxon Smith-Njigba",
+        "team": "SEA",
+        "opponent": "SF",
+        "market": "anytime_touchdown",
+        "selection": "Jaxon Smith-Njigba 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "WON",
+        "key": "leg_1004561835_3_jsn_atd",
+        "actual_stat": 1
+      },
+      {
+        "leg_num": 4,
+        "game": "DET @ ARI",
+        "player": "Sam LaPorta",
+        "team": "DET",
+        "opponent": "ARI",
+        "market": "rec_yds",
+        "selection": "Sam LaPorta Over 53.5 Receiving Yards",
+        "line": 53.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_1004561835_4_laporta_ryds",
+        "actual_stat": null
+      },
+      {
+        "leg_num": 5,
+        "game": "SF @ SEA",
+        "player": "Mike Evans",
+        "team": "SF",
+        "opponent": "SEA",
+        "market": "anytime_touchdown",
+        "selection": "Mike Evans 1+ Touchdowns",
+        "line": 0.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "WON",
+        "key": "leg_1004561835_5_evans_atd",
+        "actual_stat": 1
+      },
+      {
+        "leg_num": 6,
+        "game": "BAL @ ATL",
+        "player": "Derrick Henry",
+        "team": "BAL",
+        "opponent": "ATL",
+        "market": "rush_yds",
+        "selection": "Derrick Henry Under 78.5 Rushing Yards",
+        "line": 78.5,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "direction": "under",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "PENDING",
+        "key": "leg_1004561835_6_henry_ryds_u",
+        "actual_stat": null
+      },
+      {
+        "leg_num": 7,
+        "game": "DET @ ARI",
+        "team": "DET",
+        "opponent": "ARI",
+        "market": "moneyline",
+        "selection": "Detroit Lions Moneyline",
+        "line": null,
+        "price": null,
+        "price_source": "ticket shows no per-leg price",
+        "game_start": "10/11/2026 @ 01:25 PM",
+        "status": "WON",
+        "key": "leg_1004561835_7_det_ml",
+        "actual_stat": "45-21"
+      }
+    ]
+  },
+  {
+    "id": "bet_20261011_betonline_snf_island_6leg",
+    "ticket_number": "pending-not-supplied",
+    "placed_at": "2026-10-11",
+    "date": "2026-10-11",
+    "season": 2026,
+    "week": 5,
+    "game": "BAL @ ATL",
+    "game_title": "Week 5 SNF island 6-leg parlay (London / Flowers / Bijan TD, Pitts rec, Huntley INT, Thomas sack)",
+    "book": "BetOnline",
+    "ticket_type": "Future/Prop Parlay (6 Legs)",
+    "category": "Prop Parlay",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "cash_risk_usd": 5,
+    "stake_usd": 5,
+    "units": 0.5,
+    "odds_american": "+6100",
+    "odds_decimal": 62,
+    "potential_profit_usd": 305,
+    "potential_payout_usd": 310,
+    "status": "SETTLED",
+    "result": "loss",
+    "progress_notes": "Official bet confirmation (\"Your bet was successfully submitted\") supplied by Andy 2026-10-11 ~15:18 PT, $5 wager, return $310, +6100. No ticket number on the confirmation; add when supplied. Book per Andy: prop parlays are BetOnline. Per-leg prices from the confirmation.",
+    "legs": [
+      {
+        "leg_num": 1,
+        "game": "BAL @ ATL",
+        "player": "Drake London",
+        "team": "ATL",
+        "opponent": "BAL",
+        "market": "anytime_touchdown",
+        "selection": "Drake London 1+ Touchdowns",
+        "line": 0.5,
+        "price": 120,
+        "price_source": "submitted bet confirmation (per-leg prices shown)",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "LOST",
+        "key": "leg_snf_island_1_london_atd",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 2,
+        "game": "BAL @ ATL",
+        "player": "Zay Flowers",
+        "team": "BAL",
+        "opponent": "ATL",
+        "market": "anytime_touchdown",
+        "selection": "Zay Flowers 1+ Touchdowns",
+        "line": 0.5,
+        "price": 200,
+        "price_source": "submitted bet confirmation (per-leg prices shown)",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "LOST",
+        "key": "leg_snf_island_2_flowers_atd",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 3,
+        "game": "BAL @ ATL",
+        "player": "Bijan Robinson",
+        "team": "ATL",
+        "opponent": "BAL",
+        "market": "anytime_touchdown",
+        "selection": "Bijan Robinson 1+ Touchdowns",
+        "line": 0.5,
+        "price": -251,
+        "price_source": "submitted bet confirmation (per-leg prices shown)",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "LOST",
+        "key": "leg_snf_island_3_bijan_atd",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 4,
+        "game": "BAL @ ATL",
+        "player": "Kyle Pitts",
+        "team": "ATL",
+        "opponent": "BAL",
+        "market": "receptions",
+        "selection": "Kyle Pitts 2+ Receptions",
+        "line": 1.5,
+        "price": -334,
+        "price_source": "submitted bet confirmation (per-leg prices shown)",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "WON",
+        "key": "leg_snf_island_4_pitts_rec",
+        "actual_stat": 5
+      },
+      {
+        "leg_num": 5,
+        "game": "BAL @ ATL",
+        "player": "Tyler Huntley",
+        "team": "BAL",
+        "opponent": "ATL",
+        "market": "interceptions",
+        "selection": "Tyler Huntley 1+ Pass Interceptions",
+        "line": 0.5,
+        "price": 102,
+        "price_source": "submitted bet confirmation (per-leg prices shown)",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "LOST",
+        "key": "leg_snf_island_5_huntley_int",
+        "actual_stat": 0
+      },
+      {
+        "leg_num": 6,
+        "game": "BAL @ ATL",
+        "player": "Cameron Thomas",
+        "team": "ATL",
+        "opponent": "BAL",
+        "market": "sacks",
+        "selection": "Cameron Thomas 1+ Sacks",
+        "line": 0.5,
+        "price": 200,
+        "price_source": "submitted bet confirmation (per-leg prices shown)",
+        "direction": "over",
+        "game_start": "10/11/2026 @ 05:20 PM",
+        "status": "PUSH",
+        "key": "leg_snf_island_6_thomas_sack",
+        "actual_stat": 0.5
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-12T10:30:03.523Z"
   }
 ]

@@ -81,3 +81,9 @@
 ## Betting Rules & Card Building
 
 - **Treating a playbook proposal as a standing rule** (2026-10-04, Andy correction): the Week 4 card and a Claude session excluded full-game unders from parlays as a "house rule". The source was the *Week 4 proposal* section of `docs/claude-project-dev/week4-playbook-2026.md` ("Andy's call"), not a rule Andy adopted. Rule: the only betting rules are Andy's standing rules (`agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md` §7.2, HANDOFF "Active rules") and the data-derived build rules (§5 table). Playbook "Cut"/"Rules" bullets are proposals until Andy confirms them; cite them as "playbook proposal", never "house rule", and never drop a leg on one alone.
+
+---
+
+## Live Tracker
+
+- **Market-name substring matching must cover the ledger's real slugs**: `scripts/generate-live-tracker.mjs` graded prop legs with `market.includes('yard')` and `includes('complet')`, but the ledger stores `rec_yds`, `rush_yds`, `pass_yds` and `pass_cmp`, so every yardage and completions leg read 0 live (Week 5: Collins at 3 rec / 45 yds showed 0). Fixed 2026-10-11 to `/yard|yds/` and `/complet|cmp/` in all three grading blocks. Rule: when adding a ledger market slug, grep the tracker's three grading blocks (leg pacing, sub-gauge, cheat sheet) and confirm the slug matches before the games start; verify with a live ESPN box score, not only a clean build.

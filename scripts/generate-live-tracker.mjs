@@ -6465,11 +6465,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             // rushTd+recTd (almost always 0 for a passer) and could never show a real value.
             if ((market.includes('touchdown') || market.includes('td')) && !market.includes('pass')) {
               currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
-            } else if (market.includes('complet')) {
+            } else if (/complet|cmp/.test(market)) {
               currentVal = stats.passComp || 0;
-            } else if (market.includes('rush') && market.includes('yard')) {
+            } else if (market.includes('rush') && /yard|yds/.test(market)) {
               currentVal = stats.rushYds || 0;
-            } else if (market.includes('rec') && market.includes('yard')) {
+            } else if (market.includes('rec') && /yard|yds/.test(market)) {
               currentVal = stats.recYds || 0;
             } else if (market.includes('reception')) {
               currentVal = stats.rec || 0;
@@ -6477,7 +6477,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               currentVal = stats.car || 0;
             } else if (market.includes('pass') && (market.includes('att') || market.includes('attempt'))) {
               currentVal = stats.passAtt || 0;
-            } else if (market.includes('pass') && market.includes('yard')) {
+            } else if (market.includes('pass') && /yard|yds/.test(market)) {
               currentVal = stats.passYds || 0;
             } else if (market.includes('pass') && (market.includes('td') || market.includes('touchdown'))) {
               currentVal = stats.passTd || 0;
@@ -6623,11 +6623,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
           // instead of always resolving to rushTd+recTd (0 for a passer).
           if ((market.includes('touchdown') || market.includes('td')) && !market.includes('pass')) {
             currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
-          } else if (market.includes('complet')) {
+          } else if (/complet|cmp/.test(market)) {
               currentVal = stats.passComp || 0;
-            } else if (market.includes('rush') && market.includes('yard')) {
+            } else if (market.includes('rush') && /yard|yds/.test(market)) {
             currentVal = stats.rushYds || 0;
-          } else if (market.includes('rec') && market.includes('yard')) {
+          } else if (market.includes('rec') && /yard|yds/.test(market)) {
             currentVal = stats.recYds || 0;
           } else if (market.includes('reception')) {
             currentVal = stats.rec || 0;
@@ -6635,7 +6635,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             currentVal = stats.car || 0;
           } else if (market.includes('pass') && (market.includes('att') || market.includes('attempt'))) {
             currentVal = stats.passAtt || 0;
-          } else if (market.includes('pass') && market.includes('yard')) {
+          } else if (market.includes('pass') && /yard|yds/.test(market)) {
             currentVal = stats.passYds || 0;
           } else if (market.includes('pass') && (market.includes('td') || market.includes('touchdown'))) {
             currentVal = stats.passTd || 0;
@@ -7633,11 +7633,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             // real passTd branch a few lines down was dead code for that market.
             if ((rawMarket.includes('touchdown') || rawMarket.includes('td')) && !rawMarket.includes('pass')) {
               currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
-            } else if (rawMarket.includes('complet')) {
+            } else if (/complet|cmp/.test(rawMarket)) {
               currentVal = stats.passComp || 0;
-            } else if (rawMarket.includes('rush') && rawMarket.includes('yard')) {
+            } else if (rawMarket.includes('rush') && /yard|yds/.test(rawMarket)) {
               currentVal = stats.rushYds || 0;
-            } else if (rawMarket.includes('rec') && rawMarket.includes('yard')) {
+            } else if (rawMarket.includes('rec') && /yard|yds/.test(rawMarket)) {
               currentVal = stats.recYds || 0;
             } else if (rawMarket.includes('reception')) {
               currentVal = stats.rec || 0;
@@ -7645,7 +7645,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               currentVal = stats.car || 0;
             } else if (rawMarket.includes('pass') && (rawMarket.includes('att') || rawMarket.includes('attempt'))) {
               currentVal = stats.passAtt || 0;
-            } else if (rawMarket.includes('pass') && rawMarket.includes('yard')) {
+            } else if (rawMarket.includes('pass') && /yard|yds/.test(rawMarket)) {
               currentVal = stats.passYds || 0;
             } else if (rawMarket.includes('pass') && (rawMarket.includes('td') || rawMarket.includes('touchdown'))) {
               currentVal = stats.passTd || 0;
