@@ -1096,7 +1096,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
   // named-player test separates them cleanly; the market fallback mirrors the
   // isPropLeg check in renderCard(). The multi-leg guard keeps straight futures
   // (e.g. a single-leg Super Bowl ticket, also categorised "Future/Prop") out.
-  const NON_PROP_MARKETS = ['spread', 'moneyline', 'total', 'team_total', 'open_slot'];
+  const NON_PROP_MARKETS = ['spread', 'moneyline', 'total', 'alternate_total_points', 'team_total', 'open_slot'];
   function isPropParlay(bet) {
     const legs = Array.isArray(bet.legs) ? bet.legs : [];
     if (legs.length < 2) return false;
@@ -1748,7 +1748,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                 const sourceTag = !isBook ? `<span class="source-tag" title="Source: ${rawSource}">🎙️ ${rawSource}</span>` : '';
 
                 // Player prop progress gauge
-                const isPropLeg = !!(leg.player || (leg.market && !['spread', 'moneyline', 'total', 'team_total', 'open_slot'].includes(String(leg.market).toLowerCase())));
+                const isPropLeg = !!(leg.player || (leg.market && !['spread', 'moneyline', 'total', 'alternate_total_points', 'team_total', 'open_slot'].includes(String(leg.market).toLowerCase())));
                 const target = leg.line ?? (leg.selection?.match(/(\d+(\.\d+)?)/)?.[1] ? parseFloat(leg.selection.match(/(\d+(\.\d+)?)/)[1]) : 1);
                 const statText = isWon ? (leg.actual_stat ? `${leg.actual_stat} / ${target} ✅` : `${target} / ${target} ✅`) : `0 / ${target}`;
                 const barWidth = isWon ? '100%' : '0%';
@@ -1771,7 +1771,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                     gameLabel = `${normalizeTeam(schedG.visitor)} @ ${normalizeTeam(schedG.home)}`;
                   }
                 }
-                const isTotalLeg = leg.market === 'total' || leg.market === 'team_total' || (!leg.player && /^(over|under)\b/i.test(cleanSelection));
+                const isTotalLeg = leg.market === 'total' || leg.market === 'alternate_total_points' || leg.market === 'team_total' || (!leg.player && /^(over|under)\b/i.test(cleanSelection));
 
                 return `
                 <div class="${legClass} ${initialPacingClass}" id="leg-${legKey}" data-key="${legKey}" data-open-slot="${isOpenSlot ? '1' : '0'}" data-player="${leg.player || ''}" data-market="${leg.market || ''}" data-target="${target}" data-direction="${legDirection(leg)}" data-team="${legTeam}" data-opp="${leg.opponent || ''}" data-line="${leg.line ?? ''}" data-selection="${escapeHtml(leg.selection || '')}" data-game="${escapeHtml(gameLabel)}" data-kickoff="${kickoffTimestamp}" data-kickoff-text="${kickoffShort}" onclick="${isOpenSlot ? '' : `toggleLeg('${legKey}', '${bet.id}')`}">
@@ -6467,6 +6467,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
             } else if (/complet|cmp/.test(market)) {
               currentVal = stats.passComp || 0;
+            } else if (market.includes('rush') && /rec/.test(market) && /yard|yds/.test(market)) {
+              currentVal = (stats.rushYds || 0) + (stats.recYds || 0); // combined rush+rec yards market
             } else if (market.includes('rush') && /yard|yds/.test(market)) {
               currentVal = stats.rushYds || 0;
             } else if (market.includes('rec') && /yard|yds/.test(market)) {
@@ -6625,6 +6627,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
           } else if (/complet|cmp/.test(market)) {
               currentVal = stats.passComp || 0;
+            } else if (market.includes('rush') && /rec/.test(market) && /yard|yds/.test(market)) {
+              currentVal = (stats.rushYds || 0) + (stats.recYds || 0); // combined rush+rec yards market
             } else if (market.includes('rush') && /yard|yds/.test(market)) {
             currentVal = stats.rushYds || 0;
           } else if (market.includes('rec') && /yard|yds/.test(market)) {
@@ -7635,6 +7639,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               currentVal = (stats.rushTd || 0) + (stats.recTd || 0);
             } else if (/complet|cmp/.test(rawMarket)) {
               currentVal = stats.passComp || 0;
+            } else if (rawMarket.includes('rush') && /rec/.test(rawMarket) && /yard|yds/.test(rawMarket)) {
+              currentVal = (stats.rushYds || 0) + (stats.recYds || 0); // combined rush+rec yards market
             } else if (rawMarket.includes('rush') && /yard|yds/.test(rawMarket)) {
               currentVal = stats.rushYds || 0;
             } else if (rawMarket.includes('rec') && /yard|yds/.test(rawMarket)) {
@@ -7754,7 +7760,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         // "over"/"under"), so team total legs always fell through with no live update at all
         // and stayed frozen at whatever their pre-game/0 default was.
         const isTeamTotal = rawMarket === 'team_total' || (rawMarket.includes('team') && rawMarket.includes('total'));
-        const isTotal = !isTeamTotal && (rawMarket === 'total' || rawMarket.includes('under') || rawMarket.includes('over'));
+        const isTotal = !isTeamTotal && (rawMarket === 'total' || rawMarket.startsWith('alternate_total') || rawMarket.includes('under') || rawMarket.includes('over'));
 
         if (isSpread && !isNaN(lineVal)) {
           const cushion = (myScore + lineVal) - oppScore;

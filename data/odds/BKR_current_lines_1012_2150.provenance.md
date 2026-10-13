@@ -1,0 +1,1 @@
+Week 6 OPENING lines (BKR / be.bookmaker.eu), pasted by Andy Mon 2026-10-12 ~21:49 PT, normalized from his paste. Treat as opening line for each Week 6 matchup. Paste ended after WSH@SF (Oct 19) - remaining Oct 19/20 games (and any byes) were not included; times shown as in the paste (PT labels as given). Spread prices are listed away/home as shown on the site.
