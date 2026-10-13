@@ -386,6 +386,13 @@ async function run() {
     console.log('\n⚙️ Parsing and validating against Acceptance Gate...');
     const { events, allRows, summary, masterPayload } = parseBetOnlineDump(rawDumpText, dateStr, weekNum);
 
+    try {
+      const failRaw = path.join(REPO_ROOT, 'data', 'generated', 'props', `betonline-live-${dateStr}-week${weekNum}.pregate.raw.txt`);
+      fs.mkdirSync(path.dirname(failRaw), { recursive: true });
+      fs.writeFileSync(failRaw, rawDumpText, 'utf8');
+      console.log(`💾 Pre-gate raw dump kept: ${failRaw}`);
+    } catch {}
+
     const gate = validateAcceptanceGate({ targetGames, events, allRows, masterPayload });
     if (!gate.passed) {
       console.error('\n❌ ACCEPTANCE GATE FAILED:');

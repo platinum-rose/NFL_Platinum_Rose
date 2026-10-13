@@ -128,6 +128,8 @@
     "props:bol:launch": "powershell -ExecutionPolicy Bypass -File scripts/props/launch-bol-browser.ps1",
     "runbolprops": "node scripts/props/cron-bol-scrape.mjs",
     "bolp": "node scripts/props/cron-bol-scrape.mjs",
+    "futures:bol": "node scripts/props/cron-bol-futures-scrape.mjs",
+    "dossiers:postmortem": "node scripts/build-team-postmortems.mjs --week=6",
     "props:dkp:cron": "node scripts/props/cron-dkp-scrape.mjs",
     "props:dkp:launch": "powershell -ExecutionPolicy Bypass -File scripts/props/launch-dkp-browser.ps1",
     "rundkprops": "node scripts/props/cron-dkp-scrape.mjs",

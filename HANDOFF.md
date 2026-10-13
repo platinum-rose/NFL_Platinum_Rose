@@ -3,15 +3,16 @@
 > Start here. This is a routing index, not a transcript. One current pickup only.
 > Detail lives in dated `handoffs/`; superseded pickups are in git history and their dated files.
 
-## PICK UP HERE (Tue 2026-10-13 01:50 PT, quant synthesis calibrated and week-driven; FTN capture next)
+## PICK UP HERE (Tue 2026-10-13 ~15:00 PT, W6 dossiers + per-team postmortems current; synthesis inputs ready)
 
-Branch `claude/w5-prop-cards-2026-10-11`. HEAD is the handoff commit on top of code commit `a34c54f` (check `git log -1 --format=%s`). Monte Carlo review done; W5 quantitative synthesis now uses the calibrated engine, a zero-sum secondary term and `--week N`. Total-damping backtest: null result (keep totals at market). Suite not verified (`npx vitest run`).
-Dated detail: `handoffs/2026-10-13-0150-claude-quant-synthesis-calibrated-week-driven-handoff.md`.
+Branch `claude/w5-prop-cards-2026-10-11` (check `git log -1 --format=%s`). Dossiers current through W5 (FTN refreshed after MNF), 32 per-team postmortems built in `data/generated/team-dossiers/2026-w06/postmortem/`, W6 quantitative synthesis written (proposed analysis only). Suite not verified (`npx vitest run`).
+Dated detail: `handoffs/2026-10-13-1500-claude-w6-postmortems-dossiers-current-handoff.md`.
 
 Next, in order:
-1. Tue 7:00 AM PT scheduled FTN capture, then rerun `node scripts/build-team-dossiers.mjs --week=6` and `node scripts/validate-team-dossiers.mjs`, then `node scripts/build-w05-quantitative-synthesis.mjs --week 6 --dry-run` (write only with fresh FTN).
-2. Dossier availability/priors layer (roster gate); capture BKR ARI@LAR and BUF@LV when posted; native-Windows items listed in the dated handoff.
-3. Parked: player-prop game-state simulator (separate build with its own backtest).
+1. Fresh BKR W6 lines for all 14 games (ARI@LAR and BUF@LV still on a DK fallback), then rerun `node scripts/build-w05-quantitative-synthesis.mjs --week 6 --bkr <boards>`.
+2. Wed/Thu: BEO props (`npm run bolp -- --week 6`, needs >=500 rows) and BEO futures (`npm run futures:bol -- --dry-run`).
+3. Dossier availability/priors layer (roster gate); W6 secondary-matchup file; native-Windows items in the dated handoff.
+4. Parked: player-prop game-state simulator (separate build with its own backtest).
 
 ## Fast resume (do this, nothing more)
 
