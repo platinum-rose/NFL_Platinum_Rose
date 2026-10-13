@@ -1,0 +1,49 @@
+# DET Lions — dossier, target Week 6 (data through W5)
+Built 2026-10-13T07:26:14.627Z · git 12108e5 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
+Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN stale_1wk (through W4) · coaching historical_context_only · availability NOT BUILT.
+
+## Identity [Source: schedules.csv/coaching/slate]
+DET · NFC NFC North · HC Dan Campbell · Ford Field (dome, fieldturf) · W6: BYE
+
+## Standing [Source: data/generated/team-profiles/team-standings-2026-w05.json, through W5]
+3-2-0 (0.600) · PF 164 PA 148 (+16) · home 2-0-0 · away 1-2-0 · div 0-0-0 · conf 2-1-0 · streak W1 · div rank 3 · conf rank 6 (win% then point diff; not official tiebreakers)
+
+## Game log (ESPN, W1–W5)
+| Wk | Opp | H/A | Res | Score | Yds | YPP | Opp YPP | 3D% | RZ TD% | Sk (for/against) | TO (give/take) |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | NO | H | W | 31-30 | 369 | 5.1 | 5.5 | 0.385 | 0.80 | 5/1 | 1/3 |
+| 2 | BUF | A | L | 31-41 | 355 | 5.7 | 6.5 | 0.364 | 0.75 | 2/4 | 0/0 |
+| 3 | NYJ | H | W | 31-24 | 381 | 6 | 5.5 | 0.500 | 0.80 | 5/2 | 0/1 |
+| 4 | CAR | A | L | 26-32 | 452 | 6.6 | 6.2 | 0.333 | 0.50 | 3/1 | 0/0 |
+| 5 | ARI | A | W | 45-21 | 412 | 6.3 | 4.6 | 0.308 | 1 | 5/3 | 0/1 |
+Season (ESPN, 5g): 32.8 PPG / 29.6 allowed · 394 yd/g (5.94 YPP) vs 404 allowed (5.66) · 3D 0.373 · RZ TD 0.773 · sacks 4 made / 2.2 taken per g · TO margin +4 (1 give / 5 take) · 3.16 pts/drive
+
+## Efficiency (nflverse, through W5, current) [Source: data/generated/team-profiles/team-analytic-snapshots-2026-w5.json, data/generated/team-profiles/team-regression-snapshots-2026-w5.json]
+EPA/play off 0.190 (#3) · def 0.131 (#30) · EPA/dropback 0.323 · CPOE 1.32 · neutral pass rate 0.608 · sack rate allowed 0.054 / generated 0.086
+Pythag win% 0.560 (2.80 exp wins, delta 0.20, rank 12) · one-score 2-1
+Unavailable in source (null, not imputed): dropback_success_rate, success_rate, explosive_play_rate, explosive_pass_rate, explosive_run_rate, pressure_rate_allowed, pressure_rate_generated, early_down_pass_rate, shotgun_rate, no_huddle_rate, play_action_rate, motion_rate, fumble_recovery_pct, takeaway_margin, rz_td_pct_off, rz_td_pct_def, third_down_over_expected.
+
+## FTN Stats iQ (team tables; through W4, stale_1wk; statistical context only) [Source: data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json, generated 2026-10-09T22:15:31.022Z]
+- team-defense/efficiency: GP 4 · EPA/PLY 0.156 · DVOA 16.0% · SUCC% 47.4% · EXP% 12.4% · CONV% 56.9% · TO 4 · TO% 1.4% · 3&O 9.5% · MTKL% 7.7% · PEN% 4.1% · PENY 24.5
+- team-defense/overview: GP 4 · YD/PLY 6.1 · PT/GM 31.8 · FD% 36.1% · TO 4 · DPBK% 66.3% · YD 1,308 · TD 11 · INT 2 · RUSH% 33.7% · YD__2 479 · TD__2 6
+- team-defense/pass-rush: GP 4 · DPBK 193 · SK 15 · SK% 7.8% · QBH% 17.6% · PRESS 62 · PRESS% 32.1% · QPRESS% 56.5% · TTPR 2.41 · DISR% 1.0% · BLZ% 31.1%
+- team-defense/passing-analytics: GP 4 · EPA/DB 0.267 · SUCC% 51.8% · DVOA 23.9% · CPOE 3.36% · CBALL% 75.6% · EXP% 17.4% · INTW% 1.2% · TGHT% 32.1% · OPEN% 64.3% · TA% 6.0% · DROP% 3.6%
+- team-defense/rush-analytics: GP 4 · EPA/ATT -0.063 · SUCC% 38.8% · DVOA 2.4% · aRYOE  · EXP% 12.2% · STF% 21.4% · YBCO 1.09 · YACO 1.20
+- team-offense/efficiency: GP 4 · EPA/PLY 0.137 · DVOA 13.7% · SUCC% 49.1% · EXP% 9.4% · CONV% 41.5% · TO 0 · TO% 0.00% · PENY 32.3 · PEN% 7.12%
+- team-offense/overview: GP 4 · YD/PLY 6.1 · PT/GM 29.8 · FD% 34.8% · TO 0 · DPBK% 65.2% · YD 1,214 · TD 9 · INT 0 · RUSH% 34.8% · YD__2 408 · TD__2 5
+- team-offense/pass-protection: GP 4 · SK 8 · SK% 4.6% · QBSK% 50.0% · QBH% 14.9% · PRESS% 25.3% · UPRES% 34.1% · BLITZ% 32.8% · TTPR 2.41 · TTT 2.52 · EPA/DB -0.242 · DVOA -70.3% · SUCC% 31.8% · EPA/DB__2 0.407 · DVOA__2 62.7% · SUCC%__2 57.7%
+- team-offense/passing-analytics: GP 4 · EPA/DB 0.242 · SUCC% 51.1% · DVOA 35.6% · CPOE -0.5% · CBALL% 73.9% · EXP% 11.9% · INTW% 1.2% · HLT% 3.1% · TA% 1.9% · DROP% 4.3% · aDOT 7.6 · aYAC 4.1
+- team-offense/rushing-analytics: GP 4 · EPA/ATT -0.059 · SUCC% 45.2% · DVOA 9.5% · aRYOE  · EXP% 12.9% · STF% 22.6% · aYBCO 1.32 · aYACO 2.35 · CRT% 56.0%
+- team-offense/tempo: GP 4 · PLY/GM 66.8 · TOP 29.29 · DRV/GM 10.5 · SEC/PLY 26.3 · PLY/DRV 6.4 · YD/DRV 38.6 · SEC/DRV 167 · 3&O 16.7% · SCD% 50.0%
+- team-offense/tendencies: GP 4 · DPBK% 65.2% · RUSH% 34.8% · SHG% 53.9% · NH% 6.0% · MOT% 50.6% · PA% 30.5% · IZ% 19.4% · OZ% 38.7% · MD% 23.7% · PWR% 5.4% · CTR% 6.5%
+- QB1 (Jared Goff): air-yards [GP 4, aDOT 7.6, AIR 1,231, cAIR 878, cAIR% 71.3%, PRYD 353, PRYD% 28.7%, dAIR 100] · analytics [GP 4, EPA 42.2, EPA/DB 0.242, SUCC% 51.1%, ACOMP% 73.4%, DVOA 30.3%, DYAR 439, xCOMP 68.2%, CPOE -0.5%, aYDOE -0.042] · efficiency [GP 4, CBALL% 73.9%, INTW% 1.2%, HLT% 3.1%, EXP% 8.1%, DROP% 4.3%, TA% 1.9%, TD% 5.6%, INT% 0.0%, SK% 4.6%] · overview [GP 4, DPBK 174, ATT 161, COMP 109, COMP% 67.7%, YD 1,214, YD/ATT 7.5, TD 9, INT 0, FUML 0] · pressure [GP 4, SK 8, SK% 4.6%, QBSK% 50.0%, AVSK% 1.1%, QBH% 14.9%, TTPR 2.41, TTT 2.52, RATE 25.3%, EPA/DB -0.242, DVOA -70.3%, RATE__2 74.7%, EPA/DB__2 0.407, DVOA__2 62.7%]
+
+## Power (separate signal, not a projection) [Source: data/generated/team-profiles/team-power-ratings-2026.json]
+SRS 1.27 (#14) · net PPG 3.2 (#11) · Pythag 0.560 (#12) · model rank #12
+
+## Scheme context (historical_context_only; historical context only, stale after 2026-10-27T06:07:42.084Z)
+HC Dan Campbell · neutral pass rate 0.608 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
+Secondary-matchup context is manual_review_capped and keyed to source Week 5 — stale_prior_week_matchups. See DET.json → scheme_context.secondary_matchup.
+
+## Not built yet
+Availability (injuries, projected starters, impact digest) and priors (2025 final, camp notes, trench ratings) are not in this version. Player names must come from the roster-gated availability layer, never this file.

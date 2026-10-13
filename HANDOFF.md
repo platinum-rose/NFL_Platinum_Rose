@@ -3,15 +3,15 @@
 > Start here. This is a routing index, not a transcript. One current pickup only.
 > Detail lives in dated `handoffs/`; superseded pickups are in git history and their dated files.
 
-## PICK UP HERE (Mon night 2026-10-12, Week 5 closed out and synced; Week 6 prep next)
+## PICK UP HERE (Tue 2026-10-13 00:40 PT, Week 6 team dossiers built; Monte Carlo review next)
 
-Branch `claude/w5-prop-cards-2026-10-11`. W5 settlement, player-games, tracker, Supabase bankroll sync and commit are done. Suite not verified (`npx vitest run`).
-Dated detail: `handoffs/2026-10-12-2200-claude-w5-closeout-settlement-handoff.md`.
+Branch `claude/w5-prop-cards-2026-10-11`. Week 5 closed out. W6 dossiers (32 teams, 14 matchups) built and validated in `data/generated/team-dossiers/2026-w06/`. Suite not verified (`npx vitest run`).
+Dated detail: `handoffs/2026-10-13-0040-claude-w6-team-dossiers-built-handoff.md`.
 
 Next, in order:
-1. Andy pastes the rest of the BKR Week 6 opening lines (saved so far: `data/odds/BKR_current_lines_1012_2150`, through WSH@SF).
-2. Tuesday: `weekly-archive.mjs --week 5` natively on Windows; Week 6 setup; DKP gate fix only with Andy's OK.
-3. Optional: DK promo ticket numbers; BEO insurance refund on #1004819658 (Wed).
+1. Andy's topic: review how the Monte Carlo simulations are run (read-only; start at `src/lib/simulation.js`, `scripts/margin-simulator.mjs`, the Astra prompt).
+2. Tue 7:00 AM PT scheduled FTN capture, then rerun `node scripts/build-team-dossiers.mjs --week=6` and `node scripts/validate-team-dossiers.mjs`.
+3. Dossier availability/priors layer (roster gate); capture BKR LAR@ARI and LV@BUF when posted; native-Windows items listed in the dated handoff.
 
 ## Fast resume (do this, nothing more)
 

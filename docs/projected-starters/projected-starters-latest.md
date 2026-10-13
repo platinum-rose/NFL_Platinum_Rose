@@ -1,82 +1,75 @@
-# Projected Starters Snapshot - 2026-10-10
+# Projected Starters Snapshot - 2026-10-13
 
 > Local projected/likely-starter evidence only. This is research context, not a depth-chart source of truth and not a betting recommendation.
 
 Season: 2026
-Generated: 2026-10-10T02:27:37.580Z
-Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
+Generated: 2026-10-13T06:36:10.441Z
+Players: 71 | Teams with signals: 31 | Manual rows: 49 | Estimated rows: 24
 
 ## Coverage
 
 | Team | Status | Players | Missing |
 |---|---:|---:|---|
-| ARI | estimated_from_local_starter_language | 2 | manual all-position depth chart; independent source confirmation |
+| ARI | estimated_from_local_starter_language | 1 | manual all-position depth chart; independent source confirmation |
 | ATL | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
-| BAL | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
-| BUF | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation; Connor McGovern: withheld pending confirmation |
+| BAL | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| BUF | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation; Connor McGovern: withheld pending confirmation |
 | CAR | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | CHI | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation |
-| CIN | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation |
+| CIN | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
 | CLE | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
 | DAL | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | DEN | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
 | DET | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
-| GB | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation; Micah Parsons: withheld pending confirmation |
-| HOU | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
-| IND | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
-| JAX | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
+| GB | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation; Micah Parsons: withheld pending confirmation |
+| HOU | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
+| IND | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation |
+| JAX | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
 | KC | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
-| LAC | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
-| LAR | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
-| LV | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
-| MIA | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
+| LAC | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation |
+| LAR | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| LV | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| MIA | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | MIN | estimated_from_local_starter_language | 1 | manual all-position depth chart; independent source confirmation |
-| NE | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
-| NO | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
-| NYG | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
-| NYJ | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation |
-| PHI | manual_and_estimated_signals | 5 | independent second-source depth-chart reconciliation |
+| NE | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
+| NO | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| NYG | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| NYJ | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| PHI | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation |
 | PIT | manual_and_estimated_signals | 4 | independent second-source depth-chart reconciliation |
-| SEA | estimated_from_local_starter_language | 1 | manual all-position depth chart; independent source confirmation |
-| SF | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
+| SEA | needs_manual_depth_chart | 0 | verified all-position depth chart; manual source count reconciliation |
+| SF | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | TB | estimated_from_local_starter_language | 2 | manual all-position depth chart; independent source confirmation |
-| TEN | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| TEN | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
 | WAS | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 
 ## ⚠ Needs Human Review
 
-28 player(s) flagged for review -- usually a single-week usage sample (RB/WR/TE committee) rather than a confirmed depth-chart entry. Spot-check before leaning on these.
+21 player(s) flagged for review -- usually a single-week usage sample (RB/WR/TE committee) rather than a confirmed depth-chart entry. Spot-check before leaning on these.
 
 | Team | Player | Pos | Role | Confidence | Why flagged |
 |---|---|---|---|---:|---|
-| ARI | Teagan Quitoriano | TE | roster_depth_signal | 0.42 | The Cardinals signed Quitoriano from the practice squad to the active roster Tuesday. |
 | ARI | Jedrick Wills Jr. | OT | roster_depth_signal | 0.42 | The Cardinals signed Wills off the Bills' practice squad to their active roster Tuesday. |
-| BAL | Tyler Huntley | QB | likely_starter_or_primary | 0.7 | Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic Zrebiec reports. |
 | BAL | Nick Vannett | TE | roster_depth_signal | 0.42 | The Ravens signed Vannett to the active roster off their practice squad Wednesday. |
-| BUF | Davison Igbinosun | CB | likely_starter_or_primary | 0.7 | Igbinosun is expected to start in Sunday's game against the Patriots, Chris Brown of the Bills Radio Network reports. |
-| BUF | Joe Andreessen | LB | roster_depth_signal | 0.42 | Andreessen and the Bills agreed to terms Saturday on a two-year contract extension, Tom Pelissero of Netflix reports. |
-| CHI | Case Keenum | QB | likely_starter_or_primary | 0.94 | Keenum is expected to remain in a backup role for Sunday's game against the Packers after head coach Ben Johnson said that Tyson Bagent will start at quarterback in Week 5, Sean Hammond of the Chicago Tribune reports. |
+| CHI | Zavier Scott | RB | roster_depth_signal | 0.42 | The Bears elevated Scott from the practice squad to the active roster Saturday. |
 | CIN | Jordan Battle | S | competition_or_rotation | 0.5 | Jordan Battle UNKNOWN |
-| CIN | Tanner Hudson | TE | roster_depth_signal | 0.42 | The Bengals signed Hudson off the practice squad to the active roster Tuesday. |
 | DEN | Adam Prentice | FB | roster_depth_signal | 0.42 | The Broncos signed Prentice from their practice squad to their 53-man roster Saturday, Aric DiLalla of the team's official site reports. |
-| GB | Pierre Strong Jr. | RB | roster_depth_signal | 0.42 | The Packers signed Strong (hamstring) to their active roster from their practice squad Thursday. |
-| HOU | Bryce Oliver | WR | roster_depth_signal | 0.42 | Oliver signed with the Texans on Thursday. |
-| HOU | Mark Gronowski | QB | roster_depth_signal | 0.42 | Gronowski signed with the Texans on Wednesday, Jonathan M. Alexander of the Houston Chronicle reports. |
-| JAX | Alijah Huzzie | CB | roster_depth_signal | 0.42 | The Jaguars signed Huzzie off the Texans' practice squad Monday, Aaron Wilson of KPRC 2 Houston reports. |
-| JAX | Christian Braswell | CB | roster_depth_signal | 0.42 | Braswell (knee) reverted from waivers to Jacksonville's injured reserve list Wednesday, Aaron Wilson of KPRC 2 Houston reports. |
+| IND | Nick Westbrook-Ikhine | WR | roster_depth_signal | 0.42 | The Colts elevated Westbrook-Ikhine from the practice squad to the active roster Saturday. |
+| LAC | Theo Wease Jr. | WR | roster_depth_signal | 0.42 | The Chargers signed Wease off the practice squad to the active roster Saturday. |
 | LAR | Alex Bachman | WR | roster_depth_signal | 0.42 | The Rams signed Bachman from their practice squad to their 53-man roster Saturday. |
-| LAR | Dean Connors | RB | roster_depth_signal | 0.42 | The Rams signed Connors from the practice squad to the active roster Tuesday. |
-| NYG | Jake Haener | QB | roster_depth_signal | 0.42 | The Giants signed Haener to the 53-man roster off their practice squad Wednesday, Mike Garafolo of NFL Network reports. |
-| NYJ | Isaiah Williams | WR | competition_or_rotation | 0.5 | Adonai Mitchell (finger) has been ruled out for Sunday's game against the Browns, so Williams should serve as the Jets' WR2 behind Garrett Wilson for a third consecutive week. |
-| NYJ | Nate Lynn | DE | roster_depth_signal | 0.42 | The Jets signed Lynn to the active roster Wednesday. |
+| LV | Deven Thompkins | WR | roster_depth_signal | 0.42 | The Raiders elevated Thompkins from the practice squad to the active roster Saturday. |
+| MIA | Carlos Washington Jr. | RB | roster_depth_signal | 0.42 | The Dolphins elevated Washington from the practice squad to the active roster Saturday. |
+| MIN | Jeshaun Jones | WR | roster_depth_signal | 0.42 | The Vikings elevated Jones from the practice squad to the active roster Saturday, Craig Peters of the team's official site reports. |
+| NE | Kindle Vildor | CB | roster_depth_signal | 0.42 | The Patriots signed Vildor off the practice squad to the active roster Saturday, Evan Lazar of the team's official site reports. |
+| NO | Cedric Tillman | WR | roster_depth_signal | 0.42 | The Saints elevated Tillman from the practice squad to the active roster Saturday. |
 | PHI | Zach Ertz | TE | starter | 0.7 | Week 4 2026 usage leader at TE for PHI (usage score 4.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts. |
-| PHI | Carson Steele | RB | roster_depth_signal | 0.42 | The Eagles signed Steele off the practice squad to the active roster Friday. |
-| PHI | Dameon Pierce | RB | roster_depth_signal | 0.42 | The Eagles signed Pierce off their practice squad Wednesday. |
+| PHI | Lane Johnson | OT | roster_depth_signal | 0.42 | The Eagles are expected to keep Johnson (personal) on the 53-man roster for the remainder of the season, even though he announced his retirement Tuesday, Zach Berman of The Athletic reports. |
 | PIT | Robert Spears-Jennings | S | likely_starter_or_primary | 0.7 | Spears-Jennings is on track to start Sunday's contest against the Colts, Nick Farabaugh of PennLive.com reports. |
+| PIT | Jaylen Warren | RB | likely_starter_or_primary | 0.62 | Head coach Mike McCarthy said Monday that he views Warren as "our featured player right now," Brooke Pryor of ESPN.com reports. |
 | PIT | Sean Murphy-Bunting | CB | roster_depth_signal | 0.42 | The Steelers signed Murphy-Bunting off the Buccaneers' practice squad Monday, Teresa Varley of the Steelers' official site reports. |
-| PIT | Terell Smith | CB | roster_depth_signal | 0.42 | Smith was signed to the Steelers active roster Tuesday, Teresa Varley of the team's official website reports. |
-| SEA | Robert Henry Jr. | RB | roster_depth_signal | 0.42 | Henry was signed to the Seahawks' active roster Monday, NFL reporter Jordan Schultz reports. |
+| SF | Jack Stoll | TE | roster_depth_signal | 0.42 | The 49ers elevated Stoll from the practice squad to the active roster Saturday. |
 | TB | Ifeatu Melifonwu | S | likely_starter_or_primary | 0.7 | Head coach Todd Bowles said Melifonwu is likely to start at safety Thursday night against Dallas, Jenna Laine of ESPN.com reports. |
+| TEN | Kalel Mullings | RB | roster_depth_signal | 0.42 | The Titans elevated Mullings from the practice squad to the active roster Saturday, Jim Wyatt of the team's official site reports. |
 
 
 ## Named Status Review Gate
@@ -92,9 +85,6 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 
 ### ARI
 
-- Teagan Quitoriano (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Cardinals signed Quitoriano from the practice squad to the active roster Tuesday.
 - Jedrick Wills Jr. (OT): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: offensive_line_major | Review: yes
   - Evidence: The Cardinals signed Wills off the Bills' practice squad to their active roster Tuesday.
@@ -110,9 +100,6 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - Lamar Jackson (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Tyler Huntley (QB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: qb_major | Review: yes
-  - Evidence: Huntley will start Sunday night's game against the Falcons after Lamar Jackson (ankle) was ruled out Friday, Jeff Zrebiec of The Athletic Zrebiec reports.
 - Nick Vannett (TE): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: The Ravens signed Vannett to the active roster off their practice squad Wednesday.
@@ -125,12 +112,6 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - James Cook (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for BUF (usage score 15.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Davison Igbinosun (CB): likely_starter_or_primary, starter 0.7, roster 0.66
-  - Tags: starter | Impact: defensive_major | Review: yes
-  - Evidence: Igbinosun is expected to start in Sunday's game against the Patriots, Chris Brown of the Bills Radio Network reports.
-- Joe Andreessen (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Andreessen and the Bills agreed to terms Saturday on a two-year contract extension, Tom Pelissero of Netflix reports.
 
 ### CAR
 
@@ -149,12 +130,12 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - Tyson Bagent (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, weekly_usage_dominant, starter | Impact: qb_major | Review: no
   - Evidence: Week 4 2026 usage leader at QB for CHI (usage score 34.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Case Keenum (QB): likely_starter_or_primary, starter 0.94, roster 0.9
-  - Tags: starter, primary_role, competition | Impact: qb_major | Review: yes
-  - Evidence: Keenum is expected to remain in a backup role for Sunday's game against the Packers after head coach Ben Johnson said that Tyson Bagent will start at quarterback in Week 5, Sean Hammond of the Chicago Tribune reports.
 - Kalif Raymond (WR): starter, starter 0.65, roster 0.75
   - Tags: locked_starter, week1_usage_dominant | Impact: wr_uncertain | Review: no
   - Evidence: Week 1 2026 usage leader at WR for CHI (usage score 9.0 vs runner-up 5.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Zavier Scott (RB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Bears elevated Scott from the practice squad to the active roster Saturday.
 
 ### CIN
 
@@ -167,9 +148,6 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - Jordan Battle (S): competition_or_rotation, starter 0.5, roster 0.6
   - Tags: competition | Impact: defensive_major | Review: yes
   - Evidence: Jordan Battle UNKNOWN
-- Tanner Hudson (TE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Bengals signed Hudson off the practice squad to the active roster Tuesday.
 
 ### CLE
 
@@ -218,21 +196,12 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - Tucker Kraft (TE): starter, starter 0.7, roster 0.8
   - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: no
   - Evidence: Week 1 2026 usage leader at TE for GB (usage score 6.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Pierre Strong Jr. (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Packers signed Strong (hamstring) to their active roster from their practice squad Thursday.
 
 ### HOU
 
 - C.J. Stroud (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Bryce Oliver (WR): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Oliver signed with the Texans on Thursday.
-- Mark Gronowski (QB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: qb_major | Review: yes
-  - Evidence: Gronowski signed with the Texans on Wednesday, Jonathan M. Alexander of the Houston Chronicle reports.
 
 ### IND
 
@@ -245,18 +214,15 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - Tyler Warren (TE): starter, starter 0.7, roster 0.8
   - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: no
   - Evidence: Week 1 2026 usage leader at TE for IND (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Nick Westbrook-Ikhine (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Colts elevated Westbrook-Ikhine from the practice squad to the active roster Saturday.
 
 ### JAX
 
 - Bhayshul Tuten (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for JAX (usage score 15.5 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Alijah Huzzie (CB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: The Jaguars signed Huzzie off the Texans' practice squad Monday, Aaron Wilson of KPRC 2 Houston reports.
-- Christian Braswell (CB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Braswell (knee) reverted from waivers to Jacksonville's injured reserve list Wednesday, Aaron Wilson of KPRC 2 Houston reports.
 
 ### KC
 
@@ -278,6 +244,9 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - David Njoku (TE): starter, starter 0.7, roster 0.8
   - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: no
   - Evidence: Week 1 2026 usage leader at TE for LAC (usage score 5.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Theo Wease Jr. (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Chargers signed Wease off the practice squad to the active roster Saturday.
 
 ### LAR
 
@@ -287,27 +256,30 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - Alex Bachman (WR): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: skill_major | Review: yes
   - Evidence: The Rams signed Bachman from their practice squad to their 53-man roster Saturday.
-- Dean Connors (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Rams signed Connors from the practice squad to the active roster Tuesday.
 
 ### LV
 
 - Ashton Jeanty (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for LV (usage score 26.0 vs runner-up 7.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Deven Thompkins (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Raiders elevated Thompkins from the practice squad to the active roster Saturday.
 
 ### MIA
 
 - Malik Willis (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for MIA (usage score 27.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Carlos Washington Jr. (RB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Dolphins elevated Washington from the practice squad to the active roster Saturday.
 
 ### MIN
 
-- Kyle Van Noy (LB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: no
-  - Evidence: The Vikings signed Van Noy from the practice squad to the active roster Tuesday, Craig Peters of the team's official site reports.
+- Jeshaun Jones (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Vikings elevated Jones from the practice squad to the active roster Saturday, Craig Peters of the team's official site reports.
 
 ### NE
 
@@ -317,12 +289,18 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - Rhamondre Stevenson (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for NE (usage score 21.0 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Kindle Vildor (CB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: defensive_major | Review: yes
+  - Evidence: The Patriots signed Vildor off the practice squad to the active roster Saturday, Evan Lazar of the team's official site reports.
 
 ### NO
 
 - Tyler Shough (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for NO (usage score 56.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Cedric Tillman (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Saints elevated Tillman from the practice squad to the active roster Saturday.
 
 ### NYG
 
@@ -332,9 +310,6 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - Cam Skattebo (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for NYG (usage score 18.0 vs runner-up 8.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Jake Haener (QB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: qb_major | Review: yes
-  - Evidence: The Giants signed Haener to the 53-man roster off their practice squad Wednesday, Mike Garafolo of NFL Network reports.
 
 ### NYJ
 
@@ -344,12 +319,6 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - Breece Hall (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for NYJ (usage score 23.0 vs runner-up 10.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Isaiah Williams (WR): competition_or_rotation, starter 0.5, roster 0.6
-  - Tags: competition | Impact: skill_major | Review: yes
-  - Evidence: Adonai Mitchell (finger) has been ruled out for Sunday's game against the Browns, so Williams should serve as the Jets' WR2 behind Garrett Wilson for a third consecutive week.
-- Nate Lynn (DE): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_front_major | Review: yes
-  - Evidence: The Jets signed Lynn to the active roster Wednesday.
 
 ### PHI
 
@@ -360,14 +329,11 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for PHI (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 - Zach Ertz (TE): starter, starter 0.7, roster 0.8
-  - Tags: locked_starter, weekly_usage_dominant | Impact: te_uncertain | Review: yes
+  - Tags: locked_starter, weekly_usage_dominant, roster_signal | Impact: te_uncertain | Review: yes
   - Evidence: Week 4 2026 usage leader at TE for PHI (usage score 4.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
-- Carson Steele (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Eagles signed Steele off the practice squad to the active roster Friday.
-- Dameon Pierce (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: The Eagles signed Pierce off their practice squad Wednesday.
+- Lane Johnson (OT): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: offensive_line_major | Review: yes
+  - Evidence: The Eagles are expected to keep Johnson (personal) on the 53-man roster for the remainder of the season, even though he announced his retirement Tuesday, Zach Berman of The Athletic reports.
 
 ### PIT
 
@@ -377,24 +343,21 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - Robert Spears-Jennings (S): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: defensive_major | Review: yes
   - Evidence: Spears-Jennings is on track to start Sunday's contest against the Colts, Nick Farabaugh of PennLive.com reports.
+- Jaylen Warren (RB): likely_starter_or_primary, starter 0.62, roster 0.6
+  - Tags: primary_role | Impact: skill_major | Review: yes
+  - Evidence: Head coach Mike McCarthy said Monday that he views Warren as "our featured player right now," Brooke Pryor of ESPN.com reports.
 - Sean Murphy-Bunting (CB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
   - Evidence: The Steelers signed Murphy-Bunting off the Buccaneers' practice squad Monday, Teresa Varley of the Steelers' official site reports.
-- Terell Smith (CB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: defensive_major | Review: yes
-  - Evidence: Smith was signed to the Steelers active roster Tuesday, Teresa Varley of the team's official website reports.
-
-### SEA
-
-- Robert Henry Jr. (RB): roster_depth_signal, starter 0.42, roster 0.6
-  - Tags: roster_signal | Impact: skill_major | Review: yes
-  - Evidence: Henry was signed to the Seahawks' active roster Monday, NFL reporter Jordan Schultz reports.
 
 ### SF
 
 - Brock Purdy (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for SF (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Jack Stoll (TE): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The 49ers elevated Stoll from the practice squad to the active roster Saturday.
 
 ### TB
 
@@ -403,7 +366,7 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
   - Evidence: Head coach Todd Bowles said Melifonwu is likely to start at safety Thursday night against Dallas, Jenna Laine of ESPN.com reports.
 - Jalon Daniels (QB): likely_starter_or_primary, starter 0.7, roster 0.66
   - Tags: starter | Impact: qb_major | Review: no
-  - Evidence: Buccaneers coach Todd Bowles said Friday that he plans on starting Daniels in Week 6 against Pittsburgh, Scott Smith reports.
+  - Evidence: Buccaneers coach Todd Bowles said Friday that he plans on starting Daniels in Week 6 against Pittsburgh, Scott Smith of the team's official site reports.
 
 ### TEN
 
@@ -413,11 +376,14 @@ Players: 79 | Teams with signals: 32 | Manual rows: 49 | Estimated rows: 32
 - Gunnar Helm (TE): starter, starter 0.7, roster 0.8
   - Tags: locked_starter, week1_usage_dominant | Impact: te_uncertain | Review: no
   - Evidence: Week 1 2026 usage leader at TE for TEN (usage score 5.0 vs runner-up 1.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Kalel Mullings (RB): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Titans elevated Mullings from the practice squad to the active roster Saturday, Jim Wyatt of the team's official site reports.
 
 ### WAS
 
 - Jayden Daniels (QB): starter, starter 0.95, roster 0.95
-  - Tags: locked_starter, week1_usage_dominant, starter | Impact: qb_major | Review: no
+  - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for WAS (usage score 34.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 - Jacory Croskey-Merritt (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no

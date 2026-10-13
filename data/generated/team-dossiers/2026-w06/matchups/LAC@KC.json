@@ -1,0 +1,187 @@
+{
+  "schema": "team_dossier_matchup_v1",
+  "target_week": 6,
+  "away": "LAC",
+  "home": "KC",
+  "kickoff_pt": "Sun 10/18 13:25",
+  "market_data_included": false,
+  "dossier_refs": {
+    "away": "LAC.json",
+    "home": "KC.json"
+  },
+  "side_by_side": {
+    "away": {
+      "off_epa_per_play": -0.1882,
+      "def_epa_per_play": -0.0698,
+      "ppg": 16.8,
+      "papg": 25.8,
+      "ypp": 4.78,
+      "opp_ypp": 5,
+      "srs": -9.304,
+      "turnover_margin": -5,
+      "record": "0-5-0"
+    },
+    "home": {
+      "off_epa_per_play": 0.1525,
+      "def_epa_per_play": -0.0494,
+      "ppg": 29.5,
+      "papg": 19.25,
+      "ypp": 6.575,
+      "opp_ypp": 4.85,
+      "srs": 8.609,
+      "turnover_margin": 5,
+      "record": "4-0-0"
+    }
+  },
+  "unit_vs_unit": {
+    "away_offense_vs_home_defense": {
+      "away_off_epa": -0.1882,
+      "home_def_epa": -0.0494,
+      "away_ypp": 4.78,
+      "home_opp_ypp": 4.85,
+      "away_ppg": 16.8,
+      "home_papg": 19.25
+    },
+    "home_offense_vs_away_defense": {
+      "home_off_epa": 0.1525,
+      "away_def_epa": -0.0698,
+      "home_ypp": 6.575,
+      "away_opp_ypp": 5,
+      "home_ppg": 29.5,
+      "away_papg": 25.8
+    },
+    "note": "EPA sign convention per nflverse: lower defensive EPA/play is better. Values side by side only; no projection."
+  },
+  "shared_opponents_so_far": [
+    "DEN",
+    "LV"
+  ],
+  "availability": {
+    "status": "not_built_in_this_version",
+    "roster_gate": "not_run"
+  },
+  "freshness": {
+    "away": {
+      "standing": {
+        "status": "current",
+        "through_week": 5
+      },
+      "game_log": {
+        "status": "current",
+        "through_week": 5,
+        "byes": []
+      },
+      "season_profile_espn": {
+        "status": "current",
+        "through_week": 5
+      },
+      "efficiency_nflverse": {
+        "status": "current",
+        "through_week": 5,
+        "null_fields": [
+          "analytic.dropback_success_rate",
+          "analytic.success_rate",
+          "analytic.explosive_play_rate",
+          "analytic.explosive_pass_rate",
+          "analytic.explosive_run_rate",
+          "analytic.pressure_rate_allowed",
+          "analytic.pressure_rate_generated",
+          "analytic.early_down_pass_rate",
+          "analytic.shotgun_rate",
+          "analytic.no_huddle_rate",
+          "analytic.play_action_rate",
+          "analytic.motion_rate",
+          "regression.fumble_recovery_pct",
+          "regression.takeaway_margin",
+          "regression.rz_td_pct_off",
+          "regression.rz_td_pct_def",
+          "regression.third_down_over_expected"
+        ]
+      },
+      "ftn": {
+        "status": "stale_1wk",
+        "through_week": 4
+      },
+      "power": {
+        "status": "current",
+        "through_week": 5
+      },
+      "scheme_context": {
+        "status": "historical_context_only",
+        "caveats": [
+          "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
+          "secondary-matchup source week 5"
+        ]
+      },
+      "availability": {
+        "status": "not_built",
+        "roster_gate": "not_run"
+      },
+      "priors": {
+        "status": "not_built"
+      }
+    },
+    "home": {
+      "standing": {
+        "status": "current",
+        "through_week": 5
+      },
+      "game_log": {
+        "status": "current",
+        "through_week": 5,
+        "byes": [
+          5
+        ]
+      },
+      "season_profile_espn": {
+        "status": "current",
+        "through_week": 5
+      },
+      "efficiency_nflverse": {
+        "status": "current",
+        "through_week": 5,
+        "null_fields": [
+          "analytic.dropback_success_rate",
+          "analytic.success_rate",
+          "analytic.explosive_play_rate",
+          "analytic.explosive_pass_rate",
+          "analytic.explosive_run_rate",
+          "analytic.pressure_rate_allowed",
+          "analytic.pressure_rate_generated",
+          "analytic.early_down_pass_rate",
+          "analytic.shotgun_rate",
+          "analytic.no_huddle_rate",
+          "analytic.play_action_rate",
+          "analytic.motion_rate",
+          "regression.fumble_recovery_pct",
+          "regression.takeaway_margin",
+          "regression.rz_td_pct_off",
+          "regression.rz_td_pct_def",
+          "regression.third_down_over_expected"
+        ]
+      },
+      "ftn": {
+        "status": "stale_1wk",
+        "through_week": 4
+      },
+      "power": {
+        "status": "current",
+        "through_week": 5
+      },
+      "scheme_context": {
+        "status": "historical_context_only",
+        "caveats": [
+          "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
+          "secondary-matchup source week 5"
+        ]
+      },
+      "availability": {
+        "status": "not_built",
+        "roster_gate": "not_run"
+      },
+      "priors": {
+        "status": "not_built"
+      }
+    }
+  }
+}
