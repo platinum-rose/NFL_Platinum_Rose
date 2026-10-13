@@ -162,7 +162,6 @@ function opponentLens(t) {
 }
 
 // ---------- build ----------
-fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
 const league = [];

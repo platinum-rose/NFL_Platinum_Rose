@@ -1,5 +1,5 @@
 # CAR Panthers — post-mortem, W1–W5 (for Week 6 synthesis)
-Built from dossier 2026-w06 (2026-10-13T18:14:51.970Z, git e05d47c). No market data. No player names (roster gate not run). Ranks are 1=best of 32 on that metric.
+Built from dossier 2026-w06 (2026-10-13T23:40:26.432Z, git 706ab47). No market data. No player names (roster gate not run). Ranks are 1=best of 32 on that metric.
 
 ## Season result
 2-2-0 · PF 121 PA 109 (+12) · streak W1 · net +3.0 pts/g (#12) · bye W5

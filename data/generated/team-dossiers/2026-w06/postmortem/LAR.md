@@ -1,5 +1,5 @@
 # LAR Rams — post-mortem, W1–W5 (for Week 6 synthesis)
-Built from dossier 2026-w06 (2026-10-13T18:14:52.482Z, git e05d47c). No market data. No player names (roster gate not run). Ranks are 1=best of 32 on that metric.
+Built from dossier 2026-w06 (2026-10-13T23:40:26.908Z, git 706ab47). No market data. No player names (roster gate not run). Ranks are 1=best of 32 on that metric.
 
 ## Season result
 2-3-0 · PF 119 PA 120 (-1) · streak L1 · net -0.2 pts/g (#17)

@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T18:14:51.846Z",
+  "built_at": "2026-10-13T23:40:26.320Z",
   "builder": "team_dossier_builder_v1.0",
-  "git_head": "e05d47c",
+  "git_head": "706ab47",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-10T17:31:50.319Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 5,
-      "sha256": "1f19496c3b8a01880e816942aa802e395d1063f45beab66f3c2b097618735aed",
+      "generated_at": "2026-10-13T23:40:24.431Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -901,17 +901,17 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 5,
-      "status": "stale_prior_week_matchups",
+      "source_week": 6,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_fc965527705d8175",
+          "id": "sec_270bc8d235298e05",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_BAL_at_ATL",
-          "kickoff_utc": "2026-10-12T00:20:00.000Z",
-          "offense_team": "BAL",
-          "offense_team_nick": "Ravens",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_CHI_at_ATL",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
+          "offense_team": "CHI",
+          "offense_team_nick": "Bears",
           "defense_team": "ATL",
           "defense_team_nick": "Falcons",
           "offense_venue": "away",
@@ -939,7 +939,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:02.000Z",
+              "published_at": "2026-10-14T06:20:01.000Z",
               "role": "outside_cb1",
               "side": "boundary",
               "impact_tier": "elite",
@@ -968,38 +968,13 @@
           ],
           "target_receivers": [
             {
-              "player_name": "Zay Flowers",
-              "team": "BAL",
-              "roles": [
-                "alpha_x",
-                "slot"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "slot",
-                "underneath"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost",
-                "slot_wr_boost",
-                "inside_seam_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 9,
-              "notes": "BAL Primary Target.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Mark Andrews",
-              "team": "BAL",
+              "player_name": "Cole Kmet",
+              "team": "CHI",
               "roles": [
                 "te_middle",
                 "red_zone"
               ],
-              "target_share_tier": "alpha",
+              "target_share_tier": "medium",
               "route_area_tags": [
                 "middle",
                 "red_zone"
@@ -1009,13 +984,13 @@
                 "inside_seam_boost",
                 "alpha_wr_boost"
               ],
-              "opportunity_score": 4.5,
-              "notes": "BAL All-Pro TE.",
+              "opportunity_score": 2.4,
+              "notes": "CHI TE.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             },
             {
-              "player_name": "Devontez Walker",
-              "team": "BAL",
+              "player_name": "Kalif Raymond",
+              "team": "CHI",
               "roles": [
                 "slot"
               ],
@@ -1030,17 +1005,17 @@
                 "underneath_volume_boost"
               ],
               "opportunity_score": 2.4,
-              "notes": "BAL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "notes": "CHI WR3 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/"
             },
             {
-              "player_name": "Rashod Bateman",
-              "team": "BAL",
+              "player_name": "Rome Odunze",
+              "team": "CHI",
               "roles": [
                 "z_receiver",
                 "field_stretcher"
               ],
-              "target_share_tier": "medium",
+              "target_share_tier": "high",
               "route_area_tags": [
                 "deep",
                 "boundary"
@@ -1049,15 +1024,51 @@
                 "outside_wr_boost",
                 "post_cross_boost"
               ],
-              "opportunity_score": 1.6,
-              "notes": "BAL Outside WR.",
+              "opportunity_score": 2.4,
+              "notes": "CHI Rookie 1st Round WR.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Colston Loveland",
+              "team": "CHI",
+              "roles": [
+                "te_middle"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle"
+              ],
+              "matched_weakness_tags": [
+                "te_middle_boost",
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 1.6,
+              "notes": "CHI TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            },
+            {
+              "player_name": "Luther Burden III",
+              "team": "CHI",
+              "roles": [
+                "z_receiver"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 1.6,
+              "notes": "CHI WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
             }
           ],
           "severity_score": 4.05,
           "elite_absence_count": 1,
           "vulnerability_tier": "medium",
-          "confidence": 0.9,
+          "confidence": 0.94,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1069,41 +1080,40 @@
           "needs_human_review": true
         },
         {
-          "id": "sec_817f40a3a1651c4e",
+          "id": "sec_28d36dd1e1810244",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_BAL_at_ATL",
-          "kickoff_utc": "2026-10-12T00:20:00.000Z",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_CHI_at_ATL",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
           "offense_team": "ATL",
           "offense_team_nick": "Falcons",
-          "defense_team": "BAL",
-          "defense_team_nick": "Ravens",
+          "defense_team": "CHI",
+          "defense_team_nick": "Bears",
           "offense_venue": "home",
           "coverage_scheme": {
             "scheme_tags": [
-              "man_heavy",
-              "single_high",
-              "blitz_heavy"
+              "zone_heavy",
+              "two_high"
             ],
-            "primary_coverage_family": "man_match",
-            "pressure_profile": "aggressive",
-            "confidence": 0.85,
+            "primary_coverage_family": "cover_2_two_high",
+            "pressure_profile": "front_dependent",
+            "confidence": 0.75,
             "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Orr aggressive blitz-heavy man match structure with Kyle Hamilton roaming."
+            "notes": "Eberflus Tampa 2 / Cover 4 hybrid shell relying on Jaylon Johnson lock down."
           },
           "secondary_absences": [
             {
-              "player_name": "T.J. Tampa Jr.",
-              "team": "BAL",
+              "player_name": "Coby Bryant",
+              "team": "CHI",
               "position": "CB",
               "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "T.J. Tampa Jr. IR",
+              "summary": "Coby Bryant IR",
               "source": "FantasyPros injuries API",
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:02.000Z",
+              "published_at": "2026-10-14T06:20:01.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1113,63 +1123,106 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Jahquez Robinson",
-              "team": "BAL",
+              "player_name": "Anthony Johnson Jr.",
+              "team": "CHI",
               "position": "S",
               "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Jahquez Robinson IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T23:30:02.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Marlon Humphrey",
-              "team": "BAL",
-              "position": "CB",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Humphrey (calf/hamstring) is listed as questionable for Sunday's game against the Falcons, Adam Caplan of SiriusXM NFL Radio reports.",
+              "summary": "ir",
               "source": "ESPN injuries API",
               "corroborating_sources": [
                 "ESPN injuries API"
               ],
-              "published_at": "2026-10-10T00:07:00.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "elite",
+              "published_at": "2026-10-13T23:05:00.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Tyrique Stevenson Sr.",
+              "team": "CHI",
+              "position": "CB",
+              "event_type": "setback",
+              "availability_trend": "worsening",
+              "summary": "Stevenson (hamstring) is doubtful to return to Sunday's game against the Packers.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-11T19:00:00.000Z",
+              "role": "outside_cb2",
+              "side": "field",
+              "impact_tier": "plus",
               "primary_receiver_archetypes_impacted": [
-                "alpha_x",
-                "slot"
+                "z_receiver"
               ],
               "weakness_tags": [
                 "outside_wr_boost",
-                "alpha_wr_boost",
                 "boundary_wr_boost"
               ],
-              "severity_score": 1.65,
+              "severity_score": 1.91,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Kyler Gordon",
+              "team": "CHI",
+              "position": "CB",
+              "event_type": "out",
+              "availability_trend": "worsening",
+              "summary": "Gordon (calf) has been ruled out for Sunday's game against the Packers.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-10T19:40:00.000Z",
+              "role": "slot_cb",
+              "side": "slot",
+              "impact_tier": "plus",
+              "primary_receiver_archetypes_impacted": [
+                "slot"
+              ],
+              "weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost"
+              ],
+              "severity_score": 2.7,
               "needs_human_review": true
             }
           ],
           "weakness_tags": [
-            "alpha_wr_boost",
             "boundary_wr_boost",
-            "deep_pass_boost",
-            "hot_read_boost",
+            "inside_seam_boost",
             "outside_wr_boost",
-            "post_cross_boost",
-            "slot_wr_boost"
+            "slot_wr_boost",
+            "underneath_volume_boost"
           ],
           "target_receivers": [
+            {
+              "player_name": "Jahan Dotson",
+              "team": "ATL",
+              "roles": [
+                "z_receiver",
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "slot",
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 3.2,
+              "notes": "WAS WR2. [moved from WAS per ESPN roster 2026-09-27]",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
             {
               "player_name": "Drake London",
               "team": "ATL",
@@ -1185,53 +1238,10 @@
               ],
               "matched_weakness_tags": [
                 "outside_wr_boost",
-                "alpha_wr_boost",
                 "boundary_wr_boost"
               ],
-              "opportunity_score": 4.5,
+              "opportunity_score": 3,
               "notes": "ATL WR1 Alpha.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Jahan Dotson",
-              "team": "ATL",
-              "roles": [
-                "z_receiver",
-                "slot"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "slot",
-                "boundary"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost",
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 3.2,
-              "notes": "WAS WR2. [moved from WAS per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Kyle Pitts",
-              "team": "ATL",
-              "roles": [
-                "te_middle",
-                "field_stretcher"
-              ],
-              "target_share_tier": "high",
-              "route_area_tags": [
-                "middle",
-                "deep"
-              ],
-              "matched_weakness_tags": [
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "ATL Hybrid TE.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             },
             {
@@ -1246,16 +1256,37 @@
                 "short"
               ],
               "matched_weakness_tags": [
-                "slot_wr_boost"
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
               ],
-              "opportunity_score": 0.8,
+              "opportunity_score": 2.4,
               "notes": "ATL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/"
+            },
+            {
+              "player_name": "Kyle Pitts",
+              "team": "ATL",
+              "roles": [
+                "te_middle",
+                "field_stretcher"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "middle",
+                "deep"
+              ],
+              "matched_weakness_tags": [
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 1.2,
+              "notes": "ATL Hybrid TE.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             }
           ],
-          "severity_score": 4.35,
-          "elite_absence_count": 1,
-          "vulnerability_tier": "medium",
+          "severity_score": 7.31,
+          "elite_absence_count": 2,
+          "vulnerability_tier": "high",
           "confidence": 0.95,
           "use_cases": [
             "wr_props",
@@ -1329,7 +1360,7 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
-        "secondary-matchup source week 5"
+        "secondary-matchup source week 6"
       ]
     },
     "availability": {

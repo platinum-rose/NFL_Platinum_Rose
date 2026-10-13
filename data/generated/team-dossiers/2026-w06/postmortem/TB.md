@@ -1,5 +1,5 @@
 # TB Buccaneers — post-mortem, W1–W5 (for Week 6 synthesis)
-Built from dossier 2026-w06 (2026-10-13T18:14:52.974Z, git e05d47c). No market data. No player names (roster gate not run). Ranks are 1=best of 32 on that metric.
+Built from dossier 2026-w06 (2026-10-13T23:40:27.342Z, git 706ab47). No market data. No player names (roster gate not run). Ranks are 1=best of 32 on that metric.
 
 ## Season result
 1-4-0 · PF 100 PA 112 (-12) · streak W1 · net -2.4 pts/g (#22)

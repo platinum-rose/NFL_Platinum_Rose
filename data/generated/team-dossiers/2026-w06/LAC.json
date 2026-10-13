@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T18:14:52.437Z",
+  "built_at": "2026-10-13T23:40:26.870Z",
   "builder": "team_dossier_builder_v1.0",
-  "git_head": "e05d47c",
+  "git_head": "706ab47",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-10T17:31:50.319Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 5,
-      "sha256": "1f19496c3b8a01880e816942aa802e395d1063f45beab66f3c2b097618735aed",
+      "generated_at": "2026-10-13T23:40:24.431Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -901,315 +901,39 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 5,
-      "status": "stale_prior_week_matchups",
+      "source_week": 6,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_36023fd6bafe4158",
+          "id": "sec_607aaea3f178b4c5",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_DEN_at_LAC",
-          "kickoff_utc": "2026-10-11T20:05:00.000Z",
-          "offense_team": "DEN",
-          "offense_team_nick": "Broncos",
-          "defense_team": "LAC",
-          "defense_team_nick": "Chargers",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_LAC_at_KC",
+          "kickoff_utc": "2026-10-18T20:25:00.000Z",
+          "offense_team": "LAC",
+          "offense_team_nick": "Chargers",
+          "defense_team": "KC",
+          "defense_team_nick": "Chiefs",
           "offense_venue": "away",
           "coverage_scheme": {
             "scheme_tags": [
               "match_zone",
-              "two_high",
-              "quarters"
+              "blitz_heavy",
+              "two_high"
             ],
             "primary_coverage_family": "match_zone",
-            "pressure_profile": "coverage_first",
-            "confidence": 0.78,
+            "pressure_profile": "aggressive",
+            "confidence": 0.85,
             "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Jesse Minter Ravens-style match zone structure with Derwin James in hybrid role."
+            "notes": "Steve Spagnuolo intricate blitz packages and post-snap rotation around Trent McDuffie."
           },
-          "secondary_absences": [
-            {
-              "player_name": "Derwin James Jr.",
-              "team": "LAC",
-              "position": "S",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "James (hamstring) has been ruled out against the Broncos on Sunday.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T00:28:00.000Z",
-              "role": "hybrid_safety",
-              "side": "middle",
-              "impact_tier": "elite",
-              "primary_receiver_archetypes_impacted": [
-                "te_middle",
-                "slot"
-              ],
-              "weakness_tags": [
-                "te_middle_boost",
-                "slot_wr_boost",
-                "deep_pass_boost"
-              ],
-              "severity_score": 3.6,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Donte Jackson",
-              "team": "LAC",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Jackson (hamstring) has been ruled out for Sunday's game against the Broncos.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T00:25:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "z_receiver"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 1.8,
-              "needs_human_review": true
-            }
-          ],
+          "secondary_absences": [],
           "weakness_tags": [
-            "boundary_wr_boost",
-            "deep_pass_boost",
-            "inside_seam_boost",
-            "outside_wr_boost",
-            "post_cross_boost",
-            "slot_wr_boost",
-            "te_middle_boost",
-            "underneath_volume_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Evan Engram",
-              "team": "DEN",
-              "roles": [
-                "te_middle",
-                "slot"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "middle",
-                "underneath",
-                "slot"
-              ],
-              "matched_weakness_tags": [
-                "te_middle_boost",
-                "inside_seam_boost",
-                "slot_wr_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 6,
-              "notes": "JAX High Volume TE. [moved from JAX per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Courtland Sutton",
-              "team": "DEN",
-              "roles": [
-                "alpha_x",
-                "red_zone"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "red_zone"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost",
-                "te_middle_boost"
-              ],
-              "opportunity_score": 4.5,
-              "notes": "DEN X Receiver.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Jaylen Waddle",
-              "team": "DEN",
-              "roles": [
-                "z_receiver",
-                "field_stretcher"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "deep",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 4.5,
-              "notes": "MIA Elite Speed WR2. [moved from MIA per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Marvin Mims Jr.",
-              "team": "DEN",
-              "roles": [
-                "field_stretcher",
-                "slot"
-              ],
-              "target_share_tier": "rotational",
-              "route_area_tags": [
-                "deep",
-                "slot"
-              ],
-              "matched_weakness_tags": [
-                "deep_pass_boost",
-                "post_cross_boost",
-                "slot_wr_boost",
-                "inside_seam_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 2,
-              "notes": "DEN Speed Threat.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            }
-          ],
-          "severity_score": 5.4,
-          "elite_absence_count": 1,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
-        },
-        {
-          "id": "sec_b63edf5fceb6e851",
-          "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_DEN_at_LAC",
-          "kickoff_utc": "2026-10-11T20:05:00.000Z",
-          "offense_team": "LAC",
-          "offense_team_nick": "Chargers",
-          "defense_team": "DEN",
-          "defense_team_nick": "Broncos",
-          "offense_venue": "home",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "man_heavy",
-              "single_high",
-              "blitz_heavy"
-            ],
-            "primary_coverage_family": "man_match",
-            "pressure_profile": "blitz_heavy",
-            "confidence": 0.8,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Vance Joseph heavy blitz and man press around Patrick Surtain II shadow assignments."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Riley Moss",
-              "team": "DEN",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Moss (ribs) has been ruled out for Sunday's game against the Chargers, Aric DiLalla of the Broncos' official site reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T16:16:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "z_receiver"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 1.8,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Pat Surtain II",
-              "team": "DEN",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Surtain (ankle) has been ruled out for Sunday's game against the Chargers, Aric DiLalla of the Broncos' official site reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T16:13:00.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "alpha_x"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost",
-                "alpha_wr_boost"
-              ],
-              "severity_score": 1.8,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Talanoa Hufanga",
-              "team": "DEN",
-              "position": "S",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Hufanga recorded four total tackles (two solo) during Sunday's 24-14 loss to the 49ers.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-07T01:47:00.000Z",
-              "role": "box_safety",
-              "side": "middle",
-              "impact_tier": "plus",
-              "primary_receiver_archetypes_impacted": [
-                "te_middle"
-              ],
-              "weakness_tags": [
-                "te_middle_boost",
-                "middle_field_boost"
-              ],
-              "severity_score": 1.24,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "alpha_wr_boost",
-            "boundary_wr_boost",
-            "deep_pass_boost",
             "hot_read_boost",
-            "middle_field_boost",
-            "outside_wr_boost",
+            "inside_seam_boost",
             "post_cross_boost",
             "slot_wr_boost",
-            "te_middle_boost"
+            "underneath_volume_boost"
           ],
           "target_receivers": [
             {
@@ -1226,11 +950,10 @@
               ],
               "matched_weakness_tags": [
                 "slot_wr_boost",
-                "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost"
+                "inside_seam_boost",
+                "underneath_volume_boost"
               ],
-              "opportunity_score": 6,
+              "opportunity_score": 4.5,
               "notes": "LAC Rookie Target Leader.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             },
@@ -1245,36 +968,145 @@
                 "middle"
               ],
               "matched_weakness_tags": [
-                "te_middle_boost",
-                "middle_field_boost"
+                "inside_seam_boost"
               ],
-              "opportunity_score": 1.6,
+              "opportunity_score": 0.8,
               "notes": "LAC TE1 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/"
             },
             {
-              "player_name": "Tre' Harris",
+              "player_name": "Quentin Johnston",
               "team": "LAC",
               "roles": [
-                "slot"
+                "alpha_x",
+                "field_stretcher"
               ],
               "target_share_tier": "medium",
               "route_area_tags": [
-                "middle",
-                "short"
+                "boundary",
+                "deep"
               ],
               "matched_weakness_tags": [
-                "slot_wr_boost"
+                "post_cross_boost"
               ],
               "opportunity_score": 0.8,
-              "notes": "LAC WR3 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
+              "notes": "LAC 1st Round WR.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             }
           ],
-          "severity_score": 4.84,
-          "elite_absence_count": 1,
-          "vulnerability_tier": "medium",
-          "confidence": 0.94,
+          "severity_score": 0,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "low",
+          "confidence": 0.67,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true
+        },
+        {
+          "id": "sec_46a2f37b5ef34ceb",
+          "season": 2026,
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_LAC_at_KC",
+          "kickoff_utc": "2026-10-18T20:25:00.000Z",
+          "offense_team": "KC",
+          "offense_team_nick": "Chiefs",
+          "defense_team": "LAC",
+          "defense_team_nick": "Chargers",
+          "offense_venue": "home",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "match_zone",
+              "two_high",
+              "quarters"
+            ],
+            "primary_coverage_family": "match_zone",
+            "pressure_profile": "coverage_first",
+            "confidence": 0.78,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Jesse Minter Ravens-style match zone structure with Derwin James in hybrid role."
+          },
+          "secondary_absences": [],
+          "weakness_tags": [
+            "inside_seam_boost",
+            "post_cross_boost",
+            "slot_wr_boost",
+            "te_middle_boost",
+            "underneath_volume_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Rashee Rice",
+              "team": "KC",
+              "roles": [
+                "slot",
+                "alpha_x"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "slot",
+                "underneath",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 4.5,
+              "notes": "KC YAC Target Leader.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Travis Kelce",
+              "team": "KC",
+              "roles": [
+                "te_middle",
+                "red_zone"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "middle",
+                "intermediate",
+                "red_zone"
+              ],
+              "matched_weakness_tags": [
+                "te_middle_boost",
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 3,
+              "notes": "KC All-Pro Future HOF TE.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Xavier Worthy",
+              "team": "KC",
+              "roles": [
+                "z_receiver",
+                "field_stretcher"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "deep",
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "post_cross_boost"
+              ],
+              "opportunity_score": 1.2,
+              "notes": "KC 4.21 Speed 1st Rounder.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            }
+          ],
+          "severity_score": 0,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "low",
+          "confidence": 0.64,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1347,7 +1179,7 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
-        "secondary-matchup source week 5"
+        "secondary-matchup source week 6"
       ]
     },
     "availability": {

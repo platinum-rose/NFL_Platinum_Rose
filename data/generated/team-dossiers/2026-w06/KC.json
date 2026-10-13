@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T18:14:52.406Z",
+  "built_at": "2026-10-13T23:40:26.836Z",
   "builder": "team_dossier_builder_v1.0",
-  "git_head": "e05d47c",
+  "git_head": "706ab47",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-10T17:31:50.319Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 5,
-      "sha256": "1f19496c3b8a01880e816942aa802e395d1063f45beab66f3c2b097618735aed",
+      "generated_at": "2026-10-13T23:40:24.431Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -870,10 +870,224 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 5,
-      "status": "stale_prior_week_matchups",
-      "entries": null,
-      "note": "No team-keyed entries found in source structure; see raw file."
+      "source_week": 6,
+      "status": "current",
+      "entries": [
+        {
+          "id": "sec_607aaea3f178b4c5",
+          "season": 2026,
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_LAC_at_KC",
+          "kickoff_utc": "2026-10-18T20:25:00.000Z",
+          "offense_team": "LAC",
+          "offense_team_nick": "Chargers",
+          "defense_team": "KC",
+          "defense_team_nick": "Chiefs",
+          "offense_venue": "away",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "match_zone",
+              "blitz_heavy",
+              "two_high"
+            ],
+            "primary_coverage_family": "match_zone",
+            "pressure_profile": "aggressive",
+            "confidence": 0.85,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Steve Spagnuolo intricate blitz packages and post-snap rotation around Trent McDuffie."
+          },
+          "secondary_absences": [],
+          "weakness_tags": [
+            "hot_read_boost",
+            "inside_seam_boost",
+            "post_cross_boost",
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Ladd McConkey",
+              "team": "LAC",
+              "roles": [
+                "slot",
+                "alpha_x"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "slot",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 4.5,
+              "notes": "LAC Rookie Target Leader.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Charlie Kolar",
+              "team": "LAC",
+              "roles": [
+                "te_middle"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle"
+              ],
+              "matched_weakness_tags": [
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 0.8,
+              "notes": "LAC TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            },
+            {
+              "player_name": "Quentin Johnston",
+              "team": "LAC",
+              "roles": [
+                "alpha_x",
+                "field_stretcher"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "boundary",
+                "deep"
+              ],
+              "matched_weakness_tags": [
+                "post_cross_boost"
+              ],
+              "opportunity_score": 0.8,
+              "notes": "LAC 1st Round WR.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            }
+          ],
+          "severity_score": 0,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "low",
+          "confidence": 0.67,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true
+        },
+        {
+          "id": "sec_46a2f37b5ef34ceb",
+          "season": 2026,
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_LAC_at_KC",
+          "kickoff_utc": "2026-10-18T20:25:00.000Z",
+          "offense_team": "KC",
+          "offense_team_nick": "Chiefs",
+          "defense_team": "LAC",
+          "defense_team_nick": "Chargers",
+          "offense_venue": "home",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "match_zone",
+              "two_high",
+              "quarters"
+            ],
+            "primary_coverage_family": "match_zone",
+            "pressure_profile": "coverage_first",
+            "confidence": 0.78,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Jesse Minter Ravens-style match zone structure with Derwin James in hybrid role."
+          },
+          "secondary_absences": [],
+          "weakness_tags": [
+            "inside_seam_boost",
+            "post_cross_boost",
+            "slot_wr_boost",
+            "te_middle_boost",
+            "underneath_volume_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Rashee Rice",
+              "team": "KC",
+              "roles": [
+                "slot",
+                "alpha_x"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "slot",
+                "underneath",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 4.5,
+              "notes": "KC YAC Target Leader.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Travis Kelce",
+              "team": "KC",
+              "roles": [
+                "te_middle",
+                "red_zone"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "middle",
+                "intermediate",
+                "red_zone"
+              ],
+              "matched_weakness_tags": [
+                "te_middle_boost",
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 3,
+              "notes": "KC All-Pro Future HOF TE.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Xavier Worthy",
+              "team": "KC",
+              "roles": [
+                "z_receiver",
+                "field_stretcher"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "deep",
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "post_cross_boost"
+              ],
+              "opportunity_score": 1.2,
+              "notes": "KC 4.21 Speed 1st Rounder.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            }
+          ],
+          "severity_score": 0,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "low",
+          "confidence": 0.64,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true
+        }
+      ],
+      "note": "Entries pertain to the source week, not the target week."
     }
   },
   "availability": {
@@ -936,7 +1150,7 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
-        "secondary-matchup source week 5"
+        "secondary-matchup source week 6"
       ]
     },
     "availability": {

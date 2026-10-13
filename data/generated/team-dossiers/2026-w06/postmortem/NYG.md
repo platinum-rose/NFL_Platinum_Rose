@@ -1,5 +1,5 @@
 # NYG Giants — post-mortem, W1–W5 (for Week 6 synthesis)
-Built from dossier 2026-w06 (2026-10-13T18:14:52.718Z, git e05d47c). No market data. No player names (roster gate not run). Ranks are 1=best of 32 on that metric.
+Built from dossier 2026-w06 (2026-10-13T23:40:27.119Z, git 706ab47). No market data. No player names (roster gate not run). Ranks are 1=best of 32 on that metric.
 
 ## Season result
 3-1-1 · PF 109 PA 106 (+3) · streak T1 · net +0.6 pts/g (#13)

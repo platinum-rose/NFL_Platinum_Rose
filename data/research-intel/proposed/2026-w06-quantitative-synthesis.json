@@ -1,7 +1,7 @@
 {
   "schema": "week6_quantitative_synthesis_v1",
   "week": 6,
-  "generated_at": "2026-10-13T21:42:30.300Z",
+  "generated_at": "2026-10-13T23:40:32.326Z",
   "status": "proposed_analysis_only",
   "engine": {
     "name": "scripts/intel/margin-simulator.mjs analyzeGame",
@@ -16,10 +16,9 @@
       "7": 2.241308823639945
     },
     "latent_sigma_margin": 13.65927820366725,
-    "secondary_slate_mean_removed_pts_per_team": 0
+    "secondary_slate_mean_removed_pts_per_team": 0.31978571428571423
   },
   "warnings": [
-    "no secondary-matchup file for week 6: secondary term is zero (no fallback to an older week)",
     "no SuperContest lines file for week 6: contest field is null",
     "no master-intel pull for week 6: podcast accounting omitted"
   ],
@@ -60,8 +59,8 @@
       "role": "market anchor"
     },
     "secondary": {
-      "missing": true,
-      "role": "capped matchup context (unavailable this week)"
+      "generated": "2026-10-13T23:40:24.431Z",
+      "role": "capped matchup context"
     },
     "availability": {
       "generated": "2026-10-13T06:36:09.451Z",
@@ -4028,48 +4027,48 @@
           "SEA": 3.282
         },
         "secondary_adjustment_points": {
-          "DEN": 0,
-          "SEA": 0
+          "DEN": -0.04978571428571421,
+          "SEA": -0.18478571428571422
         }
       },
       "means": {
-        "home": 19.156574949562042,
-        "away": 21.626710567442384,
-        "total": 40.78328551700443,
-        "home_margin": -2.4701356178803415
+        "home": 19.106789235276327,
+        "away": 21.44192485315667,
+        "total": 40.548714088433,
+        "home_margin": -2.3351356178803435
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 19.156574949562042,
-        "mean_away": 21.626710567442384,
-        "home_win_pct": 0.4122638767026831,
-        "home_cover_pct": 0.47253877811958855,
-        "away_cover_pct": 0.44473471391896996,
-        "side_push_pct": 0.08272650796144075,
-        "home_cover_excl_push_pct": 0.5151558201790103,
-        "away_cover_excl_push_pct": 0.4848441798209896,
-        "over_pct": 0.4782358375378346,
-        "under_pct": 0.49136202632730513,
-        "total_push_pct": 0.030402136134860175,
-        "over_excl_push_pct": 0.4932311171060417,
-        "under_excl_push_pct": 0.5067688828939584,
+        "mean_home": 19.106789235276327,
+        "mean_away": 21.44192485315667,
+        "home_win_pct": 0.41573474963978435,
+        "home_cover_pct": 0.47608025696188705,
+        "away_cover_pct": 0.4412036448551084,
+        "side_push_pct": 0.08271609818300496,
+        "home_cover_excl_push_pct": 0.5190108057263916,
+        "away_cover_excl_push_pct": 0.4809891942736085,
+        "over_pct": 0.4711412039081432,
+        "under_pct": 0.4984694484337995,
+        "total_push_pct": 0.030389347658057397,
+        "over_excl_push_pct": 0.48590761948641487,
+        "under_excl_push_pct": 0.5140923805135851,
         "adjustments_vs_market": {
-          "margin": 0.5298643821196585,
-          "total": -0.21671448299557028
+          "margin": 0.6648643821196565,
+          "total": -0.45128591156699827
         },
         "distribution": {
-          "mean_margin": -2.883512294546628,
+          "mean_margin": -2.7671012330339613,
           "median_margin": -3,
-          "mean_total": 40.80777620360479,
+          "mean_total": 40.575365446843165,
           "median_total": 41
         }
       },
       "model_menu": {
         "side": "DEN",
-        "side_cover_pct": 0.5151558201790103,
+        "side_cover_pct": 0.5190108057263916,
         "total": "Under",
-        "total_pct": 0.5067688828939584,
+        "total_pct": 0.5140923805135851,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4104,48 +4103,48 @@
           "HOU": -2.477
         },
         "secondary_adjustment_points": {
-          "JAX": 0,
-          "HOU": 0
+          "JAX": 0.12221428571428578,
+          "HOU": 0.06221428571428578
         }
       },
       "means": {
-        "home": 23.487584984428118,
-        "away": 19.090088483041065,
-        "total": 42.57767346746918,
-        "home_margin": 4.397496501387053
+        "home": 23.609799270142403,
+        "away": 19.15230276875535,
+        "total": 42.76210203889775,
+        "home_margin": 4.457496501387052
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 23.487584984428118,
-        "mean_away": 19.090088483041065,
-        "home_win_pct": 0.6094680628143435,
-        "home_cover_pct": 0.5497519157077932,
-        "away_cover_pct": 0.45024808429220714,
+        "mean_home": 23.609799270142403,
+        "mean_away": 19.15230276875535,
+        "home_win_pct": 0.6109901134619694,
+        "home_cover_pct": 0.5513207102246834,
+        "away_cover_pct": 0.44867928977531574,
         "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.549751915707793,
-        "away_cover_excl_push_pct": 0.4502480842922069,
-        "over_pct": 0.5023561346505226,
-        "under_pct": 0.4976438653494773,
+        "home_cover_excl_push_pct": 0.5513207102246839,
+        "away_cover_excl_push_pct": 0.4486792897753161,
+        "over_pct": 0.5079503246924949,
+        "under_pct": 0.4920496753075048,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.5023561346505226,
-        "under_excl_push_pct": 0.4976438653494773,
+        "over_excl_push_pct": 0.507950324692495,
+        "under_excl_push_pct": 0.49204967530750493,
         "adjustments_vs_market": {
-          "margin": 1.897496501387053,
-          "total": 0.07767346746918236
+          "margin": 1.9574965013870518,
+          "total": 0.2621020388977513
         },
         "distribution": {
-          "mean_margin": 3.6197752856381404,
+          "mean_margin": 3.671870179372712,
           "median_margin": 3,
-          "mean_total": 42.59309717079804,
+          "mean_total": 42.77643637336029,
           "median_total": 43
         }
       },
       "model_menu": {
         "side": "JAX",
-        "side_cover_pct": 0.549751915707793,
+        "side_cover_pct": 0.5513207102246839,
         "total": "Over",
-        "total_pct": 0.5023561346505226,
+        "total_pct": 0.507950324692495,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4180,48 +4179,48 @@
           "CHI": 5.723
         },
         "secondary_adjustment_points": {
-          "ATL": 0,
-          "CHI": 0
+          "ATL": 0.41121428571428575,
+          "CHI": 0.0852142857142858
         }
       },
       "means": {
-        "home": 23.716183294252634,
-        "away": 25.87735539210387,
-        "total": 49.5935386863565,
-        "home_margin": -2.161172097851235
+        "home": 24.12739757996692,
+        "away": 25.962569677818156,
+        "total": 50.08996725778508,
+        "home_margin": -1.8351720978512347
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 23.716183294252634,
-        "mean_away": 25.87735539210387,
-        "home_win_pct": 0.4202157115823285,
-        "home_cover_pct": 0.480644857511379,
-        "away_cover_pct": 0.43666274673783445,
-        "side_push_pct": 0.08269239575078628,
-        "home_cover_excl_push_pct": 0.5239734798718596,
-        "away_cover_excl_push_pct": 0.4760265201281404,
-        "over_pct": 0.5028417091477224,
-        "under_pct": 0.49715829085227775,
+        "mean_home": 24.12739757996692,
+        "mean_away": 25.962569677818156,
+        "home_win_pct": 0.42863647302465613,
+        "home_cover_pct": 0.48920000025760857,
+        "away_cover_pct": 0.42818314146112485,
+        "side_push_pct": 0.08261685828126684,
+        "home_cover_excl_push_pct": 0.533255929840921,
+        "away_cover_excl_push_pct": 0.466744070159079,
+        "over_pct": 0.5179175885517323,
+        "under_pct": 0.4820824114482678,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.5028417091477223,
-        "under_excl_push_pct": 0.49715829085227764,
+        "over_excl_push_pct": 0.5179175885517323,
+        "under_excl_push_pct": 0.4820824114482678,
         "adjustments_vs_market": {
-          "margin": 0.8388279021487648,
-          "total": 0.09353868635650286
+          "margin": 1.1648279021487653,
+          "total": 0.5899672577850765
         },
         "distribution": {
-          "mean_margin": -2.61723701384202,
+          "mean_margin": -2.336810895915786,
           "median_margin": -3,
-          "mean_total": 49.59600209004778,
+          "mean_total": 50.09194292131795,
           "median_total": 50
         }
       },
       "model_menu": {
         "side": "ATL",
-        "side_cover_pct": 0.5239734798718596,
+        "side_cover_pct": 0.533255929840921,
         "total": "Over",
-        "total_pct": 0.5028417091477223,
+        "total_pct": 0.5179175885517323,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4256,48 +4255,48 @@
           "BAL": 1.049
         },
         "secondary_adjustment_points": {
-          "CLE": 0,
-          "BAL": 0
+          "CLE": 0.11521428571428577,
+          "BAL": -0.18478571428571422
         }
       },
       "means": {
-        "home": 18.920228526143003,
-        "away": 22.99350434615718,
-        "total": 41.91373287230019,
-        "home_margin": -4.073275820014178
+        "home": 19.035442811857287,
+        "away": 22.808718631871468,
+        "total": 41.84416144372875,
+        "home_margin": -3.773275820014181
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 18.920228526143003,
-        "mean_away": 22.99350434615718,
-        "home_win_pct": 0.34854426132056693,
-        "home_cover_pct": 0.5126594344141863,
-        "away_cover_pct": 0.4627262079960595,
-        "side_push_pct": 0.02461435758975368,
-        "home_cover_excl_push_pct": 0.5255966585148507,
-        "away_cover_excl_push_pct": 0.47440334148514923,
-        "over_pct": 0.4821860839086964,
-        "under_pct": 0.4874144855873138,
-        "total_push_pct": 0.030399430503989605,
-        "over_excl_push_pct": 0.49730383735163486,
-        "under_excl_push_pct": 0.5026961626483651,
+        "mean_home": 19.035442811857287,
+        "mean_away": 22.808718631871468,
+        "home_win_pct": 0.35594174095391246,
+        "home_cover_pct": 0.5207018118945758,
+        "away_cover_pct": 0.454685511071743,
+        "side_push_pct": 0.02461267703368109,
+        "home_cover_excl_push_pct": 0.5338410697311843,
+        "away_cover_excl_push_pct": 0.46615893026881566,
+        "over_pct": 0.48007859314340645,
+        "under_pct": 0.4895232350933791,
+        "total_push_pct": 0.03039817176321435,
+        "over_excl_push_pct": 0.49512962863985743,
+        "under_excl_push_pct": 0.5048703713601426,
         "adjustments_vs_market": {
-          "margin": 0.9267241799858219,
-          "total": -0.08626712769981282
+          "margin": 1.226724179985819,
+          "total": -0.15583855627124876
         },
         "distribution": {
-          "mean_margin": -5.08863539714762,
+          "mean_margin": -4.824533647097613,
           "median_margin": -4,
-          "mean_total": 41.932225912420776,
+          "mean_total": 41.86314560208501,
           "median_total": 42
         }
       },
       "model_menu": {
         "side": "CLE",
-        "side_cover_pct": 0.5255966585148507,
+        "side_cover_pct": 0.5338410697311843,
         "total": "Under",
-        "total_pct": 0.5026961626483651,
+        "total_pct": 0.5048703713601426,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4332,48 +4331,48 @@
           "TEN": -13.225
         },
         "secondary_adjustment_points": {
-          "IND": 0,
-          "TEN": 0
+          "IND": 0.2122142857142858,
+          "TEN": -0.18478571428571422
         }
       },
       "means": {
-        "home": 25.02614107915397,
-        "away": 18.743042021061726,
-        "total": 43.7691831002157,
-        "home_margin": 6.283099058092244
+        "home": 25.238355364868255,
+        "away": 18.558256306776013,
+        "total": 43.79661167164427,
+        "home_margin": 6.680099058092242
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 25.02614107915397,
-        "mean_away": 18.743042021061726,
-        "home_win_pct": 0.7127719861300191,
-        "home_cover_pct": 0.45238478467036725,
-        "away_cover_pct": 0.49192302162761065,
-        "side_push_pct": 0.055692193702022504,
-        "home_cover_excl_push_pct": 0.4790649634083576,
-        "away_cover_excl_push_pct": 0.5209350365916423,
-        "over_pct": 0.47780628394165225,
-        "under_pct": 0.4918058731220345,
-        "total_push_pct": 0.03038784293631319,
-        "over_excl_push_pct": 0.4927808304184336,
-        "under_excl_push_pct": 0.5072191695815663,
+        "mean_home": 25.238355364868255,
+        "mean_away": 18.558256306776013,
+        "home_win_pct": 0.7217942064848102,
+        "home_cover_pct": 0.463353192485703,
+        "away_cover_pct": 0.4810230491102963,
+        "side_push_pct": 0.05562375840400028,
+        "home_cover_excl_push_pct": 0.490644694430934,
+        "away_cover_excl_push_pct": 0.5093553055690659,
+        "over_pct": 0.4786374980302259,
+        "under_pct": 0.49097366496907213,
+        "total_push_pct": 0.030388837000702173,
+        "over_excl_push_pct": 0.49363860101368534,
+        "under_excl_push_pct": 0.5063613989863146,
         "adjustments_vs_market": {
-          "margin": -0.7169009419077561,
-          "total": -0.2308168997843012
+          "margin": -0.31990094190775764,
+          "total": -0.20338832835572873
         },
         "distribution": {
-          "mean_margin": 7.397061947094604,
+          "mean_margin": 7.759051578654489,
           "median_margin": 7,
-          "mean_total": 43.78123514338675,
+          "mean_total": 43.80853852890633,
           "median_total": 44
         }
       },
       "model_menu": {
         "side": "TEN",
-        "side_cover_pct": 0.5209350365916423,
+        "side_cover_pct": 0.5093553055690659,
         "total": "Under",
-        "total_pct": 0.5072191695815663,
+        "total_pct": 0.5063613989863146,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4408,48 +4407,48 @@
           "NYJ": -1.806
         },
         "secondary_adjustment_points": {
-          "NE": 0,
-          "NYJ": 0
+          "NE": -0.019785714285714184,
+          "NYJ": -0.016785714285714237
         }
       },
       "means": {
-        "home": 25.171344999605346,
-        "away": 18.624280132089226,
-        "total": 43.79562513169457,
-        "home_margin": 6.54706486751612
+        "home": 25.15155928531963,
+        "away": 18.60749441780351,
+        "total": 43.75905370312314,
+        "home_margin": 6.54406486751612
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 25.171344999605346,
-        "mean_away": 18.624280132089226,
-        "home_win_pct": 0.7298929707852441,
-        "home_cover_pct": 0.4733770786249595,
-        "away_cover_pct": 0.5266229213750411,
+        "mean_home": 25.15155928531963,
+        "mean_away": 18.60749441780351,
+        "home_win_pct": 0.7298261194935437,
+        "home_cover_pct": 0.4732936332798272,
+        "away_cover_pct": 0.5267063667201729,
         "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.47337707862495926,
-        "away_cover_excl_push_pct": 0.5266229213750409,
-        "over_pct": 0.478607599515902,
-        "under_pct": 0.4910035969443331,
-        "total_push_pct": 0.030388803539764843,
-        "over_excl_push_pct": 0.4936077484079777,
-        "under_excl_push_pct": 0.5063922515920223,
+        "home_cover_excl_push_pct": 0.4732936332798272,
+        "away_cover_excl_push_pct": 0.5267063667201729,
+        "over_pct": 0.47749934153465085,
+        "under_pct": 0.49211321607982533,
+        "total_push_pct": 0.030387442385523766,
+        "over_excl_push_pct": 0.4924640649347979,
+        "under_excl_push_pct": 0.5075359350652021,
         "adjustments_vs_market": {
-          "margin": -0.95293513248388,
-          "total": -0.20437486830542895
+          "margin": -0.9559351324838801,
+          "total": -0.24094629687685654
         },
         "distribution": {
-          "mean_margin": 8.089995177198364,
+          "mean_margin": 8.087239035853225,
           "median_margin": 7,
-          "mean_total": 43.80755647764677,
+          "mean_total": 43.771152181482236,
           "median_total": 44
         }
       },
       "model_menu": {
         "side": "NYJ",
-        "side_cover_pct": 0.5266229213750409,
+        "side_cover_pct": 0.5267063667201729,
         "total": "Under",
-        "total_pct": 0.5063922515920223,
+        "total_pct": 0.5075359350652021,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4484,48 +4483,48 @@
           "NO": -4
         },
         "secondary_adjustment_points": {
-          "NYG": 0,
-          "NO": 0
+          "NYG": 0.03321428571428575,
+          "NO": 0.0852142857142858
         }
       },
       "means": {
-        "home": 22.645947561562686,
-        "away": 22.917623489117762,
-        "total": 45.56357105068045,
-        "home_margin": -0.2716759275550764
+        "home": 22.679161847276973,
+        "away": 23.00283777483205,
+        "total": 45.68199962210902,
+        "home_margin": -0.323675927555076
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 22.645947561562686,
-        "mean_away": 22.917623489117762,
-        "home_win_pct": 0.494772847893067,
-        "home_cover_pct": 0.5069434064441782,
-        "away_cover_pct": 0.4687547445630883,
-        "side_push_pct": 0.02430184899273448,
-        "home_cover_excl_push_pct": 0.5195699160860691,
-        "away_cover_excl_push_pct": 0.48043008391393094,
-        "over_pct": 0.5019302117023613,
-        "under_pct": 0.498069788297639,
+        "mean_home": 22.679161847276973,
+        "mean_away": 23.00283777483205,
+        "home_win_pct": 0.49340865772026204,
+        "home_cover_pct": 0.505578562918767,
+        "away_cover_pct": 0.470114111768658,
+        "side_push_pct": 0.02430732531257513,
+        "home_cover_excl_push_pct": 0.518173986579058,
+        "away_cover_excl_push_pct": 0.48182601342094195,
+        "over_pct": 0.5055259629173354,
+        "under_pct": 0.4944740370826646,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.5019302117023612,
-        "under_excl_push_pct": 0.49806978829763887,
+        "over_excl_push_pct": 0.5055259629173354,
+        "under_excl_push_pct": 0.4944740370826646,
         "adjustments_vs_market": {
-          "margin": 0.7283240724449236,
-          "total": 0.06357105068045144
+          "margin": 0.676324072444924,
+          "total": 0.18199962210901788
         },
         "distribution": {
-          "mean_margin": -0.16995774622993085,
+          "mean_margin": -0.2143183652130107,
           "median_margin": 0,
-          "mean_total": 45.57092509272824,
+          "mean_total": 45.689006436138236,
           "median_total": 46
         }
       },
       "model_menu": {
         "side": "NYG",
-        "side_cover_pct": 0.5195699160860691,
+        "side_cover_pct": 0.518173986579058,
         "total": "Over",
-        "total_pct": 0.5019302117023612,
+        "total_pct": 0.5055259629173354,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4560,48 +4559,48 @@
           "CAR": 3.17
         },
         "secondary_adjustment_points": {
-          "PHI": 0,
-          "CAR": 0
+          "PHI": 0.4912142857142857,
+          "CAR": 0.035214285714285753
         }
       },
       "means": {
-        "home": 20.77676674454615,
-        "away": 21.730394638979377,
-        "total": 42.50716138352553,
-        "home_margin": -0.9536278944332253
+        "home": 21.267981030260437,
+        "away": 21.765608924693662,
+        "total": 43.033589954954095,
+        "home_margin": -0.49762789443322575
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 20.77676674454615,
-        "mean_away": 21.730394638979377,
-        "home_win_pct": 0.47309660628091055,
-        "home_cover_pct": 0.4368673053014897,
-        "away_cover_pct": 0.5390457531324458,
-        "side_push_pct": 0.024086941566064633,
-        "home_cover_excl_push_pct": 0.44764982036672224,
-        "away_cover_excl_push_pct": 0.5523501796332778,
-        "over_pct": 0.5002172308138602,
-        "under_pct": 0.49978276918613995,
+        "mean_home": 21.267981030260437,
+        "mean_away": 21.765608924693662,
+        "home_win_pct": 0.48504612948138415,
+        "home_cover_pct": 0.4486974592125792,
+        "away_cover_pct": 0.5271164737737463,
+        "side_push_pct": 0.024186067013674897,
+        "home_cover_excl_push_pct": 0.4598186642400268,
+        "away_cover_excl_push_pct": 0.5401813357599732,
+        "over_pct": 0.5161826993941866,
+        "under_pct": 0.48381730060581324,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.5002172308138602,
-        "under_excl_push_pct": 0.49978276918613995,
+        "over_excl_push_pct": 0.5161826993941867,
+        "under_excl_push_pct": 0.48381730060581335,
         "adjustments_vs_market": {
-          "margin": -1.9536278944332253,
-          "total": 0.007161383525527754
+          "margin": -1.4976278944332257,
+          "total": 0.5335899549540954
         },
         "distribution": {
-          "mean_margin": -0.8755939359073874,
+          "mean_margin": -0.48634846325513914,
           "median_margin": -1,
-          "mean_total": 42.523013790634636,
+          "mean_total": 43.04640186377764,
           "median_total": 43
         }
       },
       "model_menu": {
         "side": "CAR",
-        "side_cover_pct": 0.5523501796332778,
+        "side_cover_pct": 0.5401813357599732,
         "total": "Over",
-        "total_pct": 0.5002172308138602,
+        "total_pct": 0.5161826993941867,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4636,48 +4635,48 @@
           "PIT": 2.485
         },
         "secondary_adjustment_points": {
-          "TB": 0,
-          "PIT": 0
+          "TB": 0.05521428571428577,
+          "PIT": 0.0852142857142858
         }
       },
       "means": {
-        "home": 19.39919082562846,
-        "away": 20.98281160889709,
-        "total": 40.382002434525546,
-        "home_margin": -1.583620783268632
+        "home": 19.454405111342744,
+        "away": 21.068025894611377,
+        "total": 40.52243100595412,
+        "home_margin": -1.6136207832686331
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 19.39919082562846,
-        "mean_away": 20.98281160889709,
-        "home_win_pct": 0.46319416834382166,
-        "home_cover_pct": 0.5240015245742774,
-        "away_cover_pct": 0.475998475425722,
+        "mean_home": 19.454405111342744,
+        "mean_away": 21.068025894611377,
+        "home_win_pct": 0.46240999846257363,
+        "home_cover_pct": 0.5232172495445606,
+        "away_cover_pct": 0.4767827504554405,
         "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.5240015245742777,
-        "away_cover_excl_push_pct": 0.4759984754257223,
-        "over_pct": 0.49642485597565184,
-        "under_pct": 0.503575144024348,
+        "home_cover_excl_push_pct": 0.5232172495445601,
+        "away_cover_excl_push_pct": 0.47678275045543994,
+        "over_pct": 0.500679660707669,
+        "under_pct": 0.4993203392923308,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.49642485597565195,
-        "under_excl_push_pct": 0.5035751440243481,
+        "over_excl_push_pct": 0.5006796607076691,
+        "under_excl_push_pct": 0.4993203392923309,
         "adjustments_vs_market": {
-          "margin": 0.916379216731368,
-          "total": -0.11799756547445384
+          "margin": 0.8863792167313669,
+          "total": 0.022431005954118177
         },
         "distribution": {
-          "mean_margin": -1.198928964370423,
+          "mean_margin": -1.2245723037840999,
           "median_margin": -2,
-          "mean_total": 40.4084755593228,
-          "median_total": 40
+          "mean_total": 40.547549555327215,
+          "median_total": 41
         }
       },
       "model_menu": {
         "side": "TB",
-        "side_cover_pct": 0.5240015245742777,
-        "total": "Under",
-        "total_pct": 0.5035751440243481,
+        "side_cover_pct": 0.5232172495445601,
+        "total": "Over",
+        "total_pct": 0.5006796607076691,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4712,48 +4711,48 @@
           "ARI": -11.144
         },
         "secondary_adjustment_points": {
-          "LAR": 0,
-          "ARI": 0
+          "LAR": 0.0852142857142858,
+          "ARI": -0.31978571428571423
         }
       },
       "means": {
-        "home": 31.389058867908908,
-        "away": 21.208005422644778,
-        "total": 52.59706429055369,
-        "home_margin": 10.18105344526413
+        "home": 31.474273153623194,
+        "away": 20.888219708359063,
+        "total": 52.36249286198226,
+        "home_margin": 10.586053445264131
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 31.389058867908908,
-        "mean_away": 21.208005422644778,
-        "home_win_pct": 0.7931527356439763,
-        "home_cover_pct": 0.43236275060483365,
-        "away_cover_pct": 0.5676372493951668,
+        "mean_home": 31.474273153623194,
+        "mean_away": 20.888219708359063,
+        "home_win_pct": 0.8009894297482577,
+        "home_cover_pct": 0.4440285759318855,
+        "away_cover_pct": 0.5559714240681144,
         "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.4323627506048335,
-        "away_cover_excl_push_pct": 0.5676372493951666,
-        "over_pct": 0.5029493024659023,
-        "under_pct": 0.4970506975340975,
+        "home_cover_excl_push_pct": 0.44402857593188555,
+        "away_cover_excl_push_pct": 0.5559714240681145,
+        "over_pct": 0.49582189509555824,
+        "under_pct": 0.5041781049044418,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.5029493024659024,
-        "under_excl_push_pct": 0.4970506975340976,
+        "over_excl_push_pct": 0.49582189509555824,
+        "under_excl_push_pct": 0.5041781049044418,
         "adjustments_vs_market": {
-          "margin": -2.31894655473587,
-          "total": 0.09706429055368915
+          "margin": -1.913946554735869,
+          "total": -0.13750713801773884
         },
         "distribution": {
-          "mean_margin": 10.922403247677247,
+          "mean_margin": 11.311805740258983,
           "median_margin": 10,
-          "mean_total": 52.59808926152665,
-          "median_total": 53
+          "mean_total": 52.36362774190743,
+          "median_total": 52
         }
       },
       "model_menu": {
         "side": "ARI",
-        "side_cover_pct": 0.5676372493951666,
-        "total": "Over",
-        "total_pct": 0.5029493024659024,
+        "side_cover_pct": 0.5559714240681145,
+        "total": "Under",
+        "total_pct": 0.5041781049044418,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4788,48 +4787,48 @@
           "BUF": 4.153
         },
         "secondary_adjustment_points": {
-          "LV": 0,
-          "BUF": 0
+          "LV": -0.04978571428571421,
+          "BUF": -0.18478571428571422
         }
       },
       "means": {
-        "home": 24.818489959265726,
-        "away": 28.990110583118913,
-        "total": 53.80860054238464,
-        "home_margin": -4.171620623853187
+        "home": 24.76870424498001,
+        "away": 28.8053248688332,
+        "total": 53.57402911381321,
+        "home_margin": -4.036620623853189
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 24.818489959265726,
-        "mean_away": 28.990110583118913,
-        "home_win_pct": 0.3484208533189198,
-        "home_cover_pct": 0.5371389615196503,
-        "away_cover_pct": 0.43819344523935566,
-        "side_push_pct": 0.024667593240994518,
-        "home_cover_excl_push_pct": 0.5507239970673624,
-        "away_cover_excl_push_pct": 0.4492760029326376,
-        "over_pct": 0.5093763589838748,
-        "under_pct": 0.4906236410161251,
+        "mean_home": 24.76870424498001,
+        "mean_away": 28.8053248688332,
+        "home_win_pct": 0.3517433391537019,
+        "home_cover_pct": 0.5407610237602701,
+        "away_cover_pct": 0.43458862565735196,
+        "side_push_pct": 0.024650350582377148,
+        "home_cover_excl_push_pct": 0.5544278650052897,
+        "away_cover_excl_push_pct": 0.44557213499471016,
+        "over_pct": 0.5022494551652835,
+        "under_pct": 0.4977505448347167,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.5093763589838749,
-        "under_excl_push_pct": 0.49062364101612516,
+        "over_excl_push_pct": 0.5022494551652834,
+        "under_excl_push_pct": 0.4977505448347166,
         "adjustments_vs_market": {
-          "margin": 1.8283793761468132,
-          "total": 0.30860054238463874
+          "margin": 1.9633793761468112,
+          "total": 0.07402911381321076
         },
         "distribution": {
-          "mean_margin": -5.093063128690184,
+          "mean_margin": -4.9741098850068965,
           "median_margin": -4,
-          "mean_total": 53.80928754246553,
+          "mean_total": 53.574793257063234,
           "median_total": 54
         }
       },
       "model_menu": {
         "side": "LV",
-        "side_cover_pct": 0.5507239970673624,
+        "side_cover_pct": 0.5544278650052897,
         "total": "Over",
-        "total_pct": 0.5093763589838749,
+        "total_pct": 0.5022494551652834,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4864,40 +4863,40 @@
           "LAC": -9.304
         },
         "secondary_adjustment_points": {
-          "KC": 0,
-          "LAC": 0
+          "KC": -0.31978571428571423,
+          "LAC": -0.31978571428571423
         }
       },
       "means": {
-        "home": 25.734435381853633,
-        "away": 16.686348698840916,
-        "total": 42.420784080694546,
+        "home": 25.414649667567918,
+        "away": 16.366562984555202,
+        "total": 41.781212652123116,
         "home_margin": 9.048086683012716
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 25.734435381853633,
-        "mean_away": 16.686348698840916,
+        "mean_home": 25.414649667567918,
+        "mean_away": 16.366562984555202,
         "home_win_pct": 0.7817661295893055,
         "home_cover_pct": 0.5173160342572918,
         "away_cover_pct": 0.4580773558497713,
         "side_push_pct": 0.02460660989293633,
         "home_cover_excl_push_pct": 0.5303665572313435,
         "away_cover_excl_push_pct": 0.46963344276865654,
-        "over_pct": 0.497597145205627,
-        "under_pct": 0.5024028547943731,
+        "over_pct": 0.4782103813479387,
+        "under_pct": 0.5217896186520611,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.497597145205627,
-        "under_excl_push_pct": 0.5024028547943731,
+        "over_excl_push_pct": 0.4782103813479388,
+        "under_excl_push_pct": 0.5217896186520612,
         "adjustments_vs_market": {
           "margin": 1.0480866830127162,
-          "total": -0.07921591930545446
+          "total": -0.7187873478768836
         },
         "distribution": {
           "mean_margin": 10.374157803043108,
           "median_margin": 9,
-          "mean_total": 42.43717106811202,
+          "mean_total": 41.80189808150155,
           "median_total": 42
         }
       },
@@ -4905,7 +4904,7 @@
         "side": "KC",
         "side_cover_pct": 0.5303665572313435,
         "total": "Under",
-        "total_pct": 0.5024028547943731,
+        "total_pct": 0.5217896186520612,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4940,48 +4939,48 @@
           "DAL": -3.269
         },
         "secondary_adjustment_points": {
-          "GB": 0,
-          "DAL": 0
+          "GB": 0.1552142857142858,
+          "DAL": -0.0997857142857142
         }
       },
       "means": {
-        "home": 27.532273298293127,
-        "away": 26.04187456497887,
-        "total": 53.574147863271996,
-        "home_margin": 1.490398733314258
+        "home": 27.687487584007414,
+        "away": 25.942088850693153,
+        "total": 53.62957643470057,
+        "home_margin": 1.7453987333142607
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 27.532273298293127,
-        "mean_away": 26.04187456497887,
-        "home_win_pct": 0.5371566039243314,
-        "home_cover_pct": 0.5006896768575846,
-        "away_cover_pct": 0.47495918271522575,
-        "side_push_pct": 0.024351140427189846,
-        "home_cover_excl_push_pct": 0.5131863497250563,
-        "away_cover_excl_push_pct": 0.4868136502749437,
-        "over_pct": 0.5022530634583385,
-        "under_pct": 0.4977469365416616,
+        "mean_home": 27.687487584007414,
+        "mean_away": 25.942088850693153,
+        "home_win_pct": 0.5438173649834459,
+        "home_cover_pct": 0.5073829261354613,
+        "away_cover_pct": 0.46827659758534135,
+        "side_push_pct": 0.02434047627919724,
+        "home_cover_excl_push_pct": 0.5200409710556522,
+        "away_cover_excl_push_pct": 0.47995902894434783,
+        "over_pct": 0.5039372783660675,
+        "under_pct": 0.49606272163393267,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.5022530634583385,
-        "under_excl_push_pct": 0.4977469365416616,
+        "over_excl_push_pct": 0.5039372783660674,
+        "under_excl_push_pct": 0.49606272163393256,
         "adjustments_vs_market": {
-          "margin": 0.4903987333142581,
-          "total": 0.07414786327199607
+          "margin": 0.7453987333142607,
+          "total": 0.12957643470056723
         },
         "distribution": {
-          "mean_margin": 1.210398886117785,
+          "mean_margin": 1.4284500484000227,
           "median_margin": 2,
-          "mean_total": 53.57491196610302,
+          "mean_total": 53.630321824671036,
           "median_total": 54
         }
       },
       "model_menu": {
         "side": "GB",
-        "side_cover_pct": 0.5131863497250563,
+        "side_cover_pct": 0.5200409710556522,
         "total": "Over",
-        "total_pct": 0.5022530634583385,
+        "total_pct": 0.5039372783660674,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -5016,48 +5015,48 @@
           "WAS": -9.739
         },
         "secondary_adjustment_points": {
-          "SF": 0,
-          "WAS": 0
+          "SF": -0.18478571428571422,
+          "WAS": 0.0852142857142858
         }
       },
       "means": {
-        "home": 30.185977992049143,
-        "away": 20.842337016659478,
-        "total": 51.02831500870862,
-        "home_margin": 9.343640975389665
+        "home": 30.00119227776343,
+        "away": 20.927551302373764,
+        "total": 50.928743580137194,
+        "home_margin": 9.073640975389665
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 30.185977992049143,
-        "mean_away": 20.842337016659478,
-        "home_win_pct": 0.7887977665088819,
-        "home_cover_pct": 0.5518442829348915,
-        "away_cover_pct": 0.44815571706510865,
+        "mean_home": 30.00119227776343,
+        "mean_away": 20.927551302373764,
+        "home_win_pct": 0.7834250402801,
+        "home_cover_pct": 0.5442487982479702,
+        "away_cover_pct": 0.45575120175202966,
         "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.5518442829348914,
-        "away_cover_excl_push_pct": 0.44815571706510854,
-        "over_pct": 0.48566833292377193,
-        "under_pct": 0.48394898413125886,
-        "total_push_pct": 0.030382682944969257,
-        "over_excl_push_pct": 0.5008866120490376,
-        "under_excl_push_pct": 0.49911338795096233,
+        "home_cover_excl_push_pct": 0.5442487982479703,
+        "away_cover_excl_push_pct": 0.4557512017520297,
+        "over_pct": 0.482645424075487,
+        "under_pct": 0.48697224109417214,
+        "total_push_pct": 0.03038233483034089,
+        "over_excl_push_pct": 0.49776880250117556,
+        "under_excl_push_pct": 0.5022311974988245,
         "adjustments_vs_market": {
-          "margin": 1.8436409753896648,
-          "total": 0.02831500870861703
+          "margin": 1.5736409753896652,
+          "total": -0.07125641986280584
         },
         "distribution": {
-          "mean_margin": 10.71035763369881,
-          "median_margin": 10,
-          "mean_total": 51.0299613588848,
+          "mean_margin": 10.452807748034697,
+          "median_margin": 9,
+          "mean_total": 50.93046138037308,
           "median_total": 51
         }
       },
       "model_menu": {
         "side": "SF",
-        "side_cover_pct": 0.5518442829348914,
-        "total": "Over",
-        "total_pct": 0.5008866120490376,
+        "side_cover_pct": 0.5442487982479703,
+        "total": "Under",
+        "total_pct": 0.5022311974988245,
         "basis": "excluding pushes"
       },
       "contest": null

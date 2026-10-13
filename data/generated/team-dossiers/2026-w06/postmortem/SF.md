@@ -1,5 +1,5 @@
 # SF 49ers — post-mortem, W1–W5 (for Week 6 synthesis)
-Built from dossier 2026-w06 (2026-10-13T18:14:52.933Z, git e05d47c). No market data. No player names (roster gate not run). Ranks are 1=best of 32 on that metric.
+Built from dossier 2026-w06 (2026-10-13T23:40:27.300Z, git 706ab47). No market data. No player names (roster gate not run). Ranks are 1=best of 32 on that metric.
 
 ## Season result
 5-0-0 · PF 154 PA 93 (+61) · streak W5 · net +12.2 pts/g (#1)

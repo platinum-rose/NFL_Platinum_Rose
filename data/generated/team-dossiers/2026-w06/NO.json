@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T18:14:52.681Z",
+  "built_at": "2026-10-13T23:40:27.081Z",
   "builder": "team_dossier_builder_v1.0",
-  "git_head": "e05d47c",
+  "git_head": "706ab47",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-10T17:31:50.319Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 5,
-      "sha256": "1f19496c3b8a01880e816942aa802e395d1063f45beab66f3c2b097618735aed",
+      "generated_at": "2026-10-13T23:40:24.431Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -901,20 +901,182 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 5,
-      "status": "stale_prior_week_matchups",
+      "source_week": 6,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_73fa9c0d3ba6d7ef",
+          "id": "sec_4286531470d34e63",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_MIN_at_NO",
-          "kickoff_utc": "2026-10-11T17:00:00.000Z",
-          "offense_team": "MIN",
-          "offense_team_nick": "Vikings",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_NO_at_NYG",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
+          "offense_team": "NO",
+          "offense_team_nick": "Saints",
+          "defense_team": "NYG",
+          "defense_team_nick": "Giants",
+          "offense_venue": "away",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "man_heavy",
+              "blitz_heavy"
+            ],
+            "primary_coverage_family": "man_match",
+            "pressure_profile": "blitz_heavy",
+            "confidence": 0.72,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Shane Bowen pressure-heavy scheme utilizing Deonte Banks on outside receivers."
+          },
+          "secondary_absences": [
+            {
+              "player_name": "Paulson Adebo",
+              "team": "NYG",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Paulson Adebo IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-14T06:20:02.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Jarrick Bernard-Converse",
+              "team": "NYG",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Jarrick Bernard-Converse IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-14T06:20:02.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Thaddeus Dixon",
+              "team": "NYG",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Thaddeus Dixon IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-14T06:20:02.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            }
+          ],
+          "weakness_tags": [
+            "alpha_wr_boost",
+            "hot_read_boost",
+            "outside_wr_boost",
+            "slot_wr_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Chris Olave",
+              "team": "NO",
+              "roles": [
+                "alpha_x",
+                "field_stretcher"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "deep",
+                "boundary",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "alpha_wr_boost"
+              ],
+              "opportunity_score": 3,
+              "notes": "NO Smooth Route WR1.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Bryce Lance",
+              "team": "NO",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "short"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost"
+              ],
+              "opportunity_score": 0.8,
+              "notes": "NO WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            },
+            {
+              "player_name": "Devaughn Vele",
+              "team": "NO",
+              "roles": [
+                "z_receiver"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost"
+              ],
+              "opportunity_score": 0.8,
+              "notes": "NO WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            }
+          ],
+          "severity_score": 4.05,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "medium",
+          "confidence": 0.86,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true
+        },
+        {
+          "id": "sec_c61da9c75fa7a573",
+          "season": 2026,
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_NO_at_NYG",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
+          "offense_team": "NYG",
+          "offense_team_nick": "Giants",
           "defense_team": "NO",
           "defense_team_nick": "Saints",
-          "offense_venue": "away",
+          "offense_venue": "home",
           "coverage_scheme": {
             "scheme_tags": [
               "man_heavy",
@@ -938,7 +1100,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:03.000Z",
+              "published_at": "2026-10-14T06:20:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -958,7 +1120,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:03.000Z",
+              "published_at": "2026-10-14T06:20:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -968,23 +1130,28 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Lorenzo Styles Jr.",
+              "player_name": "Julian Blackmon",
               "team": "NO",
               "position": "S",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "The Saints designated Styles (calf) to return from injured reserve Wednesday, Aaron Wilson of KPRC 2 Houston reports.",
+              "event_type": "limited",
+              "availability_trend": "stable",
+              "summary": "Blackmon (shoulder) is active for Sunday's game against the Vikings.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
                 "ESPN injuries API"
               ],
-              "published_at": "2026-10-08T00:41:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
+              "published_at": "2026-10-11T16:37:00.000Z",
+              "role": "free_safety",
+              "side": "middle",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "field_stretcher"
+              ],
+              "weakness_tags": [
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "severity_score": 0.83,
               "needs_human_review": true
             }
           ],
@@ -998,203 +1165,55 @@
           ],
           "target_receivers": [
             {
-              "player_name": "Justin Jefferson",
-              "team": "MIN",
+              "player_name": "Malik Nabers",
+              "team": "NYG",
               "roles": [
                 "alpha_x",
-                "field_stretcher"
+                "field_stretcher",
+                "slot"
               ],
               "target_share_tier": "alpha",
               "route_area_tags": [
                 "boundary",
                 "deep",
-                "intermediate"
+                "slot"
               ],
               "matched_weakness_tags": [
                 "outside_wr_boost",
                 "alpha_wr_boost",
                 "boundary_wr_boost",
                 "deep_pass_boost",
-                "post_cross_boost"
+                "post_cross_boost",
+                "slot_wr_boost"
               ],
-              "opportunity_score": 7.5,
-              "notes": "MIN Premier WR in NFL.",
+              "opportunity_score": 9,
+              "notes": "NYG Explosive 1st Round Alpha.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             },
             {
-              "player_name": "Jordan Addison",
-              "team": "MIN",
+              "player_name": "Darnell Mooney",
+              "team": "NYG",
               "roles": [
                 "z_receiver",
-                "slot"
+                "field_stretcher"
               ],
-              "target_share_tier": "high",
+              "target_share_tier": "medium",
               "route_area_tags": [
-                "slot",
-                "intermediate",
-                "deep"
+                "deep",
+                "boundary"
               ],
               "matched_weakness_tags": [
                 "outside_wr_boost",
                 "deep_pass_boost",
-                "post_cross_boost",
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 4.8,
-              "notes": "MIN Touchdown Machine WR2.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Jauan Jennings",
-              "team": "MIN",
-              "roles": [
-                "slot",
-                "possession"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "slot",
-                "third_down"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 0.8,
-              "notes": "SF 3rd Down Clutch WR. [moved from SF per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            }
-          ],
-          "severity_score": 4.05,
-          "elite_absence_count": 0,
-          "vulnerability_tier": "medium",
-          "confidence": 0.88,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
-        },
-        {
-          "id": "sec_090f00e51d06dba8",
-          "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_MIN_at_NO",
-          "kickoff_utc": "2026-10-11T17:00:00.000Z",
-          "offense_team": "NO",
-          "offense_team_nick": "Saints",
-          "defense_team": "MIN",
-          "defense_team_nick": "Vikings",
-          "offense_venue": "home",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "blitz_heavy",
-              "match_zone",
-              "two_high"
-            ],
-            "primary_coverage_family": "blitz_heavy",
-            "pressure_profile": "blitz_heavy",
-            "confidence": 0.88,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Brian Flores league-highest blitz rate with psycho fronts and Harrison Smith roaming."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Jamal Adams",
-              "team": "MIN",
-              "position": "S",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Jamal Adams IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T23:30:03.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Charles Demmings",
-              "team": "MIN",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Demmings (hamstring) has been ruled out for Sunday's game against the Saints.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T01:52:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.2,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "hot_read_boost",
-            "inside_seam_boost",
-            "post_cross_boost",
-            "slot_wr_boost",
-            "underneath_volume_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Bryce Lance",
-              "team": "NO",
-              "roles": [
-                "slot"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle",
-                "short"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost",
-                "inside_seam_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "NO WR3 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
-            },
-            {
-              "player_name": "Chris Olave",
-              "team": "NO",
-              "roles": [
-                "alpha_x",
-                "field_stretcher"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "deep",
-                "boundary",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
                 "post_cross_boost"
               ],
-              "opportunity_score": 1.5,
-              "notes": "NO Smooth Route WR1.",
+              "opportunity_score": 2.4,
+              "notes": "ATL Speed WR2. [moved from ATL per ESPN roster 2026-09-27]",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             },
             {
-              "player_name": "Devaughn Vele",
-              "team": "NO",
+              "player_name": "Malachi Fields",
+              "team": "NYG",
               "roles": [
                 "z_receiver"
               ],
@@ -1203,34 +1222,38 @@
                 "boundary"
               ],
               "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
                 "post_cross_boost"
               ],
-              "opportunity_score": 0.8,
-              "notes": "NO WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+              "opportunity_score": 2.4,
+              "notes": "NYG WR2 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/"
             },
             {
-              "player_name": "Juwan Johnson",
-              "team": "NO",
+              "player_name": "Isaiah Likely",
+              "team": "NYG",
               "roles": [
-                "te_middle"
+                "te_middle",
+                "red_zone"
               ],
               "target_share_tier": "medium",
               "route_area_tags": [
-                "middle"
+                "middle",
+                "seam"
               ],
               "matched_weakness_tags": [
-                "inside_seam_boost"
+                "alpha_wr_boost"
               ],
               "opportunity_score": 0.8,
-              "notes": "NO TE1 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
+              "notes": "NYG TE.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             }
           ],
-          "severity_score": 2.55,
+          "severity_score": 3.53,
           "elite_absence_count": 0,
           "vulnerability_tier": "medium",
-          "confidence": 0.87,
+          "confidence": 0.89,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1303,7 +1326,7 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
-        "secondary-matchup source week 5"
+        "secondary-matchup source week 6"
       ]
     },
     "availability": {

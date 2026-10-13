@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T18:14:52.808Z",
+  "built_at": "2026-10-13T23:40:27.189Z",
   "builder": "team_dossier_builder_v1.0",
-  "git_head": "e05d47c",
+  "git_head": "706ab47",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-10T17:31:50.319Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 5,
-      "sha256": "1f19496c3b8a01880e816942aa802e395d1063f45beab66f3c2b097618735aed",
+      "generated_at": "2026-10-13T23:40:24.431Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -901,234 +901,20 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 5,
-      "status": "stale_prior_week_matchups",
+      "source_week": 6,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_375a69abb550bca2",
+          "id": "sec_29a31d392badb91f",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_PHI_at_JAX",
-          "kickoff_utc": "2026-10-11T13:30:00.000Z",
-          "offense_team": "PHI",
-          "offense_team_nick": "Eagles",
-          "defense_team": "JAX",
-          "defense_team_nick": "Jaguars",
-          "offense_venue": "away",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "man_heavy",
-              "blitz_heavy",
-              "single_high"
-            ],
-            "primary_coverage_family": "man_heavy",
-            "pressure_profile": "aggressive",
-            "confidence": 0.72,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Ryan Nielsen aggressive press-man scheme relying on Tyson Campbell."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Christian Braswell",
-              "team": "JAX",
-              "position": "CB",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Christian Braswell IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API",
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-10T23:30:02.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Caleb Ransaw",
-              "team": "JAX",
-              "position": "CB",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Caleb Ransaw IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API",
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-10T23:30:02.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Eric Murray",
-              "team": "JAX",
-              "position": "S",
-              "event_type": "doubtful",
-              "availability_trend": "worsening",
-              "summary": "Murray (concussion) is listed as doubtful for Sunday's game against the Eagles, Ryan O'Halloran of The Florida Times-Union reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T00:02:00.000Z",
-              "role": "strong_safety",
-              "side": "middle",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "te_middle"
-              ],
-              "weakness_tags": [
-                "te_middle_boost",
-                "slot_wr_boost"
-              ],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Jaylon Jones",
-              "team": "JAX",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Jaylon Jones OUT",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-09T07:00:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.2,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Travis Hunter (CB)",
-              "team": "JAX",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "injury",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2025-04-03T19:00:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.2,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "alpha_wr_boost",
-            "boundary_wr_boost",
-            "deep_pass_boost",
-            "hot_read_boost",
-            "outside_wr_boost",
-            "post_cross_boost",
-            "slot_wr_boost",
-            "te_middle_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Dontayvion Wicks",
-              "team": "PHI",
-              "roles": [
-                "z_receiver"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "boundary"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "PHI WR2 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
-            },
-            {
-              "player_name": "Dallas Goedert",
-              "team": "PHI",
-              "roles": [
-                "te_middle"
-              ],
-              "target_share_tier": "high",
-              "route_area_tags": [
-                "middle",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "te_middle_boost"
-              ],
-              "opportunity_score": 1.2,
-              "notes": "PHI YAC TE.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Makai Lemon",
-              "team": "PHI",
-              "roles": [
-                "slot"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle",
-                "short"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 0.8,
-              "notes": "PHI WR3 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
-            }
-          ],
-          "severity_score": 6.45,
-          "elite_absence_count": 0,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
-        },
-        {
-          "id": "sec_ee3b6babb8b746ae",
-          "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_PHI_at_JAX",
-          "kickoff_utc": "2026-10-11T13:30:00.000Z",
-          "offense_team": "JAX",
-          "offense_team_nick": "Jaguars",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_CAR_at_PHI",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
+          "offense_team": "CAR",
+          "offense_team_nick": "Panthers",
           "defense_team": "PHI",
           "defense_team_nick": "Eagles",
-          "offense_venue": "home",
+          "offense_venue": "away",
           "coverage_scheme": {
             "scheme_tags": [
               "match_zone",
@@ -1153,7 +939,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:03.000Z",
+              "published_at": "2026-10-14T06:20:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1173,7 +959,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:03.000Z",
+              "published_at": "2026-10-14T06:20:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1183,29 +969,23 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Marcus Epps",
+              "player_name": "Michael Carter II",
               "team": "PHI",
-              "position": "S",
-              "event_type": "out",
+              "position": "CB",
+              "event_type": "setback",
               "availability_trend": "worsening",
-              "summary": "Epps (groin) has been ruled out for Sunday's game against the Jaguars.",
+              "summary": "Carter (abdomen) has been ruled out for the remainder of Sunday's game against the Jaguars in London.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
+                "ESPN injuries API"
               ],
-              "published_at": "2026-10-10T01:14:00.000Z",
-              "role": "strong_safety",
-              "side": "middle",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "te_middle"
-              ],
-              "weakness_tags": [
-                "te_middle_boost",
-                "slot_wr_boost"
-              ],
-              "severity_score": 1.8,
+              "published_at": "2026-10-11T16:06:00.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 0.85,
               "needs_human_review": true
             }
           ],
@@ -1218,29 +998,8 @@
           ],
           "target_receivers": [
             {
-              "player_name": "Jakobi Meyers",
-              "team": "JAX",
-              "roles": [
-                "slot",
-                "possession"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "slot",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost",
-                "inside_seam_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "LV Reliable WR2. [moved from LV per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Brenton Strange",
-              "team": "JAX",
+              "player_name": "Tommy Tremble",
+              "team": "CAR",
               "roles": [
                 "te_middle"
               ],
@@ -1253,33 +1012,217 @@
                 "inside_seam_boost"
               ],
               "opportunity_score": 1.6,
-              "notes": "JAX TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+              "notes": "CAR TE1 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/"
             },
             {
-              "player_name": "Brian Thomas Jr.",
-              "team": "JAX",
+              "player_name": "Jalen Coker",
+              "team": "CAR",
               "roles": [
-                "alpha_x",
-                "field_stretcher"
+                "z_receiver"
               ],
-              "target_share_tier": "high",
+              "target_share_tier": "medium",
               "route_area_tags": [
-                "boundary",
-                "deep"
+                "boundary"
               ],
               "matched_weakness_tags": [
                 "post_cross_boost"
               ],
-              "opportunity_score": 1.2,
-              "notes": "JAX 1st Round Rookie WR.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "opportunity_score": 0.8,
+              "notes": "CAR WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
             }
           ],
-          "severity_score": 4.5,
+          "severity_score": 3.55,
           "elite_absence_count": 0,
           "vulnerability_tier": "medium",
-          "confidence": 0.93,
+          "confidence": 0.83,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true
+        },
+        {
+          "id": "sec_ee5c01bc2e68a30d",
+          "season": 2026,
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_CAR_at_PHI",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
+          "offense_team": "PHI",
+          "offense_team_nick": "Eagles",
+          "defense_team": "CAR",
+          "defense_team_nick": "Panthers",
+          "offense_venue": "home",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "zone_heavy",
+              "single_high"
+            ],
+            "primary_coverage_family": "zone_heavy",
+            "pressure_profile": "passive",
+            "confidence": 0.6,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Ejiro Evero 3-4 base zone scheme funneling passing volume underneath."
+          },
+          "secondary_absences": [
+            {
+              "player_name": "Mike Jackson Sr.",
+              "team": "CAR",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Mike Jackson Sr. IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-14T06:20:01.000Z",
+              "role": "outside_cb2",
+              "side": "field",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "z_receiver"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 2.03,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Jaycee Horn",
+              "team": "CAR",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Jaycee Horn IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-14T06:20:01.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "elite",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "alpha_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 4.05,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Akayleb Evans",
+              "team": "CAR",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Evans recorded 11 total tackles (nine solo) and a pass defensed during Sunday night's 32-26 win over the Lions.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-07T02:31:00.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost",
+                "alpha_wr_boost"
+              ],
+              "severity_score": 2.03,
+              "needs_human_review": true
+            }
+          ],
+          "weakness_tags": [
+            "alpha_wr_boost",
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "outside_wr_boost",
+            "post_cross_boost",
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "DeVonta Smith",
+              "team": "PHI",
+              "roles": [
+                "z_receiver",
+                "field_stretcher"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "deep",
+                "boundary",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 4.5,
+              "notes": "PHI Slim Reaper WR1B.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Dontayvion Wicks",
+              "team": "PHI",
+              "roles": [
+                "z_receiver"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "PHI WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            },
+            {
+              "player_name": "Makai Lemon",
+              "team": "PHI",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "short"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 1.6,
+              "notes": "PHI WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            }
+          ],
+          "severity_score": 8.11,
+          "elite_absence_count": 1,
+          "vulnerability_tier": "high",
+          "confidence": 0.94,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1352,7 +1295,7 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
-        "secondary-matchup source week 5"
+        "secondary-matchup source week 6"
       ]
     },
     "availability": {

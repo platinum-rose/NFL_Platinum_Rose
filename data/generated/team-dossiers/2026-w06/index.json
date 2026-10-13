@@ -3,10 +3,10 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T18:14:54.688Z",
+  "built_at": "2026-10-13T23:40:28.828Z",
   "builder": "team_dossier_builder_v1.0",
   "builder_sha256": "180a090f430b6c78a8dbfabc7557e6dfcd4979b687a26a144a01402ac487ec84",
-  "git_head": "e05d47c",
+  "git_head": "706ab47",
   "market_data_included": false,
   "sources": {
     "standings": {
@@ -69,11 +69,11 @@
     "secondary": {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "sha256": "1f19496c3b8a01880e816942aa802e395d1063f45beab66f3c2b097618735aed",
+      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week",
-      "generated_at": "2026-10-10T17:31:50.319Z",
-      "through_week": 5,
-      "status": "stale_prior_week_matchups"
+      "generated_at": "2026-10-13T23:40:24.431Z",
+      "through_week": 6,
+      "status": "current"
     },
     "schedules": {
       "id": "schedules",
@@ -213,9 +213,9 @@
       "generated_at": "2026-10-13T18:14:44.676Z"
     },
     "secondary": {
-      "status": "stale_prior_week_matchups",
-      "through_week": 5,
-      "generated_at": "2026-10-10T17:31:50.319Z"
+      "status": "current",
+      "through_week": 6,
+      "generated_at": "2026-10-13T23:40:24.431Z"
     },
     "schedules": {
       "status": "unknown",

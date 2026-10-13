@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T18:14:52.643Z",
+  "built_at": "2026-10-13T23:40:27.041Z",
   "builder": "team_dossier_builder_v1.0",
-  "git_head": "e05d47c",
+  "git_head": "706ab47",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-10T17:31:50.319Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 5,
-      "sha256": "1f19496c3b8a01880e816942aa802e395d1063f45beab66f3c2b097618735aed",
+      "generated_at": "2026-10-13T23:40:24.431Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -901,17 +901,17 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 5,
-      "status": "stale_prior_week_matchups",
+      "source_week": 6,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_8b126b3caa98ce8d",
+          "id": "sec_1dee3757c27c0cda",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_LV_at_NE",
-          "kickoff_utc": "2026-10-11T17:00:00.000Z",
-          "offense_team": "LV",
-          "offense_team_nick": "Raiders",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_NYJ_at_NE",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
+          "offense_team": "NYJ",
+          "offense_team_nick": "Jets",
           "defense_team": "NE",
           "defense_team_nick": "Patriots",
           "offense_venue": "away",
@@ -938,7 +938,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:03.000Z",
+              "published_at": "2026-10-14T06:20:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -948,98 +948,48 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Karon Prunty",
+              "player_name": "Charles Woods",
               "team": "NE",
               "position": "CB",
-              "event_type": "out",
+              "event_type": "setback",
               "availability_trend": "worsening",
-              "summary": "Prunty (hamstring) has been ruled out for Sunday's game against Las Vegas.",
+              "summary": "Woods (shoulder) is questionable to return to Sunday's game against the Raiders.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
+                "ESPN injuries API"
               ],
-              "published_at": "2026-10-10T01:56:00.000Z",
+              "published_at": "2026-10-11T19:31:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
               "primary_receiver_archetypes_impacted": [],
               "weakness_tags": [],
-              "severity_score": 1.2,
+              "severity_score": 0.85,
               "needs_human_review": true
             },
             {
-              "player_name": "Channing Canada",
+              "player_name": "Craig Woodson",
               "team": "NE",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Canada (hamstring) has been ruled out for Sunday's game against the Raiders.",
+              "position": "S",
+              "event_type": "limited",
+              "availability_trend": "stable",
+              "summary": "Woodson (shoulder) is active Week 5 against the Raiders.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
+                "ESPN injuries API"
               ],
-              "published_at": "2026-10-10T01:54:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.2,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Christian Gonzalez",
-              "team": "NE",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Gonzalez (shoulder) has been ruled out for Sunday's game against Las Vegas.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-09T23:08:00.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "elite",
+              "published_at": "2026-10-11T15:58:00.000Z",
+              "role": "strong_safety",
+              "side": "middle",
+              "impact_tier": "starter",
               "primary_receiver_archetypes_impacted": [
-                "alpha_x"
+                "te_middle"
               ],
               "weakness_tags": [
-                "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost"
+                "te_middle_boost",
+                "slot_wr_boost"
               ],
-              "severity_score": 3.6,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Carlton Davis III",
-              "team": "NE",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Davis (neck) has been ruled out for Sunday's game against the Raiders.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-09T23:03:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
-              "impact_tier": "plus",
-              "primary_receiver_archetypes_impacted": [
-                "z_receiver"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 2.7,
+              "severity_score": 0.83,
               "needs_human_review": true
             }
           ],
@@ -1049,52 +999,55 @@
             "deep_pass_boost",
             "outside_wr_boost",
             "post_cross_boost",
-            "slot_wr_boost"
+            "slot_wr_boost",
+            "te_middle_boost"
           ],
           "target_receivers": [
             {
-              "player_name": "Tre Tucker",
-              "team": "LV",
+              "player_name": "Garrett Wilson",
+              "team": "NYJ",
               "roles": [
-                "alpha_x"
+                "alpha_x",
+                "slot"
               ],
-              "target_share_tier": "high",
+              "target_share_tier": "alpha",
               "route_area_tags": [
                 "boundary",
+                "slot",
                 "intermediate"
               ],
               "matched_weakness_tags": [
                 "outside_wr_boost",
                 "alpha_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "opportunity_score": 3.6,
-              "notes": "LV WR1 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
-            },
-            {
-              "player_name": "Brock Bowers",
-              "team": "LV",
-              "roles": [
-                "te_middle",
-                "slot"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "middle",
-                "slot",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
+                "boundary_wr_boost",
                 "slot_wr_boost"
               ],
-              "opportunity_score": 1.5,
-              "notes": "LV 1st Round Generational TE.",
+              "opportunity_score": 6,
+              "notes": "NYJ All-Pro Target Monster.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             },
             {
-              "player_name": "Cody White",
-              "team": "LV",
+              "player_name": "Adonai Mitchell",
+              "team": "NYJ",
+              "roles": [
+                "z_receiver"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "NYJ WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            },
+            {
+              "player_name": "Isaiah Williams",
+              "team": "NYJ",
               "roles": [
                 "slot"
               ],
@@ -1107,14 +1060,31 @@
                 "slot_wr_boost"
               ],
               "opportunity_score": 0.8,
-              "notes": "LV WR3 per ESPN depth chart 2026-10-02; default role - verify.",
+              "notes": "NYJ WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            },
+            {
+              "player_name": "Kenyon Sadiq",
+              "team": "NYJ",
+              "roles": [
+                "te_middle"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle"
+              ],
+              "matched_weakness_tags": [
+                "te_middle_boost"
+              ],
+              "opportunity_score": 0.8,
+              "notes": "NYJ TE1 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/"
             }
           ],
-          "severity_score": 10.05,
-          "elite_absence_count": 2,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
+          "severity_score": 3.03,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "medium",
+          "confidence": 0.85,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1126,40 +1096,41 @@
           "needs_human_review": true
         },
         {
-          "id": "sec_85f7bdd51791492e",
+          "id": "sec_1e4ac89ef7e06475",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_LV_at_NE",
-          "kickoff_utc": "2026-10-11T17:00:00.000Z",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_NYJ_at_NE",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
           "offense_team": "NE",
           "offense_team_nick": "Patriots",
-          "defense_team": "LV",
-          "defense_team_nick": "Raiders",
+          "defense_team": "NYJ",
+          "defense_team_nick": "Jets",
           "offense_venue": "home",
           "coverage_scheme": {
             "scheme_tags": [
               "zone_heavy",
-              "single_high"
+              "two_high",
+              "quarters"
             ],
             "primary_coverage_family": "cover_3_zone",
             "pressure_profile": "front_dependent",
-            "confidence": 0.68,
+            "confidence": 0.88,
             "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Patrick Graham adaptable zone-first scheme featuring Nate Hobbs in nickel."
+            "notes": "Robert Saleh elite Cover 3/Quarters zone shell led by Sauce Gardner and DJ Reed."
           },
           "secondary_absences": [
             {
-              "player_name": "Chigozie Anusiem",
-              "team": "LV",
+              "player_name": "Tre Brown",
+              "team": "NYJ",
               "position": "CB",
               "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Chigozie Anusiem IR",
+              "summary": "Tre Brown IR",
               "source": "FantasyPros injuries API",
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:03.000Z",
+              "published_at": "2026-10-14T06:20:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1169,62 +1140,37 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Hezekiah Masses",
-              "team": "LV",
-              "position": "CB",
+              "player_name": "Minkah Fitzpatrick",
+              "team": "NYJ",
+              "position": "S",
               "event_type": "limited",
               "availability_trend": "stable",
-              "summary": "Head coach Klint Kubiak told reporters Friday that he views both Masses and Darien Porter as viable starters at outside cornerback opposite Eric Stokes, Sam Warren of The Athletic reports.",
+              "summary": "Fitzpatrick recorded 16 tackles (eight solo) and an interception during the Jets' 23-12 loss to the Bears on Sunday.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
                 "ESPN injuries API"
               ],
-              "published_at": "2026-10-02T21:35:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
-              "impact_tier": "starter",
+              "published_at": "2026-10-05T23:12:00.000Z",
+              "role": "free_safety",
+              "side": "middle",
+              "impact_tier": "elite",
               "primary_receiver_archetypes_impacted": [
-                "z_receiver"
+                "field_stretcher",
+                "post_cross_boost"
               ],
               "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
+                "deep_pass_boost",
+                "post_cross_boost"
               ],
-              "severity_score": 0.83,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Darien Porter",
-              "team": "LV",
-              "position": "CB",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Head coach Klint Kubiak expressed confidence Friday in the play of Porter, who didn't play a single defensive snap during the Raiders' Week 3 win over the Saints, Sam Warren of The Athletic reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-02T21:31:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "z_receiver"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 0.83,
+              "severity_score": 1.65,
               "needs_human_review": true
             }
           ],
           "weakness_tags": [
-            "boundary_wr_boost",
             "deep_pass_boost",
-            "outside_wr_boost",
             "post_cross_boost",
             "slot_wr_boost",
+            "te_middle_boost",
             "underneath_volume_boost"
           ],
           "target_receivers": [
@@ -1248,6 +1194,25 @@
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             },
             {
+              "player_name": "Hunter Henry",
+              "team": "NE",
+              "roles": [
+                "te_middle",
+                "red_zone"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "red_zone"
+              ],
+              "matched_weakness_tags": [
+                "te_middle_boost"
+              ],
+              "opportunity_score": 0.8,
+              "notes": "NE Veteran TE.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
               "player_name": "Romeo Doubs",
               "team": "NE",
               "roles": [
@@ -1260,18 +1225,17 @@
                 "red_zone"
               ],
               "matched_weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
+                "te_middle_boost"
               ],
-              "opportunity_score": 1.6,
+              "opportunity_score": 0.8,
               "notes": "GB Boundary WR. [moved from GB per ESPN roster 2026-09-27]",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             }
           ],
-          "severity_score": 3.01,
-          "elite_absence_count": 0,
+          "severity_score": 3,
+          "elite_absence_count": 1,
           "vulnerability_tier": "medium",
-          "confidence": 0.75,
+          "confidence": 0.86,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1344,7 +1308,7 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
-        "secondary-matchup source week 5"
+        "secondary-matchup source week 6"
       ]
     },
     "availability": {

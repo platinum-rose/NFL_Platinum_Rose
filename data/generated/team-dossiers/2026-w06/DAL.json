@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T18:14:52.125Z",
+  "built_at": "2026-10-13T23:40:26.582Z",
   "builder": "team_dossier_builder_v1.0",
-  "git_head": "e05d47c",
+  "git_head": "706ab47",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-10T17:31:50.319Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 5,
-      "sha256": "1f19496c3b8a01880e816942aa802e395d1063f45beab66f3c2b097618735aed",
+      "generated_at": "2026-10-13T23:40:24.431Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -901,20 +901,188 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 5,
-      "status": "stale_prior_week_matchups",
+      "source_week": 6,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_e340d7407075704e",
+          "id": "sec_974cb49cdc2c1c79",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_TB_at_DAL",
-          "kickoff_utc": "2026-10-09T00:15:00.000Z",
-          "offense_team": "TB",
-          "offense_team_nick": "Buccaneers",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_DAL_at_GB",
+          "kickoff_utc": "2026-10-19T00:20:00.000Z",
+          "offense_team": "DAL",
+          "offense_team_nick": "Cowboys",
+          "defense_team": "GB",
+          "defense_team_nick": "Packers",
+          "offense_venue": "away",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "zone_heavy",
+              "match_zone"
+            ],
+            "primary_coverage_family": "zone_match",
+            "pressure_profile": "balanced",
+            "confidence": 0.7,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Jeff Hafley aggressive zone-match system with Xavier McKinney deep safety range."
+          },
+          "secondary_absences": [
+            {
+              "player_name": "Johnathan Baldwin II",
+              "team": "GB",
+              "position": "S",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Johnathan Baldwin II IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-14T06:20:01.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Benjamin St-Juste",
+              "team": "GB",
+              "position": "CB",
+              "event_type": "setback",
+              "availability_trend": "worsening",
+              "summary": "St-Juste (hamstring) is questionable to return to Sunday's game against the Bears.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-11T19:36:00.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 0.85,
+              "needs_human_review": true
+            }
+          ],
+          "weakness_tags": [
+            "inside_seam_boost",
+            "post_cross_boost",
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "CeeDee Lamb",
+              "team": "DAL",
+              "roles": [
+                "alpha_x",
+                "slot",
+                "red_zone"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "boundary",
+                "slot",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 4.5,
+              "notes": "DAL All-Pro Alpha Target Monster.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Ryan Flournoy",
+              "team": "DAL",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "short"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "DAL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            },
+            {
+              "player_name": "George Pickens",
+              "team": "DAL",
+              "roles": [
+                "alpha_x",
+                "field_stretcher"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "boundary",
+                "deep",
+                "red_zone"
+              ],
+              "matched_weakness_tags": [
+                "post_cross_boost"
+              ],
+              "opportunity_score": 1.5,
+              "notes": "PIT Contested Catch WR1.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Jake Ferguson",
+              "team": "DAL",
+              "roles": [
+                "te_middle",
+                "red_zone"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "middle",
+                "red_zone"
+              ],
+              "matched_weakness_tags": [
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 1.2,
+              "notes": "DAL TE1.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            }
+          ],
+          "severity_score": 2.2,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "watch",
+          "confidence": 0.79,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true
+        },
+        {
+          "id": "sec_9c39e5eb1e0352a1",
+          "season": 2026,
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_DAL_at_GB",
+          "kickoff_utc": "2026-10-19T00:20:00.000Z",
+          "offense_team": "GB",
+          "offense_team_nick": "Packers",
           "defense_team": "DAL",
           "defense_team_nick": "Cowboys",
-          "offense_venue": "away",
+          "offense_venue": "home",
           "coverage_scheme": {
             "scheme_tags": [
               "single_high",
@@ -928,34 +1096,6 @@
             "notes": "Mike Zimmer aggressive Cover 1/Cover 3 blitz-heavy secondary structure."
           },
           "secondary_absences": [
-            {
-              "player_name": "Joey Porter Jr.",
-              "team": "DAL",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Joey Porter Jr. OUT",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API",
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-09T06:00:02.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "plus",
-              "primary_receiver_archetypes_impacted": [
-                "alpha_x",
-                "z_receiver"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost",
-                "alpha_wr_boost"
-              ],
-              "severity_score": 2.7,
-              "needs_human_review": true
-            },
             {
               "player_name": "Alijah Clark",
               "team": "DAL",
@@ -977,45 +1117,17 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Cobie Durant",
-              "team": "DAL",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "inactive",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-08T22:49:00.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "alpha_x"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost",
-                "alpha_wr_boost"
-              ],
-              "severity_score": 1.8,
-              "needs_human_review": true
-            },
-            {
               "player_name": "Jalen Thompson",
               "team": "DAL",
               "position": "S",
-              "event_type": "ir",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "The Cowboys placed Thompson (hamstring) on injured reserve Wednesday, Tommy Yarrish of the Cowboys' official site reports.",
-              "source": "ESPN injuries API",
+              "summary": "injured",
+              "source": "FantasyPros injuries API",
               "corroborating_sources": [
-                "FantasyPros injuries API",
-                "ESPN injuries API"
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-09-30T18:33:00.000Z",
+              "published_at": "2026-10-07T19:00:00.000Z",
               "role": "free_safety",
               "side": "middle",
               "impact_tier": "plus",
@@ -1026,7 +1138,7 @@
                 "deep_pass_boost",
                 "post_cross_boost"
               ],
-              "severity_score": 3.04,
+              "severity_score": 2.7,
               "needs_human_review": true
             },
             {
@@ -1061,47 +1173,29 @@
           ],
           "target_receivers": [
             {
-              "player_name": "Emeka Egbuka",
-              "team": "TB",
+              "player_name": "Christian Watson",
+              "team": "GB",
               "roles": [
-                "alpha_x"
+                "z_receiver",
+                "field_stretcher"
               ],
               "target_share_tier": "high",
               "route_area_tags": [
-                "boundary",
-                "intermediate"
+                "deep",
+                "boundary"
               ],
               "matched_weakness_tags": [
                 "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost"
+                "deep_pass_boost",
+                "post_cross_boost"
               ],
               "opportunity_score": 3.6,
-              "notes": "TB WR1 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
-            },
-            {
-              "player_name": "Chris Godwin",
-              "team": "TB",
-              "roles": [
-                "slot",
-                "possession"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "slot",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 1.5,
-              "notes": "TB Elite Slot WR.",
+              "notes": "GB Deep Threat.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             },
             {
-              "player_name": "Ted Hurst III",
-              "team": "TB",
+              "player_name": "Matthew Golden",
+              "team": "GB",
               "roles": [
                 "slot"
               ],
@@ -1114,184 +1208,12 @@
                 "slot_wr_boost"
               ],
               "opportunity_score": 0.8,
-              "notes": "TB WR3 per ESPN depth chart 2026-10-02; default role - verify.",
+              "notes": "GB WR3 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/"
-            }
-          ],
-          "severity_score": 9.59,
-          "elite_absence_count": 2,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
-        },
-        {
-          "id": "sec_d0dffcef5d72ef08",
-          "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_TB_at_DAL",
-          "kickoff_utc": "2026-10-09T00:15:00.000Z",
-          "offense_team": "DAL",
-          "offense_team_nick": "Cowboys",
-          "defense_team": "TB",
-          "defense_team_nick": "Buccaneers",
-          "offense_venue": "home",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "zone_heavy",
-              "two_high",
-              "blitz_heavy"
-            ],
-            "primary_coverage_family": "zone_heavy",
-            "pressure_profile": "blitz_heavy",
-            "confidence": 0.8,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Todd Bowles heavy pressure and simulated pressure with Antoine Winfield Jr."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Josh Hayes",
-              "team": "TB",
-              "position": "CB",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Josh Hayes IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T23:30:03.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
             },
             {
-              "player_name": "Antoine Winfield Jr.",
-              "team": "TB",
-              "position": "S",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "inactive",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-08T22:48:00.000Z",
-              "role": "free_safety",
-              "side": "middle",
-              "impact_tier": "elite",
-              "primary_receiver_archetypes_impacted": [
-                "field_stretcher",
-                "te_middle",
-                "slot"
-              ],
-              "weakness_tags": [
-                "deep_pass_boost",
-                "slot_wr_boost",
-                "post_cross_boost"
-              ],
-              "severity_score": 3.6,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Benjamin Morrison",
-              "team": "TB",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "inactive",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-08T22:48:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "z_receiver"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 1.8,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "boundary_wr_boost",
-            "deep_pass_boost",
-            "hot_read_boost",
-            "outside_wr_boost",
-            "post_cross_boost",
-            "slot_wr_boost",
-            "underneath_volume_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "CeeDee Lamb",
-              "team": "DAL",
-              "roles": [
-                "alpha_x",
-                "slot",
-                "red_zone"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "slot",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost",
-                "slot_wr_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 6,
-              "notes": "DAL All-Pro Alpha Target Monster.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "George Pickens",
-              "team": "DAL",
-              "roles": [
-                "alpha_x",
-                "field_stretcher"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "deep",
-                "red_zone"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 6,
-              "notes": "PIT Contested Catch WR1.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Ryan Flournoy",
-              "team": "DAL",
+              "player_name": "Skyy Moore",
+              "team": "GB",
               "roles": [
                 "slot"
               ],
@@ -1301,18 +1223,17 @@
                 "short"
               ],
               "matched_weakness_tags": [
-                "slot_wr_boost",
-                "underneath_volume_boost"
+                "slot_wr_boost"
               ],
-              "opportunity_score": 1.6,
-              "notes": "DAL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "opportunity_score": 0.8,
+              "notes": "GB WR3 per ESPN depth chart 2026-10-02; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/"
             }
           ],
-          "severity_score": 6.75,
+          "severity_score": 4.75,
           "elite_absence_count": 1,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
+          "vulnerability_tier": "medium",
+          "confidence": 0.93,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1385,7 +1306,7 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
-        "secondary-matchup source week 5"
+        "secondary-matchup source week 6"
       ]
     },
     "availability": {

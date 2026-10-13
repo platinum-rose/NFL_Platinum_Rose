@@ -1,5 +1,5 @@
 # SF 49ers — dossier, target Week 6 (data through W5)
-Built 2026-10-13T18:14:52.933Z · git e05d47c · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
+Built 2026-10-13T23:40:27.300Z · git 706ab47 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability NOT BUILT.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -43,7 +43,7 @@ SRS 9.81 (#2) · net PPG 12.2 (#1) · Pythag 0.768 (#3) · model rank #2
 
 ## Scheme context (historical_context_only; historical context only, stale after 2026-10-27T06:07:42.084Z)
 HC Kyle Shanahan · neutral pass rate 0.511 · sample 2026-09-10 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
-Secondary-matchup context is manual_review_capped and keyed to source Week 5 — stale_prior_week_matchups. See SF.json → scheme_context.secondary_matchup.
+Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See SF.json → scheme_context.secondary_matchup.
 
 ## Not built yet
 Availability (injuries, projected starters, impact digest) and priors (2025 final, camp notes, trench ratings) are not in this version. Player names must come from the roster-gated availability layer, never this file.

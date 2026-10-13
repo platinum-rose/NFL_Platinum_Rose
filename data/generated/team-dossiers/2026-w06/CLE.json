@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T18:14:52.083Z",
+  "built_at": "2026-10-13T23:40:26.549Z",
   "builder": "team_dossier_builder_v1.0",
-  "git_head": "e05d47c",
+  "git_head": "706ab47",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-10T17:31:50.319Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 5,
-      "sha256": "1f19496c3b8a01880e816942aa802e395d1063f45beab66f3c2b097618735aed",
+      "generated_at": "2026-10-13T23:40:24.431Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -901,171 +901,20 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 5,
-      "status": "stale_prior_week_matchups",
+      "source_week": 6,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_652e4d0c42d71767",
+          "id": "sec_10dd0b24fd5db024",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_CLE_at_NYJ",
-          "kickoff_utc": "2026-10-11T17:00:00.000Z",
-          "offense_team": "CLE",
-          "offense_team_nick": "Browns",
-          "defense_team": "NYJ",
-          "defense_team_nick": "Jets",
-          "offense_venue": "away",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "zone_heavy",
-              "two_high",
-              "quarters"
-            ],
-            "primary_coverage_family": "cover_3_zone",
-            "pressure_profile": "front_dependent",
-            "confidence": 0.88,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Robert Saleh elite Cover 3/Quarters zone shell led by Sauce Gardner and DJ Reed."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Tre Brown",
-              "team": "NYJ",
-              "position": "CB",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Tre Brown IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T23:30:03.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Minkah Fitzpatrick",
-              "team": "NYJ",
-              "position": "S",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Fitzpatrick recorded 16 tackles (eight solo) and an interception during the Jets' 23-12 loss to the Bears on Sunday.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-05T23:12:00.000Z",
-              "role": "free_safety",
-              "side": "middle",
-              "impact_tier": "elite",
-              "primary_receiver_archetypes_impacted": [
-                "field_stretcher",
-                "post_cross_boost"
-              ],
-              "weakness_tags": [
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "severity_score": 1.65,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "deep_pass_boost",
-            "post_cross_boost",
-            "slot_wr_boost",
-            "te_middle_boost",
-            "underneath_volume_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Jerry Jeudy",
-              "team": "CLE",
-              "roles": [
-                "z_receiver",
-                "slot"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "slot",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "deep_pass_boost",
-                "post_cross_boost",
-                "slot_wr_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 3.2,
-              "notes": "CLE WR2.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "KC Concepcion",
-              "team": "CLE",
-              "roles": [
-                "z_receiver"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "boundary"
-              ],
-              "matched_weakness_tags": [
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 1.6,
-              "notes": "CLE WR2 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
-            },
-            {
-              "player_name": "Harold Fannin Jr.",
-              "team": "CLE",
-              "roles": [
-                "te_middle"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle"
-              ],
-              "matched_weakness_tags": [
-                "te_middle_boost"
-              ],
-              "opportunity_score": 0.8,
-              "notes": "CLE TE1 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
-            }
-          ],
-          "severity_score": 3,
-          "elite_absence_count": 1,
-          "vulnerability_tier": "medium",
-          "confidence": 0.86,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
-        },
-        {
-          "id": "sec_e1b95da7b2b4acf3",
-          "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_CLE_at_NYJ",
-          "kickoff_utc": "2026-10-11T17:00:00.000Z",
-          "offense_team": "NYJ",
-          "offense_team_nick": "Jets",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_BAL_at_CLE",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
+          "offense_team": "BAL",
+          "offense_team_nick": "Ravens",
           "defense_team": "CLE",
           "defense_team_nick": "Browns",
-          "offense_venue": "home",
+          "offense_venue": "away",
           "coverage_scheme": {
             "scheme_tags": [
               "man_heavy",
@@ -1090,7 +939,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:02.000Z",
+              "published_at": "2026-10-14T06:20:01.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1111,8 +960,8 @@
           ],
           "target_receivers": [
             {
-              "player_name": "Garrett Wilson",
-              "team": "NYJ",
+              "player_name": "Zay Flowers",
+              "team": "BAL",
               "roles": [
                 "alpha_x",
                 "slot"
@@ -1121,7 +970,7 @@
               "route_area_tags": [
                 "boundary",
                 "slot",
-                "intermediate"
+                "underneath"
               ],
               "matched_weakness_tags": [
                 "outside_wr_boost",
@@ -1130,12 +979,52 @@
                 "slot_wr_boost"
               ],
               "opportunity_score": 6,
-              "notes": "NYJ All-Pro Target Monster.",
+              "notes": "BAL Primary Target.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             },
             {
-              "player_name": "Isaiah Williams",
-              "team": "NYJ",
+              "player_name": "Rashod Bateman",
+              "team": "BAL",
+              "roles": [
+                "z_receiver",
+                "field_stretcher"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "deep",
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "BAL Outside WR.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Mark Andrews",
+              "team": "BAL",
+              "roles": [
+                "te_middle",
+                "red_zone"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "middle",
+                "red_zone"
+              ],
+              "matched_weakness_tags": [
+                "alpha_wr_boost"
+              ],
+              "opportunity_score": 1.5,
+              "notes": "BAL All-Pro TE.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Devontez Walker",
+              "team": "BAL",
               "roles": [
                 "slot"
               ],
@@ -1148,14 +1037,192 @@
                 "slot_wr_boost"
               ],
               "opportunity_score": 0.8,
-              "notes": "NYJ WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "notes": "BAL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/"
             }
           ],
           "severity_score": 1.35,
           "elite_absence_count": 0,
           "vulnerability_tier": "watch",
-          "confidence": 0.7,
+          "confidence": 0.78,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true
+        },
+        {
+          "id": "sec_2c1530b1ef9e3802",
+          "season": 2026,
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_BAL_at_CLE",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
+          "offense_team": "CLE",
+          "offense_team_nick": "Browns",
+          "defense_team": "BAL",
+          "defense_team_nick": "Ravens",
+          "offense_venue": "home",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "man_heavy",
+              "single_high",
+              "blitz_heavy"
+            ],
+            "primary_coverage_family": "man_match",
+            "pressure_profile": "aggressive",
+            "confidence": 0.85,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Orr aggressive blitz-heavy man match structure with Kyle Hamilton roaming."
+          },
+          "secondary_absences": [
+            {
+              "player_name": "T.J. Tampa Jr.",
+              "team": "BAL",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "T.J. Tampa Jr. IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-14T06:20:01.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Jahquez Robinson",
+              "team": "BAL",
+              "position": "S",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Jahquez Robinson IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-14T06:20:01.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Marlon Humphrey",
+              "team": "BAL",
+              "position": "CB",
+              "event_type": "limited",
+              "availability_trend": "stable",
+              "summary": "Humphrey (calf/hamstring) is active for Sunday night's matchup with Atlanta.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-11T23:14:00.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "elite",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x",
+                "slot"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "alpha_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 1.65,
+              "needs_human_review": true
+            }
+          ],
+          "weakness_tags": [
+            "alpha_wr_boost",
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "hot_read_boost",
+            "outside_wr_boost",
+            "post_cross_boost",
+            "slot_wr_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Denzel Boston",
+              "team": "CLE",
+              "roles": [
+                "alpha_x"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "boundary",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "alpha_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "opportunity_score": 3.6,
+              "notes": "CLE WR1 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            },
+            {
+              "player_name": "Jerry Jeudy",
+              "team": "CLE",
+              "roles": [
+                "z_receiver",
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "slot",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost",
+                "slot_wr_boost"
+              ],
+              "opportunity_score": 3.2,
+              "notes": "CLE WR2.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "KC Concepcion",
+              "team": "CLE",
+              "roles": [
+                "z_receiver"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "CLE WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            }
+          ],
+          "severity_score": 4.35,
+          "elite_absence_count": 1,
+          "vulnerability_tier": "medium",
+          "confidence": 0.93,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1228,7 +1295,7 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
-        "secondary-matchup source week 5"
+        "secondary-matchup source week 6"
       ]
     },
     "availability": {

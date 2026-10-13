@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T18:14:52.482Z",
+  "built_at": "2026-10-13T23:40:26.908Z",
   "builder": "team_dossier_builder_v1.0",
-  "git_head": "e05d47c",
+  "git_head": "706ab47",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-10T17:31:50.319Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 5,
-      "sha256": "1f19496c3b8a01880e816942aa802e395d1063f45beab66f3c2b097618735aed",
+      "generated_at": "2026-10-13T23:40:24.431Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -901,17 +901,17 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 5,
-      "status": "stale_prior_week_matchups",
+      "source_week": 6,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_c4d4c95a6bc3502e",
+          "id": "sec_3d2a8a5caa4d09de",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_BUF_at_LAR",
-          "kickoff_utc": "2026-10-13T00:15:00.000Z",
-          "offense_team": "BUF",
-          "offense_team_nick": "Bills",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_ARI_at_LAR",
+          "kickoff_utc": "2026-10-18T20:05:00.000Z",
+          "offense_team": "ARI",
+          "offense_team_nick": "Cardinals",
           "defense_team": "LAR",
           "defense_team_nick": "Rams",
           "offense_venue": "away",
@@ -926,183 +926,36 @@
             "source_url": "https://www.ourlads.com/nfl-depth-charts/",
             "notes": "Chris Shula Fangio-lineage soft zone two-high shell."
           },
-          "secondary_absences": [
-            {
-              "player_name": "Jaylen Watson",
-              "team": "LAR",
-              "position": "CB",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Watson (shoulder) was a limited participant at practice Thursday, Sarah Barshop of ESPN.com reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-09T00:39:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
-              "impact_tier": "plus",
-              "primary_receiver_archetypes_impacted": [
-                "z_receiver"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 1.24,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Quentin Lake",
-              "team": "LAR",
-              "position": "S",
-              "event_type": "setback",
-              "availability_trend": "worsening",
-              "summary": "Lake (hip) did not participate at practice Thursday, Sarah Barshop of ESPN.com reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-09T00:29:00.000Z",
-              "role": "slot_cb",
-              "side": "slot",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "slot"
-              ],
-              "weakness_tags": [
-                "slot_wr_boost",
-                "inside_seam_boost"
-              ],
-              "severity_score": 1.27,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Kamren Kinchens",
-              "team": "LAR",
-              "position": "S",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Kinchens (hamstring) does not have any injury designation ahead of Sunday's game against the Eagles.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-03T00:15:00.000Z",
-              "role": "free_safety",
-              "side": "middle",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "field_stretcher"
-              ],
-              "weakness_tags": [
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "severity_score": 0.83,
-              "needs_human_review": true
-            }
-          ],
+          "secondary_absences": [],
           "weakness_tags": [
-            "boundary_wr_boost",
-            "deep_pass_boost",
-            "inside_seam_boost",
-            "outside_wr_boost",
-            "post_cross_boost",
             "slot_wr_boost",
             "underneath_volume_boost"
           ],
           "target_receivers": [
             {
-              "player_name": "DJ Moore",
-              "team": "BUF",
+              "player_name": "Kendrick Bourne",
+              "team": "ARI",
               "roles": [
-                "alpha_x",
-                "z_receiver"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "intermediate",
-                "deep"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 6,
-              "notes": "CHI WR1. [moved from CHI per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Dalton Kincaid",
-              "team": "BUF",
-              "roles": [
-                "te_middle",
                 "slot"
               ],
-              "target_share_tier": "high",
+              "target_share_tier": "medium",
               "route_area_tags": [
                 "middle",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "inside_seam_boost",
-                "slot_wr_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 3.6,
-              "notes": "BUF Receiving TE.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Khalil Shakir",
-              "team": "BUF",
-              "roles": [
-                "slot",
-                "possession"
-              ],
-              "target_share_tier": "high",
-              "route_area_tags": [
-                "slot",
-                "underneath"
+                "short"
               ],
               "matched_weakness_tags": [
                 "slot_wr_boost",
-                "inside_seam_boost",
                 "underneath_volume_boost"
               ],
-              "opportunity_score": 3.6,
-              "notes": "BUF YAC Slot WR.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Keon Coleman",
-              "team": "BUF",
-              "roles": [
-                "alpha_x",
-                "red_zone"
-              ],
-              "target_share_tier": "high",
-              "route_area_tags": [
-                "boundary",
-                "red_zone"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "BUF Rookie X WR.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "opportunity_score": 1.6,
+              "notes": "ARI WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
             }
           ],
-          "severity_score": 3.34,
-          "elite_absence_count": 1,
-          "vulnerability_tier": "medium",
-          "confidence": 0.86,
+          "severity_score": 0,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "low",
+          "confidence": 0.54,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1114,41 +967,41 @@
           "needs_human_review": true
         },
         {
-          "id": "sec_5489520975fb881f",
+          "id": "sec_9ab4e1d9d799bdbb",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_BUF_at_LAR",
-          "kickoff_utc": "2026-10-13T00:15:00.000Z",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_ARI_at_LAR",
+          "kickoff_utc": "2026-10-18T20:05:00.000Z",
           "offense_team": "LAR",
           "offense_team_nick": "Rams",
-          "defense_team": "BUF",
-          "defense_team_nick": "Bills",
+          "defense_team": "ARI",
+          "defense_team_nick": "Cardinals",
           "offense_venue": "home",
           "coverage_scheme": {
             "scheme_tags": [
               "zone_heavy",
               "two_high",
-              "quarters"
+              "match_zone"
             ],
-            "primary_coverage_family": "zone_heavy",
-            "pressure_profile": "coverage_first",
-            "confidence": 0.8,
+            "primary_coverage_family": "zone_match",
+            "pressure_profile": "front_dependent",
+            "confidence": 0.65,
             "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "McDermott Cover 4 / Cover 6 zone-heavy structure featuring Taron Johnson in slot."
+            "notes": "Gannon zone match defense with two-high split safety tendency."
           },
           "secondary_absences": [
             {
-              "player_name": "Dorian Strong",
-              "team": "BUF",
-              "position": "CB",
+              "player_name": "Joey Blount",
+              "team": "ARI",
+              "position": "S",
               "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Dorian Strong IR",
+              "summary": "Joey Blount IR",
               "source": "FantasyPros injuries API",
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:02.000Z",
+              "published_at": "2026-10-14T06:20:01.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1158,17 +1011,17 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Jordan Hancock",
-              "team": "BUF",
+              "player_name": "Will Johnson",
+              "team": "ARI",
               "position": "CB",
               "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Jordan Hancock IR",
+              "summary": "Will Johnson IR",
               "source": "FantasyPros injuries API",
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:02.000Z",
+              "published_at": "2026-10-14T06:20:01.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1178,60 +1031,33 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Dee Alford",
-              "team": "BUF",
-              "position": "CB",
-              "event_type": "setback",
+              "player_name": "Kitan Crawford",
+              "team": "ARI",
+              "position": "S",
+              "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Alford (ankle) did not participate at practice Thursday, Lance Lysowski of The Buffalo News reports.",
-              "source": "ESPN injuries API",
+              "summary": "Kitan Crawford IR",
+              "source": "FantasyPros injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-08T23:12:00.000Z",
-              "role": "slot_cb",
-              "side": "slot",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "slot"
-              ],
-              "weakness_tags": [
-                "slot_wr_boost",
-                "inside_seam_boost"
-              ],
-              "severity_score": 1.27,
+              "published_at": "2026-10-14T06:20:01.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
               "needs_human_review": true
             }
           ],
           "weakness_tags": [
             "inside_seam_boost",
+            "post_cross_boost",
             "slot_wr_boost",
-            "te_middle_boost",
             "underneath_volume_boost"
           ],
           "target_receivers": [
-            {
-              "player_name": "Puka Nacua",
-              "team": "LAR",
-              "roles": [
-                "alpha_x",
-                "possession",
-                "red_zone"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "intermediate",
-                "red_zone"
-              ],
-              "matched_weakness_tags": [
-                "underneath_volume_boost",
-                "te_middle_boost"
-              ],
-              "opportunity_score": 3,
-              "notes": "LAR Record-Breaking All-Pro.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
             {
               "player_name": "Jordan Whittington",
               "team": "LAR",
@@ -1253,6 +1079,27 @@
               "source_url": "https://www.espn.com/nfl/team/depth/"
             },
             {
+              "player_name": "Puka Nacua",
+              "team": "LAR",
+              "roles": [
+                "alpha_x",
+                "possession",
+                "red_zone"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "boundary",
+                "intermediate",
+                "red_zone"
+              ],
+              "matched_weakness_tags": [
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 1.5,
+              "notes": "LAR Record-Breaking All-Pro.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
               "player_name": "Colby Parkinson",
               "team": "LAR",
               "roles": [
@@ -1263,38 +1110,17 @@
                 "middle"
               ],
               "matched_weakness_tags": [
-                "te_middle_boost",
                 "inside_seam_boost"
               ],
-              "opportunity_score": 1.6,
+              "opportunity_score": 0.8,
               "notes": "LAR TE1 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/"
-            },
-            {
-              "player_name": "Davante Adams",
-              "team": "LAR",
-              "roles": [
-                "alpha_x",
-                "red_zone"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "intermediate",
-                "red_zone"
-              ],
-              "matched_weakness_tags": [
-                "te_middle_boost"
-              ],
-              "opportunity_score": 1.5,
-              "notes": "LV All-Pro Route Master. [moved from LV per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             }
           ],
-          "severity_score": 3.97,
+          "severity_score": 4.05,
           "elite_absence_count": 0,
           "vulnerability_tier": "medium",
-          "confidence": 0.93,
+          "confidence": 0.84,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1367,7 +1193,7 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
-        "secondary-matchup source week 5"
+        "secondary-matchup source week 6"
       ]
     },
     "availability": {

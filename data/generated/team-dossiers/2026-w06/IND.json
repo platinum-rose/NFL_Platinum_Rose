@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T18:14:52.324Z",
+  "built_at": "2026-10-13T23:40:26.767Z",
   "builder": "team_dossier_builder_v1.0",
-  "git_head": "e05d47c",
+  "git_head": "706ab47",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-10T17:31:50.319Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 5,
-      "sha256": "1f19496c3b8a01880e816942aa802e395d1063f45beab66f3c2b097618735aed",
+      "generated_at": "2026-10-13T23:40:24.431Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -901,222 +901,20 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 5,
-      "status": "stale_prior_week_matchups",
+      "source_week": 6,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_389d54decd7a7ac4",
+          "id": "sec_d7c10fc8bff10d02",
           "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_IND_at_PIT",
-          "kickoff_utc": "2026-10-11T17:00:00.000Z",
-          "offense_team": "IND",
-          "offense_team_nick": "Colts",
-          "defense_team": "PIT",
-          "defense_team_nick": "Steelers",
-          "offense_venue": "away",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "man_heavy",
-              "single_high",
-              "blitz_heavy"
-            ],
-            "primary_coverage_family": "man_match",
-            "pressure_profile": "aggressive",
-            "confidence": 0.82,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Mike Tomlin/Teryl Austin Cover 1/Cover 3 aggressive shell with Joey Porter Jr. and Minkah Fitzpatrick."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Israel Mukuamu",
-              "team": "PIT",
-              "position": "CB",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Israel Mukuamu IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T23:30:03.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Donte Kent",
-              "team": "PIT",
-              "position": "CB",
-              "event_type": "pup",
-              "availability_trend": "worsening",
-              "summary": "Donte Kent PUP",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-10T23:30:03.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.05,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Jamel Dean",
-              "team": "PIT",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Dean (ankle) has been ruled out ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-09T23:27:00.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "plus",
-              "primary_receiver_archetypes_impacted": [
-                "alpha_x"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 2.7,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "DeShon Elliott",
-              "team": "PIT",
-              "position": "S",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Elliott (knee) has been ruled out ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-09T23:23:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Jalen Ramsey",
-              "team": "PIT",
-              "position": "CB",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Ramsey (wrist) is listed as questionable ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-09T23:20:00.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "elite",
-              "primary_receiver_archetypes_impacted": [
-                "alpha_x",
-                "field_stretcher"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 1.65,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "alpha_wr_boost",
-            "boundary_wr_boost",
-            "deep_pass_boost",
-            "hot_read_boost",
-            "outside_wr_boost",
-            "post_cross_boost",
-            "slot_wr_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Josh Downs",
-              "team": "IND",
-              "roles": [
-                "slot"
-              ],
-              "target_share_tier": "high",
-              "route_area_tags": [
-                "slot",
-                "underneath"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 1.2,
-              "notes": "IND High-Efficiency Slot.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            },
-            {
-              "player_name": "Keenan Allen",
-              "team": "IND",
-              "roles": [
-                "slot",
-                "possession"
-              ],
-              "target_share_tier": "high",
-              "route_area_tags": [
-                "slot",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 1.2,
-              "notes": "CHI Veteran Slot. [moved from CHI per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
-            }
-          ],
-          "severity_score": 8.1,
-          "elite_absence_count": 2,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
-        },
-        {
-          "id": "sec_d5cd2b7701bb19ee",
-          "season": 2026,
-          "week": 5,
-          "game_id": "nfl_2026_2_w05_IND_at_PIT",
-          "kickoff_utc": "2026-10-11T17:00:00.000Z",
-          "offense_team": "PIT",
-          "offense_team_nick": "Steelers",
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_TEN_at_IND",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
+          "offense_team": "TEN",
+          "offense_team_nick": "Titans",
           "defense_team": "IND",
           "defense_team_nick": "Colts",
-          "offense_venue": "home",
+          "offense_venue": "away",
           "coverage_scheme": {
             "scheme_tags": [
               "zone_heavy",
@@ -1140,7 +938,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-10T23:30:02.000Z",
+              "published_at": "2026-10-14T06:20:01.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1159,31 +957,48 @@
           ],
           "target_receivers": [
             {
-              "player_name": "DK Metcalf",
-              "team": "PIT",
+              "player_name": "Calvin Ridley",
+              "team": "TEN",
               "roles": [
-                "alpha_x",
-                "field_stretcher",
-                "red_zone"
+                "z_receiver",
+                "field_stretcher"
               ],
-              "target_share_tier": "alpha",
+              "target_share_tier": "high",
               "route_area_tags": [
-                "boundary",
                 "deep",
-                "red_zone"
+                "boundary"
               ],
               "matched_weakness_tags": [
-                "boundary_wr_boost",
                 "deep_pass_boost",
                 "post_cross_boost"
               ],
-              "opportunity_score": 4.5,
-              "notes": "SEA Physical Freak WR1. [moved from SEA per ESPN roster 2026-09-27]",
+              "opportunity_score": 2.4,
+              "notes": "TEN Speed Free Agent.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/"
             },
             {
-              "player_name": "Roman Wilson",
-              "team": "PIT",
+              "player_name": "Wan'Dale Robinson",
+              "team": "TEN",
+              "roles": [
+                "slot",
+                "possession"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "slot",
+                "underneath"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "NYG High Volume Slot. [moved from NYG per ESPN roster 2026-09-27]",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Elic Ayomanor",
+              "team": "TEN",
               "roles": [
                 "slot"
               ],
@@ -1197,14 +1012,238 @@
                 "underneath_volume_boost"
               ],
               "opportunity_score": 1.6,
-              "notes": "PIT WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "notes": "TEN WR3 per ESPN depth chart 2026-10-02; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            },
+            {
+              "player_name": "Carnell Tate",
+              "team": "TEN",
+              "roles": [
+                "alpha_x"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "boundary",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "boundary_wr_boost"
+              ],
+              "opportunity_score": 1.2,
+              "notes": "TEN WR1 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/"
             }
           ],
           "severity_score": 1.35,
           "elite_absence_count": 0,
           "vulnerability_tier": "watch",
-          "confidence": 0.67,
+          "confidence": 0.75,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true
+        },
+        {
+          "id": "sec_8935637f5626a60c",
+          "season": 2026,
+          "week": 6,
+          "game_id": "nfl_2026_2_w06_TEN_at_IND",
+          "kickoff_utc": "2026-10-18T17:00:00.000Z",
+          "offense_team": "IND",
+          "offense_team_nick": "Colts",
+          "defense_team": "TEN",
+          "defense_team_nick": "Titans",
+          "offense_venue": "home",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "match_zone",
+              "single_high"
+            ],
+            "primary_coverage_family": "match_zone",
+            "pressure_profile": "front_dependent",
+            "confidence": 0.72,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Dennard Wilson Ravens-lineage match zone featuring L'Jarius Sneed shadow coverage."
+          },
+          "secondary_absences": [
+            {
+              "player_name": "Kendell Brooks",
+              "team": "TEN",
+              "position": "S",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Kendell Brooks IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-14T06:20:02.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Dominique Hampton",
+              "team": "TEN",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Dominique Hampton IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-14T06:20:02.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Cor'Dale Flott",
+              "team": "TEN",
+              "position": "CB",
+              "event_type": "setback",
+              "availability_trend": "worsening",
+              "summary": "Flott (chest) has been ruled out for the remainder of Sunday's game against the Texans.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-11T19:25:00.000Z",
+              "role": "outside_cb2",
+              "side": "field",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "z_receiver"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 1.27,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Joshua Williams",
+              "team": "TEN",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Williams (pectoral) has been downgraded to out for Sunday's game against the Texans, Jim Wyatt of the Titans' official site reports.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-10T23:21:00.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            }
+          ],
+          "weakness_tags": [
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "inside_seam_boost",
+            "outside_wr_boost",
+            "post_cross_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Darius Slayton",
+              "team": "IND",
+              "roles": [
+                "z_receiver",
+                "field_stretcher"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "deep"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "NYG Deep Threat. [moved from NYG per ESPN roster 2026-09-27]",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Josh Downs",
+              "team": "IND",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "slot",
+                "underneath"
+              ],
+              "matched_weakness_tags": [
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 1.2,
+              "notes": "IND High-Efficiency Slot.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Keenan Allen",
+              "team": "IND",
+              "roles": [
+                "slot",
+                "possession"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "slot",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 1.2,
+              "notes": "CHI Veteran Slot. [moved from CHI per ESPN roster 2026-09-27]",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+            },
+            {
+              "player_name": "Tyler Warren",
+              "team": "IND",
+              "roles": [
+                "te_middle"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle"
+              ],
+              "matched_weakness_tags": [
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 0.8,
+              "notes": "IND TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/"
+            }
+          ],
+          "severity_score": 5.32,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "high",
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1277,7 +1316,7 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-10-27T06:07:42.084Z",
-        "secondary-matchup source week 5"
+        "secondary-matchup source week 6"
       ]
     },
     "availability": {
