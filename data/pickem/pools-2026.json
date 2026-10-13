@@ -1,7 +1,7 @@
 {
  "schema": "pickem_pools_v1",
  "season": 2026,
- "updated_at": "2026-10-06T19:35:00.000Z",
+ "updated_at": "2026-10-13T14:20:00.000Z",
  "notes": "Andy's pick'em / confidence pools. Games lock at each game's kickoff in all three. Strategy profiles drive scripts/pickem-card.mjs; standings are filled in from Andy's leaderboard screenshots.",
  "pools": [
   {
@@ -65,21 +65,24 @@
     "max_ev_cost": 2.5
    },
    "standings": {
-    "as_of": "2026-10-06 Week 4 final",
-    "rank": 31,
-    "pts": 271,
-    "leader": "Ditka’s Bears 309",
+    "as_of": "2026-10-13 Week 5 final (API; per-game picks not captured)",
+    "rank": 34,
+    "pts": 346,
+    "leader": "Freddy Flintstone 384",
     "gap_to_leader": 38,
     "by_week": {
      "1": 90,
      "2": 85,
      "3": 75,
-     "4": 96
+     "4": 96,
+     "5": 75
     },
-    "week4_rank": 12,
-    "week4_pts": 96,
+    "week5_rank": 33,
+    "week5_pts": 75,
+    "week5_record": "7-7",
     "dropped_pts": 75,
-    "source": "data/pickem/yahoo-472-g-4087-2026-w04.json"
+    "dropped_note": "Yahoo drops one lowest week; Week 5 (75) flagged week_dropped in the API file, so the season total stays 346.",
+    "source": "data/pickem/yahoo-472-g-4087-2026-w05.json"
    },
    "entry_name": "Fat Lazy American",
    "url": "https://football.fantasysports.yahoo.com/pickem/4087/12"
