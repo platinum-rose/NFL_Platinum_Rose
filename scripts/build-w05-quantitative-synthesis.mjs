@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Week 5 quantitative, read-only synthesis.
+ * Weekly quantitative, read-only synthesis (--week N, default 5; --dry-run; --bkr <board[,board]> for weeks >= 6).
  *
  * This is deliberately a transparent forecast adapter, not a betting or ticket
  * generator. It uses current BKR game lines as an anchor; season-to-date FTN
@@ -37,16 +37,48 @@ const zscores = (map) => {
   return Object.fromEntries(Object.entries(map).map(([key, value]) => [key, Number.isFinite(value) ? (value - m) / sd : null]));
 };
 
+const arg = (k) => { const i = process.argv.indexOf(k); return i >= 0 ? process.argv[i + 1] : undefined; };
+const WEEK = Number(arg('--week') ?? 5);
+if (!Number.isInteger(WEEK) || WEEK < 1 || WEEK > 22) throw new Error('--week must be an integer 1-22');
+const WK = String(WEEK).padStart(2, '0');
+const readOpt = (file) => (fs.existsSync(path.join(ROOT, file)) ? read(file) : null);
+const ALIAS = { WSH: 'WAS', LA: 'LAR', JAC: 'JAX' }; // repo files mix WSH/WAS, LA/LAR; canonical is WAS/LAR/JAX
+const canon = (t) => ALIAS[t] || t;
+
 const ftn = read('data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json');
 const power = read('data/generated/team-profiles/team-power-ratings-2026.json');
-const secondary = read('data/secondary-matchups/secondary-matchup-vulnerability-2026-w05.json');
-const latestBkr = (() => { const dir = 'data/generated/props'; let best = null; for (const n of fs.readdirSync(dir)) { if (!/^bookmaker-live-2026-10-\d\d-week5\.json$/.test(n)) continue; const c = JSON.parse(fs.readFileSync(`${dir}/${n}`, 'utf8')).capturedAt || ''; if (!best || c > best.c) best = { c, p: `${dir}/${n}` }; } return best.p; })();
-const bkr = read(latestBkr);
+const secondary = readOpt(`data/secondary-matchups/secondary-matchup-vulnerability-2026-w${WK}.json`);
 const availability = read('data/player-availability/impact-digest-latest.json');
-const podcast = read('data/generated/master-intel/w05-pull.json');
-const contest = read('data/supercontest/week-05-2026-verified-lines.json');
+const podcast = readOpt(`data/generated/master-intel/w${WK}-pull.json`);
+const contest = readOpt(`data/supercontest/week-${WK}-2026-verified-lines.json`);
+const warnings = [];
+if (!secondary) warnings.push(`no secondary-matchup file for week ${WEEK}: secondary term is zero (no fallback to an older week)`);
+if (!contest) warnings.push(`no SuperContest lines file for week ${WEEK}: contest field is null`);
+if (!podcast) warnings.push(`no master-intel pull for week ${WEEK}: podcast accounting omitted`);
+if (Date.parse(power.meta.generated_at) - Date.parse(ftn.source_capture_completed_at) > 12 * 3600e3) warnings.push(`FTN context (captured ${ftn.source_capture_completed_at}) predates the power ratings (${power.meta.generated_at}) by more than 12h: its team metrics lag by a game; rerun after the next FTN capture`);
 
-const games = [
+// Slate + market. Week 5 keeps its original BKR props JSON and fixed game list. Later weeks take the slate from the dossier slate file and the market
+// from the pasted BKR board text (data/odds/BKR_current_lines_MMDD_HHMM_buildfmt; newest by default, or --bkr a,b with later files overriding earlier).
+function loadBoard(argBkr) {
+  const dir = 'data/odds';
+  const files = (argBkr ? argBkr.split(',') : [fs.readdirSync(path.join(ROOT, dir)).filter((x) => /^BKR_current_lines_\d{4}_\d{4}_buildfmt$/.test(x)).sort().pop()].filter(Boolean).map((x) => `${dir}/${x}`));
+  if (!files.length) throw new Error('no BKR _buildfmt board found; pass --bkr <path[,path]>');
+  const lines = new Map(); let captured = null;
+  for (const file of files) {
+    const stamp = path.basename(file).match(/_(\d{2})(\d{2})_(\d{2})(\d{2})_buildfmt$/);
+    if (stamp) { const t = new Date(Date.UTC(2026, Number(stamp[1]) - 1, Number(stamp[2]), Number(stamp[3]) + 7, Number(stamp[4]))).toISOString(); if (!captured || t > captured) captured = t; } // filename time is PT (PDT, UTC-7), approximate
+    for (const row of fs.readFileSync(path.join(ROOT, file), 'utf8').split(/\r?\n/)) {
+      const m = row.match(/^(\w+) @ (\w+)\s+\d{1,2}:\d{2}\s+(\w+) ([+-]?\d+(?:\.\d+)?)([+-]\d+) \/ (\w+) ([+-]?\d+(?:\.\d+)?)([+-]\d+)\s+o(\d+(?:\.\d+)?)[+-]\d+/);
+      if (!m) continue;
+      const [, a, h, t1, s1, , , s2, , tot] = m;
+      lines.set(`${canon(a)}@${canon(h)}`, { homeSpread: canon(t1) === canon(h) ? Number(s1) : Number(s2), total: Number(tot) });
+    }
+  }
+  return { source: files.join(','), captured_at: captured, captured_at_basis: 'board filename time, PT, approximate', rows: lines.size, find: (game) => lines.get(`${game.away}@${game.home}`) || {} };
+}
+let games; let market;
+if (WEEK === 5) {
+  games = [
   ['Philadelphia Eagles @ Jacksonville Jaguars', 'PHI', 'JAX'], ['Indianapolis Colts @ Pittsburgh Steelers', 'IND', 'PIT'],
   ['Minnesota Vikings @ New Orleans Saints', 'MIN', 'NO'], ['Cleveland Browns @ New York Jets', 'CLE', 'NYJ'],
   ['Cincinnati Bengals @ Miami Dolphins', 'CIN', 'MIA'], ['Las Vegas Raiders @ New England Patriots', 'LV', 'NE'],
@@ -55,6 +87,15 @@ const games = [
   ['Detroit Lions @ Arizona Cardinals', 'DET', 'ARI'], ['Chicago Bears @ Green Bay Packers', 'CHI', 'GB'],
   ['Baltimore Ravens @ Atlanta Falcons', 'BAL', 'ATL'], ['Buffalo Bills @ Los Angeles Rams', 'BUF', 'LAR']
 ].map(([event, away, home]) => ({ event, away, home }));
+  const latestBkr = (() => { const dir = 'data/generated/props'; let best = null; for (const n of fs.readdirSync(dir)) { if (!/^bookmaker-live-2026-10-\d\d-week5\.json$/.test(n)) continue; const c = JSON.parse(fs.readFileSync(`${dir}/${n}`, 'utf8')).capturedAt || ''; if (!best || c > best.c) best = { c, p: `${dir}/${n}` }; } return best.p; })();
+  const bkr = read(latestBkr);
+  const line = (event, bet, side) => bkr.rows.find((row) => row.event === event && row.sectionTitle === 'Game' && row.bet === bet && row.side === side && row.available !== false);
+  market = { source: latestBkr, captured_at: bkr.capturedAt, captured_at_basis: 'capturedAt field', rows: bkr.rows.length, find: (game) => { const homeName = game.event.split(' @ ')[1]; return { homeSpread: line(game.event, 'spread', homeName)?.line, total: line(game.event, 'total', 'Over')?.line }; } };
+} else {
+  const slate = read(`data/generated/team-dossiers/w${WK}-slate.json`);
+  games = slate.games.map((g) => ({ event: `${canon(g.away)} @ ${canon(g.home)}`, away: canon(g.away), home: canon(g.home), kickoff_pt: g.kickoff_pt }));
+  market = loadBoard(arg('--bkr'));
+}
 
 const metric = (team, category, subpage, field) => n(ftn.team_context[team]?.records.find((r) => r.category === category && r.subpage === subpage)?.metrics?.[field]);
 const teams = Object.keys(ftn.team_context);
@@ -77,8 +118,7 @@ const defenseWeakness = buildFeature([
 ]);
 const tempo = buildFeature([['team-offense', 'tempo', 'PLY/GM'], ['team-offense', 'tempo', 'SCD%']]);
 const powers = Object.fromEntries(power.rows.map((row) => [row.team_abbr, row.power_rating]));
-const sec = new Map(secondary.matchups.map((row) => [`${row.offense_team}:${row.defense_team}`, row]));
-const line = (event, bet, side) => bkr.rows.find((row) => row.event === event && row.sectionTitle === 'Game' && row.bet === bet && row.side === side && row.available !== false);
+const sec = new Map((secondary?.matchups || []).map((row) => [`${row.offense_team}:${row.defense_team}`, row]));
 
 function simulate({ homeMean, awayMean, homeLine, total }) {
   // Exact calibrated distribution (scripts/intel/margin-simulator.mjs): market-centered, key-number aware, residual SDs from the pinned
@@ -107,8 +147,7 @@ const projections = games.map((game) => {
   // line: the favorite is often the visitor, and inferring "home = the team with the negative line" flips the market sign.
   const [awayName, homeName] = game.event.split(' @ ');
   if (!awayName || !homeName) throw new Error(`event is not "Away @ Home": ${game.event}`);
-  const homeSpread = line(game.event, 'spread', homeName)?.line;
-  const total = line(game.event, 'total', 'Over')?.line;
+  const { homeSpread, total } = market.find(game);
   if (!Number.isFinite(homeSpread) || !Number.isFinite(total)) return { ...game, status: 'missing_current_bkr_game_line' };
   const marketHome = total / 2 - homeSpread / 2; const marketAway = total - marketHome;
   const analyticHomeRaw = 22 + 1.55 * ((offense[game.home] || 0) + (defenseWeakness[game.away] || 0));
@@ -131,10 +170,10 @@ const projections = games.map((game) => {
   const preferredSide = sim.home_cover_excl_push_pct >= sim.away_cover_excl_push_pct ? homeName : awayName;
   const preferredTotal = sim.over_excl_push_pct >= sim.under_excl_push_pct ? 'Over' : 'Under';
   // The SuperContest file lists 6 Week 5 matchups with away/home reversed relative to the schedule, so match on the unordered pair.
-  const contestSame = contest.lines.find((row) => row.away_team === game.away && row.home_team === game.home);
-  const contestRow = contestSame || contest.lines.find((row) => row.away_team === game.home && row.home_team === game.away);
+  const contestSame = contest?.lines?.find((row) => row.away_team === game.away && row.home_team === game.home);
+  const contestRow = contestSame || contest?.lines?.find((row) => row.away_team === game.home && row.home_team === game.away);
   return {
-    ...game, away_name: awayName, home_name: homeName, market: { home_spread: homeSpread, total, captured_at: bkr.capturedAt },
+    ...game, away_name: awayName, home_name: homeName, market: { home_spread: homeSpread, total, captured_at: market.captured_at },
     features: { offense_z: { [game.home]: offense[game.home], [game.away]: offense[game.away] }, defense_weakness_z: { [game.home]: defenseWeakness[game.home], [game.away]: defenseWeakness[game.away] }, tempo_z: { [game.home]: tempo[game.home], [game.away]: tempo[game.away] }, srs: { [game.home]: srsHome, [game.away]: srsAway }, secondary_adjustment_points: { [game.home]: secHome, [game.away]: secAway } },
     means: { home: homeMean, away: awayMean, total: homeMean + awayMean, home_margin: homeMean - awayMean },
     simulation: sim,
@@ -145,8 +184,9 @@ const projections = games.map((game) => {
 
 const availabilityGates = availability.top_events.filter((event) => ['out', 'ir', 'doubtful', 'questionable'].includes(event.event_type)).map((event) => ({ team: event.team, player: event.player_name, event_type: event.event_type, published_at: event.published_at, summary: event.summary }));
 const output = {
-  schema: 'week5_quantitative_synthesis_v1', generated_at: new Date().toISOString(), status: 'proposed_analysis_only',
+  schema: `week${WEEK}_quantitative_synthesis_v1`, week: WEEK, generated_at: new Date().toISOString(), status: 'proposed_analysis_only',
   engine: { name: 'scripts/intel/margin-simulator.mjs analyzeGame', sampling: 'none (exact pmf)', calibration_path: CAL.path, calibration_sha256: CAL.sha256, era: CAL.era, margin_sd: CAL.sdMargin, total_sd: CAL.sdTotal, key_weights: MODEL.w, latent_sigma_margin: MODEL.sigma, secondary_slate_mean_removed_pts_per_team: SEC_MEAN },
+  warnings,
   boundary: 'Not a card, official recommendation, contest entry, ticket, or sportsbook execution record.',
   numeric_model: {
     method: 'Exact calibrated margin/total distribution per game (no sampling), centered on the BKR line; the blended projection enters as a margin/total adjustment vs the market.',
@@ -157,11 +197,11 @@ const output = {
   source_accounting: {
     ftn: { tables: ftn.table_count, records: ftn.record_count, captured: ftn.source_capture_completed_at, role: 'numeric team analytics' },
     power: { generated: power.meta.generated_at, components: power.meta.ensemble_components, role: 'numeric season-to-date SRS component' },
-    bookmaker: { captured: bkr.capturedAt, rows: bkr.rows.length, role: 'market anchor' },
-    secondary: { generated: secondary.meta.generated_at, role: 'capped matchup context' },
+    bookmaker: { source: market.source, captured: market.captured_at, captured_basis: market.captured_at_basis, rows: market.rows, role: 'market anchor' },
+    secondary: secondary ? { generated: secondary.meta.generated_at, role: 'capped matchup context' } : { missing: true, role: 'capped matchup context (unavailable this week)' },
     availability: { generated: availability.meta?.generated_at || null, role: 'gate/context; not blanket point adjustments' },
-    podcast: { episodes: podcast.podcast_gemini_summary?.promoted_episodes, picks: podcast.podcast_gemini_summary?.picks, notes: podcast.podcast_gemini_summary?.analysis_notes, role: 'qualitative corroboration only' },
-    explicit_staleness: ['DVOA snapshot lane retired 2026-10-10; FTN is the current-season efficiency source', 'coaching tendency source files predate current Week 5 and are context-only']
+    podcast: { episodes: podcast?.podcast_gemini_summary?.promoted_episodes, picks: podcast?.podcast_gemini_summary?.picks, notes: podcast?.podcast_gemini_summary?.analysis_notes, role: 'qualitative corroboration only' },
+    explicit_staleness: ['DVOA snapshot lane retired 2026-10-10; FTN is the current-season efficiency source', `coaching tendency source files predate current Week ${WEEK} and are context-only`]
   },
   availability_gates: availabilityGates, games: projections
 };
@@ -169,7 +209,7 @@ const output = {
 const pct = (value) => `${(value * 100).toFixed(1)}%`;
 const rankedSides = projections.filter((g) => g.simulation).map((g) => ({ game: g.event, side: g.model_menu.side, pct: g.model_menu.side_cover_pct, market: g.market.home_spread, projected_margin: g.means.home_margin })).sort((a, b) => b.pct - a.pct);
 const rankedTotals = projections.filter((g) => g.simulation).map((g) => ({ game: g.event, total: g.model_menu.total, pct: g.model_menu.total_pct, market: g.market.total, projected_total: g.means.total })).sort((a, b) => b.pct - a.pct);
-let md = `# Week 5 Quantitative Synthesis — Proposed Analysis\n\nGenerated ${output.generated_at}. **Not an official card, pool entry, ticket, or execution instruction.**\n\n## What this pass actually uses\n\n- FTN Week 5 rendered exports: ${ftn.table_count} tables / ${ftn.record_count.toLocaleString()} rows, captured through ${ftn.source_capture_completed_at}.\n- Current BKR market anchor: ${bkr.capturedAt}.\n- Current season SRS / net-point / Pythagorean power ensemble: ${power.meta.generated_at}.\n- Week 5 secondary-matchup evidence, capped to prevent manual injury notes from overwhelming the market.\n- Current availability as a gate/context layer.\n\n**Distribution:** exact calibrated pmf (no sampling; key-number aware; pushes tracked; ranking uses cover % excluding pushes). The model blends 60% market, 25% FTN team analytics, and 15% SRS margin; it is provisional and unbacktested, so probability is a comparison signal—not a claim of calibrated edge. Podcast, expert, splits, stale DVOA, and stale coaching inputs are retained as qualitative review context only.\n\n## Game projections and simulation outputs\n\n| Game | Mean score | BKR spread / total | Preferred side | Cover % | Preferred total | Total % |\n|---|---:|---|---|---:|---|---:|\n`;
+let md = `# Week ${WEEK} Quantitative Synthesis — Proposed Analysis\n\nGenerated ${output.generated_at}. **Not an official card, pool entry, ticket, or execution instruction.**\n\n## What this pass actually uses\n\n- FTN rendered exports: ${ftn.table_count} tables / ${ftn.record_count.toLocaleString()} rows, captured through ${ftn.source_capture_completed_at}.\n- BKR market anchor: ${market.captured_at} (${market.captured_at_basis}); ${market.rows} games with lines.\n- Current season SRS / net-point / Pythagorean power ensemble: ${power.meta.generated_at}.\n- ${secondary ? `Week ${WEEK} secondary-matchup evidence, capped to prevent manual injury notes from overwhelming the market.` : `No Week ${WEEK} secondary-matchup file: secondary term is zero.`}\n- Current availability as a gate/context layer.\n\n**Distribution:** exact calibrated pmf (no sampling; key-number aware; pushes tracked; ranking uses cover % excluding pushes). The model blends 60% market, 25% FTN team analytics, and 15% SRS margin; it is provisional and unbacktested, so probability is a comparison signal—not a claim of calibrated edge. Podcast, expert, splits, stale DVOA, and stale coaching inputs are retained as qualitative review context only.\n\n## Game projections and simulation outputs\n\n| Game | Mean score | BKR spread / total | Preferred side | Cover % | Preferred total | Total % |\n|---|---:|---|---|---:|---|---:|\n`;
 for (const g of projections) {
   if (!g.simulation) { md += `| ${g.event} | — | missing | — | — | — | — |\n`; continue; }
   md += `| ${g.event} | ${g.away} ${g.means.away.toFixed(1)}–${g.home} ${g.means.home.toFixed(1)} | ${g.home_name} ${g.market.home_spread} / ${g.market.total} | ${g.model_menu.side} | ${pct(g.model_menu.side_cover_pct)} | ${g.model_menu.total} | ${pct(g.model_menu.total_pct)} |\n`;
@@ -178,12 +218,13 @@ md += `\n## Ranked model menus (not recommendations)\n\n### Sides\n\n| Rank | Si
 rankedSides.forEach((x, i) => { md += `| ${i + 1} | ${x.side} | ${x.game} | ${pct(x.pct)} | ${x.market} | ${x.projected_margin.toFixed(1)} |\n`; });
 md += `\n### Totals\n\n| Rank | Total | Game | Model % | Market total | Model total |\n|---:|---|---:|---:|---:|---:|\n`;
 rankedTotals.forEach((x, i) => { md += `| ${i + 1} | ${x.total} | ${x.game} | ${pct(x.pct)} | ${x.market} | ${x.projected_total.toFixed(1)} |\n`; });
-md += `\n## Required human review\n\n- Reprice every row at the intended book immediately before any separate proposal.\n- Apply current inactive news; the availability file is a gate, not an automatic point-spread override.\n- Review expert/podcast/split conflicts game by game; they were not converted into pseudo-probabilities.\n- Do not use this game-level model to infer player-prop probabilities. Player projections require a separate player-volume model and line-specific calibration.\n`;
+md += `${warnings.length ? `\n## Warnings\n\n${warnings.map((w) => `- ${w}`).join('\n')}\n` : ''}\n## Required human review\n\n- Reprice every row at the intended book immediately before any separate proposal.\n- Apply current inactive news; the availability file is a gate, not an automatic point-spread override.\n- Review expert/podcast/split conflicts game by game; they were not converted into pseudo-probabilities.\n- Do not use this game-level model to infer player-prop probabilities. Player projections require a separate player-volume model and line-specific calibration.\n`;
 if (DRY) {
   console.log(JSON.stringify(projections.map((g) => ({ event: g.event, market: g.market && { hs: g.market.home_spread, t: g.market.total }, adj: g.simulation && g.simulation.adjustments_vs_market, side: g.model_menu && [g.model_menu.side, +g.model_menu.side_cover_pct.toFixed(4)], total: g.model_menu && [g.model_menu.total, +g.model_menu.total_pct.toFixed(4)], home_win: g.simulation && +g.simulation.home_win_pct.toFixed(4) }))));
+  console.log(JSON.stringify({ warnings }));
   console.log('dry-run: nothing written');
 } else {
-write('data/research-intel/proposed/2026-w05-quantitative-synthesis.json', output);
-write('reports/intel/2026-w05-quantitative-synthesis.md', md);
+write(`data/research-intel/proposed/2026-w${WK}-quantitative-synthesis.json`, output);
+write(`reports/intel/2026-w${WK}-quantitative-synthesis.md`, md);
 }
 console.log(`${DRY ? 'computed' : 'wrote'} ${projections.length} game quantitative synthesis with ${rankedSides.length} side and ${rankedTotals.length} total rows`);

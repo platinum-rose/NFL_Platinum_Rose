@@ -3,15 +3,15 @@
 > Start here. This is a routing index, not a transcript. One current pickup only.
 > Detail lives in dated `handoffs/`; superseded pickups are in git history and their dated files.
 
-## PICK UP HERE (Tue 2026-10-13 00:40 PT, Week 6 team dossiers built; Monte Carlo review next)
+## PICK UP HERE (Tue 2026-10-13 01:50 PT, quant synthesis calibrated and week-driven; FTN capture next)
 
-Branch `claude/w5-prop-cards-2026-10-11`. Week 5 closed out. W6 dossiers (32 teams, 14 matchups) built and validated in `data/generated/team-dossiers/2026-w06/`. Suite not verified (`npx vitest run`).
-Dated detail: `handoffs/2026-10-13-0040-claude-w6-team-dossiers-built-handoff.md`.
+Branch `claude/w5-prop-cards-2026-10-11`. HEAD is the handoff commit on top of code commit `a34c54f` (check `git log -1 --format=%s`). Monte Carlo review done; W5 quantitative synthesis now uses the calibrated engine, a zero-sum secondary term and `--week N`. Total-damping backtest: null result (keep totals at market). Suite not verified (`npx vitest run`).
+Dated detail: `handoffs/2026-10-13-0150-claude-quant-synthesis-calibrated-week-driven-handoff.md`.
 
 Next, in order:
-1. Andy's topic: review how the Monte Carlo simulations are run (read-only; start at `src/lib/simulation.js`, `scripts/margin-simulator.mjs`, the Astra prompt).
-2. Tue 7:00 AM PT scheduled FTN capture, then rerun `node scripts/build-team-dossiers.mjs --week=6` and `node scripts/validate-team-dossiers.mjs`.
-3. Dossier availability/priors layer (roster gate); capture BKR LAR@ARI and LV@BUF when posted; native-Windows items listed in the dated handoff.
+1. Tue 7:00 AM PT scheduled FTN capture, then rerun `node scripts/build-team-dossiers.mjs --week=6` and `node scripts/validate-team-dossiers.mjs`, then `node scripts/build-w05-quantitative-synthesis.mjs --week 6 --dry-run` (write only with fresh FTN).
+2. Dossier availability/priors layer (roster gate); capture BKR LAR@ARI and LV@BUF when posted; native-Windows items listed in the dated handoff.
+3. Parked: player-prop game-state simulator (separate build with its own backtest).
 
 ## Fast resume (do this, nothing more)
 
