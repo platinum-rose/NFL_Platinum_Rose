@@ -129,8 +129,12 @@ export function analyzeGame(g, cal, model = solveModel(cal)) {
   const tp = (mu) => { const q = new Float64Array(TMAX + 1); let s = 0; for (let t = 0; t <= TMAX; t += 1) { const v = phi((t + 0.5 - mu) / cal.sdTotal) - phi((t - 0.5 - mu) / cal.sdTotal); q[t] = v; s += v; } for (let t = 0; t <= TMAX; t += 1) q[t] /= s; return q; };
   const splitT = (q) => { let gt = 0; let eq = 0; let lt = 0; for (let t = 0; t <= TMAX; t += 1) { if (t > total) gt += q[t]; else if (t < total) lt += q[t]; else eq += q[t]; } return { gt, eq, lt }; };
   const dT = bisect((d) => { const s = splitT(tp(total + d)); return s.gt - s.lt; }, -6, 6);
-  const st = splitT(tp(total + dT + totalAdj));
+  const qt = tp(total + dT + totalAdj);
+  const st = splitT(qt);
   const norm = (a, b) => a / (a + b);
+  const medianIdx = (arr, lo) => { let c = 0; for (let i = 0; i < arr.length; i += 1) { c += arr[i]; if (c >= 0.5) return i + lo; } return null; };
+  let meanM = 0; for (let m = -MAXM; m <= MAXM; m += 1) meanM += m * at(pm, m);
+  let meanT = 0; for (let t = 0; t <= TMAX; t += 1) meanT += t * qt[t];
   return {
     inputs: { homeLine, total, marginAdj, totalAdj },
     home_cover: sm.gt, away_cover: sm.lt, side_push: sm.eq,
@@ -139,6 +143,8 @@ export function analyzeGame(g, cal, model = solveModel(cal)) {
     over_excl_push: norm(st.gt, st.lt), under_excl_push: norm(st.lt, st.gt),
     home_win: win + tie / 2, home_win_excl_tie: win, tie,
     center_shift: { margin: dM, total: dT },
+    // Books price medians, projections are means: report both. Margin is home-positive; the pmf is integer-valued.
+    distribution: { mean_margin: meanM, median_margin: medianIdx(pm, -MAXM), mean_total: meanT, median_total: medianIdx(qt, 0) },
     exact_margin_pct: { m3: at(pm, 3) + at(pm, -3), m7: at(pm, 7) + at(pm, -7) },
     calibration: { sdMargin: cal.sdMargin, latent_sigma_margin: sigmaM, sdTotal: cal.sdTotal, era: cal.era, sha256: cal.sha256, key_weights: weights }
   };

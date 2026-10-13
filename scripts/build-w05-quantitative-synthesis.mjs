@@ -10,8 +10,14 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { loadCalibration, solveModel, analyzeGame } from './intel/margin-simulator.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
+const DRY = process.argv.includes('--dry-run'); // compute and print, write nothing
+const PINNED_CAL_SHA256 = '0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33';
+const CAL = loadCalibration();
+if (CAL.sha256 !== PINNED_CAL_SHA256) throw new Error(`calibration hash drift: ${CAL.sha256}`);
+const MODEL = solveModel(CAL);
 const read = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));
 const write = (file, value) => {
   const target = path.join(ROOT, file);
@@ -30,8 +36,6 @@ const zscores = (map) => {
   const values = Object.values(map).filter(Number.isFinite); const m = mean(values); const sd = stdev(values);
   return Object.fromEntries(Object.entries(map).map(([key, value]) => [key, Number.isFinite(value) ? (value - m) / sd : null]));
 };
-const rng = (() => { let seed = 20261010; return () => { seed |= 0; seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; })();
-const normal = () => { const u = Math.max(rng(), 1e-12); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * rng()); };
 
 const ftn = read('data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json');
 const power = read('data/generated/team-profiles/team-power-ratings-2026.json');
@@ -76,20 +80,27 @@ const powers = Object.fromEntries(power.rows.map((row) => [row.team_abbr, row.po
 const sec = new Map(secondary.matchups.map((row) => [`${row.offense_team}:${row.defense_team}`, row]));
 const line = (event, bet, side) => bkr.rows.find((row) => row.event === event && row.sectionTitle === 'Game' && row.bet === bet && row.side === side && row.available !== false);
 
-function simulate({ homeMean, awayMean, homeLine, total, iterations = 100000 }) {
-  let homeWin = 0; let homeCover = 0; let over = 0; let homeSum = 0; let awaySum = 0;
-  // Shared noise is intentionally modest: possessions/game environment moves both
-  // scores, while independent noise drives the margin. This is a simple normal-score
-  // model, not a possession simulation or a calibrated closing-line model.
-  for (let i = 0; i < iterations; i += 1) {
-    const shared = normal() * 3.0; const home = Math.max(0, homeMean + shared + normal() * 11.8); const away = Math.max(0, awayMean + shared + normal() * 11.8);
-    homeSum += home; awaySum += away;
-    if (home > away) homeWin += 1;
-    if ((home - away) > -homeLine) homeCover += 1;
-    if ((home + away) > total) over += 1;
-  }
-  return { iterations, mean_home: homeSum / iterations, mean_away: awaySum / iterations, home_win_pct: homeWin / iterations, home_cover_pct: homeCover / iterations, away_cover_pct: 1 - (homeCover / iterations), over_pct: over / iterations, under_pct: 1 - (over / iterations) };
+function simulate({ homeMean, awayMean, homeLine, total }) {
+  // Exact calibrated distribution (scripts/intel/margin-simulator.mjs): market-centered, key-number aware, residual SDs from the pinned
+  // 2018-2025 calibration. The blend's disagreement with the market enters as an adjustment, so zero disagreement is exactly 50/50.
+  // No sampling, so no seed or iteration count. Replaces the earlier 100k-trial normal sampler (per-team SD 11.8 + shared 3.0), whose margin
+  // SD (16.7) and total SD (17.7) were well above the calibrated 12.77 / 13.13.
+  const g = analyzeGame({ homeLine, total, marginAdj: (homeMean - awayMean) + homeLine, totalAdj: (homeMean + awayMean) - total }, CAL, MODEL);
+  return {
+    engine: 'calibrated-pmf', iterations: null, mean_home: homeMean, mean_away: awayMean,
+    home_win_pct: g.home_win, home_cover_pct: g.home_cover, away_cover_pct: g.away_cover, side_push_pct: g.side_push,
+    home_cover_excl_push_pct: g.home_cover_excl_push, away_cover_excl_push_pct: g.away_cover_excl_push,
+    over_pct: g.over, under_pct: g.under, total_push_pct: g.total_push,
+    over_excl_push_pct: g.over_excl_push, under_excl_push_pct: g.under_excl_push,
+    adjustments_vs_market: { margin: g.inputs.marginAdj, total: g.inputs.totalAdj }, distribution: g.distribution
+  };
 }
+
+// Secondary-matchup severity can only raise a team's own score (>= 0), which biased every total upward by ~0.4-1.5 pts. Remove the slate-wide
+// per-team mean so the term is zero-sum: games with healthy secondaries get a small negative, hurt ones a small positive. Margin effect is unchanged
+// (both teams shift by the same amount).
+const secRaw = (off, def) => Math.min(0.9, Math.max(0, (sec.get(`${off}:${def}`)?.severity_score || 0) * 0.10));
+const SEC_MEAN = mean(games.flatMap((g) => [secRaw(g.home, g.away), secRaw(g.away, g.home)]));
 
 const projections = games.map((game) => {
   // Home/away come from the event string ("Away @ Home", the schedule's VISITOR @ HOME order), never from the sign of a
@@ -111,14 +122,14 @@ const projections = games.map((game) => {
   const srsHome = powers[game.home]?.srs ?? 0; const srsAway = powers[game.away]?.srs ?? 0;
   const powerMargin = srsHome - srsAway + 1.5;
   const powerHome = total / 2 + powerMargin / 2; const powerAway = total / 2 - powerMargin / 2;
-  const secHome = Math.min(0.9, Math.max(0, (sec.get(`${game.home}:${game.away}`)?.severity_score || 0) * 0.10));
-  const secAway = Math.min(0.9, Math.max(0, (sec.get(`${game.away}:${game.home}`)?.severity_score || 0) * 0.10));
+  const secHome = secRaw(game.home, game.away) - SEC_MEAN;
+  const secAway = secRaw(game.away, game.home) - SEC_MEAN;
   const homeMean = 0.60 * marketHome + 0.25 * analyticHome + 0.15 * powerHome + secHome;
   const awayMean = 0.60 * marketAway + 0.25 * analyticAway + 0.15 * powerAway + secAway;
   const sim = simulate({ homeMean, awayMean, homeLine: homeSpread, total });
   const favorite = homeSpread < 0 ? homeName : awayName;
-  const preferredSide = sim.home_cover_pct >= sim.away_cover_pct ? homeName : awayName;
-  const preferredTotal = sim.over_pct >= sim.under_pct ? 'Over' : 'Under';
+  const preferredSide = sim.home_cover_excl_push_pct >= sim.away_cover_excl_push_pct ? homeName : awayName;
+  const preferredTotal = sim.over_excl_push_pct >= sim.under_excl_push_pct ? 'Over' : 'Under';
   // The SuperContest file lists 6 Week 5 matchups with away/home reversed relative to the schedule, so match on the unordered pair.
   const contestSame = contest.lines.find((row) => row.away_team === game.away && row.home_team === game.home);
   const contestRow = contestSame || contest.lines.find((row) => row.away_team === game.home && row.home_team === game.away);
@@ -127,7 +138,7 @@ const projections = games.map((game) => {
     features: { offense_z: { [game.home]: offense[game.home], [game.away]: offense[game.away] }, defense_weakness_z: { [game.home]: defenseWeakness[game.home], [game.away]: defenseWeakness[game.away] }, tempo_z: { [game.home]: tempo[game.home], [game.away]: tempo[game.away] }, srs: { [game.home]: srsHome, [game.away]: srsAway }, secondary_adjustment_points: { [game.home]: secHome, [game.away]: secAway } },
     means: { home: homeMean, away: awayMean, total: homeMean + awayMean, home_margin: homeMean - awayMean },
     simulation: sim,
-    model_menu: { side: preferredSide, side_cover_pct: Math.max(sim.home_cover_pct, sim.away_cover_pct), total: preferredTotal, total_pct: Math.max(sim.over_pct, sim.under_pct) },
+    model_menu: { side: preferredSide, side_cover_pct: Math.max(sim.home_cover_excl_push_pct, sim.away_cover_excl_push_pct), total: preferredTotal, total_pct: Math.max(sim.over_excl_push_pct, sim.under_excl_push_pct), basis: 'excluding pushes' },
     contest: contestRow ? { team: contestRow.favorite, favorite_spread: contestRow.favorite_spread, market_favorite: favorite, file_orientation_reversed: !contestSame } : null
   };
 });
@@ -135,11 +146,12 @@ const projections = games.map((game) => {
 const availabilityGates = availability.top_events.filter((event) => ['out', 'ir', 'doubtful', 'questionable'].includes(event.event_type)).map((event) => ({ team: event.team, player: event.player_name, event_type: event.event_type, published_at: event.published_at, summary: event.summary }));
 const output = {
   schema: 'week5_quantitative_synthesis_v1', generated_at: new Date().toISOString(), status: 'proposed_analysis_only',
+  engine: { name: 'scripts/intel/margin-simulator.mjs analyzeGame', sampling: 'none (exact pmf)', calibration_path: CAL.path, calibration_sha256: CAL.sha256, era: CAL.era, margin_sd: CAL.sdMargin, total_sd: CAL.sdTotal, key_weights: MODEL.w, latent_sigma_margin: MODEL.sigma, secondary_slate_mean_removed_pts_per_team: SEC_MEAN },
   boundary: 'Not a card, official recommendation, contest entry, ticket, or sportsbook execution record.',
   numeric_model: {
-    method: '100,000-trial seeded normal-score Monte Carlo per game',
-    blend: '60% current BKR market-implied score; 25% FTN standardized season-to-date team attack/defense/pacing context; 15% nflverse SRS margin; capped secondary-absence context.',
-    calibration_status: 'provisional: no historical Week 5 backtest or closing-line calibration is claimed.',
+    method: 'Exact calibrated margin/total distribution per game (no sampling), centered on the BKR line; the blended projection enters as a margin/total adjustment vs the market.',
+    blend: '60% current BKR market-implied score; 25% FTN standardized season-to-date team attack/defense/pacing context; 15% nflverse SRS margin; capped secondary-absence context with the slate-mean removed (zero-sum).',
+    calibration_status: 'Score-error shape (SDs, key numbers 3/7, pushes) calibrated to pinned 2018-2025 market residuals. The 60/25/15 blend, the FTN z-score scale (1.55) and SRS inputs are NOT backtested; no edge is claimed.',
     excluded_from_numeric_weight: ['expert/podcast selections', 'betting splits', 'retired DVOA snapshot lane', 'stale coaching-source inputs', 'player-prop prices']
   },
   source_accounting: {
@@ -157,7 +169,7 @@ const output = {
 const pct = (value) => `${(value * 100).toFixed(1)}%`;
 const rankedSides = projections.filter((g) => g.simulation).map((g) => ({ game: g.event, side: g.model_menu.side, pct: g.model_menu.side_cover_pct, market: g.market.home_spread, projected_margin: g.means.home_margin })).sort((a, b) => b.pct - a.pct);
 const rankedTotals = projections.filter((g) => g.simulation).map((g) => ({ game: g.event, total: g.model_menu.total, pct: g.model_menu.total_pct, market: g.market.total, projected_total: g.means.total })).sort((a, b) => b.pct - a.pct);
-let md = `# Week 5 Quantitative Synthesis — Proposed Analysis\n\nGenerated ${output.generated_at}. **Not an official card, pool entry, ticket, or execution instruction.**\n\n## What this pass actually uses\n\n- FTN Week 5 rendered exports: ${ftn.table_count} tables / ${ftn.record_count.toLocaleString()} rows, captured through ${ftn.source_capture_completed_at}.\n- Current BKR market anchor: ${bkr.capturedAt}.\n- Current season SRS / net-point / Pythagorean power ensemble: ${power.meta.generated_at}.\n- Week 5 secondary-matchup evidence, capped to prevent manual injury notes from overwhelming the market.\n- Current availability as a gate/context layer.\n\n**Monte Carlo:** 100,000 deterministic trials per game. The model blends 60% market, 25% FTN team analytics, and 15% SRS margin; it is provisional and unbacktested, so probability is a comparison signal—not a claim of calibrated edge. Podcast, expert, splits, stale DVOA, and stale coaching inputs are retained as qualitative review context only.\n\n## Game projections and simulation outputs\n\n| Game | Mean score | BKR spread / total | Preferred side | Cover % | Preferred total | Total % |\n|---|---:|---|---|---:|---|---:|\n`;
+let md = `# Week 5 Quantitative Synthesis — Proposed Analysis\n\nGenerated ${output.generated_at}. **Not an official card, pool entry, ticket, or execution instruction.**\n\n## What this pass actually uses\n\n- FTN Week 5 rendered exports: ${ftn.table_count} tables / ${ftn.record_count.toLocaleString()} rows, captured through ${ftn.source_capture_completed_at}.\n- Current BKR market anchor: ${bkr.capturedAt}.\n- Current season SRS / net-point / Pythagorean power ensemble: ${power.meta.generated_at}.\n- Week 5 secondary-matchup evidence, capped to prevent manual injury notes from overwhelming the market.\n- Current availability as a gate/context layer.\n\n**Distribution:** exact calibrated pmf (no sampling; key-number aware; pushes tracked; ranking uses cover % excluding pushes). The model blends 60% market, 25% FTN team analytics, and 15% SRS margin; it is provisional and unbacktested, so probability is a comparison signal—not a claim of calibrated edge. Podcast, expert, splits, stale DVOA, and stale coaching inputs are retained as qualitative review context only.\n\n## Game projections and simulation outputs\n\n| Game | Mean score | BKR spread / total | Preferred side | Cover % | Preferred total | Total % |\n|---|---:|---|---|---:|---|---:|\n`;
 for (const g of projections) {
   if (!g.simulation) { md += `| ${g.event} | — | missing | — | — | — | — |\n`; continue; }
   md += `| ${g.event} | ${g.away} ${g.means.away.toFixed(1)}–${g.home} ${g.means.home.toFixed(1)} | ${g.home_name} ${g.market.home_spread} / ${g.market.total} | ${g.model_menu.side} | ${pct(g.model_menu.side_cover_pct)} | ${g.model_menu.total} | ${pct(g.model_menu.total_pct)} |\n`;
@@ -167,6 +179,11 @@ rankedSides.forEach((x, i) => { md += `| ${i + 1} | ${x.side} | ${x.game} | ${pc
 md += `\n### Totals\n\n| Rank | Total | Game | Model % | Market total | Model total |\n|---:|---|---:|---:|---:|---:|\n`;
 rankedTotals.forEach((x, i) => { md += `| ${i + 1} | ${x.total} | ${x.game} | ${pct(x.pct)} | ${x.market} | ${x.projected_total.toFixed(1)} |\n`; });
 md += `\n## Required human review\n\n- Reprice every row at the intended book immediately before any separate proposal.\n- Apply current inactive news; the availability file is a gate, not an automatic point-spread override.\n- Review expert/podcast/split conflicts game by game; they were not converted into pseudo-probabilities.\n- Do not use this game-level model to infer player-prop probabilities. Player projections require a separate player-volume model and line-specific calibration.\n`;
+if (DRY) {
+  console.log(JSON.stringify(projections.map((g) => ({ event: g.event, market: g.market && { hs: g.market.home_spread, t: g.market.total }, adj: g.simulation && g.simulation.adjustments_vs_market, side: g.model_menu && [g.model_menu.side, +g.model_menu.side_cover_pct.toFixed(4)], total: g.model_menu && [g.model_menu.total, +g.model_menu.total_pct.toFixed(4)], home_win: g.simulation && +g.simulation.home_win_pct.toFixed(4) }))));
+  console.log('dry-run: nothing written');
+} else {
 write('data/research-intel/proposed/2026-w05-quantitative-synthesis.json', output);
 write('reports/intel/2026-w05-quantitative-synthesis.md', md);
-console.log(`wrote ${projections.length} game quantitative synthesis with ${rankedSides.length} side and ${rankedTotals.length} total rows`);
+}
+console.log(`${DRY ? 'computed' : 'wrote'} ${projections.length} game quantitative synthesis with ${rankedSides.length} side and ${rankedTotals.length} total rows`);
