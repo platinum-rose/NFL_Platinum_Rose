@@ -3,10 +3,10 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T07:26:16.257Z",
+  "built_at": "2026-10-13T18:14:54.688Z",
   "builder": "team_dossier_builder_v1.0",
   "builder_sha256": "180a090f430b6c78a8dbfabc7557e6dfcd4979b687a26a144a01402ac487ec84",
-  "git_head": "12108e5",
+  "git_head": "e05d47c",
   "market_data_included": false,
   "sources": {
     "standings": {
@@ -59,9 +59,9 @@
     "ftn": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "sha256": "c030473bd752a162edfe9dd844ed0dfd5dbc3f3ce0b4b9126891dad8a1801fc3",
+      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
       "use_policy": "statistical context only; numeric team source of record",
-      "generated_at": "2026-10-09T22:15:31.022Z",
+      "generated_at": "2026-10-13T18:14:44.676Z",
       "through_week": null,
       "note": "through_week read per-table from GP; see dossier ftn section",
       "status": "see_tables"
@@ -85,7 +85,7 @@
     "slate": {
       "id": "slate",
       "path": "data/generated/team-dossiers/w06-slate.json",
-      "sha256": "1b393f1af40622ed585fdc0a3cc70626d4aebaf355cc7de42415352fed297ce5",
+      "sha256": "627890c83d7459b97e8ac1385df399d2940a7fc71e51ccf30d6edbe3d2dccd73",
       "use_policy": "target-week opponent and home/away (operator-confirmed slate)",
       "generated_at": "2026-10-13T07:30:00Z",
       "status": "unknown"
@@ -175,8 +175,8 @@
     "NO@NYG",
     "CAR@PHI",
     "PIT@TB",
-    "LAR@ARI",
-    "LV@BUF",
+    "ARI@LAR",
+    "BUF@LV",
     "LAC@KC",
     "DAL@GB",
     "WAS@SF"
@@ -210,7 +210,7 @@
     "ftn": {
       "status": "see_tables",
       "through_week": null,
-      "generated_at": "2026-10-09T22:15:31.022Z"
+      "generated_at": "2026-10-13T18:14:44.676Z"
     },
     "secondary": {
       "status": "stale_prior_week_matchups",

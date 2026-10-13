@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T07:26:14.403Z",
+  "built_at": "2026-10-13T18:14:51.884Z",
   "builder": "team_dossier_builder_v1.0",
-  "git_head": "12108e5",
+  "git_head": "e05d47c",
   "market_data_included": false,
   "sources": [
     {
@@ -57,10 +57,10 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-09T22:15:31.022Z",
+      "generated_at": "2026-10-13T18:14:44.676Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "c030473bd752a162edfe9dd844ed0dfd5dbc3f3ce0b4b9126891dad8a1801fc3",
+      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
@@ -87,7 +87,7 @@
       "generated_at": "2026-10-13T07:30:00Z",
       "status": "unknown",
       "through_week": null,
-      "sha256": "1b393f1af40622ed585fdc0a3cc70626d4aebaf355cc7de42415352fed297ce5",
+      "sha256": "627890c83d7459b97e8ac1385df399d2940a7fc71e51ccf30d6edbe3d2dccd73",
       "use_policy": "target-week opponent and home/away (operator-confirmed slate)"
     },
     {
@@ -499,209 +499,209 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-09T22:15:31.022Z"
+      "generated_at": "2026-10-13T18:14:44.676Z"
     },
-    "through_week": 4,
-    "status": "stale_1wk",
+    "through_week": 5,
+    "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
       "team-defense/efficiency": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "EPA/PLY": "-0.015",
-          "DVOA": "-3.0%",
-          "SUCC%": "43.0%",
-          "EXP%": "9.2%",
-          "CONV%": "40.0%",
-          "TO": "2",
-          "TO%": "0.8%",
-          "3&O": "18.6%",
-          "MTKL%": "10.3%",
-          "PEN%": "5.2%",
-          "PENY": "39.5"
+          "GP": "5",
+          "EPA/PLY": "-0.017",
+          "DVOA": "-4.0%",
+          "SUCC%": "41.2%",
+          "EXP%": "9.3%",
+          "CONV%": "42.5%",
+          "TO": "3",
+          "TO%": "1.0%",
+          "3&O": "18.5%",
+          "MTKL%": "10.8%",
+          "PEN%": "4.2%",
+          "PENY": "31.6"
         }
       },
       "team-defense/overview": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "YD/PLY": "5.3",
-          "PT/GM": "24.0",
-          "FD%": "30.1%",
-          "TO": "2",
-          "DPBK%": "62.7%",
-          "YD": "916",
-          "TD": "4",
-          "INT": "2",
-          "RUSH%": "37.3%",
-          "YD__2": "402",
+          "GP": "5",
+          "YD/PLY": "5.4",
+          "PT/GM": "22.6",
+          "FD%": "29.4%",
+          "TO": "3",
+          "DPBK%": "62.6%",
+          "YD": "1,190",
+          "TD": "5",
+          "INT": "3",
+          "RUSH%": "37.4%",
+          "YD__2": "512",
           "TD__2": "6"
         }
       },
       "team-defense/pass-rush": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "DPBK": "156",
-          "SK": "7",
-          "SK%": "4.5%",
-          "QBH%": "16.7%",
-          "PRESS": "48",
-          "PRESS%": "30.8%",
-          "QPRESS%": "43.8%",
+          "GP": "5",
+          "DPBK": "196",
+          "SK": "10",
+          "SK%": "5.1%",
+          "QBH%": "16.3%",
+          "PRESS": "57",
+          "PRESS%": "29.1%",
+          "QPRESS%": "47.4%",
           "TTPR": "2.47",
-          "DISR%": "1.3%",
-          "BLZ%": "30.8%"
+          "DISR%": "1.0%",
+          "BLZ%": "31.6%"
         }
       },
       "team-defense/passing-analytics": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "EPA/DB": "-0.009",
-          "SUCC%": "44.9%",
-          "DVOA": "0.4%",
-          "CPOE": "-1.95%",
-          "CBALL%": "76.1%",
-          "EXP%": "13.2%",
-          "INTW%": "1.4%",
-          "TGHT%": "19.6%",
-          "OPEN%": "54.3%",
-          "TA%": "7.2%",
-          "DROP%": "5.8%"
+          "GP": "5",
+          "EPA/DB": "0.016",
+          "SUCC%": "44.4%",
+          "DVOA": "3.1%",
+          "CPOE": "-3.94%",
+          "CBALL%": "74.6%",
+          "EXP%": "14.3%",
+          "INTW%": "2.3%",
+          "TGHT%": "18.5%",
+          "OPEN%": "60.1%",
+          "TA%": "6.9%",
+          "DROP%": "6.4%"
         }
       },
       "team-defense/rush-analytics": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "EPA/ATT": "-0.027",
-          "SUCC%": "39.8%",
-          "DVOA": "-7.6%",
+          "GP": "5",
+          "EPA/ATT": "-0.071",
+          "SUCC%": "35.9%",
+          "DVOA": "-13.8%",
           "aRYOE": "",
-          "EXP%": "9.7%",
-          "STF%": "21.5%",
-          "YBCO": "1.13",
-          "YACO": "1.63"
+          "EXP%": "9.4%",
+          "STF%": "22.2%",
+          "YBCO": "1.21",
+          "YACO": "1.95"
         }
       },
       "team-offense/efficiency": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "EPA/PLY": "0.165",
-          "DVOA": "23.5%",
-          "SUCC%": "50.6%",
-          "EXP%": "13.8%",
-          "CONV%": "31.7%",
+          "GP": "5",
+          "EPA/PLY": "0.135",
+          "DVOA": "22.2%",
+          "SUCC%": "49.7%",
+          "EXP%": "12.8%",
+          "CONV%": "37.5%",
           "TO": "2",
-          "TO%": "0.84%",
-          "PENY": "42.8",
-          "PEN%": "10.88%"
+          "TO%": "0.64%",
+          "PENY": "42.2",
+          "PEN%": "9.94%"
         }
       },
       "team-offense/overview": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "YD/PLY": "6.9",
-          "PT/GM": "29.0",
-          "FD%": "33.9%",
+          "GP": "5",
+          "YD/PLY": "6.6",
+          "PT/GM": "28.0",
+          "FD%": "33.3%",
           "TO": "2",
-          "DPBK%": "51.5%",
-          "YD": "1,030",
-          "TD": "6",
+          "DPBK%": "51.9%",
+          "YD": "1,231",
+          "TD": "8",
           "INT": "1",
-          "RUSH%": "48.5%",
-          "YD__2": "614",
-          "TD__2": "8"
+          "RUSH%": "48.1%",
+          "YD__2": "824",
+          "TD__2": "9"
         }
       },
       "team-offense/pass-protection": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "SK": "7",
-          "SK%": "5.7%",
-          "QBSK%": "0.0%",
-          "QBH%": "10.6%",
-          "PRESS%": "28.5%",
-          "UPRES%": "40.5%",
-          "BLITZ%": "31.7%",
-          "TTPR": "2.59",
-          "TTT": "2.79",
-          "EPA/DB": "-0.237",
-          "DVOA": "-64.2%",
-          "SUCC%": "40.0%",
-          "EPA/DB__2": "0.583",
-          "DVOA__2": "67.1%",
-          "SUCC%__2": "64.8%"
+          "GP": "5",
+          "SK": "11",
+          "SK%": "6.8%",
+          "QBSK%": "27.3%",
+          "QBH%": "12.3%",
+          "PRESS%": "29.6%",
+          "UPRES%": "43.9%",
+          "BLITZ%": "35.2%",
+          "TTPR": "2.63",
+          "TTT": "2.70",
+          "EPA/DB": "-0.327",
+          "DVOA": "-76.2%",
+          "SUCC%": "33.3%",
+          "EPA/DB__2": "0.466",
+          "DVOA__2": "63.1%",
+          "SUCC%__2": "64.0%"
         }
       },
       "team-offense/passing-analytics": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "EPA/DB": "0.349",
-          "SUCC%": "57.7%",
-          "DVOA": "69.4%",
+          "GP": "5",
+          "EPA/DB": "0.231",
+          "SUCC%": "54.9%",
+          "DVOA": "55.9%",
           "CPOE": "1.7%",
-          "CBALL%": "78.1%",
-          "EXP%": "18.4%",
-          "INTW%": "2.9%",
-          "HLT%": "1.9%",
-          "TA%": "3.8%",
-          "DROP%": "4.8%",
-          "aDOT": "9.3",
-          "aYAC": "6.4"
+          "CBALL%": "80.4%",
+          "EXP%": "15.0%",
+          "INTW%": "2.2%",
+          "HLT%": "1.4%",
+          "TA%": "2.9%",
+          "DROP%": "6.5%",
+          "aDOT": "8.1",
+          "aYAC": "5.9"
         }
       },
       "team-offense/rushing-analytics": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "EPA/ATT": "-0.031",
-          "SUCC%": "43.1%",
-          "DVOA": "5.5%",
+          "GP": "5",
+          "EPA/ATT": "0.032",
+          "SUCC%": "44.0%",
+          "DVOA": "9.7%",
           "aRYOE": "",
-          "EXP%": "11.2%",
-          "STF%": "22.4%",
-          "aYBCO": "1.31",
-          "aYACO": "2.02",
-          "CRT%": "47.0%"
+          "EXP%": "12.7%",
+          "STF%": "21.3%",
+          "aYBCO": "1.90",
+          "aYACO": "2.07",
+          "CRT%": "44.2%"
         }
       },
       "team-offense/tempo": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "PLY/GM": "59.8",
-          "TOP": "29.76",
-          "DRV/GM": "11.3",
-          "SEC/PLY": "29.9",
-          "PLY/DRV": "5.3",
-          "YD/DRV": "36.5",
-          "SEC/DRV": "159",
-          "3&O": "22.2%",
-          "SCD%": "44.4%"
+          "GP": "5",
+          "PLY/GM": "62.4",
+          "TOP": "30.69",
+          "DRV/GM": "11.2",
+          "SEC/PLY": "29.5",
+          "PLY/DRV": "5.6",
+          "YD/DRV": "36.7",
+          "SEC/DRV": "164",
+          "3&O": "21.4%",
+          "SCD%": "46.4%"
         }
       },
       "team-offense/tendencies": {
         "metrics": {
           "Team": "Baltimore Ravens",
-          "GP": "4",
-          "DPBK%": "51.5%",
-          "RUSH%": "48.5%",
-          "SHG%": "49.4%",
-          "NH%": "4.2%",
-          "MOT%": "61.9%",
-          "PA%": "29.3%",
-          "IZ%": "23.3%",
-          "OZ%": "40.5%",
-          "MD%": "16.4%",
-          "PWR%": "9.5%",
-          "CTR%": "1.7%"
+          "GP": "5",
+          "DPBK%": "51.9%",
+          "RUSH%": "48.1%",
+          "SHG%": "50.6%",
+          "NH%": "4.5%",
+          "MOT%": "61.5%",
+          "PA%": "26.5%",
+          "IZ%": "20.7%",
+          "OZ%": "37.3%",
+          "MD%": "19.3%",
+          "PWR%": "9.3%",
+          "CTR%": "1.3%"
         }
       }
     },
@@ -795,18 +795,18 @@
       "passing/efficiency": 4,
       "passing/overview": 4,
       "passing/pressure": 4,
-      "team-defense/efficiency": 4,
-      "team-defense/overview": 4,
-      "team-defense/pass-rush": 4,
-      "team-defense/passing-analytics": 4,
-      "team-defense/rush-analytics": 4,
-      "team-offense/efficiency": 4,
-      "team-offense/overview": 4,
-      "team-offense/pass-protection": 4,
-      "team-offense/passing-analytics": 4,
-      "team-offense/rushing-analytics": 4,
-      "team-offense/tempo": 4,
-      "team-offense/tendencies": 4
+      "team-defense/efficiency": 5,
+      "team-defense/overview": 5,
+      "team-defense/pass-rush": 5,
+      "team-defense/passing-analytics": 5,
+      "team-defense/rush-analytics": 5,
+      "team-offense/efficiency": 5,
+      "team-offense/overview": 5,
+      "team-offense/pass-protection": 5,
+      "team-offense/passing-analytics": 5,
+      "team-offense/rushing-analytics": 5,
+      "team-offense/tempo": 5,
+      "team-offense/tendencies": 5
     }
   },
   "power": {
@@ -1318,8 +1318,8 @@
       ]
     },
     "ftn": {
-      "status": "stale_1wk",
-      "through_week": 4
+      "status": "current",
+      "through_week": 5
     },
     "power": {
       "status": "current",

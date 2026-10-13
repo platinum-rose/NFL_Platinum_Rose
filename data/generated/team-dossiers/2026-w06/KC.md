@@ -1,5 +1,5 @@
 # KC Chiefs — dossier, target Week 6 (data through W5)
-Built 2026-10-13T07:26:14.766Z · git 12108e5 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
+Built 2026-10-13T18:14:52.406Z · git e05d47c · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN stale_1wk (through W4) · coaching historical_context_only · availability NOT BUILT.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -23,7 +23,7 @@ EPA/play off 0.152 (#5) · def -0.049 (#8) · EPA/dropback 0.192 · CPOE 0.65 ·
 Pythag win% 0.733 (2.93 exp wins, delta 1.07, rank 3) · one-score 2-0
 Unavailable in source (null, not imputed): dropback_success_rate, success_rate, explosive_play_rate, explosive_pass_rate, explosive_run_rate, pressure_rate_allowed, pressure_rate_generated, early_down_pass_rate, shotgun_rate, no_huddle_rate, play_action_rate, motion_rate, fumble_recovery_pct, takeaway_margin, rz_td_pct_off, rz_td_pct_def, third_down_over_expected.
 
-## FTN Stats iQ (team tables; through W4, stale_1wk; statistical context only) [Source: data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json, generated 2026-10-09T22:15:31.022Z]
+## FTN Stats iQ (team tables; through W4, stale_1wk; statistical context only) [Source: data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json, generated 2026-10-13T18:14:44.676Z]
 - team-defense/efficiency: GP 4 · EPA/PLY -0.043 · DVOA -5.0% · SUCC% 41.2% · EXP% 8.6% · CONV% 39.7% · TO 6 · TO% 2.4% · 3&O 9.3% · MTKL% 8.3% · PEN% 7.5% · PENY 38.5
 - team-defense/overview: GP 4 · YD/PLY 5.0 · PT/GM 19.3 · FD% 27.5% · TO 6 · DPBK% 62.7% · YD 916 · TD 4 · INT 4 · RUSH% 37.3% · YD__2 371 · TD__2 3
 - team-defense/pass-rush: GP 4 · DPBK 160 · SK 3 · SK% 1.9% · QBH% 12.5% · PRESS 63 · PRESS% 39.4% · QPRESS% 46.0% · TTPR 2.58 · DISR% 6.3% · BLZ% 28.1%

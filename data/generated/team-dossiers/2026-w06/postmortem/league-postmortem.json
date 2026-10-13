@@ -1,0 +1,524 @@
+{
+  "schema": "league_postmortem_v1",
+  "target_week": 6,
+  "completed_weeks": 5,
+  "built_from": "2026-w06/index.json",
+  "market_data_included": false,
+  "teams": [
+    {
+      "team": "SF",
+      "record": "5-0-0",
+      "net_ppg": 12.2,
+      "net_rank": 1,
+      "ypp_diff": 1.84,
+      "off_epa_rank": 1,
+      "def_epa_rank": 6,
+      "pythag_delta": 1.16,
+      "to_margin": 2,
+      "trend": "declining",
+      "flags": [
+        "overperforming_results",
+        "rz_hot",
+        "pass_off_strong"
+      ]
+    },
+    {
+      "team": "JAX",
+      "record": "4-1-0",
+      "net_ppg": 10.6,
+      "net_rank": 2,
+      "ypp_diff": 0.18,
+      "off_epa_rank": 5,
+      "def_epa_rank": 4,
+      "pythag_delta": 0.04,
+      "to_margin": 5,
+      "trend": "improving",
+      "flags": [
+        "positive_to_luck",
+        "pass_off_strong"
+      ]
+    },
+    {
+      "team": "KC",
+      "record": "4-0-0",
+      "net_ppg": 10.3,
+      "net_rank": 3,
+      "ypp_diff": 1.73,
+      "off_epa_rank": 4,
+      "def_epa_rank": 9,
+      "pythag_delta": 1.07,
+      "to_margin": 5,
+      "trend": "flat",
+      "flags": [
+        "overperforming_results",
+        "positive_to_luck",
+        "pass_rush_strong"
+      ]
+    },
+    {
+      "team": "MIN",
+      "record": "5-0-0",
+      "net_ppg": 9,
+      "net_rank": 4,
+      "ypp_diff": 0,
+      "off_epa_rank": 29,
+      "def_epa_rank": 1,
+      "pythag_delta": 1.1,
+      "to_margin": 6,
+      "trend": "improving",
+      "flags": [
+        "overperforming_results",
+        "positive_to_luck",
+        "results_above_efficiency",
+        "pass_rush_strong",
+        "close_game_lucky"
+      ]
+    },
+    {
+      "team": "SEA",
+      "record": "3-2-0",
+      "net_ppg": 5.8,
+      "net_rank": 5,
+      "ypp_diff": 1.4,
+      "off_epa_rank": 26,
+      "def_epa_rank": 2,
+      "pythag_delta": -0.2,
+      "to_margin": 2,
+      "trend": "declining",
+      "flags": [
+        "pass_rush_strong"
+      ]
+    },
+    {
+      "team": "BAL",
+      "record": "4-1-0",
+      "net_ppg": 5.4,
+      "net_rank": 6,
+      "ypp_diff": 1.16,
+      "off_epa_rank": 6,
+      "def_epa_rank": 16,
+      "pythag_delta": 0.91,
+      "to_margin": 3,
+      "trend": "declining",
+      "flags": [
+        "overperforming_results",
+        "rz_hot",
+        "pass_off_strong",
+        "rush_off_strong"
+      ]
+    },
+    {
+      "team": "BUF",
+      "record": "4-1-0",
+      "net_ppg": 4.6,
+      "net_rank": 7,
+      "ypp_diff": 1.26,
+      "off_epa_rank": 2,
+      "def_epa_rank": 31,
+      "pythag_delta": 1.06,
+      "to_margin": -4,
+      "trend": "flat",
+      "flags": [
+        "overperforming_results",
+        "negative_to_luck",
+        "pass_def_weak",
+        "pass_off_strong",
+        "rush_off_strong"
+      ]
+    },
+    {
+      "team": "CHI",
+      "record": "3-2-0",
+      "net_ppg": 4.6,
+      "net_rank": 7,
+      "ypp_diff": -0.68,
+      "off_epa_rank": 13,
+      "def_epa_rank": 19,
+      "pythag_delta": -0.12,
+      "to_margin": -4,
+      "trend": "declining",
+      "flags": [
+        "negative_to_luck",
+        "rz_cold",
+        "rush_def_weak"
+      ]
+    },
+    {
+      "team": "CIN",
+      "record": "3-2-0",
+      "net_ppg": 3.8,
+      "net_rank": 9,
+      "ypp_diff": -0.18,
+      "off_epa_rank": 10,
+      "def_epa_rank": 13,
+      "pythag_delta": 0.03,
+      "to_margin": 2,
+      "trend": "flat",
+      "flags": []
+    },
+    {
+      "team": "DET",
+      "record": "3-2-0",
+      "net_ppg": 3.2,
+      "net_rank": 10,
+      "ypp_diff": 0.28,
+      "off_epa_rank": 3,
+      "def_epa_rank": 30,
+      "pythag_delta": 0.2,
+      "to_margin": 4,
+      "trend": "improving",
+      "flags": [
+        "positive_to_luck",
+        "rz_hot",
+        "rush_off_strong"
+      ]
+    },
+    {
+      "team": "NE",
+      "record": "3-2-0",
+      "net_ppg": 3.2,
+      "net_rank": 10,
+      "ypp_diff": 0.58,
+      "off_epa_rank": 9,
+      "def_epa_rank": 17,
+      "pythag_delta": 0.04,
+      "to_margin": -5,
+      "trend": "flat",
+      "flags": [
+        "negative_to_luck"
+      ]
+    },
+    {
+      "team": "CAR",
+      "record": "2-2-0",
+      "net_ppg": 3,
+      "net_rank": 12,
+      "ypp_diff": 0.4,
+      "off_epa_rank": 8,
+      "def_epa_rank": 26,
+      "pythag_delta": -0.25,
+      "to_margin": 3,
+      "trend": "flat",
+      "flags": []
+    },
+    {
+      "team": "LV",
+      "record": "3-2-0",
+      "net_ppg": 0.6,
+      "net_rank": 13,
+      "ypp_diff": -0.94,
+      "off_epa_rank": 15,
+      "def_epa_rank": 20,
+      "pythag_delta": 0.43,
+      "to_margin": 3,
+      "trend": "declining",
+      "flags": [
+        "pass_pro_weak",
+        "pass_rush_strong",
+        "rush_def_weak"
+      ]
+    },
+    {
+      "team": "NYG",
+      "record": "3-1-1",
+      "net_ppg": 0.6,
+      "net_rank": 13,
+      "ypp_diff": -0.92,
+      "off_epa_rank": 18,
+      "def_epa_rank": 21,
+      "pythag_delta": 0.92,
+      "to_margin": 1,
+      "trend": "improving",
+      "flags": [
+        "overperforming_results",
+        "close_game_lucky"
+      ]
+    },
+    {
+      "team": "DAL",
+      "record": "2-3-0",
+      "net_ppg": 0.4,
+      "net_rank": 15,
+      "ypp_diff": -0.66,
+      "off_epa_rank": 7,
+      "def_epa_rank": 32,
+      "pythag_delta": -0.54,
+      "to_margin": -3,
+      "trend": "flat",
+      "flags": [
+        "rz_hot",
+        "pass_def_weak"
+      ]
+    },
+    {
+      "team": "PIT",
+      "record": "3-2-0",
+      "net_ppg": 0.4,
+      "net_rank": 15,
+      "ypp_diff": -0.16,
+      "off_epa_rank": 23,
+      "def_epa_rank": 18,
+      "pythag_delta": 0.45,
+      "to_margin": 2,
+      "trend": "improving",
+      "flags": [
+        "rush_off_strong"
+      ]
+    },
+    {
+      "team": "LAR",
+      "record": "2-3-0",
+      "net_ppg": -0.2,
+      "net_rank": 17,
+      "ypp_diff": 1.22,
+      "off_epa_rank": 11,
+      "def_epa_rank": 11,
+      "pythag_delta": -0.48,
+      "to_margin": -3,
+      "trend": "declining",
+      "flags": []
+    },
+    {
+      "team": "HOU",
+      "record": "1-4-0",
+      "net_ppg": -0.4,
+      "net_rank": 18,
+      "ypp_diff": 0.38,
+      "off_epa_rank": 14,
+      "def_epa_rank": 9,
+      "pythag_delta": -1.45,
+      "to_margin": 3,
+      "trend": "improving",
+      "flags": [
+        "underperforming_results",
+        "close_game_unlucky"
+      ]
+    },
+    {
+      "team": "ATL",
+      "record": "2-3-0",
+      "net_ppg": -0.6,
+      "net_rank": 19,
+      "ypp_diff": 0.82,
+      "off_epa_rank": 12,
+      "def_epa_rank": 8,
+      "pythag_delta": -0.43,
+      "to_margin": -5,
+      "trend": "improving",
+      "flags": [
+        "negative_to_luck",
+        "pass_rush_strong"
+      ]
+    },
+    {
+      "team": "NYJ",
+      "record": "2-3-0",
+      "net_ppg": -0.6,
+      "net_rank": 19,
+      "ypp_diff": 0.38,
+      "off_epa_rank": 20,
+      "def_epa_rank": 5,
+      "pythag_delta": -0.41,
+      "to_margin": 3,
+      "trend": "flat",
+      "flags": []
+    },
+    {
+      "team": "GB",
+      "record": "3-2-0",
+      "net_ppg": -1.6,
+      "net_rank": 21,
+      "ypp_diff": 0.88,
+      "off_epa_rank": 19,
+      "def_epa_rank": 12,
+      "pythag_delta": 0.72,
+      "to_margin": 3,
+      "trend": "improving",
+      "flags": [
+        "rush_def_weak"
+      ]
+    },
+    {
+      "team": "TB",
+      "record": "1-4-0",
+      "net_ppg": -2.4,
+      "net_rank": 22,
+      "ypp_diff": -0.28,
+      "off_epa_rank": 27,
+      "def_epa_rank": 7,
+      "pythag_delta": -1.17,
+      "to_margin": -2,
+      "trend": "flat",
+      "flags": [
+        "underperforming_results",
+        "pass_pro_weak"
+      ]
+    },
+    {
+      "team": "DEN",
+      "record": "3-2-0",
+      "net_ppg": -2.8,
+      "net_rank": 23,
+      "ypp_diff": -0.58,
+      "off_epa_rank": 24,
+      "def_epa_rank": 14,
+      "pythag_delta": 0.9,
+      "to_margin": 1,
+      "trend": "flat",
+      "flags": [
+        "overperforming_results",
+        "close_game_lucky"
+      ]
+    },
+    {
+      "team": "IND",
+      "record": "2-3-0",
+      "net_ppg": -2.8,
+      "net_rank": 23,
+      "ypp_diff": -1.58,
+      "off_epa_rank": 21,
+      "def_epa_rank": 28,
+      "pythag_delta": -0.18,
+      "to_margin": -6,
+      "trend": "flat",
+      "flags": [
+        "negative_to_luck",
+        "rush_def_weak"
+      ]
+    },
+    {
+      "team": "CLE",
+      "record": "3-2-0",
+      "net_ppg": -3.8,
+      "net_rank": 25,
+      "ypp_diff": -0.5,
+      "off_epa_rank": 25,
+      "def_epa_rank": 15,
+      "pythag_delta": 1.04,
+      "to_margin": -1,
+      "trend": "flat",
+      "flags": [
+        "overperforming_results",
+        "pass_pro_weak",
+        "pass_rush_strong"
+      ]
+    },
+    {
+      "team": "PHI",
+      "record": "2-3-0",
+      "net_ppg": -4,
+      "net_rank": 26,
+      "ypp_diff": -0.8,
+      "off_epa_rank": 30,
+      "def_epa_rank": 23,
+      "pythag_delta": 0.07,
+      "to_margin": -2,
+      "trend": "declining",
+      "flags": [
+        "pass_pro_weak"
+      ]
+    },
+    {
+      "team": "NO",
+      "record": "1-4-0",
+      "net_ppg": -6.6,
+      "net_rank": 27,
+      "ypp_diff": -1.12,
+      "off_epa_rank": 22,
+      "def_epa_rank": 27,
+      "pythag_delta": -0.79,
+      "to_margin": -6,
+      "trend": "declining",
+      "flags": [
+        "underperforming_results",
+        "negative_to_luck",
+        "rz_hot",
+        "rush_def_weak"
+      ]
+    },
+    {
+      "team": "WAS",
+      "record": "1-3-1",
+      "net_ppg": -6.8,
+      "net_rank": 28,
+      "ypp_diff": -0.4,
+      "off_epa_rank": 16,
+      "def_epa_rank": 22,
+      "pythag_delta": -0.26,
+      "to_margin": 5,
+      "trend": "improving",
+      "flags": [
+        "positive_to_luck"
+      ]
+    },
+    {
+      "team": "LAC",
+      "record": "0-5-0",
+      "net_ppg": -9,
+      "net_rank": 29,
+      "ypp_diff": -0.22,
+      "off_epa_rank": 32,
+      "def_epa_rank": 3,
+      "pythag_delta": -1.33,
+      "to_margin": -5,
+      "trend": "flat",
+      "flags": [
+        "underperforming_results",
+        "negative_to_luck",
+        "results_below_efficiency",
+        "pass_pro_weak",
+        "close_game_unlucky"
+      ]
+    },
+    {
+      "team": "TEN",
+      "record": "0-5-0",
+      "net_ppg": -10.2,
+      "net_rank": 30,
+      "ypp_diff": -0.7,
+      "off_epa_rank": 31,
+      "def_epa_rank": 24,
+      "pythag_delta": -0.92,
+      "to_margin": -5,
+      "trend": "declining",
+      "flags": [
+        "underperforming_results",
+        "negative_to_luck",
+        "pass_def_weak",
+        "close_game_unlucky"
+      ]
+    },
+    {
+      "team": "ARI",
+      "record": "1-4-0",
+      "net_ppg": -10.8,
+      "net_rank": 31,
+      "ypp_diff": -1.82,
+      "off_epa_rank": 17,
+      "def_epa_rank": 29,
+      "pythag_delta": -0.38,
+      "to_margin": 2,
+      "trend": "flat",
+      "flags": [
+        "pass_def_weak"
+      ]
+    },
+    {
+      "team": "MIA",
+      "record": "0-5-0",
+      "net_ppg": -12.4,
+      "net_rank": 32,
+      "ypp_diff": -0.54,
+      "off_epa_rank": 28,
+      "def_epa_rank": 25,
+      "pythag_delta": -0.91,
+      "to_margin": -4,
+      "trend": "improving",
+      "flags": [
+        "underperforming_results",
+        "negative_to_luck",
+        "pass_def_weak"
+      ]
+    }
+  ]
+}

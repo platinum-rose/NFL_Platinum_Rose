@@ -1,0 +1,334 @@
+{
+  "schema": "team_postmortem_v1",
+  "team": "CHI",
+  "nickname": "Bears",
+  "season": 2026,
+  "target_week": 6,
+  "completed_weeks": 5,
+  "built_from": {
+    "dossier": "2026-w06/CHI.json",
+    "dossier_built_at": "2026-10-13T18:14:52.004Z",
+    "dossier_git_head": "e05d47c"
+  },
+  "market_data_included": false,
+  "roster_gate": "not_run_no_player_names",
+  "record": "3-2-0",
+  "pf": 119,
+  "pa": 96,
+  "diff": 23,
+  "bye_weeks_played": [],
+  "pythag": {
+    "wins_expected": 3.12,
+    "delta": -0.12,
+    "rank": 17
+  },
+  "one_score": {
+    "wins": 0,
+    "losses": 1,
+    "ties": 0,
+    "games": 1,
+    "win_pct": 0
+  },
+  "power": {
+    "model_rank": 5,
+    "srs_rank": 6,
+    "net_ppg_rank": 7,
+    "pythag_rank": 6
+  },
+  "ranks": {
+    "ppg": {
+      "value": 23.8,
+      "rank": 13
+    },
+    "papg": {
+      "value": 19.2,
+      "rank": 5
+    },
+    "net_ppg": {
+      "value": 4.6,
+      "rank": 7
+    },
+    "ypp_diff": {
+      "value": -0.68,
+      "rank": 25
+    },
+    "to_margin": {
+      "value": -4,
+      "rank": 24
+    },
+    "pts_per_drive": {
+      "value": 2.13,
+      "rank": 16
+    },
+    "third_down": {
+      "value": 0.437,
+      "rank": 10
+    },
+    "rz_td": {
+      "value": 0.429,
+      "rank": 32
+    },
+    "off_epa": {
+      "value": 0,
+      "rank": 13
+    },
+    "def_epa": {
+      "value": 0.003,
+      "rank": 19
+    },
+    "off_dvoa": {
+      "value": -0.1,
+      "rank": 14
+    },
+    "def_dvoa": {
+      "value": 1.5,
+      "rank": 20
+    },
+    "off_succ": {
+      "value": 45.4,
+      "rank": 11
+    },
+    "def_succ": {
+      "value": 42.1,
+      "rank": 13
+    },
+    "pass_off_dvoa": {
+      "value": 16.6,
+      "rank": 16
+    },
+    "rush_off_dvoa": {
+      "value": -6.7,
+      "rank": 16
+    },
+    "pass_def_dvoa": {
+      "value": 2,
+      "rank": 13
+    },
+    "rush_def_dvoa": {
+      "value": 0.8,
+      "rank": 30
+    },
+    "pressure_allowed": {
+      "value": 31.8,
+      "rank": 23
+    },
+    "pressure_made": {
+      "value": 32.5,
+      "rank": 10
+    },
+    "pythag_delta": {
+      "value": -0.12,
+      "rank": 17
+    }
+  },
+  "games": [
+    {
+      "week": 1,
+      "opponent": "CAR",
+      "home_away": "away",
+      "result": "W",
+      "score": "59-37",
+      "margin": 22,
+      "ypp_diff": 0.2,
+      "to_margin": 2,
+      "pts_per_drive": 4.21,
+      "verdict": {
+        "yd": 0.2,
+        "aligned": true,
+        "tags": [
+          "blowout win"
+        ]
+      }
+    },
+    {
+      "week": 2,
+      "opponent": "MIN",
+      "home_away": "home",
+      "result": "L",
+      "score": "3-9",
+      "margin": -6,
+      "ypp_diff": -0.6,
+      "to_margin": -2,
+      "pts_per_drive": 0.3,
+      "verdict": {
+        "yd": -0.6,
+        "aligned": true,
+        "tags": [
+          "red-zone stalls"
+        ]
+      }
+    },
+    {
+      "week": 3,
+      "opponent": "PHI",
+      "home_away": "home",
+      "result": "W",
+      "score": "27-7",
+      "margin": 20,
+      "ypp_diff": 0.1,
+      "to_margin": 3,
+      "pts_per_drive": 3,
+      "verdict": {
+        "yd": 0.1,
+        "aligned": true,
+        "tags": [
+          "turnover margin +3",
+          "blowout win"
+        ]
+      }
+    },
+    {
+      "week": 4,
+      "opponent": "NYJ",
+      "home_away": "home",
+      "result": "W",
+      "score": "23-12",
+      "margin": 11,
+      "ypp_diff": 0.6,
+      "to_margin": -2,
+      "pts_per_drive": 2.56,
+      "verdict": {
+        "yd": 0.6,
+        "aligned": true,
+        "tags": [
+          "red-zone stalls"
+        ]
+      }
+    },
+    {
+      "week": 5,
+      "opponent": "GB",
+      "home_away": "away",
+      "result": "L",
+      "score": "7-31",
+      "margin": -24,
+      "ypp_diff": -3.7,
+      "to_margin": -5,
+      "pts_per_drive": 0.58,
+      "verdict": {
+        "yd": -3.7,
+        "aligned": true,
+        "tags": [
+          "turnover margin -5",
+          "blowout loss"
+        ]
+      }
+    }
+  ],
+  "trend": {
+    "games_early": 3,
+    "games_late": 2,
+    "ppg": [
+      29.7,
+      15
+    ],
+    "papg": [
+      17.7,
+      21.5
+    ],
+    "ypp_diff": [
+      -0.1,
+      -1.55
+    ],
+    "pts_per_drive": [
+      2.5,
+      1.57
+    ],
+    "margin": [
+      12,
+      -6.5
+    ],
+    "direction": "declining",
+    "note": "Two-game window on small samples; descriptive, not predictive."
+  },
+  "flags": [
+    {
+      "k": "turnovers",
+      "text": "Turnover margin -4 (10 give / 6 take): extreme margins tend to regress.",
+      "dir": "negative_to_luck"
+    },
+    {
+      "k": "rz_off",
+      "text": "Red-zone TD rate 43% is low (league avg 60%).",
+      "dir": "rz_cold"
+    },
+    {
+      "k": "rush_def",
+      "text": "Run defense DVOA allowed 0.8% (#30).",
+      "dir": "rush_def_weak"
+    }
+  ],
+  "opponent_lens": {
+    "opponent": "ATL",
+    "home_away": "away",
+    "kickoff_pt": "Sun 10/18 10:00",
+    "rows": [
+      {
+        "matchup": "team offense EPA/play vs opp defense EPA/play allowed",
+        "label": "",
+        "team": 0,
+        "team_rank": 13,
+        "opp_unit": "def_epa",
+        "opp": -0.04,
+        "opp_rank": 8
+      },
+      {
+        "matchup": "team offense DVOA vs opp defense DVOA allowed",
+        "label": "",
+        "team": -0.1,
+        "team_rank": 14,
+        "opp_unit": "def_dvoa",
+        "opp": -4.7,
+        "opp_rank": 12
+      },
+      {
+        "matchup": "team pass offense DVOA vs opp pass defense DVOA allowed",
+        "label": "",
+        "team": 16.6,
+        "team_rank": 16,
+        "opp_unit": "pass_def_dvoa",
+        "opp": -0.1,
+        "opp_rank": 10
+      },
+      {
+        "matchup": "team rush offense DVOA vs opp run defense DVOA allowed",
+        "label": "",
+        "team": -6.7,
+        "team_rank": 16,
+        "opp_unit": "rush_def_dvoa",
+        "opp": -13.1,
+        "opp_rank": 13
+      },
+      {
+        "matchup": "team pressure allowed vs opp pressure generated",
+        "label": "",
+        "team": 31.8,
+        "team_rank": 23,
+        "opp_unit": "pressure_made",
+        "opp": 34.2,
+        "opp_rank": 5
+      },
+      {
+        "matchup": "team defense EPA/play allowed vs opp offense EPA/play",
+        "label": "",
+        "team": 0,
+        "team_rank": 19,
+        "opp_unit": "off_epa",
+        "opp": 0.01,
+        "opp_rank": 12
+      }
+    ]
+  },
+  "data_quality": {
+    "standing": "current",
+    "game_log": "current",
+    "season_profile_espn": "current",
+    "efficiency_nflverse": "current",
+    "ftn": "current",
+    "power": "current",
+    "scheme_context": "historical_context_only",
+    "availability": "not_built",
+    "priors": "not_built",
+    "null_metrics": 17
+  }
+}

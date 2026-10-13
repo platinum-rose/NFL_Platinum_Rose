@@ -1,5 +1,5 @@
 # CAR Panthers — dossier, target Week 6 (data through W5)
-Built 2026-10-13T07:26:14.459Z · git 12108e5 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
+Built 2026-10-13T18:14:51.970Z · git e05d47c · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN stale_1wk (through W4) · coaching historical_context_only · availability NOT BUILT.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -23,7 +23,7 @@ EPA/play off 0.113 (#8) · def 0.045 (#23) · EPA/dropback 0.236 · CPOE 5.00 ·
 Pythag win% 0.562 (2.25 exp wins, delta -0.25, rank 20) · one-score 1-1
 Unavailable in source (null, not imputed): dropback_success_rate, success_rate, explosive_play_rate, explosive_pass_rate, explosive_run_rate, pressure_rate_allowed, pressure_rate_generated, early_down_pass_rate, shotgun_rate, no_huddle_rate, play_action_rate, motion_rate, fumble_recovery_pct, takeaway_margin, rz_td_pct_off, rz_td_pct_def, third_down_over_expected.
 
-## FTN Stats iQ (team tables; through W4, stale_1wk; statistical context only) [Source: data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json, generated 2026-10-09T22:15:31.022Z]
+## FTN Stats iQ (team tables; through W4, stale_1wk; statistical context only) [Source: data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json, generated 2026-10-13T18:14:44.676Z]
 - team-defense/efficiency: GP 4 · EPA/PLY 0.076 · DVOA 1.6% · SUCC% 46.4% · EXP% 9.2% · CONV% 42.9% · TO 4 · TO% 1.6% · 3&O 12.2% · MTKL% 12.5% · PEN% 4.0% · PENY 21.8
 - team-defense/overview: GP 4 · YD/PLY 6.1 · PT/GM 25.8 · FD% 31.2% · TO 4 · DPBK% 60.0% · YD 911 · TD 5 · INT 2 · RUSH% 40.0% · YD__2 610 · TD__2 7
 - team-defense/pass-rush: GP 4 · DPBK 150 · SK 6 · SK% 4.0% · QBH% 9.3% · PRESS 46 · PRESS% 30.7% · QPRESS% 60.9% · TTPR 2.45 · DISR% 0.7% · BLZ% 32.7%

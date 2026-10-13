@@ -1,0 +1,264 @@
+{
+  "schema": "team_postmortem_v1",
+  "team": "DET",
+  "nickname": "Lions",
+  "season": 2026,
+  "target_week": 6,
+  "completed_weeks": 5,
+  "built_from": {
+    "dossier": "2026-w06/DET.json",
+    "dossier_built_at": "2026-10-13T18:14:52.202Z",
+    "dossier_git_head": "e05d47c"
+  },
+  "market_data_included": false,
+  "roster_gate": "not_run_no_player_names",
+  "record": "3-2-0",
+  "pf": 164,
+  "pa": 148,
+  "diff": 16,
+  "bye_weeks_played": [],
+  "pythag": {
+    "wins_expected": 2.8,
+    "delta": 0.2,
+    "rank": 12
+  },
+  "one_score": {
+    "wins": 2,
+    "losses": 1,
+    "ties": 0,
+    "games": 3,
+    "win_pct": 0.6667
+  },
+  "power": {
+    "model_rank": 12,
+    "srs_rank": 14,
+    "net_ppg_rank": 11,
+    "pythag_rank": 12
+  },
+  "ranks": {
+    "ppg": {
+      "value": 32.8,
+      "rank": 1
+    },
+    "papg": {
+      "value": 29.6,
+      "rank": 29
+    },
+    "net_ppg": {
+      "value": 3.2,
+      "rank": 10
+    },
+    "ypp_diff": {
+      "value": 0.28,
+      "rank": 13
+    },
+    "to_margin": {
+      "value": 4,
+      "rank": 5
+    },
+    "pts_per_drive": {
+      "value": 3.156,
+      "rank": 1
+    },
+    "third_down": {
+      "value": 0.373,
+      "rank": 21
+    },
+    "rz_td": {
+      "value": 0.773,
+      "rank": 4
+    },
+    "off_epa": {
+      "value": 0.174,
+      "rank": 3
+    },
+    "def_epa": {
+      "value": 0.129,
+      "rank": 30
+    },
+    "off_dvoa": {
+      "value": 11.5,
+      "rank": 8
+    },
+    "def_dvoa": {
+      "value": 10.1,
+      "rank": 25
+    },
+    "off_succ": {
+      "value": 48.8,
+      "rank": 3
+    },
+    "def_succ": {
+      "value": 46.7,
+      "rank": 28
+    },
+    "pass_off_dvoa": {
+      "value": 29.3,
+      "rank": 10
+    },
+    "rush_off_dvoa": {
+      "value": 10.7,
+      "rank": 2
+    },
+    "pass_def_dvoa": {
+      "value": 18.4,
+      "rank": 25
+    },
+    "rush_def_dvoa": {
+      "value": -5.4,
+      "rank": 25
+    },
+    "pressure_allowed": {
+      "value": 25.6,
+      "rank": 10
+    },
+    "pressure_made": {
+      "value": 32.8,
+      "rank": 8
+    },
+    "pythag_delta": {
+      "value": 0.2,
+      "rank": 12
+    }
+  },
+  "games": [
+    {
+      "week": 1,
+      "opponent": "NO",
+      "home_away": "home",
+      "result": "W",
+      "score": "31-30",
+      "margin": 1,
+      "ypp_diff": -0.4,
+      "to_margin": 2,
+      "pts_per_drive": 2.21,
+      "verdict": {
+        "yd": -0.4,
+        "aligned": false,
+        "tags": []
+      }
+    },
+    {
+      "week": 2,
+      "opponent": "BUF",
+      "home_away": "away",
+      "result": "L",
+      "score": "31-41",
+      "margin": -10,
+      "ypp_diff": -0.8,
+      "to_margin": 0,
+      "pts_per_drive": 3.44,
+      "verdict": {
+        "yd": -0.8,
+        "aligned": true,
+        "tags": []
+      }
+    },
+    {
+      "week": 3,
+      "opponent": "NYJ",
+      "home_away": "home",
+      "result": "W",
+      "score": "31-24",
+      "margin": 7,
+      "ypp_diff": 0.5,
+      "to_margin": 1,
+      "pts_per_drive": 3.44,
+      "verdict": {
+        "yd": 0.5,
+        "aligned": true,
+        "tags": []
+      }
+    },
+    {
+      "week": 4,
+      "opponent": "CAR",
+      "home_away": "away",
+      "result": "L",
+      "score": "26-32",
+      "margin": -6,
+      "ypp_diff": 0.4,
+      "to_margin": 0,
+      "pts_per_drive": 2.6,
+      "verdict": {
+        "yd": 0.4,
+        "aligned": false,
+        "tags": []
+      }
+    },
+    {
+      "week": 5,
+      "opponent": "ARI",
+      "home_away": "away",
+      "result": "W",
+      "score": "45-21",
+      "margin": 24,
+      "ypp_diff": 1.7,
+      "to_margin": 1,
+      "pts_per_drive": 4.09,
+      "verdict": {
+        "yd": 1.7,
+        "aligned": true,
+        "tags": [
+          "blowout win"
+        ]
+      }
+    }
+  ],
+  "trend": {
+    "games_early": 3,
+    "games_late": 2,
+    "ppg": [
+      31,
+      35.5
+    ],
+    "papg": [
+      31.7,
+      26.5
+    ],
+    "ypp_diff": [
+      -0.23,
+      1.05
+    ],
+    "pts_per_drive": [
+      3.03,
+      3.34
+    ],
+    "margin": [
+      -0.7,
+      9
+    ],
+    "direction": "improving",
+    "note": "Two-game window on small samples; descriptive, not predictive."
+  },
+  "flags": [
+    {
+      "k": "turnovers",
+      "text": "Turnover margin +4 (1 give / 5 take): extreme margins tend to regress.",
+      "dir": "positive_to_luck"
+    },
+    {
+      "k": "rz_off",
+      "text": "Red-zone TD rate 77% is high (league avg 60%).",
+      "dir": "rz_hot"
+    },
+    {
+      "k": "rush_off",
+      "text": "Rush offense DVOA 10.7% (#2).",
+      "dir": "rush_off_strong"
+    }
+  ],
+  "opponent_lens": null,
+  "data_quality": {
+    "standing": "current",
+    "game_log": "current",
+    "season_profile_espn": "current",
+    "efficiency_nflverse": "current",
+    "ftn": "current",
+    "power": "current",
+    "scheme_context": "historical_context_only",
+    "availability": "not_built",
+    "priors": "not_built",
+    "null_metrics": 17
+  }
+}

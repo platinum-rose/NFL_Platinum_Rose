@@ -1,0 +1,280 @@
+{
+  "schema": "team_postmortem_v1",
+  "team": "MIN",
+  "nickname": "Vikings",
+  "season": 2026,
+  "target_week": 6,
+  "completed_weeks": 5,
+  "built_from": {
+    "dossier": "2026-w06/MIN.json",
+    "dossier_built_at": "2026-10-13T18:14:52.601Z",
+    "dossier_git_head": "e05d47c"
+  },
+  "market_data_included": false,
+  "roster_gate": "not_run_no_player_names",
+  "record": "5-0-0",
+  "pf": 109,
+  "pa": 64,
+  "diff": 45,
+  "bye_weeks_played": [],
+  "pythag": {
+    "wins_expected": 3.9,
+    "delta": 1.1,
+    "rank": 2
+  },
+  "one_score": {
+    "wins": 3,
+    "losses": 0,
+    "ties": 0,
+    "games": 3,
+    "win_pct": 1
+  },
+  "power": {
+    "model_rank": 3,
+    "srs_rank": 4,
+    "net_ppg_rank": 4,
+    "pythag_rank": 2
+  },
+  "ranks": {
+    "ppg": {
+      "value": 21.8,
+      "rank": 21
+    },
+    "papg": {
+      "value": 12.8,
+      "rank": 1
+    },
+    "net_ppg": {
+      "value": 9,
+      "rank": 4
+    },
+    "ypp_diff": {
+      "value": 0,
+      "rank": 15
+    },
+    "to_margin": {
+      "value": 6,
+      "rank": 1
+    },
+    "pts_per_drive": {
+      "value": 1.872,
+      "rank": 25
+    },
+    "third_down": {
+      "value": 0.38,
+      "rank": 17
+    },
+    "rz_td": {
+      "value": 0.5,
+      "rank": 24
+    },
+    "off_epa": {
+      "value": -0.12,
+      "rank": 29
+    },
+    "def_epa": {
+      "value": -0.21,
+      "rank": 1
+    },
+    "off_dvoa": {
+      "value": -19.4,
+      "rank": 30
+    },
+    "def_dvoa": {
+      "value": -24.7,
+      "rank": 1
+    },
+    "off_succ": {
+      "value": 35.1,
+      "rank": 32
+    },
+    "def_succ": {
+      "value": 33.1,
+      "rank": 1
+    },
+    "pass_off_dvoa": {
+      "value": -8.5,
+      "rank": 28
+    },
+    "rush_off_dvoa": {
+      "value": -15.4,
+      "rank": 21
+    },
+    "pass_def_dvoa": {
+      "value": -24,
+      "rank": 1
+    },
+    "rush_def_dvoa": {
+      "value": -25.7,
+      "rank": 4
+    },
+    "pressure_allowed": {
+      "value": 24.6,
+      "rank": 7
+    },
+    "pressure_made": {
+      "value": 38.3,
+      "rank": 3
+    },
+    "pythag_delta": {
+      "value": 1.1,
+      "rank": 2
+    }
+  },
+  "games": [
+    {
+      "week": 1,
+      "opponent": "GB",
+      "home_away": "home",
+      "result": "W",
+      "score": "39-22",
+      "margin": 17,
+      "ypp_diff": -2.4,
+      "to_margin": 1,
+      "pts_per_drive": 3,
+      "verdict": {
+        "yd": -2.4,
+        "aligned": false,
+        "tags": [
+          "won despite losing the yards-per-play battle",
+          "blowout win"
+        ]
+      }
+    },
+    {
+      "week": 2,
+      "opponent": "CHI",
+      "home_away": "away",
+      "result": "W",
+      "score": "9-3",
+      "margin": 6,
+      "ypp_diff": 0.6,
+      "to_margin": 2,
+      "pts_per_drive": 1,
+      "verdict": {
+        "yd": 0.6,
+        "aligned": true,
+        "tags": []
+      }
+    },
+    {
+      "week": 3,
+      "opponent": "TB",
+      "home_away": "away",
+      "result": "W",
+      "score": "23-16",
+      "margin": 7,
+      "ypp_diff": 0.4,
+      "to_margin": 1,
+      "pts_per_drive": 1.77,
+      "verdict": {
+        "yd": 0.4,
+        "aligned": true,
+        "tags": [
+          "1 defensive/ST TD"
+        ]
+      }
+    },
+    {
+      "week": 4,
+      "opponent": "MIA",
+      "home_away": "home",
+      "result": "W",
+      "score": "15-10",
+      "margin": 5,
+      "ypp_diff": -0.7,
+      "to_margin": 1,
+      "pts_per_drive": 1.5,
+      "verdict": {
+        "yd": -0.7,
+        "aligned": false,
+        "tags": [
+          "won despite losing the yards-per-play battle",
+          "red-zone stalls"
+        ]
+      }
+    },
+    {
+      "week": 5,
+      "opponent": "NO",
+      "home_away": "away",
+      "result": "W",
+      "score": "23-13",
+      "margin": 10,
+      "ypp_diff": 2.1,
+      "to_margin": 1,
+      "pts_per_drive": 2.09,
+      "verdict": {
+        "yd": 2.1,
+        "aligned": true,
+        "tags": []
+      }
+    }
+  ],
+  "trend": {
+    "games_early": 3,
+    "games_late": 2,
+    "ppg": [
+      23.7,
+      19
+    ],
+    "papg": [
+      13.7,
+      11.5
+    ],
+    "ypp_diff": [
+      -0.47,
+      0.7
+    ],
+    "pts_per_drive": [
+      1.92,
+      1.79
+    ],
+    "margin": [
+      10,
+      7.5
+    ],
+    "direction": "improving",
+    "note": "Two-game window on small samples; descriptive, not predictive."
+  },
+  "flags": [
+    {
+      "k": "pythag",
+      "text": "Record is ahead of point differential: +1.10 wins vs Pythagorean.",
+      "dir": "overperforming_results"
+    },
+    {
+      "k": "turnovers",
+      "text": "Turnover margin +6 (4 give / 10 take): extreme margins tend to regress.",
+      "dir": "positive_to_luck"
+    },
+    {
+      "k": "eff_gap",
+      "text": "Results (net pts/g #4) outrun underlying efficiency (avg FTN EPA rank #15).",
+      "dir": "results_above_efficiency"
+    },
+    {
+      "k": "rush",
+      "text": "Elite pressure generation: 38.3% (#3).",
+      "dir": "pass_rush_strong"
+    },
+    {
+      "k": "one_score",
+      "text": "One-score record 3-0: small-sample close-game swing.",
+      "dir": "close_game_lucky"
+    }
+  ],
+  "opponent_lens": null,
+  "data_quality": {
+    "standing": "current",
+    "game_log": "current",
+    "season_profile_espn": "current",
+    "efficiency_nflverse": "current",
+    "ftn": "current",
+    "power": "current",
+    "scheme_context": "historical_context_only",
+    "availability": "not_built",
+    "priors": "not_built",
+    "null_metrics": 17
+  }
+}

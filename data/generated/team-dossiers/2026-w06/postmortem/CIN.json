@@ -1,0 +1,251 @@
+{
+  "schema": "team_postmortem_v1",
+  "team": "CIN",
+  "nickname": "Bengals",
+  "season": 2026,
+  "target_week": 6,
+  "completed_weeks": 5,
+  "built_from": {
+    "dossier": "2026-w06/CIN.json",
+    "dossier_built_at": "2026-10-13T18:14:52.048Z",
+    "dossier_git_head": "e05d47c"
+  },
+  "market_data_included": false,
+  "roster_gate": "not_run_no_player_names",
+  "record": "3-2-0",
+  "pf": 128,
+  "pa": 109,
+  "diff": 19,
+  "bye_weeks_played": [],
+  "pythag": {
+    "wins_expected": 2.97,
+    "delta": 0.03,
+    "rank": 16
+  },
+  "one_score": {
+    "wins": 2,
+    "losses": 2,
+    "ties": 0,
+    "games": 4,
+    "win_pct": 0.5
+  },
+  "power": {
+    "model_rank": 8,
+    "srs_rank": 7,
+    "net_ppg_rank": 9,
+    "pythag_rank": 8
+  },
+  "ranks": {
+    "ppg": {
+      "value": 25.6,
+      "rank": 10
+    },
+    "papg": {
+      "value": 21.8,
+      "rank": 10
+    },
+    "net_ppg": {
+      "value": 3.8,
+      "rank": 9
+    },
+    "ypp_diff": {
+      "value": -0.18,
+      "rank": 17
+    },
+    "to_margin": {
+      "value": 2,
+      "rank": 12
+    },
+    "pts_per_drive": {
+      "value": 2.716,
+      "rank": 5
+    },
+    "third_down": {
+      "value": 0.5,
+      "rank": 2
+    },
+    "rz_td": {
+      "value": 0.529,
+      "rank": 23
+    },
+    "off_epa": {
+      "value": 0.057,
+      "rank": 10
+    },
+    "def_epa": {
+      "value": -0.037,
+      "rank": 13
+    },
+    "off_dvoa": {
+      "value": 12.8,
+      "rank": 7
+    },
+    "def_dvoa": {
+      "value": -2.4,
+      "rank": 16
+    },
+    "off_succ": {
+      "value": 46.5,
+      "rank": 9
+    },
+    "def_succ": {
+      "value": 41.7,
+      "rank": 11
+    },
+    "pass_off_dvoa": {
+      "value": 29.7,
+      "rank": 9
+    },
+    "rush_off_dvoa": {
+      "value": 0.1,
+      "rank": 11
+    },
+    "pass_def_dvoa": {
+      "value": 2.3,
+      "rank": 14
+    },
+    "rush_def_dvoa": {
+      "value": -9.2,
+      "rank": 16
+    },
+    "pressure_allowed": {
+      "value": 27,
+      "rank": 13
+    },
+    "pressure_made": {
+      "value": 31.7,
+      "rank": 11
+    },
+    "pythag_delta": {
+      "value": 0.03,
+      "rank": 16
+    }
+  },
+  "games": [
+    {
+      "week": 1,
+      "opponent": "TB",
+      "home_away": "home",
+      "result": "W",
+      "score": "33-27",
+      "margin": 6,
+      "ypp_diff": 0.2,
+      "to_margin": 3,
+      "pts_per_drive": 3.67,
+      "verdict": {
+        "yd": 0.2,
+        "aligned": true,
+        "tags": [
+          "turnover margin +3",
+          "1 defensive/ST TD"
+        ]
+      }
+    },
+    {
+      "week": 2,
+      "opponent": "HOU",
+      "home_away": "away",
+      "result": "W",
+      "score": "20-6",
+      "margin": 14,
+      "ypp_diff": -0.3,
+      "to_margin": 0,
+      "pts_per_drive": 1.54,
+      "verdict": {
+        "yd": -0.3,
+        "aligned": false,
+        "tags": [
+          "5 sacks taken"
+        ]
+      }
+    },
+    {
+      "week": 3,
+      "opponent": "PIT",
+      "home_away": "away",
+      "result": "L",
+      "score": "27-30",
+      "margin": -3,
+      "ypp_diff": -0.7,
+      "to_margin": -1,
+      "pts_per_drive": 3.38,
+      "verdict": {
+        "yd": -0.7,
+        "aligned": true,
+        "tags": []
+      }
+    },
+    {
+      "week": 4,
+      "opponent": "JAX",
+      "home_away": "home",
+      "result": "L",
+      "score": "17-22",
+      "margin": -5,
+      "ypp_diff": 0.2,
+      "to_margin": -2,
+      "pts_per_drive": 1.89,
+      "verdict": {
+        "yd": 0.2,
+        "aligned": false,
+        "tags": []
+      }
+    },
+    {
+      "week": 5,
+      "opponent": "MIA",
+      "home_away": "away",
+      "result": "W",
+      "score": "31-24",
+      "margin": 7,
+      "ypp_diff": -0.3,
+      "to_margin": 2,
+      "pts_per_drive": 3.1,
+      "verdict": {
+        "yd": -0.3,
+        "aligned": false,
+        "tags": []
+      }
+    }
+  ],
+  "trend": {
+    "games_early": 3,
+    "games_late": 2,
+    "ppg": [
+      26.7,
+      24
+    ],
+    "papg": [
+      21,
+      23
+    ],
+    "ypp_diff": [
+      -0.27,
+      -0.05
+    ],
+    "pts_per_drive": [
+      2.86,
+      2.5
+    ],
+    "margin": [
+      5.7,
+      1
+    ],
+    "direction": "flat",
+    "note": "Two-game window on small samples; descriptive, not predictive."
+  },
+  "flags": [],
+  "opponent_lens": null,
+  "data_quality": {
+    "standing": "current",
+    "game_log": "current",
+    "season_profile_espn": "current",
+    "efficiency_nflverse": "current",
+    "ftn": "current",
+    "power": "current",
+    "scheme_context": "historical_context_only",
+    "availability": "not_built",
+    "priors": "not_built",
+    "null_metrics": 17
+  }
+}
