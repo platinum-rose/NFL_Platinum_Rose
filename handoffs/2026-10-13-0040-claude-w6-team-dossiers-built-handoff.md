@@ -3,7 +3,7 @@
 Branch `claude/w5-prop-cards-2026-10-11`. Prior HEAD `12108e5`. W5 is closed out (see `2026-10-12-2200-claude-w5-closeout-settlement-handoff.md`).
 
 ## Done this session
-- BKR W6 openers saved (`data/odds/BKR_current_lines_1012_2150` + `_buildfmt`, provenance). 12 of 14 games. NOT posted yet: LAR@ARI (Sun 13:05) and LV@BUF (Sun 13:25). Capture when posted.
+- BKR W6 openers saved (`data/odds/BKR_current_lines_1012_2150` + `_buildfmt`, provenance). 12 of 14 games. NOT posted yet: ARI@LAR (Sun 13:05) and BUF@LV (Sun 13:25). Capture when posted.
 - Week 6 prep: `reports/analysis/week6-intel/w06-prep-2026-10-12.md`, `w06-team-input-inventory-2026-10-12.md`.
 - nflverse sources refreshed through W5: `data/vault-seed/nflverse/team_stats.csv`, `games.csv` (2026 only); analytics/regression/coaching/power snapshots w5; `team-standings-2026-w05.json` (`scripts/build-team-standings.py --week N`); `week-05-teams.json`; digest, projected starters, full roster refreshed (backups `.bak-20261012`). Provenance: `data/generated/team-profiles/REFRESH-2026-10-12-w5.md`.
 - Team dossiers v1: schema `reports/analysis/week6-intel/team-dossier-schema-v1.md` (decisions locked: no ATS/OU; FTN = team tables + QB1 only; league table yes; dated folder + `latest.json` pointer).

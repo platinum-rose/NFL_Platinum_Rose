@@ -10,7 +10,7 @@ Dated detail: `handoffs/2026-10-13-0150-claude-quant-synthesis-calibrated-week-d
 
 Next, in order:
 1. Tue 7:00 AM PT scheduled FTN capture, then rerun `node scripts/build-team-dossiers.mjs --week=6` and `node scripts/validate-team-dossiers.mjs`, then `node scripts/build-w05-quantitative-synthesis.mjs --week 6 --dry-run` (write only with fresh FTN).
-2. Dossier availability/priors layer (roster gate); capture BKR LAR@ARI and LV@BUF when posted; native-Windows items listed in the dated handoff.
+2. Dossier availability/priors layer (roster gate); capture BKR ARI@LAR and BUF@LV when posted; native-Windows items listed in the dated handoff.
 3. Parked: player-prop game-state simulator (separate build with its own backtest).
 
 ## Fast resume (do this, nothing more)

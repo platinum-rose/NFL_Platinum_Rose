@@ -20,12 +20,12 @@ Four separate engines, none cross-validated:
 - ThePropDealer review: only the idea worth copying is a game-state simulator that yields correlated player lines. Parked: separate build, own 2022-2025 backtest (`ftn_charting.csv` 2022+, `team_stats.csv` 2022+, `player_stats_weekly.csv`; `pbp_team_join.csv` is ids only).
 
 ## Week 6 dry run (NOT written to disk; not recommendations)
-`node scripts/build-w05-quantitative-synthesis.mjs --week 6 --dry-run`: 12 of 14 games priced (LAR@ARI and LV@BUF have no BKR line yet). Warnings: no W6 secondary file, no W6 SuperContest file, no W6 master-intel pull, and **FTN context is stale** (captured 2026-10-09; power ratings are through W5). Do not write W6 outputs until the FTN refresh lands.
+`node scripts/build-w05-quantitative-synthesis.mjs --week 6 --dry-run`: 12 of 14 games priced (ARI@LAR and BUF@LV have no BKR line yet). Warnings: no W6 secondary file, no W6 SuperContest file, no W6 master-intel pull, and **FTN context is stale** (captured 2026-10-09; power ratings are through W5). Do not write W6 outputs until the FTN refresh lands.
 
 ## Open / next
-1. Tue 7:00 AM PT FTN capture (trigger `trig_01MQvRWvZ4ofhArZjBkVTThw`), then `node scripts/build-team-dossiers.mjs --week=6` and `node scripts/validate-team-dossiers.mjs --tag=2026-w06`, then re-run the W6 synthesis dry-run; write it (drop `--dry-run`) only with fresh FTN. Capture BKR LAR@ARI and LV@BUF when posted and pass both boards via `--bkr`.
+1. Tue 7:00 AM PT FTN capture (trigger `trig_01MQvRWvZ4ofhArZjBkVTThw`), then `node scripts/build-team-dossiers.mjs --week=6` and `node scripts/validate-team-dossiers.mjs --tag=2026-w06`, then re-run the W6 synthesis dry-run; write it (drop `--dry-run`) only with fresh FTN. Capture BKR ARI@LAR and BUF@LV when posted and pass both boards via `--bkr`.
 2. Dossier availability/priors layer (roster gate); dossiers still say `NOT BUILT`.
-3. Reconcile the W6 slate and byes against the NFL schedule (`schedules.csv` disagrees on BUF@LV / ARI@LA).
+3. DONE 2026-10-13: W6 slate verified against nfl.com/raiders.com/therams.com. Byes CIN/DET/MIA/MIN correct; two games were home/away reversed and are now ARI@LAR and BUF@LV (matches schedules.csv). Rebuild dossiers after the FTN run.
 4. Andy, native Windows: `weekly-archive.mjs --week 5`; Action Network openers (403 from device shell); SuperContest `week-06-lines.json`; Kalshi/Polymarket refresh; DKP gate fix (needs OK); `npx vitest run` (unverified; nothing covers `margin-simulator` or the synthesis script beyond its self-test).
 5. Optional cleanup: rename the synthesis script (still `build-w05-...`); retire or document `src/lib/simulation.js`.
 
