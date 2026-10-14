@@ -3,16 +3,12 @@
 > Start here. This is a routing index, not a transcript. One current pickup only.
 > Detail lives in dated `handoffs/`; superseded pickups are in git history and their dated files.
 
-## PICK UP HERE (Tue 2026-10-13 ~21:45 PT, BEO futures capture built; live run in flight)
+## PICK UP HERE (Wed 2026-10-14 ~11:00 PT, H2C2 handoff to Claude Team 2, Week 6)
 
-Branch `claude/w5-prop-cards-2026-10-11` (check `git log -1 --format=%s`). W6 dossiers, per-team postmortems and quant synthesis are current (see prior handoff). `npm run futures:bol` was started live by Andy; its output files are uncommitted and unreviewed.
-Dated detail: `handoffs/2026-10-13-2145-claude-beo-futures-capture-live-run-handoff.md`.
+Branch `claude/w5-prop-cards-2026-10-11` (check `git log -1 --format=%s`; expect the H2C2 handoff commit on top of `dbf8225`). Six prior local commits are unpushed.
+Required first read: `reports/handoff-snapshots/2026-10-14-h2c2-week6-wed/H2C2_START_HERE.md`. Detailed briefing (load one lane only): `handoffs/2026-10-14-1100-claude-h2c2-team2-week6-wednesday-briefing.md`.
 
-Next, in order:
-1. Review the live futures output (`data/odds/BEO_futures_*.md`, `data/generated/futures/*.json`): ~842 rows, `Win Total:` / `To Make Playoffs:` market names; commit it.
-2. Wed/Thu: BEO props (`npm run bolp -- --week 6`, needs >=500 rows).
-3. Fresh BKR W6 lines for all 14 games, then rerun `node scripts/build-w05-quantitative-synthesis.mjs --week 6 --bkr <boards>`.
-4. Dossier availability/priors layer (roster gate); parked: player-prop game-state simulator.
+Next, by lane: validate Antigravity podcast extractions (Even Money, Sharp or Square) in `data/shadow-harness/antigravity-staging/`; BEO props re-run (Andy, >=500 rows); rebuild W6 dossiers/synthesis on refreshed seeds (ask Andy); availability/priors layer (roster gate first).
 
 ## Fast resume (do this, nothing more)
 
