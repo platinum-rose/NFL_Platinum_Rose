@@ -1,0 +1,226 @@
+{
+  "episode_slug": "youtube-slfl5V7gaOY",
+  "show": "BettingPros Podcast",
+  "date": "2026-10-13",
+  "title": "Early NFL BEST BETS & Survivor Pool Picks: Week 6 Predictions (2026)",
+  "mode": "chrome-transcript-panel",
+  "model": "claude-sonnet-5-5 (Claude Team 2, manual read)",
+  "input_source": "youtube_transcript_panel",
+  "youtube_url": "https://www.youtube.com/watch?v=slfl5V7gaOY",
+  "provenance": {
+    "source": "claude-team2-chrome-transcript-panel",
+    "extracted_on": "2026-10-14",
+    "cost_usd": 0,
+    "not_equivalent_to": "gemini video extraction; do not score as equivalent",
+    "transcript_source": "YouTube on-page transcript panel (auto-generated captions) read through Andy's Chrome; timedtext API returned 429 for yt-dlp and in-page fetch",
+    "raw_captions_retained": false,
+    "speaker_attribution": "inferred from turn-taking; captions carry no speaker labels",
+    "quotes_verified_verbatim": "copied from the transcript text read in-session; raw text not saved to disk",
+    "duration_seconds": 1458,
+    "coverage": "full transcript 0:00 to 23:53"
+  },
+  "run": {
+    "estimated_cost_usd": 0,
+    "transcript_summary": "Matt Perrault and Pat Fitzmaurice give Week 6 survivor picks (NE over NYJ, LAR over ARI) and early bets (ATL +3, NYG +1.5, TEN-IND under, SF -7.5, BUF-LV over, CLE +4.5).",
+    "extracted_picks": [
+      {
+        "team": "NE",
+        "player": null,
+        "market": "survivor_pick",
+        "side": null,
+        "line": null,
+        "price": null,
+        "week": 6,
+        "speaker": "Pat Fitzmaurice (inferred from turn-taking)",
+        "source_timestamp": 194,
+        "rationale": "Pat's survivor pick, NE -7 vs NYJ; conditional on Christian Gonzalez returning (said at 7:19).",
+        "quote": "I have the Patriots uh minus seven at home against the Jets.",
+        "conditional": "Christian Gonzalez returns"
+      },
+      {
+        "team": "LAR",
+        "player": null,
+        "market": "survivor_pick",
+        "side": null,
+        "line": null,
+        "price": null,
+        "week": 6,
+        "speaker": "Matt Perrault (inferred from turn-taking)",
+        "source_timestamp": 500,
+        "rationale": "Matt's survivor pick LAR vs ARI (spread cited as 12.5 at 7:25).",
+        "quote": "Give me the Rams.",
+        "spread_cited": -12.5
+      },
+      {
+        "team": "ATL",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 3.0,
+        "price": null,
+        "week": 6,
+        "speaker": "Pat Fitzmaurice (inferred from turn-taking)",
+        "source_timestamp": 973,
+        "rationale": "Pat early-game pick ATL +3 vs CHI.",
+        "quote": "I like the Falcons coming off a tough loss but staying at home catching three points from the Chicago Bears"
+      },
+      {
+        "team": "ATL",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 3.0,
+        "price": null,
+        "week": 6,
+        "speaker": "Matt Perrault (inferred from turn-taking)",
+        "source_timestamp": 1046,
+        "rationale": "Matt on ATL; wants confirmation Michael Penix Jr. plays; expects move to +3.5.",
+        "quote": "give me the Falcons as a home dog.",
+        "conditional": "Penix plays"
+      },
+      {
+        "team": "NYG",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 1.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Pat Fitzmaurice (inferred from turn-taking)",
+        "source_timestamp": 1156,
+        "rationale": "Pat early-game pick NYG +1.5 vs NO.",
+        "quote": "I like the Giants as home dogs against the Saints. Giants are catching one and a half in that."
+      },
+      {
+        "team": "TEN/IND",
+        "player": null,
+        "market": "total",
+        "side": "UNDER",
+        "line": 44.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Pat Fitzmaurice (inferred from turn-taking)",
+        "source_timestamp": 1213,
+        "rationale": "Pat: under in TEN-IND. 44.5 comes from the video chapter title, not the spoken audio.",
+        "quote": "one more I like under and Titans Colts because I think those two offenses are just terrible",
+        "line_source": "video_description"
+      },
+      {
+        "team": "SF",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": -7.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Matt Perrault (inferred from turn-taking)",
+        "source_timestamp": 1221,
+        "rationale": "Matt: SF -7.5 vs WSH; prefers 7 if buying down.",
+        "quote": "I'm looking at the 49ers laying seven and a half against the Commanders.",
+        "alt_line": -7.0
+      },
+      {
+        "team": "BUF/LV",
+        "player": null,
+        "market": "total",
+        "side": "OVER",
+        "line": 52.0,
+        "price": null,
+        "week": 6,
+        "speaker": "Matt Perrault (inferred from turn-taking)",
+        "source_timestamp": 1266,
+        "rationale": "Matt: over in BUF-LV, indoor game; Pat agrees at 21:25 (sneaky shootout potential). Description title says 52.5.",
+        "quote": "the Raiders and the Bills going over 52.",
+        "line_source": "spoken_52_description_52.5"
+      },
+      {
+        "team": "CLE",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 4.5,
+        "price": null,
+        "week": 6,
+        "speaker": "unclear (Perrault or Fitzmaurice)",
+        "source_timestamp": 1367,
+        "rationale": "CLE +4.5 vs BAL; speaker unclear from captions.",
+        "quote": "I'll take the points at four and a half for Cleveland coming up here."
+      },
+      {
+        "team": "CLE",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 4.5,
+        "price": null,
+        "week": 6,
+        "speaker": "unclear (Perrault or Fitzmaurice)",
+        "source_timestamp": 1337,
+        "rationale": "Lean only, tempered by Schwesinger injury concern.",
+        "quote": "I'd be more apt to take the points.",
+        "pick_type": "lean"
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "market_sentiment",
+        "teams": [
+          "IND"
+        ],
+        "players": [],
+        "topic": "Colts on no-bet list",
+        "summary": "Speaker has Colts on a no-bet list after teased-leg loss; would not lay -7 vs TEN.",
+        "speaker": "Pat Fitzmaurice (inferred from turn-taking)",
+        "source_timestamp": 736,
+        "quote": "The Colts are now on my no bet list.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "LAC"
+        ],
+        "players": [],
+        "topic": "Chargers derailed at 0-5",
+        "summary": "Speaker thinks the Chargers' season is derailed; both tackles out again; sees KC winning.",
+        "speaker": "unclear",
+        "source_timestamp": 876,
+        "quote": "I think it's derailed.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "survivor_alt",
+        "teams": [
+          "KC",
+          "SF"
+        ],
+        "players": [],
+        "topic": "Other survivor options",
+        "summary": "Chiefs vs Chargers and 49ers vs Commanders floated as alternative survivor picks.",
+        "speaker": "unclear",
+        "source_timestamp": 643,
+        "quote": "I think the Chiefs versus the Chargers are interesting.",
+        "confidence": "stated"
+      }
+    ],
+    "line_vs_bkr_1014_0020": {
+      "ATL": "matches +3",
+      "SF": "matches -7.5",
+      "NYG": "BKR NYG +1 vs +1.5",
+      "TEN/IND": "BKR total 44 vs 44.5",
+      "BUF/LV": "BKR total 53.5 vs 52/52.5",
+      "CLE": "BKR CLE +5 vs +4.5",
+      "NE": "BKR NE -7.5 vs -7"
+    },
+    "coverage_assessment": {
+      "last_covered_timestamp": 1433,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 1458,
+      "suspected_incomplete": false
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "no ground truth"
+  }
+}
