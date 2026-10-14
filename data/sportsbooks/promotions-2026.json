@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "season": 2026,
-  "updated_at": "2026-10-08",
+  "updated_at": "2026-10-13",
   "purpose": "Running tracker of sportsbook promotions, rewards and bonus cash that change how tickets should be built or funded. Check the 'active' items at every card build. Reward cash is logged here first, then as funding on the ticket it is applied to.",
   "how_promo_type_changes_the_build": {
     "cash_no_strings": "Same as your own money: stake comes back on a win. Just shop the best price.",
@@ -105,6 +105,13 @@
           "detail": "Won on free slots at BetOnline; real cash (Andy, 2026-09-23)",
           "applied_to": null,
           "plan": "Unassigned. Andy 2026-09-23: do not lock into Bills futures yet."
+        },
+        {
+          "date": "2026-10-13",
+          "claimed_usd": 11.9,
+          "detail": "Won on free spins at BetOnline; real cash (Andy, 2026-10-13)",
+          "applied_to": null,
+          "plan": "Unassigned. Andy 2026-10-14 00:59 PT: no decision yet on where to allocate (an earlier note about exactas was premature)."
         }
       ],
       "use": "Free money for bankroll purposes. Per Andy (2026-09-23), BetOnline promo/casino cash is real cash that can fund bets at any book and still counts as free money in the bankroll.",
@@ -112,7 +119,10 @@
         "status": "available_unplaced",
         "amount_usd": 3.96,
         "allocated_to": "futures_portfolio",
-        "recorded_at": "2026-10-08"
+        "recorded_at": "2026-10-08",
+        "unassigned_usd": 11.9,
+        "unassigned_recorded_at": "2026-10-13",
+        "total_balance_usd": 15.86
       }
     },
     {
