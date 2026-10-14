@@ -3,16 +3,16 @@
 > Start here. This is a routing index, not a transcript. One current pickup only.
 > Detail lives in dated `handoffs/`; superseded pickups are in git history and their dated files.
 
-## PICK UP HERE (Tue 2026-10-13 ~15:00 PT, W6 dossiers + per-team postmortems current; synthesis inputs ready)
+## PICK UP HERE (Tue 2026-10-13 ~21:45 PT, BEO futures capture built; live run in flight)
 
-Branch `claude/w5-prop-cards-2026-10-11` (check `git log -1 --format=%s`). Dossiers current through W5 (FTN refreshed after MNF), 32 per-team postmortems built in `data/generated/team-dossiers/2026-w06/postmortem/`, W6 quantitative synthesis written (proposed analysis only). Suite not verified (`npx vitest run`).
-Dated detail: `handoffs/2026-10-13-1500-claude-w6-postmortems-dossiers-current-handoff.md`.
+Branch `claude/w5-prop-cards-2026-10-11` (check `git log -1 --format=%s`). W6 dossiers, per-team postmortems and quant synthesis are current (see prior handoff). `npm run futures:bol` was started live by Andy; its output files are uncommitted and unreviewed.
+Dated detail: `handoffs/2026-10-13-2145-claude-beo-futures-capture-live-run-handoff.md`.
 
 Next, in order:
-1. Fresh BKR W6 lines for all 14 games (ARI@LAR and BUF@LV still on a DK fallback), then rerun `node scripts/build-w05-quantitative-synthesis.mjs --week 6 --bkr <boards>`.
-2. Wed/Thu: BEO props (`npm run bolp -- --week 6`, needs >=500 rows) and BEO futures (`npm run futures:bol -- --dry-run`).
-3. Dossier availability/priors layer (roster gate); W6 secondary-matchup file; native-Windows items in the dated handoff.
-4. Parked: player-prop game-state simulator (separate build with its own backtest).
+1. Review the live futures output (`data/odds/BEO_futures_*.md`, `data/generated/futures/*.json`): ~842 rows, `Win Total:` / `To Make Playoffs:` market names; commit it.
+2. Wed/Thu: BEO props (`npm run bolp -- --week 6`, needs >=500 rows).
+3. Fresh BKR W6 lines for all 14 games, then rerun `node scripts/build-w05-quantitative-synthesis.mjs --week 6 --bkr <boards>`.
+4. Dossier availability/priors layer (roster gate); parked: player-prop game-state simulator.
 
 ## Fast resume (do this, nothing more)
 

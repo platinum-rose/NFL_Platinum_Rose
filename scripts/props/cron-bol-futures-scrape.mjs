@@ -32,6 +32,23 @@ const CDP = 'http://127.0.0.1:9223';
 const DEFAULT_URLS = [
   'https://www.betonline.ag/sportsbook/futures-and-props/nfl-futures',
   'https://www.betonline.ag/sportsbook/futures-and-props/nfl-futures/conference-futures',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-futures/division-futures',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-futures/super-bowl-exact-matchup',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-futures/super-bowl-futures',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-regular-season/first-head-coach-fired',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-team-wins/most-regular-season-wins',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-team-wins/regular-season-wins',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-team-wins/worst-record',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-playoff-specials/seeding',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-playoff-specials/to-make-the-playoffs',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-player-futures/coach-of-the-year',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-player-futures/comeback-player-of-the-year',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-player-futures/defensive-player-of-the-year',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-player-futures/defensive-rookie-of-the-year',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-player-futures/mvp',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-player-futures/offensive-player-of-the-year',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-player-futures/offensive-rookie-of-the-year',
+  'https://www.betonline.ag/sportsbook/futures-and-props/nfl-draft/1st-overall-pick',
 ];
 
 const arg = (k) => {
@@ -39,6 +56,7 @@ const arg = (k) => {
   return i > -1 ? process.argv[i + 1] : null;
 };
 const flag = (k) => process.argv.includes(k);
+const PROBE = process.argv.includes('--probe');
 
 const ODDS_RE = /^[+\-−]\s?\d{2,6}$/;
 
@@ -98,37 +116,53 @@ function toAmerican(tok) {
 // Lines that are page chrome, never a market header or selection.
 const NOISE = /^(login|join now|sports|casino|live betting|poker|racebook|promotions|my account|deposit|bet slip|straight|parlay|teaser|open bets|clear|place bet|odds format|american|decimal|fractional|all|menu|search|help|more|show more|show less|view all|collapse|expand|futures|props|home|back|nfl|nfl futures|football|\d+)$/i;
 
+const DATE_RE = /^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-z]*,?\s+\d{1,2}:\d{2}\s*(?:AM|PM)$|^(?:Today|Tomorrow),?\s+\d{1,2}:\d{2}\s*(?:AM|PM)$|^[A-Z][a-z]{2}\s+\d{1,2},?\s+\d{1,2}:\d{2}\s*(?:AM|PM)$/i;
+const SKIP = /^(read more|show more|show less|live now|live|starting in|all|american odds|decimal odds|fractional odds|spread|moneyline|total)$/i;
+
 export function parseFuturesDump(rawText) {
   const rows = [];
   const bad = [];
+  const orphans = { count: 0 };
+  const seen = new Set();
   const pages = rawText.split(/^=== PAGE\|/m).slice(1);
   for (const pg of pages) {
     const nl = pg.indexOf('\n');
-    const head = pg.slice(0, nl).split('|');
-    const url = head[0];
+    const url = pg.slice(0, nl).split('|')[0];
     const body = pg.slice(nl + 1).split(/^=== END PAGE/m)[0];
-    const lines = body.split('\n').map(clean).filter(Boolean);
-
-    let market = null;
-    let run = []; // consecutive non-odds, non-noise lines since the last odds line
-    for (let i = 0; i < lines.length; i++) {
-      const line = lines[i];
-      if (ODDS_RE.test(line)) {
-        const odds = toAmerican(line);
-        const sel = run.length ? run[run.length - 1] : null;
-        if (run.length > 1) market = run.slice(0, -1).join(' / ');
-        run = [];
-        if (!sel || odds === null || Math.abs(odds) < 100 || Math.abs(odds) > 1000000) {
-          bad.push({ url, line: i, sel, raw: line });
+    for (const snap of body.split(/^=== SNAP ===$/m)) {
+      const lines = snap.split('\n').map(clean).filter(Boolean);
+      let market = null;
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        if (/^live now$/i.test(line)) { market = null; continue; }
+        if (DATE_RE.test(line)) {
+          // market header is the nearest previous line that is not odds / noise
+          let j = i - 1;
+          while (j >= 0 && (ODDS_RE.test(lines[j]) || SKIP.test(lines[j]))) j--;
+          market = j >= 0 ? lines[j] : null;
           continue;
         }
-        rows.push({ url, market: market || 'UNKNOWN', selection: sel, odds });
-      } else if (!NOISE.test(line)) {
-        run.push(line);
+        if (ODDS_RE.test(line)) {
+          const odds = toAmerican(line);
+          let j = i - 1;
+          while (j >= 0 && (ODDS_RE.test(lines[j]) || SKIP.test(lines[j]))) j--;
+          const sel = j >= 0 && !DATE_RE.test(lines[j]) ? lines[j] : null;
+          if (market === null) { orphans.count++; continue; }
+          if (!sel || odds === null || Math.abs(odds) < 100 || Math.abs(odds) > 1000000) { bad.push({ url, line: i, market, sel, raw: line }); continue; }
+          const key = `${market}|${sel}|${odds}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          rows.push({ url, market, selection: sel, odds });
+        }
       }
     }
   }
-  return { rows, bad };
+  // Disambiguate per-team markets that share bare team names across pages.
+  for (const r of rows) {
+    if (/\/nfl-team-wins\/regular-season-wins/.test(r.url)) r.market = `Win Total: ${r.market}`;
+    else if (/\/to-make-the-playoffs/.test(r.url) && !/playoff/i.test(r.market)) r.market = `To Make Playoffs: ${r.market}`;
+  }
+  return { rows, bad, orphans: orphans.count };
 }
 
 export function validateFuturesGate({ rows, bad, pageCount }) {
@@ -216,28 +250,56 @@ async function capturePages(urls, discover) {
       } catch {
         console.warn('   ⚠️ no odds-like text rendered within 25s (login/geo wall? wrong URL?)');
       }
-      // expand collapsed sections + scroll to trigger lazy render
-      await page.evaluate(async () => {
-        const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-        for (const el of Array.from(document.querySelectorAll('[aria-expanded="false"]')).slice(0, 80)) {
-          try { el.click(); } catch {}
-          await sleep(60);
+      // SPA settle: wait for network idle, then a fixed extra wait (sidebar live odds satisfy the check above too early)
+      await page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
+      await page.waitForTimeout(PROBE ? 10000 : 6000);
+      if (PROBE) {
+        const probe = await page.evaluate(() => {
+          const odds = /(^|\n)\s*[+\-\u2212]\d{3,5}\s*(?=\n|$)/g;
+          const info = { href: location.href, title: document.title, bodyLen: (document.body.innerText || '').length, iframes: document.querySelectorAll('iframe').length };
+          const sel = ['main', '[role="main"]', '#root', '#app', 'app-root', '[class*="content"]', '[class*="Content"]', '[class*="market"]', '[class*="Market"]', '[class*="futures"]', '[class*="Futures"]', '[class*="odds"]', '[class*="Odds"]'];
+          info.containers = sel.map((s) => ({ s, n: document.querySelectorAll(s).length, maxLen: Math.max(0, ...Array.from(document.querySelectorAll(s)).map((e) => (e.innerText || '').length)) }));
+          const cands = Array.from(document.querySelectorAll('div,section,ul,table,main')).map((e) => {
+            const t = e.innerText || ''; return { tag: e.tagName, id: e.id, cls: String(e.className).slice(0, 90), len: t.length, odds: (t.match(odds) || []).length, head: t.slice(0, 120).replace(/\s+/g, ' ') };
+          }).filter((c) => c.odds > 0);
+          cands.sort((a, b) => b.odds - a.odds || a.len - b.len);
+          info.topOddsContainers = cands.slice(0, 25);
+          return info;
+        });
+        probe.frames = page.frames().map((f) => ({ url: f.url() }));
+        blocks.push(`=== PROBE|${url}\n${JSON.stringify(probe, null, 2)}\n=== END PROBE`);
+        try {
+          const shot = path.join(REPO_ROOT, 'data', 'generated', 'futures', `probe-${new Date().toISOString().replace(/[:.]/g, '-')}-${seen.size}.png`);
+          fs.mkdirSync(path.dirname(shot), { recursive: true });
+          await page.screenshot({ path: shot, fullPage: false });
+          console.log(`   📸 ${shot}`);
+        } catch {}
+      }
+      // Expand every market with real clicks ("SHOW MORE" until none left), wheel-scroll the page, and snapshot <main> text
+      // after each step (the list is virtualized). Never click aria-expanded / nav items: that navigates away.
+      const snaps = []; let prev = null; let same = 0; let steps = 0;
+      await page.mouse.move(640, 500);
+      for (let step = 0; step < 150; step++) {
+        steps++;
+        for (let k = 0; k < 80; k++) {
+          const loc = page.locator('main').getByText(/^\s*show more\s*$/i);
+          if (!(await loc.count())) break;
+          try { await loc.first().click({ timeout: 2500 }); } catch { break; }
+          await page.waitForTimeout(200);
         }
-        for (let y = 0; y < 30; y++) { window.scrollBy(0, 900); await sleep(250); }
-        window.scrollTo(0, 0);
-      });
-      await page.waitForTimeout(1200);
-
-      const { text, links } = await page.evaluate(() => ({
-        text: document.body.innerText || '',
-        links: Array.from(document.querySelectorAll('a[href]')).map((a) => a.href),
-      }));
-      console.log(`   captured ${text.length} chars`);
+        const t = await page.evaluate(() => (document.querySelector('main') || document.body).innerText || '');
+        if (t !== prev) { snaps.push(t); prev = t; same = 0; } else if (++same >= 3) break;
+        await page.mouse.wheel(0, 800);
+        await page.waitForTimeout(450);
+      }
+      const text = snaps.join('\n=== SNAP ===\n');
+      const links = await page.evaluate(() => Array.from(document.querySelectorAll('a[href]')).map((a) => a.href));
+      console.log(`   captured ${text.length} chars in ${snaps.length} snapshots over ${steps} steps`);
       blocks.push(`=== PAGE|${url}|${new Date().toISOString()}\n${text}\n=== END PAGE`);
 
       if (discover) {
         for (const l of links) {
-          if (/betonline\.ag\/sportsbook\/futures-and-props\/nfl/i.test(l) && !seen.has(l) && !queue.includes(l)) {
+          if (/betonline\.ag\/sportsbook\/futures-and-props\/nfl(?!-game-props)/i.test(l) && !seen.has(l) && !queue.includes(l)) {
             queue.push(l.split('#')[0]);
           }
         }
@@ -264,24 +326,28 @@ async function run() {
   } else {
     lockToken = acquireLock(LOCK_FILE);
     if (!lockToken) return;
-    urls = arg('--urls') ? arg('--urls').split(',').map((s) => s.trim()).filter(Boolean) : DEFAULT_URLS;
+    urls = arg('--urls') ? arg('--urls').split(',').map((s) => s.trim()).filter(Boolean)
+      : PROBE ? ['https://www.betonline.ag/sportsbook/futures-and-props/nfl-futures/super-bowl-futures', 'https://www.betonline.ag/sportsbook/futures-and-props/nfl-player-futures/mvp']
+        : DEFAULT_URLS;
   }
 
   try {
     if (!parseOnly) {
       console.log(`\n🏈 BetOnline NFL futures capture (${st.day}) ${dry ? '[DRY RUN]' : ''}\n`);
       await ensureChromeRunning();
-      rawText = await capturePages(urls, !flag('--no-discover'));
-      if (!dry) {
-        // always keep the raw capture, even if the gate fails
-        const rawPath = path.join(REPO_ROOT, 'data', 'generated', 'futures', `betonline-futures-${st.day}_${st.hhmm}.raw.txt`);
+      rawText = await capturePages(urls, flag('--discover') && !PROBE);
+      {
+        // always keep the raw capture (dry run included), even if the gate fails
+        const rawPath = path.join(REPO_ROOT, 'data', 'generated', 'futures', `betonline-futures-${st.day}_${st.hhmm}${dry ? '.dry' : ''}.raw.txt`);
         fs.mkdirSync(path.dirname(rawPath), { recursive: true });
         fs.writeFileSync(rawPath, rawText, 'utf8');
         console.log(`💾 Raw dump: ${rawPath}`);
       }
     }
 
-    const { rows, bad } = parseFuturesDump(rawText);
+    if (PROBE) { console.log('\n🔎 Probe done: raw + screenshots saved, nothing parsed.'); return; }
+    const { rows, bad, orphans } = parseFuturesDump(rawText);
+    if (orphans) console.log(`   (ignored ${orphans} odds outside any market: sidebar/live scores)`);
     const pageCount = (rawText.match(/^=== PAGE\|/gm) || []).length;
     const gate = validateFuturesGate({ rows, bad, pageCount });
 
