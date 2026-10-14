@@ -3,7 +3,7 @@
     "schema": "secondary_matchup_vulnerability_snapshot_v1",
     "season": 2026,
     "week": 6,
-    "generated_at": "2026-10-13T23:40:24.431Z",
+    "generated_at": "2026-10-14T14:03:52.042Z",
     "game_count": 14,
     "matchup_count": 28,
     "matchups_with_secondary_absences": 25,
@@ -48,8 +48,8 @@
       "missing_secondary_role_teams": [],
       "missing_receiver_role_teams": [],
       "coverage_scheme_rows_with_source_url": 32,
-      "secondary_role_rows_with_source_url": 175,
-      "receiver_role_rows_with_source_url": 142,
+      "secondary_role_rows_with_source_url": 177,
+      "receiver_role_rows_with_source_url": 150,
       "complete": true
     },
     "guardrails": {
@@ -67,12 +67,12 @@
       {
         "source": "Manual secondary player roles",
         "status": "available",
-        "evidence": "175 row(s) from data/secondary-matchups/manual/secondary-roles-2026.json."
+        "evidence": "177 row(s) from data/secondary-matchups/manual/secondary-roles-2026.json."
       },
       {
         "source": "Manual receiver roles",
         "status": "available",
-        "evidence": "142 row(s) from data/secondary-matchups/manual/receiver-roles-2026.json."
+        "evidence": "150 row(s) from data/secondary-matchups/manual/receiver-roles-2026.json."
       },
       {
         "source": "Player availability snapshot",
@@ -344,6 +344,26 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
         {
+          "player_name": "Troy Franklin",
+          "team": "DEN",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "short"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "DEN WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+          "source_url": "https://www.espn.com/nfl/team/depth/"
+        },
+        {
           "player_name": "Marvin Mims Jr.",
           "team": "DEN",
           "roles": [
@@ -389,7 +409,7 @@
       "severity_score": 2.7,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.85,
+      "confidence": 0.89,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -501,6 +521,30 @@
       ],
       "target_receivers": [
         {
+          "player_name": "Marvin Harrison Jr.",
+          "team": "HOU",
+          "roles": [
+            "alpha_x",
+            "field_stretcher"
+          ],
+          "target_share_tier": "alpha",
+          "route_area_tags": [
+            "boundary",
+            "deep",
+            "intermediate"
+          ],
+          "matched_weakness_tags": [
+            "outside_wr_boost",
+            "alpha_wr_boost",
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "post_cross_boost"
+          ],
+          "opportunity_score": 7.5,
+          "notes": "ARI #1 WR Alpha. [moved from ARI per ESPN roster 2026-10-14]",
+          "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
           "player_name": "Nico Collins",
           "team": "HOU",
           "roles": [
@@ -586,7 +630,7 @@
       "severity_score": 3.82,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.89,
+      "confidence": 0.93,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -1809,6 +1853,24 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
         {
+          "player_name": "Laquon Treadwell",
+          "team": "IND",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "short"
+          ],
+          "matched_weakness_tags": [
+            "inside_seam_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "IND WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+          "source_url": "https://www.espn.com/nfl/team/depth/"
+        },
+        {
           "player_name": "Tyler Warren",
           "team": "IND",
           "roles": [
@@ -2015,12 +2077,30 @@
           "opportunity_score": 0.8,
           "notes": "NYJ TE1 per ESPN depth chart 2026-09-27; default role - verify.",
           "source_url": "https://www.espn.com/nfl/team/depth/"
+        },
+        {
+          "player_name": "Tim Patrick",
+          "team": "NYJ",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "short"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost"
+          ],
+          "opportunity_score": 0.8,
+          "notes": "NYJ WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+          "source_url": "https://www.espn.com/nfl/team/depth/"
         }
       ],
       "severity_score": 3.03,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.85,
+      "confidence": 0.89,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -2130,6 +2210,25 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
         {
+          "player_name": "Efton Chism III",
+          "team": "NE",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "short"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 1.6,
+          "notes": "NE WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+          "source_url": "https://www.espn.com/nfl/team/depth/"
+        },
+        {
           "player_name": "Hunter Henry",
           "team": "NE",
           "roles": [
@@ -2171,7 +2270,7 @@
       "severity_score": 3,
       "elite_absence_count": 1,
       "vulnerability_tier": "medium",
-      "confidence": 0.86,
+      "confidence": 0.9,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -2636,6 +2735,26 @@
       ],
       "target_receivers": [
         {
+          "player_name": "Brycen Tremayne",
+          "team": "CAR",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "short"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "CAR WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+          "source_url": "https://www.espn.com/nfl/team/depth/"
+        },
+        {
           "player_name": "Tommy Tremble",
           "team": "CAR",
           "roles": [
@@ -2674,7 +2793,7 @@
       "severity_score": 3.55,
       "elite_absence_count": 0,
       "vulnerability_tier": "medium",
-      "confidence": 0.83,
+      "confidence": 0.87,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -2973,12 +3092,31 @@
           "opportunity_score": 3,
           "notes": "SEA Physical Freak WR1. [moved from SEA per ESPN roster 2026-09-27]",
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+        },
+        {
+          "player_name": "Germie Bernard",
+          "team": "PIT",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "short"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 1.6,
+          "notes": "PIT WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+          "source_url": "https://www.espn.com/nfl/team/depth/"
         }
       ],
       "severity_score": 4.05,
       "elite_absence_count": 1,
       "vulnerability_tier": "medium",
-      "confidence": 0.81,
+      "confidence": 0.85,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -3185,6 +3323,25 @@
       ],
       "target_receivers": [
         {
+          "player_name": "Jalen Brooks",
+          "team": "ARI",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "short"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 1.6,
+          "notes": "ARI WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+          "source_url": "https://www.espn.com/nfl/team/depth/"
+        },
+        {
           "player_name": "Kendrick Bourne",
           "team": "ARI",
           "roles": [
@@ -3207,7 +3364,7 @@
       "severity_score": 0,
       "elite_absence_count": 0,
       "vulnerability_tier": "low",
-      "confidence": 0.54,
+      "confidence": 0.57,
       "use_cases": [
         "wr_props",
         "qb_props",
@@ -3563,6 +3720,26 @@
           "source_url": "https://www.ourlads.com/nfl-depth-charts/"
         },
         {
+          "player_name": "Jalen Royals",
+          "team": "KC",
+          "roles": [
+            "slot"
+          ],
+          "target_share_tier": "medium",
+          "route_area_tags": [
+            "middle",
+            "short"
+          ],
+          "matched_weakness_tags": [
+            "slot_wr_boost",
+            "inside_seam_boost",
+            "underneath_volume_boost"
+          ],
+          "opportunity_score": 2.4,
+          "notes": "KC WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+          "source_url": "https://www.espn.com/nfl/team/depth/"
+        },
+        {
           "player_name": "Xavier Worthy",
           "team": "KC",
           "roles": [
@@ -3585,7 +3762,7 @@
       "severity_score": 0,
       "elite_absence_count": 0,
       "vulnerability_tier": "low",
-      "confidence": 0.64,
+      "confidence": 0.68,
       "use_cases": [
         "wr_props",
         "qb_props",
