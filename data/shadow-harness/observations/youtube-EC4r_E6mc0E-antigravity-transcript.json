@@ -1,0 +1,449 @@
+{
+  "episode_slug": "youtube-EC4r_E6mc0E",
+  "show": "Even Money",
+  "date": "2026-10-13",
+  "mode": "antigravity-transcript",
+  "model": "antigravity-agent (underlying model not recorded)",
+  "input_source": "youtube_auto_captions",
+  "youtube_url": "https://www.youtube.com/watch?v=EC4r_E6mc0E",
+  "provenance": {
+    "source": "antigravity-transcript",
+    "not_equivalent_to": "gemini-video extraction; do not score as equivalent",
+    "extracted_on": "2026-10-14",
+    "cost_usd": 0,
+    "transcript_source": "auto_captions",
+    "raw_captions_retained": false,
+    "speaker_segments_empty": true,
+    "speaker_attribution": "inferred by the extracting agent from caption content; captions carry no speaker labels",
+    "quotes_verified_verbatim": false,
+    "staging_file": "antigravity-staging/youtube-EC4r_E6mc0E.json",
+    "staging_sha256": "81acb5bd0fc0845fdc907baafc2328ce668fdc7d63054f26d4b8f12ef95a86be",
+    "validated_by": "Claude Team 2 2026-10-14 (see antigravity-staging/_VALIDATION_team2_2026-10-14.md)"
+  },
+  "run": {
+    "estimated_cost_usd": 0,
+    "latency_ms": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "transcript_summary": "Ross Tucker and Steve Fezzik review their difficult Week 5 results before previewing Week 6 NFL matchups. They outline point-spread wagers, game totals, and six-point teaser legs across Sunday and Monday slates.",
+    "extracted_picks": [
+      {
+        "team": "DEN",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": 8.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 924,
+        "rationale": "Ross adds Denver as a 6-point teaser leg up to +8.5 at home against Seattle on a short week.",
+        "quote": "I'm going to have the Broncos as a teaser leg up to eight and a half."
+      },
+      {
+        "team": "HOU",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 3.0,
+        "price": null,
+        "week": 6,
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 956,
+        "rationale": "Fezzik takes Houston getting three points in London, rating them equal to Jacksonville.",
+        "quote": "Still two units Texans.",
+        "quality_flag": "line_not_in_quote",
+        "exclude_from_scoring": true,
+        "line_note": "BKR 10/14 HOU +2.5 vs +3 (line moved or differs; not a current price)"
+      },
+      {
+        "team": "NYJ",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 7.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1007,
+        "rationale": "Fezzik bets two units on the Jets getting the hook on key number 7 at New England.",
+        "quote": "So, get me the Jets plus the seven and a half, two units."
+      },
+      {
+        "team": "NYJ",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 7.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1053,
+        "rationale": "Ross tails Steve with a 1-unit bet on the Jets getting 7.5 points.",
+        "quote": "I'm going to take the Jets. Only one unit. They're still the Jets, but plus seven and a half on the Jets."
+      },
+      {
+        "team": "CAR",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": 7.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1089,
+        "rationale": "Fezzik enters Carolina into his teaser portfolio getting +7.5 against Philadelphia.",
+        "quote": "The Panthers go into my teaser portfolio.",
+        "line_note": "BKR CAR -1 vs +1.5 (podcast-time) (line moved or differs; not a current price)"
+      },
+      {
+        "team": "CAR",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": 7.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1094,
+        "rationale": "Ross includes Carolina as a teaser leg teased up to +7.5 expecting a low-scoring game.",
+        "quote": "So, I'll take Carolina up to seven and a half as the second part as my second teaser so far.",
+        "line_note": "BKR CAR -1 vs +1.5 (podcast-time) (line moved or differs; not a current price)"
+      },
+      {
+        "team": "TEN",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 7.0,
+        "price": null,
+        "week": 6,
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1140,
+        "rationale": "Fezzik bets two units on Tennessee, citing an advantage in yards per play over Indianapolis.",
+        "quote": "Titans two units."
+      },
+      {
+        "team": "TEN",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 7.0,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1161,
+        "rationale": "Ross takes Tennessee for 1 unit expecting a competitive division game.",
+        "quote": "I'm going to take the Titans. Only one unit. Titans plus seven, one unit."
+      },
+      {
+        "team": "TB",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 3.0,
+        "price": null,
+        "week": 6,
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1205,
+        "rationale": "Fezzik wagers two units on Tampa Bay at home with 10 days of rest.",
+        "quote": "I'll take Tampa for two units.",
+        "line_note": "BKR TB +2.5 vs +3 (line moved or differs; not a current price)"
+      },
+      {
+        "team": "TB",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 3.0,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1216,
+        "rationale": "Ross joins Fezzik on Tampa Bay +3 for 1 unit as a best bet.",
+        "quote": "I'll take Tampa Bay as well, but again, I'm only going one unit.",
+        "line_note": "BKR TB +2.5 vs +3 (line moved or differs; not a current price)"
+      },
+      {
+        "team": "CLE",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 4.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1257,
+        "rationale": "Ross bets two units on Cleveland +4.5 at home against divisional rival Baltimore.",
+        "quote": "Give me the Browns plus four and a half, two units.",
+        "line_note": "BKR CLE +5 vs +4.5 (line moved or differs; not a current price)"
+      },
+      {
+        "team": "NO",
+        "player": null,
+        "market": "total",
+        "side": "UNDER",
+        "line": 45.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1274,
+        "rationale": "Fezzik bets two units on the Under 45.5 between Saints and Giants.",
+        "quote": "In fact, I will put two units on the under.",
+        "line_note": "BKR NO -1 vs implied +1.5 (teaser) (line moved or differs; not a current price)"
+      },
+      {
+        "team": "NO",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": 7.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1285,
+        "rationale": "Fezzik teases the Saints up from +1.5 to +7.5 against the Giants.",
+        "quote": "I'll tease the Saints in my portfolio.",
+        "line_note": "BKR NO -1 vs implied +1.5 (teaser) (line moved or differs; not a current price)"
+      },
+      {
+        "team": "NO",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": 7.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1288,
+        "rationale": "Ross also teases New Orleans up to +7.5 in his portfolio.",
+        "quote": "Saints in my portfolio as a teaser as well. Up to seven and a half.",
+        "line_note": "BKR NO -1 vs implied +1.5 (teaser) (line moved or differs; not a current price)"
+      },
+      {
+        "team": "ATL",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 3.0,
+        "price": null,
+        "week": 6,
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1314,
+        "rationale": "Fezzik takes Atlanta +3 at home against Chicago for two units.",
+        "quote": "I will take the Falcons plus 32 units."
+      },
+      {
+        "team": "ATL",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 3.0,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1318,
+        "rationale": "Ross agrees with Fezzik on Atlanta +3 for two units as an ATS best bet.",
+        "quote": "Falcons plus three, two units. Another ATS best bet for me and Steve."
+      },
+      {
+        "team": "ARI",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 13.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1366,
+        "rationale": "Ross bets two units on Arizona getting 13.5 against the Rams coming off Monday night.",
+        "quote": "Give me the Arizona Cardinals plus 13 and a half. A lot of ways we can win. Two units."
+      },
+      {
+        "team": "KC",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": -2.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1388,
+        "rationale": "Fezzik teases Kansas City down from -8.5 to -2.5 against the Chargers.",
+        "quote": "Put the Chiefs into my uh teaser portfolio. One unit only on my teasers."
+      },
+      {
+        "team": "KC",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": -2.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1398,
+        "rationale": "Ross adds Kansas City teased down to -2.5 into his teaser portfolio.",
+        "quote": "I've got the Chiefs minus two and a half in my portfolio as well."
+      },
+      {
+        "team": "DAL",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": 7.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1458,
+        "rationale": "Fezzik teases Dallas up from +1.5 to +7.5 against Green Bay on 10 days of rest.",
+        "quote": "Cowboys in my teaser portfolio."
+      },
+      {
+        "team": "DAL",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": 7.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1462,
+        "rationale": "Ross teases Dallas up to +7.5 for his teaser portfolio.",
+        "quote": "Cowboys in my teaser portfolio as well. Up to seven and a half."
+      },
+      {
+        "team": "SF",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": -1.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1481,
+        "rationale": "Fezzik teases San Francisco down from -7.5 to -1.5 against Washington on Monday night.",
+        "quote": "Take the ners down to one and a half. My last teaser leg in my portfolio."
+      },
+      {
+        "team": "SF",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": -1.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1495,
+        "rationale": "Ross teases San Francisco down to -1.5 to complete his six teaser legs.",
+        "quote": "I'm going to take the ners as a teaser leg minus one and a half."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "matchup_analysis",
+        "teams": [
+          "TEN",
+          "IND"
+        ],
+        "players": [],
+        "topic": "Titans vs Colts efficiency metrics",
+        "summary": "Fezzik points out that despite being winless, the Titans outgain opponents on a per-play basis by 1.7 yards more than Indianapolis.",
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1128,
+        "quote": "Yards per play. The Titans are the better team by a lot, not a little. The Colts are getting outded by 1.7 yards per play.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "schedule_context",
+        "teams": [
+          "TB",
+          "PIT"
+        ],
+        "players": [],
+        "topic": "Buccaneers rest advantage",
+        "summary": "Fezzik highlights Tampa Bay playing on 10 days of rest at home with momentum following their Thursday night win.",
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1195,
+        "quote": "Really good spot for Tampa. Uh 10 days. Um home momentum situation and they need the game like blood",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "BAL",
+          "CLE"
+        ],
+        "players": [
+          "Lamar Jackson"
+        ],
+        "topic": "Lamar Jackson availability",
+        "summary": "Ross Tucker and Steve Fezzik note uncertainty around Lamar Jackson playing, with Fezzik refusing to bet Cleveland without clarity.",
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1237,
+        "quote": "Don't know if Lamar Jackson is playing with that uncertainty. If he is, I want no part of the Browns at this number.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "NYG",
+          "NO"
+        ],
+        "players": [],
+        "topic": "Giants offensive potential",
+        "summary": "Fezzik expects regression towards low scoring for the Giants offense despite their previous high-scoring week.",
+        "speaker": "Steve Fezzik",
+        "source_timestamp": 1278,
+        "quote": "I know the Giants just played a high-scoring game, but uh I don't think the Giants are an over team.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "schedule_context",
+        "teams": [
+          "LAR",
+          "ARI"
+        ],
+        "players": [
+          "Jacoby Brissett"
+        ],
+        "topic": "Rams short week after Monday Night Football overtime",
+        "summary": "Ross Tucker banks on Arizona taking advantage of the Rams on a short week after a draining overtime loss.",
+        "speaker": "Ross Tucker",
+        "source_timestamp": 1360,
+        "quote": "The Rams play a Monday night game. Short week, a terrible loss late in overtime. Give me the Arizona Cardinals plus 13 and a half.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Titans yards per play advantage",
+        "timestamp": 1128,
+        "speaker": "Steve Fezzik",
+        "quote": "Yards per play. The Titans are the better team by a lot, not a little."
+      },
+      {
+        "topic": "Cardinals fade of Rams schedule spot",
+        "timestamp": 1360,
+        "speaker": "Ross Tucker",
+        "quote": "The Rams play a Monday night game. Short week, a terrible loss late in overtime."
+      }
+    ],
+    "uncertainty_flags": [
+      {
+        "timestamp": 956,
+        "field": "price",
+        "reason": "Vig/price was not explicitly mentioned for standard spread bets on this episode."
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 1616,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 1620,
+      "suspected_incomplete": false
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "antigravity-transcript source; no ground truth"
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "episode_slug": "youtube-0XtOHyz2LRs",
+  "show": "Sharp or Square",
+  "date": "2026-10-13",
+  "mode": "antigravity-transcript",
+  "model": "antigravity-agent (underlying model not recorded)",
+  "input_source": "youtube_auto_captions",
+  "youtube_url": "https://www.youtube.com/watch?v=0XtOHyz2LRs",
+  "provenance": {
+    "source": "antigravity-transcript",
+    "not_equivalent_to": "gemini-video extraction; do not score as equivalent",
+    "extracted_on": "2026-10-14",
+    "cost_usd": 0,
+    "transcript_source": "auto_captions",
+    "raw_captions_retained": false,
+    "speaker_segments_empty": true,
+    "speaker_attribution": "inferred by the extracting agent from caption content; captions carry no speaker labels",
+    "quotes_verified_verbatim": false,
+    "staging_file": "antigravity-staging/youtube-0XtOHyz2LRs.json",
+    "staging_sha256": "a7b51fd2f9a124f98709de8d06903bfb453b2b809f822029edc46447fdea147d",
+    "validated_by": "Claude Team 2 2026-10-14 (see antigravity-staging/_VALIDATION_team2_2026-10-14.md)"
+  },
+  "run": {
+    "estimated_cost_usd": 0,
+    "latency_ms": null,
+    "input_tokens": null,
+    "output_tokens": null,
+    "transcript_summary": "Chad Millman and professional bettor Simon Hunter analyze early market moves, injury reports, and sharp betting action across the Week 6 NFL slate. They highlight their featured picks, including Simon Says on the Browns and Chad's Choice on the Raiders.",
+    "extracted_picks": [
+      {
+        "team": "CLE",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 4.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1106,
+        "rationale": "Official Simon Says pick. Simon backs Cleveland catching 4.5 at home against Baltimore in an AFC North divisional clash.",
+        "quote": "Simon says, 'Give me the Browns plus four and a half.'",
+        "line_note": "BKR CLE +5 vs +4.5 (line moved or differs; not a current price)"
+      },
+      {
+        "team": "LV",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 5.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Chad Millman",
+        "source_timestamp": 3065,
+        "rationale": "Official Chad's Choice pick. Backs Las Vegas +5.5 at home off a blowout loss against Buffalo traveling on a short week.",
+        "quote": "Don't care if Jay Cutler would say don't care. Give me the Raiders plus 5 and a half.",
+        "line_note": "BKR LV +4 vs +5.5 (line moved or differs; not a current price)"
+      },
+      {
+        "team": "CAR",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 1.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Chad Millman",
+        "source_timestamp": 72,
+        "rationale": "Chad bets Carolina getting 1.5 points on the road against an injury-plagued Eagles team coming off their London trip.",
+        "quote": "And I told him, 'Well, I already bet the Panthers.'",
+        "quality_flag": "passing_remark_line_not_in_quote",
+        "exclude_from_scoring": true,
+        "line_note": "BKR CAR -1 vs +1.5 (podcast-time) (line moved or differs; not a current price)"
+      },
+      {
+        "team": "NYJ",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 7.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Chad Millman",
+        "source_timestamp": 1867,
+        "rationale": "Chad backs the Jets getting 7.5 points on the road in New England to fade the public surge on Drake Maye.",
+        "quote": "side. I am taking the Jets."
+      },
+      {
+        "team": "NYJ",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 7.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1869,
+        "rationale": "Simon agrees with Chad to take the Jets getting 7.5 points on the road.",
+        "quote": "I'm glad to hear you say that. Uh, so am I.",
+        "quality_flag": "agreement_only_no_line_in_quote",
+        "exclude_from_scoring": true
+      },
+      {
+        "team": "ARI",
+        "player": null,
+        "market": "spread",
+        "side": null,
+        "line": 13.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 2820,
+        "rationale": "Simon backs Arizona catching 13.5 points against the Rams, noting LA's inability to stop interior runs.",
+        "quote": "Aren't we supposed to just blindly bet the Cardinals here?",
+        "quality_flag": "rhetorical_question_possible_sarcasm",
+        "exclude_from_scoring": true
+      },
+      {
+        "team": "KC",
+        "player": null,
+        "market": "teaser",
+        "side": null,
+        "line": -2.5,
+        "price": null,
+        "week": 6,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3524,
+        "rationale": "Simon plays a 6-point teaser on Kansas City taking Mahomes at home down from -8.5 to -2.5 against the winless Chargers.",
+        "quote": "taking a teaser here. But you're getting two and a half with Mahomes at home. It just feels like a good number against a team that hasn't won a game yet this year."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "market_sentiment",
+        "teams": [
+          "LV",
+          "BUF"
+        ],
+        "players": [
+          "Brock Bowers"
+        ],
+        "topic": "Home underdog off blowout historical trend",
+        "summary": "Chad cites historical data showing home underdogs coming off a blowout loss cover 56-57% ATS since 2003, while targeting Brock Bowers against Buffalo's 23rd-ranked tight end defense.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 3073,
+        "quote": "home dog off of a blowout loss since 2003. 57% against the spread. Good team off of a blowout loss. 55% against the spread.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "matchup_analysis",
+        "teams": [
+          "LAR",
+          "ARI"
+        ],
+        "players": [
+          "Josh Allen"
+        ],
+        "topic": "Rams run defense vulnerability",
+        "summary": "Simon highlights the Rams defense repeatedly surrendering chunk rushing yardage up the middle, pointing to Josh Allen's late fourth-quarter rushing explosion as evidence.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 2871,
+        "quote": "can you stop a run up the middle Rams? I don't know if you can. I mean Josh Allen supposedly had a bad knee. He ran for what was it? 90 yards in that fourth quarter overtime.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "market_sentiment",
+        "teams": [
+          "DAL",
+          "GB"
+        ],
+        "players": [],
+        "topic": "Sharp money discrepancy on Dallas Cowboys",
+        "summary": "Chad and Simon note that despite the public abandoning Dallas after a blowout loss, ticket counts are split and sharp professional money is backing the Cowboys getting points in Green Bay.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 3753,
+        "quote": "tickets are pretty split, but money is definitely on the Cowboys. Um there's no there's no doubt about it. It's definitely one of the more uh more wise guys sides.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "schedule_context",
+        "teams": [
+          "PHI",
+          "CAR"
+        ],
+        "players": [
+          "Bryce Young"
+        ],
+        "topic": "Eagles return from London vs rested Panthers",
+        "summary": "Simon notes Carolina is well-rested coming off a bye week while the Eagles face a sluggish travel spot returning from their international game in London.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 2181,
+        "quote": "Like Bryce Young is really good. They're coming off a bye-week. Eagles are coming back from England.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "SF",
+          "WAS"
+        ],
+        "players": [
+          "Brock Purdy"
+        ],
+        "topic": "49ers potential letdown trap spot",
+        "summary": "Simon warns that San Francisco laying 7.5 points on Monday night is an archetype trap game after dominating a grueling division stretch.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 4049,
+        "quote": "Dumb dumb trap spot that you never see coming where they've just now beat up, you could say they've beaten four of the best seven teams in the NFL",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Simon Says Browns",
+        "timestamp": 1106,
+        "speaker": "Simon Hunter",
+        "quote": "Simon says, 'Give me the Browns plus four and a half.'"
+      },
+      {
+        "topic": "Chad's Choice Raiders",
+        "timestamp": 3065,
+        "speaker": "Chad Millman",
+        "quote": "Don't care if Jay Cutler would say don't care. Give me the Raiders plus 5 and a half."
+      }
+    ],
+    "uncertainty_flags": [
+      {
+        "timestamp": 1106,
+        "field": "price",
+        "reason": "Lines were quoted at standard spread without specific juice or vigorish."
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 4158,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 4164,
+      "suspected_incomplete": false
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "antigravity-transcript source; no ground truth"
+  }
+}
