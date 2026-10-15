@@ -3,12 +3,12 @@
 > Start here. This is a routing index, not a transcript. One current pickup only.
 > Detail lives in dated `handoffs/`; superseded pickups are in git history and their dated files.
 
-## PICK UP HERE (Wed 2026-10-14 22:30 PT, W6 session: builder v1.1 + overrides, pushed)
+## PICK UP HERE (Thu 2026-10-15 19:00 PT, futures/exacta tooling + free-bet tracking)
 
-Branch `claude/w5-prop-cards-2026-10-11`, HEAD `88d20c0` plus this handoff commit; all pushed.
-Required read: `handoffs/2026-10-14-2230-claude-w6-builder-v11-overrides-handoff.md`. Lane map (load one lane only): `handoffs/2026-10-14-1100-claude-h2c2-team2-week6-wednesday-briefing.md` and `reports/handoff-snapshots/2026-10-14-h2c2-week6-wed/H2C2_START_HERE.md`.
+Branch `claude/w5-prop-cards-2026-10-11`; HEAD is the handoff commit on top of `d968cf2` (local, Andy pushes). Verify with `git log --oneline -6`.
+Required read: `handoffs/2026-10-15-1900-claude-futures-exacta-freebet-handoff.md`.
 
-Next: Andy's go for the W6 quant synthesis (not yet run; dry-run first); Andy to supply Week 6 QBs; podcast lane A belongs to Andy's other session.
+Next: Andy's go on the $38.54 free-money exacta plan; TNF prop recapture before 5:15 PM PT; Week 6 QBs and quant-synthesis go (dry-run first); decide W6 vs W5 tracker HTML. Free bet 1005591415 (LV +4.5, pending) is tracked but not bankroll.
 
 ## Fast resume (do this, nothing more)
 
@@ -27,7 +27,7 @@ Next: Andy's go for the W6 quant synthesis (not yet run; dry-run first); Andy to
 
 ## Needs Andy / Stop Conditions
 
-- MNF BUF@LAR result and any pasted slips.
+- Week 5 Bills-credit receipt, and any pasted slips.
 - Real ticket number for `bet_20261011_betonline_snf_island_6leg` (`pending-not-supplied`) and the leg count on #1004561835.
 
 ## Maintenance rule
