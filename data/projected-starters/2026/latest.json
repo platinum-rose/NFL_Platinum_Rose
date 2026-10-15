@@ -2,14 +2,14 @@
   "meta": {
     "schema": "projected_starters_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-10-14T22:00:03.248Z",
+    "generated_at": "2026-10-15T15:09:02.072Z",
     "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
     "player_count": 69,
     "manual_row_count": 47,
     "eligible_manual_row_count": 47,
     "estimated_row_count": 23,
     "withheld_named_manual_row_count": 0,
-    "human_review_approved_count": 183,
+    "human_review_approved_count": 206,
     "human_review_rejected_count": 0,
     "teams_with_signals": 31,
     "teams_needing_manual_depth_chart": 4,
@@ -30,7 +30,7 @@
     "inputs": {
       "availability": {
         "path": "data\\player-availability\\latest.json",
-        "generated_at": "2026-10-14T22:00:00.722Z",
+        "generated_at": "2026-10-15T15:08:10.790Z",
         "evidence_validation_status": "pass"
       },
       "named_status_review": {
@@ -142,8 +142,8 @@
       "coverage_status": "estimated_from_local_starter_language",
       "known": [],
       "estimated": [
-        "James Conner RB",
-        "Jedrick Wills Jr. OT"
+        "Shawn Bowman TE",
+        "James Conner RB"
       ],
       "missing": [
         "manual all-position depth chart",
@@ -174,16 +174,18 @@
             "primary_role"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         },
         {
-          "id": "starter_576ea73a8b586e9c",
+          "id": "starter_052dfd3c5bda024a",
           "team": "ARI",
           "team_nick": "Cardinals",
-          "player_name": "Jedrick Wills Jr.",
-          "position": "OT",
-          "unit": "offensive_line",
+          "player_name": "Shawn Bowman",
+          "position": "TE",
+          "unit": "offense",
           "role": "roster_depth_signal",
           "starter_confidence": 0.42,
           "roster_confidence": 0.6,
@@ -193,16 +195,18 @@
               "source": "ESPN injuries API",
               "source_type": "structured_injury",
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-07T00:36:00.000Z",
-              "evidence": "The Cardinals signed Wills off the Bills' practice squad to their active roster Tuesday."
+              "published_at": "2026-10-14T22:44:00.000Z",
+              "evidence": "Bowman was signed from the practice squad to the active roster Wednesday."
             }
           ],
           "evidence_tags": [
             "roster_signal"
           ],
-          "impact_bucket": "offensive_line_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "impact_bucket": "skill_major",
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:09:02.070Z"
         }
       ],
       "named_status_reviews": []
@@ -259,9 +263,7 @@
       "known": [
         "Lamar Jackson QB"
       ],
-      "estimated": [
-        "Nick Vannett TE"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -293,33 +295,6 @@
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
-        },
-        {
-          "id": "starter_8c065bf119690ee4",
-          "team": "BAL",
-          "team_nick": "Ravens",
-          "player_name": "Nick Vannett",
-          "position": "TE",
-          "unit": "offense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-07T22:17:00.000Z",
-              "evidence": "The Ravens signed Vannett to the active roster off their practice squad Wednesday."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -422,8 +397,10 @@
             "roster_signal"
           ],
           "impact_bucket": "defensive_front_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": [
@@ -579,8 +556,10 @@
             "starter"
           ],
           "impact_bucket": "qb_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         },
         {
           "id": "starter_81677cf4c2f68d25",
@@ -757,8 +736,10 @@
             "roster_signal"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": []
@@ -860,8 +841,10 @@
             "roster_signal"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": []
@@ -933,8 +916,10 @@
             "roster_signal"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         },
         {
           "id": "starter_6897affe4f4832db",
@@ -1224,8 +1209,10 @@
             "primary_role"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": []
@@ -1358,8 +1345,10 @@
             "roster_signal"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": []
@@ -1546,7 +1535,7 @@
         "David Njoku TE"
       ],
       "estimated": [
-        "Theo Wease Jr. WR"
+        "Jake Browning QB"
       ],
       "missing": [
         "independent second-source depth-chart reconciliation"
@@ -1641,11 +1630,11 @@
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
-          "id": "starter_6f430726ee6ed39b",
+          "id": "starter_48461950225e2c24",
           "team": "LAC",
           "team_nick": "Chargers",
-          "player_name": "Theo Wease Jr.",
-          "position": "WR",
+          "player_name": "Jake Browning",
+          "position": "QB",
           "unit": "offense",
           "role": "roster_depth_signal",
           "starter_confidence": 0.42,
@@ -1656,16 +1645,18 @@
               "source": "ESPN injuries API",
               "source_type": "structured_injury",
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-11T01:06:00.000Z",
-              "evidence": "The Chargers signed Wease off the practice squad to the active roster Saturday."
+              "published_at": "2026-10-13T23:13:00.000Z",
+              "evidence": "The Chargers signed Browning to the practice squad Tuesday, Noah Furtado of The Athletic reports."
             }
           ],
           "evidence_tags": [
             "roster_signal"
           ],
-          "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:09:02.070Z"
         }
       ],
       "named_status_reviews": []
@@ -1736,8 +1727,10 @@
             "roster_signal"
           ],
           "impact_bucket": "depth_only",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": []
@@ -1808,8 +1801,10 @@
             "roster_signal"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": []
@@ -1957,8 +1952,10 @@
             "competition"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": []
@@ -2015,6 +2012,7 @@
         "Cam Skattebo RB"
       ],
       "estimated": [
+        "J.J. McCarthy QB",
         "Malik Harrison LB"
       ],
       "missing": [
@@ -2080,6 +2078,36 @@
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
+          "id": "starter_0d0d780fc1fc8371",
+          "team": "NYG",
+          "team_nick": "Giants",
+          "player_name": "J.J. McCarthy",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.78,
+          "roster_confidence": 0.74,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-15T14:28:00.000Z",
+              "evidence": "Giants head coach Jim Harbaugh said Wednesday that he plans to keep using McCarthy in a change-of-pace role behind starting quarterback Jameis Winston in an effort to take advantage of McCarthy's scrambling ability, Jordan Raanan of ESPN.com reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter",
+            "competition"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:09:02.070Z"
+        },
+        {
           "id": "starter_f15080c0f324b52f",
           "team": "NYG",
           "team_nick": "Giants",
@@ -2103,8 +2131,10 @@
             "roster_signal"
           ],
           "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": []
@@ -2117,7 +2147,9 @@
         "Geno Smith QB",
         "Breece Hall RB"
       ],
-      "estimated": [],
+      "estimated": [
+        "Dylan Parham G"
+      ],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -2179,6 +2211,35 @@
           "confidence_basis": "manual_depth_chart",
           "human_review_decision": "approved",
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+        },
+        {
+          "id": "starter_69d24e9c911a7cc1",
+          "team": "NYJ",
+          "team_nick": "Jets",
+          "player_name": "Dylan Parham",
+          "position": "G",
+          "unit": "offensive_line",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-15T00:52:00.000Z",
+              "evidence": "Coach Aaron Glenn said Wednesday that Parham (knee) is still week-to-week as the Jets start preparing for Week 6, Antwan V. Staley of the New York Daily News reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "offensive_line_major",
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:09:02.070Z"
         }
       ],
       "named_status_reviews": []
@@ -2191,9 +2252,7 @@
         "Saquon Barkley RB",
         "Jalen Hurts QB"
       ],
-      "estimated": [
-        "Lane Johnson OT"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -2253,33 +2312,6 @@
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
-        },
-        {
-          "id": "starter_d0d75cea49362405",
-          "team": "PHI",
-          "team_nick": "Eagles",
-          "player_name": "Lane Johnson",
-          "position": "OT",
-          "unit": "offensive_line",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-11T12:47:00.000Z",
-              "evidence": "The Eagles are expected to keep Johnson (personal) on the 53-man roster for the remainder of the season, even though he announced his retirement Tuesday, Zach Berman of The Athletic reports."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "offensive_line_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -2352,8 +2384,10 @@
             "starter"
           ],
           "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         },
         {
           "id": "starter_e9d5d5ef9ecdbc46",
@@ -2379,8 +2413,10 @@
             "primary_role"
           ],
           "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         },
         {
           "id": "starter_738b3caebadc91e3",
@@ -2406,8 +2442,10 @@
             "roster_signal"
           ],
           "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
+          "needs_human_review": false,
+          "confidence_basis": "local_availability_starter_language",
+          "human_review_decision": "approved",
+          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": []
@@ -4032,6 +4070,94 @@
       "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
+      "id": "starter_0d0d780fc1fc8371",
+      "team": "NYG",
+      "team_nick": "Giants",
+      "player_name": "J.J. McCarthy",
+      "position": "QB",
+      "unit": "offense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.78,
+      "roster_confidence": 0.74,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-15T14:28:00.000Z",
+          "evidence": "Giants head coach Jim Harbaugh said Wednesday that he plans to keep using McCarthy in a change-of-pace role behind starting quarterback Jameis Winston in an effort to take advantage of McCarthy's scrambling ability, Jordan Raanan of ESPN.com reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter",
+        "competition"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:09:02.070Z"
+    },
+    {
+      "id": "starter_69d24e9c911a7cc1",
+      "team": "NYJ",
+      "team_nick": "Jets",
+      "player_name": "Dylan Parham",
+      "position": "G",
+      "unit": "offensive_line",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-15T00:52:00.000Z",
+          "evidence": "Coach Aaron Glenn said Wednesday that Parham (knee) is still week-to-week as the Jets start preparing for Week 6, Antwan V. Staley of the New York Daily News reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "offensive_line_major",
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:09:02.070Z"
+    },
+    {
+      "id": "starter_052dfd3c5bda024a",
+      "team": "ARI",
+      "team_nick": "Cardinals",
+      "player_name": "Shawn Bowman",
+      "position": "TE",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-14T22:44:00.000Z",
+          "evidence": "Bowman was signed from the practice squad to the active roster Wednesday."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:09:02.070Z"
+    },
+    {
       "id": "starter_9f136d6bf249fda5",
       "team": "BUF",
       "team_nick": "Bills",
@@ -4055,8 +4181,10 @@
         "roster_signal"
       ],
       "impact_bucket": "defensive_front_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_f15080c0f324b52f",
@@ -4082,8 +4210,10 @@
         "roster_signal"
       ],
       "impact_bucket": "defensive_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_8772d8cce93394a9",
@@ -4109,8 +4239,39 @@
         "roster_signal"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
+    },
+    {
+      "id": "starter_48461950225e2c24",
+      "team": "LAC",
+      "team_nick": "Chargers",
+      "player_name": "Jake Browning",
+      "position": "QB",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-13T23:13:00.000Z",
+          "evidence": "The Chargers signed Browning to the practice squad Tuesday, Noah Furtado of The Athletic reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:09:02.070Z"
     },
     {
       "id": "starter_99a8b0bb401438eb",
@@ -4136,8 +4297,10 @@
         "roster_signal"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_8c83714b06aab947",
@@ -4163,8 +4326,10 @@
         "roster_signal"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_5de294be5d67e386",
@@ -4190,8 +4355,10 @@
         "roster_signal"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_8ad95f9c85334090",
@@ -4217,8 +4384,10 @@
         "primary_role"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_c6eb7c6d2482d593",
@@ -4244,8 +4413,10 @@
         "roster_signal"
       ],
       "impact_bucket": "depth_only",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_ef543b159168793e",
@@ -4272,8 +4443,10 @@
         "competition"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_062fe86118b46391",
@@ -4299,8 +4472,10 @@
         "primary_role"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_91d78327c9efc060",
@@ -4326,8 +4501,10 @@
         "starter"
       ],
       "impact_bucket": "qb_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_e9d5d5ef9ecdbc46",
@@ -4353,62 +4530,10 @@
         "primary_role"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_d0d75cea49362405",
-      "team": "PHI",
-      "team_nick": "Eagles",
-      "player_name": "Lane Johnson",
-      "position": "OT",
-      "unit": "offensive_line",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-11T12:47:00.000Z",
-          "evidence": "The Eagles are expected to keep Johnson (personal) on the 53-man roster for the remainder of the season, even though he announced his retirement Tuesday, Zach Berman of The Athletic reports."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "offensive_line_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_6f430726ee6ed39b",
-      "team": "LAC",
-      "team_nick": "Chargers",
-      "player_name": "Theo Wease Jr.",
-      "position": "WR",
-      "unit": "offense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-11T01:06:00.000Z",
-          "evidence": "The Chargers signed Wease off the practice squad to the active roster Saturday."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_6897affe4f4832db",
@@ -4492,62 +4617,10 @@
         "starter"
       ],
       "impact_bucket": "defensive_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_8c065bf119690ee4",
-      "team": "BAL",
-      "team_nick": "Ravens",
-      "player_name": "Nick Vannett",
-      "position": "TE",
-      "unit": "offense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-07T22:17:00.000Z",
-          "evidence": "The Ravens signed Vannett to the active roster off their practice squad Wednesday."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_576ea73a8b586e9c",
-      "team": "ARI",
-      "team_nick": "Cardinals",
-      "player_name": "Jedrick Wills Jr.",
-      "position": "OT",
-      "unit": "offensive_line",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-07T00:36:00.000Z",
-          "evidence": "The Cardinals signed Wills off the Bills' practice squad to their active roster Tuesday."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "offensive_line_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_738b3caebadc91e3",
@@ -4573,8 +4646,10 @@
         "roster_signal"
       ],
       "impact_bucket": "defensive_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_7db426a4fa950898",
@@ -4600,8 +4675,10 @@
         "roster_signal"
       ],
       "impact_bucket": "skill_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
+      "needs_human_review": false,
+      "confidence_basis": "local_availability_starter_language",
+      "human_review_decision": "approved",
+      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
     },
     {
       "id": "starter_22d003a3b5c760a3",

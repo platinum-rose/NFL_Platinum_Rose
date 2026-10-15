@@ -1,75 +1,44 @@
 {
   "schema": "player_props_intel_v1",
-  "generated_at": "2026-10-10T19:52:28.215Z",
-  "week": 5,
+  "generated_at": "2026-10-15T15:08:18.150Z",
+  "week": 6,
   "season": 2026,
   "summary": {
-    "articles_scanned": 643,
-    "total_props": 20,
-    "tier_1_props": 14,
+    "articles_scanned": 254,
+    "total_props": 12,
+    "tier_1_props": 10,
     "touchdown_props": 3,
-    "curated_parlays": 5,
-    "games_covered": 12
+    "curated_parlays": 1,
+    "games_covered": 2
   },
   "parlayCards": [
     {
-      "id": "parlay__PHI_at_JAX__phi_stack",
-      "title": "PHI Prop Stack SGP (PHI @ JAX)",
-      "game": "PHI @ JAX",
-      "game_slate": "Sunday Early Window",
+      "id": "parlay__SEA_at_DEN__sea/den_stack",
+      "title": "SEA/DEN Prop Stack SGP (SEA @ DEN)",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
       "type": "same_game_parlay",
       "book": "DraftKings / FanDuel",
-      "leg_count": 2,
+      "leg_count": 3,
       "legs": [
         {
-          "id": "prop__7253__will_shipley__rushing_yards",
-          "player": "Will Shipley",
-          "team": "PHI",
-          "game": "PHI @ JAX",
-          "game_slate": "Sunday Early Window",
-          "category": "rushing_yards",
-          "category_label": "Rushing Yards",
-          "stat_type": "rushing",
-          "line": "35.5",
-          "side": "under",
-          "price": "-114",
-          "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Dan Servodidio (BettingPros)",
-          "source_article_id": 7253,
-          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-eagles-vs-jaguars-week-5-2026/",
-          "rationale": "Leg 2: Will Shipley 15+ Receiving Yards ( -135 ) Leg 3: Bhayshul Tuten 70+ Rushing Yards ( -101 ) In case you haven't heard, the Eagles' offensive line is in shambles. Lane Johnson just retired, Cam Jurgens was surprisingly traded to Baltimore, and Landon Dickerson is still sidelined.",
-          "week": 5,
-          "tier": 1,
-          "tier_label": "Tier 1: Featured Pick",
-          "weight": 1,
-          "parlay_utility": {
-            "role": "Ground Game Piece",
-            "synergy_tags": [
-              "rushing_yards",
-              "PHI_offense"
-            ],
-            "positive_correlations": []
-          },
-          "selection": "Under 35.5 Rushing Yards"
-        },
-        {
-          "id": "prop__7253__will_shipley__receiving_yards",
-          "player": "Will Shipley",
-          "team": "PHI",
-          "game": "PHI @ JAX",
-          "game_slate": "Sunday Early Window",
+          "id": "prop__8034__troy_franklin__receiving_yards",
+          "player": "Troy Franklin",
+          "team": "DEN",
+          "game": "SEA @ DEN",
+          "game_slate": "Thursday Night Football",
           "category": "receiving_yards",
           "category_label": "Receiving Yards",
           "stat_type": "receiving",
           "line": "15+",
           "side": "over",
-          "price": "-135",
+          "price": "-138",
           "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Dan Servodidio (BettingPros)",
-          "source_article_id": 7253,
-          "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-eagles-vs-jaguars-week-5-2026/",
-          "rationale": "Leg 3: Bhayshul Tuten 70+ Rushing Yards ( -101 ) In case you haven't heard, the Eagles' offensive line is in shambles. Lane Johnson just retired, Cam Jurgens was surprisingly traded to Baltimore, and Landon Dickerson is still sidelined.",
-          "week": 5,
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 8034,
+          "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-seahawks-vs-broncos/",
+          "rationale": "We round things out with a bit of a disappointing return based on the juice. Troy Franklin doesn't get much volume, to be candid, which makes the high tax even more disheartening.",
+          "week": 6,
           "tier": 1,
           "tier_label": "Tier 1: Featured Pick",
           "weight": 1,
@@ -77,400 +46,114 @@
             "role": "Pass-Catching Piece",
             "synergy_tags": [
               "receiving_yards",
-              "PHI_offense"
+              "DEN_offense"
             ],
-            "positive_correlations": []
+            "positive_correlations": [
+              "J.K. Dobbins Anytime Touchdown Scorer",
+              "J.K. Dobbins Rush Attempts",
+              "Jaylen Waddle Receiving Yards"
+            ]
           },
           "selection": "Over 15+ Receiving Yards"
-        }
-      ],
-      "estimated_odds": "+227",
-      "payout_multiplier": "3.27x",
-      "payout_on_10": "$32.68",
-      "payout_on_25": "$81.70",
-      "correlation_rating": "Same-Team Stack",
-      "synergy_rationale": "Combines 2 real props extracted this week from Dan Servodidio (BettingPros) for PHI @ JAX."
-    },
-    {
-      "id": "parlay__DET_at_ARI__det_stack",
-      "title": "DET Prop Stack SGP (DET @ ARI)",
-      "game": "DET @ ARI",
-      "game_slate": "Sunday Late Window",
-      "type": "same_game_parlay",
-      "book": "DraftKings / FanDuel",
-      "leg_count": 2,
-      "legs": [
+        },
         {
-          "id": "prop__7198__sam_laporta__receiving_yards",
-          "player": "Sam LaPorta",
-          "team": "DET",
-          "game": "DET @ ARI",
-          "game_slate": "Sunday Late Window",
+          "id": "prop__7864__jaxon_smith_njigba__receiving_yards",
+          "player": "Jaxon Smith-Njigba",
+          "team": "SEA",
+          "game": "SEA @ DEN",
+          "game_slate": "Thursday Night Football",
           "category": "receiving_yards",
-          "category_label": "Receiving Yards",
-          "stat_type": "receiving",
-          "line": "50.5",
+          "category_label": "Receiving/Rushing Yards",
+          "stat_type": "other",
+          "line": "70+",
           "side": "over",
-          "price": "-120",
+          "price": "-248",
           "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Josh Shepardson (Sharp Football)",
-          "source_article_id": 7198,
-          "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-5-2026/",
-          "rationale": "Isaiah Likely Over 40.5 Receiving Yards (-125) Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 5 Best Prop Bet: Quinshon Judkins Under 59.5 Rushing Yards (-112) Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) bu",
-          "week": 5,
+          "analyst": "Steve Krebs (BettingPros)",
+          "source_article_id": 7864,
+          "source_url": "https://www.bettingpros.com/articles/nfl-week-6-picks-predictions-best-early-parlays-2026/",
+          "rationale": "There are two avenues that we heavily considered for this leg of the parlay. The first was to take Jaxon Smith-Njigba to score a touchdown, which returns +110 .",
+          "week": 6,
           "tier": 1,
           "tier_label": "Tier 1: Featured Pick",
           "weight": 1,
           "parlay_utility": {
-            "role": "Pass-Catching Piece",
+            "role": "Complementary Piece",
             "synergy_tags": [
               "receiving_yards",
-              "DET_offense"
+              "SEA_offense"
             ],
             "positive_correlations": [
-              "Amon-Ra St. Brown Anytime Touchdown Scorer"
+              "Jaxon Smith-Njigba First Touchdown Scorer",
+              "Jaxon Smith-Njigba Anytime Touchdown Scorer",
+              "Emanuel Wilson Receiving Yards"
             ]
           },
-          "selection": "Over 50.5 Receiving Yards"
+          "selection": "Over 70+ Receiving/Rushing Yards"
         },
         {
-          "id": "prop__7255__amon_ra_st_brown__anytime_td",
-          "player": "Amon-Ra St. Brown",
-          "team": "DET",
-          "game": "DET @ ARI",
-          "game_slate": "Sunday Late Window",
-          "category": "anytime_td",
-          "category_label": "Anytime Touchdown Scorer",
+          "id": "prop__8026__jaxon_smith_njigba__first_td",
+          "player": "Jaxon Smith-Njigba",
+          "team": "SEA",
+          "game": "SEA @ DEN",
+          "game_slate": "Thursday Night Football",
+          "category": "first_td",
+          "category_label": "First Touchdown Scorer",
           "stat_type": "touchdown",
           "line": "Yes",
           "side": "anytime",
-          "price": "-140",
+          "price": "+600",
           "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Dan Servodidio (BettingPros)",
-          "source_article_id": 7255,
-          "source_url": "https://www.bettingpros.com/articles/nfl-week-5-anytime-td-scorer-win-parlays-2026/",
-          "rationale": "Let's start off our touchdown & win parlays with Arizona hosting Detroit. The 2-2 Lions are looking to rebound after losing to the Panthers last Sunday night.",
-          "week": 5,
-          "tier": 2,
-          "tier_label": "Tier 2: Secondary Pick",
-          "weight": 0.7,
+          "analyst": "Mike Spector (BettingPros)",
+          "source_article_id": 8026,
+          "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-td-scorers-picks-seahawks-vs-broncos/",
+          "rationale": "Given Bo Nix's propensity for leading fourth-quarter comebacks (he has led the NFL in such comebacks since 2024 and has three this year), I am backing Seattle to score the game's first touchdown, led by its most consistent offensive weapon. Jaxon Smith-Njigba leads the league in target share (35.2%) and percentage of air yards (52.4%).",
+          "week": 6,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
           "parlay_utility": {
             "role": "End-Zone Target",
             "synergy_tags": [
-              "anytime_td",
-              "DET_offense"
+              "first_td",
+              "SEA_offense"
             ],
             "positive_correlations": [
-              "Sam LaPorta Receiving Yards"
+              "Jaxon Smith-Njigba Receiving/Rushing Yards",
+              "Jaxon Smith-Njigba Anytime Touchdown Scorer",
+              "Emanuel Wilson Receiving Yards"
             ]
           },
-          "selection": "Anytime Touchdown Scorer"
+          "selection": "First Touchdown Scorer"
         }
       ],
-      "estimated_odds": "+214",
-      "payout_multiplier": "3.14x",
-      "payout_on_10": "$31.43",
-      "payout_on_25": "$78.57",
-      "correlation_rating": "Same-Team Stack",
-      "synergy_rationale": "Combines 2 real props extracted this week from Josh Shepardson (Sharp Football), Dan Servodidio (BettingPros) for DET @ ARI."
-    },
-    {
-      "id": "parlay__IND_at_PIT__pit_stack",
-      "title": "PIT Prop Stack SGP (IND @ PIT)",
-      "game": "IND @ PIT",
-      "game_slate": "Sunday Early Window",
-      "type": "same_game_parlay",
-      "book": "DraftKings / FanDuel",
-      "leg_count": 2,
-      "legs": [
-        {
-          "id": "prop__7254__dk_metcalf__receiving_yards",
-          "player": "DK Metcalf",
-          "team": "PIT",
-          "game": "IND @ PIT",
-          "game_slate": "Sunday Early Window",
-          "category": "receiving_yards",
-          "category_label": "Receiving Yards",
-          "stat_type": "receiving",
-          "line": "52.5",
-          "side": "under",
-          "price": "-114",
-          "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Jason Radowitz (BettingPros)",
-          "source_article_id": 7254,
-          "source_url": "https://www.bettingpros.com/articles/best-nfl-bets-trends-for-week-5-2026/",
-          "rationale": "Derrick Henry Receptions Unders (Away) Derrick Henry has at least one reception in two of the first four games this season. However, he's not known for his catching ability, with at least two catches in just two of his last 10 games, and he has hit this prop in just 30% of his last 20 games.",
-          "week": 5,
-          "tier": 1,
-          "tier_label": "Tier 1: Featured Pick",
-          "weight": 1,
-          "parlay_utility": {
-            "role": "Pass-Catching Piece",
-            "synergy_tags": [
-              "receiving_yards",
-              "PIT_offense"
-            ],
-            "positive_correlations": [
-              "Roman Wilson Anytime Touchdown Scorer"
-            ]
-          },
-          "selection": "Under 52.5 Receiving Yards"
-        },
-        {
-          "id": "prop__7255__roman_wilson__anytime_td",
-          "player": "Roman Wilson",
-          "team": "PIT",
-          "game": "IND @ PIT",
-          "game_slate": "Sunday Early Window",
-          "category": "anytime_td",
-          "category_label": "Anytime Touchdown Scorer",
-          "stat_type": "touchdown",
-          "line": "Yes",
-          "side": "anytime",
-          "price": "+285",
-          "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Dan Servodidio (BettingPros)",
-          "source_article_id": 7255,
-          "source_url": "https://www.bettingpros.com/articles/nfl-week-5-anytime-td-scorer-win-parlays-2026/",
-          "rationale": "Let's go with some longer odds for our second parlay. The 2-2 Steelers return home after losing at Cleveland last week.",
-          "week": 5,
-          "tier": 2,
-          "tier_label": "Tier 2: Secondary Pick",
-          "weight": 0.7,
-          "parlay_utility": {
-            "role": "End-Zone Target",
-            "synergy_tags": [
-              "anytime_td",
-              "PIT_offense"
-            ],
-            "positive_correlations": [
-              "DK Metcalf Receiving Yards"
-            ]
-          },
-          "selection": "Anytime Touchdown Scorer"
-        }
-      ],
-      "estimated_odds": "+623",
-      "payout_multiplier": "7.23x",
-      "payout_on_10": "$72.27",
-      "payout_on_25": "$180.68",
-      "correlation_rating": "Same-Team Stack",
-      "synergy_rationale": "Combines 2 real props extracted this week from Jason Radowitz (BettingPros), Dan Servodidio (BettingPros) for IND @ PIT."
-    },
-    {
-      "id": "parlay__BAL_at_ATL__bal_stack",
-      "title": "BAL Prop Stack SGP (BAL @ ATL)",
-      "game": "BAL @ ATL",
-      "game_slate": "Sunday Night Football",
-      "type": "same_game_parlay",
-      "book": "DraftKings / FanDuel",
-      "leg_count": 2,
-      "legs": [
-        {
-          "id": "prop__7237__derrick_henry__rushing_yards",
-          "player": "Derrick Henry",
-          "team": "BAL",
-          "game": "BAL @ ATL",
-          "game_slate": "Sunday Night Football",
-          "category": "rushing_yards",
-          "category_label": "Rushing Yards",
-          "stat_type": "rushing",
-          "line": "81.5",
-          "side": "under",
-          "price": "-120",
-          "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Zachary Cohen (VSiN)",
-          "source_article_id": 7237,
-          "source_url": "https://vsin.com/nfl/ravens-vs-falcons-predictions-week-5-sunday-night-football-odds-picks-and-player-props/",
-          "rationale": "This isn't a game in which I'm looking to take a player prop, but I do think Henry's rushing yard total is a little high. Our OptaAI player prop projections have him finishing with 71.26 yards, and you can get Under 81.5.",
-          "week": 5,
-          "tier": 1,
-          "tier_label": "Tier 1: Featured Pick",
-          "weight": 1,
-          "parlay_utility": {
-            "role": "Ground Game Piece",
-            "synergy_tags": [
-              "rushing_yards",
-              "BAL_offense"
-            ],
-            "positive_correlations": [
-              "Derrick Henry Receptions"
-            ]
-          },
-          "selection": "Under 81.5 Rushing Yards"
-        },
-        {
-          "id": "prop__7105__zay_flowers__receptions",
-          "player": "Zay Flowers",
-          "team": "BAL",
-          "game": "BAL @ ATL",
-          "game_slate": "Sunday Night Football",
-          "category": "receptions",
-          "category_label": "Receptions",
-          "stat_type": "receiving",
-          "line": "6+",
-          "side": "over",
-          "price": "-109",
-          "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL)",
-          "source_article_id": 7105,
-          "source_url": "https://www.espn.com/espn/betting/story/_/id/50107426/week-5-nfl-odds-props-best-bets-sunday-games",
-          "rationale": "The Zay Flowers over betting will continue until morale improves. Flowers is on a ridiculous pace to start the season.",
-          "week": 5,
-          "tier": 1,
-          "tier_label": "Tier 1: Featured Pick",
-          "weight": 1,
-          "parlay_utility": {
-            "role": "Pass-Catching Piece",
-            "synergy_tags": [
-              "receptions",
-              "BAL_offense"
-            ],
-            "positive_correlations": []
-          },
-          "selection": "Over 6+ Receptions"
-        }
-      ],
-      "estimated_odds": "+252",
-      "payout_multiplier": "3.52x",
-      "payout_on_10": "$35.15",
-      "payout_on_25": "$87.88",
-      "correlation_rating": "Same-Team Stack",
-      "synergy_rationale": "Combines 2 real props extracted this week from Zachary Cohen (VSiN), Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL) for BAL @ ATL."
-    },
-    {
-      "id": "parlay__NYG_at_WAS__nyg_stack",
-      "title": "NYG Prop Stack SGP (NYG @ WAS)",
-      "game": "NYG @ WAS",
-      "game_slate": "Sunday Early Window",
-      "type": "same_game_parlay",
-      "book": "DraftKings / FanDuel",
-      "leg_count": 2,
-      "legs": [
-        {
-          "id": "prop__7198__isaiah_likely__receiving_yards",
-          "player": "Isaiah Likely",
-          "team": "NYG",
-          "game": "NYG @ WAS",
-          "game_slate": "Sunday Early Window",
-          "category": "receiving_yards",
-          "category_label": "Receiving Yards",
-          "stat_type": "receiving",
-          "line": "40.5",
-          "side": "over",
-          "price": "-125",
-          "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Josh Shepardson (Sharp Football)",
-          "source_article_id": 7198,
-          "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-5-2026/",
-          "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 5 Best Prop Bet: Quinshon Judkins Under 59.5 Rushing Yards (-112) Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) but only 28th in rushing yards per game (44.3), 4",
-          "week": 5,
-          "tier": 1,
-          "tier_label": "Tier 1: Featured Pick",
-          "weight": 1,
-          "parlay_utility": {
-            "role": "Pass-Catching Piece",
-            "synergy_tags": [
-              "receiving_yards",
-              "NYG_offense"
-            ],
-            "positive_correlations": [
-              "Jameis Winston Passing TDs"
-            ]
-          },
-          "selection": "Over 40.5 Receiving Yards"
-        },
-        {
-          "id": "prop__6999__jameis_winston__passing_tds",
-          "player": "Jameis Winston",
-          "team": "NYG",
-          "game": "NYG @ WAS",
-          "game_slate": "Sunday Early Window",
-          "category": "passing_tds",
-          "category_label": "Passing TDs",
-          "stat_type": "passing",
-          "line": "1.5",
-          "side": "over",
-          "price": "+162",
-          "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Zachary Cohen (VSiN)",
-          "source_article_id": 6999,
-          "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-5-best-bets-predictions-and-player-props-from-zachary-cohen/",
-          "rationale": "vs. Commanders Week 4 Picks Browns ML (+125 - 1.5 units) vs.",
-          "week": 5,
-          "tier": 2,
-          "tier_label": "Tier 2: Secondary Pick",
-          "weight": 0.7,
-          "parlay_utility": {
-            "role": "Passing Volume Anchor",
-            "synergy_tags": [
-              "passing_tds",
-              "NYG_offense"
-            ],
-            "positive_correlations": [
-              "Isaiah Likely Receiving Yards"
-            ]
-          },
-          "selection": "Over 1.5 Passing TDs"
-        }
-      ],
-      "estimated_odds": "+372",
-      "payout_multiplier": "4.72x",
-      "payout_on_10": "$47.16",
-      "payout_on_25": "$117.90",
-      "correlation_rating": "Same-Team Stack",
-      "synergy_rationale": "Combines 2 real props extracted this week from Josh Shepardson (Sharp Football), Zachary Cohen (VSiN) for NYG @ WAS."
+      "estimated_odds": "+1594",
+      "payout_multiplier": "16.94x",
+      "payout_on_10": "$169.40",
+      "payout_on_25": "$423.50",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Steve Krebs (BettingPros), Mike Spector (BettingPros) for SEA @ DEN."
     }
   ],
   "props": [
     {
-      "id": "prop__7253__will_shipley__rushing_yards",
-      "player": "Will Shipley",
-      "team": "PHI",
-      "game": "PHI @ JAX",
-      "game_slate": "Sunday Early Window",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "35.5",
-      "side": "under",
-      "price": "-114",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Dan Servodidio (BettingPros)",
-      "source_article_id": 7253,
-      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-eagles-vs-jaguars-week-5-2026/",
-      "rationale": "Leg 2: Will Shipley 15+ Receiving Yards ( -135 ) Leg 3: Bhayshul Tuten 70+ Rushing Yards ( -101 ) In case you haven't heard, the Eagles' offensive line is in shambles. Lane Johnson just retired, Cam Jurgens was surprisingly traded to Baltimore, and Landon Dickerson is still sidelined.",
-      "week": 5,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Ground Game Piece",
-        "synergy_tags": [
-          "rushing_yards",
-          "PHI_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__7253__will_shipley__receiving_yards",
-      "player": "Will Shipley",
-      "team": "PHI",
-      "game": "PHI @ JAX",
-      "game_slate": "Sunday Early Window",
+      "id": "prop__8034__troy_franklin__receiving_yards",
+      "player": "Troy Franklin",
+      "team": "DEN",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
       "category": "receiving_yards",
       "category_label": "Receiving Yards",
       "stat_type": "receiving",
       "line": "15+",
       "side": "over",
-      "price": "-135",
+      "price": "-138",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Dan Servodidio (BettingPros)",
-      "source_article_id": 7253,
-      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-eagles-vs-jaguars-week-5-2026/",
-      "rationale": "Leg 3: Bhayshul Tuten 70+ Rushing Yards ( -101 ) In case you haven't heard, the Eagles' offensive line is in shambles. Lane Johnson just retired, Cam Jurgens was surprisingly traded to Baltimore, and Landon Dickerson is still sidelined.",
-      "week": 5,
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 8034,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-seahawks-vs-broncos/",
+      "rationale": "We round things out with a bit of a disappointing return based on the juice. Troy Franklin doesn't get much volume, to be candid, which makes the high tax even more disheartening.",
+      "week": 6,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
@@ -478,29 +161,67 @@
         "role": "Pass-Catching Piece",
         "synergy_tags": [
           "receiving_yards",
-          "PHI_offense"
+          "DEN_offense"
         ],
-        "positive_correlations": []
+        "positive_correlations": [
+          "J.K. Dobbins Anytime Touchdown Scorer",
+          "J.K. Dobbins Rush Attempts",
+          "Jaylen Waddle Receiving Yards"
+        ]
       }
     },
     {
-      "id": "prop__7253__bhayshul_tuten__rushing_yards",
+      "id": "prop__7864__jaxon_smith_njigba__receiving_yards",
+      "player": "Jaxon Smith-Njigba",
+      "team": "SEA",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "receiving_yards",
+      "category_label": "Receiving/Rushing Yards",
+      "stat_type": "other",
+      "line": "70+",
+      "side": "over",
+      "price": "-248",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 7864,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-6-picks-predictions-best-early-parlays-2026/",
+      "rationale": "There are two avenues that we heavily considered for this leg of the parlay. The first was to take Jaxon Smith-Njigba to score a touchdown, which returns +110 .",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Complementary Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "SEA_offense"
+        ],
+        "positive_correlations": [
+          "Jaxon Smith-Njigba First Touchdown Scorer",
+          "Jaxon Smith-Njigba Anytime Touchdown Scorer",
+          "Emanuel Wilson Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__7864__bhayshul_tuten__rushing_yards",
       "player": "Bhayshul Tuten",
       "team": "JAX",
-      "game": "PHI @ JAX",
+      "game": "HOU @ JAX",
       "game_slate": "Sunday Early Window",
       "category": "rushing_yards",
       "category_label": "Rushing Yards",
       "stat_type": "rushing",
-      "line": "70+",
+      "line": "50+",
       "side": "over",
-      "price": "-101",
+      "price": "-296",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Dan Servodidio (BettingPros)",
-      "source_article_id": 7253,
-      "source_url": "https://www.bettingpros.com/articles/nfl-same-game-parlays-picks-eagles-vs-jaguars-week-5-2026/",
-      "rationale": "In case you haven't heard, the Eagles' offensive line is in shambles. Lane Johnson just retired, Cam Jurgens was surprisingly traded to Baltimore, and Landon Dickerson is still sidelined.",
-      "week": 5,
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 7864,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-6-picks-predictions-best-early-parlays-2026/",
+      "rationale": "We close out our parlay with a recency bias play that we have been tailing for a few weeks now. It's a tough matchup against a Houston team that is only allowing 78.4 rushing yards per game.",
+      "week": 6,
       "tier": 2,
       "tier_label": "Tier 2: Secondary Pick",
       "weight": 0.7,
@@ -510,217 +231,95 @@
           "rushing_yards",
           "JAX_offense"
         ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__8026__jaxon_smith_njigba__first_td",
+      "player": "Jaxon Smith-Njigba",
+      "team": "SEA",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "first_td",
+      "category_label": "First Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "+600",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Mike Spector (BettingPros)",
+      "source_article_id": 8026,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-td-scorers-picks-seahawks-vs-broncos/",
+      "rationale": "Given Bo Nix's propensity for leading fourth-quarter comebacks (he has led the NFL in such comebacks since 2024 and has three this year), I am backing Seattle to score the game's first touchdown, led by its most consistent offensive weapon. Jaxon Smith-Njigba leads the league in target share (35.2%) and percentage of air yards (52.4%).",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "first_td",
+          "SEA_offense"
+        ],
         "positive_correlations": [
-          "Bhayshul Tuten Rushing Yards"
+          "Jaxon Smith-Njigba Receiving/Rushing Yards",
+          "Jaxon Smith-Njigba Anytime Touchdown Scorer",
+          "Emanuel Wilson Receiving Yards"
         ]
       }
     },
     {
-      "id": "prop__7255__amon_ra_st_brown__anytime_td",
-      "player": "Amon-Ra St. Brown",
-      "team": "DET",
-      "game": "DET @ ARI",
-      "game_slate": "Sunday Late Window",
+      "id": "prop__8026__j_k_dobbins__anytime_td",
+      "player": "J.K. Dobbins",
+      "team": "DEN",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
       "category": "anytime_td",
       "category_label": "Anytime Touchdown Scorer",
       "stat_type": "touchdown",
       "line": "Yes",
       "side": "anytime",
-      "price": "-140",
+      "price": "+180",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Dan Servodidio (BettingPros)",
-      "source_article_id": 7255,
-      "source_url": "https://www.bettingpros.com/articles/nfl-week-5-anytime-td-scorer-win-parlays-2026/",
-      "rationale": "Let's start off our touchdown & win parlays with Arizona hosting Detroit. The 2-2 Lions are looking to rebound after losing to the Panthers last Sunday night.",
-      "week": 5,
-      "tier": 2,
-      "tier_label": "Tier 2: Secondary Pick",
-      "weight": 0.7,
+      "analyst": "Mike Spector (BettingPros)",
+      "source_article_id": 8026,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-td-scorers-picks-seahawks-vs-broncos/",
+      "rationale": "The matchup is a brutal one for J.K. Dobbins.",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
       "parlay_utility": {
         "role": "End-Zone Target",
         "synergy_tags": [
           "anytime_td",
-          "DET_offense"
+          "DEN_offense"
         ],
         "positive_correlations": [
-          "Sam LaPorta Receiving Yards"
+          "Troy Franklin Receiving Yards",
+          "Bo Nix Passing Yards",
+          "Bo Nix Passing Yards"
         ]
       }
     },
     {
-      "id": "prop__7255__roman_wilson__anytime_td",
-      "player": "Roman Wilson",
-      "team": "PIT",
-      "game": "IND @ PIT",
-      "game_slate": "Sunday Early Window",
-      "category": "anytime_td",
-      "category_label": "Anytime Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "Yes",
-      "side": "anytime",
-      "price": "+285",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Dan Servodidio (BettingPros)",
-      "source_article_id": 7255,
-      "source_url": "https://www.bettingpros.com/articles/nfl-week-5-anytime-td-scorer-win-parlays-2026/",
-      "rationale": "Let's go with some longer odds for our second parlay. The 2-2 Steelers return home after losing at Cleveland last week.",
-      "week": 5,
-      "tier": 2,
-      "tier_label": "Tier 2: Secondary Pick",
-      "weight": 0.7,
-      "parlay_utility": {
-        "role": "End-Zone Target",
-        "synergy_tags": [
-          "anytime_td",
-          "PIT_offense"
-        ],
-        "positive_correlations": [
-          "DK Metcalf Receiving Yards"
-        ]
-      }
-    },
-    {
-      "id": "prop__7254__chris_olave__receptions",
-      "player": "Chris Olave",
-      "team": "NO",
-      "game": "MIN @ NO",
-      "game_slate": "Sunday Early Window",
-      "category": "receptions",
-      "category_label": "Receptions",
-      "stat_type": "receiving",
-      "line": "6.5",
-      "side": "over",
-      "price": "+105",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Jason Radowitz (BettingPros)",
-      "source_article_id": 7254,
-      "source_url": "https://www.bettingpros.com/articles/best-nfl-bets-trends-for-week-5-2026/",
-      "rationale": "-101 to -120 Receptions Unders (≤20% Over Hit Rate L5) DK Metcalf has hit the under on his receiving yards prop in six straight home games. He's got an exciting matchup against the Colts, and just recorded 115 yards against the Browns.",
-      "week": 5,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receptions",
-          "NO_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__7254__dk_metcalf__receiving_yards",
-      "player": "DK Metcalf",
-      "team": "PIT",
-      "game": "IND @ PIT",
-      "game_slate": "Sunday Early Window",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "52.5",
-      "side": "under",
-      "price": "-114",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Jason Radowitz (BettingPros)",
-      "source_article_id": 7254,
-      "source_url": "https://www.bettingpros.com/articles/best-nfl-bets-trends-for-week-5-2026/",
-      "rationale": "Derrick Henry Receptions Unders (Away) Derrick Henry has at least one reception in two of the first four games this season. However, he's not known for his catching ability, with at least two catches in just two of his last 10 games, and he has hit this prop in just 30% of his last 20 games.",
-      "week": 5,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "PIT_offense"
-        ],
-        "positive_correlations": [
-          "Roman Wilson Anytime Touchdown Scorer"
-        ]
-      }
-    },
-    {
-      "id": "prop__7254__derrick_henry__receptions",
-      "player": "Derrick Henry",
-      "team": "BAL",
-      "game": "BAL @ ATL",
-      "game_slate": "Sunday Night Football",
-      "category": "receptions",
-      "category_label": "Receptions",
-      "stat_type": "receiving",
-      "line": "1.5",
-      "side": "under",
-      "price": "-230",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Jason Radowitz (BettingPros)",
-      "source_article_id": 7254,
-      "source_url": "https://www.bettingpros.com/articles/best-nfl-bets-trends-for-week-5-2026/",
-      "rationale": "Derrick Henry prop flagged by Jason Radowitz (BettingPros).",
-      "week": 5,
-      "tier": 2,
-      "tier_label": "Tier 2: Secondary Pick",
-      "weight": 0.7,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receptions",
-          "BAL_offense"
-        ],
-        "positive_correlations": [
-          "Derrick Henry Rushing Yards"
-        ]
-      }
-    },
-    {
-      "id": "prop__7256__omarion_hampton__rushing_yards",
-      "player": "Omarion Hampton",
-      "team": "LAC",
-      "game": "DEN @ LAC",
-      "game_slate": "Sunday Late Window",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "70+",
-      "side": "over",
-      "price": "+479",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Phil Wood (BettingPros)",
-      "source_article_id": 7256,
-      "source_url": "https://www.bettingpros.com/articles/nfl-week-5-picks-sleepers-longshot-bets-2026/",
-      "rationale": "The Chargers' offense has been abysmal this season. They're averaging just 16.8 points and 306.8 total yards per game.",
-      "week": 5,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Ground Game Piece",
-        "synergy_tags": [
-          "rushing_yards",
-          "LAC_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__7256__cam_ward__passing_yards",
-      "player": "Cam Ward",
-      "team": "TEN",
-      "game": "HOU @ TEN",
-      "game_slate": "Sunday Early Window",
+      "id": "prop__8027__bo_nix__passing_yards",
+      "player": "Bo Nix",
+      "team": "DEN",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
       "category": "passing_yards",
       "category_label": "Passing Yards",
       "stat_type": "passing",
-      "line": "260+",
-      "side": "over",
-      "price": "+505",
+      "line": "200.5",
+      "side": "under",
+      "price": "-111",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Phil Wood (BettingPros)",
-      "source_article_id": 7256,
-      "source_url": "https://www.bettingpros.com/articles/nfl-week-5-picks-sleepers-longshot-bets-2026/",
-      "rationale": "In two games against the Texans last season, Cam Ward never threw for more than 194 yards. In his first game against the team, he completed just 10 of his 26 passes for 108 yards.",
-      "week": 5,
+      "analyst": "Richard Janvrin (BettingPros)",
+      "source_article_id": 8027,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-same-game-parlay-seahawks-vs-broncos/",
+      "rationale": "Heading into Week 6, Bo Nix has thrown for 201+ yards in two games, but he's coming off 123 passing yards on 27 attempts. Through five weeks, he's completed 59.9% of his passes for 942 yards (5.8 yards per attempt), six touchdowns and three interceptions.",
+      "week": 6,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
@@ -728,61 +327,201 @@
         "role": "Passing Volume Anchor",
         "synergy_tags": [
           "passing_yards",
-          "TEN_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__7237__derrick_henry__rushing_yards",
-      "player": "Derrick Henry",
-      "team": "BAL",
-      "game": "BAL @ ATL",
-      "game_slate": "Sunday Night Football",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "81.5",
-      "side": "under",
-      "price": "-120",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Zachary Cohen (VSiN)",
-      "source_article_id": 7237,
-      "source_url": "https://vsin.com/nfl/ravens-vs-falcons-predictions-week-5-sunday-night-football-odds-picks-and-player-props/",
-      "rationale": "This isn't a game in which I'm looking to take a player prop, but I do think Henry's rushing yard total is a little high. Our OptaAI player prop projections have him finishing with 71.26 yards, and you can get Under 81.5.",
-      "week": 5,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Ground Game Piece",
-        "synergy_tags": [
-          "rushing_yards",
-          "BAL_offense"
+          "DEN_offense"
         ],
         "positive_correlations": [
-          "Derrick Henry Receptions"
+          "J.K. Dobbins Anytime Touchdown Scorer",
+          "Bo Nix Passing Yards"
         ]
       }
     },
     {
-      "id": "prop__6999__romeo_doubs__receiving_yards",
-      "player": "Romeo Doubs",
-      "team": "NE",
-      "game": "LV @ NE",
-      "game_slate": "Sunday Early Window",
+      "id": "prop__8027__jaxon_smith_njigba__anytime_td",
+      "player": "Jaxon Smith-Njigba",
+      "team": "SEA",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "+105",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Richard Janvrin (BettingPros)",
+      "source_article_id": 8027,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-same-game-parlay-seahawks-vs-broncos/",
+      "rationale": "It's likely no surprise, but Jaxon Smith-Njigba has scored in all but one game this season. He leads the NFL in receiving yards and receiving touchdowns.",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "anytime_td",
+          "SEA_offense"
+        ],
+        "positive_correlations": [
+          "Jaxon Smith-Njigba Receiving/Rushing Yards",
+          "Jaxon Smith-Njigba First Touchdown Scorer",
+          "Emanuel Wilson Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__8002__emanuel_wilson__receiving_yards",
+      "player": "Emanuel Wilson",
+      "team": "SEA",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
       "category": "receiving_yards",
       "category_label": "Receiving Yards",
       "stat_type": "receiving",
-      "line": "50.5",
+      "line": "9.5",
+      "side": "over",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Sam Farley ... (Action Network)",
+      "source_article_id": 8002,
+      "source_url": "https://www.actionnetwork.com/nfl/seahawks-vs-broncos-player-props-for-sam-darnold-jk-dobbins-emanuel-wilson-troy-franklin",
+      "rationale": "It’s been two games since Jadarian Price went down and Emanuel Wilson has had significant volume as the Seahawks’ RB1 with 41 rushing attempts. The over on his rushing yards is intriguing, but I'm going to target his receiving yards in this spot.",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "SEA_offense"
+        ],
+        "positive_correlations": [
+          "Jaxon Smith-Njigba Receiving/Rushing Yards",
+          "Jaxon Smith-Njigba First Touchdown Scorer",
+          "Jaxon Smith-Njigba Anytime Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__7883__bo_nix__passing_yards",
+      "player": "Bo Nix",
+      "team": "DEN",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "passing_yards",
+      "category_label": "Passing Yards",
+      "stat_type": "passing",
+      "line": "199.5",
+      "side": "under",
+      "price": "-111",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (BettingPros)",
+      "source_article_id": 7883,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-picks-seahawks-vs-broncos-week-6/",
+      "rationale": "Bo Nix has struggled mightily this season. According to the Fantasy Points Data Suite 2.0, among 37 quarterbacks with at least 50 dropbacks, Nix ranks: 32nd in completion rate (59.9%) 21st in adjusted completion rate (76.1%) 30th in completion percentage over expectation (-1.0% CPOE) 27th in passing yards per game (188.4) 25th in adjusted net yards per pass attempt (5.35 ANY/A) Nix has reached the 200-passing-yard threshold only twice in five starts, and he threw for a season-low 123 yards in S",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_yards",
+          "DEN_offense"
+        ],
+        "positive_correlations": [
+          "J.K. Dobbins Anytime Touchdown Scorer",
+          "Bo Nix Passing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__7883__jaxon_smith_njigba__receiving_yards",
+      "player": "Jaxon Smith-Njigba",
+      "team": "SEA",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "94.5",
+      "side": "over",
+      "price": "-112",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (BettingPros)",
+      "source_article_id": 7883,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-picks-seahawks-vs-broncos-week-6/",
+      "rationale": "Jaxon Smith-Njigba is following up his electrifying 2025 campaign with an even more impressive start. Among 102 players with at least 100 routes, Smith-Njigba ranks: 2nd in target share (32.7%) 2nd in targets per route run (0.35 TPRR) 1st in first-read rate (43.1%) 1st in air yard share (53.3%) 1st in receiving yards per game (116.6) 1st in yards per route run (4.22 YPRR) Patrick Surtain II was listed as a non-participant for Denver's walkthrough on Tuesday after missing last week's game with a",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "SEA_offense"
+        ],
+        "positive_correlations": [
+          "Jaxon Smith-Njigba Receiving/Rushing Yards",
+          "Jaxon Smith-Njigba First Touchdown Scorer",
+          "Jaxon Smith-Njigba Anytime Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__7883__j_k_dobbins__rush_attempts",
+      "player": "J.K. Dobbins",
+      "team": "DEN",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "rush_attempts",
+      "category_label": "Rush Attempts",
+      "stat_type": "rushing",
+      "line": "13.5",
+      "side": "over",
+      "price": "-114",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (BettingPros)",
+      "source_article_id": 7883,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-picks-seahawks-vs-broncos-week-6/",
+      "rationale": "In the first four weeks, J.K. Dobbins had 46 rush attempts (11.5 per game).",
+      "week": 6,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rush_attempts",
+          "DEN_offense"
+        ],
+        "positive_correlations": [
+          "Troy Franklin Receiving Yards",
+          "J.K. Dobbins Anytime Touchdown Scorer",
+          "Jaylen Waddle Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__7849__jaylen_waddle__receiving_yards",
+      "player": "Jaylen Waddle",
+      "team": "DEN",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "46.5",
       "side": "over",
       "price": "-115",
       "book": "DraftKings/FanDuel (per source article)",
       "analyst": "Zachary Cohen (VSiN)",
-      "source_article_id": 6999,
-      "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-5-best-bets-predictions-and-player-props-from-zachary-cohen/",
-      "rationale": "vs. Raiders - Vegas is 32nd in the NFL in YAC allowed against wide receivers + 31st in the NFL in ADOT allowed to WR.",
-      "week": 5,
+      "source_article_id": 7849,
+      "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-6-best-bets-predictions-and-player-props-from-zachary-cohen/",
+      "rationale": "vs. Seahawks - Check out my Thursday Night Football Preview !",
+      "week": 6,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
@@ -790,256 +529,12 @@
         "role": "Pass-Catching Piece",
         "synergy_tags": [
           "receiving_yards",
-          "NE_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__6999__jameis_winston__passing_tds",
-      "player": "Jameis Winston",
-      "team": "NYG",
-      "game": "NYG @ WAS",
-      "game_slate": "Sunday Early Window",
-      "category": "passing_tds",
-      "category_label": "Passing TDs",
-      "stat_type": "passing",
-      "line": "1.5",
-      "side": "over",
-      "price": "+162",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Zachary Cohen (VSiN)",
-      "source_article_id": 6999,
-      "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-5-best-bets-predictions-and-player-props-from-zachary-cohen/",
-      "rationale": "vs. Commanders Week 4 Picks Browns ML (+125 - 1.5 units) vs.",
-      "week": 5,
-      "tier": 2,
-      "tier_label": "Tier 2: Secondary Pick",
-      "weight": 0.7,
-      "parlay_utility": {
-        "role": "Passing Volume Anchor",
-        "synergy_tags": [
-          "passing_tds",
-          "NYG_offense"
+          "DEN_offense"
         ],
         "positive_correlations": [
-          "Isaiah Likely Receiving Yards"
-        ]
-      }
-    },
-    {
-      "id": "prop__7202__greg_dulcich__receiving_yards",
-      "player": "Greg Dulcich",
-      "team": "MIA",
-      "game": "CIN @ MIA",
-      "game_slate": "Sunday Early Window",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "26.5",
-      "side": "over",
-      "price": "-125",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Dustin Swedelson (VSiN)",
-      "source_article_id": 7202,
-      "source_url": "https://vsin.com/nfl/favorite-week-5-nfl-player-props-from-dustin-swedelson-and-optaai/",
-      "rationale": "We bet Greg Dulcich over receiving yards last week. He rewarded our confidence with zero catches for zero yards at Minnesota.",
-      "week": 5,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "MIA_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__7198__sam_laporta__receiving_yards",
-      "player": "Sam LaPorta",
-      "team": "DET",
-      "game": "DET @ ARI",
-      "game_slate": "Sunday Late Window",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "50.5",
-      "side": "over",
-      "price": "-120",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Josh Shepardson (Sharp Football)",
-      "source_article_id": 7198,
-      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-5-2026/",
-      "rationale": "Isaiah Likely Over 40.5 Receiving Yards (-125) Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 5 Best Prop Bet: Quinshon Judkins Under 59.5 Rushing Yards (-112) Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) bu",
-      "week": 5,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "DET_offense"
-        ],
-        "positive_correlations": [
-          "Amon-Ra St. Brown Anytime Touchdown Scorer"
-        ]
-      }
-    },
-    {
-      "id": "prop__7198__isaiah_likely__receiving_yards",
-      "player": "Isaiah Likely",
-      "team": "NYG",
-      "game": "NYG @ WAS",
-      "game_slate": "Sunday Early Window",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "40.5",
-      "side": "over",
-      "price": "-125",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Josh Shepardson (Sharp Football)",
-      "source_article_id": 7198,
-      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-5-2026/",
-      "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 5 Best Prop Bet: Quinshon Judkins Under 59.5 Rushing Yards (-112) Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) but only 28th in rushing yards per game (44.3), 4",
-      "week": 5,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "NYG_offense"
-        ],
-        "positive_correlations": [
-          "Jameis Winston Passing TDs"
-        ]
-      }
-    },
-    {
-      "id": "prop__7198__quinshon_judkins__rushing_yards",
-      "player": "Quinshon Judkins",
-      "team": "CLE",
-      "game": "CLE @ NYJ",
-      "game_slate": "Sunday Early Window",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "59.5",
-      "side": "under",
-      "price": "-112",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Josh Shepardson (Sharp Football)",
-      "source_article_id": 7198,
-      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-5-2026/",
-      "rationale": "Judkins has been one of the least efficient running backs this season. According to the Fantasy Points Data Suite, among 46 running backs with at least 25 carries this year, Judkins is tied for 16th in rush attempts per game (14.8) but only 28th in rushing yards per game (44.3), 42nd in yards per carry (3.00), 43rd in yards before contact per attempt (1.14), 31st in yards after contact per attempt (1.86), 43rd in explosive run rate (3.6%), tied for 36th in success rate (40.7%), 41st in stuff ra",
-      "week": 5,
-      "tier": 2,
-      "tier_label": "Tier 2: Secondary Pick",
-      "weight": 0.7,
-      "parlay_utility": {
-        "role": "Ground Game Piece",
-        "synergy_tags": [
-          "rushing_yards",
-          "CLE_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__7105__zay_flowers__receptions",
-      "player": "Zay Flowers",
-      "team": "BAL",
-      "game": "BAL @ ATL",
-      "game_slate": "Sunday Night Football",
-      "category": "receptions",
-      "category_label": "Receptions",
-      "stat_type": "receiving",
-      "line": "6+",
-      "side": "over",
-      "price": "-109",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL)",
-      "source_article_id": 7105,
-      "source_url": "https://www.espn.com/espn/betting/story/_/id/50107426/week-5-nfl-odds-props-best-bets-sunday-games",
-      "rationale": "The Zay Flowers over betting will continue until morale improves. Flowers is on a ridiculous pace to start the season.",
-      "week": 5,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receptions",
-          "BAL_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__7105__kalif_raymond__receptions",
-      "player": "Kalif Raymond",
-      "team": "CHI",
-      "game": "CHI @ GB",
-      "game_slate": "Sunday Early Window",
-      "category": "receptions",
-      "category_label": "Receptions",
-      "stat_type": "receiving",
-      "line": "4+",
-      "side": "over",
-      "price": "+123",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL)",
-      "source_article_id": 7105,
-      "source_url": "https://www.espn.com/espn/betting/story/_/id/50107426/week-5-nfl-odds-props-best-bets-sunday-games",
-      "rationale": "Raymond's furious start to the season crashed with a two-catch, six-yard performance against the Jets in Week 4, creating a strong buy-low opportunity. Raymond was the deep downfield target on two Tyson Bagent would-be interceptions (both reversed on penalty) and retained a 50% route rate on Bears dropbacks.",
-      "week": 5,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receptions",
-          "CHI_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__6737__bhayshul_tuten__rushing_yards",
-      "player": "Bhayshul Tuten",
-      "team": "JAX",
-      "game": "PHI @ JAX",
-      "game_slate": "Sunday Early Window",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "50+",
-      "side": "over",
-      "price": "-184",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Steve Krebs (BettingPros)",
-      "source_article_id": 6737,
-      "source_url": "https://www.bettingpros.com/articles/nfl-week-5-picks-predictions-best-early-parlays-2026/",
-      "rationale": "We close out our parlay with a recency bias play that could easily be eclipsed by halftime. Bhayshul Tuten is averaging 69.2 yards this season on 4.6 yards per carry.",
-      "week": 5,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Ground Game Piece",
-        "synergy_tags": [
-          "rushing_yards",
-          "JAX_offense"
-        ],
-        "positive_correlations": [
-          "Bhayshul Tuten Rushing Yards"
+          "Troy Franklin Receiving Yards",
+          "J.K. Dobbins Anytime Touchdown Scorer",
+          "J.K. Dobbins Rush Attempts"
         ]
       }
     }
