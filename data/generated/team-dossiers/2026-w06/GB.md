@@ -1,6 +1,6 @@
 # GB Packers — dossier, target Week 6 (data through W5)
-Built 2026-10-13T23:40:26.697Z · git 706ab47 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
-Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability NOT BUILT.
+Built 2026-10-15T01:46:05.490Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 GB · NFC NFC North · HC Matt LaFleur · Lambeau Field (outdoors, grass) · W6: vs DAL Sun 10/18 17:20
@@ -45,5 +45,17 @@ SRS 1.07 (#15) · net PPG -1.6 (#21) · Pythag 0.456 (#21) · model rank #17
 HC Matt LaFleur · neutral pass rate 0.663 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See GB.json → scheme_context.secondary_matchup.
 
-## Not built yet
-Availability (injuries, projected starters, impact digest) and priors (2025 final, camp notes, trench ratings) are not in this version. Player names must come from the roster-gated availability layer, never this file.
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Jordan Love [ok]
+Out/IR: Micah Parsons DE Out; Javon Hargrave DT Out; Chris Brooks RB Injured Reserve; Savion Williams WR Injured Reserve
+Questionable/Doubtful: Keisean Nixon CB Questionable; Evan Williams S Questionable; Skyy Moore WR Questionable; Devonte Wyatt DT Questionable; Jonathan Ford DT Questionable; Jacob Monk C Questionable (+3 more)
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 9 players; skill: Jayden Reed WR; Luke Musgrave TE; Thomas Yassmin TE
+OL/DL cluster risk (derived): OL watch, DL cluster
+Impact digest (top by score): Jordan Love QB active_news/unknown; MarShawn Lloyd RB active_news/unknown; Tucker Kraft TE active_news/unknown
+Projected starters: manual_and_estimated_signals, 3 players
+
+## Priors (prior_season / preseason_prior; not current-season evidence)
+2025 final [prior_season]: 9-7-1 · diff 31 · Pythag 0.549 · SRS #15 · EPA off #4 def #22 · DVOA 9.8 (#11) off 12.6 def 2.4
+Camp notes [preseason_prior, Jul 31]: 2 kept, 0 withheld (player left the team)
+Trench composite [preseason_prior, 2026-09-02]: #30 · run block z -0.78 · pass block z -1.84 · run D z -1.48 · pass rush z 1.07

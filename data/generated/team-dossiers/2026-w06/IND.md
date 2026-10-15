@@ -1,6 +1,6 @@
 # IND Colts — dossier, target Week 6 (data through W5)
-Built 2026-10-13T23:40:26.767Z · git 706ab47 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
-Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability NOT BUILT.
+Built 2026-10-15T01:46:05.567Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 IND · AFC AFC South · HC Shane Steichen · Lucas Oil Stadium (, fieldturf) · W6: vs TEN Sun 10/18 10:00
@@ -45,5 +45,17 @@ SRS -2.81 (#23) · net PPG -2.8 (#23) · Pythag 0.437 (#22) · model rank #24
 HC Shane Steichen · neutral pass rate 0.575 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See IND.json → scheme_context.secondary_matchup.
 
-## Not built yet
-Availability (injuries, projected starters, impact digest) and priors (2025 final, camp notes, trench ratings) are not in this version. Player names must come from the roster-gated availability layer, never this file.
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Daniel Jones [ok]
+Out/IR: Alec Pierce WR Injured Reserve; Arden Key DE Injured Reserve; Will Mallory TE Injured Reserve
+Questionable/Doubtful: Ashton Dulin WR Questionable; Josh Downs WR Questionable; Jaylahn Tuimoloau DE Questionable; Jalen Travis OT Questionable; Matt Goncalves G Questionable; Jaylon Carlies LB Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 5 players; skill: Carson Towt TE; D.J. Montgomery WR; Sean McKeon TE
+OL/DL cluster risk (derived): OL watch, DL watch
+Impact digest (top by score): Daniel Jones QB status_update/unknown; Daniel Jones QB active_news/unknown; Jonathan Taylor RB status_update/unknown; Jonathan Taylor RB active_news/unknown (+2 more)
+Projected starters: manual_and_estimated_signals, 4 players
+
+## Priors (prior_season / preseason_prior; not current-season evidence)
+2025 final [prior_season]: 8-9 · diff 54 · Pythag 0.573 · SRS #8 · EPA off #7 def #16 · DVOA 18.9 (#5) off 14.2 def -0.6
+Camp notes [preseason_prior, Jul 31]: 1 kept, 1 withheld (player left the team)
+Trench composite [preseason_prior, 2026-09-02]: #6 · run block z 1.51 · pass block z 0.58 · run D z 0.20 · pass rush z -0.34

@@ -1,7 +1,7 @@
 """Fetch full current NFL rosters (active, IR/out, suspended, practice squad) from ESPN's public
 team-roster API for all 32 teams -> data/nfl-rosters/espn-full-rosters-latest.json.
 This is the roster ground truth for scripts/nfl-rosters/roster_vet.py (the older roster-map-latest.json
-is a partial ~800-player map and can't catch a traded player). Free, read-only.
+is a partial ~800-player map and can't catch a traded player). Free, read-only. Applies data/nfl-rosters/operator-status-overrides.json (Andy-reported trades/IR) after the pull.
 Usage: python3 scripts/nfl-rosters/fetch_espn_rosters.py
 """
 import json, urllib.request, datetime, pathlib, sys
@@ -24,8 +24,12 @@ for t in teams:
                    'status': (a.get('status') or {}).get('type') or (a.get('status') or {}).get('name'), 'espn_id': a.get('id')}
             players.setdefault(a['fullName'], []).append(rec)
     per_team[ab] = n
-json.dump({'generated_at': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'source': 'ESPN site.api teams/{id}/roster',
-           'team_count': len(per_team), 'player_count': sum(per_team.values()), 'per_team': per_team, 'players': players},
-          open(OUT, 'w', encoding='utf-8'), indent=1)
+snap = {'generated_at': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'source': 'ESPN site.api teams/{id}/roster',
+        'team_count': len(per_team), 'player_count': sum(per_team.values()), 'per_team': per_team, 'players': players}
+# Andy-reported trades/IR that ESPN's public feed lags (data/nfl-rosters/operator-status-overrides.json)
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import operator_overrides
+for line in operator_overrides.apply(snap): print('override:', line)
+json.dump(snap, open(OUT, 'w', encoding='utf-8'), indent=1)
 print(f'wrote {OUT.relative_to(ROOT)}: {len(per_team)} teams, {sum(per_team.values())} players')
 if len(per_team) != 32 or min(per_team.values()) < 45: sys.exit('WARN: incomplete roster pull')

@@ -1,6 +1,6 @@
 # PHI Eagles — dossier, target Week 6 (data through W5)
-Built 2026-10-13T23:40:27.189Z · git 706ab47 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
-Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability NOT BUILT.
+Built 2026-10-15T01:46:06.042Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 PHI · NFC NFC East · HC Nick Sirianni · Lincoln Financial Field (outdoors, grass) · W6: vs CAR Sun 10/18 10:00
@@ -45,5 +45,17 @@ SRS -5.11 (#26) · net PPG -4 (#26) · Pythag 0.386 (#26) · model rank #26
 HC Nick Sirianni · neutral pass rate 0.581 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See PHI.json → scheme_context.secondary_matchup.
 
-## Not built yet
-Availability (injuries, projected starters, impact digest) and priors (2025 final, camp notes, trench ratings) are not in this version. Player names must come from the roster-gated availability layer, never this file.
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Jalen Hurts [ok]
+Out/IR: Landon Dickerson G Injured Reserve; Jakorian Bennett CB Injured Reserve; Eli Stowers TE Injured Reserve; Grant Calcaterra TE Injured Reserve
+Questionable/Doubtful: Jonathan Greenard LB Questionable; Marcus Epps S Questionable; Hollywood Brown WR Questionable; Tyler Steen G Questionable; E.J. Jenkins TE Questionable; AJ Epenesa DE Questionable (+7 more)
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 4 players; skill: Johnny Wilson WR
+OL/DL cluster risk (derived): OL watch, DL none
+Impact digest (top by score): Jalen Hurts QB status_update/unknown; Jalen Hurts QB active_news/unknown; Saquon Barkley RB status_update/unknown; Saquon Barkley RB status_update/unknown
+Projected starters: manual_and_estimated_signals, 3 players
+
+## Priors (prior_season / preseason_prior; not current-season evidence)
+2025 final [prior_season]: 11-6 · diff 54 · Pythag 0.590 · SRS #11 · EPA off #16 def #8 · DVOA 7.9 (#13) off 0.5 def -9.9
+Camp notes [preseason_prior, Jul 31]: 0 kept, 0 withheld (player left the team)
+Trench composite [preseason_prior, 2026-09-02]: #2 · run block z 0.73 · pass block z 2.12 · run D z 0.16 · pass rush z 1.16

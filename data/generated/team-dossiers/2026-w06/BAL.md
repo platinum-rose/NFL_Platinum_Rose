@@ -1,6 +1,6 @@
 # BAL Ravens — dossier, target Week 6 (data through W5)
-Built 2026-10-13T23:40:26.359Z · git 706ab47 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
-Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability NOT BUILT.
+Built 2026-10-15T01:46:05.123Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 BAL · AFC AFC North · HC Jesse Minter · M&T Bank Stadium (outdoors, grass) · W6: @ CLE Sun 10/18 10:00
@@ -45,5 +45,17 @@ SRS 1.05 (#16) · net PPG 5.4 (#6) · Pythag 0.619 (#7) · model rank #10
 HC Jesse Minter · neutral pass rate 0.477 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See BAL.json → scheme_context.secondary_matchup.
 
-## Not built yet
-Availability (injuries, projected starters, impact digest) and priors (2025 final, camp notes, trench ratings) are not in this version. Player names must come from the roster-gated availability layer, never this file.
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Lamar Jackson [AMBIGUOUS] Lamar Jackson Questionable;
+Out/IR: Ja'Kobi Lane WR Injured Reserve
+Questionable/Doubtful: Cam Jurgens C Questionable; Nick Vannett TE Questionable; Matt Hibner TE Questionable; Trenton Simpson LB Questionable; Roger Rosengarten OT Questionable; John Simpson G Questionable (+7 more)
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Adam Randall RB; Durham Smythe TE; Skylar Thompson QB
+OL/DL cluster risk (derived): OL watch, DL none
+Impact digest (top by score): Lamar Jackson QB setback/worsening; Lamar Jackson QB status_update/unknown; Nick Vannett TE limited/stable; Nick Vannett TE status_update/unknown
+Projected starters: manual_and_estimated_signals, 2 players
+
+## Priors (prior_season / preseason_prior; not current-season evidence)
+2025 final [prior_season]: 8-9 · diff 26 · Pythag 0.537 · SRS #12 · EPA off #10 def #18 · DVOA 7.3 (#14) off 6.4 def 1.2
+Camp notes [preseason_prior, Jul 31]: 0 kept, 0 withheld (player left the team)
+Trench composite [preseason_prior, 2026-09-02]: #9 · run block z -0.30 · pass block z 0.38 · run D z 1.08 · pass rush z -0.25

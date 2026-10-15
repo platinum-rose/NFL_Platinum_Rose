@@ -25,7 +25,18 @@ for (const t of idx.teams) {
   const ptsFor = d.game_log.filter((g) => !g.bye).reduce((s, g) => s + g.pts, 0); if (ptsFor !== d.standing?.pf) errs.push(`${f}: PF log ${ptsFor} != standing ${d.standing?.pf}`);
   const ptsAg = d.game_log.filter((g) => !g.bye).reduce((s, g) => s + g.opp_pts, 0); if (ptsAg !== d.standing?.pa) errs.push(`${f}: PA log ${ptsAg} != standing ${d.standing?.pa}`);
   for (const k of ['standing', 'ftn', 'efficiency_nflverse', 'power']) if (!(k in d.data_quality)) errs.push(`${f}: data_quality.${k}`);
-  if (d.availability.roster_gate !== 'not_run' && d.availability.roster_gate !== 'passed') warn.push(`${f}: roster_gate ${d.availability.roster_gate}`);
+  const av = d.availability, pr = d.priors;
+  if (!['built', 'partial'].includes(av.status)) errs.push(`${f}: availability.status ${av.status}`);
+  if (!['built', 'partial'].includes(pr.status)) errs.push(`${f}: priors.status ${pr.status}`);
+  if (typeof av.roster_gate !== 'string') errs.push(`${f}: roster_gate not a string`);
+  else if (av.roster_gate !== 'passed') warn.push(`${f}: roster_gate ${av.roster_gate}`);
+  for (const k of ['as_of', 'use_policy', 'reported_injuries', 'operator_reported', 'projected_starters', 'impact_digest', 'live_events']) if (!(k in av)) errs.push(`${f}: availability.${k} missing`);
+  const prl = pr.prior_season_2025; if (!prl) errs.push(`${f}: priors.prior_season_2025 missing`);
+  if (!JSON.stringify(pr).includes('preseason_prior') && pr.camp_notes?.items?.length) errs.push(`${f}: camp notes not labelled preseason_prior`);
+  if (!JSON.stringify(pr).includes('prior_season')) errs.push(`${f}: priors lacks prior_season label`);
+  const excl = new Set((av.operator_reported || []).filter((o) => o.kind === 'status').map((o) => o.player));
+  for (const e of d.scheme_context?.secondary_matchup?.entries || []) for (const r of e.target_receivers || []) if (excl.has(r.player_name) || ['operator_ir', 'reported_out'].includes(r.availability_flag)) errs.push(`${f}: unavailable player ${r.player_name} still in target_receivers`);
+  if (av.as_of?.espn_status && Date.now() - Date.parse(av.as_of.espn_status) > 36 * 3600e3) warn.push(`${f}: ESPN status older than 36h`);
   scan(d, '$', f);
   const md = path.join(dir, `${t}.md`); if (!fs.existsSync(md)) errs.push(`missing ${t}.md`); else {
     const m = fs.readFileSync(md, 'utf8'); if (!/data through W\d/.test(m)) errs.push(`${t}.md: no through_week header`); if (!/FTN \w+ \(through W/.test(m)) errs.push(`${t}.md: FTN freshness missing`); if (/\b(ATS|over\/under)\b/i.test(m.replace('no market data (lines, ATS/OU, prices)', ''))) errs.push(`${t}.md: market term`);

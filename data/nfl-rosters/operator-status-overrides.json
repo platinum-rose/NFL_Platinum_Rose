@@ -1,0 +1,31 @@
+{
+  "schema": "operator_status_overrides_v1",
+  "purpose": "Player facts Andy reports that ESPN's public roster/injury feeds lag on (trades, IR). scripts/nfl-rosters/operator_overrides.py applies them to data/nfl-rosters/espn-full-rosters-latest.json on every fetch_espn_rosters.py run, so the roster gate, matchup seeds, availability layer and dossiers all see them. Add entries only to record what Andy states; remove an entry once ESPN reflects the same fact or the player returns.",
+  "entries": [
+    {
+      "id": "harrison-trade-2026-10-13",
+      "kind": "team_change",
+      "player": "Marvin Harrison Jr.",
+      "position": "WR",
+      "from_team": "ARI",
+      "to_team": "HOU",
+      "effective": "2026-10-13",
+      "reported_by": "Andy",
+      "reported_at": "2026-10-14",
+      "note": "Traded to Houston 2026-10-13 (Andy). ESPN's roster already showed HOU on 2026-10-14; this entry keeps older sources (roster-map-latest.json) and any lagging ESPN pull from putting him back on ARI."
+    },
+    {
+      "id": "franklin-ir-2026-10-14",
+      "kind": "status",
+      "player": "Troy Franklin",
+      "team": "DEN",
+      "position": "WR",
+      "status": "Injured Reserve",
+      "expected_duration": "extended (Andy: 'for a while'; no return date given)",
+      "effective": "2026-10-14",
+      "reported_by": "Andy",
+      "reported_at": "2026-10-14",
+      "note": "Not in ESPN's injuries feed (DEN listed Hufanga Out, Pat Bryant IR, Surtain Doubtful, Moss Questionable) and still in ESPN's offense roster group at 2026-10-14 13:20 PT. Treated as IR/out by the roster gate. Re-verify against ESPN or a team transaction and remove this entry once ESPN lists him."
+    }
+  ]
+}

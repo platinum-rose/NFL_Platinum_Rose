@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T23:40:26.623Z",
-  "builder": "team_dossier_builder_v1.0",
-  "git_head": "706ab47",
+  "built_at": "2026-10-15T01:46:05.413Z",
+  "builder": "team_dossier_builder_v1.1",
+  "git_head": "178a59c",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-13T23:40:24.431Z",
+      "generated_at": "2026-10-14T14:03:52.042Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
+      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -987,7 +987,8 @@
               ],
               "opportunity_score": 6,
               "notes": "LAR Triple Crown WR. [moved from LAR per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Rashid Shaheed",
@@ -1007,7 +1008,8 @@
               ],
               "opportunity_score": 3.6,
               "notes": "NO Elite Deep Threat. [moved from NO per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Jaxon Smith-Njigba",
@@ -1026,7 +1028,8 @@
               ],
               "opportunity_score": 1.2,
               "notes": "SEA Rising Slot Star.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             }
           ],
           "severity_score": 1.35,
@@ -1041,7 +1044,8 @@
             "weekly_matchup_context"
           ],
           "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
+          "needs_human_review": true,
+          "excluded_unavailable": []
         },
         {
           "id": "sec_ceed8a349558ea62",
@@ -1138,7 +1142,8 @@
               ],
               "opportunity_score": 4.5,
               "notes": "JAX High Volume TE. [moved from JAX per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Jaylen Waddle",
@@ -1158,7 +1163,8 @@
               ],
               "opportunity_score": 3,
               "notes": "MIA Elite Speed WR2. [moved from MIA per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Marvin Mims Jr.",
@@ -1181,7 +1187,8 @@
               ],
               "opportunity_score": 2,
               "notes": "DEN Speed Threat.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Courtland Sutton",
@@ -1200,13 +1207,14 @@
               ],
               "opportunity_score": 1.5,
               "notes": "DEN X Receiver.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             }
           ],
           "severity_score": 2.7,
           "elite_absence_count": 0,
           "vulnerability_tier": "medium",
-          "confidence": 0.85,
+          "confidence": 0.89,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1215,20 +1223,672 @@
             "weekly_matchup_context"
           ],
           "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
+          "needs_human_review": true,
+          "excluded_unavailable": [
+            {
+              "player_name": "Troy Franklin",
+              "team": "DEN",
+              "availability_flag": "operator_ir",
+              "note": "removed from target_receivers at build (operator-reported IR or ESPN-reported Out/IR); seed row kept for his return"
+            }
+          ]
         }
       ],
       "note": "Entries pertain to the source week, not the target week."
     }
   },
   "availability": {
-    "status": "not_built_in_this_version",
-    "roster_gate": "not_run",
-    "note": "Agents must not name players from this dossier. Availability layer (injuries, projected starters, impact digest) is added in build step 3 behind the roster gate."
+    "status": "built",
+    "roster_gate": "passed",
+    "roster_gate_detail": {
+      "source": "data/generated/master-intel/w06-roster-vet.json",
+      "vet_status": "PASS",
+      "blocking_count": 0,
+      "roster_snapshot_generated_at": "2026-10-14T08:00:27.901983+00:00",
+      "roster_age_h_at_vet": 17.8,
+      "operator_overrides_applied": [
+        "harrison-trade-2026-10-13",
+        "franklin-ir-2026-10-14"
+      ],
+      "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
+    },
+    "as_of": {
+      "espn_status": "2026-10-15T01:45:41Z",
+      "availability_events": "2026-10-15T01:39:52.764Z",
+      "impact_digest": "2026-10-15T01:40:08.105Z",
+      "projected_starters": "2026-10-14T22:00:03.248Z",
+      "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+    },
+    "use_policy": "intel only; roster-gate first; not a projection or recommendation",
+    "qb": {
+      "espn_starter": "Bo Nix",
+      "flag": "ok",
+      "note": null,
+      "depth": [
+        "Bo Nix",
+        "Jarrett Stidham",
+        "Sam Ehlinger"
+      ],
+      "operator_confirmed": null
+    },
+    "reported_injuries": {
+      "out_ir": [
+        {
+          "player": "Pat Surtain II",
+          "pos": "CB",
+          "status": "Out",
+          "date": "2026-10-14",
+          "comment": "Surtain (ankle) has been ruled out for Thursday's game against the Seahawks.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Talanoa Hufanga",
+          "pos": "S",
+          "status": "Out",
+          "date": "2026-10-14",
+          "comment": "Hufanga (ankle) is expected to miss multiple weeks due to the injury he sustained in Sunday's 23-17 win over the Chargers, Jeremy Fowler and Jeff Legwold of ESP",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Pat Bryant",
+          "pos": "WR",
+          "status": "Injured Reserve",
+          "date": "2026-10-09",
+          "comment": "Bryant (ankle) was placed on the Broncos' injured reserve Friday.",
+          "roster_check": "roster_ir_out_group"
+        }
+      ],
+      "questionable_doubtful": [
+        {
+          "player": "Riley Moss",
+          "pos": "CB",
+          "status": "Questionable",
+          "date": "2026-10-14",
+          "comment": "Moss (ribs) is listed as questionable for Thursday's game against the Seahawks.",
+          "roster_check": "ok"
+        }
+      ],
+      "other": []
+    },
+    "operator_reported": [
+      {
+        "id": "franklin-ir-2026-10-14",
+        "kind": "status",
+        "player": "Troy Franklin",
+        "position": "WR",
+        "status": "Injured Reserve",
+        "expected_duration": "extended (Andy: 'for a while'; no return date given)",
+        "effective": "2026-10-14",
+        "reported_by": "Andy",
+        "roster_check": "operator_ir"
+      }
+    ],
+    "roster_ir_out_unconfirmed": [
+      {
+        "player": "Caleb Lohner",
+        "pos": "TE",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Frank Crum",
+        "pos": "OT",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Jonah Coleman",
+        "pos": "RB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Levelle Bailey",
+        "pos": "LB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Matt Henningsen",
+        "pos": "DE",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Michael Deiter",
+        "pos": "C",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Nick Gargiulo",
+        "pos": "G",
+        "roster_status": "day-to-day"
+      }
+    ],
+    "ol_dl_cluster_risk": {
+      "ol": {
+        "hard_or_doubtful": 0,
+        "questionable": 0,
+        "risk": "none",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": []
+      },
+      "dl": {
+        "hard_or_doubtful": 0,
+        "questionable": 0,
+        "risk": "none",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": []
+      }
+    },
+    "live_events": {
+      "window": "published within 10 days of build; latest per player; cap 12",
+      "rows": [
+        {
+          "player_name": "Jonah Coleman",
+          "position": "RB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Jonah Coleman IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Pat Bryant",
+          "position": "WR",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Pat Bryant IR",
+          "practice": [
+            "--",
+            "--",
+            "--"
+          ],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Matt Henningsen",
+          "position": "DT",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Matt Henningsen IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Levelle Bailey",
+          "position": "LB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Levelle Bailey IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Riley Moss",
+          "position": "CB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "worsening",
+          "event_type": "setback",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-14T23:56:00.000Z",
+          "summary": "Moss (ribs) is listed as questionable for Thursday's game against the Seahawks.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Pat Surtain II",
+          "position": "CB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-14T23:52:00.000Z",
+          "summary": "Surtain (ankle) has been ruled out for Thursday's game against the Seahawks.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Talanoa Hufanga",
+          "position": "S",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-14T18:06:00.000Z",
+          "summary": "Hufanga (ankle) is expected to miss multiple weeks due to the injury he sustained in Sunday's 23-17 win over the Chargers, Jeremy Fowler and Jeff Legwold of ESP",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Evan Engram",
+          "position": "TE",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-14T02:34:00.000Z",
+          "summary": "Engram caught all four of his targets for 55 yards during the Broncos' 23-17 win over the Chargers on Sunday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Wil Lutz",
+          "position": "PK",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-12T16:11:00.000Z",
+          "summary": "Lutz went 3-for-4 on field-goal attempts and connected on both of his extra-point tries during the Broncos' 23-17 win over the Chargers on Sunday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Courtland Sutton",
+          "position": "WR",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-12T01:39:00.000Z",
+          "summary": "Sutton posted two catches (on three targets) for 18 yards and one touchdown during Sunday's 23-17 victory at the Chargers.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "RJ Harvey",
+          "position": "RB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-12T01:15:00.000Z",
+          "summary": "Harvey notched three carries for seven yards and didn't haul in his only target during Sunday's 23-17 road win versus the Chargers.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jaylen Waddle",
+          "position": "WR",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-12T01:07:00.000Z",
+          "summary": "Waddle corralled two of five targets for 19 yards and also had a nine-yard carry during Sunday's 23-17 road win against the Chargers.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "impact_digest": [
+      {
+        "player_name": "Bo Nix",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 93,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-12T00:58:00.000Z",
+        "summary": "Nix was 16-for-27 passing for 123 yards, one touchdown and no interceptions, took four carries for 10 yards and fumbled twice (one lost) during Sunday's 23-17 v",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Lil'Jordan Humphrey",
+        "position": "WR",
+        "unit": "offensive_skill",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "source_count": 1
+        },
+        "score": 39,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-10T00:22:00.000Z",
+        "summary": "The Broncos signed Humphrey off the practice squad to the active roster Friday.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Adam Prentice",
+        "position": "FB",
+        "unit": "offensive_skill",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "source_count": 1
+        },
+        "score": 39,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-03T23:03:00.000Z",
+        "summary": "The Broncos signed Prentice from their practice squad to their 53-man roster Saturday, Aric DiLalla of the team's official site reports.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      }
+    ],
+    "projected_starters": {
+      "coverage_status": "manual_and_estimated_signals",
+      "as_of": "2026-10-14T22:00:03.248Z",
+      "known": [
+        "Bo Nix QB"
+      ],
+      "estimated": [
+        "Lil'Jordan Humphrey WR",
+        "Adam Prentice FB"
+      ],
+      "missing": [
+        "independent second-source depth-chart reconciliation"
+      ],
+      "players": [
+        {
+          "player_name": "Bo Nix",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Adam Prentice",
+          "position": "FB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Lil'Jordan Humphrey",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "missing_inputs": [],
+    "caveats": [
+      "ESPN injury statuses lag game-day truth; official inactives decide.",
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+    ]
   },
   "priors": {
-    "status": "not_built_in_this_version",
-    "note": "2025 final / camp notes / trench ratings to be added in build step 3 (labelled prior_season / preseason_prior)."
+    "status": "built",
+    "label_policy": "Everything here is prior_season (2025 final) or preseason_prior (camp Jul 31, trench Sep 2). Never cite as current-season evidence; rosters and scheme have changed.",
+    "prior_season_2025": {
+      "label": "prior_season",
+      "use_policy": "context only",
+      "analytic": {
+        "games_played": 17,
+        "off_epa_per_play": 0.0454,
+        "def_epa_per_play": -0.0886,
+        "off_epa_rank": 11,
+        "def_epa_rank": 5,
+        "epa_per_dropback": 0.0925,
+        "qb_epa_per_dropback": 0.0925,
+        "dropback_success_rate": null,
+        "success_rate": null,
+        "cpoe": -1.2646,
+        "explosive_play_rate": null,
+        "explosive_pass_rate": null,
+        "explosive_run_rate": null,
+        "pressure_rate_allowed": null,
+        "pressure_rate_generated": null,
+        "sack_rate_allowed": 0.0362,
+        "sack_rate_generated": 0.1029,
+        "neutral_pass_rate": 0.5824,
+        "early_down_pass_rate": null,
+        "shotgun_rate": null,
+        "no_huddle_rate": 0.1098,
+        "play_action_rate": 0.1235,
+        "motion_rate": 0.374,
+        "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/team_stats.csv",
+          "source_file_mtime": "2026-06-06T01:26:03.837Z",
+          "offensive_dropbacks": 636,
+          "offensive_plays": 1092,
+          "defensive_dropbacks": 661,
+          "defensive_plays": 1061,
+          "ftn_charting": {
+            "ftn_charted_plays_offense": 1393,
+            "ftn_charted_plays_defense": 1409,
+            "screen_rate": 0.056,
+            "rpo_rate": 0.0696,
+            "trick_play_rate": 0.0029,
+            "qb_out_of_pocket_rate": 0.1357,
+            "interception_worthy_rate": 0.0158,
+            "throw_away_rate": 0.0187,
+            "drop_rate_of_catchable_targets": 0.0597,
+            "contested_catch_rate_of_catchable_targets": 0.0885,
+            "created_reception_rate_of_catchable_targets": 0.0221,
+            "blitz_rate_faced": 0.122,
+            "blitz_rate_generated": 0.1604,
+            "avg_pass_rushers_generated": 2.3151,
+            "avg_defenders_in_box_faced": 4.8524
+          }
+        }
+      },
+      "regression": {
+        "games_played": 17,
+        "record": "14-3",
+        "actual_wins": 14,
+        "points_for": 401,
+        "points_against": 311,
+        "point_differential": 90,
+        "pythag_win_pct": 0.6462,
+        "pythag_wins": 10.99,
+        "pythag_win_delta": 3.01,
+        "pythag_win_delta_rank": 1,
+        "one_score_record": {
+          "wins": 11,
+          "losses": 2,
+          "ties": 0,
+          "games": 13,
+          "win_pct": 0.8462
+        },
+        "fumble_recovery_pct": null,
+        "takeaway_margin": null,
+        "rz_td_pct_off": null,
+        "rz_td_pct_def": null,
+        "third_down_over_expected": null,
+        "attribution_note": "Pythagorean (exp 2.37) and one-score record derived from nflverse games.csv final scores. Turnover, red-zone, and third-down-over-expected signals require the play-by-play layer (CI runs seed with --no-pbp) and are intentionally left null in this v1 builder.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/games.csv",
+          "source_file_mtime": "2026-06-05T23:29:04.928Z",
+          "pythag_exponent": 2.37,
+          "one_score_margin": 8
+        }
+      },
+      "power": {
+        "games_played": 17,
+        "record": "14-3",
+        "power_rating": {
+          "srs": 3.725,
+          "net_points_per_game": 5.294,
+          "pythag_win_pct": 0.6462,
+          "model_composite_z": 0.8353,
+          "model_rank": 7,
+          "srs_rank": 9,
+          "net_ppg_rank": 7,
+          "pythag_rank": 7
+        },
+        "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+      },
+      "dvoa": {
+        "games_played": null,
+        "overall_dvoa": 14.4,
+        "overall_dvoa_rank": 7,
+        "offensive_dvoa": 3.6,
+        "offensive_dvoa_rank": 15,
+        "defensive_dvoa": -10.4,
+        "defensive_dvoa_rank": 5,
+        "special_teams_dvoa": 0.4,
+        "special_teams_dvoa_rank": 16,
+        "weighted_dvoa": 18.5,
+        "weighted_dvoa_rank": 6,
+        "attribution_note": "Imported source-stamped DVOA snapshot. DVOA is not computed locally by this dashboard.",
+        "raw": {
+          "source_file": "data/vault-seed/dvoa/dvoa-2025.json",
+          "source_file_mtime": "2026-06-06T21:39:53.371Z",
+          "imported_row": {
+            "rk": 7,
+            "total_dvoa": 14.4,
+            "wei_dvoa": 18.5,
+            "wei_rk": 6,
+            "w_l": "14-3",
+            "off_dvoa": 3.6,
+            "off_rk": 15,
+            "def_dvoa": -10.4,
+            "def_rk": 5,
+            "st_dvoa": 0.4,
+            "st_rk": 16
+          }
+        }
+      }
+    },
+    "camp_notes": {
+      "label": "preseason_prior",
+      "as_of": "2026-07-31",
+      "items": [
+        {
+          "signal_type": "depth_chart",
+          "topic": "QB1 Competition",
+          "player": "Bo Nix",
+          "summary": "Taking first-team reps ahead of Jarrett Stidham; Sean Payton emphasizing quick-game timing.",
+          "confidence": 0.88,
+          "published_at": "2026-07-31T00:50:17.488Z",
+          "roster_check": "ok"
+        }
+      ],
+      "withheld_roster_changed": [
+        {
+          "signal_type": "depth_chart",
+          "topic": "RB1 Workload",
+          "player": "Javonte Williams",
+          "summary": "Leading early-down backfield reps ahead of Jaleel McLaughlin and Audric Estime.",
+          "confidence": 0.84,
+          "published_at": "2026-07-31T00:50:17.488Z",
+          "roster_check": "on_other_team:DAL",
+          "withheld_reason": "camp note names a player who is not on this team per the roster snapshot (trade/release since July 31)"
+        }
+      ]
+    },
+    "trench_ratings": {
+      "label": "preseason_prior",
+      "as_of_date": "2026-09-02",
+      "rows": [
+        {
+          "metric_type": "team_composite",
+          "rank_overall": 3,
+          "score_overall": 1.03,
+          "run_block_z": 1.86,
+          "pass_block_z": 0.86,
+          "run_defense_z": 0.58,
+          "pass_rush_z": 0.8,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        },
+        {
+          "metric_type": "schedule_sos",
+          "rank_overall": 20,
+          "score_overall": -0.06,
+          "run_block_z": 0.1,
+          "pass_block_z": -0.14,
+          "run_defense_z": 0,
+          "pass_rush_z": -0.19,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        }
+      ]
+    },
+    "missing_inputs": []
   },
   "data_quality": {
     "standing": {
@@ -1283,11 +1943,35 @@
       ]
     },
     "availability": {
-      "status": "not_built",
-      "roster_gate": "not_run"
+      "status": "built",
+      "through_week": null,
+      "as_of": {
+        "espn_status": "2026-10-15T01:45:41Z",
+        "availability_events": "2026-10-15T01:39:52.764Z",
+        "impact_digest": "2026-10-15T01:40:08.105Z",
+        "projected_starters": "2026-10-14T22:00:03.248Z",
+        "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+      },
+      "roster_gate": "passed",
+      "null_fields": [],
+      "caveats": [
+        "ESPN injury statuses lag game-day truth; official inactives decide.",
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      ]
     },
     "priors": {
-      "status": "not_built"
+      "status": "built",
+      "through_week": null,
+      "as_of": {
+        "prior_season": "2025 w18 final",
+        "camp": "2026-07-31",
+        "trench": "2026-09-02"
+      },
+      "null_fields": [],
+      "caveats": [
+        "prior_season / preseason_prior only"
+      ]
     }
   }
 }

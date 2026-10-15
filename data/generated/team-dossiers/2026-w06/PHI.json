@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T23:40:27.189Z",
-  "builder": "team_dossier_builder_v1.0",
-  "git_head": "706ab47",
+  "built_at": "2026-10-15T01:46:06.042Z",
+  "builder": "team_dossier_builder_v1.1",
+  "git_head": "178a59c",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-13T23:40:24.431Z",
+      "generated_at": "2026-10-14T14:03:52.042Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
+      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -998,6 +998,27 @@
           ],
           "target_receivers": [
             {
+              "player_name": "Brycen Tremayne",
+              "team": "CAR",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "short"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "CAR WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
+            },
+            {
               "player_name": "Tommy Tremble",
               "team": "CAR",
               "roles": [
@@ -1013,7 +1034,8 @@
               ],
               "opportunity_score": 1.6,
               "notes": "CAR TE1 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "questionable"
             },
             {
               "player_name": "Jalen Coker",
@@ -1030,13 +1052,14 @@
               ],
               "opportunity_score": 0.8,
               "notes": "CAR WR2 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
             }
           ],
           "severity_score": 3.55,
           "elite_absence_count": 0,
           "vulnerability_tier": "medium",
-          "confidence": 0.83,
+          "confidence": 0.87,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1045,7 +1068,8 @@
             "weekly_matchup_context"
           ],
           "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
+          "needs_human_review": true,
+          "excluded_unavailable": []
         },
         {
           "id": "sec_ee5c01bc2e68a30d",
@@ -1178,7 +1202,8 @@
               ],
               "opportunity_score": 4.5,
               "notes": "PHI Slim Reaper WR1B.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "questionable"
             },
             {
               "player_name": "Dontayvion Wicks",
@@ -1197,7 +1222,8 @@
               ],
               "opportunity_score": 2.4,
               "notes": "PHI WR2 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "questionable"
             },
             {
               "player_name": "Makai Lemon",
@@ -1216,7 +1242,8 @@
               ],
               "opportunity_score": 1.6,
               "notes": "PHI WR3 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
             }
           ],
           "severity_score": 8.11,
@@ -1231,20 +1258,746 @@
             "weekly_matchup_context"
           ],
           "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
+          "needs_human_review": true,
+          "excluded_unavailable": []
         }
       ],
       "note": "Entries pertain to the source week, not the target week."
     }
   },
   "availability": {
-    "status": "not_built_in_this_version",
-    "roster_gate": "not_run",
-    "note": "Agents must not name players from this dossier. Availability layer (injuries, projected starters, impact digest) is added in build step 3 behind the roster gate."
+    "status": "built",
+    "roster_gate": "passed",
+    "roster_gate_detail": {
+      "source": "data/generated/master-intel/w06-roster-vet.json",
+      "vet_status": "PASS",
+      "blocking_count": 0,
+      "roster_snapshot_generated_at": "2026-10-14T08:00:27.901983+00:00",
+      "roster_age_h_at_vet": 17.8,
+      "operator_overrides_applied": [
+        "harrison-trade-2026-10-13",
+        "franklin-ir-2026-10-14"
+      ],
+      "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
+    },
+    "as_of": {
+      "espn_status": "2026-10-15T01:45:41Z",
+      "availability_events": "2026-10-15T01:39:52.764Z",
+      "impact_digest": "2026-10-15T01:40:08.105Z",
+      "projected_starters": "2026-10-14T22:00:03.248Z",
+      "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+    },
+    "use_policy": "intel only; roster-gate first; not a projection or recommendation",
+    "qb": {
+      "espn_starter": "Jalen Hurts",
+      "flag": "ok",
+      "note": null,
+      "depth": [
+        "Jalen Hurts",
+        "Tanner McKee",
+        "Cole Payton"
+      ],
+      "operator_confirmed": null
+    },
+    "reported_injuries": {
+      "out_ir": [
+        {
+          "player": "Landon Dickerson",
+          "pos": "G",
+          "status": "Injured Reserve",
+          "date": "2026-10-15",
+          "comment": "Dickerson (knee) was designated to return from injured reserve Wednesday.",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Jakorian Bennett",
+          "pos": "CB",
+          "status": "Injured Reserve",
+          "date": "2026-10-15",
+          "comment": "Bennett (knee) had his  21-day practice window opened by the Eagles on Wednesday.",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Eli Stowers",
+          "pos": "TE",
+          "status": "Injured Reserve",
+          "date": "2026-10-15",
+          "comment": "Stowers (quadriceps) was a limited participant at the Eagles' practice Wednesday.",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Grant Calcaterra",
+          "pos": "TE",
+          "status": "Injured Reserve",
+          "date": "2026-10-14",
+          "comment": "The Eagles opened the 21-day practice window for Calcaterra (back) on Wednesday.",
+          "roster_check": "roster_ir_out_group"
+        }
+      ],
+      "questionable_doubtful": [
+        {
+          "player": "Jonathan Greenard",
+          "pos": "LB",
+          "status": "Questionable",
+          "date": "2026-10-15",
+          "comment": "Greenard (ankle) was a limited participant at the Eagles' practice Wednesday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Marcus Epps",
+          "pos": "S",
+          "status": "Questionable",
+          "date": "2026-10-15",
+          "comment": "Epps (groin) was a limited participant at the Eagles' practice Wednesday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Hollywood Brown",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-15",
+          "comment": "Brown (ankle) was a limited participant at the Eagles' practice Wednesday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Tyler Steen",
+          "pos": "G",
+          "status": "Questionable",
+          "date": "2026-10-14",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "E.J. Jenkins",
+          "pos": "TE",
+          "status": "Questionable",
+          "date": "2026-10-14",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "AJ Epenesa",
+          "pos": "DE",
+          "status": "Questionable",
+          "date": "2026-10-14",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Will Shipley",
+          "pos": "RB",
+          "status": "Doubtful",
+          "date": "2026-10-14",
+          "comment": "Shipley (foot) did not participate in Wednesday's practice.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Dontayvion Wicks",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-14",
+          "comment": "Wicks (hamstring) practiced in a limited capacity Wednesday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "DeVonta Smith",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-14",
+          "comment": "Smith (hamstring/toe) was a non-participant at Wednesday's practice.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Saquon Barkley",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-14",
+          "comment": "Barkley (hamstring) officially didn't practice Wednesday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jalyx Hunt",
+          "pos": "LB",
+          "status": "Doubtful",
+          "date": "2026-10-13",
+          "comment": "Eagles defensive coordinator Vic Fangio said Tuesday it would take something \"miraculous\" for Hunt (ankle) to play Week 6 against the Panthers, Dave Zangaro of ",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Drew Kendall",
+          "pos": "C",
+          "status": "Questionable",
+          "date": "2026-10-13",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Michael Carter II",
+          "pos": "CB",
+          "status": "Questionable",
+          "date": "2026-10-11",
+          "comment": "Carter (abdomen) has been ruled out for the remainder of Sunday's game against the Jaguars in London.",
+          "roster_check": "ok"
+        }
+      ],
+      "other": []
+    },
+    "operator_reported": [],
+    "roster_ir_out_unconfirmed": [
+      {
+        "player": "Andre' Sam",
+        "pos": "S",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Johnny Wilson",
+        "pos": "WR",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Tariq Castro-Fields",
+        "pos": "CB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Tucker Large",
+        "pos": "S",
+        "roster_status": "day-to-day"
+      }
+    ],
+    "ol_dl_cluster_risk": {
+      "ol": {
+        "hard_or_doubtful": 1,
+        "questionable": 2,
+        "risk": "watch",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "Landon Dickerson G Injured Reserve",
+          "Tyler Steen G Questionable",
+          "Drew Kendall C Questionable"
+        ]
+      },
+      "dl": {
+        "hard_or_doubtful": 0,
+        "questionable": 1,
+        "risk": "none",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "AJ Epenesa DE Questionable"
+        ]
+      }
+    },
+    "live_events": {
+      "window": "published within 10 days of build; latest per player; cap 12",
+      "rows": [
+        {
+          "player_name": "Tank Bigsby",
+          "position": "RB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Tank Bigsby IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Johnny Wilson",
+          "position": "WR",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Johnny Wilson IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Andre' Sam",
+          "position": "S",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Andre' Sam IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Tucker Large",
+          "position": "S",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Tucker Large IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Landon Dickerson",
+          "position": "G",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T01:09:00.000Z",
+          "summary": "Dickerson (knee) was designated to return from injured reserve Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Jakorian Bennett",
+          "position": "CB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T01:04:00.000Z",
+          "summary": "Bennett (knee) had his 21-day practice window opened by the Eagles on Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Jonathan Greenard",
+          "position": "LB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "worsening",
+          "event_type": "setback",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T00:32:00.000Z",
+          "summary": "Greenard (ankle) was a limited participant at the Eagles' practice Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Marcus Epps",
+          "position": "S",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "improving",
+          "event_type": "limited_return",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T00:28:00.000Z",
+          "summary": "Epps (groin) was a limited participant at the Eagles' practice Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Eli Stowers",
+          "position": "TE",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T00:23:00.000Z",
+          "summary": "Stowers (quadriceps) was a limited participant at the Eagles' practice Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Hollywood Brown",
+          "position": "WR",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T00:17:00.000Z",
+          "summary": "Brown (ankle) was a limited participant at the Eagles' practice Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Tyler Steen",
+          "position": "G",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-14T23:18:00.000Z",
+          "summary": "questionable",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "E.J. Jenkins",
+          "position": "TE",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-14T23:17:00.000Z",
+          "summary": "questionable",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "impact_digest": [
+      {
+        "player_name": "Jalen Hurts",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "status_update",
+        "availability_trend": "unknown",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 94,
+        "signal": "review_context",
+        "source": "FantasyPros injuries API",
+        "published_at": null,
+        "summary": "Jalen Hurts UNKNOWN",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Jalen Hurts",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 93,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-11T19:21:00.000Z",
+        "summary": "Hurts completed 21 of 40 passes for 220 yards and a touchdown in Sunday's 19-17 loss to the Jaguars. He added two rushing yards on two carries.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Saquon Barkley",
+        "position": "RB",
+        "unit": "offensive_skill",
+        "event_type": "status_update",
+        "availability_trend": "unknown",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.97,
+          "source_count": 1
+        },
+        "score": 72,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-14T22:24:00.000Z",
+        "summary": "Barkley (hamstring) officially didn't practice Wednesday.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Saquon Barkley",
+        "position": "RB",
+        "unit": "offensive_skill",
+        "event_type": "status_update",
+        "availability_trend": "unknown",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.97,
+          "source_count": 1
+        },
+        "score": 53,
+        "signal": "review_context",
+        "source": "FantasyPros injuries API",
+        "published_at": "2026-10-14T00:00:00.000Z",
+        "summary": "Saquon Barkley QUESTIONABLE",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      }
+    ],
+    "projected_starters": {
+      "coverage_status": "manual_and_estimated_signals",
+      "as_of": "2026-10-14T22:00:03.248Z",
+      "known": [
+        "Saquon Barkley RB",
+        "Jalen Hurts QB"
+      ],
+      "estimated": [
+        "Lane Johnson OT"
+      ],
+      "missing": [
+        "independent second-source depth-chart reconciliation"
+      ],
+      "players": [
+        {
+          "player_name": "Saquon Barkley",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.97,
+          "roster_confidence": 0.97,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jalen Hurts",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Lane Johnson",
+          "position": "OT",
+          "unit": "offensive_line",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "missing_inputs": [],
+    "caveats": [
+      "ESPN injury statuses lag game-day truth; official inactives decide.",
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+    ]
   },
   "priors": {
-    "status": "not_built_in_this_version",
-    "note": "2025 final / camp notes / trench ratings to be added in build step 3 (labelled prior_season / preseason_prior)."
+    "status": "built",
+    "label_policy": "Everything here is prior_season (2025 final) or preseason_prior (camp Jul 31, trench Sep 2). Never cite as current-season evidence; rosters and scheme have changed.",
+    "prior_season_2025": {
+      "label": "prior_season",
+      "use_policy": "context only",
+      "analytic": {
+        "games_played": 17,
+        "off_epa_per_play": 0.0209,
+        "def_epa_per_play": -0.0834,
+        "off_epa_rank": 16,
+        "def_epa_rank": 8,
+        "epa_per_dropback": 0.0599,
+        "qb_epa_per_dropback": 0.0599,
+        "dropback_success_rate": null,
+        "success_rate": null,
+        "cpoe": 2.9681,
+        "explosive_play_rate": null,
+        "explosive_pass_rate": null,
+        "explosive_run_rate": null,
+        "pressure_rate_allowed": null,
+        "pressure_rate_generated": null,
+        "sack_rate_allowed": 0.0658,
+        "sack_rate_generated": 0.0717,
+        "neutral_pass_rate": 0.5267,
+        "early_down_pass_rate": null,
+        "shotgun_rate": null,
+        "no_huddle_rate": 0.1578,
+        "play_action_rate": 0.1021,
+        "motion_rate": 0.3735,
+        "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/team_stats.csv",
+          "source_file_mtime": "2026-06-06T01:26:03.837Z",
+          "offensive_dropbacks": 532,
+          "offensive_plays": 1010,
+          "defensive_dropbacks": 586,
+          "defensive_plays": 1080,
+          "ftn_charting": {
+            "ftn_charted_plays_offense": 1312,
+            "ftn_charted_plays_defense": 1368,
+            "screen_rate": 0.0198,
+            "rpo_rate": 0.0503,
+            "trick_play_rate": 0.0008,
+            "qb_out_of_pocket_rate": 0.1265,
+            "interception_worthy_rate": 0.0091,
+            "throw_away_rate": 0.0229,
+            "drop_rate_of_catchable_targets": 0.05,
+            "contested_catch_rate_of_catchable_targets": 0.1167,
+            "created_reception_rate_of_catchable_targets": 0.05,
+            "blitz_rate_faced": 0.1669,
+            "blitz_rate_generated": 0.1308,
+            "avg_pass_rushers_generated": 2.0512,
+            "avg_defenders_in_box_faced": 4.9247
+          }
+        }
+      },
+      "regression": {
+        "games_played": 17,
+        "record": "11-6",
+        "actual_wins": 11,
+        "points_for": 379,
+        "points_against": 325,
+        "point_differential": 54,
+        "pythag_win_pct": 0.5901,
+        "pythag_wins": 10.03,
+        "pythag_win_delta": 0.97,
+        "pythag_win_delta_rank": 9,
+        "one_score_record": {
+          "wins": 8,
+          "losses": 4,
+          "ties": 0,
+          "games": 12,
+          "win_pct": 0.6667
+        },
+        "fumble_recovery_pct": null,
+        "takeaway_margin": null,
+        "rz_td_pct_off": null,
+        "rz_td_pct_def": null,
+        "third_down_over_expected": null,
+        "attribution_note": "Pythagorean (exp 2.37) and one-score record derived from nflverse games.csv final scores. Turnover, red-zone, and third-down-over-expected signals require the play-by-play layer (CI runs seed with --no-pbp) and are intentionally left null in this v1 builder.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/games.csv",
+          "source_file_mtime": "2026-06-05T23:29:04.928Z",
+          "pythag_exponent": 2.37,
+          "one_score_margin": 8
+        }
+      },
+      "power": {
+        "games_played": 17,
+        "record": "11-6",
+        "power_rating": {
+          "srs": 2.131,
+          "net_points_per_game": 3.176,
+          "pythag_win_pct": 0.5901,
+          "model_composite_z": 0.5016,
+          "model_rank": 11,
+          "srs_rank": 11,
+          "net_ppg_rank": 10,
+          "pythag_rank": 9
+        },
+        "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+      },
+      "dvoa": {
+        "games_played": null,
+        "overall_dvoa": 7.9,
+        "overall_dvoa_rank": 13,
+        "offensive_dvoa": 0.5,
+        "offensive_dvoa_rank": 17,
+        "defensive_dvoa": -9.9,
+        "defensive_dvoa_rank": 7,
+        "special_teams_dvoa": -2.5,
+        "special_teams_dvoa_rank": 24,
+        "weighted_dvoa": 8.3,
+        "weighted_dvoa_rank": 14,
+        "attribution_note": "Imported source-stamped DVOA snapshot. DVOA is not computed locally by this dashboard.",
+        "raw": {
+          "source_file": "data/vault-seed/dvoa/dvoa-2025.json",
+          "source_file_mtime": "2026-06-06T21:39:53.371Z",
+          "imported_row": {
+            "rk": 13,
+            "total_dvoa": 7.9,
+            "wei_dvoa": 8.3,
+            "wei_rk": 14,
+            "w_l": "11-6",
+            "off_dvoa": 0.5,
+            "off_rk": 17,
+            "def_dvoa": -9.9,
+            "def_rk": 7,
+            "st_dvoa": -2.5,
+            "st_rk": 24
+          }
+        }
+      }
+    },
+    "camp_notes": {
+      "label": "preseason_prior",
+      "as_of": "2026-07-31",
+      "items": [],
+      "withheld_roster_changed": []
+    },
+    "trench_ratings": {
+      "label": "preseason_prior",
+      "as_of_date": "2026-09-02",
+      "rows": [
+        {
+          "metric_type": "team_composite",
+          "rank_overall": 2,
+          "score_overall": 1.04,
+          "run_block_z": 0.73,
+          "pass_block_z": 2.12,
+          "run_defense_z": 0.16,
+          "pass_rush_z": 1.16,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        },
+        {
+          "metric_type": "schedule_sos",
+          "rank_overall": 14,
+          "score_overall": 0.04,
+          "run_block_z": 0.13,
+          "pass_block_z": -0.04,
+          "run_defense_z": 0.07,
+          "pass_rush_z": 0,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        }
+      ]
+    },
+    "missing_inputs": []
   },
   "data_quality": {
     "standing": {
@@ -1299,11 +2052,35 @@
       ]
     },
     "availability": {
-      "status": "not_built",
-      "roster_gate": "not_run"
+      "status": "built",
+      "through_week": null,
+      "as_of": {
+        "espn_status": "2026-10-15T01:45:41Z",
+        "availability_events": "2026-10-15T01:39:52.764Z",
+        "impact_digest": "2026-10-15T01:40:08.105Z",
+        "projected_starters": "2026-10-14T22:00:03.248Z",
+        "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+      },
+      "roster_gate": "passed",
+      "null_fields": [],
+      "caveats": [
+        "ESPN injury statuses lag game-day truth; official inactives decide.",
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      ]
     },
     "priors": {
-      "status": "not_built"
+      "status": "built",
+      "through_week": null,
+      "as_of": {
+        "prior_season": "2025 w18 final",
+        "camp": "2026-07-31",
+        "trench": "2026-09-02"
+      },
+      "null_fields": [],
+      "caveats": [
+        "prior_season / preseason_prior only"
+      ]
     }
   }
 }

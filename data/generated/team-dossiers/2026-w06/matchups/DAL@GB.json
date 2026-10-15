@@ -56,8 +56,60 @@
     "TB"
   ],
   "availability": {
-    "status": "not_built_in_this_version",
-    "roster_gate": "not_run"
+    "status": "built",
+    "roster_gate": "passed",
+    "as_of": {
+      "espn_status": "2026-10-15T01:45:41Z",
+      "availability_events": "2026-10-15T01:39:52.764Z",
+      "impact_digest": "2026-10-15T01:40:08.105Z",
+      "projected_starters": "2026-10-14T22:00:03.248Z",
+      "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+    },
+    "away": {
+      "qb": {
+        "espn_starter": "Dak Prescott",
+        "flag": "ok",
+        "operator_confirmed": null
+      },
+      "out_ir": [],
+      "questionable_doubtful": [
+        "Cobie Durant CB Questionable",
+        "Joey Porter Jr. CB Questionable",
+        "DeMarvion Overshown LB Questionable",
+        "Ameer Speed CB Questionable",
+        "Drew Shelton OT Questionable"
+      ],
+      "operator_reported": [],
+      "ol_risk": "none",
+      "dl_risk": "none"
+    },
+    "home": {
+      "qb": {
+        "espn_starter": "Jordan Love",
+        "flag": "ok",
+        "operator_confirmed": null
+      },
+      "out_ir": [
+        "Micah Parsons DE Out",
+        "Javon Hargrave DT Out",
+        "Chris Brooks RB Injured Reserve",
+        "Savion Williams WR Injured Reserve"
+      ],
+      "questionable_doubtful": [
+        "Keisean Nixon CB Questionable",
+        "Evan Williams S Questionable",
+        "Skyy Moore WR Questionable",
+        "Devonte Wyatt DT Questionable",
+        "Jonathan Ford DT Questionable",
+        "Jacob Monk C Questionable",
+        "Aaron Banks G Questionable",
+        "Anthony Campbell DT Questionable",
+        "Benjamin St-Juste CB Questionable"
+      ],
+      "operator_reported": [],
+      "ol_risk": "watch",
+      "dl_risk": "cluster"
+    }
   },
   "freshness": {
     "away": {
@@ -113,11 +165,35 @@
         ]
       },
       "availability": {
-        "status": "not_built",
-        "roster_gate": "not_run"
+        "status": "built",
+        "through_week": null,
+        "as_of": {
+          "espn_status": "2026-10-15T01:45:41Z",
+          "availability_events": "2026-10-15T01:39:52.764Z",
+          "impact_digest": "2026-10-15T01:40:08.105Z",
+          "projected_starters": "2026-10-14T22:00:03.248Z",
+          "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+        },
+        "roster_gate": "passed",
+        "null_fields": [],
+        "caveats": [
+          "ESPN injury statuses lag game-day truth; official inactives decide.",
+          "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+          "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        ]
       },
       "priors": {
-        "status": "not_built"
+        "status": "built",
+        "through_week": null,
+        "as_of": {
+          "prior_season": "2025 w18 final",
+          "camp": "2026-07-31",
+          "trench": "2026-09-02"
+        },
+        "null_fields": [],
+        "caveats": [
+          "prior_season / preseason_prior only"
+        ]
       }
     },
     "home": {
@@ -173,11 +249,35 @@
         ]
       },
       "availability": {
-        "status": "not_built",
-        "roster_gate": "not_run"
+        "status": "built",
+        "through_week": null,
+        "as_of": {
+          "espn_status": "2026-10-15T01:45:41Z",
+          "availability_events": "2026-10-15T01:39:52.764Z",
+          "impact_digest": "2026-10-15T01:40:08.105Z",
+          "projected_starters": "2026-10-14T22:00:03.248Z",
+          "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+        },
+        "roster_gate": "passed",
+        "null_fields": [],
+        "caveats": [
+          "ESPN injury statuses lag game-day truth; official inactives decide.",
+          "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+          "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        ]
       },
       "priors": {
-        "status": "not_built"
+        "status": "built",
+        "through_week": null,
+        "as_of": {
+          "prior_season": "2025 w18 final",
+          "camp": "2026-07-31",
+          "trench": "2026-09-02"
+        },
+        "null_fields": [],
+        "caveats": [
+          "prior_season / preseason_prior only"
+        ]
       }
     }
   }

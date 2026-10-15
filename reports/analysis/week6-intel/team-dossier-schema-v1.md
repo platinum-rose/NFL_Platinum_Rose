@@ -56,3 +56,10 @@ Builder: `scripts/build-team-dossiers.mjs` (JS, reuses `scripts/lib/profile-snap
 2. FTN player depth = option A: all team-level tables plus QB1 only. Top-N units (option B) can be added later once the roster gate is wired in.
 3. Yes: also build a one-page league table.
 4. Dated folder (`2026-w06/`) with `latest/` as a pointer to the newest.
+
+## 8. v1.1 build notes (2026-10-14) — availability and priors built
+- `availability` and `priors` are now built (status `built` or `partial`); builder is `team_dossier_builder_v1.1`. Player names appear only in the Availability section, and only after the roster gate.
+- Availability inputs: ESPN status feed, live availability events (10-day window), impact digest (starter-matched, linked markets dropped), projected starters, roster snapshot, and `data/nfl-rosters/operator-status-overrides.json` (Andy-reported trades/IR, applied on every roster fetch).
+- Players who are operator-reported IR or reported Out are moved from `target_receivers` to `excluded_unavailable` (seed row kept for return). Camp notes naming a player no longer on the team are withheld (`withheld_roster_changed`).
+- Priors: 2025 final analytics labelled `prior_season`; camp notes (2026-07-31) and trench ratings (2026-09-02) labelled `preseason_prior`. Market-ish keys are stripped.
+- Missing inputs are listed per team under `availability.missing_inputs` (e.g. no operator-confirmed W6 starters file yet: QB status is ESPN-only).

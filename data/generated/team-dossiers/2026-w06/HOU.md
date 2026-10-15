@@ -1,6 +1,6 @@
 # HOU Texans — dossier, target Week 6 (data through W5)
-Built 2026-10-13T23:40:26.730Z · git 706ab47 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
-Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability NOT BUILT.
+Built 2026-10-15T01:46:05.529Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 HOU · AFC AFC South · HC DeMeco Ryans · Reliant Stadium (, astroturf) · W6: @ JAX Sun 10/18 06:30
@@ -45,5 +45,18 @@ SRS -2.48 (#22) · net PPG -0.4 (#18) · Pythag 0.489 (#18) · model rank #20
 HC DeMeco Ryans · neutral pass rate 0.631 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See HOU.json → scheme_context.secondary_matchup.
 
-## Not built yet
-Availability (injuries, projected starters, impact digest) and priors (2025 final, camp notes, trench ratings) are not in this version. Player names must come from the roster-gated availability layer, never this file.
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: C.J. Stroud [ok]
+Out/IR: Ja'Marcus Ingram CB Injured Reserve; Tank Dell WR Injured Reserve; Henry To'oTo'o LB Injured Reserve
+Questionable/Doubtful: Jadeveon Clowney DE Questionable; Trent Brown OT Questionable; Azeez Al-Shaair LB Questionable; David Montgomery RB Doubtful; Jalen Pitre S Doubtful
+Operator-reported (Andy, not in ESPN): Marvin Harrison Jr. WR traded ARI->HOU
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 11 players; skill: British Brooks RB; Graham Mertz QB; Jayden Higgins WR
+OL/DL cluster risk (derived): OL none, DL none
+Impact digest (top by score): C.J. Stroud QB active_news/unknown; Woody Marks RB return_to_practice/improving; Woody Marks RB status_update/unknown
+Projected starters: manual_and_estimated_signals, 2 players
+
+## Priors (prior_season / preseason_prior; not current-season evidence)
+2025 final [prior_season]: 12-5 · diff 109 · Pythag 0.678 · SRS #4 · EPA off #22 def #2 · DVOA 18.9 (#4) off -2.5 def -19.3
+Camp notes [preseason_prior, Jul 31]: 0 kept, 2 withheld (player left the team)
+Trench composite [preseason_prior, 2026-09-02]: #5 · run block z -0.37 · pass block z -1 · run D z 1.33 · pass rush z 2.38

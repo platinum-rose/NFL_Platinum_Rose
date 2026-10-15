@@ -70,7 +70,7 @@ def main():
                 t = out['teams'].get(ab)
                 if t is None: continue
                 if n in feed_names.get(ab, set()): continue
-                t.setdefault('roster_ir_out_unconfirmed', []).append({'player': n, 'pos': r.get('position'), 'roster_status': r.get('status')})
+                t.setdefault('roster_ir_out_unconfirmed', []).append({'player': n, 'pos': r.get('position'), 'roster_status': r.get('status'), 'operator_override': r.get('operator_override')})
         for t in out['teams'].values():
             t['roster_ir_out_unconfirmed'] = sorted(t.get('roster_ir_out_unconfirmed', []), key=lambda x: x['player'])
     except Exception as ex:  # noqa

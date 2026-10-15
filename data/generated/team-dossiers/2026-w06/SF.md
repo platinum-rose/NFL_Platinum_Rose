@@ -1,6 +1,6 @@
 # SF 49ers — dossier, target Week 6 (data through W5)
-Built 2026-10-13T23:40:27.300Z · git 706ab47 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
-Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability NOT BUILT.
+Built 2026-10-15T01:46:06.161Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 SF · NFC NFC West · HC Kyle Shanahan · Levi's Stadium (outdoors, grass) · W6: vs WAS Mon 10/19 17:15
@@ -45,5 +45,17 @@ SRS 9.81 (#2) · net PPG 12.2 (#1) · Pythag 0.768 (#3) · model rank #2
 HC Kyle Shanahan · neutral pass rate 0.511 · sample 2026-09-10 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See SF.json → scheme_context.secondary_matchup.
 
-## Not built yet
-Availability (injuries, projected starters, impact digest) and priors (2025 final, camp notes, trench ratings) are not in this version. Player names must come from the roster-gated availability layer, never this file.
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Brock Purdy [ok]
+Out/IR: Nick Martin LB Injured Reserve; Christian Kirk WR Injured Reserve; Garret Wallow LB Out; Deebo Samuel Sr. WR Out
+Questionable/Doubtful: Marques Sigle S Doubtful; Kyle Juszczyk FB Questionable; Nick Bosa DE Questionable; James Thompson Jr. DT Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 15 players; skill: De'Zhaun Stribling WR; Demarcus Robinson WR; Isaac Guerendo RB; Jake Tonges TE; Ricky Pearsall WR
+OL/DL cluster risk (derived): OL none, DL watch
+Impact digest (top by score): Brock Purdy QB active_news/unknown
+Projected starters: manual_and_estimated_signals, 1 players
+
+## Priors (prior_season / preseason_prior; not current-season evidence)
+2025 final [prior_season]: 12-5 · diff 66 · Pythag 0.596 · SRS #5 · EPA off #6 def #24 · DVOA 9.9 (#10) off 17.5 def 9
+Camp notes [preseason_prior, Jul 31]: 0 kept, 0 withheld (player left the team)
+Trench composite [preseason_prior, 2026-09-02]: #17 · run block z 1.99 · pass block z -0.06 · run D z -1.04 · pass rush z -1.20

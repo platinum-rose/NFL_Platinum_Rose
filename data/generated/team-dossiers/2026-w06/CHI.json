@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-13T23:40:26.477Z",
-  "builder": "team_dossier_builder_v1.0",
-  "git_head": "706ab47",
+  "built_at": "2026-10-15T01:46:05.249Z",
+  "builder": "team_dossier_builder_v1.1",
+  "git_head": "178a59c",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-13T23:40:24.431Z",
+      "generated_at": "2026-10-14T14:03:52.042Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "b9d1d478bf537de3bd64319df47d6f5efd44e71a7bf8fa36d1d47743ca957e0b",
+      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -899,7 +899,8 @@
               ],
               "opportunity_score": 2.4,
               "notes": "CHI TE.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Kalif Raymond",
@@ -919,7 +920,8 @@
               ],
               "opportunity_score": 2.4,
               "notes": "CHI WR3 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Rome Odunze",
@@ -939,7 +941,8 @@
               ],
               "opportunity_score": 2.4,
               "notes": "CHI Rookie 1st Round WR.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Colston Loveland",
@@ -957,7 +960,8 @@
               ],
               "opportunity_score": 1.6,
               "notes": "CHI TE1 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Luther Burden III",
@@ -975,7 +979,8 @@
               ],
               "opportunity_score": 1.6,
               "notes": "CHI WR2 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
             }
           ],
           "severity_score": 4.05,
@@ -990,7 +995,8 @@
             "weekly_matchup_context"
           ],
           "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
+          "needs_human_review": true,
+          "excluded_unavailable": []
         },
         {
           "id": "sec_28d36dd1e1810244",
@@ -1134,7 +1140,8 @@
               ],
               "opportunity_score": 3.2,
               "notes": "WAS WR2. [moved from WAS per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Drake London",
@@ -1155,7 +1162,8 @@
               ],
               "opportunity_score": 3,
               "notes": "ATL WR1 Alpha.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Olamide Zaccheaus",
@@ -1175,7 +1183,8 @@
               ],
               "opportunity_score": 2.4,
               "notes": "ATL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/"
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
             },
             {
               "player_name": "Kyle Pitts",
@@ -1194,7 +1203,8 @@
               ],
               "opportunity_score": 1.2,
               "notes": "ATL Hybrid TE.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/"
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
             }
           ],
           "severity_score": 7.31,
@@ -1209,20 +1219,724 @@
             "weekly_matchup_context"
           ],
           "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true
+          "needs_human_review": true,
+          "excluded_unavailable": []
         }
       ],
       "note": "Entries pertain to the source week, not the target week."
     }
   },
   "availability": {
-    "status": "not_built_in_this_version",
-    "roster_gate": "not_run",
-    "note": "Agents must not name players from this dossier. Availability layer (injuries, projected starters, impact digest) is added in build step 3 behind the roster gate."
+    "status": "built",
+    "roster_gate": "passed",
+    "roster_gate_detail": {
+      "source": "data/generated/master-intel/w06-roster-vet.json",
+      "vet_status": "PASS",
+      "blocking_count": 0,
+      "roster_snapshot_generated_at": "2026-10-14T08:00:27.901983+00:00",
+      "roster_age_h_at_vet": 17.8,
+      "operator_overrides_applied": [
+        "harrison-trade-2026-10-13",
+        "franklin-ir-2026-10-14"
+      ],
+      "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
+    },
+    "as_of": {
+      "espn_status": "2026-10-15T01:45:41Z",
+      "availability_events": "2026-10-15T01:39:52.764Z",
+      "impact_digest": "2026-10-15T01:40:08.105Z",
+      "projected_starters": "2026-10-14T22:00:03.248Z",
+      "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+    },
+    "use_policy": "intel only; roster-gate first; not a projection or recommendation",
+    "qb": {
+      "espn_starter": "Caleb Williams",
+      "flag": "AMBIGUOUS",
+      "note": "Caleb Williams Questionable;",
+      "depth": [
+        "Caleb Williams",
+        "Tyson Bagent",
+        "Case Keenum"
+      ],
+      "operator_confirmed": null
+    },
+    "reported_injuries": {
+      "out_ir": [
+        {
+          "player": "Anthony Johnson Jr.",
+          "pos": "S",
+          "status": "Injured Reserve",
+          "date": "2026-10-15",
+          "comment": "ir",
+          "roster_check": "practice_squad"
+        },
+        {
+          "player": "Kyler Gordon",
+          "pos": "CB",
+          "status": "Out",
+          "date": "2026-10-15",
+          "comment": "Gordon (calf) was estimated as a full participant on the Bears' official injury report Wednesday.",
+          "roster_check": "roster_ir_out_group"
+        }
+      ],
+      "questionable_doubtful": [
+        {
+          "player": "Tyrique Stevenson Sr.",
+          "pos": "CB",
+          "status": "Questionable",
+          "date": "2026-10-15",
+          "comment": "Stevenson (hip) was estimated as a limited participant on the Bears' official injury report Wednesday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "T.J. Edwards",
+          "pos": "LB",
+          "status": "Doubtful",
+          "date": "2026-10-15",
+          "comment": "Edwards (hamstring) was estimated as a non-participant on the Bears' official injury report Wednesday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Kyle Monangai",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-14",
+          "comment": "Monangai (thumb/toe) was listed as a non-participant on Wednesday's practice estimate.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Dayo Odeyingbo",
+          "pos": "DE",
+          "status": "Doubtful",
+          "date": "2026-10-14",
+          "comment": "Odeyingbo (quadriceps) is expected to miss time, Adam Hoge of AllCHGO.com reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Caleb Williams",
+          "pos": "QB",
+          "status": "Questionable",
+          "date": "2026-10-14",
+          "comment": "Bears head coach Ben Johnson said that Williams (hamstring) will be listed as a full practice participant on Wednesday's estimated injury report, Sean Hammond o",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Keyshaun Elliott",
+          "pos": "LB",
+          "status": "Questionable",
+          "date": "2026-10-13",
+          "comment": "questionable",
+          "roster_check": "ok"
+        }
+      ],
+      "other": [
+        {
+          "player": "Montez Sweat",
+          "pos": "DE",
+          "status": "Suspension",
+          "date": "2026-10-13",
+          "comment": "The NFL announced Tuesday that Sweat has been suspended two games without pay for violating the league's performance-enhancing substances policy, Brad Biggs of ",
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "operator_reported": [],
+    "roster_ir_out_unconfirmed": [
+      {
+        "player": "Braxton Jones",
+        "pos": "OT",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Brittain Brown",
+        "pos": "RB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Coby Bryant",
+        "pos": "S",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Dallis Flowers",
+        "pos": "CB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Hayden Large",
+        "pos": "TE",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Nephi Sewell",
+        "pos": "LB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Nikola Kalinic",
+        "pos": "TE",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Ruben Hyppolite II",
+        "pos": "LB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Tony Fields II",
+        "pos": "LB",
+        "roster_status": "day-to-day"
+      }
+    ],
+    "ol_dl_cluster_risk": {
+      "ol": {
+        "hard_or_doubtful": 0,
+        "questionable": 0,
+        "risk": "none",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": []
+      },
+      "dl": {
+        "hard_or_doubtful": 1,
+        "questionable": 0,
+        "risk": "watch",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "Dayo Odeyingbo DE Doubtful",
+          "Montez Sweat DE Suspension"
+        ]
+      }
+    },
+    "live_events": {
+      "window": "published within 10 days of build; latest per player; cap 12",
+      "rows": [
+        {
+          "player_name": "Montez Sweat",
+          "position": "DE",
+          "normalized_status": "SUSPENSION",
+          "availability_trend": "worsening",
+          "event_type": "suspension",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Montez Sweat SUSPENSION",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Tony Fields II",
+          "position": "LB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Tony Fields II IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Coby Bryant",
+          "position": "CB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Coby Bryant IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Nephi Sewell",
+          "position": "LB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Nephi Sewell IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Nikola Kalinic",
+          "position": "TE",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Nikola Kalinic IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Brittain Brown",
+          "position": "RB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Brittain Brown IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Beanie Bishop Jr.",
+          "position": "CB",
+          "normalized_status": "SUSPENSION",
+          "availability_trend": "worsening",
+          "event_type": "suspension",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Beanie Bishop Jr. SUSPENSION",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "not_on_any_roster"
+        },
+        {
+          "player_name": "Hayden Large",
+          "position": "TE",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T01:30:02.000Z",
+          "summary": "Hayden Large IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Anthony Johnson Jr.",
+          "position": "S",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T01:01:00.000Z",
+          "summary": "ir",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "practice_squad"
+        },
+        {
+          "player_name": "Kyler Gordon",
+          "position": "CB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T00:36:00.000Z",
+          "summary": "Gordon (calf) was estimated as a full participant on the Bears' official injury report Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "conflicted_intel",
+          "synthesis_eligible": false,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Tyrique Stevenson Sr.",
+          "position": "CB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "worsening",
+          "event_type": "setback",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T00:27:00.000Z",
+          "summary": "Stevenson (hip) was estimated as a limited participant on the Bears' official injury report Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "T.J. Edwards",
+          "position": "LB",
+          "normalized_status": "DOUBTFUL",
+          "availability_trend": "worsening",
+          "event_type": "doubtful",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T00:21:00.000Z",
+          "summary": "Edwards (hamstring) was estimated as a non-participant on the Bears' official injury report Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "impact_digest": [
+      {
+        "player_name": "Tyson Bagent",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "return_to_practice",
+        "availability_trend": "improving",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "source_count": 1
+        },
+        "score": 105,
+        "signal": "positive_availability",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-12T20:20:00.000Z",
+        "summary": "Head coach Ben Johnson said Monday that a decision hasn't been made regarding whether Bagent, Case Keenum or Caleb Williams (hamstring) will take reps with the ",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Caleb Williams",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "status_update",
+        "availability_trend": "unknown",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 94,
+        "signal": "review_context",
+        "source": "FantasyPros injuries API",
+        "published_at": null,
+        "summary": "Caleb Williams UNKNOWN",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Caleb Williams",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "status_update",
+        "availability_trend": "unknown",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 94,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-14T16:30:00.000Z",
+        "summary": "Bears head coach Ben Johnson said that Williams (hamstring) will be listed as a full practice participant on Wednesday's estimated injury report, Sean Hammond o",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Kalif Raymond",
+        "position": "WR",
+        "unit": "offensive_skill",
+        "event_type": "return_to_practice",
+        "availability_trend": "improving",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.65,
+          "source_count": 1
+        },
+        "score": 82,
+        "signal": "positive_availability",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-13T23:34:00.000Z",
+        "summary": "Raymond caught three of four passes for six yards and logged one carry for minus-2 yards during the Bears' 31-7 loss to the Packers on Sunday. He also returned ",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      }
+    ],
+    "projected_starters": {
+      "coverage_status": "manual_and_estimated_signals",
+      "as_of": "2026-10-14T22:00:03.248Z",
+      "known": [
+        "Caleb Williams QB",
+        "Kalif Raymond WR"
+      ],
+      "estimated": [
+        "Tyson Bagent QB"
+      ],
+      "missing": [
+        "independent second-source depth-chart reconciliation"
+      ],
+      "players": [
+        {
+          "player_name": "Caleb Williams",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Tyson Bagent",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Kalif Raymond",
+          "position": "WR",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.65,
+          "roster_confidence": 0.75,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "missing_inputs": [],
+    "caveats": [
+      "ESPN injury statuses lag game-day truth; official inactives decide.",
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+    ]
   },
   "priors": {
-    "status": "not_built_in_this_version",
-    "note": "2025 final / camp notes / trench ratings to be added in build step 3 (labelled prior_season / preseason_prior)."
+    "status": "built",
+    "label_policy": "Everything here is prior_season (2025 final) or preseason_prior (camp Jul 31, trench Sep 2). Never cite as current-season evidence; rosters and scheme have changed.",
+    "prior_season_2025": {
+      "label": "prior_season",
+      "use_policy": "context only",
+      "analytic": {
+        "games_played": 17,
+        "off_epa_per_play": 0.0733,
+        "def_epa_per_play": 0.0177,
+        "off_epa_rank": 9,
+        "def_epa_rank": 19,
+        "epa_per_dropback": 0.0801,
+        "qb_epa_per_dropback": 0.0801,
+        "dropback_success_rate": null,
+        "success_rate": null,
+        "cpoe": -3.3423,
+        "explosive_play_rate": null,
+        "explosive_pass_rate": null,
+        "explosive_run_rate": null,
+        "pressure_rate_allowed": null,
+        "pressure_rate_generated": null,
+        "sack_rate_allowed": 0.0401,
+        "sack_rate_generated": 0.0616,
+        "neutral_pass_rate": 0.5422,
+        "early_down_pass_rate": null,
+        "shotgun_rate": null,
+        "no_huddle_rate": 0.0429,
+        "play_action_rate": 0.1498,
+        "motion_rate": 0.462,
+        "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/team_stats.csv",
+          "source_file_mtime": "2026-06-06T01:26:03.837Z",
+          "offensive_dropbacks": 598,
+          "offensive_plays": 1103,
+          "defensive_dropbacks": 568,
+          "defensive_plays": 1025,
+          "ftn_charting": {
+            "ftn_charted_plays_offense": 1422,
+            "ftn_charted_plays_defense": 1321,
+            "screen_rate": 0.0436,
+            "rpo_rate": 0.0373,
+            "trick_play_rate": 0.0091,
+            "qb_out_of_pocket_rate": 0.1463,
+            "interception_worthy_rate": 0.0141,
+            "throw_away_rate": 0.0309,
+            "drop_rate_of_catchable_targets": 0.0789,
+            "contested_catch_rate_of_catchable_targets": 0.1043,
+            "created_reception_rate_of_catchable_targets": 0.0483,
+            "blitz_rate_faced": 0.1568,
+            "blitz_rate_generated": 0.1423,
+            "avg_pass_rushers_generated": 2.0833,
+            "avg_defenders_in_box_faced": 4.9985
+          }
+        }
+      },
+      "regression": {
+        "games_played": 17,
+        "record": "11-6",
+        "actual_wins": 11,
+        "points_for": 441,
+        "points_against": 415,
+        "point_differential": 26,
+        "pythag_win_pct": 0.5359,
+        "pythag_wins": 9.11,
+        "pythag_win_delta": 1.89,
+        "pythag_win_delta_rank": 2,
+        "one_score_record": {
+          "wins": 7,
+          "losses": 4,
+          "ties": 0,
+          "games": 11,
+          "win_pct": 0.6364
+        },
+        "fumble_recovery_pct": null,
+        "takeaway_margin": null,
+        "rz_td_pct_off": null,
+        "rz_td_pct_def": null,
+        "third_down_over_expected": null,
+        "attribution_note": "Pythagorean (exp 2.37) and one-score record derived from nflverse games.csv final scores. Turnover, red-zone, and third-down-over-expected signals require the play-by-play layer (CI runs seed with --no-pbp) and are intentionally left null in this v1 builder.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/games.csv",
+          "source_file_mtime": "2026-06-05T23:29:04.928Z",
+          "pythag_exponent": 2.37,
+          "one_score_margin": 8
+        }
+      },
+      "power": {
+        "games_played": 17,
+        "record": "11-6",
+        "power_rating": {
+          "srs": 0.503,
+          "net_points_per_game": 1.529,
+          "pythag_win_pct": 0.5359,
+          "model_composite_z": 0.1955,
+          "model_rank": 16,
+          "srs_rank": 16,
+          "net_ppg_rank": 16,
+          "pythag_rank": 16
+        },
+        "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+      },
+      "dvoa": {
+        "games_played": null,
+        "overall_dvoa": 2.5,
+        "overall_dvoa_rank": 16,
+        "offensive_dvoa": 9.4,
+        "offensive_dvoa_rank": 9,
+        "defensive_dvoa": 7.2,
+        "defensive_dvoa_rank": 25,
+        "special_teams_dvoa": 0.3,
+        "special_teams_dvoa_rank": 18,
+        "weighted_dvoa": 11.4,
+        "weighted_dvoa_rank": 10,
+        "attribution_note": "Imported source-stamped DVOA snapshot. DVOA is not computed locally by this dashboard.",
+        "raw": {
+          "source_file": "data/vault-seed/dvoa/dvoa-2025.json",
+          "source_file_mtime": "2026-06-06T21:39:53.371Z",
+          "imported_row": {
+            "rk": 16,
+            "total_dvoa": 2.5,
+            "wei_dvoa": 11.4,
+            "wei_rk": 10,
+            "w_l": "11-6",
+            "off_dvoa": 9.4,
+            "off_rk": 9,
+            "def_dvoa": 7.2,
+            "def_rk": 25,
+            "st_dvoa": 0.3,
+            "st_rk": 18
+          }
+        }
+      }
+    },
+    "camp_notes": {
+      "label": "preseason_prior",
+      "as_of": "2026-07-31",
+      "items": [
+        {
+          "signal_type": "depth_chart",
+          "topic": "Rookie QB1 Reps",
+          "player": "Caleb Williams",
+          "summary": "Taking 100% of first-team reps in Shane Waldron system; showing quick release in 7-on-7s.",
+          "confidence": 0.95,
+          "published_at": "2026-07-31T00:50:17.488Z",
+          "roster_check": "ok"
+        },
+        {
+          "signal_type": "role_usage",
+          "topic": "WR3 Rotation",
+          "player": "Rome Odunze",
+          "summary": "Rotating into 3-WR personnel packages alongside DJ Moore and Keenan Allen.",
+          "confidence": 0.85,
+          "published_at": "2026-07-31T00:50:17.488Z",
+          "roster_check": "ok"
+        }
+      ],
+      "withheld_roster_changed": []
+    },
+    "trench_ratings": {
+      "label": "preseason_prior",
+      "as_of_date": "2026-09-02",
+      "rows": [
+        {
+          "metric_type": "team_composite",
+          "rank_overall": 22,
+          "score_overall": -0.28,
+          "run_block_z": -0.1,
+          "pass_block_z": 0.87,
+          "run_defense_z": -0.93,
+          "pass_rush_z": -0.95,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        },
+        {
+          "metric_type": "schedule_sos",
+          "rank_overall": 26,
+          "score_overall": -0.11,
+          "run_block_z": -0.11,
+          "pass_block_z": -0.18,
+          "run_defense_z": 0.02,
+          "pass_rush_z": -0.16,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        }
+      ]
+    },
+    "missing_inputs": []
   },
   "data_quality": {
     "standing": {
@@ -1277,11 +1991,35 @@
       ]
     },
     "availability": {
-      "status": "not_built",
-      "roster_gate": "not_run"
+      "status": "built",
+      "through_week": null,
+      "as_of": {
+        "espn_status": "2026-10-15T01:45:41Z",
+        "availability_events": "2026-10-15T01:39:52.764Z",
+        "impact_digest": "2026-10-15T01:40:08.105Z",
+        "projected_starters": "2026-10-14T22:00:03.248Z",
+        "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+      },
+      "roster_gate": "passed",
+      "null_fields": [],
+      "caveats": [
+        "ESPN injury statuses lag game-day truth; official inactives decide.",
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      ]
     },
     "priors": {
-      "status": "not_built"
+      "status": "built",
+      "through_week": null,
+      "as_of": {
+        "prior_season": "2025 w18 final",
+        "camp": "2026-07-31",
+        "trench": "2026-09-02"
+      },
+      "null_fields": [],
+      "caveats": [
+        "prior_season / preseason_prior only"
+      ]
     }
   }
 }

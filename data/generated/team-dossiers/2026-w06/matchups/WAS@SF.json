@@ -56,8 +56,59 @@
     "SEA"
   ],
   "availability": {
-    "status": "not_built_in_this_version",
-    "roster_gate": "not_run"
+    "status": "built",
+    "roster_gate": "passed",
+    "as_of": {
+      "espn_status": "2026-10-15T01:45:41Z",
+      "availability_events": "2026-10-15T01:39:52.764Z",
+      "impact_digest": "2026-10-15T01:40:08.105Z",
+      "projected_starters": "2026-10-14T22:00:03.248Z",
+      "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+    },
+    "away": {
+      "qb": {
+        "espn_starter": "Jayden Daniels",
+        "flag": "ok",
+        "operator_confirmed": null
+      },
+      "out_ir": [
+        "Trey Amos CB Injured Reserve",
+        "Jeremy McNichols RB Injured Reserve"
+      ],
+      "questionable_doubtful": [
+        "Charles Omenihu DE Questionable",
+        "Tyler Owens S Questionable",
+        "Marcus Mariota QB Doubtful",
+        "Nick Cross S Questionable",
+        "Stefon Diggs WR Questionable",
+        "Percy Butler S Questionable"
+      ],
+      "operator_reported": [],
+      "ol_risk": "none",
+      "dl_risk": "none"
+    },
+    "home": {
+      "qb": {
+        "espn_starter": "Brock Purdy",
+        "flag": "ok",
+        "operator_confirmed": null
+      },
+      "out_ir": [
+        "Nick Martin LB Injured Reserve",
+        "Christian Kirk WR Injured Reserve",
+        "Garret Wallow LB Out",
+        "Deebo Samuel Sr. WR Out"
+      ],
+      "questionable_doubtful": [
+        "Marques Sigle S Doubtful",
+        "Kyle Juszczyk FB Questionable",
+        "Nick Bosa DE Questionable",
+        "James Thompson Jr. DT Questionable"
+      ],
+      "operator_reported": [],
+      "ol_risk": "none",
+      "dl_risk": "watch"
+    }
   },
   "freshness": {
     "away": {
@@ -113,11 +164,35 @@
         ]
       },
       "availability": {
-        "status": "not_built",
-        "roster_gate": "not_run"
+        "status": "built",
+        "through_week": null,
+        "as_of": {
+          "espn_status": "2026-10-15T01:45:41Z",
+          "availability_events": "2026-10-15T01:39:52.764Z",
+          "impact_digest": "2026-10-15T01:40:08.105Z",
+          "projected_starters": "2026-10-14T22:00:03.248Z",
+          "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+        },
+        "roster_gate": "passed",
+        "null_fields": [],
+        "caveats": [
+          "ESPN injury statuses lag game-day truth; official inactives decide.",
+          "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+          "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        ]
       },
       "priors": {
-        "status": "not_built"
+        "status": "built",
+        "through_week": null,
+        "as_of": {
+          "prior_season": "2025 w18 final",
+          "camp": "2026-07-31",
+          "trench": "2026-09-02"
+        },
+        "null_fields": [],
+        "caveats": [
+          "prior_season / preseason_prior only"
+        ]
       }
     },
     "home": {
@@ -173,11 +248,35 @@
         ]
       },
       "availability": {
-        "status": "not_built",
-        "roster_gate": "not_run"
+        "status": "built",
+        "through_week": null,
+        "as_of": {
+          "espn_status": "2026-10-15T01:45:41Z",
+          "availability_events": "2026-10-15T01:39:52.764Z",
+          "impact_digest": "2026-10-15T01:40:08.105Z",
+          "projected_starters": "2026-10-14T22:00:03.248Z",
+          "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+        },
+        "roster_gate": "passed",
+        "null_fields": [],
+        "caveats": [
+          "ESPN injury statuses lag game-day truth; official inactives decide.",
+          "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+          "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        ]
       },
       "priors": {
-        "status": "not_built"
+        "status": "built",
+        "through_week": null,
+        "as_of": {
+          "prior_season": "2025 w18 final",
+          "camp": "2026-07-31",
+          "trench": "2026-09-02"
+        },
+        "null_fields": [],
+        "caveats": [
+          "prior_season / preseason_prior only"
+        ]
       }
     }
   }

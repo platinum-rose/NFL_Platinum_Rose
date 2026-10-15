@@ -1,6 +1,6 @@
 # LV Raiders — dossier, target Week 6 (data through W5)
-Built 2026-10-13T23:40:26.944Z · git 706ab47 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
-Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability NOT BUILT.
+Built 2026-10-15T01:46:05.766Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 LV · AFC AFC West · HC Klint Kubliak · Allegiant Stadium (dome, grass) · W6: vs BUF Sun 10/18 13:25
@@ -45,5 +45,17 @@ SRS 0.83 (#17) · net PPG 0.6 (#13) · Pythag 0.514 (#14) · model rank #14
 HC Klint Kubliak · neutral pass rate 0.579 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See LV.json → scheme_context.secondary_matchup.
 
-## Not built yet
-Availability (injuries, projected starters, impact digest) and priors (2025 final, camp notes, trench ratings) are not in this version. Player names must come from the roster-gated availability layer, never this file.
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Kirk Cousins [ok]
+Out/IR: Dont'e Thornton Jr. WR Injured Reserve; Carter Runyon TE Injured Reserve
+Questionable/Doubtful: Folorunso Fatukasi DT Questionable; Brock Bowers TE Questionable; Jalen Nailor WR Questionable; Trey Zuhn III C Questionable; Tonka Hemingway DT Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Chris Collier RB; Corey Rucker WR; Jack Bech WR
+OL/DL cluster risk (derived): OL none, DL watch
+Impact digest (top by score): Ashton Jeanty RB return_to_practice/improving; Ashton Jeanty RB status_update/unknown
+Projected starters: manual_and_estimated_signals, 1 players
+
+## Priors (prior_season / preseason_prior; not current-season evidence)
+2025 final [prior_season]: 3-14 · diff -191 · Pythag 0.201 · SRS #31 · EPA off #32 def #17 · DVOA -32.6 (#30) off -28.4 def -1.2
+Camp notes [preseason_prior, Jul 31]: 0 kept, 0 withheld (player left the team)
+Trench composite [preseason_prior, 2026-09-02]: #31 · run block z 0.24 · pass block z -0.34 · run D z -2.22 · pass rush z -0.88

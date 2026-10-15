@@ -6491,9 +6491,12 @@
    {
     "team": "DEN",
     "position": "WR",
-    "group": "offense",
-    "status": "active",
-    "espn_id": "4431280"
+    "group": "injuredReserveOrOut",
+    "status": "Injured Reserve",
+    "espn_id": "4431280",
+    "operator_override": "franklin-ir-2026-10-14",
+    "group_before_override": "offense",
+    "status_before_override": "active"
    }
   ],
   "RJ Harvey": [
@@ -8653,7 +8656,8 @@
     "position": "WR",
     "group": "offense",
     "status": "active",
-    "espn_id": "4432708"
+    "espn_id": "4432708",
+    "operator_override": "harrison-trade-2026-10-13"
    }
   ],
   "Xavier Hutchinson": [
@@ -22949,5 +22953,9 @@
     "espn_id": "4361100"
    }
   ]
- }
+ },
+ "operator_overrides_applied": [
+  "harrison-trade-2026-10-13",
+  "franklin-ir-2026-10-14"
+ ]
 }

@@ -1,6 +1,6 @@
 # CAR Panthers — dossier, target Week 6 (data through W5)
-Built 2026-10-13T23:40:26.432Z · git 706ab47 · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — do NOT name players from this file.
-Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN stale_1wk (through W4) · coaching historical_context_only · availability NOT BUILT.
+Built 2026-10-15T01:46:05.211Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN stale_1wk (through W4) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 CAR · NFC NFC South · HC Dave Canales · Bank of America Stadium (outdoors, grass) · W6: @ PHI Sun 10/18 10:00 · bye played W5
@@ -45,5 +45,17 @@ SRS 3.17 (#10) · net PPG 3 (#12) · Pythag 0.562 (#11) · model rank #11
 HC Dave Canales · neutral pass rate 0.645 · sample 2026-09-13 → 2026-10-04 (4g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See CAR.json → scheme_context.secondary_matchup.
 
-## Not built yet
-Availability (injuries, projected starters, impact digest) and priors (2025 final, camp notes, trench ratings) are not in this version. Player names must come from the roster-gated availability layer, never this file.
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Bryce Young [ok]
+Out/IR: Taylor Moton OT Out; Trevor Etienne RB Injured Reserve; Cam Jackson DT Injured Reserve; Tershawn Wharton DT Out; Ikem Ekwonu OT Out; Xavier Legette WR Injured Reserve
+Questionable/Doubtful: Tommy Tremble TE Questionable; AJ Dillon RB Questionable; Darren Waller TE Questionable; Damien Lewis G Questionable; Monroe Freeling OT Questionable; Jaelan Phillips LB Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Chris Brazzell II WR; Jonathon Brooks RB
+OL/DL cluster risk (derived): OL cluster, DL cluster
+Impact digest (top by score): Bryce Young QB status_update/unknown; Bryce Young QB active_news/unknown; Tommy Tremble TE limited/stable; Tommy Tremble TE status_update/unknown
+Projected starters: manual_and_estimated_signals, 2 players
+
+## Priors (prior_season / preseason_prior; not current-season evidence)
+2025 final [prior_season]: 8-9 · diff -69 · Pythag 0.384 · SRS #21 · EPA off #26 def #23 · DVOA -13.4 (#25) off -7.9 def 5.1
+Camp notes [preseason_prior, Jul 31]: 0 kept, 0 withheld (player left the team)
+Trench composite [preseason_prior, 2026-09-02]: #15 · run block z 0.53 · pass block z 0.72 · run D z -0.39 · pass rush z -1.04
