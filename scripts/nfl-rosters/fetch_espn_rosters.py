@@ -31,5 +31,9 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import operator_overrides
 for line in operator_overrides.apply(snap): print('override:', line)
 json.dump(snap, open(OUT, 'w', encoding='utf-8'), indent=1)
+# Dated archive copy (same pattern as projected-starters-YYYY-MM-DD.json); latest stays the pipeline input.
+DATED = OUT.with_name(f'espn-full-rosters-{datetime.date.today().isoformat()}.json')
+json.dump(snap, open(DATED, 'w', encoding='utf-8'), indent=1)
+print(f'archived {DATED.relative_to(ROOT)}')
 print(f'wrote {OUT.relative_to(ROOT)}: {len(per_team)} teams, {sum(per_team.values())} players')
 if len(per_team) != 32 or min(per_team.values()) < 45: sys.exit('WARN: incomplete roster pull')
