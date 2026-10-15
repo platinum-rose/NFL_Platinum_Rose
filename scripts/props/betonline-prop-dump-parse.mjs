@@ -43,7 +43,7 @@ export const MARKET_PATTERNS = [
   ['longest_rec', /\blongest reception$/i],
   ['first_td', /\bto score 1st touchdown\??$/i],
   ['kicking_points', /\bkicking points$/i],
-  ['atd_1_plus', /\bscore a touchdown\??$/i],
+  ['atd_1_plus', /\b(?:score a|scoring a) touchdown\??$/i],
   ['fantasy_points', /\bfantasy points(?:\s*\(.*\)|\s+std\..*)?$/i],
 ];
 
@@ -58,6 +58,7 @@ const SPECIAL_SUBTYPES = [
   ['longest_field_goal', /\blongest field goal of the game\b/i],
   ['shortest_field_goal', /\bshortest field goal of the game\b/i],
   ['two_point_conversion', /\bwill there be a successful 2-point conversion\??/i],
+  ['total_sacks', /^total sacks$/i],
 ];
 
 export function clean(value = '') {
