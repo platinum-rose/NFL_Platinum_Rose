@@ -22,6 +22,7 @@ import { fileURLToPath } from 'node:url';
 import { chromium } from '@playwright/test';
 import { spawn } from 'node:child_process';
 import { acquireLock, releaseLock } from './cron-bol-scrape.mjs';
+import { writeImportFile } from './beo-futures-to-imports.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -216,7 +217,16 @@ function writeOutputs({ rawText, rows, urls, st }) {
     rows,
   }, null, 2), 'utf8');
   fs.writeFileSync(mdPath, renderMarkdown(rows, st, urls), 'utf8');
-  return { rawPath, jsonPath, mdPath };
+  // Also emit the dated import file the futures pipeline reads (data/futures-imports/betonline-<day>.json).
+  // Non-fatal: the capture above is already saved. Supabase is NOT touched here; run
+  // `node scripts/backfill-futures-imports.js` afterwards to reconcile (see docs/BEO_FUTURES_INGESTION_WORKFLOW.md).
+  let imp = null;
+  try {
+    imp = writeImportFile({ schema: 'betonline_futures_v1', capturedAt: st.iso, rows }, st.day);
+  } catch (err) {
+    imp = { written: false, reason: `import conversion failed: ${err.message}` };
+  }
+  return { rawPath, jsonPath, mdPath, imp };
 }
 
 // ---------- capture ----------
@@ -370,6 +380,9 @@ async function run() {
     }
     const out = writeOutputs({ rawText, rows, urls, st });
     console.log(`\n✅ Gate passed.\n💾 ${out.mdPath}\n💾 ${out.jsonPath}`);
+    console.log(out.imp?.written
+      ? `💾 ${out.imp.target} (${out.imp.rows} rows) — next: node scripts/backfill-futures-imports.js --dry-run, then without --dry-run`
+      : `ℹ️ futures-imports file not written: ${out.imp?.reason}`);
   } finally {
     if (lockToken) releaseLock(LOCK_FILE, lockToken);
   }

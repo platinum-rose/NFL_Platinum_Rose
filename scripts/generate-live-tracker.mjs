@@ -1374,9 +1374,19 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         if (!rowsByBookMarket[bookKey]) rowsByBookMarket[bookKey] = {};
         if (!rowsByBookMarket[bookKey][row.market_type]) rowsByBookMarket[bookKey][row.market_type] = [];
         const oddsNum = typeof row.odds === 'number' ? row.odds : parseFloat(row.odds);
-        const probNum = typeof row.implied_prob === 'number' ? row.implied_prob : parseFloat(row.implied_prob);
+        let probNum = typeof row.implied_prob === 'number' ? row.implied_prob : parseFloat(row.implied_prob);
+        // OCR-era imports (e.g. BetOnline 9/7, 9/9, 10/7) carry implied_prob=null; derive the vig-inclusive
+        // probability from the American odds instead of silently dropping the row.
+        if (isNaN(probNum) && Number.isFinite(oddsNum) && oddsNum !== 0) {
+          probNum = oddsNum > 0 ? 100 / (oddsNum + 100) : -oddsNum / (-oddsNum + 100);
+        }
         if (isNaN(oddsNum) || isNaN(probNum)) continue;
-        rowsByBookMarket[bookKey][row.market_type].push({ date: sf.date, team: row.team, odds: oddsNum, impliedProb: probNum });
+        // Exacta pairings are unordered and books list them in different orientations
+        // ("A vs B" vs "B vs A"); canonicalize so one pairing = one history across books.
+        const teamKey = row.market_type === 'superbowl_matchup'
+          ? String(row.team).split(/\s+vs\.?\s+/i).map(x => x.trim()).sort().join(' vs ')
+          : row.team;
+        rowsByBookMarket[bookKey][row.market_type].push({ date: sf.date, team: teamKey, odds: oddsNum, impliedProb: probNum });
       }
     }
 
@@ -1433,12 +1443,12 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         }
         exactaRows = Array.from(pairingSet).map(matchupTeam => {
           const opponent = matchupTeam.replace(item.team, '').replace(/\bvs\b/i, '').trim();
-          // Prefer whichever allowed book has the longer/older history for this specific
-          // pairing (an earlier first-tracked date gives a more meaningful baseline).
+          // Headline = the book with the FRESHEST snapshot for this pairing (most recent lastDate);
+          // ties break toward the longer history (earlier firstDate). Other books ride alongside.
           const trendsByBook = exactaBooks
             .map(book => buildTrend(book, 'superbowl_matchup', t => t === matchupTeam))
             .filter(Boolean)
-            .sort((a, b) => a.firstDate.localeCompare(b.firstDate));
+            .sort((a, b) => b.lastDate.localeCompare(a.lastDate) || a.firstDate.localeCompare(b.firstDate));
           const primary = trendsByBook[0] || null;
           return { matchup: matchupTeam, opponent, primary, allBooks: trendsByBook };
         }).filter(row => row.primary)
@@ -1498,7 +1508,14 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     const exactaRowsHtml = watch.exactaRows.map(row => {
       const p = row.primary;
       const bookLabel = `${row.opponent} \u2022 ${BOOK_DISPLAY_NAME[p.book] || p.book}`;
-      return renderPriceWatchTrendRow(p, bookLabel);
+      const others = (row.allBooks || []).filter(t => t.book !== p.book);
+      // Best current payout across books (dates differ, so each chip shows its own snapshot date).
+      const bestOdds = Math.max(p.lastOdds, ...others.map(t => t.lastOdds));
+      const star = (t) => (others.length > 0 && t.lastOdds === bestOdds ? ' <span style="color:#FBBF24;" title="Best current payout across books">\u2605</span>' : '');
+      const alongside = others.length > 0
+        ? `<div style="font-size:0.66rem; color:#64748B; padding:0 0 4px 0; border-bottom:1px solid rgba(148,163,184,0.08);">also: ${others.map(t => `${BOOK_DISPLAY_NAME[t.book] || t.book} <span style="color:#94A3B8;">${formatAmericanOdds(t.lastOdds)}</span> (${t.lastDate.slice(5)})${star(t)}`).join(' &nbsp;\u00b7&nbsp; ')}</div>`
+        : '';
+      return renderPriceWatchTrendRow(p, bookLabel).replace(bookLabel, `${bookLabel}${star(p)}`) + alongside;
     }).join('\n');
 
     return `

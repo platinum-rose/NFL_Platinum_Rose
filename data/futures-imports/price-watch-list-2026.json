@@ -1,12 +1,18 @@
 {
   "season": 2026,
-  "updated_at": "2026-09-18",
+  "updated_at": "2026-10-15",
   "purpose": "Not-yet-bought futures price watch. These are monitor-only price levels -- Andy is deliberately NOT buying SB Win / Exacta Matchup exposure on these teams yet, and wants to be alerted once the price has dipped (odds lengthened / implied probability dropped) far enough from where it was when watching started to be worth buying.",
   "book_policy": {
-    "superbowl": ["bookmaker", "betonline"],
-    "superbowl_matchup": ["betus", "bookmaker"]
+    "superbowl": [
+      "bookmaker",
+      "betonline"
+    ],
+    "superbowl_matchup": [
+      "betonline",
+      "betus"
+    ]
   },
-  "note_on_books": "SB Win is tracked against Bookmaker.eu (Andy's actual account) and BetOnline equally. Exacta Matchup is tracked against BetUS and Bookmaker.eu (BKR currently has no exacta history in the local snapshot files -- BetUS is the effective source until Bookmaker.eu exacta screenshots are ingested).",
+  "note_on_books": "SB Win is tracked against Bookmaker.eu (Andy's actual account) and BetOnline equally. Exacta Matchup is tracked against BetOnline and BetUS (updated 2026-10-15: Bookmaker.eu has no exacta boards in the local snapshot files; BetOnline has full 256-pair boards 9/7, 9/9, 10/7, 10/13 and BetUS has 10 boards 6/26-10/7. BetOnline's exacta board carries ~17% total overround vs ~37% on BetUS and pays more on ~80% of common pairs, so BetOnline is the better exacta price source.)",
   "items": [
     {
       "id": "buf-price-watch",
@@ -15,7 +21,10 @@
       "status": "watching",
       "watching_since": "2026-09-18",
       "note": "Anchor team. Watching SB Win and all Exacta Matchup pairings for a price dip before adding exposure -- do not auto-recommend a buy, just flag the movement.",
-      "markets": ["superbowl", "superbowl_matchup"],
+      "markets": [
+        "superbowl",
+        "superbowl_matchup"
+      ],
       "dipThresholdPct": 25
     },
     {
@@ -25,7 +34,62 @@
       "status": "watching",
       "watching_since": "2026-09-18",
       "note": "Watching SB Win and all Exacta Matchup pairings for a price dip before adding exposure -- do not auto-recommend a buy, just flag the movement.",
-      "markets": ["superbowl", "superbowl_matchup"],
+      "markets": [
+        "superbowl",
+        "superbowl_matchup"
+      ],
+      "dipThresholdPct": 25
+    },
+    {
+      "id": "san-francisco-price-watch",
+      "team": "San Francisco 49ers",
+      "teamAbbr": "SF",
+      "status": "watching",
+      "watching_since": "2026-10-15",
+      "note": "Added 2026-10-15 as an exacta-hedge / injured-but-alive watch (monitor-only, no auto-buy). Pairs with the BUF anchor: watching SB Win and Exacta Matchup pricing for the best entry.",
+      "markets": [
+        "superbowl",
+        "superbowl_matchup"
+      ],
+      "dipThresholdPct": 25
+    },
+    {
+      "id": "los-angeles-rams-price-watch",
+      "team": "Los Angeles Rams",
+      "teamAbbr": "LAR",
+      "status": "watching",
+      "watching_since": "2026-10-15",
+      "note": "Added 2026-10-15 as an exacta-hedge / injured-but-alive watch (monitor-only, no auto-buy). Pairs with the BUF anchor: watching SB Win and Exacta Matchup pricing for the best entry.",
+      "markets": [
+        "superbowl",
+        "superbowl_matchup"
+      ],
+      "dipThresholdPct": 25
+    },
+    {
+      "id": "baltimore-price-watch",
+      "team": "Baltimore Ravens",
+      "teamAbbr": "BAL",
+      "status": "watching",
+      "watching_since": "2026-10-15",
+      "note": "Added 2026-10-15 as an exacta-hedge / injured-but-alive watch (monitor-only, no auto-buy). Pairs with the BUF anchor: watching SB Win and Exacta Matchup pricing for the best entry.",
+      "markets": [
+        "superbowl",
+        "superbowl_matchup"
+      ],
+      "dipThresholdPct": 25
+    },
+    {
+      "id": "seattle-price-watch",
+      "team": "Seattle Seahawks",
+      "teamAbbr": "SEA",
+      "status": "watching",
+      "watching_since": "2026-10-15",
+      "note": "Added 2026-10-15 as an exacta-hedge / injured-but-alive watch (monitor-only, no auto-buy). Pairs with the BUF anchor: watching SB Win and Exacta Matchup pricing for the best entry.",
+      "markets": [
+        "superbowl",
+        "superbowl_matchup"
+      ],
       "dipThresholdPct": 25
     }
   ]
