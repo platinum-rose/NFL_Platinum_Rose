@@ -3,12 +3,12 @@
 > Start here. This is a routing index, not a transcript. One current pickup only.
 > Detail lives in dated `handoffs/`; superseded pickups are in git history and their dated files.
 
-## PICK UP HERE (Wed 2026-10-14 ~11:00 PT, H2C2 handoff to Claude Team 2, Week 6)
+## PICK UP HERE (Wed 2026-10-14 22:30 PT, W6 session: builder v1.1 + overrides, pushed)
 
-Branch `claude/w5-prop-cards-2026-10-11` (check `git log -1 --format=%s`; expect the H2C2 handoff commit on top of `dbf8225`). Six prior local commits are unpushed.
-Required first read: `reports/handoff-snapshots/2026-10-14-h2c2-week6-wed/H2C2_START_HERE.md`. Detailed briefing (load one lane only): `handoffs/2026-10-14-1100-claude-h2c2-team2-week6-wednesday-briefing.md`.
+Branch `claude/w5-prop-cards-2026-10-11`, HEAD `88d20c0` plus this handoff commit; all pushed.
+Required read: `handoffs/2026-10-14-2230-claude-w6-builder-v11-overrides-handoff.md`. Lane map (load one lane only): `handoffs/2026-10-14-1100-claude-h2c2-team2-week6-wednesday-briefing.md` and `reports/handoff-snapshots/2026-10-14-h2c2-week6-wed/H2C2_START_HERE.md`.
 
-Next, by lane: validate Antigravity podcast extractions (Even Money, Sharp or Square) in `data/shadow-harness/antigravity-staging/`; BEO props re-run (Andy, >=500 rows); rebuild W6 dossiers/synthesis on refreshed seeds (ask Andy); availability/priors layer (roster gate first).
+Next: Andy's go for the W6 quant synthesis (not yet run; dry-run first); Andy to supply Week 6 QBs; podcast lane A belongs to Andy's other session.
 
 ## Fast resume (do this, nothing more)
 
