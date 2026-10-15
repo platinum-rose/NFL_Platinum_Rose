@@ -85,17 +85,17 @@
           "date": "week of 2026-09-14",
           "claimed_usd": 2.85,
           "detail": "3 reloads at $0.95",
-          "applied_to": null,
-          "plan": "Packers Super Bowl at BetOnline if +2500 or longer; else hold for exacta market"
+          "applied_to": "sf_buf_exacta_1005664263 (BetOnline ticket 1005664263, 2026-10-15, SF vs BUF +2200, $38.54 free-money stake)",
+          "plan": "Deployed 2026-10-15 (part of the $38.54 free-money exacta stake)."
         },
         {
           "date": "2026-10-05",
           "claimed_usd": 4.83,
           "detail": "3 reloads at $1.61",
           "source": "handoffs/2026-10-05-1235-claude-week4-closeout-futures-w5-lines-mnf-planner-handoff.md",
-          "verification_status": "reported_in_handoff_unreconciled",
-          "applied_to": null,
-          "plan": "Reported plan: apply the full amount to the best-priced Buffalo Bills Super Bowl market after fresh price shopping."
+          "verification_status": "confirmed_by_andy_in_38.54_total_2026-10-15",
+          "applied_to": "sf_buf_exacta_1005664263 (BetOnline ticket 1005664263, 2026-10-15, SF vs BUF +2200, $38.54 free-money stake)",
+          "plan": "Deployed 2026-10-15 (part of the $38.54 free-money exacta stake)."
         }
       ],
       "use": "Boost best available futures price for Packers or Bills, or Super Bowl exacta when BetOnline reposts that market."
@@ -111,26 +111,28 @@
           "date": "2026-09-23",
           "claimed_usd": 3.96,
           "detail": "Won on free slots at BetOnline; real cash (Andy, 2026-09-23)",
-          "applied_to": null,
-          "plan": "Unassigned. Andy 2026-09-23: do not lock into Bills futures yet."
+          "applied_to": "sf_buf_exacta_1005664263 (BetOnline ticket 1005664263, 2026-10-15, SF vs BUF +2200, $38.54 free-money stake)",
+          "plan": "Deployed 2026-10-15 (part of the $38.54 free-money exacta stake)."
         },
         {
           "date": "2026-10-13",
           "claimed_usd": 11.9,
           "detail": "Won on free spins at BetOnline; real cash (Andy, 2026-10-13)",
-          "applied_to": null,
-          "plan": "Unassigned. Andy 2026-10-14 00:59 PT: no decision yet on where to allocate (an earlier note about exactas was premature)."
+          "applied_to": "sf_buf_exacta_1005664263 (BetOnline ticket 1005664263, 2026-10-15, SF vs BUF +2200, $38.54 free-money stake)",
+          "plan": "Deployed 2026-10-15 (part of the $38.54 free-money exacta stake)."
         }
       ],
       "use": "Free money for bankroll purposes. Per Andy (2026-09-23), BetOnline promo/casino cash is real cash that can fund bets at any book and still counts as free money in the bankroll.",
       "portfolio_allocation": {
-        "status": "available_unplaced",
+        "status": "deployed",
         "amount_usd": 3.96,
         "allocated_to": "futures_portfolio",
         "recorded_at": "2026-10-08",
-        "unassigned_usd": 11.9,
+        "unassigned_usd": 0.0,
         "unassigned_recorded_at": "2026-10-13",
-        "total_balance_usd": 15.86
+        "total_balance_usd": 0.0,
+        "deployed_at": "2026-10-15",
+        "deployed_to": "sf_buf_exacta_1005664263"
       }
     },
     {

@@ -1,7 +1,7 @@
 {
  "schema_version": "1.0",
  "season": 2026,
- "as_of": "2026-10-08",
+ "as_of": "2026-10-15",
  "units": {
   "futures_usd": 20,
   "in_season_usd": 10
@@ -16,12 +16,18 @@
  "available_futures_funding": [
   {
    "id": "beo-casino-free-slots-2026-09-23",
-   "amount_usd": 3.96,
+   "amount_usd": 38.54,
    "funding_type": "promo_cash_free_money",
-   "status": "available_unplaced",
+   "status": "deployed",
    "source": "data/sportsbooks/promotions-2026.json#beo-casino-free-slots",
    "eligible_use": "futures_portfolio",
-   "note": "Real cash won from BetOnline free slots. Added by Andy on 2026-10-08 as available futures-portfolio funding; it is not a placed ticket or position stake."
+   "note": "Free-money balance confirmed by Andy 2026-10-15 at $38.54 (slots $3.96 + $11.90, reloads $2.85 + $4.83, gift $15.00, per the 10/15 handoff breakdown). Fully deployed 2026-10-15 on San Francisco vs Buffalo exacta, ticket 1005664263 (+2200, to win $847.88). Balance is now $0.",
+   "deployed_usd": 38.54,
+   "remaining_usd": 0.0,
+   "deployed_at": "2026-10-15",
+   "applied_to": [
+    "sf_buf_exacta_1005664263"
+   ]
   }
  ],
  "positions": [
@@ -114,7 +120,7 @@
    "book": "betonline",
    "book_confirmed": true,
    "ticket_number": "994540980",
-      "ticket_note": "2026-10-15: BetOnline official breakdown shows ticket 994540980 carries both selections (Bills SB winner $50 +1000 and Packers vs Bills exact matchup $45 +8300). The shared number is correct, not a copy error.",
+   "ticket_note": "2026-10-15: BetOnline official breakdown shows ticket 994540980 carries both selections (Bills SB winner $50 +1000 and Packers vs Bills exact matchup $45 +8300). The shared number is correct, not a copy error.",
    "accepted_date": "2026-09-09",
    "to_win_usd": 3735,
    "result_status": "pending"
@@ -390,6 +396,60 @@
    "to_win_usd": 1080.0,
    "result_status": "pending",
    "estimate_note": "Official placed exacta, supplied by Andy on 2026-10-08. Sportsbook was not specified in the ticket text. | 2026-10-15: Andy confirmed this is a BetOnline ticket."
+  },
+  {
+   "id": "sf_buf_exacta_1005664263",
+   "market": "superbowl_matchup",
+   "selection": "San Francisco 49ers vs Buffalo Bills",
+   "role": "exacta_amplifier",
+   "stake_usd": 38.54,
+   "price": 2200,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1005664263",
+   "accepted_date": "2026-10-15",
+   "to_win_usd": 847.88,
+   "result_status": "pending",
+   "funding": "free_money",
+   "estimate_note": "Official BetOnline ticket 1005664263 (accepted 2026-10-15), supplied by Andy. Funded entirely with the $38.54 free-money balance (slots + reloads + gift), not bankroll. The same ticket number also carries Seattle vs Buffalo (sea_buf_exacta_1005664263)."
+  },
+  {
+   "id": "sea_buf_exacta_1005664263",
+   "market": "superbowl_matchup",
+   "selection": "Seattle Seahawks vs Buffalo Bills",
+   "role": "exacta_amplifier",
+   "stake_usd": 17.58,
+   "price": 3500,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1005664263",
+   "accepted_date": "2026-10-15",
+   "to_win_usd": 615.3,
+   "result_status": "pending",
+   "funding": "cash",
+   "estimate_note": "Official BetOnline ticket 1005664263 (accepted 2026-10-15), supplied by Andy. Cash. Separate from the older Seattle vs Buffalo position buf_sea_exacta (ticket 994659710, +5100)."
+  },
+  {
+   "id": "gb_kc_exacta_1005659723",
+   "market": "superbowl_matchup",
+   "selection": "Green Bay Packers vs Kansas City Chiefs",
+   "role": "exacta_amplifier",
+   "stake_usd": 7.0,
+   "price": 15800,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1005659723",
+   "accepted_date": "2026-10-15",
+   "to_win_usd": 1106.0,
+   "result_status": "pending",
+   "funding": "cash",
+   "estimate_note": "Official BetOnline ticket 1005659723 (accepted 2026-10-15), supplied by Andy. Cash."
   },
   {
    "id": "bills_wins_over_10_5",
