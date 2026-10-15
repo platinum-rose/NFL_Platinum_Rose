@@ -28,7 +28,7 @@ try {
 }
 
 // Team full name / prefix map to standard 2-3 letter team abbreviations
-const TEAM_ABBR_MAP = {
+export const TEAM_ABBR_MAP = {
   'PHI Eagles': 'PHI',
   'JAX Jaguars': 'JAX',
   'CLE Browns': 'CLE',
@@ -89,6 +89,13 @@ export const PLAYER_ALIAS_MAP = {
   "Tre' Harris": 'LAC',
   'Zonovan Knight': 'ARI',
   'Bam Knight': 'ARI',
+  // Added 2026-10-15 (W6 DKP gate): verified against ESPN roster 2026-10-15
+  'Matthew Hibner': 'BAL',
+  'Kenneth Gainwell': 'TB',
+  'D.J. Moore': 'BUF',
+  // ESPN lists these in the injured/out group, which roster-map-latest.json omits
+  'Omar Cooper Jr.': 'NYJ',
+  'Tim Patrick': 'NYJ',
   // Free agents / recent additions
   "Lil'Jordan Humphrey": 'DEN',
   'Kaytron Allen': 'WAS',
@@ -153,6 +160,30 @@ export function resolveTeamForPlayer(playerName, awayTeam, homeTeam) {
 
 export const MONTH_MAP = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
 
+export const DISPLAY_TZ = process.env.DKP_DISPLAY_TZ || 'America/Los_Angeles';
+
+// Calendar date (year, 0-based month, day) of `date` as seen in timezone `tz`.
+export function localDateParts(date = new Date(), tz = DISPLAY_TZ) {
+  const parts = new Intl.DateTimeFormat('en-CA', { timeZone: tz, year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(date);
+  const get = (t) => Number(parts.find(p => p.type === t).value);
+  return { year: get('year'), month: get('month') - 1, day: get('day') };
+}
+
+export function localDateString(date = new Date(), tz = DISPLAY_TZ) {
+  const p = localDateParts(date, tz);
+  return `${p.year}-${String(p.month + 1).padStart(2, '0')}-${String(p.day).padStart(2, '0')}`;
+}
+
+// NFL week (Tuesday-to-Monday) computed on the LOCAL calendar date, so Monday-night
+// games stay in their own week until local midnight (not 5 PM Pacific like UTC would).
+export function calculateNflWeek(date = new Date(), tz = DISPLAY_TZ, seasonYear = 2026) {
+  const p = localDateParts(date, tz);
+  const localMidnight = Date.UTC(p.year, p.month, p.day);
+  const w1Tuesday = Date.UTC(seasonYear, 8, 8);
+  const diffWeeks = Math.floor((localMidnight - w1Tuesday) / (7 * 24 * 60 * 60 * 1000));
+  return Math.max(1, Math.min(18, 1 + diffWeeks));
+}
+
 export function getWeekDateRange(weekNum, seasonYear = 2026) {
   const w1Tuesday = new Date(Date.UTC(seasonYear, 8, 8, 0, 0, 0)); // Sept 8 2026
   const msPerWeek = 7 * 24 * 60 * 60 * 1000;
@@ -161,35 +192,114 @@ export function getWeekDateRange(weekNum, seasonYear = 2026) {
   return { start, end };
 }
 
-export function isMatchupInWeek(timeLine, weekNum, seasonYear = 2026) {
-  if (!timeLine || !weekNum) return true;
-  const m = timeLine.match(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{1,2})/i);
-  if (!m) return true;
-  const monthStr = m[1].toLowerCase();
-  const day = parseInt(m[2], 10);
-  const month = MONTH_MAP[monthStr];
-  const year = month < 6 ? seasonYear + 1 : seasonYear;
-  const gameDate = new Date(Date.UTC(year, month, day, 12, 0, 0));
+const MONTH_DAY_RE = /\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+(\d{1,2})(?!\d)/i;
+const RELATIVE_DAY_RE = /^\s*(Today|Tomorrow)\b/i;
+const DAY_PREFIX = '(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-z]*\\s+[A-Za-z]{3}\\s+\\d{1,2}(?:st|nd|rd|th)?';
+// A game start line: has a clock time ("Sun Oct 11th 6:30 AM", "Tomorrow 10:00 AM")
+export const GAME_TIME_RE = new RegExp(`^(?:${DAY_PREFIX}|Today|Tomorrow)\\s+\\d{1,2}:\\d{2}\\s*[AP]M`, 'i');
+// A date section header with no clock time ("MON OCT 12th", "Tomorrow")
+const DATE_HEADER_RE = new RegExp(`^(?:${DAY_PREFIX}|Today|Tomorrow)$`, 'i');
+
+// Resolve a DraftKings date label to an absolute Date (UTC noon of that calendar day).
+// "Today"/"Tomorrow" are resolved against the capture timestamp in the display timezone.
+// Returns null when the label cannot be resolved.
+export function resolveGameDate(timeLine, { capturedAt = null, tz = DISPLAY_TZ, seasonYear = 2026 } = {}) {
+  if (!timeLine) return null;
+  const m = timeLine.match(MONTH_DAY_RE);
+  if (m) {
+    const month = MONTH_MAP[m[1].toLowerCase()];
+    const day = parseInt(m[2], 10);
+    const year = month < 6 ? seasonYear + 1 : seasonYear;
+    return new Date(Date.UTC(year, month, day, 12, 0, 0));
+  }
+  const rel = timeLine.match(RELATIVE_DAY_RE);
+  if (rel && capturedAt) {
+    const base = new Date(capturedAt);
+    if (isNaN(base.getTime())) return null;
+    const p = localDateParts(base, tz);
+    const offset = rel[1].toLowerCase() === 'tomorrow' ? 1 : 0;
+    return new Date(Date.UTC(p.year, p.month, p.day + offset, 12, 0, 0));
+  }
+  return null;
+}
+
+// FAILS CLOSED: a label that cannot be resolved to a date is NOT in the week.
+export function isMatchupInWeek(timeLine, weekNum, seasonYear = 2026, opts = {}) {
+  if (!weekNum) return true;
+  const gameDate = resolveGameDate(timeLine, { ...opts, seasonYear });
+  if (!gameDate) return false;
   const { start, end } = getWeekDateRange(weekNum, seasonYear);
   return gameDate >= start && gameDate <= end;
 }
 
-export function parseGameLinesSection(rawText, weekNum = null, seasonYear = 2026) {
+export function writeFileAtomic(filePath, data) {
+  const tmp = `${filePath}.tmp-${process.pid}-${Date.now()}`;
+  try {
+    fs.writeFileSync(tmp, data, 'utf8');
+    fs.renameSync(tmp, filePath);
+  } catch (err) {
+    try { fs.unlinkSync(tmp); } catch { /* ignore */ }
+    throw err;
+  }
+}
+
+// Summary of the most recent promoted master for a week (regression baseline for the gate).
+export function loadPreviousMaster(weekNum, dir = path.join(REPO_ROOT, 'data', 'generated', 'props')) {
+  try {
+    const re = new RegExp(`^draftkings-predictions-live-\\d{4}-\\d{2}-\\d{2}-week${weekNum}\\.json$`);
+    const files = fs.readdirSync(dir)
+      .filter(f => re.test(f))
+      .map(f => ({ f, m: fs.statSync(path.join(dir, f)).mtimeMs }))
+      .sort((a, b) => b.m - a.m);
+    for (const { f } of files) {
+      try {
+        const j = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
+        if (j?.summary?.games > 0) {
+          return { file: f, games: j.summary.games, rows: j.summary.rows, players: j.summary.players || 0 };
+        }
+      } catch { /* skip unreadable */ }
+    }
+  } catch { /* no baseline */ }
+  return null;
+}
+
+export function parseGameLinesSection(rawText, weekNum = null, seasonYear = 2026, opts = {}) {
   const lines = rawText.split('\n').map(l => l.trim()).filter(Boolean);
   const events = [];
   const rows = [];
+  const unresolvedDateEvents = [];
+  const timeByEvent = opts.timeByEvent || {};
+  const dateOpts = { capturedAt: opts.capturedAt || null, tz: opts.tz || DISPLAY_TZ };
+
+  const awayIdx = [];
+  for (let k = 0; k < lines.length; k++) {
+    if (lines[k + 1] === 'AT') awayIdx.push(k);
+  }
+  let lastHeader = '';
 
   for (let i = 0; i < lines.length; i++) {
+    if (DATE_HEADER_RE.test(lines[i])) lastHeader = lines[i];
     if (lines[i+1] === 'AT') {
       const away = lines[i];
       const home = lines[i+2];
 
-      const surrounding = lines.slice(i, i + 25);
-      const timeLine = surrounding.find(l => /^(Sun|Mon|Thu|Sat|Today|Tomorrow)\s+[A-Za-z]{3}\s+\d+/i.test(l)) || '';
-      
-      // Calendar-anchored filter: skip advance matchups for subsequent weeks
-      if (weekNum && !isMatchupInWeek(timeLine, weekNum, seasonYear)) {
-        continue;
+      // Look for this game's own start-time line, never past the next game's block.
+      const nextAway = awayIdx.find(k => k > i);
+      const windowEnd = Math.min(i + 25, nextAway !== undefined ? nextAway : lines.length);
+      const timeLine = lines.slice(i, windowEnd).find(l => GAME_TIME_RE.test(l)) || '';
+      const event = `${away} @ ${home}`;
+      // Date source priority: own time line > preceding date header > TD-board time for same matchup
+      const dateText = timeLine || lastHeader || timeByEvent[event] || '';
+
+      // Calendar-anchored filter. FAILS CLOSED: undated matchups are reported, never silently included.
+      if (weekNum) {
+        if (!resolveGameDate(dateText, { ...dateOpts, seasonYear })) {
+          unresolvedDateEvents.push(event);
+          continue;
+        }
+        if (!isMatchupInWeek(dateText, weekNum, seasonYear, dateOpts)) {
+          continue;
+        }
       }
 
       const spreadAway = lines[i+3];
@@ -203,7 +313,6 @@ export function parseGameLinesSection(rawText, weekNum = null, seasonYear = 2026
       const totalUnderProb = lines[i+13];
       const mlHomeProb = lines[i+14];
 
-      const event = `${away} @ ${home}`;
       const awayAbbr = TEAM_ABBR_MAP[away] || away;
       const homeAbbr = TEAM_ABBR_MAP[home] || home;
 
@@ -214,7 +323,7 @@ export function parseGameLinesSection(rawText, weekNum = null, seasonYear = 2026
         source: 'draftkings_predictions_live_dom',
         event,
         game: event,
-        startTime: timeLine,
+        startTime: timeLine || dateText,
         available: true,
       };
 
@@ -337,19 +446,35 @@ export function parseGameLinesSection(rawText, weekNum = null, seasonYear = 2026
         game: event,
         away,
         home,
-        startTime: timeLine,
+        startTime: timeLine || dateText,
         rows: rows.filter(r => r.event === event),
       });
     }
   }
 
-  return { events, rows };
+  return { events, rows, unresolvedDateEvents };
 }
 
-export function parseTdScorersSection(rawText, weekNum = null, seasonYear = 2026) {
+// Map "Away @ Home" -> start-time line, from a TD board (used as a date fallback for game lines).
+export function extractEventTimes(rawText) {
+  const lines = rawText.split('\n').map(l => l.trim()).filter(Boolean);
+  const out = {};
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i + 1] === 'AT') {
+      const ev = `${lines[i]} @ ${lines[i + 2]}`;
+      const t = lines.slice(i + 3, i + 8).find(l => GAME_TIME_RE.test(l));
+      if (t && !out[ev]) out[ev] = t;
+    }
+  }
+  return out;
+}
+
+export function parseTdScorersSection(rawText, weekNum = null, seasonYear = 2026, opts = {}) {
   const lines = rawText.split('\n').map(l => l.trim()).filter(Boolean);
   const rows = [];
   const STOP_WORDS = new Set(['Anytime TD Scorer', 'First TD Scorer', '2+ TDs', '3+ TDS', 'LAST TD SCORER', 'TD SCORERS', 'Spread', 'Total Points', 'To Win']);
+  const dateOpts = { capturedAt: opts.capturedAt || null, tz: opts.tz || DISPLAY_TZ };
+  const allowed = opts.allowedEvents || null;
 
   let currentEvent = null;
   let currentStartTime = null;
@@ -360,14 +485,17 @@ export function parseTdScorersSection(rawText, weekNum = null, seasonYear = 2026
     if (lines[i+1] === 'AT') {
       currentAway = lines[i];
       currentHome = lines[i+2];
-      currentStartTime = lines[i+3] || '';
+      currentStartTime = lines.slice(i + 3, i + 8).find(l => GAME_TIME_RE.test(l)) || '';
+      const ev = `${currentAway} @ ${currentHome}`;
 
-      // If start time is outside target week, skip this event
-      if (weekNum && !isMatchupInWeek(currentStartTime, weekNum, seasonYear)) {
+      if (allowed) {
+        // Only keep TD rows for matchups that passed the game-lines week filter
+        currentEvent = allowed.has(ev) ? ev : null;
+      } else if (weekNum && !isMatchupInWeek(currentStartTime, weekNum, seasonYear, dateOpts)) {
         currentEvent = null;
-        continue;
+      } else {
+        currentEvent = ev;
       }
-      currentEvent = `${currentAway} @ ${currentHome}`;
       continue;
     }
 
@@ -452,13 +580,14 @@ export function parseTdScorersSection(rawText, weekNum = null, seasonYear = 2026
   return rows;
 }
 
-export function parseDraftKingsPredictionsDump(rawContent, dateStr, weekNum) {
+export function parseDraftKingsPredictionsDump(rawContent, dateStr, weekNum, opts = {}) {
   // Extract raw capture timestamp from DKP_HEADER if present
   let capturedAt = new Date().toISOString();
   const headerMatch = rawContent.match(/^DKP_HEADER\|([^|]+)\|([^|]+)\|([^\r\n]+)/m);
   if (headerMatch && headerMatch[3]) {
     capturedAt = headerMatch[3].trim();
   }
+  const dateOpts = { capturedAt, tz: opts.tz || DISPLAY_TZ };
 
   // Split into sections if wrapped with SECTION_START / SECTION_END
   let gameLinesText = rawContent;
@@ -474,11 +603,15 @@ export function parseDraftKingsPredictionsDump(rawContent, dateStr, weekNum) {
     tdScorersText = tdMatch[1];
   }
 
-  // Parse Game Lines with calendar-anchored week filtering
-  const { events, rows: glRows } = parseGameLinesSection(gameLinesText, weekNum);
+  // TD board start times are a date fallback for game-lines matchups that carry no date of their own
+  const tdTimes = tdScorersText ? extractEventTimes(tdScorersText) : {};
 
-  // Parse TD Scorers if available with calendar-anchored week filtering
-  const tdRows = tdScorersText ? parseTdScorersSection(tdScorersText, weekNum) : [];
+  // Parse Game Lines with calendar-anchored, fail-closed week filtering
+  const { events, rows: glRows, unresolvedDateEvents } = parseGameLinesSection(gameLinesText, weekNum, 2026, { ...dateOpts, timeByEvent: tdTimes });
+
+  // TD rows only for matchups that passed the game-lines week filter
+  const allowedEvents = new Set(events.map(e => e.event));
+  const tdRows = tdScorersText ? parseTdScorersSection(tdScorersText, weekNum, 2026, { ...dateOpts, allowedEvents }) : [];
 
   const allRows = [...glRows, ...tdRows];
 
@@ -518,6 +651,7 @@ export function parseDraftKingsPredictionsDump(rawContent, dateStr, weekNum) {
       players: playersSet.size,
       markets: Object.keys(marketCounts).length,
       by_market: marketCounts,
+      unresolvedDateEvents,
     },
     events: finalizedEvents,
   };
@@ -533,11 +667,21 @@ export function parseDraftKingsPredictionsDump(rawContent, dateStr, weekNum) {
     allRows,
     summary,
     masterPayload,
+    unresolvedDateEvents,
   };
 }
 
+function eventTeamAbbrs(eventName) {
+  const [away, home] = String(eventName || '').split(' @ ');
+  return [TEAM_ABBR_MAP[away], TEAM_ABBR_MAP[home]];
+}
+
 // Acceptance Gate validator
-export function validateAcceptanceGate({ events, allRows, masterPayload, expectedGames = null }) {
+//   expectedGames : exact game count required (null = any >= 1)
+//   expectTd      : TD scorer market must be present for (nearly) every game (default true)
+//   previous      : summary of the last promoted master {games, rows, players} for regression checks
+//   allowShrink   : skip the regression check (e.g. games legitimately kicked off and left the board)
+export function validateAcceptanceGate({ events, allRows, masterPayload, expectedGames = null, expectTd = true, previous = null, allowShrink = false }) {
   const errors = [];
 
   // Gate 1: Matchup coverage
@@ -549,10 +693,36 @@ export function validateAcceptanceGate({ events, allRows, masterPayload, expecte
     errors.push(`Incomplete matchup count: captured 0 games for week.`);
   }
 
+  // Gate 1b: every matchup on the board must have a resolvable date (week filter fails closed)
+  const unresolvedDates = masterPayload?.summary?.unresolvedDateEvents || [];
+  if (unresolvedDates.length > 0) {
+    errors.push(`Found ${unresolvedDates.length} matchup(s) with no resolvable start date, cannot assign to week: ${unresolvedDates.slice(0, 5).join('; ')}.`);
+  }
+
   // Gate 2: Depth check (minimum expected rows based on game lines or TD markets)
   const minRows = masterPayload?.summary?.by_market?.atd_1_plus ? Math.max(500, events.length * 30) : (events.length * 6);
   if (allRows.length < minRows) {
     errors.push(`Row count below minimum threshold: got ${allRows.length}, expected >= ${minRows}.`);
+  }
+
+  // Gate 2b: TD scorer market must be present (a failed TD board must never promote a lines-only capture)
+  if (expectTd) {
+    const atdEvents = new Set(allRows.filter(r => r.market === 'atd_1_plus').map(r => r.event));
+    if (atdEvents.size === 0) {
+      errors.push('TD scorer market missing: 0 anytime-TD rows captured (TD board failed to load?).');
+    } else if (events.length > 0 && atdEvents.size / events.length < 0.8) {
+      errors.push(`TD scorer coverage too low: ${atdEvents.size} of ${events.length} games have anytime-TD rows (need >= 80%).`);
+    }
+  }
+
+  // Gate 2c: regression vs last promoted master
+  if (previous && !allowShrink) {
+    if (previous.games > 0 && events.length < previous.games * 0.8) {
+      errors.push(`Capture shrank vs last good master (${previous.file || 'previous'}): games ${events.length} < 80% of ${previous.games}. Use --allow-shrink if games legitimately left the board.`);
+    }
+    if (previous.rows > 0 && allRows.length < previous.rows * 0.8) {
+      errors.push(`Capture shrank vs last good master (${previous.file || 'previous'}): rows ${allRows.length} < 80% of ${previous.rows}. Use --allow-shrink if games legitimately left the board.`);
+    }
   }
 
   // Gate 3: Odds, team resolution & data integrity check
@@ -563,7 +733,11 @@ export function validateAcceptanceGate({ events, allRows, masterPayload, expecte
   let gamePropsWithPlayer = 0;
   let playerPropsWithoutPlayer = 0;
   let playerPropsWithoutTeam = 0;
+  const unresolvedTeamPlayers = new Set();
   let invalidPrices = 0;
+  let teamNotInGame = 0;
+  const teamNotInGameSamples = new Set();
+  const unmappedEvents = new Set();
 
   for (const r of allRows) {
     if (r.odds === null || r.odds === undefined) nullOdds++;
@@ -577,7 +751,19 @@ export function validateAcceptanceGate({ events, allRows, masterPayload, expecte
     }
     if (r.market !== 'game_lines') {
       if (!r.player) playerPropsWithoutPlayer++;
-      if (!r.team) playerPropsWithoutTeam++;
+      if (!r.team) {
+        playerPropsWithoutTeam++;
+        unresolvedTeamPlayers.add(`${r.player} (${r.event})`);
+      } else {
+        // A resolved team must be one of the two teams in this game (catches stale roster / alias after trades)
+        const [awayAbbr, homeAbbr] = eventTeamAbbrs(r.event);
+        if (!awayAbbr || !homeAbbr) {
+          unmappedEvents.add(r.event);
+        } else if (r.team !== awayAbbr && r.team !== homeAbbr) {
+          teamNotInGame++;
+          if (teamNotInGameSamples.size < 5) teamNotInGameSamples.add(`${r.player}=${r.team} in ${r.event}`);
+        }
+      }
     }
   }
 
@@ -588,7 +774,9 @@ export function validateAcceptanceGate({ events, allRows, masterPayload, expecte
   if (invalidPrices > 0) errors.push(`Found ${invalidPrices} row(s) with invalid contract price/probability.`);
   if (gamePropsWithPlayer > 0) errors.push(`Found ${gamePropsWithPlayer} game line row(s) with non-null player.`);
   if (playerPropsWithoutPlayer > 0) errors.push(`Found ${playerPropsWithoutPlayer} player prop row(s) without player name.`);
-  if (playerPropsWithoutTeam > 0) errors.push(`Found ${playerPropsWithoutTeam} player prop row(s) with unresolved/null team.`);
+  if (playerPropsWithoutTeam > 0) errors.push(`Found ${playerPropsWithoutTeam} player prop row(s) with unresolved/null team: ${[...unresolvedTeamPlayers].slice(0, 20).join("; ")}.`);
+  if (teamNotInGame > 0) errors.push(`Found ${teamNotInGame} player prop row(s) whose team is not in the game (stale roster/alias?): ${[...teamNotInGameSamples].join('; ')}.`);
+  if (unmappedEvents.size > 0) errors.push(`Cannot verify player teams: unrecognized team names in ${unmappedEvents.size} event(s): ${[...unmappedEvents].slice(0, 3).join('; ')}.`);
 
   return {
     passed: errors.length === 0,
@@ -599,6 +787,8 @@ export function validateAcceptanceGate({ events, allRows, masterPayload, expecte
       players: masterPayload?.summary?.players || 0,
       markets: masterPayload?.summary?.markets || 0,
       unresolvedTeams: playerPropsWithoutTeam,
+      teamNotInGame,
+      unresolvedDates: unresolvedDates.length,
     }
   };
 }
@@ -609,13 +799,14 @@ if (typeof process !== 'undefined' && process.argv?.[1] && path.resolve(process.
     const i = process.argv.indexOf(k);
     return i > -1 ? process.argv[i + 1] : null;
   };
+  const hasFlag = (k) => process.argv.includes(k);
 
   const inputPath = arg('--in');
-  const dateStr = arg('--date') || new Date().toISOString().slice(0, 10);
-  const weekNum = arg('--week') ? Number(arg('--week')) : 5;
+  const dateStr = arg('--date') || localDateString();
+  const weekNum = arg('--week') ? Number(arg('--week')) : calculateNflWeek();
 
   if (!inputPath) {
-    console.error('Usage: node scripts/props/draftkings-prediction-dump-parse.mjs --in <dump.txt> --date YYYY-MM-DD --week N');
+    console.error('Usage: node scripts/props/draftkings-prediction-dump-parse.mjs --in <dump.txt> --date YYYY-MM-DD --week N [--expected-games N] [--no-td] [--allow-shrink]');
     process.exit(1);
   }
 
@@ -623,7 +814,12 @@ if (typeof process !== 'undefined' && process.argv?.[1] && path.resolve(process.
   const { events, allRows, summary, masterPayload } = parseDraftKingsPredictionsDump(rawContent, dateStr, weekNum);
 
   const expectedGames = arg('--expected-games') ? Number(arg('--expected-games')) : null;
-  const gate = validateAcceptanceGate({ events, allRows, masterPayload, expectedGames });
+  const gate = validateAcceptanceGate({
+    events, allRows, masterPayload, expectedGames,
+    expectTd: !hasFlag('--no-td'),
+    previous: loadPreviousMaster(weekNum),
+    allowShrink: hasFlag('--allow-shrink'),
+  });
   if (!gate.passed) {
     console.error('\n❌ ACCEPTANCE GATE FAILED:');
     for (const err of gate.errors) {
@@ -644,8 +840,8 @@ if (typeof process !== 'undefined' && process.argv?.[1] && path.resolve(process.
 
   fs.mkdirSync(path.dirname(outMaster), { recursive: true });
   fs.mkdirSync(path.dirname(outMirror), { recursive: true });
-  fs.writeFileSync(outMaster, JSON.stringify(masterPayload, null, 2), 'utf8');
-  fs.writeFileSync(outMirror, JSON.stringify(masterPayload, null, 2), 'utf8');
+  writeFileAtomic(outMaster, JSON.stringify(masterPayload, null, 2));
+  writeFileAtomic(outMirror, JSON.stringify(masterPayload, null, 2));
 
   console.log(`💾 Saved master JSON: ${outMaster}`);
   console.log(`📋 Mirrored research JSON: ${outMirror}`);

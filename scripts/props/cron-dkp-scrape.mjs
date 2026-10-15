@@ -8,16 +8,24 @@
 // 1. Process Overlap Lock with UUID Ownership Token (prevents concurrent scheduler runs)
 // 2. Dedicated Capture Tab Isolation (never touches or reuses operator tabs)
 // 3. Automated Slate-Wide Game Lines and Touchdown Markets Ingestion
-// 4. Strict 14-Game / Zero-Bad-Row Acceptance Gate before promoting output
+// 4. Strict Acceptance Gate before promoting output: TD market required, fail-closed week filter,
+//    team-in-game check, and regression guard vs the last good master (override: --allow-shrink / --no-td)
 // ==============================================================================
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { chromium } from '@playwright/test';
-import { parseDraftKingsPredictionsDump, validateAcceptanceGate } from './draftkings-prediction-dump-parse.mjs';
+import {
+  parseDraftKingsPredictionsDump,
+  validateAcceptanceGate,
+  calculateNflWeek,
+  localDateString,
+  loadPreviousMaster,
+  writeFileAtomic,
+} from './draftkings-prediction-dump-parse.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,7 +33,26 @@ const REPO_ROOT = path.resolve(__dirname, '..', '..');
 
 const LOCK_FILE = path.join(REPO_ROOT, '.chrome-dkp', 'dkp-scraper.lock');
 
-export function acquireLock(customLockFile = LOCK_FILE, { exitOnBusy = true, token = null } = {}) {
+// A live lock older than this is treated as stale (Task Scheduler kills runs at 20 min).
+export const MAX_LOCK_AGE_MINUTES = 90;
+
+// Image name of the process owning `pid` on Windows (e.g. "node.exe").
+//   string    -> process exists with that image name
+//   null      -> no such process
+//   undefined -> unknown (non-Windows or lookup failed): caller stays conservative (treat as alive)
+export function defaultImageNameLookup(pid) {
+  if (process.platform !== 'win32') return undefined;
+  try {
+    const r = spawnSync('tasklist', ['/FI', `PID eq ${pid}`, '/FO', 'CSV', '/NH'], { encoding: 'utf8', timeout: 5000, windowsHide: true });
+    if (r.error || r.status !== 0) return undefined;
+    const m = String(r.stdout || '').trim().match(/^"([^"]+)"/);
+    return m ? m[1] : null;
+  } catch {
+    return undefined;
+  }
+}
+
+export function acquireLock(customLockFile = LOCK_FILE, { exitOnBusy = true, token = null, imageNameLookup = defaultImageNameLookup, maxLockAgeMinutes = MAX_LOCK_AGE_MINUTES } = {}) {
   const lockDir = path.dirname(customLockFile);
   if (!fs.existsSync(lockDir)) {
     fs.mkdirSync(lockDir, { recursive: true });
@@ -80,6 +107,27 @@ export function acquireLock(customLockFile = LOCK_FILE, { exitOnBusy = true, tok
         if (killErr.code === 'EPERM') {
           isAlive = true;
         } else {
+          isAlive = false;
+        }
+      }
+
+      // 2b. Guard against PID reuse: a live PID that is not a node process is NOT our scraper.
+      if (isAlive) {
+        const imageName = imageNameLookup(existingLock.pid);
+        if (imageName === null) {
+          console.warn(`⚠️ Lock PID ${existingLock.pid} no longer exists. Treating lock as stale.`);
+          isAlive = false;
+        } else if (typeof imageName === 'string' && !/^node(\.exe)?$/i.test(imageName)) {
+          console.warn(`⚠️ Lock PID ${existingLock.pid} was reused by '${imageName}' (not node). Treating lock as stale.`);
+          isAlive = false;
+        }
+      }
+
+      // 2c. Hard age cap: a "live" node process holding the lock far past the task time limit is hung.
+      if (isAlive) {
+        const heldMin = (Date.now() - new Date(existingLock.startedAt).getTime()) / 60000;
+        if (Number.isFinite(heldMin) && heldMin > maxLockAgeMinutes) {
+          console.warn(`⚠️ Lock held by PID ${existingLock.pid} for ${Math.round(heldMin)}m (> ${maxLockAgeMinutes}m cap). Treating lock as stale.`);
           isAlive = false;
         }
       }
@@ -143,12 +191,7 @@ const arg = (k) => {
   return i > -1 ? process.argv[i + 1] : null;
 };
 
-function calculateNflWeek(date = new Date()) {
-  const w1Tuesday = new Date('2026-09-08T00:00:00Z');
-  const msPerWeek = 7 * 24 * 60 * 60 * 1000;
-  const diffWeeks = Math.floor((date.getTime() - w1Tuesday.getTime()) / msPerWeek);
-  return Math.max(1, Math.min(18, 1 + diffWeeks));
-}
+const hasFlag = (k) => process.argv.includes(k);
 
 async function isCdpAvailable() {
   try {
@@ -206,7 +249,7 @@ async function run() {
   }
 
   try {
-    const dateStr = arg('--date') || new Date().toISOString().slice(0, 10);
+    const dateStr = arg('--date') || localDateString();
     const weekNum = arg('--week') ? Number(arg('--week')) : calculateNflWeek();
 
     console.log(`\n===============================================================`);
@@ -258,12 +301,28 @@ async function run() {
       'DKP_END'
     ].join('\n\n');
 
+    // Keep the raw capture even if the gate fails, so the failure can be diagnosed without re-scraping.
+    try {
+      const failedPath = path.join(REPO_ROOT, 'data', 'generated', 'props', `draftkings-predictions-live-${dateStr}-week${weekNum}.last-capture.raw.txt`);
+      fs.mkdirSync(path.dirname(failedPath), { recursive: true });
+      writeFileAtomic(failedPath, rawDumpText);
+    } catch (e) { console.warn('Could not save last-capture dump:', e.message); }
+
     // Parse in-memory first to evaluate Acceptance Gate
     console.log('\n⚙️ Parsing and validating against Acceptance Gate...');
     const { events, allRows, summary, masterPayload } = parseDraftKingsPredictionsDump(rawDumpText, dateStr, weekNum);
 
     const expectedGames = arg('--expected-games') ? Number(arg('--expected-games')) : null;
-    const gate = validateAcceptanceGate({ events, allRows, masterPayload, expectedGames });
+    const previous = loadPreviousMaster(weekNum);
+    if (previous) {
+      console.log(`📎 Regression baseline: ${previous.file} (${previous.games} games, ${previous.rows} rows)`);
+    }
+    const gate = validateAcceptanceGate({
+      events, allRows, masterPayload, expectedGames,
+      expectTd: !hasFlag('--no-td'),
+      previous,
+      allowShrink: hasFlag('--allow-shrink'),
+    });
     if (!gate.passed) {
       console.error('\n❌ ACCEPTANCE GATE FAILED:');
       for (const err of gate.errors) {
@@ -280,8 +339,8 @@ async function run() {
 
     fs.mkdirSync(path.dirname(rawPath1), { recursive: true });
     fs.mkdirSync(path.dirname(rawPath2), { recursive: true });
-    fs.writeFileSync(rawPath1, rawDumpText, 'utf8');
-    fs.writeFileSync(rawPath2, rawDumpText, 'utf8');
+    writeFileAtomic(rawPath1, rawDumpText);
+    writeFileAtomic(rawPath2, rawDumpText);
     console.log(`\n💾 Saved raw dump: ${rawPath1} (${Math.round(rawDumpText.length / 1024)} KB)`);
     console.log(`💾 Mirrored raw evidence: ${rawPath2}`);
 
@@ -312,15 +371,15 @@ async function run() {
       };
 
       const perMatchupPath = path.join(REPO_ROOT, 'data', 'generated', 'props', `draftkings-predictions-live-${dateStr}-${awaySlug}-at-${homeSlug}.json`);
-      fs.writeFileSync(perMatchupPath, JSON.stringify(out, null, 2), 'utf8');
+      writeFileAtomic(perMatchupPath, JSON.stringify(out, null, 2));
     }
 
     // Write consolidated master JSON and mirror
     const masterJson = path.join(REPO_ROOT, 'data', 'generated', 'props', `draftkings-predictions-live-${dateStr}-week${weekNum}.json`);
     const mirrorJson = path.join(REPO_ROOT, 'data', 'research-intel', 'source-evidence', `${dateStr}-draftkings-predictions-week${weekNum}-props-parsed.json`);
 
-    fs.writeFileSync(masterJson, JSON.stringify(masterPayload, null, 2), 'utf8');
-    fs.writeFileSync(mirrorJson, JSON.stringify(masterPayload, null, 2), 'utf8');
+    writeFileAtomic(masterJson, JSON.stringify(masterPayload, null, 2));
+    writeFileAtomic(mirrorJson, JSON.stringify(masterPayload, null, 2));
 
     console.log(`\n===============================================================`);
     console.log(`📊 DraftKings Predictions Summary — Week ${weekNum} (${dateStr})`);
