@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T01:46:06.234Z",
+  "built_at": "2026-10-15T21:03:57.231Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "178a59c",
+  "git_head": "d93786a",
   "market_data_included": false,
   "sources": [
     {
@@ -132,7 +132,7 @@
       "generated_at": null,
       "status": "current",
       "through_week": 5,
-      "sha256": "c55900a646702012a6e997a923adec8ac22f097355a0ed0e4d7ec521fd016d2a",
+      "sha256": "5a2048c4aa64253f5b217e3f8cfc2ea4ea038e151026e68d4d7bad9e77f39da6",
       "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
     }
   ],
@@ -1208,7 +1208,7 @@
               "opportunity_score": 1.2,
               "notes": "IND High-Efficiency Slot.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "questionable"
+              "availability_flag": "none"
             },
             {
               "player_name": "Keenan Allen",
@@ -1294,20 +1294,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-14T08:00:27.901983+00:00",
-      "roster_age_h_at_vet": 17.8,
+      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
-        "harrison-trade-2026-10-13",
-        "franklin-ir-2026-10-14"
+        "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T01:45:41Z",
-      "availability_events": "2026-10-15T01:39:52.764Z",
-      "impact_digest": "2026-10-15T01:40:08.105Z",
-      "projected_starters": "2026-10-14T22:00:03.248Z",
-      "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+      "espn_status": "2026-10-15T21:03:20Z",
+      "availability_events": "2026-10-15T21:03:43.426Z",
+      "impact_digest": "2026-10-15T21:03:48.941Z",
+      "projected_starters": "2026-10-15T15:09:02.072Z",
+      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1333,6 +1332,14 @@
       ],
       "questionable_doubtful": [
         {
+          "player": "Tyjae Spears",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-15",
+          "comment": "Spears (knee) didn't practice Thursday.",
+          "roster_check": "ok"
+        },
+        {
           "player": "David Martin-Robinson",
           "pos": "TE",
           "status": "Questionable",
@@ -1353,7 +1360,7 @@
           "pos": "S",
           "status": "Doubtful",
           "date": "2026-10-14",
-          "comment": "Winston (quadriceps) did not practice Wednesday.",
+          "comment": "Titans head coach Robert Saleh said that Winston (quadriceps) has \"a real uphill climb\" to play Sunday against the Colts, Easton Freeze of AtoZSports.com report",
           "roster_check": "ok"
         },
         {
@@ -1362,14 +1369,6 @@
           "status": "Questionable",
           "date": "2026-10-14",
           "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Tyjae Spears",
-          "pos": "RB",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Spears was a limited participant in Wednesday's practice due to a knee injury.",
           "roster_check": "ok"
         }
       ],
@@ -1444,7 +1443,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Tanoh Kpassagnon IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1460,7 +1459,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Milo Eifler IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1476,7 +1475,7 @@
           "availability_trend": "worsening",
           "event_type": "suspension",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Nazeeh Johnson SUSPENSION",
           "practice": [],
           "probability_of_playing": null,
@@ -1492,7 +1491,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Kendell Brooks IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1508,7 +1507,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Dominique Hampton IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1524,7 +1523,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Jaylen Harrell IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1540,7 +1539,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Jaren Kanak IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1550,16 +1549,73 @@
           "roster_check": "roster_ir_out_group"
         },
         {
+          "player_name": "Tyjae Spears",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "worsening",
+          "event_type": "setback",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T20:18:00.000Z",
+          "summary": "Spears (knee) didn't practice Thursday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Kevin Winston Jr.",
+          "position": "S",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "Kevin Winston Jr. QUESTIONABLE",
+          "practice": [
+            "DNP",
+            "DNP"
+          ],
+          "probability_of_playing": 0.09248,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
           "player_name": "David Martin-Robinson",
           "position": "TE",
           "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:23:00.000Z",
-          "summary": "Martin-Robinson (hamstring) was a limited participant in Wednesday's practice.",
-          "practice": [],
-          "probability_of_playing": null,
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "David Martin-Robinson QUESTIONABLE",
+          "practice": [
+            "Limit",
+            "Limit"
+          ],
+          "probability_of_playing": 0.60552,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Marcus Harris",
+          "position": "CB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "Marcus Harris QUESTIONABLE",
+          "practice": [
+            "Limit",
+            "Limit"
+          ],
+          "probability_of_playing": 0.92987,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1574,54 +1630,6 @@
           "source": "ESPN injuries API",
           "published_at": "2026-10-14T23:19:00.000Z",
           "summary": "Hooker (concussion) was a limited participant in Wednesday's practice.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Cor'Dale Flott",
-          "position": "CB",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "improving",
-          "event_type": "return_to_practice",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:12:00.000Z",
-          "summary": "Flott (chest) was a full participant in Wednesday's practice session.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Kevin Winston Jr.",
-          "position": "S",
-          "normalized_status": "DOUBTFUL",
-          "availability_trend": "worsening",
-          "event_type": "doubtful",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T21:06:00.000Z",
-          "summary": "Winston (quadriceps) did not practice Wednesday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Tony Pollard",
-          "position": "RB",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "improving",
-          "event_type": "return_to_practice",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T20:37:00.000Z",
-          "summary": "Pollard was a non-participant in Wednesday's practice due to rest.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1681,7 +1689,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-14T22:00:03.248Z",
+      "as_of": "2026-10-15T15:09:02.072Z",
       "known": [
         "Cam Ward QB",
         "Gunnar Helm TE"
@@ -1945,11 +1953,11 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T01:45:41Z",
-        "availability_events": "2026-10-15T01:39:52.764Z",
-        "impact_digest": "2026-10-15T01:40:08.105Z",
-        "projected_starters": "2026-10-14T22:00:03.248Z",
-        "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+        "espn_status": "2026-10-15T21:03:20Z",
+        "availability_events": "2026-10-15T21:03:43.426Z",
+        "impact_digest": "2026-10-15T21:03:48.941Z",
+        "projected_starters": "2026-10-15T15:09:02.072Z",
+        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],

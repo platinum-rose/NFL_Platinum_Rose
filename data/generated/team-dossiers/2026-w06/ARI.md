@@ -1,5 +1,5 @@
 # ARI Cardinals — dossier, target Week 6 (data through W5)
-Built 2026-10-15T01:46:05.035Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-15T21:03:55.931Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -45,15 +45,15 @@ SRS -11.14 (#31) · net PPG -10.8 (#31) · Pythag 0.277 (#29) · model rank #30
 HC Jonathan Gannon · neutral pass rate 0.635 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See ARI.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Jacoby Brissett [ok]
 Out/IR: Wydett Williams Jr. S Out; Kitan Crawford S Injured Reserve; James Conner RB Injured Reserve; Isaiah Adams G Injured Reserve
-Questionable/Doubtful: Andrew Wingard S Questionable; Devin Duvernay WR Questionable; Jeremiyah Love RB Questionable
+Questionable/Doubtful: Jeremiyah Love RB Questionable; Andrew Wingard S Questionable; Devin Duvernay WR Questionable
 Operator-reported (Andy, not in ESPN): Marvin Harrison Jr. WR traded ARI->HOU
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 12 players; skill: Hunter Long TE; Jameson Geers TE; Tip Reiman TE; Trey Benson RB; Xavier Weaver WR
 OL/DL cluster risk (derived): OL watch, DL none
-Impact digest (top by score): James Conner RB ir/worsening; James Conner RB out/worsening
+Impact digest (top by score): James Conner RB ir/worsening; James Conner RB out/worsening; Shawn Bowman TE active_news/unknown
 Projected starters: estimated_from_local_starter_language, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

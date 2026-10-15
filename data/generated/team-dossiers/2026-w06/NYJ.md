@@ -1,5 +1,5 @@
 # NYJ Jets — dossier, target Week 6 (data through W5)
-Built 2026-10-15T01:46:06.001Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-15T21:03:56.984Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -45,15 +45,15 @@ SRS -1.81 (#21) · net PPG -0.6 (#20) · Pythag 0.481 (#20) · model rank #19
 HC Aaron Glenn · neutral pass rate 0.554 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See NYJ.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Geno Smith [ok]
 Out/IR: Omar Cooper Jr. WR Injured Reserve; Braiden McGregor DE Injured Reserve
-Questionable/Doubtful: Dylan Parham G Doubtful; Joseph Ossai DE Doubtful; Kenyon Sadiq TE Questionable; Dane Belton S Questionable; Breece Hall RB Doubtful; Adonai Mitchell WR Doubtful
+Questionable/Doubtful: Adonai Mitchell WR Doubtful; Kenyon Sadiq TE Questionable; Breece Hall RB Doubtful; Dylan Parham G Doubtful; Joseph Ossai DE Doubtful; Dane Belton S Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 10 players; skill: Arian Smith WR; Caullin Lacy WR; Chip Trayanum RB
 OL/DL cluster risk (derived): OL watch, DL cluster
-Impact digest (top by score): Geno Smith QB active_news/unknown; Breece Hall RB doubtful/worsening; Breece Hall RB status_update/unknown
-Projected starters: manual_and_estimated_signals, 2 players
+Impact digest (top by score): Dylan Parham G doubtful/worsening; Geno Smith QB active_news/unknown; Breece Hall RB doubtful/worsening; Breece Hall RB status_update/unknown
+Projected starters: manual_and_estimated_signals, 3 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 3-14 · diff -203 · Pythag 0.227 · SRS #32 · EPA off #29 def #30 · DVOA -35.9 (#32) off -27.1 def 19

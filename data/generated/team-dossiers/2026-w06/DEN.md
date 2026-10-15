@@ -1,5 +1,5 @@
 # DEN Broncos — dossier, target Week 6 (data through W5)
-Built 2026-10-15T01:46:05.413Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-15T21:03:56.313Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -45,12 +45,11 @@ SRS 1.36 (#13) · net PPG -2.8 (#24) · Pythag 0.421 (#24) · model rank #21
 HC Sean Payton · neutral pass rate 0.585 · sample 2026-09-14 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See DEN.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Bo Nix [ok]
 Out/IR: Pat Surtain II CB Out; Talanoa Hufanga S Out; Pat Bryant WR Injured Reserve
 Questionable/Doubtful: Riley Moss CB Questionable
-Operator-reported (Andy, not in ESPN): Troy Franklin WR Injured Reserve
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Caleb Lohner TE; Jonah Coleman RB
 OL/DL cluster risk (derived): OL none, DL none
 Impact digest (top by score): Bo Nix QB active_news/unknown; Lil'Jordan Humphrey WR active_news/unknown; Adam Prentice FB active_news/unknown

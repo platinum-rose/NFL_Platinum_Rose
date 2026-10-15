@@ -1,5 +1,5 @@
 # KC Chiefs — dossier, target Week 6 (data through W5)
-Built 2026-10-15T01:46:05.657Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-15T21:03:56.589Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN stale_1wk (through W4) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -45,11 +45,11 @@ SRS 8.61 (#3) · net PPG 10.3 (#3) · Pythag 0.733 (#4) · model rank #4
 HC Andy Reid · neutral pass rate 0.532 · sample 2026-09-14 → 2026-10-04 (4g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See KC.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Patrick Mahomes [ok]
 Out/IR: Tyquan Thornton WR Injured Reserve
-Questionable/Doubtful: Josh Simmons OT Questionable; L'Jarius Sneed CB Questionable; Rashee Rice WR Questionable
+Questionable/Doubtful: Rashee Rice WR Questionable; Josh Simmons OT Questionable; L'Jarius Sneed CB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Jeff Caldwell WR; Jimmy Holiday WR; John Michael Gyllenborg TE
 OL/DL cluster risk (derived): OL none, DL none
 Impact digest (top by score): Patrick Mahomes QB active_news/unknown; Kenneth Walker III RB active_news/unknown

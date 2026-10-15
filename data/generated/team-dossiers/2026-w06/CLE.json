@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T01:46:05.328Z",
+  "built_at": "2026-10-15T21:03:56.214Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "178a59c",
+  "git_head": "d93786a",
   "market_data_included": false,
   "sources": [
     {
@@ -132,7 +132,7 @@
       "generated_at": null,
       "status": "current",
       "through_week": 5,
-      "sha256": "c55900a646702012a6e997a923adec8ac22f097355a0ed0e4d7ec521fd016d2a",
+      "sha256": "5a2048c4aa64253f5b217e3f8cfc2ea4ea038e151026e68d4d7bad9e77f39da6",
       "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
     }
   ],
@@ -981,7 +981,7 @@
               "opportunity_score": 6,
               "notes": "BAL Primary Target.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
+              "availability_flag": "questionable"
             },
             {
               "player_name": "Rashod Bateman",
@@ -1253,20 +1253,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-14T08:00:27.901983+00:00",
-      "roster_age_h_at_vet": 17.8,
+      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
-        "harrison-trade-2026-10-13",
-        "franklin-ir-2026-10-14"
+        "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T01:45:41Z",
-      "availability_events": "2026-10-15T01:39:52.764Z",
-      "impact_digest": "2026-10-15T01:40:08.105Z",
-      "projected_starters": "2026-10-14T22:00:03.248Z",
-      "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+      "espn_status": "2026-10-15T21:03:20Z",
+      "availability_events": "2026-10-15T21:03:43.426Z",
+      "impact_digest": "2026-10-15T21:03:48.941Z",
+      "projected_starters": "2026-10-15T15:09:02.072Z",
+      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1316,6 +1315,14 @@
         }
       ],
       "questionable_doubtful": [
+        {
+          "player": "Quinshon Judkins",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-15",
+          "comment": "Judkins (foot) was present for Thursday's practice but didn't participate in stretching or individual drills during the portion of practice open to the media, D",
+          "roster_check": "ok"
+        },
         {
           "player": "Tytus Howard",
           "pos": "OT",
@@ -1378,14 +1385,6 @@
           "status": "Questionable",
           "date": "2026-10-14",
           "comment": "Boston was listed as a limited participant in Wednesday's practice due to a foot injury, Chris Easterling of the Akron Beacon Journal reports.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Quinshon Judkins",
-          "pos": "RB",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Judkins (foot) didn't participate in Wednesday's practice, Chris Easterling of the Akron Beacon Journal reports.",
           "roster_check": "ok"
         },
         {
@@ -1500,7 +1499,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Raheim Sanders IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1516,7 +1515,7 @@
           "availability_trend": "worsening",
           "event_type": "pup",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Jeremiah Owusu-Koramoah PUP",
           "practice": [],
           "probability_of_playing": null,
@@ -1532,7 +1531,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Damarri Mathis IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1548,7 +1547,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Alex Wright IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1564,7 +1563,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Joe Royer IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1572,6 +1571,22 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Quinshon Judkins",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T17:32:00.000Z",
+          "summary": "Judkins (foot) was present for Thursday's practice but didn't participate in stretching or individual drills during the portion of practice open to the media, D",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
         },
         {
           "player_name": "Tytus Howard",
@@ -1590,48 +1605,76 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Dylan Sampson",
-          "position": "RB",
-          "normalized_status": "IR",
-          "availability_trend": "worsening",
-          "event_type": "ir",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T21:59:00.000Z",
-          "summary": "Sampson (knee) was a non-participant in Wednesday's practice.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player_name": "Elgton Jenkins",
-          "position": "C",
+          "player_name": "Denzel Boston",
+          "position": "WR",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T21:52:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "Denzel Boston QUESTIONABLE",
+          "practice": [
+            "Limit",
+            "Limit"
+          ],
+          "probability_of_playing": 0.88456,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
         },
         {
-          "player_name": "Grant Delpit",
-          "position": "S",
+          "player_name": "KC Concepcion Jr.",
+          "position": "WR",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T21:51:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "KC Concepcion Jr. QUESTIONABLE",
+          "practice": [
+            "Limit",
+            "Limit"
+          ],
+          "probability_of_playing": 0.63167,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Dylan Sampson",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "Dylan Sampson QUESTIONABLE",
+          "practice": [
+            "DNP",
+            "Limit"
+          ],
+          "probability_of_playing": 0.31648,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Carson Schwesinger",
+          "position": "LB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "Carson Schwesinger QUESTIONABLE",
+          "practice": [
+            "DNP",
+            "DNP"
+          ],
+          "probability_of_playing": 0.3557,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1640,46 +1683,17 @@
         {
           "player_name": "Mason Graham",
           "position": "DT",
-          "normalized_status": "DOUBTFUL",
-          "availability_trend": "worsening",
-          "event_type": "doubtful",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T21:51:00.000Z",
-          "summary": "doubtful",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "KC Concepcion",
-          "position": "WR",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T21:48:00.000Z",
-          "summary": "Concepcion (concussion) was a limited participant in Wednesday's practice.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Maliek Collins",
-          "position": "DT",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T21:45:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "Mason Graham QUESTIONABLE",
+          "practice": [
+            "DNP",
+            "DNP"
+          ],
+          "probability_of_playing": 0.02045,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1692,19 +1706,19 @@
         "player_name": "Quinshon Judkins",
         "position": "RB",
         "unit": "offensive_skill",
-        "event_type": "status_update",
-        "availability_trend": "unknown",
+        "event_type": "limited",
+        "availability_trend": "stable",
         "impact_bucket": "skill_major",
         "starter_match": {
           "role": "starter",
           "starter_confidence": 0.8,
           "source_count": 1
         },
-        "score": 49,
+        "score": 74,
         "signal": "review_context",
         "source": "ESPN injuries API",
-        "published_at": "2026-10-14T21:30:00.000Z",
-        "summary": "Judkins (foot) didn't participate in Wednesday's practice, Chris Easterling of the Akron Beacon Journal reports.",
+        "published_at": "2026-10-15T17:32:00.000Z",
+        "summary": "Judkins (foot) was present for Thursday's practice but didn't participate in stretching or individual drills during the portion of practice open to the media, D",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1726,7 +1740,7 @@
         "score": 49,
         "signal": "review_context",
         "source": "FantasyPros injuries API",
-        "published_at": "2026-10-14T00:00:00.000Z",
+        "published_at": "2026-10-15T00:00:00.000Z",
         "summary": "Quinshon Judkins QUESTIONABLE",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
@@ -1760,7 +1774,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-14T22:00:03.248Z",
+      "as_of": "2026-10-15T15:09:02.072Z",
       "known": [
         "Quinshon Judkins RB"
       ],
@@ -2025,11 +2039,11 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T01:45:41Z",
-        "availability_events": "2026-10-15T01:39:52.764Z",
-        "impact_digest": "2026-10-15T01:40:08.105Z",
-        "projected_starters": "2026-10-14T22:00:03.248Z",
-        "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+        "espn_status": "2026-10-15T21:03:20Z",
+        "availability_events": "2026-10-15T21:03:43.426Z",
+        "impact_digest": "2026-10-15T21:03:48.941Z",
+        "projected_starters": "2026-10-15T15:09:02.072Z",
+        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],

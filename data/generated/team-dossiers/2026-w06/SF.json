@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T01:46:06.161Z",
+  "built_at": "2026-10-15T21:03:57.148Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "178a59c",
+  "git_head": "d93786a",
   "market_data_included": false,
   "sources": [
     {
@@ -132,7 +132,7 @@
       "generated_at": null,
       "status": "current",
       "through_week": 5,
-      "sha256": "c55900a646702012a6e997a923adec8ac22f097355a0ed0e4d7ec521fd016d2a",
+      "sha256": "5a2048c4aa64253f5b217e3f8cfc2ea4ea038e151026e68d4d7bad9e77f39da6",
       "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
     }
   ],
@@ -1191,20 +1191,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-14T08:00:27.901983+00:00",
-      "roster_age_h_at_vet": 17.8,
+      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
-        "harrison-trade-2026-10-13",
-        "franklin-ir-2026-10-14"
+        "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T01:45:41Z",
-      "availability_events": "2026-10-15T01:39:52.764Z",
-      "impact_digest": "2026-10-15T01:40:08.105Z",
-      "projected_starters": "2026-10-14T22:00:03.248Z",
-      "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+      "espn_status": "2026-10-15T21:03:20Z",
+      "availability_events": "2026-10-15T21:03:43.426Z",
+      "impact_digest": "2026-10-15T21:03:48.941Z",
+      "projected_starters": "2026-10-15T15:09:02.072Z",
+      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1221,19 +1220,35 @@
     "reported_injuries": {
       "out_ir": [
         {
-          "player": "Nick Martin",
-          "pos": "LB",
+          "player": "Deebo Samuel Sr.",
+          "pos": "WR",
+          "status": "Out",
+          "date": "2026-10-15",
+          "comment": "Head coach Kyle Shanahan said Thursday that the 49ers will \"hold off\" on placing Samuel (hamstring) on IR due to the team's bye in Week 8, Vic Tafur of the Athl",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Demarcus Robinson",
+          "pos": "WR",
           "status": "Injured Reserve",
-          "date": "2026-10-13",
-          "comment": "Head coach Kyle Shanahan said Monday that Martin's (hamstring) status will be evaluated \"in these next couple of days,\" Nick Wagoner of ESPN.com reports.",
+          "date": "2026-10-15",
+          "comment": "Head coach Kyle Shanahan said Thursday that Robinson (ankle) has an \"outside chance\" to return from injured reserve for the 49ers' Week 7 game versus the Falcon",
           "roster_check": "roster_ir_out_group"
         },
         {
           "player": "Christian Kirk",
           "pos": "WR",
           "status": "Injured Reserve",
-          "date": "2026-10-12",
-          "comment": "Head coach Kyle Shanahan said Monday that Kirk (calf) is \"unlikely\" to return to practice this week, Nick Wagoner of ESPN.com reports.",
+          "date": "2026-10-15",
+          "comment": "Kirk (calf) had his 21-day practice window opened Thursday.",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Nick Martin",
+          "pos": "LB",
+          "status": "Injured Reserve",
+          "date": "2026-10-13",
+          "comment": "Head coach Kyle Shanahan said Monday that Martin's (hamstring) status will be evaluated \"in these next couple of days,\" Nick Wagoner of ESPN.com reports.",
           "roster_check": "roster_ir_out_group"
         },
         {
@@ -1243,31 +1258,31 @@
           "date": "2026-10-12",
           "comment": "San Francisco head coach Kyle Shanahan said Monday that Wallow will miss \"at least a couple of weeks\" due to a hamstring strain, Nick Wagoner of ESPN.com report",
           "roster_check": "ok"
-        },
-        {
-          "player": "Deebo Samuel Sr.",
-          "pos": "WR",
-          "status": "Out",
-          "date": "2026-10-12",
-          "comment": "San Francisco head coach Kyle Shanahan said that Samuel strained his right hamstring \"pretty good\" during Sunday's 32-29 win over Seattle and is \"going to miss ",
-          "roster_check": "ok"
         }
       ],
       "questionable_doubtful": [
+        {
+          "player": "Kyle Juszczyk",
+          "pos": "FB",
+          "status": "Questionable",
+          "date": "2026-10-15",
+          "comment": "Juszczyk (knee) will be limited at Thursday's practice, head coach Kyle Shanahan told reporters Thursday, Cam Inman of Bay Area News Group reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Mike Evans",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-15",
+          "comment": "Head coach Kyle Shanahan said Evans won't practice Thursday due to rib and Achilles injuries, Cam Inman of The San Jose Mercury News reports.",
+          "roster_check": "ok"
+        },
         {
           "player": "Marques Sigle",
           "pos": "S",
           "status": "Doubtful",
           "date": "2026-10-13",
           "comment": "doubtful",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Kyle Juszczyk",
-          "pos": "FB",
-          "status": "Questionable",
-          "date": "2026-10-13",
-          "comment": "questionable",
           "roster_check": "ok"
         },
         {
@@ -1336,11 +1351,6 @@
         "roster_status": "day-to-day"
       },
       {
-        "player": "Demarcus Robinson",
-        "pos": "WR",
-        "roster_status": "day-to-day"
-      },
-      {
         "player": "Isaac Guerendo",
         "pos": "RB",
         "roster_status": "day-to-day"
@@ -1405,24 +1415,8 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "De'Zhaun Stribling IR",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player_name": "Christian Kirk",
-          "position": "WR",
-          "normalized_status": "IR",
-          "availability_trend": "worsening",
-          "event_type": "ir",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
-          "summary": "Christian Kirk IR",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1437,7 +1431,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Jake Tonges IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1453,7 +1447,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Brandon Aiyuk IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1469,7 +1463,7 @@
           "availability_trend": "worsening",
           "event_type": "suspension",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Dre Greenlaw SUSPENSION",
           "practice": [],
           "probability_of_playing": null,
@@ -1485,7 +1479,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Demarcus Robinson IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1501,7 +1495,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Darrick Forrest IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1517,7 +1511,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Nate Hobbs IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1533,7 +1527,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Sam Okuayinonu IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1549,7 +1543,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Andrew Farmer II IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1565,7 +1559,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Ricky Pearsall IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1581,8 +1575,24 @@
           "availability_trend": "worsening",
           "event_type": "pup",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Isaac Guerendo PUP",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Alfred Collins",
+          "position": "DT",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T21:00:02.000Z",
+          "summary": "Alfred Collins IR",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1619,7 +1629,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-14T22:00:03.248Z",
+      "as_of": "2026-10-15T15:09:02.072Z",
       "known": [
         "Brock Purdy QB"
       ],
@@ -1873,11 +1883,11 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T01:45:41Z",
-        "availability_events": "2026-10-15T01:39:52.764Z",
-        "impact_digest": "2026-10-15T01:40:08.105Z",
-        "projected_starters": "2026-10-14T22:00:03.248Z",
-        "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+        "espn_status": "2026-10-15T21:03:20Z",
+        "availability_events": "2026-10-15T21:03:43.426Z",
+        "impact_digest": "2026-10-15T21:03:48.941Z",
+        "projected_starters": "2026-10-15T15:09:02.072Z",
+        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],

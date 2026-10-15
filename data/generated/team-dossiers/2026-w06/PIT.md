@@ -1,5 +1,5 @@
 # PIT Steelers — dossier, target Week 6 (data through W5)
-Built 2026-10-15T01:46:06.089Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-15T21:03:57.067Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -45,11 +45,11 @@ SRS 2.48 (#11) · net PPG 0.4 (#15) · Pythag 0.511 (#15) · model rank #13
 HC Mike McCarthy · neutral pass rate 0.649 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See PIT.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Aaron Rodgers [ok]
 Out/IR: Ben Skowronek WR Out; Roman Wilson WR Out; Michael Pittman Jr. WR Injured Reserve; DeShon Elliott S Injured Reserve; Derrick Harmon DT Injured Reserve
-Questionable/Doubtful: Jamel Dean CB Questionable; Rico Dowdle RB Questionable; Jalen Ramsey CB Questionable; Keeanu Benton DT Questionable
+Questionable/Doubtful: Jamel Dean CB Questionable; Jalen Ramsey CB Questionable; Keeanu Benton DT Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Cole Burgess WR; Max Hurleman RB
 OL/DL cluster risk (derived): OL none, DL watch
 Impact digest (top by score): Aaron Rodgers QB active_news/unknown; Robert Spears-Jennings S active_news/unknown; Jaylen Warren RB active_news/unknown; Sean Murphy-Bunting CB active_news/unknown

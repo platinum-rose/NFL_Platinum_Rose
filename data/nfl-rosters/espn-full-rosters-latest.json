@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-10-14T08:00:27.901983+00:00",
+ "generated_at": "2026-10-15T21:03:14.961865+00:00",
  "source": "ESPN site.api teams/{id}/roster",
  "team_count": 32,
- "player_count": 2547,
+ "player_count": 2563,
  "per_team": {
-  "ARI": 81,
-  "ATL": 79,
-  "BAL": 77,
-  "BUF": 73,
+  "ARI": 84,
+  "ATL": 78,
+  "BAL": 78,
+  "BUF": 74,
   "CAR": 79,
   "CHI": 83,
   "CIN": 74,
@@ -16,23 +16,23 @@
   "DEN": 79,
   "DET": 81,
   "GB": 81,
-  "HOU": 85,
+  "HOU": 87,
   "IND": 78,
   "JAX": 80,
   "KC": 77,
   "LV": 80,
-  "LAC": 79,
-  "LAR": 79,
+  "LAC": 80,
+  "LAR": 80,
   "MIA": 77,
   "MIN": 76,
   "NE": 84,
-  "NO": 79,
+  "NO": 81,
   "NYG": 83,
-  "NYJ": 80,
-  "PHI": 79,
+  "NYJ": 82,
+  "PHI": 81,
   "PIT": 80,
-  "SF": 89,
-  "SEA": 81,
+  "SF": 90,
+  "SEA": 82,
   "TB": 74,
   "TEN": 83,
   "WSH": 77
@@ -63,6 +63,15 @@
     "group": "offense",
     "status": "active",
     "espn_id": "3045523"
+   }
+  ],
+  "Shawn Bowman": [
+   {
+    "team": "ARI",
+    "position": "TE",
+    "group": "offense",
+    "status": "active",
+    "espn_id": "4366910"
    }
   ],
   "Jacoby Brissett": [
@@ -650,15 +659,6 @@
     "espn_id": "4428811"
    }
   ],
-  "Shawn Bowman": [
-   {
-    "team": "ARI",
-    "position": "TE",
-    "group": "practiceSquad",
-    "status": "practice-squad",
-    "espn_id": "4366910"
-   }
-  ],
   "Austin Deculus": [
    {
     "team": "ARI",
@@ -675,6 +675,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4567410"
+   }
+  ],
+  "Jerome Ford": [
+   {
+    "team": "ARI",
+    "position": "RB",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4372019"
    }
   ],
   "Jared Harrison-Hunte": [
@@ -702,6 +711,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4569609"
+   }
+  ],
+  "Shedrick Jackson": [
+   {
+    "team": "ARI",
+    "position": "WR",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4361332"
    }
   ],
   "Demontrey Jacobs": [
@@ -756,6 +774,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4685582"
+   }
+  ],
+  "Riley Wilson": [
+   {
+    "team": "ARI",
+    "position": "LB",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4613029"
    }
   ],
   "Kenny Yeboah": [
@@ -1179,15 +1206,6 @@
     "group": "defense",
     "status": "active",
     "espn_id": "4685502"
-   }
-  ],
-  "Jammie Robinson": [
-   {
-    "team": "ATL",
-    "position": "S",
-    "group": "defense",
-    "status": "active",
-    "espn_id": "4430411"
    }
   ],
   "Maason Smith": [
@@ -2108,6 +2126,15 @@
     "espn_id": "4877203"
    }
   ],
+  "Chris Moore": [
+   {
+    "team": "BAL",
+    "position": "WR",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "2576581"
+   }
+  ],
   "David Olajiga": [
    {
     "team": "BAL",
@@ -2754,6 +2781,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "2979591"
+   }
+  ],
+  "Anthony Kendall": [
+   {
+    "team": "BUF",
+    "position": "CB",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "5143279"
    }
   ],
   "Brock Lampe": [
@@ -6491,12 +6527,9 @@
    {
     "team": "DEN",
     "position": "WR",
-    "group": "injuredReserveOrOut",
-    "status": "Injured Reserve",
-    "espn_id": "4431280",
-    "operator_override": "franklin-ir-2026-10-14",
-    "group_before_override": "offense",
-    "status_before_override": "active"
+    "group": "offense",
+    "status": "active",
+    "espn_id": "4431280"
    }
   ],
   "RJ Harvey": [
@@ -8777,6 +8810,15 @@
     "espn_id": "3117256"
    }
   ],
+  "Braden Smith": [
+   {
+    "team": "HOU",
+    "position": "OT",
+    "group": "offense",
+    "status": "active",
+    "espn_id": "3121595"
+   }
+  ],
   "Cade Stover": [
    {
     "team": "HOU",
@@ -8946,15 +8988,6 @@
     "group": "defense",
     "status": "active",
     "espn_id": "4870893"
-   }
-  ],
-  "Kenneth Murray Jr.": [
-   {
-    "team": "HOU",
-    "position": "LB",
-    "group": "defense",
-    "status": "active",
-    "espn_id": "4241394"
    }
   ],
   "George Odum": [
@@ -9200,15 +9233,6 @@
     "espn_id": "4687188"
    }
   ],
-  "Braden Smith": [
-   {
-    "team": "HOU",
-    "position": "OT",
-    "group": "injuredReserveOrOut",
-    "status": "day-to-day",
-    "espn_id": "3121595"
-   }
-  ],
   "E.J. Speed": [
    {
     "team": "HOU",
@@ -9227,6 +9251,15 @@
     "espn_id": "4426350"
    }
   ],
+  "Chris Braswell": [
+   {
+    "team": "HOU",
+    "position": "DE",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4428989"
+   }
+  ],
   "Jaden Davis": [
    {
     "team": "HOU",
@@ -9243,6 +9276,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4685355"
+   }
+  ],
+  "Mark Gronowski": [
+   {
+    "team": "HOU",
+    "position": "QB",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4695400"
    }
   ],
   "Caleb Johnson": [
@@ -9297,6 +9339,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "5081880"
+   }
+  ],
+  "Bryce Oliver": [
+   {
+    "team": "HOU",
+    "position": "WR",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4362617"
    }
   ],
   "Max Pircher": [
@@ -12805,6 +12856,15 @@
     "espn_id": "4685272"
    }
   ],
+  "Jake Browning": [
+   {
+    "team": "LAC",
+    "position": "QB",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "3886812"
+   }
+  ],
   "Andre Carter II": [
    {
     "team": "LAC",
@@ -13575,6 +13635,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4791223"
+   }
+  ],
+  "Garrett Nelson": [
+   {
+    "team": "LAR",
+    "position": "DE",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4430250"
    }
   ],
   "Bill Norton": [
@@ -16349,6 +16418,15 @@
     "espn_id": "4696043"
    }
   ],
+  "Kevin Austin Jr.": [
+   {
+    "team": "NO",
+    "position": "WR",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4372758"
+   }
+  ],
   "Fadil Diggs": [
    {
     "team": "NO",
@@ -16374,6 +16452,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "5164879"
+   }
+  ],
+  "Jarquez Hunter": [
+   {
+    "team": "NO",
+    "position": "RB",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4710341"
    }
   ],
   "David Ojabo": [
@@ -17069,15 +17156,6 @@
     "espn_id": "2574891"
    }
   ],
-  "Quinton Bell": [
-   {
-    "team": "NYG",
-    "position": "DE",
-    "group": "practiceSquad",
-    "status": "practice-squad",
-    "espn_id": "3933407"
-   }
-  ],
   "Grant Finley": [
    {
     "team": "NYG",
@@ -17094,6 +17172,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4565297"
+   }
+  ],
+  "Josh Gesky": [
+   {
+    "team": "NYG",
+    "position": "G",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4687706"
    }
   ],
   "Jarrod Gray": [
@@ -17825,6 +17912,15 @@
     "espn_id": "4426623"
    }
   ],
+  "Quinton Bell": [
+   {
+    "team": "NYJ",
+    "position": "DE",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "3933407"
+   }
+  ],
   "Jordan Clark": [
    {
     "team": "NYJ",
@@ -17904,6 +18000,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4892576"
+   }
+  ],
+  "Troy Reeder": [
+   {
+    "team": "NYJ",
+    "position": "LB",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "3116177"
    }
   ],
   "Nathan Voorhis": [
@@ -18527,6 +18632,15 @@
     "espn_id": "4567783"
    }
   ],
+  "Dean Clark": [
+   {
+    "team": "PHI",
+    "position": "S",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4426921"
+   }
+  ],
   "Erik Ezukanma": [
    {
     "team": "PHI",
@@ -18597,6 +18711,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "5344965"
+   }
+  ],
+  "Ian Wheeler": [
+   {
+    "team": "PHI",
+    "position": "RB",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4579554"
    }
   ],
   "Zion Wilson": [
@@ -20037,6 +20160,15 @@
     "espn_id": "4875123"
    }
   ],
+  "Eugene Asante": [
+   {
+    "team": "SF",
+    "position": "LB",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4427532"
+   }
+  ],
   "Brandon Codrington": [
    {
     "team": "SF",
@@ -20163,15 +20295,6 @@
     "espn_id": "4576297"
    }
   ],
-  "Irv Charles": [
-   {
-    "team": "SEA",
-    "position": "WR",
-    "group": "offense",
-    "status": "active",
-    "espn_id": "3929636"
-   }
-  ],
   "Charles Cross": [
    {
     "team": "SEA",
@@ -20242,6 +20365,15 @@
     "group": "offense",
     "status": "active",
     "espn_id": "3914630"
+   }
+  ],
+  "Velus Jones Jr.": [
+   {
+    "team": "SEA",
+    "position": "RB",
+    "group": "offense",
+    "status": "active",
+    "espn_id": "4035693"
    }
   ],
   "Nick Kallerup": [
@@ -20737,6 +20869,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4570075"
+   }
+  ],
+  "Irv Charles": [
+   {
+    "team": "SEA",
+    "position": "WR",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "3929636"
    }
   ],
   "Jimmy Ciarlo": [
@@ -22955,7 +23096,6 @@
   ]
  },
  "operator_overrides_applied": [
-  "harrison-trade-2026-10-13",
-  "franklin-ir-2026-10-14"
+  "harrison-trade-2026-10-13"
  ]
 }

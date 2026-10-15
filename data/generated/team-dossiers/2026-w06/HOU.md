@@ -1,5 +1,5 @@
 # HOU Texans — dossier, target Week 6 (data through W5)
-Built 2026-10-15T01:46:05.529Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-15T21:03:56.454Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -45,7 +45,7 @@ SRS -2.48 (#22) · net PPG -0.4 (#18) · Pythag 0.489 (#18) · model rank #20
 HC DeMeco Ryans · neutral pass rate 0.631 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See HOU.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: C.J. Stroud [ok]
 Out/IR: Ja'Marcus Ingram CB Injured Reserve; Tank Dell WR Injured Reserve; Henry To'oTo'o LB Injured Reserve

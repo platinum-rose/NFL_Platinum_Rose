@@ -1,5 +1,5 @@
 # PHI Eagles — dossier, target Week 6 (data through W5)
-Built 2026-10-15T01:46:06.042Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-15T21:03:57.025Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -45,15 +45,15 @@ SRS -5.11 (#26) · net PPG -4 (#26) · Pythag 0.386 (#26) · model rank #26
 HC Nick Sirianni · neutral pass rate 0.581 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See PHI.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
-QB: Jalen Hurts [ok]
-Out/IR: Landon Dickerson G Injured Reserve; Jakorian Bennett CB Injured Reserve; Eli Stowers TE Injured Reserve; Grant Calcaterra TE Injured Reserve
-Questionable/Doubtful: Jonathan Greenard LB Questionable; Marcus Epps S Questionable; Hollywood Brown WR Questionable; Tyler Steen G Questionable; E.J. Jenkins TE Questionable; AJ Epenesa DE Questionable (+7 more)
+QB: Tanner McKee [ok] Jalen Hurts Out;
+Out/IR: Jalen Hurts QB Out; Landon Dickerson G Injured Reserve; Jakorian Bennett CB Injured Reserve; Eli Stowers TE Injured Reserve; Grant Calcaterra TE Injured Reserve
+Questionable/Doubtful: Saquon Barkley RB Questionable; DeVonta Smith WR Questionable; Jonathan Greenard LB Questionable; Marcus Epps S Questionable; Hollywood Brown WR Questionable; Tyler Steen G Questionable (+6 more)
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 4 players; skill: Johnny Wilson WR
 OL/DL cluster risk (derived): OL watch, DL none
-Impact digest (top by score): Jalen Hurts QB status_update/unknown; Jalen Hurts QB active_news/unknown; Saquon Barkley RB status_update/unknown; Saquon Barkley RB status_update/unknown
-Projected starters: manual_and_estimated_signals, 3 players
+Impact digest (top by score): Jalen Hurts QB out/worsening; Jalen Hurts QB out/worsening; Saquon Barkley RB status_update/unknown; Saquon Barkley RB status_update/unknown
+Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 11-6 · diff 54 · Pythag 0.590 · SRS #11 · EPA off #16 def #8 · DVOA 7.9 (#13) off 0.5 def -9.9

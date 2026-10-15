@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T01:46:05.567Z",
+  "built_at": "2026-10-15T21:03:56.496Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "178a59c",
+  "git_head": "d93786a",
   "market_data_included": false,
   "sources": [
     {
@@ -132,7 +132,7 @@
       "generated_at": null,
       "status": "current",
       "through_week": 5,
-      "sha256": "c55900a646702012a6e997a923adec8ac22f097355a0ed0e4d7ec521fd016d2a",
+      "sha256": "5a2048c4aa64253f5b217e3f8cfc2ea4ea038e151026e68d4d7bad9e77f39da6",
       "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
     }
   ],
@@ -1208,7 +1208,7 @@
               "opportunity_score": 1.2,
               "notes": "IND High-Efficiency Slot.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "questionable"
+              "availability_flag": "none"
             },
             {
               "player_name": "Keenan Allen",
@@ -1294,20 +1294,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-14T08:00:27.901983+00:00",
-      "roster_age_h_at_vet": 17.8,
+      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
-        "harrison-trade-2026-10-13",
-        "franklin-ir-2026-10-14"
+        "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T01:45:41Z",
-      "availability_events": "2026-10-15T01:39:52.764Z",
-      "impact_digest": "2026-10-15T01:40:08.105Z",
-      "projected_starters": "2026-10-14T22:00:03.248Z",
-      "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+      "espn_status": "2026-10-15T21:03:20Z",
+      "availability_events": "2026-10-15T21:03:43.426Z",
+      "impact_digest": "2026-10-15T21:03:48.941Z",
+      "projected_starters": "2026-10-15T15:09:02.072Z",
+      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1358,32 +1357,8 @@
           "roster_check": "ok"
         },
         {
-          "player": "Josh Downs",
-          "pos": "WR",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Downs was a limited participant in Wednesday's practice due to a hamstring injury and rest.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Jaylahn Tuimoloau",
-          "pos": "DE",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
           "player": "Jalen Travis",
           "pos": "OT",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Matt Goncalves",
-          "pos": "G",
           "status": "Questionable",
           "date": "2026-10-14",
           "comment": "questionable",
@@ -1431,21 +1406,19 @@
     "ol_dl_cluster_risk": {
       "ol": {
         "hard_or_doubtful": 0,
-        "questionable": 2,
-        "risk": "watch",
+        "questionable": 1,
+        "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
-          "Jalen Travis OT Questionable",
-          "Matt Goncalves G Questionable"
+          "Jalen Travis OT Questionable"
         ]
       },
       "dl": {
         "hard_or_doubtful": 1,
-        "questionable": 1,
+        "questionable": 0,
         "risk": "watch",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
-          "Jaylahn Tuimoloau DE Questionable",
           "Arden Key DE Injured Reserve"
         ]
       }
@@ -1460,7 +1433,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Alec Pierce IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1476,9 +1449,10 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Arden Key IR",
           "practice": [
+            "--",
             "--"
           ],
           "probability_of_playing": null,
@@ -1494,7 +1468,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "D.J. Montgomery IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1510,7 +1484,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Micheal Clemons IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1526,7 +1500,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Cameron Mitchell IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1542,7 +1516,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Carson Towt IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1550,6 +1524,60 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Josh Downs",
+          "position": "WR",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T19:55:00.000Z",
+          "summary": "Downs (rest/hamstring) upgraded to full participation at Thursday's practice.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Ashton Dulin",
+          "position": "WR",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "Ashton Dulin QUESTIONABLE",
+          "practice": [
+            "DNP",
+            "DNP"
+          ],
+          "probability_of_playing": 0.01617,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jaylon Carlies",
+          "position": "LB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "Jaylon Carlies QUESTIONABLE",
+          "practice": [
+            "DNP",
+            "DNP"
+          ],
+          "probability_of_playing": 0.0221,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
         },
         {
           "player_name": "Darius Slayton",
@@ -1568,22 +1596,6 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Ashton Dulin",
-          "position": "WR",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "worsening",
-          "event_type": "setback",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:17:00.000Z",
-          "summary": "Dulin (hamstring) did not participate in Wednesday's practice session.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
           "player_name": "Keenan Allen",
           "position": "WR",
           "normalized_status": "ACTIVE_NEWS",
@@ -1592,38 +1604,6 @@
           "source": "ESPN injuries API",
           "published_at": "2026-10-14T20:51:00.000Z",
           "summary": "Allen was a non-participant in Wednesday's practice due to rest.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Josh Downs",
-          "position": "WR",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T20:45:00.000Z",
-          "summary": "Downs was a limited participant in Wednesday's practice due to a hamstring injury and rest.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Jaylahn Tuimoloau",
-          "position": "DE",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T20:42:00.000Z",
-          "summary": "questionable",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1791,7 +1771,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-14T22:00:03.248Z",
+      "as_of": "2026-10-15T15:09:02.072Z",
       "known": [
         "Daniel Jones QB",
         "Jonathan Taylor RB",
@@ -2097,11 +2077,11 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T01:45:41Z",
-        "availability_events": "2026-10-15T01:39:52.764Z",
-        "impact_digest": "2026-10-15T01:40:08.105Z",
-        "projected_starters": "2026-10-14T22:00:03.248Z",
-        "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+        "espn_status": "2026-10-15T21:03:20Z",
+        "availability_events": "2026-10-15T21:03:43.426Z",
+        "impact_digest": "2026-10-15T21:03:48.941Z",
+        "projected_starters": "2026-10-15T15:09:02.072Z",
+        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],

@@ -1,5 +1,5 @@
 # CHI Bears — dossier, target Week 6 (data through W5)
-Built 2026-10-15T01:46:05.249Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-15T21:03:56.134Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -44,11 +44,11 @@ SRS 5.72 (#6) · net PPG 4.6 (#7) · Pythag 0.625 (#6) · model rank #5
 HC Ben Johnson · neutral pass rate 0.500 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See CHI.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Caleb Williams [AMBIGUOUS] Caleb Williams Questionable;
 Out/IR: Anthony Johnson Jr. S Injured Reserve; Kyler Gordon CB Out
-Questionable/Doubtful: Tyrique Stevenson Sr. CB Questionable; T.J. Edwards LB Doubtful; Kyle Monangai RB Questionable; Dayo Odeyingbo DE Doubtful; Caleb Williams QB Questionable; Keyshaun Elliott LB Questionable
+Questionable/Doubtful: Caleb Williams QB Questionable; Kyle Monangai RB Questionable; Tyrique Stevenson Sr. CB Questionable; T.J. Edwards LB Doubtful; Dayo Odeyingbo DE Doubtful; Keyshaun Elliott LB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 9 players; skill: Brittain Brown RB; Hayden Large TE; Nikola Kalinic TE
 OL/DL cluster risk (derived): OL none, DL watch
 Impact digest (top by score): Tyson Bagent QB return_to_practice/improving; Caleb Williams QB status_update/unknown; Caleb Williams QB status_update/unknown; Kalif Raymond WR return_to_practice/improving

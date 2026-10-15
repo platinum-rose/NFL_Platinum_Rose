@@ -1,5 +1,5 @@
 # WAS Commanders — dossier, target Week 6 (data through W5)
-Built 2026-10-15T01:46:06.269Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-15T21:03:57.275Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -45,11 +45,11 @@ SRS -9.74 (#30) · net PPG -6.8 (#28) · Pythag 0.351 (#28) · model rank #28
 HC Dan Quinn · neutral pass rate 0.537 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See WAS.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Jayden Daniels [ok]
 Out/IR: Trey Amos CB Injured Reserve; Jeremy McNichols RB Injured Reserve
-Questionable/Doubtful: Charles Omenihu DE Questionable; Tyler Owens S Questionable; Marcus Mariota QB Doubtful; Nick Cross S Questionable; Stefon Diggs WR Questionable; Percy Butler S Questionable
+Questionable/Doubtful: Stefon Diggs WR Questionable; Charles Omenihu DE Questionable; Tyler Owens S Questionable; Marcus Mariota QB Doubtful; Percy Butler S Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 4 players; skill: none
 OL/DL cluster risk (derived): OL none, DL none
 Impact digest (top by score): Jayden Daniels QB active_news/unknown; Jacory Croskey-Merritt RB active_news/unknown

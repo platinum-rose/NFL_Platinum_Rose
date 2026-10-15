@@ -1,5 +1,5 @@
 # GB Packers — dossier, target Week 6 (data through W5)
-Built 2026-10-15T01:46:05.490Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-15T21:03:56.412Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -45,12 +45,12 @@ SRS 1.07 (#15) · net PPG -1.6 (#21) · Pythag 0.456 (#21) · model rank #17
 HC Matt LaFleur · neutral pass rate 0.663 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See GB.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Jordan Love [ok]
-Out/IR: Micah Parsons DE Out; Javon Hargrave DT Out; Chris Brooks RB Injured Reserve; Savion Williams WR Injured Reserve
-Questionable/Doubtful: Keisean Nixon CB Questionable; Evan Williams S Questionable; Skyy Moore WR Questionable; Devonte Wyatt DT Questionable; Jonathan Ford DT Questionable; Jacob Monk C Questionable (+3 more)
-Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 9 players; skill: Jayden Reed WR; Luke Musgrave TE; Thomas Yassmin TE
+Out/IR: Josh Jacobs RB Out; Jordon Riley DT Out; Micah Parsons DE Out; Javon Hargrave DT Out; Chris Brooks RB Injured Reserve
+Questionable/Doubtful: Skyy Moore WR Questionable; Keisean Nixon CB Questionable; Evan Williams S Questionable; Devonte Wyatt DT Questionable; Jonathan Ford DT Questionable; Jacob Monk C Questionable (+3 more)
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 9 players; skill: Jayden Reed WR; Luke Musgrave TE; Savion Williams WR; Thomas Yassmin TE
 OL/DL cluster risk (derived): OL watch, DL cluster
 Impact digest (top by score): Jordan Love QB active_news/unknown; MarShawn Lloyd RB active_news/unknown; Tucker Kraft TE active_news/unknown
 Projected starters: manual_and_estimated_signals, 3 players

@@ -1,5 +1,5 @@
 # TEN Titans — dossier, target Week 6 (data through W5)
-Built 2026-10-15T01:46:06.234Z · git 178a59c · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-15T21:03:57.231Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -45,11 +45,11 @@ SRS -13.22 (#32) · net PPG -10.2 (#30) · Pythag 0.183 (#31) · model rank #32
 HC Robert Saleh · neutral pass rate 0.604 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See TEN.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T01:45:41Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Cam Ward [ok]
 Out/IR: Joshua Williams CB Injured Reserve
-Questionable/Doubtful: David Martin-Robinson TE Questionable; Amani Hooker S Questionable; Kevin Winston Jr. S Doubtful; Marcus Harris CB Questionable; Tyjae Spears RB Questionable
+Questionable/Doubtful: Tyjae Spears RB Questionable; David Martin-Robinson TE Questionable; Amani Hooker S Questionable; Kevin Winston Jr. S Doubtful; Marcus Harris CB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 8 players; skill: Jaren Kanak TE
 OL/DL cluster risk (derived): OL none, DL none
 Impact digest (top by score): Cam Ward QB active_news/unknown; Gunnar Helm TE active_news/unknown

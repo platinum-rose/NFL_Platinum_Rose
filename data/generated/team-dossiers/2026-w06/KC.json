@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T01:46:05.657Z",
+  "built_at": "2026-10-15T21:03:56.589Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "178a59c",
+  "git_head": "d93786a",
   "market_data_included": false,
   "sources": [
     {
@@ -132,7 +132,7 @@
       "generated_at": null,
       "status": "current",
       "through_week": 5,
-      "sha256": "c55900a646702012a6e997a923adec8ac22f097355a0ed0e4d7ec521fd016d2a",
+      "sha256": "5a2048c4aa64253f5b217e3f8cfc2ea4ea038e151026e68d4d7bad9e77f39da6",
       "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
     }
   ],
@@ -1126,20 +1126,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-14T08:00:27.901983+00:00",
-      "roster_age_h_at_vet": 17.8,
+      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
-        "harrison-trade-2026-10-13",
-        "franklin-ir-2026-10-14"
+        "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T01:45:41Z",
-      "availability_events": "2026-10-15T01:39:52.764Z",
-      "impact_digest": "2026-10-15T01:40:08.105Z",
-      "projected_starters": "2026-10-14T22:00:03.248Z",
-      "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+      "espn_status": "2026-10-15T21:03:20Z",
+      "availability_events": "2026-10-15T21:03:43.426Z",
+      "impact_digest": "2026-10-15T21:03:48.941Z",
+      "projected_starters": "2026-10-15T15:09:02.072Z",
+      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1166,6 +1165,14 @@
       ],
       "questionable_doubtful": [
         {
+          "player": "Rashee Rice",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-15",
+          "comment": "Rice (hamstring) isn't participating in Thursday's practice, Matt Derrick of ChiefsDigest.com reports.",
+          "roster_check": "ok"
+        },
+        {
           "player": "Josh Simmons",
           "pos": "OT",
           "status": "Questionable",
@@ -1179,14 +1186,6 @@
           "status": "Questionable",
           "date": "2026-10-14",
           "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Rashee Rice",
-          "pos": "WR",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Chiefs head coach Andy Reid said that Rice (hamstring/knee) won't practice Wednesday, Nate Taylor of ESPN.com reports.",
           "roster_check": "ok"
         }
       ],
@@ -1258,7 +1257,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Tyquan Thornton IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1274,7 +1273,7 @@
           "availability_trend": "worsening",
           "event_type": "pup",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Omarr Norman-Lott PUP",
           "practice": [],
           "probability_of_playing": null,
@@ -1290,7 +1289,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Ethan Downs IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1306,7 +1305,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Jimmy Holiday IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1322,7 +1321,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Cooper McDonald IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1338,7 +1337,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "John Michael Gyllenborg IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1354,7 +1353,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T01:30:02.000Z",
+          "published_at": "2026-10-15T21:00:02.000Z",
           "summary": "Jeff Caldwell IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1362,6 +1361,22 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Rashee Rice",
+          "position": "WR",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "improving",
+          "event_type": "return_to_practice",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-15T18:44:00.000Z",
+          "summary": "Rice (hamstring) isn't participating in Thursday's practice, Matt Derrick of ChiefsDigest.com reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
         },
         {
           "player_name": "Josh Simmons",
@@ -1385,25 +1400,27 @@
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T21:22:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "L'Jarius Sneed QUESTIONABLE",
+          "practice": [
+            "Limit"
+          ],
+          "probability_of_playing": 0.89798,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
         },
         {
-          "player_name": "Rashee Rice",
-          "position": "WR",
+          "player_name": "Peter Woods",
+          "position": "DT",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T17:24:00.000Z",
-          "summary": "Chiefs head coach Andy Reid said that Rice (hamstring/knee) won't practice Wednesday, Nate Taylor of ESPN.com reports.",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-15T00:00:00.000Z",
+          "summary": "Peter Woods QUESTIONABLE",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1420,22 +1437,6 @@
           "source": "ESPN injuries API",
           "published_at": "2026-10-07T01:36:00.000Z",
           "summary": "Bolton posted nine tackles (four solo) during the Chiefs' 30-27 win over the Raiders on Sunday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Mansoor Delane",
-          "position": "CB",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-07T01:23:00.000Z",
-          "summary": "Delane tallied 10 tackles (seven solo) and one pass defense during the Chiefs' 30-27 win over the Raiders on Sunday.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1495,7 +1496,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-14T22:00:03.248Z",
+      "as_of": "2026-10-15T15:09:02.072Z",
       "known": [
         "Patrick Mahomes QB",
         "Kenneth Walker III RB"
@@ -1782,11 +1783,11 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T01:45:41Z",
-        "availability_events": "2026-10-15T01:39:52.764Z",
-        "impact_digest": "2026-10-15T01:40:08.105Z",
-        "projected_starters": "2026-10-14T22:00:03.248Z",
-        "roster_snapshot": "2026-10-14T08:00:27.901983+00:00"
+        "espn_status": "2026-10-15T21:03:20Z",
+        "availability_events": "2026-10-15T21:03:43.426Z",
+        "impact_digest": "2026-10-15T21:03:48.941Z",
+        "projected_starters": "2026-10-15T15:09:02.072Z",
+        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
