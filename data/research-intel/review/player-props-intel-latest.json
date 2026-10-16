@@ -1,20 +1,20 @@
 {
   "schema": "player_props_intel_v1",
-  "generated_at": "2026-10-15T15:08:18.150Z",
+  "generated_at": "2026-10-15T22:32:29.378Z",
   "week": 6,
   "season": 2026,
   "summary": {
-    "articles_scanned": 254,
-    "total_props": 12,
-    "tier_1_props": 10,
+    "articles_scanned": 370,
+    "total_props": 19,
+    "tier_1_props": 14,
     "touchdown_props": 3,
     "curated_parlays": 1,
     "games_covered": 2
   },
   "parlayCards": [
     {
-      "id": "parlay__SEA_at_DEN__sea/den_stack",
-      "title": "SEA/DEN Prop Stack SGP (SEA @ DEN)",
+      "id": "parlay__SEA_at_DEN__sea_stack",
+      "title": "SEA Prop Stack SGP (SEA @ DEN)",
       "game": "SEA @ DEN",
       "game_slate": "Thursday Night Football",
       "type": "same_game_parlay",
@@ -22,22 +22,22 @@
       "leg_count": 3,
       "legs": [
         {
-          "id": "prop__8034__troy_franklin__receiving_yards",
-          "player": "Troy Franklin",
-          "team": "DEN",
+          "id": "prop__8093__jaxon_smith_njigba__receiving_yards",
+          "player": "Jaxon Smith-Njigba",
+          "team": "SEA",
           "game": "SEA @ DEN",
           "game_slate": "Thursday Night Football",
           "category": "receiving_yards",
           "category_label": "Receiving Yards",
           "stat_type": "receiving",
-          "line": "15+",
+          "line": "92.5",
           "side": "over",
-          "price": "-138",
+          "price": "-113",
           "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Steve Krebs (BettingPros)",
-          "source_article_id": 8034,
-          "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-seahawks-vs-broncos/",
-          "rationale": "We round things out with a bit of a disappointing return based on the juice. Troy Franklin doesn't get much volume, to be candid, which makes the high tax even more disheartening.",
+          "analyst": "Frank Ammirante ... (Action Network)",
+          "source_article_id": 8093,
+          "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
+          "rationale": "Emanuel Wilson Over 66.5 Rushing Yards (-113) Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
           "week": 6,
           "tier": 1,
           "tier_label": "Tier 1: Featured Pick",
@@ -46,15 +46,50 @@
             "role": "Pass-Catching Piece",
             "synergy_tags": [
               "receiving_yards",
-              "DEN_offense"
+              "SEA_offense"
             ],
             "positive_correlations": [
-              "J.K. Dobbins Anytime Touchdown Scorer",
-              "J.K. Dobbins Rush Attempts",
-              "Jaylen Waddle Receiving Yards"
+              "Emanuel Wilson Rushing Yards",
+              "Jaxon Smith-Njigba Receptions",
+              "Jaxon Smith-Njigba Receiving/Rushing Yards"
             ]
           },
-          "selection": "Over 15+ Receiving Yards"
+          "selection": "Over 92.5 Receiving Yards"
+        },
+        {
+          "id": "prop__8093__emanuel_wilson__rushing_yards",
+          "player": "Emanuel Wilson",
+          "team": "SEA",
+          "game": "SEA @ DEN",
+          "game_slate": "Thursday Night Football",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "66.5",
+          "side": "over",
+          "price": "-113",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Frank Ammirante ... (Action Network)",
+          "source_article_id": 8093,
+          "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
+          "rationale": "Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
+          "week": 6,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Ground Game Piece",
+            "synergy_tags": [
+              "rushing_yards",
+              "SEA_offense"
+            ],
+            "positive_correlations": [
+              "Jaxon Smith-Njigba Receiving Yards",
+              "Jaxon Smith-Njigba Receptions",
+              "Jaxon Smith-Njigba Receiving/Rushing Yards"
+            ]
+          },
+          "selection": "Over 66.5 Rushing Yards"
         },
         {
           "id": "prop__7864__jaxon_smith_njigba__receiving_yards",
@@ -84,58 +119,261 @@
               "SEA_offense"
             ],
             "positive_correlations": [
-              "Jaxon Smith-Njigba First Touchdown Scorer",
-              "Jaxon Smith-Njigba Anytime Touchdown Scorer",
-              "Emanuel Wilson Receiving Yards"
+              "Jaxon Smith-Njigba Receiving Yards",
+              "Emanuel Wilson Rushing Yards",
+              "Jaxon Smith-Njigba Receptions"
             ]
           },
           "selection": "Over 70+ Receiving/Rushing Yards"
-        },
-        {
-          "id": "prop__8026__jaxon_smith_njigba__first_td",
-          "player": "Jaxon Smith-Njigba",
-          "team": "SEA",
-          "game": "SEA @ DEN",
-          "game_slate": "Thursday Night Football",
-          "category": "first_td",
-          "category_label": "First Touchdown Scorer",
-          "stat_type": "touchdown",
-          "line": "Yes",
-          "side": "anytime",
-          "price": "+600",
-          "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Mike Spector (BettingPros)",
-          "source_article_id": 8026,
-          "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-td-scorers-picks-seahawks-vs-broncos/",
-          "rationale": "Given Bo Nix's propensity for leading fourth-quarter comebacks (he has led the NFL in such comebacks since 2024 and has three this year), I am backing Seattle to score the game's first touchdown, led by its most consistent offensive weapon. Jaxon Smith-Njigba leads the league in target share (35.2%) and percentage of air yards (52.4%).",
-          "week": 6,
-          "tier": 1,
-          "tier_label": "Tier 1: Featured Pick",
-          "weight": 1,
-          "parlay_utility": {
-            "role": "End-Zone Target",
-            "synergy_tags": [
-              "first_td",
-              "SEA_offense"
-            ],
-            "positive_correlations": [
-              "Jaxon Smith-Njigba Receiving/Rushing Yards",
-              "Jaxon Smith-Njigba Anytime Touchdown Scorer",
-              "Emanuel Wilson Receiving Yards"
-            ]
-          },
-          "selection": "First Touchdown Scorer"
         }
       ],
-      "estimated_odds": "+1594",
-      "payout_multiplier": "16.94x",
-      "payout_on_10": "$169.40",
-      "payout_on_25": "$423.50",
-      "correlation_rating": "Cross-Team Game Stack",
-      "synergy_rationale": "Combines 3 real props extracted this week from Steve Krebs (BettingPros), Mike Spector (BettingPros) for SEA @ DEN."
+      "estimated_odds": "+399",
+      "payout_multiplier": "4.99x",
+      "payout_on_10": "$49.86",
+      "payout_on_25": "$124.65",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Frank Ammirante ... (Action Network), Steve Krebs (BettingPros) for SEA @ DEN."
     }
   ],
   "props": [
+    {
+      "id": "prop__8093__jaxon_smith_njigba__receiving_yards",
+      "player": "Jaxon Smith-Njigba",
+      "team": "SEA",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "92.5",
+      "side": "over",
+      "price": "-113",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Frank Ammirante ... (Action Network)",
+      "source_article_id": 8093,
+      "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
+      "rationale": "Emanuel Wilson Over 66.5 Rushing Yards (-113) Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "SEA_offense"
+        ],
+        "positive_correlations": [
+          "Emanuel Wilson Rushing Yards",
+          "Jaxon Smith-Njigba Receptions",
+          "Jaxon Smith-Njigba Receiving/Rushing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__8093__emanuel_wilson__rushing_yards",
+      "player": "Emanuel Wilson",
+      "team": "SEA",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "66.5",
+      "side": "over",
+      "price": "-113",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Frank Ammirante ... (Action Network)",
+      "source_article_id": 8093,
+      "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
+      "rationale": "Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "SEA_offense"
+        ],
+        "positive_correlations": [
+          "Jaxon Smith-Njigba Receiving Yards",
+          "Jaxon Smith-Njigba Receptions",
+          "Jaxon Smith-Njigba Receiving/Rushing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__8093__bo_nix__passing_yards",
+      "player": "Bo Nix",
+      "team": "DEN",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "passing_yards",
+      "category_label": "Passing Yards",
+      "stat_type": "passing",
+      "line": "197.5",
+      "side": "under",
+      "price": "-113",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Frank Ammirante ... (Action Network)",
+      "source_article_id": 8093,
+      "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
+      "rationale": "RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
+      "week": 6,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_yards",
+          "DEN_offense"
+        ],
+        "positive_correlations": [
+          "Courtland Sutton Receiving Yards",
+          "J.K. Dobbins Anytime Touchdown Scorer",
+          "Bo Nix Passing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__8093__rj_harvey__receiving_yards",
+      "player": "RJ Harvey",
+      "team": "DEN",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "20.5",
+      "side": "over",
+      "price": "-113",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Frank Ammirante ... (Action Network)",
+      "source_article_id": 8093,
+      "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
+      "rationale": "Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
+      "week": 6,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "DEN_offense"
+        ],
+        "positive_correlations": [
+          "RJ Harvey Receptions",
+          "Troy Franklin Receiving Yards",
+          "J.K. Dobbins Anytime Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__8093__courtland_sutton__receiving_yards",
+      "player": "Courtland Sutton",
+      "team": "DEN",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "31.5",
+      "side": "under",
+      "price": "-113",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Frank Ammirante ... (Action Network)",
+      "source_article_id": 8093,
+      "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
+      "rationale": "Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
+      "week": 6,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "DEN_offense"
+        ],
+        "positive_correlations": [
+          "Bo Nix Passing Yards",
+          "J.K. Dobbins Anytime Touchdown Scorer",
+          "Bo Nix Passing Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__8064__rj_harvey__receptions",
+      "player": "RJ Harvey",
+      "team": "DEN",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "3.5",
+      "side": "over",
+      "price": "-108",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Action Network Staff ... (Action Network)",
+      "source_article_id": 8064,
+      "source_url": "https://www.actionnetwork.com/nfl/seahawks-vs-broncos-picks-props-odds-predictions-thursday-night-football-oct-15",
+      "rationale": "Escalators : 5+ Receptions (+203; Kalshi ) | 6+ Receptions (+375; Hard Rock) | 8+ Receptions (+1400; Hard Rock) Click here to return to the table of contents. Seahawks vs Broncos Anytime Touchdown Pick Thursday, Oct.",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receptions",
+          "DEN_offense"
+        ],
+        "positive_correlations": [
+          "RJ Harvey Receiving Yards",
+          "Troy Franklin Receiving Yards",
+          "J.K. Dobbins Anytime Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__8060__jaxon_smith_njigba__receptions",
+      "player": "Jaxon Smith-Njigba",
+      "team": "SEA",
+      "game": "SEA @ DEN",
+      "game_slate": "Thursday Night Football",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "8+",
+      "side": "over",
+      "price": "+130",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Ben Solak (ESPN NFL)",
+      "source_article_id": 8060,
+      "source_url": "https://www.espn.com/espn/betting/story/_/id/50167970/nfl-week-6-odds-betting-tips-picks-seahawks-broncos",
+      "rationale": "Eric Moody: Smith-Njigba has averaged 10.0 targets per game this season and recorded at least eight receptions in three of five games. He also reached that mark in 11 of 20 games last season, including the postseason, and has a 74% catch rate since the start of last season.",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receptions",
+          "SEA_offense"
+        ],
+        "positive_correlations": [
+          "Jaxon Smith-Njigba Receiving Yards",
+          "Emanuel Wilson Rushing Yards",
+          "Jaxon Smith-Njigba Receiving/Rushing Yards"
+        ]
+      }
+    },
     {
       "id": "prop__8034__troy_franklin__receiving_yards",
       "player": "Troy Franklin",
@@ -164,9 +402,9 @@
           "DEN_offense"
         ],
         "positive_correlations": [
-          "J.K. Dobbins Anytime Touchdown Scorer",
-          "J.K. Dobbins Rush Attempts",
-          "Jaylen Waddle Receiving Yards"
+          "RJ Harvey Receiving Yards",
+          "RJ Harvey Receptions",
+          "J.K. Dobbins Anytime Touchdown Scorer"
         ]
       }
     },
@@ -198,9 +436,9 @@
           "SEA_offense"
         ],
         "positive_correlations": [
-          "Jaxon Smith-Njigba First Touchdown Scorer",
-          "Jaxon Smith-Njigba Anytime Touchdown Scorer",
-          "Emanuel Wilson Receiving Yards"
+          "Jaxon Smith-Njigba Receiving Yards",
+          "Emanuel Wilson Rushing Yards",
+          "Jaxon Smith-Njigba Receptions"
         ]
       }
     },
@@ -262,9 +500,9 @@
           "SEA_offense"
         ],
         "positive_correlations": [
-          "Jaxon Smith-Njigba Receiving/Rushing Yards",
-          "Jaxon Smith-Njigba Anytime Touchdown Scorer",
-          "Emanuel Wilson Receiving Yards"
+          "Jaxon Smith-Njigba Receiving Yards",
+          "Emanuel Wilson Rushing Yards",
+          "Jaxon Smith-Njigba Receptions"
         ]
       }
     },
@@ -296,9 +534,9 @@
           "DEN_offense"
         ],
         "positive_correlations": [
-          "Troy Franklin Receiving Yards",
           "Bo Nix Passing Yards",
-          "Bo Nix Passing Yards"
+          "RJ Harvey Receiving Yards",
+          "Courtland Sutton Receiving Yards"
         ]
       }
     },
@@ -330,8 +568,9 @@
           "DEN_offense"
         ],
         "positive_correlations": [
-          "J.K. Dobbins Anytime Touchdown Scorer",
-          "Bo Nix Passing Yards"
+          "Bo Nix Passing Yards",
+          "Courtland Sutton Receiving Yards",
+          "J.K. Dobbins Anytime Touchdown Scorer"
         ]
       }
     },
@@ -363,9 +602,9 @@
           "SEA_offense"
         ],
         "positive_correlations": [
-          "Jaxon Smith-Njigba Receiving/Rushing Yards",
-          "Jaxon Smith-Njigba First Touchdown Scorer",
-          "Emanuel Wilson Receiving Yards"
+          "Jaxon Smith-Njigba Receiving Yards",
+          "Emanuel Wilson Rushing Yards",
+          "Jaxon Smith-Njigba Receptions"
         ]
       }
     },
@@ -397,9 +636,9 @@
           "SEA_offense"
         ],
         "positive_correlations": [
-          "Jaxon Smith-Njigba Receiving/Rushing Yards",
-          "Jaxon Smith-Njigba First Touchdown Scorer",
-          "Jaxon Smith-Njigba Anytime Touchdown Scorer"
+          "Jaxon Smith-Njigba Receiving Yards",
+          "Emanuel Wilson Rushing Yards",
+          "Jaxon Smith-Njigba Receptions"
         ]
       }
     },
@@ -431,8 +670,9 @@
           "DEN_offense"
         ],
         "positive_correlations": [
-          "J.K. Dobbins Anytime Touchdown Scorer",
-          "Bo Nix Passing Yards"
+          "Bo Nix Passing Yards",
+          "Courtland Sutton Receiving Yards",
+          "J.K. Dobbins Anytime Touchdown Scorer"
         ]
       }
     },
@@ -464,9 +704,9 @@
           "SEA_offense"
         ],
         "positive_correlations": [
-          "Jaxon Smith-Njigba Receiving/Rushing Yards",
-          "Jaxon Smith-Njigba First Touchdown Scorer",
-          "Jaxon Smith-Njigba Anytime Touchdown Scorer"
+          "Jaxon Smith-Njigba Receiving Yards",
+          "Emanuel Wilson Rushing Yards",
+          "Jaxon Smith-Njigba Receptions"
         ]
       }
     },
@@ -498,9 +738,9 @@
           "DEN_offense"
         ],
         "positive_correlations": [
-          "Troy Franklin Receiving Yards",
-          "J.K. Dobbins Anytime Touchdown Scorer",
-          "Jaylen Waddle Receiving Yards"
+          "RJ Harvey Receiving Yards",
+          "RJ Harvey Receptions",
+          "Troy Franklin Receiving Yards"
         ]
       }
     },
@@ -532,9 +772,9 @@
           "DEN_offense"
         ],
         "positive_correlations": [
-          "Troy Franklin Receiving Yards",
-          "J.K. Dobbins Anytime Touchdown Scorer",
-          "J.K. Dobbins Rush Attempts"
+          "RJ Harvey Receiving Yards",
+          "RJ Harvey Receptions",
+          "Troy Franklin Receiving Yards"
         ]
       }
     }

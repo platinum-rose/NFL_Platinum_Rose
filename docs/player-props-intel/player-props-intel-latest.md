@@ -1,8 +1,8 @@
 # NFL Week 6 Player Prop & Parlay Intelligence Dossier
 
-> **Generated**: 2026-10-15T15:08:18.150Z  
-> **Scope**: Dedicated player prop extraction pass from recent intelligence articles (254 articles scanned).  
-> **Actionable Props Extracted**: **12 player props** across **2 games**.  
+> **Generated**: 2026-10-15T22:32:29.378Z  
+> **Scope**: Dedicated player prop extraction pass from recent intelligence articles (370 articles scanned).  
+> **Actionable Props Extracted**: **19 player props** across **2 games**.  
 > **Curated Pre-Built Parlay Stacks**: **1 correlated parlay cards** ready for execution.
 
 ---
@@ -13,8 +13,8 @@ This dossier isolates pure player prop intelligence to build high-ROI Same Game 
 
 | Metric | Value | Meaning |
 | :--- | :--- | :--- |
-| **Total Player Props** | **12** | Verified player prop recommendations with lines and odds |
-| **Tier 1 Best Bet Props** | **10** | Official analyst recommended best bets (Weight: 1.00) |
+| **Total Player Props** | **19** | Verified player prop recommendations with lines and odds |
+| **Tier 1 Best Bet Props** | **14** | Official analyst recommended best bets (Weight: 1.00) |
 | **Anytime / First TD Scorers** | **3** | High-leverage end-zone targets for multiplier legs |
 | **Curated Parlay Cards** | **1** | Positively correlated SGP & cross-game cards (+645 to +810) |
 | **Games With Extracted Props** | **2** | SEA @ DEN, HOU @ JAX |
@@ -23,18 +23,18 @@ This dossier isolates pure player prop intelligence to build high-ROI Same Game 
 
 ## 2. Curated Pre-Built Parlay Cards (Positive Correlation Synergy)
 
-### 🎯 SEA/DEN Prop Stack SGP (SEA @ DEN)
+### 🎯 SEA Prop Stack SGP (SEA @ DEN)
 - **Game / Slate**: `SEA @ DEN` (Thursday Night Football)
-- **Estimated Parlay Odds**: **`+1594`** (Payout: **16.94x** | $10 pays $169.40, $25 pays $423.50)
-- **Correlation Rating**: **Cross-Team Game Stack**
+- **Estimated Parlay Odds**: **`+399`** (Payout: **4.99x** | $10 pays $49.86, $25 pays $124.65)
+- **Correlation Rating**: **Same-Team Stack**
 - **Recommended Sportsbook**: DraftKings / FanDuel
-- **Synergy Rationale**: *Combines 3 real props extracted this week from Steve Krebs (BettingPros), Mike Spector (BettingPros) for SEA @ DEN.*
+- **Synergy Rationale**: *Combines 3 real props extracted this week from Frank Ammirante ... (Action Network), Steve Krebs (BettingPros) for SEA @ DEN.*
 
 | Leg # | Player | Team | Category | Selection | Stated Odds | Source Analyst |
 | :---: | :--- | :---: | :--- | :--- | :---: | :--- |
-| **#1** | **Troy Franklin** | DEN | Receiving Yards | `Over 15+ Receiving Yards` | **-138** | Steve Krebs (BettingPros) |
-| **#2** | **Jaxon Smith-Njigba** | SEA | Receiving/Rushing Yards | `Over 70+ Receiving/Rushing Yards` | **-248** | Steve Krebs (BettingPros) |
-| **#3** | **Jaxon Smith-Njigba** | SEA | First Touchdown Scorer | `First Touchdown Scorer` | **+600** | Mike Spector (BettingPros) |
+| **#1** | **Jaxon Smith-Njigba** | SEA | Receiving Yards | `Over 92.5 Receiving Yards` | **-113** | Frank Ammirante ... (Action Network) |
+| **#2** | **Emanuel Wilson** | SEA | Rushing Yards | `Over 66.5 Rushing Yards` | **-113** | Frank Ammirante ... (Action Network) |
+| **#3** | **Jaxon Smith-Njigba** | SEA | Receiving/Rushing Yards | `Over 70+ Receiving/Rushing Yards` | **-248** | Steve Krebs (BettingPros) |
 
 ---
 
@@ -50,6 +50,13 @@ This dossier isolates pure player prop intelligence to build high-ROI Same Game 
 
 | Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
 | :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
+| **Jaxon Smith-Njigba** | SEA | Receiving Yards | `92.5 OVER` | **-113** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Frank Ammirante ... (Action Network) | *Pass-Catching Piece* | Emanuel Wilson Over 66.5 Rushing Yards (-113) Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel . |
+| **Emanuel Wilson** | SEA | Rushing Yards | `66.5 OVER` | **-113** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Frank Ammirante ... (Action Network) | *Ground Game Piece* | Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel . |
+| **Bo Nix** | DEN | Passing Yards | `197.5 UNDER` | **-113** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Frank Ammirante ... (Action Network) | *Passing Volume Anchor* | RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel . |
+| **RJ Harvey** | DEN | Receiving Yards | `20.5 OVER` | **-113** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Frank Ammirante ... (Action Network) | *Pass-Catching Piece* | Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel . |
+| **Courtland Sutton** | DEN | Receiving Yards | `31.5 UNDER` | **-113** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Frank Ammirante ... (Action Network) | *Pass-Catching Piece* | Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel . |
+| **RJ Harvey** | DEN | Receptions | `3.5 OVER` | **-108** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Action Network Staff ... (Action Network) | *Pass-Catching Piece* | Escalators : 5+ Receptions (+203; Kalshi ) | 6+ Receptions (+375; Hard Rock) | 8+ Receptions (+1400; Hard Rock) Click here to return to the table of contents. Seahawks vs Broncos Anytime Touchdown Pick Thursday, Oct. |
+| **Jaxon Smith-Njigba** | SEA | Receptions | `8+ OVER` | **+130** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Ben Solak (ESPN NFL) | *Pass-Catching Piece* | Eric Moody: Smith-Njigba has averaged 10.0 targets per game this season and recorded at least eight receptions in three of five games. He also reached that mark in 11 of 20 games last season, including the postseason, and has a 74% catch rate since the start of last season. |
 | **Troy Franklin** | DEN | Receiving Yards | `15+ OVER` | **-138** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Steve Krebs (BettingPros) | *Pass-Catching Piece* | We round things out with a bit of a disappointing return based on the juice. Troy Franklin doesn't get much volume, to be candid, which makes the high tax even more disheartening. |
 | **Jaxon Smith-Njigba** | SEA | Receiving/Rushing Yards | `70+ OVER` | **-248** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Steve Krebs (BettingPros) | *Complementary Piece* | There are two avenues that we heavily considered for this leg of the parlay. The first was to take Jaxon Smith-Njigba to score a touchdown, which returns +110 . |
 | **Jaxon Smith-Njigba** | SEA | First Touchdown Scorer | `Yes ANYTIME` | **+600** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Mike Spector (BettingPros) | *End-Zone Target* | Given Bo Nix's propensity for leading fourth-quarter comebacks (he has led the NFL in such comebacks since 2024 and has three this year), I am backing Seattle to score the game's first touchdown, led by its most consistent offensive weapon. Jaxon Smith-Njigba leads the league in target share (35.2%) and percentage of air yards (52.4%). |
