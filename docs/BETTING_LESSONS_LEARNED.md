@@ -173,6 +173,57 @@ as of 2026-09-22) and does not change grading.
 
 ---
 
+## Week 6 TNF — 2026-10-15: SEA @ DEN (final DEN 17, SEA 14, OT)
+
+### Headline (Andy's lesson): in low-total games with no weather effect, target the defenses. Fade touchdown legs.
+Closing total was about 40.5 and the game finished at 31 points, with no weather involved. In
+games like this the player-prop value sat with the **defensive players**. Andy's read of the
+box score: their numbers were huge (tackles, sacks and similar defensive volume).
+Offensive players could still hit their small targets on rushing and receiving yards and on
+carries and receptions. **Touchdowns were the problem.** Scores were scarce, and TD legs came
+at an extreme premium that the scarcity did not justify.
+
+### Standing rule (Andy, 2026-10-15)
+- **Trigger:** game total **below 41**, and the game is **not** being affected by weather.
+- **Target:** defensive player props (tackles, sacks, and the other defensive markets).
+- **Offense:** modest yardage, carries and receptions lines are fine. Do not pay up for TDs.
+- **TD cap:** **1-2 anytime TD legs absolute maximum** when building parlays for these games.
+  Do not stack TD legs, and do not build the card around them.
+- Weather games are a separate case. Low totals caused by wind or rain are not covered by this rule.
+
+### Interaction with existing lessons
+This agrees with the Week 2 MNF note: tackle volume goes up when an offense cannot sustain
+drives (Newsome 3+ tackles hit at 5), and yardage and TD legs were the fragile ones. TNF
+extends that from "backup QB game" to "any low-total game".
+
+### What the box score showed (ESPN event 401872995)
+**Defense (the volume was here):**
+- DEN: Alex Singleton 13 tackles; Brandon Jones 8; Jahdae Barron 7 (6 solo); Kris Abrams-Draine
+  6 tackles, 3 passes defended and an INT; Ja'Quan McMillian 5 tackles, 1 sack, 2 PD and an INT;
+  Que Robinson 1 sack, 4 tackles, 1 TFL; Jonah Elliss 1 sack, 1 TFL. DEN sacked Darnold 5 times
+  (5-38) and picked him off twice.
+- SEA: Ernest Jones IV 9 tackles and 1 sack; Tyrice Knight 8; Nick Emmanwori 7 tackles, 1 sack,
+  2 QB hits; Devon Witherspoon 5 tackles and 2 PD. SEA sacked Nix twice (2-13).
+
+**Offense (small bars were reachable):**
+- Receiving: Jaxon Smith-Njigba 12 for 134 on 16 targets; Rashid Shaheed 5 for 66; Cooper Kupp
+  5 for 50.
+- Rushing: Emanuel Wilson 14 for 52; J.K. Dobbins 17 for 41; Bo Nix 17/27 for only 107 yards.
+
+**Touchdowns (the premium that did not pay):** three rushing TDs in the box score, no passing TDs.
+They went to J.K. Dobbins, RJ Harvey and George Holani. None went to JSN, Kupp, Sutton or Waddle,
+the receivers a TD card would normally lead with.
+
+Source: ESPN summary feed for event 401872995. These figures are not yet checked against
+`data/official-picks/` graded tickets, so confirm there before quoting leg-level results.
+
+### Actionable takeaway for next card
+1. Check the total first. If it is under 41 and the forecast is clean, build the prop section around defenders.
+2. Cap anytime TD legs at 1-2 per card. Never more.
+3. Keep offensive legs to low bars on yards, carries and receptions.
+
+---
+
 ## Template for future entries
 
 ```

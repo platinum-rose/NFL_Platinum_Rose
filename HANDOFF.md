@@ -3,12 +3,12 @@
 > Start here. This is a routing index, not a transcript. One current pickup only.
 > Detail lives in dated `handoffs/`; superseded pickups are in git history and their dated files.
 
-## PICK UP HERE (Thu 2026-10-15 19:00 PT, futures/exacta tooling + free-bet tracking)
+## PICK UP HERE (Fri 2026-10-16 08:45 PT, Week 6 intel gathering, report due Friday night)
 
-Branch `claude/w5-prop-cards-2026-10-11`; HEAD is the handoff commit on top of `d968cf2` (local, Andy pushes). Verify with `git log --oneline -6`.
-Required read: `handoffs/2026-10-15-1900-claude-futures-exacta-freebet-handoff.md`.
+Branch `claude/w5-prop-cards-2026-10-11`; HEAD is the handoff commit pushed to origin. Verify with `git log --oneline -3`.
+Required read: `handoffs/2026-10-16-0845-claude-w6-intel-gathering-handoff.md`.
 
-Next: Andy's go on the $38.54 free-money exacta plan; TNF prop recapture before 5:15 PM PT; Week 6 QBs and quant-synthesis go (dry-run first); decide W6 vs W5 tracker HTML. Free bet 1005591415 (LV +4.5, pending) is tracked but not bankroll.
+Next: Andy captures fresh BKR board plus BOL/DKP Sunday props; rerun injury chain after Friday final reports; synthesis dry-run, then real run only on Andy's go; write 13 narratives, build and QA the Master Intel report. Extracted-but-unpromoted transcripts are in `data/shadow-harness/antigravity-staging/`.
 
 ## Fast resume (do this, nothing more)
 

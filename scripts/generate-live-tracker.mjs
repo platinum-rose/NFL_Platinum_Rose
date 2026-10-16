@@ -6492,7 +6492,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               currentVal = stats.recYds || 0;
             } else if (market.includes('reception')) {
               currentVal = stats.rec || 0;
-            } else if (market.includes('carr') || market.includes('rush_att')) {
+            } else if (/carr|rush(?:ing)?[_ ]?att/.test(market)) {
               currentVal = stats.car || 0;
             } else if (market.includes('pass') && (market.includes('att') || market.includes('attempt'))) {
               currentVal = stats.passAtt || 0;
@@ -6508,6 +6508,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               // only non-passers fall back to defensive INTs. Before this, QB INT legs read
               // stats.int (defensive) and never moved off 0.
               currentVal = ((stats.passAtt || 0) > 0 || (stats.passInt || 0) > 0) ? (stats.passInt || 0) : (stats.int || 0);
+            } else if (/field.?goal|fg_?made/.test(market)) {
+              currentVal = parseInt(String(stats.fg || '0/0').split('/')[0], 10) || 0; // FGs made from ESPN kicking line "made/att"
             } else if (market.includes('kick')) {
               currentVal = stats.pts || 0;
             } else if (market.includes('tackle')) {
@@ -6652,7 +6654,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             currentVal = stats.recYds || 0;
           } else if (market.includes('reception')) {
             currentVal = stats.rec || 0;
-          } else if (market.includes('carr') || market.includes('rush_att')) {
+          } else if (/carr|rush(?:ing)?[_ ]?att/.test(market)) {
             currentVal = stats.car || 0;
           } else if (market.includes('pass') && (market.includes('att') || market.includes('attempt'))) {
             currentVal = stats.passAtt || 0;
@@ -6668,7 +6670,9 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             // only non-passers fall back to defensive INTs. Before this, QB INT legs read
             // stats.int (defensive) and never moved off 0.
             currentVal = ((stats.passAtt || 0) > 0 || (stats.passInt || 0) > 0) ? (stats.passInt || 0) : (stats.int || 0);
-          } else if (market.includes('kick')) {
+          } else if (/field.?goal|fg_?made/.test(market)) {
+              currentVal = parseInt(String(stats.fg || '0/0').split('/')[0], 10) || 0; // FGs made from ESPN kicking line "made/att"
+            } else if (market.includes('kick')) {
             currentVal = stats.pts || 0;
           } else if (market.includes('tackle')) {
             currentVal = stats.tkl || 0;
@@ -7664,7 +7668,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               currentVal = stats.recYds || 0;
             } else if (rawMarket.includes('reception')) {
               currentVal = stats.rec || 0;
-            } else if (rawMarket.includes('carr') || rawMarket.includes('rush_att')) {
+            } else if (/carr|rush(?:ing)?[_ ]?att/.test(rawMarket)) {
               currentVal = stats.car || 0;
             } else if (rawMarket.includes('pass') && (rawMarket.includes('att') || rawMarket.includes('attempt'))) {
               currentVal = stats.passAtt || 0;
@@ -7680,6 +7684,8 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
               // only non-passers fall back to defensive INTs. Before this, QB INT legs read
               // stats.int (defensive) and never moved off 0.
               currentVal = ((stats.passAtt || 0) > 0 || (stats.passInt || 0) > 0) ? (stats.passInt || 0) : (stats.int || 0);
+            } else if (/field.?goal|fg_?made/.test(rawMarket)) {
+              currentVal = parseInt(String(stats.fg || '0/0').split('/')[0], 10) || 0; // FGs made from ESPN kicking line "made/att"
             } else if (rawMarket.includes('tackle')) {
               currentVal = stats.tkl || 0;
             } else if (rawMarket.includes('sack')) {

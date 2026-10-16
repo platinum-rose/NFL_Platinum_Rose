@@ -19736,8 +19736,8 @@
     "cash_risk_usd": 5,
     "stake_usd": 5,
     "units": 0.5,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "game_title": "Week 6 TNF SEA@DEN SGP 8-leg (Dobbins/JSN/Wilson ATD, Barner 3+ rec, JSN 80+ rec yds, Nix o0.5 INT, Myers 2+ FG, Nix u199.5 pass yds)",
@@ -19763,9 +19763,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_1005682691_1_dobbins_atd",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 1
       },
       {
         "leg_num": 2,
@@ -19780,9 +19781,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_1005682691_2_jsn_atd",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0
       },
       {
         "leg_num": 3,
@@ -19797,9 +19799,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_1005682691_3_wilson_atd",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0
       },
       {
         "leg_num": 4,
@@ -19814,9 +19817,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_1005682691_4_barner_rec",
-        "target_stat": "receptions"
+        "target_stat": "receptions",
+        "actual_stat": 3
       },
       {
         "leg_num": 5,
@@ -19831,9 +19835,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_1005682691_5_jsn_rec_yds",
-        "target_stat": "receiving_yards"
+        "target_stat": "receiving_yards",
+        "actual_stat": 134
       },
       {
         "leg_num": 6,
@@ -19848,9 +19853,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_1005682691_6_nix_int",
-        "target_stat": "interceptions_thrown"
+        "target_stat": "interceptions_thrown",
+        "actual_stat": 0
       },
       {
         "leg_num": 7,
@@ -19867,7 +19873,8 @@
         "game_start": "10/15/2026 @ 05:15 PM",
         "status": "PENDING",
         "key": "leg_1005682691_7_myers_fg",
-        "target_stat": "field_goals_made"
+        "target_stat": "field_goals_made",
+        "actual_stat": null
       },
       {
         "leg_num": 8,
@@ -19882,11 +19889,15 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "under",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_1005682691_8_nix_pass_yds",
-        "target_stat": "passing_yards"
+        "target_stat": "passing_yards",
+        "actual_stat": 107
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-16T10:30:02.209Z"
   },
   {
     "id": "bet_20261015_betonline_1005675166_sea_den_prop8",
@@ -19904,8 +19915,8 @@
     "cash_risk_usd": 5,
     "stake_usd": 5,
     "units": 0.5,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "game_title": "Week 6 TNF SEA@DEN Future/Prop 8-leg (Love o4.5 tkl+ast, JSN TD, Nix o13.5 rush, Nix TD, Elliss o0.5 sack, Barner o2.5 rec + TD, Franklin o1.5 rec)",
@@ -19929,9 +19940,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_1005675166_1_love_tkl_ast",
-        "target_stat": "tackles_combined"
+        "target_stat": "tackles_combined",
+        "actual_stat": 3
       },
       {
         "leg_num": 2,
@@ -19946,9 +19958,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_1005675166_2_jsn_td",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0
       },
       {
         "leg_num": 3,
@@ -19963,9 +19976,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_1005675166_3_nix_rush_yds",
-        "target_stat": "rushing_yards"
+        "target_stat": "rushing_yards",
+        "actual_stat": 2
       },
       {
         "leg_num": 4,
@@ -19980,9 +19994,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_1005675166_4_nix_td",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0
       },
       {
         "leg_num": 5,
@@ -19997,9 +20012,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_1005675166_5_elliss_sacks",
-        "target_stat": "sacks"
+        "target_stat": "sacks",
+        "actual_stat": 1
       },
       {
         "leg_num": 6,
@@ -20014,9 +20030,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_1005675166_6_barner_rec",
-        "target_stat": "receptions"
+        "target_stat": "receptions",
+        "actual_stat": 3
       },
       {
         "leg_num": 7,
@@ -20031,9 +20048,10 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_1005675166_7_barner_td",
-        "target_stat": "touchdowns"
+        "target_stat": "touchdowns",
+        "actual_stat": 0
       },
       {
         "leg_num": 8,
@@ -20048,11 +20066,15 @@
         "price_source": "per-leg price not shown on confirmation",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_1005675166_8_franklin_rec",
-        "target_stat": "receptions"
+        "target_stat": "receptions",
+        "actual_stat": 1
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-16T10:30:02.210Z"
   },
   {
     "id": "bet_20261015_dkp_5pick_combo_sea_den",
@@ -20075,8 +20097,8 @@
     "odds_decimal": 13.48,
     "potential_profit_usd": 124.06,
     "potential_payout_usd": 134,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "progress_notes": "Andy 2026-10-15 16:43 PT screenshot: Order Successful, Trade Placed, 5 Pick Combo (7%), Total $9.94, Payout $134. Funding assumed cash (not stated as promo). No ticket number on the confirmation. Per-leg prices not shown. Built by Andy on DK Predictions after BEO limited his to-win amounts. JSN anytime TD also appears on BEO tickets 1005682691 and 1005675166 (shared exposure).",
@@ -20094,10 +20116,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp5_1_dobbins_rush_yds",
         "target_stat": "rushing_yards",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 41
       },
       {
         "leg_num": 2,
@@ -20115,7 +20138,8 @@
         "status": "PENDING",
         "key": "leg_dkp5_2_wilson_carries",
         "target_stat": "carries",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": null
       },
       {
         "leg_num": 3,
@@ -20130,10 +20154,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp5_3_harvey_rec_yds",
         "target_stat": "receiving_yards",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 31
       },
       {
         "leg_num": 4,
@@ -20148,10 +20173,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp5_4_waddle_rec_yds",
         "target_stat": "receiving_yards",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 24
       },
       {
         "leg_num": 5,
@@ -20166,12 +20192,16 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp5_5_jsn_atd",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -9.94,
+    "graded_at": "2026-10-16T10:30:02.210Z"
   },
   {
     "id": "bet_20261013_bkr_740212915_9team_parlay",
@@ -20188,8 +20218,8 @@
     "category": "Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "cash_risk_usd": 15,
@@ -20200,7 +20230,7 @@
     "potential_profit_usd": 1405.41,
     "potential_payout_usd": 1420.41,
     "external_url": "https://be.bookmaker.eu/#ticket_740212915",
-    "progress_notes": "Andy 2026-10-15, Bookmaker ticket 740212915 placed 10/13/2026 10:35 PM: Risk $15.00, Win $1,405.41. All nine legs pending as of 2026-10-15 ~16:50 PT (SEA ML leg plays tonight). Odds derived from risk/win; leg prices multiply to the same payout.",
+    "progress_notes": "Andy 2026-10-15, Bookmaker ticket 740212915 placed 10/13/2026 10:35 PM: Risk $15.00, Win $1,405.41. All nine legs pending as of 2026-10-15 ~16:50 PT (SEA ML leg plays tonight). Odds derived from risk/win; leg prices multiply to the same payout. | 2026-10-15 22:26 PT: SEA ML leg lost (DEN 17, SEA 14 OT); ticket lost. Rebuilt Sunday-only as ticket 740291356.",
     "legs": [
       {
         "leg_num": 1,
@@ -20212,7 +20242,7 @@
         "line": null,
         "price": "-145",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740212915_1_sea_ml"
       },
       {
@@ -20319,7 +20349,10 @@
         "status": "PENDING",
         "key": "leg_740212915_9_gb_spread"
       }
-    ]
+    ],
+    "profit_usd": -15,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-16T05:30:00.000Z"
   },
   {
     "id": "bet_20261015_bkr_740279274_4team_teaser6",
@@ -20360,10 +20393,11 @@
         "line": 8.5,
         "price": "-113",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740279274_1_den_teaser",
         "teaser": true,
-        "teaser_points": 6
+        "teaser_points": 6,
+        "actual_stat": "+3"
       },
       {
         "leg_num": 2,
@@ -20427,8 +20461,8 @@
     "category": "Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "cash_risk_usd": 25.39,
@@ -20452,8 +20486,9 @@
         "price": null,
         "price_source": "per-leg price not shown on ticket paste",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_740269810_1_sea_ml"
+        "status": "LOST",
+        "key": "leg_740269810_1_sea_ml",
+        "actual_stat": "14-17"
       },
       {
         "leg_num": 2,
@@ -20467,10 +20502,14 @@
         "price_source": "per-leg price not shown on ticket paste",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
-        "key": "leg_740269810_2_sea_den_over40"
+        "status": "LOST",
+        "key": "leg_740269810_2_sea_den_over40",
+        "actual_stat": 31
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -25.39,
+    "graded_at": "2026-10-16T10:30:02.210Z"
   },
   {
     "id": "bet_20261015_dkp_3pick_combo_sea_den",
@@ -20493,8 +20532,8 @@
     "odds_decimal": 62.32,
     "potential_profit_usd": 306.01,
     "potential_payout_usd": 311,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "progress_notes": "Andy 2026-10-15 17:01 PT screenshot: Order Successful, Trade Placed, 3 Pick Combo (1.5%), Total $4.99, Payout $311. Funding assumed cash (not stated as promo). No ticket number on the confirmation. Per-leg prices not shown. Chosen over a DK sportsbook 3-leg parlay (+3800) because the prediction market does not apply the same-game correlation cut. Slightly under the Island Tier 3 floor (+6500).",
@@ -20512,10 +20551,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp3_1_shaheed_atd",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0
       },
       {
         "leg_num": 2,
@@ -20530,10 +20570,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp3_2_engram_atd",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0
       },
       {
         "leg_num": 3,
@@ -20548,12 +20589,16 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp3_3_shaheed_rec",
         "target_stat": "receptions",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 5
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -4.99,
+    "graded_at": "2026-10-16T10:30:02.210Z"
   },
   {
     "id": "bet_20261015_dkp_6pick_combo_sea_den",
@@ -20569,15 +20614,15 @@
     "category": "Prop/Prediction Market",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "cash_risk_usd": 5.0,
-    "stake_usd": 5.0,
+    "cash_risk_usd": 5,
+    "stake_usd": 5,
     "units": 0.5,
     "odds_american": "+9360",
     "odds_decimal": 94.6,
-    "potential_profit_usd": 468.0,
-    "potential_payout_usd": 473.0,
-    "status": "PENDING",
-    "result": null,
+    "potential_profit_usd": 468,
+    "potential_payout_usd": 473,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "progress_notes": "Andy 2026-10-15 17:21 PT: DK open-position list, position 39144341, 6 Pick Combo (1%), Bought $5.00, Pays out $473.00. Funding assumed cash. Per-leg prices not shown. Game live at paste (Q1 11:12, 0-0).",
@@ -20598,7 +20643,8 @@
         "status": "PENDING",
         "key": "leg_dkp6_1_myers_fg",
         "target_stat": "field_goals_made",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": null
       },
       {
         "leg_num": 2,
@@ -20613,10 +20659,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp6_2_kupp_recyds",
         "target_stat": "receiving_yards",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 50
       },
       {
         "leg_num": 3,
@@ -20631,10 +20678,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp6_3_barner_rec",
         "target_stat": "receptions",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 3
       },
       {
         "leg_num": 4,
@@ -20649,10 +20697,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp6_4_harvey_rec",
         "target_stat": "receptions",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 3
       },
       {
         "leg_num": 5,
@@ -20667,10 +20716,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp6_5_nix_atd",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0
       },
       {
         "leg_num": 6,
@@ -20685,12 +20735,16 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp6_6_wilson_atd",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5,
+    "graded_at": "2026-10-16T10:30:02.210Z"
   },
   {
     "id": "bet_20261015_dkp_7pick_combo_sea_den",
@@ -20706,15 +20760,15 @@
     "category": "Prop/Prediction Market",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "cash_risk_usd": 10.0,
-    "stake_usd": 10.0,
-    "units": 1.0,
+    "cash_risk_usd": 10,
+    "stake_usd": 10,
+    "units": 1,
     "odds_american": "+6130",
     "odds_decimal": 62.3,
-    "potential_profit_usd": 613.0,
-    "potential_payout_usd": 623.0,
-    "status": "PENDING",
-    "result": null,
+    "potential_profit_usd": 613,
+    "potential_payout_usd": 623,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "progress_notes": "Andy 2026-10-15 17:21 PT: DK open-position list, position 39149838, 7 Pick Combo (1.5%), Bought $10.00, Pays out $623.00. Seventh leg Alex Singleton 8+ Tackles + Assists. Funding assumed cash. Per-leg prices not shown. Game live at paste (Q1 11:12, 0-0).",
@@ -20732,10 +20786,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp7_1_barner_atd",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0
       },
       {
         "leg_num": 2,
@@ -20750,10 +20805,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp7_2_dobbins_atd",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 1
       },
       {
         "leg_num": 3,
@@ -20768,10 +20824,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp7_3_harvey_recyds",
         "target_stat": "receiving_yards",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 31
       },
       {
         "leg_num": 4,
@@ -20786,10 +20843,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp7_4_barner_rec",
         "target_stat": "receptions",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 3
       },
       {
         "leg_num": 5,
@@ -20804,10 +20862,11 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp7_5_jsn_rec",
         "target_stat": "receptions",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 12
       },
       {
         "leg_num": 6,
@@ -20825,7 +20884,8 @@
         "status": "PENDING",
         "key": "leg_dkp7_6_wilson_att",
         "target_stat": "carries",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": null
       },
       {
         "leg_num": 7,
@@ -20840,10 +20900,156 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/15/2026 @ 05:15 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp7_7_singleton_tkl",
         "target_stat": "tackles_assists",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 13
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -10,
+    "graded_at": "2026-10-16T10:30:02.210Z"
+  },
+  {
+    "id": "bet_20261015_bkr_740291356_9team_parlay_sunday",
+    "ticket_number": "740291356",
+    "book_ticket_number": "740291356",
+    "placed_at": "2026-10-15T22:26:00-07:00",
+    "date": "2026-10-15",
+    "game": "Week 6 Sunday slate",
+    "game_title": "Week 6 Sunday-only 9-team parlay (CAR ML / BUF ML / GB ML / CLE +5.5 / NE ML / CHI-ATL o49.5 / ARI +14 / HOU-JAX o40.5 / PIT-TB o37.5)",
+    "ticket_type": "Parlay (9 Teams)",
+    "season": 2026,
+    "week": 6,
+    "book": "Bookmaker",
+    "category": "Game Parlay",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "status": "PENDING",
+    "result": null,
+    "is_split": false,
+    "split_partner": null,
+    "cash_risk_usd": 15,
+    "stake_usd": 15,
+    "units": 1,
+    "odds_american": "+8322",
+    "odds_decimal": 84.2155,
+    "potential_profit_usd": 1248.23,
+    "potential_payout_usd": 1263.23,
+    "external_url": "https://be.bookmaker.eu/#ticket_740291356",
+    "progress_notes": "Andy 2026-10-15 22:26 PT: rebuilt Sunday-only replacement for lost ticket 740212915 (SEA ML leg). Risk $15.00, Win $1,248.23 (leg prices multiply to the same payout). Changes vs original: CAR ML in, GB ML replaces GB -1, HOU-JAX o40.5 replaces HOU +3.5, CHI-ATL o49.5 (was o48), CLE +5.5 (was +6). All nine legs pending.",
+    "legs": [
+      {
+        "leg_num": 1,
+        "game": "CAR @ PHI",
+        "team": "CAR",
+        "opponent": "PHI",
+        "market": "moneyline",
+        "selection": "Carolina Panthers ML",
+        "line": null,
+        "price": "-188",
+        "game_start": "10/18/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_740291356_1_car_ml"
+      },
+      {
+        "leg_num": 2,
+        "game": "BUF @ LV",
+        "team": "BUF",
+        "opponent": "LV",
+        "market": "moneyline",
+        "selection": "Buffalo Bills ML",
+        "line": null,
+        "price": "-228",
+        "game_start": "10/18/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_740291356_2_buf_ml"
+      },
+      {
+        "leg_num": 3,
+        "game": "DAL @ GB",
+        "team": "GB",
+        "opponent": "DAL",
+        "market": "moneyline",
+        "selection": "Green Bay Packers ML",
+        "line": null,
+        "price": "-118",
+        "game_start": "10/18/2026 @ 05:20 PM",
+        "status": "PENDING",
+        "key": "leg_740291356_3_gb_ml"
+      },
+      {
+        "leg_num": 4,
+        "game": "BAL @ CLE",
+        "team": "CLE",
+        "opponent": "BAL",
+        "market": "spread",
+        "selection": "Cleveland Browns +5.5",
+        "line": 5.5,
+        "price": "-135",
+        "game_start": "10/18/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_740291356_4_cle_spread"
+      },
+      {
+        "leg_num": 5,
+        "game": "NYJ @ NE",
+        "team": "NE",
+        "opponent": "NYJ",
+        "market": "moneyline",
+        "selection": "New England Patriots ML",
+        "line": null,
+        "price": "-344",
+        "game_start": "10/18/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_740291356_5_ne_ml"
+      },
+      {
+        "leg_num": 6,
+        "game": "CHI @ ATL",
+        "market": "total",
+        "selection": "Over 49.5 (Chicago Bears vs Atlanta Falcons)",
+        "line": 49.5,
+        "price": "-144",
+        "game_start": "10/18/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_740291356_6_chi_atl_over"
+      },
+      {
+        "leg_num": 7,
+        "game": "ARI @ LAR",
+        "team": "ARI",
+        "opponent": "LAR",
+        "market": "spread",
+        "selection": "Arizona Cardinals +14",
+        "line": 14,
+        "price": "-129",
+        "game_start": "10/18/2026 @ 01:05 PM",
+        "status": "PENDING",
+        "key": "leg_740291356_7_ari_spread"
+      },
+      {
+        "leg_num": 8,
+        "game": "HOU @ JAX",
+        "market": "total",
+        "selection": "Over 40.5 (Houston Texans vs Jacksonville Jaguars)",
+        "line": 40.5,
+        "price": "-137",
+        "game_start": "10/18/2026 @ 06:30 AM",
+        "status": "PENDING",
+        "key": "leg_740291356_8_hou_jax_over"
+      },
+      {
+        "leg_num": 9,
+        "game": "PIT @ TB",
+        "market": "total",
+        "selection": "Over 37.5 (Pittsburgh Steelers vs Tampa Bay Buccaneers)",
+        "line": 37.5,
+        "price": "-130",
+        "game_start": "10/18/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_740291356_9_pit_tb_over"
       }
     ]
   }
