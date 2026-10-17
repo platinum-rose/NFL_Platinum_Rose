@@ -2,12 +2,22 @@
 import re
 import sys
 from pathlib import Path
-import docx
-from docx.shared import Inches, Pt, RGBColor
-from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.enum.table import WD_TABLE_ALIGNMENT, WD_ALIGN_VERTICAL
-from docx.oxml import parse_xml
-from docx.oxml.ns import nsdecls
+try:
+    import docx
+    from docx.shared import Inches, Pt, RGBColor
+    from docx.enum.text import WD_ALIGN_PARAGRAPH
+    from docx.enum.table import WD_TABLE_ALIGNMENT, WD_ALIGN_VERTICAL
+    from docx.oxml import parse_xml
+    from docx.oxml.ns import nsdecls
+except ImportError:
+    docx = None
+    Pt = lambda x: x
+    Inches = lambda x: x
+    RGBColor = lambda *args: None
+    WD_TABLE_ALIGNMENT = type('WD_TABLE_ALIGNMENT', (), {'CENTER': 1})
+    WD_ALIGN_VERTICAL = type('WD_ALIGN_VERTICAL', (), {'CENTER': 1})
+    parse_xml = lambda x: None
+    nsdecls = lambda x: ''
 
 def set_cell_background(cell, fill_hex):
     tcPr = cell._tc.get_or_add_tcPr()
@@ -136,6 +146,9 @@ def add_formatted_runs(paragraph, text, base_color=None, base_size=Pt(10), base_
                 run.text = tok_clean.replace(r'\rightarrow', ' → ').replace('->', ' → ')
 
 def generate_docx(md_path, docx_path):
+    if docx is None:
+        print(f"python-docx is not installed; skipping DOCX export: {docx_path}")
+        return
     doc = docx.Document()
     for section in doc.sections:
         section.top_margin = Inches(0.75)
@@ -527,13 +540,15 @@ def generate_html(md_path, html_path):
             label = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', label)
             label = re.sub(r'\*(.*?)\*', r'<em>\1</em>', label)
             cls_name = "back-to-top" if "Back to" in label or "⬆" in label else "table-link"
-            return f'<a href="{url}" class="{cls_name}">{label}</a>'
+            target_attr = ' target="_blank" rel="noopener noreferrer"' if url.startswith(('http://', 'https://')) else ''
+            return f'<a href="{url}" class="{cls_name}"{target_attr}>{label}</a>'
 
         txt = re.sub(r'\[(.*?)\]\((.*?)\)', replace_link, txt)
         txt = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', txt)
         txt = re.sub(r'\*(.*?)\*', r'<em>\1</em>', txt)
         txt = txt.replace(r'\rightarrow', '&rarr;').replace('->', '&rarr;')
         txt = re.sub(r'\\?\$(?=[A-Za-z\\{])(.*?)\\?\$', r'<em>\1</em>', txt)  # math only; leave money like $30 alone
+        txt = re.sub(r'\bATD\b', 'Anytime TD', txt)
         return txt
 
     def close_lists():
@@ -704,12 +719,15 @@ def generate_html(md_path, html_path):
                 doc_title = clean
             break
 
+    mw = re.search(r'Week\s+(\d+)', doc_title)
+    week_str = mw.group(1) if mw else '5'
+
     full_html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{doc_title}</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏈</text></svg>">
 <style>
   /* F-mi-dark (2026-10-03): one dark on-screen theme, Option A "Tracker slate + teal".
      Matches the Live Tracker surfaces + the Platinum Rose teal accent. Light lives only in @media print. */
@@ -1068,7 +1086,7 @@ def generate_html(md_path, html_path):
   .quick-pick-sep {{
     color: var(--muted);
     font-weight: 400;
-    user-select: none;
+    user-select: auto;
   }}
   tr:target {{
     background-color: rgba(0, 210, 190, 0.16) !important;
@@ -1166,7 +1184,7 @@ def generate_html(md_path, html_path):
     color: var(--text);
     background: var(--card);
     cursor: pointer;
-    user-select: none;
+    user-select: text;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1225,7 +1243,9 @@ def generate_html(md_path, html_path):
   }}
   .term-tooltip .tip-text {{
     visibility: hidden;
-    width: 290px;
+    width: min(280px, 85vw);
+    max-width: 85vw;
+    box-sizing: border-box;
     background-color: #0b1222;
     color: #f8fafc;
     text-align: left;
@@ -1312,7 +1332,7 @@ def generate_html(md_path, html_path):
   /* Sortable Tables */
   th.sortable-header {{
     cursor: pointer;
-    user-select: none;
+    user-select: text;
     position: relative;
     padding-right: 22px;
     transition: background-color 0.2s ease;
@@ -1356,14 +1376,482 @@ def generate_html(md_path, html_path):
     display: inline-block;
     filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
   }}
-  /* F-mi-dark: dark-coloured team logos (NYG, LAR, NYJ...) get a faint halo so they read on slate */
-  .tl, .team-logo, .team-logo-sm {{ filter: drop-shadow(0 0 1.5px rgba(248, 250, 252, 0.55)); }}
+  /* Target pulse highlight for Jump to a Game / anchor links */
+  @keyframes target-pulse {{
+    0% {{ outline: 3px solid var(--accent); box-shadow: 0 0 0 6px rgba(0, 210, 190, 0.4); }}
+    70% {{ outline: 3px solid var(--accent); box-shadow: 0 0 0 6px rgba(0, 210, 190, 0.2); }}
+    100% {{ outline: none; box-shadow: none; }}
+  }}
+  .target-pulse {{
+    animation: target-pulse 2s ease-out;
+  }}
+
+  /* Matchup Popover Modal Dashboard */
+  .matchup-modal-overlay {{
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(11, 17, 32, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    box-sizing: border-box;
+  }}
+  .matchup-modal-overlay.active {{
+    display: flex;
+  }}
+  .matchup-modal-dialog {{
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    width: 100%;
+    max-width: 920px;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+    overflow: hidden;
+    animation: modal-pop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }}
+  @keyframes modal-pop {{
+    0% {{ opacity: 0; transform: scale(0.96) translateY(10px); }}
+    100% {{ opacity: 1; transform: scale(1) translateY(0); }}
+  }}
+  .matchup-modal-header {{
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: var(--raised);
+    flex-shrink: 0;
+  }}
+  .matchup-modal-title {{
+    font-size: 15.5px;
+    font-weight: 750;
+    color: var(--text);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }}
+  .matchup-modal-actions {{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }}
+  .matchup-modal-body {{
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--body);
+  }}
+  .matchup-modal-body details.rollup-box {{
+    margin: 10px 0;
+  }}
+  .matchup-modal-body summary {{
+    min-height: 44px;
+    font-size: 14px;
+  }}
+
+  /* Confidence Stars Visual Hierarchy */
+  .star-rating {{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-feature-settings: "tnum";
+    white-space: nowrap;
+    padding: 1px 6px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }}
+  .star-tier-high {{
+    font-weight: 850;
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+  }}
+  .star-tier-high .stars-active {{
+    color: #f59e0b;
+    font-size: 1.15em;
+    letter-spacing: 1px;
+    filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.65));
+  }}
+  .star-tier-mid {{
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(0, 210, 190, 0.08);
+    border: 1px solid rgba(0, 210, 190, 0.25);
+  }}
+  .star-tier-mid .stars-active {{
+    color: var(--accent);
+    letter-spacing: 0.5px;
+  }}
+  .star-tier-low {{
+    font-weight: 500;
+    color: #94a3b8;
+    background: rgba(148, 163, 184, 0.06);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+  }}
+  .star-tier-low .stars-active {{
+    color: #64748b;
+  }}
+  .stars-muted {{
+    color: #334155;
+    opacity: 0.55;
+  }}
+
+  /* At-a-Glance Picks Strip */
+  .at-a-glance-bar {{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 16px 0 24px 0;
+    padding: 14px 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+  }}
+  .at-a-glance-header {{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+  }}
+  .at-a-glance-title {{
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }}
+  .at-a-glance-pills {{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }}
+  .at-glance-pill {{
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    background: var(--raised);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 750;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }}
+  .at-glance-pill:hover {{
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 15%, var(--raised));
+    transform: translateY(-1px);
+    color: var(--primary);
+  }}
+  .at-glance-pill .team-logo {{
+    margin-right: 0;
+    width: 20px;
+    height: 20px;
+  }}
+
+  /* Card-Builder & Bookmarks Layer */
+  .bm-btn {{
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 24px;
+    padding: 3px 9px;
+    border: 1.5px solid var(--accent);
+    background: rgba(0, 210, 190, 0.12);
+    color: var(--accent);
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    white-space: nowrap;
+    vertical-align: middle;
+    line-height: 1;
+    transition: all 0.15s ease;
+    user-select: none;
+    -webkit-user-select: none;
+  }}
+  .bm-btn:hover {{
+    background: var(--accent);
+    color: var(--on-accent);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }}
+  .bm-btn.on {{
+    background: #facc15;
+    color: #0f172a;
+    border-color: #facc15;
+    font-weight: 850;
+    box-shadow: 0 0 10px rgba(250, 204, 21, 0.35);
+  }}
+  .bm-btn.on:hover {{
+    background: #fde047;
+    border-color: #fde047;
+  }}
+  .bm-btn:focus-visible {{ outline: 2px solid var(--accent); outline-offset: 2px; }}
+  .bm-btn .bm-icon {{ font-size: 13px; line-height: 1; }}
+  .bm-btn .bm-text {{ font-size: 11px; font-weight: 800; line-height: 1; }}
+  .at-glance-item {{ display: inline-flex; align-items: center; gap: 4px; background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 2px 6px 2px 2px; }}
+  .at-glance-item .at-glance-pill {{ border: none; background: transparent; padding: 4px 6px 4px 8px; }}
+  .at-glance-item .pill-bm-btn {{ padding: 3px 8px; min-height: 22px; font-size: 10.5px; }}
+  .sc-tile-wrap {{ display: flex; flex-direction: column; gap: 5px; }}
+  .sc-tile-wrap .sc-tile {{ flex: 1; }}
+  .sc-tile-btn {{ width: 100%; justify-content: center; padding: 6px 8px; font-size: 11.5px; border-radius: 8px; }}
+  .pk-quick {{ display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; margin: 8px 0 14px; border: 1px solid var(--accent); border-radius: 12px; background: var(--card); }}
+  .pk-qrow {{ display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }}
+  .pk-qlabel {{ flex: 0 0 110px; font-weight: 700; font-size: .85em; color: var(--muted); }}
+  .pk-chip {{ display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 4px 12px; border: 1px solid var(--border); border-radius: 999px; background: var(--raised); color: var(--text); text-decoration: none; }}
+  .pk-chip:hover {{ border-color: var(--accent); }}
+  .pk-chip b {{ white-space: nowrap; }}
+  .sc-group.rollup-box > summary {{ font-size: 1.05em; }}
+  .sc-topbar {{ position: sticky; top: 0; z-index: 60; display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--card); border-bottom: 2px solid var(--accent); overflow-x: auto; white-space: nowrap; }}
+  body.sc-tabs-on {{ padding-top: 0; }}
+  body.sc-tabs-on .sc-topbar {{ margin: 0 0 0 -20px; }}
+  body.sc-tabs-on .container {{ margin-top: 24px; }}
+  .sc-who {{ display:inline-flex; align-items:center; gap:4px; margin-right:10px; padding:3px 4px 3px 10px; border:1px solid var(--border); border-radius:999px; background:var(--card); flex:none; }}
+  .sc-who-l {{ font-size:.72rem; color:var(--muted); margin-right:2px; }}
+  .sc-who button {{ border:0; background:transparent; color:var(--text); font:inherit; font-size:.8rem; font-weight:700; padding:4px 11px; border-radius:999px; cursor:pointer; }}
+  .sc-who button.on {{ background:var(--accent); color:#06231f; }}
+  .sc-who.flash {{ animation:scwho 0.5s 3; box-shadow:0 0 0 2px var(--accent); }}
+  @keyframes scwho {{ 50% {{ box-shadow:0 0 0 6px rgba(0,210,190,.35); }} }}
+  body[data-who="andy"] input.pk-box[data-who="andy"], body[data-who="amanda"] input.pk-box[data-who="amanda"] {{ outline:2px solid var(--accent); outline-offset:1px; }}
+  .sc-cb {{ display:inline-flex; flex-direction:column; gap:3px; margin-right:8px; vertical-align:middle; }}
+  .sc-cb label {{ display:flex; align-items:center; gap:5px; font-size:.72rem; font-weight:700; color:var(--muted); cursor:pointer; white-space:nowrap; }}
+  .sc-cb label.on {{ color:var(--text); }}
+  .sc-cb input {{ width:16px; height:16px; accent-color:var(--accent); cursor:pointer; margin:0; }}
+  .sc-pop {{ position:absolute; z-index:60; display:flex; gap:6px; padding:6px; border:1px solid var(--border); border-radius:10px; background:var(--card); box-shadow:0 8px 24px rgba(0,0,0,.45); }}
+  .sc-pop button {{ border:1px solid var(--border); background:transparent; color:var(--text); border-radius:8px; padding:6px 10px; font:inherit; font-size:.8rem; font-weight:700; cursor:pointer; }}
+  .sc-pop button.on {{ background:var(--accent); color:#06231f; border-color:var(--accent); }}
+  .sp-legend {{ display:flex; gap:16px; margin:6px 0 10px; font-size:.78rem; color:var(--muted); }}
+  .sp-legend span {{ display:inline-flex; align-items:center; gap:6px; }}
+  .sp-k {{ width:12px; height:12px; border-radius:3px; display:inline-block; }}
+  .sp-k.bets, .sp-row.bets .sp-bar i {{ background:#38bdf8; }}
+  .sp-k.money, .sp-row.money .sp-bar i {{ background:#34d399; }}
+  .sp-grid {{ display:grid; gap:10px; }}
+  .sp-game {{ border:1px solid var(--border); border-radius:10px; background:var(--card); padding:10px 12px; }}
+  .sp-head {{ display:flex; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:8px; font-size:.95rem; }}
+  .sp-head span {{ font-size:.75rem; color:var(--muted); }}
+  .sp-cols {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:14px; }}
+  .sp-mt {{ font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }}
+  .sp-side {{ margin-bottom:8px; }}
+  .sp-name {{ font-size:.82rem; font-weight:600; }}
+  .sp-name em {{ font-style:normal; font-weight:400; color:var(--muted); margin-left:4px; }}
+  .sp-row {{ display:grid; grid-template-columns:38px 1fr 38px; align-items:center; gap:6px; font-size:.72rem; color:var(--muted); margin-top:3px; }}
+  .sp-row b {{ color:var(--text); text-align:right; font-variant-numeric:tabular-nums; }}
+  .sp-bar {{ height:9px; border-radius:5px; background:rgba(148,163,184,.18); overflow:hidden; display:block; }}
+  .sp-bar i {{ display:block; height:100%; border-radius:5px; }}
+  .sp-na {{ font-size:.78rem; color:var(--muted); padding:8px 0; }}
+  body.sc-tabs-on .rollup-controls, body.sc-tabs-on .global-rollup-bar {{ display: none; }}
+  .sc-tools {{ margin-left: auto; display: inline-flex; gap: 2px; flex: 0 0 auto; }}
+  .sc-tool {{ width: 30px; height: 30px; padding: 0; border: 0; border-radius: 6px; background: transparent; color: var(--muted); font-size: 18px; line-height: 1; cursor: pointer; }}
+  .sc-tool:hover {{ color: var(--text); background: var(--raised); }}
+  .sc-brand {{ font-weight: 800; color: var(--text); margin-right: 8px; }}
+  .sc-tabwrap {{ display: inline-flex; align-items: stretch; border-radius: 8px; background: var(--raised); flex: 0 0 auto; }}
+  .sc-tabwrap .sc-tab {{ flex: 0 0 auto; border-radius: 8px 0 0 8px; background: transparent; padding: 8px 10px 8px 12px; }}
+  .sc-tabwrap .sc-caret {{ border: 0; border-left: 1px solid var(--border); background: transparent; color: var(--body); padding: 0 10px; min-height: var(--tap); border-radius: 0 8px 8px 0; cursor: pointer; font: inherit; }}
+  .sc-tabwrap .sc-caret:hover {{ color: var(--text); background: rgba(255,255,255,.06); }}
+  .sc-tabwrap.active {{ background: var(--accent); }}
+  .sc-tabwrap.active .sc-tab, .sc-tabwrap.active .sc-caret {{ color: var(--on-accent); }}
+  .sc-tabwrap.active .sc-caret {{ border-left-color: rgba(15,23,42,.25); }}
+  .sc-menu {{ position: fixed; z-index: 70; overflow-y: auto; background: var(--card); border: 1px solid var(--accent); border-radius: 10px; box-shadow: 0 12px 32px rgba(0,0,0,.5); padding: 6px; }}
+  .sc-menu[hidden] {{ display: none; }}
+  .sc-mi {{ display: block; padding: 8px 10px; border-radius: 6px; color: var(--text); text-decoration: none; font-size: 13.5px; line-height: 1.3; }}
+  .sc-mi:hover {{ background: var(--raised); }}
+  .sc-mi.sub {{ padding-left: 24px; color: var(--body); font-size: 12.5px; }}
+  @media (max-width: 1599px) {{ .sc-brand {{ display: none; }} }}
+  .sc-tabs {{ display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 6px; margin: 14px 0 12px; padding: 6px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); position: sticky; top: 0; z-index: 30; }}
+  .sc-tab {{ flex: 1 0 auto; white-space: nowrap; min-height: var(--tap); padding: 8px 10px; font-size: 13px; border: 1px solid transparent; border-radius: 8px; background: var(--raised); color: var(--body); font: inherit; font-weight: 600; cursor: pointer; }}
+  .sc-tab:hover {{ color: var(--text); }}
+  .sc-tab.active {{ background: var(--accent); color: var(--on-accent); }}
+  .sc-panel {{ display: none; }}
+  .sc-panel.active {{ display: block; }}
+  .pk-panel {{ position: fixed; top: 0; right: 0; bottom: 0; width: 450px; z-index: 40; display: flex; flex-direction: column; background: var(--card); border-left: 2px solid var(--accent); box-shadow: -8px 0 24px rgba(0,0,0,.35); }}
+  .pk-ph {{ display: flex; align-items: center; gap: 8px; padding: 12px 14px; font-weight: 700; border-bottom: 1px solid var(--border); cursor: pointer; }}
+  .pk-ph .pk-counts {{ margin-left: auto; font-weight: 500; font-size: .8em; color: var(--muted); }}
+  .pk-caret {{ transition: transform .2s; }}
+  .pk-body {{ display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; padding: 8px 12px 12px; gap: 8px; }}
+  .pk-top {{ display: flex; justify-content: space-between; font-size: .9em; }}
+  .pk-top b {{ color: var(--primary); }}
+  .pk-statusline {{ font-size: .82em; color: var(--muted); min-height: 1.2em; }}
+  .pk-btns {{ display: flex; flex-wrap: wrap; gap: 6px; }}
+  .pk-btns .btn-toggle {{ padding: 5px 9px; font-size: 11.5px; min-height: 0; }}
+  .pk-share {{ margin-top: 6px; border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; }}
+  .pk-share summary {{ cursor: pointer; font-weight: 600; font-size: .85em; }}
+  .pk-hint {{ font-size: .78em; color: var(--muted); margin: 6px 0; }}
+  #pk-text {{ width: 100%; box-sizing: border-box; background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px; font: inherit; font-size: 12px; margin-bottom: 6px; }}
+  .pk-body {{ overflow-y: auto; }}
+  .pk-scroll {{ flex: 1 1 auto; min-height: 120px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; }}
+  .pk-table {{ width: 100%; border-collapse: collapse; font-size: 12.5px; margin: 0; }}
+  .pk-table th {{ position: sticky; top: 0; background: var(--raised); padding: 6px 6px; text-align: left; font-size: 11px; z-index: 1; }}
+  .pk-table td {{ padding: 5px 6px; border-top: 1px solid var(--border); vertical-align: middle; }}
+  .pk-table tr.pk-first td {{ border-top: 2px solid var(--border); }}
+  .pk-table .pk-side {{ white-space: nowrap; width: 1%; }}
+  .pk-table .pk-side .tl {{ margin-right: 5px; vertical-align: middle; }}
+  .pk-table .pk-mk {{ color: var(--muted); font-size: 10.5px; }}
+  .pk-table .pk-pair {{ white-space: nowrap; }}
+  .pk-table .pk-pair label {{ display: inline-flex; align-items: center; gap: 2px; margin-right: 3px; font-size: 10.5px; font-weight: 700; cursor: pointer; }}
+  .pk-table .pk-pair input {{ width: 13px; height: 13px; }}
+  .pk-table td.pk-pair {{ padding-left: 3px; padding-right: 3px; }}
+  .pk-table .pk-st {{ font-weight: 700; color: var(--primary); }}
+  .pk-table .pk-pair input {{ margin: 0; }}
+  .sc-slot {{ display: inline-block; vertical-align: middle; }}
+  .sc-slot .sc-cb {{ margin-right: 6px; }}
+  .pk-table .pk-st {{ font-size: 11px; white-space: nowrap; }}
+  .pk-official {{ border-top: 1px solid var(--border); padding-top: 8px; }}
+  .pk-oh {{ font-weight: 700; font-size: .9em; }}
+  .pk-official ol {{ margin: 4px 0 6px 20px; padding: 0; font-size: .88em; }}
+  .pk-empty {{ opacity: .55; list-style: none; margin-left: -18px; }}
+  body.sc-tabs-on {{ padding-right: 462px; }}
+  body.sc-tabs-on.pk-collapsed {{ padding-right: 0; }}
+  body.sc-tabs-on .card-builder-trigger {{ display: none; }}
+  .pk-panel.collapsed {{ top: auto; height: auto; width: 100%; border-left: 0; border-top: 2px solid var(--accent); }}
+  .pk-panel.collapsed .pk-body {{ display: none; }}
+  .pk-panel.collapsed .pk-caret {{ transform: rotate(180deg); }}
+  @media (max-width: 1199px) {{
+    body.sc-tabs-on {{ padding-right: 0; padding-bottom: 54px; }}
+    .pk-panel {{ top: auto; height: 78vh; width: 100%; border-left: 0; border-top: 2px solid var(--accent); }}
+    .pk-panel.collapsed {{ height: auto; }}
+  }}
+  .sc-pick-btn {{ margin-left: 8px; padding: 3px 10px; font-size: 11.5px; }}
+  .leg-bm-btn {{ padding: 3px 8px; min-height: 22px; font-size: 10.5px; }}
+  .bm-flash {{ animation: bmflash 2.4s ease-out 1; }}
+  @keyframes bmflash {{ 0% {{ background: rgba(250,204,21,.35); }} 100% {{ background: transparent; }} }}
+  .bm-count {{
+    display: inline-block;
+    min-width: 18px;
+    margin-left: 5px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: #facc15;
+    color: #0f172a;
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 18px;
+    text-align: center;
+  }}
+  .bm-count:empty {{ display: none; }}
+  .bm-group {{ margin: 16px 0; }}
+  .bm-group h3 {{ margin: 0 0 8px; font-size: 14.5px; color: var(--text); border-bottom: 1px solid var(--border); padding-bottom: 4px; }}
+  .bm-row {{
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: var(--raised);
+    margin: 6px 0;
+  }}
+  .bm-row a {{
+    color: var(--text);
+    text-decoration: none;
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: 13.5px;
+  }}
+  .bm-row a:hover {{ color: var(--primary); }}
+  .bm-row .bm-ctx {{ display: block; color: var(--muted); font-size: 12px; margin-top: 3px; }}
+
+  /* Card Builder Slide-Out Drawer */
+  .card-builder-trigger {{
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9998;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    background: var(--accent);
+    color: var(--on-accent);
+    border: none;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 800;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }}
+  .card-builder-trigger:hover {{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75);
+  }}
+  .card-drawer-overlay {{
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(11, 17, 32, 0.75);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 10001;
+    display: none;
+    justify-content: flex-end;
+  }}
+  .card-drawer-overlay.active {{
+    display: flex;
+  }}
+  .card-drawer-panel {{
+    width: 100%;
+    max-width: 480px;
+    height: 100%;
+    background: var(--card);
+    border-left: 1px solid var(--border);
+    box-shadow: -10px 0 30px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    animation: drawer-slide 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }}
+  @keyframes drawer-slide {{
+    from {{ transform: translateX(100%); }}
+    to {{ transform: translateX(0); }}
+  }}
+  .card-drawer-header {{
+    padding: 16px 20px;
+    background: var(--raised);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }}
+  .card-drawer-body {{
+    padding: 18px 20px;
+    flex: 1;
+    overflow-y: auto;
+  }}
+
   /* F-mi-dark: phone width */
   @media (max-width: 640px) {{
     body {{ padding: 16px 12px; }}
     .container {{ padding: 20px 14px; border-radius: 12px; }}
     details.rollup-box .rollup-content {{ padding: 14px 12px; }}
     .btn-toggle, .btn-pill {{ padding: 0 14px; }}
+    .card-builder-trigger {{ bottom: 16px; right: 16px; padding: 9px 16px; font-size: 12.5px; }}
+    .card-drawer-panel {{ max-width: 100%; }}
   }}
   @media (prefers-reduced-motion: reduce) {{
     *, *::before, *::after {{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }}
@@ -1389,7 +1877,7 @@ def generate_html(md_path, html_path):
   }}
 </style>
 </head>
-<body>
+<body data-week="{week_str}">
 {"".join(outside_html)}
 <div class="container">
 {"".join(body_html)}
@@ -1418,6 +1906,11 @@ function openTargetDetails(hash) {{
   if (!hash || hash === '#') return;
   const targetId = hash.replace('#', '');
   const targetEl = document.getElementById(targetId);
+  if (targetEl && window.showTab) {{
+    const pnl = targetEl.closest('.sc-panel');
+    if (pnl) showTab(pnl.id.replace('sc-panel-', ''), false);
+    if (targetId === 'sc-pick-sheet') {{ const pk0 = document.getElementById('pk-panel'); if (pk0) {{ pk0.classList.remove('collapsed'); document.body.classList.remove('pk-collapsed'); }} }}
+  }}
   if (targetEl) {{
     let curr = targetEl;
     while (curr && curr !== document.body) {{
@@ -1426,9 +1919,16 @@ function openTargetDetails(hash) {{
       }}
       curr = curr.parentElement;
     }}
+    if (targetEl.tagName && targetEl.tagName.toLowerCase() === 'details') {{
+      targetEl.open = true;
+    }}
+    targetEl.classList.remove('target-pulse');
+    void targetEl.offsetWidth;
+    targetEl.classList.add('target-pulse');
     setTimeout(() => {{
-      targetEl.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
-    }}, 80);
+      const topOffset = targetEl.getBoundingClientRect().top + window.pageYOffset - 90;
+      window.scrollTo({{ top: Math.max(0, topOffset), behavior: 'smooth' }});
+    }}, 60);
   }}
 }}
 
@@ -1582,28 +2082,116 @@ function initSideTips() {{
 }}
 
 function initPickSheet() {{
-  const boxes = Array.from(document.querySelectorAll('input.sc-pick'));
+  if (window.__pkInit) return;
+  const boxes = Array.from(document.querySelectorAll('input.pk-box'));
   if (!boxes.length) return;
-  const key = 'sc-picks:' + document.title;
-  let saved = null;
-  try {{ saved = JSON.parse(localStorage.getItem(key) || 'null'); }} catch (e) {{ saved = null; }}
-  boxes.forEach(b => {{ b.checked = saved ? saved.includes(b.dataset.side) : b.dataset.default === '1'; }});
-  const update = () => {{
-    const on = boxes.filter(b => b.checked).map(b => b.dataset.side);
-    const c = document.getElementById('pick-count');
-    if (c) {{ c.textContent = on.length + ' of 5 picked' + (on.length > 5 ? ' (too many)' : ''); c.style.color = on.length === 5 ? '' : 'var(--warn)'; }}
-    const l = document.getElementById('pick-list');
-    if (l) l.textContent = on.join(' · ');
-    try {{ localStorage.setItem(key, JSON.stringify(on)); }} catch (e) {{}}
+  window.__pkInit = true;
+  const key = 'sc-dual:' + document.title;
+  const WHO = ['andy', 'amanda'];
+  let st = {{ andy: [], amanda: [], lock: [], frozen: null }};
+  try {{ const j = JSON.parse(localStorage.getItem(key) || 'null'); if (j && typeof j === 'object') st = Object.assign(st, j); }} catch (e) {{}}
+  const gameOf = {{}}; boxes.forEach(b => {{ gameOf[b.dataset.side] = b.dataset.game; }});
+  const order = boxes.filter(b => b.dataset.who === 'andy').map(b => b.dataset.side);
+  const byOrder = arr => arr.slice().sort((x, y) => order.indexOf(x) - order.indexOf(y));
+  // one side per game: keep the first-listed side of any game that appears twice in a list
+  const oneSide = arr => {{ const seen = {{}}; return arr.filter(sd => {{ const g = gameOf[sd]; if (g === undefined || seen[g]) return false; seen[g] = 1; return true; }}); }};
+  WHO.forEach(w => {{ st[w] = oneSide(st[w] || []); }});
+  const agreed = () => byOrder(st.andy.filter(s => st.amanda.includes(s)));
+  const conflict = side => WHO.every(w => st[w].some(s => gameOf[s] === gameOf[side])) && !agreed().includes(side)
+        && st.andy.some(s => gameOf[s] === gameOf[side] && !st.amanda.includes(s)) && st.amanda.some(s => gameOf[s] === gameOf[side] && !st.andy.includes(s));
+  const save = () => {{ try {{ localStorage.setItem(key, JSON.stringify(st)); }} catch (e) {{}} }};
+  const fill = (id, arr) => {{ const ol = document.getElementById(id); if (ol) ol.innerHTML = arr.length ? arr.map(s => '<li>' + s + '</li>').join('') : '<li class="pk-empty">none yet</li>'; }};
+  const render = () => {{
+    boxes.forEach(b => {{ b.checked = st[b.dataset.who].includes(b.dataset.side); b.disabled = !!st.frozen; }});
+    const ag = agreed();
+    WHO.forEach(w => {{
+      fill('pk-list-' + w, byOrder(st[w]));
+      const n = document.getElementById('pk-n-' + w); if (n) {{ n.textContent = st[w].length + '/5'; n.style.color = st[w].length === 5 ? '' : 'var(--warn)'; }}
+    }});
+    fill('pk-list-lock', byOrder(st.lock));
+    const pc = document.getElementById('pk-counts'); if (pc) pc.textContent = 'A ' + st.andy.length + ' · M ' + st.amanda.length + ' · ✅ ' + ag.length + ' · 🔒 ' + st.lock.length;
+    const nl = document.getElementById('pk-n-lock'); if (nl) {{ nl.textContent = st.lock.length + '/5'; nl.style.color = st.lock.length === 5 ? '' : 'var(--warn)'; }}
+    document.querySelectorAll('.pk-st').forEach(sp => {{
+      const sides = sp.dataset.game ? order.filter(x => gameOf[x] === sp.dataset.game) : [sp.dataset.side];
+      const sh = x => (x || '').split(' ')[0];
+      const lockS = sides.find(x => st.lock.includes(x)), agS = sides.find(x => st.andy.includes(x) && st.amanda.includes(x));
+      const aS = sides.find(x => st.andy.includes(x)), mS = sides.find(x => st.amanda.includes(x));
+      sp.textContent = lockS ? '🔒 ' + sh(lockS) : agS ? '✅ ' + sh(agS) : (aS && mS) ? '⚠️ conflict' : aS ? 'Andy ' + sh(aS) : mS ? 'Amanda ' + sh(mS) : '';
+      const tr = sp.closest('tr'); if (tr) tr.style.background = lockS ? 'rgba(0,210,190,.18)' : agS ? 'rgba(0,210,190,.08)' : (aS && mS) ? 'rgba(251,191,36,.10)' : '';
+    }});
+    const only = WHO.map(w => st[w].filter(s => !ag.includes(s)).length);
+    const stat = document.getElementById('pk-status');
+    if (stat) stat.textContent = st.frozen ? '🔒 Frozen ' + st.frozen : (ag.length + ' agreed · Andy-only ' + only[0] + ' · Amanda-only ' + only[1]);
+    const fz = document.getElementById('pk-freeze'); if (fz) fz.textContent = st.frozen ? 'Unfreeze' : 'Freeze official five';
+    const fr = document.getElementById('pk-frozen'); if (fr) fr.textContent = st.frozen ? 'Locked in ' + st.frozen : (st.lock.length === 5 ? 'Ready to freeze' : '');
+    save();
+    (window.__pkHooks || []).forEach(f => {{ try {{ f(); }} catch (e) {{}} }});
   }};
-  boxes.forEach(b => b.addEventListener('change', update));
+  window.pkHas = (w, side) => st[w].includes(side);
+  window.pkSidesOf = gid => order.filter(sd => gameOf[sd] === gid);
+  window.pkToggle = (w, side) => {{
+    if (st.frozen) return false;
+    const arr = st[w];
+    if (arr.includes(side)) st[w] = arr.filter(x => x !== side);
+    else {{ st[w] = arr.filter(x => gameOf[x] !== gameOf[side]); st[w].push(side); }}
+    st.lock = st.lock.filter(x => st.andy.includes(x) && st.amanda.includes(x));
+    render(); return true;
+  }};
+  window.pkFrozen = () => !!st.frozen;
+  boxes.forEach(b => b.addEventListener('change', () => {{
+    if (st.frozen) return render();
+    const arr = st[b.dataset.who], s = b.dataset.side;
+    if (b.checked) {{ st[b.dataset.who] = arr.filter(x => gameOf[x] !== gameOf[s]); st[b.dataset.who].push(s); }}
+    if (!b.checked) {{ st[b.dataset.who] = arr.filter(x => x !== s); }}
+    st.lock = st.lock.filter(x => st.andy.includes(x) && st.amanda.includes(x));
+    render();
+  }}));
+  window.pkSeed = w => {{ if (st.frozen) return; st[w] = boxes.filter(b => b.dataset.who === w && b.dataset.default === '1').map(b => b.dataset.side); render(); }};
+  window.pkClear = w => {{ if (st.frozen) return; st[w] = []; st.lock = st.lock.filter(x => st.andy.includes(x) && st.amanda.includes(x)); render(); }};
+  window.pkLockAgreed = () => {{ if (st.frozen) return; st.lock = agreed().slice(0, 5); render(); }};
+  window.pkFreeze = () => {{
+    if (st.frozen) {{ st.frozen = null; return render(); }}
+    if (st.lock.length !== 5) {{ const s = document.getElementById('pk-status'); if (s) s.textContent = 'Need exactly 5 official picks (have ' + st.lock.length + ')'; return; }}
+    st.frozen = new Date().toLocaleString(); render();
+  }};
   window.copyPicks = () => {{
-    const on = boxes.filter(b => b.checked).map(b => b.dataset.side).join('\\n');
-    const done = () => {{ const c = document.getElementById('pick-count'); if (c) c.textContent = 'Copied: ' + c.textContent; }};
-    if (navigator.clipboard) navigator.clipboard.writeText(on).then(done).catch(() => {{ window.prompt && window.prompt('Copy:', on); }});
+    const txt = byOrder(st.lock.length ? st.lock : agreed()).join('\\n');
+    const done = () => {{ const c = document.getElementById('pk-status'); if (c) c.textContent = 'Copied official five'; }};
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done).catch(() => {{ window.prompt && window.prompt('Copy:', txt); }});
+    else if (window.prompt) window.prompt('Copy:', txt);
   }};
-  window.resetPicks = () => {{ boxes.forEach(b => {{ b.checked = b.dataset.default === '1'; }}); update(); }};
-  update();
+  const say = m => {{ const c = document.getElementById('pk-status'); if (c) c.textContent = m; }};
+  const nm = w => w === 'andy' ? 'Andy' : 'Amanda';
+  window.pkShare = w => {{
+    const ta = document.getElementById('pk-text');
+    let txt;
+    if (w === 'sheet') txt = JSON.stringify(st);
+    else txt = nm(w) + "'s SuperContest picks (" + st[w].length + "):\\n" + byOrder(st[w]).join('\\n');
+    if (ta) {{ ta.value = txt; ta.focus(); ta.select(); }}
+    const done = () => say(w === 'sheet' ? 'Full sheet copied' : nm(w) + "'s picks copied: paste them into a text or email");
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(done).catch(() => say('Select the text in the box and copy it'));
+    else say('Select the text in the box and copy it');
+  }};
+  window.pkReceive = () => {{
+    const ta = document.getElementById('pk-text'); const t = ta ? ta.value.trim() : '';
+    if (!t) return say('Paste picks into the box first');
+    if (st.frozen) return say('The sheet is frozen: unfreeze it before loading picks');
+    if (t[0] === '{{') {{
+      try {{ const j = JSON.parse(t); if (j && Array.isArray(j.andy) && Array.isArray(j.amanda)) {{ st = {{ andy: oneSide(j.andy), amanda: oneSide(j.amanda), lock: j.lock || [], frozen: j.frozen || null }}; render(); return say('Loaded the full sheet'); }} }} catch (e) {{}}
+      return say('That sheet code did not load');
+    }}
+    const norm = t.replace(/[−–—]/g, '-');
+    const who = /amanda/i.test(norm) && !/andy/i.test(norm) ? 'amanda' : /andy/i.test(norm) && !/amanda/i.test(norm) ? 'andy' : null;
+    if (!who) return say('Start the text with Andy or Amanda so I know whose picks these are');
+    const found = order.filter(side => {{ const re = new RegExp('(^|[^A-Za-z])' + side.replace(/[.+*?^${{}}()|[\\]\\\\]/g, '\\\\$&') + '(?![0-9.])', 'i'); return re.test(norm); }});
+    if (!found.length) return say('No picks found: check the team and line (for example JAX -2.5)');
+    const dupG = found.filter(sd => found.some(o => o !== sd && gameOf[o] === gameOf[sd]));
+    if (dupG.length) return say('That text names both sides of a game (' + dupG.join(' and ') + '): you can only pick one side per game');
+    st[who] = found; st.lock = st.lock.filter(x => st.andy.includes(x) && st.amanda.includes(x)); render();
+    say('Loaded ' + nm(who) + "'s " + found.length + ' picks' + (found.length !== 5 ? ' (expected 5)' : ''));
+  }};
+  window.resetPicks = () => {{ st = {{ andy: [], amanda: [], lock: [], frozen: null }}; render(); }};
+  render();
 }}
 
 function initTableFilters() {{
@@ -1645,7 +2233,154 @@ function initTableFilters() {{
 }}
 
 window.addEventListener('hashchange', () => openTargetDetails(location.hash));
+const SC_TABS = [
+  {{ id: 'home', label: '⭐ Home', anchors: ['sc-our-five'] }},
+  {{ id: 'ranked', label: '📊 Ranked & Market', anchors: ['sc-ranked', 'sc-market'] }},
+  {{ id: 'experts', label: '🧑‍🤝‍🧑 Experts', anchors: ['sc-experts'] }},
+  {{ id: 'games', label: '🏈 Game-by-Game', anchors: ['sc-games'] }},
+  {{ id: 'review', label: '📅 Season Review', anchors: ['sc-review'] }}
+];
+function initScTabs() {{
+  if (window.__scTabs) return;
+  const c = document.querySelector('.container');
+  if (!c || !document.getElementById('sc-our-five') || !document.getElementById('pk-panel')) return;
+  window.__scTabs = true;
+  document.body.classList.add('sc-tabs-on');
+  const kids = Array.from(c.children);
+  const at = id => kids.findIndex(e => e.id === id);
+  const start = at('sc-our-five');
+  let end = at('disclaimer'); if (end < 0) end = kids.length;
+  const pk = document.getElementById('pk-panel');
+  const panels = {{}};
+  SC_TABS.forEach(t => {{ const d = document.createElement('div'); d.className = 'sc-panel'; d.id = 'sc-panel-' + t.id; panels[t.id] = d; }});
+  // which tab does each anchor start?
+  const marks = [];
+  SC_TABS.forEach(t => {{ t.anchors.forEach(a => {{ const i = at(a); if (i >= 0) marks.push([i, t.id]); }}); }});
+  marks.sort((x, y) => x[0] - y[0]);
+  const tabFor = i => {{ let cur = 'home'; marks.forEach(m => {{ if (i >= m[0]) cur = m[1]; }}); return cur; }};
+  const nav = document.createElement('header'); nav.className = 'sc-topbar'; nav.id = 'sc-tabs';
+  const h1 = c.querySelector('h1'); const brand = document.createElement('span'); brand.className = 'sc-brand'; brand.textContent = h1 ? h1.textContent.replace(/NFL |Intelligence Report/g, '').replace(/\s+/g, ' ').trim() : 'SuperContest';
+  const whoBox = document.createElement('div'); whoBox.className = 'sc-who'; whoBox.id = 'sc-who';
+  whoBox.innerHTML = '<span class="sc-who-l">I am</span><button type="button" data-w="andy">Andy</button><button type="button" data-w="amanda">Amanda</button>';
+  nav.appendChild(whoBox);
+  const setWho = (w) => {{
+    document.body.dataset.who = w || '';
+    whoBox.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.w === w));
+    try {{ if (w) localStorage.setItem('sc-who', w); else localStorage.removeItem('sc-who'); }} catch (e) {{}}
+    (window.__pkHooks || []).forEach(f => {{ try {{ f(); }} catch (e) {{}} }});
+  }};
+  window.scSetWho = setWho;
+  whoBox.querySelectorAll('button').forEach(b => b.addEventListener('click', () => setWho(document.body.dataset.who === b.dataset.w ? '' : b.dataset.w)));
+  try {{ const w0 = localStorage.getItem('sc-who'); if (w0 === 'andy' || w0 === 'amanda') {{ document.body.dataset.who = w0; whoBox.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.w === w0)); }} }} catch (e) {{}}
+  nav.appendChild(brand);
+  const menu = document.createElement('div'); menu.id = 'sc-menu'; menu.className = 'sc-menu'; menu.hidden = true; document.body.appendChild(menu);
+  const clean = t => (t || '').replace(/\s+/g, ' ').trim();
+  const sumText = el => {{ const sm = el && el.querySelector(':scope > summary'); return sm ? clean(sm.innerText || sm.textContent) : ''; }};
+  const itemsFor = id => {{
+    const P = panels[id]; const out = [];
+    const add = (label, target, sub) => {{ if (label && document.getElementById(target)) out.push({{ label: label, target: target, sub: !!sub }}); }};
+    if (id === 'home') {{
+      add('⭐ Our five', 'sc-grp-five');
+      P.querySelectorAll('#sc-grp-five .sc-five').forEach(d => add(sumText(d).split(' — ')[0], d.id, true));
+      add('🔁 Alternates', 'sc-grp-alt');
+      P.querySelectorAll('#sc-grp-alt .sc-five').forEach(d => add(sumText(d).split(' — ')[0], d.id, true));
+      add('🚨 Contest status', 'sc-status');
+    }} else if (id === 'ranked') {{
+      add('📊 1. Every side, ranked', 'sc-ranked'); add('📖 How the ranking works', 'sc-score-defs', true); add('⚖️ 2. Contest lines vs. the market', 'sc-market'); add('📊 Betting splits by game', 'sc-splits', true);
+    }} else if (id === 'experts') {{
+      P.querySelectorAll('details.sc-exp').forEach(d => add(sumText(d).split(':')[0], d.id));
+    }} else if (id === 'games') {{
+      P.querySelectorAll('details[id]').forEach(d => {{
+        const m = d.id.match(/^sc-game-([a-z]+)-([a-z]+)$/); if (!m) return;
+        const t = sumText(d); const ko = (t.match(/(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+\d{{1,2}}:\d{{2}}/) || [''])[0];
+        add((t.indexOf('⭐') > -1 ? '⭐ ' : '') + m[1].toUpperCase() + ' @ ' + m[2].toUpperCase() + (ko ? ' · ' + ko : ''), d.id);
+      }});
+    }} else if (id === 'review') {{
+      add('📋 How the SuperContest works', 'sc-rules'); add('📅 5. Season review & rules of thumb', 'sc-review');
+      P.querySelectorAll('details[id]').forEach(d => {{ if (d.id === 'sc-rules' || /^section-/.test(d.id) || /-experts$/.test(d.id)) return; add(sumText(d), d.id, true); }});
+    }}
+    return out;
+  }};
+  const closeMenu = () => {{ menu.hidden = true; nav.querySelectorAll('.sc-caret').forEach(b => b.setAttribute('aria-expanded', 'false')); }};
+  const openMenu = (id, btn) => {{
+    const items = itemsFor(id);
+    if (!items.length) return closeMenu();
+    menu.innerHTML = items.map(i => '<a class="sc-mi' + (i.sub ? ' sub' : '') + '" href="#' + i.target + '">' + i.label.replace(/</g, '&lt;') + '</a>').join('');
+    const r = btn.getBoundingClientRect();
+    menu.hidden = false;
+    const pr = pk.classList.contains('collapsed') ? null : pk.getBoundingClientRect();
+    const limit = (pr && pr.top < 5 && pr.width < window.innerWidth * 0.6) ? pr.left : window.innerWidth;
+    const w = Math.min(340, limit - 16);
+    menu.style.width = w + 'px';
+    menu.style.left = Math.max(8, Math.min(r.left, limit - w - 8)) + 'px';
+    menu.style.top = (r.bottom + 4) + 'px';
+    menu.style.maxHeight = (window.innerHeight - r.bottom - 16) + 'px';
+    nav.querySelectorAll('.sc-caret').forEach(b => b.setAttribute('aria-expanded', b === btn ? 'true' : 'false'));
+  }};
+  menu.addEventListener('click', ev => {{ if (ev.target.closest('.sc-mi')) closeMenu(); }});
+  document.addEventListener('click', ev => {{ if (!ev.target.closest('.sc-menu') && !ev.target.closest('.sc-tabwrap')) closeMenu(); }});
+  document.addEventListener('keydown', ev => {{ if (ev.key === 'Escape') closeMenu(); }});
+  window.addEventListener('scroll', closeMenu, {{ passive: true }});
+  SC_TABS.forEach(t => {{
+    const w = document.createElement('div'); w.className = 'sc-tabwrap'; w.dataset.tab = t.id;
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'sc-tab'; b.dataset.tab = t.id; b.textContent = t.label;
+    b.addEventListener('click', () => {{ closeMenu(); showTab(t.id, true); }});
+    const cb = document.createElement('button'); cb.type = 'button'; cb.className = 'sc-caret'; cb.setAttribute('aria-label', 'Sections in ' + t.label); cb.setAttribute('aria-expanded', 'false'); cb.textContent = '▾';
+    cb.addEventListener('click', ev => {{ ev.stopPropagation(); if (!menu.hidden && cb.getAttribute('aria-expanded') === 'true') return closeMenu(); showTab(t.id, false); openMenu(t.id, w); cb.setAttribute('aria-expanded', 'true'); }});
+    w.appendChild(b); w.appendChild(cb); nav.appendChild(w);
+  }});
+  const tools = document.createElement('div'); tools.className = 'sc-tools';
+  [['⊞', 'Expand all sections', true], ['⊟', 'Collapse all sections', false]].forEach(x => {{ const tb = document.createElement('button'); tb.type = 'button'; tb.className = 'sc-tool'; tb.textContent = x[0]; tb.title = x[1]; tb.setAttribute('aria-label', x[1]); tb.addEventListener('click', () => {{ closeMenu(); if (typeof toggleAllRollups === 'function') toggleAllRollups(x[2]); }}); tools.appendChild(tb); }});
+  nav.appendChild(tools);
+  const wrap = document.createElement('div'); wrap.className = 'sc-panels';
+  const first = kids[start];
+  c.insertBefore(wrap, first);
+  const sideToc = document.getElementById('side-toc'); if (sideToc) sideToc.remove();
+  const tocBtn = document.querySelector('.toc-toggle'); if (tocBtn) tocBtn.remove();
+  document.body.insertBefore(nav, document.body.firstChild);
+  SC_TABS.forEach(t => wrap.appendChild(panels[t.id]));
+  for (let i = 0; i < kids.length; i++) {{
+    const e = kids[i];
+    if (e === pk || e.id === 'sc-pick-sheet') continue;
+    if (e.id === 'sc-rules') {{ panels.review.insertBefore(e, panels.review.firstChild); continue; }}
+    if (e.id === 'sc-status') {{ panels.home.appendChild(e); continue; }}
+    if (i >= start && i < end) panels[tabFor(i)].appendChild(e);
+  }}
+  const stBox = document.getElementById('sc-status'); if (stBox) panels.home.appendChild(stBox);
+  const rb = document.getElementById('section-rec-box');
+  if (rb && rb.parentNode) {{
+    const rc = rb.querySelector(':scope > .rollup-content');
+    const prev = rb.previousElementSibling;
+    if (prev && prev.classList.contains('rollup-controls')) prev.remove();
+    if (rc) {{ while (rc.firstChild) rb.parentNode.insertBefore(rc.firstChild, rb); }}
+    rb.remove();
+  }}
+  document.body.appendChild(pk);
+  window.showTab = (id, scroll) => {{
+    if (!panels[id]) id = 'home';
+    SC_TABS.forEach(t => {{ panels[t.id].classList.toggle('active', t.id === id); }});
+    nav.querySelectorAll('.sc-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === id));
+    nav.querySelectorAll('.sc-tabwrap').forEach(w => w.classList.toggle('active', w.dataset.tab === id));
+    try {{ sessionStorage.setItem('sc-tab', id); }} catch (e) {{}}
+    if (scroll) window.scrollTo({{ top: Math.max(0, wrap.getBoundingClientRect().top + window.pageYOffset - nav.offsetHeight - 10), behavior: 'smooth' }});
+  }};
+  const route = () => {{
+    const h = (location.hash || '').replace('#', '');
+    if (h === 'sc-pick-sheet') {{ document.body.classList.remove('pk-collapsed'); pk.classList.remove('collapsed'); return; }}
+    const el = h ? document.getElementById(h) : null;
+    const pnl = el ? el.closest('.sc-panel') : null;
+    if (pnl) {{ showTab(pnl.id.replace('sc-panel-', ''), false); setTimeout(() => openTargetDetails(location.hash), 0); }}
+  }};
+  let saved = 'home'; try {{ saved = sessionStorage.getItem('sc-tab') || 'home'; }} catch (e) {{}}
+  showTab(saved, false);
+  window.addEventListener('hashchange', route);
+  if (location.hash) route();
+  window.pkTogglePanel = () => {{ const cl = pk.classList.toggle('collapsed'); document.body.classList.toggle('pk-collapsed', cl); }};
+  if (window.innerWidth < 1200) {{ pk.classList.add('collapsed'); document.body.classList.add('pk-collapsed'); }}
+}}
+
 window.addEventListener('DOMContentLoaded', () => {{
+  initScTabs();
   if (location.hash) {{
     openTargetDetails(location.hash);
   }}
@@ -1654,27 +2389,573 @@ window.addEventListener('DOMContentLoaded', () => {{
   initGroupSort();
   initSideTips();
   initPickSheet();
+  initBookmarks();
+  initScCardButtons();
 }});
 if (document.readyState !== 'loading') {{
+  initScTabs();
   initSortableTables();
   initTableFilters();
   initGroupSort();
   initSideTips();
   initPickSheet();
+  initBookmarks();
+  initScCardButtons();
+}}
+
+function initScCardButtons() {{
+  if (window.__scCardInit) return;
+  const boxes = Array.from(document.querySelectorAll('input.pk-box'));
+  if (!boxes.length || !window.pkToggle) return;
+  window.__scCardInit = true;
+  const gids = Array.from(new Set(boxes.map(b => b.dataset.game)));
+  const flat = t => (t || '').replace(/[\\u2212\\u2013\\u2014]/g, '-').replace(/\\s+/g, ' ');
+  const esc = t => t.replace(/[.+*?^${{}}()|[\\]\\\\]/g, '\\\\$&');
+  const who = () => document.body.dataset.who || '';
+  const say = m => {{ const c = document.getElementById('pk-status'); if (c) c.textContent = m; }};
+  const info = [];
+  document.querySelectorAll('.container .bm-btn').forEach(btn => {{
+    const row = btn.closest('tr, .bm-item, .at-glance-item, details');
+    if (!row) return;
+    const slots = row.querySelectorAll('.sc-slot');
+    if (slots.length) {{
+      btn.remove();
+      slots.forEach(sl => {{
+        if (sl.dataset.done) return; sl.dataset.done = '1';
+        const sd = sl.dataset.side; const wrap = document.createElement('span'); wrap.className = 'sc-cb one';
+        const lab = document.createElement('label'); const cb = document.createElement('input'); cb.type = 'checkbox'; cb.dataset.side = sd; lab.appendChild(cb); wrap.appendChild(lab); sl.appendChild(wrap);
+        cb.title = 'Tick to add ' + sd + ' to the pick sheet for whoever is chosen at the top left';
+        cb.addEventListener('click', ev => ev.stopPropagation());
+        cb.addEventListener('change', () => {{
+          if (!who()) {{
+            cb.checked = false;
+            const wb = document.getElementById('sc-who'); if (wb) {{ wb.classList.add('flash'); setTimeout(() => wb.classList.remove('flash'), 1600); }}
+            return say('Choose Andy or Amanda at the top left first');
+          }}
+          if (window.pkFrozen()) {{ cb.checked = window.pkHas(who(), sd); return say('The sheet is frozen: unfreeze it to change picks'); }}
+          if (cb.checked !== window.pkHas(who(), sd)) window.pkToggle(who(), sd);
+        }});
+        info.push({{ boxes: [cb] }});
+      }});
+      return;
+    }}
+    if (btn.closest('details.sc-exp')) {{ btn.remove(); return; }}
+    const t = flat(row.tagName === 'TR' ? Array.from(row.children).map(c => c.textContent).join(' | ') : row.textContent);
+    const hit = gids.filter(g => {{ const m = g.split('@'); return new RegExp('(^|[^A-Z])' + m[0] + ' ?@ ?' + m[1] + '([^A-Z]|$)').test(t); }});
+    let gid = hit.length === 1 ? hit[0] : null;
+    let sides = [];
+    if (!gid) {{
+      const named = boxes.filter(b => b.dataset.who === 'andy' && new RegExp('(^|[^A-Za-z])' + esc(b.dataset.side) + '(?![0-9.])').test(t)).map(b => b.dataset.side);
+      const gs = Array.from(new Set(named.map(sd => boxes.find(b => b.dataset.side === sd).dataset.game)));
+      if (gs.length === 1) {{ gid = gs[0]; if (named.length === 1) sides = named; }}
+    }}
+    if (!gid) {{ btn.remove(); return; }}
+    const all = window.pkSidesOf(gid);
+    if (!sides.length) {{
+      const named = all.filter(sd => new RegExp('(^|[^A-Za-z])' + esc(sd) + '(?![0-9.])').test(t));
+      const th = row.closest('table') && row.closest('table').querySelector('thead');
+      const sideRow = !!th && Array.from(th.querySelectorAll('th')).some(h => h.textContent.trim().indexOf('Side') === 0);
+      sides = (sideRow && named.length === 1) ? named : all;
+    }}
+    const wrap = document.createElement('span'); wrap.className = 'sc-cb' + (sides.length === 1 ? ' one' : '');
+    wrap.title = 'Tick to add to the pick sheet for whoever is chosen at the top left';
+    const boxesHere = sides.map(sd => {{
+      const lab = document.createElement('label'); const cb = document.createElement('input'); cb.type = 'checkbox'; cb.dataset.side = sd;
+      lab.appendChild(cb); if (sides.length > 1) lab.appendChild(document.createTextNode(sd)); wrap.appendChild(lab);
+      cb.addEventListener('click', ev => ev.stopPropagation());
+      cb.addEventListener('change', () => {{
+        if (!who()) {{
+          cb.checked = false;
+          const wb = document.getElementById('sc-who'); if (wb) {{ wb.classList.add('flash'); setTimeout(() => wb.classList.remove('flash'), 1600); }}
+          return say('Choose Andy or Amanda at the top left first');
+        }}
+        if (window.pkFrozen()) {{ cb.checked = window.pkHas(who(), sd); return say('The sheet is frozen: unfreeze it to change picks'); }}
+        if (cb.checked !== window.pkHas(who(), sd)) window.pkToggle(who(), sd);
+      }});
+      return cb;
+    }});
+    btn.replaceWith(wrap);
+    info.push({{ boxes: boxesHere }});
+  }});
+  const refresh = () => info.forEach(i => i.boxes.forEach(cb => {{
+    const w = who(); cb.checked = !!w && window.pkHas(w, cb.dataset.side);
+    cb.parentElement.classList.toggle('on', cb.checked);
+  }}));
+  (window.__pkHooks = window.__pkHooks || []).push(refresh);
+  refresh();
+}}
+
+let modalHistory = [];
+
+function pushModalState() {{
+  const overlay = document.getElementById('matchup-modal-overlay');
+  const titleEl = document.getElementById('modal-matchup-title');
+  const bodyEl = document.getElementById('modal-matchup-body');
+  const jumpLink = document.getElementById('modal-jump-link');
+  if (overlay && overlay.classList.contains('active') && bodyEl) {{
+    modalHistory.push({{
+      title: titleEl.innerHTML,
+      body: bodyEl.innerHTML,
+      jumpHref: jumpLink.getAttribute('href'),
+      scrollTop: bodyEl.scrollTop
+    }});
+  }}
+}}
+
+function popModalState() {{
+  if (modalHistory.length === 0) return false;
+  const prev = modalHistory.pop();
+  const titleEl = document.getElementById('modal-matchup-title');
+  const bodyEl = document.getElementById('modal-matchup-body');
+  const jumpLink = document.getElementById('modal-jump-link');
+  const backBtn = document.getElementById('modal-back-btn');
+  
+  titleEl.innerHTML = prev.title;
+  bodyEl.innerHTML = prev.body;
+  jumpLink.setAttribute('href', prev.jumpHref);
+  bodyEl.scrollTop = prev.scrollTop;
+  
+  if (backBtn) {{
+    backBtn.style.display = modalHistory.length > 0 ? 'inline-flex' : 'none';
+  }}
+  return true;
+}}
+
+function openMatchupModal(gid, isPush = false) {{
+  const gm = String(gid).match(/game-[a-z]+-[a-z]+/i);
+  const cleanId = gm ? gm[0].toLowerCase() : String(gid).replace(/^#[\\/]?/, '').replace(/^.*[\\/]([^\\/]+)$/, '$1').replace(/\\.html$/, '');
+  const boxId = cleanId.endsWith('-box') ? cleanId : (cleanId + '-box');
+  const box = document.getElementById(boxId) ||
+              document.getElementById(cleanId) ||
+              document.querySelector('details#' + boxId) ||
+              document.querySelector('details#' + cleanId) ||
+              document.querySelector('[data-page="' + cleanId + '"]');
+  if (!box) return false;
+  const overlay = document.getElementById('matchup-modal-overlay');
+  const titleEl = document.getElementById('modal-matchup-title');
+  const bodyEl = document.getElementById('modal-matchup-body');
+  const jumpLink = document.getElementById('modal-jump-link');
+  const backBtn = document.getElementById('modal-back-btn');
+  if (!overlay || !bodyEl) return false;
+  
+  if (isPush) {{
+    pushModalState();
+  }} else {{
+    modalHistory = [];
+  }}
+  
+  const summ = box.querySelector('summary') || box.querySelector('h2') || box.querySelector('.page-h');
+  const content = box.querySelector('.rollup-content') || box;
+  
+  titleEl.innerHTML = summ ? (summ.querySelector('.sum-text')?.innerHTML || summ.innerHTML) : 'Matchup Intel';
+  bodyEl.innerHTML = content.innerHTML;
+  jumpLink.setAttribute('href', '#' + (box.id || cleanId));
+  bodyEl.scrollTop = 0;
+  
+  bodyEl.querySelectorAll('details').forEach(d => d.open = true);
+  
+  if (backBtn) {{
+    backBtn.style.display = modalHistory.length > 0 ? 'inline-flex' : 'none';
+  }}
+  
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  return true;
+}}
+
+function closeMatchupModal() {{
+  const overlay = document.getElementById('matchup-modal-overlay');
+  if (overlay) {{
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }}
+  modalHistory = [];
+  const backBtn = document.getElementById('modal-back-btn');
+  if (backBtn) backBtn.style.display = 'none';
+}}
+
+function initBookmarks() {{
+  const wk = document.body.getAttribute('data-week') || '{week_str}';
+  const KEY = 'pr-bookmarks-w' + wk;
+  function loadBms() {{
+    try {{
+      const a = JSON.parse(localStorage.getItem(KEY) || '[]');
+      return Array.isArray(a) ? a : [];
+    }} catch (e) {{ return []; }}
+  }}
+  function saveBms(a) {{
+    try {{ localStorage.setItem(KEY, JSON.stringify(a)); }} catch (e) {{}}
+  }}
+  function hashStr(s) {{
+    let x = 5381;
+    for (let i = 0; i < s.length; i++) {{ x = ((x << 5) + x + s.charCodeAt(i)) | 0; }}
+    return (x >>> 0).toString(36);
+  }}
+  function cleanTxt(t) {{ return (t || '').replace(/\\s+/g, ' ').trim(); }}
+  function updateCount() {{
+    const n = loadBms().length;
+    document.querySelectorAll('.bm-count').forEach(c => {{ c.textContent = n ? String(n) : ''; }});
+  }}
+  function renderDrawer() {{
+    const list = document.getElementById('drawer-bm-list') || document.getElementById('bm-list');
+    if (!list) return;
+    const items = loadBms();
+    if (!items.length) {{
+      list.innerHTML = '<p class=\"muted-note\">No picks bookmarked yet. Tap the ☆ star next to any pick, prop, or table row to build your weekend card.</p>';
+      return;
+    }}
+    const groups = {{}};
+    const orderG = [];
+    items.forEach(b => {{
+      const cat = b.ctx || 'Starred Picks';
+      if (!groups[cat]) {{ groups[cat] = []; orderG.push(cat); }}
+      groups[cat].push(b);
+    }});
+    list.innerHTML = '';
+    orderG.forEach(cat => {{
+      const g = document.createElement('div');
+      g.className = 'bm-group';
+      const h = document.createElement('h3');
+      h.textContent = cat;
+      g.appendChild(h);
+      groups[cat].forEach(b => {{
+        const r = document.createElement('div');
+        r.className = 'bm-row';
+        const l = document.createElement('a');
+        l.href = '#' + b.id;
+        l.innerHTML = '<strong>' + cleanTxt(b.text.slice(0, 160)) + '</strong>';
+        l.addEventListener('click', (ev) => {{
+          ev.preventDefault();
+          closeDrawer();
+          const target = document.getElementById(b.id);
+          if (target) {{
+            let q = target;
+            while (q) {{ if (q.tagName === 'DETAILS') q.open = true; q = q.parentElement; }}
+            target.scrollIntoView({{ block: 'center', behavior: 'smooth' }});
+            target.classList.add('bm-flash');
+          }}
+        }});
+        const x = document.createElement('button');
+        x.type = 'button';
+        x.className = 'btn-toggle';
+        x.style.padding = '4px 10px';
+        x.style.fontSize = '12px';
+        x.textContent = '✕ Remove';
+        x.addEventListener('click', () => {{
+          saveBms(loadBms().filter(z => z.id !== b.id));
+          const btn = document.querySelector('#' + b.id + ' .bm-btn');
+          if (btn) {{ btn.classList.remove('on'); btn.setAttribute('aria-pressed', 'false'); }}
+          updateCount();
+          renderDrawer();
+        }});
+        r.appendChild(l);
+        r.appendChild(x);
+        g.appendChild(r);
+      }});
+      list.appendChild(g);
+    }});
+  }}
+  
+  // Wire table rows and items
+  const marks = {{}};
+  loadBms().forEach(b => {{ marks[b.id] = 1; }});
+  const rows = document.querySelectorAll('.container table tbody tr, .container .bm-item, .container details.leg, .container details.section-tickets');
+  rows.forEach(el => {{
+    if (el.closest('.no-bm') || el.closest('#bm-list') || el.querySelector('.bm-btn') || el.dataset.bmReady) return;
+    el.dataset.bmReady = '1';
+    const text = cleanTxt(el.textContent);
+    if (!text || text.length < 3) return;
+    const host = el.matches('tr') ? el.querySelector('td') : (el.querySelector('.bm-host') || el.querySelector('summary') || el);
+    if (!host) return;
+    if (!el.id) el.id = 'bm-' + hashStr(text.slice(0, 160));
+    
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'bm-btn' + (marks[el.id] ? ' on' : '');
+    b.setAttribute('aria-label', 'Add pick to card');
+    b.setAttribute('aria-pressed', marks[el.id] ? 'true' : 'false');
+    b.title = 'Add pick to card';
+    b.innerHTML = '<span class="bm-icon">' + (marks[el.id] ? '★' : '☆') + '</span><span class="bm-text">' + (marks[el.id] ? 'On Card' : '+ Card') + '</span>';
+    b.addEventListener('click', (ev) => {{
+      ev.preventDefault();
+      ev.stopPropagation();
+      const a = loadBms();
+      const idx = a.findIndex(z => z.id === el.id);
+      if (idx >= 0) {{
+        a.splice(idx, 1);
+        b.classList.remove('on');
+        b.setAttribute('aria-pressed', 'false');
+        b.innerHTML = '<span class="bm-icon">☆</span><span class="bm-text">+ Card</span>';
+      }} else {{
+        let ctx = '';
+        const parentBox = el.closest('details');
+        const summ = parentBox?.querySelector('summary');
+        if (summ) ctx = cleanTxt(summ.textContent).slice(0, 70);
+        const pageSec = el.closest('[data-page]');
+        const pg = pageSec ? pageSec.getAttribute('data-page') : 'index';
+        const title = pageSec ? (pageSec.getAttribute('data-title') || pg) : '';
+        a.push({{ id: el.id, page: pg, title: title, text: text.slice(0, 180), ctx: ctx, t: Date.now() }});
+        b.classList.add('on');
+        b.setAttribute('aria-pressed', 'true');
+        b.innerHTML = '<span class="bm-icon">★</span><span class="bm-text">On Card</span>';
+      }}
+      saveBms(a);
+      updateCount();
+      renderDrawer();
+    }});
+    host.insertBefore(b, host.firstChild);
+  }});
+  updateCount();
+  renderDrawer();
+
+  // Wire drawer controls
+  const drawerBtn = document.getElementById('card-builder-btn');
+  const drawerOverlay = document.getElementById('card-drawer-overlay');
+  const drawerClose = document.getElementById('card-drawer-close');
+  const bmClear = document.getElementById('drawer-bm-clear') || document.getElementById('bm-clear');
+  const bmCopy = document.getElementById('drawer-bm-copy') || document.getElementById('bm-copy');
+
+  function openDrawer() {{
+    if (drawerOverlay) {{
+      renderDrawer();
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }}
+  }}
+  function closeDrawer() {{
+    if (drawerOverlay) {{
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }}
+  }}
+
+  if (drawerBtn) drawerBtn.addEventListener('click', openDrawer);
+  if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+  if (drawerOverlay) drawerOverlay.addEventListener('click', (e) => {{
+    if (e.target === drawerOverlay) closeDrawer();
+  }});
+  if (bmClear) bmClear.addEventListener('click', () => {{
+    saveBms([]);
+    document.querySelectorAll('.bm-btn.on').forEach(b => {{ b.classList.remove('on'); b.setAttribute('aria-pressed', 'false'); }});
+    updateCount();
+    renderDrawer();
+  }});
+  if (bmCopy) bmCopy.addEventListener('click', () => {{
+    const a = loadBms();
+    const txt = a.map(b => '- ' + b.text + (b.ctx ? ' (' + b.ctx + ')' : '')).join('\\n');
+    if (navigator.clipboard) {{
+      navigator.clipboard.writeText(txt).then(() => {{
+        bmCopy.textContent = 'Copied!';
+        setTimeout(() => {{ bmCopy.textContent = 'Copy Card to Clipboard'; }}, 1600);
+      }}).catch(() => {{ window.prompt && window.prompt('Copy Card:', txt); }});
+    }} else if (window.prompt) {{
+      window.prompt('Copy Card:', txt);
+    }}
+  }});
 }}
 
 document.addEventListener('click', (e) => {{
-  const link = e.target.closest('a[href^="#"]');
+  // 1. External links always open in a new tab/window
+  const ext = e.target.closest('a[href^="http://"], a[href^="https://"]');
+  if (ext) {{
+    ext.setAttribute('target', '_blank');
+    ext.setAttribute('rel', 'noopener noreferrer');
+    return;
+  }}
+
+  // 2. Modal header controls
+  if (e.target.closest('#modal-close-btn')) {{
+    closeMatchupModal();
+    return;
+  }}
+  if (e.target.closest('#modal-back-btn')) {{
+    popModalState();
+    return;
+  }}
+  const overlay = document.getElementById('matchup-modal-overlay');
+  if (e.target === overlay) {{
+    closeMatchupModal();
+    return;
+  }}
+  const jumpLink = e.target.closest('#modal-jump-link');
+  if (jumpLink) {{
+    e.preventDefault();
+    const hash = jumpLink.getAttribute('href');
+    closeMatchupModal();
+    openTargetDetails(hash);
+    return;
+  }}
+
+  // 2b. Ranked-table matchup links open the Master Intel pop-up (fall back to the Game-by-Game jump)
+  const miLink = e.target.closest('a[data-mi]');
+  if (miLink && typeof openMatchupModal === 'function' && openMatchupModal(miLink.getAttribute('data-mi'), false) !== false) {{
+    e.preventDefault(); e.stopPropagation(); return;
+  }}
+
+  // 3. Game write-up / matchup links (ANYWHERE on page or inside modal)
+  const link = e.target.closest('a[href]');
   if (link) {{
-    const hash = link.getAttribute('href');
-    if (hash && hash !== '#executive-board') {{
-      openTargetDetails(hash);
+    // Do NOT intercept clicks on header nav, page nav, or matchup game cards
+    if (link.closest('.site-header') || link.classList.contains('game-card') || link.closest('.page-nav')) return;
+
+    const href = link.getAttribute('href') || '';
+    const text = (link.textContent || '').trim().toLowerCase();
+    
+    // Check if this is a game write-up / matchup link
+    const isPill = link.classList.contains('at-glance-pill');
+    const isWriteup = text.includes('write-up') || text.includes('full matchup') || isPill || link.classList.contains('table-link');
+    const gm = href.match(/(game-[a-z]+-[a-z]+)/i);
+    if (gm && isWriteup && !href.startsWith('#sc-')) {{
+      e.preventDefault();
+      const insideModal = link.closest('#modal-matchup-body');
+      if (openMatchupModal(gm[1], !!insideModal) === false && href.indexOf('.html') > -1) {{ window.location.href = href; }}
+      return;
+    }}
+
+    // Intra-modal navigation for other elements ("pop-up on a pop-up")
+    const insideModal = link.closest('#modal-matchup-body');
+    if (insideModal) {{
+      if (href.startsWith('#props-')) {{
+        const cleanP = href.replace(/^#/, '');
+        const propBox = document.getElementById(cleanP) || document.querySelector('[id*="' + cleanP + '"]');
+        if (propBox) {{
+          e.preventDefault();
+          pushModalState();
+          const titleEl = document.getElementById('modal-matchup-title');
+          const bodyEl = document.getElementById('modal-matchup-body');
+          const jumpLink = document.getElementById('modal-jump-link');
+          const backBtn = document.getElementById('modal-back-btn');
+          const summ = propBox.querySelector('summary') || propBox.closest('details')?.querySelector('summary');
+          const content = propBox.querySelector('.rollup-content') || propBox.closest('details')?.querySelector('.rollup-content') || propBox;
+          titleEl.innerHTML = summ ? summ.innerHTML : 'Player Props';
+          bodyEl.innerHTML = content.innerHTML;
+          jumpLink.setAttribute('href', href);
+          bodyEl.scrollTop = 0;
+          bodyEl.querySelectorAll('details').forEach(d => d.open = true);
+          if (backBtn) backBtn.style.display = 'inline-flex';
+          return;
+        }}
+      }}
+      if (href.startsWith('#exp-')) {{
+        const cleanExp = href.replace(/^#/, '');
+        const expBox = document.getElementById(cleanExp) || document.getElementById('box-' + cleanExp) || document.querySelector('[id*="' + cleanExp + '"]');
+        if (expBox) {{
+          e.preventDefault();
+          pushModalState();
+          const titleEl = document.getElementById('modal-matchup-title');
+          const bodyEl = document.getElementById('modal-matchup-body');
+          const jumpLink = document.getElementById('modal-jump-link');
+          const backBtn = document.getElementById('modal-back-btn');
+          const summ = expBox.querySelector('summary') || expBox.closest('details')?.querySelector('summary');
+          const content = expBox.querySelector('.rollup-content') || expBox.closest('details')?.querySelector('.rollup-content') || expBox;
+          titleEl.innerHTML = summ ? summ.innerHTML : 'Expert Pick Card';
+          bodyEl.innerHTML = content.innerHTML;
+          jumpLink.setAttribute('href', href);
+          bodyEl.scrollTop = 0;
+          bodyEl.querySelectorAll('details').forEach(d => d.open = true);
+          if (backBtn) backBtn.style.display = 'inline-flex';
+          return;
+        }}
+      }}
+      // If clicking other internal anchor inside modal, don't scroll background
+      e.preventDefault();
+      return;
+    }}
+    
+    // Other page anchor navigation (ignore hash routes like #/props or #/bookmarks)
+    if (href.startsWith('#') && !href.startsWith('#/') && href !== '#' && href !== '#executive-board') {{
+      e.preventDefault();
+      history.pushState(null, '', href);
+      openTargetDetails(href);
+    }}
+  }}
+}});
+
+document.addEventListener('keydown', (e) => {{
+  if (e.key === 'Escape') {{
+    closeMatchupModal();
+    const drawer = document.getElementById('card-drawer-overlay');
+    if (drawer && drawer.classList.contains('active')) {{
+      drawer.classList.remove('active');
+      document.body.style.overflow = '';
     }}
   }}
 }});
 </script>
+<div id="matchup-modal-overlay" class="matchup-modal-overlay" role="dialog" aria-modal="true">
+  <div class="matchup-modal-dialog">
+    <div class="matchup-modal-header">
+      <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0;">
+        <button id="modal-back-btn" class="btn-toggle" style="display:none;padding:5px 12px;font-size:12px;font-weight:700;" type="button">← Back</button>
+        <div id="modal-matchup-title" class="matchup-modal-title"></div>
+      </div>
+      <div class="matchup-modal-actions">
+        <a id="modal-jump-link" class="btn-toggle" href="#">Scroll to Section ↓</a>
+        <button id="modal-close-btn" class="btn-toggle btn-primary" type="button">✕ Close (Esc)</button>
+      </div>
+    </div>
+    <div id="modal-matchup-body" class="matchup-modal-body"></div>
+  </div>
+</div>
+<button id="card-builder-btn" class="card-builder-trigger" type="button" aria-label="Open Card Builder">
+  📋 My Card <span class="bm-count"></span>
+</button>
+
+<div id="card-drawer-overlay" class="card-drawer-overlay" role="dialog" aria-modal="true">
+  <div class="card-drawer-panel">
+    <div class="card-drawer-header">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="font-size:20px;">📋</span>
+        <h3 style="margin:0;font-size:16px;font-weight:800;color:var(--text);">Weekend Card Builder</h3>
+        <span class="bm-count" style="display:inline-block;"></span>
+      </div>
+      <button id="card-drawer-close" class="btn-toggle btn-primary" type="button">✕ Close (Esc)</button>
+    </div>
+    <div class="card-drawer-body">
+      <p class="muted-note" style="margin-top:0;">Picks, legs, props, and table rows you starred across this report. Saved in this browser for reviewing and placing your weekend card.</p>
+      <div class="rollup-controls" style="margin-bottom:14px;">
+        <button class="btn-toggle btn-primary" id="drawer-bm-copy" type="button">Copy Card to Clipboard</button>
+        <button class="btn-toggle" id="drawer-bm-clear" type="button">Clear Card</button>
+      </div>
+      <div id="drawer-bm-list">
+        <p class="muted-note">No picks bookmarked yet. Tap the ☆ star next to any pick, prop, or table row to build your weekend card.</p>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>"""
+
+    # Post-process full_html:
+    # 1. Enforce target="_blank" rel="noopener noreferrer" on all external links
+    full_html = re.sub(r'<a\s+href="(https?://[^"]+)"(?![^>]*target=)', r'<a href="\1" target="_blank" rel="noopener noreferrer"', full_html)
+
+    # 2. Bold / heavy visual styling for Confidence Stars
+    def _rep_star(m):
+        full = m.group(0)
+        num_str = m.group(1)
+        stars_str = m.group(2)
+        try:
+            val = float(num_str)
+        except ValueError:
+            return full
+        if val >= 4.0:
+            tier_class = "star-tier-high"
+        elif val >= 3.0:
+            tier_class = "star-tier-mid"
+        else:
+            tier_class = "star-tier-low"
+        
+        active_stars = ''.join([c for c in stars_str if c == '★'])
+        empty_stars = ''.join([c for c in stars_str if c == '☆'])
+        
+        return (f'<span class="star-rating {tier_class}" title="{val:.1f} stars">'
+                f'<span class="star-num">{val:.1f}</span> '
+                f'<span class="stars-active">{active_stars}</span>'
+                f'<span class="stars-muted">{empty_stars}</span>'
+                f'</span>')
+
+    full_html = re.sub(r'(\d\.\d)\s+([★☆]{5})', _rep_star, full_html)
 
     Path(html_path).write_text(full_html, encoding='utf-8')
     print(f"Successfully generated HTML: {html_path}")
