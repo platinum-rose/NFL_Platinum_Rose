@@ -1,43 +1,43 @@
 {
   "schema": "player_props_intel_v1",
-  "generated_at": "2026-10-15T22:32:29.378Z",
+  "generated_at": "2026-10-16T22:22:36.182Z",
   "week": 6,
   "season": 2026,
   "summary": {
-    "articles_scanned": 370,
-    "total_props": 19,
-    "tier_1_props": 14,
-    "touchdown_props": 3,
-    "curated_parlays": 1,
-    "games_covered": 2
+    "articles_scanned": 513,
+    "total_props": 8,
+    "tier_1_props": 7,
+    "touchdown_props": 1,
+    "curated_parlays": 2,
+    "games_covered": 6
   },
   "parlayCards": [
     {
-      "id": "parlay__SEA_at_DEN__sea_stack",
-      "title": "SEA Prop Stack SGP (SEA @ DEN)",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
+      "id": "parlay__PIT_at_TB__pit_stack",
+      "title": "PIT Prop Stack SGP (PIT @ TB)",
+      "game": "PIT @ TB",
+      "game_slate": "Sunday Early Window",
       "type": "same_game_parlay",
       "book": "DraftKings / FanDuel",
-      "leg_count": 3,
+      "leg_count": 2,
       "legs": [
         {
-          "id": "prop__8093__jaxon_smith_njigba__receiving_yards",
-          "player": "Jaxon Smith-Njigba",
-          "team": "SEA",
-          "game": "SEA @ DEN",
-          "game_slate": "Thursday Night Football",
+          "id": "prop__8286__germie_bernard__receiving_yards",
+          "player": "Germie Bernard",
+          "team": "PIT",
+          "game": "PIT @ TB",
+          "game_slate": "Sunday Early Window",
           "category": "receiving_yards",
           "category_label": "Receiving Yards",
           "stat_type": "receiving",
-          "line": "92.5",
+          "line": "40.5",
           "side": "over",
-          "price": "-113",
+          "price": "-115",
           "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Frank Ammirante ... (Action Network)",
-          "source_article_id": 8093,
-          "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
-          "rationale": "Emanuel Wilson Over 66.5 Rushing Yards (-113) Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
+          "analyst": "Josh Shepardson (Sharp Football)",
+          "source_article_id": 8286,
+          "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-6-2026/",
+          "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 6 Best Prop Bet: Derrick Henry Over 87.5 Rushing Yards (-112) In a game and a half since Tyler Huntley took over for an injured Lamar Jackson , Henry has carried the ball 38 times for 136 yards. The Ravens had a -4.8% pass rate over expected (PROE) in Week 5.",
           "week": 6,
           "tier": 1,
           "tier_label": "Tier 1: Featured Pick",
@@ -46,113 +46,157 @@
             "role": "Pass-Catching Piece",
             "synergy_tags": [
               "receiving_yards",
-              "SEA_offense"
+              "PIT_offense"
             ],
             "positive_correlations": [
-              "Emanuel Wilson Rushing Yards",
-              "Jaxon Smith-Njigba Receptions",
-              "Jaxon Smith-Njigba Receiving/Rushing Yards"
+              "Aaron Rodgers Passing TDs"
             ]
           },
-          "selection": "Over 92.5 Receiving Yards"
+          "selection": "Over 40.5 Receiving Yards"
         },
         {
-          "id": "prop__8093__emanuel_wilson__rushing_yards",
-          "player": "Emanuel Wilson",
-          "team": "SEA",
-          "game": "SEA @ DEN",
-          "game_slate": "Thursday Night Football",
-          "category": "rushing_yards",
-          "category_label": "Rushing Yards",
-          "stat_type": "rushing",
-          "line": "66.5",
+          "id": "prop__8208__aaron_rodgers__passing_tds",
+          "player": "Aaron Rodgers",
+          "team": "PIT",
+          "game": "PIT @ TB",
+          "game_slate": "Sunday Early Window",
+          "category": "passing_tds",
+          "category_label": "Passing TDs",
+          "stat_type": "passing",
+          "line": "2+",
           "side": "over",
-          "price": "-113",
+          "price": "+137",
           "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Frank Ammirante ... (Action Network)",
-          "source_article_id": 8093,
-          "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
-          "rationale": "Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
+          "analyst": "Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL)",
+          "source_article_id": 8208,
+          "source_url": "https://www.espn.com/espn/betting/story/_/id/50133296/week-6-nfl-odds-touchdown-props-best-bets-sunday-preview",
+          "rationale": "I love taking Rodgers passing touchdown props because of how aggressively his teams tend to throw the ball in the red zone. The Pittsburgh Steelers lead the league in called red zone pass rate at 76%.",
           "week": 6,
           "tier": 1,
           "tier_label": "Tier 1: Featured Pick",
           "weight": 1,
           "parlay_utility": {
-            "role": "Ground Game Piece",
+            "role": "Passing Volume Anchor",
             "synergy_tags": [
-              "rushing_yards",
-              "SEA_offense"
+              "passing_tds",
+              "PIT_offense"
             ],
             "positive_correlations": [
-              "Jaxon Smith-Njigba Receiving Yards",
-              "Jaxon Smith-Njigba Receptions",
-              "Jaxon Smith-Njigba Receiving/Rushing Yards"
+              "Germie Bernard Receiving Yards"
             ]
           },
-          "selection": "Over 66.5 Rushing Yards"
-        },
-        {
-          "id": "prop__7864__jaxon_smith_njigba__receiving_yards",
-          "player": "Jaxon Smith-Njigba",
-          "team": "SEA",
-          "game": "SEA @ DEN",
-          "game_slate": "Thursday Night Football",
-          "category": "receiving_yards",
-          "category_label": "Receiving/Rushing Yards",
-          "stat_type": "other",
-          "line": "70+",
-          "side": "over",
-          "price": "-248",
-          "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Steve Krebs (BettingPros)",
-          "source_article_id": 7864,
-          "source_url": "https://www.bettingpros.com/articles/nfl-week-6-picks-predictions-best-early-parlays-2026/",
-          "rationale": "There are two avenues that we heavily considered for this leg of the parlay. The first was to take Jaxon Smith-Njigba to score a touchdown, which returns +110 .",
-          "week": 6,
-          "tier": 1,
-          "tier_label": "Tier 1: Featured Pick",
-          "weight": 1,
-          "parlay_utility": {
-            "role": "Complementary Piece",
-            "synergy_tags": [
-              "receiving_yards",
-              "SEA_offense"
-            ],
-            "positive_correlations": [
-              "Jaxon Smith-Njigba Receiving Yards",
-              "Emanuel Wilson Rushing Yards",
-              "Jaxon Smith-Njigba Receptions"
-            ]
-          },
-          "selection": "Over 70+ Receiving/Rushing Yards"
+          "selection": "Over 2+ Passing TDs"
         }
       ],
-      "estimated_odds": "+399",
-      "payout_multiplier": "4.99x",
-      "payout_on_10": "$49.86",
-      "payout_on_25": "$124.65",
+      "estimated_odds": "+343",
+      "payout_multiplier": "4.43x",
+      "payout_on_10": "$44.31",
+      "payout_on_25": "$110.78",
       "correlation_rating": "Same-Team Stack",
-      "synergy_rationale": "Combines 3 real props extracted this week from Frank Ammirante ... (Action Network), Steve Krebs (BettingPros) for SEA @ DEN."
+      "synergy_rationale": "Combines 2 real props extracted this week from Josh Shepardson (Sharp Football), Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL) for PIT @ TB."
+    },
+    {
+      "id": "parlay__BUF_at_LV__lv_stack",
+      "title": "LV Prop Stack SGP (BUF @ LV)",
+      "game": "BUF @ LV",
+      "game_slate": "Sunday Late Window",
+      "type": "same_game_parlay",
+      "book": "DraftKings / FanDuel",
+      "leg_count": 2,
+      "legs": [
+        {
+          "id": "prop__8266__tre_tucker__receiving_yards",
+          "player": "Tre Tucker",
+          "team": "LV",
+          "game": "BUF @ LV",
+          "game_slate": "Sunday Late Window",
+          "category": "receiving_yards",
+          "category_label": "Receiving Yards",
+          "stat_type": "receiving",
+          "line": "38.5",
+          "side": "over",
+          "price": "-120",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Dustin Swedelson (VSiN)",
+          "source_article_id": 8266,
+          "source_url": "https://vsin.com/nfl/favorite-week-6-nfl-player-props-from-dustin-swedelson-and-optaai/",
+          "rationale": "Through five games, Buffalo has allowed the fourth-most receiving yards (187.4) to opposing wide receivers. I've already got plays on Brock Bowers and Ashton Jeanty to go over their receiving yardage totals.",
+          "week": 6,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receiving_yards",
+              "LV_offense"
+            ],
+            "positive_correlations": [
+              "Brock Bowers Receptions"
+            ]
+          },
+          "selection": "Over 38.5 Receiving Yards"
+        },
+        {
+          "id": "prop__8208__brock_bowers__receptions",
+          "player": "Brock Bowers",
+          "team": "LV",
+          "game": "BUF @ LV",
+          "game_slate": "Sunday Late Window",
+          "category": "receptions",
+          "category_label": "Receptions",
+          "stat_type": "receiving",
+          "line": "8+",
+          "side": "over",
+          "price": "+140",
+          "book": "DraftKings/FanDuel (per source article)",
+          "analyst": "Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL)",
+          "source_article_id": 8208,
+          "source_url": "https://www.espn.com/espn/betting/story/_/id/50133296/week-6-nfl-odds-touchdown-props-best-bets-sunday-preview",
+          "rationale": "Bowers has seen 14, 11 and 10 targets through three healthy games this season as he continues to establish himself as one of the league's best receivers. And that's what he is; 83% of Bowers' routes have come from the slot or wide alignments this season, and his primary matchup defender in each of his three games has been a cornerback.",
+          "week": 6,
+          "tier": 1,
+          "tier_label": "Tier 1: Featured Pick",
+          "weight": 1,
+          "parlay_utility": {
+            "role": "Pass-Catching Piece",
+            "synergy_tags": [
+              "receptions",
+              "LV_offense"
+            ],
+            "positive_correlations": [
+              "Tre Tucker Receiving Yards"
+            ]
+          },
+          "selection": "Over 8+ Receptions"
+        }
+      ],
+      "estimated_odds": "+340",
+      "payout_multiplier": "4.40x",
+      "payout_on_10": "$44.00",
+      "payout_on_25": "$110.00",
+      "correlation_rating": "Same-Team Stack",
+      "synergy_rationale": "Combines 2 real props extracted this week from Dustin Swedelson (VSiN), Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL) for BUF @ LV."
     }
   ],
   "props": [
     {
-      "id": "prop__8093__jaxon_smith_njigba__receiving_yards",
-      "player": "Jaxon Smith-Njigba",
-      "team": "SEA",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
+      "id": "prop__8286__germie_bernard__receiving_yards",
+      "player": "Germie Bernard",
+      "team": "PIT",
+      "game": "PIT @ TB",
+      "game_slate": "Sunday Early Window",
       "category": "receiving_yards",
       "category_label": "Receiving Yards",
       "stat_type": "receiving",
-      "line": "92.5",
+      "line": "40.5",
       "side": "over",
-      "price": "-113",
+      "price": "-115",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Frank Ammirante ... (Action Network)",
-      "source_article_id": 8093,
-      "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
-      "rationale": "Emanuel Wilson Over 66.5 Rushing Yards (-113) Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 8286,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-6-2026/",
+      "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 6 Best Prop Bet: Derrick Henry Over 87.5 Rushing Yards (-112) In a game and a half since Tyler Huntley took over for an injured Lamar Jackson , Henry has carried the ball 38 times for 136 yards. The Ravens had a -4.8% pass rate over expected (PROE) in Week 5.",
       "week": 6,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
@@ -161,32 +205,30 @@
         "role": "Pass-Catching Piece",
         "synergy_tags": [
           "receiving_yards",
-          "SEA_offense"
+          "PIT_offense"
         ],
         "positive_correlations": [
-          "Emanuel Wilson Rushing Yards",
-          "Jaxon Smith-Njigba Receptions",
-          "Jaxon Smith-Njigba Receiving/Rushing Yards"
+          "Aaron Rodgers Passing TDs"
         ]
       }
     },
     {
-      "id": "prop__8093__emanuel_wilson__rushing_yards",
-      "player": "Emanuel Wilson",
-      "team": "SEA",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
+      "id": "prop__8286__derrick_henry__rushing_yards",
+      "player": "Derrick Henry",
+      "team": "BAL",
+      "game": "BAL @ CLE",
+      "game_slate": "Sunday Early Window",
       "category": "rushing_yards",
       "category_label": "Rushing Yards",
       "stat_type": "rushing",
-      "line": "66.5",
+      "line": "87.5",
       "side": "over",
-      "price": "-113",
+      "price": "-112",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Frank Ammirante ... (Action Network)",
-      "source_article_id": 8093,
-      "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
-      "rationale": "Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 8286,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-6-2026/",
+      "rationale": "In a game and a half since Tyler Huntley took over for an injured Lamar Jackson , Henry has carried the ball 38 times for 136 yards. The Ravens had a -4.8% pass rate over expected (PROE) in Week 5.",
       "week": 6,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
@@ -195,134 +237,28 @@
         "role": "Ground Game Piece",
         "synergy_tags": [
           "rushing_yards",
-          "SEA_offense"
+          "BAL_offense"
         ],
-        "positive_correlations": [
-          "Jaxon Smith-Njigba Receiving Yards",
-          "Jaxon Smith-Njigba Receptions",
-          "Jaxon Smith-Njigba Receiving/Rushing Yards"
-        ]
+        "positive_correlations": []
       }
     },
     {
-      "id": "prop__8093__bo_nix__passing_yards",
-      "player": "Bo Nix",
-      "team": "DEN",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "passing_yards",
-      "category_label": "Passing Yards",
-      "stat_type": "passing",
-      "line": "197.5",
-      "side": "under",
-      "price": "-113",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Frank Ammirante ... (Action Network)",
-      "source_article_id": 8093,
-      "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
-      "rationale": "RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
-      "week": 6,
-      "tier": 2,
-      "tier_label": "Tier 2: Secondary Pick",
-      "weight": 0.7,
-      "parlay_utility": {
-        "role": "Passing Volume Anchor",
-        "synergy_tags": [
-          "passing_yards",
-          "DEN_offense"
-        ],
-        "positive_correlations": [
-          "Courtland Sutton Receiving Yards",
-          "J.K. Dobbins Anytime Touchdown Scorer",
-          "Bo Nix Passing Yards"
-        ]
-      }
-    },
-    {
-      "id": "prop__8093__rj_harvey__receiving_yards",
-      "player": "RJ Harvey",
-      "team": "DEN",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
+      "id": "prop__8266__tre_tucker__receiving_yards",
+      "player": "Tre Tucker",
+      "team": "LV",
+      "game": "BUF @ LV",
+      "game_slate": "Sunday Late Window",
       "category": "receiving_yards",
       "category_label": "Receiving Yards",
       "stat_type": "receiving",
-      "line": "20.5",
+      "line": "38.5",
       "side": "over",
-      "price": "-113",
+      "price": "-120",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Frank Ammirante ... (Action Network)",
-      "source_article_id": 8093,
-      "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
-      "rationale": "Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
-      "week": 6,
-      "tier": 2,
-      "tier_label": "Tier 2: Secondary Pick",
-      "weight": 0.7,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "DEN_offense"
-        ],
-        "positive_correlations": [
-          "RJ Harvey Receptions",
-          "Troy Franklin Receiving Yards",
-          "J.K. Dobbins Anytime Touchdown Scorer"
-        ]
-      }
-    },
-    {
-      "id": "prop__8093__courtland_sutton__receiving_yards",
-      "player": "Courtland Sutton",
-      "team": "DEN",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "31.5",
-      "side": "under",
-      "price": "-113",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Frank Ammirante ... (Action Network)",
-      "source_article_id": 8093,
-      "source_url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
-      "rationale": "Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel .",
-      "week": 6,
-      "tier": 2,
-      "tier_label": "Tier 2: Secondary Pick",
-      "weight": 0.7,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "DEN_offense"
-        ],
-        "positive_correlations": [
-          "Bo Nix Passing Yards",
-          "J.K. Dobbins Anytime Touchdown Scorer",
-          "Bo Nix Passing Yards"
-        ]
-      }
-    },
-    {
-      "id": "prop__8064__rj_harvey__receptions",
-      "player": "RJ Harvey",
-      "team": "DEN",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "receptions",
-      "category_label": "Receptions",
-      "stat_type": "receiving",
-      "line": "3.5",
-      "side": "over",
-      "price": "-108",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Action Network Staff ... (Action Network)",
-      "source_article_id": 8064,
-      "source_url": "https://www.actionnetwork.com/nfl/seahawks-vs-broncos-picks-props-odds-predictions-thursday-night-football-oct-15",
-      "rationale": "Escalators : 5+ Receptions (+203; Kalshi ) | 6+ Receptions (+375; Hard Rock) | 8+ Receptions (+1400; Hard Rock) Click here to return to the table of contents. Seahawks vs Broncos Anytime Touchdown Pick Thursday, Oct.",
+      "analyst": "Dustin Swedelson (VSiN)",
+      "source_article_id": 8266,
+      "source_url": "https://vsin.com/nfl/favorite-week-6-nfl-player-props-from-dustin-swedelson-and-optaai/",
+      "rationale": "Through five games, Buffalo has allowed the fourth-most receiving yards (187.4) to opposing wide receivers. I've already got plays on Brock Bowers and Ashton Jeanty to go over their receiving yardage totals.",
       "week": 6,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
@@ -330,33 +266,123 @@
       "parlay_utility": {
         "role": "Pass-Catching Piece",
         "synergy_tags": [
-          "receptions",
-          "DEN_offense"
+          "receiving_yards",
+          "LV_offense"
         ],
         "positive_correlations": [
-          "RJ Harvey Receiving Yards",
-          "Troy Franklin Receiving Yards",
-          "J.K. Dobbins Anytime Touchdown Scorer"
+          "Brock Bowers Receptions"
         ]
       }
     },
     {
-      "id": "prop__8060__jaxon_smith_njigba__receptions",
-      "player": "Jaxon Smith-Njigba",
-      "team": "SEA",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
+      "id": "prop__8266__najee_harris__rushing_yards",
+      "player": "Najee Harris",
+      "team": "NYG",
+      "game": "NO @ NYG",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "23.5",
+      "side": "over",
+      "price": "-115",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dustin Swedelson (VSiN)",
+      "source_article_id": 8266,
+      "source_url": "https://vsin.com/nfl/favorite-week-6-nfl-player-props-from-dustin-swedelson-and-optaai/",
+      "rationale": "The Giants had a golden opportunity last week to beat the Washington Commanders and take a commanding lead in the NFC East. Instead, Cam Skattebo fumbled in overtime with New York already in field goal range at Washington's 24-yard line.",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "NYG_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__8266__chuba_hubbard__rushing_yards",
+      "player": "Chuba Hubbard",
+      "team": "CAR",
+      "game": "CAR @ PHI",
+      "game_slate": "Sunday Early Window",
+      "category": "rushing_yards",
+      "category_label": "Rushing Yards",
+      "stat_type": "rushing",
+      "line": "70.5",
+      "side": "over",
+      "price": "-115",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Dustin Swedelson (VSiN)",
+      "source_article_id": 8266,
+      "source_url": "https://vsin.com/nfl/favorite-week-6-nfl-player-props-from-dustin-swedelson-and-optaai/",
+      "rationale": "This is a prop I initially liked but was planning to stay away from. When Carolina opened as a 1.5-point underdog at Philadelphia, I had some reservations.",
+      "week": 6,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rushing_yards",
+          "CAR_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__8208__aaron_rodgers__passing_tds",
+      "player": "Aaron Rodgers",
+      "team": "PIT",
+      "game": "PIT @ TB",
+      "game_slate": "Sunday Early Window",
+      "category": "passing_tds",
+      "category_label": "Passing TDs",
+      "stat_type": "passing",
+      "line": "2+",
+      "side": "over",
+      "price": "+137",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL)",
+      "source_article_id": 8208,
+      "source_url": "https://www.espn.com/espn/betting/story/_/id/50133296/week-6-nfl-odds-touchdown-props-best-bets-sunday-preview",
+      "rationale": "I love taking Rodgers passing touchdown props because of how aggressively his teams tend to throw the ball in the red zone. The Pittsburgh Steelers lead the league in called red zone pass rate at 76%.",
+      "week": 6,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_tds",
+          "PIT_offense"
+        ],
+        "positive_correlations": [
+          "Germie Bernard Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__8208__brock_bowers__receptions",
+      "player": "Brock Bowers",
+      "team": "LV",
+      "game": "BUF @ LV",
+      "game_slate": "Sunday Late Window",
       "category": "receptions",
       "category_label": "Receptions",
       "stat_type": "receiving",
       "line": "8+",
       "side": "over",
-      "price": "+130",
+      "price": "+140",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Ben Solak (ESPN NFL)",
-      "source_article_id": 8060,
-      "source_url": "https://www.espn.com/espn/betting/story/_/id/50167970/nfl-week-6-odds-betting-tips-picks-seahawks-broncos",
-      "rationale": "Eric Moody: Smith-Njigba has averaged 10.0 targets per game this season and recorded at least eight receptions in three of five games. He also reached that mark in 11 of 20 games last season, including the postseason, and has a 74% catch rate since the start of last season.",
+      "analyst": "Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL)",
+      "source_article_id": 8208,
+      "source_url": "https://www.espn.com/espn/betting/story/_/id/50133296/week-6-nfl-odds-touchdown-props-best-bets-sunday-preview",
+      "rationale": "Bowers has seen 14, 11 and 10 targets through three healthy games this season as he continues to establish himself as one of the league's best receivers. And that's what he is; 83% of Bowers' routes have come from the slot or wide alignments this season, and his primary matchup defender in each of his three games has been a cornerback.",
       "week": 6,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
@@ -365,80 +391,10 @@
         "role": "Pass-Catching Piece",
         "synergy_tags": [
           "receptions",
-          "SEA_offense"
+          "LV_offense"
         ],
         "positive_correlations": [
-          "Jaxon Smith-Njigba Receiving Yards",
-          "Emanuel Wilson Rushing Yards",
-          "Jaxon Smith-Njigba Receiving/Rushing Yards"
-        ]
-      }
-    },
-    {
-      "id": "prop__8034__troy_franklin__receiving_yards",
-      "player": "Troy Franklin",
-      "team": "DEN",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "15+",
-      "side": "over",
-      "price": "-138",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Steve Krebs (BettingPros)",
-      "source_article_id": 8034,
-      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-seahawks-vs-broncos/",
-      "rationale": "We round things out with a bit of a disappointing return based on the juice. Troy Franklin doesn't get much volume, to be candid, which makes the high tax even more disheartening.",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "DEN_offense"
-        ],
-        "positive_correlations": [
-          "RJ Harvey Receiving Yards",
-          "RJ Harvey Receptions",
-          "J.K. Dobbins Anytime Touchdown Scorer"
-        ]
-      }
-    },
-    {
-      "id": "prop__7864__jaxon_smith_njigba__receiving_yards",
-      "player": "Jaxon Smith-Njigba",
-      "team": "SEA",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "receiving_yards",
-      "category_label": "Receiving/Rushing Yards",
-      "stat_type": "other",
-      "line": "70+",
-      "side": "over",
-      "price": "-248",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Steve Krebs (BettingPros)",
-      "source_article_id": 7864,
-      "source_url": "https://www.bettingpros.com/articles/nfl-week-6-picks-predictions-best-early-parlays-2026/",
-      "rationale": "There are two avenues that we heavily considered for this leg of the parlay. The first was to take Jaxon Smith-Njigba to score a touchdown, which returns +110 .",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Complementary Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "SEA_offense"
-        ],
-        "positive_correlations": [
-          "Jaxon Smith-Njigba Receiving Yards",
-          "Emanuel Wilson Rushing Yards",
-          "Jaxon Smith-Njigba Receptions"
+          "Tre Tucker Receiving Yards"
         ]
       }
     },
@@ -460,9 +416,9 @@
       "source_url": "https://www.bettingpros.com/articles/nfl-week-6-picks-predictions-best-early-parlays-2026/",
       "rationale": "We close out our parlay with a recency bias play that we have been tailing for a few weeks now. It's a tough matchup against a Houston team that is only allowing 78.4 rushing yards per game.",
       "week": 6,
-      "tier": 2,
-      "tier_label": "Tier 2: Secondary Pick",
-      "weight": 0.7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
       "parlay_utility": {
         "role": "Ground Game Piece",
         "synergy_tags": [
@@ -470,312 +426,6 @@
           "JAX_offense"
         ],
         "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__8026__jaxon_smith_njigba__first_td",
-      "player": "Jaxon Smith-Njigba",
-      "team": "SEA",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "first_td",
-      "category_label": "First Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "Yes",
-      "side": "anytime",
-      "price": "+600",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Mike Spector (BettingPros)",
-      "source_article_id": 8026,
-      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-td-scorers-picks-seahawks-vs-broncos/",
-      "rationale": "Given Bo Nix's propensity for leading fourth-quarter comebacks (he has led the NFL in such comebacks since 2024 and has three this year), I am backing Seattle to score the game's first touchdown, led by its most consistent offensive weapon. Jaxon Smith-Njigba leads the league in target share (35.2%) and percentage of air yards (52.4%).",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "End-Zone Target",
-        "synergy_tags": [
-          "first_td",
-          "SEA_offense"
-        ],
-        "positive_correlations": [
-          "Jaxon Smith-Njigba Receiving Yards",
-          "Emanuel Wilson Rushing Yards",
-          "Jaxon Smith-Njigba Receptions"
-        ]
-      }
-    },
-    {
-      "id": "prop__8026__j_k_dobbins__anytime_td",
-      "player": "J.K. Dobbins",
-      "team": "DEN",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "anytime_td",
-      "category_label": "Anytime Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "Yes",
-      "side": "anytime",
-      "price": "+180",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Mike Spector (BettingPros)",
-      "source_article_id": 8026,
-      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-td-scorers-picks-seahawks-vs-broncos/",
-      "rationale": "The matchup is a brutal one for J.K. Dobbins.",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "End-Zone Target",
-        "synergy_tags": [
-          "anytime_td",
-          "DEN_offense"
-        ],
-        "positive_correlations": [
-          "Bo Nix Passing Yards",
-          "RJ Harvey Receiving Yards",
-          "Courtland Sutton Receiving Yards"
-        ]
-      }
-    },
-    {
-      "id": "prop__8027__bo_nix__passing_yards",
-      "player": "Bo Nix",
-      "team": "DEN",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "passing_yards",
-      "category_label": "Passing Yards",
-      "stat_type": "passing",
-      "line": "200.5",
-      "side": "under",
-      "price": "-111",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Richard Janvrin (BettingPros)",
-      "source_article_id": 8027,
-      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-same-game-parlay-seahawks-vs-broncos/",
-      "rationale": "Heading into Week 6, Bo Nix has thrown for 201+ yards in two games, but he's coming off 123 passing yards on 27 attempts. Through five weeks, he's completed 59.9% of his passes for 942 yards (5.8 yards per attempt), six touchdowns and three interceptions.",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Passing Volume Anchor",
-        "synergy_tags": [
-          "passing_yards",
-          "DEN_offense"
-        ],
-        "positive_correlations": [
-          "Bo Nix Passing Yards",
-          "Courtland Sutton Receiving Yards",
-          "J.K. Dobbins Anytime Touchdown Scorer"
-        ]
-      }
-    },
-    {
-      "id": "prop__8027__jaxon_smith_njigba__anytime_td",
-      "player": "Jaxon Smith-Njigba",
-      "team": "SEA",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "anytime_td",
-      "category_label": "Anytime Touchdown Scorer",
-      "stat_type": "touchdown",
-      "line": "Yes",
-      "side": "anytime",
-      "price": "+105",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Richard Janvrin (BettingPros)",
-      "source_article_id": 8027,
-      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-same-game-parlay-seahawks-vs-broncos/",
-      "rationale": "It's likely no surprise, but Jaxon Smith-Njigba has scored in all but one game this season. He leads the NFL in receiving yards and receiving touchdowns.",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "End-Zone Target",
-        "synergy_tags": [
-          "anytime_td",
-          "SEA_offense"
-        ],
-        "positive_correlations": [
-          "Jaxon Smith-Njigba Receiving Yards",
-          "Emanuel Wilson Rushing Yards",
-          "Jaxon Smith-Njigba Receptions"
-        ]
-      }
-    },
-    {
-      "id": "prop__8002__emanuel_wilson__receiving_yards",
-      "player": "Emanuel Wilson",
-      "team": "SEA",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "9.5",
-      "side": "over",
-      "price": "-114",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Sam Farley ... (Action Network)",
-      "source_article_id": 8002,
-      "source_url": "https://www.actionnetwork.com/nfl/seahawks-vs-broncos-player-props-for-sam-darnold-jk-dobbins-emanuel-wilson-troy-franklin",
-      "rationale": "It’s been two games since Jadarian Price went down and Emanuel Wilson has had significant volume as the Seahawks’ RB1 with 41 rushing attempts. The over on his rushing yards is intriguing, but I'm going to target his receiving yards in this spot.",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "SEA_offense"
-        ],
-        "positive_correlations": [
-          "Jaxon Smith-Njigba Receiving Yards",
-          "Emanuel Wilson Rushing Yards",
-          "Jaxon Smith-Njigba Receptions"
-        ]
-      }
-    },
-    {
-      "id": "prop__7883__bo_nix__passing_yards",
-      "player": "Bo Nix",
-      "team": "DEN",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "passing_yards",
-      "category_label": "Passing Yards",
-      "stat_type": "passing",
-      "line": "199.5",
-      "side": "under",
-      "price": "-111",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Josh Shepardson (BettingPros)",
-      "source_article_id": 7883,
-      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-picks-seahawks-vs-broncos-week-6/",
-      "rationale": "Bo Nix has struggled mightily this season. According to the Fantasy Points Data Suite 2.0, among 37 quarterbacks with at least 50 dropbacks, Nix ranks: 32nd in completion rate (59.9%) 21st in adjusted completion rate (76.1%) 30th in completion percentage over expectation (-1.0% CPOE) 27th in passing yards per game (188.4) 25th in adjusted net yards per pass attempt (5.35 ANY/A) Nix has reached the 200-passing-yard threshold only twice in five starts, and he threw for a season-low 123 yards in S",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Passing Volume Anchor",
-        "synergy_tags": [
-          "passing_yards",
-          "DEN_offense"
-        ],
-        "positive_correlations": [
-          "Bo Nix Passing Yards",
-          "Courtland Sutton Receiving Yards",
-          "J.K. Dobbins Anytime Touchdown Scorer"
-        ]
-      }
-    },
-    {
-      "id": "prop__7883__jaxon_smith_njigba__receiving_yards",
-      "player": "Jaxon Smith-Njigba",
-      "team": "SEA",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "94.5",
-      "side": "over",
-      "price": "-112",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Josh Shepardson (BettingPros)",
-      "source_article_id": 7883,
-      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-picks-seahawks-vs-broncos-week-6/",
-      "rationale": "Jaxon Smith-Njigba is following up his electrifying 2025 campaign with an even more impressive start. Among 102 players with at least 100 routes, Smith-Njigba ranks: 2nd in target share (32.7%) 2nd in targets per route run (0.35 TPRR) 1st in first-read rate (43.1%) 1st in air yard share (53.3%) 1st in receiving yards per game (116.6) 1st in yards per route run (4.22 YPRR) Patrick Surtain II was listed as a non-participant for Denver's walkthrough on Tuesday after missing last week's game with a",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "SEA_offense"
-        ],
-        "positive_correlations": [
-          "Jaxon Smith-Njigba Receiving Yards",
-          "Emanuel Wilson Rushing Yards",
-          "Jaxon Smith-Njigba Receptions"
-        ]
-      }
-    },
-    {
-      "id": "prop__7883__j_k_dobbins__rush_attempts",
-      "player": "J.K. Dobbins",
-      "team": "DEN",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "rush_attempts",
-      "category_label": "Rush Attempts",
-      "stat_type": "rushing",
-      "line": "13.5",
-      "side": "over",
-      "price": "-114",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Josh Shepardson (BettingPros)",
-      "source_article_id": 7883,
-      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-picks-seahawks-vs-broncos-week-6/",
-      "rationale": "In the first four weeks, J.K. Dobbins had 46 rush attempts (11.5 per game).",
-      "week": 6,
-      "tier": 2,
-      "tier_label": "Tier 2: Secondary Pick",
-      "weight": 0.7,
-      "parlay_utility": {
-        "role": "Ground Game Piece",
-        "synergy_tags": [
-          "rush_attempts",
-          "DEN_offense"
-        ],
-        "positive_correlations": [
-          "RJ Harvey Receiving Yards",
-          "RJ Harvey Receptions",
-          "Troy Franklin Receiving Yards"
-        ]
-      }
-    },
-    {
-      "id": "prop__7849__jaylen_waddle__receiving_yards",
-      "player": "Jaylen Waddle",
-      "team": "DEN",
-      "game": "SEA @ DEN",
-      "game_slate": "Thursday Night Football",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "46.5",
-      "side": "over",
-      "price": "-115",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Zachary Cohen (VSiN)",
-      "source_article_id": 7849,
-      "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-6-best-bets-predictions-and-player-props-from-zachary-cohen/",
-      "rationale": "vs. Seahawks - Check out my Thursday Night Football Preview !",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "DEN_offense"
-        ],
-        "positive_correlations": [
-          "RJ Harvey Receiving Yards",
-          "RJ Harvey Receptions",
-          "Troy Franklin Receiving Yards"
-        ]
       }
     }
   ]

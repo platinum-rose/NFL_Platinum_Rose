@@ -2,16 +2,16 @@
   "meta": {
     "schema": "projected_starters_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-10-15T15:09:02.072Z",
+    "generated_at": "2026-10-16T22:22:21.784Z",
     "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
-    "player_count": 69,
+    "player_count": 71,
     "manual_row_count": 47,
     "eligible_manual_row_count": 47,
-    "estimated_row_count": 23,
+    "estimated_row_count": 24,
     "withheld_named_manual_row_count": 0,
     "human_review_approved_count": 206,
     "human_review_rejected_count": 0,
-    "teams_with_signals": 31,
+    "teams_with_signals": 32,
     "teams_needing_manual_depth_chart": 4,
     "named_status_review_validation": {
       "schema": "named_status_review_validation_v1",
@@ -29,16 +29,16 @@
     },
     "inputs": {
       "availability": {
-        "path": "data\\player-availability\\latest.json",
-        "generated_at": "2026-10-15T15:08:10.790Z",
+        "path": "data/player-availability/latest.json",
+        "generated_at": "2026-10-16T22:22:14.877Z",
         "evidence_validation_status": "pass"
       },
       "named_status_review": {
-        "path": "data\\projected-starters\\2026\\named-status-review.json",
+        "path": "data/projected-starters/2026/named-status-review.json",
         "reviewed_at": "2026-10-10T00:00:00-07:00",
         "validation_status": "pass"
       },
-      "manual_directory": "data\\projected-starters\\2026\\manual"
+      "manual_directory": "data/projected-starters/2026/manual"
     },
     "recommendation_status": "research_context_only_not_picks",
     "guardrails": {
@@ -1494,7 +1494,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 2,
+          "source_count": 1,
           "sources": [
             {
               "source": "week1-usage-locks.json",
@@ -1502,19 +1502,11 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 1 2026 usage leader at RB for LV (usage score 26.0 vs runner-up 7.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-            },
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-14T18:48:00.000Z",
-              "evidence": "Head coach Klint Kubiak said Wednesday that Jeanty is \"starting to feel a lot better physically,\" and the Raiders have had no discussions of resting him, Sam Warren of The Athletic reports. \"I'm excited about giving him even more reps in practice and more full-speed reps,\" Kubiak said."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "week1_usage_dominant",
-            "starter"
+            "week1_usage_dominant"
           ],
           "impact_bucket": "rb_major",
           "needs_human_review": false,
@@ -2012,8 +2004,7 @@
         "Cam Skattebo RB"
       ],
       "estimated": [
-        "J.J. McCarthy QB",
-        "Malik Harrison LB"
+        "J.J. McCarthy QB"
       ],
       "missing": [
         "independent second-source depth-chart reconciliation"
@@ -2094,7 +2085,7 @@
               "source_type": "structured_injury",
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
               "published_at": "2026-10-15T14:28:00.000Z",
-              "evidence": "Giants head coach Jim Harbaugh said Wednesday that he plans to keep using McCarthy in a change-of-pace role behind starting quarterback Jameis Winston in an effort to take advantage of McCarthy's scrambling ability, Jordan Raanan of ESPN.com reports."
+              "evidence": "Giants head coach John Harbaugh said Wednesday he plans to keep using McCarthy in a change-of-pace role behind starting quarterback Jameis Winston in an effort to take advantage of McCarthy's scrambling ability, Jordan Raanan of ESPN.com reports."
             }
           ],
           "evidence_tags": [
@@ -2106,35 +2097,6 @@
           "confidence_basis": "local_availability_starter_language",
           "human_review_decision": "approved",
           "human_review_decided_at": "2026-10-15T15:09:02.070Z"
-        },
-        {
-          "id": "starter_f15080c0f324b52f",
-          "team": "NYG",
-          "team_nick": "Giants",
-          "player_name": "Malik Harrison",
-          "position": "LB",
-          "unit": "defense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-14T02:13:00.000Z",
-              "evidence": "Harrison was signed to the Giants' active roster Tuesday, Dan Salomone of the team's official site reports."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "defensive_major",
-          "needs_human_review": false,
-          "confidence_basis": "local_availability_starter_language",
-          "human_review_decision": "approved",
-          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": []
@@ -2147,9 +2109,7 @@
         "Geno Smith QB",
         "Breece Hall RB"
       ],
-      "estimated": [
-        "Dylan Parham G"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -2211,35 +2171,6 @@
           "confidence_basis": "manual_depth_chart",
           "human_review_decision": "approved",
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
-        },
-        {
-          "id": "starter_69d24e9c911a7cc1",
-          "team": "NYJ",
-          "team_nick": "Jets",
-          "player_name": "Dylan Parham",
-          "position": "G",
-          "unit": "offensive_line",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-15T00:52:00.000Z",
-              "evidence": "Coach Aaron Glenn said Wednesday that Parham (knee) is still week-to-week as the Jets start preparing for Week 6, Antwan V. Staley of the New York Daily News reports."
-            }
-          ],
-          "evidence_tags": [
-            "starter"
-          ],
-          "impact_bucket": "offensive_line_major",
-          "needs_human_review": false,
-          "confidence_basis": "local_availability_starter_language",
-          "human_review_decision": "approved",
-          "human_review_decided_at": "2026-10-15T15:09:02.070Z"
         }
       ],
       "named_status_reviews": []
@@ -2252,7 +2183,9 @@
         "Saquon Barkley RB",
         "Jalen Hurts QB"
       ],
-      "estimated": [],
+      "estimated": [
+        "Tanner McKee QB"
+      ],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -2312,6 +2245,33 @@
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_e3ddb5ceddd51981",
+          "team": "PHI",
+          "team_nick": "Eagles",
+          "player_name": "Tanner McKee",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-15T17:29:00.000Z",
+              "evidence": "McKee appears lined up to start Sunday's game against the Panthers after the Eagles announced Wednesday that Jalen Hurts has been ruled out for Week 6 due to a superficial blood clot on his calf, Dave Zangaro of NBC Sports Philadelphia reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -2496,14 +2456,100 @@
     "SEA": {
       "team": "SEA",
       "team_name": "Seattle Seahawks",
-      "coverage_status": "needs_manual_depth_chart",
+      "coverage_status": "estimated_from_local_starter_language",
       "known": [],
-      "estimated": [],
-      "missing": [
-        "verified all-position depth chart",
-        "manual source count reconciliation"
+      "estimated": [
+        "Velus Jones Jr. RB",
+        "Irv Charles WR",
+        "Tyrice Knight LB"
       ],
-      "players": [],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_ebf7699561aa76d1",
+          "team": "SEA",
+          "team_nick": "Seahawks",
+          "player_name": "Tyrice Knight",
+          "position": "LB",
+          "unit": "defense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-15T22:27:00.000Z",
+              "evidence": "Knight will start in Thursday's game against the Broncos, Brady Henderson of ESPN.com reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "defensive_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_ba5a566e4a4ee1dd",
+          "team": "SEA",
+          "team_nick": "Seahawks",
+          "player_name": "Irv Charles",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-15T22:57:00.000Z",
+              "evidence": "Charles was elevated from the practice squad to the active roster ahead of Thursday's game against Denver, John Boyle of the team's official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        },
+        {
+          "id": "starter_8c7f125e271befaf",
+          "team": "SEA",
+          "team_nick": "Seahawks",
+          "player_name": "Velus Jones Jr.",
+          "position": "RB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-16T00:46:00.000Z",
+              "evidence": "Jones was signed from the practice squad to the active roster ahead of Thursday's game against the Broncos."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
       "named_status_reviews": []
     },
     "TB": {
@@ -3611,7 +3657,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 2,
+      "source_count": 1,
       "sources": [
         {
           "source": "week1-usage-locks.json",
@@ -3619,19 +3665,11 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 1 2026 usage leader at RB for LV (usage score 26.0 vs runner-up 7.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-        },
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-14T18:48:00.000Z",
-          "evidence": "Head coach Klint Kubiak said Wednesday that Jeanty is \"starting to feel a lot better physically,\" and the Raiders have had no discussions of resting him, Sam Warren of The Athletic reports. \"I'm excited about giving him even more reps in practice and more full-speed reps,\" Kubiak said."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "week1_usage_dominant",
-        "starter"
+        "week1_usage_dominant"
       ],
       "impact_bucket": "rb_major",
       "needs_human_review": false,
@@ -4070,6 +4108,114 @@
       "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
+      "id": "starter_8c7f125e271befaf",
+      "team": "SEA",
+      "team_nick": "Seahawks",
+      "player_name": "Velus Jones Jr.",
+      "position": "RB",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-16T00:46:00.000Z",
+          "evidence": "Jones was signed from the practice squad to the active roster ahead of Thursday's game against the Broncos."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_ba5a566e4a4ee1dd",
+      "team": "SEA",
+      "team_nick": "Seahawks",
+      "player_name": "Irv Charles",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-15T22:57:00.000Z",
+          "evidence": "Charles was elevated from the practice squad to the active roster ahead of Thursday's game against Denver, John Boyle of the team's official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_ebf7699561aa76d1",
+      "team": "SEA",
+      "team_nick": "Seahawks",
+      "player_name": "Tyrice Knight",
+      "position": "LB",
+      "unit": "defense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-15T22:27:00.000Z",
+          "evidence": "Knight will start in Thursday's game against the Broncos, Brady Henderson of ESPN.com reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "defensive_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_e3ddb5ceddd51981",
+      "team": "PHI",
+      "team_nick": "Eagles",
+      "player_name": "Tanner McKee",
+      "position": "QB",
+      "unit": "offense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-15T17:29:00.000Z",
+          "evidence": "McKee appears lined up to start Sunday's game against the Panthers after the Eagles announced Wednesday that Jalen Hurts has been ruled out for Week 6 due to a superficial blood clot on his calf, Dave Zangaro of NBC Sports Philadelphia reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
       "id": "starter_0d0d780fc1fc8371",
       "team": "NYG",
       "team_nick": "Giants",
@@ -4086,7 +4232,7 @@
           "source_type": "structured_injury",
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
           "published_at": "2026-10-15T14:28:00.000Z",
-          "evidence": "Giants head coach Jim Harbaugh said Wednesday that he plans to keep using McCarthy in a change-of-pace role behind starting quarterback Jameis Winston in an effort to take advantage of McCarthy's scrambling ability, Jordan Raanan of ESPN.com reports."
+          "evidence": "Giants head coach John Harbaugh said Wednesday he plans to keep using McCarthy in a change-of-pace role behind starting quarterback Jameis Winston in an effort to take advantage of McCarthy's scrambling ability, Jordan Raanan of ESPN.com reports."
         }
       ],
       "evidence_tags": [
@@ -4094,35 +4240,6 @@
         "competition"
       ],
       "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "confidence_basis": "local_availability_starter_language",
-      "human_review_decision": "approved",
-      "human_review_decided_at": "2026-10-15T15:09:02.070Z"
-    },
-    {
-      "id": "starter_69d24e9c911a7cc1",
-      "team": "NYJ",
-      "team_nick": "Jets",
-      "player_name": "Dylan Parham",
-      "position": "G",
-      "unit": "offensive_line",
-      "role": "likely_starter_or_primary",
-      "starter_confidence": 0.7,
-      "roster_confidence": 0.66,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-15T00:52:00.000Z",
-          "evidence": "Coach Aaron Glenn said Wednesday that Parham (knee) is still week-to-week as the Jets start preparing for Week 6, Antwan V. Staley of the New York Daily News reports."
-        }
-      ],
-      "evidence_tags": [
-        "starter"
-      ],
-      "impact_bucket": "offensive_line_major",
       "needs_human_review": false,
       "confidence_basis": "local_availability_starter_language",
       "human_review_decision": "approved",
@@ -4181,35 +4298,6 @@
         "roster_signal"
       ],
       "impact_bucket": "defensive_front_major",
-      "needs_human_review": false,
-      "confidence_basis": "local_availability_starter_language",
-      "human_review_decision": "approved",
-      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
-    },
-    {
-      "id": "starter_f15080c0f324b52f",
-      "team": "NYG",
-      "team_nick": "Giants",
-      "player_name": "Malik Harrison",
-      "position": "LB",
-      "unit": "defense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-14T02:13:00.000Z",
-          "evidence": "Harrison was signed to the Giants' active roster Tuesday, Dan Salomone of the team's official site reports."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "defensive_major",
       "needs_human_review": false,
       "confidence_basis": "local_availability_starter_language",
       "human_review_decision": "approved",

@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15T21:03:14.961865+00:00",
+ "generated_at": "2026-10-16T22:20:35.498594+00:00",
  "source": "ESPN site.api teams/{id}/roster",
  "team_count": 32,
  "player_count": 2563,
@@ -12,12 +12,12 @@
   "CHI": 83,
   "CIN": 74,
   "CLE": 80,
-  "DAL": 80,
+  "DAL": 79,
   "DEN": 79,
-  "DET": 81,
+  "DET": 82,
   "GB": 81,
   "HOU": 87,
-  "IND": 78,
+  "IND": 77,
   "JAX": 80,
   "KC": 77,
   "LV": 80,
@@ -29,7 +29,7 @@
   "NO": 81,
   "NYG": 83,
   "NYJ": 82,
-  "PHI": 81,
+  "PHI": 82,
   "PIT": 80,
   "SF": 90,
   "SEA": 82,
@@ -2891,6 +2891,15 @@
     "espn_id": "4239934"
    }
   ],
+  "Trevor Etienne": [
+   {
+    "team": "CAR",
+    "position": "RB",
+    "group": "offense",
+    "status": "active",
+    "espn_id": "4685350"
+   }
+  ],
   "Mitchell Evans": [
    {
     "team": "CAR",
@@ -3366,15 +3375,6 @@
     "group": "injuredReserveOrOut",
     "status": "day-to-day",
     "espn_id": "4427132"
-   }
-  ],
-  "Trevor Etienne": [
-   {
-    "team": "CAR",
-    "position": "RB",
-    "group": "injuredReserveOrOut",
-    "status": "day-to-day",
-    "espn_id": "4685350"
    }
   ],
   "Jaycee Horn": [
@@ -6388,15 +6388,6 @@
     "espn_id": "3920591"
    }
   ],
-  "Joe Milton III": [
-   {
-    "team": "DAL",
-    "position": "QB",
-    "group": "practiceSquad",
-    "status": "practice-squad",
-    "espn_id": "4360698"
-   }
-  ],
   "James Mitchell": [
    {
     "team": "DAL",
@@ -6838,6 +6829,15 @@
     "espn_id": "4683535"
    }
   ],
+  "Taylor Rapp": [
+   {
+    "team": "DEN",
+    "position": "S",
+    "group": "defense",
+    "status": "active",
+    "espn_id": "4039007"
+   }
+  ],
   "Karene Reid": [
    {
     "team": "DEN",
@@ -7108,15 +7108,6 @@
     "espn_id": "5085625"
    }
   ],
-  "Taylor Rapp": [
-   {
-    "team": "DEN",
-    "position": "S",
-    "group": "practiceSquad",
-    "status": "practice-squad",
-    "espn_id": "4039007"
-   }
-  ],
   "Cody Schrader": [
    {
     "team": "DEN",
@@ -7151,15 +7142,6 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4430973"
-   }
-  ],
-  "Ben Bartch": [
-   {
-    "team": "DET",
-    "position": "G",
-    "group": "offense",
-    "status": "active",
-    "espn_id": "4611506"
    }
   ],
   "Larry Borom": [
@@ -7223,15 +7205,6 @@
     "group": "offense",
     "status": "active",
     "espn_id": "3116136"
-   }
-  ],
-  "Tom Kennedy": [
-   {
-    "team": "DET",
-    "position": "WR",
-    "group": "offense",
-    "status": "active",
-    "espn_id": "3126997"
    }
   ],
   "Sam LaPorta": [
@@ -7576,15 +7549,6 @@
     "espn_id": "4034861"
    }
   ],
-  "Devin White": [
-   {
-    "team": "DET",
-    "position": "LB",
-    "group": "defense",
-    "status": "active",
-    "espn_id": "4035434"
-   }
-  ],
   "Tyleik Williams": [
    {
     "team": "DET",
@@ -7648,6 +7612,15 @@
     "espn_id": "4571755"
    }
   ],
+  "Ben Bartch": [
+   {
+    "team": "DET",
+    "position": "G",
+    "group": "injuredReserveOrOut",
+    "status": "day-to-day",
+    "espn_id": "4611506"
+   }
+  ],
   "Brian Branch": [
    {
     "team": "DET",
@@ -7682,6 +7655,15 @@
     "group": "injuredReserveOrOut",
     "status": "day-to-day",
     "espn_id": "4360383"
+   }
+  ],
+  "Tom Kennedy": [
+   {
+    "team": "DET",
+    "position": "WR",
+    "group": "injuredReserveOrOut",
+    "status": "day-to-day",
+    "espn_id": "3126997"
    }
   ],
   "Kendrick Law": [
@@ -7738,6 +7720,15 @@
     "espn_id": "4240269"
    }
   ],
+  "Devin White": [
+   {
+    "team": "DET",
+    "position": "LB",
+    "group": "injuredReserveOrOut",
+    "status": "day-to-day",
+    "espn_id": "4035434"
+   }
+  ],
   "Luke Altmyer": [
    {
     "team": "DET",
@@ -7763,6 +7754,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4565445"
+   }
+  ],
+  "DeAndre Carter": [
+   {
+    "team": "DET",
+    "position": "WR",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "2580216"
    }
   ],
   "Devin Cochran": [
@@ -9555,15 +9555,6 @@
     "group": "offense",
     "status": "active",
     "espn_id": "4429084"
-   }
-  ],
-  "Darius Slayton": [
-   {
-    "team": "IND",
-    "position": "WR",
-    "group": "offense",
-    "status": "active",
-    "espn_id": "3916945"
    }
   ],
   "Jonathan Taylor": [
@@ -12352,15 +12343,6 @@
     "espn_id": "4429811"
    }
   ],
-  "Alec Ingold": [
-   {
-    "team": "LAC",
-    "position": "FB",
-    "group": "offense",
-    "status": "active",
-    "espn_id": "3917668"
-   }
-  ],
   "Quentin Johnston": [
    {
     "team": "LAC",
@@ -12764,6 +12746,15 @@
     "group": "specialTeam",
     "status": "active",
     "espn_id": "3126368"
+   }
+  ],
+  "Alec Ingold": [
+   {
+    "team": "LAC",
+    "position": "FB",
+    "group": "injuredReserveOrOut",
+    "status": "day-to-day",
+    "espn_id": "3917668"
    }
   ],
   "KeAndre Lambert-Smith": [
@@ -13180,6 +13171,15 @@
     "espn_id": "12483"
    }
   ],
+  "Keagen Trost": [
+   {
+    "team": "LAR",
+    "position": "OT",
+    "group": "offense",
+    "status": "active",
+    "espn_id": "4575003"
+   }
+  ],
   "Jordan Whittington": [
    {
     "team": "LAR",
@@ -13545,15 +13545,6 @@
     "group": "injuredReserveOrOut",
     "status": "day-to-day",
     "espn_id": "4038843"
-   }
-  ],
-  "Keagen Trost": [
-   {
-    "team": "LAR",
-    "position": "OT",
-    "group": "injuredReserveOrOut",
-    "status": "day-to-day",
-    "espn_id": "4575003"
    }
   ],
   "Eddie Walls III": [
@@ -16445,15 +16436,6 @@
     "espn_id": "4873075"
    }
   ],
-  "Alan Herron": [
-   {
-    "team": "NO",
-    "position": "OT",
-    "group": "practiceSquad",
-    "status": "practice-squad",
-    "espn_id": "5164879"
-   }
-  ],
   "Jarquez Hunter": [
    {
     "team": "NO",
@@ -16470,6 +16452,15 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4426507"
+   }
+  ],
+  "Jayden Price": [
+   {
+    "team": "NO",
+    "position": "CB",
+    "group": "practiceSquad",
+    "status": "practice-squad",
+    "espn_id": "4383391"
    }
   ],
   "Kyrese Rowan": [
@@ -18191,6 +18182,15 @@
     "espn_id": "4685201"
    }
   ],
+  "Joe Milton III": [
+   {
+    "team": "PHI",
+    "position": "QB",
+    "group": "offense",
+    "status": "active",
+    "espn_id": "4360698"
+   }
+  ],
   "Elijah Moore": [
    {
     "team": "PHI",
@@ -18243,15 +18243,6 @@
     "group": "offense",
     "status": "active",
     "espn_id": "4360238"
-   }
-  ],
-  "Will Shipley": [
-   {
-    "team": "PHI",
-    "position": "RB",
-    "group": "offense",
-    "status": "active",
-    "espn_id": "4431545"
    }
   ],
   "Carson Steele": [
@@ -18576,6 +18567,15 @@
     "group": "injuredReserveOrOut",
     "status": "day-to-day",
     "espn_id": "4250510"
+   }
+  ],
+  "Will Shipley": [
+   {
+    "team": "PHI",
+    "position": "RB",
+    "group": "injuredReserveOrOut",
+    "status": "day-to-day",
+    "espn_id": "4431545"
    }
   ],
   "Eli Stowers": [
@@ -19575,6 +19575,15 @@
     "espn_id": "16002"
    }
   ],
+  "Christian Kirk": [
+   {
+    "team": "SF",
+    "position": "WR",
+    "group": "offense",
+    "status": "active",
+    "espn_id": "3895856"
+   }
+  ],
   "George Kittle": [
    {
     "team": "SF",
@@ -20043,15 +20052,6 @@
     "espn_id": "4696051"
    }
   ],
-  "Christian Kirk": [
-   {
-    "team": "SF",
-    "position": "WR",
-    "group": "injuredReserveOrOut",
-    "status": "day-to-day",
-    "espn_id": "3895856"
-   }
-  ],
   "Nick Martin": [
    {
     "team": "SF",
@@ -20295,6 +20295,15 @@
     "espn_id": "4576297"
    }
   ],
+  "Irv Charles": [
+   {
+    "team": "SEA",
+    "position": "WR",
+    "group": "offense",
+    "status": "active",
+    "espn_id": "3929636"
+   }
+  ],
   "Charles Cross": [
    {
     "team": "SEA",
@@ -20518,6 +20527,15 @@
     "group": "defense",
     "status": "news",
     "espn_id": "4592837"
+   }
+  ],
+  "Jimmy Ciarlo": [
+   {
+    "team": "SEA",
+    "position": "LB",
+    "group": "defense",
+    "status": "active",
+    "espn_id": "4689804"
    }
   ],
   "Trevon Diggs": [
@@ -20869,24 +20887,6 @@
     "group": "practiceSquad",
     "status": "practice-squad",
     "espn_id": "4570075"
-   }
-  ],
-  "Irv Charles": [
-   {
-    "team": "SEA",
-    "position": "WR",
-    "group": "practiceSquad",
-    "status": "practice-squad",
-    "espn_id": "3929636"
-   }
-  ],
-  "Jimmy Ciarlo": [
-   {
-    "team": "SEA",
-    "position": "LB",
-    "group": "practiceSquad",
-    "status": "practice-squad",
-    "espn_id": "4689804"
    }
   ],
   "Michael Dansby": [
@@ -22779,6 +22779,15 @@
     "espn_id": "3127273"
    }
   ],
+  "Jordan Magee": [
+   {
+    "team": "WSH",
+    "position": "LB",
+    "group": "defense",
+    "status": "active",
+    "espn_id": "4568617"
+   }
+  ],
   "Quan Martin": [
    {
     "team": "WSH",
@@ -22957,15 +22966,6 @@
     "group": "injuredReserveOrOut",
     "status": "day-to-day",
     "espn_id": "4426901"
-   }
-  ],
-  "Jordan Magee": [
-   {
-    "team": "WSH",
-    "position": "LB",
-    "group": "injuredReserveOrOut",
-    "status": "day-to-day",
-    "espn_id": "4568617"
    }
   ],
   "Jeremy McNichols": [

@@ -1,0 +1,217 @@
+{
+ "schema": "weather_forecast_source_capture_v1",
+ "captured_at": "2026-10-16T22:04:32.000Z",
+ "season": 2026,
+ "week": 6,
+ "provider": "Open-Meteo forecast API",
+ "provider_base_url": "https://api.open-meteo.com/v1/forecast",
+ "status": "source_evidence_only",
+ "caveats": [
+  "Forecast data, not observed game conditions.",
+  "Hourly provider values are sampled at the hour at or before kickoff.",
+  "Forecasts must be refreshed close to kickoff before any material weather thesis is retained.",
+  "Stadium coordinates for non-W5 venues are static reference facts, not a captured source."
+ ],
+ "outdoor_games": [
+  {
+   "game": "HOU@JAX",
+   "kickoff_utc": "2026-10-18T13:30:00Z",
+   "sampled_forecast_utc": "2026-10-18T13:00:00Z",
+   "coordinates": {
+    "latitude": 51.550354,
+    "longitude": -0.27337646
+   },
+   "coordinate_note": "Wembley (London); venue per Texans/Jaguars announcements; same coords as W5 PHI@JAX",
+   "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=51.550354&longitude=-0.27337646&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-17&end_date=2026-10-19",
+   "forecast": {
+    "temperature_c": 12.2,
+    "temperature_f": 54.0,
+    "precipitation_probability_pct": 16,
+    "precipitation_mm": 0.0,
+    "wind_speed_kmh": 19.8,
+    "wind_gusts_kmh": 40.7,
+    "wind_direction_deg": 2
+   }
+  },
+  {
+   "game": "NYJ@NE",
+   "kickoff_utc": "2026-10-18T17:00:00Z",
+   "sampled_forecast_utc": "2026-10-18T17:00:00Z",
+   "coordinates": {
+    "latitude": 42.09629,
+    "longitude": -71.24448
+   },
+   "coordinate_note": "W5 NE coords",
+   "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=42.09629&longitude=-71.24448&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-17&end_date=2026-10-19",
+   "forecast": {
+    "temperature_c": 9.8,
+    "temperature_f": 49.6,
+    "precipitation_probability_pct": 0,
+    "precipitation_mm": 0.0,
+    "wind_speed_kmh": 9.4,
+    "wind_gusts_kmh": 15.8,
+    "wind_direction_deg": 156
+   }
+  },
+  {
+   "game": "PIT@TB",
+   "kickoff_utc": "2026-10-18T17:00:00Z",
+   "sampled_forecast_utc": "2026-10-18T17:00:00Z",
+   "coordinates": {
+    "latitude": 27.97583,
+    "longitude": -82.50333
+   },
+   "coordinate_note": "static stadium coords",
+   "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=27.97583&longitude=-82.50333&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-17&end_date=2026-10-19",
+   "forecast": {
+    "temperature_c": 25.2,
+    "temperature_f": 77.4,
+    "precipitation_probability_pct": 0,
+    "precipitation_mm": 0.0,
+    "wind_speed_kmh": 24.5,
+    "wind_gusts_kmh": 34.4,
+    "wind_direction_deg": 50
+   }
+  },
+  {
+   "game": "BAL@CLE",
+   "kickoff_utc": "2026-10-18T17:00:00Z",
+   "sampled_forecast_utc": "2026-10-18T17:00:00Z",
+   "coordinates": {
+    "latitude": 41.50611,
+    "longitude": -81.69954
+   },
+   "coordinate_note": "static stadium coords",
+   "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=41.50611&longitude=-81.69954&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-17&end_date=2026-10-19",
+   "forecast": {
+    "temperature_c": 13.0,
+    "temperature_f": 55.4,
+    "precipitation_probability_pct": 0,
+    "precipitation_mm": 0.0,
+    "wind_speed_kmh": 13.0,
+    "wind_gusts_kmh": 19.6,
+    "wind_direction_deg": 206
+   }
+  },
+  {
+   "game": "CAR@PHI",
+   "kickoff_utc": "2026-10-18T17:00:00Z",
+   "sampled_forecast_utc": "2026-10-18T17:00:00Z",
+   "coordinates": {
+    "latitude": 39.90083,
+    "longitude": -75.1675
+   },
+   "coordinate_note": "static stadium coords",
+   "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=39.90083&longitude=-75.1675&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-17&end_date=2026-10-19",
+   "forecast": {
+    "temperature_c": 11.8,
+    "temperature_f": 53.2,
+    "precipitation_probability_pct": 0,
+    "precipitation_mm": 0.0,
+    "wind_speed_kmh": 9.3,
+    "wind_gusts_kmh": 14.6,
+    "wind_direction_deg": 22
+   }
+  },
+  {
+   "game": "NO@NYG",
+   "kickoff_utc": "2026-10-18T17:00:00Z",
+   "sampled_forecast_utc": "2026-10-18T17:00:00Z",
+   "coordinates": {
+    "latitude": 40.80899,
+    "longitude": -74.06947
+   },
+   "coordinate_note": "W5 MetLife coords",
+   "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=40.80899&longitude=-74.06947&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-17&end_date=2026-10-19",
+   "forecast": {
+    "temperature_c": 11.8,
+    "temperature_f": 53.2,
+    "precipitation_probability_pct": 0,
+    "precipitation_mm": 0.0,
+    "wind_speed_kmh": 7.7,
+    "wind_gusts_kmh": 14.0,
+    "wind_direction_deg": 149
+   }
+  },
+  {
+   "game": "ARI@LAR",
+   "kickoff_utc": "2026-10-18T20:05:00Z",
+   "sampled_forecast_utc": "2026-10-18T20:00:00Z",
+   "coordinates": {
+    "latitude": 33.9535,
+    "longitude": -118.3392
+   },
+   "coordinate_note": "static stadium coords; covered but open-sided",
+   "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=33.9535&longitude=-118.3392&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-17&end_date=2026-10-19",
+   "forecast": {
+    "temperature_c": 26.8,
+    "temperature_f": 80.2,
+    "precipitation_probability_pct": 0,
+    "precipitation_mm": 0.0,
+    "wind_speed_kmh": 15.4,
+    "wind_gusts_kmh": 7.9,
+    "wind_direction_deg": 249
+   }
+  },
+  {
+   "game": "LAC@KC",
+   "kickoff_utc": "2026-10-18T20:25:00Z",
+   "sampled_forecast_utc": "2026-10-18T20:00:00Z",
+   "coordinates": {
+    "latitude": 39.04889,
+    "longitude": -94.48389
+   },
+   "coordinate_note": "static stadium coords",
+   "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=39.04889&longitude=-94.48389&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-17&end_date=2026-10-19",
+   "forecast": {
+    "temperature_c": 18.4,
+    "temperature_f": 65.1,
+    "precipitation_probability_pct": 0,
+    "precipitation_mm": 0.0,
+    "wind_speed_kmh": 20.2,
+    "wind_gusts_kmh": 27.0,
+    "wind_direction_deg": 196
+   }
+  },
+  {
+   "game": "DAL@GB",
+   "kickoff_utc": "2026-10-19T00:20:00Z",
+   "sampled_forecast_utc": "2026-10-19T00:00:00Z",
+   "coordinates": {
+    "latitude": 44.50524,
+    "longitude": -88.049416
+   },
+   "coordinate_note": "W5 GB coords",
+   "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=44.50524&longitude=-88.049416&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-18&end_date=2026-10-20",
+   "forecast": {
+    "temperature_c": 11.5,
+    "temperature_f": 52.7,
+    "precipitation_probability_pct": 0,
+    "precipitation_mm": 0.0,
+    "wind_speed_kmh": 22.5,
+    "wind_gusts_kmh": 51.8,
+    "wind_direction_deg": 207
+   }
+  },
+  {
+   "game": "WAS@SF",
+   "kickoff_utc": "2026-10-20T00:15:00Z",
+   "sampled_forecast_utc": "2026-10-20T00:00:00Z",
+   "coordinates": {
+    "latitude": 37.40306,
+    "longitude": -121.96972
+   },
+   "coordinate_note": "static stadium coords",
+   "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=37.40306&longitude=-121.96972&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-19&end_date=2026-10-21",
+   "forecast": {
+    "temperature_c": 18.5,
+    "temperature_f": 65.3,
+    "precipitation_probability_pct": 0,
+    "precipitation_mm": 0.0,
+    "wind_speed_kmh": 15.9,
+    "wind_gusts_kmh": 15.1,
+    "wind_direction_deg": 321
+   }
+  }
+ ]
+}

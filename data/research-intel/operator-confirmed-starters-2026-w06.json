@@ -1,19 +1,21 @@
 {
  "schema": "operator_confirmed_starters_v1",
  "week": 6,
- "confirmed_at": "2026-10-16T03:35:00Z",
- "confirmed_at_pt": "2026-10-15 20:35 PT",
- "source": "Operator (Andy) message 2026-10-15 20:28 PT: Jalen Hurts (PHI) is OUT; no other QB updates.",
+ "confirmed_at": "2026-10-16T21:53:00Z",
+ "confirmed_at_pt": "2026-10-16 14:53 PT",
+ "source": "Operator (Andy): 2026-10-15 20:28 PT Jalen Hurts (PHI) is OUT; 2026-10-16 14:53 PT approved recording Tyler Huntley (BAL) and Jalon Daniels (TB) as starters after Lamar Jackson (BAL, ankle) and Baker Mayfield (TB, thumb) were reported Out by ESPN (coach Minter / Buccaneers site) and FantasyPros as of 2026-10-16 19:54Z.",
  "starters": {
-  "PHI": "Tanner McKee"
+  "PHI": "Tanner McKee",
+  "BAL": "Tyler Huntley",
+  "TB": "Jalon Daniels"
  },
  "out": {
-  "PHI": "Jalen Hurts"
+  "PHI": "Jalen Hurts",
+  "BAL": "Lamar Jackson",
+  "TB": "Baker Mayfield"
  },
  "unconfirmed_espn_only": {
-  "BAL": "Lamar Jackson (Questionable)",
-  "CHI": "Caleb Williams (Questionable)",
-  "TB": "Baker Mayfield (Doubtful; backup Jalon Daniels)"
+  "CHI": "Caleb Williams (ESPN Questionable, hamstring; FantasyPros ~67% to play, status UNKNOWN as of 2026-10-16 19:54Z)"
  },
- "note": "Operator stated only that Hurts is OUT. PHI starter Tanner McKee is the next QB on the ESPN depth chart (derived, not operator-stated). BAL, CHI and TB have no operator confirmation; ESPN statuses (as of 2026-10-16 00:44Z) still apply. Official inactives decide."
+ "note": "Hurts OUT stated by operator. BAL and TB starters recorded on operator approval, based on ESPN and FantasyPros Out reports (not an operator-originated injury report). PHI starter McKee derived from ESPN depth chart. CHI Williams unresolved. Official inactives decide."
 }

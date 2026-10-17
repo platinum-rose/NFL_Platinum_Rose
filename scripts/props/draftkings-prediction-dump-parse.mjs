@@ -64,6 +64,10 @@ export const TEAM_ABBR_MAP = {
 };
 
 export const PLAYER_ALIAS_MAP = {
+  // Added 2026-10-16 (W6 DKP gate): ESPN full roster 2026-10-16 lists BAL, injuredReserveOrOut/day-to-day
+  "Ja'Kobi Lane": 'BAL',
+  // Added 2026-10-16: DKP lists legal name; ESPN roster 2026-10-16 has "Hollywood Brown" (espn_id 4241372) PHI WR active
+  'Marquise Brown': 'PHI',
   // Suffix variations
   'James Cook': 'BUF',
   'Aaron Jones': 'MIN',

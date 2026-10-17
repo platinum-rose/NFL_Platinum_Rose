@@ -31,7 +31,7 @@ export const MARKET_PATTERNS = [
   ['pass_yds', /\bpassing yards$/i],
   ['pass_cmp', /\bcompletions$/i],
   ['pass_td', /\bpassing touchdowns$/i],
-  ['pass_int', /\binterceptions thrown$/i],
+  ['pass_int', /\binterceptions? thrown$/i],
   ['pass_att', /\bpassing attempts$/i],
   ['longest_completion', /\blongest completion$/i],
   ['rush_yds', /\brushing yards$/i],
