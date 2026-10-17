@@ -165,6 +165,7 @@ DraftKings, FanDuel, BetMGM, Caesars, BetOnline, Bookmaker, PointsBet, Unibet
 Resume Platinum Rose NFL. HEAD = {commit} ({branch}). Suite: {N/N}. {one-sentence state}. Next: {task}. Read HANDOFF.md, reconcile live Git, then read only the dated handoff for the active lane.
 ```
 - NEVER paste a resume command without HEAD commit + test count
+- **MANDATORY, EVERY TIME (Andy has had to ask repeatedly): every handoff / wrap-up / end-session / "resume prompt" request MUST print the full RESUME PROMPT IN-SESSION, in the chat reply, in a copy-paste code block, in the same response that does the handoff. Writing it only to a file or Project doc does not count. Never wait to be asked for it.
 
 ### Session Close
 - Create or update a dated handoff in `handoffs/` for detailed session history.
