@@ -65,11 +65,17 @@ export function clean(value = '') {
   return String(value).replace(/\s+/g, ' ').trim();
 }
 
+// BetOnline sometimes prints "Kirk Cousin" (no trailing s) on some markets; normalize to the real name.
+const PLAYER_NAME_FIXES = new Map([['Kirk Cousin', 'Kirk Cousins']]);
+function fixPlayerName(name) {
+  return PLAYER_NAME_FIXES.get(name) || name;
+}
+
 export function splitTeamSuffix(value = '') {
   const normalized = clean(value);
   const teamMatch = normalized.match(/\s([A-Z]{2,3})$/);
   return {
-    player: teamMatch ? normalized.slice(0, teamMatch.index).trim() : normalized,
+    player: fixPlayerName(teamMatch ? normalized.slice(0, teamMatch.index).trim() : normalized),
     team: teamMatch ? teamMatch[1].toUpperCase() : null,
   };
 }

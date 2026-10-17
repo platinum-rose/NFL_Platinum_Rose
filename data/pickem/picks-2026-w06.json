@@ -1,7 +1,16 @@
 {
- "schema": "pickem_picks_v1",
- "season": 2026,
- "week": 6,
- "notes": "SEA@DEN (TNF) final DEN 17-14, excluded from the open slate. SSW and CBS entries read from the pool pages 10/16; Yahoo per-game picks not captured.",
- "pools": {}
+  "schema": "pickem_picks_v1",
+  "season": 2026,
+  "week": 6,
+  "notes": "SEA@DEN (TNF) final DEN 17-14, excluded from the open slate. SSW and CBS entries read from the pool pages 10/16; Yahoo SEA pick (5 conf, lost) captured 10/16; other Yahoo W6 picks not yet set.",
+  "pools": {
+    "yahoo": {
+      "SEA": {
+        "confidence": 5,
+        "status": "submitted",
+        "result": "L",
+        "source": "Yahoo Pick'em page (pool 472.g.4087, team 12), read 2026-10-16 ~18:55 PT; final DEN 17-14. Yahoo API has no per-game pick endpoint."
+      }
+    }
+  }
 }

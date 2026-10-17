@@ -1,7 +1,7 @@
 {
   "schema": "week6_quantitative_synthesis_v1",
   "week": 6,
-  "generated_at": "2026-10-16T22:59:39.581Z",
+  "generated_at": "2026-10-17T02:36:52.349Z",
   "status": "proposed_analysis_only",
   "engine": {
     "name": "scripts/intel/margin-simulator.mjs analyzeGame",
@@ -16,7 +16,7 @@
       "7": 2.241308823639945
     },
     "latent_sigma_margin": 13.65927820366725,
-    "secondary_slate_mean_removed_pts_per_team": 0.4137857142857143
+    "secondary_slate_mean_removed_pts_per_team": 0.4095
   },
   "warnings": [
     "no SuperContest lines file for week 6: contest field is null"
@@ -51,18 +51,18 @@
       "role": "numeric season-to-date SRS component"
     },
     "bookmaker": {
-      "source": "data/odds/BKR_current_lines_1016_1038_buildfmt",
-      "captured": "2026-10-16T17:38:00.000Z",
+      "source": "data/odds/BKR_current_lines_1016_1933_buildfmt",
+      "captured": "2026-10-17T02:33:00.000Z",
       "captured_basis": "board filename time, PT, approximate",
       "rows": 13,
       "role": "market anchor"
     },
     "secondary": {
-      "generated": "2026-10-16T22:22:27.448Z",
+      "generated": "2026-10-17T02:04:07.188Z",
       "role": "capped matchup context"
     },
     "availability": {
-      "generated": "2026-10-16T22:22:20.538Z",
+      "generated": "2026-10-17T02:04:00.537Z",
       "role": "gate/context; not blanket point adjustments"
     },
     "podcast": {
@@ -81,7 +81,7 @@
       "team": "NYG",
       "player": "Jaxson Dart",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Jaxson Dart IR"
     },
     {
@@ -120,32 +120,32 @@
       "summary": "The Chargers signed Browning to the practice squad Tuesday, Noah Furtado of The Athletic reports."
     },
     {
-      "team": "BAL",
-      "player": "Skylar Thompson",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Skylar Thompson IR"
-    },
-    {
-      "team": "HOU",
-      "player": "Graham Mertz",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Graham Mertz IR"
-    },
-    {
       "team": "LAC",
       "player": "Trey Lance",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Trey Lance IR"
     },
     {
       "team": "LAR",
       "player": "Matthew Caldwell",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Matthew Caldwell IR"
+    },
+    {
+      "team": "BAL",
+      "player": "Skylar Thompson",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Skylar Thompson IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Graham Mertz",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Graham Mertz IR"
     },
     {
       "team": "CLE",
@@ -160,6 +160,13 @@
       "event_type": "out",
       "published_at": "2026-10-16T16:48:00.000Z",
       "summary": "Barkley (hamstring) wasn't spotted at Friday's practice, Jimmy Kempski of PhillyVoice.com reports."
+    },
+    {
+      "team": "TB",
+      "player": "Baker Mayfield",
+      "event_type": "out",
+      "published_at": "2026-10-16T22:45:31.000Z",
+      "summary": "Baker Mayfield OUT"
     },
     {
       "team": "TB",
@@ -225,13 +232,6 @@
       "summary": "The Patriots opened the 21-day practice window Wednesday for Bryant (ankle) to return from injured reserve."
     },
     {
-      "team": "TB",
-      "player": "Baker Mayfield",
-      "event_type": "out",
-      "published_at": "2026-10-11T12:00:00.000Z",
-      "summary": "injured"
-    },
-    {
       "team": "DET",
       "player": "Cade Mays",
       "event_type": "ir",
@@ -274,6 +274,20 @@
       "summary": "Coach Dave Canales said Monday that Ekwonu (knee) is still a considerable time away from returning to action, Mike Kaye of ESPN reports."
     },
     {
+      "team": "TEN",
+      "player": "Jordan Elliott",
+      "event_type": "out",
+      "published_at": "2026-10-17T01:48:00.000Z",
+      "summary": "Elliott (personal) has been ruled out ahead of Sunday's game against the Colts."
+    },
+    {
+      "team": "CLE",
+      "player": "Mike Hall Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-17T01:46:00.000Z",
+      "summary": "Hall (ankle) has been ruled out ahead of Sunday's game against the Ravens."
+    },
+    {
       "team": "GB",
       "player": "Jordon Riley",
       "event_type": "out",
@@ -305,295 +319,316 @@
       "team": "LAC",
       "player": "David Njoku",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "David Njoku IR"
     },
     {
-      "team": "SF",
-      "player": "Sam Okuayinonu",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Sam Okuayinonu IR"
-    },
-    {
-      "team": "SF",
-      "player": "Alfred Collins",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Alfred Collins IR"
-    },
-    {
-      "team": "SF",
-      "player": "C.J. West",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "C.J. West IR"
-    },
-    {
-      "team": "TEN",
-      "player": "Tanoh Kpassagnon",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Tanoh Kpassagnon IR"
-    },
-    {
-      "team": "TEN",
-      "player": "Jaylen Harrell",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Jaylen Harrell IR"
-    },
-    {
-      "team": "WAS",
-      "player": "Jer'Zhan Newton",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Jer'Zhan Newton IR"
-    },
-    {
-      "team": "ARI",
-      "player": "Kaleb Proctor",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Kaleb Proctor IR"
-    },
-    {
-      "team": "ATL",
-      "player": "Da'Shawn Hand",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Da'Shawn Hand IR"
-    },
-    {
-      "team": "ATL",
-      "player": "Anterio Thompson",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Anterio Thompson IR"
-    },
-    {
-      "team": "BUF",
-      "player": "Zane Durant",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Zane Durant IR"
-    },
-    {
-      "team": "CAR",
-      "player": "Nic Scourton",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Nic Scourton IR"
-    },
-    {
-      "team": "CAR",
-      "player": "Cam Jackson",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Cam Jackson IR"
-    },
-    {
-      "team": "CLE",
-      "player": "Alex Wright",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Alex Wright IR"
-    },
-    {
-      "team": "DAL",
-      "player": "Kelvin Gilliam Jr.",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Kelvin Gilliam Jr. IR"
-    },
-    {
-      "team": "DEN",
-      "player": "Matt Henningsen",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Matt Henningsen IR"
-    },
-    {
       "team": "DET",
-      "player": "Payton Turner",
+      "player": "Tom Kennedy",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Payton Turner IR"
-    },
-    {
-      "team": "GB",
-      "player": "Warren Brinson",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Warren Brinson IR"
-    },
-    {
-      "team": "HOU",
-      "player": "Mario Edwards Jr.",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Mario Edwards Jr. IR"
-    },
-    {
-      "team": "HOU",
-      "player": "Ali Gaye",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Ali Gaye IR"
-    },
-    {
-      "team": "HOU",
-      "player": "Dylan Horton",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Dylan Horton IR"
-    },
-    {
-      "team": "HOU",
-      "player": "Solomon Byrd",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Solomon Byrd IR"
+      "published_at": "2026-10-17T01:51:00.000Z",
+      "summary": "The Lions placed Kennedy (knee) on injured reserve Friday."
     },
     {
       "team": "IND",
       "player": "Arden Key",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Arden Key IR"
     },
     {
       "team": "IND",
       "player": "Micheal Clemons",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Micheal Clemons IR"
     },
     {
       "team": "JAX",
       "player": "B.J. Green II",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "B.J. Green II IR"
     },
     {
       "team": "KC",
       "player": "Ethan Downs",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Ethan Downs IR"
     },
     {
       "team": "LAR",
       "player": "Myles Garrett",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Myles Garrett IR"
     },
     {
       "team": "LAR",
       "player": "Keir Thomas II",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Keir Thomas II IR"
     },
     {
       "team": "LAR",
       "player": "Eddie Walls III",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Eddie Walls III IR"
     },
     {
       "team": "LV",
       "player": "Keyron Crawford",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Keyron Crawford IR"
     },
     {
       "team": "MIA",
       "player": "Trey Moore",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Trey Moore IR"
     },
     {
       "team": "MIA",
       "player": "Rene Konga",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Rene Konga IR"
     },
     {
       "team": "MIN",
       "player": "Tyler Batty",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Tyler Batty IR"
     },
     {
       "team": "NE",
       "player": "Quintayvious Hutchins",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Quintayvious Hutchins IR"
     },
     {
       "team": "NO",
       "player": "Bryan Bresee",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Bryan Bresee IR"
     },
     {
       "team": "NYG",
       "player": "Roy Robertson-Harris",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Roy Robertson-Harris IR"
     },
     {
       "team": "NYG",
       "player": "Brian Burns",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Brian Burns IR"
     },
     {
       "team": "NYG",
       "player": "Chauncey Golston",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Chauncey Golston IR"
     },
     {
       "team": "NYJ",
       "player": "David Onyemata",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "David Onyemata IR"
     },
     {
       "team": "NYJ",
       "player": "Kingsley Jonathan",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Kingsley Jonathan IR"
     },
     {
       "team": "PIT",
       "player": "Logan Lee",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Logan Lee IR"
     },
     {
       "team": "PIT",
       "player": "Derrick Harmon",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Derrick Harmon IR"
+    },
+    {
+      "team": "SF",
+      "player": "Sam Okuayinonu",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Sam Okuayinonu IR"
+    },
+    {
+      "team": "SF",
+      "player": "Alfred Collins",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Alfred Collins IR"
+    },
+    {
+      "team": "SF",
+      "player": "C.J. West",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "C.J. West IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Tanoh Kpassagnon",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Tanoh Kpassagnon IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Jaylen Harrell",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Jaylen Harrell IR"
+    },
+    {
+      "team": "WAS",
+      "player": "Jer'Zhan Newton",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Jer'Zhan Newton IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Kaleb Proctor",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Kaleb Proctor IR"
+    },
+    {
+      "team": "ATL",
+      "player": "Da'Shawn Hand",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Da'Shawn Hand IR"
+    },
+    {
+      "team": "ATL",
+      "player": "Anterio Thompson",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Anterio Thompson IR"
+    },
+    {
+      "team": "BUF",
+      "player": "Zane Durant",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Zane Durant IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Nic Scourton",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Nic Scourton IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Cam Jackson",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Cam Jackson IR"
+    },
+    {
+      "team": "CLE",
+      "player": "Alex Wright",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Alex Wright IR"
+    },
+    {
+      "team": "DAL",
+      "player": "Kelvin Gilliam Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Kelvin Gilliam Jr. IR"
+    },
+    {
+      "team": "DEN",
+      "player": "Matt Henningsen",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Matt Henningsen IR"
+    },
+    {
+      "team": "DET",
+      "player": "Payton Turner",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Payton Turner IR"
+    },
+    {
+      "team": "GB",
+      "player": "Warren Brinson",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Warren Brinson IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Mario Edwards Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Mario Edwards Jr. IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Ali Gaye",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Ali Gaye IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Dylan Horton",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Dylan Horton IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Solomon Byrd",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Solomon Byrd IR"
+    },
+    {
+      "team": "SF",
+      "player": "Christian Kirk",
+      "event_type": "ir",
+      "published_at": "2026-10-16T23:17:00.000Z",
+      "summary": "Kirk (calf) remained limited in Friday's practice, Harrison Rich of the San Francisco Chronicle reports."
+    },
+    {
+      "team": "PHI",
+      "player": "Saquon Barkley",
+      "event_type": "out",
+      "published_at": "2026-10-16T22:43:39.000Z",
+      "summary": "Saquon Barkley OUT"
     },
     {
       "team": "SEA",
@@ -608,20 +643,6 @@
       "event_type": "ir",
       "published_at": "2026-10-16T16:10:00.000Z",
       "summary": "Brown (ankle) practiced all three days this week, Mark Daniels of MassLive.com reports."
-    },
-    {
-      "team": "PHI",
-      "player": "Saquon Barkley",
-      "event_type": "out",
-      "published_at": "2026-10-16T00:00:00.000Z",
-      "summary": "Saquon Barkley OUT"
-    },
-    {
-      "team": "SF",
-      "player": "Christian Kirk",
-      "event_type": "ir",
-      "published_at": "2026-10-15T22:46:00.000Z",
-      "summary": "Kirk (calf) was limited in his return to practice Thursday, Matt Barrows of The Athletic reports."
     },
     {
       "team": "SF",
@@ -694,13 +715,6 @@
       "summary": "Berrios (foot) underwent successful surgery Friday to repair a Lisfranc injury, Jordan Raanan of ESPN.com reports."
     },
     {
-      "team": "TB",
-      "player": "David Sills V",
-      "event_type": "ir",
-      "published_at": "2026-10-12T23:06:00.000Z",
-      "summary": "Sills (hamstring) had his 21-day practice window opened by the Buccaneers on Monday, Scott Smith &amp; Brianna Dix of the team's official website reports."
-    },
-    {
       "team": "NO",
       "player": "Jordyn Tyson",
       "event_type": "ir",
@@ -713,20 +727,6 @@
       "event_type": "ir",
       "published_at": "2026-10-10T19:52:00.000Z",
       "summary": "The Steelers placed Pittman (foot) on injured reserve Saturday."
-    },
-    {
-      "team": "IND",
-      "player": "Will Mallory",
-      "event_type": "ir",
-      "published_at": "2026-10-09T23:56:00.000Z",
-      "summary": "Mallory (thumb) has been ruled out ahead of Sunday's game against the Steelers."
-    },
-    {
-      "team": "PIT",
-      "player": "DeShon Elliott",
-      "event_type": "ir",
-      "published_at": "2026-10-09T23:23:00.000Z",
-      "summary": "Elliott (knee) has been ruled out ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports."
     },
     {
       "team": "DEN",
@@ -764,6 +764,13 @@
       "summary": "Branch (Achilles) has been ruled out ahead of Sunday's game against the Cardinals."
     },
     {
+      "team": "PIT",
+      "player": "DeShon Elliott",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:42:00.000Z",
+      "summary": "Elliott (knee) has been ruled out ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports."
+    },
+    {
       "team": "WAS",
       "player": "Jordan Magee",
       "event_type": "ir",
@@ -778,6 +785,27 @@
       "summary": "The Falcons placed Abdullah (hamstring) on injured reserve Saturday, Tori McElhaney of the team's official site reports."
     },
     {
+      "team": "LAC",
+      "player": "Donte Jackson",
+      "event_type": "out",
+      "published_at": "2026-10-17T01:24:00.000Z",
+      "summary": "Jackson (hamstring) has been ruled out ahead of Sunday's game against the Chiefs."
+    },
+    {
+      "team": "CHI",
+      "player": "T.J. Edwards",
+      "event_type": "out",
+      "published_at": "2026-10-17T00:52:00.000Z",
+      "summary": "Edwards (hamstring) has been ruled out for Sunday's game against the Falcons."
+    },
+    {
+      "team": "GB",
+      "player": "Skyy Moore",
+      "event_type": "out",
+      "published_at": "2026-10-16T23:03:00.000Z",
+      "summary": "Moore (ankle) has been ruled out for Sunday night's game against the Cowboys, Wes Hodkiewicz of the Packers' official site reports."
+    },
+    {
       "team": "NYJ",
       "player": "Breece Hall",
       "event_type": "out",
@@ -790,27 +818,6 @@
       "event_type": "out",
       "published_at": "2026-10-16T15:29:00.000Z",
       "summary": "Hall (quadriceps) is out for Sunday's game, Brian Costello of the New York Post reports."
-    },
-    {
-      "team": "BAL",
-      "player": "Matt Hibner",
-      "event_type": "out",
-      "published_at": "2026-10-15T23:33:00.000Z",
-      "summary": "Hibner (hand) did not practice Thursday."
-    },
-    {
-      "team": "IND",
-      "player": "Ashton Dulin",
-      "event_type": "out",
-      "published_at": "2026-10-15T23:07:00.000Z",
-      "summary": "Dulin (hamstring) did not participate at practice Thursday."
-    },
-    {
-      "team": "LAC",
-      "player": "Tre' Harris",
-      "event_type": "out",
-      "published_at": "2026-10-15T22:27:00.000Z",
-      "summary": "Harris (hamstring) was a non-participant in Thursday's practice."
     },
     {
       "team": "HOU",
@@ -932,6 +939,20 @@
       "summary": "The Giants placed Golston (neck) on injured reserve Saturday, Dan Salomone of the Giants' official site reports."
     },
     {
+      "team": "JAX",
+      "player": "Montaric Brown",
+      "event_type": "out",
+      "published_at": "2026-10-17T00:48:00.000Z",
+      "summary": "Brown (hamstring) has been ruled out ahead of Sunday's game against the Texans."
+    },
+    {
+      "team": "TEN",
+      "player": "Kevin Winston Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-16T23:17:00.000Z",
+      "summary": "Winston (quadriceps) has been ruled out ahead of Sunday's game against the Colts, Paul Kuharsky of PaulKuharsky.com reports."
+    },
+    {
       "team": "ARI",
       "player": "James Conner",
       "event_type": "out",
@@ -939,17 +960,24 @@
       "summary": "injured"
     },
     {
+      "team": "CHI",
+      "player": "Dayo Odeyingbo",
+      "event_type": "out",
+      "published_at": "2026-10-17T01:05:00.000Z",
+      "summary": "Odeyingbo (quadriceps) has been ruled out for Sunday's game against the Falcons."
+    },
+    {
+      "team": "NYJ",
+      "player": "Joseph Ossai",
+      "event_type": "out",
+      "published_at": "2026-10-16T23:08:00.000Z",
+      "summary": "Ossai (ankle) has been ruled out ahead of Sunday's game against the Patriots, Brian Costello of the New York Post reports."
+    },
+    {
       "team": "GB",
       "player": "Jonathan Ford",
       "event_type": "out",
       "published_at": "2026-10-16T20:49:00.000Z",
-      "summary": "out"
-    },
-    {
-      "team": "TEN",
-      "player": "Jordan Elliott",
-      "event_type": "out",
-      "published_at": "2026-10-16T20:37:00.000Z",
       "summary": "out"
     },
     {
@@ -960,20 +988,6 @@
       "summary": "out"
     },
     {
-      "team": "CLE",
-      "player": "Mike Hall Jr.",
-      "event_type": "out",
-      "published_at": "2026-10-16T20:21:00.000Z",
-      "summary": "out"
-    },
-    {
-      "team": "CHI",
-      "player": "Dayo Odeyingbo",
-      "event_type": "out",
-      "published_at": "2026-10-16T19:13:00.000Z",
-      "summary": "out"
-    },
-    {
       "team": "CAR",
       "player": "Monroe Freeling",
       "event_type": "doubtful",
@@ -981,11 +995,18 @@
       "summary": "doubtful"
     },
     {
-      "team": "NYJ",
-      "player": "Joseph Ossai",
+      "team": "BAL",
+      "player": "Broderick Washington Jr.",
       "event_type": "out",
-      "published_at": "2026-10-16T14:48:00.000Z",
-      "summary": "out"
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Broderick Washington Jr. OUT"
+    },
+    {
+      "team": "CHI",
+      "player": "Dayo Odeyingbo",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Dayo Odeyingbo OUT"
     },
     {
       "team": "CLE",
@@ -1000,6 +1021,13 @@
       "event_type": "out",
       "published_at": "2026-10-16T00:00:00.000Z",
       "summary": "Mike Hall Jr. OUT"
+    },
+    {
+      "team": "LV",
+      "player": "Tonka Hemingway",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Tonka Hemingway OUT"
     },
     {
       "team": "NYJ",
@@ -1086,1002 +1114,1009 @@
       "summary": "doubtful"
     },
     {
-      "team": "CHI",
-      "player": "Anthony Johnson Jr.",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:18:00.000Z",
-      "summary": "ir"
-    },
-    {
-      "team": "SF",
-      "player": "De'Zhaun Stribling",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "De'Zhaun Stribling IR"
-    },
-    {
-      "team": "SF",
-      "player": "Jake Tonges",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Jake Tonges IR"
-    },
-    {
-      "team": "SF",
-      "player": "Nate Hobbs",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Nate Hobbs IR"
-    },
-    {
-      "team": "SF",
-      "player": "Andrew Farmer II",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Andrew Farmer II IR"
-    },
-    {
-      "team": "SF",
-      "player": "Ricky Pearsall",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Ricky Pearsall IR"
-    },
-    {
-      "team": "SF",
-      "player": "Nick Martin",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Nick Martin IR"
-    },
-    {
-      "team": "SF",
-      "player": "Mikail Kamara",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Mikail Kamara IR"
-    },
-    {
-      "team": "TB",
-      "player": "Jalen McMillan",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Jalen McMillan IR"
-    },
-    {
-      "team": "TB",
-      "player": "Josh Hayes",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Josh Hayes IR"
-    },
-    {
-      "team": "TB",
-      "player": "Mohamed Kamara",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Mohamed Kamara IR"
-    },
-    {
-      "team": "TEN",
-      "player": "Milo Eifler",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Milo Eifler IR"
-    },
-    {
-      "team": "TEN",
-      "player": "Kendell Brooks",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Kendell Brooks IR"
-    },
-    {
-      "team": "TEN",
-      "player": "Dominique Hampton",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Dominique Hampton IR"
-    },
-    {
-      "team": "TEN",
-      "player": "Jaren Kanak",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Jaren Kanak IR"
-    },
-    {
-      "team": "WAS",
-      "player": "Leo Chenal",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Leo Chenal IR"
-    },
-    {
-      "team": "WAS",
-      "player": "Jaylin Lane",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:04.000Z",
-      "summary": "Jaylin Lane IR"
-    },
-    {
-      "team": "ARI",
-      "player": "Hunter Long",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Hunter Long IR"
-    },
-    {
-      "team": "ARI",
-      "player": "Joey Blount",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Joey Blount IR"
-    },
-    {
-      "team": "ARI",
-      "player": "Trey Benson",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Trey Benson IR"
-    },
-    {
-      "team": "ARI",
-      "player": "Will Johnson",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Will Johnson IR"
-    },
-    {
-      "team": "ARI",
-      "player": "Jameson Geers",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jameson Geers IR"
-    },
-    {
-      "team": "ATL",
-      "player": "A.J. Terrell Jr.",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "A.J. Terrell Jr. IR"
-    },
-    {
-      "team": "ATL",
-      "player": "Trey Sermon",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Trey Sermon IR"
-    },
-    {
-      "team": "ATL",
-      "player": "Yasir Abdullah",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Yasir Abdullah IR"
-    },
-    {
-      "team": "ATL",
-      "player": "JD Bertrand",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "JD Bertrand IR"
-    },
-    {
-      "team": "ATL",
-      "player": "Jalon Walker",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jalon Walker IR"
-    },
-    {
-      "team": "BAL",
-      "player": "Durham Smythe",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Durham Smythe IR"
-    },
-    {
-      "team": "BAL",
-      "player": "T.J. Tampa Jr.",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "T.J. Tampa Jr. IR"
-    },
-    {
-      "team": "BAL",
-      "player": "Jahquez Robinson",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jahquez Robinson IR"
-    },
-    {
-      "team": "BUF",
-      "player": "Dorian Strong",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Dorian Strong IR"
-    },
-    {
-      "team": "BUF",
-      "player": "Jordan Hancock",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jordan Hancock IR"
-    },
-    {
-      "team": "CAR",
-      "player": "Jonathon Brooks",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jonathon Brooks IR"
-    },
-    {
-      "team": "CAR",
-      "player": "Xavier Legette",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Xavier Legette IR"
-    },
-    {
-      "team": "CAR",
-      "player": "Mike Jackson Sr.",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Mike Jackson Sr. IR"
-    },
-    {
-      "team": "CAR",
-      "player": "Jaycee Horn",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jaycee Horn IR"
-    },
-    {
-      "team": "CAR",
-      "player": "Bam Martin-Scott",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Bam Martin-Scott IR"
-    },
-    {
-      "team": "CAR",
-      "player": "Chris Brazzell II",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Chris Brazzell II IR"
-    },
-    {
-      "team": "CHI",
-      "player": "Tony Fields II",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Tony Fields II IR"
-    },
-    {
-      "team": "CHI",
-      "player": "Coby Bryant",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Coby Bryant IR"
-    },
-    {
-      "team": "CHI",
-      "player": "Nephi Sewell",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Nephi Sewell IR"
-    },
-    {
-      "team": "CHI",
-      "player": "Nikola Kalinic",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Nikola Kalinic IR"
-    },
-    {
-      "team": "CHI",
-      "player": "Brittain Brown",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Brittain Brown IR"
-    },
-    {
-      "team": "CHI",
-      "player": "Hayden Large",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Hayden Large IR"
-    },
-    {
-      "team": "CIN",
-      "player": "Andrei Iosivas",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Andrei Iosivas IR"
-    },
-    {
-      "team": "CIN",
-      "player": "Jalen Davis",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jalen Davis IR"
-    },
-    {
-      "team": "CIN",
-      "player": "Ja'Sir Taylor",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Ja'Sir Taylor IR"
-    },
-    {
-      "team": "CIN",
-      "player": "Swayze Bozeman",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Swayze Bozeman IR"
-    },
-    {
-      "team": "CLE",
-      "player": "Raheim Sanders",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Raheim Sanders IR"
-    },
-    {
-      "team": "CLE",
-      "player": "Damarri Mathis",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Damarri Mathis IR"
-    },
-    {
-      "team": "CLE",
-      "player": "Joe Royer",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Joe Royer IR"
-    },
-    {
-      "team": "DAL",
-      "player": "Malik Davis",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Malik Davis IR"
-    },
-    {
-      "team": "DAL",
-      "player": "Princeton Fant",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Princeton Fant IR"
-    },
-    {
-      "team": "DAL",
-      "player": "DJ Rogers",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "DJ Rogers IR"
-    },
-    {
-      "team": "DEN",
-      "player": "Jonah Coleman",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jonah Coleman IR"
-    },
-    {
-      "team": "DEN",
-      "player": "Pat Bryant",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Pat Bryant IR"
-    },
-    {
-      "team": "DEN",
-      "player": "Levelle Bailey",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Levelle Bailey IR"
-    },
-    {
-      "team": "DET",
-      "player": "Isiah Pacheco",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Isiah Pacheco IR"
-    },
-    {
-      "team": "DET",
-      "player": "Avonte Maddox",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Avonte Maddox IR"
-    },
-    {
-      "team": "DET",
-      "player": "Devin White",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Devin White IR"
-    },
-    {
-      "team": "DET",
-      "player": "Tom Kennedy",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Tom Kennedy IR"
-    },
-    {
-      "team": "DET",
-      "player": "Damone Clark",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Damone Clark IR"
-    },
-    {
-      "team": "DET",
-      "player": "Kendrick Law",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Kendrick Law IR"
-    },
-    {
-      "team": "DET",
-      "player": "Thomas Harper",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Thomas Harper IR"
-    },
-    {
-      "team": "GB",
-      "player": "Chris Brooks",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Chris Brooks IR"
-    },
-    {
-      "team": "GB",
-      "player": "Jayden Reed",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jayden Reed IR"
-    },
-    {
-      "team": "GB",
-      "player": "Edgerrin Cooper",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Edgerrin Cooper IR"
-    },
-    {
-      "team": "GB",
-      "player": "Thomas Yassmin",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Thomas Yassmin IR"
-    },
-    {
-      "team": "GB",
-      "player": "Johnathan Baldwin II",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Johnathan Baldwin II IR"
-    },
-    {
-      "team": "HOU",
-      "player": "Jake Hummel",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jake Hummel IR"
-    },
-    {
-      "team": "HOU",
-      "player": "British Brooks",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "British Brooks IR"
-    },
-    {
-      "team": "HOU",
-      "player": "Jayden Higgins",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jayden Higgins IR"
-    },
-    {
-      "team": "HOU",
-      "player": "Jaylin Smith",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Jaylin Smith IR"
-    },
-    {
-      "team": "HOU",
-      "player": "K.C. Ossai",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "K.C. Ossai IR"
-    },
-    {
       "team": "IND",
       "player": "Alec Pierce",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Alec Pierce IR"
     },
     {
       "team": "IND",
       "player": "D.J. Montgomery",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "D.J. Montgomery IR"
     },
     {
       "team": "IND",
       "player": "Cameron Mitchell",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Cameron Mitchell IR"
     },
     {
       "team": "IND",
       "player": "Carson Towt",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Carson Towt IR"
     },
     {
       "team": "JAX",
       "player": "Caleb Ransaw",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Caleb Ransaw IR"
     },
     {
       "team": "JAX",
       "player": "Jared Bartlett",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Jared Bartlett IR"
     },
     {
       "team": "JAX",
       "player": "Parker Hughes",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Parker Hughes IR"
     },
     {
       "team": "KC",
       "player": "Tyquan Thornton",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Tyquan Thornton IR"
     },
     {
       "team": "KC",
       "player": "Jimmy Holiday",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Jimmy Holiday IR"
     },
     {
       "team": "KC",
       "player": "Cooper McDonald",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Cooper McDonald IR"
     },
     {
       "team": "KC",
       "player": "John Michael Gyllenborg",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "John Michael Gyllenborg IR"
     },
     {
       "team": "KC",
       "player": "Jeff Caldwell",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Jeff Caldwell IR"
     },
     {
       "team": "LAC",
       "player": "Denzel Perryman",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Denzel Perryman IR"
     },
     {
       "team": "LAC",
       "player": "Alec Ingold",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Alec Ingold IR"
     },
     {
       "team": "LAR",
       "player": "Terrance Ferguson",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Terrance Ferguson IR"
     },
     {
       "team": "LAR",
       "player": "Ronnie Rivers",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Ronnie Rivers IR"
     },
     {
       "team": "LV",
       "player": "Jack Bech",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Jack Bech IR"
     },
     {
       "team": "LV",
       "player": "Seth Williams",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Seth Williams IR"
     },
     {
       "team": "LV",
       "player": "Brennan Jackson",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Brennan Jackson IR"
     },
     {
       "team": "LV",
       "player": "Chigozie Anusiem",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Chigozie Anusiem IR"
     },
     {
       "team": "LV",
       "player": "Chris Collier",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Chris Collier IR"
     },
     {
       "team": "LV",
       "player": "Corey Rucker",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Corey Rucker IR"
     },
     {
       "team": "MIA",
       "player": "Ronnie Harrison Jr.",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Ronnie Harrison Jr. IR"
     },
     {
       "team": "MIA",
       "player": "De'Von Achane",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "De'Von Achane IR"
     },
     {
       "team": "MIA",
       "player": "Cole Turner",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Cole Turner IR"
     },
     {
       "team": "MIA",
       "player": "Kyle Louis",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Kyle Louis IR"
     },
     {
       "team": "MIN",
       "player": "Jordan Mason",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Jordan Mason IR"
     },
     {
       "team": "MIN",
       "player": "Jamal Adams",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Jamal Adams IR"
     },
     {
       "team": "MIN",
       "player": "Josh Oliver",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Josh Oliver IR"
     },
     {
       "team": "NE",
       "player": "Mack Hollins",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Mack Hollins IR"
     },
     {
       "team": "NE",
       "player": "Reggie Gilliam",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Reggie Gilliam IR"
     },
     {
       "team": "NE",
       "player": "Julian Hill",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Julian Hill IR"
     },
     {
       "team": "NE",
       "player": "Dell Pettus",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Dell Pettus IR"
     },
     {
       "team": "NE",
       "player": "Jeremiah Webb",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Jeremiah Webb IR"
     },
     {
       "team": "NE",
       "player": "Myles Montgomery",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Myles Montgomery IR"
     },
     {
       "team": "NE",
       "player": "Khalil Jacobs",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Khalil Jacobs IR"
     },
     {
       "team": "NO",
       "player": "Travis Etienne Jr.",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Travis Etienne Jr. IR"
     },
     {
       "team": "NO",
       "player": "David Long Jr.",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "David Long Jr. IR"
     },
     {
       "team": "NO",
       "player": "Ty Chandler",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Ty Chandler IR"
     },
     {
       "team": "NO",
       "player": "Moliki Matavao",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Moliki Matavao IR"
     },
     {
       "team": "NO",
       "player": "Rejzohn Wright",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Rejzohn Wright IR"
     },
     {
       "team": "NYG",
       "player": "Braxton Berrios",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Braxton Berrios IR"
     },
     {
       "team": "NYG",
       "player": "Gunner Olszewski",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Gunner Olszewski IR"
     },
     {
       "team": "NYG",
       "player": "Paulson Adebo",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Paulson Adebo IR"
     },
     {
       "team": "NYG",
       "player": "Calvin Austin III",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Calvin Austin III IR"
     },
     {
       "team": "NYG",
       "player": "Jarrick Bernard-Converse",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Jarrick Bernard-Converse IR"
     },
     {
       "team": "NYG",
       "player": "Thaddeus Dixon",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Thaddeus Dixon IR"
     },
     {
       "team": "NYJ",
       "player": "Tre Brown",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Tre Brown IR"
     },
     {
       "team": "NYJ",
       "player": "Arian Smith",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Arian Smith IR"
     },
     {
       "team": "NYJ",
       "player": "Marcelino McCrary-Ball",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Marcelino McCrary-Ball IR"
     },
     {
       "team": "NYJ",
       "player": "Braiden McGregor",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Braiden McGregor IR"
     },
     {
       "team": "NYJ",
       "player": "Chip Trayanum",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Chip Trayanum IR"
     },
     {
       "team": "PHI",
       "player": "Tank Bigsby",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Tank Bigsby IR"
-    },
-    {
-      "team": "PHI",
-      "player": "Will Shipley",
-      "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
-      "summary": "Will Shipley IR"
     },
     {
       "team": "PHI",
       "player": "Johnny Wilson",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Johnny Wilson IR"
     },
     {
       "team": "PHI",
       "player": "Andre' Sam",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Andre' Sam IR"
     },
     {
       "team": "PHI",
       "player": "Tucker Large",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Tucker Large IR"
     },
     {
       "team": "PIT",
       "player": "Michael Pittman Jr.",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Michael Pittman Jr. IR"
     },
     {
       "team": "PIT",
       "player": "Israel Mukuamu",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Israel Mukuamu IR"
     },
     {
       "team": "SEA",
       "player": "Jadarian Price",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Jadarian Price IR"
     },
     {
       "team": "SEA",
       "player": "Jake Bobo",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Jake Bobo IR"
     },
     {
       "team": "SEA",
       "player": "Robbie Ouzts",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Robbie Ouzts IR"
     },
     {
       "team": "SEA",
       "player": "Julian Neal",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Julian Neal IR"
     },
     {
       "team": "SEA",
       "player": "Bud Clark",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Bud Clark IR"
+    },
+    {
+      "team": "SF",
+      "player": "De'Zhaun Stribling",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "De'Zhaun Stribling IR"
+    },
+    {
+      "team": "SF",
+      "player": "Jake Tonges",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Jake Tonges IR"
     },
     {
       "team": "SF",
       "player": "Brandon Aiyuk",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Brandon Aiyuk IR"
     },
     {
       "team": "SF",
       "player": "Demarcus Robinson",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Demarcus Robinson IR"
     },
     {
       "team": "SF",
       "player": "Darrick Forrest",
       "event_type": "ir",
-      "published_at": "2026-10-16T22:17:03.000Z",
+      "published_at": "2026-10-17T01:50:03.000Z",
       "summary": "Darrick Forrest IR"
+    },
+    {
+      "team": "SF",
+      "player": "Nate Hobbs",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Nate Hobbs IR"
+    },
+    {
+      "team": "SF",
+      "player": "Andrew Farmer II",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Andrew Farmer II IR"
+    },
+    {
+      "team": "SF",
+      "player": "Ricky Pearsall",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Ricky Pearsall IR"
+    },
+    {
+      "team": "SF",
+      "player": "Nick Martin",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Nick Martin IR"
+    },
+    {
+      "team": "SF",
+      "player": "Mikail Kamara",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Mikail Kamara IR"
+    },
+    {
+      "team": "TB",
+      "player": "Jalen McMillan",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Jalen McMillan IR"
+    },
+    {
+      "team": "TB",
+      "player": "Josh Hayes",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Josh Hayes IR"
+    },
+    {
+      "team": "TB",
+      "player": "Mohamed Kamara",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Mohamed Kamara IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Milo Eifler",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Milo Eifler IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Kendell Brooks",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Kendell Brooks IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Dominique Hampton",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Dominique Hampton IR"
+    },
+    {
+      "team": "TEN",
+      "player": "Jaren Kanak",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Jaren Kanak IR"
+    },
+    {
+      "team": "WAS",
+      "player": "Leo Chenal",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Leo Chenal IR"
+    },
+    {
+      "team": "WAS",
+      "player": "Jaylin Lane",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:03.000Z",
+      "summary": "Jaylin Lane IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Hunter Long",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Hunter Long IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Joey Blount",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Joey Blount IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Trey Benson",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Trey Benson IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Will Johnson",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Will Johnson IR"
+    },
+    {
+      "team": "ARI",
+      "player": "Jameson Geers",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jameson Geers IR"
+    },
+    {
+      "team": "ATL",
+      "player": "A.J. Terrell Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "A.J. Terrell Jr. IR"
+    },
+    {
+      "team": "ATL",
+      "player": "Trey Sermon",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Trey Sermon IR"
+    },
+    {
+      "team": "ATL",
+      "player": "Yasir Abdullah",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Yasir Abdullah IR"
+    },
+    {
+      "team": "ATL",
+      "player": "JD Bertrand",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "JD Bertrand IR"
+    },
+    {
+      "team": "ATL",
+      "player": "Jalon Walker",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jalon Walker IR"
+    },
+    {
+      "team": "BAL",
+      "player": "Durham Smythe",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Durham Smythe IR"
+    },
+    {
+      "team": "BAL",
+      "player": "T.J. Tampa Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "T.J. Tampa Jr. IR"
+    },
+    {
+      "team": "BAL",
+      "player": "Jahquez Robinson",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jahquez Robinson IR"
+    },
+    {
+      "team": "BUF",
+      "player": "Dorian Strong",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Dorian Strong IR"
+    },
+    {
+      "team": "BUF",
+      "player": "Jordan Hancock",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jordan Hancock IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Jonathon Brooks",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jonathon Brooks IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Xavier Legette",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Xavier Legette IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Mike Jackson Sr.",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Mike Jackson Sr. IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Jaycee Horn",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jaycee Horn IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Bam Martin-Scott",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Bam Martin-Scott IR"
+    },
+    {
+      "team": "CAR",
+      "player": "Chris Brazzell II",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Chris Brazzell II IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Tony Fields II",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Tony Fields II IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Coby Bryant",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Coby Bryant IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Nephi Sewell",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Nephi Sewell IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Nikola Kalinic",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Nikola Kalinic IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Brittain Brown",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Brittain Brown IR"
+    },
+    {
+      "team": "CHI",
+      "player": "Hayden Large",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Hayden Large IR"
+    },
+    {
+      "team": "CIN",
+      "player": "Andrei Iosivas",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Andrei Iosivas IR"
+    },
+    {
+      "team": "CIN",
+      "player": "Jalen Davis",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jalen Davis IR"
+    },
+    {
+      "team": "CIN",
+      "player": "Ja'Sir Taylor",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Ja'Sir Taylor IR"
+    },
+    {
+      "team": "CIN",
+      "player": "Swayze Bozeman",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Swayze Bozeman IR"
+    },
+    {
+      "team": "CLE",
+      "player": "Raheim Sanders",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Raheim Sanders IR"
+    },
+    {
+      "team": "CLE",
+      "player": "Damarri Mathis",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Damarri Mathis IR"
+    },
+    {
+      "team": "CLE",
+      "player": "Joe Royer",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Joe Royer IR"
+    },
+    {
+      "team": "DAL",
+      "player": "Malik Davis",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Malik Davis IR"
+    },
+    {
+      "team": "DAL",
+      "player": "Princeton Fant",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Princeton Fant IR"
+    },
+    {
+      "team": "DAL",
+      "player": "DJ Rogers",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "DJ Rogers IR"
+    },
+    {
+      "team": "DEN",
+      "player": "Jonah Coleman",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jonah Coleman IR"
+    },
+    {
+      "team": "DEN",
+      "player": "Pat Bryant",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Pat Bryant IR"
+    },
+    {
+      "team": "DEN",
+      "player": "Levelle Bailey",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Levelle Bailey IR"
+    },
+    {
+      "team": "DET",
+      "player": "Isiah Pacheco",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Isiah Pacheco IR"
+    },
+    {
+      "team": "DET",
+      "player": "Avonte Maddox",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Avonte Maddox IR"
     },
     {
       "team": "DET",
       "player": "Devin White",
       "event_type": "ir",
-      "published_at": "2026-10-16T20:41:00.000Z",
-      "summary": "ir"
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Devin White IR"
     },
     {
       "team": "DET",
       "player": "Tom Kennedy",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Tom Kennedy IR"
+    },
+    {
+      "team": "DET",
+      "player": "Damone Clark",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Damone Clark IR"
+    },
+    {
+      "team": "DET",
+      "player": "Kendrick Law",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Kendrick Law IR"
+    },
+    {
+      "team": "DET",
+      "player": "Thomas Harper",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Thomas Harper IR"
+    },
+    {
+      "team": "GB",
+      "player": "Chris Brooks",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Chris Brooks IR"
+    },
+    {
+      "team": "GB",
+      "player": "Jayden Reed",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jayden Reed IR"
+    },
+    {
+      "team": "GB",
+      "player": "Edgerrin Cooper",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Edgerrin Cooper IR"
+    },
+    {
+      "team": "GB",
+      "player": "Thomas Yassmin",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Thomas Yassmin IR"
+    },
+    {
+      "team": "GB",
+      "player": "Johnathan Baldwin II",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Johnathan Baldwin II IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Jake Hummel",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jake Hummel IR"
+    },
+    {
+      "team": "HOU",
+      "player": "British Brooks",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "British Brooks IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Jayden Higgins",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jayden Higgins IR"
+    },
+    {
+      "team": "HOU",
+      "player": "Jaylin Smith",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "Jaylin Smith IR"
+    },
+    {
+      "team": "HOU",
+      "player": "K.C. Ossai",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:50:02.000Z",
+      "summary": "K.C. Ossai IR"
+    },
+    {
+      "team": "LAC",
+      "player": "KeAndre Lambert-Smith",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:31:00.000Z",
+      "summary": "Lambert-Smith (hamstring) is questionable for Sunday's game against Kansas City."
+    },
+    {
+      "team": "TB",
+      "player": "David Sills V",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:18:00.000Z",
+      "summary": "Sills (hamstring) is listed as questionable for Sunday's game against the Steelers."
+    },
+    {
+      "team": "IND",
+      "player": "Will Mallory",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:17:00.000Z",
+      "summary": "Mallory (thumb) is listed as questionable for Sunday's game against the Titans."
+    },
+    {
+      "team": "CHI",
+      "player": "Anthony Johnson Jr.",
+      "event_type": "ir",
+      "published_at": "2026-10-17T01:01:00.000Z",
+      "summary": "ir"
+    },
+    {
+      "team": "DET",
+      "player": "Devin White",
       "event_type": "ir",
       "published_at": "2026-10-16T20:41:00.000Z",
       "summary": "ir"
@@ -2092,6 +2127,13 @@
       "event_type": "ir",
       "published_at": "2026-10-16T20:07:00.000Z",
       "summary": "The Eagles placed Shipley (foot) on injured reserve Friday."
+    },
+    {
+      "team": "PHI",
+      "player": "Will Shipley",
+      "event_type": "ir",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Will Shipley IR"
     },
     {
       "team": "LAC",
@@ -2127,6 +2169,13 @@
       "event_type": "ir",
       "published_at": "2026-09-30T00:26:00.000Z",
       "summary": "The Vikings placed Oliver (biceps) on injured reserve Tuesday, Craig Peters of the team's official site reports."
+    },
+    {
+      "team": "CHI",
+      "player": "Kyler Gordon",
+      "event_type": "out",
+      "published_at": "2026-10-17T01:01:00.000Z",
+      "summary": "Gordon (calf) is listed as questionable for Sunday's game against the Falcons."
     },
     {
       "team": "CHI",
@@ -2192,13 +2241,6 @@
       "summary": "Williams (ankle) was a limited participant at practice Thursday."
     },
     {
-      "team": "LAC",
-      "player": "KeAndre Lambert-Smith",
-      "event_type": "ir",
-      "published_at": "2026-10-15T22:29:00.000Z",
-      "summary": "Lambert-Smith (hamstring) was a limited participant in Thursday's practice."
-    },
-    {
       "team": "HOU",
       "player": "Tank Dell",
       "event_type": "ir",
@@ -2227,20 +2269,6 @@
       "summary": "Head coach Kyle Shanahan said Monday that Martin's (hamstring) status will be evaluated \"in these next couple of days,\" Nick Wagoner of ESPN.com reports."
     },
     {
-      "team": "WAS",
-      "player": "Trey Amos",
-      "event_type": "ir",
-      "published_at": "2026-10-11T01:02:00.000Z",
-      "summary": "Amos (ankle) has been downgraded to out for Sunday's game against the Giants."
-    },
-    {
-      "team": "WAS",
-      "player": "Jeremy McNichols",
-      "event_type": "ir",
-      "published_at": "2026-10-11T01:00:00.000Z",
-      "summary": "McNichols (quadriceps) has been ruled out for Sunday's game against the Giants."
-    },
-    {
       "team": "CAR",
       "player": "Akayleb Evans",
       "event_type": "ir",
@@ -2253,6 +2281,97 @@
       "event_type": "ir",
       "published_at": "2026-10-15T20:06:00.000Z",
       "summary": "The Chargers placed Ingold on injured reserve Thursday due to a shoulder injury."
+    },
+    {
+      "team": "LAC",
+      "player": "Derwin James Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-17T01:29:00.000Z",
+      "summary": "James (hamstring) has been ruled out for Sunday's game against the Chiefs."
+    },
+    {
+      "team": "NO",
+      "player": "Kaden Elliss",
+      "event_type": "out",
+      "published_at": "2026-10-17T00:45:00.000Z",
+      "summary": "Elliss (calf) has been ruled out ahead of Sunday's game against the Giants, Jeff Nowak of The Big 870 New Orleans reports."
+    },
+    {
+      "team": "ATL",
+      "player": "C.J. Henderson",
+      "event_type": "out",
+      "published_at": "2026-10-17T00:22:00.000Z",
+      "summary": "Henderson (groin) has been ruled out for Sunday's game against the Bears, Tori McElhaney of the Falcons' official site reports."
+    },
+    {
+      "team": "BAL",
+      "player": "Matt Hibner",
+      "event_type": "out",
+      "published_at": "2026-10-17T00:19:00.000Z",
+      "summary": "Hibner (hand) has been ruled out for Sunday's game against the Browns."
+    },
+    {
+      "team": "LAC",
+      "player": "Tre' Harris",
+      "event_type": "out",
+      "published_at": "2026-10-16T23:46:00.000Z",
+      "summary": "Harris (hamstring) has been ruled out for Sunday's game against the Chiefs."
+    },
+    {
+      "team": "IND",
+      "player": "Ashton Dulin",
+      "event_type": "out",
+      "published_at": "2026-10-16T23:40:00.000Z",
+      "summary": "Dulin (hamstring) has been ruled out ahead of Sunday's game against the Titans, Joel A. Erickson of The Indianapolis Star reports."
+    },
+    {
+      "team": "TB",
+      "player": "Antoine Winfield Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-16T23:26:00.000Z",
+      "summary": "Winfield (ribs) has been ruled out ahead of Sunday's game against the Steelers, Brianna Dix of the Buccaneers' official site reports."
+    },
+    {
+      "team": "NYG",
+      "player": "Theo Johnson",
+      "event_type": "out",
+      "published_at": "2026-10-16T23:08:00.000Z",
+      "summary": "Johnson (neck) has been ruled out for Sunday's game against the Saints."
+    },
+    {
+      "team": "PIT",
+      "player": "Roman Wilson",
+      "event_type": "out",
+      "published_at": "2026-10-16T22:44:51.000Z",
+      "summary": "Roman Wilson OUT"
+    },
+    {
+      "team": "LAC",
+      "player": "Tre' Harris",
+      "event_type": "out",
+      "published_at": "2026-10-16T22:37:47.000Z",
+      "summary": "Tre' Harris OUT"
+    },
+    {
+      "team": "KC",
+      "player": "Rashee Rice",
+      "event_type": "out",
+      "published_at": "2026-10-16T22:37:19.000Z",
+      "summary": "Rashee Rice OUT"
+    },
+    {
+      "team": "HOU",
+      "player": "David Montgomery",
+      "event_type": "out",
+      "published_at": "2026-10-16T22:36:10.000Z",
+      "summary": "David Montgomery OUT"
+    },
+    {
+      "team": "CHI",
+      "player": "Kyle Monangai",
+      "event_type": "out",
+      "published_at": "2026-10-16T22:33:58.000Z",
+      "summary": "Kyle Monangai OUT"
     },
     {
       "team": "ARI",
@@ -2325,46 +2444,11 @@
       "summary": "out"
     },
     {
-      "team": "NYG",
-      "player": "Theo Johnson",
-      "event_type": "out",
-      "published_at": "2026-10-16T20:40:00.000Z",
-      "summary": "out"
-    },
-    {
-      "team": "GB",
-      "player": "Skyy Moore",
-      "event_type": "out",
-      "published_at": "2026-10-16T20:38:00.000Z",
-      "summary": "out"
-    },
-    {
-      "team": "LAC",
-      "player": "Donte Jackson",
-      "event_type": "out",
-      "published_at": "2026-10-16T20:15:00.000Z",
-      "summary": "out"
-    },
-    {
-      "team": "LAC",
-      "player": "Derwin James Jr.",
-      "event_type": "out",
-      "published_at": "2026-10-16T20:15:00.000Z",
-      "summary": "out"
-    },
-    {
       "team": "GB",
       "player": "Josh Jacobs",
       "event_type": "out",
       "published_at": "2026-10-16T19:57:00.000Z",
       "summary": "Jacobs (personal) will be removed from the Commissioner's Exempt List on Monday and be eligible to play as soon as the Packers' Week 7 game at Detroit, Tom Pelissero of Netflix reports."
-    },
-    {
-      "team": "CHI",
-      "player": "T.J. Edwards",
-      "event_type": "out",
-      "published_at": "2026-10-16T19:13:00.000Z",
-      "summary": "out"
     },
     {
       "team": "CHI",
@@ -2378,20 +2462,6 @@
       "player": "Anfernee Jennings",
       "event_type": "out",
       "published_at": "2026-10-16T18:50:00.000Z",
-      "summary": "out"
-    },
-    {
-      "team": "NO",
-      "player": "Kaden Elliss",
-      "event_type": "out",
-      "published_at": "2026-10-16T18:50:00.000Z",
-      "summary": "out"
-    },
-    {
-      "team": "JAX",
-      "player": "Montaric Brown",
-      "event_type": "out",
-      "published_at": "2026-10-16T18:45:00.000Z",
       "summary": "out"
     },
     {
@@ -2423,39 +2493,11 @@
       "summary": "Jeremiyah Love OUT"
     },
     {
-      "team": "ATL",
-      "player": "C.J. Henderson",
-      "event_type": "out",
-      "published_at": "2026-10-16T17:35:00.000Z",
-      "summary": "out"
-    },
-    {
       "team": "IND",
       "player": "Jaylon Carlies",
       "event_type": "out",
       "published_at": "2026-10-16T16:47:00.000Z",
       "summary": "out"
-    },
-    {
-      "team": "TB",
-      "player": "Antoine Winfield Jr.",
-      "event_type": "out",
-      "published_at": "2026-10-16T16:32:00.000Z",
-      "summary": "out"
-    },
-    {
-      "team": "TEN",
-      "player": "Kevin Winston Jr.",
-      "event_type": "out",
-      "published_at": "2026-10-16T15:49:00.000Z",
-      "summary": "out"
-    },
-    {
-      "team": "JAX",
-      "player": "Ross Matiscik",
-      "event_type": "out",
-      "published_at": "2026-10-16T12:00:00.000Z",
-      "summary": "injured"
     },
     {
       "team": "JAX",
@@ -2474,13 +2516,6 @@
     {
       "team": "PIT",
       "player": "Ben Skowronek",
-      "event_type": "out",
-      "published_at": "2026-10-16T12:00:00.000Z",
-      "summary": "injured"
-    },
-    {
-      "team": "TB",
-      "player": "Antoine Winfield Jr.",
       "event_type": "out",
       "published_at": "2026-10-16T12:00:00.000Z",
       "summary": "injured"
@@ -2514,6 +2549,13 @@
       "summary": "C.J. Henderson OUT"
     },
     {
+      "team": "BAL",
+      "player": "Matt Hibner",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Matt Hibner OUT"
+    },
+    {
       "team": "CAR",
       "player": "AJ Dillon",
       "event_type": "out",
@@ -2521,11 +2563,46 @@
       "summary": "AJ Dillon OUT"
     },
     {
+      "team": "CHI",
+      "player": "T.J. Edwards",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "T.J. Edwards OUT"
+    },
+    {
+      "team": "CHI",
+      "player": "Keyshaun Elliott",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Keyshaun Elliott OUT"
+    },
+    {
       "team": "CLE",
       "player": "Dylan Sampson",
       "event_type": "out",
       "published_at": "2026-10-16T00:00:00.000Z",
       "summary": "Dylan Sampson OUT"
+    },
+    {
+      "team": "DAL",
+      "player": "Cobie Durant",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Cobie Durant OUT"
+    },
+    {
+      "team": "HOU",
+      "player": "Tank Dell",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Tank Dell OUT"
+    },
+    {
+      "team": "HOU",
+      "player": "Jalen Pitre",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Jalen Pitre OUT"
     },
     {
       "team": "IND",
@@ -2542,18 +2619,11 @@
       "summary": "Jaylon Carlies OUT"
     },
     {
-      "team": "KC",
-      "player": "Rashee Rice",
+      "team": "JAX",
+      "player": "Ross Matiscik",
       "event_type": "out",
       "published_at": "2026-10-16T00:00:00.000Z",
-      "summary": "Rashee Rice OUT"
-    },
-    {
-      "team": "LAC",
-      "player": "Tre' Harris",
-      "event_type": "out",
-      "published_at": "2026-10-16T00:00:00.000Z",
-      "summary": "Tre' Harris OUT"
+      "summary": "Ross Matiscik OUT"
     },
     {
       "team": "LAC",
@@ -2577,6 +2647,20 @@
       "summary": "Donte Jackson OUT"
     },
     {
+      "team": "LV",
+      "player": "Dont'e Thornton Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Dont'e Thornton Jr. OUT"
+    },
+    {
+      "team": "LV",
+      "player": "Carter Runyon",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Carter Runyon OUT"
+    },
+    {
       "team": "NE",
       "player": "Carlton Davis III",
       "event_type": "out",
@@ -2589,6 +2673,20 @@
       "event_type": "out",
       "published_at": "2026-10-16T00:00:00.000Z",
       "summary": "Karon Prunty OUT"
+    },
+    {
+      "team": "NO",
+      "player": "Kaden Elliss",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Kaden Elliss OUT"
+    },
+    {
+      "team": "NO",
+      "player": "Anfernee Jennings",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Anfernee Jennings OUT"
     },
     {
       "team": "NYG",
@@ -2624,6 +2722,20 @@
       "event_type": "out",
       "published_at": "2026-10-16T00:00:00.000Z",
       "summary": "Michael Carter II OUT"
+    },
+    {
+      "team": "TB",
+      "player": "Antoine Winfield Jr.",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Antoine Winfield Jr. OUT"
+    },
+    {
+      "team": "TB",
+      "player": "David Sills V",
+      "event_type": "out",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "David Sills V OUT"
     },
     {
       "team": "TEN",
@@ -2717,27 +2829,6 @@
       "summary": "Thomas (ankle) has been ruled out for Thursday night's game against the Broncos, John Boyle of the Seahawks' official site reports."
     },
     {
-      "team": "HOU",
-      "player": "David Montgomery",
-      "event_type": "out",
-      "published_at": "2026-10-15T00:00:00.000Z",
-      "summary": "David Montgomery OUT"
-    },
-    {
-      "team": "HOU",
-      "player": "Tank Dell",
-      "event_type": "out",
-      "published_at": "2026-10-15T00:00:00.000Z",
-      "summary": "Tank Dell OUT"
-    },
-    {
-      "team": "HOU",
-      "player": "Jalen Pitre",
-      "event_type": "out",
-      "published_at": "2026-10-15T00:00:00.000Z",
-      "summary": "Jalen Pitre OUT"
-    },
-    {
       "team": "DEN",
       "player": "Pat Surtain II",
       "event_type": "out",
@@ -2808,13 +2899,6 @@
       "summary": "injured"
     },
     {
-      "team": "PIT",
-      "player": "Roman Wilson",
-      "event_type": "out",
-      "published_at": "2026-10-11T12:00:00.000Z",
-      "summary": "injured"
-    },
-    {
       "team": "SF",
       "player": "Deebo Samuel Sr.",
       "event_type": "out",
@@ -2867,15 +2951,15 @@
       "team": "LAC",
       "player": "Rodney Shelley",
       "event_type": "doubtful",
-      "published_at": "2026-10-16T20:15:00.000Z",
-      "summary": "doubtful"
+      "published_at": "2026-10-17T01:35:00.000Z",
+      "summary": "Shelley (hamstring) is listed as doubtful for Sunday's game against the Chiefs."
     },
     {
       "team": "TB",
       "player": "Benjamin Morrison",
       "event_type": "doubtful",
-      "published_at": "2026-10-16T19:22:00.000Z",
-      "summary": "doubtful"
+      "published_at": "2026-10-17T01:10:00.000Z",
+      "summary": "Morrison (quadriceps) is listed as doubtful for Sunday's game against the Steelers."
     },
     {
       "team": "SF",
@@ -2890,6 +2974,13 @@
       "event_type": "doubtful",
       "published_at": "2026-10-16T00:00:00.000Z",
       "summary": "Rodney Shelley DOUBTFUL"
+    },
+    {
+      "team": "TB",
+      "player": "Benjamin Morrison",
+      "event_type": "doubtful",
+      "published_at": "2026-10-16T00:00:00.000Z",
+      "summary": "Benjamin Morrison DOUBTFUL"
     },
     {
       "team": "GB",
@@ -3067,18 +3158,11 @@
       "summary": "Moton (illness) was a full participant in Wednesday's practice."
     },
     {
-      "team": "CHI",
-      "player": "Kyler Gordon",
-      "event_type": "out",
-      "published_at": "2026-10-15T00:36:00.000Z",
-      "summary": "Gordon (calf) was estimated as a full participant on the Bears' official injury report Wednesday."
-    },
-    {
       "team": "LV",
       "player": "Dont'e Thornton Jr.",
       "event_type": "ir",
-      "published_at": "2026-10-15T00:37:00.000Z",
-      "summary": "Thornton (hamstring) was a full participant at the Raiders' practice Wednesday."
+      "published_at": "2026-10-16T22:08:00.000Z",
+      "summary": "Thornton (hamstring) won't be activated from injured reserve for Sunday's game against the Bills, Sam Warren of The Athletic reports."
     }
   ],
   "games": [
@@ -3098,8 +3182,8 @@
       "home_name": "JAX",
       "market": {
         "home_spread": -2.5,
-        "total": 42.5,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "total": 42,
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3119,48 +3203,48 @@
           "HOU": -2.477
         },
         "secondary_adjustment_points": {
-          "JAX": 0.12621428571428572,
-          "HOU": 0.021214285714285686
+          "JAX": 0.13050000000000006,
+          "HOU": 0.025500000000000023
         }
       },
       "means": {
-        "home": 23.773830376088608,
-        "away": 18.925829444218436,
-        "total": 42.69965982030705,
-        "home_margin": 4.848000931870171
+        "home": 23.528116090374326,
+        "away": 18.68011515850415,
+        "total": 42.20823124887848,
+        "home_margin": 4.848000931870175
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 23.773830376088608,
-        "mean_away": 18.925829444218436,
-        "home_win_pct": 0.6208594755093553,
-        "home_cover_pct": 0.5615176351505444,
-        "away_cover_pct": 0.43848236484945513,
+        "mean_home": 23.528116090374326,
+        "mean_away": 18.68011515850415,
+        "home_win_pct": 0.6208594755093557,
+        "home_cover_pct": 0.561517635150545,
+        "away_cover_pct": 0.4384823648494544,
         "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.5615176351505446,
-        "away_cover_excl_push_pct": 0.43848236484945535,
-        "over_pct": 0.5060563743974873,
-        "under_pct": 0.4939436256025126,
-        "total_push_pct": 0,
-        "over_excl_push_pct": 0.5060563743974874,
-        "under_excl_push_pct": 0.49394362560251265,
+        "home_cover_excl_push_pct": 0.5615176351505453,
+        "away_cover_excl_push_pct": 0.4384823648494547,
+        "over_pct": 0.4911126160559208,
+        "under_pct": 0.4784920332991677,
+        "total_push_pct": 0.030395350644911504,
+        "over_excl_push_pct": 0.5065081075906286,
+        "under_excl_push_pct": 0.49349189240937147,
         "adjustments_vs_market": {
-          "margin": 2.348000931870171,
-          "total": 0.19965982030704765
+          "margin": 2.3480009318701747,
+          "total": 0.20823124887847655
         },
         "distribution": {
-          "mean_margin": 4.011557953974283,
+          "mean_margin": 4.011557953974287,
           "median_margin": 3,
-          "mean_total": 42.71435787625341,
-          "median_total": 43
+          "mean_total": 42.22472782218768,
+          "median_total": 42
         }
       },
       "model_menu": {
         "side": "JAX",
-        "side_cover_pct": 0.5615176351505446,
+        "side_cover_pct": 0.5615176351505453,
         "total": "Over",
-        "total_pct": 0.5060563743974874,
+        "total_pct": 0.5065081075906286,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3175,7 +3259,7 @@
       "market": {
         "home_spread": 1,
         "total": 51.5,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3195,48 +3279,48 @@
           "CHI": 5.723
         },
         "secondary_adjustment_points": {
-          "ATL": 0.31721428571428567,
-          "CHI": 0.17121428571428565
+          "ATL": 0.13050000000000006,
+          "CHI": 0.1755
         }
       },
       "means": {
-        "home": 25.63372576983563,
-        "away": 26.55233972500488,
-        "total": 52.186065494840506,
-        "home_margin": -0.9186139551692527
+        "home": 25.447011484121344,
+        "away": 26.556625439290595,
+        "total": 52.00363692341194,
+        "home_margin": -1.1096139551692517
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 25.63372576983563,
-        "mean_away": 26.55233972500488,
-        "home_win_pct": 0.47780888263323595,
-        "home_cover_pct": 0.48996060280568465,
-        "away_cover_pct": 0.4856907560188909,
-        "side_push_pct": 0.024348641175424533,
-        "home_cover_excl_push_pct": 0.5021882031671323,
-        "away_cover_excl_push_pct": 0.4978117968328677,
-        "over_pct": 0.5208361515307316,
-        "under_pct": 0.479163848469269,
+        "mean_home": 25.447011484121344,
+        "mean_away": 26.556625439290595,
+        "home_win_pct": 0.47280589760921476,
+        "home_cover_pct": 0.484947620756777,
+        "away_cover_pct": 0.4906988392135875,
+        "side_push_pct": 0.024353540029635648,
+        "home_cover_excl_push_pct": 0.49705261142597434,
+        "away_cover_excl_push_pct": 0.5029473885740257,
+        "over_pct": 0.5152988750733348,
+        "under_pct": 0.48470112492666473,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.5208361515307313,
-        "under_excl_push_pct": 0.4791638484692687,
+        "over_excl_push_pct": 0.515298875073335,
+        "under_excl_push_pct": 0.48470112492666495,
         "adjustments_vs_market": {
-          "margin": 0.0813860448307473,
-          "total": 0.6860654948405056
+          "margin": -0.10961395516925165,
+          "total": 0.5036369234119391
         },
         "distribution": {
-          "mean_margin": -0.7219967066260927,
+          "mean_margin": -0.8850746475194283,
           "median_margin": -1,
-          "mean_total": 52.18711910423361,
+          "mean_total": 52.004786016811416,
           "median_total": 52
         }
       },
       "model_menu": {
-        "side": "ATL",
-        "side_cover_pct": 0.5021882031671323,
+        "side": "CHI",
+        "side_cover_pct": 0.5029473885740257,
         "total": "Over",
-        "total_pct": 0.5208361515307313,
+        "total_pct": 0.515298875073335,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3251,7 +3335,7 @@
       "market": {
         "home_spread": 3,
         "total": 40.5,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3271,40 +3355,40 @@
           "BAL": 1.049
         },
         "secondary_adjustment_points": {
-          "CLE": -0.1437857142857143,
-          "BAL": -0.2787857142857143
+          "CLE": -0.13949999999999996,
+          "BAL": -0.27449999999999997
         }
       },
       "means": {
-        "home": 18.74255329432875,
-        "away": 21.203436200251797,
-        "total": 39.945989494580544,
+        "home": 18.746839008614465,
+        "away": 21.20772191453751,
+        "total": 39.95456092315197,
         "home_margin": -2.4608829059230466
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 18.74255329432875,
-        "mean_away": 21.203436200251797,
+        "mean_home": 18.746839008614465,
+        "mean_away": 21.20772191453751,
         "home_win_pct": 0.41250157971009155,
         "home_cover_pct": 0.47278147906939055,
         "away_cover_pct": 0.44449250350177394,
         "side_push_pct": 0.08272601742883522,
         "home_cover_excl_push_pct": 0.5154201340630644,
         "away_cover_excl_push_pct": 0.4845798659369357,
-        "over_pct": 0.48322111970880954,
-        "under_pct": 0.5167788802911903,
+        "over_pct": 0.48348052563876553,
+        "under_pct": 0.5165194743612345,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.4832211197088096,
-        "under_excl_push_pct": 0.5167788802911905,
+        "over_excl_push_pct": 0.48348052563876553,
+        "under_excl_push_pct": 0.5165194743612345,
         "adjustments_vs_market": {
           "margin": 0.5391170940769534,
-          "total": -0.5540105054194555
+          "total": -0.5454390768480266
         },
         "distribution": {
           "mean_margin": -2.8755304060705758,
           "median_margin": -3,
-          "mean_total": 39.976935536980804,
+          "mean_total": 39.985415003777064,
           "median_total": 40
         }
       },
@@ -3312,7 +3396,7 @@
         "side": "CLE",
         "side_cover_pct": 0.5154201340630644,
         "total": "Under",
-        "total_pct": 0.5167788802911905,
+        "total_pct": 0.5165194743612345,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3327,7 +3411,7 @@
       "market": {
         "home_spread": -7,
         "total": 44,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3347,40 +3431,40 @@
           "TEN": -13.225
         },
         "secondary_adjustment_points": {
-          "IND": 0.17121428571428565,
-          "TEN": -0.2787857142857143
+          "IND": 0.1755,
+          "TEN": -0.27449999999999997
         }
       },
       "means": {
-        "home": 25.144939692337562,
-        "away": 18.524214639379736,
-        "total": 43.669154331717294,
+        "home": 25.149225406623277,
+        "away": 18.52850035366545,
+        "total": 43.67772576028872,
         "home_margin": 6.620725052957827
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 25.144939692337562,
-        "mean_away": 18.524214639379736,
+        "mean_home": 25.149225406623277,
+        "mean_away": 18.52850035366545,
         "home_win_pct": 0.720452658496728,
         "home_cover_pct": 0.4617091602618958,
         "away_cover_pct": 0.48265412761449433,
         "side_push_pct": 0.05563671212361011,
         "home_cover_excl_push_pct": 0.48891053494905656,
         "away_cover_excl_push_pct": 0.5110894650509434,
-        "over_pct": 0.47477584008871476,
-        "under_pct": 0.4948410627640245,
-        "total_push_pct": 0.030383097147260424,
-        "over_excl_push_pct": 0.4896530152185491,
-        "under_excl_push_pct": 0.5103469847814509,
+        "over_pct": 0.4750354598897372,
+        "under_pct": 0.4945809674127498,
+        "total_push_pct": 0.030383572697512913,
+        "over_excl_push_pct": 0.4899210105291899,
+        "under_excl_push_pct": 0.5100789894708102,
         "adjustments_vs_market": {
           "margin": -0.37927494704217324,
-          "total": -0.3308456682827057
+          "total": -0.3222742397112768
         },
         "distribution": {
           "mean_margin": 7.7047913099038405,
           "median_margin": 7,
-          "mean_total": 43.68166978942497,
+          "mean_total": 43.6902010818958,
           "median_total": 44
         }
       },
@@ -3388,7 +3472,7 @@
         "side": "TEN",
         "side_cover_pct": 0.5110894650509434,
         "total": "Under",
-        "total_pct": 0.5103469847814509,
+        "total_pct": 0.5100789894708102,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3403,7 +3487,7 @@
       "market": {
         "home_spread": -7,
         "total": 43.5,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3423,40 +3507,40 @@
           "NYJ": -1.806
         },
         "secondary_adjustment_points": {
-          "NE": -0.2787857142857143,
-          "NYJ": 0.11121428571428571
+          "NE": -0.27449999999999997,
+          "NYJ": 0.11550000000000005
         }
       },
       "means": {
-        "home": 24.41501118374801,
-        "away": 18.65128673863311,
-        "total": 43.066297922381125,
+        "home": 24.419296898033725,
+        "away": 18.655572452918825,
+        "total": 43.074869350952554,
         "home_margin": 5.7637244451148995
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 24.41501118374801,
-        "mean_away": 18.65128673863311,
+        "mean_home": 24.419296898033725,
+        "mean_away": 18.655572452918825,
         "home_win_pct": 0.7007888013969523,
         "home_cover_pct": 0.43812993981869475,
         "away_cover_pct": 0.5061527634998836,
         "side_push_pct": 0.055717296681421745,
         "home_cover_excl_push_pct": 0.4639817485578577,
         "away_cover_excl_push_pct": 0.5360182514421423,
-        "over_pct": 0.48684224801305187,
-        "under_pct": 0.513157751986948,
+        "over_pct": 0.487102181504175,
+        "under_pct": 0.5128978184958252,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.4868422480130519,
-        "under_excl_push_pct": 0.5131577519869481,
+        "over_excl_push_pct": 0.4871021815041749,
+        "under_excl_push_pct": 0.512897818495825,
         "adjustments_vs_market": {
           "margin": -1.2362755548851005,
-          "total": -0.43370207761887514
+          "total": -0.42513064904744624
         },
         "distribution": {
           "mean_margin": 6.926338074807298,
           "median_margin": 6,
-          "mean_total": 43.080999377432,
+          "mean_total": 43.08952463676522,
           "median_total": 43
         }
       },
@@ -3464,7 +3548,7 @@
         "side": "NYJ",
         "side_cover_pct": 0.5360182514421423,
         "total": "Under",
-        "total_pct": 0.5131577519869481,
+        "total_pct": 0.512897818495825,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3477,9 +3561,9 @@
       "away_name": "NO",
       "home_name": "NYG",
       "market": {
-        "home_spread": 1,
+        "home_spread": -1,
         "total": 46,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3499,48 +3583,48 @@
           "NO": -4
         },
         "secondary_adjustment_points": {
-          "NYG": -0.06078571428571433,
-          "NO": 0.29121428571428576
+          "NYG": -0.056499999999999995,
+          "NO": 0.2955000000000001
         }
       },
       "means": {
-        "home": 22.83694688755348,
-        "away": 23.566629230523503,
-        "total": 46.403576118076984,
-        "home_margin": -0.7296823429700225
+        "home": 23.441232601839197,
+        "away": 22.970914944809216,
+        "total": 46.41214754664841,
+        "home_margin": 0.4703176570299803
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 22.83694688755348,
-        "mean_away": 23.566629230523503,
-        "home_win_pct": 0.4827606451769911,
-        "home_cover_pct": 0.4949202685831031,
-        "away_cover_pct": 0.4807399424659727,
-        "side_push_pct": 0.02433978895092516,
-        "home_cover_excl_push_pct": 0.5072670413103569,
-        "away_cover_excl_push_pct": 0.49273295868964306,
-        "over_pct": 0.49705825720220154,
-        "under_pct": 0.47256908798872715,
-        "total_push_pct": 0.03037265480907132,
-        "over_excl_push_pct": 0.5126281345791935,
-        "under_excl_push_pct": 0.48737186542080646,
+        "mean_home": 23.441232601839197,
+        "mean_away": 22.970914944809216,
+        "home_win_pct": 0.5104380043995849,
+        "home_cover_pct": 0.4739495953880063,
+        "away_cover_pct": 0.5017292461032965,
+        "side_push_pct": 0.024321158508697,
+        "home_cover_excl_push_pct": 0.4857639371000248,
+        "away_cover_excl_push_pct": 0.5142360628999751,
+        "over_pct": 0.49731855291151317,
+        "under_pct": 0.47230941797897913,
+        "total_push_pct": 0.030372029109508012,
+        "over_excl_push_pct": 0.5128962528327056,
+        "under_excl_push_pct": 0.4871037471672945,
         "adjustments_vs_market": {
-          "margin": 0.27031765702997745,
-          "total": 0.4035761180769839
+          "margin": -0.5296823429700197,
+          "total": 0.4121475466484128
         },
         "distribution": {
-          "mean_margin": -0.560737091191146,
-          "median_margin": -1,
-          "mean_total": 46.40917597051942,
+          "mean_margin": 0.33942388926811035,
+          "median_margin": 0,
+          "mean_total": 46.41772672512006,
           "median_total": 46
         }
       },
       "model_menu": {
-        "side": "NYG",
-        "side_cover_pct": 0.5072670413103569,
+        "side": "NO",
+        "side_cover_pct": 0.5142360628999751,
         "total": "Over",
-        "total_pct": 0.5126281345791935,
+        "total_pct": 0.5128962528327056,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3553,9 +3637,9 @@
       "away_name": "CAR",
       "home_name": "PHI",
       "market": {
-        "home_spread": 3.5,
+        "home_spread": 3,
         "total": 39,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3575,48 +3659,48 @@
           "CAR": 3.17
         },
         "secondary_adjustment_points": {
-          "PHI": 0.39721428571428563,
-          "CAR": 0.11121428571428571
+          "PHI": 0.40149999999999997,
+          "CAR": 0.11550000000000005
         }
       },
       "means": {
-        "home": 18.07904819866167,
-        "away": 21.446408142547792,
-        "total": 39.52545634120946,
-        "home_margin": -3.3673599438861217
+        "home": 18.233333912947383,
+        "away": 21.300693856833508,
+        "total": 39.53402776978089,
+        "home_margin": -3.0673599438861245
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 18.07904819866167,
-        "mean_away": 21.446408142547792,
-        "home_win_pct": 0.36273732806645903,
-        "home_cover_pct": 0.5035341538553219,
-        "away_cover_pct": 0.49646584614467787,
-        "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.503534153855322,
-        "away_cover_excl_push_pct": 0.496465846144678,
-        "over_pct": 0.5006921479462259,
-        "under_pct": 0.468913718139931,
-        "total_push_pct": 0.030394133913842897,
-        "over_excl_push_pct": 0.5163872924648081,
-        "under_excl_push_pct": 0.48361270753519187,
+        "mean_home": 18.233333912947383,
+        "mean_away": 21.300693856833508,
+        "home_win_pct": 0.3969830470777915,
+        "home_cover_pct": 0.45688619590102814,
+        "away_cover_pct": 0.4604249887977152,
+        "side_push_pct": 0.08268881530125588,
+        "home_cover_excl_push_pct": 0.4980711055551725,
+        "away_cover_excl_push_pct": 0.5019288944448275,
+        "over_pct": 0.5009516679685461,
+        "under_pct": 0.4686550437712379,
+        "total_push_pct": 0.030393288260215427,
+        "over_excl_push_pct": 0.5166544970276442,
+        "under_excl_push_pct": 0.4833455029723558,
         "adjustments_vs_market": {
-          "margin": 0.1326400561138783,
-          "total": 0.5254563412094626
+          "margin": -0.06735994388612454,
+          "total": 0.5340277697808915
         },
         "distribution": {
-          "mean_margin": -4.584098075966057,
+          "mean_margin": -3.3997869162037984,
           "median_margin": -3,
-          "mean_total": 39.554275232795476,
+          "mean_total": 39.56274610211124,
           "median_total": 40
         }
       },
       "model_menu": {
-        "side": "PHI",
-        "side_cover_pct": 0.503534153855322,
+        "side": "CAR",
+        "side_cover_pct": 0.5019288944448275,
         "total": "Over",
-        "total_pct": 0.5163872924648081,
+        "total_pct": 0.5166544970276442,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3631,7 +3715,7 @@
       "market": {
         "home_spread": 2.5,
         "total": 39,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3651,48 +3735,48 @@
           "PIT": 2.485
         },
         "secondary_adjustment_points": {
-          "TB": -0.03878571428571431,
-          "PIT": 0.2162142857142857
+          "TB": 0.25450000000000006,
+          "PIT": 0.22050000000000003
         }
       },
       "means": {
-        "home": 18.6445950641151,
-        "away": 20.378435639749636,
-        "total": 39.023030703864734,
-        "home_margin": -1.7338405756345345
+        "home": 18.937880778400817,
+        "away": 20.38272135403535,
+        "total": 39.320602132436164,
+        "home_margin": -1.444840575634533
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 18.6445950641151,
-        "mean_away": 20.378435639749636,
-        "home_win_pct": 0.459268856669842,
-        "home_cover_pct": 0.5200731792421496,
-        "away_cover_pct": 0.4799268207578503,
+        "mean_home": 18.937880778400817,
+        "mean_away": 20.38272135403535,
+        "home_win_pct": 0.46682329871587386,
+        "home_cover_pct": 0.52762789044552,
+        "away_cover_pct": 0.4723721095544803,
         "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.5200731792421497,
-        "away_cover_excl_push_pct": 0.47992682075785037,
-        "over_pct": 0.48548582883745367,
-        "under_pct": 0.484092860213709,
-        "total_push_pct": 0.03042131094883728,
-        "over_excl_push_pct": 0.5007183370671585,
-        "under_excl_push_pct": 0.4992816629328416,
+        "home_cover_excl_push_pct": 0.5276278904455198,
+        "away_cover_excl_push_pct": 0.47237210955448006,
+        "over_pct": 0.4944903090253363,
+        "under_pct": 0.4750991566710454,
+        "total_push_pct": 0.0304105343036179,
+        "over_excl_push_pct": 0.5099996715312721,
+        "under_excl_push_pct": 0.4900003284687279,
         "adjustments_vs_market": {
-          "margin": 0.7661594243654655,
-          "total": 0.023030703864733937
+          "margin": 1.055159424365467,
+          "total": 0.3206021324361643
         },
         "distribution": {
-          "mean_margin": -1.3273562172892153,
-          "median_margin": -2,
-          "mean_total": 39.05806646443617,
+          "mean_margin": -1.0803302018923038,
+          "median_margin": -1,
+          "mean_total": 39.35187830680474,
           "median_total": 39
         }
       },
       "model_menu": {
         "side": "TB",
-        "side_cover_pct": 0.5200731792421497,
+        "side_cover_pct": 0.5276278904455198,
         "total": "Over",
-        "total_pct": 0.5007183370671585,
+        "total_pct": 0.5099996715312721,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3707,7 +3791,7 @@
       "market": {
         "home_spread": -13.5,
         "total": 52,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3727,48 +3811,48 @@
           "ARI": -11.144
         },
         "secondary_adjustment_points": {
-          "LAR": 0.29121428571428576,
-          "ARI": -0.3307857142857143
+          "LAR": 0.2955000000000001,
+          "ARI": -0.4095
         }
       },
       "means": {
-        "home": 31.65724539979239,
-        "away": 20.343169732132885,
-        "total": 52.00041513192528,
-        "home_margin": 11.314075667659505
+        "home": 31.661531114078105,
+        "away": 20.264455446418598,
+        "total": 51.9259865604967,
+        "home_margin": 11.397075667659507
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 31.65724539979239,
-        "mean_away": 20.343169732132885,
-        "home_win_pct": 0.8123321049289977,
-        "home_cover_pct": 0.4357009292532231,
-        "away_cover_pct": 0.5642990707467772,
+        "mean_home": 31.661531114078105,
+        "mean_away": 20.264455446418598,
+        "home_win_pct": 0.8138671360676559,
+        "home_cover_pct": 0.4381092961829022,
+        "away_cover_pct": 0.5618907038170972,
         "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.43570092925322296,
-        "away_cover_excl_push_pct": 0.564299070746777,
-        "over_pct": 0.4848214051387012,
-        "under_pct": 0.48479619622798337,
-        "total_push_pct": 0.030382398633315443,
-        "over_excl_push_pct": 0.5000129994085721,
-        "under_excl_push_pct": 0.4999870005914278,
+        "home_cover_excl_push_pct": 0.43810929618290245,
+        "away_cover_excl_push_pct": 0.5618907038170975,
+        "over_pct": 0.48256181376333784,
+        "under_pct": 0.4870562548158024,
+        "total_push_pct": 0.030381931420859945,
+        "over_excl_push_pct": 0.4976823652538516,
+        "under_excl_push_pct": 0.5023176347461483,
         "adjustments_vs_market": {
-          "margin": -2.1859243323404947,
-          "total": 0.00041513192527986575
+          "margin": -2.1029243323404927,
+          "total": -0.07401343950329675
         },
         "distribution": {
-          "mean_margin": 11.894673869717314,
+          "mean_margin": 11.975428648000937,
           "median_margin": 11,
-          "mean_total": 52.0016564655465,
+          "mean_total": 51.92726833926449,
           "median_total": 52
         }
       },
       "model_menu": {
         "side": "ARI",
-        "side_cover_pct": 0.564299070746777,
-        "total": "Over",
-        "total_pct": 0.5000129994085721,
+        "side_cover_pct": 0.5618907038170975,
+        "total": "Under",
+        "total_pct": 0.5023176347461483,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3783,7 +3867,7 @@
       "market": {
         "home_spread": 4.5,
         "total": 53.5,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3803,40 +3887,40 @@
           "BUF": 4.153
         },
         "secondary_adjustment_points": {
-          "LV": -0.1437857142857143,
-          "BUF": -0.2787857142857143
+          "LV": -0.13949999999999996,
+          "BUF": -0.27449999999999997
         }
       },
       "means": {
-        "home": 25.37557025808117,
-        "away": 28.0143583133474,
-        "total": 53.38992857142857,
+        "home": 25.379855972366883,
+        "away": 28.018644027633115,
+        "total": 53.3985,
         "home_margin": -2.6387880552662324
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 25.37557025808117,
-        "mean_away": 28.0143583133474,
+        "mean_home": 25.379855972366883,
+        "mean_away": 28.018644027633115,
         "home_win_pct": 0.3832052613558053,
         "home_cover_pct": 0.5497411461639747,
         "away_cover_pct": 0.4502588538360252,
         "side_push_pct": 0,
         "home_cover_excl_push_pct": 0.5497411461639747,
         "away_cover_excl_push_pct": 0.4502588538360252,
-        "over_pct": 0.496655390346681,
-        "under_pct": 0.503344609653319,
+        "over_pct": 0.4969158343118008,
+        "under_pct": 0.5030841656881992,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.496655390346681,
-        "under_excl_push_pct": 0.503344609653319,
+        "over_excl_push_pct": 0.4969158343118008,
+        "under_excl_push_pct": 0.5030841656881992,
         "adjustments_vs_market": {
           "margin": 1.8612119447337676,
-          "total": -0.11007142857143037
+          "total": -0.10150000000000148
         },
         "distribution": {
           "mean_margin": -3.871249130808549,
           "median_margin": -3,
-          "mean_total": 53.390757108112076,
+          "mean_total": 53.39932546030487,
           "median_total": 53
         }
       },
@@ -3844,7 +3928,7 @@
         "side": "LV",
         "side_cover_pct": 0.5497411461639747,
         "total": "Under",
-        "total_pct": 0.503344609653319,
+        "total_pct": 0.5030841656881992,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3857,9 +3941,9 @@
       "away_name": "LAC",
       "home_name": "KC",
       "market": {
-        "home_spread": -8,
+        "home_spread": -7.5,
         "total": 41.5,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3879,48 +3963,48 @@
           "LAC": -9.304
         },
         "secondary_adjustment_points": {
-          "KC": 0.2162142857142857,
-          "LAC": -0.4137857142857143
+          "KC": 0.22050000000000003,
+          "LAC": -0.4095
         }
       },
       "means": {
-        "home": 25.403640458644603,
-        "away": 15.843878338321987,
-        "total": 41.24751879696659,
-        "home_margin": 9.559762120322615
+        "home": 25.257926172930315,
+        "away": 15.9981640526077,
+        "total": 41.25609022553802,
+        "home_margin": 9.259762120322614
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 25.403640458644603,
-        "mean_away": 15.843878338321987,
-        "home_win_pct": 0.7919288119191618,
-        "home_cover_pct": 0.531884190226988,
-        "away_cover_pct": 0.44368514451823926,
-        "side_push_pct": 0.024430665254772343,
-        "home_cover_excl_push_pct": 0.5452038838079009,
-        "away_cover_excl_push_pct": 0.4547961161920992,
-        "over_pct": 0.49234605009029264,
-        "under_pct": 0.5076539499097075,
+        "mean_home": 25.257926172930315,
+        "mean_away": 15.9981640526077,
+        "home_win_pct": 0.7871362329881149,
+        "home_cover_pct": 0.5494851953546465,
+        "away_cover_pct": 0.45051480464535393,
+        "side_push_pct": 0,
+        "home_cover_excl_push_pct": 0.5494851953546462,
+        "away_cover_excl_push_pct": 0.4505148046453537,
+        "over_pct": 0.4926058476028108,
+        "under_pct": 0.5073941523971892,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.49234605009029264,
-        "under_excl_push_pct": 0.5076539499097075,
+        "over_excl_push_pct": 0.4926058476028108,
+        "under_excl_push_pct": 0.5073941523971892,
         "adjustments_vs_market": {
-          "margin": 1.559762120322615,
-          "total": -0.2524812030334118
+          "margin": 1.7597621203226144,
+          "total": -0.24390977446198292
         },
         "distribution": {
-          "mean_margin": 10.86250476599929,
-          "median_margin": 10,
-          "mean_total": 41.269641597506144,
+          "mean_margin": 10.630240524355402,
+          "median_margin": 9,
+          "mean_total": 41.27814351993612,
           "median_total": 41
         }
       },
       "model_menu": {
         "side": "KC",
-        "side_cover_pct": 0.5452038838079009,
+        "side_cover_pct": 0.5494851953546462,
         "total": "Under",
-        "total_pct": 0.5076539499097075,
+        "total_pct": 0.5073941523971892,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3934,8 +4018,8 @@
       "home_name": "GB",
       "market": {
         "home_spread": -1.5,
-        "total": 53.5,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "total": 53,
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3955,48 +4039,48 @@
           "DAL": -3.269
         },
         "secondary_adjustment_points": {
-          "GB": 0.15621428571428575,
-          "DAL": -0.07578571428571429
+          "GB": 0.1605000000000001,
+          "DAL": -0.07149999999999995
         }
       },
       "means": {
-        "home": 27.665501906529396,
-        "away": 26.0819518673567,
-        "total": 53.74745377388609,
-        "home_margin": 1.583550039172696
+        "home": 27.419787620815107,
+        "away": 25.836237581642415,
+        "total": 53.25602520245752,
+        "home_margin": 1.5835500391726924
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 27.665501906529396,
-        "mean_away": 26.0819518673567,
-        "home_win_pct": 0.5386534109495208,
-        "home_cover_pct": 0.5021928385083512,
-        "away_cover_pct": 0.49780716149164933,
+        "mean_home": 27.419787620815107,
+        "mean_away": 25.836237581642415,
+        "home_win_pct": 0.5386534109495211,
+        "home_cover_pct": 0.5021928385083516,
+        "away_cover_pct": 0.4978071614916493,
         "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.502192838508351,
-        "away_cover_excl_push_pct": 0.4978071614916491,
-        "over_pct": 0.5075187519159056,
-        "under_pct": 0.4924812480840945,
-        "total_push_pct": 0,
-        "over_excl_push_pct": 0.5075187519159056,
-        "under_excl_push_pct": 0.4924812480840945,
+        "home_cover_excl_push_pct": 0.5021928385083512,
+        "away_cover_excl_push_pct": 0.49780716149164883,
+        "over_pct": 0.49258523291040374,
+        "under_pct": 0.4770384633869486,
+        "total_push_pct": 0.030376303702647735,
+        "over_excl_push_pct": 0.5080169088187627,
+        "under_excl_push_pct": 0.4919830911812373,
         "adjustments_vs_market": {
-          "margin": 0.08355003917269599,
-          "total": 0.24745377388609313
+          "margin": 0.08355003917269244,
+          "total": 0.256025202457522
         },
         "distribution": {
-          "mean_margin": 1.259357236138672,
+          "mean_margin": 1.2593572361386696,
           "median_margin": 2,
-          "mean_total": 53.7481603709177,
-          "median_total": 54
+          "mean_total": 53.2568452043072,
+          "median_total": 53
         }
       },
       "model_menu": {
         "side": "GB",
-        "side_cover_pct": 0.502192838508351,
+        "side_cover_pct": 0.5021928385083512,
         "total": "Over",
-        "total_pct": 0.5075187519159056,
+        "total_pct": 0.5080169088187627,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -4011,7 +4095,7 @@
       "market": {
         "home_spread": -7.5,
         "total": 51.5,
-        "captured_at": "2026-10-16T17:38:00.000Z"
+        "captured_at": "2026-10-17T02:33:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -4031,48 +4115,48 @@
           "WAS": -9.739
         },
         "secondary_adjustment_points": {
-          "SF": -0.2787857142857143,
-          "WAS": -0.008785714285714286
+          "SF": -0.4095,
+          "WAS": -0.0044999999999999485
         }
       },
       "means": {
-        "home": 30.186764434488225,
-        "away": 21.129935311441315,
-        "total": 51.31669974592954,
-        "home_margin": 9.05682912304691
+        "home": 30.056050148773938,
+        "away": 21.13422102572703,
+        "total": 51.190271174500964,
+        "home_margin": 8.921829123046908
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 30.186764434488225,
-        "mean_away": 21.129935311441315,
-        "home_win_pct": 0.7830881710456222,
-        "home_cover_pct": 0.5437757122906487,
-        "away_cover_pct": 0.45622428770935153,
+        "mean_home": 30.056050148773938,
+        "mean_away": 21.13422102572703,
+        "home_win_pct": 0.7803732599346439,
+        "home_cover_pct": 0.5399764010779878,
+        "away_cover_pct": 0.4600235989220121,
         "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.5437757122906486,
-        "away_cover_excl_push_pct": 0.4562242877093514,
-        "over_pct": 0.4944308063254048,
-        "under_pct": 0.5055691936745954,
+        "home_cover_excl_push_pct": 0.5399764010779878,
+        "away_cover_excl_push_pct": 0.4600235989220121,
+        "over_pct": 0.49059013620307973,
+        "under_pct": 0.5094098637969198,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.4944308063254047,
-        "under_excl_push_pct": 0.5055691936745953,
+        "over_excl_push_pct": 0.49059013620307995,
+        "under_excl_push_pct": 0.50940986379692,
         "adjustments_vs_market": {
-          "margin": 1.55682912304691,
-          "total": -0.1833002540704598
+          "margin": 1.4218291230469084,
+          "total": -0.309728825499036
         },
         "distribution": {
-          "mean_margin": 10.43680385234026,
+          "mean_margin": 10.308430770139958,
           "median_margin": 9,
-          "mean_total": 51.318256293607554,
+          "mean_total": 51.191911716162764,
           "median_total": 51
         }
       },
       "model_menu": {
         "side": "SF",
-        "side_cover_pct": 0.5437757122906486,
+        "side_cover_pct": 0.5399764010779878,
         "total": "Under",
-        "total_pct": 0.5055691936745953,
+        "total_pct": 0.50940986379692,
         "basis": "excluding pushes"
       },
       "contest": null

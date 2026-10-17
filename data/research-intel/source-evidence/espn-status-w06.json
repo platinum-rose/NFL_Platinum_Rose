@@ -1,7 +1,7 @@
 {
  "schema": "espn_status_v1",
- "fetched_at": "2026-10-16T22:22:01Z",
- "espn_injuries_timestamp": "2026-10-16T22:21:59Z",
+ "fetched_at": "2026-10-17T02:03:26Z",
+ "espn_injuries_timestamp": "2026-10-17T02:03:23Z",
  "rule": "Rule: QB1 = first QB on ESPN's depth chart. An injury-report status of Out / Injured Reserve / Suspended moves the starter to the next QB.",
  "teams": {
   "ARI": {
@@ -165,18 +165,18 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
-     "player": "C.J. Henderson",
-     "pos": "CB",
-     "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
-    },
-    {
      "player": "Za'Darius Smith",
      "pos": "DE",
      "status": "Questionable",
-     "date": "2026-10-15",
-     "comment": "Smith (neck) was a limited participant at practice Thursday, Tori McElhaney of the Falcons' official site reports."
+     "date": "2026-10-17",
+     "comment": "Smith (neck) is listed as questionable for Sunday's game against the Bears, Tori McElhaney of the Falcons' official site reports."
+    },
+    {
+     "player": "C.J. Henderson",
+     "pos": "CB",
+     "status": "Out",
+     "date": "2026-10-17",
+     "comment": "Henderson (groin) has been ruled out for Sunday's game against the Bears, Tori McElhaney of the Falcons' official site reports."
     },
     {
      "player": "Yasir Abdullah",
@@ -256,6 +256,13 @@
    "qb_note": "Lamar Jackson Out;",
    "injury_report_non_active": [
     {
+     "player": "Matt Hibner",
+     "pos": "TE",
+     "status": "Out",
+     "date": "2026-10-17",
+     "comment": "Hibner (hand) has been ruled out for Sunday's game against the Browns."
+    },
+    {
      "player": "Ja'Kobi Lane",
      "pos": "WR",
      "status": "Injured Reserve",
@@ -282,13 +289,6 @@
      "status": "Out",
      "date": "2026-10-16",
      "comment": "Jackson (ankle) isn't practicing Friday, making him unlikely to play Sunday at Cleveland, according to Brian Wacker of The Baltimore Sun."
-    },
-    {
-     "player": "Matt Hibner",
-     "pos": "TE",
-     "status": "Out",
-     "date": "2026-10-15",
-     "comment": "Hibner (hand) did not practice Thursday."
     },
     {
      "player": "Emery Jones Jr.",
@@ -442,6 +442,13 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
+     "player": "Jaelan Phillips",
+     "pos": "LB",
+     "status": "Questionable",
+     "date": "2026-10-16",
+     "comment": "Phillips (hamstring) is listed as questionable for Sunday's game against the Eagles."
+    },
+    {
      "player": "Trevor Etienne",
      "pos": "RB",
      "status": "Injured Reserve",
@@ -503,13 +510,6 @@
      "status": "Out",
      "date": "2026-10-06",
      "comment": "Coach Dave Canales said Monday that Ekwonu (knee) is still a considerable time away from returning to action, Mike Kaye of ESPN reports."
-    },
-    {
-     "player": "Jaelan Phillips",
-     "pos": "LB",
-     "status": "Questionable",
-     "date": "2026-10-05",
-     "comment": "Phillips (hamstring) could return to the Panthers' lineup as early as the Week 6 game against the Eagles on Sunday, Oct. 18, Mike Kaye of ESPN.com reported Monday."
     }
    ],
    "injury_report_all_count": 25,
@@ -569,25 +569,39 @@
    "qb_note": "Caleb Williams Questionable;",
    "injury_report_non_active": [
     {
-     "player": "Anthony Johnson Jr.",
-     "pos": "S",
-     "status": "Injured Reserve",
-     "date": "2026-10-16",
-     "comment": "ir"
-    },
-    {
      "player": "Dayo Odeyingbo",
      "pos": "DE",
      "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
+     "date": "2026-10-17",
+     "comment": "Odeyingbo (quadriceps) has been ruled out for Sunday's game against the Falcons."
+    },
+    {
+     "player": "Anthony Johnson Jr.",
+     "pos": "S",
+     "status": "Injured Reserve",
+     "date": "2026-10-17",
+     "comment": "ir"
+    },
+    {
+     "player": "Kyler Gordon",
+     "pos": "CB",
+     "status": "Out",
+     "date": "2026-10-17",
+     "comment": "Gordon (calf) is listed as questionable for Sunday's game against the Falcons."
+    },
+    {
+     "player": "Tyrique Stevenson Sr.",
+     "pos": "CB",
+     "status": "Questionable",
+     "date": "2026-10-17",
+     "comment": "Stevenson (hip) is questionable for Sunday's game against the Falcons."
     },
     {
      "player": "T.J. Edwards",
      "pos": "LB",
      "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
+     "date": "2026-10-17",
+     "comment": "Edwards (hamstring) has been ruled out for Sunday's game against the Falcons."
     },
     {
      "player": "Keyshaun Elliott",
@@ -609,20 +623,6 @@
      "status": "Questionable",
      "date": "2026-10-16",
      "comment": "Williams (hamstring) is listed as questionable for Sunday's game against Atlanta."
-    },
-    {
-     "player": "Kyler Gordon",
-     "pos": "CB",
-     "status": "Out",
-     "date": "2026-10-15",
-     "comment": "Gordon (calf) was estimated as a full participant on the Bears' official injury report Wednesday."
-    },
-    {
-     "player": "Tyrique Stevenson Sr.",
-     "pos": "CB",
-     "status": "Questionable",
-     "date": "2026-10-15",
-     "comment": "Stevenson (hip) was estimated as a limited participant on the Bears' official injury report Wednesday."
     },
     {
      "player": "Montez Sweat",
@@ -768,15 +768,29 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
-     "player": "Teven Jenkins",
-     "pos": "G",
-     "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
-    },
-    {
      "player": "Mike Hall Jr.",
      "pos": "DT",
+     "status": "Out",
+     "date": "2026-10-17",
+     "comment": "Hall (ankle) has been ruled out ahead of Sunday's game against the Ravens."
+    },
+    {
+     "player": "Carson Schwesinger",
+     "pos": "LB",
+     "status": "Questionable",
+     "date": "2026-10-17",
+     "comment": "Schwesinger (ankle) is listed as questionable for Sunday's game against the Ravens."
+    },
+    {
+     "player": "Mason Graham",
+     "pos": "DT",
+     "status": "Questionable",
+     "date": "2026-10-17",
+     "comment": "Graham (knee/ankle) is questionable for Sunday's game against Baltimore."
+    },
+    {
+     "player": "Teven Jenkins",
+     "pos": "G",
      "status": "Out",
      "date": "2026-10-16",
      "comment": "out"
@@ -794,20 +808,6 @@
      "status": "Questionable",
      "date": "2026-10-16",
      "comment": "Judkins (foot) is listed as questionable for Sunday's game against Baltimore, Zac Jackson of The Athletic reports."
-    },
-    {
-     "player": "Carson Schwesinger",
-     "pos": "LB",
-     "status": "Questionable",
-     "date": "2026-10-15",
-     "comment": "Schwesinger (ankle) did not participate at practice Thursday."
-    },
-    {
-     "player": "Mason Graham",
-     "pos": "DT",
-     "status": "Questionable",
-     "date": "2026-10-15",
-     "comment": "Graham (knee/ankle) did not participate at practice Thursday."
     },
     {
      "player": "Derek Barnett",
@@ -1124,15 +1124,15 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
-     "player": "Devin White",
-     "pos": "LB",
-     "status": "Injured Reserve",
-     "date": "2026-10-16",
-     "comment": "ir"
-    },
-    {
      "player": "Tom Kennedy",
      "pos": "WR",
+     "status": "Injured Reserve",
+     "date": "2026-10-17",
+     "comment": "The Lions placed Kennedy (knee) on injured reserve Friday."
+    },
+    {
+     "player": "Devin White",
+     "pos": "LB",
      "status": "Injured Reserve",
      "date": "2026-10-16",
      "comment": "ir"
@@ -1228,6 +1228,13 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
+     "player": "Skyy Moore",
+     "pos": "WR",
+     "status": "Out",
+     "date": "2026-10-16",
+     "comment": "Moore (ankle) has been ruled out for Sunday night's game against the Cowboys, Wes Hodkiewicz of the Packers' official site reports."
+    },
+    {
      "player": "Benjamin St-Juste",
      "pos": "CB",
      "status": "Out",
@@ -1244,13 +1251,6 @@
     {
      "player": "Jonathan Ford",
      "pos": "DT",
-     "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
-    },
-    {
-     "player": "Skyy Moore",
-     "pos": "WR",
      "status": "Out",
      "date": "2026-10-16",
      "comment": "out"
@@ -1497,6 +1497,20 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
+     "player": "Will Mallory",
+     "pos": "TE",
+     "status": "Injured Reserve",
+     "date": "2026-10-17",
+     "comment": "Mallory (thumb) is listed as questionable for Sunday's game against the Titans."
+    },
+    {
+     "player": "Ashton Dulin",
+     "pos": "WR",
+     "status": "Out",
+     "date": "2026-10-16",
+     "comment": "Dulin (hamstring) has been ruled out ahead of Sunday's game against the Titans, Joel A. Erickson of The Indianapolis Star reports."
+    },
+    {
      "player": "Tyler Warren",
      "pos": "TE",
      "status": "Questionable",
@@ -1511,13 +1525,6 @@
      "comment": "out"
     },
     {
-     "player": "Ashton Dulin",
-     "pos": "WR",
-     "status": "Out",
-     "date": "2026-10-15",
-     "comment": "Dulin (hamstring) did not participate at practice Thursday."
-    },
-    {
      "player": "Alec Pierce",
      "pos": "WR",
      "status": "Injured Reserve",
@@ -1530,13 +1537,6 @@
      "status": "Injured Reserve",
      "date": "2026-10-10",
      "comment": "The Colts placed Key (hamstring) on injured reserve Saturday."
-    },
-    {
-     "player": "Will Mallory",
-     "pos": "TE",
-     "status": "Injured Reserve",
-     "date": "2026-10-09",
-     "comment": "Mallory (thumb) has been ruled out ahead of Sunday's game against the Steelers."
     }
    ],
    "injury_report_all_count": 25,
@@ -1583,15 +1583,15 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
-     "player": "Ross Matiscik",
-     "pos": "LS",
-     "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
-    },
-    {
      "player": "Montaric Brown",
      "pos": "CB",
+     "status": "Out",
+     "date": "2026-10-17",
+     "comment": "Brown (hamstring) has been ruled out ahead of Sunday's game against the Texans."
+    },
+    {
+     "player": "Ross Matiscik",
+     "pos": "LS",
      "status": "Out",
      "date": "2026-10-16",
      "comment": "out"
@@ -1761,8 +1761,8 @@
      "player": "Dont'e Thornton Jr.",
      "pos": "WR",
      "status": "Injured Reserve",
-     "date": "2026-10-15",
-     "comment": "Thornton (hamstring) was a full participant at the Raiders' practice Wednesday."
+     "date": "2026-10-16",
+     "comment": "Thornton (hamstring) won't be activated from injured reserve for Sunday's game against the Bills,  Sam Warren of The Athletic reports."
     },
     {
      "player": "Carter Runyon",
@@ -1843,25 +1843,53 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
+     "player": "Brenen Thompson",
+     "pos": "WR",
+     "status": "Questionable",
+     "date": "2026-10-17",
+     "comment": "Thompson (quadriceps) is listed as questionable for Sunday's game against the Chiefs."
+    },
+    {
      "player": "Rodney Shelley",
      "pos": "CB",
      "status": "Doubtful",
-     "date": "2026-10-16",
-     "comment": "doubtful"
+     "date": "2026-10-17",
+     "comment": "Shelley (hamstring) is listed as doubtful for Sunday's game against the Chiefs."
     },
     {
-     "player": "Donte Jackson",
-     "pos": "CB",
-     "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
+     "player": "KeAndre Lambert-Smith",
+     "pos": "WR",
+     "status": "Injured Reserve",
+     "date": "2026-10-17",
+     "comment": "Lambert-Smith (hamstring) is questionable for Sunday's game against Kansas City."
     },
     {
      "player": "Derwin James Jr.",
      "pos": "S",
      "status": "Out",
+     "date": "2026-10-17",
+     "comment": "James (hamstring) has been ruled out for Sunday's game against the Chiefs."
+    },
+    {
+     "player": "Donte Jackson",
+     "pos": "CB",
+     "status": "Out",
+     "date": "2026-10-17",
+     "comment": "Jackson (hamstring) has been ruled out ahead of Sunday's game against the Chiefs."
+    },
+    {
+     "player": "Daiyan Henley",
+     "pos": "LB",
+     "status": "Questionable",
+     "date": "2026-10-17",
+     "comment": "Henley (knee) is listed as questionable for Sunday's game against the Chiefs."
+    },
+    {
+     "player": "Tre' Harris",
+     "pos": "WR",
+     "status": "Out",
      "date": "2026-10-16",
-     "comment": "out"
+     "comment": "Harris (hamstring) has been ruled out for Sunday's game against the Chiefs."
     },
     {
      "player": "Joe Alt",
@@ -1876,27 +1904,6 @@
      "status": "Out",
      "date": "2026-10-16",
      "comment": "out"
-    },
-    {
-     "player": "Brenen Thompson",
-     "pos": "WR",
-     "status": "Questionable",
-     "date": "2026-10-16",
-     "comment": "Thompson (quadriceps) was a limited participant in Thursday's practice."
-    },
-    {
-     "player": "KeAndre Lambert-Smith",
-     "pos": "WR",
-     "status": "Injured Reserve",
-     "date": "2026-10-15",
-     "comment": "Lambert-Smith (hamstring) was a limited participant in Thursday's practice."
-    },
-    {
-     "player": "Tre' Harris",
-     "pos": "WR",
-     "status": "Out",
-     "date": "2026-10-15",
-     "comment": "Harris (hamstring) was a non-participant in Thursday's practice."
     },
     {
      "player": "Alec Ingold",
@@ -1922,13 +1929,6 @@
     {
      "player": "Jamaree Caldwell",
      "pos": "DT",
-     "status": "Questionable",
-     "date": "2026-10-14",
-     "comment": "questionable"
-    },
-    {
-     "player": "Daiyan Henley",
-     "pos": "LB",
      "status": "Questionable",
      "date": "2026-10-14",
      "comment": "questionable"
@@ -1989,15 +1989,15 @@
      "player": "Trent McDuffie",
      "pos": "CB",
      "status": "Questionable",
-     "date": "2026-10-16",
-     "comment": "questionable"
+     "date": "2026-10-17",
+     "comment": "McDuffie (groin) is listed as questionable ahead of Sunday's game against the Cardinals, Stu Jackson of the Rams' official site reports."
     },
     {
      "player": "Kam Curl",
      "pos": "S",
      "status": "Questionable",
-     "date": "2026-10-16",
-     "comment": "Curl was limited in practice Thursday due to an ankle injury, Sarah Barshop of ESPN.com reports."
+     "date": "2026-10-17",
+     "comment": "Curl (ankle) is listed as questionable for Sunday's game against the Cardinals, Stu Jackson of the Rams' official site reports."
     },
     {
      "player": "Keagen Trost",
@@ -2434,14 +2434,14 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
-     "player": "Anfernee Jennings",
+     "player": "Kaden Elliss",
      "pos": "LB",
      "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
+     "date": "2026-10-17",
+     "comment": "Elliss (calf) has been ruled out ahead of Sunday's game against the Giants, Jeff Nowak of The Big 870 New Orleans reports."
     },
     {
-     "player": "Kaden Elliss",
+     "player": "Anfernee Jennings",
      "pos": "LB",
      "status": "Out",
      "date": "2026-10-16",
@@ -2576,8 +2576,15 @@
      "player": "Jermaine Eluemunor",
      "pos": "OT",
      "status": "Questionable",
-     "date": "2026-10-16",
+     "date": "2026-10-17",
      "comment": "questionable"
+    },
+    {
+     "player": "Theo Johnson",
+     "pos": "TE",
+     "status": "Out",
+     "date": "2026-10-16",
+     "comment": "Johnson (neck) has been ruled out for Sunday's game against the Saints."
     },
     {
      "player": "Tyler Nubin",
@@ -2589,13 +2596,6 @@
     {
      "player": "Colton Hood",
      "pos": "CB",
-     "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
-    },
-    {
-     "player": "Theo Johnson",
-     "pos": "TE",
      "status": "Out",
      "date": "2026-10-16",
      "comment": "out"
@@ -2709,6 +2709,13 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
+     "player": "Joseph Ossai",
+     "pos": "DE",
+     "status": "Out",
+     "date": "2026-10-16",
+     "comment": "Ossai (ankle) has been ruled out ahead of Sunday's game against the Patriots, Brian Costello of the New York Post reports."
+    },
+    {
      "player": "Omar Cooper Jr.",
      "pos": "WR",
      "status": "Injured Reserve",
@@ -2735,13 +2742,6 @@
      "status": "Out",
      "date": "2026-10-16",
      "comment": "Hall (quadriceps) is out for Sunday's game, Brian Costello of the New York Post reports."
-    },
-    {
-     "player": "Joseph Ossai",
-     "pos": "DE",
-     "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
     },
     {
      "player": "Dylan Parham",
@@ -2958,11 +2958,32 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
+     "player": "DeShon Elliott",
+     "pos": "S",
+     "status": "Injured Reserve",
+     "date": "2026-10-17",
+     "comment": "Elliott (knee) has been ruled out ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports."
+    },
+    {
+     "player": "Jalen Ramsey",
+     "pos": "CB",
+     "status": "Questionable",
+     "date": "2026-10-17",
+     "comment": "Ramsey (wrist) is listed as questionable for Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports."
+    },
+    {
+     "player": "Jamel Dean",
+     "pos": "CB",
+     "status": "Questionable",
+     "date": "2026-10-17",
+     "comment": "Dean (ankle) is listed as questionable ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports."
+    },
+    {
      "player": "DK Metcalf",
      "pos": "WR",
      "status": "Questionable",
      "date": "2026-10-16",
-     "comment": "Metcalf  is listed as questionable for Sunday's game against the Buccaneers after missing Friday's practice due to an illness."
+     "comment": "Metcalf is listed as questionable for Sunday's game against the Buccaneers after missing Friday's practice due to an illness."
     },
     {
      "player": "Rico Dowdle",
@@ -2970,20 +2991,6 @@
      "status": "Questionable",
      "date": "2026-10-16",
      "comment": "Dowdle (toe) is listed as questionable for Sunday's game against the Buccaneers after being a full participant in practice Thursday and Friday."
-    },
-    {
-     "player": "Jamel Dean",
-     "pos": "CB",
-     "status": "Questionable",
-     "date": "2026-10-14",
-     "comment": "Dean (ankle) was a limited participant at the Steelers' practice Wednesday, Mike DeFabo of The Athletic reports."
-    },
-    {
-     "player": "Jalen Ramsey",
-     "pos": "CB",
-     "status": "Questionable",
-     "date": "2026-10-14",
-     "comment": "questionable"
     },
     {
      "player": "Keeanu Benton",
@@ -3012,13 +3019,6 @@
      "status": "Injured Reserve",
      "date": "2026-10-10",
      "comment": "The Steelers placed Pittman (foot) on injured reserve Saturday."
-    },
-    {
-     "player": "DeShon Elliott",
-     "pos": "S",
-     "status": "Injured Reserve",
-     "date": "2026-10-09",
-     "comment": "Elliott (knee) has been ruled out ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports."
     },
     {
      "player": "Derrick Harmon",
@@ -3085,11 +3085,25 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
+     "player": "Christian Kirk",
+     "pos": "WR",
+     "status": "Injured Reserve",
+     "date": "2026-10-16",
+     "comment": "Kirk (calf) remained limited in Friday's practice, Harrison Rich of the San Francisco Chronicle reports."
+    },
+    {
+     "player": "Romello Height",
+     "pos": "DE",
+     "status": "Questionable",
+     "date": "2026-10-16",
+     "comment": "questionable"
+    },
+    {
      "player": "Mike Evans",
      "pos": "WR",
      "status": "Questionable",
      "date": "2026-10-16",
-     "comment": "Evans (ribs/Achilles) was working on the side during the open portion of Friday's practice, Nick Wagoner of ESPN.com reports."
+     "comment": "Evans (ribs/Achilles) was a non-participant at Friday's practice, Harrison Rich of the San Francisco Chronicle reports."
     },
     {
      "player": "Marques Sigle",
@@ -3108,13 +3122,6 @@
     {
      "player": "Mykel Williams",
      "pos": "DE",
-     "status": "Questionable",
-     "date": "2026-10-15",
-     "comment": "questionable"
-    },
-    {
-     "player": "Carver Willis",
-     "pos": "OT",
      "status": "Questionable",
      "date": "2026-10-15",
      "comment": "questionable"
@@ -3146,20 +3153,6 @@
      "status": "Questionable",
      "date": "2026-10-15",
      "comment": "questionable"
-    },
-    {
-     "player": "Christian Kirk",
-     "pos": "WR",
-     "status": "Injured Reserve",
-     "date": "2026-10-15",
-     "comment": "Kirk (calf) was limited in his return to practice Thursday, Matt Barrows of The Athletic reports."
-    },
-    {
-     "player": "Kyle Juszczyk",
-     "pos": "FB",
-     "status": "Questionable",
-     "date": "2026-10-15",
-     "comment": "Juszczyk (knee) will be limited at Thursday's practice, head coach Kyle Shanahan told reporters Thursday, Cam Inman of Bay Area News Group reports."
     },
     {
      "player": "Deebo Samuel Sr.",
@@ -3423,6 +3416,34 @@
    "qb_note": "Baker Mayfield Out;",
    "injury_report_non_active": [
     {
+     "player": "David Sills V",
+     "pos": "WR",
+     "status": "Injured Reserve",
+     "date": "2026-10-17",
+     "comment": "Sills (hamstring) is listed as questionable for Sunday's game against the Steelers."
+    },
+    {
+     "player": "Benjamin Morrison",
+     "pos": "CB",
+     "status": "Doubtful",
+     "date": "2026-10-17",
+     "comment": "Morrison (quadriceps) is listed as doubtful for Sunday's game against the Steelers."
+    },
+    {
+     "player": "Josiah Trotter",
+     "pos": "LB",
+     "status": "Questionable",
+     "date": "2026-10-17",
+     "comment": "Trotter (knee) is listed as questionable for Sunday's game against the Steelers."
+    },
+    {
+     "player": "Antoine Winfield Jr.",
+     "pos": "S",
+     "status": "Out",
+     "date": "2026-10-16",
+     "comment": "Winfield (ribs) has been ruled out ahead of Sunday's game against the Steelers, Brianna Dix of the Buccaneers' official site reports."
+    },
+    {
      "player": "Sean Tucker",
      "pos": "RB",
      "status": "Questionable",
@@ -3430,32 +3451,11 @@
      "comment": "Tucker (quadriceps) is listed as questionable and considered a game-time decision for Sunday's matchup with Pittsburgh, Brianna Dix of the Buccaneers' official site reports."
     },
     {
-     "player": "Josiah Trotter",
-     "pos": "LB",
-     "status": "Questionable",
-     "date": "2026-10-16",
-     "comment": "questionable"
-    },
-    {
-     "player": "Benjamin Morrison",
-     "pos": "CB",
-     "status": "Doubtful",
-     "date": "2026-10-16",
-     "comment": "doubtful"
-    },
-    {
      "player": "Baker Mayfield",
      "pos": "QB",
      "status": "Out",
      "date": "2026-10-16",
      "comment": "Mayfield (thumb) will not play Sunday, Brianna Dix of the Buccaneers' official site reports."
-    },
-    {
-     "player": "Antoine Winfield Jr.",
-     "pos": "S",
-     "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
     },
     {
      "player": "Ayden Garnes",
@@ -3470,13 +3470,6 @@
      "status": "Questionable",
      "date": "2026-10-13",
      "comment": "questionable"
-    },
-    {
-     "player": "David Sills V",
-     "pos": "WR",
-     "status": "Injured Reserve",
-     "date": "2026-10-12",
-     "comment": "Sills (hamstring) had his 21-day practice window opened by the Buccaneers on Monday, Scott Smith &amp; Brianna Dix of the team's official website reports."
     }
    ],
    "injury_report_all_count": 25,
@@ -3514,8 +3507,15 @@
      "player": "Jordan Elliott",
      "pos": "DT",
      "status": "Out",
+     "date": "2026-10-17",
+     "comment": "Elliott (personal) has been ruled out ahead of Sunday's game against the Colts."
+    },
+    {
+     "player": "Kevin Winston Jr.",
+     "pos": "S",
+     "status": "Out",
      "date": "2026-10-16",
-     "comment": "out"
+     "comment": "Winston (quadriceps) has been ruled out ahead of Sunday's game against the Colts, Paul Kuharsky of PaulKuharsky.com reports."
     },
     {
      "player": "Tyjae Spears",
@@ -3523,13 +3523,6 @@
      "status": "Questionable",
      "date": "2026-10-16",
      "comment": "Spears (knee) is listed as questionable for Sunday's game against the Colts."
-    },
-    {
-     "player": "Kevin Winston Jr.",
-     "pos": "S",
-     "status": "Out",
-     "date": "2026-10-16",
-     "comment": "out"
     },
     {
      "player": "Joshua Williams",
@@ -3602,8 +3595,43 @@
    "qb_note": "",
    "injury_report_non_active": [
     {
+     "player": "Treylon Burks",
+     "pos": "WR",
+     "status": "Questionable",
+     "date": "2026-10-16",
+     "comment": "Burks (shoulder) remained limited in Friday's practice."
+    },
+    {
+     "player": "Austin Ekeler",
+     "pos": "RB",
+     "status": "Questionable",
+     "date": "2026-10-16",
+     "comment": "Ekeler (chest) remained limited in Friday's practice."
+    },
+    {
      "player": "Rachaad White",
      "pos": "RB",
+     "status": "Questionable",
+     "date": "2026-10-16",
+     "comment": "White practiced in a limited capacity Friday due to a shoulder injury."
+    },
+    {
+     "player": "Stefon Diggs",
+     "pos": "WR",
+     "status": "Questionable",
+     "date": "2026-10-16",
+     "comment": "Diggs (hamstring) was limited at Friday's practice."
+    },
+    {
+     "player": "Lucas Patrick",
+     "pos": "G",
+     "status": "Questionable",
+     "date": "2026-10-16",
+     "comment": "questionable"
+    },
+    {
+     "player": "Javon Kinlaw",
+     "pos": "DT",
      "status": "Questionable",
      "date": "2026-10-16",
      "comment": "questionable"
@@ -3613,14 +3641,7 @@
      "pos": "RB",
      "status": "Questionable",
      "date": "2026-10-16",
-     "comment": "Croskey-Merritt (groin) wasn't present for Friday's practice, Tashan Reed of The Washington Post reports."
-    },
-    {
-     "player": "Stefon Diggs",
-     "pos": "WR",
-     "status": "Questionable",
-     "date": "2026-10-16",
-     "comment": "Diggs (hamstring) was going through stretching at Friday's practice, John Keim of ESPN.com reports."
+     "comment": "Croskey-Merritt (groin) didn't practice Friday."
     },
     {
      "player": "Terry McLaurin",
@@ -3651,13 +3672,6 @@
      "comment": "questionable"
     },
     {
-     "player": "Quan Martin",
-     "pos": "S",
-     "status": "Questionable",
-     "date": "2026-10-15",
-     "comment": "questionable"
-    },
-    {
      "player": "Javontae Jean-Baptiste",
      "pos": "LB",
      "status": "Questionable",
@@ -3670,20 +3684,6 @@
      "status": "Injured Reserve",
      "date": "2026-10-15",
      "comment": "Magee (hamstring) was designated to return from injured reserve Thursday."
-    },
-    {
-     "player": "Austin Ekeler",
-     "pos": "RB",
-     "status": "Questionable",
-     "date": "2026-10-15",
-     "comment": "Ekeler was a limited practice participant Thursday due to a chest injury."
-    },
-    {
-     "player": "Treylon Burks",
-     "pos": "WR",
-     "status": "Questionable",
-     "date": "2026-10-15",
-     "comment": "Burks was limited at Thursday's practice due to a shoulder injury."
     },
     {
      "player": "Charles Omenihu",
@@ -3705,20 +3705,6 @@
      "status": "Questionable",
      "date": "2026-10-13",
      "comment": "questionable"
-    },
-    {
-     "player": "Trey Amos",
-     "pos": "CB",
-     "status": "Injured Reserve",
-     "date": "2026-10-11",
-     "comment": "Amos (ankle) has been downgraded to out for Sunday's game against the Giants."
-    },
-    {
-     "player": "Jeremy McNichols",
-     "pos": "RB",
-     "status": "Injured Reserve",
-     "date": "2026-10-11",
-     "comment": "McNichols (quadriceps) has been ruled out for Sunday's game against the Giants."
     }
    ],
    "injury_report_all_count": 25,
@@ -3726,6 +3712,12 @@
     {
      "player": "Jer'Zhan Newton",
      "pos": "DT",
+     "roster_status": "day-to-day",
+     "operator_override": null
+    },
+    {
+     "player": "Jeremy McNichols",
+     "pos": "RB",
      "roster_status": "day-to-day",
      "operator_override": null
     },
@@ -3738,6 +3730,12 @@
     {
      "player": "Leo Chenal",
      "pos": "LB",
+     "roster_status": "day-to-day",
+     "operator_override": null
+    },
+    {
+     "player": "Trey Amos",
+     "pos": "CB",
      "roster_status": "day-to-day",
      "operator_override": null
     }
