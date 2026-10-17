@@ -259,11 +259,26 @@ export async function transcribeWithGeminiAudio(audioUrl, { apiKey, model, displ
       throw new Error(`Gemini audio transcription: empty response (finishReason=${finishReason ?? 'unknown'})`);
     }
 
+    const finishReason = data.candidates?.[0]?.finishReason;
     let parsed;
+    let salvaged = false;
     try {
       parsed = JSON.parse(extractJsonText(raw));
     } catch (e) {
-      throw new Error(`Gemini audio transcription: could not parse JSON response (${e.message})`);
+      // Long episodes can come back with the JSON cut off near the end (finishReason is logged below).
+      // Recover every complete {"speaker","text","start","end"} object instead of discarding the whole transcript.
+      const objs = [];
+      const re = /\{[^{}]*"text"\s*:\s*"(?:[^"\\]|\\.)*"[^{}]*\}/g;
+      let m;
+      while ((m = re.exec(extractJsonText(raw))) !== null) {
+        try { objs.push(JSON.parse(m[0])); } catch { /* skip a malformed object */ }
+      }
+      if (objs.length < 20) {
+        throw new Error(`Gemini audio transcription: could not parse JSON response (${e.message}; finishReason=${finishReason ?? 'unknown'}; salvaged ${objs.length})`);
+      }
+      parsed = { utterances: objs };
+      salvaged = true;
+      console.warn(`    ⚠ Gemini JSON was truncated/malformed (${e.message}; finishReason=${finishReason ?? 'unknown'}) — salvaged ${objs.length} complete utterances`);
     }
 
     const utterances = (Array.isArray(parsed.utterances) ? parsed.utterances : []).map((u) => ({
@@ -278,6 +293,8 @@ export async function transcribeWithGeminiAudio(audioUrl, { apiKey, model, displ
     }
 
     const text = utterances.map((u) => u.text).join(' ').trim();
+    const lastEnd = Math.max(0, ...utterances.map((u) => u.end || 0));
+    if (salvaged) console.warn(`    ⚠ Salvaged transcript ends at ${Math.round(lastEnd)}s — compare with the episode duration before trusting it`);
     console.log(`    ✍ Gemini complete — ${text.split(/\s+/).length.toLocaleString()} words, ${utterances.length} diarized turns`);
     return { text, utterances };
   } finally {
