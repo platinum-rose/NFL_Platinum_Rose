@@ -1,0 +1,1826 @@
+{
+ "computed_at": "2026-10-17T01:20:00Z",
+ "method": "Circa-derived exacta = (1+NFC/100)*(1+AFC/100)-1 in American odds; independence assumed; Circa does not post these exactas. Product of two vigged prices (Circa conf overround NFC 1.179, AFC 1.176).",
+ "circa_capture": "data/futures-imports/circa-2026-10-16.json (2026-10-16 ~17:00 PT)",
+ "beo_capture": "data/futures-imports/betonline-2026-10-13.json (snapshot 2026-10-14T04:44:12Z); BEO caps longshot exactas at +999999",
+ "summary": {
+  "combos": 256,
+  "beo_better": 173,
+  "circa_better": 83,
+  "circa_better_realistic": [
+   "GB vs BAL (+16950 vs +15500)",
+   "MIN vs BAL (+5400 vs +5000)"
+  ]
+ },
+ "portfolio_note": {
+  "gb_bal_tickets": [
+   {
+    "ticket": "994658662",
+    "stake": 12,
+    "price": 10300,
+    "to_win": 1236
+   },
+   {
+    "ticket": "1000995399",
+    "stake": 8,
+    "price": 20600,
+    "to_win": 1648
+   }
+  ],
+  "stake_weighted_avg_price": 14420
+ },
+ "exactas": [
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 37160,
+   "beo_price": 39800,
+   "beo_vs_circa_payout_pct": 7.1
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 16208000,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -93.8
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "New York Jets",
+   "circa_derived_price": 1425500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -29.8
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "New England Patriots",
+   "circa_derived_price": 92240,
+   "beo_price": 98700,
+   "beo_vs_circa_payout_pct": 7.0
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 97100,
+   "beo_price": 98700,
+   "beo_vs_circa_payout_pct": 1.6
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 980000,
+   "beo_price": 957500,
+   "beo_vs_circa_payout_pct": -2.3
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 44450,
+   "beo_price": 40900,
+   "beo_vs_circa_payout_pct": -8.0
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 413000,
+   "beo_price": 387500,
+   "beo_vs_circa_payout_pct": -6.2
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 413000,
+   "beo_price": 387500,
+   "beo_vs_circa_payout_pct": -6.2
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 49310,
+   "beo_price": 53100,
+   "beo_vs_circa_payout_pct": 7.7
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Houston Texans",
+   "circa_derived_price": 202400,
+   "beo_price": 174700,
+   "beo_vs_circa_payout_pct": -13.7
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 12158000,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -91.8
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 84950,
+   "beo_price": 83500,
+   "beo_vs_circa_payout_pct": -1.7
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 980000,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": 2.0
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 37160,
+   "beo_price": 41700,
+   "beo_vs_circa_payout_pct": 12.2
+  },
+  {
+   "nfc": "Washington Commanders",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 299600,
+   "beo_price": 311500,
+   "beo_vs_circa_payout_pct": 4.0
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 5190,
+   "beo_price": 9800,
+   "beo_vs_circa_payout_pct": 87.1
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 2301050,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -56.5
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "New York Jets",
+   "circa_derived_price": 202300,
+   "beo_price": 286800,
+   "beo_vs_circa_payout_pct": 41.7
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "New England Patriots",
+   "circa_derived_price": 13010,
+   "beo_price": 24600,
+   "beo_vs_circa_payout_pct": 88.4
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 13700,
+   "beo_price": 24600,
+   "beo_vs_circa_payout_pct": 79.0
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 139050,
+   "beo_price": 239300,
+   "beo_vs_circa_payout_pct": 72.0
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 6225,
+   "beo_price": 10100,
+   "beo_vs_circa_payout_pct": 61.3
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 58550,
+   "beo_price": 96800,
+   "beo_vs_circa_payout_pct": 65.2
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 58550,
+   "beo_price": 96800,
+   "beo_vs_circa_payout_pct": 65.2
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 6915,
+   "beo_price": 13200,
+   "beo_vs_circa_payout_pct": 89.6
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Houston Texans",
+   "circa_derived_price": 28650,
+   "beo_price": 43600,
+   "beo_vs_circa_payout_pct": 52.0
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 1726050,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -42.1
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 11975,
+   "beo_price": 20800,
+   "beo_vs_circa_payout_pct": 73.1
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 139050,
+   "beo_price": 286800,
+   "beo_vs_circa_payout_pct": 106.2
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 5190,
+   "beo_price": 10300,
+   "beo_vs_circa_payout_pct": 96.6
+  },
+  {
+   "nfc": "Dallas Cowboys",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 42450,
+   "beo_price": 77800,
+   "beo_vs_circa_payout_pct": 83.1
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 16460,
+   "beo_price": 11900,
+   "beo_vs_circa_payout_pct": -27.5
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 7203500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -86.1
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "New York Jets",
+   "circa_derived_price": 633500,
+   "beo_price": 347200,
+   "beo_vs_circa_payout_pct": -45.2
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "New England Patriots",
+   "circa_derived_price": 40940,
+   "beo_price": 29800,
+   "beo_vs_circa_payout_pct": -27.1
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 43100,
+   "beo_price": 29800,
+   "beo_vs_circa_payout_pct": -30.8
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 435500,
+   "beo_price": 289700,
+   "beo_vs_circa_payout_pct": -33.5
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 19700,
+   "beo_price": 12300,
+   "beo_vs_circa_payout_pct": -37.4
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 183500,
+   "beo_price": 117200,
+   "beo_vs_circa_payout_pct": -36.1
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 183500,
+   "beo_price": 117200,
+   "beo_vs_circa_payout_pct": -36.1
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 21860,
+   "beo_price": 16000,
+   "beo_vs_circa_payout_pct": -26.7
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Houston Texans",
+   "circa_derived_price": 89900,
+   "beo_price": 52800,
+   "beo_vs_circa_payout_pct": -41.2
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 5403500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -81.5
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 37700,
+   "beo_price": 25200,
+   "beo_vs_circa_payout_pct": -33.1
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 435500,
+   "beo_price": 347200,
+   "beo_vs_circa_payout_pct": -20.3
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 16460,
+   "beo_price": 12500,
+   "beo_vs_circa_payout_pct": -23.9
+  },
+  {
+   "nfc": "Philadelphia Eagles",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 133100,
+   "beo_price": 94200,
+   "beo_vs_circa_payout_pct": -29.2
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 25660,
+   "beo_price": 35000,
+   "beo_vs_circa_payout_pct": 36.3
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 11205500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -91.1
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "New York Jets",
+   "circa_derived_price": 985500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": 1.5
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "New England Patriots",
+   "circa_derived_price": 63740,
+   "beo_price": 87000,
+   "beo_vs_circa_payout_pct": 36.4
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 67100,
+   "beo_price": 87000,
+   "beo_vs_circa_payout_pct": 29.6
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 677500,
+   "beo_price": 844100,
+   "beo_vs_circa_payout_pct": 24.6
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 30700,
+   "beo_price": 36000,
+   "beo_vs_circa_payout_pct": 17.2
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 285500,
+   "beo_price": 341600,
+   "beo_vs_circa_payout_pct": 19.6
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 285500,
+   "beo_price": 341600,
+   "beo_vs_circa_payout_pct": 19.6
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 34060,
+   "beo_price": 46800,
+   "beo_vs_circa_payout_pct": 37.3
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Houston Texans",
+   "circa_derived_price": 139900,
+   "beo_price": 154000,
+   "beo_vs_circa_payout_pct": 10.1
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 8405500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -88.1
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 58700,
+   "beo_price": 73600,
+   "beo_vs_circa_payout_pct": 25.3
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 677500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": 47.6
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 25660,
+   "beo_price": 36700,
+   "beo_vs_circa_payout_pct": 42.9
+  },
+  {
+   "nfc": "New York Giants",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 207100,
+   "beo_price": 274600,
+   "beo_vs_circa_payout_pct": 32.6
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 4040,
+   "beo_price": 5600,
+   "beo_vs_circa_payout_pct": 37.7
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 1800800,
+   "beo_price": 826000,
+   "beo_vs_circa_payout_pct": -54.1
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "New York Jets",
+   "circa_derived_price": 158300,
+   "beo_price": 166000,
+   "beo_vs_circa_payout_pct": 4.9
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "New England Patriots",
+   "circa_derived_price": 10160,
+   "beo_price": 14200,
+   "beo_vs_circa_payout_pct": 39.4
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 10700,
+   "beo_price": 14200,
+   "beo_vs_circa_payout_pct": 32.4
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 108800,
+   "beo_price": 138500,
+   "beo_vs_circa_payout_pct": 27.3
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 4850,
+   "beo_price": 5800,
+   "beo_vs_circa_payout_pct": 19.2
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 45800,
+   "beo_price": 56000,
+   "beo_vs_circa_payout_pct": 22.2
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 45800,
+   "beo_price": 56000,
+   "beo_vs_circa_payout_pct": 22.2
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 5390,
+   "beo_price": 7600,
+   "beo_vs_circa_payout_pct": 40.3
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Houston Texans",
+   "circa_derived_price": 22400,
+   "beo_price": 25200,
+   "beo_vs_circa_payout_pct": 12.4
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 1350800,
+   "beo_price": 826000,
+   "beo_vs_circa_payout_pct": -38.8
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 9350,
+   "beo_price": 12000,
+   "beo_vs_circa_payout_pct": 28.0
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 108800,
+   "beo_price": 166000,
+   "beo_vs_circa_payout_pct": 52.5
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 4040,
+   "beo_price": 5900,
+   "beo_vs_circa_payout_pct": 44.9
+  },
+  {
+   "nfc": "Chicago Bears",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 33200,
+   "beo_price": 45000,
+   "beo_vs_circa_payout_pct": 35.4
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 5420,
+   "beo_price": 6700,
+   "beo_vs_circa_payout_pct": 23.2
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 2401100,
+   "beo_price": 976200,
+   "beo_vs_circa_payout_pct": -59.3
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "New York Jets",
+   "circa_derived_price": 211100,
+   "beo_price": 196200,
+   "beo_vs_circa_payout_pct": -7.1
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "New England Patriots",
+   "circa_derived_price": 13580,
+   "beo_price": 16800,
+   "beo_vs_circa_payout_pct": 23.5
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 14300,
+   "beo_price": 16800,
+   "beo_vs_circa_payout_pct": 17.4
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 145100,
+   "beo_price": 163700,
+   "beo_vs_circa_payout_pct": 12.8
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 6500,
+   "beo_price": 6900,
+   "beo_vs_circa_payout_pct": 6.1
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 61100,
+   "beo_price": 66200,
+   "beo_vs_circa_payout_pct": 8.3
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 61100,
+   "beo_price": 66200,
+   "beo_vs_circa_payout_pct": 8.3
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 7220,
+   "beo_price": 9000,
+   "beo_vs_circa_payout_pct": 24.3
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Houston Texans",
+   "circa_derived_price": 29900,
+   "beo_price": 29800,
+   "beo_vs_circa_payout_pct": -0.3
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 1801100,
+   "beo_price": 976200,
+   "beo_vs_circa_payout_pct": -45.8
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 12500,
+   "beo_price": 14200,
+   "beo_vs_circa_payout_pct": 13.5
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 145100,
+   "beo_price": 196200,
+   "beo_vs_circa_payout_pct": 35.2
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 5420,
+   "beo_price": 7000,
+   "beo_vs_circa_payout_pct": 28.6
+  },
+  {
+   "nfc": "Detroit Lions",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 44300,
+   "beo_price": 53200,
+   "beo_vs_circa_payout_pct": 20.0
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 14160,
+   "beo_price": 15100,
+   "beo_vs_circa_payout_pct": 6.6
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 6203000,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -83.9
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "New York Jets",
+   "circa_derived_price": 545500,
+   "beo_price": 437800,
+   "beo_vs_circa_payout_pct": -19.7
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "New England Patriots",
+   "circa_derived_price": 35240,
+   "beo_price": 37600,
+   "beo_vs_circa_payout_pct": 6.7
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 37100,
+   "beo_price": 37600,
+   "beo_vs_circa_payout_pct": 1.3
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 375000,
+   "beo_price": 365300,
+   "beo_vs_circa_payout_pct": -2.6
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 16950,
+   "beo_price": 15500,
+   "beo_vs_circa_payout_pct": -8.5
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 158000,
+   "beo_price": 147800,
+   "beo_vs_circa_payout_pct": -6.5
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 158000,
+   "beo_price": 147800,
+   "beo_vs_circa_payout_pct": -6.5
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 18810,
+   "beo_price": 20200,
+   "beo_vs_circa_payout_pct": 7.4
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Houston Texans",
+   "circa_derived_price": 77400,
+   "beo_price": 66600,
+   "beo_vs_circa_payout_pct": -13.9
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 4653000,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -78.5
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 32450,
+   "beo_price": 31800,
+   "beo_vs_circa_payout_pct": -2.0
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 375000,
+   "beo_price": 437800,
+   "beo_vs_circa_payout_pct": 16.7
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 14160,
+   "beo_price": 15800,
+   "beo_vs_circa_payout_pct": 11.5
+  },
+  {
+   "nfc": "Green Bay Packers",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 114600,
+   "beo_price": 118800,
+   "beo_vs_circa_payout_pct": 3.7
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 4500,
+   "beo_price": 4800,
+   "beo_vs_circa_payout_pct": 6.5
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 2000900,
+   "beo_price": 713300,
+   "beo_vs_circa_payout_pct": -64.3
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "New York Jets",
+   "circa_derived_price": 175900,
+   "beo_price": 143300,
+   "beo_vs_circa_payout_pct": -18.5
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "New England Patriots",
+   "circa_derived_price": 11300,
+   "beo_price": 12200,
+   "beo_vs_circa_payout_pct": 7.9
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 11900,
+   "beo_price": 12200,
+   "beo_vs_circa_payout_pct": 2.5
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 120900,
+   "beo_price": 119600,
+   "beo_vs_circa_payout_pct": -1.1
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 5400,
+   "beo_price": 5000,
+   "beo_vs_circa_payout_pct": -7.3
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 50900,
+   "beo_price": 48300,
+   "beo_vs_circa_payout_pct": -5.1
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 50900,
+   "beo_price": 48300,
+   "beo_vs_circa_payout_pct": -5.1
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 6000,
+   "beo_price": 6500,
+   "beo_vs_circa_payout_pct": 8.2
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Houston Texans",
+   "circa_derived_price": 24900,
+   "beo_price": 21700,
+   "beo_vs_circa_payout_pct": -12.8
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 1500900,
+   "beo_price": 713300,
+   "beo_vs_circa_payout_pct": -52.5
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 10400,
+   "beo_price": 10300,
+   "beo_vs_circa_payout_pct": -1.0
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 120900,
+   "beo_price": 143300,
+   "beo_vs_circa_payout_pct": 18.5
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 4500,
+   "beo_price": 5100,
+   "beo_vs_circa_payout_pct": 13.0
+  },
+  {
+   "nfc": "Minnesota Vikings",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 36900,
+   "beo_price": 38800,
+   "beo_vs_circa_payout_pct": 5.1
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 34860,
+   "beo_price": 42400,
+   "beo_vs_circa_payout_pct": 21.6
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 15207500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -93.4
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "New York Jets",
+   "circa_derived_price": 1337500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -25.2
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "New England Patriots",
+   "circa_derived_price": 86540,
+   "beo_price": 105200,
+   "beo_vs_circa_payout_pct": 21.5
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 91100,
+   "beo_price": 105200,
+   "beo_vs_circa_payout_pct": 15.5
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 919500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": 8.8
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 41700,
+   "beo_price": 43600,
+   "beo_vs_circa_payout_pct": 4.5
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 387500,
+   "beo_price": 413000,
+   "beo_vs_circa_payout_pct": 6.6
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 387500,
+   "beo_price": 413000,
+   "beo_vs_circa_payout_pct": 6.6
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 46260,
+   "beo_price": 56600,
+   "beo_vs_circa_payout_pct": 22.3
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Houston Texans",
+   "circa_derived_price": 189900,
+   "beo_price": 186200,
+   "beo_vs_circa_payout_pct": -1.9
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 11407500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -91.2
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 79700,
+   "beo_price": 89000,
+   "beo_vs_circa_payout_pct": 11.7
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 919500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": 8.8
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 34860,
+   "beo_price": 44400,
+   "beo_vs_circa_payout_pct": 27.3
+  },
+  {
+   "nfc": "Tampa Bay Buccaneers",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 281100,
+   "beo_price": 332000,
+   "beo_vs_circa_payout_pct": 18.1
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 12780,
+   "beo_price": 18800,
+   "beo_vs_circa_payout_pct": 46.7
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 5602700,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -82.2
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "New York Jets",
+   "circa_derived_price": 492700,
+   "beo_price": 543500,
+   "beo_vs_circa_payout_pct": 10.3
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "New England Patriots",
+   "circa_derived_price": 31820,
+   "beo_price": 46700,
+   "beo_vs_circa_payout_pct": 46.6
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 33500,
+   "beo_price": 46700,
+   "beo_vs_circa_payout_pct": 39.3
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 338700,
+   "beo_price": 453500,
+   "beo_vs_circa_payout_pct": 33.9
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 15300,
+   "beo_price": 19300,
+   "beo_vs_circa_payout_pct": 26.0
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 142700,
+   "beo_price": 183500,
+   "beo_vs_circa_payout_pct": 28.6
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 142700,
+   "beo_price": 183500,
+   "beo_vs_circa_payout_pct": 28.6
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 16980,
+   "beo_price": 25100,
+   "beo_vs_circa_payout_pct": 47.5
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Houston Texans",
+   "circa_derived_price": 69900,
+   "beo_price": 82700,
+   "beo_vs_circa_payout_pct": 18.3
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 4202700,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -76.2
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 29300,
+   "beo_price": 39500,
+   "beo_vs_circa_payout_pct": 34.7
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 338700,
+   "beo_price": 543500,
+   "beo_vs_circa_payout_pct": 60.4
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 12780,
+   "beo_price": 19700,
+   "beo_vs_circa_payout_pct": 53.7
+  },
+  {
+   "nfc": "Atlanta Falcons",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 103500,
+   "beo_price": 147500,
+   "beo_vs_circa_payout_pct": 42.5
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 16920,
+   "beo_price": 21400,
+   "beo_vs_circa_payout_pct": 26.3
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 7403600,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -86.5
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "New York Jets",
+   "circa_derived_price": 651100,
+   "beo_price": 619000,
+   "beo_vs_circa_payout_pct": -4.9
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "New England Patriots",
+   "circa_derived_price": 42080,
+   "beo_price": 53200,
+   "beo_vs_circa_payout_pct": 26.4
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 44300,
+   "beo_price": 53200,
+   "beo_vs_circa_payout_pct": 20.0
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 447600,
+   "beo_price": 516500,
+   "beo_vs_circa_payout_pct": 15.4
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 20250,
+   "beo_price": 22000,
+   "beo_vs_circa_payout_pct": 8.6
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 188600,
+   "beo_price": 209000,
+   "beo_vs_circa_payout_pct": 10.8
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 188600,
+   "beo_price": 209000,
+   "beo_vs_circa_payout_pct": 10.8
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 22470,
+   "beo_price": 28600,
+   "beo_vs_circa_payout_pct": 27.2
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Houston Texans",
+   "circa_derived_price": 92400,
+   "beo_price": 94200,
+   "beo_vs_circa_payout_pct": 1.9
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 5553600,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -82.0
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 38750,
+   "beo_price": 45000,
+   "beo_vs_circa_payout_pct": 16.1
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 447600,
+   "beo_price": 619000,
+   "beo_vs_circa_payout_pct": 38.3
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 16920,
+   "beo_price": 22400,
+   "beo_vs_circa_payout_pct": 32.2
+  },
+  {
+   "nfc": "Carolina Panthers",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 136800,
+   "beo_price": 168000,
+   "beo_vs_circa_payout_pct": 22.8
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 34860,
+   "beo_price": 52900,
+   "beo_vs_circa_payout_pct": 51.6
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 15207500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -93.4
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "New York Jets",
+   "circa_derived_price": 1337500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -25.2
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "New England Patriots",
+   "circa_derived_price": 86540,
+   "beo_price": 131200,
+   "beo_vs_circa_payout_pct": 51.5
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 91100,
+   "beo_price": 131200,
+   "beo_vs_circa_payout_pct": 44.0
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 919500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": 8.8
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 41700,
+   "beo_price": 54400,
+   "beo_vs_circa_payout_pct": 30.4
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 387500,
+   "beo_price": 515000,
+   "beo_vs_circa_payout_pct": 32.9
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 387500,
+   "beo_price": 515000,
+   "beo_vs_circa_payout_pct": 32.9
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 46260,
+   "beo_price": 70600,
+   "beo_vs_circa_payout_pct": 52.5
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Houston Texans",
+   "circa_derived_price": 189900,
+   "beo_price": 232200,
+   "beo_vs_circa_payout_pct": 22.3
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 11407500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -91.2
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 79700,
+   "beo_price": 111000,
+   "beo_vs_circa_payout_pct": 39.2
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 919500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": 8.8
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 34860,
+   "beo_price": 55400,
+   "beo_vs_circa_payout_pct": 58.8
+  },
+  {
+   "nfc": "New Orleans Saints",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 281100,
+   "beo_price": 414000,
+   "beo_vs_circa_payout_pct": 47.3
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 1786,
+   "beo_price": 2200,
+   "beo_vs_circa_payout_pct": 22.0
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 820310,
+   "beo_price": 330300,
+   "beo_vs_circa_payout_pct": -59.7
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "New York Jets",
+   "circa_derived_price": 72060,
+   "beo_price": 66300,
+   "beo_vs_circa_payout_pct": -8.0
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "New England Patriots",
+   "circa_derived_price": 4574,
+   "beo_price": 5600,
+   "beo_vs_circa_payout_pct": 22.0
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 4820,
+   "beo_price": 5600,
+   "beo_vs_circa_payout_pct": 15.9
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 49510,
+   "beo_price": 55300,
+   "beo_vs_circa_payout_pct": 11.7
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 2155,
+   "beo_price": 2250,
+   "beo_vs_circa_payout_pct": 4.2
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 20810,
+   "beo_price": 22300,
+   "beo_vs_circa_payout_pct": 7.1
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 20810,
+   "beo_price": 22300,
+   "beo_vs_circa_payout_pct": 7.1
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 2401,
+   "beo_price": 2900,
+   "beo_vs_circa_payout_pct": 20.0
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Houston Texans",
+   "circa_derived_price": 10150,
+   "beo_price": 10000,
+   "beo_vs_circa_payout_pct": -1.5
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 615310,
+   "beo_price": 330300,
+   "beo_vs_circa_payout_pct": -46.3
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 4205,
+   "beo_price": 4700,
+   "beo_vs_circa_payout_pct": 11.5
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 49510,
+   "beo_price": 66300,
+   "beo_vs_circa_payout_pct": 33.8
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 1786,
+   "beo_price": 2300,
+   "beo_vs_circa_payout_pct": 27.3
+  },
+  {
+   "nfc": "San Francisco 49ers",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 15070,
+   "beo_price": 17900,
+   "beo_vs_circa_payout_pct": 18.7
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 92360,
+   "beo_price": 262900,
+   "beo_vs_circa_payout_pct": 184.4
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 40220000,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -97.5
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "New York Jets",
+   "circa_derived_price": 3537500,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -71.7
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "New England Patriots",
+   "circa_derived_price": 229040,
+   "beo_price": 651200,
+   "beo_vs_circa_payout_pct": 184.2
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 241100,
+   "beo_price": 651200,
+   "beo_vs_circa_payout_pct": 170.0
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 2432000,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -58.9
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 110450,
+   "beo_price": 270400,
+   "beo_vs_circa_payout_pct": 144.7
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 1025000,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -2.4
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 1025000,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -2.4
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 122510,
+   "beo_price": 350600,
+   "beo_vs_circa_payout_pct": 186.0
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Houston Texans",
+   "circa_derived_price": 502400,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": 99.0
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 30170000,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -96.7
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 210950,
+   "beo_price": 551000,
+   "beo_vs_circa_payout_pct": 161.1
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 2432000,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": -58.9
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 92360,
+   "beo_price": 275400,
+   "beo_vs_circa_payout_pct": 198.0
+  },
+  {
+   "nfc": "Arizona Cardinals",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 743600,
+   "beo_price": 999999,
+   "beo_vs_circa_payout_pct": 34.5
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 2062,
+   "beo_price": 2500,
+   "beo_vs_circa_payout_pct": 20.3
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 940370,
+   "beo_price": 375400,
+   "beo_vs_circa_payout_pct": -60.1
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "New York Jets",
+   "circa_derived_price": 82620,
+   "beo_price": 75400,
+   "beo_vs_circa_payout_pct": -8.7
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "New England Patriots",
+   "circa_derived_price": 5258,
+   "beo_price": 6400,
+   "beo_vs_circa_payout_pct": 21.3
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 5540,
+   "beo_price": 6400,
+   "beo_vs_circa_payout_pct": 15.2
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 56770,
+   "beo_price": 62900,
+   "beo_vs_circa_payout_pct": 10.8
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 2485,
+   "beo_price": 2600,
+   "beo_vs_circa_payout_pct": 4.4
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 23870,
+   "beo_price": 25400,
+   "beo_vs_circa_payout_pct": 6.4
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 23870,
+   "beo_price": 25400,
+   "beo_vs_circa_payout_pct": 6.4
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 2767,
+   "beo_price": 3400,
+   "beo_vs_circa_payout_pct": 22.1
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Houston Texans",
+   "circa_derived_price": 11650,
+   "beo_price": 11400,
+   "beo_vs_circa_payout_pct": -2.1
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 705370,
+   "beo_price": 375400,
+   "beo_vs_circa_payout_pct": -46.8
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 4835,
+   "beo_price": 5400,
+   "beo_vs_circa_payout_pct": 11.4
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 56770,
+   "beo_price": 75400,
+   "beo_vs_circa_payout_pct": 32.8
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 2062,
+   "beo_price": 2650,
+   "beo_vs_circa_payout_pct": 27.2
+  },
+  {
+   "nfc": "Los Angeles Rams",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 17290,
+   "beo_price": 20400,
+   "beo_vs_circa_payout_pct": 17.9
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Buffalo Bills",
+   "circa_derived_price": 2844,
+   "beo_price": 3500,
+   "beo_vs_circa_payout_pct": 22.3
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Miami Dolphins",
+   "circa_derived_price": 1280540,
+   "beo_price": 525600,
+   "beo_vs_circa_payout_pct": -59.0
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "New York Jets",
+   "circa_derived_price": 112540,
+   "beo_price": 105600,
+   "beo_vs_circa_payout_pct": -6.2
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "New England Patriots",
+   "circa_derived_price": 7196,
+   "beo_price": 9000,
+   "beo_vs_circa_payout_pct": 24.7
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Cincinnati Bengals",
+   "circa_derived_price": 7580,
+   "beo_price": 9000,
+   "beo_vs_circa_payout_pct": 18.5
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Cleveland Browns",
+   "circa_derived_price": 77340,
+   "beo_price": 88100,
+   "beo_vs_circa_payout_pct": 13.9
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Baltimore Ravens",
+   "circa_derived_price": 3420,
+   "beo_price": 3600,
+   "beo_vs_circa_payout_pct": 5.1
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Pittsburgh Steelers",
+   "circa_derived_price": 32540,
+   "beo_price": 35600,
+   "beo_vs_circa_payout_pct": 9.4
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Indianapolis Colts",
+   "circa_derived_price": 32540,
+   "beo_price": 35600,
+   "beo_vs_circa_payout_pct": 9.4
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Jacksonville Jaguars",
+   "circa_derived_price": 3804,
+   "beo_price": 4800,
+   "beo_vs_circa_payout_pct": 25.5
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Houston Texans",
+   "circa_derived_price": 15900,
+   "beo_price": 16000,
+   "beo_vs_circa_payout_pct": 0.6
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Tennessee Titans",
+   "circa_derived_price": 960540,
+   "beo_price": 525600,
+   "beo_vs_circa_payout_pct": -45.3
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Denver Broncos",
+   "circa_derived_price": 6620,
+   "beo_price": 7600,
+   "beo_vs_circa_payout_pct": 14.6
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Los Angeles Chargers",
+   "circa_derived_price": 77340,
+   "beo_price": 105600,
+   "beo_vs_circa_payout_pct": 36.5
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Kansas City Chiefs",
+   "circa_derived_price": 2844,
+   "beo_price": 3700,
+   "beo_vs_circa_payout_pct": 29.1
+  },
+  {
+   "nfc": "Seattle Seahawks",
+   "afc": "Las Vegas Raiders",
+   "circa_derived_price": 23580,
+   "beo_price": 28600,
+   "beo_vs_circa_payout_pct": 21.2
+  }
+ ]
+}
