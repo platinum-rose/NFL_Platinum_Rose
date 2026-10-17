@@ -1,0 +1,364 @@
+{
+ "game": "NYJ@NE",
+ "generated_at": "2026-10-17T22:43:32Z",
+ "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+ "branch": "claude/w5-prop-cards-2026-10-11",
+ "packet_ref": {
+  "queue": "scratch/w06-astra-synthesis-queue.json",
+  "selector": "/packets/1",
+  "packet_sha256": "32639e9e131a08623daa7fbe0baa73bde2b0caf1115fd1d371c8e1a7fa730e4a",
+  "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+  "session_prompt_sha256": "c2bf2b1bb36979dd7a79b4922a4aa208d4fadf8950ffb41af02ee95edc9ee782",
+  "kickoff_utc": "2026-10-18T17:00:00.000Z",
+  "queue_built_at": "2026-10-17T22:06:53.020Z",
+  "roster_gate": {
+   "status": "PASS",
+   "roster_source": "2026-10-17T22:22:11Z",
+   "note": "receipt read, not rerun; its hash differs from the queue pin by design"
+  }
+ },
+ "disposition": "price moved",
+ "tier": "2-",
+ "lean": {
+  "side": "NYJ +7 (-103)",
+  "strength": "thin",
+  "edge_vs_breakeven_pts_excl_push": 0.7,
+  "total": "no play",
+  "brown_leg": "none until status check"
+ },
+ "adjustments": {
+  "margin_adj": -0.5,
+  "total_adj": -0.3,
+  "reasons": [
+   "-1.0 margin: quant model lean toward NYJ (raw -1.24, 2026-w06-quantitative-synthesis.json games[5]) weighted about 80% because it is provisional and unvalidated against FTN/power history",
+   "+0.5 margin: A.J. Brown probable return (ESPN Reiss 2026-10-17T13:25Z likely activation; RotoWire 2026-10-17T20:13Z activated, questionable) is not in the quant availability snapshot (02:03Z, Brown on IR)",
+   "-0.3 total: quant total lean -0.43 weighted about 70%, partly offset by Brown return; weather neutral"
+  ]
+ },
+ "sim_runs": [
+  {
+   "label": "A market baseline",
+   "home_line": -7,
+   "total": 43.5,
+   "margin_adj": 0,
+   "total_adj": 0,
+   "nyj_cover_incl_push": 0.4722,
+   "nyj_cover_excl_push": 0.5,
+   "side_push": 0.0555,
+   "ne_win": 0.729,
+   "under_excl_push": 0.5
+  },
+  {
+   "label": "B PRIMARY judgment",
+   "home_line": -7,
+   "total": 43.5,
+   "margin_adj": -0.5,
+   "total_adj": -0.3,
+   "nyj_cover_incl_push": 0.486,
+   "nyj_cover_excl_push": 0.5146,
+   "side_push": 0.0557,
+   "ne_win": 0.7177,
+   "under_excl_push": 0.5091
+  },
+  {
+   "label": "C Brown ruled out",
+   "home_line": -7,
+   "total": 43.5,
+   "margin_adj": -1.0,
+   "total_adj": -0.3,
+   "nyj_cover_incl_push": 0.4997,
+   "nyj_cover_excl_push": 0.5292,
+   "side_push": 0.0557,
+   "ne_win": 0.7063,
+   "under_excl_push": 0.5091
+  },
+  {
+   "label": "D quant-equivalent",
+   "home_line": -7,
+   "total": 43.5,
+   "margin_adj": -1.24,
+   "total_adj": -0.43,
+   "nyj_cover_incl_push": 0.5063,
+   "nyj_cover_excl_push": 0.5361,
+   "side_push": 0.0557,
+   "ne_win": 0.7007,
+   "under_excl_push": 0.5129
+  },
+  {
+   "label": "E NE-leaning stress",
+   "home_line": -7,
+   "total": 43.5,
+   "margin_adj": 0.5,
+   "total_adj": 0,
+   "nyj_cover_incl_push": 0.4585,
+   "nyj_cover_excl_push": 0.4853,
+   "side_push": 0.0553,
+   "ne_win": 0.74,
+   "under_excl_push": 0.5
+  },
+  {
+   "label": "F NE stress",
+   "home_line": -7,
+   "total": 43.5,
+   "margin_adj": 1.0,
+   "total_adj": 0,
+   "nyj_cover_incl_push": 0.4447,
+   "nyj_cover_excl_push": 0.4707,
+   "side_push": 0.0551,
+   "ne_win": 0.7509,
+   "under_excl_push": 0.5
+  },
+  {
+   "label": "G NYJ +7.5 belief fixed",
+   "home_line": -7.5,
+   "total": 43.5,
+   "margin_adj": -1.0,
+   "total_adj": -0.3,
+   "nyj_cover_incl_push": 0.5279,
+   "nyj_cover_excl_push": 0.5279,
+   "side_push": 0,
+   "ne_win": null,
+   "under_excl_push": 0.5091
+  },
+  {
+   "label": "H NYJ +6.5 belief fixed",
+   "home_line": -6.5,
+   "total": 43.5,
+   "margin_adj": 0,
+   "total_adj": -0.3,
+   "nyj_cover_incl_push": 0.5,
+   "nyj_cover_excl_push": 0.5,
+   "side_push": 0,
+   "ne_win": null,
+   "under_excl_push": 0.5091
+  },
+  {
+   "label": "I NYJ +8 belief fixed",
+   "home_line": -8,
+   "total": 43.5,
+   "margin_adj": -1.5,
+   "total_adj": -0.3,
+   "nyj_cover_incl_push": 0.5295,
+   "nyj_cover_excl_push": 0.5431,
+   "side_push": 0.025,
+   "ne_win": null,
+   "under_excl_push": 0.5091
+  },
+  {
+   "label": "J Under 44.5 belief fixed",
+   "home_line": -7,
+   "total": 44.5,
+   "margin_adj": -0.5,
+   "total_adj": -1.3,
+   "nyj_cover_incl_push": null,
+   "nyj_cover_excl_push": null,
+   "side_push": 0,
+   "ne_win": null,
+   "under_excl_push": 0.5394
+  }
+ ],
+ "sim_caveat": "Market-calibrated conditional probabilities given the stated adjustments; not forecasts. Rows at other lines hold the belief fixed. Props, team totals, SGPs have no calibrated joint model.",
+ "simulator": {
+  "script": "scripts/intel/margin-simulator.mjs",
+  "script_sha256": "ca67f3842c5844e535ffa6b60e41ea52cbbe31140942443020d318821614e4c8",
+  "selftest": "passed",
+  "calibration_sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33"
+ },
+ "market_snapshot": {
+  "board_0.12:40PM_PT": {
+   "captured_at": "2026-10-17T19:40:00Z",
+   "book": "Bookmaker",
+   "nyj_spread": "+7 -103",
+   "ne_spread": "-7 -113",
+   "total": "43.5 o-108 u-108",
+   "ml": {
+    "NYJ": 284,
+    "NE": -338
+   },
+   "source": "data/odds/BKR_current_lines_1017_1240_buildfmt line 3"
+  },
+  "opener": {
+   "nyj_spread": 7.5,
+   "ne_spread": -7.5,
+   "total": 44.5,
+   "ml": {
+    "NYJ": 280,
+    "NE": -366
+   },
+   "spread_at": "2026-10-12T00:02:55Z",
+   "total_at": "2026-10-12T03:05:25Z"
+  },
+  "movement": {
+   "spread_points_toward_nyj": 0.5,
+   "total_points": -1.0
+  },
+  "supercontest_locked": {
+   "ne": -7,
+   "captured_at": "2026-10-15T21:29:08Z",
+   "executable": false
+  },
+  "splits": {
+   "spread": {
+    "nyj_bets_pct": 26,
+    "nyj_money_pct": 28,
+    "ne_bets_pct": 74,
+    "ne_money_pct": 72,
+    "captured_at": "2026-10-17T18:14:06Z"
+   },
+   "total": {
+    "over_bets_pct": 59,
+    "over_money_pct": 67,
+    "captured_at": "2026-10-17T18:14:06Z"
+   },
+   "moneyline": "withheld stale (2026-10-16T03:30Z)"
+  },
+  "weather": {
+   "temp_f": 50.9,
+   "precip_pct": 0,
+   "wind_kmh": 3.8,
+   "gust_kmh": 6.1,
+   "captured_at": "2026-10-17T20:16Z",
+   "type": "forecast"
+  },
+  "executable_live_prices": []
+ },
+ "agreement": {
+  "nyj_plus_7_5": [
+   "Chad Millman",
+   "Simon Hunter",
+   "Evan Abrams",
+   "Stuckey",
+   "Brandon Anderson",
+   "Steve Fezzik",
+   "Ross Tucker"
+  ],
+  "independent_estimate": "about 4 (four episodes, reactive pairs)",
+  "ne_minus_7": [
+   "Joe Pisapia"
+  ],
+  "total_split": {
+   "under_43_5": "Brandon Anderson (SGP leg)",
+   "over_unpriced": "Joe Pisapia"
+  },
+  "su_context": [
+   "ESPN panel NE 27-21/30-17/24-16 at NE -7.5/43.5 (article 8187)",
+   "PFT NE 27-17 (article 8054)"
+  ],
+  "note": "All approved Jets pricing was +7.5; board is +7"
+ },
+ "props": {
+  "model": "none",
+  "verified_rows": {
+   "bookmaker_2026-10-17T19:40:54Z": [
+    "Smith pass yds O/U 216.5 -108/-108",
+    "Maye pass yds O/U 232.5 -112/-104",
+    "Smith pass TD O1.5 +211 / U1.5 -254",
+    "Maye pass TD O1.5 -147 / U1.5 +125",
+    "first TD Hunter Henry +919",
+    "first TD DeMario Douglas +1063"
+   ],
+   "betonline_2026-10-17T21:15:31Z": [
+    "Sanders fantasy pts O/U 6 -115",
+    "Borregales fantasy pts O/U 8.5 -115"
+   ]
+  },
+  "article_lead": "VSiN Burke first TD Henry +950 / Douglas +1200 at DK 10/15; repriced shorter at Bookmaker",
+  "recommended": []
+ },
+ "sources": [
+  {
+   "path": "scratch/w06-astra-synthesis-queue.json",
+   "field": "packets[NYJ@NE] (hash verified)",
+   "timestamp": "2026-10-17T22:06:53Z"
+  },
+  {
+   "path": "data/generated/team-dossiers/2026-w06/matchups/NYJ@NE.json",
+   "field": "side_by_side, availability",
+   "timestamp": "2026-10-17T02:04:52Z"
+  },
+  {
+   "path": "data/research-intel/proposed/2026-w06-quantitative-synthesis.json",
+   "field": "games[5]",
+   "timestamp": "2026-10-17T21:11:11Z"
+  },
+  {
+   "path": "data/odds/BKR_current_lines_1017_1240_buildfmt",
+   "field": "line 3",
+   "timestamp": "2026-10-17T19:40:00Z"
+  },
+  {
+   "path": "data/podcasts/youtube-extracted-picks-2026-w06.json",
+   "field": "picks 8,9,12,21,22,46,47,48,60,61,100,101",
+   "timestamp": "2026-10-17T21:44:25Z approval"
+  },
+  {
+   "path": "data/generated/master-intel/w06-splits-all.json",
+   "field": "games[1]",
+   "timestamp": "2026-10-17T18:14:06Z"
+  },
+  {
+   "path": "data/research-intel/review/2026-w06-weather-venue.json",
+   "field": "rows/1",
+   "timestamp": "2026-10-17T20:16:18Z"
+  },
+  {
+   "path": "data/research-intel/review/article-intel-review-latest.json",
+   "field": "analysis_notes article_note__8348, __8383, __8217",
+   "timestamp": "2026-10-17T21:27:41Z"
+  },
+  {
+   "path": "data/research-intel/source-evidence/espn-status-w06.json",
+   "field": "teams.NYJ, teams.NE, finals",
+   "timestamp": "2026-10-17T02:03:26Z"
+  },
+  {
+   "path": "data/research-intel/source-evidence/2026-10-17-bookmaker-week6-sgp-parsed.json",
+   "field": "packet player_props.bkr rows 516-519, 574-577, 838, 848",
+   "timestamp": "2026-10-17T19:40:54Z"
+  },
+  {
+   "path": "data/research-intel/source-evidence/2026-10-17-betonline-week6-props-parsed.json",
+   "field": "packet player_props.beo rows 242-245",
+   "timestamp": "2026-10-17T21:15:26Z"
+  },
+  {
+   "path": "data/generated/master-intel/w06-roster-vet.json",
+   "field": "status, roster_source, blocking (read only)",
+   "timestamp": "2026-10-17T22:22:11Z roster"
+  },
+  {
+   "path": "data/supercontest/week-06-lines.json",
+   "field": "games[2]",
+   "timestamp": "2026-10-15T21:29:08Z"
+  },
+  {
+   "path": "data/generated/master-intel/w06-expert-verified.json",
+   "field": "rows 9, 71, 88, 100",
+   "timestamp": "2026-10-17T05:38:07Z"
+  }
+ ],
+ "ambiguities": [
+  "A.J. Brown: ESPN/Reiss likely activation and RotoWire activated-questionable vs dossier IR (stale 02:04Z); no Brown leg; +0.5 adjustment is judgment",
+  "Official inactives not available (due about 8:30 AM PT 10/18): Brown, Henderson, Campbell, Cooper, Sadiq, Belton",
+  "Kickoff-day weather refresh not done; forecast benign",
+  "Moneyline splits stale about 42.6h at manifest; withheld",
+  "Sharp or Square attribution: expert feed row has NE -7 while Millman/Hunter video backs Jets +7.5",
+  "Packet narrative says Brown on IR; stale vs 10/17 items",
+  "Quant file contest field null (script expects a different SuperContest filename); flagged, not material",
+  "FTN used only via quant features; no independent FTN mining",
+  "YouTube quotes taken from packet rows; caption files not opened (quote_quality verify-before-quoting)",
+  "Article premises priced at publish (ESPN panel at NE -7.5/43.5); PFT article listed unresolved in source id list but carried as lead",
+  "Prompt activation template still says article gate unresolved/STOP; board, queue, prompt section 3 say cleared 2026-10-17; followed board/queue",
+  "W5 validator not run (hard-wired to Week 5); manual self-check done",
+  "RUNLOG tail displayed other games' lines when read for append check; not used"
+ ],
+ "delta_checklist": [
+  "Official inactives: Brown OUT -> row C (NYJ +7 52.9% excl push), firm toward tier 2; Brown active full snaps -> row E, drop to skip/pass",
+  "Henderson/Campbell inactive shades NYJ; Cooper/Sadiq out shades NE (judgment, unsourced sizes)",
+  "NYJ +7.5 at -105 or better restores edge (row G ~+1.6); NYJ +6.5 removes it (row H); +7 at -110 needs 52.4% vs 51.5%: skip",
+  "Under 43.5 no edge; Under 44.5 at -108 about 53.9% (row J)",
+  "Weather refresh on kickoff day",
+  "Re-pull Bookmaker/BetOnline before any use; no Brown prop rows existed at capture",
+  "Roster snapshot expires 2026-10-18T22:22Z; not an issue before kickoff"
+ ]
+}

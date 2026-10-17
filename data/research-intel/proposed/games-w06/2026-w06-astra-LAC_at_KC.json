@@ -1,0 +1,259 @@
+{
+  "game": "LAC@KC",
+  "generated_at": "2026-10-17T22:43:34Z",
+  "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+  "branch": "claude/w5-prop-cards-2026-10-11",
+  "kickoff_utc": "2026-10-18T20:25:00.000Z",
+  "status": "COMPLETE",
+  "proposal_only": true,
+  "packet_ref": {
+    "queue": "scratch/w06-astra-synthesis-queue.json",
+    "selector": "/packets/10",
+    "packet_sha256": "6331ff595587511f58bf35aa32454ab663e90f27b0107e6ba6c183f38978d9a2",
+    "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+    "session_prompt_sha256": "c2bf2b1bb36979dd7a79b4922a4aa208d4fadf8950ffb41af02ee95edc9ee782",
+    "manifest_verified": "47 of 48 (w06-roster-vet.json receipt read, PASS, roster snapshot 2026-10-17T22:22Z; not rerun)"
+  },
+  "disposition": "price moved",
+  "tier": "skip",
+  "side_dispositions": {
+    "spread": "pass",
+    "total": "price moved (Under signals priced 42.5, board 41.5 -113; sim 51.5% vs 53.1% needed)"
+  },
+  "adjustments": {
+    "margin_adj": 0.5,
+    "total_adj": -0.5,
+    "reasons": {
+      "margin_adj": "LAC OL cluster (Alt, Awosika Out; others day-to-day) and DBs James/Jackson Out vs KC missing Rice/Simmons; shrunk from quant model +1.76 for small samples and because the market already carries LAC injuries (spread unchanged from -7.5 opener).",
+      "total_adj": "LAC worst-EPA offense and slow tempo, mild wind (12.8 mph, 19 mph gusts); offset by KC 29.5 ppg and 69% over money. Quant total 41.26 is only 0.24 below board."
+    }
+  },
+  "fair_numbers": {
+    "kc_spread": -8.0,
+    "total": 41.0,
+    "note": "simulator is market-centered; restate adjustments relative to any other posted line"
+  },
+  "sim_runs": [
+    {
+      "label": "baseline",
+      "home_line": -7.5,
+      "total": 41.5,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "kc_cover": 0.5,
+      "lac_cover": 0.5,
+      "over": 0.5,
+      "under": 0.5,
+      "kc_win": 0.7507
+    },
+    {
+      "label": "hypothesis_adopted",
+      "home_line": -7.5,
+      "total": 41.5,
+      "margin_adj": 0.5,
+      "total_adj": -0.5,
+      "kc_cover": 0.514,
+      "lac_cover": 0.486,
+      "over": 0.4848,
+      "under": 0.5152,
+      "kc_win": 0.7614
+    },
+    {
+      "label": "upper_hypothesis",
+      "home_line": -7.5,
+      "total": 41.5,
+      "margin_adj": 1.0,
+      "total_adj": -1.0,
+      "kc_cover": 0.5281,
+      "lac_cover": 0.4719,
+      "over": 0.4697,
+      "under": 0.5303,
+      "kc_win": 0.7718
+    },
+    {
+      "label": "quant_model_full",
+      "home_line": -7.5,
+      "total": 41.5,
+      "margin_adj": 1.76,
+      "total_adj": -0.24,
+      "kc_cover": 0.5495,
+      "under": 0.5073,
+      "kc_win": 0.7871
+    },
+    {
+      "label": "counter_lac",
+      "home_line": -7.5,
+      "total": 41.5,
+      "margin_adj": -0.5,
+      "total_adj": 0,
+      "kc_cover": 0.486,
+      "lac_cover": 0.514,
+      "over": 0.5,
+      "under": 0.5,
+      "kc_win": 0.7399
+    },
+    {
+      "label": "restated_under_42.5",
+      "home_line": -7.5,
+      "total": 42.5,
+      "margin_adj": 0.5,
+      "total_adj": -1.5,
+      "under": 0.5454,
+      "over": 0.4546
+    },
+    {
+      "label": "restated_kc_-6.5",
+      "home_line": -6.5,
+      "total": 41.5,
+      "margin_adj": 1.5,
+      "total_adj": -0.5,
+      "kc_cover": 0.5412,
+      "lac_cover": 0.4588
+    }
+  ],
+  "sim_caveat": "Market-calibrated marginal probabilities per separate bet via scripts/intel/margin-simulator.mjs (selftest passed). Not a joint model; no parlay/SGP/prop/team-total/teaser probabilities claimed.",
+  "break_even": {
+    "KC -7.5 -108": 0.519,
+    "Under 41.5 -113": 0.531,
+    "Over 41.5 -103": 0.507
+  },
+  "market_snapshot": {
+    "board": {
+      "source": "data/odds/BKR_current_lines_1017_1240_buildfmt line 12",
+      "captured_at": "2026-10-17T19:40:00Z",
+      "LAC": "+7.5 -108",
+      "KC": "-7.5 -108",
+      "over": "41.5 -103",
+      "under": "41.5 -113",
+      "ml": {
+        "LAC": 326,
+        "KC": -393
+      }
+    },
+    "opener": {
+      "source": "data/odds/actionnetwork-openers-2026-w06.json",
+      "kc_spread": -7.5,
+      "total": 43.5,
+      "ml": {
+        "LAC": 320,
+        "KC": -420
+      },
+      "sp_at": "2026-10-12T00:29:55Z"
+    },
+    "movement": {
+      "spread_points": 0.0,
+      "total_points": -2.0,
+      "note": "cross-book; teaser analysts cite KC -8.5 earlier in week (not in packet)"
+    },
+    "contest_locked": {
+      "kc": -7.5,
+      "captured_at": "2026-10-15T21:29:08Z"
+    },
+    "splits": {
+      "spread_tickets": {
+        "LAC": 38,
+        "KC": 62
+      },
+      "spread_money": {
+        "LAC": 45,
+        "KC": 55
+      },
+      "total_tickets": {
+        "over": 60,
+        "under": 40
+      },
+      "total_money": {
+        "over": 69,
+        "under": 31
+      },
+      "captured_at": "2026-10-17T18:14:06Z",
+      "moneyline": "withheld stale (2026-10-16T03:30Z, ~42.6h)"
+    },
+    "weather": {
+      "captured_at": "2026-10-17T20:16:18Z",
+      "temp_f": 64.2,
+      "wind_kmh": 20.6,
+      "gust_kmh": 31.3,
+      "precip_pct": 0,
+      "venue": "outdoor"
+    },
+    "executable_live_prices": []
+  },
+  "availability_notes": {
+    "qb": "Herbert (LAC), Mahomes (KC): ESPN depth chart, not team-confirmed",
+    "lac_out": [
+      "Derwin James Jr.",
+      "Donte Jackson",
+      "Joe Alt",
+      "Kayode Awosika",
+      "Tre' Harris"
+    ],
+    "kc_out": [
+      "Rashee Rice (reported, KC Star)",
+      "Josh Simmons"
+    ],
+    "official_inactives": "pending"
+  },
+  "props": {
+    "policy": "verified current rows only; none recommended",
+    "kelce_atd_190": "unverified: no current TD-scorer row",
+    "hampton_atd_280": "unverified: no current TD-scorer row",
+    "beo_atd_rows": [
+      "Herbert Yes +500",
+      "Mahomes Yes +400",
+      "Walker (KC) Yes -160"
+    ],
+    "bkr_captured_at": "2026-10-17T19:42:27Z",
+    "beo_captured_at": "2026-10-17T21:16:13Z"
+  },
+  "roster_gate": {
+    "command": "npm run roster:vet -- --week 6 --date 2026-10-17 --strict (not rerun; receipt read)",
+    "status": "PASS",
+    "roster_source": "2026-10-17T22:22:11Z",
+    "expires_at": "2026-10-18T22:22:00Z"
+  },
+  "sources": [
+    "scratch/w06-astra-synthesis-queue.json /packets/10",
+    "agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md",
+    "scratch/w06-astra-launch-board.json (LAC@KC row)",
+    "data/odds/BKR_current_lines_1017_1240_buildfmt",
+    "data/odds/actionnetwork-openers-2026-w06.json",
+    "data/supercontest/week-06-lines.json",
+    "data/generated/master-intel/w06-splits-all.json /games/10",
+    "data/research-intel/review/2026-w06-weather-venue.json",
+    "data/research-intel/availability/2026-w06-availability-layer.json",
+    "data/research-intel/proposed/2026-w06-quantitative-synthesis.json /games/11",
+    "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+    "data/generated/team-dossiers/2026-w06/matchups/LAC@KC.json",
+    "data/podcasts/youtube-extracted-picks-2026-w06.json /picks/11,45,75,76,83,84,90",
+    "data/research-intel/review/w06-article-leads-read-2026-10-17.json (via packet read_in_full_leads: 8332,8108,8368,8365,8331,8187,8054)",
+    "data/generated/master-intel/w06-expert-verified.json /rows/3,12,76,93",
+    "reports/intel/master-intel-narratives-2026-w06.md lines 131-142",
+    "data/research-intel/source-evidence/2026-10-17-bookmaker-week6-sgp-parsed.json",
+    "data/research-intel/source-evidence/2026-10-17-betonline-week6-props-parsed.json",
+    "data/generated/master-intel/w06-roster-vet.json",
+    "data/nfl-rosters/espn-full-rosters-latest.json",
+    "data/research-intel/source-evidence/espn-status-w06.json"
+  ],
+  "ambiguities": [
+    "Official inactives not available; all availability is reported status (LAC OL day-to-day group, Lambert-Smith IR/questionable inconsistency, Henley, Sneed, Rice reported Out).",
+    "Under picks priced 42.5/43 vs board 41.5; Erickson 42.5 is a prediction-market number.",
+    "Anderson says total fell from 45.5 but packet opener is 43.5.",
+    "KC -8.5 earlier in week cited by teaser analysts but absent from packet.",
+    "Article 8368 paywalled stub (side not captured); 8332 suspected ingest cap.",
+    "Several expert-feed quotes (Sharp or Square, BettingPros, PFT, Tuley) lack URLs or are unverified against raw; context only.",
+    "Moneyline splits stale (~42.6h), withheld; spread/total splits 11:14 AM PT.",
+    "No current TD-scorer price for Kelce or Hampton; DK Predictions reference-only.",
+    "KC FTN flagged stale_1wk in dossier (W5 bye); weekly cadence accepted by Andy.",
+    "W5 validator not run (pinned to W05 paths); manual self-check done.",
+    "Opened shared board file header while locating the LAC@KC row, which printed other games' market lines; none used."
+  ],
+  "delta_checklist": [
+    "Official inactives: LAC OL (Slater, Pipkins, Penning, World), Lambert-Smith, Henley, Sneed, Rice; extra LAC OL loss moves margin_adj up to +1.0, OL return back to 0.",
+    "Under at 42.5+ at -110 (sim 54.5%) or 42 (marginal) upgrades to tier 2- candidate; Under 41.5 needs about -106 or better.",
+    "KC -6.5 or better at -110 (54.1%) or LAC +9.5 at -110 (54.3%) would be priced candidates; current -7.5/-108 no edge.",
+    "Kickoff-day weather refresh; gusts above ~25 mph add to under.",
+    "Refresh BKR/BEO props and TD-scorer rows for Kelce/Hampton.",
+    "Rerun strict roster gate with --fetch Sunday morning; any new snapshot requires requeue."
+  ]
+}

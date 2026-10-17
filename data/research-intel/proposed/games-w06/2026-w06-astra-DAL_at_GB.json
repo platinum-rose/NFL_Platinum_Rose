@@ -1,0 +1,194 @@
+{
+  "game": "DAL@GB",
+  "generated_at": "2026-10-17T22:40:03Z",
+  "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+  "packet_ref": {
+    "queue": "scratch/w06-astra-synthesis-queue.json",
+    "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+    "packet_pointer": "/packets/11",
+    "packet_sha256": "674601fa88b047f4ccc658d5163b23169da29578efeaec88a11c39b11bb08817",
+    "session_prompt_sha256": "c2bf2b1bb36979dd7a79b4922a4aa208d4fadf8950ffb41af02ee95edc9ee782",
+    "kickoff_utc": "2026-10-19T00:20:00.000Z",
+    "status": "conditional"
+  },
+  "disposition": "conflicted",
+  "tier": "research_only",
+  "status": "COMPLETE",
+  "lean": "No side or total lean. Faint qualitative tilt DAL +1.5 / over crowded; neither clears a price edge.",
+  "adjustments": {
+    "margin_adj": 0.0,
+    "total_adj": 0.0,
+    "reasons": [
+      "Zero adopted adjustment: the quantitative model (GB +1.58 margin, 53.26 total at the 12:40 PM PT anchor) sits within 0.1 / 0.26 of the market (GB -1.5, 53), so no model-vs-market edge exists to adjust toward.",
+      "Hypothesis rows only (not adopted): margin -0.5/-1.0 (DAL) reflects qualitative angles - GB defensive-line attrition (Parsons, Hargrave, Ford, Riley reported out), DAL ESPN road-dog trend (unverified stat) and DAL offense/tempo z-scores; margin +0.5 (GB) reflects GB home field/turnover edge (+3 margin) and DAL defense/turnover risk (-3). Total +/-1.0 brackets the over-crowding vs over-lean debate. All within the 2.0 soft cap."
+    ]
+  },
+  "sim_runs": [
+    {
+      "label": "baseline",
+      "home_line": -1.5,
+      "total": 53,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover": 0.5,
+      "over": 0.4848,
+      "note": "cover 50.0/50.0; over 48.5 / under 48.5 / push 3.0 (excl-push 50/50); GB win 52.4% excl tie; mean margin +1.19"
+    },
+    {
+      "label": "GB-lean (+0.5 margin)",
+      "home_line": -1.5,
+      "total": 53,
+      "margin_adj": 0.5,
+      "total_adj": 0,
+      "home_cover": 0.5131,
+      "over": 0.4848,
+      "note": "GB cover 51.3%; GB win 53.7% excl tie"
+    },
+    {
+      "label": "DAL-lean (-0.5 margin)",
+      "home_line": -1.5,
+      "total": 53,
+      "margin_adj": -0.5,
+      "total_adj": 0,
+      "home_cover": 0.4869,
+      "over": 0.4848,
+      "note": "GB cover 48.7% / DAL cover 51.3%; GB win 51.1% excl tie"
+    },
+    {
+      "label": "DAL-lean (-1.0 margin)",
+      "home_line": -1.5,
+      "total": 53,
+      "margin_adj": -1.0,
+      "total_adj": 0,
+      "home_cover": 0.4738,
+      "over": 0.4848,
+      "note": "DAL cover 52.6%; GB win 49.8% excl tie"
+    },
+    {
+      "label": "over-lean (+1.0 total)",
+      "home_line": -1.5,
+      "total": 53,
+      "margin_adj": 0,
+      "total_adj": 1,
+      "home_cover": 0.5,
+      "over": 0.5152,
+      "note": "over 51.5 / under 45.5 / push 3.0 (excl-push over 53.1)"
+    },
+    {
+      "label": "under-lean (-1.0 total)",
+      "home_line": -1.5,
+      "total": 53,
+      "margin_adj": 0,
+      "total_adj": -1,
+      "home_cover": 0.5,
+      "over": 0.4545,
+      "note": "over 45.5 / under 51.5 (excl-push under 53.1)"
+    }
+  ],
+  "market_snapshot": {
+    "book": "Bookmaker (BKR) 12:40 PM PT board",
+    "captured_at": "2026-10-17T19:40:00Z",
+    "away_spread": 1.5,
+    "away_spread_odds": -111,
+    "home_spread": -1.5,
+    "home_spread_odds": -105,
+    "total": 53,
+    "over_odds": -108,
+    "under_odds": -108,
+    "away_ml": 100,
+    "home_ml": -113,
+    "opener": {
+      "home_spread": -0.5,
+      "total": 52,
+      "ml": {
+        "DAL": -111,
+        "GB": -110
+      },
+      "captured_at": "2026-10-12T00:06:15Z"
+    },
+    "locked_contest_line": -1.5,
+    "model": {
+      "home_margin": 1.58,
+      "total": 53.26,
+      "captured_at": "2026-10-17T21:11:11Z"
+    }
+  },
+  "sources": [
+    {
+      "path": "scratch/w06-astra-synthesis-queue.json#/packets/11/market/signed_reconciliation_baseline",
+      "field": "raw_line DAL @ GB 17:20 DAL +1.5-111 / GB -1.5-105 o53-108 u53-108 DAL +100 GB -113",
+      "timestamp": "2026-10-17T19:40:00Z"
+    },
+    {
+      "path": "scratch/w06-astra-synthesis-queue.json#/packets/11/market/opener",
+      "field": "sp GB 0.5 (DAL -0.5) -107; tot 52; ml DAL -111 GB -110",
+      "timestamp": "2026-10-12T00:06:15Z"
+    },
+    {
+      "path": "scratch/w06-astra-synthesis-queue.json#/packets/11/team_dossier/team_signals",
+      "field": "season_profile_espn, power",
+      "timestamp": "through week 5"
+    },
+    {
+      "path": "scratch/w06-astra-synthesis-queue.json#/packets/11/team_dossier/quantitative",
+      "field": "means home 27.42 away 25.84 total 53.26 margin 1.58",
+      "timestamp": "2026-10-17T21:11:11Z"
+    },
+    {
+      "path": "data/research-intel/availability/2026-w06-availability-layer.json",
+      "field": "games[12].teams reported_out_ir / reported_questionable_doubtful",
+      "timestamp": "2026-10-17T02:03:52Z (injury dates 10/12-10/16)"
+    },
+    {
+      "path": "scratch/w06-astra-synthesis-queue.json#/packets/11/weather",
+      "field": "forecast 50.7F, 0% precip, wind 14 km/h, gusts 30.2 km/h",
+      "timestamp": "2026-10-17T20:16:18Z"
+    },
+    {
+      "path": "scratch/w06-astra-synthesis-queue.json#/packets/11/betting_splits",
+      "field": "spread/total splits; moneyline withheld stale",
+      "timestamp": "2026-10-17T18:14:06Z; ML 2026-10-16T03:30:03Z"
+    },
+    {
+      "path": "data/research-intel/review/w06-article-leads-read-2026-10-17.json",
+      "field": "DAL@GB leads 8238,8331,8332,8108,8136,8336,8365,8187,8054",
+      "timestamp": "2026-10-15..2026-10-17"
+    },
+    {
+      "path": "scratch/w06-astra-synthesis-queue.json#/packets/11/expert_article_podcast/youtube/approved_signals",
+      "field": "approved_by_andy_2026-10-17 pointers /picks/25..123",
+      "timestamp": "2026-10-17T21:44:25Z"
+    },
+    {
+      "path": "scratch/w06-astra-synthesis-queue.json#/packets/11/player_props/bkr",
+      "field": "rows /rows/4035-4377 (rec, rec_yds, rush_yds, first_td, pass_yds)",
+      "timestamp": "2026-10-17T19:42:41Z"
+    },
+    {
+      "path": "data/generated/master-intel/w06-roster-vet.json",
+      "field": "status PASS, roster_source 2026-10-17T22:22:11Z, age 0.2h at receipt; no DAL/GB player in UNVERIFIED list",
+      "timestamp": "2026-10-17T22:22:11Z"
+    }
+  ],
+  "ambiguities": [
+    "Article leads contradict each other: Action Network 8238 (Pablo Planovsky, 10/16) says Packers moneyline ('My Pick') and later 'Pick: Under' (53.5) in the same piece, carries a Seahawks-Broncos template error and prediction-market prices. Treated as zero-weight on both side and total; the expert-registry rows for the same outlet (/rows/48, /rows/51) are dispositioned not_pick/rejected_do_not_use.",
+    "Side leads split: GB = VSiN Makinen 8108 (GB -1.5, 10/15), PFT Florio 8054 (GB 27-24), ESPN panel 8187 (GB in all three), Joe Gibbs/Sharp (lean GB), Bogman GB -1; DAL = ESPN Maldonado 8331 (Cowboys +1.5 +102), BettingPros Erickson 8332 (Cowboys moneyline) and /picks/102 (DAL +1.5), teaser legs (Stuckey, Fezzik, Tucker). 8332 Erickson ML vs Makinen GB is outright opposite; SU picks (ESPN/PFT) are context, not edge.",
+    "Total leads: over from Kezirian, Gibbs (Wrolstad crew 4-0 to the over), Bogman (52.5 - now 53, +0.5 worse); under from Action Network 8238 (internally contradicted). Average Joe consensus 97% over 53 (VSiN Burke 8365) is public context, not edge, and a crowding flag. Splits agree: 62% tickets / 86% money over (18:14Z).",
+    "ESPN betting insight 'Cowboys 5-0 SU/ATS as road dogs of 3 or less since 2024' is quoted from 8187 and not independently verified against a primary dataset.",
+    "Moneyline splits (57% home tickets / 43% home money) are the stale Thursday-night pull, 42.6h at manifest; withheld.",
+    "Official inactives not available; availability is ESPN/operator reported. GB reported out: Parsons, Hargrave, Ford, Riley (DL), St-Juste (CB), Skyy Moore (WR); Josh Jacobs on Commissioner's Exempt List (eligible Week 7 per source comment); DAL reported out: Shelton (OT), Durant (CB); DAL questionable: Overton, Porter Jr., Overshown, Speed. Roster-IR/day-to-day unconfirmed groups (DAL 10, GB 9) not enumerated.",
+    "Weather is a forecast (Open-Meteo 10/17 1:16 PM PT), not observation; refresh on kickoff day. Wind and gusts modest; materiality flag none.",
+    "Props: no Bookmaker anytime-TD rows exist. Watson +130/+135 ATD, Watson 2+ TD +950, Golden ATD +280 and Golden longest-reception 40+ +350 (YouTube) are unverifiable against current rows - omitted. BEO rows lack player names in the packet selection field; not used. DraftKings Predictions reference-only.",
+    "Podcast priced figures are publish-time: Love pass yds O272.5 now 280.5 (-116) at BKR (8 yards worse); Watson rec O4.5 -114 now -130; Flournoy rec O3.5 +130 now +118 (BKR). Article Lloyd 80+ rush +550 (8336, matchup inferred) now +440 at BKR; Watson first TD +950 now +906, Golden +1100 now +995 (8136 vs BKR).",
+    "Quantitative model warning: no week-06-2026-verified-lines.json for the contest field; flagged only, no script fix. Locked SuperContest line GB -1.5 (10/15 2:29 PM PT) matches current number.",
+    "Leftover file: an earlier command in this session created scratch/.tmp_dalgb_rest.txt in the repo (mistaken temp dump, not an output file); rm is blocked by the mount. Andy should delete it manually. It is not a source and not staged.",
+    "scripts/intel/validate-game-output.py not run: pinned to Week 5 paths and packet dir. Manual self-check done: no forbidden keys, disposition/tier pairing valid (conflicted -> research_only), adjustments 0 (cap respected), every claim sourced or moved here."
+  ],
+  "delta_checklist": [
+    "Official inactives (~90 min pre-kickoff): confirm Love and Prescott, GB DL/CB outs, DAL Porter/Overshown/Overton. A Porter+Overshown OUT or any Love/Prescott scratch invalidates this note.",
+    "Price crossing: DAL +2.5 or better (or +3) would turn DAL into a 2- candidate on the price/trend case; GB -3 would make GB value at the side only if DAL defensive injuries expand.",
+    "Total: a move to 54+ without news adds under value; a drop to 51.5 or lower with open-air wind/gusts >35 km/h or precipitation risk reduces over interest. Over at 53 is a crowd (97% consensus) not an edge.",
+    "Kickoff-day weather refresh (Lambeau open-air): wind direction/gusts and precipitation vs 14/30.2 km/h, 0% captured.",
+    "Re-run props only against fresh BKR/BEO rows with actual timestamps; verify Lloyd role after Jacobs exempt-list status."
+  ]
+}

@@ -1,0 +1,229 @@
+{
+ "game": "WAS@SF",
+ "generated_at": "2026-10-17T22:40:00Z",
+ "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+ "packet_ref": {
+  "queue": "scratch/w06-astra-synthesis-queue.json",
+  "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+  "packet_pointer": "/packets/12",
+  "packet_sha256": "73ce164c16a7607fd29b2e9d3329a564b323c6ae4f81f200d1c4a4c14298f4ac",
+  "session_prompt_sha256": "c2bf2b1bb36979dd7a79b4922a4aa208d4fadf8950ffb41af02ee95edc9ee782",
+  "kickoff_utc": "2026-10-20T00:15:00.000Z",
+  "roster_receipt": "PASS, roster source 2026-10-17T22:22:11Z, read-only (not rerun)",
+  "supersedes": "earlier STOPPED stub for WAS@SF"
+ },
+ "status": "COMPLETE",
+ "disposition": "pass",
+ "tier": "research_only",
+ "summary": "No price edge: used hypothesis puts SF -8 at 51.45% vs 51.92% break-even at -108; Under 50.91% vs 51.22% break-even. Croskey-Merritt (WAS RB) reported Out, voiding the Giffen ATD +185 signal. Wind and gust fields inconsistent; wind claims withheld.",
+ "adjustments": {
+  "margin_adj": 0.5,
+  "total_adj": -0.3,
+  "reasons": [
+   "margin_adj +0.5 home(SF): quant model wants +1.22 vs market on SF form and WAS defense_weakness_z; less than half credited because the model is market-calibrated and provisional, samples are 5 games, SF WR corps depleted (Samuel Out, Kirk/Robinson IR, Evans Q) and Bosa Q.",
+   "total_adj -0.3: matches model total delta -0.31; no weather input used because wind/gust fields are inconsistent."
+  ]
+ },
+ "sim_runs": [
+  {
+   "inputs": {
+    "home_line": -8,
+    "total": 51.5
+   },
+   "run": "baseline",
+   "margin_adj": 0,
+   "total_adj": 0,
+   "sf_cover_excl_push": 0.5,
+   "was_cover_excl_push": 0.5,
+   "under_excl_push": 0.5,
+   "over_excl_push": 0.5,
+   "sf_win": 0.7602,
+   "side_push": 0.0249
+  },
+  {
+   "inputs": {
+    "home_line": -8,
+    "total": 51.5
+   },
+   "run": "hypothesis_used",
+   "margin_adj": 0.5,
+   "total_adj": -0.3,
+   "sf_cover_excl_push": 0.5145,
+   "was_cover_excl_push": 0.4855,
+   "under_excl_push": 0.5091,
+   "over_excl_push": 0.4909,
+   "sf_win": 0.7706,
+   "side_push": 0.0248
+  },
+  {
+   "inputs": {
+    "home_line": -8,
+    "total": 51.5
+   },
+   "run": "full_model_credit",
+   "margin_adj": 1.2,
+   "total_adj": -0.3,
+   "sf_cover_excl_push": 0.5348,
+   "was_cover_excl_push": 0.4652,
+   "under_excl_push": 0.5091,
+   "over_excl_push": 0.4909,
+   "sf_win": 0.7848,
+   "side_push": 0.0246
+  },
+  {
+   "inputs": {
+    "home_line": -8,
+    "total": 51.5
+   },
+   "run": "counter_sf_hurt",
+   "margin_adj": -1.0,
+   "total_adj": 0,
+   "sf_cover_excl_push": 0.4712,
+   "was_cover_excl_push": 0.5288,
+   "under_excl_push": 0.5,
+   "over_excl_push": 0.5,
+   "sf_win": 0.7386,
+   "side_push": 0.025
+  },
+  {
+   "inputs": {
+    "home_line": -8,
+    "total": 51.5
+   },
+   "run": "counter_shootout",
+   "margin_adj": -1.0,
+   "total_adj": 1.0,
+   "sf_cover_excl_push": 0.4712,
+   "was_cover_excl_push": 0.5288,
+   "under_excl_push": 0.4696,
+   "over_excl_push": 0.5304,
+   "sf_win": 0.7386,
+   "side_push": 0.025
+  },
+  {
+   "inputs": {
+    "home_line": -8,
+    "total": 51.5
+   },
+   "run": "low_scoring",
+   "margin_adj": 0,
+   "total_adj": -1.5,
+   "sf_cover_excl_push": 0.5,
+   "was_cover_excl_push": 0.5,
+   "under_excl_push": 0.5455,
+   "over_excl_push": 0.4545,
+   "sf_win": 0.7602,
+   "side_push": 0.0249
+  }
+ ],
+ "sim_caveat": "scripts/intel/margin-simulator.mjs is market-calibrated; probabilities are conditional on the stated adjustments, not independent evidence. Props/teasers/SGPs have no calibrated model.",
+ "market_snapshot": {
+  "opener": {
+   "sf_spread": -7.5,
+   "total": 51,
+   "ml": {
+    "WAS": 330,
+    "SF": -425
+   },
+   "ts": "2026-10-12T00:05:40Z"
+  },
+  "current": {
+   "source": "data/odds/BKR_current_lines_1017_1240_buildfmt line 15",
+   "captured_at": "2026-10-17T19:40:00Z",
+   "sf_spread": -8,
+   "sf_spread_odds": -108,
+   "was_spread": 8,
+   "was_spread_odds": -108,
+   "total": 51.5,
+   "over_odds": -111,
+   "under_odds": -105,
+   "ml": {
+    "WAS": 324,
+    "SF": -390
+   }
+  },
+  "locked_contest_line": {
+   "sf": -7.5,
+   "captured_at": "2026-10-15T21:29:08Z"
+  },
+  "breakeven_pct": {
+   "side_-108": 51.92,
+   "over_-111": 52.61,
+   "under_-105": 51.22
+  },
+  "splits": {
+   "spread_sf_bets_pct": 76,
+   "spread_sf_money": 80,
+   "over_bets_pct": 63,
+   "over_money": 77,
+   "captured_at": "2026-10-17T18:14:06Z",
+   "moneyline": "withheld_stale_42.6h"
+  },
+  "execution": "no sportsbook visited; captured prices, not live offers"
+ },
+ "weather": {
+  "temp_f": 65.8,
+  "precip_pct": 0,
+  "wind_speed_kmh": 18.6,
+  "wind_gust_kmh": 15.1,
+  "reconciliation": "unresolved: gust below sustained wind in all three copies; wind claim withheld",
+  "forecast_captured_at": "2026-10-17T20:16:18Z"
+ },
+ "props": {
+  "recommended": [],
+  "voided": [
+   {
+    "player": "Jacory Croskey-Merritt",
+    "market": "anytime_td",
+    "source": "Nick Giffen +185",
+    "reason": "reported Out (ESPN article 8363 2026-10-17T17:29Z; RotoWire 8361); no anytime-TD row in BKR"
+   }
+  ],
+  "lead_only": [
+   {
+    "player": "Jayden Daniels",
+    "market": "rush_yds",
+    "lead": "U38.5 Erickson BettingPros 8332",
+    "note": "no matching priced row; BKR 38+ (37.5) -112"
+   }
+  ]
+ },
+ "sources": [
+  "scratch/w06-astra-synthesis-queue.json (packets[12], 2026-10-17T22:06:53Z)",
+  "data/generated/team-dossiers/2026-w06/matchups/WAS@SF.json (2026-10-17T02:04:52Z)",
+  "data/research-intel/source-evidence/espn-status-w06.json (2026-10-17T02:03:26Z)",
+  "data/research-intel/review/article-intel-review-latest.json articles 8363, 8361 (2026-10-17T17:29Z, 16:46Z)",
+  "data/research-intel/proposed/2026-w06-quantitative-synthesis.json games[13] (2026-10-17T21:11:11Z)",
+  "data/odds/BKR_current_lines_1017_1240_buildfmt (2026-10-17T19:40:00Z)",
+  "data/odds/actionnetwork-openers-2026-w06.json (2026-10-12)",
+  "data/supercontest/week-06-lines.json (2026-10-15T21:29:08Z)",
+  "data/generated/master-intel/w06-splits-all.json (2026-10-17T18:14:06Z; ML 2026-10-16T03:30Z)",
+  "data/research-intel/review/2026-w06-weather-venue.json and data/research-intel/source-evidence/2026-10-17-week6-weather-openmeteo.json (2026-10-17T20:16:18Z)",
+  "data/podcasts/youtube-extracted-picks-2026-w06.json picks 20,79,80,87,103,109 (approved 2026-10-17)",
+  "data/research-intel/review/w06-article-leads-read-2026-10-17.json WAS@SF leads 8332, 8054",
+  "data/research-intel/source-evidence/2026-10-17-bookmaker-week6-sgp-parsed.json (2026-10-17T19:42:50Z)",
+  "data/research-intel/source-evidence/2026-10-17-betonline-week6-props-parsed.json (2026-10-17T21:16:24Z; 0 player rows)",
+  "data/generated/master-intel/w06-roster-vet.json (PASS, 2026-10-17T22:22:11Z)",
+  "reports/intel/master-intel-narratives-2026-w06.md WAS@SF"
+ ],
+ "ambiguities": [
+  "Official inactives pending; Croskey-Merritt Out report postdates the packet availability layer, which still lists him Questionable.",
+  "Wind 18.6 km/h exceeds gust 15.1 km/h in all copies; unresolved; wind claims withheld; forecast ~5 days out.",
+  "Moneyline splits 42.6h stale; spread/total splits 4.4h old and predate 12:40 PM PT board.",
+  "No BetOnline player prop rows for this game; BKR only; no anytime-TD row for WAS players.",
+  "Quote quality: Kezirian structured-segment only; Pisapia unverified in raw; Sharp or Square rows lack URL.",
+  "FTN retained team_context is player-level; no team FTN number cited; nflverse analytic fields null.",
+  "Quant model contest field null (filename mismatch); locked contest -7.5 stale vs -8.",
+  "Michael Evans/Chigoziem Okonkwo aliases UNVERIFIED in roster receipt; no legs used.",
+  "Week 5 validator cannot be pointed at W06 packet schema; manual self-check done."
+ ],
+ "counter_case": "WAS +8 right if SF 3rd-down/red-zone rates regress, SF WR corps (Samuel Out, Kirk/Robinson IR, Evans Q) and Bosa Q limit SF, Daniels offense keeps pace; but WAS ranks 28-30 in net PPG/SRS and lost lead RB, so +8 still prices at 48.6% vs 51.9% needed.",
+ "delta_checklist": [
+  "Official inactives Monday ~3:15 PM PT: Croskey-Merritt, Diggs, McLaurin, Ekeler, White, Burks; Bosa, Evans, M. Williams, McKivitz, Stout, Sigle.",
+  "Bosa and McKivitz Out -> margin_adj toward -1.0 (SF cover ~47%); Bosa and Evans active -> +1.0 to +1.2 (SF ~53%), possible tier 2- only if SF still -8 at -108 or shorter.",
+  "Line moves alone do not create value in the calibrated sim; news does.",
+  "Under needs total_adj near -1.5 plus a reconciled wind source; Over needs Diggs/McLaurin active and Bosa out.",
+  "Re-pull weather Monday morning and 2 PM PT; reconcile wind vs gust field definitions first.",
+  "Daniels rush U38.5 needs a priced matching row and confirmed active status; ignore Croskey-Merritt legs unless active."
+ ]
+}

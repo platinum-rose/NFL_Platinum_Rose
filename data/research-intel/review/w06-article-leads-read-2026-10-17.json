@@ -1,0 +1,846 @@
+{
+ "schema": "w06_article_leads_read_v1",
+ "generated_at": "2026-10-17T22:28:40Z",
+ "status": "andy_approved_as_analyst_leads_not_picks",
+ "rules": "Leads only; not promoted. Props need roster vet + current priced row. Lines as of each publish time. Cite article_id/outlet/author/published.",
+ "excluded_not_citable": [
+  {
+   "article_id": 8303,
+   "reason": "X bookmark, metadata only (no body)"
+  }
+ ],
+ "quality_notes": [
+  "Several stored bodies are paywalled stubs (AN 8368, 8369) or contain site-navigation chrome (ESPN 8208, 8331, 8187); only article text was used.",
+  "Lamar-dependent items are stale/void (Lamar ruled out).",
+  "8332 BettingPros primer: official-plays list and per-game picks disagree in places (Browns +5.5 vs +3); game mapping of unlabeled Over/Under picks is ambiguous and omitted."
+ ],
+ "games": {
+  "HOU@JAX": [
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Bowen/Solak (ESPN best bets)",
+    "published": "2026-10-16",
+    "kind": "side",
+    "pick": "JAX moneyline (-142) and JAX -2.5 (Bowen Game of the Week); under in the London games (42.5)",
+    "caveat": null
+   },
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Solak",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "C.J. Stroud passing yards O257.5 (-111); Nico Collins receiving overs (no line captured); Collins 100+ yds in 5 straight vs JAX",
+    "caveat": null
+   },
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "HOU 20-19 (Maldonado), JAX 24-20 (Moody), HOU 23-21 (Walder); line JAX -2.5 / 42.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8331,
+    "outlet": "ESPN",
+    "author": "Maldonado",
+    "published": "2026-10-17",
+    "kind": "side",
+    "pick": "Texans +3 (+120 ML) upset pick",
+    "caveat": null
+   },
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "total",
+    "pick": "UNDER 42.5 (official play)",
+    "caveat": "Body is 60k chars and has internal line inconsistencies; mapping of some Erickson picks to games is ambiguous"
+   },
+   {
+    "article_id": 8369,
+    "outlet": "Action Network",
+    "author": "PJ Walsh",
+    "published": "2026-10-17",
+    "kind": "props",
+    "pick": "C.J. Stroud rushing prop + an anytime TD (player not in captured text) as +363 SGP; Action PRO projects JAX -1.5 (1.5% edge to HOU, not enough alone)",
+    "caveat": "Paywalled stub: key selections not in captured text"
+   },
+   {
+    "article_id": 8333,
+    "outlet": "BettingPros",
+    "author": "Fanelli",
+    "published": "2026-10-17",
+    "kind": "props",
+    "pick": "Tuten rush U63.5 (-109); Collins rec O74.5 (-110, alt 100+ at +212); Parker Washington ATD +185",
+    "caveat": null
+   },
+   {
+    "article_id": 8108,
+    "outlet": "VSiN",
+    "author": "Makinen",
+    "published": "2026-10-15",
+    "kind": "total",
+    "pick": "UNDER 42.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8207,
+    "outlet": "VSiN",
+    "author": "Burke",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Chris Rodriguez Jr. rushing yards U16.5 (-118)",
+    "caveat": null
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "JAX 20-17",
+    "caveat": null
+   }
+  ],
+  "NYJ@NE": [
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "NE 27-21, NE 30-17, NE 24-16; line NE -7.5 / 43.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8136,
+    "outlet": "VSiN",
+    "author": "Burke",
+    "published": "2026-10-15",
+    "kind": "first_td",
+    "pick": "Hunter Henry +950, DeMario Douglas +1200 (DK as of publish)",
+    "caveat": null
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "NE 27-17",
+    "caveat": null
+   }
+  ],
+  "PIT@TB": [
+   {
+    "article_id": 8368,
+    "outlet": "Action Network",
+    "author": "PJ Walsh",
+    "published": "2026-10-17",
+    "kind": "system",
+    "pick": "Action PRO system pick (61% since 2005) on Steelers-Buccaneers; PIT -2.5 noted; side not in captured text",
+    "caveat": "Paywalled stub: side not captured"
+   },
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Bowen",
+    "published": "2026-10-16",
+    "kind": "total",
+    "pick": "UNDER 39.5 (-105)",
+    "caveat": "Text refers to \"Rookie quarterback Jalon Daniels\"; garbled/unclear QB reference"
+   },
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Solak",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Aaron Rodgers 2+ passing TDs (+137)",
+    "caveat": null
+   },
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "side",
+    "pick": "Steelers -2.5 (official play)",
+    "caveat": null
+   },
+   {
+    "article_id": 8108,
+    "outlet": "VSiN",
+    "author": "Makinen",
+    "published": "2026-10-15",
+    "kind": "side",
+    "pick": "Tampa Bay +2.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8207,
+    "outlet": "VSiN",
+    "author": "Burke",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Aaron Rodgers pass attempts O33.5 (-113)",
+    "caveat": null
+   },
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "PIT in all three (17-16, 20-17, 23-20); PIT -2.5 / 39.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "PIT 20-17",
+    "caveat": null
+   }
+  ],
+  "BAL@CLE": [
+   {
+    "article_id": 8245,
+    "outlet": "Action Network",
+    "author": "Ian Undery",
+    "published": "2026-10-16",
+    "kind": "side_total_props",
+    "pick": "BAL ML, BAL -3.5, Over 42.5, Henry rush O89.5 + ATD, Andrews rec O29.5 + ATD",
+    "caveat": "Written assuming Lamar Jackson plays; ESPN later ruled him out (Huntley starts). Cites consensus total 40.5 while recommending Over 42.5."
+   },
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "side",
+    "pick": "Browns +3 in body (official-plays list says +5.5)",
+    "caveat": "Internal inconsistency in the same article"
+   },
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "BAL in all three; note CLE 7-1 ATS as home dogs since 2025",
+    "caveat": "Listed BAL -5.5 / 51.5 appears stale or garbled"
+   },
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Walder",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Browns D/ST anytime TD (+700)",
+    "caveat": "Written assuming Lamar Jackson plays; ESPN later ruled him out (Huntley starts)."
+   },
+   {
+    "article_id": 8108,
+    "outlet": "VSiN",
+    "author": "Makinen",
+    "published": "2026-10-15",
+    "kind": "side",
+    "pick": "BAL -4.5 only if Lamar plays",
+    "caveat": "VOID: Lamar ruled out"
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "BAL 27-24",
+    "caveat": null
+   }
+  ],
+  "CHI@ATL": [
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "ATL 27-23 (Maldonado), CHI 27-23 (Moody), CHI 31-13 (Walder); CHI -1.5 / 51.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Bowen",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Bijan Robinson longest rush O18.5 (-118)",
+    "caveat": null
+   },
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "prop",
+    "pick": "Michael Penix Jr. pass attempts U31.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8207,
+    "outlet": "VSiN",
+    "author": "Burke",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Penix 1st-quarter passing yards U46.5 (-112)",
+    "caveat": null
+   },
+   {
+    "article_id": 8365,
+    "outlet": "VSiN",
+    "author": "Burke",
+    "published": "2026-10-17",
+    "kind": "public_consensus",
+    "pick": "Average Joe contest: ATL PK 67% (308/458)",
+    "caveat": null
+   },
+   {
+    "article_id": 8331,
+    "outlet": "ESPN",
+    "author": "Bowen",
+    "published": "2026-10-17",
+    "kind": "td",
+    "pick": "Drake London TD prediction (first of season)",
+    "caveat": null
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "CHI 24-20",
+    "caveat": null
+   }
+  ],
+  "TEN@IND": [
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "IND in all three (27-19, 30-17, 23-10)",
+    "caveat": null
+   },
+   {
+    "article_id": 8136,
+    "outlet": "VSiN",
+    "author": "Burke",
+    "published": "2026-10-15",
+    "kind": "first_td",
+    "pick": "Jonathan Taylor +265, Tyler Warren +900 (DK as of publish)",
+    "caveat": null
+   },
+   {
+    "article_id": 8336,
+    "outlet": "BettingPros",
+    "author": "Phil Wood",
+    "published": "2026-10-17",
+    "kind": "prop",
+    "pick": "Tony Pollard 2+ TD +1100",
+    "caveat": "Matchup inferred from article text"
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "IND 27-10",
+    "caveat": null
+   }
+  ],
+  "CAR@PHI": [
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "side",
+    "pick": "Panthers -3.5 (official play; \"I like Carolina -3.5\")",
+    "caveat": "Written after Hurts news"
+   },
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Walder",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Bryce Young pass attempts U33.5 (-116); model notes CAR 3.5-pt favorite after Hurts news",
+    "caveat": null
+   },
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Solak",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Tanner McKee 19+ completions (-101), alts to 24+",
+    "caveat": null
+   },
+   {
+    "article_id": 8266,
+    "outlet": "VSiN",
+    "author": "Swedelson",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Chuba Hubbard rush yds O70.5 (-115)",
+    "caveat": null
+   },
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "PHI 20-19 (Maldonado), CAR 21-17 (Moody), CAR 23-20 (Walder)",
+    "caveat": null
+   },
+   {
+    "article_id": 8331,
+    "outlet": "ESPN",
+    "author": "ESPN headline",
+    "published": "2026-10-17",
+    "kind": "context",
+    "pick": "Headline: Eagles backfield loses Barkley, Shipley; Smith likely to return",
+    "caveat": "Headline only; official inactives decide"
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "PHI 24-20",
+    "caveat": null
+   }
+  ],
+  "NO@NYG": [
+   {
+    "article_id": 8331,
+    "outlet": "ESPN",
+    "author": "Maldonado",
+    "published": "2026-10-17",
+    "kind": "side",
+    "pick": "Giants +1.5 (108 ML) upset pick; Likely moved out wide",
+    "caveat": null
+   },
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "total",
+    "pick": "OVER 44.5 (official play)",
+    "caveat": null
+   },
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "props",
+    "pick": "Cam Skattebo rush O56.5; Wan'Dale Robinson rec O35.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Bowen",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Cam Skattebo rush O58.5 (-109)",
+    "caveat": null
+   },
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Walder",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Saints to NOT allow first-drive sack (-385)",
+    "caveat": null
+   },
+   {
+    "article_id": 8339,
+    "outlet": "BettingPros",
+    "author": "Trent Conner",
+    "published": "2026-10-17",
+    "kind": "prop",
+    "pick": "Cam Skattebo rush O57.5",
+    "caveat": "Team/game not stated in source"
+   },
+   {
+    "article_id": 8266,
+    "outlet": "VSiN",
+    "author": "Swedelson",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Najee Harris rush yds O23.5 (-115)",
+    "caveat": "Roster map: Harris is NYG; source gives no game"
+   },
+   {
+    "article_id": 8108,
+    "outlet": "VSiN",
+    "author": "Makinen",
+    "published": "2026-10-15",
+    "kind": "side",
+    "pick": "NO -1.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "NYG 24-20 (Maldonado), NO 27-24 (Moody), NO 20-14 (Walder)",
+    "caveat": null
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "NYG 27-17",
+    "caveat": null
+   }
+  ],
+  "ARI@LAR": [
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "side",
+    "pick": "Cardinals +12.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Solak",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Matthew Stafford passing yards U283.5 (-113); LAR -12.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8336,
+    "outlet": "BettingPros",
+    "author": "Phil Wood",
+    "published": "2026-10-17",
+    "kind": "prop",
+    "pick": "Kyren Williams 110+ rush yds +467",
+    "caveat": "Matchup inferred"
+   },
+   {
+    "article_id": 8339,
+    "outlet": "BettingPros",
+    "author": "Trent Conner",
+    "published": "2026-10-17",
+    "kind": "prop",
+    "pick": "Tyler Higbee rec yds O30.5",
+    "caveat": "Team/game not stated in source"
+   },
+   {
+    "article_id": 8365,
+    "outlet": "VSiN",
+    "author": "Burke",
+    "published": "2026-10-17",
+    "kind": "public_consensus",
+    "pick": "Average Joe contest: Over 51.5 87%; 64% on LAR to cover",
+    "caveat": null
+   },
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "LAR in all three",
+    "caveat": null
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "LAR 41-17",
+    "caveat": null
+   }
+  ],
+  "BUF@LV": [
+   {
+    "article_id": 8208,
+    "outlet": "ESPN",
+    "author": "Solak",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Brock Bowers 8+ receptions (+140)",
+    "caveat": null
+   },
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "total",
+    "pick": "Over 53.5 (mapping to this game inferred from line)",
+    "caveat": null
+   },
+   {
+    "article_id": 8108,
+    "outlet": "VSiN",
+    "author": "Makinen",
+    "published": "2026-10-15",
+    "kind": "side",
+    "pick": "BUF -5.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8266,
+    "outlet": "VSiN",
+    "author": "Swedelson",
+    "published": "2026-10-16",
+    "kind": "prop",
+    "pick": "Tre Tucker rec yds O38.5 (-120); also mentions Bowers/Jeanty receiving yards",
+    "caveat": null
+   },
+   {
+    "article_id": 8339,
+    "outlet": "BettingPros",
+    "author": "Trent Conner",
+    "published": "2026-10-17",
+    "kind": "prop",
+    "pick": "Kirk Cousins pass completions O22.5",
+    "caveat": "Slug says passing attempts; Cousins is LV per roster"
+   },
+   {
+    "article_id": 8365,
+    "outlet": "VSiN",
+    "author": "Burke",
+    "published": "2026-10-17",
+    "kind": "public_consensus",
+    "pick": "Average Joe contest: Over 53.5 94%",
+    "caveat": null
+   },
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "BUF in all three",
+    "caveat": null
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "BUF 30-24",
+    "caveat": null
+   }
+  ],
+  "LAC@KC": [
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "total",
+    "pick": "UNDER 42.5 (official play)",
+    "caveat": null
+   },
+   {
+    "article_id": 8368,
+    "outlet": "Action Network",
+    "author": "PJ Walsh",
+    "published": "2026-10-17",
+    "kind": "system",
+    "pick": "Action PRO system pick (58% since 2005) on Chargers-Chiefs; side not captured",
+    "caveat": "Paywalled stub"
+   },
+   {
+    "article_id": 8108,
+    "outlet": "VSiN",
+    "author": "Makinen",
+    "published": "2026-10-15",
+    "kind": "total",
+    "pick": "UNDER 42.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8365,
+    "outlet": "VSiN",
+    "author": "Burke",
+    "published": "2026-10-17",
+    "kind": "public_consensus",
+    "pick": "Average Joe contest: LAC +8 74% (307/416)",
+    "caveat": null
+   },
+   {
+    "article_id": 8331,
+    "outlet": "ESPN",
+    "author": "Walder",
+    "published": "2026-10-17",
+    "kind": "stat_line",
+    "pick": "Chris Jones 1.5 sacks / 5 pressures; context only",
+    "caveat": null
+   },
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "KC in all three",
+    "caveat": null
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "KC 30-17",
+    "caveat": null
+   }
+  ],
+  "DAL@GB": [
+   {
+    "article_id": 8238,
+    "outlet": "Action Network",
+    "author": "Pablo Planovsky",
+    "published": "2026-10-16",
+    "kind": "side_total",
+    "pick": "Packers moneyline (\"My Pick\") and later \"Pick: Under\" (53.5)",
+    "caveat": "Article contradicts itself (ML vs Under); template error mentions Seahawks-Broncos; prediction-market prices"
+   },
+   {
+    "article_id": 8331,
+    "outlet": "ESPN",
+    "author": "Maldonado",
+    "published": "2026-10-17",
+    "kind": "side",
+    "pick": "Cowboys +1.5 (+102) upset pick",
+    "caveat": null
+   },
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "side",
+    "pick": "Cowboys moneyline",
+    "caveat": null
+   },
+   {
+    "article_id": 8108,
+    "outlet": "VSiN",
+    "author": "Makinen",
+    "published": "2026-10-15",
+    "kind": "side",
+    "pick": "GB -1.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8136,
+    "outlet": "VSiN",
+    "author": "Burke",
+    "published": "2026-10-15",
+    "kind": "first_td",
+    "pick": "Christian Watson +950, Matthew Golden +1100 (DK as of publish)",
+    "caveat": null
+   },
+   {
+    "article_id": 8336,
+    "outlet": "BettingPros",
+    "author": "Phil Wood",
+    "published": "2026-10-17",
+    "kind": "prop",
+    "pick": "MarShawn Lloyd 80+ rush yds +550",
+    "caveat": "Matchup inferred"
+   },
+   {
+    "article_id": 8365,
+    "outlet": "VSiN",
+    "author": "Burke",
+    "published": "2026-10-17",
+    "kind": "public_consensus",
+    "pick": "Average Joe contest: GB -1 69%; Over 53 97%",
+    "caveat": null
+   },
+   {
+    "article_id": 8187,
+    "outlet": "ESPN",
+    "author": "Maldonado/Moody/Walder",
+    "published": "2026-10-17",
+    "kind": "straight_up",
+    "pick": "GB in all three; Cowboys 5-0 SU/ATS as road dogs of 3 or less since 2024 (ESPN betting insight)",
+    "caveat": null
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "GB 27-24",
+    "caveat": null
+   }
+  ],
+  "WAS@SF": [
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "side",
+    "pick": "49ers -7.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8332,
+    "outlet": "BettingPros",
+    "author": "Erickson",
+    "published": "2026-10-17",
+    "kind": "prop",
+    "pick": "Jayden Daniels rushing yards U38.5",
+    "caveat": null
+   },
+   {
+    "article_id": 8054,
+    "outlet": "PFT",
+    "author": "Florio",
+    "published": "2026-10-15",
+    "kind": "straight_up",
+    "pick": "SF 38-17",
+    "caveat": null
+   }
+  ]
+ }
+}

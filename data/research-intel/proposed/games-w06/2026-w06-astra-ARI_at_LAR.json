@@ -1,0 +1,178 @@
+{
+  "game": "ARI@LAR",
+  "generated_at": "2026-10-17T22:39Z",
+  "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+  "packet_ref": {
+    "queue": "scratch/w06-astra-synthesis-queue.json",
+    "selector": "/packets/8",
+    "packet_sha256": "0d98e4d8daa66f90677ff2e3f7b1fe2d7a99120480600802d25c385bcbc947d7",
+    "queue_sha256": "8677f594ad1f53fa2fd867c519d3abb2c03f17568dc4afb7e711446c751bed90",
+    "kickoff_utc": "2026-10-18T20:05:00Z",
+    "roster_gate": {
+      "file": "data/generated/master-intel/w06-roster-vet.json",
+      "status": "PASS",
+      "roster_source": "2026-10-17T22:22:11Z",
+      "age_h": 0.2,
+      "rerun": false
+    }
+  },
+  "disposition": "conflicted",
+  "tier": "research_only",
+  "lean_if_forced": "ARI +13.5/+14 marginal; not actionable at -117 (sim 51.5% vs ~53.9% breakeven)",
+  "adjustments": {
+    "margin_adj": -0.5,
+    "total_adj": 0,
+    "reasons": [
+      "-0.5 toward ARI: quant mean margin 11.4 vs 13.5 market; offset by Love Out/ARI safety depletion already priced and LAR -3 turnover margin regression upside; net small, under 2.0 soft cap",
+      "total-adj 0: no sourced reason; -1 shown as sensitivity only"
+    ]
+  },
+  "sim_runs": [
+    {
+      "home_line": -13.5,
+      "total": 52,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover": 0.5,
+      "away_cover": 0.5,
+      "over_excl_push": 0.5,
+      "under_excl_push": 0.5
+    },
+    {
+      "home_line": -13.5,
+      "total": 52,
+      "margin_adj": -0.5,
+      "total_adj": 0,
+      "home_cover": 0.4852,
+      "away_cover": 0.5148,
+      "over_excl_push": 0.5,
+      "under_excl_push": 0.5,
+      "chosen": true
+    },
+    {
+      "home_line": -13.5,
+      "total": 52,
+      "margin_adj": -1.0,
+      "total_adj": 0,
+      "home_cover": 0.4704,
+      "away_cover": 0.5296
+    },
+    {
+      "home_line": -13.5,
+      "total": 52,
+      "margin_adj": 1.0,
+      "total_adj": 0,
+      "home_cover": 0.5297,
+      "away_cover": 0.4703
+    },
+    {
+      "home_line": -13.5,
+      "total": 52,
+      "margin_adj": -0.5,
+      "total_adj": -1,
+      "over_excl_push": 0.4687,
+      "under_excl_push": 0.5313
+    },
+    {
+      "home_line": -14,
+      "total": 52,
+      "margin_adj": -0.5,
+      "total_adj": 0,
+      "home_cover": 0.4721,
+      "away_cover": 0.5018,
+      "side_push": 0.0261
+    }
+  ],
+  "sim_caveat": "market-calibrated, conditional on input line; not independent edge estimate; props/SGP have no joint model",
+  "market_snapshot": {
+    "opener": {
+      "home_spread": -12.5,
+      "total": 52,
+      "ml": {
+        "ARI": 510,
+        "LAR": -706
+      },
+      "at": "2026-10-12"
+    },
+    "current": {
+      "book": "Bookmaker 12:40 PM PT board",
+      "captured_at": "2026-10-17T19:40:00Z",
+      "ARI_spread": "+13.5 -117",
+      "LAR_spread": "-13.5 +101",
+      "over": "52 -103",
+      "under": "52 -113",
+      "ml": {
+        "ARI": 613,
+        "LAR": -746
+      }
+    },
+    "locked_contest_line": -12.5,
+    "splits": {
+      "spread_bets_pct": {
+        "ARI": 32,
+        "LAR": 68
+      },
+      "spread_money_pct": {
+        "ARI": 36,
+        "LAR": 64
+      },
+      "total_over_bets_pct": 55,
+      "total_over_money_pct": 65,
+      "captured_at": "2026-10-17T18:14:06Z",
+      "moneyline": "withheld_stale_2026-10-16T03:30Z"
+    },
+    "weather": {
+      "temp_f": 86.9,
+      "wind_kmh": 13,
+      "gust_kmh": 14.8,
+      "precip_pct": 1,
+      "captured_at": "2026-10-17T20:16Z",
+      "type": "forecast"
+    }
+  },
+  "quant_reference": {
+    "file": "data/research-intel/proposed/2026-w06-quantitative-synthesis.json",
+    "pointer": "/games/9",
+    "ari_cover": 0.5619,
+    "mean_home": 31.66,
+    "mean_away": 20.26,
+    "status": "provisional_context_only"
+  },
+  "sources": [
+    "scratch/w06-astra-synthesis-queue.json /packets/8",
+    "data/odds/BKR_current_lines_1017_1240_buildfmt line 10 (2026-10-17T19:40Z)",
+    "data/odds/actionnetwork-openers-2026-w06.json /games/ARI@LAR",
+    "data/supercontest/week-06-lines.json /games/9 (2026-10-15T21:29Z)",
+    "data/generated/master-intel/w06-splits-all.json /games/8",
+    "data/research-intel/review/2026-w06-weather-venue.json /rows/6",
+    "data/research-intel/availability/2026-w06-availability-layer.json /games/9",
+    "data/research-intel/source-evidence/espn-status-w06.json",
+    "data/research-intel/proposed/2026-w06-quantitative-synthesis.json /games/9",
+    "data/generated/team-dossiers/2026-w06/matchups/ARI@LAR.json",
+    "data/secondary-matchups/secondary-matchup-vulnerability-2026-w06.json /matchups/18-19",
+    "data/podcasts/youtube-extracted-picks-2026-w06.json /picks/10,19,44,74,81,96,112,113",
+    "data/research-intel/review/w06-article-leads-read-2026-10-17.json (articles 8332,8208,8336,8339,8365,8187,8054)",
+    "data/generated/master-intel/w06-expert-verified.json /rows/92",
+    "data/research-intel/source-evidence/2026-10-17-bookmaker-week6-sgp-parsed.json (BKR 2026-10-17T19:42Z)",
+    "data/research-intel/source-evidence/2026-10-17-betonline-week6-props-parsed.json (BEO 2026-10-17T21:16Z)",
+    "reports/intel/master-intel-narratives-2026-w06.md lines 107-118"
+  ],
+  "props_note": "price checks only, no model probabilities; no candidates carried; McBride longest reception unavailable; Higbee ATD +260 unverified",
+  "ambiguities": [
+    "Official inactives not final (Love, Benson, ARI OL, McDuffie, Curl, Collins, Baker)",
+    "ARI OL risk: dossier ol_risk none vs Kezirian 'depleted offensive line'",
+    "Moneyline splits 42h stale, withheld",
+    "Launch-board session-prompt hash a9b86304 differs from current file c2bf2b1b; content consistent",
+    "Higbee ATD +260 and McBride longest reception have no verified captured row",
+    "quant script contest warning: expects week-06-2026-verified-lines.json",
+    "Week 5 validator not run (pinned to W05 paths); manual self-check done"
+  ],
+  "delta_checklist": [
+    "Official inactives ~90 min pre-kick: ARI OL/Benson out -> margin_adj +0.5 to +1.0 toward LAR; Love active -> -0.5",
+    "ARI +14 at -110 or ARI +13.5 at -105 or better: rerun sim; LAR -12.5 or lower reopens LAR side",
+    "Total moves to 53+ supports Under sensitivity; 51 or lower reverses; wind above 20 km/h matters",
+    "McDuffie/Curl status for LAR secondary",
+    "Re-pull BKR/BEO props before any prop leg; confirm ATD prices",
+    "Roster gate rerun Sunday morning with --fetch"
+  ]
+}

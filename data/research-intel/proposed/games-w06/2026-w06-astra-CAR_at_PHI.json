@@ -1,0 +1,257 @@
+{
+  "game": "CAR@PHI",
+  "generated_at": "2026-10-17T22:40:00Z",
+  "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+  "branch": "claude/w5-prop-cards-2026-10-11",
+  "packet_ref": {
+    "queue": "scratch/w06-astra-synthesis-queue.json",
+    "queue_sha256": "8677f594ad1f53fa2fd867c519d3abb2c03f17568dc4afb7e711446c751bed90",
+    "packet_selector": "/packets/6",
+    "packet_sha256": "160369a0fdd78528129f719784e8448e657a47df98225575ba5ac097b9d4d473",
+    "synthesis_status": "conditional",
+    "kickoff_utc": "2026-10-18T17:00:00.000Z"
+  },
+  "disposition": "price moved",
+  "tier": "research_only",
+  "lean": "No executable edge. Soft, non-priced lean to CAR side only if inactives confirm CAR OL (Moton) and PHI skill group (Smith/Barkley) as reported; CAR -3 -114 sits on the 3 and the half-point hypothesis (51.4% ex-push) is below the 53.3% ex-push breakeven at -114. Total: conflicted, no edge.",
+  "adjustments": {
+    "margin_adj": -0.5,
+    "total_adj": -1.0,
+    "reasons": [
+      "margin_adj -0.5 (home-positive; favors CAR): PHI offense rank/z -1.05 with 3.8 three-and-outs/g and 1.77 pts/drive, McKee starting, Barkley reported OUT (hedge), vs CAR 0.70 offense z, SRS +3.17 vs -5.11. Held to 0.5 because Hurts-OUT, Barkley-OUT and Moton-activated news all predate the Sat 12:40 PM PT board and are largely priced.",
+      "total_adj -1.0 (hypothesis only): PHI thin offense and low tempo (tempo z -1.16) support a lower score, offset by CAR 30.25 ppg and tempo z +1.26 and the quantitative model's own +0.53 total lean (over 51.7%). Treated as an unresolved hypothesis, not a thesis."
+    ],
+    "caps": "within soft cap 2.0"
+  },
+  "sim_runs": [
+    {
+      "id": "S0_baseline",
+      "margin_adj": 0,
+      "total_adj": 0,
+      "cmd": "--home-line 3 --total 39",
+      "away_cover_excl_push": 0.5,
+      "home_cover_excl_push": 0.5,
+      "over_excl_push": 0.5,
+      "under_excl_push": 0.5,
+      "side_push": 0.0827,
+      "total_push": 0.0304,
+      "home_win": 0.3987,
+      "mean_margin": -3.34,
+      "mean_total": 39.04
+    },
+    {
+      "id": "S1_car_half_point",
+      "margin_adj": -0.5,
+      "total_adj": 0,
+      "cmd": "--home-line 3 --total 39 --margin-adj -0.5",
+      "away_cover_excl_push": 0.5143,
+      "home_cover_excl_push": 0.4857,
+      "side_push": 0.0826,
+      "home_win": 0.386,
+      "mean_margin": -3.78
+    },
+    {
+      "id": "S2_phi_half_point",
+      "margin_adj": 0.5,
+      "total_adj": 0,
+      "cmd": "--home-line 3 --total 39 --margin-adj 0.5",
+      "away_cover_excl_push": 0.4857,
+      "home_cover_excl_push": 0.5143,
+      "side_push": 0.0827,
+      "home_win": 0.4115,
+      "mean_margin": -2.91
+    },
+    {
+      "id": "S3_car_full_point",
+      "margin_adj": -1,
+      "total_adj": 0,
+      "cmd": "--home-line 3 --total 39 --margin-adj -1",
+      "away_cover_excl_push": 0.5287,
+      "home_cover_excl_push": 0.4713,
+      "side_push": 0.0824,
+      "home_win": 0.3734,
+      "mean_margin": -4.21
+    },
+    {
+      "id": "S4_under_1",
+      "margin_adj": 0,
+      "total_adj": -1,
+      "cmd": "--home-line 3 --total 39 --total-adj -1",
+      "over_excl_push": 0.4689,
+      "under_excl_push": 0.5311,
+      "total_push": 0.0303,
+      "mean_total": 38.05
+    },
+    {
+      "id": "S5_over_half",
+      "margin_adj": 0,
+      "total_adj": 0.5,
+      "cmd": "--home-line 3 --total 39 --total-adj 0.5",
+      "over_excl_push": 0.5156,
+      "under_excl_push": 0.4844
+    },
+    {
+      "id": "S6_car_half_under_1",
+      "margin_adj": -0.5,
+      "total_adj": -1,
+      "cmd": "--home-line 3 --total 39 --margin-adj -0.5 --total-adj -1",
+      "away_cover_excl_push": 0.5143,
+      "under_excl_push": 0.5311
+    }
+  ],
+  "sim_caveat": "Market-calibrated simulator; probabilities are conditional on the 39 / PHI +3 baseline with no vig-adjusted edge claim. Props, team totals, SGPs and teasers have no calibrated joint model.",
+  "market_snapshot": {
+    "board_captured_at": "2026-10-17T19:40:00Z (Sat 12:40 PM PT)",
+    "source": "data/odds/BKR_current_lines_1017_1240_buildfmt line 8",
+    "away_spread": {
+      "team": "CAR",
+      "line": -3,
+      "odds": -114
+    },
+    "home_spread": {
+      "team": "PHI",
+      "line": 3,
+      "odds": -102
+    },
+    "total": {
+      "line": 39,
+      "over": -108,
+      "under": -108
+    },
+    "moneyline": {
+      "CAR": -173,
+      "PHI": 157
+    },
+    "opener": {
+      "source": "data/odds/actionnetwork-openers-2026-w06.json /games/CAR@PHI",
+      "sp_home": -1.5,
+      "sp_at": "2026-10-12T00:09:15Z",
+      "total": 42.5,
+      "ml": {
+        "CAR": -100,
+        "PHI": -122
+      }
+    },
+    "opener_to_current": {
+      "home_spread_points": 4.5,
+      "total_points": -3.5,
+      "note": "cross-book opener vs current board; note only"
+    },
+    "supercontest_locked": {
+      "line": "PHI -1.5",
+      "captured": "2026-10-15 2:29 PM PT",
+      "use": "locked reference, not executable"
+    },
+    "splits": {
+      "spread": {
+        "car_bets_pct": 52,
+        "car_money_pct": 62,
+        "phi_bets_pct": 48,
+        "phi_money_pct": 38
+      },
+      "total": {
+        "over_bets_pct": 69,
+        "over_money_pct": 73
+      },
+      "captured": "2026-10-17T18:14:06Z (Sat 11:14 AM PT)",
+      "moneyline": "withheld, Thursday-night pull, 42.6h old at manifest"
+    },
+    "weather": {
+      "f": 53.6,
+      "precip_pct": 0,
+      "wind_kmh": 9.3,
+      "gust_kmh": 16.9,
+      "captured": "2026-10-17T20:16:18Z",
+      "type": "forecast"
+    },
+    "executable_live_prices": []
+  },
+  "qb": {
+    "CAR": "Bryce Young (ESPN depth chart, not team-confirmed)",
+    "PHI": "Tanner McKee (operator-recorded; Hurts OUT, IR/at least 4 games per PFT)"
+  },
+  "verified_props_noted": [
+    {
+      "book": "BEO",
+      "captured": "2026-10-17T21:15:55Z",
+      "row": "/rows/424-425",
+      "player": "Bryce Young",
+      "market": "fantasy_points",
+      "line": 16.5,
+      "over": -115,
+      "under": -115,
+      "use": "price only, no lean"
+    },
+    {
+      "book": "BEO",
+      "row": "/rows/426-433",
+      "player": "Chuba Hubbard / Jalen Coker",
+      "market": "atd, fantasy_points, targets",
+      "use": "price only; Hubbard ATD Yes -115/No -115 looks anomalous, verify"
+    },
+    {
+      "book": "BEO",
+      "row": "/rows/434-439",
+      "player": "Tetairoa McMillan",
+      "market": "targets 8.5 / ATD +210 / fantasy 14.5",
+      "use": "price only"
+    }
+  ],
+  "props_omitted": [
+    "Young pass yds 227.5/250/275 (Anderson): no current priced row, 227.5 flagged off-market by speaker",
+    "Young pass att U33.5 -116 (ESPN Walder): no current row",
+    "McKee 19+ completions -101 (ESPN Solak): no current row",
+    "Hubbard rush yds O70.5 -115 (VSiN Swedelson): no current row, article 8266 unresolved-id in packet",
+    "Goedert ATD +295 (Gallant): no ATD row for Goedert in BEO (fantasy points only)",
+    "BKR: 0 player-tagged rows for this game"
+  ],
+  "sources": [
+    "scratch/w06-astra-synthesis-queue.json (queued_hold, packets[6])",
+    "data/odds/BKR_current_lines_1017_1240_buildfmt",
+    "data/odds/actionnetwork-openers-2026-w06.json",
+    "data/research-intel/proposed/2026-w06-quantitative-synthesis.json (generated 2026-10-17T21:11Z)",
+    "data/research-intel/availability/2026-w06-availability-layer.json (2026-10-17T02:03Z)",
+    "data/research-intel/operator-confirmed-starters-2026-w06.json",
+    "data/generated/master-intel/w06-splits-all.json",
+    "data/supercontest/week-06-lines.json",
+    "data/research-intel/review/2026-w06-weather-venue.json",
+    "data/research-intel/review/w06-article-leads-read-2026-10-17.json",
+    "data/research-intel/review/article-intel-review-latest.json (ids 8366, 8284, 8066, 8382)",
+    "data/podcasts/youtube-extracted-picks-2026-w06.json (approved 2026-10-17)",
+    "data/research-intel/source-evidence/2026-10-17-betonline-week6-props-parsed.json",
+    "data/generated/team-dossiers/2026-w06/CAR.json and PHI.json",
+    "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json (player-level tables; not used numerically)",
+    "reports/intel/master-intel-narratives-2026-w06.md lines 83-94",
+    "data/generated/master-intel/w06-roster-vet.json (read-only: PASS, 0.2h)"
+  ],
+  "gate_checks": {
+    "head_branch": "match",
+    "queue_sha256": "match",
+    "packet_sha256": "match (recomputed canonical)",
+    "evidence_manifest": "49 hashed files match, roster-vet receipt excluded by instruction",
+    "launch_contract": "launch sheet and session prompt hashes match",
+    "roster_gate": "PASS, source 2026-10-17T22:22:11Z, age 0.2h, 0 blocking, 10 UNVERIFIED all other games",
+    "roster_vet_rerun": false,
+    "kickoff": "future (checked 2026-10-17T22:38Z vs 2026-10-18T17:00Z)"
+  },
+  "ambiguities": [
+    "Taylor Moton: availability layer (02:03Z 10/17) lists OUT (illness); ESPN 8366 (18:21Z 10/17) says activated and available. Narrative file says out. Treat as likely available; confirm via inactives.",
+    "Barkley OUT: ESPN 8284 headline says ruled out, availability layer cites Kempski 'not spotted'; operator treats as reporter hedge, unconfirmed.",
+    "DeVonta Smith 'appears' to return; Smith/Brown/Wicks listed Questionable in narrative; official inactives decide.",
+    "Millman CAR +1.5 and Kezirian/Erickson(-1.5) CAR picks are pre-Hurts-OUT or unpriced; not comparable to CAR -3.",
+    "Sharp Football CAR -3.5 and VSiN Eagles +8 rows are source_verdict reject; not used.",
+    "Narrative file says over 81% of bets; splits file (11:14 AM PT) says 69% bets / 73% money. Splits file governs.",
+    "Moneyline splits stale (Thursday night). FTN tables are player-level; no team aggregate used.",
+    "Thin Bookmaker board (0 player rows) is a coverage note.",
+    "Week 5 validator not run (pinned to W05 paths); manual self-check done."
+  ],
+  "delta_checklist": [
+    "Official inactives ~90 min pre-kick: McKee start, Smith, Barkley, Moton, Ekwonu, Freeling, Phillips.",
+    "CAR -3 price: at -2.5 or better CAR hypothesis S1 clears ~54% ex-push; at -3.5 it falls near or below 50% (key number 3 lost). Re-run simulator.",
+    "If PHI +3 becomes +3.5 or +4, PHI side is worth re-evaluating against the PHI split (48% bets).",
+    "Total moves off 39 (sub-38 or 40+ crossing) or wind above ~25 km/h forecast.",
+    "Barkley confirmed active: shift margin_adj to 0 or positive.",
+    "Refresh BEO/BKR for Young pass yards, McKee completions, Hubbard rush yds rows before any prop discussion."
+  ],
+  "counter_case": "CAR -3 is a road favorite with a defense allowing 27.25 ppg, laying a key number that already absorbed a 4.5-point move; PHI at +3 has home field, a rested-roster narrative offset by the London trip, and 3 is hit exactly in 15.6% of simulated games."
+}

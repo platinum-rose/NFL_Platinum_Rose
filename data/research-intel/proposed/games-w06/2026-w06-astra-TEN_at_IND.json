@@ -1,0 +1,104 @@
+{
+  "schema": "w06_astra_game_v1",
+  "game": "TEN@IND",
+  "generated_at": "2026-10-17T22:40:00Z",
+  "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+  "branch": "claude/w5-prop-cards-2026-10-11",
+  "kickoff_utc": "2026-10-18T17:00:00Z",
+  "packet_ref": {
+    "queue_path": "scratch/w06-astra-synthesis-queue.json",
+    "selector": "/packets/5",
+    "packet_sha256": "a44610034f2a19151d50982da98b64fe3469bbdf9b0ba0ac00029c97c00f01c0",
+    "queue_sha256": "8677f594ad1f53fa2fd867c519d3abb2c03f17568dc4afb7e711446c751bed90",
+    "manifest_entries_verified": 45,
+    "manifest_entries_skipped": ["data/generated/master-intel/w06-roster-vet.json (self-rewriting receipt; read: status PASS, roster_source 2026-10-17T22:22:11Z, age 0.2h)"]
+  },
+  "disposition": "conflicted",
+  "tier": "research_only",
+  "lean": "no price edge; soft directional lean TEN +7 / Under 44.5 only",
+  "adjustments": {
+    "margin_adj": -0.4,
+    "total_adj": -0.5,
+    "reasons": [
+      "margin -0.4 (home-positive, toward TEN): mirrors quantitative model adjustments_vs_market margin -0.38 [data/research-intel/proposed/2026-w06-quantitative-synthesis.json games[4]]",
+      "total -0.5: model total adj -0.32 plus small allowance for TEN tempo z -1.99 and weak offenses, offset by IND tempo z +0.72; within 2.0 soft cap"
+    ]
+  },
+  "sim_runs": [
+    {"label": "baseline", "home_line": -7, "total": 44.5, "margin_adj": 0, "total_adj": 0, "away_cover_excl_push": 0.5, "home_cover_excl_push": 0.5, "over_excl_push": 0.5, "under_excl_push": 0.5, "side_push": 0.0555, "home_win_excl_tie": 0.719},
+    {"label": "hypothesis_used", "home_line": -7, "total": 44.5, "margin_adj": -0.4, "total_adj": -0.5, "away_cover_excl_push": 0.5117, "home_cover_excl_push": 0.4883, "over_excl_push": 0.4848, "under_excl_push": 0.5152, "side_push": 0.0556, "home_win_excl_tie": 0.7098},
+    {"label": "alt_mild_TEN", "home_line": -7, "total": 44.5, "margin_adj": -1.0, "total_adj": -1.0, "away_cover_excl_push": 0.5292, "home_cover_excl_push": 0.4708, "over_excl_push": 0.4697, "under_excl_push": 0.5303, "side_push": 0.0557, "home_win_excl_tie": 0.6958},
+    {"label": "alt_IND_tilt", "home_line": -7, "total": 44.5, "margin_adj": 0.4, "total_adj": -0.5, "away_cover_excl_push": 0.4883, "home_cover_excl_push": 0.5117, "over_excl_push": 0.4848, "under_excl_push": 0.5152, "side_push": 0.0554, "home_win_excl_tie": 0.728},
+    {"label": "hook_TEN_plus_6.5", "home_line": -6.5, "total": 44.5, "margin_adj": -0.4, "total_adj": -0.5, "away_cover_excl_push": 0.5109, "home_cover_excl_push": 0.4891, "side_push": 0},
+    {"label": "hook_TEN_plus_7.5", "home_line": -7.5, "total": 44.5, "margin_adj": -0.4, "total_adj": -0.5, "away_cover_excl_push": 0.5112, "home_cover_excl_push": 0.4888, "side_push": 0}
+  ],
+  "sim_caveat": "market-calibrated simulator (scripts/intel/margin-simulator.mjs, selftest PASS); probabilities are conditional on stated adjustments, not an independent projection; props/SGP/teasers have no joint model",
+  "price_sensitivity": {
+    "TEN_plus_7_at_-115_ev_pct": -4.1,
+    "TEN_plus_7_breakeven_american": -105,
+    "IND_minus_7_at_-101_ev_pct": -2.7,
+    "Under_44.5_at_-104_ev_pct": 1.0,
+    "Over_44.5_at_-112_ev_pct": -8.2
+  },
+  "market_snapshot": {
+    "captured_at": "2026-10-17T19:40:00Z",
+    "source": "data/odds/BKR_current_lines_1017_1240_buildfmt line 7 (Bookmaker, captured board, not a live offer)",
+    "spread": {"TEN": "+7 -115", "IND": "-7 -101"},
+    "total": {"over": "44.5 -112", "under": "44.5 -104"},
+    "moneyline": {"TEN": 251, "IND": -296},
+    "opener": {"captured_at": "2026-10-12T04:30:15Z", "home_spread": -7, "home_spread_odds": -106, "total": 44, "ml": {"TEN": 255, "IND": -325}},
+    "supercontest_locked": {"captured": "2026-10-15T21:29Z", "contest_line": -7, "favorite": "IND"},
+    "splits": {
+      "spread": {"visitor_bets_pct": 24, "visitor_money_pct": 14, "home_bets_pct": 76, "home_money_pct": 86, "captured_at": "2026-10-17T18:14:06Z"},
+      "total": {"over_bets_pct": 59, "over_money_pct": 69, "captured_at": "2026-10-17T18:14:06Z"},
+      "moneyline": {"status": "withheld_stale", "captured_at": "2026-10-16T03:30:03Z", "age_h": 42.6}
+    },
+    "quant_model": {"means_home": 25.40, "means_away": 18.78, "total": 44.18, "home_margin": 6.62, "generated_at": "2026-10-17T21:11:11Z"},
+    "weather": "retractable roof (IND): venue_condition_verification_required; no outdoor weather applied"
+  },
+  "sources": [
+    {"id": "packet", "path": "scratch/w06-astra-synthesis-queue.json", "selector": "/packets/5", "sha256": "a44610034f2a19151d50982da98b64fe3469bbdf9b0ba0ac00029c97c00f01c0"},
+    {"id": "bkr_lines", "path": "data/odds/BKR_current_lines_1017_1240_buildfmt", "captured_at": "2026-10-17T19:40:00Z"},
+    {"id": "quant", "path": "data/research-intel/proposed/2026-w06-quantitative-synthesis.json", "pointer": "/games/4", "timestamp": "2026-10-17T21:11:11Z"},
+    {"id": "availability", "path": "data/research-intel/availability/2026-w06-availability-layer.json", "pointer": "/games/6", "timestamp": "2026-10-17T02:03:52Z"},
+    {"id": "espn_status", "path": "data/research-intel/source-evidence/espn-status-w06.json", "timestamp": "2026-10-17T02:03:26Z"},
+    {"id": "weather", "path": "data/research-intel/review/2026-w06-weather-venue.json", "timestamp": "2026-10-17T20:16:18Z"},
+    {"id": "splits", "path": "data/generated/master-intel/w06-splits-all.json", "timestamp": "2026-10-17T18:14:06Z"},
+    {"id": "supercontest", "path": "data/supercontest/week-06-lines.json", "timestamp": "2026-10-15T21:29:00Z"},
+    {"id": "youtube_approved", "path": "data/podcasts/youtube-extracted-picks-2026-w06.json", "pointers": ["/picks/13", "/picks/49", "/picks/50", "/picks/51", "/picks/64", "/picks/65", "/picks/108"], "approved_at": "2026-10-17T21:44:25Z"},
+    {"id": "experts", "path": "packet expert_registry_rows", "pointers": ["/rows/70", "/rows/91"], "note": "Tuley VSiN TEN +7; PFT Colts 27-10; quote_quality unverified_against_raw_source"},
+    {"id": "articles", "path": "data/research-intel/review/w06-article-leads-read-2026-10-17.json", "article_ids": [8187, 8054, 8136, 8336], "use": "analyst leads, not promoted"},
+    {"id": "bkr_props", "path": "packet player_props.bkr", "timestamp": "2026-10-17T19:41:35Z"},
+    {"id": "beo_props", "path": "packet player_props.beo", "timestamp": "2026-10-17T21:15:50Z", "note": "kicker fantasy points only"},
+    {"id": "roster_vet", "path": "data/generated/master-intel/w06-roster-vet.json", "status": "PASS", "roster_source": "2026-10-17T22:22:11Z"}
+  ],
+  "agreement": {
+    "TEN_plus_7": ["Dave Tuley (VSiN, 2026-10-15)", "Steve Fezzik (EC4r_E6mc0E /picks/64)", "Ross Tucker (EC4r_E6mc0E /picks/65)"],
+    "Under": ["Pat Fitzmaurice (BettingPros /picks/108, no line stated)", "quant model -0.32 total"],
+    "IND_context_not_edge": ["ESPN panel 8187 straight-up", "PFT Florio 8054 27-10", "Brandon Anderson teaser leg /picks/51"]
+  },
+  "props": {
+    "promoted": [],
+    "omitted_reasons": ["Cam Ward alias unresolved, no TEN QB rows", "Warren and Spears Questionable", "no Bookmaker TD-scorer rows; DK Predictions reference-only", "no joint model for SGP/teaser/multi-TD"]
+  },
+  "ambiguities": [
+    "Official inactives not available; QBs depth-chart only; Warren/Spears/Mallory/Pierce statuses reported-only and partly contradictory",
+    "Roof status unconfirmed; no weather applied",
+    "Moneyline splits 42.6 h old, withheld; spread/total splits 4.5 h old",
+    "BetOnline has only kicker fantasy-point rows for this game; no TEN QB or TD-scorer props",
+    "FTN team-level figures not extracted (player-level tables only)",
+    "SRS gap (~10.4 pts) versus market/model gap (6.6) unexplained",
+    "Expert quote_quality unverified_against_raw_source for Tuley and PFT; YouTube rationales are packet paraphrase",
+    "agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md sha256 c2bf2b1bb36979dd7a79b4922a4aa208d4fadf8950ffb41af02ee95edc9ee782 differs from a9b86304... recorded on the launch board (file modified 8s after board build); not a packet source; proceeded and flagged",
+    "validate-game-output.py is Week 5-pinned and was not run; manual self-check done"
+  ],
+  "counter_case": "IND: TEN is 0-5 with SRS -13.2 vs IND -2.8, 11.6 ppg, 1.18 pts/drive vs IND 2.27; SRS gap plus home field implies more than 7; splits 76/86 and straight-up consensus on IND. Over: IND allows 27.6 ppg and 384 yds/game; 69% of total money on Over.",
+  "delta_checklist": [
+    "Official inactives (Sun ~8:30 AM PT): Ward, Jones, Warren, Spears, Dulin, Pierce, Mallory; Warren or Taylor out shifts toward the IND tilt row and weakens the Under",
+    "Confirm roof status; weather only if roof confirmed open",
+    "Price crossings: TEN +7 at -105 or better or +7.5 brings the side to breakeven; Under 44.5 at 45.5+ with -104 or better raises it to about +2% EV; total 43.5 or lower removes it",
+    "Line moves to IND -7.5/-8 or TEN +6.5 or lower: rerun simulator and reweigh counter-case",
+    "Refresh spread/total/moneyline splits and recheck for new Bookmaker or BetOnline Taylor/Ward rows",
+    "Recheck TEN skill statuses (Pollard, Ridley, Robinson) before any prop is considered"
+  ]
+}

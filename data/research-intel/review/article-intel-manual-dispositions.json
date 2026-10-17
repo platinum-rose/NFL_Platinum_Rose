@@ -1,325 +1,955 @@
 {
-  "schema": "article_pick_source_manual_dispositions_v1",
-  "generated_at": "2026-08-12T05:20:00.000Z",
-  "guardrail": "Manual A05 dispositions resolve pick-oriented article rows for evidence integrity only. They do not promote bets, create official picks, or make inference leads actionable.",
-  "dispositions": [
-    {
-      "id": 1758,
-      "source": "Action Network",
-      "title": "2027 No. 1 Overall Pick Odds: Manning, Moore, Carr Headline Class",
-      "url": "https://www.actionnetwork.com/nfl/2027-no-1-overall-pick-odds",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "metadata_only",
-        "draft_market_context",
-        "no_execution_usable_article_pick_in_local_evidence"
-      ],
-      "notes": "Treat as draft-market context only. No article body was stored, no NFL team futures selection was available, and no price/venue-backed actual_pick is allowed."
-    },
-    {
-      "id": 1759,
-      "source": "Action Network",
-      "title": "Worst NFL Regular-Season Record Odds",
-      "url": "https://www.actionnetwork.com/nfl/worst-nfl-regular-season-record-odds",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "metadata_only",
-        "market_context_only",
-        "no_execution_usable_article_pick_in_local_evidence"
-      ],
-      "notes": "Keep any extracted signal as market/inference context only. Missing article body prevents pick authority and no actual_pick can be promoted."
-    },
-    {
-      "id": 1760,
-      "source": "Action Network",
-      "title": "Best NFL Regular Season Record Odds: Rams, Ravens, Lions Early Favorites",
-      "url": "https://www.actionnetwork.com/nfl/best-nfl-regular-season-record-odds",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "metadata_only",
-        "market_context_only",
-        "no_execution_usable_article_pick_in_local_evidence"
-      ],
-      "notes": "Teams are market context only. Missing article body and no strict selection/price/venue evidence keep this out of actual_picks."
-    },
-    {
-      "id": 1761,
-      "source": "Action Network",
-      "title": "NFL Predictions: 3 Early Week 1 Picks Sharps Are Quietly Slamming",
-      "url": "https://www.actionnetwork.com/nfl/nfl-predictions-picks-odds-week-1-2026",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "metadata_only",
-        "week_1_not_futures_authority",
-        "no_execution_usable_article_pick_in_local_evidence"
-      ],
-      "notes": "Potential Week 1 article, not a usable futures source in the stored evidence. Missing body means no article pick may be promoted."
-    },
-    {
-      "id": 1675,
-      "source": "BettingPros",
-      "title": "NFL Hall of Fame Game Picks & Predictions (Panthers vs. Cardinals)",
-      "url": "https://www.bettingpros.com/articles/nfl-hall-of-fame-game-picks-predictions-panthers-vs-cardinals/",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "body_available",
-        "preseason_game_not_futures_authority",
-        "no_strict_actual_pick_extracted"
-      ],
-      "notes": "Body was available, but no execution-usable futures actual_pick was extracted. Keep any row as non-futures/preseason context only."
-    },
-    {
-      "id": 1520,
-      "source": "BettingPros",
-      "title": "The Basketball Tournament Picks (TBT) & Predictions: JHX Hoops vs. La Familia (Wednesday)",
-      "url": "https://www.bettingpros.com/articles/the-basketball-tournament-picks-tbt-predictions-jhx-hoops-vs-la-familia-wednesday/",
-      "disposition": "excluded_non_nfl",
-      "pick_oriented": false,
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "non_nfl_title",
-        "likely_false_positive"
-      ],
-      "flags": [
-        "non_nfl_article_excluded"
-      ],
-      "notes": "TBT basketball article. Excluded from NFL futures article evidence."
-    },
-    {
-      "id": 1521,
-      "source": "BettingPros",
-      "title": "2026 Rocket Classic Picks & Predictions: PGA Sleepers",
-      "url": "https://www.bettingpros.com/articles/2026-rocket-classic-picks-predictions-pga-sleepers/",
-      "disposition": "excluded_non_nfl",
-      "pick_oriented": false,
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "non_nfl_title",
-        "likely_false_positive"
-      ],
-      "flags": [
-        "non_nfl_article_excluded"
-      ],
-      "notes": "PGA golf article. Excluded from NFL futures article evidence."
-    },
-    {
-      "id": 1522,
-      "source": "BettingPros",
-      "title": "2026 Rocket Classic Picks & Predictions: Best PGA Bets",
-      "url": "https://www.bettingpros.com/articles/2026-rocket-classic-picks-predictions-best-pga-bets/",
-      "disposition": "excluded_non_nfl",
-      "pick_oriented": false,
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "non_nfl_title",
-        "likely_false_positive"
-      ],
-      "flags": [
-        "non_nfl_article_excluded"
-      ],
-      "notes": "PGA golf article. Excluded from NFL futures article evidence."
-    },
-    {
-      "id": 1773,
-      "source": "ESPN NFL",
-      "title": "Mock draft: Bijan and Gibbs at Picks 7 and 8? Only in a superflex league",
-      "url": "https://www.espn.com/fantasy/football/story/_/page/FFMockDraft26-49575310/fantasy-football-mock-draft-superflex-12-teams",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "metadata_only",
-        "fantasy_mock_draft_context",
-        "no_execution_usable_article_pick_in_local_evidence"
-      ],
-      "notes": "Fantasy mock draft context only. No usable NFL futures selection with price/venue evidence is available."
-    },
-    {
-      "id": 1776,
-      "source": "ESPN NFL",
-      "title": "Barnwell names future Hall of Famers on every NFL team",
-      "url": "https://www.espn.com/nfl/story/_/id/49505682/2026-nfl-pro-football-hall-fame-future-players-all-32-teams",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "metadata_only",
-        "analysis_context_only",
-        "no_execution_usable_article_pick_in_local_evidence"
-      ],
-      "notes": "Hall of Fame analysis context only. Missing body and no execution evidence keep it outside actual_picks."
-    },
-    {
-      "id": 1622,
-      "source": "PFF",
-      "title": "Jahmyr Gibbs fantasy outlook 2026: The contract talk doesn&#8217;t change that he&#8217;s the No. 1 pick",
-      "url": "https://www.pff.com/news/fantasy-football-jahmyr-gibbs-2026/",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "suspected_ingest_cap",
-        "fantasy_context",
-        "no_execution_usable_article_pick_in_local_evidence"
-      ],
-      "notes": "Fantasy draft-position article. Truncated body and no price/venue-backed futures selection keep it out of actual_picks."
-    },
-    {
-      "id": 1791,
-      "source": "Sharp Football",
-      "title": "2026 NFL Running Back Prop Bets: Best Overs to Target",
-      "url": "https://www.sharpfootballanalysis.com/betting/nfl-running-back-player-prop-overs/",
-      "disposition": "reviewed_selection_needs_execution_verification",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "suspected_ingest_cap",
-        "explicit_selection_visible",
-        "missing_execution_venue_or_complete_body"
-      ],
-      "notes": "The stored evidence contains a selection mention, but body truncation and incomplete execution evidence mean it remains outside actual_picks pending price/venue verification."
-    },
-    {
-      "id": 1697,
-      "source": "Sharp Football",
-      "title": "2026 NFL Futures: Win Totals, Team Futures & Player Props",
-      "url": "https://www.sharpfootballanalysis.com/betting/nfl-futures-picks-warren-sharp/",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "body_available",
-        "no_strict_actual_pick_extracted",
-        "package_or_overview_context"
-      ],
-      "notes": "Body available but no strict execution-usable article pick was extracted. Keep as overview/context only."
-    },
-    {
-      "id": 1717,
-      "source": "VSiN",
-      "title": "College Football Betting: Steve Makinen&#8217;s 2026 Stability System and Week 0 Picks",
-      "url": "https://vsin.com/college-football/college-football-betting-steve-makinens-2026-stability-system-and-week-0-picks/",
-      "disposition": "excluded_non_nfl",
-      "pick_oriented": false,
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "non_nfl_title",
-        "college_football"
-      ],
-      "flags": [
-        "non_nfl_article_excluded"
-      ],
-      "notes": "College football betting article. Excluded from NFL futures article evidence."
-    },
-    {
-      "id": 1666,
-      "source": "VSiN",
-      "title": "NFL Hall of Fame Game Betting Preview: Panthers vs. Cardinals, Best Bets and Preseason Betting Tips",
-      "url": "https://vsin.com/nfl/nfl-hall-of-fame-game-betting-preview-panthers-vs-cardinals-best-bets-and-preseason-betting-tips/",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "suspected_ingest_cap",
-        "preseason_game_not_futures_authority",
-        "no_execution_usable_article_pick_in_local_evidence"
-      ],
-      "notes": "Preseason game betting context only. Body is truncated, so no execution-usable futures actual_pick is allowed."
-    },
-    {
-      "id": 1625,
-      "source": "VSiN",
-      "title": "Five College Football Futures That Jumped Off the Pages of the VSiN College Football Betting Guide",
-      "url": "https://vsin.com/college-football/five-college-football-futures-that-jumped-off-the-pages-of-the-vsin-college-football-betting-guide/",
-      "disposition": "excluded_non_nfl",
-      "pick_oriented": false,
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "non_nfl_title",
-        "college_football"
-      ],
-      "flags": [
-        "non_nfl_article_excluded"
-      ],
-      "notes": "College football futures article. Excluded from NFL futures article evidence."
-    },
-    {
-      "id": 1610,
-      "source": "VSiN",
-      "title": "2026 VSiN College Football Betting Guide Is Here: Expert CFP Picks",
-      "url": "https://vsin.com/college-football/2026-vsin-college-football-betting-guide-is-here-expert-cfp-picks/",
-      "disposition": "excluded_non_nfl",
-      "pick_oriented": false,
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "non_nfl_title",
-        "college_football"
-      ],
-      "flags": [
-        "non_nfl_article_excluded"
-      ],
-      "notes": "College football guide article. Excluded from NFL futures article evidence."
-    },
-    {
-      "id": 1611,
-      "source": "VSiN",
-      "title": "NFL Hall of Fame Game 2026: Panthers vs. Cardinals Prediction",
-      "url": "https://vsin.com/nfl/nfl-hall-of-fame-game-2026-panthers-vs-cardinals-prediction/",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "suspected_ingest_cap",
-        "preseason_game_not_futures_authority",
-        "no_execution_usable_article_pick_in_local_evidence"
-      ],
-      "notes": "Preseason game prediction context only. Body is truncated and no futures actual_pick is allowed."
-    },
-    {
-      "id": 1523,
-      "source": "Walter Football",
-      "title": "Super Bowl LXI Prediction",
-      "url": "http://walterfootball.com/offseason2026playoffs.php",
-      "disposition": "reviewed_no_actionable_actual_pick",
-      "reviewed_at": "2026-08-12T05:20:00.000Z",
-      "reviewer": "A05",
-      "evidence_basis": [
-        "suspected_ingest_cap",
-        "multi_team_page_chrome_risk",
-        "no_execution_usable_article_pick_in_local_evidence"
-      ],
-      "notes": "Broad multi-team page with truncated body and page-chrome risk. Retain as context only; no strict actual_pick can be promoted."
-    },
-    {
-      "id": 6822,
-      "source": "Action Network",
-      "title": "NFL Week 5 Buy or Sell: Brandon Anderson Ranks All 12 2-2 Teams & Playoff Futures ...",
-      "url": "https://www.actionnetwork.com/nfl/nfl-week-5-buy-or-sell-brandon-anderson-ranks-2-2-teams-playoff-futures",
-      "disposition": "reviewed_truncated_body_picks_extracted",
-      "reviewed_at": "2026-10-07T21:05:00.000Z",
-      "reviewer": "Claude Team 2 (approved by Andy)",
-      "evidence_basis": [
-        "body_truncated_at_ingest_cap",
-        "four_selections_extracted_before_cap",
-        "priced_bet_present"
-      ],
-      "notes": "Body hit the 20k ingest cap, but 4 selections were extracted, including 'BET: Lions to Win the NFC North (+280 at DraftKings)'. Later-ranked teams past the cap may be missing; extracted picks are kept as-is (no promotion)."
-    }
-  ]
+ "schema": "article_pick_source_manual_dispositions_v1",
+ "generated_at": "2026-08-12T05:20:00.000Z",
+ "guardrail": "Manual A05 dispositions resolve pick-oriented article rows for evidence integrity only. They do not promote bets, create official picks, or make inference leads actionable.",
+ "dispositions": [
+  {
+   "id": 1758,
+   "source": "Action Network",
+   "title": "2027 No. 1 Overall Pick Odds: Manning, Moore, Carr Headline Class",
+   "url": "https://www.actionnetwork.com/nfl/2027-no-1-overall-pick-odds",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "metadata_only",
+    "draft_market_context",
+    "no_execution_usable_article_pick_in_local_evidence"
+   ],
+   "notes": "Treat as draft-market context only. No article body was stored, no NFL team futures selection was available, and no price/venue-backed actual_pick is allowed."
+  },
+  {
+   "id": 1759,
+   "source": "Action Network",
+   "title": "Worst NFL Regular-Season Record Odds",
+   "url": "https://www.actionnetwork.com/nfl/worst-nfl-regular-season-record-odds",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "metadata_only",
+    "market_context_only",
+    "no_execution_usable_article_pick_in_local_evidence"
+   ],
+   "notes": "Keep any extracted signal as market/inference context only. Missing article body prevents pick authority and no actual_pick can be promoted."
+  },
+  {
+   "id": 1760,
+   "source": "Action Network",
+   "title": "Best NFL Regular Season Record Odds: Rams, Ravens, Lions Early Favorites",
+   "url": "https://www.actionnetwork.com/nfl/best-nfl-regular-season-record-odds",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "metadata_only",
+    "market_context_only",
+    "no_execution_usable_article_pick_in_local_evidence"
+   ],
+   "notes": "Teams are market context only. Missing article body and no strict selection/price/venue evidence keep this out of actual_picks."
+  },
+  {
+   "id": 1761,
+   "source": "Action Network",
+   "title": "NFL Predictions: 3 Early Week 1 Picks Sharps Are Quietly Slamming",
+   "url": "https://www.actionnetwork.com/nfl/nfl-predictions-picks-odds-week-1-2026",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "metadata_only",
+    "week_1_not_futures_authority",
+    "no_execution_usable_article_pick_in_local_evidence"
+   ],
+   "notes": "Potential Week 1 article, not a usable futures source in the stored evidence. Missing body means no article pick may be promoted."
+  },
+  {
+   "id": 1675,
+   "source": "BettingPros",
+   "title": "NFL Hall of Fame Game Picks & Predictions (Panthers vs. Cardinals)",
+   "url": "https://www.bettingpros.com/articles/nfl-hall-of-fame-game-picks-predictions-panthers-vs-cardinals/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "body_available",
+    "preseason_game_not_futures_authority",
+    "no_strict_actual_pick_extracted"
+   ],
+   "notes": "Body was available, but no execution-usable futures actual_pick was extracted. Keep any row as non-futures/preseason context only."
+  },
+  {
+   "id": 1520,
+   "source": "BettingPros",
+   "title": "The Basketball Tournament Picks (TBT) & Predictions: JHX Hoops vs. La Familia (Wednesday)",
+   "url": "https://www.bettingpros.com/articles/the-basketball-tournament-picks-tbt-predictions-jhx-hoops-vs-la-familia-wednesday/",
+   "disposition": "excluded_non_nfl",
+   "pick_oriented": false,
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "non_nfl_title",
+    "likely_false_positive"
+   ],
+   "flags": [
+    "non_nfl_article_excluded"
+   ],
+   "notes": "TBT basketball article. Excluded from NFL futures article evidence."
+  },
+  {
+   "id": 1521,
+   "source": "BettingPros",
+   "title": "2026 Rocket Classic Picks & Predictions: PGA Sleepers",
+   "url": "https://www.bettingpros.com/articles/2026-rocket-classic-picks-predictions-pga-sleepers/",
+   "disposition": "excluded_non_nfl",
+   "pick_oriented": false,
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "non_nfl_title",
+    "likely_false_positive"
+   ],
+   "flags": [
+    "non_nfl_article_excluded"
+   ],
+   "notes": "PGA golf article. Excluded from NFL futures article evidence."
+  },
+  {
+   "id": 1522,
+   "source": "BettingPros",
+   "title": "2026 Rocket Classic Picks & Predictions: Best PGA Bets",
+   "url": "https://www.bettingpros.com/articles/2026-rocket-classic-picks-predictions-best-pga-bets/",
+   "disposition": "excluded_non_nfl",
+   "pick_oriented": false,
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "non_nfl_title",
+    "likely_false_positive"
+   ],
+   "flags": [
+    "non_nfl_article_excluded"
+   ],
+   "notes": "PGA golf article. Excluded from NFL futures article evidence."
+  },
+  {
+   "id": 1773,
+   "source": "ESPN NFL",
+   "title": "Mock draft: Bijan and Gibbs at Picks 7 and 8? Only in a superflex league",
+   "url": "https://www.espn.com/fantasy/football/story/_/page/FFMockDraft26-49575310/fantasy-football-mock-draft-superflex-12-teams",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "metadata_only",
+    "fantasy_mock_draft_context",
+    "no_execution_usable_article_pick_in_local_evidence"
+   ],
+   "notes": "Fantasy mock draft context only. No usable NFL futures selection with price/venue evidence is available."
+  },
+  {
+   "id": 1776,
+   "source": "ESPN NFL",
+   "title": "Barnwell names future Hall of Famers on every NFL team",
+   "url": "https://www.espn.com/nfl/story/_/id/49505682/2026-nfl-pro-football-hall-fame-future-players-all-32-teams",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "metadata_only",
+    "analysis_context_only",
+    "no_execution_usable_article_pick_in_local_evidence"
+   ],
+   "notes": "Hall of Fame analysis context only. Missing body and no execution evidence keep it outside actual_picks."
+  },
+  {
+   "id": 1622,
+   "source": "PFF",
+   "title": "Jahmyr Gibbs fantasy outlook 2026: The contract talk doesn&#8217;t change that he&#8217;s the No. 1 pick",
+   "url": "https://www.pff.com/news/fantasy-football-jahmyr-gibbs-2026/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "suspected_ingest_cap",
+    "fantasy_context",
+    "no_execution_usable_article_pick_in_local_evidence"
+   ],
+   "notes": "Fantasy draft-position article. Truncated body and no price/venue-backed futures selection keep it out of actual_picks."
+  },
+  {
+   "id": 1791,
+   "source": "Sharp Football",
+   "title": "2026 NFL Running Back Prop Bets: Best Overs to Target",
+   "url": "https://www.sharpfootballanalysis.com/betting/nfl-running-back-player-prop-overs/",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "suspected_ingest_cap",
+    "explicit_selection_visible",
+    "missing_execution_venue_or_complete_body"
+   ],
+   "notes": "The stored evidence contains a selection mention, but body truncation and incomplete execution evidence mean it remains outside actual_picks pending price/venue verification."
+  },
+  {
+   "id": 1697,
+   "source": "Sharp Football",
+   "title": "2026 NFL Futures: Win Totals, Team Futures & Player Props",
+   "url": "https://www.sharpfootballanalysis.com/betting/nfl-futures-picks-warren-sharp/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "body_available",
+    "no_strict_actual_pick_extracted",
+    "package_or_overview_context"
+   ],
+   "notes": "Body available but no strict execution-usable article pick was extracted. Keep as overview/context only."
+  },
+  {
+   "id": 1717,
+   "source": "VSiN",
+   "title": "College Football Betting: Steve Makinen&#8217;s 2026 Stability System and Week 0 Picks",
+   "url": "https://vsin.com/college-football/college-football-betting-steve-makinens-2026-stability-system-and-week-0-picks/",
+   "disposition": "excluded_non_nfl",
+   "pick_oriented": false,
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "non_nfl_title",
+    "college_football"
+   ],
+   "flags": [
+    "non_nfl_article_excluded"
+   ],
+   "notes": "College football betting article. Excluded from NFL futures article evidence."
+  },
+  {
+   "id": 1666,
+   "source": "VSiN",
+   "title": "NFL Hall of Fame Game Betting Preview: Panthers vs. Cardinals, Best Bets and Preseason Betting Tips",
+   "url": "https://vsin.com/nfl/nfl-hall-of-fame-game-betting-preview-panthers-vs-cardinals-best-bets-and-preseason-betting-tips/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "suspected_ingest_cap",
+    "preseason_game_not_futures_authority",
+    "no_execution_usable_article_pick_in_local_evidence"
+   ],
+   "notes": "Preseason game betting context only. Body is truncated, so no execution-usable futures actual_pick is allowed."
+  },
+  {
+   "id": 1625,
+   "source": "VSiN",
+   "title": "Five College Football Futures That Jumped Off the Pages of the VSiN College Football Betting Guide",
+   "url": "https://vsin.com/college-football/five-college-football-futures-that-jumped-off-the-pages-of-the-vsin-college-football-betting-guide/",
+   "disposition": "excluded_non_nfl",
+   "pick_oriented": false,
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "non_nfl_title",
+    "college_football"
+   ],
+   "flags": [
+    "non_nfl_article_excluded"
+   ],
+   "notes": "College football futures article. Excluded from NFL futures article evidence."
+  },
+  {
+   "id": 1610,
+   "source": "VSiN",
+   "title": "2026 VSiN College Football Betting Guide Is Here: Expert CFP Picks",
+   "url": "https://vsin.com/college-football/2026-vsin-college-football-betting-guide-is-here-expert-cfp-picks/",
+   "disposition": "excluded_non_nfl",
+   "pick_oriented": false,
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "non_nfl_title",
+    "college_football"
+   ],
+   "flags": [
+    "non_nfl_article_excluded"
+   ],
+   "notes": "College football guide article. Excluded from NFL futures article evidence."
+  },
+  {
+   "id": 1611,
+   "source": "VSiN",
+   "title": "NFL Hall of Fame Game 2026: Panthers vs. Cardinals Prediction",
+   "url": "https://vsin.com/nfl/nfl-hall-of-fame-game-2026-panthers-vs-cardinals-prediction/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "suspected_ingest_cap",
+    "preseason_game_not_futures_authority",
+    "no_execution_usable_article_pick_in_local_evidence"
+   ],
+   "notes": "Preseason game prediction context only. Body is truncated and no futures actual_pick is allowed."
+  },
+  {
+   "id": 1523,
+   "source": "Walter Football",
+   "title": "Super Bowl LXI Prediction",
+   "url": "http://walterfootball.com/offseason2026playoffs.php",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-08-12T05:20:00.000Z",
+   "reviewer": "A05",
+   "evidence_basis": [
+    "suspected_ingest_cap",
+    "multi_team_page_chrome_risk",
+    "no_execution_usable_article_pick_in_local_evidence"
+   ],
+   "notes": "Broad multi-team page with truncated body and page-chrome risk. Retain as context only; no strict actual_pick can be promoted."
+  },
+  {
+   "id": 6822,
+   "source": "Action Network",
+   "title": "NFL Week 5 Buy or Sell: Brandon Anderson Ranks All 12 2-2 Teams & Playoff Futures ...",
+   "url": "https://www.actionnetwork.com/nfl/nfl-week-5-buy-or-sell-brandon-anderson-ranks-2-2-teams-playoff-futures",
+   "disposition": "reviewed_truncated_body_picks_extracted",
+   "reviewed_at": "2026-10-07T21:05:00.000Z",
+   "reviewer": "Claude Team 2 (approved by Andy)",
+   "evidence_basis": [
+    "body_truncated_at_ingest_cap",
+    "four_selections_extracted_before_cap",
+    "priced_bet_present"
+   ],
+   "notes": "Body hit the 20k ingest cap, but 4 selections were extracted, including 'BET: Lions to Win the NFC North (+280 at DraftKings)'. Later-ranked teams past the cap may be missing; extracted picks are kept as-is (no promotion)."
+  },
+  {
+   "id": 8132,
+   "source": "Action Network",
+   "title": "Seahawks vs. Broncos: Freshly Released Props, Picks for Tonight’s Game ...",
+   "url": "https://www.actionnetwork.com/nfl/seahawks-vs-broncos-freshly-released-props-picks-for-tonights-game",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "final_game_context",
+    "no_remaining_week6_game",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers SEA@DEN (Thursday night, game is final). Not usable for any remaining Week 6 game. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 8093,
+   "source": "Action Network",
+   "title": "Broncos vs Seahawks Odds, Picks, Parlay for Thursday Night Football ...",
+   "url": "https://www.actionnetwork.com/nfl/broncos-vs-seahawks-odds-picks-parlay-for-thursday-night-football",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "final_game_context",
+    "no_remaining_week6_game",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers SEA@DEN (Thursday night, game is final). Not usable for any remaining Week 6 game. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 8030,
+   "source": "Action Network",
+   "title": "Thursday Night Football Odds: A Steady Diet of Sharp Seahawks vs Broncos Action ...",
+   "url": "https://www.actionnetwork.com/nfl/thursday-night-football-odds-seahawks-vs-broncos-pick-week-6",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "final_game_context",
+    "no_remaining_week6_game",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers SEA@DEN (Thursday night, game is final). Not usable for any remaining Week 6 game. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 8034,
+   "source": "BettingPros",
+   "title": "NFL Thursday Night Football Player Props & Bets: Seahawks vs. Broncos",
+   "url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-seahawks-vs-broncos/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "final_game_context",
+    "no_remaining_week6_game",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers SEA@DEN (Thursday night, game is final). Not usable for any remaining Week 6 game. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 8026,
+   "source": "BettingPros",
+   "title": "NFL Thursday Night Football TD Scorers Picks: Seahawks vs. Broncos",
+   "url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-td-scorers-picks-seahawks-vs-broncos/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "final_game_context",
+    "no_remaining_week6_game",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers SEA@DEN (Thursday night, game is final). Not usable for any remaining Week 6 game. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 8028,
+   "source": "BettingPros",
+   "title": "Best NFL Player Props: Thursday Night Football (Seahawks vs. Broncos)",
+   "url": "https://www.bettingpros.com/articles/best-nfl-player-props-thursday-night-football-seahawks-vs-broncos-week-6-2026/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "final_game_context",
+    "no_remaining_week6_game",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers SEA@DEN (Thursday night, game is final). Not usable for any remaining Week 6 game. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 8060,
+   "source": "ESPN NFL",
+   "title": "How to bet Seahawks-Broncos: Analysis, tips and top prop plays",
+   "url": "https://www.espn.com/espn/betting/story/_/id/50167970/nfl-week-6-odds-betting-tips-picks-seahawks-broncos",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "final_game_context",
+    "no_remaining_week6_game",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers SEA@DEN (Thursday night, game is final). Not usable for any remaining Week 6 game. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 8056,
+   "source": "PFF",
+   "title": "Thursday Night Football Same-Game Parlay: Seahawks-Broncos best bets",
+   "url": "https://www.pff.com/news/bet-thursday-night-football-same-game-parlay-seahawks-broncos-best-bets/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "final_game_context",
+    "no_remaining_week6_game",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers SEA@DEN (Thursday night, game is final). Not usable for any remaining Week 6 game. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 7836,
+   "source": "VSiN",
+   "title": "Seahawks vs. Broncos Predictions: Week 6 Thursday Night Football odds, picks, and player props",
+   "url": "https://vsin.com/nfl/seahawks-vs-broncos-predictions-week-6-thursday-night-football-odds-picks-and-player-props/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "final_game_context",
+    "no_remaining_week6_game",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers SEA@DEN (Thursday night, game is final). Not usable for any remaining Week 6 game. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 7817,
+   "source": "Twitter/X Bookmarks (Personal)",
+   "title": "Thursday Night Football Week 6 Prop Bets #BroncosCountry #Seahawks https://t.co/CMQbutjTjg",
+   "url": "https://x.com/KramerCentric/status/2110065403175350583",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "final_game_context",
+    "no_remaining_week6_game",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers SEA@DEN (Thursday night, game is final). Not usable for any remaining Week 6 game. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 7638,
+   "source": "BettingPros",
+   "title": "Best NFL Player Props: Monday Night Football (Bills vs. Rams)",
+   "url": "https://www.bettingpros.com/articles/best-nfl-player-props-monday-night-football-bills-vs-rams-week-5-2026/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "prior_week_context",
+    "game_final",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers the Week 5 Monday-night BUF@LAR game (final, prior week). Not usable for Week 6. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 7660,
+   "source": "ESPN NFL",
+   "title": "How to bet Bills-Rams on MNF: Analysis, tips and top prop plays",
+   "url": "https://www.espn.com/espn/betting/story/_/id/50107754/nfl-week-5-odds-betting-tips-bills-rams",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "prior_week_context",
+    "game_final",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers the Week 5 Monday-night BUF@LAR game (final, prior week). Not usable for Week 6. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 7723,
+   "source": "Action Network",
+   "title": "Rams vs Bills Odds, Picks, Parlay for Monday Night Football ...",
+   "url": "https://www.actionnetwork.com/nfl/rams-vs-bills-odds-picks-parlay-for-monday-night-football",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "prior_week_context",
+    "game_final",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers the Week 5 Monday-night BUF@LAR game (final, prior week). Not usable for Week 6. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 7719,
+   "source": "Twitter/X Bookmarks (Personal)",
+   "title": "💯 These seven MNF props have cashed in every game this season…",
+   "url": "https://x.com/CodyBrownBets/status/2109725950044721434",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "prior_week_context",
+    "game_final",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Covers the Week 5 Monday-night BUF@LAR game (final, prior week). Not usable for Week 6. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 7860,
+   "source": "ESPN NFL",
+   "title": "Revisiting 2026 preseason bold predictions for 32 NFL teams: Which are on track?",
+   "url": "https://www.espn.com/nfl/story/_/id/50163007/2026-season-evaluating-preseason-predictions-updates",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "retrospective_context",
+    "no_week6_selection",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Preseason bold-prediction retrospective; no Week 6 selection. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 7870,
+   "source": "Pro Football Talk",
+   "title": "First-place Giants are a distant third in betting odds to win the NFC East",
+   "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/first-place-giants-are-a-distant-third-in-betting-odds-to-win-the-nfc-east",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "futures_market_context",
+    "no_game_selection",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Futures/Super Bowl odds context for the portfolio; no remaining-game side/total selection for Astra. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 7827,
+   "source": "Pro Football Talk",
+   "title": "49ers are now the favorites to win the Super Bowl, moving ahead of Rams in betting odds",
+   "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/49ers-are-now-the-favorites-to-win-the-super-bowl-moving-ahead-of-rams-in-betting-odds",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T21:12:25.000Z",
+   "reviewer": "Claude (Sat 2026-10-17 scoping review; Andy approved)",
+   "evidence_basis": [
+    "futures_market_context",
+    "no_game_selection",
+    "scope_triage_not_body_read"
+   ],
+   "notes": "Futures/Super Bowl odds context for the portfolio; no remaining-game side/total selection for Astra. Triage by title/teams/date from article-intel-review-latest.json; article bodies were not re-read. Does not promote any pick."
+  },
+  {
+   "id": 8108,
+   "source": "VSiN",
+   "title": "Steve Makinen: NFL Week 6 Best Bets",
+   "url": "https://vsin.com/nfl/steve-makinen-nfl-week-6-best-bets-and-predictions/",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T21:27:36.000Z",
+   "reviewer": "Claude (full body fetched 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_fetched_complete",
+    "explicit_selections_visible",
+    "no_execution_venue"
+   ],
+   "notes": "Full article read, complete (published 2026-10-15). 8 listed bets, no units: SEA -2.5 @DEN (TNF, game final, void for Week 6), HOU/JAX U42.5, PIT@TB TB +2.5, BAL@CLE BAL -4.5 (author: bet only if Lamar plays; Lamar is OUT so treat as void), NO@NYG NO -1.5, BUF@LV BUF -5.5, LAC@KC U42.5, DAL@GB GB -1.5. Lines are as of 10/15 and not re-priced vs the 10/17 board. Analyst leads only; not promoted to actual_picks."
+  },
+  {
+   "id": 8136,
+   "source": "VSiN",
+   "title": "NFL First Touchdown Scorer Predictions for Week 6",
+   "url": "https://vsin.com/nfl/nfl-first-touchdown-scorer-predictions-for-week-6/",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T21:27:36.000Z",
+   "reviewer": "Claude (full body fetched 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_fetched_complete",
+    "explicit_selections_visible",
+    "dk_prices_as_of_publish"
+   ],
+   "notes": "Full article read, complete (2026-10-15, Adam Burke). Covers only TEN@IND (J. Taylor +265, T. Warren +900), NYJ@NE (H. Henry +950, D. Douglas +1200), DAL@GB (C. Watson +950, M. Golden +1100). DK prices as of publish, not re-priced. First-TD props are lottery-tier secondary leads; not promoted."
+  },
+  {
+   "id": 8333,
+   "source": "BettingPros",
+   "title": "NFL Player Props & Bets: Texans vs. Jaguars (Week 6)",
+   "url": "https://www.bettingpros.com/articles/nfl-player-props-bets-texans-vs-jaguars-week-6-2026/",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_fetched_complete",
+    "explicit_selections_visible"
+   ],
+   "notes": "BettingPros HOU@JAX props (Mike Fanelli, 10/17, DK): Bhayshul Tuten rush yds U63.5 -109; Nico Collins rec yds O74.5 -110 (alt 100+ at +212); Parker Washington ATD +185. Complete. Props need roster vet and a current row-verified price; not promoted."
+  },
+  {
+   "id": 8336,
+   "source": "BettingPros",
+   "title": "NFL Week 6 Picks: Sleepers & Longshot Bets (2026)",
+   "url": "https://www.bettingpros.com/articles/nfl-week-6-picks-sleepers-longshot-bets-2026/",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_fetched_complete",
+    "explicit_selections_visible",
+    "matchups_inferred_from_text"
+   ],
+   "notes": "BettingPros sleepers/longshots (Phil Wood, 10/17, DK): Tony Pollard 2+ TD +1100 (TEN@IND inferred); Kyren Williams 110+ rush yds +467 (ARI@LAR inferred); MarShawn Lloyd 80+ rush yds +550 (DAL@GB inferred). Matchups inferred, not stated; roster vet required. Not promoted."
+  },
+  {
+   "id": 8339,
+   "source": "BettingPros",
+   "title": "NFL Week 6 PrizePicks Player Predictions: Sunday (2026)",
+   "url": "https://www.bettingpros.com/articles/nfl-week-6-prizepicks-player-predictions-sunday-2026/",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_fetched_complete",
+    "explicit_selections_visible",
+    "source_internal_inconsistency"
+   ],
+   "notes": "BettingPros PrizePicks Sunday (Trent Conner, 10/17): Cam Skattebo rush yds O57.5; Tyler Higbee rec yds O30.5; Kirk Cousins completions O22.5 (slug says passing attempts; body mentions 'Week 5'). Team/game not stated; roster vet required. Not promoted."
+  },
+  {
+   "id": 8365,
+   "source": "VSiN",
+   "title": "Average Joe Contest NFL Consensus Picks Week 6",
+   "url": "https://vsin.com/nfl/average-joe-contest-nfl-consensus-picks-week-6/",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_fetched_complete",
+    "contest_consensus_not_analyst_pick"
+   ],
+   "notes": "VSiN Average Joe Contest consensus (Adam Burke, 10/17; Circa lines 1pm ET Fri): LAC +8 74% (307/416); GB -1 69% (498/725); ATL PK 67% (308/458); DAL@GB O53 97%; BUF@LV O53.5 94%; ARI@LAR O51.5 87%; 64% on LAR cover. Public-contest consensus, not an analyst pick; useful as public-side context only. Not promoted."
+  },
+  {
+   "id": 8266,
+   "source": "VSiN",
+   "title": "Favorite Week 6 NFL Player Props from Dustin Swedelson and OptaAI",
+   "url": "https://vsin.com/nfl/favorite-week-6-nfl-player-props-from-dustin-swedelson-and-optaai/",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_fetched_complete",
+    "explicit_selections_visible",
+    "team_conflict_flag"
+   ],
+   "notes": "VSiN Swedelson/OptaAI props (10/16): Tre Tucker rec yds O38.5 -120; Najee Harris rush yds O23.5 -115 (team UNRESOLVED: roster map says NYG; do not use until Andy/roster gate resolves); Chuba Hubbard rush yds O70.5 -115. Mentions Bowers, Jeanty receiving yds and Cousins without prices. OptaAI projections are model output, not picks. Not promoted."
+  },
+  {
+   "id": 8207,
+   "source": "VSiN",
+   "title": "NFL Player Prop Bets for Week 6 from Adam Burke",
+   "url": "https://vsin.com/nfl/nfl-player-prop-bets-for-week-6-from-adam-burke/",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_fetched_complete",
+    "explicit_selections_visible"
+   ],
+   "notes": "VSiN Adam Burke props (10/16, DK 7:30am PT): Aaron Rodgers pass att O33.5 -113; Chris Rodriguez Jr rush yds U16.5 -118; Michael Penix Jr 1Q pass yds U46.5 -112. Roster vet required; not promoted."
+  },
+  {
+   "id": 8054,
+   "source": "Pro Football Talk",
+   "title": "PFT's Week 6 2026 NFL picks",
+   "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/pfts-week-6-2026-nfl-picks",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_fetched_complete",
+    "straight_up_score_predictions_only"
+   ],
+   "notes": "PFT Week 6 (Florio, 10/15): straight-up winners with 'wild-guess' scores; no spreads or ATS picks. Leans: JAX 20-17, CHI 24-20, BAL 27-24, IND 27-10, NE 27-17, NYG 27-17, PHI 24-20, PIT 20-17, LAR 41-17, KC 30-17, BUF 30-24, GB 27-24, SF 38-17. Entertainment-grade context; no actionable pick."
+  },
+  {
+   "id": 8007,
+   "source": "VSiN",
+   "title": "Circa Friday Football Invitational Picks Hit 55.2% Win Rate Through Five Weeks",
+   "url": "https://vsin.com/nfl/circa-friday-football-invitational-picks-hit-55-2-win-rate-through-five-weeks-2/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_fetched_complete",
+    "week5_recap"
+   ],
+   "notes": "VSiN Circa Friday Football (10/14-15): Week 5 recap and season record 479-389-7 (55.18%); no Week 6 selections."
+  },
+  {
+   "id": 8164,
+   "source": "ESPN NFL",
+   "title": "Broncos beat the Seahawks 17-14 in OT on Ja'Quan McMillian's pick, Wil Lutz's 53-yarder",
+   "url": "http://www.espn.com/nfl/recap?gameId=401872995",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "title_triage",
+    "game_recap"
+   ],
+   "notes": "ESPN recap of SEA@DEN (final); not a pick source."
+  },
+  {
+   "id": 8185,
+   "source": "ESPN NFL",
+   "title": "The Week 6 QB shuffle: Six quarterbacks to pick up if yours is underperforming",
+   "url": "https://www.espn.com/fantasy/football/story/_/id/50190576/fantasy-football-start-sit-week-6-quarterbacks",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "title_triage",
+    "fantasy_waiver_piece"
+   ],
+   "notes": "ESPN fantasy QB waiver piece; not a betting pick source."
+  },
+  {
+   "id": 7883,
+   "source": "BettingPros",
+   "title": "NFL Thursday Night Football Picks: Seahawks vs. Broncos (Week 6)",
+   "url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-picks-seahawks-vs-broncos-week-6/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "title_triage",
+    "game_final"
+   ],
+   "notes": "BettingPros TNF SEA@DEN preview; game is final."
+  },
+  {
+   "id": 8354,
+   "source": "Sharp Football",
+   "title": "Week 6 DFS Picks: Core Players and Best Plays",
+   "url": "https://www.sharpfootballanalysis.com/fantasy/core-dfs-picks-week-6-2026/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "title_triage",
+    "dfs_not_betting"
+   ],
+   "notes": "Sharp Football DFS core plays; DFS lineup content, not sportsbook picks."
+  },
+  {
+   "id": 8355,
+   "source": "Sharp Football",
+   "title": "Week 6 DFS Picks: Tournament Plays",
+   "url": "https://www.sharpfootballanalysis.com/fantasy/tournament-dfs-picks-week-6-2026/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "title_triage",
+    "dfs_not_betting"
+   ],
+   "notes": "Sharp Football DFS tournament plays; not sportsbook picks."
+  },
+  {
+   "id": 8356,
+   "source": "Sharp Football",
+   "title": "Week 6 DFS Picks: Best Game and Team Stacks",
+   "url": "https://www.sharpfootballanalysis.com/fantasy/dfs-stacks-week-6-2026/",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "title_triage",
+    "dfs_not_betting"
+   ],
+   "notes": "Sharp Football DFS stacks; not sportsbook picks."
+  },
+  {
+   "id": 8368,
+   "source": "Action Network",
+   "title": "NFL Odds Sunday: 61% Spread System Leads Smartest Week 6 Picks ...",
+   "url": "https://www.actionnetwork.com/nfl/nfl-odds-sunday-picks-betting-week-6",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:28:40.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_read_stored",
+    "paywalled_stub",
+    "explicit_system_picks_side_missing"
+   ],
+   "notes": "AN Walsh (10/17): two Action PRO system picks (PIT-TB, LAC-KC); sides not in captured text; PIT -2.5 noted. Lead only. (Corrected 2026-10-17 after reading stored Supabase body; earlier 'unreadable' label was wrong.)"
+  },
+  {
+   "id": 8369,
+   "source": "Action Network",
+   "title": "NFL London Odds: Delicious TD Edge Fuels +363 Texans vs Jaguars Parlay ...",
+   "url": "https://www.actionnetwork.com/nfl/nfl-london-odds-parlay-texans-vs-jaguars-week-6",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:28:40.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_read_stored",
+    "paywalled_stub"
+   ],
+   "notes": "AN Walsh (10/17): bets Stroud rushing prop + ATD as +363 SGP (player/line not captured); PRO projects JAX -1.5. Lead only. (Corrected 2026-10-17 after reading stored Supabase body; earlier 'unreadable' label was wrong.)"
+  },
+  {
+   "id": 8245,
+   "source": "Action Network",
+   "title": "Baltimore Ravens vs. Cleveland Browns Best Picks & Predictions ...",
+   "url": "https://www.actionnetwork.com/nfl/baltimore-ravens-vs-cleveland-browns-best-picks-predictions",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:28:40.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_read_stored",
+    "explicit_selections_visible",
+    "stale_premise_lamar"
+   ],
+   "notes": "AN Undery (10/16): BAL ML, BAL -3.5, O42.5, Henry/Andrews props. Assumes Lamar plays (now OUT) and cites 40.5 consensus total. Treat as stale. (Corrected 2026-10-17 after reading stored Supabase body; earlier 'unreadable' label was wrong.)"
+  },
+  {
+   "id": 8238,
+   "source": "Action Network",
+   "title": "Packers vs Cowboys Picks, Predictions & Parlay Options ...",
+   "url": "https://www.actionnetwork.com/nfl/packers-vs-cowboys-picks-predictions-parlay-options",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:28:40.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_read_stored",
+    "explicit_selections_visible",
+    "internal_contradiction"
+   ],
+   "notes": "AN Planovsky (10/16): GB ML and also 'Pick: Under' 53.5; template errors. Low-reliability lead. (Corrected 2026-10-17 after reading stored Supabase body; earlier 'unreadable' label was wrong.)"
+  },
+  {
+   "id": 7919,
+   "source": "Action Network",
+   "title": "5 NFL Picks & Predictions on Kalshi for Week 6: Seahawks, Broncos, Chiefs and More ...",
+   "url": "https://www.actionnetwork.com/nfl/5-nfl-trades-for-week-6-seahawks-broncos-chiefs-kalshi",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T22:28:40.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_read_stored",
+    "descriptive_market_preview"
+   ],
+   "notes": "AN Kalshi preview (10/14): market commentary on five games; no explicit pick. (Corrected 2026-10-17 after reading stored Supabase body; earlier 'unreadable' label was wrong.)"
+  },
+  {
+   "id": 8331,
+   "source": "ESPN NFL",
+   "title": "NFL Week 6 predictions: Upsets, fantasy sleepers, stat lines, TD scorers, more",
+   "url": "https://www.espn.com/nfl/story/_/id/50189544/week-6-predictions-upsets-fantasy-sleepers-stats-2026",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:28:40.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_read_stored",
+    "explicit_selections_visible"
+   ],
+   "notes": "ESPN 10/17: Maldonado upsets DAL +1.5, NYG +1.5, HOU +3; stat-line/TD/fantasy predictions (context). Leads only. (Corrected 2026-10-17 after reading stored Supabase body; earlier 'unreadable' label was wrong.)"
+  },
+  {
+   "id": 8208,
+   "source": "ESPN NFL",
+   "title": "NFL Week 6 betting guide: Analysis, best bets and TD predictions",
+   "url": "https://www.espn.com/espn/betting/story/_/id/50133296/week-6-nfl-odds-touchdown-props-best-bets-sunday-preview",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:28:40.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_read_stored",
+    "explicit_selections_visible",
+    "nav_chrome_in_body"
+   ],
+   "notes": "ESPN best bets 10/16: JAX ML/-2.5, PIT@TB U39.5, Stroud/Rodgers/McKee/Bowers/Skattebo/Bijan props, Walder defensive props. Some Lamar-dependent items stale. (Corrected 2026-10-17 after reading stored Supabase body; earlier 'unreadable' label was wrong.)"
+  },
+  {
+   "id": 8187,
+   "source": "ESPN NFL",
+   "title": "NFL Week 6 preview: Picks, predictions, schedule, betting odds, fantasy tips",
+   "url": "https://www.espn.com/nfl/story/_/id/50188997/week-6-picks-predictions-schedule-fantasy-odds-2026",
+   "disposition": "reviewed_no_actionable_actual_pick",
+   "reviewed_at": "2026-10-17T22:28:40.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_read_stored",
+    "straight_up_score_predictions",
+    "nav_chrome_in_body"
+   ],
+   "notes": "ESPN game-by-game analyst score picks (SU); listed lines for context; no ATS/total picks. Some listed lines look stale/garbled. (Corrected 2026-10-17 after reading stored Supabase body; earlier 'unreadable' label was wrong.)"
+  },
+  {
+   "id": 8332,
+   "source": "BettingPros",
+   "title": "NFL Betting Primer, Picks & Predictions: Week 6 (2026)",
+   "url": "https://www.bettingpros.com/articles/nfl-betting-primer-picks-predictions-week-6-2026/",
+   "disposition": "reviewed_selection_needs_execution_verification",
+   "reviewed_at": "2026-10-17T22:28:40.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "full_body_read_stored",
+    "explicit_selections_visible",
+    "internal_inconsistency"
+   ],
+   "notes": "BettingPros primer (Erickson 10/17): 6 official sides/totals + props: HOU@JAX U42.5, CAR -3.5, LAC@KC U42.5, CLE +3 (list says +5.5), NO@NYG O44.5, PIT -2.5, ARI +12.5, Cowboys ML, 49ers -7.5; props Coker, Skattebo, Penix, Robinson, Daniels. Some game mappings ambiguous. (Corrected 2026-10-17 after reading stored Supabase body; earlier 'unreadable' label was wrong.)"
+  },
+  {
+   "id": 8303,
+   "source": "Twitter/X Bookmarks (Personal)",
+   "title": "From @WunderdogSports: My picks here have been on a little slide, so it's time to mix it up.",
+   "url": "https://x.com/VSiNLive/status/2111235179192996248",
+   "disposition": "reviewed_source_unreadable_excluded",
+   "reviewed_at": "2026-10-17T22:19:19.000Z",
+   "reviewer": "Claude (live fetch 2026-10-17; Andy approved)",
+   "evidence_basis": [
+    "metadata_only_tweet",
+    "x_com_not_fetchable"
+   ],
+   "notes": "Twitter/X bookmark (@WunderdogSports via VSiNLive link); metadata only, no body. Excluded as evidence and NOT cited."
+  }
+ ]
 }

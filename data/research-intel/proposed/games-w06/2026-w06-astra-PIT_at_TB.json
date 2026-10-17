@@ -1,0 +1,516 @@
+{
+  "game": "PIT@TB",
+  "generated_at": "2026-10-17T22:45:59Z",
+  "as_of_pt": "Sat 2026-10-17 3:45 PM PT",
+  "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+  "branch": "claude/w5-prop-cards-2026-10-11",
+  "kickoff_utc": "2026-10-18T17:00:00.000Z",
+  "packet_ref": {
+    "queue_path": "scratch/w06-astra-synthesis-queue.json",
+    "packet_selector": "/packets/2",
+    "packet_sha256": "e91307903ba1fd342e982de30d63d2d2c1167ba77bd857b253cc534f8c080885",
+    "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+    "session_prompt_sha256": "c2bf2b1bb36979dd7a79b4922a4aa208d4fadf8950ffb41af02ee95edc9ee782",
+    "queue_built_at": "2026-10-17T22:06:53.020Z",
+    "roster_gate": {
+      "status": "PASS",
+      "snapshot": "2026-10-17T22:22:11Z",
+      "command": "npm run roster:vet -- --week 6 --date 2026-10-17 --strict",
+      "rerun_this_session": false,
+      "receipt_read": "data/generated/master-intel/w06-roster-vet.json"
+    }
+  },
+  "disposition": "conflicted",
+  "tier": "2-",
+  "lean": "TB +2.5 (captured -109) thin, price-gated, qualitative only; no total, moneyline or prop lean",
+  "price_gate": {
+    "upgrade_to_real_candidate": "TB +3 or better (sim about +0.8% per unit at -110; TB +3.5 54.0% vs 52.4% break-even)",
+    "pass": "TB +2 or worse, or PIT -3 or longer, or TB +2.5 juice -115 or worse",
+    "note": "Tier capped at 2- while OFFICIAL_INACTIVES is unresolved"
+  },
+  "adjustments": {
+    "margin_adj": 0.5,
+    "total_adj": 0.0,
+    "sign_convention": "home-positive points (home = TB)",
+    "soft_cap": 2.0,
+    "hard_cap": 3.0,
+    "reasons": [
+      "margin_adj +0.5 toward TB: quantitative model mean is PIT by 1.44 vs market PIT 2.5 (+1.06 toward TB); taking about half because the model is anchored on the same noon board, rests on 4-5 games, and has no QB term for the Daniels change; verified ~3-day TB rest edge folded in as a small part",
+      "total_adj 0: model +0.32 toward Over offset by gusts near the 40 km/h review threshold, rookie QB, and two negative-EPA offenses"
+    ]
+  },
+  "sim_runs": {
+    "tool": "scripts/intel/margin-simulator.mjs",
+    "selftest": "PASS",
+    "calibration": "data/research-intel/proposed/2026-w05-historical-market-calibration.json",
+    "calibration_sha256": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "inputs": {
+      "home_line": 2.5,
+      "total": 39,
+      "home": "TB"
+    },
+    "caveat": "market-calibrated and re-centered; probabilities are conditional on the stated adjustments, not independent forecasts; no QB term",
+    "runs": [
+      {
+        "label": "baseline",
+        "margin_adj": 0,
+        "total_adj": 0,
+        "tb_cover": 0.5,
+        "pit_cover": 0.5,
+        "over": 0.5,
+        "under": 0.5,
+        "total_push": 0.0304,
+        "tb_win": 0.4393,
+        "tb_win_excl_tie": 0.4273,
+        "mean_margin": -1.983,
+        "median_margin": -3,
+        "mean_total": 39.04,
+        "cal_sha": "0ea3559255d4"
+      },
+      {
+        "label": "central +0.5 / 0",
+        "margin_adj": 0.5,
+        "total_adj": 0,
+        "tb_cover": 0.5131,
+        "pit_cover": 0.4869,
+        "over": 0.5,
+        "under": 0.5,
+        "total_push": 0.0304,
+        "tb_win": 0.4523,
+        "tb_win_excl_tie": 0.4402,
+        "mean_margin": -1.555,
+        "median_margin": -2,
+        "mean_total": 39.04,
+        "cal_sha": "0ea3559255d4"
+      },
+      {
+        "label": "quant-implied +1.06 / +0.32",
+        "margin_adj": 1.06,
+        "total_adj": 0.32,
+        "tb_cover": 0.5278,
+        "pit_cover": 0.4722,
+        "over": 0.51,
+        "under": 0.49,
+        "total_push": 0.0304,
+        "tb_win": 0.4669,
+        "tb_win_excl_tie": 0.4548,
+        "mean_margin": -1.076,
+        "median_margin": -1,
+        "mean_total": 39.35,
+        "cal_sha": "0ea3559255d4"
+      },
+      {
+        "label": "TB upside +2.0 / 0",
+        "margin_adj": 2.0,
+        "total_adj": 0,
+        "tb_cover": 0.5522,
+        "pit_cover": 0.4478,
+        "over": 0.5,
+        "under": 0.5,
+        "total_push": 0.0304,
+        "tb_win": 0.4916,
+        "tb_win_excl_tie": 0.4794,
+        "mean_margin": -0.274,
+        "median_margin": 0,
+        "mean_total": 39.04,
+        "cal_sha": "0ea3559255d4"
+      },
+      {
+        "label": "PIT upside -1.0 / 0",
+        "margin_adj": -1.0,
+        "total_adj": 0,
+        "tb_cover": 0.4738,
+        "pit_cover": 0.5262,
+        "over": 0.5,
+        "under": 0.5,
+        "total_push": 0.0304,
+        "tb_win": 0.4135,
+        "tb_win_excl_tie": 0.4016,
+        "mean_margin": -2.843,
+        "median_margin": -3,
+        "mean_total": 39.04,
+        "cal_sha": "0ea3559255d4"
+      },
+      {
+        "label": "central margin, total -1.0",
+        "margin_adj": 0.5,
+        "total_adj": -1.0,
+        "tb_cover": 0.5131,
+        "pit_cover": 0.4869,
+        "over": 0.4689,
+        "under": 0.5311,
+        "total_push": 0.0303,
+        "tb_win": 0.4523,
+        "tb_win_excl_tie": 0.4402,
+        "mean_margin": -1.555,
+        "median_margin": -2,
+        "mean_total": 38.05,
+        "cal_sha": "0ea3559255d4"
+      },
+      {
+        "label": "central margin, total +1.0",
+        "margin_adj": 0.5,
+        "total_adj": 1.0,
+        "tb_cover": 0.5131,
+        "pit_cover": 0.4869,
+        "over": 0.5312,
+        "under": 0.4688,
+        "total_push": 0.0303,
+        "tb_win": 0.4523,
+        "tb_win_excl_tie": 0.4402,
+        "mean_margin": -1.555,
+        "median_margin": -2,
+        "mean_total": 40.02,
+        "cal_sha": "0ea3559255d4"
+      },
+      {
+        "label": "TB hard cap (illustration only)",
+        "margin_adj": 3.0,
+        "total_adj": 0,
+        "tb_cover": 0.578,
+        "pit_cover": 0.422,
+        "tb_win_excl_tie": 0.5057,
+        "mean_margin": 0.579
+      }
+    ],
+    "price_sensitivity_fixed_projection": [
+      {
+        "tb_line": 1.0,
+        "margin_adj_equiv": -1.0,
+        "tb_cover": 0.4616,
+        "tb_cover_excl_push": 0.4731,
+        "push": 0.0243,
+        "pit_cover": 0.5141
+      },
+      {
+        "tb_line": 1.5,
+        "margin_adj_equiv": -0.5,
+        "tb_cover": 0.4869,
+        "tb_cover_excl_push": 0.4869,
+        "push": 0,
+        "pit_cover": 0.5131
+      },
+      {
+        "tb_line": 2.0,
+        "margin_adj_equiv": 0.0,
+        "tb_cover": 0.4878,
+        "tb_cover_excl_push": 0.5,
+        "push": 0.0244,
+        "pit_cover": 0.4878
+      },
+      {
+        "tb_line": 2.5,
+        "margin_adj_equiv": 0.5,
+        "tb_cover": 0.5131,
+        "tb_cover_excl_push": 0.5131,
+        "push": 0,
+        "pit_cover": 0.4869
+      },
+      {
+        "tb_line": 3.0,
+        "margin_adj_equiv": 1.0,
+        "tb_cover": 0.4849,
+        "tb_cover_excl_push": 0.5286,
+        "push": 0.0827,
+        "pit_cover": 0.4325
+      },
+      {
+        "tb_line": 3.5,
+        "margin_adj_equiv": 1.5,
+        "tb_cover": 0.5398,
+        "tb_cover_excl_push": 0.5398,
+        "push": 0,
+        "pit_cover": 0.4602
+      }
+    ]
+  },
+  "market_snapshot": {
+    "bookmaker_board": {
+      "captured_at": "2026-10-17T19:40:00Z",
+      "source": "data/odds/BKR_current_lines_1017_1240_buildfmt",
+      "spread": {
+        "PIT": -2.5,
+        "PIT_odds": -107,
+        "TB": 2.5,
+        "TB_odds": -109
+      },
+      "total": {
+        "line": 39,
+        "over_odds": -103,
+        "under_odds": -113
+      },
+      "moneyline": {
+        "PIT": -141,
+        "TB": 123
+      }
+    },
+    "opener": {
+      "captured_at": "2026-10-12T01:00:25Z",
+      "source": "data/odds/actionnetwork-openers-2026-w06.json",
+      "spread": {
+        "PIT": -2.5,
+        "TB": 2.5,
+        "TB_odds": -103
+      },
+      "total": 40.5,
+      "moneyline": {
+        "PIT": -150,
+        "TB": 125
+      }
+    },
+    "opener_to_current": {
+      "spread_points": 0,
+      "total_points": -1.5
+    },
+    "locked_contest_line": {
+      "captured_at": "2026-10-15T21:29:08Z",
+      "PIT": -2.5,
+      "use": "reference only, non-executable"
+    },
+    "break_even_pct": {
+      "PIT_-2.5_-107": 51.69,
+      "TB_+2.5_-109": 52.15,
+      "Over_39_-103": 50.74,
+      "Under_39_-113": 53.05,
+      "PIT_ML_-141": 58.51,
+      "TB_ML_+123": 44.84
+    },
+    "splits": {
+      "spread_captured_at": "2026-10-17T18:14:06Z",
+      "PIT_bet_count_pct": 71,
+      "PIT_money_pct": 75,
+      "TB_bet_count_pct": 29,
+      "TB_money_pct": 25,
+      "over_bet_count_pct": 81,
+      "over_money_pct": 76,
+      "under_bet_count_pct": 19,
+      "under_money_pct": 24,
+      "moneyline_splits": "withheld, Thursday-night pull 2026-10-16T03:30Z, 42.6h stale"
+    },
+    "weather_forecast": {
+      "captured_at": "2026-10-17T20:16:18Z",
+      "venue": "outdoors, grass",
+      "temp_f": 75.9,
+      "precip_pct": 0,
+      "wind_kmh": 21.9,
+      "gust_kmh": 38.5,
+      "review_flag": false,
+      "type": "forecast, not observation"
+    },
+    "quant_model": {
+      "generated_at": "2026-10-17T21:11:11Z",
+      "mean_PIT": 20.38,
+      "mean_TB": 18.94,
+      "total": 39.32,
+      "tb_cover_pct": 52.8,
+      "over_pct_excl_push": 51.0,
+      "provisional": true
+    },
+    "executable_live_prices": [],
+    "note": "captured rows only, no sportsbook visited"
+  },
+  "availability_summary": {
+    "TB_QB": "Mayfield Out per ESPN/team site; Daniels operator-recorded 2026-10-16 14:53 PT; official inactives pending",
+    "PIT_QB": "Rodgers (ESPN depth chart, not team confirmation)",
+    "PIT_questionable": [
+      "DK Metcalf (illness)",
+      "Rico Dowdle (toe)",
+      "Jalen Ramsey (wrist)",
+      "Jamel Dean (ankle)",
+      "Keeanu Benton"
+    ],
+    "TB_questionable": [
+      "Sean Tucker (game-time decision)",
+      "Benjamin Morrison (Doubtful)",
+      "Josiah Trotter",
+      "Ayden Garnes",
+      "SirVocea Dennis"
+    ],
+    "out_or_ir": [
+      "Antoine Winfield Jr. (TB, Out)",
+      "Michael Pittman Jr. (PIT IR)",
+      "Ben Skowronek (PIT Out)",
+      "Roman Wilson (PIT Out)",
+      "DeShon Elliott (PIT IR)"
+    ]
+  },
+  "props": {
+    "verified_price_rows_used_as_candidates": [],
+    "research_only": [
+      {
+        "leg": "Aaron Rodgers 2+ passing TDs",
+        "price": 137,
+        "book": "Bookmaker",
+        "captured_at": "2026-10-17T19:41:05Z",
+        "row": "/rows/980",
+        "lead": "ESPN Solak 10/16 (article 8208)",
+        "note": "no edge basis; no calibrated joint model"
+      }
+    ],
+    "unavailable_or_unverified": [
+      "Pat Freiermuth receptions and receiving yards: listed on Bookmaker without prices at 19:41Z (rows 996,997,1024-1030,1086,1087,1111-1120)",
+      "Aaron Rodgers pass attempts O33.5: no attempts market in Bookmaker or BetOnline captures",
+      "Mar'Keise Irving and Kenneth Gainwell: roster gate UNVERIFIED",
+      "Any Daniels, Metcalf, Dowdle, Tucker leg pending official inactives"
+    ],
+    "betonline_coverage": "kicker fantasy points only, captured 2026-10-17T21:15:35Z",
+    "draftkings_predictions": "reference only, unused"
+  },
+  "sources": [
+    {
+      "path": "scratch/w06-astra-synthesis-queue.json",
+      "ts": "2026-10-17T22:06:53Z",
+      "use": "packet, pins, roster gate record"
+    },
+    {
+      "path": "scratch/w06-astra-launch-board.json",
+      "ts": "2026-10-17T22:29:12Z",
+      "use": "activation, pins, article gate decision"
+    },
+    {
+      "path": "agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md",
+      "ts": null,
+      "use": "session contract"
+    },
+    {
+      "path": "data/generated/master-intel/w06-roster-vet.json",
+      "ts": "2026-10-17T22:22:11Z",
+      "use": "roster gate receipt read, PASS, not rerun"
+    },
+    {
+      "path": "data/odds/BKR_current_lines_1017_1240_buildfmt",
+      "ts": "2026-10-17T19:40:00Z",
+      "use": "current captured lines, signed"
+    },
+    {
+      "path": "data/odds/actionnetwork-openers-2026-w06.json",
+      "ts": "2026-10-12T01:00:25Z",
+      "use": "opener"
+    },
+    {
+      "path": "data/supercontest/week-06-lines.json",
+      "ts": "2026-10-15T21:29:08Z",
+      "use": "locked line reference"
+    },
+    {
+      "path": "data/generated/master-intel/w06-splits-all.json",
+      "ts": "2026-10-17T18:14:06Z",
+      "use": "spread and total splits; moneyline withheld"
+    },
+    {
+      "path": "data/research-intel/review/2026-w06-weather-venue.json",
+      "ts": "2026-10-17T20:16:18Z",
+      "use": "forecast"
+    },
+    {
+      "path": "data/research-intel/source-evidence/2026-10-17-week6-weather-openmeteo.json",
+      "ts": "2026-10-17T20:16:18Z",
+      "use": "forecast raw, kickoff-hour sample"
+    },
+    {
+      "path": "data/vault-seed/nflverse/schedules.csv",
+      "ts": null,
+      "use": "roof and surface only"
+    },
+    {
+      "path": "data/research-intel/proposed/2026-w06-quantitative-synthesis.json",
+      "ts": "2026-10-17T21:11:11Z",
+      "use": "quantitative means and probabilities, games[8]"
+    },
+    {
+      "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+      "ts": "2026-10-16T22:00:08Z",
+      "use": "FTN context (capture 10/9-10/13), PIT and TB team_context"
+    },
+    {
+      "path": "data/generated/team-dossiers/2026-w06/PIT.json",
+      "ts": "2026-10-17T02:04:50Z",
+      "use": "game log, standings, power"
+    },
+    {
+      "path": "data/generated/team-dossiers/2026-w06/TB.json",
+      "ts": "2026-10-17T02:04:51Z",
+      "use": "game log, standings, power"
+    },
+    {
+      "path": "data/generated/team-dossiers/2026-w06/matchups/PIT@TB.json",
+      "ts": "2026-10-17T02:04:52Z",
+      "use": "side by side and unit vs unit"
+    },
+    {
+      "path": "data/research-intel/source-evidence/espn-status-w06.json",
+      "ts": "2026-10-17T02:03:26Z",
+      "use": "injuries, QB depth"
+    },
+    {
+      "path": "data/research-intel/operator-confirmed-starters-2026-w06.json",
+      "ts": "2026-10-16T21:53:00Z",
+      "use": "Daniels operator record"
+    },
+    {
+      "path": "data/secondary-matchups/secondary-matchup-vulnerability-2026-w06.json",
+      "ts": "2026-10-17T02:04:07Z",
+      "use": "secondary absences, manual review only"
+    },
+    {
+      "path": "data/podcasts/youtube-extracted-picks-2026-w06.json",
+      "ts": "2026-10-17T04:27:25Z",
+      "use": "approved signals /picks/16,52,53,54,55,56,66,67,114"
+    },
+    {
+      "path": "data/research-intel/review/w06-article-leads-read-2026-10-17.json",
+      "ts": "2026-10-17T22:28:40Z",
+      "sha256": "60c8f2d59c87070940315c27e47d1fe6e55f8a5896a38075fe8d70d424a6dbd8",
+      "use": "PIT@TB article leads only; not in manifest"
+    },
+    {
+      "path": "data/research-intel/source-evidence/2026-10-17-bookmaker-week6-sgp-parsed.json",
+      "ts": "2026-10-17T19:40:44Z",
+      "use": "Bookmaker player props"
+    },
+    {
+      "path": "data/research-intel/source-evidence/2026-10-17-bkr-sgp-live-week6.raw.txt",
+      "ts": null,
+      "use": "raw confirmation of unpriced Freiermuth rows"
+    },
+    {
+      "path": "data/research-intel/source-evidence/2026-10-17-betonline-week6-props-parsed.json",
+      "ts": "2026-10-17T21:15:26Z",
+      "use": "BetOnline coverage"
+    },
+    {
+      "path": "reports/intel/master-intel-narratives-2026-w06.md",
+      "ts": null,
+      "use": "context only, lines 35-46; unsourced claims not used"
+    },
+    {
+      "path": "scripts/intel/margin-simulator.mjs",
+      "ts": null,
+      "use": "only simulator"
+    }
+  ],
+  "ambiguities": [
+    "Official inactives pending (TB QB, Metcalf, Dowdle, Ramsey, Dean, Tucker, Morrison, Trotter); tier capped at 2-, player legs omitted",
+    "Unknown whether market has priced Daniels: line PIT -2.5 since 10/12 opener and 10/15 contest lock through the 10/16 Mayfield Out report; no intermediate line history in packet",
+    "Daniels background thin: only ESPN article text 'Rookie quarterback Jalon Daniels' (flagged garbled) and Anderson remark",
+    "FTN tables show GP 4 for both teams vs ESPN 5 games; capture window 10/9-10/13",
+    "Unsourced narrative claims not used: TB allows six receptions per game to TEs, highest PROE matchup per Sharp, Sharp Wednesday wind readings; Hribar 82% route claim is a rationale quote not a pinned stat",
+    "Expert registry conflicts: ESPN Bowen under 39.5 row rejected in registry but included as lead with caveat; Makinen and Erickson rows carry ingest-cap or inconsistency notes",
+    "Moneyline splits 42.6h stale and withheld; spread and total splits 11:14 AM PT will change",
+    "Roster gate UNVERIFIED touching this game: Mar'Keise Irving, Kenneth Gainwell, Israel Mukuamu; no inference made",
+    "scripts/intel/validate-game-output.py hardcodes the Week 5 packet dir; not run; manual self-check done (forbidden keys, disposition/tier pairing, adjustment caps, unsourced claims)",
+    "Quantitative tables and live-market-comparison drop spread signs; direction read from the Bookmaker board file",
+    "Mayfield and Daniels from ESPN and operator approval; official inactives decide",
+    "Najee Harris is on NYG, not PIT; no Najee items used"
+  ],
+  "delta_checklist": [
+    "Official inactives ~90 min before 10:00 AM PT kickoff: confirm Daniels starts (if Mayfield active, discard and reprice); check Metcalf, Dowdle, Ramsey, Dean, Tucker",
+    "Spread crossings: TB +3 or better at -115 or shorter upgrades to a real 2- candidate; TB +2 or worse, PIT -3 or longer, or TB +2.5 at -115 or worse is a pass",
+    "Total: Under 39 stays a pass at -113 or worse; rerun sim at any new total",
+    "Weather refresh on game morning; wind >= 25 km/h or gusts >= 40 km/h triggers review (current 21.9 / 38.5)",
+    "Refresh spread and total splits; PIT bet-count share holding above 70% with line at 2.5 supports TB read; line moving to -3 removes the hook",
+    "Pull 10/15-10/17 line history to establish when Mayfield-out news was priced",
+    "Recheck Freiermuth receptions and yards prices (unpriced on Bookmaker at 19:41Z); Rodgers 2+ TD +137 stays research-only",
+    "Do not silently repin roster snapshot; changed snapshot or new BLOCK requires requeue"
+  ]
+}

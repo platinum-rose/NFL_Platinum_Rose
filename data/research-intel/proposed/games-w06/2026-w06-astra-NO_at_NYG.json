@@ -1,0 +1,231 @@
+{
+ "game": "NO@NYG",
+ "generated_at": "2026-10-17T22:41:27Z",
+ "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+ "packet_ref": {
+  "queue": "scratch/w06-astra-synthesis-queue.json",
+  "selector": "/packets/7",
+  "packet_sha256": "666dbaa55ea365c3dcd753157100fce828f16ad20b2881e23fbdb48d726d0b46",
+  "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+  "session_prompt_sha256": "c2bf2b1bb36979dd7a79b4922a4aa208d4fadf8950ffb41af02ee95edc9ee782",
+  "roster_gate": "PASS, snapshot 2026-10-17T22:22Z, receipt read not rerun"
+ },
+ "disposition": "pass",
+ "tier": "skip",
+ "lean": null,
+ "adjustments": {
+  "margin_adj": -0.5,
+  "total_adj": 0.5,
+  "reasons": [
+   "margin -0.5 (home-positive, toward NO) mirrors the quant model's own -0.53: NO defense weakness z +2.18, NO offense/tempo better, offset by NYG outs (Johnson, Nubin, Hood) and NO outs/questionables (Elliss, Jennings, Kamara, Olave)",
+   "total +0.5 mirrors quant +0.41: NO tempo z +1.06, NO allows 30.2 PPG, Winston volatility; tempered by the +0.5 move from the opener and 76% of money on Over"
+  ]
+ },
+ "sim_runs": [
+  {
+   "label": "baseline",
+   "home_line": -1,
+   "total": 46,
+   "margin_adj": 0,
+   "total_adj": 0,
+   "away_cover_excl_push": 0.5,
+   "home_cover_excl_push": 0.5,
+   "over_excl_push": 0.5,
+   "under_excl_push": 0.5
+  },
+  {
+   "label": "A_NO_lean",
+   "home_line": -1,
+   "total": 46,
+   "margin_adj": -0.5,
+   "total_adj": 0,
+   "away_cover_excl_push": 0.5134,
+   "home_cover_excl_push": 0.4866,
+   "over_excl_push": 0.5,
+   "under_excl_push": 0.5
+  },
+  {
+   "label": "B_strong_NO",
+   "home_line": -1,
+   "total": 46,
+   "margin_adj": -1.0,
+   "total_adj": 0,
+   "away_cover_excl_push": 0.5269,
+   "home_cover_excl_push": 0.4731,
+   "over_excl_push": 0.5,
+   "under_excl_push": 0.5
+  },
+  {
+   "label": "C_NYG_healthy",
+   "home_line": -1,
+   "total": 46,
+   "margin_adj": 0.5,
+   "total_adj": 0,
+   "away_cover_excl_push": 0.4866,
+   "home_cover_excl_push": 0.5134,
+   "over_excl_push": 0.5,
+   "under_excl_push": 0.5
+  },
+  {
+   "label": "total_up",
+   "home_line": -1,
+   "total": 46,
+   "margin_adj": 0,
+   "total_adj": 0.5,
+   "over_excl_push": 0.5156,
+   "under_excl_push": 0.4844
+  },
+  {
+   "label": "total_down",
+   "home_line": -1,
+   "total": 46,
+   "margin_adj": 0,
+   "total_adj": -0.5,
+   "over_excl_push": 0.4844,
+   "under_excl_push": 0.5156
+  },
+  {
+   "label": "adopted_combined",
+   "home_line": -1,
+   "total": 46,
+   "margin_adj": -0.5,
+   "total_adj": 0.5,
+   "away_cover_excl_push": 0.5134,
+   "home_cover_excl_push": 0.4866,
+   "over_excl_push": 0.5156,
+   "under_excl_push": 0.4844
+  }
+ ],
+ "sim_notes": "scripts/intel/margin-simulator.mjs only; selftest passed. Probabilities are conditional on stated adjustments. Break-even at captured prices: NO +1 -115 53.5%, Over 46 -112 52.8%, Under 46 -104 51.0%; none cleared.",
+ "market_snapshot": {
+  "opener": {
+   "home_spread": -1.5,
+   "total": 45.5,
+   "spread_at": "2026-10-12T00:08:25Z"
+  },
+  "supercontest_locked": {
+   "NO": -1.5,
+   "captured": "2026-10-15T21:29:08Z"
+  },
+  "board_bkr_1240pt": {
+   "NO": "+1 -115",
+   "NYG": "-1 -101",
+   "over": "46 -112",
+   "under": "46 -104",
+   "ml_NO": -112,
+   "ml_NYG": -101,
+   "captured_at": "2026-10-17T19:40:00Z"
+  },
+  "splits": {
+   "spread_NO_tickets": 45,
+   "spread_NO_money": 44,
+   "over_tickets": 59,
+   "over_money": 76,
+   "captured_at": "2026-10-17T18:14:06Z",
+   "moneyline": "withheld_stale_42.6h"
+  },
+  "weather": {
+   "temp_f": 55,
+   "precip_pct": 0,
+   "wind_kmh": 6.5,
+   "gust_kmh": 12.2,
+   "captured_at": "2026-10-17T20:16:18Z",
+   "type": "forecast"
+  },
+  "note": "captured prices, not live executable offers"
+ },
+ "quant_reference": {
+  "home_margin_mean": 0.47,
+  "total_mean": 46.41,
+  "NO_cover_excl_push": 0.5142,
+  "over_excl_push": 0.5129,
+  "captured": "2026-10-17T21:11:11Z"
+ },
+ "props_verified_not_modeled": [
+  {
+   "player": "Isaiah Likely",
+   "market": "rec",
+   "line": 5.5,
+   "over": 104,
+   "under": -121,
+   "rows": [
+    2412,
+    2413
+   ]
+  },
+  {
+   "player": "Isaiah Likely",
+   "market": "rec_yds",
+   "line": 51.5,
+   "over": -113,
+   "under": -103,
+   "rows": [
+    2502,
+    2503
+   ]
+  },
+  {
+   "player": "Malik Nabers",
+   "market": "rec",
+   "line": 5.5,
+   "over": -127,
+   "under": 109,
+   "rows": [
+    2416,
+    2417
+   ]
+  },
+  {
+   "player": "Malik Nabers",
+   "market": "rec_yds",
+   "line": 71.5,
+   "over": -110,
+   "under": -106,
+   "rows": [
+    2508,
+    2509
+   ]
+  }
+ ],
+ "props_omitted": [
+  "Likely anytime TD +225 (unverified, source said Cleveland, no TD rows)",
+  "Skattebo rush (alias unresolved, UNVERIFIED roster gate)",
+  "Najee Harris rush (excluded per session prompt)",
+  "Wan'Dale Robinson rec O35.5 (no priced row)",
+  "first-drive sack -385 (no priced row)"
+ ],
+ "sources": [
+  "scratch/w06-astra-synthesis-queue.json /packets/7 (sha256 666dbaa55ea365c3dcd753157100fce828f16ad20b2881e23fbdb48d726d0b46)",
+  "data/odds/BKR_current_lines_1017_1240_buildfmt line 9, 2026-10-17T19:40Z",
+  "data/odds/actionnetwork-openers-2026-w06.json /games/NO@NYG",
+  "data/supercontest/week-06-lines.json, 2026-10-15T21:29Z",
+  "data/research-intel/proposed/2026-w06-quantitative-synthesis.json games[6], 2026-10-17T21:11Z",
+  "data/generated/master-intel/w06-splits-all.json /games/7, 2026-10-17T18:14Z",
+  "data/research-intel/review/2026-w06-weather-venue.json rows[5], 2026-10-17T20:16Z",
+  "data/research-intel/availability/2026-w06-availability-layer.json games[8], 2026-10-17T02:03Z",
+  "data/research-intel/source-evidence/espn-status-w06.json finals",
+  "data/research-intel/source-evidence/2026-10-17-bookmaker-week6-sgp-parsed.json, 2026-10-17T19:41:52Z",
+  "data/podcasts/youtube-extracted-picks-2026-w06.json (picks 18,57,69,70,71,93,99,107,124; approved 2026-10-17)",
+  "data/research-intel/review/w06-article-leads-read-2026-10-17.json via packet read_in_full_leads (8331,8332,8208,8339,8266,8108,8187,8054)",
+  "data/generated/master-intel/w06-roster-vet.json (PASS, snapshot 2026-10-17T22:22Z, read only)",
+  "reports/intel/master-intel-narratives-2026-w06.md lines 95-106"
+ ],
+ "ambiguities": [
+  "official inactives pending",
+  "kickoff-day weather refresh pending",
+  "moneyline splits stale 42.6h, withheld",
+  "Likely +225 TD unverified/Cleveland rationale; Skattebo alias unresolved; Harris excluded; Robinson and first-drive-sack props unpriced",
+  "Barkley OUT is an unconfirmed reporter hedge",
+  "several podcast/article quotes unverified in packet",
+  "availability header line (NO -1/45.5) and locked contest NO -1.5 are older than the 12:40 PM board",
+  "validate-game-output.py pinned to Week 5; not run; manual self-check done",
+  "roster receipt read only, roster:vet not rerun"
+ ],
+ "delta_checklist": [
+  "official inactives: NYG Thomas/Carter/Eluemunor, NO Kamara/Olave, confirm Johnson/Nubin/Hood out",
+  "simulator re-centres on the supplied line, so moves matter via juice: NO +1 needs about -105 or better (break-even 51.2% vs model 51.3%); Over 46 about -105 or better; Thomas+Carter both out strengthens NO",
+  "wind >20 km/h or rain favors Under; Over/Under 45-46.5 changes nothing in the model by itself",
+  "recheck Likely status; no TD use until real NYG price",
+  "refresh moneyline splits only if used"
+ ]
+}

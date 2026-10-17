@@ -1,0 +1,435 @@
+{
+  "game": "BUF@LV",
+  "generated_at": "2026-10-17T22:45:48Z",
+  "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+  "branch": "claude/w5-prop-cards-2026-10-11",
+  "kickoff_utc": "2026-10-18T20:25:00.000Z",
+  "packet_ref": {
+    "queue_path": "scratch/w06-astra-synthesis-queue.json",
+    "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+    "packet_selector": "/packets/9",
+    "packet_sha256": "e9701e6ca865b0ca065b7d0b509f7e7049e0c25ff6cf55b2a3a4b5d04ecddc8a",
+    "session_prompt_sha256": "c2bf2b1bb36979dd7a79b4922a4aa208d4fadf8950ffb41af02ee95edc9ee782",
+    "roster_gate": {
+      "status": "PASS",
+      "roster_source": "2026-10-17T22:22Z",
+      "receipt_read_only": true
+    }
+  },
+  "status": "COMPLETE",
+  "disposition": "quantitative candidate",
+  "tier": "2-",
+  "lean": {
+    "side": "LV",
+    "market": "spread",
+    "line": 4.5,
+    "price": -108,
+    "model_cover_pct": 52.7,
+    "break_even_pct": 51.9,
+    "note": "thin; LV +4 marginal, LV +3.5 or shorter no edge"
+  },
+  "total_disposition": "pass",
+  "adjustments": {
+    "margin_adj": 1.0,
+    "total_adj": 0.0,
+    "reasons": [
+      "Pinned quantitative model home margin -2.64 vs market -4.5 (+1.86 gap) taken at about half weight: provisional model, FTN GP 4 vs ESPN 5, line already moved 1.5 toward LV from opener",
+      "BUF short rest after Monday-night overtime (source claim, snap count unverified)",
+      "Offset: BUF turnover margin -4 vs LV +3 regress toward BUF; BUF offense DVOA 29.8% vs LV defense DVOA -5.0%",
+      "total_adj 0: model total 53.40 equals market 53.5"
+    ],
+    "cap_check": "within 2.0 soft cap"
+  },
+  "sim_runs": [
+    {
+      "label": "baseline",
+      "home_line": 4.5,
+      "total": 53.5,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "lv_cover_excl_push": 0.5,
+      "buf_cover_excl_push": 0.5,
+      "over": 0.5,
+      "under": 0.5,
+      "lv_win_excl_tie": 0.3259
+    },
+    {
+      "label": "hypothesis",
+      "home_line": 4.5,
+      "total": 53.5,
+      "margin_adj": 1.0,
+      "total_adj": 0,
+      "lv_cover_excl_push": 0.5268,
+      "buf_cover_excl_push": 0.4732,
+      "over": 0.5,
+      "under": 0.5,
+      "lv_win_excl_tie": 0.3502
+    },
+    {
+      "label": "quant_anchor_reference",
+      "home_line": 4.5,
+      "total": 53.5,
+      "margin_adj": 1.86,
+      "total_adj": 0,
+      "lv_cover_excl_push": 0.5497,
+      "buf_cover_excl_push": 0.4503,
+      "over": 0.5,
+      "under": 0.5,
+      "lv_win_excl_tie": 0.3716
+    },
+    {
+      "label": "counter_case",
+      "home_line": 4.5,
+      "total": 53.5,
+      "margin_adj": -1.0,
+      "total_adj": 0,
+      "lv_cover_excl_push": 0.473,
+      "buf_cover_excl_push": 0.527,
+      "over": 0.5,
+      "under": 0.5,
+      "lv_win_excl_tie": 0.3023
+    },
+    {
+      "label": "total_sensitivity_minus1",
+      "home_line": 4.5,
+      "total": 53.5,
+      "margin_adj": 1.0,
+      "total_adj": -1.0,
+      "lv_cover_excl_push": 0.5268,
+      "buf_cover_excl_push": 0.4732,
+      "over": 0.4696,
+      "under": 0.5304
+    },
+    {
+      "label": "total_sensitivity_plus1",
+      "home_line": 4.5,
+      "total": 53.5,
+      "margin_adj": 1.0,
+      "total_adj": 1.0,
+      "lv_cover_excl_push": 0.5268,
+      "buf_cover_excl_push": 0.4732,
+      "over": 0.5304,
+      "under": 0.4696
+    }
+  ],
+  "price_sensitivity": {
+    "fixed_fair_home_margin": -3.5,
+    "rows": [
+      {
+        "lv_number": 3.0,
+        "cover_excl_push": 0.4857,
+        "push": 0.0826
+      },
+      {
+        "lv_number": 3.5,
+        "cover_excl_push": 0.5,
+        "push": 0
+      },
+      {
+        "lv_number": 4.0,
+        "cover_excl_push": 0.5137,
+        "push": 0.0245
+      },
+      {
+        "lv_number": 4.5,
+        "cover_excl_push": 0.5268,
+        "push": 0
+      },
+      {
+        "lv_number": 5.0,
+        "cover_excl_push": 0.5413,
+        "push": 0.0246
+      },
+      {
+        "lv_number": 5.5,
+        "cover_excl_push": 0.5539,
+        "push": 0
+      },
+      {
+        "lv_number": 6.0,
+        "cover_excl_push": 0.5691,
+        "push": 0.0246
+      }
+    ],
+    "note": "rows beyond +5 exceed the 2.0 soft cap only as a mechanical price sweep"
+  },
+  "simulator": {
+    "script": "scripts/intel/margin-simulator.mjs",
+    "selftest": "passed",
+    "caveat": "conditional probabilities from a market-calibrated margin distribution; props, team totals, SGPs, teasers have no joint model"
+  },
+  "market_snapshot": {
+    "captured_at_utc": "2026-10-17T19:40:00Z",
+    "captured_at_pt": "2026-10-17 12:40 PM PT",
+    "book": "Bookmaker board (signed baseline)",
+    "spread": {
+      "BUF": -4.5,
+      "BUF_price": -108,
+      "LV": 4.5,
+      "LV_price": -108
+    },
+    "total": {
+      "line": 53.5,
+      "over": -109,
+      "under": -107
+    },
+    "moneyline": {
+      "BUF": -217,
+      "LV": 194
+    },
+    "opener": {
+      "source": "data/odds/actionnetwork-openers-2026-w06.json",
+      "LV_spread": 6,
+      "LV_price": -110,
+      "total": 53.5,
+      "ml": {
+        "BUF": -275,
+        "LV": 222
+      },
+      "spread_at": "2026-10-12T05:05:15Z",
+      "total_at": "2026-10-12T01:02:05Z",
+      "cross_book": true
+    },
+    "movement_opener_to_board": {
+      "home_spread_points": -1.5,
+      "total_points": 0
+    },
+    "supercontest_locked": {
+      "BUF": -4.5,
+      "captured": "2026-10-15 2:29 PM PT",
+      "use": "reference_not_executable"
+    },
+    "executable_live_prices_checked": false
+  },
+  "splits": {
+    "spread_total_captured_at": "2026-10-17T18:14:06Z",
+    "spread": {
+      "BUF_bets_pct": 62,
+      "BUF_money_pct": 55,
+      "LV_bets_pct": 38,
+      "LV_money_pct": 45
+    },
+    "total": {
+      "over_bets_pct": 74,
+      "over_money_pct": 83,
+      "under_bets_pct": 26,
+      "under_money_pct": 17
+    },
+    "moneyline": {
+      "status": "withheld_stale",
+      "captured_at": "2026-10-16T03:30:03Z",
+      "age_hours_at_manifest": 42.6
+    }
+  },
+  "venue_weather": {
+    "venue": "LV fixed dome",
+    "outdoor_weather_applies": false
+  },
+  "props": {
+    "policy": "verified rows only, no model probabilities, no recommendation",
+    "bkr_captured_at": "2026-10-17T19:42:14Z",
+    "beo_captured_at": "2026-10-17T21:16:09Z",
+    "rows": [
+      {
+        "player": "Kirk Cousins",
+        "market": "pass_yds",
+        "bkr": {
+          "line": 251.5,
+          "over": -114,
+          "under": -102,
+          "pointer": "/rows/3155"
+        },
+        "beo": {
+          "line": 249.5,
+          "over": -115,
+          "under": -115,
+          "pointer": "/rows/612"
+        },
+        "lead": "Wilcox Over 239.5 -115 (stale; line moved +10 to +12)"
+      },
+      {
+        "player": "Kirk Cousins",
+        "market": "pass_cmp",
+        "bkr": {
+          "line": 22.5,
+          "over": -120,
+          "under": 103,
+          "pointer": "/rows/3193"
+        },
+        "beo": {
+          "line": 22.5,
+          "over": -125,
+          "pointer": "/rows/614"
+        },
+        "lead": "article 8339 Conner Over 22.5; slug says attempts"
+      },
+      {
+        "player": "Tre Tucker",
+        "market": "rec_yds",
+        "bkr": {
+          "line": 38.5,
+          "over": -114,
+          "under": -102,
+          "pointer": "/rows/3297"
+        },
+        "beo": {
+          "line": 38.5,
+          "over": -115,
+          "under": -115,
+          "pointer": "/rows/686"
+        },
+        "lead": "article 8266 Swedelson Over 38.5 -120"
+      },
+      {
+        "player": "Brock Bowers",
+        "market": "rec",
+        "bkr": {
+          "line": 6.5,
+          "over": -135,
+          "under": 115,
+          "eight_plus": 126,
+          "pointer": "/rows/3235"
+        },
+        "beo": {
+          "line": 6.5,
+          "over": -130,
+          "under": 100,
+          "pointer": "/rows/676"
+        },
+        "lead": "article 8208 Solak 8+ at +140 (price now +126 on BKR)"
+      }
+    ],
+    "unavailable": [
+      "Michael Mayer anytime TD +320 (no row)",
+      "Bills first score and win about +100 (no row)",
+      "Wilcox SGP +190 (no joint model)"
+    ],
+    "omitted_for_availability": [
+      "DJ Moore",
+      "Joshua Palmer"
+    ]
+  },
+  "agreement": {
+    "LV_spread_voices": [
+      "Chad Millman (Sharp or Square) +5.5",
+      "Stuckey (Action Network) +5.5",
+      "Brandon Anderson (Action Network) +5.5"
+    ],
+    "BUF_spread_voices": [
+      "Steve Makinen (VSiN) -5.5, article 8108"
+    ],
+    "total_over": [
+      "Seth Wilcox 53",
+      "Matt Perrault 52",
+      "Erickson article 8332 (mapping inferred)"
+    ],
+    "note": "each LV pick was made at 5.5, one point better than today's 4.5; Makinen BUF -5.5 is one point worse for BUF than today's -4.5"
+  },
+  "counter_case": "BUF has the better offense by every efficiency stat in the packet and faces a defense allowing 6.10 yards/play; turnover margin -4 is more likely to regress than skill; short-week effect is small and unverified; the lean rests on a provisional model gap of 1.9 points that the line has already partly absorbed.",
+  "sources": [
+    {
+      "path": "scratch/w06-astra-synthesis-queue.json",
+      "field": "/packets/9",
+      "timestamp": "2026-10-17T22:29:12Z"
+    },
+    {
+      "path": "data/odds/actionnetwork-openers-2026-w06.json",
+      "field": "/games/BUF@LV",
+      "timestamp": "2026-10-17T02:04:34Z"
+    },
+    {
+      "path": "data/research-intel/source-evidence/2026-10-17-bookmaker-week6-sgp-parsed.json",
+      "field": "/rows/3093-3098,/rows/3153-3427",
+      "timestamp": "2026-10-17T19:40:44Z"
+    },
+    {
+      "path": "data/research-intel/source-evidence/2026-10-17-betonline-week6-props-parsed.json",
+      "field": "/rows/592-731",
+      "timestamp": "2026-10-17T21:16:09Z"
+    },
+    {
+      "path": "data/research-intel/proposed/2026-w06-quantitative-synthesis.json",
+      "field": "/games/10",
+      "timestamp": "2026-10-17T21:11:11Z"
+    },
+    {
+      "path": "reports/intel/master-intel-narratives-2026-w06.md",
+      "field": "lines 119-130",
+      "timestamp": null
+    },
+    {
+      "path": "data/generated/master-intel/w06-splits-all.json",
+      "field": "/games/9",
+      "timestamp": "2026-10-17T18:14:06Z"
+    },
+    {
+      "path": "data/supercontest/week-06-lines.json",
+      "field": "/games/11",
+      "timestamp": "2026-10-15T21:29:08Z"
+    },
+    {
+      "path": "data/research-intel/availability/2026-w06-availability-layer.json",
+      "field": "/games/10",
+      "timestamp": "2026-10-17T02:03:52Z"
+    },
+    {
+      "path": "data/research-intel/source-evidence/espn-status-w06.json",
+      "field": "teams BUF/LV qb_starter, finals",
+      "timestamp": "2026-10-17T02:03:26Z"
+    },
+    {
+      "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+      "field": "team_context BUF/LV",
+      "timestamp": "2026-10-16T22:00:08Z"
+    },
+    {
+      "path": "data/secondary-matchups/secondary-matchup-vulnerability-2026-w06.json",
+      "field": "matchups 22-23",
+      "timestamp": "2026-10-17T02:04:07Z"
+    },
+    {
+      "path": "data/research-intel/review/2026-w06-weather-venue.json",
+      "field": "/rows/12",
+      "timestamp": "2026-10-17T20:16:18Z"
+    },
+    {
+      "path": "data/generated/master-intel/w06-roster-vet.json",
+      "field": "status, roster_source",
+      "timestamp": "2026-10-17T22:22:11Z"
+    },
+    {
+      "path": "data/research-intel/review/w06-article-leads-read-2026-10-17.json",
+      "field": "packet expert_article_podcast.articles.read_in_full_leads",
+      "timestamp": null
+    },
+    {
+      "path": "data/podcasts/youtube-extracted-picks-2026-w06.json",
+      "field": "packet youtube.approved_signals",
+      "timestamp": "2026-10-17T21:44:25Z"
+    }
+  ],
+  "ambiguities": [
+    "Queue packet_pins sha256 for BUF@LV (a6da125a...) does not match the recomputed canonical packet hash (e9701e6c...) that the activation and board pin; same mismatch for all 13 packets; activation/board value treated as governing.",
+    "Packet article block lists unresolved_ids and source_gate blocked_in_source_not_waived while the queue condition and board say the gate was cleared 2026-10-17; article items kept as leads/context only.",
+    "Official inactives not available; availability layer is Fri 7:03 PM PT. DJ Moore and Joshua Palmer questionable; no leg built on them.",
+    "FantasyPros IR vs ESPN roster day-to-day conflict for BUF CBs Dorian Strong and Jordan Hancock and LV CB Chigozie Anusiem; not used.",
+    "Short rest, overtime and 78-defensive-snap claims are podcast/expert-feed assertions, not verified against a box score.",
+    "Several quotes are unverified_against_raw_source; Action Network 'Pick: Bills -4.5' row is rejected not_pick and ignored.",
+    "FTN GP is 4 for both teams versus 5 in ESPN; weekly cadence accepted, treated as one week behind.",
+    "Moneyline splits are 42.6 hours old and withheld.",
+    "No Mayer anytime-TD row exists in BEO and BKR has no TD rows; Fezzik score-first-and-win and the +190 SGP have no row or joint model.",
+    "Quantitative file warns SuperContest lines file not found by its script; week-06-lines.json read directly.",
+    "Roster-vet receipt read not regenerated (PASS, source 2026-10-17T22:22Z).",
+    "Opener to board comparison is cross-book.",
+    "validate-game-output.py is pinned to Week 5 and was not run; manual self-check done for forbidden keys, disposition/tier pairing, adjustment caps and sourcing."
+  ],
+  "delta_checklist": [
+    "Official inactives (~11:55 AM PT): Allen, Cousins, Bowers, Cook, Kincaid active; if Allen or Cousins out, lean void and rerun.",
+    "DJ Moore / Palmer status: if both out, rerun simulator with a documented adjustment before relying on the lean.",
+    "Spread: LV +4.5 -108 reference; +5 or better improves, +4 marginal (51.4%), LV +3.5 or shorter removes the edge, stay off LV +3.",
+    "Total 53.5: no edge; rerun if the number moves to 55.5+ or 51.5-.",
+    "Re-pull BKR and BEO prop rows; Cousins yardage is 249.5-251.5, not 239.5; omit any leg without a later row-verified price.",
+    "Confirm LV venue indoors (fixed dome); no outdoor weather input.",
+    "Optional: refresh moneyline splits; DK Predictions are reference-only."
+  ]
+}

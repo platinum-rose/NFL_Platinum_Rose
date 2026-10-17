@@ -1,0 +1,227 @@
+{
+ "game": "HOU@JAX",
+ "generated_at": "2026-10-17T22:42:00Z",
+ "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+ "packet_ref": {
+  "queue": "scratch/w06-astra-synthesis-queue.json",
+  "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+  "selector": "/packets/0",
+  "packet_sha256": "8697ff83e953a8634b8e2c80500e3e60240e4f83482b5614d168a0eb53e16cf9",
+  "session_prompt_sha256": "c2bf2b1bb36979dd7a79b4922a4aa208d4fadf8950ffb41af02ee95edc9ee782",
+  "kickoff_utc": "2026-10-18T13:30:00.000Z",
+  "roster_source": "2026-10-17T22:22:11Z",
+  "roster_gate": "PASS (receipt read, not rerun)"
+ },
+ "disposition": "conflicted",
+ "tier": "research_only",
+ "summary": "No priced side edge. Model leans JAX 56.2% cover via unbacktested +2.35 blend; analyst side split. Under is consensus but line already moved 43.5->42 and sim edge at 42 -106 is ~0.",
+ "adjustments": {
+  "margin_adj": 0,
+  "total_adj": -0.5,
+  "reasons": {
+   "margin_adj": "No auditable reason to move off market; quant +2.35 is unbacktested and exceeds 2.0 soft cap; H1/H2 shown as hypotheses only.",
+   "total_adj": "Wind gust flag 42.8 km/h (Open-Meteo 2026-10-17T20:16Z) and slow-pace commentary; hedged because total already fell 1.5 from opener."
+  }
+ },
+ "sim_runs": [
+  {
+   "label": "baseline",
+   "home_line": -2.5,
+   "total": 42,
+   "margin_adj": 0,
+   "total_adj": 0,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "over": 0.5,
+   "under": 0.5,
+   "home_win": 0.561
+  },
+  {
+   "label": "H1 JAX quality",
+   "home_line": -2.5,
+   "total": 42,
+   "margin_adj": 1,
+   "total_adj": 0,
+   "home_cover": 0.526,
+   "away_cover": 0.474,
+   "over": 0.5,
+   "under": 0.5,
+   "home_win": 0.587
+  },
+  {
+   "label": "H1b model-like",
+   "home_line": -2.5,
+   "total": 42,
+   "margin_adj": 2,
+   "total_adj": 0,
+   "home_cover": 0.552,
+   "away_cover": 0.448,
+   "over": 0.5,
+   "under": 0.5,
+   "home_win": 0.612
+  },
+  {
+   "label": "H2 London HFA loss",
+   "home_line": -2.5,
+   "total": 42,
+   "margin_adj": -1,
+   "total_adj": 0,
+   "home_cover": 0.474,
+   "away_cover": 0.526,
+   "over": 0.5,
+   "under": 0.5,
+   "home_win": 0.535
+  },
+  {
+   "label": "H3 chosen gusts/pace",
+   "home_line": -2.5,
+   "total": 42,
+   "margin_adj": 0,
+   "total_adj": -0.5,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "over": 0.484,
+   "under": 0.516,
+   "home_win": 0.561
+  },
+  {
+   "label": "H4 stronger gusts/pace",
+   "home_line": -2.5,
+   "total": 42,
+   "margin_adj": 0,
+   "total_adj": -1,
+   "home_cover": 0.5,
+   "away_cover": 0.5,
+   "over": 0.469,
+   "under": 0.531,
+   "home_win": 0.561
+  },
+  {
+   "label": "BEO total baseline",
+   "home_line": -2.5,
+   "total": 42.5,
+   "margin_adj": 0,
+   "total_adj": 0,
+   "over": 0.5,
+   "under": 0.5
+  },
+  {
+   "label": "BEO total adj -1",
+   "home_line": -2.5,
+   "total": 42.5,
+   "margin_adj": 0,
+   "total_adj": -1,
+   "over": 0.47,
+   "under": 0.53
+  }
+ ],
+ "sim_note": "Cover/over/under exclude pushes. Market-calibrated conditional probabilities; adjustments are hypotheses. scripts/intel/margin-simulator.mjs only; selftest passed.",
+ "market_snapshot": {
+  "opener": {
+   "home_spread": -2.5,
+   "total": 43.5,
+   "ml": {
+    "HOU": 125,
+    "JAX": -151
+   },
+   "spread_at": "2026-10-12T00:06:35Z"
+  },
+  "bkr_1240pt": {
+   "captured_at": "2026-10-17T19:40:00Z",
+   "HOU": "+2.5 -105",
+   "JAX": "-2.5 -111",
+   "over": "42 -110",
+   "under": "42 -106",
+   "ml": {
+    "HOU": 123,
+    "JAX": -137
+   }
+  },
+  "beo": {
+   "captured_at": "2026-10-17T21:15:26.601Z",
+   "HOU": "+2.5 -105",
+   "JAX": "-2.5 -115",
+   "over": "42.5 -110",
+   "under": "42.5 -110",
+   "ml": {
+    "HOU": 122,
+    "JAX": -142
+   }
+  },
+  "supercontest_locked": {
+   "JAX": -2.5,
+   "captured": "2026-10-15 2:29 PM PT"
+  },
+  "movement": {
+   "spread_pts": 0,
+   "total_pts": -1.5
+  },
+  "splits": {
+   "spread": {
+    "HOU_tickets": 44,
+    "HOU_money": 49,
+    "JAX_tickets": 56,
+    "JAX_money": 51,
+    "captured_at": "2026-10-17T18:14:06Z"
+   },
+   "total": {
+    "over_tickets": 45,
+    "over_money": 68,
+    "under_tickets": 55,
+    "under_money": 32,
+    "captured_at": "2026-10-17T18:14:06Z"
+   },
+   "moneyline": "withheld_stale_2026-10-16T03:30Z"
+  },
+  "weather": {
+   "temp_f": 56.7,
+   "wind_kmh": 20.9,
+   "gust_kmh": 42.8,
+   "precip_pct": 11,
+   "captured": "2026-10-17T20:16Z",
+   "type": "forecast"
+  },
+  "quant": {
+   "jax_cover": 0.5615,
+   "over_excl_push": 0.5065,
+   "jax_win": 0.6209,
+   "margin_adj_vs_market": 2.348,
+   "generated": "2026-10-17T21:11:11Z"
+  }
+ },
+ "sources": [
+  "scratch/w06-astra-synthesis-queue.json /packets/0 (sha256 8697ff83...)",
+  "data/odds/BKR_current_lines_1017_1240_buildfmt (2026-10-17T19:40Z)",
+  "data/odds/actionnetwork-openers-2026-w06.json /games/HOU@JAX",
+  "data/research-intel/proposed/2026-w06-quantitative-synthesis.json games[1] (2026-10-17T21:11Z)",
+  "data/generated/team-dossiers/2026-w06/matchups/HOU@JAX.json",
+  "data/research-intel/source-evidence/espn-status-w06.json (2026-10-17T02:03Z)",
+  "data/research-intel/review/2026-w06-weather-venue.json rows/0 (2026-10-17T20:16Z)",
+  "data/generated/master-intel/w06-splits-all.json /games/0",
+  "data/supercontest/week-06-lines.json",
+  "data/research-intel/source-evidence/2026-10-17-betonline-week6-props-parsed.json (2026-10-17T21:15Z)",
+  "data/research-intel/source-evidence/2026-10-17-bookmaker-week6-sgp-parsed.json (2026-10-17T19:40Z)",
+  "data/podcasts/youtube-extracted-picks-2026-w06.json /picks/26,29-35,59 (approved 2026-10-17)",
+  "data/research-intel/review/w06-article-leads-read-2026-10-17.json (articles 8208,8187,8331,8332,8369,8333,8108,8207,8054)",
+  "data/generated/master-intel/w06-expert-verified.json rows 4,56,98",
+  "reports/intel/master-intel-narratives-2026-w06.md HOU@JAX",
+  "data/generated/master-intel/w06-roster-vet.json (PASS, roster 2026-10-17T22:22Z; receipt read, not rerun)"
+ ],
+ "ambiguities": [
+  "Official inactives not yet available; ESPN statuses ~20h old.",
+  "Weather is forecast only (2026-10-17 1:16 PM PT); Anderson drizzly claim vs 11% / 0 mm precip.",
+  "Moneyline splits 42.6h old, withheld; spread/total splits ~4.5h old.",
+  "Several expert quotes unverified against raw source or missing url (Hunter, Makinen, Cohen, PFT); article 8332 internally inconsistent; 8369 and 8054 stubs/no selection; 8303 excluded.",
+  "Collins 100+ vs JAX count conflicts (5 of 5 vs 5 of 6).",
+  "BKR has no ATD market; Rodriguez Jr. U16.5 unavailable in BKR/BEO; Walsh Stroud SGP legs not captured.",
+  "validate-game-output.py is Week 5 pinned and was not run; manual self-check done.",
+  "Board and narratives files contain other games; only HOU@JAX rows used."
+ ],
+ "delta_checklist": [
+  "Official inactives ~05:15 PT: Stroud, Lawrence, Collins, Harrison, Tuten, JAX OL, Montaric Brown; a QB scratch voids the card.",
+  "Weather refresh: gusts >~45 km/h or rising precip strengthens under lean; gusts <~30 km/h drops it.",
+  "Price: Under 42.5 -110 or better, or total 43+ with gusts still flagged, revisits tier 2-; JAX -2.5 -105 or HOU +3 -110 would justify a side re-look; JAX -3 changes the key number.",
+  "Collins: need inactives and refreshed priced row; compare same threshold only.",
+  "Roster re-vet with --fetch on kickoff day; changed snapshot requires requeue."
+ ]
+}
