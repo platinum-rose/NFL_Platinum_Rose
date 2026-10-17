@@ -495,7 +495,7 @@ def finalize_report(L, gaps):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--week', type=int, required=True); ap.add_argument('--date', required=True)
-    ap.add_argument('--season', type=int, default=2026); ap.add_argument('--no-export', action='store_true')
+    ap.add_argument('--season', type=int, default=2026); ap.add_argument('--no-export', action='store_true'); ap.add_argument('--allow-empty-card', action='store_true', help='build even with no synthesis digest and no card (the report will show 0 bets and an empty Props Lab)')
     ap.add_argument('--allow-roster-issues', action='store_true', help='build even if the roster gate fails (needs Andy OK; issues are printed in the report)')
     a = ap.parse_args(); W, WW, D = a.week, f'{a.week:02d}', a.date
     gaps = []
@@ -549,6 +549,10 @@ def main():
     digest_p = next((p for p in [f'scratch/w{WW}-synthesis-digest-sat.md', f'scratch/w{WW}-synthesis-digest.md'] if (ROOT / p).exists()), None)
     card_p = f'reports/bets/{a.season}-w{WW}-card.md'
     card = (ROOT / card_p).read_text(encoding='utf-8') if (ROOT / card_p).exists() else ''
+    if not digest_p and not card.strip() and not a.allow_empty_card:
+        sys.exit(f'BUILD STOPPED: no synthesis digest (scratch/w{WW}-synthesis-digest*.md) and no card ({card_p}). '
+                 'Without them the report renders the normal layout with 0 bets and an empty Props Lab. Run runbook step 7 '
+                 '(agents/dev/WEEKLY_SYNTHESIS_SESSION_PROMPT.md) first, or pass --allow-empty-card for a data-only build.')
     nar_p = f'reports/intel/master-intel-narratives-{a.season}-w{WW}.md'
     NAR = load_narratives(ROOT / nar_p)
     TNOTE = load_ticket_notes(ROOT / nar_p)

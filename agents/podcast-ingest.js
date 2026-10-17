@@ -55,6 +55,7 @@ const MAX_PER_RUN      = parseInt(process.env.MAX_PER_RUN ?? '3', 10);
 // deliberate backfill, e.g. MAX_EPISODE_AGE_DAYS=365).
 const MAX_EPISODE_AGE_DAYS = Number(process.env.MAX_EPISODE_AGE_DAYS || DEFAULT_MAX_EPISODE_AGE_DAYS);
 const DRY_RUN          = process.env.DRY_RUN === 'true';
+const ONLY_TITLES       = String(process.env.ONLY_TITLE_SUBSTRINGS || '').split('||').map(x => x.trim().toLowerCase()).filter(Boolean);
 
 const SUPABASE_URL      = process.env.SUPABASE_URL;
 const SUPABASE_KEY      = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -764,6 +765,12 @@ async function run() {
 
     const skippedNonNflIds = [];
     const toProcess = [...toProcessMap.values()].filter(ep => {
+      // ONLY_TITLE_SUBSTRINGS="a||b": process only episodes whose title contains one of these (case-insensitive,
+      // &amp; decoded). Everything else is left untouched in its current status (no DB write). Unset = no filter.
+      if (ONLY_TITLES.length) {
+        const t = String(ep.title ?? '').replace(/&amp;/g, '&').toLowerCase();
+        if (!ONLY_TITLES.some(x => t.includes(x))) return false;
+      }
       if (isNflRelevantEpisode(ep.title)) return true;
       console.log(`  ⏭ skip (non-NFL backlog): "${(ep.title ?? '').slice(0, 70)}"`);
       if (ep._dbId) skippedNonNflIds.push(ep._dbId);

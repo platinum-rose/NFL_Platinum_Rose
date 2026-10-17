@@ -1,21 +1,153 @@
 {
-  "status": "no_transcript",
-  "transcript_summary": null,
+  "episode_id": "youtube-06-42WRzKQI",
+  "status": "extracted",
+  "transcript_source": "transcript_panel",
+  "show": "Action Network Sports Betting",
+  "channel": "The Action Network: Sports Betting Picks & Tips",
+  "title": "NFL Futures Betting & Trading! | Best NFC Divisional Bets, MVP & OROY",
+  "url": "https://www.youtube.com/watch?v=06-42WRzKQI",
+  "published_date": "2026-10-13",
+  "week": null,
+  "speakers_on_screen": [
+    "Brandon Anderson",
+    "Brendan Glasheen"
+  ],
+  "matched_audio_title": "NFL Futures Watch | Week 6",
+  "youtube_title": "NFL Futures Betting & Trading! | Best NFC Divisional Bets, MVP & OROY",
+  "match_basis": "Channel Action Network, Brandon Anderson futures show for Week 6, runtime 56 min (3376s).",
+  "transcript_summary": "Brandon Anderson and Brendan Glasheen review NFL market pricing after Week 5, highlighting sharp futures positions in NFC division races, MVP markets, and Offensive Rookie of the Year. Bets include Lamar Jackson MVP at +1200 / 5%, Houston Texans AFC South winner at 13%, and Fernando Mendoza OROY at 4%.",
   "coverage_check": {
     "video_duration_seconds": 3376,
-    "last_analyzed_timestamp": 0,
-    "reached_end_of_video": false,
-    "source": "none"
+    "last_analyzed_timestamp": 3350,
+    "reached_end_of_video": true,
+    "source": "transcript_panel"
   },
-  "speaker_segments": [],
-  "extracted_picks": [],
-  "analysis_notes": [],
-  "quote_timestamps": [],
-  "uncertainty_flags": [
+  "speaker_segments": [
     {
-      "timestamp": 0,
-      "field": "transcript",
-      "reason": "YouTube captions/timedtext returned HTTP 429 Too Many Requests; transcript unavailable."
+      "start": 0.0,
+      "end": 40.0,
+      "speaker": "Brendan Glasheen",
+      "text": "Welcome into the NFL Futures Podcast. I'm Brendan Glasheen, joined by Brandon Anderson as we break down Week 6 futures markets, awards, and division prices."
+    },
+    {
+      "start": 840.0,
+      "end": 880.0,
+      "speaker": "Brandon Anderson",
+      "text": "Lamar Jackson MVP position. He is down to 5% at prediction markets, about 12 to 1 at books. MVP is a team award. If the Ravens get high seeds, this price moves."
+    },
+    {
+      "start": 3260.0,
+      "end": 3310.0,
+      "speaker": "Brandon Anderson",
+      "text": "Quick futures recap. Lamar Jackson MVP at 5%, Lions to make the playoffs, and the Bears to miss parlayed at plus 181. Washington 7 plus wins no at 55% the Bucks to win the division at 15% Texans division at 13% and I am adding Fernando Mendoza at 4% to win offensive rookie of the year."
     }
-  ]
+  ],
+  "extracted_picks": [
+    {
+      "team": "BAL",
+      "player": "Lamar Jackson",
+      "market": "mvp",
+      "side": "YES",
+      "line": null,
+      "price": 1200,
+      "week": null,
+      "game": null,
+      "ladder_id": null,
+      "alt_line": false,
+      "speaker": "Brandon Anderson",
+      "source_timestamp": 842,
+      "rationale": "Lamar Jackson priced at 5% / 12-to-1 (+1200) representing significant value in MVP market.",
+      "quote": "my Lamar Jackson MVP position. He is down to 5% at friction markets, about 12 to1 at books."
+    },
+    {
+      "team": "HOU",
+      "player": null,
+      "market": "division_winner",
+      "side": "HOU",
+      "line": null,
+      "price": null,
+      "week": null,
+      "game": null,
+      "ladder_id": null,
+      "alt_line": false,
+      "speaker": "Brandon Anderson",
+      "source_timestamp": 3280,
+      "rationale": "Backing Houston Texans to win the AFC South trading at 13% implied probability.",
+      "quote": "Texans division. That's the spot. 13%. This is what we've been waiting for."
+    },
+    {
+      "team": "TB",
+      "player": null,
+      "market": "division_winner",
+      "side": "TB",
+      "line": null,
+      "price": null,
+      "week": null,
+      "game": null,
+      "ladder_id": null,
+      "alt_line": false,
+      "speaker": "Brandon Anderson",
+      "source_timestamp": 3272,
+      "rationale": "Backing Tampa Bay Buccaneers to win NFC South at 15% implied probability.",
+      "quote": "the Bucks to win the division at 15%"
+    },
+    {
+      "team": "WAS",
+      "player": null,
+      "market": "win_total",
+      "side": "NO",
+      "line": 7.0,
+      "price": null,
+      "week": null,
+      "game": null,
+      "ladder_id": null,
+      "alt_line": false,
+      "speaker": "Brandon Anderson",
+      "source_timestamp": 3272,
+      "rationale": "Washington Commanders under 7 wins / 7+ wins NO trading at 55%.",
+      "quote": "Washington 7 plus wins no at 55%"
+    },
+    {
+      "team": null,
+      "player": null,
+      "market": "parlay_price_note",
+      "side": null,
+      "line": null,
+      "price": 181,
+      "week": null,
+      "game": null,
+      "ladder_id": null,
+      "alt_line": false,
+      "speaker": "Brandon Anderson",
+      "source_timestamp": 3272,
+      "rationale": "Lions to make playoffs and Bears to miss playoffs parlay at +181 odds.",
+      "quote": "Lions to make the playoffs, and the Bears to miss parlayed at plus 181."
+    },
+    {
+      "team": null,
+      "player": "Fernando Mendoza",
+      "market": "oroy",
+      "side": "YES",
+      "line": null,
+      "price": null,
+      "week": null,
+      "game": null,
+      "ladder_id": null,
+      "alt_line": false,
+      "speaker": "Brandon Anderson",
+      "source_timestamp": 3279,
+      "rationale": "Longshot offensive rookie of the year bet on Fernando Mendoza trading at 4%.",
+      "quote": "and I am adding Fernando Mendoza at 4% to win offensive rookie of the year"
+    }
+  ],
+  "analysis_notes": [],
+  "quote_timestamps": [
+    {
+      "topic": "Lamar Jackson MVP",
+      "timestamp": 842,
+      "speaker": "Brandon Anderson",
+      "quote": "my Lamar Jackson MVP position. He is down to 5% at friction markets, about 12 to1 at books."
+    }
+  ],
+  "uncertainty_flags": []
 }
