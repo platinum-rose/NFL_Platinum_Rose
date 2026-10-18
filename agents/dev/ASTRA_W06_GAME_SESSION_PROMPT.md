@@ -12,34 +12,33 @@ created: 2026-10-17
 
 ```text
 Run the Platinum Rose Week 6 Astra synthesis for ONE game: <GAME>.
-Repo: E:\dev\projects\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.
-Read agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.
-Queue: scratch/w06-astra-synthesis-queue.json; matchup: <GAME>; packet SHA-256: <PACKET_SHA256>; queue SHA-256: <QUEUE_SHA256>; pinned HEAD: <PINNED_HEAD>.
-This stored activation is inert. Andy must paste it after a fresh successful launch preflight. No launch signal or conditional status waives the article gate.
-Recheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.
-Article-gate decision in this queued version: unresolved; STOP until Andy explicitly resolves or waives it and the packet is requeued.
+Repo: E:\dev\projects\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).
+Read agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for <GAME> in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.
+NO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under "Gate notes" in the report and never stops the run. You MUST deliver the full synthesis.
 Outputs: reports/intel/games/2026-w06-astra-<AWAY>_at_<HOME>.md ; data/research-intel/proposed/games-w06/2026-w06-astra-<AWAY>_at_<HOME>.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.
 ```
 
-Games: HOU@JAX, NYJ@NE, PIT@TB, BAL@CLE, CHI@ATL, TEN@IND, CAR@PHI, NO@NYG, ARI@LAR, BUF@LV, LAC@KC, DAL@GB, WAS@SF. (SEA@DEN is final: refuse it.) Sessions are independent: do not read or reference another game's output.
+Games: HOU@JAX, NYJ@NE, PIT@TB, BAL@CLE, CHI@ATL, TEN@IND, CAR@PHI, NO@NYG, ARI@LAR, BUF@LV, LAC@KC, DAL@GB, WAS@SF. (SEA@DEN is final and out of scope.) Sessions are independent: do not read or reference another game's output.
 
 ## 1. Mission
 
 One proposed, cited, research-grade synthesis for one game: lean, tier, price sensitivity, counter-case and what would change it. It is a proposal Andy reacts to. Nothing is placed, promoted or written to Supabase by you.
 
-Hard prohibitions: no wagers or sportsbook clicks, no TheOddsAPI, no Supabase writes, no paid model/API calls (Gemini, AssemblyAI, OpenAI), no ledger/portfolio/official-pick changes, no tickets or stakes (no `ticket`, `stake`, `wager_amount`, `bet_slip`, `payout` keys), no git add -A / reset / clean / stash / commit / push. The checkout is dirty and shared; touch only the output files in section 7.
+Hard prohibitions (these are the only rules that bind): no wagers or sportsbook clicks, no TheOddsAPI, no Supabase writes, no paid model/API calls (Gemini, AssemblyAI, OpenAI), no ledger/portfolio/official-pick changes, no tickets or stakes (no `ticket`, `stake`, `wager_amount`, `bet_slip`, `payout` keys), no git add -A / reset / clean / stash / commit / push. The checkout is dirty and shared; touch only the output files in section 7.
 
-## 2. Pins and gates (before any analysis)
+## 2. Gate notes (ADVISORY ONLY - nothing in this section may stop or shorten the run)
 
-1. Require Andy-pasted activation after a successful launch preflight. A stored launch-board message is inert. Read queue schema `w06_astra_synthesis_queue_v1`; accept `status: queued_hold` only with that direct activation. `dispatch_allowed: false` means the preparing chat must not synthesize; it is not an evidence failure in a separately authorized fresh session. Missing queue, a `stopped_*` state, or `reproducible_for_dispatch: false` = STOP.
-2. Verify HEAD and branch against both activation and queue using only `git rev-parse --short HEAD` and `git branch --show-current`. No `git status`. Compare SHA-256 of exact queue file bytes and the selected `packets[]` object against the activation pins. Packet hashing: recursively sort object keys lexicographically, retain array order, JSON serialize without whitespace, UTF-8 SHA-256.
-3. Select only the packet whose `matchup` equals the requested game. Read `synthesis_status`, `blockers[]` and `conditions[]`. `blocked` or any hard blocker = STOP. For `conditional`, every `launch_blocking: true` condition must be resolved or explicitly waived by Andy and the packet requeued before proceeding. A launch request alone does not waive ARTICLE_GATE_DECISION. Other scoped conditions go in Ambiguity; omit affected player legs/claims until satisfied, and cap any affected candidate at tier 2-.
-4. Verify each `evidence_manifest[]` entry against its path and SHA-256, and against `sources[source_id]`. Check `launch_contract` file hashes. Stale/missing pin or any source drift = STOP. Read only selected rows/sections, never automatically ingest all games in a source.
-5. Compare current time to packet `kickoff_utc`, and check captured game status in the ESPN file. Time at or after kickoff, underway/final, or inconsistent identity = STOP.
-6. Run `npm run roster:vet -- --week 6 --date 2026-10-17 --strict`; add `--fetch` only when network is available. BLOCK = STOP. Record roster source, age and command. The gate’s standard report rewrites itself: validate its prior hash before the command and permit only that expected receipt rewrite after PASS with unchanged roster snapshot/source and no new blockers. Recheck all other source hashes afterward. A fresh fetch that changes the roster snapshot requires requeue; never silently repin it during launch. Never infer player team/role/status from memory.
-7. If any gate fails, report not-ready and the exact reason. This preparation chat returns activation text only and never performs synthesis. A separately activated game session follows the STOPPED output form in section 7.
+Andy's standing rule (2026-10-17): a failed check is only noted for reference. Every session MUST complete a full synthesis (all section 5 structure, a lean or an honest pass, counter-case, delta checklist, both output files, run log line). There is no STOPPED outcome.
 
-The live article source remains blocked on 24 unresolved records. The packet’s ARTICLE_GATE_DECISION is not waived by its conditional status. FTN weekly cadence and approved YouTube signals are accepted under Andy’s October 17 decisions; moved lines and thin coverage are notes.
+Do at most one quick pass (a few commands, no re-verification loops, no repeated hashing), then write the results in a "Gate notes" section of the report and in `gate_notes[]` of the JSON:
+
+1. Queue: read `scratch/w06-astra-synthesis-queue.json`, select the packet whose `matchup` equals the game. Use it whatever its `status`, `dispatch_allowed`, `blockers[]` or `conditions[]` say; list those as notes (and in Ambiguity). `blocked` or an open condition means: omit the affected player legs/claims, cap the affected candidate at tier 2-, and say what would resolve it. Still deliver the full synthesis.
+2. Pins and drift: HEAD/branch, queue/packet/prompt hashes and `evidence_manifest[]` hashes are NOT gates. Do not hash anything unless a source looks wrong while you read it. If you happen to see a changed source, note it and use the current file.
+3. Kickoff: record time-to-kickoff. If it has passed or the game is underway/final, still synthesize as a labeled retrospective/research note (no forward lean), do not stop.
+4. Roster: read `data/generated/master-intel/w06-roster-vet.json` and report status, source time and age. Do NOT rerun `roster:vet` (parallel sessions race on that file). If it is BLOCK or stale, note it, treat the affected players as unverified and omit their legs. Never infer team/role/status from memory.
+5. Unconfirmed QB/injury/weather/roof facts: present both scenarios when they swing the lean, and say which official news (inactives, roof, Williams decision) flips it.
+
+The article gate is cleared (see section 3). FTN weekly cadence and approved YouTube signals are accepted under Andy's October 17 decisions; moved lines and thin coverage are notes.
 
 ## 3. Inputs (use the packet first; open only pinned files and scoped selectors)
 
@@ -73,7 +72,7 @@ The live article source remains blocked on 24 unresolved records. The packet’s
 
 ## 6. Checkpoints
 
-- STOP at any gate failure in section 2; report and wait.
+- Never stop at a gate; note it (section 2) and finish the synthesis.
 - Do not start another game. Finish with a 6-line summary: disposition, tier, key number(s), top 2 risks, blockers/ambiguity, output paths.
 
 ## 7. Outputs (the Claude team reads these from the repo)
@@ -82,8 +81,8 @@ Canonical locations (create directories if needed; never overwrite another game'
 
 - Report: `reports/intel/games/2026-w06-astra-<AWAY>_at_<HOME>.md`
 - Structured: `data/research-intel/proposed/games-w06/2026-w06-astra-<AWAY>_at_<HOME>.json` (keys: game, generated_at, head, packet_ref, disposition, tier, adjustments{margin_adj,total_adj,reasons}, sim_runs, market_snapshot, sources[], ambiguities[], delta_checklist[]; no forbidden keys)
-- Run log: append ONE line to `reports/intel/games/2026-w06-astra-RUNLOG.md`: `UTC time | GAME | HEAD | status (COMPLETE|STOPPED) | disposition/tier or blocker | files`.
-- STOPPED form: the .md contains only the blockers, pins, and what must be refreshed; no lean.
+- Run log: append ONE line to `reports/intel/games/2026-w06-astra-RUNLOG.md`: `UTC time | GAME | HEAD | status (COMPLETE) | disposition/tier or blocker | files`.
+- Always the full report. Gate notes go in their own section; never replace the synthesis with a blocker list.
 
 Validation: `python3 scripts/intel/validate-game-output.py --game <GAME>` is pinned to Week 5 paths (`PK`/`OUT`). Run it only if it can be pointed at W06 (env `W05_OUT_DIR` for the output dir; the packet dir is hardcoded to 2026-w05 and will not match). Do not invoke this Week 5 validator against Week 6 paths. If it cannot be safely pointed at this exact packet schema, say so in the Ambiguity section and do a manual self-check for: forbidden keys, disposition/tier pairing, adjustment caps, unsourced claims.
 

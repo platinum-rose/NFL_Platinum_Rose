@@ -1,851 +1,851 @@
 {
- "schema": "w06_astra_launch_board_v1",
- "built_at": "2026-10-17T22:29:12.000Z",
- "status": "HOLD",
- "synthesis_invoked": false,
- "controller_may_synthesize": false,
- "queue_path": "scratch/w06-astra-synthesis-queue.json",
- "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
- "packet_hash_algorithm": "SHA-256 of UTF-8 JSON.stringify(packet with recursively lexicographically sorted object keys; array order unchanged; no whitespace). Entire packet, no self-hash field.",
- "activation_template_source": {
-  "path": "scratch/w06-astra-per-game-launch-sheet.md",
-  "sha256": "38bf344eb1edd31b15a4a0dfecde458420a950210713b881dd074c034842173d"
- },
- "session_prompt": {
-  "path": "agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md",
-  "sha256": "c2bf2b1bb36979dd7a79b4922a4aa208d4fadf8950ffb41af02ee95edc9ee782"
- },
- "readiness": {
-  "ready": 0,
-  "conditional": 12,
-  "blocked": 1
- },
- "article_gate_decision": "cleared_2026-10-17: 24 records dispositioned; stored bodies read; only 8303 excluded",
- "rows": [
-  {
-   "order": 1,
-   "game": "HOU@JAX",
-   "kickoff_utc": "2026-10-18T13:30:00.000Z",
-   "kickoff_pt": "Sun 10/18 06:30",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
+  "schema": "w06_astra_launch_board_v1",
+  "built_at": "2026-10-17T22:29:12.000Z",
+  "status": "HOLD",
+  "synthesis_invoked": false,
+  "controller_may_synthesize": false,
+  "queue_path": "scratch/w06-astra-synthesis-queue.json",
+  "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+  "packet_hash_algorithm": "SHA-256 of UTF-8 JSON.stringify(packet with recursively lexicographically sorted object keys; array order unchanged; no whitespace). Entire packet, no self-hash field.",
+  "activation_template_source": {
+    "path": "scratch/w06-astra-per-game-launch-sheet.md",
+    "sha256": "38bf344eb1edd31b15a4a0dfecde458420a950210713b881dd074c034842173d"
+  },
+  "session_prompt": {
+    "path": "agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md",
+    "sha256": "c2bf2b1bb36979dd7a79b4922a4aa208d4fadf8950ffb41af02ee95edc9ee782"
+  },
+  "readiness": {
+    "ready": 0,
+    "conditional": 12,
+    "blocked": 1
+  },
+  "article_gate_decision": "cleared_2026-10-17: 24 records dispositioned; stored bodies read; only 8303 excluded",
+  "rows": [
     {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+      "order": 1,
+      "game": "HOU@JAX",
+      "kickoff_utc": "2026-10-18T13:30:00.000Z",
+      "kickoff_pt": "Sun 10/18 06:30",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        }
+      ],
+      "packet_selector": "/packets/0",
+      "packet_sha256": "8697ff83e953a8634b8e2c80500e3e60240e4f83482b5614d168a0eb53e16cf9",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 44,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: HOU@JAX.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for HOU@JAX in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-HOU_at_JAX.md ; data/research-intel/proposed/games-w06/2026-w06-astra-HOU_at_JAX.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-HOU_at_JAX.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-HOU_at_JAX.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | HOU@JAX | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-HOU_at_JAX.md ; data/research-intel/proposed/games-w06/2026-w06-astra-HOU_at_JAX.json",
+      "outputs_created": false
     },
     {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+      "order": 2,
+      "game": "NYJ@NE",
+      "kickoff_utc": "2026-10-18T17:00:00.000Z",
+      "kickoff_pt": "Sun 10/18 10:00",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        },
+        {
+          "id": "AJ_BROWN_STATUS",
+          "scope": "any A.J. Brown leg",
+          "launch_blocking": false,
+          "requires": "No Brown leg until current status check; game-level analysis can proceed conditionally."
+        }
+      ],
+      "packet_selector": "/packets/1",
+      "packet_sha256": "32639e9e131a08623daa7fbe0baa73bde2b0caf1115fd1d371c8e1a7fa730e4a",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 50,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: NYJ@NE.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for NYJ@NE in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-NYJ_at_NE.md ; data/research-intel/proposed/games-w06/2026-w06-astra-NYJ_at_NE.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-NYJ_at_NE.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-NYJ_at_NE.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | NYJ@NE | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-NYJ_at_NE.md ; data/research-intel/proposed/games-w06/2026-w06-astra-NYJ_at_NE.json",
+      "outputs_created": false
     },
     {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+      "order": 3,
+      "game": "PIT@TB",
+      "kickoff_utc": "2026-10-18T17:00:00.000Z",
+      "kickoff_pt": "Sun 10/18 10:00",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        }
+      ],
+      "packet_selector": "/packets/2",
+      "packet_sha256": "e91307903ba1fd342e982de30d63d2d2c1167ba77bd857b253cc534f8c080885",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 46,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: PIT@TB.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for PIT@TB in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-PIT_at_TB.md ; data/research-intel/proposed/games-w06/2026-w06-astra-PIT_at_TB.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-PIT_at_TB.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-PIT_at_TB.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | PIT@TB | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-PIT_at_TB.md ; data/research-intel/proposed/games-w06/2026-w06-astra-PIT_at_TB.json",
+      "outputs_created": false
+    },
+    {
+      "order": 4,
+      "game": "BAL@CLE",
+      "kickoff_utc": "2026-10-18T17:00:00.000Z",
+      "kickoff_pt": "Sun 10/18 10:00",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        }
+      ],
+      "packet_selector": "/packets/3",
+      "packet_sha256": "4058d090b3e7c560e8660a27e050d61e06dadf8ebb066235879e2585ccf70afe",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 52,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: BAL@CLE.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for BAL@CLE in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-BAL_at_CLE.md ; data/research-intel/proposed/games-w06/2026-w06-astra-BAL_at_CLE.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-BAL_at_CLE.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-BAL_at_CLE.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | BAL@CLE | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-BAL_at_CLE.md ; data/research-intel/proposed/games-w06/2026-w06-astra-BAL_at_CLE.json",
+      "outputs_created": false
+    },
+    {
+      "order": 5,
+      "game": "CHI@ATL",
+      "kickoff_utc": "2026-10-18T17:00:00.000Z",
+      "kickoff_pt": "Sun 10/18 10:00",
+      "status": "blocked",
+      "blockers": [
+        "CHI_STARTER_UNCONFIRMED"
+      ],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        }
+      ],
+      "packet_selector": "/packets/4",
+      "packet_sha256": "71b4e837d42b23d05c65689c99cdfe438a4bfbf5448515932ab53f79f4e5afe3",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 48,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: Williams unconfirmed (blocked until Sunday morning); fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": false,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: CHI@ATL.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for CHI@ATL in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-CHI_at_ATL.md ; data/research-intel/proposed/games-w06/2026-w06-astra-CHI_at_ATL.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-CHI_at_ATL.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-CHI_at_ATL.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | CHI@ATL | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-CHI_at_ATL.md ; data/research-intel/proposed/games-w06/2026-w06-astra-CHI_at_ATL.json",
+      "outputs_created": false
+    },
+    {
+      "order": 6,
+      "game": "TEN@IND",
+      "kickoff_utc": "2026-10-18T17:00:00.000Z",
+      "kickoff_pt": "Sun 10/18 10:00",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        }
+      ],
+      "packet_selector": "/packets/5",
+      "packet_sha256": "a44610034f2a19151d50982da98b64fe3469bbdf9b0ba0ac00029c97c00f01c0",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 46,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: TEN@IND.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for TEN@IND in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-TEN_at_IND.md ; data/research-intel/proposed/games-w06/2026-w06-astra-TEN_at_IND.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-TEN_at_IND.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-TEN_at_IND.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | TEN@IND | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-TEN_at_IND.md ; data/research-intel/proposed/games-w06/2026-w06-astra-TEN_at_IND.json",
+      "outputs_created": false
+    },
+    {
+      "order": 7,
+      "game": "CAR@PHI",
+      "kickoff_utc": "2026-10-18T17:00:00.000Z",
+      "kickoff_pt": "Sun 10/18 10:00",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        },
+        {
+          "id": "BARKLEY_REPORTER_HEDGE",
+          "scope": "Barkley-dependent claims",
+          "launch_blocking": false,
+          "requires": "OUT mapping is unconfirmed reporter hedge; verify before use."
+        }
+      ],
+      "packet_selector": "/packets/6",
+      "packet_sha256": "160369a0fdd78528129f719784e8448e657a47df98225575ba5ac097b9d4d473",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 50,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: CAR@PHI.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for CAR@PHI in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-CAR_at_PHI.md ; data/research-intel/proposed/games-w06/2026-w06-astra-CAR_at_PHI.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-CAR_at_PHI.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-CAR_at_PHI.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | CAR@PHI | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-CAR_at_PHI.md ; data/research-intel/proposed/games-w06/2026-w06-astra-CAR_at_PHI.json",
+      "outputs_created": false
+    },
+    {
+      "order": 8,
+      "game": "NO@NYG",
+      "kickoff_utc": "2026-10-18T17:00:00.000Z",
+      "kickoff_pt": "Sun 10/18 10:00",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        },
+        {
+          "id": "LIKELY_SOURCE_PRICE",
+          "scope": "Likely TD claim",
+          "launch_blocking": false,
+          "requires": "NYG mapping confirmed by Andy; old rationale says Cleveland and +225 is not current verified NYG price. Do not reuse matchup rationale or treat +225 as live."
+        }
+      ],
+      "packet_selector": "/packets/7",
+      "packet_sha256": "666dbaa55ea365c3dcd753157100fce828f16ad20b2881e23fbdb48d726d0b46",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 52,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: NO@NYG.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for NO@NYG in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-NO_at_NYG.md ; data/research-intel/proposed/games-w06/2026-w06-astra-NO_at_NYG.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-NO_at_NYG.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-NO_at_NYG.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | NO@NYG | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-NO_at_NYG.md ; data/research-intel/proposed/games-w06/2026-w06-astra-NO_at_NYG.json",
+      "outputs_created": false
+    },
+    {
+      "order": 9,
+      "game": "ARI@LAR",
+      "kickoff_utc": "2026-10-18T20:05:00.000Z",
+      "kickoff_pt": "Sun 10/18 13:05",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        }
+      ],
+      "packet_selector": "/packets/8",
+      "packet_sha256": "0d98e4d8daa66f90677ff2e3f7b1fe2d7a99120480600802d25c385bcbc947d7",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 52,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: ARI@LAR.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for ARI@LAR in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-ARI_at_LAR.md ; data/research-intel/proposed/games-w06/2026-w06-astra-ARI_at_LAR.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-ARI_at_LAR.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-ARI_at_LAR.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | ARI@LAR | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-ARI_at_LAR.md ; data/research-intel/proposed/games-w06/2026-w06-astra-ARI_at_LAR.json",
+      "outputs_created": false
+    },
+    {
+      "order": 10,
+      "game": "BUF@LV",
+      "kickoff_utc": "2026-10-18T20:25:00.000Z",
+      "kickoff_pt": "Sun 10/18 13:25",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        }
+      ],
+      "packet_selector": "/packets/9",
+      "packet_sha256": "e9701e6ca865b0ca065b7d0b509f7e7049e0c25ff6cf55b2a3a4b5d04ecddc8a",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 52,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: BUF@LV.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for BUF@LV in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-BUF_at_LV.md ; data/research-intel/proposed/games-w06/2026-w06-astra-BUF_at_LV.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-BUF_at_LV.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-BUF_at_LV.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | BUF@LV | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-BUF_at_LV.md ; data/research-intel/proposed/games-w06/2026-w06-astra-BUF_at_LV.json",
+      "outputs_created": false
+    },
+    {
+      "order": 11,
+      "game": "LAC@KC",
+      "kickoff_utc": "2026-10-18T20:25:00.000Z",
+      "kickoff_pt": "Sun 10/18 13:25",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        }
+      ],
+      "packet_selector": "/packets/10",
+      "packet_sha256": "6331ff595587511f58bf35aa32454ab663e90f27b0107e6ba6c183f38978d9a2",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 48,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: LAC@KC.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for LAC@KC in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-LAC_at_KC.md ; data/research-intel/proposed/games-w06/2026-w06-astra-LAC_at_KC.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-LAC_at_KC.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-LAC_at_KC.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | LAC@KC | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-LAC_at_KC.md ; data/research-intel/proposed/games-w06/2026-w06-astra-LAC_at_KC.json",
+      "outputs_created": false
+    },
+    {
+      "order": 12,
+      "game": "DAL@GB",
+      "kickoff_utc": "2026-10-19T00:20:00.000Z",
+      "kickoff_pt": "Sun 10/18 17:20",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        }
+      ],
+      "packet_selector": "/packets/11",
+      "packet_sha256": "674601fa88b047f4ccc658d5163b23169da29578efeaec88a11c39b11bb08817",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 52,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: DAL@GB.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for DAL@GB in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-DAL_at_GB.md ; data/research-intel/proposed/games-w06/2026-w06-astra-DAL_at_GB.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-DAL_at_GB.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-DAL_at_GB.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | DAL@GB | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-DAL_at_GB.md ; data/research-intel/proposed/games-w06/2026-w06-astra-DAL_at_GB.json",
+      "outputs_created": false
+    },
+    {
+      "order": 13,
+      "game": "WAS@SF",
+      "kickoff_utc": "2026-10-20T00:15:00.000Z",
+      "kickoff_pt": "Mon 10/19 17:15",
+      "status": "conditional",
+      "blockers": [],
+      "conditions": [
+        {
+          "id": "ARTICLE_GATE_RESOLVED",
+          "scope": "article-dependent conclusions",
+          "launch_blocking": false,
+          "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
+          "source": "articles",
+          "excluded_ids": [
+            8303
+          ],
+          "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+        },
+        {
+          "id": "OFFICIAL_INACTIVES",
+          "scope": "player availability and any player leg",
+          "launch_blocking": false,
+          "due": "near kickoff",
+          "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+        },
+        {
+          "id": "KICKOFF_WEATHER",
+          "scope": "weather-dependent interpretation",
+          "launch_blocking": false,
+          "due": "kickoff day",
+          "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+        },
+        {
+          "id": "WEATHER_WIND_GUST_RECONCILIATION",
+          "scope": "wind-dependent claims",
+          "launch_blocking": false,
+          "requires": "Provider forecast wind 18.6/gust 15.1 km/h needs verification; withhold wind interpretation meanwhile."
+        }
+      ],
+      "packet_selector": "/packets/12",
+      "packet_sha256": "73ce164c16a7607fd29b2e9d3329a564b323c6ae4f81f200d1c4a4c14298f4ac",
+      "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
+      "pins": {
+        "head": "ea74728e1e1f174f047755719896b90460c2eb64",
+        "branch": "claude/w5-prop-cards-2026-10-11",
+        "source_count": 48,
+        "roster_source": "2026-10-17T22:22Z",
+        "roster_expires_at": "2026-10-18T22:22:00.000Z"
+      },
+      "can_launch_now": false,
+      "can_launch_now_reason": "No \u2014 HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
+      "preflight_eligible_on_signal": true,
+      "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: WAS@SF.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard).\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it. Select the packet for WAS@SF in scratch/w06-astra-synthesis-queue.json. Do not synthesize any other game.\nNO PINS, NO STOP GATES: any HEAD/hash/roster/kickoff/condition issue is recorded under \"Gate notes\" in the report and never stops the run. You MUST deliver the full synthesis.\nOutputs: reports/intel/games/2026-w06-astra-WAS_at_SF.md ; data/research-intel/proposed/games-w06/2026-w06-astra-WAS_at_SF.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
+      "expected_output_paths": {
+        "report": "reports/intel/games/2026-w06-astra-WAS_at_SF.md",
+        "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-WAS_at_SF.json",
+        "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
+      },
+      "expected_runlog_line": "<GENERATED_UTC> | WAS@SF | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-WAS_at_SF.md ; data/research-intel/proposed/games-w06/2026-w06-astra-WAS_at_SF.json",
+      "outputs_created": false
     }
-   ],
-   "packet_selector": "/packets/0",
-   "packet_sha256": "8697ff83e953a8634b8e2c80500e3e60240e4f83482b5614d168a0eb53e16cf9",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 44,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: HOU@JAX.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: HOU@JAX; packet SHA-256: 8697ff83e953a8634b8e2c80500e3e60240e4f83482b5614d168a0eb53e16cf9; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-HOU_at_JAX.md ; data/research-intel/proposed/games-w06/2026-w06-astra-HOU_at_JAX.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-HOU_at_JAX.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-HOU_at_JAX.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | HOU@JAX | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-HOU_at_JAX.md ; data/research-intel/proposed/games-w06/2026-w06-astra-HOU_at_JAX.json",
-   "outputs_created": false
-  },
-  {
-   "order": 2,
-   "game": "NYJ@NE",
-   "kickoff_utc": "2026-10-18T17:00:00.000Z",
-   "kickoff_pt": "Sun 10/18 10:00",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
+  ],
+  "remaining_refreshes": [
     {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+      "id": "CHI_STARTER_UNCONFIRMED",
+      "when": "Sunday morning",
+      "scope": "CHI@ATL",
+      "action": "Confirm Caleb Williams/team starting-QB decision; then strict roster gate rerun with --fetch when network is available."
     },
     {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+      "id": "ROSTER_LAUNCH_PREFLIGHT",
+      "when": "every launch signal; again Sunday morning",
+      "scope": "all games",
+      "action": "Verify existing source pins first, then run strict roster gate. Fetch with network on kickoff day. Any changed roster snapshot requires requeue; BLOCK or snapshot older than 24h refuses launch."
     },
     {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+      "id": "KICKOFF_WEATHER_ROOF",
+      "when": "kickoff day",
+      "scope": "all outdoor games; ATL/IND/LV venue checks",
+      "action": "Refresh forecast, confirm ATL/IND retractable-roof status and LV fixed-dome/indoor treatment. Do not apply outdoor weather to LV. Recheck London gusts; reconcile WAS wind/gust anomaly before wind-dependent claims."
     },
     {
-     "id": "AJ_BROWN_STATUS",
-     "scope": "any A.J. Brown leg",
-     "launch_blocking": false,
-     "requires": "No Brown leg until current status check; game-level analysis can proceed conditionally."
+      "id": "AJ_BROWN_STATUS",
+      "when": "before any Brown leg",
+      "scope": "NYJ@NE",
+      "action": "Check current status; captured ESPN day-to-day is not clearance."
+    },
+    {
+      "id": "OFFICIAL_INACTIVES",
+      "when": "near each kickoff",
+      "scope": "all player-dependent claims, especially PHI/BAL/TB QB records",
+      "action": "Confirm official inactives; keep Barkley hedge uncertain until verified. Omit unmatched player aliases or unverified prices."
+    },
+    {
+      "id": "OPTIONAL_LANE_REFRESH",
+      "when": "only if a lane is used",
+      "scope": "moneyline splits, missing prop markets, source prices",
+      "action": "Stale moneyline splits remain omitted unless refreshed. Missing props stay unavailable; no game blocker solely for thin coverage or line movement. Likely source +225 is unverified; use NYG mapping but not old opponent rationale."
     }
-   ],
-   "packet_selector": "/packets/1",
-   "packet_sha256": "32639e9e131a08623daa7fbe0baa73bde2b0caf1115fd1d371c8e1a7fa730e4a",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 50,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: NYJ@NE.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: NYJ@NE; packet SHA-256: 32639e9e131a08623daa7fbe0baa73bde2b0caf1115fd1d371c8e1a7fa730e4a; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-NYJ_at_NE.md ; data/research-intel/proposed/games-w06/2026-w06-astra-NYJ_at_NE.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-NYJ_at_NE.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-NYJ_at_NE.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | NYJ@NE | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-NYJ_at_NE.md ; data/research-intel/proposed/games-w06/2026-w06-astra-NYJ_at_NE.json",
-   "outputs_created": false
-  },
-  {
-   "order": 3,
-   "game": "PIT@TB",
-   "kickoff_utc": "2026-10-18T17:00:00.000Z",
-   "kickoff_pt": "Sun 10/18 10:00",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
+  ],
+  "contract_mismatches_resolved": [
     {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
+      "issue": "dispatch_allowed false treated as unconditional failure despite intentional HOLD",
+      "fix": "Separate controller HOLD from separately authorized fresh-session activation."
     },
     {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
+      "issue": "conditional automatically proceeded without article decision",
+      "fix": "Explicit launch_blocking conditions require Andy resolution/waiver and requeue."
     },
     {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
+      "issue": "No exact packet hash algorithm or queue-byte pin",
+      "fix": "Canonical sorted-JSON packet hash and exact saved queue-byte hash in activation."
+    },
+    {
+      "issue": "Gate rewrites a pinned report and can cause false drift",
+      "fix": "Hash before gate; permit only expected receipt rewrite after PASS with unchanged roster source. Fresh roster requires requeue."
+    },
+    {
+      "issue": "Source hashes, launch contract hashes and output references underspecified",
+      "fix": "Name sources/evidence_manifest fields and exact outputs in activation."
+    },
+    {
+      "issue": "BEO prose says four full boards but current file removed CHI props",
+      "fix": "Use latest event-specific capture coverage."
     }
-   ],
-   "packet_selector": "/packets/2",
-   "packet_sha256": "e91307903ba1fd342e982de30d63d2d2c1167ba77bd857b253cc534f8c080885",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 46,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: PIT@TB.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: PIT@TB; packet SHA-256: e91307903ba1fd342e982de30d63d2d2c1167ba77bd857b253cc534f8c080885; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-PIT_at_TB.md ; data/research-intel/proposed/games-w06/2026-w06-astra-PIT_at_TB.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-PIT_at_TB.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-PIT_at_TB.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | PIT@TB | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-PIT_at_TB.md ; data/research-intel/proposed/games-w06/2026-w06-astra-PIT_at_TB.json",
-   "outputs_created": false
-  },
-  {
-   "order": 4,
-   "game": "BAL@CLE",
-   "kickoff_utc": "2026-10-18T17:00:00.000Z",
-   "kickoff_pt": "Sun 10/18 10:00",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
-    {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
-    },
-    {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
-    },
-    {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
-    }
-   ],
-   "packet_selector": "/packets/3",
-   "packet_sha256": "4058d090b3e7c560e8660a27e050d61e06dadf8ebb066235879e2585ccf70afe",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 52,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: BAL@CLE.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: BAL@CLE; packet SHA-256: 4058d090b3e7c560e8660a27e050d61e06dadf8ebb066235879e2585ccf70afe; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-BAL_at_CLE.md ; data/research-intel/proposed/games-w06/2026-w06-astra-BAL_at_CLE.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-BAL_at_CLE.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-BAL_at_CLE.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | BAL@CLE | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-BAL_at_CLE.md ; data/research-intel/proposed/games-w06/2026-w06-astra-BAL_at_CLE.json",
-   "outputs_created": false
-  },
-  {
-   "order": 5,
-   "game": "CHI@ATL",
-   "kickoff_utc": "2026-10-18T17:00:00.000Z",
-   "kickoff_pt": "Sun 10/18 10:00",
-   "status": "blocked",
-   "blockers": [
-    "CHI_STARTER_UNCONFIRMED"
-   ],
-   "conditions": [
-    {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
-    },
-    {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
-    },
-    {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
-    }
-   ],
-   "packet_selector": "/packets/4",
-   "packet_sha256": "71b4e837d42b23d05c65689c99cdfe438a4bfbf5448515932ab53f79f4e5afe3",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 48,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: Williams unconfirmed (blocked until Sunday morning); fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": false,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: CHI@ATL.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: CHI@ATL; packet SHA-256: 71b4e837d42b23d05c65689c99cdfe438a4bfbf5448515932ab53f79f4e5afe3; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-CHI_at_ATL.md ; data/research-intel/proposed/games-w06/2026-w06-astra-CHI_at_ATL.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-CHI_at_ATL.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-CHI_at_ATL.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | CHI@ATL | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-CHI_at_ATL.md ; data/research-intel/proposed/games-w06/2026-w06-astra-CHI_at_ATL.json",
-   "outputs_created": false
-  },
-  {
-   "order": 6,
-   "game": "TEN@IND",
-   "kickoff_utc": "2026-10-18T17:00:00.000Z",
-   "kickoff_pt": "Sun 10/18 10:00",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
-    {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
-    },
-    {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
-    },
-    {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
-    }
-   ],
-   "packet_selector": "/packets/5",
-   "packet_sha256": "a44610034f2a19151d50982da98b64fe3469bbdf9b0ba0ac00029c97c00f01c0",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 46,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: TEN@IND.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: TEN@IND; packet SHA-256: a44610034f2a19151d50982da98b64fe3469bbdf9b0ba0ac00029c97c00f01c0; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-TEN_at_IND.md ; data/research-intel/proposed/games-w06/2026-w06-astra-TEN_at_IND.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-TEN_at_IND.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-TEN_at_IND.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | TEN@IND | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-TEN_at_IND.md ; data/research-intel/proposed/games-w06/2026-w06-astra-TEN_at_IND.json",
-   "outputs_created": false
-  },
-  {
-   "order": 7,
-   "game": "CAR@PHI",
-   "kickoff_utc": "2026-10-18T17:00:00.000Z",
-   "kickoff_pt": "Sun 10/18 10:00",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
-    {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
-    },
-    {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
-    },
-    {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
-    },
-    {
-     "id": "BARKLEY_REPORTER_HEDGE",
-     "scope": "Barkley-dependent claims",
-     "launch_blocking": false,
-     "requires": "OUT mapping is unconfirmed reporter hedge; verify before use."
-    }
-   ],
-   "packet_selector": "/packets/6",
-   "packet_sha256": "160369a0fdd78528129f719784e8448e657a47df98225575ba5ac097b9d4d473",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 50,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: CAR@PHI.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: CAR@PHI; packet SHA-256: 160369a0fdd78528129f719784e8448e657a47df98225575ba5ac097b9d4d473; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-CAR_at_PHI.md ; data/research-intel/proposed/games-w06/2026-w06-astra-CAR_at_PHI.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-CAR_at_PHI.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-CAR_at_PHI.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | CAR@PHI | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-CAR_at_PHI.md ; data/research-intel/proposed/games-w06/2026-w06-astra-CAR_at_PHI.json",
-   "outputs_created": false
-  },
-  {
-   "order": 8,
-   "game": "NO@NYG",
-   "kickoff_utc": "2026-10-18T17:00:00.000Z",
-   "kickoff_pt": "Sun 10/18 10:00",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
-    {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
-    },
-    {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
-    },
-    {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
-    },
-    {
-     "id": "LIKELY_SOURCE_PRICE",
-     "scope": "Likely TD claim",
-     "launch_blocking": false,
-     "requires": "NYG mapping confirmed by Andy; old rationale says Cleveland and +225 is not current verified NYG price. Do not reuse matchup rationale or treat +225 as live."
-    }
-   ],
-   "packet_selector": "/packets/7",
-   "packet_sha256": "666dbaa55ea365c3dcd753157100fce828f16ad20b2881e23fbdb48d726d0b46",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 52,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: NO@NYG.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: NO@NYG; packet SHA-256: 666dbaa55ea365c3dcd753157100fce828f16ad20b2881e23fbdb48d726d0b46; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-NO_at_NYG.md ; data/research-intel/proposed/games-w06/2026-w06-astra-NO_at_NYG.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-NO_at_NYG.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-NO_at_NYG.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | NO@NYG | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-NO_at_NYG.md ; data/research-intel/proposed/games-w06/2026-w06-astra-NO_at_NYG.json",
-   "outputs_created": false
-  },
-  {
-   "order": 9,
-   "game": "ARI@LAR",
-   "kickoff_utc": "2026-10-18T20:05:00.000Z",
-   "kickoff_pt": "Sun 10/18 13:05",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
-    {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
-    },
-    {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
-    },
-    {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
-    }
-   ],
-   "packet_selector": "/packets/8",
-   "packet_sha256": "0d98e4d8daa66f90677ff2e3f7b1fe2d7a99120480600802d25c385bcbc947d7",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 52,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: ARI@LAR.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: ARI@LAR; packet SHA-256: 0d98e4d8daa66f90677ff2e3f7b1fe2d7a99120480600802d25c385bcbc947d7; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-ARI_at_LAR.md ; data/research-intel/proposed/games-w06/2026-w06-astra-ARI_at_LAR.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-ARI_at_LAR.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-ARI_at_LAR.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | ARI@LAR | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-ARI_at_LAR.md ; data/research-intel/proposed/games-w06/2026-w06-astra-ARI_at_LAR.json",
-   "outputs_created": false
-  },
-  {
-   "order": 10,
-   "game": "BUF@LV",
-   "kickoff_utc": "2026-10-18T20:25:00.000Z",
-   "kickoff_pt": "Sun 10/18 13:25",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
-    {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
-    },
-    {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
-    },
-    {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
-    }
-   ],
-   "packet_selector": "/packets/9",
-   "packet_sha256": "e9701e6ca865b0ca065b7d0b509f7e7049e0c25ff6cf55b2a3a4b5d04ecddc8a",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 52,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: BUF@LV.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: BUF@LV; packet SHA-256: e9701e6ca865b0ca065b7d0b509f7e7049e0c25ff6cf55b2a3a4b5d04ecddc8a; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-BUF_at_LV.md ; data/research-intel/proposed/games-w06/2026-w06-astra-BUF_at_LV.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-BUF_at_LV.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-BUF_at_LV.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | BUF@LV | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-BUF_at_LV.md ; data/research-intel/proposed/games-w06/2026-w06-astra-BUF_at_LV.json",
-   "outputs_created": false
-  },
-  {
-   "order": 11,
-   "game": "LAC@KC",
-   "kickoff_utc": "2026-10-18T20:25:00.000Z",
-   "kickoff_pt": "Sun 10/18 13:25",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
-    {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
-    },
-    {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
-    },
-    {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
-    }
-   ],
-   "packet_selector": "/packets/10",
-   "packet_sha256": "6331ff595587511f58bf35aa32454ab663e90f27b0107e6ba6c183f38978d9a2",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 48,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: LAC@KC.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: LAC@KC; packet SHA-256: 6331ff595587511f58bf35aa32454ab663e90f27b0107e6ba6c183f38978d9a2; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-LAC_at_KC.md ; data/research-intel/proposed/games-w06/2026-w06-astra-LAC_at_KC.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-LAC_at_KC.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-LAC_at_KC.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | LAC@KC | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-LAC_at_KC.md ; data/research-intel/proposed/games-w06/2026-w06-astra-LAC_at_KC.json",
-   "outputs_created": false
-  },
-  {
-   "order": 12,
-   "game": "DAL@GB",
-   "kickoff_utc": "2026-10-19T00:20:00.000Z",
-   "kickoff_pt": "Sun 10/18 17:20",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
-    {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
-    },
-    {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
-    },
-    {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
-    }
-   ],
-   "packet_selector": "/packets/11",
-   "packet_sha256": "674601fa88b047f4ccc658d5163b23169da29578efeaec88a11c39b11bb08817",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 52,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: DAL@GB.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: DAL@GB; packet SHA-256: 674601fa88b047f4ccc658d5163b23169da29578efeaec88a11c39b11bb08817; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-DAL_at_GB.md ; data/research-intel/proposed/games-w06/2026-w06-astra-DAL_at_GB.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-DAL_at_GB.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-DAL_at_GB.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | DAL@GB | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-DAL_at_GB.md ; data/research-intel/proposed/games-w06/2026-w06-astra-DAL_at_GB.json",
-   "outputs_created": false
-  },
-  {
-   "order": 13,
-   "game": "WAS@SF",
-   "kickoff_utc": "2026-10-20T00:15:00.000Z",
-   "kickoff_pt": "Mon 10/19 17:15",
-   "status": "conditional",
-   "blockers": [],
-   "conditions": [
-    {
-     "id": "ARTICLE_GATE_RESOLVED",
-     "scope": "article-dependent conclusions",
-     "launch_blocking": false,
-     "requires": "Gate cleared 2026-10-17 (0 unresolved). Article picks are analyst leads priced at publish time (not promoted); props need roster vet and a current priced row. Only 8303 (X bookmark, no body) is excluded.",
-     "source": "articles",
-     "excluded_ids": [
-      8303
-     ],
-     "leads_file": "data/research-intel/review/w06-article-leads-read-2026-10-17.json"
-    },
-    {
-     "id": "OFFICIAL_INACTIVES",
-     "scope": "player availability and any player leg",
-     "launch_blocking": false,
-     "due": "near kickoff",
-     "requires": "Refresh official inactives; current captured depth chart/operator record is not final inactive confirmation."
-    },
-    {
-     "id": "KICKOFF_WEATHER",
-     "scope": "weather-dependent interpretation",
-     "launch_blocking": false,
-     "due": "kickoff day",
-     "requires": "Refresh forecast; confirm ATL/IND roof and LV indoor venue treatment where applicable."
-    },
-    {
-     "id": "WEATHER_WIND_GUST_RECONCILIATION",
-     "scope": "wind-dependent claims",
-     "launch_blocking": false,
-     "requires": "Provider forecast wind 18.6/gust 15.1 km/h needs verification; withhold wind interpretation meanwhile."
-    }
-   ],
-   "packet_selector": "/packets/12",
-   "packet_sha256": "73ce164c16a7607fd29b2e9d3329a564b323c6ae4f81f200d1c4a4c14298f4ac",
-   "queue_sha256": "e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55",
-   "pins": {
-    "head": "ea74728e1e1f174f047755719896b90460c2eb64",
-    "branch": "claude/w5-prop-cards-2026-10-11",
-    "source_count": 48,
-    "roster_source": "2026-10-17T22:22Z",
-    "roster_expires_at": "2026-10-18T22:22:00.000Z"
-   },
-   "can_launch_now": false,
-   "can_launch_now_reason": "No — HOLD: awaiting Andy launch signal; fresh launch preflight required (pins, roster gate, kickoff). Article gate cleared.",
-   "preflight_eligible_on_signal": true,
-   "activation_message": "Run the Platinum Rose Week 6 Astra synthesis for ONE game: WAS@SF.\nRepo: E:\\dev\\projects\\NFL_Dashboard (device_bash: $HOME/mnt/dev/projects/NFL_Dashboard). Branch claude/w5-prop-cards-2026-10-11.\nRead agents/dev/ASTRA_W06_GAME_SESSION_PROMPT.md and follow it exactly. Do not synthesize any other game.\nQueue: scratch/w06-astra-synthesis-queue.json; matchup: WAS@SF; packet SHA-256: 73ce164c16a7607fd29b2e9d3329a564b323c6ae4f81f200d1c4a4c14298f4ac; queue SHA-256: e5832e56de4087515a2a8550a9a3e7c33c18091a11ad3331d39d681446358f55; pinned HEAD: ea74728e1e1f174f047755719896b90460c2eb64.\nThis stored activation is inert. Andy must paste it after a fresh successful launch preflight. The article gate was cleared by disposition on 2026-10-17; it was not waived by a launch signal.\nRecheck HEAD/branch, queue and packet hashes, every packet source hash, kickoff still in the future, and strict roster gate. Refuse stale pins, passed kickoff, roster BLOCK or unresolved launch-blocking conditions.\nArticle gate: cleared 2026-10-17 (24 records dispositioned; stored bodies read; only 8303 excluded). Article picks are analyst leads priced at publish time (see packet read_in_full_leads), execution-unverified, not promoted.\nOutputs: reports/intel/games/2026-w06-astra-WAS_at_SF.md ; data/research-intel/proposed/games-w06/2026-w06-astra-WAS_at_SF.json ; append one line to reports/intel/games/2026-w06-astra-RUNLOG.md.",
-   "expected_output_paths": {
-    "report": "reports/intel/games/2026-w06-astra-WAS_at_SF.md",
-    "structured": "data/research-intel/proposed/games-w06/2026-w06-astra-WAS_at_SF.json",
-    "runlog": "reports/intel/games/2026-w06-astra-RUNLOG.md"
-   },
-   "expected_runlog_line": "<GENERATED_UTC> | WAS@SF | ea74728e1e1f174f047755719896b90460c2eb64 | <COMPLETE or STOPPED> | <disposition/tier or blocker> | reports/intel/games/2026-w06-astra-WAS_at_SF.md ; data/research-intel/proposed/games-w06/2026-w06-astra-WAS_at_SF.json",
-   "outputs_created": false
-  }
- ],
- "remaining_refreshes": [
-  {
-   "id": "CHI_STARTER_UNCONFIRMED",
-   "when": "Sunday morning",
-   "scope": "CHI@ATL",
-   "action": "Confirm Caleb Williams/team starting-QB decision; then strict roster gate rerun with --fetch when network is available."
-  },
-  {
-   "id": "ROSTER_LAUNCH_PREFLIGHT",
-   "when": "every launch signal; again Sunday morning",
-   "scope": "all games",
-   "action": "Verify existing source pins first, then run strict roster gate. Fetch with network on kickoff day. Any changed roster snapshot requires requeue; BLOCK or snapshot older than 24h refuses launch."
-  },
-  {
-   "id": "KICKOFF_WEATHER_ROOF",
-   "when": "kickoff day",
-   "scope": "all outdoor games; ATL/IND/LV venue checks",
-   "action": "Refresh forecast, confirm ATL/IND retractable-roof status and LV fixed-dome/indoor treatment. Do not apply outdoor weather to LV. Recheck London gusts; reconcile WAS wind/gust anomaly before wind-dependent claims."
-  },
-  {
-   "id": "AJ_BROWN_STATUS",
-   "when": "before any Brown leg",
-   "scope": "NYJ@NE",
-   "action": "Check current status; captured ESPN day-to-day is not clearance."
-  },
-  {
-   "id": "OFFICIAL_INACTIVES",
-   "when": "near each kickoff",
-   "scope": "all player-dependent claims, especially PHI/BAL/TB QB records",
-   "action": "Confirm official inactives; keep Barkley hedge uncertain until verified. Omit unmatched player aliases or unverified prices."
-  },
-  {
-   "id": "OPTIONAL_LANE_REFRESH",
-   "when": "only if a lane is used",
-   "scope": "moneyline splits, missing prop markets, source prices",
-   "action": "Stale moneyline splits remain omitted unless refreshed. Missing props stay unavailable; no game blocker solely for thin coverage or line movement. Likely source +225 is unverified; use NYG mapping but not old opponent rationale."
-  }
- ],
- "contract_mismatches_resolved": [
-  {
-   "issue": "dispatch_allowed false treated as unconditional failure despite intentional HOLD",
-   "fix": "Separate controller HOLD from separately authorized fresh-session activation."
-  },
-  {
-   "issue": "conditional automatically proceeded without article decision",
-   "fix": "Explicit launch_blocking conditions require Andy resolution/waiver and requeue."
-  },
-  {
-   "issue": "No exact packet hash algorithm or queue-byte pin",
-   "fix": "Canonical sorted-JSON packet hash and exact saved queue-byte hash in activation."
-  },
-  {
-   "issue": "Gate rewrites a pinned report and can cause false drift",
-   "fix": "Hash before gate; permit only expected receipt rewrite after PASS with unchanged roster source. Fresh roster requires requeue."
-  },
-  {
-   "issue": "Source hashes, launch contract hashes and output references underspecified",
-   "fix": "Name sources/evidence_manifest fields and exact outputs in activation."
-  },
-  {
-   "issue": "BEO prose says four full boards but current file removed CHI props",
-   "fix": "Use latest event-specific capture coverage."
-  }
- ],
- "hold_signals": [
-  "launch <GAME>",
-  "launch all ready",
-  "refresh <GAME>",
-  "requeue"
- ],
- "runlog_written": false
+  ],
+  "hold_signals": [
+    "launch <GAME>",
+    "launch all ready",
+    "refresh <GAME>",
+    "requeue"
+  ],
+  "runlog_written": false
 }
