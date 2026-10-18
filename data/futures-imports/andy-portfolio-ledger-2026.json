@@ -28,6 +28,21 @@
    "applied_to": [
     "sf_buf_exacta_1005664263"
    ]
+  },
+  {
+   "id": "beo-free-reload-2026-10-18",
+   "amount_usd": 9.12,
+   "funding_type": "promo_cash_free_money",
+   "status": "deployed",
+   "source": "Andy-reported BetOnline free reload 2026-10-17",
+   "eligible_use": "futures_portfolio",
+   "note": "Deployed on GB Super Bowl ticket 1006468476 (+6600, to win $601.92).",
+   "deployed_usd": 9.12,
+   "remaining_usd": 0.0,
+   "deployed_at": "2026-10-18",
+   "applied_to": [
+    "packers_sb:1006468476"
+   ]
   }
  ],
  "positions": [
@@ -84,7 +99,7 @@
    "blended_price": 3867,
    "status": "open",
    "known_input": true,
-   "estimate_note": "First real stake against the $200 target cap ($160 of cap room remains). Confirmed placed at BetOnline. Does not separately qualify for the BetOnline Super Bowl Futures Special promo -- below the $50 minimum, and the account's one-time promo slot is already claimed by the bills_sb wager. | 2026-10-05: added ticket 1002306799 ($20 @ +6600); stake now $60, blended +3867, $140 of cap room.",
+   "estimate_note": "First real stake against the $200 target cap ($160 of cap room remains). Confirmed placed at BetOnline. Does not separately qualify for the BetOnline Super Bowl Futures Special promo -- below the $50 minimum, and the account's one-time promo slot is already claimed by the bills_sb wager. | 2026-10-05: added ticket 1002306799 ($20 @ +6600); stake now $60, blended +3867, $140 of cap room. | 2026-10-17: added free-reload ticket 1006468476 ($9.12 @ +6600, to win $601.92), bankroll-exempt; cash stake unchanged at $60, total exposure incl. promo $69.12.",
    "book": "betonline",
    "book_confirmed": true,
    "tickets": [
@@ -105,8 +120,20 @@
      "result_status": "pending",
      "funding": "cash",
      "note": "Logged in user-placed-wagers-2026.json on 2026-10-04 and moved here on 2026-10-05 (futures belong in this ledger)."
+    },
+    {
+     "ticket_number": "1006468476",
+     "accepted_date": "2026-10-18",
+     "stake_usd": 9.12,
+     "price": 6600,
+     "to_win_usd": 601.92,
+     "result_status": "pending",
+     "funding": "promo_cash_free_money",
+     "bankroll_exempt": true,
+     "note": "Funded 100% by a BetOnline free reload ($9.12), per Andy 2026-10-17 23:51 PT. Tracked in the position and exposure, NOT counted against bankroll/cash stake (current_stake_usd stays the $60 cash total)."
     }
-   ]
+   ],
+   "promo_stake_usd": 9.12
   },
   {
    "id": "bills_packers_exacta",
