@@ -59,6 +59,7 @@ const SPECIAL_SUBTYPES = [
   ['shortest_field_goal', /\bshortest field goal of the game\b/i],
   ['two_point_conversion', /\bwill there be a successful 2-point conversion\??/i],
   ['total_sacks', /^total sacks$/i],
+  ['team_sacks', /^total sacks\s+\S.*$/i],
 ];
 
 export function clean(value = '') {

@@ -21,6 +21,7 @@ import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getNFLWeekInfo } from '../src/lib/constants.js';
+import { validateWagers } from './lib/validate-wager-legs.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -415,6 +416,12 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
   const rawWagers = await readFile(WAGERS_PATH, 'utf8');
   const allWagers = JSON.parse(rawWagers);
   const wagers = allWagers.filter(w => (w.week === week || !w.week) && w.game !== 'NFL Futures');
+  try {
+    const untrackable = validateWagers(wagers);
+    for (const u of untrackable) {
+      console.warn(`   ⚠️ ${u.id}: ${u.problems.length} leg(s) the tracker cannot grade live (run: node scripts/check-wager-legs.mjs --week ${week} --fix)`);
+    }
+  } catch { /* validation is advisory */ }
   try {
     const paper = JSON.parse(await readFile(PAPER_WAGERS_PATH, 'utf8'));
     for (const w of paper) if (w.week === week) wagers.push({ ...w, is_paper: true });

@@ -36,6 +36,7 @@ import readline from 'node:readline';
 import { fileURLToPath } from 'node:url';
 import { generateLiveTracker } from './generate-live-tracker.mjs';
 import { syncPlacedWagersToBankroll } from './sync-placed-wagers-to-bankroll.mjs';
+import { inferLegFields, validateWager } from './lib/validate-wager-legs.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -158,6 +159,14 @@ export async function addPlacedWagers(newWagersList, { rebuildTracker = true, we
       split_partner: isSplit ? 'Alejandro Castro' : null,
       legs
     };
+
+    // Live Tracker guard: prop legs need a player + specific market or they never grade.
+    wagerRecord.legs.forEach(inferLegFields);
+    const legProblems = validateWager(wagerRecord);
+    if (legProblems.length) {
+      throw new Error(`Wager "${wagerRecord.id}" has legs the Live Tracker cannot grade:\n  - ` + legProblems.join('\n  - ') +
+        '\nAdd player, team and a specific market (anytime_touchdown, sacks, receptions, rec_yds, rush_yds, carries, pass_td, ...) and retry.');
+    }
 
     existingWagers.push(wagerRecord);
     added.push(wagerRecord);
