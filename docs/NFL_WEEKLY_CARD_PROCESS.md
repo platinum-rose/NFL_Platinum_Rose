@@ -136,8 +136,19 @@ Andy's decision after Week 3 (single $25.08 5-team parlay, #739360142): split th
   comparable to a sportsbook price. Mostly season-long futures, but also weekly per-player "Over X.X fantasy
   points" contracts. Check any player already going into a card against their Kalshi fantasy-points contract;
   flag it when Kalshi's net price beats the board.
-- **DraftKings Predictions**: no live feed in this repo. Every DK leg has to come from Andy relaying what the
-  app is currently showing before a card locks — I can't check it proactively the way I can Kalshi.
+- **DraftKings Predictions** (added 2026-10-18): per-event feed capture, `scripts/props/dkp-event-feed-capture.mjs`.
+  It reads the page's own JSON feed (`sportsbook-nash.draftkings.com/sites/PREDICT/api/sportscontent/`) through
+  Andy's dedicated Chrome (CDP port 9224, profile `.chrome-dkp`; start with `props:dkp:launch`), so every ladder
+  rung carries its own American price, not just the main line. Andy runs it in PowerShell (the cloud shell can't
+  reach localhost:9224; both Claude browsers block predictions.draftkings.com):
+  `node .\scripts\props\dkp-event-feed-capture.mjs --game DAL@GB --keep-raw` (one game), `--event <id|url>`, or no
+  args for the whole week's slate. Cadence: after the Tuesday/Wednesday lines post, again before each lock, and
+  right before an island game. Outputs in `data/generated/props/`: `draftkings-predictions-feed-<date>-<away>-at-<home>.json`
+  per game, plus master `draftkings-predictions-feed-<date>-week<N>.json` (passing games only). An acceptance gate
+  (>=100 rows, >=10 anytime-TD rows, game lines present, no null odds, teams match) must pass before anything is
+  written as master; `--keep-raw` stores the raw feed under `raw/`. Shares the lock with `cron-dkp-scrape.mjs`.
+  Decode tests: `tests/unit/dkpEventFeed.test.js` with fixture `tests/fixtures/dkp-feed-dal-gb-2026-10-18.json`.
+  Note DK combos appear capped near +4530; verify in the builder before pricing a Moonshot there.
 
 ## End-of-week close-out — added 2026-09-28 (Claude Team 2)
 
