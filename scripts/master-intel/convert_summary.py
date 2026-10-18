@@ -19,6 +19,481 @@ except ImportError:
     parse_xml = lambda x: None
     nsdecls = lambda x: ''
 
+CITE_CSS = r'''
+.glance-group-label{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:10px 0 4px}.glance-group-label span{font-weight:400}
+
+/* ===== game pop-up: header, bullets, camps, secondary callout ===== */
+.gh { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; margin: 6px 0 12px; }
+.gh-team { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 96px; text-align: center; }
+.gh-team b { font-size: 20px; color: var(--text); letter-spacing: .02em; }
+.gh-team small { color: var(--muted); font-size: 11.5px; }
+.gh-mid { min-width: 0; }
+.gh table.mkt-lines { width: min(520px, 100%); margin: 0 auto; }
+.gs-list { margin: 4px 0 6px; padding-left: 20px; }
+.gs-list li { margin: 4px 0; line-height: 1.5; }
+.sec-callout { margin: 6px 0 14px; padding: 12px 14px; border: 1px solid #f59e0b; border-left-width: 5px; border-radius: 10px; background: rgba(245, 158, 11, 0.09); }
+.sec-title { font-weight: 800; color: var(--text); font-size: 15px; margin-bottom: 8px; }
+.sec-title span { display: block; font-weight: 500; font-size: 12px; color: var(--muted); margin-top: 1px; }
+.sec-row { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; border-top: 1px solid rgba(245, 158, 11, .25); }
+.sec-badge { flex: none; padding: 3px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 800; background: #f59e0b; color: #0f172a; white-space: nowrap; }
+.sec-medium .sec-badge { background: #facc15; }
+.sec-targets { margin-top: 4px; font-size: 12.5px; color: var(--muted); }
+.sec-chip { display: inline-block; margin: 2px 4px 0 4px; padding: 1px 9px; border-radius: 999px; background: var(--card); border: 1px solid var(--border); color: var(--text); font-weight: 700; }
+.sec-note { margin-top: 6px; font-size: 11.5px; color: var(--muted); }
+.gp-list { list-style: none; margin: 4px 0; padding: 0; }
+.gp-list li { margin: 5px 0; padding: 6px 10px; border-radius: 8px; background: var(--raised); line-height: 1.45; font-size: 13px; }
+.gp-list li.gp-ours { border-left: 3px solid var(--accent); }
+.gp-list li.gp-none { color: var(--muted); background: transparent; }
+.gp-src { color: var(--muted); }
+.gp-why { color: var(--body); }
+.sent-head { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; margin: 4px 0 8px; font-size: 13px; color: var(--text); }
+.sent-bar { position: relative; display: block; height: 10px; border-radius: 6px; background: #f59e0b; overflow: hidden; }
+.sent-bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); }
+.sent-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sent-col-t { font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); margin-bottom: 2px; }
+.sent-other { margin-top: 8px; }
+@media (max-width: 640px) {
+  .gh { grid-template-columns: auto auto; grid-template-areas: "a h" "m m"; justify-content: space-between; }
+  .gh > .gh-team:first-child { grid-area: a; } .gh > .gh-team:last-child { grid-area: h; } .gh-mid { grid-area: m; }
+  .gh .tl-xl { width: 56px !important; height: 56px !important; }
+  .sent-cols { grid-template-columns: 1fr; }
+}
+
+.mkt-top { display: flex; justify-content: center; margin: 4px 0 10px; }
+table.mkt-lines { width: min(560px, 100%); margin: 0 auto; border-collapse: collapse; text-align: center; font-size: 13.5px; }
+table.mkt-lines th, table.mkt-lines td { padding: 7px 10px; border-bottom: 1px solid var(--border); text-align: center; }
+table.mkt-lines thead th { color: var(--text); font-weight: 800; }
+table.mkt-lines tbody th { text-align: left; color: var(--muted); font-weight: 700; white-space: nowrap; }
+
+.spl-cell { display: block; padding: 8px 10px; border-radius: 8px; background: var(--card); }
+.spl-cell b { display: block; margin-bottom: 4px; color: var(--text); font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+.spl-row { display: grid; grid-template-columns: 52px 1fr; grid-template-rows: auto auto; column-gap: 8px; row-gap: 2px; padding: 4px 6px; margin: 2px 0; border-radius: 6px; }
+.spl-side { grid-row: 1 / span 2; align-self: center; font-weight: 800; color: var(--text); }
+.spl-big { background: rgba(250, 204, 21, 0.12); box-shadow: inset 3px 0 0 #facc15; }
+.spl-bar { position: relative; display: block; height: 14px; border-radius: 4px; background: var(--border); overflow: hidden; }
+.spl-bar i { position: absolute; left: 0; top: 0; bottom: 0; display: block; border-radius: 4px; }
+.spl-bar em { position: absolute; right: 6px; top: 0; font-style: normal; font-size: 10.5px; line-height: 14px; font-weight: 800; color: var(--text); text-shadow: 0 0 3px rgba(0,0,0,.6); }
+.spl-bets i, .spl-kb { background: #60a5fa; }
+.spl-money i, .spl-km { background: var(--accent); }
+.spl-key { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 8px; font-size: 11.5px; color: var(--muted); }
+.spl-k { display: inline-block; width: 12px; height: 8px; border-radius: 2px; margin-left: 4px; }
+.spl-note { margin-left: 8px; }
+
+/* ===== betting splits strip and movement badges ===== */
+.spl-strip { border: 1px solid var(--border); border-radius: 10px; background: var(--raised); padding: 10px 12px; margin: 4px 0 14px; font-size: 12.5px; }
+.spl-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 6px; }
+.spl-when { color: var(--muted); font-size: 11.5px; }
+.spl-cells { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 8px; }
+.spl-cell { display: block; padding: 6px 8px; border-radius: 8px; background: var(--card); line-height: 1.45; }
+.spl-cell b { display: block; color: var(--text); font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+.spl-mv { margin-top: 6px; color: var(--muted); }
+.mv-badge { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11.5px; font-weight: 800; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: help; white-space: nowrap; }
+.mv-steam { border-color: #f59e0b; color: #f59e0b; }
+.mv-rlm { border-color: #a78bfa; color: #a78bfa; }
+.mv-bigmove { border-color: var(--accent); color: var(--accent); }
+
+/* ===== citation popups + glossary hovers ===== */
+.cite, .gl { position: relative; cursor: help; }
+.gl { border-bottom: 1px dotted var(--accent); text-decoration: none; }
+.cite { border-bottom: 1px dotted var(--accent); font-weight: 700; }
+.cite-pop { display: none; position: absolute; left: 0; top: 100%; z-index: 60; width: min(340px, 86vw); padding: 10px 12px; margin-top: 2px; border: 1px solid var(--border); border-radius: 10px; background: var(--card); color: var(--body); font-size: 12.5px; font-weight: 400; line-height: 1.4; box-shadow: 0 8px 24px rgba(0,0,0,.4); text-align: left; cursor: default; }
+.cite:hover .cite-pop, .cite:focus .cite-pop, .cite:focus-within .cite-pop { display: block; }
+.cite-pop b { color: var(--text); }
+.cite-row { display: block; margin-top: 8px; }
+.cite-row i { display: block; margin: 2px 0; color: var(--muted); }
+.cite-row a, .cite-all { display: inline-block; margin-top: 2px; color: var(--accent); font-weight: 700; }
+.cite-row em { display: block; color: var(--muted); font-size: 11.5px; }
+.cite-all { margin-top: 8px; }
+.gl:hover::after, .gl:focus::after { content: attr(data-tip); position: absolute; left: 0; top: 100%; z-index: 60; width: min(300px, 80vw); padding: 8px 10px; margin-top: 4px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); color: var(--body); font-size: 12.5px; font-weight: 400; line-height: 1.4; box-shadow: 0 8px 24px rgba(0,0,0,.4); white-space: normal; }
+@media print { .cite-pop, .gl::after { display: none !important; } }
+'''
+
+MT_CSS = r'''/* ===== Master Intel tabbed layout (2026-10-17). Active only when body.mt-on is set by initMasterTabs(). ===== */
+html { scroll-behavior: auto !important; }
+:target { animation: none !important; }
+[id] { scroll-margin-top: 76px; }
+.target-pulse { animation: none !important; outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+body.mt-on { padding: 0 0 28px; }
+body.mt-on .container { margin-top: 14px; border: 0; padding: 6px 20px 24px; }
+body.mt-on .container > h1,
+body.mt-on .container > h2,
+body.mt-on .global-rollup-bar,
+body.mt-on .toc-title,
+body.mt-on .toc-grid,
+body.mt-on .part-banner,
+body.mt-on .side-toc,
+body.mt-on .toc-toggle { display: none !important; }
+body.mt-on .container > h3 { font-size: 13px; font-weight: 500; color: var(--muted); margin: 4px 0 10px; }
+.mt-bar { position: sticky; top: 0; z-index: 1000; display: flex; align-items: center; gap: 18px; min-height: 56px; padding: 0 20px; background: var(--card); border-bottom: 1px solid var(--border); }
+.mt-brand { display: flex; align-items: center; gap: 8px; font-weight: 800; color: var(--text); white-space: nowrap; font-size: 15px; }
+.mt-tabs { display: flex; gap: 4px; flex: 1; overflow-x: auto; scrollbar-width: none; }
+.mt-tabs::-webkit-scrollbar { display: none; }
+.mt-tab { min-height: 44px; padding: 0 16px; border: 0; border-radius: 10px; background: transparent; color: var(--body); font: inherit; font-weight: 700; font-size: 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+.mt-tab:hover { background: var(--raised); color: var(--text); }
+.mt-tab[aria-selected="true"] { background: var(--accent); color: var(--on-accent); }
+.mt-ico { font-size: 15px; line-height: 1; }
+.mt-panel { display: none; }
+.mt-panel.active { display: block; }
+.mt-panels { min-height: 70vh; }
+.mt-panel > h2 { margin-top: 26px; }
+.mt-panel > h2:first-child, .mt-panel > a:first-child + h2 { margin-top: 8px; }
+.mt-section { margin-bottom: 18px; }
+.mt-bottom { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 1000; background: var(--card); border-top: 1px solid var(--border); padding-bottom: env(safe-area-inset-bottom); }
+.mt-bt { flex: 1; min-height: 58px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 11px; font-weight: 700; cursor: pointer; }
+.mt-bt .mt-ico { font-size: 21px; }
+.mt-bt.active { color: var(--accent); box-shadow: inset 0 3px 0 var(--accent); }
+.mt-sheet { position: fixed; inset: 0; z-index: 1100; background: rgba(2, 6, 23, 0.6); display: flex; align-items: flex-end; }
+.mt-sheet[hidden] { display: none; }
+.mt-sheet-card { width: 100%; background: var(--card); border-top: 1px solid var(--border); border-radius: 18px 18px 0 0; padding: 14px 14px calc(18px + env(safe-area-inset-bottom)); }
+.mt-sheet-title { font-weight: 800; color: var(--text); margin: 2px 4px 10px; }
+.mt-sheet-btn { width: 100%; min-height: 52px; display: flex; align-items: center; gap: 12px; margin-bottom: 8px; padding: 0 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--raised); color: var(--text); font: inherit; font-weight: 700; font-size: 15px; cursor: pointer; text-align: left; }
+.mt-sheet-btn.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.mt-sheet-close { width: 100%; min-height: 46px; margin-top: 2px; border: 0; background: transparent; color: var(--muted); font: inherit; font-weight: 700; cursor: pointer; }
+/* game grid */
+.gg-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin: 6px 0 12px; }
+.gg-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.gg-chip { min-height: 40px; padding: 0 14px; border: 1px solid var(--border); border-radius: 999px; background: var(--raised); color: var(--body); font: inherit; font-weight: 700; font-size: 13px; cursor: pointer; }
+.gg-chip.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.gg-sort { font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+.gg-sort select { min-height: 40px; padding: 0 8px; border: 1px solid var(--border); border-radius: 8px; background: var(--raised); color: var(--text); font: inherit; }
+.gg-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+.gg-card { display: block; padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--card); color: var(--body); text-decoration: none; }
+.gg-card:hover, .gg-card:focus-visible { border-color: var(--accent); }
+.gg-card[hidden] { display: none; }
+.gg-final { opacity: .7; }
+.gg-top { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); font-weight: 700; }
+.gg-badge-final { color: var(--text); }
+.gg-teams { font-weight: 800; color: var(--text); font-size: 16px; margin: 4px 0 2px; }
+.gg-line { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; }
+.gg-pick { display: flex; align-items: baseline; gap: 8px; padding: 6px 0; border-top: 1px solid var(--border); }
+.gg-lbl { font-size: 11px; text-transform: uppercase; color: var(--muted); font-weight: 700; min-width: 40px; }
+.gg-pick b { color: var(--text); flex: 1; }
+.gg-px { color: var(--muted); font-size: 13px; }
+.gg-conf { font-weight: 800; color: var(--accent); font-size: 14px; }
+.gg-conf small { font-weight: 600; color: var(--muted); margin-left: 3px; font-size: 10px; }
+.gg-risk { font-size: 12px; color: var(--muted); margin-top: 6px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.gg-note { font-size: 12px; color: var(--muted); margin: 10px 0 0; }
+.gg-nav { display: none; align-items: center; gap: 8px; margin: 6px 0 12px; flex-wrap: wrap; }
+.gg-nav button { min-height: 44px; padding: 0 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--raised); color: var(--text); font: inherit; font-weight: 700; cursor: pointer; }
+.gg-nav .gg-spacer { flex: 1; }
+.mt-panel.gg-detail .gg-nav { display: flex; position: sticky; top: 56px; z-index: 50; background: var(--bg, var(--card)); padding: 6px 0; }
+.gg-off { display: none !important; }
+.mt-panel.gg-detail #gg-grid { display: none; }
+@media (max-width: 640px) {
+  .gg-cards { grid-template-columns: 1fr; }
+  body.mt-on { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+  body.mt-on .mt-tabs { display: none; }
+  body.mt-on .mt-bar { min-height: 46px; padding: 0 12px; }
+  body.mt-on .mt-bottom { display: flex; }
+  body.mt-on .container { padding: 4px 10px 20px; }
+  body.mt-on .card-builder-trigger { bottom: calc(76px + env(safe-area-inset-bottom)); right: 12px; }
+  body.mt-on .back-to-top { bottom: calc(132px + env(safe-area-inset-bottom)); }
+}
+@media (prefers-reduced-motion: reduce) { .mt-tab, .mt-bt { transition: none; } }
+@media print {
+  .mt-bar, .mt-bottom, .mt-sheet { display: none !important; }
+  .mt-panel { display: block !important; }
+}
+
+.mt-jump { margin: 4px 0 12px; font-size: 14px; font-weight: 700; }
+.mt-jump a { color: var(--accent); }
+'''
+
+MT_JS = r'''function initMasterTabs() {
+  if (window.__mtInit) return;
+  const c = document.querySelector('.container');
+  if (!c || c.parentNode !== document.body) return;
+  if (document.getElementById('sc-our-five')) return;
+  if (!document.getElementById('section-rec-box') || !document.getElementById('section-1-box') || !document.getElementById('section-6-box') || !document.getElementById('section-9-box')) return;
+  window.__mtInit = true;
+  const TABS = [
+    { id: 'picks', label: 'Picks', icon: '\u{1F3AF}' },
+    { id: 'games', label: 'Games', icon: '\u{1F3C8}' },
+    { id: 'props', label: 'Props', icon: '\u{1F9FE}' },
+    { id: 'experts', label: 'Experts', icon: '\u{1F399}️' },
+    { id: 'specials', label: 'Specials', icon: '\u{1F39F}️' },
+    { id: 'market', label: 'Market', icon: '\u{1F4C8}' },
+    { id: 'about', label: 'About', icon: '\u{1F4DA}' }
+  ];
+  const BOTTOM = ['picks', 'games', 'props', 'experts'];
+  const txt = el => (el.textContent || '').trim();
+  function marker(el) {
+    const id = el.id || '';
+    if (id === 'recommendations') return ['picks', 1];
+    if (id === 'executive-summary') return ['picks', 2];
+    if (el.tagName === 'H2' && /^1\./.test(txt(el))) return ['picks', 3];
+    if (id === 'prop-card') return ['props', 1];
+    if (id === 'teaser-matrix') return ['specials', 1];
+    if (id === 'game-dossier') return ['games', 1];
+    if (id === 'consensus-section') return ['experts', 1];
+    if (el.tagName === 'H2' && /^8\./.test(txt(el))) return ['experts', 2];
+    if (id === 'systems') return ['market', 1];
+    if (id === 'how-card-built') return ['about', 1];
+    return null;
+  }
+  const kids = Array.from(c.children);
+  const groups = {};
+  let cur = null;
+  kids.forEach(k => {
+    const m = marker(k);
+    if (m) { cur = { rank: m[1], nodes: [] }; (groups[m[0]] = groups[m[0]] || []).push(cur); }
+    if (cur) cur.nodes.push(k);
+  });
+  const wrap = document.createElement('div');
+  wrap.className = 'mt-panels';
+  const panels = {};
+  TABS.forEach(t => {
+    const p = document.createElement('section');
+    p.className = 'mt-panel'; p.id = 'mt-panel-' + t.id;
+    p.setAttribute('role', 'tabpanel'); p.setAttribute('aria-labelledby', 'mt-tab-' + t.id);
+    p.setAttribute('inert', '');
+    (groups[t.id] || []).sort((a, b) => a.rank - b.rank).forEach(g => g.nodes.forEach(n => p.appendChild(n)));
+    panels[t.id] = p; wrap.appendChild(p);
+  });
+  c.appendChild(wrap);
+  const slate = document.getElementById('slate-status-box');
+  if (slate) panels.picks.insertBefore(slate, panels.picks.firstChild);
+  // dissolve the outer "Section N" accordions: keep content and the id (old links still land), drop the box
+  wrap.querySelectorAll('details.section-main').forEach(d => {
+    const rc = d.querySelector(':scope > .rollup-content');
+    const w = document.createElement('div');
+    w.className = 'mt-section'; w.id = d.id;
+    d.classList.forEach(cl => { if (cl === 'section-main' || /^secmain-/.test(cl)) w.classList.add(cl); });
+    if (rc) while (rc.firstChild) w.appendChild(rc.firstChild);
+    d.parentNode.replaceChild(w, d);
+  });
+  // "Every expert's picks this week" belongs with the experts, not the picks
+  (function () {
+    const a = document.getElementById('expert-best-bets');
+    if (!a || !a.parentNode) return;
+    const box = document.createElement('div');
+    box.id = 'mt-expert-picks'; box.className = 'mt-section';
+    let n = a;
+    while (n) {
+      const nx = n.nextElementSibling;
+      const ok = n === a || n.tagName === 'H3' || n.tagName === 'P' || (n.tagName === 'DETAILS' && /^bx-/.test(n.id || ''));
+      if (!ok) break;
+      box.appendChild(n); n = nx;
+    }
+    panels.experts.appendChild(box);
+    const jump = document.createElement('p');
+    jump.className = 'mt-jump';
+    jump.innerHTML = '<a href="#expert-best-bets">\u2B50 Every expert\'s picks this week, by name \u2193</a>';
+    panels.experts.insertBefore(jump, panels.experts.firstChild);
+  })();
+  // the market board (line movement, steam/RLM, splits, all-games table) belongs on the Market tab
+  (function () {
+    const box = document.createElement('div');
+    box.id = 'mt-market-board'; box.className = 'mt-section';
+    ['line-moves', 'platinum-rose-board', 'board-defs'].forEach(id => { const e = document.getElementById(id); if (e) box.appendChild(e); });
+    if (box.children.length) panels.market.insertBefore(box, panels.market.firstChild);
+  })();
+  // outer Expand/Collapse Section buttons have nothing left to act on
+  wrap.querySelectorAll(':scope > section > .rollup-controls, .mt-panel > .rollup-controls').forEach(rc => {
+    rc.querySelectorAll('button').forEach(b => { if (/secmain-/.test(b.getAttribute('onclick') || '')) b.remove(); });
+    if (!rc.querySelector('button')) rc.remove();
+  });
+  wrap.querySelectorAll('a[href="#recommendations"]').forEach(a => {
+    if (/Back to/i.test(txt(a))) { a.textContent = '⬆ Back to top'; a.setAttribute('href', '#mt-top'); }
+  });
+  const side = document.getElementById('side-toc'); if (side) side.remove();
+  const tocb = document.querySelector('.toc-toggle'); if (tocb) tocb.remove();
+  document.body.classList.add('mt-on');
+
+  const wk = document.body.getAttribute('data-week') || '';
+  const bar = document.createElement('header');
+  bar.className = 'mt-bar'; bar.id = 'mt-bar';
+  bar.innerHTML = '<div class="mt-brand"><span aria-hidden="true">\u{1F3C8}</span><span>Week ' + wk + ' Master Intel</span></div><div class="mt-tabs" role="tablist" aria-label="Report sections"></div>';
+  const tl = bar.querySelector('.mt-tabs');
+  const tabBtns = {};
+  TABS.forEach(t => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'mt-tab'; b.id = 'mt-tab-' + t.id; b.dataset.tab = t.id;
+    b.setAttribute('role', 'tab'); b.setAttribute('aria-controls', 'mt-panel-' + t.id); b.setAttribute('aria-selected', 'false'); b.tabIndex = -1;
+    b.innerHTML = '<span class="mt-ico" aria-hidden="true">' + t.icon + '</span><span>' + t.label + '</span>';
+    tl.appendChild(b); tabBtns[t.id] = b;
+  });
+  const top = document.createElement('span'); top.id = 'mt-top';
+  document.body.insertBefore(top, document.body.firstChild);
+  document.body.insertBefore(bar, c);
+
+  const bn = document.createElement('nav');
+  bn.className = 'mt-bottom'; bn.setAttribute('aria-label', 'Report sections');
+  const btmBtns = {};
+  BOTTOM.forEach(id => {
+    const t = TABS.find(x => x.id === id);
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'mt-bt'; b.dataset.tab = id;
+    b.innerHTML = '<span class="mt-ico" aria-hidden="true">' + t.icon + '</span><span>' + t.label + '</span>';
+    bn.appendChild(b); btmBtns[id] = b;
+  });
+  const more = document.createElement('button');
+  more.type = 'button'; more.className = 'mt-bt mt-more'; more.setAttribute('aria-haspopup', 'dialog'); more.setAttribute('aria-expanded', 'false');
+  more.innerHTML = '<span class="mt-ico" aria-hidden="true">⋯</span><span>More</span>';
+  bn.appendChild(more);
+  document.body.appendChild(bn);
+  const sheet = document.createElement('div');
+  sheet.className = 'mt-sheet'; sheet.id = 'mt-sheet'; sheet.hidden = true;
+  sheet.setAttribute('role', 'dialog'); sheet.setAttribute('aria-modal', 'true'); sheet.setAttribute('aria-label', 'More sections');
+  let sh = '<div class="mt-sheet-card"><div class="mt-sheet-title">More</div>';
+  TABS.filter(t => BOTTOM.indexOf(t.id) < 0).forEach(t => { sh += '<button type="button" class="mt-sheet-btn" data-tab="' + t.id + '"><span class="mt-ico" aria-hidden="true">' + t.icon + '</span><span>' + t.label + '</span></button>'; });
+  sh += '<button type="button" class="mt-sheet-close">Close</button></div>';
+  sheet.innerHTML = sh;
+  document.body.appendChild(sheet);
+
+  let current = null;
+  const scrollPos = {};
+  const barH = () => bar.offsetHeight || 56;
+  function closeSheet() { sheet.hidden = true; more.setAttribute('aria-expanded', 'false'); }
+  function show(id, o) {
+    o = o || {};
+    if (!panels[id]) id = 'picks';
+    if (current) scrollPos[current] = window.scrollY;
+    const was = current;
+    TABS.forEach(t => {
+      const on = t.id === id, p = panels[t.id];
+      p.classList.toggle('active', on);
+      if (on) p.removeAttribute('inert'); else p.setAttribute('inert', '');
+      tabBtns[t.id].setAttribute('aria-selected', on ? 'true' : 'false');
+      tabBtns[t.id].tabIndex = on ? 0 : -1;
+      if (btmBtns[t.id]) btmBtns[t.id].classList.toggle('active', on);
+    });
+    more.classList.toggle('active', BOTTOM.indexOf(id) < 0);
+    sheet.querySelectorAll('.mt-sheet-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === id));
+    current = id;
+    closeSheet();
+    try { sessionStorage.setItem('mt-tab', id); } catch (e) {}
+    const b = tabBtns[id];
+    if (b && tl.scrollWidth > tl.clientWidth) tl.scrollLeft = b.offsetLeft - (tl.clientWidth - b.offsetWidth) / 2;
+    if (o.scroll !== false) {
+      const y = o.top != null ? o.top : (was === id ? 0 : (scrollPos[id] || 0));
+      window.scrollTo(0, y);
+    }
+    if (o.push !== false) {
+      const h = '#tab-' + id;
+      if (location.hash !== h) { try { history.pushState(null, '', h); } catch (e) {} }
+    }
+  }
+  function reveal(hash) {
+    const raw = (hash || '').replace(/^#/, '');
+    if (!raw) return false;
+    if (raw === 'mt-top') { window.scrollTo(0, 0); return true; }
+    const mt = raw.match(/^tab-([a-z]+)$/);
+    if (mt) { show(mt[1], { push: false }); if (mt[1] === 'games' && typeof closeGame === 'function') closeGame(false); return true; }
+    const el = document.getElementById(raw);
+    if (!el) return false;
+    const p = el.closest('.mt-panel');
+    if (!p) return false;
+    show(p.id.replace('mt-panel-', ''), { push: false, scroll: false });
+    const gb = el.closest('[id^="game-"][id$="-box"]') || (/^game-.*-box$/.test(raw) ? el : null);
+    if (gb && p.id === 'mt-panel-games') { openGame(gb, false); window.scrollTo(0, 0); return true; }
+    else if (p.id === 'mt-panel-games' && !el.closest('[id^="game-"]')) { closeGame(false); }
+    let n = el;
+    while (n && n !== document.body) { if (n.tagName === 'DETAILS') n.open = true; n = n.parentElement; }
+    requestAnimationFrame(() => {
+      const y = el.getBoundingClientRect().top + window.scrollY - barH() - 8;
+      window.scrollTo(0, Math.max(0, y));
+    });
+    el.classList.remove('target-pulse'); void el.offsetWidth; el.classList.add('target-pulse');
+    setTimeout(() => el.classList.remove('target-pulse'), 1800);
+    return true;
+  }
+  // ---- Games tab: grid of cards <-> one game at a time ----
+  const gp = panels.games;
+  const gboxes = Array.from(gp.querySelectorAll('[id^="game-"][id$="-box"]')).filter(x => x.closest('.mt-panel') === gp);
+  const nav = document.createElement('div');
+  nav.className = 'gg-nav';
+  nav.innerHTML = '<button type="button" data-g="back">\u2190 All games</button><span class="gg-spacer"></span><button type="button" data-g="prev">\u2039 Prev</button><button type="button" data-g="next">Next \u203A</button>';
+  const grid = document.getElementById('gg-grid');
+  let openBox = null;
+  function gcards() { return Array.from(document.querySelectorAll('#gg-grid .gg-card')); }
+  function applyGrid() {
+    const f = (document.querySelector('.gg-chip.active') || {}).dataset; const day = f ? f.f : 'all';
+    const sel = document.getElementById('gg-sort'); const mode = sel ? sel.value : 'kick';
+    const cs = gcards();
+    cs.forEach(c => { c.hidden = !(day === 'all' || c.dataset.day === day); });
+    const parent = cs[0] && cs[0].parentNode;
+    if (parent) cs.slice().sort((a, b) => {
+      const fa = a.classList.contains('gg-final') ? 1 : 0, fb = b.classList.contains('gg-final') ? 1 : 0;
+      if (fa !== fb) return fa - fb;
+      return mode === 'conf' ? (parseFloat(b.dataset.conf) - parseFloat(a.dataset.conf)) || (a.dataset.kick - b.dataset.kick) : a.dataset.kick - b.dataset.kick;
+    }).forEach(c => parent.appendChild(c));
+  }
+  function openGame(box, push) {
+    if (!box) return;
+    gboxes.forEach(b => { b.hidden = b !== box; });
+    box.hidden = false;
+    if (box.tagName === 'DETAILS') box.open = true;
+    openBox = box;
+    gp.classList.add('gg-detail');
+    gp.querySelectorAll('.gg-off').forEach(x => x.classList.remove('gg-off'));
+    for (let n = box; n && n !== gp; n = n.parentNode) Array.from(n.parentNode.children).forEach(s => { if (s !== n && s !== nav) s.classList.add('gg-off'); });
+    const gids = gboxes.map(b => b.id);
+    const i = gids.indexOf(box.id);
+    nav.querySelector('[data-g=prev]').disabled = i <= 0;
+    nav.querySelector('[data-g=next]').disabled = i >= gids.length - 1;
+    if (push !== false) { try { history.pushState(null, '', '#' + box.id); } catch (e) {} window.scrollTo(0, 0); }
+  }
+  function closeGame(push) {
+    gp.classList.remove('gg-detail'); openBox = null;
+    gp.querySelectorAll('.gg-off').forEach(x => x.classList.remove('gg-off'));
+    gboxes.forEach(b => { b.hidden = true; });
+    if (push !== false) { try { history.pushState(null, '', '#tab-games'); } catch (e) {} window.scrollTo(0, 0); }
+  }
+  if (grid && gboxes.length) {
+    const h6 = Array.from(gp.querySelectorAll('h2')).find(h => /^6\./.test((h.textContent || '').trim()));
+    if (h6 && h6.parentNode) h6.parentNode.insertBefore(grid, h6.nextSibling);
+    gp.insertBefore(nav, gp.firstChild);
+    gboxes.forEach(b => { b.hidden = true; });
+    const gh = gp.querySelector(':scope > .rollup-controls'); if (gh) gh.style.display = 'none';
+    grid.addEventListener('click', e => {
+      const ch = e.target.closest('.gg-chip');
+      if (ch) { grid.querySelectorAll('.gg-chip').forEach(x => x.classList.toggle('active', x === ch)); applyGrid(); return; }
+      const c = e.target.closest('.gg-card');
+      if (c) { e.preventDefault(); const bx = document.getElementById(c.getAttribute('href').slice(1)); if (bx) openGame(bx); }
+    });
+    grid.addEventListener('change', e => { if (e.target.id === 'gg-sort') applyGrid(); });
+    nav.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      if (b.dataset.g === 'back') { closeGame(); return; }
+      const i = gboxes.indexOf(openBox) + (b.dataset.g === 'next' ? 1 : -1);
+      if (gboxes[i]) openGame(gboxes[i]);
+    });
+    applyGrid();
+  }
+  const _show = show;
+  window.__mtOnHash = reveal;
+  window.mtShow = show;
+  tl.addEventListener('click', e => { const b = e.target.closest('.mt-tab'); if (b) show(b.dataset.tab, { top: b.dataset.tab === current ? 0 : undefined }); });
+  tl.addEventListener('keydown', e => {
+    const ids = TABS.map(t => t.id); let i = ids.indexOf(current);
+    if (e.key === 'ArrowRight') i = (i + 1) % ids.length;
+    else if (e.key === 'ArrowLeft') i = (i - 1 + ids.length) % ids.length;
+    else if (e.key === 'Home') i = 0;
+    else if (e.key === 'End') i = ids.length - 1;
+    else return;
+    e.preventDefault(); show(ids[i], { scroll: false }); tabBtns[ids[i]].focus();
+  });
+  bn.addEventListener('click', e => {
+    const b = e.target.closest('.mt-bt'); if (!b) return;
+    if (b === more) { sheet.hidden = false; more.setAttribute('aria-expanded', 'true'); const f = sheet.querySelector('.mt-sheet-btn'); if (f) f.focus(); return; }
+    show(b.dataset.tab, { top: b.dataset.tab === current ? 0 : undefined });
+  });
+  sheet.addEventListener('click', e => {
+    if (e.target === sheet || e.target.closest('.mt-sheet-close')) { closeSheet(); more.focus(); return; }
+    const b = e.target.closest('.mt-sheet-btn'); if (b) show(b.dataset.tab, { top: 0 });
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !sheet.hidden) { closeSheet(); more.focus(); } });
+  window.addEventListener('popstate', () => { if (!location.hash) show('picks', { push: false }); else reveal(location.hash); });
+  let start = 'picks';
+  try { start = sessionStorage.getItem('mt-tab') || 'picks'; } catch (e) {}
+  if (!(location.hash && reveal(location.hash))) {
+    show(start, { push: false, scroll: false });
+    try { history.replaceState(null, '', '#tab-' + current); } catch (e) {}
+  }
+}
+'''
+
 def set_cell_background(cell, fill_hex):
     tcPr = cell._tc.get_or_add_tcPr()
     shd = parse_xml(f'<w:shd {nsdecls("w")} w:fill="{fill_hex}"/>')
@@ -726,6 +1201,7 @@ def generate_html(md_path, html_path):
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{doc_title}</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏈</text></svg>">
 <style>
@@ -756,10 +1232,9 @@ def generate_html(md_path, html_path):
     --tap: 40px;               /* min height for buttons / pills */
   }}
   html {{
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }}
   :target {{
-    animation: target-pulse 2.5s ease-out;
     scroll-margin-top: 24px;
   }}
   @keyframes target-pulse {{
@@ -1615,7 +2090,11 @@ def generate_html(md_path, html_path):
   }}
   .bm-btn:focus-visible {{ outline: 2px solid var(--accent); outline-offset: 2px; }}
   .bm-btn .bm-icon {{ font-size: 13px; line-height: 1; }}
-  .bm-btn .bm-text {{ font-size: 11px; font-weight: 800; line-height: 1; }}
+  .bm-btn .bm-text {{ display: none; }}
+  .bm-btn {{ min-height: 24px; width: 26px; padding: 0; margin-right: 6px; border-width: 1px; border-radius: 6px; }}
+  .bm-btn:hover {{ transform: none; }}
+  .bm-btn .bm-icon {{ font-size: 14px; }}
+  .at-glance-item .pill-bm-btn, .leg-bm-btn {{ width: 24px; min-height: 24px; padding: 0; }}
   .at-glance-item {{ display: inline-flex; align-items: center; gap: 4px; background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 2px 6px 2px 2px; }}
   .at-glance-item .at-glance-pill {{ border: none; background: transparent; padding: 4px 6px 4px 8px; }}
   .at-glance-item .pill-bm-btn {{ padding: 3px 8px; min-height: 22px; font-size: 10.5px; }}
@@ -1844,6 +2323,9 @@ def generate_html(md_path, html_path):
     overflow-y: auto;
   }}
 
+  {MT_CSS}
+  {CITE_CSS}
+
   /* F-mi-dark: phone width */
   @media (max-width: 640px) {{
     body {{ padding: 16px 12px; }}
@@ -1890,6 +2372,33 @@ function toggleRollups(groupClass, expand) {{
   }});
 }}
 
+function filterExperts(q) {{
+  q = (q || '').trim().toLowerCase();
+  let shownExperts = 0;
+  document.querySelectorAll('details.show-grp').forEach(g => {{
+    const sum = g.querySelector(':scope > summary');
+    const showName = ((sum ? sum.textContent : '').split(' \u2014 ')[0] || '').toLowerCase();
+    const showHit = !q || showName.includes(q);
+    let any = false;
+    g.querySelectorAll('details.section-4').forEach(e => {{
+      const es = e.querySelector(':scope > summary');
+      const hit = showHit || (es && es.textContent.toLowerCase().includes(q));
+      e.style.display = hit ? '' : 'none';
+      if (hit) {{ any = true; shownExperts++; }}
+    }});
+    const tbl = g.querySelector(':scope > .rollup-content > table');
+    if (tbl) tbl.querySelectorAll('tbody tr').forEach(r => {{
+      const c = r.cells && r.cells[0] ? r.cells[0].textContent.toLowerCase() : '';
+      r.style.display = (showHit || c.includes(q)) ? '' : 'none';
+    }});
+    g.style.display = (any || showHit) ? '' : 'none';
+    if (q) {{ if (g.dataset.prevOpen === undefined) g.dataset.prevOpen = g.open ? '1' : '0'; if (any || showHit) g.open = true; }}
+    else if (g.dataset.prevOpen !== undefined) {{ g.open = g.dataset.prevOpen === '1'; delete g.dataset.prevOpen; }}
+  }});
+  const n = document.getElementById('expert-search-count');
+  if (n) n.textContent = q ? (shownExperts + ' expert' + (shownExperts === 1 ? '' : 's') + ' found') : '';
+}}
+
 function toggleAllMainSections(expand) {{
   document.querySelectorAll('details.section-main').forEach(d => {{
     d.open = expand;
@@ -1904,6 +2413,7 @@ function toggleAllRollups(expand) {{
 
 function openTargetDetails(hash) {{
   if (!hash || hash === '#') return;
+  if (window.__mtOnHash && window.__mtOnHash(hash)) return;
   const targetId = hash.replace('#', '');
   const targetEl = document.getElementById(targetId);
   if (targetEl && window.showTab) {{
@@ -1927,7 +2437,7 @@ function openTargetDetails(hash) {{
     targetEl.classList.add('target-pulse');
     setTimeout(() => {{
       const topOffset = targetEl.getBoundingClientRect().top + window.pageYOffset - 90;
-      window.scrollTo({{ top: Math.max(0, topOffset), behavior: 'smooth' }});
+      window.scrollTo({{ top: Math.max(0, topOffset), behavior: 'auto' }});
     }}, 60);
   }}
 }}
@@ -2220,7 +2730,8 @@ function initTableFilters() {{
         let shown = 0;
         t.querySelectorAll('tbody tr').forEach(tr => {{
           const cell = idx >= 0 ? tr.children[idx] : null;
-          const v = cell ? cell.textContent.trim().toLowerCase() : '';
+          let v = '';
+          if (cell) {{ const cc = cell.cloneNode(true); cc.querySelectorAll('button, .bm-btn').forEach(e => e.remove()); v = cc.textContent.trim().toLowerCase(); }}
           const ok = want === 'all' || idx < 0 || v === want;
           tr.style.display = ok ? '' : 'none';
           if (ok) shown++;
@@ -2228,6 +2739,19 @@ function initTableFilters() {{
         const grp = t.closest('.pool-group, .filter-group');
         if (grp) {{ grp.style.display = shown ? '' : 'none'; if (grp.tagName === 'DETAILS' && want !== 'all' && shown) grp.open = true; }}
       }});
+      if (bar.dataset.scope) {{
+        const sc2 = document.getElementById(bar.dataset.scope);
+        if (sc2) sc2.querySelectorAll('.prop-cat-box').forEach(cb => {{
+          const any = Array.from(cb.querySelectorAll('.filter-group')).some(g => g.style.display !== 'none');
+          cb.style.display = any ? '' : 'none';
+          const sm = cb.querySelector(':scope > summary');
+          if (sm) {{
+            if (!sm.dataset.orig) sm.dataset.orig = sm.textContent;
+            const n = Array.from(cb.querySelectorAll('tbody tr')).filter(r => r.style.display !== 'none').length;
+            sm.textContent = want === 'all' ? sm.dataset.orig : sm.dataset.orig.replace(/ — .*$/, '') + ' — ' + n + ' shown';
+          }}
+        }});
+      }}
     }}));
   }});
 }}
@@ -2379,8 +2903,10 @@ function initScTabs() {{
   if (window.innerWidth < 1200) {{ pk.classList.add('collapsed'); document.body.classList.add('pk-collapsed'); }}
 }}
 
+{MT_JS}
 window.addEventListener('DOMContentLoaded', () => {{
   initScTabs();
+  initMasterTabs();
   if (location.hash) {{
     openTargetDetails(location.hash);
   }}
@@ -2394,6 +2920,7 @@ window.addEventListener('DOMContentLoaded', () => {{
 }});
 if (document.readyState !== 'loading') {{
   initScTabs();
+  initMasterTabs();
   initSortableTables();
   initTableFilters();
   initGroupSort();
@@ -2629,6 +3156,7 @@ function initBookmarks() {{
           closeDrawer();
           const target = document.getElementById(b.id);
           if (target) {{
+            if (window.__mtOnHash && window.__mtOnHash('#' + b.id)) {{ target.classList.add('bm-flash'); return; }}
             let q = target;
             while (q) {{ if (q.tagName === 'DETAILS') q.open = true; q = q.parentElement; }}
             target.scrollIntoView({{ block: 'center', behavior: 'smooth' }});
@@ -2662,12 +3190,20 @@ function initBookmarks() {{
   const rows = document.querySelectorAll('.container table tbody tr, .container .bm-item, .container details.leg, .container details.section-tickets');
   rows.forEach(el => {{
     if (el.closest('.no-bm') || el.closest('#bm-list') || el.querySelector('.bm-btn') || el.dataset.bmReady) return;
+    // only real picks get a star: table rows must sit in a table whose header names a Pick / Prop / Leg column
+    // (not trends, news, market boards or the expert registry, whose rows are context, not bets)
+    if (el.matches('tr')) {{
+      const tb = el.closest('table');
+      const heads = tb ? Array.from(tb.querySelectorAll('thead th')).map(th => {{ const c = th.cloneNode(true); c.querySelectorAll('.tip-text,.sort-icon,.bm-btn').forEach(e => e.remove()); return (c.textContent || '').trim().toLowerCase(); }}) : [];
+      const okTable = heads.some(h => /^(pick|prop|leg)(\b|$)/.test(h)) && !heads.includes('trend') && !heads.includes('rationale');
+      if (!okTable || el.closest('#mt-panel-experts, #mt-panel-market, #mt-panel-about, .game-narrative, [id$="-trends"], [id$="-news"]')) return;
+    }}
     el.dataset.bmReady = '1';
     const text = cleanTxt(el.textContent);
     if (!text || text.length < 3) return;
     const host = el.matches('tr') ? el.querySelector('td') : (el.querySelector('.bm-host') || el.querySelector('summary') || el);
     if (!host) return;
-    if (!el.id) el.id = 'bm-' + hashStr(text.slice(0, 160));
+    if (!el.id) {{ let hid = 'bm-' + hashStr(text.slice(0, 160)), k = 1; while (document.getElementById(hid)) hid = 'bm-' + hashStr(text.slice(0, 160)) + '-' + (k++); el.id = hid; }}
     
     const b = document.createElement('button');
     b.type = 'button';
