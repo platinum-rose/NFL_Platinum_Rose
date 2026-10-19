@@ -19700,9 +19700,9 @@
     "odds_decimal": 1.909,
     "potential_profit_usd": 9.09,
     "potential_payout_usd": 9.09,
-    "status": "PENDING",
-    "result": null,
-    "progress_notes": "Andy 2026-10-15: free $10 credit from the Week 3 Bills win (BUF 24-16 LAC). Tracked as a free bet: NOT bankroll risk, excluded from cash staked/ROI. Plan: if it wins, the $9.09 goes to the futures portfolio. Stake not returned on a win. Game BUF @ LV Sun 10/18/2026 4:25 PM ET per ticket.",
+    "status": "SETTLED",
+    "result": "win",
+    "progress_notes": "Andy 2026-10-15: free $10 credit from the Week 3 Bills win (BUF 24-16 LAC). Tracked as a free bet: NOT bankroll risk, excluded from cash staked/ROI. Plan: if it wins, the $9.09 goes to the futures portfolio. Stake not returned on a win. Game BUF @ LV Sun 10/18/2026 4:25 PM ET per ticket. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): BUF 33 LV 30, LV +4.5 covers (free bet; no cash risk).",
     "legs": [
       {
         "leg_num": 1,
@@ -19714,11 +19714,15 @@
         "line": 4.5,
         "price": "-110",
         "game_start": "10/18/2026 @ 04:25 PM",
-        "status": "PENDING",
-        "key": "leg_1005591415_1_lv_spread"
+        "status": "WON",
+        "key": "leg_1005591415_1_lv_spread",
+        "actual_stat": -3
       }
     ],
-    "promotion": "BetOnline Super Bowl Futures Special: $10 free bet per Bills regular-season win (Week 3 credit)"
+    "promotion": "BetOnline Super Bowl Futures Special: $10 free bet per Bills regular-season win (Week 3 credit)",
+    "settled_payout_usd": 9.09,
+    "profit_usd": 9.09,
+    "graded_at": "2026-10-19T03:59:00Z"
   },
   {
     "id": "bet_20261015_betonline_1005682691_sea_den_sgp8",
@@ -20381,7 +20385,7 @@
     "potential_profit_usd": 70.5,
     "potential_payout_usd": 100.5,
     "external_url": "https://be.bookmaker.eu/#ticket_740279274",
-    "progress_notes": "Andy 2026-10-15 ~16:50 PT, Bookmaker ticket 740279274 placed 10/15/2026 4:48 PM: Risk $30.00, Win $70.50. Ticket header: 4 TEAM TEASER 6, 6.5, 7 PTS FOOTBALL (B+6 on all four legs). Odds derived from risk/win. Spreads shown are post-teaser.",
+    "progress_notes": "Andy 2026-10-15 ~16:50 PT, Bookmaker ticket 740279274 placed 10/15/2026 4:48 PM: Risk $30.00, Win $70.50. Ticket header: 4 TEAM TEASER 6, 6.5, 7 PTS FOOTBALL (B+6 on all four legs). Odds derived from risk/win. Spreads shown are post-teaser. | 2026-10-18 Claude: only SF -1.5 (teased, WAS @ SF MNF) remains.",
     "legs": [
       {
         "leg_num": 1,
@@ -20409,10 +20413,11 @@
         "line": 8.5,
         "price": "-109",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740279274_2_tb_teaser",
         "teaser": true,
-        "teaser_points": 6
+        "teaser_points": 6,
+        "actual_stat": -7
       },
       {
         "leg_num": 3,
@@ -20424,10 +20429,11 @@
         "line": -2,
         "price": "-107",
         "game_start": "10/18/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740279274_3_kc_teaser",
         "teaser": true,
-        "teaser_points": 6
+        "teaser_points": 6,
+        "actual_stat": 16
       },
       {
         "leg_num": 4,
@@ -20926,8 +20932,8 @@
     "category": "Game Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "win",
     "is_split": false,
     "split_partner": null,
     "cash_risk_usd": 15,
@@ -20938,7 +20944,7 @@
     "potential_profit_usd": 1248.23,
     "potential_payout_usd": 1263.23,
     "external_url": "https://be.bookmaker.eu/#ticket_740291356",
-    "progress_notes": "Andy 2026-10-15 22:26 PT: rebuilt Sunday-only replacement for lost ticket 740212915 (SEA ML leg). Risk $15.00, Win $1,248.23 (leg prices multiply to the same payout). Changes vs original: CAR ML in, GB ML replaces GB -1, HOU-JAX o40.5 replaces HOU +3.5, CHI-ATL o49.5 (was o48), CLE +5.5 (was +6). All nine legs pending.",
+    "progress_notes": "Andy 2026-10-15 22:26 PT: rebuilt Sunday-only replacement for lost ticket 740212915 (SEA ML leg). Risk $15.00, Win $1,248.23 (leg prices multiply to the same payout). Changes vs original: CAR ML in, GB ML replaces GB -1, HOU-JAX o40.5 replaces HOU +3.5, CHI-ATL o49.5 (was o48), CLE +5.5 (was +6). All nine legs pending. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): all legs won; DAL 13 @ GB 23 final (GB by 10, total 36).",
     "legs": [
       {
         "leg_num": 1,
@@ -20950,7 +20956,7 @@
         "line": null,
         "price": "-188",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740291356_1_car_ml"
       },
       {
@@ -20963,7 +20969,7 @@
         "line": null,
         "price": "-228",
         "game_start": "10/18/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740291356_2_buf_ml"
       },
       {
@@ -20976,8 +20982,9 @@
         "line": null,
         "price": "-118",
         "game_start": "10/18/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_740291356_3_gb_ml"
+        "status": "WON",
+        "key": "leg_740291356_3_gb_ml",
+        "actual_stat": 10
       },
       {
         "leg_num": 4,
@@ -20989,7 +20996,7 @@
         "line": 5.5,
         "price": "-135",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740291356_4_cle_spread"
       },
       {
@@ -21002,7 +21009,7 @@
         "line": null,
         "price": "-344",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740291356_5_ne_ml"
       },
       {
@@ -21013,7 +21020,7 @@
         "line": 49.5,
         "price": "-144",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740291356_6_chi_atl_over"
       },
       {
@@ -21026,7 +21033,7 @@
         "line": 14,
         "price": "-129",
         "game_start": "10/18/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740291356_7_ari_spread"
       },
       {
@@ -21037,7 +21044,7 @@
         "line": 40.5,
         "price": "-137",
         "game_start": "10/18/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740291356_8_hou_jax_over"
       },
       {
@@ -21048,10 +21055,13 @@
         "line": 37.5,
         "price": "-130",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740291356_9_pit_tb_over"
       }
-    ]
+    ],
+    "settled_payout_usd": 1263.23,
+    "profit_usd": 1248.23,
+    "graded_at": "2026-10-19T03:59:00Z"
   },
   {
     "id": "bet_20261017_bkr_740416960_5team_parlay",
@@ -21080,7 +21090,7 @@
     "potential_profit_usd": 543.13,
     "potential_payout_usd": 568.13,
     "external_url": "https://be.bookmaker.eu/#ticket_740416960",
-    "progress_notes": "Andy 2026-10-17 23:31 PT: official SuperContest-mirror ticket. GB -1, SF -7, KC -7 placed; 2 OPEN SPOTS intentionally left for CLE +5.5 and CAR +1.5, which Andy plans to fill as live bets for better numbers than the book offers pre-game (contest lines CLE +5.5 / CAR +1.5 vs book CLE +3 / CAR -3). Not a complete 5-team ticket until filled; risk/win shown are as placed.",
+    "progress_notes": "Andy 2026-10-17 23:31 PT: official SuperContest-mirror ticket. GB -1, SF -7, KC -7 placed; 2 OPEN SPOTS intentionally left for CLE +5.5 and CAR +1.5, which Andy plans to fill as live bets for better numbers than the book offers pre-game (contest lines CLE +5.5 / CAR +1.5 vs book CLE +3 / CAR -3). Not a complete 5-team ticket until filled; risk/win shown are as placed. | 2026-10-18 Claude: GB -1 and KC -7 won; SF -7 (WAS @ SF MNF) remains. | 2026-10-18 21:21 PT Andy: open CLE +5.5 / CAR +1.5 slots cannot be filled this week (both games final); ticket PARKED as a reference for future SuperContest-mirror weeks (see data/official-picks/proposals/parked/supercontest-w6-partial-parlay-740416960.json). Ticket left as placed: 3 legs, SF -7 (WAS @ SF MNF) still pending.",
     "legs": [
       {
         "leg_num": 1,
@@ -21092,8 +21102,9 @@
         "line": -1,
         "price": "-109",
         "game_start": "10/18/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_740416960_gb_1"
+        "status": "WON",
+        "key": "leg_740416960_gb_1",
+        "actual_stat": 10
       },
       {
         "leg_num": 2,
@@ -21118,8 +21129,9 @@
         "line": -7,
         "price": "-126",
         "game_start": "10/18/2026 @ 01:25 PM",
-        "status": "PENDING",
-        "key": "leg_740416960_kc_3"
+        "status": "WON",
+        "key": "leg_740416960_kc_3",
+        "actual_stat": 16
       }
     ]
   },
@@ -21336,8 +21348,8 @@
     "category": "Game Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "cash_risk_usd": 24.69,
@@ -21348,7 +21360,7 @@
     "potential_profit_usd": 914.02,
     "potential_payout_usd": 938.71,
     "external_url": "https://be.bookmaker.eu/#ticket_740418415",
-    "progress_notes": "Andy 2026-10-18 00:45 PT. Flex SGP: LV +5 and Over 52 (SGP, +243) counts as one team; CLE +3.5 -129; CHI ML -113; KC -7 -125; DAL/GB Over 52.5 -119. Andy skipping other game parlays this week; focus on player prop parlays.",
+    "progress_notes": "Andy 2026-10-18 00:45 PT. Flex SGP: LV +5 and Over 52 (SGP, +243) counts as one team; CLE +3.5 -129; CHI ML -113; KC -7 -125; DAL/GB Over 52.5 -119. Andy skipping other game parlays this week; focus on player prop parlays. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): DAL/GB Over 52.5 lost (total 36); other 5 legs won.",
     "legs": [
       {
         "leg_num": 1,
@@ -21360,7 +21372,7 @@
         "line": 5,
         "price": "+243",
         "game_start": "10/18/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740418415_1"
       },
       {
@@ -21373,7 +21385,7 @@
         "line": 52,
         "price": "+243",
         "game_start": "10/18/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740418415_2"
       },
       {
@@ -21386,7 +21398,7 @@
         "line": 3.5,
         "price": "-129",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740418415_3"
       },
       {
@@ -21399,7 +21411,7 @@
         "line": null,
         "price": "-113",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740418415_4"
       },
       {
@@ -21412,7 +21424,7 @@
         "line": -7,
         "price": "-125",
         "game_start": "10/18/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740418415_5"
       },
       {
@@ -21425,10 +21437,14 @@
         "line": 52.5,
         "price": "-119",
         "game_start": "10/18/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_740418415_6"
+        "status": "LOST",
+        "key": "leg_740418415_6",
+        "actual_stat": 36
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -24.69,
+    "graded_at": "2026-10-19T03:59:00Z"
   },
   {
     "id": "bet_20261018_bkr_740418657_3leg_first_td",
@@ -21445,8 +21461,8 @@
     "category": "Player Prop Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "cash_risk_usd": 5,
@@ -21457,7 +21473,7 @@
     "potential_profit_usd": 718.9,
     "potential_payout_usd": 723.9,
     "external_url": "https://be.bookmaker.eu/#ticket_740418657",
-    "progress_notes": "Andy 2026-10-18 01:02 PT. Prop stack 8a (First TD). Bookmaker prices +338/+450/+501 (lower than the Sat 12:40 PM capture +428/+515/+562). A BetOnline version at +13118 was shown but not confirmed placed.",
+    "progress_notes": "Andy 2026-10-18 01:02 PT. Prop stack 8a (First TD). Bookmaker prices +338/+450/+501 (lower than the Sat 12:40 PM capture +428/+515/+562). A BetOnline version at +13118 was shown but not confirmed placed. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): ticket dead per 2026-10-18 audit of final box scores; remaining legs left ungraded.",
     "legs": [
       {
         "leg_num": 1,
@@ -21501,7 +21517,10 @@
         "key": "leg_740418657_3",
         "player": "Javonte Williams"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -5.0,
+    "graded_at": "2026-10-19T03:59:00Z"
   },
   {
     "id": "bet_20261018_bkr_740419086_8team_prop_stack_7d",
@@ -21808,8 +21827,8 @@
     "category": "Game Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "cash_risk_usd": 25,
@@ -21820,7 +21839,7 @@
     "potential_profit_usd": 371.0,
     "potential_payout_usd": 396.0,
     "external_url": "https://be.bookmaker.eu/#ticket_740440846",
-    "progress_notes": "Andy 2026-10-18 09:30 PT, Bookmaker ticket 740440846: Risk $25.00, Win $371.00. Rebuild of slot-3 BEO ticket after Collins 6+ rec died (HOU@JAX); KC -7 / Kelce considered, Walker III ATD chosen. GB ML is the final-resolving cap (hedge DAL ML if first four hit). Shares Kyren and Walker ATD exposure with the BEO 8-leg TD stack.",
+    "progress_notes": "Andy 2026-10-18 09:30 PT, Bookmaker ticket 740440846: Risk $25.00, Win $371.00. Rebuild of slot-3 BEO ticket after Collins 6+ rec died (HOU@JAX); KC -7 / Kelce considered, Walker III ATD chosen. GB ML is the final-resolving cap (hedge DAL ML if first four hit). Shares Kyren and Walker ATD exposure with the BEO 8-leg TD stack. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): TEN/IND Under 45 lost (TEN 26 IND 20 = 46).",
     "legs": [
       {
         "leg_num": 1,
@@ -21846,8 +21865,9 @@
         "line": null,
         "price": "-109",
         "game_start": "10/18/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_740440846_gb_2"
+        "status": "WON",
+        "key": "leg_740440846_gb_2",
+        "actual_stat": 10
       },
       {
         "leg_num": 3,
@@ -21859,8 +21879,9 @@
         "line": 45,
         "price": "-127",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740440846_tenind_3"
+        "status": "LOST",
+        "key": "leg_740440846_tenind_3",
+        "actual_stat": 46
       },
       {
         "leg_num": 4,
@@ -21872,8 +21893,9 @@
         "line": 7.5,
         "price": "-123",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740440846_nyj_4"
+        "status": "WON",
+        "key": "leg_740440846_nyj_4",
+        "actual_stat": -7
       },
       {
         "leg_num": 5,
@@ -21889,7 +21911,10 @@
         "key": "leg_740440846_walker_5",
         "player": "Kenneth Walker III"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -25.0,
+    "graded_at": "2026-10-19T03:59:00Z"
   },
   {
     "id": "bet_20261018_bkr_740441886_5team_ticketA_rebuild",
@@ -21906,8 +21931,8 @@
     "category": "Game Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "win",
     "is_split": false,
     "split_partner": null,
     "cash_risk_usd": 25,
@@ -21918,7 +21943,7 @@
     "potential_profit_usd": 384.07,
     "potential_payout_usd": 409.07,
     "external_url": "https://be.bookmaker.eu/#ticket_740441886",
-    "progress_notes": "Andy 2026-10-18 09:37 PT, Bookmaker ticket 740441886: Risk $25.00, Win $384.07. Replaces dead ticket 740404798 (HOU-JAX U44 leg lost) with KC -7 as the swap-in leg; Williams confirmed IN before placing. GB ML is the final-resolving cap (also on 740291356 and 740440846); KC -7 push at exactly 7 removes the leg.",
+    "progress_notes": "Andy 2026-10-18 09:37 PT, Bookmaker ticket 740441886: Risk $25.00, Win $384.07. Replaces dead ticket 740404798 (HOU-JAX U44 leg lost) with KC -7 as the swap-in leg; Williams confirmed IN before placing. GB ML is the final-resolving cap (also on 740291356 and 740440846); KC -7 push at exactly 7 removes the leg. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): all legs won; DAL 13 @ GB 23 final (GB by 10, total 36).",
     "legs": [
       {
         "leg_num": 1,
@@ -21930,7 +21955,7 @@
         "line": -1,
         "price": "-102",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740441886_chi_1"
       },
       {
@@ -21943,7 +21968,7 @@
         "line": null,
         "price": "-158",
         "game_start": "10/18/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740441886_car_2"
       },
       {
@@ -21956,7 +21981,7 @@
         "line": null,
         "price": "-243",
         "game_start": "10/18/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740441886_buf_3"
       },
       {
@@ -21969,8 +21994,9 @@
         "line": null,
         "price": "-109",
         "game_start": "10/18/2026 @ 05:20 PM",
-        "status": "PENDING",
-        "key": "leg_740441886_gb_4"
+        "status": "WON",
+        "key": "leg_740441886_gb_4",
+        "actual_stat": 10
       },
       {
         "leg_num": 5,
@@ -21982,10 +22008,13 @@
         "line": -7,
         "price": "-115",
         "game_start": "10/18/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740441886_kc_5"
       }
-    ]
+    ],
+    "settled_payout_usd": 409.07,
+    "profit_usd": 384.07,
+    "graded_at": "2026-10-19T03:59:00Z"
   },
   {
     "id": "bet_20261018_bkr_740444569_7team_chi_atl_over_props",
@@ -22002,8 +22031,8 @@
     "category": "Player Prop Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "cash_risk_usd": 15.0,
@@ -22014,7 +22043,7 @@
     "potential_profit_usd": 2449.84,
     "potential_payout_usd": 2464.84,
     "external_url": "https://be.bookmaker.eu/#ticket_740444569",
-    "progress_notes": "Andy 2026-10-18 09:51 PT. Built live around CHI@ATL Over; one leg per game (book rule). CHI@ATL total taken at Over 50 -143 (board main was 53). Hampton 33+ -115 (alt ladder). Game starts shown as 10:10 AM on the slip. McBride also in BEO 8-leg TD stack; Juwan Johnson also in 740419086 (receiving yards). Hurts out; Caleb Williams active.",
+    "progress_notes": "Andy 2026-10-18 09:51 PT. Built live around CHI@ATL Over; one leg per game (book rule). CHI@ATL total taken at Over 50 -143 (board main was 53). Hampton 33+ -115 (alt ladder). Game starts shown as 10:10 AM on the slip. McBride also in BEO 8-leg TD stack; Juwan Johnson also in 740419086 (receiving yards). Hurts out; Caleb Williams active. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): ticket dead per 2026-10-18 audit of final box scores; remaining legs left ungraded.",
     "legs": [
       {
         "leg_num": 1,
@@ -22113,7 +22142,10 @@
         "key": "leg_740444569_7",
         "player": "Juwan Johnson"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -15.0,
+    "graded_at": "2026-10-19T03:59:00Z"
   },
   {
     "id": "bet_20261018_bkr_740456086_6team_flex_sgp_rebuild",
@@ -22130,8 +22162,8 @@
     "category": "Prop Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "cash_risk_usd": 10,
@@ -22142,7 +22174,7 @@
     "potential_profit_usd": 666.8,
     "potential_payout_usd": 676.8,
     "external_url": "https://be.bookmaker.eu/#ticket_740456086",
-    "progress_notes": "Andy 2026-10-18 11:47 PT, Bookmaker ticket 740456086: Risk $10.00, Win $666.80. Rebuild of the dead 7d prop stack (T. Warren out) using only 1:05 PM / 1:25 PM / SNF / MNF games; BKR allows one same-game pair per stack (Mahomes + Kelce SGP at +274). Kyren rec yds swapped for McBride O64.5. Shares Kraft/GB exposure with SNF tickets and KC exposure with 740441886 and 740440846.",
+    "progress_notes": "Andy 2026-10-18 11:47 PT, Bookmaker ticket 740456086: Risk $10.00, Win $666.80. Rebuild of the dead 7d prop stack (T. Warren out) using only 1:05 PM / 1:25 PM / SNF / MNF games; BKR allows one same-game pair per stack (Mahomes + Kelce SGP at +274). Kyren rec yds swapped for McBride O64.5. Shares Kraft/GB exposure with SNF tickets and KC exposure with 740441886 and 740440846. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): Mahomes Over 1.5 passing TDs lost (KC 22 LAC 6, 0 passing TDs).",
     "legs": [
       {
         "leg_num": 1,
@@ -22154,10 +22186,11 @@
         "line": 1.5,
         "price": "SGP +274 (with leg 2)",
         "game_start": "10/18/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740456086_mahomes_1",
         "player": "Patrick Mahomes",
-        "sgp_pair": "sgp_kc"
+        "sgp_pair": "sgp_kc",
+        "actual_stat": 0
       },
       {
         "leg_num": 2,
@@ -22230,7 +22263,10 @@
         "key": "leg_740456086_mcbride_6",
         "player": "Trey McBride"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -10.0,
+    "graded_at": "2026-10-19T03:59:00Z"
   },
   {
     "id": "bet_20261018_beo_1006732445_7leg_td_sack_stack",
@@ -22247,8 +22283,8 @@
     "category": "Prop Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "cash_risk_usd": 8.15,
@@ -22258,7 +22294,7 @@
     "odds_decimal": 53.0,
     "potential_profit_usd": 423.8,
     "potential_payout_usd": 431.95,
-    "progress_notes": "Andy 2026-10-18 12:45 PT, BetOnline ticket 1006732445: Risk $8.15, Win $423.80 (53.0x = full product of leg prices, no correlation haircut). Trimmed from the 8-leg +13900 version by dropping Chubb sack +200 to cut the BUF block to two legs. Replacement for the burnt Warren-based BEO TD stack. Shares KC/GB exposure with other Week 6 tickets.",
+    "progress_notes": "Andy 2026-10-18 12:45 PT, BetOnline ticket 1006732445: Risk $8.15, Win $423.80 (53.0x = full product of leg prices, no correlation haircut). Trimmed from the 8-leg +13900 version by dropping Chubb sack +200 to cut the BUF block to two legs. Replacement for the burnt Warren-based BEO TD stack. Shares KC/GB exposure with other Week 6 tickets. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): ticket dead per 2026-10-18 audit of final box scores; remaining legs left ungraded.",
     "legs": [
       {
         "leg_num": 1,
@@ -22358,7 +22394,10 @@
         "key": "leg_1006732445_karlaftis_7",
         "player": "George Karlaftis"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -8.15,
+    "graded_at": "2026-10-19T03:59:00Z"
   },
   {
     "id": "bet_20261018_dkp_6pick_combo_buf_dal_ari",
@@ -22381,11 +22420,11 @@
     "odds_decimal": 23.75,
     "potential_profit_usd": 227.02,
     "potential_payout_usd": 237,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
-    "progress_notes": "Andy 2026-10-18 13:13 PT: DK Predictions 6 Pick Combo (3.9%), Total $9.98, Payout $237. Order confirmation showed no ticket number. Funding assumed cash. Per-leg prices not shown. Shares Allen/BUF with BEO 1006732445, Kyren with several tickets, Watson with 740444569, Bowers/Williams exposure.",
+    "progress_notes": "Andy 2026-10-18 13:13 PT: DK Predictions 6 Pick Combo (3.9%), Total $9.98, Payout $237. Order confirmation showed no ticket number. Funding assumed cash. Per-leg prices not shown. Shares Allen/BUF with BEO 1006732445, Kyren with several tickets, Watson with 740444569, Bowers/Williams exposure. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): ticket dead per 2026-10-18 audit of final box scores; remaining legs left ungraded.",
     "legs": [
       {
         "leg_num": 1,
@@ -22492,6 +22531,364 @@
         "target_stat": "touchdowns",
         "source": "DK Predictions board"
       }
-    ]
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -9.98,
+    "graded_at": "2026-10-19T03:59:00Z"
+  },
+  {
+    "id": "bet_20261018_bkr_740479908_dal_gb_under56_hedge",
+    "ticket_number": "740479908",
+    "book_ticket_number": "740479908",
+    "placed_at": "2026-10-18T17:01:00-07:00",
+    "date": "2026-10-18",
+    "season": 2026,
+    "week": 6,
+    "game": "DAL @ GB",
+    "game_title": "Week 6 SNF hedge -- DAL/GB Under 56 -143 (vs Over 52.5 flex SGP 740418415; middle 53-55)",
+    "book": "Bookmaker",
+    "ticket_type": "Straight Bet - Total",
+    "category": "Total",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "cash_risk_usd": 144.55,
+    "stake_usd": 144.55,
+    "units": 1,
+    "odds_american": "-143",
+    "odds_decimal": 1.6993,
+    "potential_profit_usd": 101.08,
+    "potential_payout_usd": 245.63,
+    "external_url": "https://be.bookmaker.eu/#ticket_740479908",
+    "status": "SETTLED",
+    "result": "win",
+    "is_split": false,
+    "split_partner": null,
+    "progress_notes": "Andy 2026-10-18 17:01 PT. Hedge/middle against ticket 740418415 DAL/GB Over 52.5: total 53-55 wins both, 56 pushes this ticket, 57+ loses this stake. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): Under 56, total 36. DAL 13 @ GB 23 final (GB by 10, total 36).",
+    "legs": [
+      {
+        "leg_num": 1,
+        "player": null,
+        "team": "DAL/GB",
+        "opponent": "",
+        "market": "total",
+        "selection": "Dallas Cowboys / Green Bay Packers Under 56",
+        "line": 56,
+        "price": "-143",
+        "target_stat": "total",
+        "game": "DAL @ GB",
+        "game_start": "10/18/2026 @ 05:20 PM",
+        "status": "WON",
+        "source": "Bookmaker",
+        "key": "leg_740479908_1",
+        "actual_stat": 36
+      }
+    ],
+    "settled_payout_usd": 245.63,
+    "profit_usd": 101.08,
+    "graded_at": "2026-10-19T03:59:00Z"
+  },
+  {
+    "id": "bet_20261018_bkr_740482284_dal_ml_hedge",
+    "ticket_number": "740482284",
+    "book_ticket_number": "740482284",
+    "placed_at": "2026-10-18T17:18:00-07:00",
+    "date": "2026-10-18",
+    "season": 2026,
+    "week": 6,
+    "game": "DAL @ GB",
+    "game_title": "Week 6 SNF hedge -- Dallas Cowboys ML -114 (cover for GB ML tickets 740291356 + 740441886)",
+    "book": "Bookmaker",
+    "ticket_type": "Straight Bet - Moneyline",
+    "category": "Moneyline",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "cash_risk_usd": 250.0,
+    "stake_usd": 250.0,
+    "units": 1,
+    "odds_american": "-114",
+    "odds_decimal": 1.8772,
+    "potential_profit_usd": 219.3,
+    "potential_payout_usd": 469.3,
+    "external_url": "https://be.bookmaker.eu/#ticket_740482284",
+    "status": "SETTLED",
+    "result": "loss",
+    "is_split": false,
+    "split_partner": null,
+    "progress_notes": "Andy 2026-10-18 17:18 PT. Cover hedge vs GB ML final legs on 740291356 and 740441886. Cash-out offer showing $231.45 at placement. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): DAL ML lost. DAL 13 @ GB 23 final (GB by 10, total 36).",
+    "legs": [
+      {
+        "leg_num": 1,
+        "player": null,
+        "team": "DAL",
+        "opponent": "GB",
+        "market": "moneyline",
+        "selection": "Dallas Cowboys ML",
+        "line": null,
+        "price": "-114",
+        "target_stat": "moneyline",
+        "game": "DAL @ GB",
+        "game_start": "10/18/2026 @ 05:23 PM",
+        "status": "LOST",
+        "source": "Bookmaker",
+        "key": "leg_740482284_1",
+        "actual_stat": -10
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -250.0,
+    "graded_at": "2026-10-19T03:59:00Z"
+  },
+  {
+    "id": "bet_20261018_dkp_dal_plus3p5_live_hedge",
+    "ticket_number": null,
+    "placed_at": "2026-10-18T17:43:00-07:00",
+    "date": "2026-10-18",
+    "season": 2026,
+    "week": 6,
+    "game": "DAL @ GB",
+    "game_title": "Week 6 SNF live hedge -- DraftKings Predictions Dallas Cowboys +3.5 spread (+25% boost)",
+    "book": "DraftKings Predictions",
+    "ticket_type": "Straight Contract - Spread (Event Trading)",
+    "category": "Spread",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "cash_risk_usd": 9.69,
+    "stake_usd": 9.69,
+    "units": 1,
+    "odds_american": "+120",
+    "odds_decimal": 2.2012,
+    "potential_profit_usd": 11.64,
+    "potential_payout_usd": 21.33,
+    "status": "SETTLED",
+    "result": "loss",
+    "is_split": false,
+    "split_partner": null,
+    "progress_notes": "Andy 2026-10-18 17:43 PT: DK Predictions DAL +3.5 at 49%, cost $9.69, unboosted payout $19, +25% boost payout $21.33 (profit boosted 1.25 x 9.31 = 11.64). Live hedge/middle vs GB ML tickets 740291356 + 740441886: wins if DAL wins or GB wins by 1-3. No ticket number shown. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): DAL +3.5 lost (GB by 10). DAL 13 @ GB 23 final (GB by 10, total 36).",
+    "legs": [
+      {
+        "leg_num": 1,
+        "player": null,
+        "team": "DAL",
+        "opponent": "GB",
+        "market": "spread",
+        "selection": "Dallas Cowboys +3.5",
+        "line": 3.5,
+        "price": "+120 (49%, +25% boost)",
+        "target_stat": "spread",
+        "game": "DAL @ GB",
+        "game_start": "10/18/2026 @ 05:23 PM",
+        "status": "LOST",
+        "source": "DK Predictions",
+        "key": "leg_dkp_dal_p3p5_1018_1",
+        "actual_stat": -10
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -9.69,
+    "graded_at": "2026-10-19T03:59:00Z"
+  },
+  {
+    "id": "bet_20261018_bkr_740483359_dal_plus4_live_hedge",
+    "ticket_number": "740483359",
+    "book_ticket_number": "740483359",
+    "placed_at": "2026-10-18T17:43:00-07:00",
+    "date": "2026-10-18",
+    "season": 2026,
+    "week": 6,
+    "game": "DAL @ GB",
+    "game_title": "Week 6 SNF live hedge -- Dallas Cowboys +4 -111 (middle vs GB ML tickets)",
+    "book": "Bookmaker",
+    "ticket_type": "Straight Bet - Spread",
+    "category": "Spread",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "cash_risk_usd": 50.0,
+    "stake_usd": 50.0,
+    "units": 1,
+    "odds_american": "-111",
+    "odds_decimal": 1.9009,
+    "potential_profit_usd": 45.05,
+    "potential_payout_usd": 95.05,
+    "external_url": "https://be.bookmaker.eu/#ticket_740483359",
+    "status": "SETTLED",
+    "result": "loss",
+    "is_split": false,
+    "split_partner": null,
+    "progress_notes": "Andy 2026-10-18 17:43 PT LIVE bet. DAL +4 -111: wins if DAL wins or GB wins by 1-3, pushes GB by 4, loses GB by 5+. Cash-out showing $46.67 at placement. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): DAL +4 lost (GB by 10). DAL 13 @ GB 23 final (GB by 10, total 36).",
+    "legs": [
+      {
+        "leg_num": 1,
+        "player": null,
+        "team": "DAL",
+        "opponent": "GB",
+        "market": "spread",
+        "selection": "Dallas Cowboys +4",
+        "line": 4,
+        "price": "-111",
+        "target_stat": "spread",
+        "game": "DAL @ GB",
+        "game_start": "10/18/2026 @ 05:23 PM",
+        "status": "LOST",
+        "source": "Bookmaker",
+        "key": "leg_740483359_1",
+        "actual_stat": -10
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -50.0,
+    "graded_at": "2026-10-19T03:59:00Z"
+  },
+  {
+    "id": "bet_20261018_bkr_740483956_dal_gb_under55p5_live",
+    "ticket_number": "740483956",
+    "book_ticket_number": "740483956",
+    "placed_at": "2026-10-18T18:02:00-07:00",
+    "date": "2026-10-18",
+    "season": 2026,
+    "week": 6,
+    "game": "DAL @ GB",
+    "game_title": "Week 6 SNF live total -- DAL/GB Under 55.5 -140 (middle vs Over 52.5 flex SGP 740418415)",
+    "book": "Bookmaker",
+    "ticket_type": "Straight Bet - Total",
+    "category": "Total",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "cash_risk_usd": 50.0,
+    "stake_usd": 50.0,
+    "units": 1,
+    "odds_american": "-140",
+    "odds_decimal": 1.7143,
+    "potential_profit_usd": 35.71,
+    "potential_payout_usd": 85.71,
+    "external_url": "https://be.bookmaker.eu/#ticket_740483956",
+    "status": "SETTLED",
+    "result": "win",
+    "is_split": false,
+    "split_partner": null,
+    "progress_notes": "Andy 2026-10-18 18:02 PT LIVE bet (game tied 7-7 per Andy). Under 55.5: wins at total <=55, loses at 56+. Cash-out showing $46.45 at placement. Stacks with Under 56 ticket 740479908. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): Under 55.5, total 36. DAL 13 @ GB 23 final (GB by 10, total 36).",
+    "legs": [
+      {
+        "leg_num": 1,
+        "player": null,
+        "team": "DAL/GB",
+        "opponent": "",
+        "market": "total",
+        "selection": "Dallas Cowboys / Green Bay Packers Under 55.5",
+        "line": 55.5,
+        "price": "-140",
+        "target_stat": "total",
+        "game": "DAL @ GB",
+        "game_start": "10/18/2026 @ 05:23 PM",
+        "status": "WON",
+        "source": "Bookmaker",
+        "key": "leg_740483956_1",
+        "actual_stat": 36
+      }
+    ],
+    "settled_payout_usd": 85.71,
+    "profit_usd": 35.71,
+    "graded_at": "2026-10-19T03:59:00Z"
+  },
+  {
+    "id": "bet_20261018_bkr_740487866_dal_plus9p5_live_hedge",
+    "ticket_number": "740487866",
+    "book_ticket_number": "740487866",
+    "placed_at": "2026-10-18T20:17:00-07:00",
+    "date": "2026-10-18",
+    "season": 2026,
+    "week": 6,
+    "game": "DAL @ GB",
+    "game_title": "Week 6 SNF live hedge -- Dallas Cowboys +9.5 -120 (cover vs GB ML tickets)",
+    "book": "Bookmaker",
+    "ticket_type": "Straight Bet - Spread",
+    "category": "Spread",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "cash_risk_usd": 60.0,
+    "stake_usd": 60.0,
+    "units": 1,
+    "odds_american": "-120",
+    "odds_decimal": 1.8333,
+    "potential_profit_usd": 50.0,
+    "potential_payout_usd": 110.0,
+    "external_url": "https://be.bookmaker.eu/#ticket_740487866",
+    "status": "SETTLED",
+    "result": "loss",
+    "is_split": false,
+    "split_partner": null,
+    "progress_notes": "Andy 2026-10-18 20:17 PT LIVE bet. DAL +9.5 -120: wins if DAL wins or GB wins by 1-9; loses if GB wins by 10+. Cash-out showing $48.52 at placement. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): DAL +9.5 lost (GB by 10). DAL 13 @ GB 23 final (GB by 10, total 36).",
+    "legs": [
+      {
+        "leg_num": 1,
+        "player": null,
+        "team": "DAL",
+        "opponent": "GB",
+        "market": "spread",
+        "selection": "Dallas Cowboys +9.5",
+        "line": 9.5,
+        "price": "-120",
+        "target_stat": "spread",
+        "game": "DAL @ GB",
+        "game_start": "10/18/2026 @ 05:23 PM",
+        "status": "LOST",
+        "source": "Bookmaker",
+        "key": "leg_740487866_1",
+        "actual_stat": -10
+      }
+    ],
+    "settled_payout_usd": 0,
+    "profit_usd": -60.0,
+    "graded_at": "2026-10-19T03:59:00Z"
+  },
+  {
+    "id": "bet_20261018_bkr_740488148_dal_plus15p5_live_hedge",
+    "ticket_number": "740488148",
+    "book_ticket_number": "740488148",
+    "placed_at": "2026-10-18T20:36:00-07:00",
+    "date": "2026-10-18",
+    "season": 2026,
+    "week": 6,
+    "game": "DAL @ GB",
+    "game_title": "Week 6 SNF late live hedge -- Dallas Cowboys +15.5 +104 (GB 23-7 Q4 at placement per feed)",
+    "book": "Bookmaker",
+    "ticket_type": "Straight Bet - Spread",
+    "category": "Spread",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "cash_risk_usd": 40.0,
+    "stake_usd": 40.0,
+    "units": 1,
+    "odds_american": "+104",
+    "odds_decimal": 2.04,
+    "potential_profit_usd": 41.6,
+    "potential_payout_usd": 81.6,
+    "external_url": "https://be.bookmaker.eu/#ticket_740488148",
+    "status": "SETTLED",
+    "result": "win",
+    "is_split": false,
+    "split_partner": null,
+    "progress_notes": "Andy 2026-10-18 20:36 PT LIVE bet. DAL +15.5 +104: wins if DAL wins or GB wins by 1-15; loses if GB wins by 16+. Cash-out showing $36.45 at placement. | Settled 2026-10-18 by Claude (Week 6 non-MNF close-out): DAL +15.5 covers (GB by 10). DAL 13 @ GB 23 final (GB by 10, total 36).",
+    "legs": [
+      {
+        "leg_num": 1,
+        "player": null,
+        "team": "DAL",
+        "opponent": "GB",
+        "market": "spread",
+        "selection": "Dallas Cowboys +15.5",
+        "line": 15.5,
+        "price": "+104",
+        "target_stat": "spread",
+        "game": "DAL @ GB",
+        "game_start": "10/18/2026 @ 05:23 PM",
+        "status": "WON",
+        "source": "Bookmaker",
+        "key": "leg_740488148_1",
+        "actual_stat": -10
+      }
+    ],
+    "settled_payout_usd": 81.6,
+    "profit_usd": 41.6,
+    "graded_at": "2026-10-19T03:59:00Z"
   }
 ]

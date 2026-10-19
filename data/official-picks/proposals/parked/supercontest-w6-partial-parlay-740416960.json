@@ -1,0 +1,67 @@
+{
+  "id": "parked_supercontest_w6_partial_parlay_740416960",
+  "parked_at": "2026-10-18T21:21:00-07:00",
+  "status": "PARKED_FOR_FUTURE_USE",
+  "season": 2026,
+  "week": 6,
+  "book": "Bookmaker",
+  "ticket_number": "740416960",
+  "why_parked": "Two of five slots were intentionally left open to fill with live bets at SuperContest lines (CLE +5.5, CAR +1.5). Both games went final before they were filled, so the ticket cannot be completed this week.",
+  "structure": {
+    "type": "5-team parlay placed with 3 legs",
+    "stake_usd": 25,
+    "odds_as_placed": "+2173",
+    "potential_profit_as_placed_usd": 543.13,
+    "note": "Risk/win as placed are for the 3 placed legs; not a complete 5-team ticket."
+  },
+  "placed_legs": [
+    {
+      "team": "GB",
+      "opponent": "DAL",
+      "market": "spread",
+      "line": -1,
+      "price": "-109",
+      "result": "WON (GB 23, DAL 13)"
+    },
+    {
+      "team": "KC",
+      "opponent": "LAC",
+      "market": "spread",
+      "line": -7,
+      "price": "-126",
+      "result": "WON (KC 22, LAC 6)"
+    },
+    {
+      "team": "SF",
+      "opponent": "WSH",
+      "market": "spread",
+      "line": -7,
+      "price": "-123",
+      "result": "PENDING (WAS @ SF, MNF 2026-10-19 5:15 PM PT)"
+    }
+  ],
+  "intended_open_slots": [
+    {
+      "team": "CLE",
+      "opponent": "BAL",
+      "market": "spread",
+      "contest_line": 5.5,
+      "book_line_pregame": 3,
+      "final": "CLE 13, BAL 10 (covers either number)"
+    },
+    {
+      "team": "CAR",
+      "opponent": "PHI",
+      "market": "spread",
+      "contest_line": 1.5,
+      "book_line_pregame": -3,
+      "final": "CAR 25, PHI 14 (covers either number)"
+    }
+  ],
+  "future_use_notes": [
+    "Pattern: place the early-certain SuperContest picks first, hold slots for picks where the contest line beats the book line, fill them live at the contest number.",
+    "Fill the open slots before those games kick off; a live bet on a started game moves the price and a final game cannot be filled.",
+    "Check the book accepts adding live legs to the same ticket before relying on it; otherwise place the extra legs as a separate parlay or straight bets.",
+    "Score tickets as placed: a partial ticket pays at its placed odds, not at the full 5-team price."
+  ]
+}
