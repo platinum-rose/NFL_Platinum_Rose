@@ -1,0 +1,1207 @@
+{
+  "schema": "team_dossier_v1",
+  "team": "DET",
+  "season": 2026,
+  "target_week": 7,
+  "completed_weeks": 6,
+  "built_at": "2026-10-20T19:18:02.947Z",
+  "builder": "team_dossier_builder_v1.1",
+  "git_head": "020362a",
+  "market_data_included": false,
+  "sources": [
+    {
+      "id": "standings",
+      "path": "data/generated/team-profiles/team-standings-2026-w06.json",
+      "generated_at": "2026-10-20T18:43:49.465065Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "e56d65ee68476642eed7d3207b118b868901f42667aab922c04fb7fe576e8dc1",
+      "use_policy": "record/PF/PA only; ATS/OU fields in source are ignored (market data)"
+    },
+    {
+      "id": "analytic",
+      "path": "data/generated/team-profiles/team-analytic-snapshots-2026-w6.json",
+      "generated_at": "2026-10-20T18:43:38.716Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "031a8c906bfb1e3a76fd406060b48d79e757cd31990e1ec8cbfc24d336c1554d",
+      "use_policy": "nflverse-derived efficiency; separate signal, not a projection"
+    },
+    {
+      "id": "regression",
+      "path": "data/generated/team-profiles/team-regression-snapshots-2026-w6.json",
+      "generated_at": "2026-10-20T18:43:44.322Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "8c94b4012ce0db39080c5307a889a0f299ce7651f4f2332de2c50a0f6b85baa4",
+      "use_policy": "nflverse-derived Pythagorean/one-score context; separate signal"
+    },
+    {
+      "id": "coaching",
+      "path": "data/generated/team-profiles/team-coaching-tendency-snapshots-2026-w6.json",
+      "generated_at": "2026-10-20T18:43:44.785Z",
+      "status": "historical_context_only",
+      "through_week": 6,
+      "sha256": "4204894ca5ec49e2bf1233603c8e9e5ca3371df2785b08da1bd4fb14f282aa16",
+      "use_policy": "historical_context_only (stale after meta.stale_after); never a current-week claim"
+    },
+    {
+      "id": "power",
+      "path": "data/generated/team-profiles/team-power-ratings-2026.json",
+      "generated_at": "2026-10-13T06:07:42.390Z",
+      "status": "current",
+      "through_week": 6,
+      "sha256": "f93d183b1e9d7b7eabeec771aa0fcb856d63eee10ad91b673b5a65327f34fe8c",
+      "use_policy": "separate signal, not a projection; market-implied fields excluded"
+    },
+    {
+      "id": "ftn",
+      "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+      "generated_at": "2026-10-20T15:14:32.004Z",
+      "status": "see_tables",
+      "through_week": null,
+      "sha256": "7bbd3d9a0afdafdea670b7624031372e167168cc6be39dfb5a2557c16348faa0",
+      "use_policy": "statistical context only; numeric team source of record"
+    },
+    {
+      "id": "secondary",
+      "path": "data/secondary-matchups/latest.json",
+      "generated_at": "2026-10-17T02:04:07.188Z",
+      "status": "stale_prior_week_matchups",
+      "through_week": 6,
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
+      "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
+    },
+    {
+      "id": "schedules",
+      "path": "data/vault-seed/nflverse/schedules.csv",
+      "generated_at": null,
+      "status": "unknown",
+      "through_week": null,
+      "sha256": "3b4b74787c645d3953860b9d68803fe8832748aef3140586ddbc1d3199c32ac3",
+      "use_policy": "venue/roof/surface only; June odds columns and week-6 pairings are NOT used"
+    },
+    {
+      "id": "slate",
+      "path": "data/generated/team-dossiers/w07-slate.json",
+      "generated_at": "2026-10-20T19:25:00Z",
+      "status": "unknown",
+      "through_week": null,
+      "sha256": "6bedec1411e2fb74b25336b194c47e7e5723aaa72b4fd705c2d56304c9f1c6e2",
+      "use_policy": "target-week opponent and home/away (operator-confirmed slate)"
+    },
+    {
+      "id": "espn_w1",
+      "path": "reports/analysis/season/claude/out/week-01-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 1,
+      "sha256": "cd24e6786146706fdec3dd1f8bf29fedc85448440354d16317341ca3859873e2",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w2",
+      "path": "reports/analysis/season/claude/out/week-02-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 2,
+      "sha256": "7a8a963719def5391d7dc611725aab8da208f6f7c3815933405c2bb9cfc90448",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w3",
+      "path": "reports/analysis/season/claude/out/week-03-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 3,
+      "sha256": "c093c8481f365d05540d8c8dcf68ff992e6b4d5996075829bb01b923ec0b084c",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w4",
+      "path": "reports/analysis/season/claude/out/week-04-teams.json",
+      "generated_at": null,
+      "status": "stale",
+      "through_week": 4,
+      "sha256": "134f4065b18bd269a0973605c60935cc99c5d043dd5f049c7f47cd7705d8027a",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w5",
+      "path": "reports/analysis/season/claude/out/week-05-teams.json",
+      "generated_at": null,
+      "status": "stale_1wk",
+      "through_week": 5,
+      "sha256": "5a2048c4aa64253f5b217e3f8cfc2ea4ea038e151026e68d4d7bad9e77f39da6",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    },
+    {
+      "id": "espn_w6",
+      "path": "reports/analysis/season/claude/out/week-06-teams.json",
+      "generated_at": null,
+      "status": "current",
+      "through_week": 6,
+      "sha256": "148933bb4340419405a09ba2140177ded83e7e5f7b6bc58ba6666eb33c2d7f5f",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)"
+    }
+  ],
+  "identity": {
+    "code": "DET",
+    "nickname": "Lions",
+    "full_name": "Detroit Lions",
+    "conference": "NFC",
+    "division": "NFC North",
+    "head_coach": "Dan Campbell",
+    "offensive_coordinator": null,
+    "defensive_coordinator": null,
+    "stadium": "Ford Field",
+    "roof": "dome",
+    "surface": "fieldturf",
+    "target_week_game": {
+      "week": 7,
+      "opponent": "GB",
+      "home_away": "home",
+      "kickoff_pt": "Sun 10/25 13:25"
+    },
+    "bye_weeks_played": [
+      6
+    ]
+  },
+  "standing": {
+    "team": "DET",
+    "conference": "NFC",
+    "division": "North",
+    "games": 5,
+    "record": "3-2-0",
+    "win_pct": 0.6,
+    "pf": 164,
+    "pa": 148,
+    "diff": 16,
+    "home": "2-0-0",
+    "away": "1-2-0",
+    "division_record": "0-0-0",
+    "conference_record": "2-1-0",
+    "streak": "W1",
+    "last5": [
+      "W1 W 31-30 vs NO",
+      "W2 L 31-41 @ BUF",
+      "W3 W 31-24 vs NYJ",
+      "W4 L 26-32 @ CAR",
+      "W5 W 45-21 @ ARI"
+    ],
+    "weeks_played": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "byes": [
+      6
+    ],
+    "division_rank": 4,
+    "conference_rank": 6,
+    "espn_check": {
+      "record": "3-2-0",
+      "pf": 164,
+      "pa": 148,
+      "as_of": "2026-10-19T00:20Z",
+      "match": true
+    }
+  },
+  "game_log": [
+    {
+      "week": 1,
+      "opponent": "NO",
+      "home_away": "home",
+      "result": "W",
+      "pts": 31,
+      "opp_pts": 30,
+      "margin": 1,
+      "plays": 73,
+      "yards": 369,
+      "ypp": 5.1,
+      "opp_yards": 469,
+      "opp_ypp": 5.5,
+      "pass_yds": 204,
+      "rush_yds": 165,
+      "rush_att": 33,
+      "cmp_att": "26/39",
+      "first_downs": 26,
+      "third_down": "5-13",
+      "third_pct": 0.385,
+      "red_zone": "4-5",
+      "rz_td_pct": 0.8,
+      "sacks_taken": 1,
+      "sacks_made": 5,
+      "giveaways": 1,
+      "takeaways": 3,
+      "to_margin": 2,
+      "def_td": 0,
+      "penalties": "8-61",
+      "top": "36:51",
+      "drives": 14,
+      "pts_per_drive": 2.21,
+      "three_and_outs": 4,
+      "avg_start_own": 32.5,
+      "event_id": "401872923",
+      "date_utc": "2026-09-13T17:00Z"
+    },
+    {
+      "week": 2,
+      "opponent": "BUF",
+      "home_away": "away",
+      "result": "L",
+      "pts": 31,
+      "opp_pts": 41,
+      "margin": -10,
+      "plays": 62,
+      "yards": 355,
+      "ypp": 5.7,
+      "opp_yards": 446,
+      "opp_ypp": 6.5,
+      "pass_yds": 289,
+      "rush_yds": 66,
+      "rush_att": 20,
+      "cmp_att": "26/38",
+      "first_downs": 24,
+      "third_down": "4-11",
+      "third_pct": 0.364,
+      "red_zone": "3-4",
+      "rz_td_pct": 0.75,
+      "sacks_taken": 4,
+      "sacks_made": 2,
+      "giveaways": 0,
+      "takeaways": 0,
+      "to_margin": 0,
+      "def_td": 0,
+      "penalties": "10-58",
+      "top": "26:15",
+      "drives": 9,
+      "pts_per_drive": 3.44,
+      "three_and_outs": 2,
+      "avg_start_own": 27.8,
+      "event_id": "401872932",
+      "date_utc": "2026-09-18T00:15Z"
+    },
+    {
+      "week": 3,
+      "opponent": "NYJ",
+      "home_away": "home",
+      "result": "W",
+      "pts": 31,
+      "opp_pts": 24,
+      "margin": 7,
+      "plays": 64,
+      "yards": 381,
+      "ypp": 6,
+      "opp_yards": 335,
+      "opp_ypp": 5.5,
+      "pass_yds": 250,
+      "rush_yds": 131,
+      "rush_att": 30,
+      "cmp_att": "25/32",
+      "first_downs": 24,
+      "third_down": "5-10",
+      "third_pct": 0.5,
+      "red_zone": "4-5",
+      "rz_td_pct": 0.8,
+      "sacks_taken": 2,
+      "sacks_made": 5,
+      "giveaways": 0,
+      "takeaways": 1,
+      "to_margin": 1,
+      "def_td": 0,
+      "penalties": "4-41",
+      "top": "31:30",
+      "drives": 9,
+      "pts_per_drive": 3.44,
+      "three_and_outs": 0,
+      "avg_start_own": 34.8,
+      "event_id": "401872954",
+      "date_utc": "2026-09-27T17:00Z"
+    },
+    {
+      "week": 4,
+      "opponent": "CAR",
+      "home_away": "away",
+      "result": "L",
+      "pts": 26,
+      "opp_pts": 32,
+      "margin": -6,
+      "plays": 68,
+      "yards": 452,
+      "ypp": 6.6,
+      "opp_yards": 445,
+      "opp_ypp": 6.2,
+      "pass_yds": 406,
+      "rush_yds": 46,
+      "rush_att": 15,
+      "cmp_att": "32/52",
+      "first_downs": 24,
+      "third_down": "4-12",
+      "third_pct": 0.333,
+      "red_zone": "2-4",
+      "rz_td_pct": 0.5,
+      "sacks_taken": 1,
+      "sacks_made": 3,
+      "giveaways": 0,
+      "takeaways": 0,
+      "to_margin": 0,
+      "def_td": 0,
+      "penalties": "9-67",
+      "top": "26:45",
+      "drives": 10,
+      "pts_per_drive": 2.6,
+      "three_and_outs": 1,
+      "avg_start_own": 26.3,
+      "event_id": "401872978",
+      "date_utc": "2026-10-05T00:20Z"
+    },
+    {
+      "week": 5,
+      "opponent": "ARI",
+      "home_away": "away",
+      "result": "W",
+      "pts": 45,
+      "opp_pts": 21,
+      "margin": 24,
+      "plays": 65,
+      "yards": 412,
+      "ypp": 6.3,
+      "opp_yards": 327,
+      "opp_ypp": 4.6,
+      "pass_yds": 249,
+      "rush_yds": 163,
+      "rush_att": 32,
+      "cmp_att": "19/30",
+      "first_downs": 24,
+      "third_down": "4-13",
+      "third_pct": 0.308,
+      "red_zone": "4-4",
+      "rz_td_pct": 1,
+      "sacks_taken": 3,
+      "sacks_made": 5,
+      "giveaways": 0,
+      "takeaways": 1,
+      "to_margin": 1,
+      "def_td": 0,
+      "penalties": "4-31",
+      "top": "29:49",
+      "drives": 11,
+      "pts_per_drive": 4.09,
+      "three_and_outs": 4,
+      "avg_start_own": 35.8,
+      "event_id": "401872991",
+      "date_utc": "2026-10-11T20:25Z"
+    },
+    {
+      "week": 6,
+      "bye": true
+    }
+  ],
+  "season_profile_espn": {
+    "games": 5,
+    "ppg": 32.8,
+    "papg": 29.6,
+    "yards_pg": 393.8,
+    "opp_yards_pg": 404.4,
+    "plays_pg": 66.4,
+    "ypp": 5.94,
+    "opp_ypp": 5.66,
+    "pass_yds_pg": 279.6,
+    "rush_yds_pg": 114.2,
+    "third_down_pct": 0.373,
+    "red_zone_att_pg": 4.4,
+    "red_zone_td_pct": 0.773,
+    "sacks_taken_pg": 2.2,
+    "sacks_made_pg": 4,
+    "giveaways": 1,
+    "takeaways": 5,
+    "turnover_margin": 4,
+    "pts_per_drive": 3.156,
+    "three_and_outs_pg": 2.2,
+    "note": "Aggregated from game_log rows (ESPN). red_zone_td_pct here is red-zone trips converted to TD per ESPN box score; no opponent split."
+  },
+  "efficiency_nflverse": {
+    "analytic": {
+      "games_played": 5,
+      "off_epa_per_play": 0.1898,
+      "def_epa_per_play": 0.1306,
+      "off_epa_rank": 3,
+      "def_epa_rank": 31,
+      "epa_per_dropback": 0.323,
+      "qb_epa_per_dropback": 0.323,
+      "dropback_success_rate": null,
+      "success_rate": null,
+      "cpoe": 1.3187,
+      "explosive_play_rate": null,
+      "explosive_pass_rate": null,
+      "explosive_run_rate": null,
+      "pressure_rate_allowed": null,
+      "pressure_rate_generated": null,
+      "sack_rate_allowed": 0.0545,
+      "sack_rate_generated": 0.0858,
+      "neutral_pass_rate": 0.6084,
+      "early_down_pass_rate": null,
+      "shotgun_rate": null,
+      "no_huddle_rate": null,
+      "play_action_rate": null,
+      "motion_rate": null,
+      "attribution_note": "Derived locally from nflverse weekly team_stats aggregates. FTN charting join unavailable this run -- motion/play-action/no-huddle fell back to null along with the other charting-dependent fields.",
+      "raw": {
+        "source_file": "data/vault-seed/nflverse/team_stats.csv",
+        "source_file_mtime": "2026-10-20T18:43:33.817Z",
+        "team_abbr": "DET",
+        "offensive_dropbacks": 202,
+        "offensive_plays": 332,
+        "defensive_dropbacks": 233,
+        "defensive_plays": 359,
+        "ftn_charting": {}
+      }
+    },
+    "regression": {
+      "games_played": 5,
+      "record": "3-2",
+      "actual_wins": 3,
+      "points_for": 164,
+      "points_against": 148,
+      "point_differential": 16,
+      "pythag_win_pct": 0.5605,
+      "pythag_wins": 2.8,
+      "pythag_win_delta": 0.2,
+      "pythag_win_delta_rank": 13,
+      "one_score_record": {
+        "wins": 2,
+        "losses": 1,
+        "ties": 0,
+        "games": 3,
+        "win_pct": 0.6667
+      },
+      "fumble_recovery_pct": null,
+      "takeaway_margin": null,
+      "rz_td_pct_off": null,
+      "rz_td_pct_def": null,
+      "third_down_over_expected": null,
+      "attribution_note": "Pythagorean (exp 2.37) and one-score record derived from nflverse games.csv final scores. Turnover, red-zone, and third-down-over-expected signals require the play-by-play layer (CI runs seed with --no-pbp) and are intentionally left null in this v1 builder.",
+      "raw": {
+        "source_file": "data/vault-seed/nflverse/games.csv",
+        "source_file_mtime": "2026-10-20T18:43:33.490Z",
+        "team_abbr": "DET",
+        "pythag_exponent": 2.37,
+        "one_score_margin": 8
+      }
+    },
+    "unavailable_in_source": [
+      "analytic.dropback_success_rate",
+      "analytic.success_rate",
+      "analytic.explosive_play_rate",
+      "analytic.explosive_pass_rate",
+      "analytic.explosive_run_rate",
+      "analytic.pressure_rate_allowed",
+      "analytic.pressure_rate_generated",
+      "analytic.early_down_pass_rate",
+      "analytic.shotgun_rate",
+      "analytic.no_huddle_rate",
+      "analytic.play_action_rate",
+      "analytic.motion_rate",
+      "regression.fumble_recovery_pct",
+      "regression.takeaway_margin",
+      "regression.rz_td_pct_off",
+      "regression.rz_td_pct_def",
+      "regression.third_down_over_expected"
+    ]
+  },
+  "ftn": {
+    "source": {
+      "id": "ftn",
+      "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+      "generated_at": "2026-10-20T15:14:32.004Z"
+    },
+    "through_week": 5,
+    "status": "stale_1wk",
+    "use_policy": "statistical context only; numeric team source of record",
+    "team_tables": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "EPA/PLY": "0.129",
+          "DVOA": "10.5%",
+          "SUCC%": "46.7%",
+          "EXP%": "11.0%",
+          "CONV%": "54.4%",
+          "TO": "5",
+          "TO%": "1.4%",
+          "3&O": "16.7%",
+          "MTKL%": "7.1%",
+          "PEN%": "3.6%",
+          "PENY": "22.8"
+        }
+      },
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "YD/PLY": "5.9",
+          "PT/GM": "29.6",
+          "FD%": "34.3%",
+          "TO": "5",
+          "DPBK%": "68.2%",
+          "YD": "1,607",
+          "TD": "14",
+          "INT": "3",
+          "RUSH%": "31.8%",
+          "YD__2": "535",
+          "TD__2": "6"
+        }
+      },
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "DPBK": "247",
+          "SK": "20",
+          "SK%": "8.1%",
+          "QBH%": "17.8%",
+          "PRESS": "81",
+          "PRESS%": "32.8%",
+          "QPRESS%": "54.3%",
+          "TTPR": "2.45",
+          "DISR%": "1.2%",
+          "BLZ%": "29.6%"
+        }
+      },
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "EPA/DB": "0.235",
+          "SUCC%": "51.4%",
+          "DVOA": "18.7%",
+          "CPOE": "3.73%",
+          "CBALL%": "74.1%",
+          "EXP%": "15.9%",
+          "INTW%": "0.9%",
+          "TGHT%": "33.3%",
+          "OPEN%": "62.0%",
+          "TA%": "5.1%",
+          "DROP%": "3.7%"
+        }
+      },
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "EPA/ATT": "-0.097",
+          "SUCC%": "36.5%",
+          "DVOA": "-4.9%",
+          "aRYOE": "",
+          "EXP%": "10.4%",
+          "STF%": "22.6%",
+          "YBCO": "0.97",
+          "YACO": "1.08"
+        }
+      },
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "EPA/PLY": "0.174",
+          "DVOA": "11.6%",
+          "SUCC%": "48.8%",
+          "EXP%": "10.5%",
+          "CONV%": "42.9%",
+          "TO": "0",
+          "TO%": "0.00%",
+          "PENY": "28.8",
+          "PEN%": "6.63%"
+        }
+      },
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "YD/PLY": "6.2",
+          "PT/GM": "32.8",
+          "FD%": "34.9%",
+          "TO": "0",
+          "DPBK%": "62.3%",
+          "YD": "1,485",
+          "TD": "12",
+          "INT": "0",
+          "RUSH%": "37.7%",
+          "YD__2": "571",
+          "TD__2": "8"
+        }
+      },
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "SK": "11",
+          "SK%": "5.3%",
+          "QBSK%": "36.4%",
+          "QBH%": "15.0%",
+          "PRESS%": "25.6%",
+          "UPRES%": "31.4%",
+          "BLITZ%": "32.9%",
+          "TTPR": "2.46",
+          "TTT": "2.53",
+          "EPA/DB": "-0.320",
+          "DVOA": "-87.7%",
+          "SUCC%": "30.2%",
+          "EPA/DB__2": "0.490",
+          "DVOA__2": "65.2%",
+          "SUCC%__2": "57.1%"
+        }
+      },
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "EPA/DB": "0.283",
+          "SUCC%": "50.2%",
+          "DVOA": "29.6%",
+          "CPOE": "-0.1%",
+          "CBALL%": "72.3%",
+          "EXP%": "13.3%",
+          "INTW%": "1.0%",
+          "HLT%": "3.1%",
+          "TA%": "2.1%",
+          "DROP%": "3.7%",
+          "aDOT": "7.9",
+          "aYAC": "4.7"
+        }
+      },
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "EPA/ATT": "-0.005",
+          "SUCC%": "46.4%",
+          "DVOA": "10.7%",
+          "aRYOE": "",
+          "EXP%": "14.4%",
+          "STF%": "20.8%",
+          "aYBCO": "1.09",
+          "aYACO": "2.07",
+          "CRT%": "46.8%"
+        }
+      },
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "PLY/GM": "66.4",
+          "TOP": "29.29",
+          "DRV/GM": "10.6",
+          "SEC/PLY": "26.5",
+          "PLY/DRV": "6.3",
+          "YD/DRV": "38.8",
+          "SEC/DRV": "166",
+          "3&O": "20.8%",
+          "SCD%": "52.8%"
+        }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Detroit Lions",
+          "GP": "5",
+          "DPBK%": "62.3%",
+          "RUSH%": "37.7%",
+          "SHG%": "50.6%",
+          "NH%": "5.7%",
+          "MOT%": "50.6%",
+          "PA%": "31.9%",
+          "IZ%": "16.0%",
+          "OZ%": "41.6%",
+          "MD%": "24.8%",
+          "PWR%": "7.2%",
+          "CTR%": "4.8%"
+        }
+      }
+    },
+    "qb1": {
+      "player": "Jared Goff",
+      "position": "QB",
+      "tables": {
+        "passing/air-yards": {
+          "Player": "Jared Goff",
+          "Team": "Detroit Lions",
+          "Position": "QB",
+          "GP": "5",
+          "aDOT": "7.9",
+          "AIR": "1,512",
+          "cAIR": "988",
+          "cAIR%": "65.3%",
+          "PRYD": "524",
+          "PRYD%": "34.7%",
+          "dAIR": "100"
+        },
+        "passing/analytics": {
+          "Player": "Jared Goff",
+          "Team": "Detroit Lions",
+          "Position": "QB",
+          "GP": "5",
+          "EPA": "58.5",
+          "EPA/DB": "0.283",
+          "SUCC%": "50.2%",
+          "ACOMP%": "72.2%",
+          "DVOA": "26.8%",
+          "DYAR": "482",
+          "xCOMP": "67.1%",
+          "CPOE": "-0.1%",
+          "aYDOE": "0.214"
+        },
+        "passing/efficiency": {
+          "Player": "Jared Goff",
+          "Team": "Detroit Lions",
+          "Position": "QB",
+          "GP": "5",
+          "CBALL%": "72.3%",
+          "INTW%": "1.0%",
+          "HLT%": "3.1%",
+          "EXP%": "8.9%",
+          "DROP%": "3.7%",
+          "TA%": "2.1%",
+          "TD%": "6.3%",
+          "INT%": "0.0%",
+          "SK%": "5.3%"
+        },
+        "passing/overview": {
+          "Player": "Jared Goff",
+          "Team": "Detroit Lions",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "207",
+          "ATT": "191",
+          "COMP": "128",
+          "COMP%": "67.0%",
+          "YD": "1,485",
+          "YD/ATT": "7.8",
+          "TD": "12",
+          "INT": "0",
+          "FUML": "0"
+        },
+        "passing/pressure": {
+          "Player": "Jared Goff",
+          "Team": "Detroit Lions",
+          "Position": "QB",
+          "GP": "5",
+          "SK": "11",
+          "SK%": "5.3%",
+          "QBSK%": "36.4%",
+          "AVSK%": "1.0%",
+          "QBH%": "15.0%",
+          "TTPR": "2.46",
+          "TTT": "2.53",
+          "RATE": "25.6%",
+          "EPA/DB": "-0.320",
+          "DVOA": "-87.7%",
+          "RATE__2": "74.4%",
+          "EPA/DB__2": "0.490",
+          "DVOA__2": "65.2%"
+        }
+      }
+    },
+    "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
+    "gp_by_table": {
+      "passing/air-yards": 5,
+      "passing/analytics": 5,
+      "passing/efficiency": 5,
+      "passing/overview": 5,
+      "passing/pressure": 5,
+      "team-defense/efficiency": 5,
+      "team-defense/overview": 5,
+      "team-defense/pass-rush": 5,
+      "team-defense/passing-analytics": 5,
+      "team-defense/rush-analytics": 5,
+      "team-offense/efficiency": 5,
+      "team-offense/overview": 5,
+      "team-offense/pass-protection": 5,
+      "team-offense/passing-analytics": 5,
+      "team-offense/rushing-analytics": 5,
+      "team-offense/tempo": 5,
+      "team-offense/tendencies": 5
+    }
+  },
+  "power": {
+    "games_played": 5,
+    "record": "3-2",
+    "srs": 1.275,
+    "net_points_per_game": 3.2,
+    "pythag_win_pct": 0.5605,
+    "model_composite_z": 0.3712,
+    "model_rank": 12,
+    "srs_rank": 14,
+    "net_ppg_rank": 11,
+    "pythag_rank": 12,
+    "excluded": [
+      "market_implied_win_total",
+      "market_implied_rank",
+      "delta (market data)"
+    ]
+  },
+  "scheme_context": {
+    "coaching": {
+      "label": "historical_context_only",
+      "use_policy": "historical_context_only (stale after meta.stale_after); never a current-week claim",
+      "stale_after": "2026-11-03T18:43:44.785Z",
+      "fields": {
+        "head_coach": "Dan Campbell",
+        "offensive_coordinator": null,
+        "defensive_coordinator": null,
+        "sample_start": "2026-09-13",
+        "sample_end": "2026-10-11",
+        "games_sample": 5,
+        "coordinator_continuity": null,
+        "fourth_down_aggression_rate": null,
+        "fourth_down_aggression_tier": null,
+        "neutral_pass_rate": 0.6084,
+        "early_down_pass_rate": null,
+        "shotgun_rate": null,
+        "no_huddle_rate": null,
+        "play_action_rate": null,
+        "motion_rate": null,
+        "rpo_rate": null,
+        "pace_seconds_per_play": null,
+        "red_zone_pass_rate": null,
+        "two_minute_aggression_tier": null,
+        "ats_by_role": {
+          "overall": {
+            "wins": 1,
+            "losses": 3,
+            "pushes": 1
+          },
+          "home": {
+            "wins": 0,
+            "losses": 1,
+            "pushes": 1
+          },
+          "away": {
+            "wins": 1,
+            "losses": 2,
+            "pushes": 0
+          },
+          "favorite": {
+            "wins": 0,
+            "losses": 1,
+            "pushes": 0
+          },
+          "underdog": {
+            "wins": 1,
+            "losses": 2,
+            "pushes": 1
+          },
+          "division": {
+            "wins": 0,
+            "losses": 0,
+            "pushes": 0
+          }
+        },
+        "trend_notes": "All-situation pass tendency is high (0.6084). Fourth-down aggression, motion, play-action, RPO, pace, red-zone, and two-minute fields require play-level/charting enrichment and are intentionally null in this v1 local snapshot.",
+        "stale_after": "2026-11-03T18:43:44.785Z",
+        "raw": {
+          "source_files": [
+            "data/vault-seed/nflverse/games.csv",
+            "data/vault-seed/nflverse/team_stats.csv"
+          ],
+          "source_file_mtimes": {
+            "games": "2026-10-20T18:43:33.490Z",
+            "team_stats": "2026-10-20T18:43:33.817Z"
+          },
+          "offensive_dropbacks": 202,
+          "offensive_plays": 332
+        }
+      }
+    },
+    "secondary_matchup": {
+      "label": "manual_review_capped",
+      "source_week": 6,
+      "status": "stale_prior_week_matchups",
+      "entries": null,
+      "note": "No team-keyed entries found in source structure; see raw file."
+    }
+  },
+  "availability": {
+    "status": "missing",
+    "roster_gate": "not_run",
+    "roster_gate_detail": {
+      "source": "data/generated/master-intel/w07-roster-vet.json",
+      "vet_status": null,
+      "blocking_count": null,
+      "roster_snapshot_generated_at": "2026-10-18T06:33:43.096523+00:00",
+      "roster_age_h_at_vet": null,
+      "operator_overrides_applied": [
+        "harrison-trade-2026-10-13"
+      ],
+      "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
+    },
+    "as_of": {
+      "espn_status": null,
+      "availability_events": "2026-10-19T23:30:01.584Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-20T18:23:03.995Z",
+      "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+    },
+    "caveats": [
+      "no ESPN status data for DET"
+    ]
+  },
+  "priors": {
+    "status": "built",
+    "label_policy": "Everything here is prior_season (2025 final) or preseason_prior (camp Jul 31, trench Sep 2). Never cite as current-season evidence; rosters and scheme have changed.",
+    "prior_season_2025": {
+      "label": "prior_season",
+      "use_policy": "context only",
+      "analytic": {
+        "games_played": 17,
+        "off_epa_per_play": 0.0741,
+        "def_epa_per_play": -0.0052,
+        "off_epa_rank": 8,
+        "def_epa_rank": 14,
+        "epa_per_dropback": 0.1664,
+        "qb_epa_per_dropback": 0.1664,
+        "dropback_success_rate": null,
+        "success_rate": null,
+        "cpoe": 1.6495,
+        "explosive_play_rate": null,
+        "explosive_pass_rate": null,
+        "explosive_run_rate": null,
+        "pressure_rate_allowed": null,
+        "pressure_rate_generated": null,
+        "sack_rate_allowed": 0.0628,
+        "sack_rate_generated": 0.0811,
+        "neutral_pass_rate": 0.5842,
+        "early_down_pass_rate": null,
+        "shotgun_rate": null,
+        "no_huddle_rate": 0.0499,
+        "play_action_rate": 0.1195,
+        "motion_rate": 0.4729,
+        "attribution_note": "Derived locally from nflverse weekly team_stats aggregates, blended with FTN charting (nfl_data_py import_ftn_data, joined to a team via pbp_team_join.csv) for motion/play-action/no-huddle. Success, explosive, pressure, early-down, and shotgun fields still require data this builder does not have (FTN charting has no explicit pressure flag; pressure_rate_* stay null rather than approximated) and are intentionally left null.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/team_stats.csv",
+          "source_file_mtime": "2026-06-06T01:26:03.837Z",
+          "offensive_dropbacks": 621,
+          "offensive_plays": 1063,
+          "defensive_dropbacks": 604,
+          "defensive_plays": 1050,
+          "ftn_charting": {
+            "ftn_charted_plays_offense": 1364,
+            "ftn_charted_plays_defense": 1367,
+            "screen_rate": 0.0491,
+            "rpo_rate": 0.0308,
+            "trick_play_rate": 0.0073,
+            "qb_out_of_pocket_rate": 0.0528,
+            "interception_worthy_rate": 0.0066,
+            "throw_away_rate": 0.022,
+            "drop_rate_of_catchable_targets": 0.0532,
+            "contested_catch_rate_of_catchable_targets": 0.0694,
+            "created_reception_rate_of_catchable_targets": 0.0185,
+            "blitz_rate_faced": 0.1466,
+            "blitz_rate_generated": 0.1646,
+            "avg_pass_rushers_generated": 2.177,
+            "avg_defenders_in_box_faced": 5.1595
+          }
+        }
+      },
+      "regression": {
+        "games_played": 17,
+        "record": "9-8",
+        "actual_wins": 9,
+        "points_for": 481,
+        "points_against": 413,
+        "point_differential": 68,
+        "pythag_win_pct": 0.5893,
+        "pythag_wins": 10.02,
+        "pythag_win_delta": -1.02,
+        "pythag_win_delta_rank": 26,
+        "one_score_record": {
+          "wins": 3,
+          "losses": 5,
+          "ties": 0,
+          "games": 8,
+          "win_pct": 0.375
+        },
+        "fumble_recovery_pct": null,
+        "takeaway_margin": null,
+        "rz_td_pct_off": null,
+        "rz_td_pct_def": null,
+        "third_down_over_expected": null,
+        "attribution_note": "Pythagorean (exp 2.37) and one-score record derived from nflverse games.csv final scores. Turnover, red-zone, and third-down-over-expected signals require the play-by-play layer (CI runs seed with --no-pbp) and are intentionally left null in this v1 builder.",
+        "raw": {
+          "source_file": "data/vault-seed/nflverse/games.csv",
+          "source_file_mtime": "2026-06-05T23:29:04.928Z",
+          "pythag_exponent": 2.37,
+          "one_score_margin": 8
+        }
+      },
+      "power": {
+        "games_played": 17,
+        "record": "9-8",
+        "power_rating": {
+          "srs": 3.249,
+          "net_points_per_game": 4,
+          "pythag_win_pct": 0.5893,
+          "model_composite_z": 0.6109,
+          "model_rank": 9,
+          "srs_rank": 10,
+          "net_ppg_rank": 8,
+          "pythag_rank": 10
+        },
+        "attribution_note": "model_rank is a market-independent ensemble (SRS + net PPG + Pythagorean win%, z-averaged) derived from nflverse games.csv prior-season results. market_implied_rank/delta use Expansion F prediction-market win-total medians and are populated only where the win-total ladder is coherent; a full win-totals feed and scraped forward projections (FPI/nfelo/DVOA) are pending."
+      },
+      "dvoa": {
+        "games_played": null,
+        "overall_dvoa": 21.4,
+        "overall_dvoa_rank": 3,
+        "offensive_dvoa": 11.8,
+        "offensive_dvoa_rank": 7,
+        "defensive_dvoa": -7.4,
+        "defensive_dvoa_rank": 9,
+        "special_teams_dvoa": 2.3,
+        "special_teams_dvoa_rank": 10,
+        "weighted_dvoa": 15.3,
+        "weighted_dvoa_rank": 7,
+        "attribution_note": "Imported source-stamped DVOA snapshot. DVOA is not computed locally by this dashboard.",
+        "raw": {
+          "source_file": "data/vault-seed/dvoa/dvoa-2025.json",
+          "source_file_mtime": "2026-06-06T21:39:53.371Z",
+          "imported_row": {
+            "rk": 3,
+            "total_dvoa": 21.4,
+            "wei_dvoa": 15.3,
+            "wei_rk": 7,
+            "w_l": "9-8",
+            "off_dvoa": 11.8,
+            "off_rk": 7,
+            "def_dvoa": -7.4,
+            "def_rk": 9,
+            "st_dvoa": 2.3,
+            "st_rk": 10
+          }
+        }
+      }
+    },
+    "camp_notes": {
+      "label": "preseason_prior",
+      "as_of": "2026-07-31",
+      "items": [],
+      "withheld_roster_changed": []
+    },
+    "trench_ratings": {
+      "label": "preseason_prior",
+      "as_of_date": "2026-09-02",
+      "rows": [
+        {
+          "metric_type": "team_composite",
+          "rank_overall": 19,
+          "score_overall": -0.1,
+          "run_block_z": 0.71,
+          "pass_block_z": -0.9,
+          "run_defense_z": 0.38,
+          "pass_rush_z": -0.58,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        },
+        {
+          "metric_type": "schedule_sos",
+          "rank_overall": 32,
+          "score_overall": -0.23,
+          "run_block_z": -0.28,
+          "pass_block_z": 0.02,
+          "run_defense_z": -0.35,
+          "pass_rush_z": -0.33,
+          "as_of_date": "2026-09-02",
+          "source": "bettorday"
+        }
+      ]
+    },
+    "missing_inputs": []
+  },
+  "data_quality": {
+    "standing": {
+      "status": "current",
+      "through_week": 6
+    },
+    "game_log": {
+      "status": "current",
+      "through_week": 6,
+      "byes": [
+        6
+      ]
+    },
+    "season_profile_espn": {
+      "status": "current",
+      "through_week": 6
+    },
+    "efficiency_nflverse": {
+      "status": "current",
+      "through_week": 6,
+      "null_fields": [
+        "analytic.dropback_success_rate",
+        "analytic.success_rate",
+        "analytic.explosive_play_rate",
+        "analytic.explosive_pass_rate",
+        "analytic.explosive_run_rate",
+        "analytic.pressure_rate_allowed",
+        "analytic.pressure_rate_generated",
+        "analytic.early_down_pass_rate",
+        "analytic.shotgun_rate",
+        "analytic.no_huddle_rate",
+        "analytic.play_action_rate",
+        "analytic.motion_rate",
+        "regression.fumble_recovery_pct",
+        "regression.takeaway_margin",
+        "regression.rz_td_pct_off",
+        "regression.rz_td_pct_def",
+        "regression.third_down_over_expected"
+      ]
+    },
+    "ftn": {
+      "status": "stale_1wk",
+      "through_week": 5
+    },
+    "power": {
+      "status": "current",
+      "through_week": 6
+    },
+    "scheme_context": {
+      "status": "historical_context_only",
+      "caveats": [
+        "coaching snapshot stale after 2026-11-03T18:43:44.785Z",
+        "secondary-matchup source week 6"
+      ]
+    },
+    "availability": {
+      "status": "missing",
+      "through_week": null,
+      "as_of": {
+        "espn_status": null,
+        "availability_events": "2026-10-19T23:30:01.584Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-20T18:23:03.995Z",
+        "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+      },
+      "roster_gate": "not_run",
+      "null_fields": [],
+      "caveats": [
+        "no ESPN status data for DET"
+      ]
+    },
+    "priors": {
+      "status": "built",
+      "through_week": null,
+      "as_of": {
+        "prior_season": "2025 w18 final",
+        "camp": "2026-07-31",
+        "trench": "2026-09-02"
+      },
+      "null_fields": [],
+      "caveats": [
+        "prior_season / preseason_prior only"
+      ]
+    }
+  }
+}

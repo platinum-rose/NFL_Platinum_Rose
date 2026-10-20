@@ -9,12 +9,13 @@ def thr_dir(sel,line):
     if m: return float(m.group(1)),'over'
     m=re.search(r'(\d+(?:\.\d+)?)\+',sel)
     if m: return float(m.group(1)),'over'
-    m=re.search(r'\b(Over|Under|O|U)\s*(\d+(?:\.\d+)?)',sel)
-    if m: return float(m.group(2)),('under' if m.group(1) in('Under','U') else 'over')
+    m=re.search(r'\b(Over|Under|O|U)\s*(\d+(?:\.\d+)?)',sel,re.I)
+    if m: return float(m.group(2)),('under' if m.group(1).lower() in('under','u') else 'over')
     if line is not None: return float(line),'over'
     return None,'over'
 def parse_leg(l):
     mk=l.get('market'); sel=l.get('selection') or ''
+    if mk in ('sgp_spread','sgp_total','sgp_moneyline'): mk={'sgp_spread':'spread','sgp_total':'total','sgp_moneyline':'moneyline'}[mk]  # 2026-10-20: SGP legs previously fell through to the prop branch and graded L 'no box line'
     gm=l.get('game') or ''
     if mk=='open_slot': return None
     if '(CFB)' in gm: return dict(kind='cfb',label=sel,game=gm,fixed=l.get('status'))
@@ -28,6 +29,8 @@ def parse_leg(l):
     if mk=='dst_touchdown':
         return dict(kind='dst_td',team=team_of(l.get('player') or sel) or l.get('team'),line=1,game=gm,label=sel)
     key=MK.get(mk)
+    if key is None:  # 2026-10-20: W6 ledger legs use canonical keys (pass_yds, rec_yds, atd, ...) and rushing_attempts; MK only mapped the long names
+        key={'rushing_attempts':'carries'}.get(mk, mk if mk in ('completions','pass_att','pass_yds','pass_td','int_thrown','rush_yds','carries','rec','rec_yds','sacks','tackles','def_int','kicking_points','fgm','atd','tds','first_td') else None)
     if key=='INT?':
         g2,pn,p=find_player(l.get('player') or sel, game_by_str(gm))
         key='int_thrown' if p and 'passing' in p else 'def_int'
@@ -35,7 +38,7 @@ def parse_leg(l):
     t,d=thr_dir(sel,l.get('line'))
     if key=='atd' and not re.search(r'[2-9]\+',sel): t=1
     if key=='first_td': t=None
-    if 'Under' in sel: d='under'
+    if re.search(r'\bunder\b',sel,re.I): d='under'
     if not gm and l.get('team'):
         gg=game_for_team(FIX.get(l['team'],l['team']))
         if gg: gm=f"{gg['away']} @ {gg['home']}"

@@ -1,0 +1,434 @@
+{
+  "schema": "team_dossier_index_v1",
+  "season": 2026,
+  "target_week": 7,
+  "completed_weeks": 6,
+  "built_at": "2026-10-20T19:18:05.697Z",
+  "builder": "team_dossier_builder_v1.1",
+  "builder_sha256": "735dc4782268c01147893bfd1eb6196bf17c4c8106322e617a0216151ee0e1e0",
+  "git_head": "020362a",
+  "market_data_included": false,
+  "sources": {
+    "standings": {
+      "id": "standings",
+      "path": "data/generated/team-profiles/team-standings-2026-w06.json",
+      "sha256": "e56d65ee68476642eed7d3207b118b868901f42667aab922c04fb7fe576e8dc1",
+      "use_policy": "record/PF/PA only; ATS/OU fields in source are ignored (market data)",
+      "generated_at": "2026-10-20T18:43:49.465065Z",
+      "through_week": 6,
+      "status": "current"
+    },
+    "analytic": {
+      "id": "analytic",
+      "path": "data/generated/team-profiles/team-analytic-snapshots-2026-w6.json",
+      "sha256": "031a8c906bfb1e3a76fd406060b48d79e757cd31990e1ec8cbfc24d336c1554d",
+      "use_policy": "nflverse-derived efficiency; separate signal, not a projection",
+      "generated_at": "2026-10-20T18:43:38.716Z",
+      "through_week": 6,
+      "status": "current"
+    },
+    "regression": {
+      "id": "regression",
+      "path": "data/generated/team-profiles/team-regression-snapshots-2026-w6.json",
+      "sha256": "8c94b4012ce0db39080c5307a889a0f299ce7651f4f2332de2c50a0f6b85baa4",
+      "use_policy": "nflverse-derived Pythagorean/one-score context; separate signal",
+      "generated_at": "2026-10-20T18:43:44.322Z",
+      "through_week": 6,
+      "status": "current"
+    },
+    "coaching": {
+      "id": "coaching",
+      "path": "data/generated/team-profiles/team-coaching-tendency-snapshots-2026-w6.json",
+      "sha256": "4204894ca5ec49e2bf1233603c8e9e5ca3371df2785b08da1bd4fb14f282aa16",
+      "use_policy": "historical_context_only (stale after meta.stale_after); never a current-week claim",
+      "generated_at": "2026-10-20T18:43:44.785Z",
+      "through_week": 6,
+      "stale_after": "2026-11-03T18:43:44.785Z",
+      "status": "historical_context_only"
+    },
+    "power": {
+      "id": "power",
+      "path": "data/generated/team-profiles/team-power-ratings-2026.json",
+      "sha256": "f93d183b1e9d7b7eabeec771aa0fcb856d63eee10ad91b673b5a65327f34fe8c",
+      "use_policy": "separate signal, not a projection; market-implied fields excluded",
+      "generated_at": "2026-10-13T06:07:42.390Z",
+      "through_week": 6,
+      "note": "meta has no week; built from games.csv through W6",
+      "status": "current"
+    },
+    "ftn": {
+      "id": "ftn",
+      "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+      "sha256": "7bbd3d9a0afdafdea670b7624031372e167168cc6be39dfb5a2557c16348faa0",
+      "use_policy": "statistical context only; numeric team source of record",
+      "generated_at": "2026-10-20T15:14:32.004Z",
+      "through_week": null,
+      "note": "through_week read per-table from GP; see dossier ftn section",
+      "status": "see_tables"
+    },
+    "secondary": {
+      "id": "secondary",
+      "path": "data/secondary-matchups/latest.json",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
+      "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week",
+      "generated_at": "2026-10-17T02:04:07.188Z",
+      "through_week": 6,
+      "status": "stale_prior_week_matchups"
+    },
+    "schedules": {
+      "id": "schedules",
+      "path": "data/vault-seed/nflverse/schedules.csv",
+      "sha256": "3b4b74787c645d3953860b9d68803fe8832748aef3140586ddbc1d3199c32ac3",
+      "use_policy": "venue/roof/surface only; June odds columns and week-6 pairings are NOT used",
+      "status": "unknown"
+    },
+    "slate": {
+      "id": "slate",
+      "path": "data/generated/team-dossiers/w07-slate.json",
+      "sha256": "6bedec1411e2fb74b25336b194c47e7e5723aaa72b4fd705c2d56304c9f1c6e2",
+      "use_policy": "target-week opponent and home/away (operator-confirmed slate)",
+      "generated_at": "2026-10-20T19:25:00Z",
+      "status": "unknown"
+    },
+    "espn_w1": {
+      "id": "espn_w1",
+      "path": "reports/analysis/season/claude/out/week-01-teams.json",
+      "sha256": "cd24e6786146706fdec3dd1f8bf29fedc85448440354d16317341ca3859873e2",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)",
+      "through_week": 1,
+      "status": "stale"
+    },
+    "espn_w2": {
+      "id": "espn_w2",
+      "path": "reports/analysis/season/claude/out/week-02-teams.json",
+      "sha256": "7a8a963719def5391d7dc611725aab8da208f6f7c3815933405c2bb9cfc90448",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)",
+      "through_week": 2,
+      "status": "stale"
+    },
+    "espn_w3": {
+      "id": "espn_w3",
+      "path": "reports/analysis/season/claude/out/week-03-teams.json",
+      "sha256": "c093c8481f365d05540d8c8dcf68ff992e6b4d5996075829bb01b923ec0b084c",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)",
+      "through_week": 3,
+      "status": "stale"
+    },
+    "espn_w4": {
+      "id": "espn_w4",
+      "path": "reports/analysis/season/claude/out/week-04-teams.json",
+      "sha256": "134f4065b18bd269a0973605c60935cc99c5d043dd5f049c7f47cd7705d8027a",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)",
+      "through_week": 4,
+      "status": "stale"
+    },
+    "espn_w5": {
+      "id": "espn_w5",
+      "path": "reports/analysis/season/claude/out/week-05-teams.json",
+      "sha256": "5a2048c4aa64253f5b217e3f8cfc2ea4ea038e151026e68d4d7bad9e77f39da6",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)",
+      "through_week": 5,
+      "status": "stale_1wk"
+    },
+    "espn_w6": {
+      "id": "espn_w6",
+      "path": "reports/analysis/season/claude/out/week-06-teams.json",
+      "sha256": "148933bb4340419405a09ba2140177ded83e7e5f7b6bc58ba6666eb33c2d7f5f",
+      "use_policy": "ESPN box-score derived per-game team stats (market columns dropped)",
+      "through_week": 6,
+      "status": "current"
+    },
+    "espn_status": {
+      "id": "espn_status",
+      "path": "data/research-intel/source-evidence/espn-status-w07.json",
+      "sha256": null,
+      "use_policy": "ESPN public injuries feed + depth-chart QB + roster IR/Out group (scripts/intel/fetch-espn-status.py); statuses lag game-day truth",
+      "generated_at": null,
+      "through_week": null,
+      "status": "missing"
+    },
+    "avail_events": {
+      "id": "avail_events",
+      "path": "data/player-availability/latest.json",
+      "sha256": "e8a6b93d3ed8cf9642b86cdf88780f83935e0fed2347195d1f79967b90f9c5e7",
+      "use_policy": "availability intel only; roster-gate first; event statuses can be stale or conflicted",
+      "generated_at": "2026-10-19T23:30:01.584Z",
+      "through_week": null,
+      "status": "current"
+    },
+    "impact_digest": {
+      "id": "impact_digest",
+      "path": "data/player-availability/impact-digest-latest.json",
+      "sha256": "f21a656a2f2bdf32b9bc65f45232b84209f95be5fd4ab10d0e84f99710742942",
+      "use_policy": "starter-impact digest; research context only; market-linkage fields dropped",
+      "generated_at": "2026-10-17T02:04:00.537Z",
+      "through_week": null,
+      "status": "stale"
+    },
+    "projected_starters": {
+      "id": "projected_starters",
+      "path": "data/projected-starters/2026/latest.json",
+      "sha256": "5b1a077fd9829e20c5eebe74112248d7d0b4d2b4b479087f5d3baa464b25ad08",
+      "use_policy": "projected starters; coverage is partly estimated from local starter language; check coverage_status",
+      "generated_at": "2026-10-20T18:23:03.995Z",
+      "through_week": null,
+      "status": "current"
+    },
+    "roster_vet": {
+      "id": "roster_vet",
+      "path": "data/generated/master-intel/w07-roster-vet.json",
+      "sha256": null,
+      "use_policy": "roster gate result (scripts/nfl-rosters/roster_vet.py); must be PASS for roster_gate=passed",
+      "generated_at": null,
+      "through_week": null,
+      "status": "missing"
+    },
+    "roster_snapshot": {
+      "id": "roster_snapshot",
+      "path": "data/nfl-rosters/espn-full-rosters-latest.json",
+      "sha256": "afff165a7c07f35c77424cdeb08d54188149d7faca67a04f3456d4b601db0a66",
+      "use_policy": "ESPN rosters incl. IR/practice squad plus Andy-reported overrides; name/team ground truth",
+      "generated_at": "2026-10-18T06:33:43.096523+00:00",
+      "through_week": null,
+      "status": "stale"
+    },
+    "operator_overrides": {
+      "id": "operator_overrides",
+      "path": "data/nfl-rosters/operator-status-overrides.json",
+      "sha256": "c1c8d335c2733f6685a843a619dbfcfb7bd92712a4fd64088c81b68b31679f44",
+      "use_policy": "Andy-reported trades/IR that ESPN lags",
+      "generated_at": null,
+      "through_week": null,
+      "status": "current"
+    },
+    "operator_starters": {
+      "id": "operator_starters",
+      "path": "data/research-intel/operator-confirmed-starters-2026-w07.json",
+      "sha256": null,
+      "use_policy": "operator-stated starters for the target week; not independently verified",
+      "generated_at": null,
+      "through_week": null,
+      "status": "missing"
+    },
+    "prior_analytic": {
+      "id": "prior_analytic",
+      "path": "data/generated/team-profiles/team-analytic-snapshots-2025-w18.json",
+      "sha256": "51887e1a6547adc142c39e469c5748f81ad7faa89a8f630ee0e088bd8527838d",
+      "use_policy": "prior_season (2025 final); never a current-season claim",
+      "generated_at": "2026-09-01T19:00:16.059Z",
+      "through_week": 18,
+      "status": "prior_season"
+    },
+    "prior_regression": {
+      "id": "prior_regression",
+      "path": "data/generated/team-profiles/team-regression-snapshots-2025-w18.json",
+      "sha256": "df837b723977070b3669750d3f09653900f77a1bc4da76acc6deafc523adc861",
+      "use_policy": "prior_season (2025 final)",
+      "generated_at": "2026-07-31T02:57:26.213Z",
+      "through_week": 18,
+      "status": "prior_season"
+    },
+    "prior_power": {
+      "id": "prior_power",
+      "path": "data/generated/team-profiles/team-power-ratings-2025.json",
+      "sha256": "31fa414d5031ca3133a47b7ff91ee943439c4a6f69185ca69c7ad8e9c8b6c290",
+      "use_policy": "prior_season (2025 final); market-implied fields excluded",
+      "generated_at": "2026-07-31T03:18:27.756Z",
+      "through_week": null,
+      "status": "prior_season"
+    },
+    "prior_dvoa": {
+      "id": "prior_dvoa",
+      "path": "data/generated/team-profiles/team-dvoa-snapshots-2025.json",
+      "sha256": "6a890ff064153a552d564d683009133233908f410612c464999702a156bcc87c",
+      "use_policy": "prior_season (2025 final); 2026 DVOA is retired",
+      "generated_at": "2026-07-24T01:51:20.936Z",
+      "through_week": null,
+      "status": "prior_season"
+    },
+    "camp": {
+      "id": "camp",
+      "path": "data/training-camp/2026/all-32-camp-notes-2026-07-31.json",
+      "sha256": "746fa2b72220a021ade446b41245581a3523c865172fd89841162bad9fc8b56e",
+      "use_policy": "preseason_prior (Jul 31 camp notes); frozen context, roster-checked at build",
+      "generated_at": "2026-07-31T00:50:17.489Z",
+      "through_week": null,
+      "status": "preseason_prior"
+    },
+    "trench": {
+      "id": "trench",
+      "path": "data/intel/bettorday_trench_ratings_2026.json",
+      "sha256": "4193d505a4bda3aa8210355b901f179408730917d7703dddc71c81f34b57befd",
+      "use_policy": "preseason_prior (Sep 2, week 0 trench ratings)",
+      "generated_at": null,
+      "through_week": null,
+      "status": "preseason_prior",
+      "as_of_date": "2026-09-02"
+    }
+  },
+  "teams": [
+    "ARI",
+    "ATL",
+    "BAL",
+    "BUF",
+    "CAR",
+    "CHI",
+    "CIN",
+    "CLE",
+    "DAL",
+    "DEN",
+    "DET",
+    "GB",
+    "HOU",
+    "IND",
+    "JAX",
+    "KC",
+    "LAC",
+    "LAR",
+    "LV",
+    "MIA",
+    "MIN",
+    "NE",
+    "NO",
+    "NYG",
+    "NYJ",
+    "PHI",
+    "PIT",
+    "SEA",
+    "SF",
+    "TB",
+    "TEN",
+    "WAS"
+  ],
+  "matchups": [
+    "NE@CHI",
+    "PIT@NO",
+    "TB@CAR",
+    "MIA@NYJ",
+    "CLE@TEN",
+    "NYG@HOU",
+    "IND@MIN",
+    "CIN@BAL",
+    "SF@ATL",
+    "DEN@ARI",
+    "GB@DET",
+    "LAR@LV",
+    "KC@SEA",
+    "DAL@PHI"
+  ],
+  "freshness_table": {
+    "standings": {
+      "status": "current",
+      "through_week": 6,
+      "generated_at": "2026-10-20T18:43:49.465065Z"
+    },
+    "analytic": {
+      "status": "current",
+      "through_week": 6,
+      "generated_at": "2026-10-20T18:43:38.716Z"
+    },
+    "regression": {
+      "status": "current",
+      "through_week": 6,
+      "generated_at": "2026-10-20T18:43:44.322Z"
+    },
+    "coaching": {
+      "status": "historical_context_only",
+      "through_week": 6,
+      "generated_at": "2026-10-20T18:43:44.785Z"
+    },
+    "power": {
+      "status": "current",
+      "through_week": 6,
+      "generated_at": "2026-10-13T06:07:42.390Z"
+    },
+    "ftn": {
+      "status": "see_tables",
+      "through_week": null,
+      "generated_at": "2026-10-20T15:14:32.004Z"
+    },
+    "secondary": {
+      "status": "stale_prior_week_matchups",
+      "through_week": 6,
+      "generated_at": "2026-10-17T02:04:07.188Z"
+    },
+    "schedules": {
+      "status": "unknown",
+      "through_week": null,
+      "generated_at": null
+    },
+    "slate": {
+      "status": "unknown",
+      "through_week": null,
+      "generated_at": "2026-10-20T19:25:00Z"
+    },
+    "avail_events": {
+      "status": "current",
+      "through_week": null,
+      "generated_at": "2026-10-19T23:30:01.584Z"
+    },
+    "impact_digest": {
+      "status": "stale",
+      "through_week": null,
+      "generated_at": "2026-10-17T02:04:00.537Z"
+    },
+    "projected_starters": {
+      "status": "current",
+      "through_week": null,
+      "generated_at": "2026-10-20T18:23:03.995Z"
+    },
+    "roster_vet": {
+      "status": "missing",
+      "through_week": null,
+      "generated_at": null
+    },
+    "roster_snapshot": {
+      "status": "stale",
+      "through_week": null,
+      "generated_at": "2026-10-18T06:33:43.096523+00:00"
+    },
+    "operator_overrides": {
+      "status": "current",
+      "through_week": null,
+      "generated_at": null
+    },
+    "operator_starters": {
+      "status": "missing",
+      "through_week": null,
+      "generated_at": null
+    },
+    "prior_analytic": {
+      "status": "prior_season",
+      "through_week": 18,
+      "generated_at": "2026-09-01T19:00:16.059Z"
+    },
+    "prior_regression": {
+      "status": "prior_season",
+      "through_week": 18,
+      "generated_at": "2026-07-31T02:57:26.213Z"
+    },
+    "prior_power": {
+      "status": "prior_season",
+      "through_week": null,
+      "generated_at": "2026-07-31T03:18:27.756Z"
+    },
+    "prior_dvoa": {
+      "status": "prior_season",
+      "through_week": null,
+      "generated_at": "2026-07-24T01:51:20.936Z"
+    },
+    "camp": {
+      "status": "preseason_prior",
+      "through_week": null,
+      "generated_at": "2026-07-31T00:50:17.489Z"
+    },
+    "trench": {
+      "status": "preseason_prior",
+      "through_week": null,
+      "generated_at": null
+    }
+  },
+  "not_built": [
+    "availability"
+  ]
+}
