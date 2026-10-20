@@ -1,5 +1,5 @@
 # TB Buccaneers — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:00:32.856Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-20T23:12:46.189Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -53,7 +53,7 @@ Out/IR: David Sills V WR Injured Reserve
 Questionable/Doubtful: Antoine Winfield Jr. S Doubtful; Sean Tucker RB Questionable; Baker Mayfield QB Questionable; Benjamin Morrison CB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 3 players; skill: Jalen McMillan WR
 OL/DL cluster risk (derived): OL none, DL none
-Impact digest (top by score): Jalon Daniels QB setback/worsening
+Impact digest (top by score): Jalon Daniels QB return_to_practice/improving
 Projected starters: manual_and_estimated_signals, 1 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

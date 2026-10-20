@@ -1,5 +1,5 @@
 # CHI Bears — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:00:31.665Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-20T23:12:45.084Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -53,7 +53,7 @@ Out/IR: Anthony Johnson Jr. S Injured Reserve; Dayo Odeyingbo DE Injured Reserve
 Questionable/Doubtful: Kyle Monangai RB Questionable; Jonah Jackson G Questionable; T.J. Edwards LB Questionable; Jack Sanborn LB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 9 players; skill: Brittain Brown RB; Hayden Large TE; Nikola Kalinic TE
 OL/DL cluster risk (derived): OL none, DL watch
-Impact digest (top by score): Tyson Bagent QB return_to_practice/improving; Caleb Williams QB status_update/unknown; Caleb Williams QB status_update/unknown; Kalif Raymond WR return_to_practice/improving
+Impact digest (top by score): Tyson Bagent QB return_to_practice/improving; Caleb Williams QB active_news/unknown; Kalif Raymond WR return_to_practice/improving
 Projected starters: manual_and_estimated_signals, 3 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

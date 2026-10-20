@@ -1,5 +1,5 @@
 # LAC Chargers — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:00:32.235Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-20T23:12:45.597Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -53,7 +53,7 @@ Out/IR: Alec Ingold FB Injured Reserve; Denzel Perryman LB Injured Reserve
 Questionable/Doubtful: Rodney Shelley CB Questionable; Tre' Harris WR Questionable; Donte Jackson CB Questionable; Derwin James Jr. S Questionable; Joe Alt OT Questionable; Kayode Awosika G Questionable (+2 more)
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 6 players; skill: David Njoku TE; Trey Lance QB
 OL/DL cluster risk (derived): OL watch, DL none
-Impact digest (top by score): Jake Browning QB ir/worsening; Justin Herbert QB active_news/unknown; David Njoku TE ir/worsening
+Impact digest (top by score): Justin Herbert QB active_news/unknown; David Njoku TE ir/worsening; Omarion Hampton RB active_news/unknown
 Projected starters: manual_and_estimated_signals, 4 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

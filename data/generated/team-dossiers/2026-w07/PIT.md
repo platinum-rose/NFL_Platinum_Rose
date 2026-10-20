@@ -1,5 +1,5 @@
 # PIT Steelers — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:00:32.689Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-20T23:12:46.053Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -53,7 +53,7 @@ Out/IR: Roman Wilson WR Injured Reserve; DeShon Elliott S Injured Reserve; Micha
 Questionable/Doubtful: Ben Skowronek WR Questionable; Brandin Echols CB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 8 players; skill: Cole Burgess WR; Max Hurleman RB
 OL/DL cluster risk (derived): OL none, DL none
-Impact digest (top by score): Aaron Rodgers QB active_news/unknown; Robert Spears-Jennings S active_news/unknown; Jaylen Warren RB active_news/unknown; Sean Murphy-Bunting CB active_news/unknown
+Impact digest (top by score): Aaron Rodgers QB active_news/unknown; Lew Nichols RB active_news/unknown
 Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

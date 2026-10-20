@@ -1,5 +1,5 @@
 # BAL Ravens — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:00:31.524Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-20T23:12:44.939Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -53,7 +53,7 @@ Out/IR: none
 Questionable/Doubtful: Andrew Vorhees G Questionable; Broderick Washington Jr. DT Questionable; Cam Jurgens C Questionable; Matt Hibner TE Questionable; Lamar Jackson QB Questionable; Rashod Bateman WR Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Adam Randall RB; Durham Smythe TE; Skylar Thompson QB
 OL/DL cluster risk (derived): OL watch, DL none
-Impact digest (top by score): Lamar Jackson QB out/worsening; Lamar Jackson QB out/worsening
+Impact digest (top by score): Lamar Jackson QB status_update/unknown; Lamar Jackson QB status_update/unknown
 Projected starters: manual_and_estimated_signals, 1 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

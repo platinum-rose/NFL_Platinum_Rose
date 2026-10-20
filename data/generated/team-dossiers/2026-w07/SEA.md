@@ -1,5 +1,5 @@
 # SEA Seahawks — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:00:32.751Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-20T23:12:46.096Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -53,7 +53,7 @@ Out/IR: Anthony Bradford G Injured Reserve; Elijah Arroyo TE Out; Zach Charbonne
 Questionable/Doubtful: Chazz Surratt LB Questionable; Drake Thomas LB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 5 players; skill: Jake Bobo WR; Robbie Ouzts FB
 OL/DL cluster risk (derived): OL watch, DL none
-Impact digest (top by score): Tyrice Knight LB setback/worsening; Irv Charles WR return_to_practice/improving; Velus Jones Jr. RB active_news/unknown
+Impact digest (top by score): Tyrice Knight LB setback/worsening
 Projected starters: estimated_from_local_starter_language, 1 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

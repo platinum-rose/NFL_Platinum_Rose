@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T23:00:31.477Z",
+  "built_at": "2026-10-20T23:12:44.893Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "45833b2",
+  "git_head": "297ffcf",
   "market_data_included": false,
   "sources": [
     {
@@ -1353,8 +1353,8 @@
     },
     "as_of": {
       "espn_status": "2026-10-20T22:47:55Z",
-      "availability_events": "2026-10-19T23:30:01.584Z",
-      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "availability_events": "2026-10-20T23:12:31.816Z",
+      "impact_digest": "2026-10-20T23:12:42.057Z",
       "projected_starters": "2026-10-20T18:23:03.995Z",
       "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
     },
@@ -1482,7 +1482,7 @@
           "availability_trend": "worsening",
           "event_type": "suspension",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T06:20:05.000Z",
+          "published_at": "2026-10-20T23:00:02.000Z",
           "summary": "James Pearce Jr. SUSPENSION",
           "practice": [],
           "probability_of_playing": null,
@@ -1498,7 +1498,7 @@
           "availability_trend": "worsening",
           "event_type": "pup",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T06:20:05.000Z",
+          "published_at": "2026-10-20T23:00:02.000Z",
           "summary": "DeAngelo Malone PUP",
           "practice": [],
           "probability_of_playing": null,
@@ -1514,7 +1514,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T06:20:04.000Z",
+          "published_at": "2026-10-20T23:00:01.000Z",
           "summary": "Da'Shawn Hand IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1530,7 +1530,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T06:20:04.000Z",
+          "published_at": "2026-10-20T23:00:01.000Z",
           "summary": "A.J. Terrell Jr. IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1546,7 +1546,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T06:20:04.000Z",
+          "published_at": "2026-10-20T23:00:01.000Z",
           "summary": "Trey Sermon IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1562,13 +1562,9 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T06:20:04.000Z",
+          "published_at": "2026-10-20T23:00:01.000Z",
           "summary": "Yasir Abdullah IR",
-          "practice": [
-            "--",
-            "--",
-            "--"
-          ],
+          "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
@@ -1582,7 +1578,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T06:20:04.000Z",
+          "published_at": "2026-10-20T23:00:01.000Z",
           "summary": "JD Bertrand IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1598,7 +1594,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T06:20:04.000Z",
+          "published_at": "2026-10-20T23:00:01.000Z",
           "summary": "Jalon Walker IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1614,7 +1610,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T06:20:04.000Z",
+          "published_at": "2026-10-20T23:00:01.000Z",
           "summary": "Anterio Thompson IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1626,12 +1622,12 @@
         {
           "player_name": "C.J. Henderson",
           "position": "CB",
-          "normalized_status": "OUT",
-          "availability_trend": "worsening",
-          "event_type": "out",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-19T16:20:00.000Z",
-          "summary": "out",
+          "published_at": "2026-10-20T16:10:00.000Z",
+          "summary": "questionable",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1640,14 +1636,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Andy Dalton",
-          "position": "QB",
+          "player_name": "Nick Folk",
+          "position": "PK",
           "normalized_status": "ACTIVE_NEWS",
           "availability_trend": "unknown",
           "event_type": "active_news",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-19T13:50:00.000Z",
-          "summary": "Dalton agreed to a one-year contract with the Falcons on Monday, Adam Schefter of ESPN reports.",
+          "published_at": "2026-10-20T03:04:00.000Z",
+          "summary": "Folk made his sole PAT in the Falcons' 31-23 loss to the Bears on Sunday.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1656,14 +1652,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Michael Penix Jr.",
-          "position": "QB",
+          "player_name": "Zachariah Branch",
+          "position": "WR",
           "normalized_status": "ACTIVE_NEWS",
           "availability_trend": "unknown",
           "event_type": "active_news",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-19T09:26:00.000Z",
-          "summary": "Penix completed 19 of 33 passes for 225 yards and three touchdowns with no interceptions while rushing once for one yard in the Falcons' 31-23 loss to the Bears",
+          "published_at": "2026-10-20T02:52:00.000Z",
+          "summary": "Branch caught both of his targets for nine yards while adding 85 yards as a kick returner during Sunday's 31-23 loss to Chicago.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1674,6 +1670,52 @@
       ]
     },
     "impact_digest": [
+      {
+        "player_name": "Tua Tagovailoa",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "return_to_practice",
+        "availability_trend": "improving",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "competition_or_rotation",
+          "starter_confidence": 0.5,
+          "source_count": 1
+        },
+        "score": 100,
+        "signal": "positive_availability",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-16T23:22:00.000Z",
+        "summary": "With Michael Penix (ribs) cleared to play Sunday against the Bears, Tagovailoa will handle backup duties for the Falcons.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Andy Dalton",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "source_count": 1
+        },
+        "score": 80,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-19T13:50:00.000Z",
+        "summary": "Dalton agreed to a one-year contract with the Falcons on Monday, Adam Schefter of ESPN reports.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
       {
         "player_name": "Bijan Robinson",
         "position": "RB",
@@ -1689,8 +1731,8 @@
         "score": 48,
         "signal": "review_context",
         "source": "ESPN injuries API",
-        "published_at": "2026-10-12T04:12:00.000Z",
-        "summary": "Robinson rushed 17 times for 86 yards while catching four of seven targets for 32 yards in Sunday's 30-23 overtime loss to the Ravens.",
+        "published_at": "2026-10-19T06:18:00.000Z",
+        "summary": "Robinson rushed nine times for 61 yards and brought in both targets for minus-8 yards in the Falcons' 31-23 loss to the Bears on Sunday.",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1745,8 +1787,7 @@
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
       "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
-      "impact_digest is stale (>36h at build)"
+      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
     ]
   },
   "priors": {
@@ -1977,8 +2018,8 @@
       "through_week": null,
       "as_of": {
         "espn_status": "2026-10-20T22:47:55Z",
-        "availability_events": "2026-10-19T23:30:01.584Z",
-        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "availability_events": "2026-10-20T23:12:31.816Z",
+        "impact_digest": "2026-10-20T23:12:42.057Z",
         "projected_starters": "2026-10-20T18:23:03.995Z",
         "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
       },
@@ -1987,8 +2028,7 @@
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
         "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
-        "impact_digest is stale (>36h at build)"
+        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
       ]
     },
     "priors": {

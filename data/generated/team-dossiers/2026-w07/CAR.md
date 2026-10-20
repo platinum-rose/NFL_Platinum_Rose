@@ -1,5 +1,5 @@
 # CAR Panthers — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:00:31.620Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-20T23:12:45.030Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN stale_1wk (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -53,7 +53,7 @@ Out/IR: Jonathon Brooks RB Injured Reserve; Cam Jackson DT Injured Reserve
 Questionable/Doubtful: Monroe Freeling OT Questionable; AJ Dillon RB Questionable; Thomas Incoom LB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 8 players; skill: Chris Brazzell II WR; Xavier Legette WR
 OL/DL cluster risk (derived): OL none, DL watch
-Impact digest (top by score): Bryce Young QB status_update/unknown; Bryce Young QB active_news/unknown; Tommy Tremble TE limited_return/improving; Tommy Tremble TE status_update/unknown
+Impact digest (top by score): Bryce Young QB active_news/unknown; Tommy Tremble TE active_news/unknown
 Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

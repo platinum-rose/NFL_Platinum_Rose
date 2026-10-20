@@ -1,1089 +1,681 @@
-# Player Availability Snapshot - 2026-10-15
+# Player Availability Snapshot - 2026-10-20
 
 > Local availability intel only. This report is not a betting recommendation sheet and does not authorize official Platinum Rose AI picks.
 
 Season: 2026
-Generated: 2026-10-15T01:39:52.764Z
-Events: 1159 | Synthesis eligible: 1151 | Conflicted intel: 6 | Teams: 32 | Improving: 60 | Worsening: 373 | Major: 865
-OL worsening: 11 | Defensive-front worsening: 66 | OL cluster teams: 0 | Defensive-front cluster teams: 18
+Generated: 2026-10-20T23:12:31.816Z
+Events: 947 | Synthesis eligible: 943 | Conflicted intel: 2 | Teams: 32 | Improving: 64 | Worsening: 344 | Major: 629
+OL worsening: 11 | Defensive-front worsening: 66 | OL cluster teams: 3 | Defensive-front cluster teams: 17
 
 ## Source Health
 
 | Source | Status | Evidence |
 |---|---|---|
-| ESPN injuries API | available | 32 team groups; 651 parsed rows. |
-| FantasyPros injuries API | available | 495 parsed rows. |
+| ESPN injuries API | available | 32 team groups; 611 parsed rows. |
+| FantasyPros injuries API | available | 323 parsed rows. |
 | Training camp snapshot | available | 62 availability-like item(s) from 225 camp item(s). |
 
 ## Team Events
 
-### PHI
-
-Events: 50 | Synthesis eligible: 50 | Conflicted intel: 0 | Improving: 1 | Worsening: 14 | Major: 42
-
-OL: 3 total / 1 worsening | Defensive front: 6 total / 0 worsening
-
-- **unknown/status_update** Jalen Hurts (QB): Jalen Hurts UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **unknown/status_update** Zack Baun (LB): Zack Baun UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **unknown/status_update** Jihaad Campbell (LB): Jihaad Campbell UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **unknown/status_update** Jalen Carter (DT): Jalen Carter UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** Arnold Ebiketie (DE): Arnold Ebiketie UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** Andrew Mukuba (S): Andrew Mukuba UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Tank Bigsby (RB): Tank Bigsby IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Johnny Wilson (WR): Johnny Wilson IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Andre' Sam (S): Andre' Sam IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Tucker Large (S): Tucker Large IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Landon Dickerson (G): Dickerson (knee) was designated to return from injured reserve Wednesday.
-  - Source: ESPN injuries API | 2026-10-15T01:09:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: offensive_line_major | Group: offensive_line | human review
-  - Evidence: Dickerson (knee) was designated to return from injured reserve Wednesday.
-- **worsening/ir** Jakorian Bennett (CB): Bennett (knee) had his 21-day practice window opened by the Eagles on Wednesday.
-  - Source: ESPN injuries API | 2026-10-15T01:04:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Bennett (knee) had his 21-day practice window opened by the Eagles on Wednesday.
-
-### LAC
-
-Events: 49 | Synthesis eligible: 49 | Conflicted intel: 0 | Improving: 0 | Worsening: 11 | Major: 41
-
-OL: 2 total / 0 worsening | Defensive front: 6 total / 0 worsening
-
-- **unknown/status_update** Charlie Kolar (TE): Charlie Kolar UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Khalil Mack (LB): Khalil Mack UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** David Njoku (TE): David Njoku IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Denzel Perryman (LB): Denzel Perryman IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Trey Lance (QB): Trey Lance IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **worsening/ir** Denzel Perryman (LB): Coach Jim Harbaugh said Wednesday that Perryman (undisclosed) will be out for Sunday's game against the Chiefs, Alex Insdorf of BoltBeat.com reports.
-  - Source: ESPN injuries API | 2026-10-15T01:08:00.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-  - Evidence: Coach Jim Harbaugh said Wednesday that Perryman (undisclosed) will be out for Sunday's game against the Chiefs, Alex Insdorf of BoltBeat.com reports.
-- **worsening/setback** Brenen Thompson (WR): Thompson (quadriceps) was a limited participant in Wednesday's practice.
-  - Source: ESPN injuries API | 2026-10-15T00:05:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Thompson (quadriceps) was a limited participant in Wednesday's practice.
-- **stable/limited** Marquez Valdes-Scantling (WR): Valdes-Scantling (ribs) was a limited participant in Wednesday's practice.
-  - Source: ESPN injuries API | 2026-10-14T23:59:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Valdes-Scantling (ribs) was a limited participant in Wednesday's practice.
-- **unknown/status_update** Kendall Williamson (S): questionable
-  - Source: ESPN injuries API | 2026-10-14T22:39:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: questionable
-- **unknown/status_update** Dalvin Tomlinson (DT): questionable
-  - Source: ESPN injuries API | 2026-10-14T22:39:00.000Z
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-  - Evidence: questionable
-- **unknown/status_update** Elijah Molden (CB): questionable
-  - Source: ESPN injuries API | 2026-10-14T22:38:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: questionable
-- **unknown/status_update** Jamaree Caldwell (DT): questionable
-  - Source: ESPN injuries API | 2026-10-14T22:38:00.000Z
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-  - Evidence: questionable
-
 ### NE
 
-Events: 46 | Synthesis eligible: 46 | Conflicted intel: 0 | Improving: 1 | Worsening: 15 | Major: 39
+Events: 41 | Synthesis eligible: 41 | Conflicted intel: 0 | Improving: 2 | Worsening: 14 | Major: 34
 
-OL: 3 total / 1 worsening | Defensive front: 3 total / 1 worsening / opponent offense boost risk
+OL: 4 total / 2 worsening / cluster risk | Defensive front: 4 total / 1 worsening / opponent offense boost risk
 
 - **unknown/status_update** Drake Maye (QB): Drake Maye UNKNOWN
   - Source: FantasyPros injuries API
   - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+- **unknown/status_update** TreVeyon Henderson (RB): TreVeyon Henderson UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Andy Borregales (K): Andy Borregales UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: depth_only | Group: other | human review
+- **unknown/status_update** Kevin Byard III (S): Kevin Byard III UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** Christian Elliss (LB): Christian Elliss UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+- **unknown/status_update** Dre'Mont Jones (DT): Dre'Mont Jones UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+- **unknown/status_update** Craig Woodson (S): Craig Woodson UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Romeo Doubs (WR): Romeo Doubs IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Mack Hollins (WR): Mack Hollins IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/pup** Harold Landry III (LB): Harold Landry III PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
 - **worsening/ir** Reggie Gilliam (RB): Reggie Gilliam IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Julian Hill (TE): Julian Hill IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Dell Pettus (S): Dell Pettus IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Jeremiah Webb (WR): Jeremiah Webb IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Myles Montgomery (RB): Myles Montgomery IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Quintayvious Hutchins (DE): Quintayvious Hutchins IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Khalil Jacobs (LB): Khalil Jacobs IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Marcus Bryant (OT): The Patriots opened the 21-day practice window Wednesday for Bryant (ankle) to return from injured reserve.
-  - Source: ESPN injuries API | 2026-10-15T00:55:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: offensive_line_major | Group: offensive_line | human review
-  - Evidence: The Patriots opened the 21-day practice window Wednesday for Bryant (ankle) to return from injured reserve.
-- **worsening/setback** Charles Woods (CB): Woods (shoulder) was a limited participant in Wednesday's practice.
-  - Source: ESPN injuries API | 2026-10-14T23:50:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Woods (shoulder) was a limited participant in Wednesday's practice.
-
-### CLE
-
-Events: 43 | Synthesis eligible: 43 | Conflicted intel: 0 | Improving: 1 | Worsening: 12 | Major: 37
-
-OL: 3 total / 1 worsening | Defensive front: 11 total / 3 worsening / cluster risk / opponent offense boost risk
-
-- **unknown/status_update** Dillon Gabriel (QB): Dillon Gabriel UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **worsening/ir** Raheim Sanders (RB): Raheim Sanders IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/pup** Jeremiah Owusu-Koramoah (LB): Jeremiah Owusu-Koramoah PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Damarri Mathis (CB): Damarri Mathis IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Alex Wright (DE): Alex Wright IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Joe Royer (TE): Joe Royer IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/setback** Tytus Howard (OT): Howard (knee) did not participate at the Browns' practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-15T01:20:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: offensive_line_major | Group: offensive_line | human review
-  - Evidence: Howard (knee) did not participate at the Browns' practice Wednesday.
-- **worsening/ir** Dylan Sampson (RB): Sampson (knee) was a non-participant in Wednesday's practice.
-  - Source: ESPN injuries API | 2026-10-14T21:59:00.000Z
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Sampson (knee) was a non-participant in Wednesday's practice.
-- **unknown/status_update** Elgton Jenkins (C): questionable
-  - Source: ESPN injuries API | 2026-10-14T21:52:00.000Z
-  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
-  - Evidence: questionable
-- **unknown/status_update** Grant Delpit (S): questionable
-  - Source: ESPN injuries API | 2026-10-14T21:51:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: questionable
-- **worsening/doubtful** Mason Graham (DT): doubtful
-  - Source: ESPN injuries API | 2026-10-14T21:51:00.000Z
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-  - Evidence: doubtful
-- **stable/limited** KC Concepcion (WR): Concepcion (concussion) was a limited participant in Wednesday's practice.
-  - Source: ESPN injuries API | 2026-10-14T21:48:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Concepcion (concussion) was a limited participant in Wednesday's practice.
 
 ### SF
 
-Events: 42 | Synthesis eligible: 42 | Conflicted intel: 0 | Improving: 0 | Worsening: 25 | Major: 36
+Events: 38 | Synthesis eligible: 38 | Conflicted intel: 0 | Improving: 1 | Worsening: 19 | Major: 32
 
-OL: 0 total / 0 worsening | Defensive front: 8 total / 4 worsening / cluster risk / opponent offense boost risk
+OL: 0 total / 0 worsening | Defensive front: 7 total / 3 worsening / cluster risk / opponent offense boost risk
 
+- **unknown/status_update** Mike Evans (WR): Mike Evans UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Deebo Samuel Sr. (WR): Deebo Samuel Sr. UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Christian Kirk (WR): Christian Kirk UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **unknown/status_update** Nick Bosa (DE): Nick Bosa UNKNOWN
   - Source: FantasyPros injuries API
   - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** Kyle Juszczyk (RB): Kyle Juszczyk UNKNOWN
+- **unknown/status_update** Garret Wallow (LB): Garret Wallow UNKNOWN
   - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
 - **unknown/status_update** Marques Sigle (S): Marques Sigle UNKNOWN
   - Source: FantasyPros injuries API
   - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** James Thompson Jr. (DT): James Thompson Jr. UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
 - **worsening/ir** De'Zhaun Stribling (WR): De'Zhaun Stribling IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Christian Kirk (WR): Christian Kirk IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Jake Tonges (TE): Jake Tonges IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Brandon Aiyuk (WR): Brandon Aiyuk IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/suspension** Dre Greenlaw (LB): Dre Greenlaw SUSPENSION
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins | Impact: defensive_major | Group: linebacker | human review
 - **worsening/ir** Demarcus Robinson (WR): Demarcus Robinson IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Darrick Forrest (S): Darrick Forrest IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Nate Hobbs (CB): Nate Hobbs IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+
+### PHI
+
+Events: 38 | Synthesis eligible: 38 | Conflicted intel: 0 | Improving: 1 | Worsening: 17 | Major: 30
+
+OL: 3 total / 2 worsening / cluster risk | Defensive front: 2 total / 0 worsening
+
+- **unknown/status_update** Saquon Barkley (RB): Saquon Barkley UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Eli Stowers (TE): Eli Stowers UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Hollywood Brown (WR): Hollywood Brown UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Jalyx Hunt (LB): Jalyx Hunt UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+- **unknown/status_update** A.J. Epenesa (DE): A.J. Epenesa UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+- **unknown/status_update** Michael Carter II (S): Michael Carter II UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** Grant Calcaterra (TE): Grant Calcaterra UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Jakorian Bennett (CB): Jakorian Bennett UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Tank Bigsby (RB): Tank Bigsby IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Will Shipley (RB): Will Shipley IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Jalen Hurts (QB): Jalen Hurts IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+- **worsening/ir** Johnny Wilson (WR): Johnny Wilson IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+
+### CHI
+
+Events: 36 | Synthesis eligible: 36 | Conflicted intel: 0 | Improving: 6 | Worsening: 13 | Major: 28
+
+OL: 1 total / 0 worsening | Defensive front: 5 total / 5 worsening / cluster risk / opponent offense boost risk
+
+- **unknown/status_update** Tyrique Stevenson Sr. (CB): Tyrique Stevenson Sr. UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** Keyshaun Elliott (LB): Keyshaun Elliott UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Anthony Johnson Jr. (S): ir
+  - Source: ESPN injuries API | 2026-10-20T23:01:00.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+  - Evidence: ir
+- **worsening/suspension** Montez Sweat (DE): Montez Sweat SUSPENSION
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/suspension** Beanie Bishop Jr. (CB): Beanie Bishop Jr. SUSPENSION
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Dayo Odeyingbo (DE): Dayo Odeyingbo IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Tony Fields II (LB): Tony Fields II IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Coby Bryant (CB): Coby Bryant IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Nephi Sewell (LB): Nephi Sewell IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Nikola Kalinic (TE): Nikola Kalinic IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Brittain Brown (RB): Brittain Brown IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Hayden Large (TE): Hayden Large IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 
 ### GB
 
-Events: 44 | Synthesis eligible: 42 | Conflicted intel: 2 | Improving: 3 | Worsening: 16 | Major: 35
+Events: 35 | Synthesis eligible: 33 | Conflicted intel: 2 | Improving: 1 | Worsening: 15 | Major: 24
 
-OL: 4 total / 0 worsening | Defensive front: 13 total / 4 worsening / cluster risk / opponent offense boost risk
+OL: 2 total / 0 worsening | Defensive front: 9 total / 6 worsening / cluster risk / opponent offense boost risk
 
-- **unknown/status_update** Lukas Van Ness (DE): Lukas Van Ness UNKNOWN
+- **unknown/status_update** Benjamin St-Juste (CB): Benjamin St-Juste UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** Jordon Riley (DT): Jordon Riley UNKNOWN
   - Source: FantasyPros injuries API
   - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Chris Brooks (RB): Chris Brooks IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/pup** Micah Parsons (LB): Micah Parsons PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Jayden Reed (WR): Jayden Reed IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/pup** Luke Musgrave (TE): Luke Musgrave PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Chris Brooks (RB): Chris Brooks IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Javon Hargrave (DT): Javon Hargrave IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Jayden Reed (WR): Jayden Reed IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Skyy Moore (WR): Skyy Moore IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Jonathan Ford (DT): Jonathan Ford IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
 - **worsening/ir** Edgerrin Cooper (LB): Edgerrin Cooper IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
 - **worsening/ir** Thomas Yassmin (TE): Thomas Yassmin IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Warren Brinson (DT): Warren Brinson IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Johnathan Baldwin II (S): Johnathan Baldwin II IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/setback** Keisean Nixon (CB): Nixon (groin) did not participate at the Packers' practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-15T00:13:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Nixon (groin) did not participate at the Packers' practice Wednesday.
-- **improving/limited_return** Evan Williams (S): Williams (illness) was a limited participant at the Packers' practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-15T00:04:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Williams (illness) was a limited participant at the Packers' practice Wednesday.
-- **worsening/setback** Skyy Moore (WR): Moore (ankle) did not participate at the Packers' practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-14T23:12:00.000Z
+
+### CLE
+
+Events: 32 | Synthesis eligible: 31 | Conflicted intel: 1 | Improving: 3 | Worsening: 8 | Major: 24
+
+OL: 2 total / 0 worsening | Defensive front: 7 total / 2 worsening / cluster risk / opponent offense boost risk
+
+- **unknown/status_update** Quinshon Judkins (RB): Quinshon Judkins UNKNOWN
+  - Source: FantasyPros injuries API
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Moore (ankle) did not participate at the Packers' practice Wednesday.
+- **unknown/status_update** Dylan Sampson (RB): Dylan Sampson UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Mason Graham (DT): Mason Graham UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+- **unknown/status_update** Dillon Gabriel (QB): Dillon Gabriel UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+- **unknown/status_update** Kalia Davis (DT): Kalia Davis UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+- **unknown/status_update** Mike Hall Jr. (DT): Mike Hall Jr. UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/pup** Jeremiah Owusu-Koramoah (LB): Jeremiah Owusu-Koramoah PUP
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Raheim Sanders (RB): Raheim Sanders IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Damarri Mathis (CB): Damarri Mathis IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Alex Wright (DE): Alex Wright IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Joe Royer (TE): Joe Royer IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Quinshon Judkins (RB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: questionable
+
+### NYG
+
+Events: 34 | Synthesis eligible: 34 | Conflicted intel: 0 | Improving: 0 | Worsening: 12 | Major: 23
+
+OL: 2 total / 0 worsening | Defensive front: 3 total / 3 worsening / cluster risk / opponent offense boost risk
+
+- **unknown/status_update** Theo Johnson (TE): Theo Johnson UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Tyler Nubin (S): Tyler Nubin UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** Colton Hood (CB): Colton Hood UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** Jermaine Eluemunor (OT): questionable
+  - Source: ESPN injuries API | 2026-10-20T23:01:00.000Z
+  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
+  - Evidence: questionable
+- **worsening/ir** Roy Robertson-Harris (DT): Roy Robertson-Harris IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Braxton Berrios (WR): Braxton Berrios IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Brian Burns (DE): Brian Burns IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Gunner Olszewski (WR): Gunner Olszewski IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Paulson Adebo (CB): Paulson Adebo IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Jaxson Dart (QB): Jaxson Dart IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+- **worsening/ir** Chauncey Golston (DT): Chauncey Golston IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Calvin Austin III (WR): Calvin Austin III IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 
 ### HOU
 
-Events: 43 | Synthesis eligible: 42 | Conflicted intel: 1 | Improving: 3 | Worsening: 15 | Major: 34
+Events: 32 | Synthesis eligible: 32 | Conflicted intel: 0 | Improving: 2 | Worsening: 14 | Major: 22
 
-OL: 2 total / 0 worsening | Defensive front: 9 total / 4 worsening / cluster risk / opponent offense boost risk
+OL: 0 total / 0 worsening | Defensive front: 4 total / 4 worsening / cluster risk / opponent offense boost risk
 
-- **unknown/status_update** Nico Collins (WR): Nico Collins UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Woody Marks (RB): Woody Marks UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Dalton Schultz (TE): Dalton Schultz UNKNOWN
+- **unknown/status_update** David Montgomery (RB): David Montgomery UNKNOWN
   - Source: FantasyPros injuries API
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **unknown/status_update** Tank Dell (WR): Tank Dell UNKNOWN
   - Source: FantasyPros injuries API
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Will Anderson Jr. (DE): Will Anderson Jr. UNKNOWN
+- **unknown/status_update** Jalen Pitre (S): Jalen Pitre UNKNOWN
   - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** Logan Hall (DT): Logan Hall UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** Wade Woodaz (LB): Wade Woodaz UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
 - **worsening/ir** Mario Edwards Jr. (DE): Mario Edwards Jr. IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
 - **worsening/pup** E.J. Speed (LB): E.J. Speed PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
 - **worsening/ir** Graham Mertz (QB): Graham Mertz IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
 - **worsening/ir** Ali Gaye (DE): Ali Gaye IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
 - **worsening/ir** Jake Hummel (LB): Jake Hummel IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Dylan Horton (DT): Dylan Horton IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Solomon Byrd (DE): Solomon Byrd IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** British Brooks (RB): British Brooks IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Jayden Higgins (WR): Jayden Higgins IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 
 ### NO
 
-Events: 42 | Synthesis eligible: 42 | Conflicted intel: 0 | Improving: 3 | Worsening: 11 | Major: 34
+Events: 30 | Synthesis eligible: 30 | Conflicted intel: 0 | Improving: 3 | Worsening: 8 | Major: 22
 
-OL: 1 total / 0 worsening | Defensive front: 11 total / 1 worsening / opponent offense boost risk
+OL: 2 total / 0 worsening | Defensive front: 4 total / 1 worsening / opponent offense boost risk
 
 - **unknown/status_update** Tyler Shough (QB): Tyler Shough UNKNOWN
   - Source: FantasyPros injuries API
   - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **unknown/status_update** Zach Wood (TE): Zach Wood UNKNOWN
+- **unknown/status_update** Kaden Elliss (LB): Kaden Elliss UNKNOWN
   - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Mike Reid (CB): Mike Reid UNKNOWN
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+- **unknown/status_update** Nathan Shepherd (DT): Nathan Shepherd UNKNOWN
   - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+- **unknown/status_update** Anfernee Jennings (LB): Anfernee Jennings UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
 - **worsening/ir** Travis Etienne Jr. (RB): Travis Etienne Jr. IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** David Long Jr. (CB): David Long Jr. IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
 - **worsening/ir** Ty Chandler (RB): Ty Chandler IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Moliki Matavao (TE): Moliki Matavao IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Bryan Bresee (DT): Bryan Bresee IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
 - **worsening/ir** Rejzohn Wright (CB): Rejzohn Wright IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
 - **worsening/pup** Mason Tipton (WR): Mason Tipton PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Zach Wood (LS): The Saints designated Wood (calf) to return from injured reserve Wednesday.
-  - Source: ESPN injuries API | 2026-10-15T01:22:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: depth_only | Group: other | human review
-  - Evidence: The Saints designated Wood (calf) to return from injured reserve Wednesday.
-- **worsening/setback** Kaden Elliss (LB): Elliss (calf) did not participate at practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-14T23:40:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-  - Evidence: Elliss (calf) did not participate at practice Wednesday.
-
-### BAL
-
-Events: 38 | Synthesis eligible: 37 | Conflicted intel: 1 | Improving: 1 | Worsening: 6 | Major: 32
-
-OL: 5 total / 0 worsening | Defensive front: 4 total / 0 worsening
-
-- **unknown/status_update** Mark Andrews (TE): Mark Andrews UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Ja'Kobi Lane (WR): Ja'Kobi Lane UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Kyle Hamilton (S): Kyle Hamilton UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Calais Campbell (DE): Calais Campbell UNKNOWN
-  - Source: FantasyPros injuries API
+- **unknown/status_update** Nathan Shepherd (DT): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
   - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** Trey Hendrickson (DE): Trey Hendrickson UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Durham Smythe (TE): Durham Smythe IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Skylar Thompson (QB): Skylar Thompson IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **worsening/ir** T.J. Tampa Jr. (CB): T.J. Tampa Jr. IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Jahquez Robinson (S): Jahquez Robinson IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **stable/limited** Cam Jurgens (C): Jurgens (concussion) was a limited participant at the Ravens' practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-15T01:27:00.000Z
-  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
-  - Evidence: Jurgens (concussion) was a limited participant at the Ravens' practice Wednesday.
-- **improving/limited_return** Trey Hendrickson (LB): Hendrickson (finger) was a full participant at practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-15T00:00:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: defensive_major | Group: linebacker | human review
-  - Evidence: Hendrickson (finger) was a full participant at practice Wednesday.
-- **stable/limited** Nick Vannett (TE): Vannett (knee) was a limited participant at practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-14T23:54:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Vannett (knee) was a limited participant at practice Wednesday.
-
-### CAR
-
-Events: 40 | Synthesis eligible: 38 | Conflicted intel: 2 | Improving: 3 | Worsening: 15 | Major: 31
-
-OL: 4 total / 1 worsening | Defensive front: 6 total / 4 worsening / cluster risk / opponent offense boost risk
-
-- **unknown/status_update** Jalen Coker (WR): Jalen Coker UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Bryce Young (QB): Bryce Young UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **unknown/status_update** Trevor Etienne (RB): Trevor Etienne UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Tershawn Wharton (DE): Tershawn Wharton UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** Thomas Incoom (LB): Thomas Incoom UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Jonathon Brooks (RB): Jonathon Brooks IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Xavier Legette (WR): Xavier Legette IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Mike Jackson Sr. (CB): Mike Jackson Sr. IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Jaycee Horn (CB): Jaycee Horn IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Nic Scourton (DT): Nic Scourton IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Cam Jackson (DT): Cam Jackson IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Bam Martin-Scott (LB): Bam Martin-Scott IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-
-### NYG
-
-Events: 40 | Synthesis eligible: 40 | Conflicted intel: 0 | Improving: 0 | Worsening: 12 | Major: 31
-
-OL: 2 total / 0 worsening | Defensive front: 5 total / 4 worsening / cluster risk / opponent offense boost risk
-
-- **unknown/status_update** Isaiah Likely (TE): Isaiah Likely UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Najee Harris (RB): Najee Harris UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Elijah Campbell (S): Elijah Campbell UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Brian Burns (DE): Brian Burns IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Roy Robertson-Harris (DT): Roy Robertson-Harris IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Braxton Berrios (WR): Braxton Berrios IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Gunner Olszewski (WR): Gunner Olszewski IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Paulson Adebo (CB): Paulson Adebo IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Jaxson Dart (QB): Jaxson Dart IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **worsening/ir** Chauncey Golston (DT): Chauncey Golston IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Calvin Austin III (WR): Calvin Austin III IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Jarrick Bernard-Converse (CB): Jarrick Bernard-Converse IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-
-### BUF
-
-Events: 38 | Synthesis eligible: 38 | Conflicted intel: 0 | Improving: 1 | Worsening: 7 | Major: 30
-
-OL: 1 total / 1 worsening | Defensive front: 7 total / 2 worsening / cluster risk / opponent offense boost risk
-
-- **unknown/status_update** Keon Coleman (WR): Keon Coleman UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Terrel Bernard (LB): Terrel Bernard UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **unknown/status_update** Bradley Chubb (LB): Bradley Chubb UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **unknown/status_update** C.J. Gardner-Johnson (S): C.J. Gardner-Johnson UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Christian Benford (CB): Christian Benford UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Landon Jackson (DT): Landon Jackson UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** TJ Parker (LB): TJ Parker UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **worsening/pup** Tyrell Shavers (WR): Tyrell Shavers PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Dorian Strong (CB): Dorian Strong IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Jordan Hancock (CB): Jordan Hancock IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Zane Durant (DT): Zane Durant IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/setback** Ed Oliver (DT): Oliver (knee) did not participate in Wednesday's practice.
-  - Source: ESPN injuries API | 2026-10-15T00:21:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: defensive_front_major | Group: defensive_front | human review
-  - Evidence: Oliver (knee) did not participate in Wednesday's practice.
+  - Evidence: questionable
 
 ### WAS
 
-Events: 35 | Synthesis eligible: 35 | Conflicted intel: 0 | Improving: 4 | Worsening: 8 | Major: 30
+Events: 26 | Synthesis eligible: 26 | Conflicted intel: 0 | Improving: 4 | Worsening: 12 | Major: 22
 
-OL: 1 total / 0 worsening | Defensive front: 4 total / 2 worsening / cluster risk / opponent offense boost risk
+OL: 0 total / 0 worsening | Defensive front: 4 total / 2 worsening / cluster risk / opponent offense boost risk
 
-- **unknown/status_update** Stefon Diggs (WR): Stefon Diggs UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Marcus Mariota (QB): Marcus Mariota UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **unknown/status_update** Nick Cross (S): Nick Cross UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Jeremy McNichols (RB): Jeremy McNichols UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Charles Omenihu (DE): Charles Omenihu UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** Percy Butler (S): Percy Butler UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Tyler Owens (S): Tyler Owens UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Trey Amos (CB): Trey Amos UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Jacory Croskey-Merritt (RB): Jacory Croskey-Merritt IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Leo Chenal (LB): Leo Chenal IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
 - **worsening/ir** Jer'Zhan Newton (DT): Jer'Zhan Newton IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Jordan Magee (LB): Jordan Magee IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Javontae Jean-Baptiste (DT): Javontae Jean-Baptiste IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
 - **worsening/ir** Jaylin Lane (WR): Jaylin Lane IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-
-### NYJ
-
-Events: 42 | Synthesis eligible: 42 | Conflicted intel: 0 | Improving: 4 | Worsening: 18 | Major: 29
-
-OL: 1 total / 1 worsening | Defensive front: 7 total / 5 worsening / cluster risk / opponent offense boost risk
-
-- **unknown/status_update** Kiko Mauigoa (LB): Kiko Mauigoa UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** David Onyemata (DT): David Onyemata IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Tre Brown (CB): Tre Brown IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Arian Smith (WR): Arian Smith IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Marcelino McCrary-Ball (LB): Marcelino McCrary-Ball IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Kingsley Jonathan (DT): Kingsley Jonathan IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Braiden McGregor (LB): Braiden McGregor IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/pup** Tyler Baron (DT): Tyler Baron PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Chip Trayanum (RB): Chip Trayanum IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **improving/return_to_practice** Kiko Mauigoa (LB): Mauigoa (quadriceps) was estimated as a full participant on the Jets' official injury report Wednesday.
-  - Source: ESPN injuries API | 2026-10-15T01:14:00.000Z
-  - Markets: division, conference, super_bowl | Impact: defensive_major | Group: linebacker | human review
-  - Evidence: Mauigoa (quadriceps) was estimated as a full participant on the Jets' official injury report Wednesday.
-- **worsening/doubtful** Dylan Parham (G): Coach Aaron Glenn said Wednesday that Parham (knee) is still week-to-week as the Jets start preparing for Week 6, Antwan V. Staley of the New York Daily News reports.
-  - Source: ESPN injuries API | 2026-10-15T00:52:00.000Z
-  - Markets: wins, division | Impact: offensive_line_major | Group: offensive_line | human review
-  - Evidence: Coach Aaron Glenn said Wednesday that Parham (knee) is still week-to-week as the Jets start preparing for Week 6, Antwan V. Staley of the New York Daily News reports.
-- **worsening/doubtful** Joseph Ossai (DE): Ossai (ankle) was estimated to be a nonparticipant at Wednesday's walkthrough, Rich Cimini of ESPN.com reports.
-  - Source: ESPN injuries API | 2026-10-14T21:25:00.000Z
-  - Markets: division, conference, super_bowl | Impact: defensive_front_major | Group: defensive_front | human review
-  - Evidence: Ossai (ankle) was estimated to be a nonparticipant at Wednesday's walkthrough, Rich Cimini of ESPN.com reports.
-
-### IND
-
-Events: 37 | Synthesis eligible: 37 | Conflicted intel: 0 | Improving: 3 | Worsening: 10 | Major: 28
-
-OL: 2 total / 0 worsening | Defensive front: 5 total / 3 worsening / cluster risk / opponent offense boost risk
-
-- **unknown/status_update** Jonathan Taylor (RB): Jonathan Taylor UNKNOWN
-  - Source: FantasyPros injuries API
+- **worsening/setback** Dyami Brown (WR): Brown hauled in his only target for six yards during Monday's 23-17 loss versus San Francisco.
+  - Source: ESPN injuries API | 2026-10-20T21:44:00.000Z
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Josh Downs (WR): Josh Downs UNKNOWN
-  - Source: FantasyPros injuries API
+  - Evidence: Brown hauled in his only target for six yards during Monday's 23-17 loss versus San Francisco.
+- **improving/return_to_practice** Jeremy McNichols (RB): McNichols accrued five rushes for 13 yards during Monday's 23-17 loss to the 49ers.
+  - Source: ESPN injuries API | 2026-10-20T21:32:00.000Z
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Keenan Allen (WR): Keenan Allen UNKNOWN
-  - Source: FantasyPros injuries API
+  - Evidence: McNichols accrued five rushes for 13 yards during Monday's 23-17 loss to the 49ers.
+- **worsening/out** Terry McLaurin (WR): McLaurin tore his left patellar tendon during Monday's loss to the 49ers, according to John Keim of ESPN.com.
+  - Source: ESPN injuries API | 2026-10-20T19:18:00.000Z
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Daniel Jones (QB): Daniel Jones UNKNOWN
-  - Source: FantasyPros injuries API
+  - Evidence: McLaurin tore his left patellar tendon during Monday's loss to the 49ers, according to John Keim of ESPN.com.
+- **unknown/status_update** Charles Omenihu (DE): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+  - Evidence: questionable
+- **worsening/doubtful** Marcus Mariota (QB): doubtful
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
   - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **unknown/status_update** Darius Slayton (WR): Darius Slayton UNKNOWN
-  - Source: FantasyPros injuries API
+  - Evidence: doubtful
+- **worsening/setback** Treylon Burks (WR): Burks finished with four receptions for 66 yards on six targets in Monday's 23-17 loss to the 49ers.
+  - Source: ESPN injuries API | 2026-10-20T15:40:00.000Z
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Charvarius Ward Sr. (CB): Charvarius Ward Sr. UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Will Mallory (TE): Will Mallory UNKNOWN
-  - Source: FantasyPros injuries API
+  - Evidence: Burks finished with four receptions for 66 yards on six targets in Monday's 23-17 loss to the 49ers.
+- **worsening/out** Terry McLaurin (WR): injured
+  - Source: FantasyPros injuries API | 2026-10-20T12:00:00.000Z
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Alec Pierce (WR): Alec Pierce IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Arden Key (DE): Arden Key IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** D.J. Montgomery (WR): D.J. Montgomery IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Micheal Clemons (DT): Micheal Clemons IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Cameron Mitchell (CB): Cameron Mitchell IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-
-### CHI
-
-Events: 35 | Synthesis eligible: 34 | Conflicted intel: 1 | Improving: 2 | Worsening: 15 | Major: 28
-
-OL: 0 total / 0 worsening | Defensive front: 6 total / 4 worsening / cluster risk / opponent offense boost risk
-
-- **unknown/status_update** Caleb Williams (QB): Caleb Williams UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **unknown/status_update** Kyler Gordon (CB): Kyler Gordon UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Shemar Turner (DT): Shemar Turner UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/suspension** Montez Sweat (DE): Montez Sweat SUSPENSION
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Tony Fields II (LB): Tony Fields II IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Coby Bryant (CB): Coby Bryant IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Nephi Sewell (LB): Nephi Sewell IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Nikola Kalinic (TE): Nikola Kalinic IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Brittain Brown (RB): Brittain Brown IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/suspension** Beanie Bishop Jr. (CB): Beanie Bishop Jr. SUSPENSION
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Hayden Large (TE): Hayden Large IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Anthony Johnson Jr. (S): ir
-  - Source: ESPN injuries API | 2026-10-15T01:01:00.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-  - Evidence: ir
-
-### DAL
-
-Events: 35 | Synthesis eligible: 35 | Conflicted intel: 0 | Improving: 2 | Worsening: 7 | Major: 26
-
-OL: 2 total / 0 worsening | Defensive front: 2 total / 2 worsening / cluster risk / opponent offense boost risk
-
-- **unknown/status_update** CeeDee Lamb (WR): CeeDee Lamb UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Von Miller (LB): Von Miller UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **unknown/status_update** James Houston (LB): James Houston UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **unknown/status_update** Shavon Revel Jr. (CB): Shavon Revel Jr. UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Alijah Clark (S): Alijah Clark UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Malik Davis (RB): Malik Davis IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Princeton Fant (TE): Princeton Fant IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** DJ Rogers (TE): DJ Rogers IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Kelvin Gilliam Jr. (DT): Kelvin Gilliam Jr. IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **improving/limited_return** Cobie Durant (CB): Durant (hamstring) did not participate in Wednesday's practice, Patrik Walker of the Cowboys' official site reports.
-  - Source: ESPN injuries API | 2026-10-15T00:18:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Durant (hamstring) did not participate in Wednesday's practice, Patrik Walker of the Cowboys' official site reports.
-- **improving/limited_return** Joey Porter Jr. (CB): Porter (illness) was limited in Wednesday's practice session, Patrik Walker of the Cowboys' official site reports.
-  - Source: ESPN injuries API | 2026-10-15T00:14:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Porter (illness) was limited in Wednesday's practice session, Patrik Walker of the Cowboys' official site reports.
-- **stable/limited** DeMarvion Overshown (LB): Overshown (hamstring) did not practice Wednesday, Patrik Walker of the Cowboys' official site reports.
-  - Source: ESPN injuries API | 2026-10-15T00:09:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-  - Evidence: Overshown (hamstring) did not practice Wednesday, Patrik Walker of the Cowboys' official site reports.
-
-### LV
-
-Events: 35 | Synthesis eligible: 34 | Conflicted intel: 1 | Improving: 5 | Worsening: 8 | Major: 26
-
-OL: 2 total / 0 worsening | Defensive front: 6 total / 1 worsening / opponent offense boost risk
-
-- **unknown/status_update** Ashton Jeanty (RB): Ashton Jeanty UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Patrick Johnson (DE): Patrick Johnson UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** Dareke Young (WR): Dareke Young UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Segun Olubi (LB): Segun Olubi UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **unknown/status_update** Dont'e Thornton Jr. (WR): Dont'e Thornton Jr. UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Jack Bech (WR): Jack Bech IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Seth Williams (WR): Seth Williams IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Brennan Jackson (LB): Brennan Jackson IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Chigozie Anusiem (CB): Chigozie Anusiem IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Chris Collier (RB): Chris Collier IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Keyron Crawford (DE): Keyron Crawford IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Corey Rucker (WR): Corey Rucker IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: injured
 
 ### ARI
 
-Events: 38 | Synthesis eligible: 38 | Conflicted intel: 0 | Improving: 1 | Worsening: 14 | Major: 25
+Events: 32 | Synthesis eligible: 32 | Conflicted intel: 0 | Improving: 1 | Worsening: 10 | Major: 21
 
-OL: 1 total / 1 worsening | Defensive front: 3 total / 1 worsening / opponent offense boost risk
+OL: 0 total / 0 worsening | Defensive front: 2 total / 1 worsening / opponent offense boost risk
 
-- **unknown/status_update** Budda Baker (S): Budda Baker UNKNOWN
+- **unknown/status_update** Jeremiyah Love (RB): Jeremiyah Love UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Carson Beck (QB): Carson Beck UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+- **unknown/status_update** Andrew Wingard (S): Andrew Wingard UNKNOWN
   - Source: FantasyPros injuries API
   - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Josh Sweat (DE): Josh Sweat UNKNOWN
+- **unknown/status_update** Wydett Williams Jr. (S): Wydett Williams Jr. UNKNOWN
   - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
 - **worsening/pup** Tip Reiman (TE): Tip Reiman PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Hunter Long (TE): Hunter Long IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Joey Blount (S): Joey Blount IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
 - **worsening/ir** Trey Benson (RB): Trey Benson IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Will Johnson (CB): Will Johnson IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
 - **worsening/ir** Jameson Geers (TE): Jameson Geers IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Kaleb Proctor (DT): Kaleb Proctor IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/out** Wydett Williams Jr. (S): Coach Mike LaFleur has ruled out Williams (concussion) for Sunday's game against the Rams, Theo Mackie of The Arizona Republic reports.
-  - Source: ESPN injuries API | 2026-10-15T01:25:00.000Z
+- **unknown/status_update** Wydett Williams Jr. (S): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
   - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Coach Mike LaFleur has ruled out Williams (concussion) for Sunday's game against the Rams, Theo Mackie of The Arizona Republic reports.
-- **worsening/ir** Kitan Crawford (S): The Cardinals opened Crawford's (ankle) 21-day practice window Wednesday.
-  - Source: ESPN injuries API | 2026-10-15T01:09:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: defensive_major | Group: secondary | human review
-  - Evidence: The Cardinals opened Crawford's (ankle) 21-day practice window Wednesday.
-- **worsening/setback** Andrew Wingard (S): Wingard (knee) did not participate in Wednesday's practice, Tyler Drake of ArizonaSports.com reports.
-  - Source: ESPN injuries API | 2026-10-15T00:43:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Wingard (knee) did not participate in Wednesday's practice, Tyler Drake of ArizonaSports.com reports.
+  - Evidence: questionable
 
-### TEN
+### CAR
 
-Events: 35 | Synthesis eligible: 35 | Conflicted intel: 0 | Improving: 2 | Worsening: 13 | Major: 25
+Events: 30 | Synthesis eligible: 30 | Conflicted intel: 0 | Improving: 3 | Worsening: 16 | Major: 21
 
-OL: 0 total / 0 worsening | Defensive front: 3 total / 2 worsening / cluster risk / opponent offense boost risk
+OL: 3 total / 1 worsening | Defensive front: 4 total / 4 worsening / cluster risk / opponent offense boost risk
 
-- **unknown/status_update** Tony Pollard (RB): Tony Pollard UNKNOWN
+- **unknown/status_update** AJ Dillon (RB): AJ Dillon UNKNOWN
   - Source: FantasyPros injuries API
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** John Franklin-Myers (DE): John Franklin-Myers UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** Joshua Williams (CB): Joshua Williams UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Cor'Dale Flott (CB): Cor'Dale Flott UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Tanoh Kpassagnon (DE): Tanoh Kpassagnon IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **worsening/ir** Jonathon Brooks (RB): Jonathon Brooks IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Xavier Legette (WR): Xavier Legette IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Mike Jackson Sr. (CB): Mike Jackson Sr. IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Jaycee Horn (CB): Jaycee Horn IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Nic Scourton (DT): Nic Scourton IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Milo Eifler (LB): Milo Eifler IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **worsening/ir** Cam Jackson (DT): Cam Jackson IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Bam Martin-Scott (LB): Bam Martin-Scott IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/suspension** Nazeeh Johnson (S): Nazeeh Johnson SUSPENSION
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Kendell Brooks (S): Kendell Brooks IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Dominique Hampton (CB): Dominique Hampton IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Jaylen Harrell (DE): Jaylen Harrell IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Jaren Kanak (TE): Jaren Kanak IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **worsening/ir** Chris Brazzell II (WR): Chris Brazzell II IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **stable/limited** David Martin-Robinson (TE): Martin-Robinson (hamstring) was a limited participant in Wednesday's practice.
-  - Source: ESPN injuries API | 2026-10-14T23:23:00.000Z
+- **unknown/status_update** Monroe Freeling (OT): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
+  - Evidence: questionable
+- **unknown/status_update** AJ Dillon (RB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Martin-Robinson (hamstring) was a limited participant in Wednesday's practice.
+  - Evidence: questionable
+- **unknown/active_news** Ryan Fitzgerald (PK): Fitzgerald made both of his field-goal attempts but missed one of two PATs in the Panthers' 25-14 win over the Eagles on Sunday.
+  - Source: ESPN injuries API | 2026-10-20T02:34:00.000Z
+  - Markets: wins | Impact: depth_only | Group: other | human review
+  - Evidence: Fitzgerald made both of his field-goal attempts but missed one of two PATs in the Panthers' 25-14 win over the Eagles on Sunday.
 
-### PIT
+### NYJ
 
-Events: 33 | Synthesis eligible: 33 | Conflicted intel: 0 | Improving: 2 | Worsening: 12 | Major: 23
+Events: 36 | Synthesis eligible: 36 | Conflicted intel: 0 | Improving: 2 | Worsening: 13 | Major: 20
 
-OL: 0 total / 0 worsening | Defensive front: 6 total / 3 worsening / cluster risk / opponent offense boost risk
+OL: 1 total / 0 worsening | Defensive front: 6 total / 3 worsening / cluster risk / opponent offense boost risk
 
-- **unknown/status_update** T.J. Watt (LB): T.J. Watt UNKNOWN
+- **unknown/status_update** Breece Hall (RB): Breece Hall UNKNOWN
   - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **unknown/status_update** Cameron Heyward (DT): Cameron Heyward UNKNOWN
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Adonai Mitchell (WR): Adonai Mitchell UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Joseph Ossai (DE): Joseph Ossai UNKNOWN
   - Source: FantasyPros injuries API
   - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Michael Pittman Jr. (WR): Michael Pittman Jr. IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **worsening/ir** David Onyemata (DT): David Onyemata IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Tre Brown (CB): Tre Brown IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Arian Smith (WR): Arian Smith IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Israel Mukuamu (CB): Israel Mukuamu IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Logan Lee (DT): Logan Lee IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **worsening/ir** Marcelino McCrary-Ball (LB): Marcelino McCrary-Ball IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Kingsley Jonathan (DT): Kingsley Jonathan IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Derrick Harmon (DT): Derrick Harmon IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **worsening/ir** Braiden McGregor (LB): Braiden McGregor IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/pup** Tyler Baron (DT): Tyler Baron PUP
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/pup** Donte Kent (CB): Donte Kent PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **improving/limited_return** Jamel Dean (CB): Dean (ankle) was a limited participant at the Steelers' practice Wednesday, Mike DeFabo of The Athletic reports.
-  - Source: ESPN injuries API | 2026-10-14T23:07:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Dean (ankle) was a limited participant at the Steelers' practice Wednesday, Mike DeFabo of The Athletic reports.
-- **improving/limited_return** Rico Dowdle (RB): Dowdle (toe) was a limited participant in Wednesday's practice, Alan Saunders of SteelersNow.com reports.
-  - Source: ESPN injuries API | 2026-10-14T20:11:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Dowdle (toe) was a limited participant in Wednesday's practice, Alan Saunders of SteelersNow.com reports.
-- **unknown/status_update** Jalen Ramsey (CB): questionable
-  - Source: ESPN injuries API | 2026-10-14T20:07:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: questionable
-- **unknown/status_update** Keeanu Benton (DT): questionable
-  - Source: ESPN injuries API | 2026-10-14T20:06:00.000Z
+- **worsening/ir** Chip Trayanum (RB): Chip Trayanum IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Joseph Ossai (DE): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
   - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
   - Evidence: questionable
-- **unknown/active_news** Darnell Washington (TE): Washington caught two of three targets for 12 yards during the Steelers' 34-22 win over the Colts on Sunday.
-  - Source: ESPN injuries API | 2026-10-14T02:11:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Washington caught two of three targets for 12 yards during the Steelers' 34-22 win over the Colts on Sunday.
-
-### SEA
-
-Events: 30 | Synthesis eligible: 30 | Conflicted intel: 0 | Improving: 3 | Worsening: 12 | Major: 23
-
-OL: 0 total / 0 worsening | Defensive front: 1 total / 0 worsening
-
-- **unknown/status_update** Jaxon Smith-Njigba (WR): Jaxon Smith-Njigba UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** George Holani (RB): George Holani UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Leonard Williams (DT): Leonard Williams UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **unknown/status_update** Drew Lock (QB): Drew Lock UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **unknown/status_update** Irvin Charles (WR): Irvin Charles UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Jadarian Price (RB): Jadarian Price IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Jake Bobo (WR): Jake Bobo IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Robbie Ouzts (TE): Robbie Ouzts IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Julian Neal (CB): Julian Neal IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Bud Clark (S): Bud Clark IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/out** Drake Thomas (LB): Thomas (ankle) has been ruled out for Thursday night's game against the Broncos, John Boyle of the Seahawks' official site reports.
-  - Source: ESPN injuries API | 2026-10-15T00:24:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-  - Evidence: Thomas (ankle) has been ruled out for Thursday night's game against the Broncos, John Boyle of the Seahawks' official site reports.
-- **stable/limited** Drew Lock (QB): Lock (forearm) won't carry an injury designation into Thursday night's matchup with Denver, John Boyle of the Seahawks' official site reports.
-  - Source: ESPN injuries API | 2026-10-14T23:17:00.000Z
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-  - Evidence: Lock (forearm) won't carry an injury designation into Thursday night's matchup with Denver, John Boyle of the Seahawks' official site reports.
 
 ### LAR
 
-Events: 33 | Synthesis eligible: 33 | Conflicted intel: 0 | Improving: 2 | Worsening: 10 | Major: 22
+Events: 33 | Synthesis eligible: 33 | Conflicted intel: 0 | Improving: 1 | Worsening: 18 | Major: 20
 
-OL: 1 total / 1 worsening | Defensive front: 5 total / 4 worsening / cluster risk / opponent offense boost risk
+OL: 2 total / 0 worsening | Defensive front: 8 total / 8 worsening / cluster risk / opponent offense boost risk
 
-- **unknown/status_update** Alex Bachman (WR): Alex Bachman UNKNOWN
+- **unknown/status_update** Trent McDuffie (CB): Trent McDuffie UNKNOWN
   - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Omar Speights (LB): Omar Speights UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Davante Adams (WR): Davante Adams IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Terrance Ferguson (TE): Terrance Ferguson IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Myles Garrett (DE): Myles Garrett IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Poona Ford (DT): Poona Ford IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
 - **worsening/ir** Ronnie Rivers (RB): Ronnie Rivers IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Keir Thomas II (DE): Keir Thomas II IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Blake Grupe (K): Blake Grupe IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: depth_only | Group: other | human review
 - **worsening/ir** Matthew Caldwell (QB): Matthew Caldwell IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
 - **worsening/ir** Eddie Walls III (DT): Eddie Walls III IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **stable/limited** Colby Parkinson (TE): Parkinson (shoulder) was listed as a limited participant on the Rams' estimated injury report Wednesday, Sarah Barshop of ESPN.com reports.
-  - Source: ESPN injuries API | 2026-10-15T00:59:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Parkinson (shoulder) was listed as a limited participant on the Rams' estimated injury report Wednesday, Sarah Barshop of ESPN.com reports.
-- **stable/limited** Nate Landman (LB): Landman (wrist) was listed as a limited participant on the Rams' estimated injury report Wednesday, Sarah Barshop of ESPN.com reports.
-  - Source: ESPN injuries API | 2026-10-15T00:50:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-  - Evidence: Landman (wrist) was listed as a limited participant on the Rams' estimated injury report Wednesday, Sarah Barshop of ESPN.com reports.
-- **unknown/status_update** Davis Allen (TE): Allen (foot) was listed as a non-participant on the Rams' estimated injury report, Sarah Barshop of ESPN.com reports.
-  - Source: ESPN injuries API | 2026-10-15T00:45:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Allen (foot) was listed as a non-participant on the Rams' estimated injury report, Sarah Barshop of ESPN.com reports.
-- **unknown/status_update** Josh Wallace (CB): questionable
-  - Source: ESPN injuries API | 2026-10-15T00:19:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: questionable
+- **worsening/ir** Terrance Ferguson (TE): Ferguson (ankle), who is eligible to come off injured reserve next week, isn't expected to be ready at that time, Adam Schefter of ESPN reports.
+  - Source: ESPN injuries API | 2026-10-20T22:14:00.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Ferguson (ankle), who is eligible to come off injured reserve next week, isn't expected to be ready at that time, Adam Schefter of ESPN reports.
+- **worsening/ir** Davante Adams (WR): Adams (hamstring) was placed on injured reserve Tuesday, Ian Rapoport of NFL Network reports.
+  - Source: ESPN injuries API | 2026-10-20T21:36:00.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Adams (hamstring) was placed on injured reserve Tuesday, Ian Rapoport of NFL Network reports.
 
 ### MIA
 
-Events: 30 | Synthesis eligible: 30 | Conflicted intel: 0 | Improving: 1 | Worsening: 11 | Major: 22
+Events: 27 | Synthesis eligible: 27 | Conflicted intel: 0 | Improving: 2 | Worsening: 9 | Major: 20
 
 OL: 1 total / 0 worsening | Defensive front: 4 total / 2 worsening / cluster risk / opponent offense boost risk
 
 - **worsening/ir** Ronnie Harrison Jr. (S): Ronnie Harrison Jr. IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
 - **worsening/ir** De'Von Achane (RB): De'Von Achane IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Cole Turner (TE): Cole Turner IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/pup** Darrell Baker Jr. (CB): Darrell Baker Jr. PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/pup** Storm Duck (CB): Storm Duck PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
 - **worsening/ir** Trey Moore (DT): Trey Moore IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
 - **worsening/ir** Kyle Louis (LB): Kyle Louis IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
 - **worsening/ir** Rene Konga (DT): Rene Konga IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **stable/limited** Jonah Savaiinaea (G): Savaiinaea (ankle) was a limited participant at the Dolphins' practice Monday, C. Isaiah Smalls II of the Miami Herald reports.
+  - Source: ESPN injuries API | 2026-10-20T00:18:00.000Z
+  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
+  - Evidence: Savaiinaea (ankle) was a limited participant at the Dolphins' practice Monday, C. Isaiah Smalls II of the Miami Herald reports.
+- **unknown/active_news** Malik Willis (QB): Head coach Jeff Hafley said that Willis should be ready to play Sunday against the Jets after tending to a minor undisclosed injury coming out of the Dolphins' Week 5 loss to the Bengals, David Furones of the South Florida Sun Sentinel reports. "I foresee h...
+  - Source: ESPN injuries API | 2026-10-19T14:56:00.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+  - Evidence: Head coach Jeff Hafley said that Willis should be ready to play Sunday against the Jets after tending to a minor undisclosed injury coming out of the Dolphins' Week 5 loss to the Bengals, David Furones of the South Florida Sun Sentinel reports. "I foresee him being good to go," Hafley said.
+- **improving/limited_return** Caleb Douglas (WR): Dolphins head coach Jeff Hafley said that Douglas (ankle) will be a limited participant in Monday's informal practice, David Furones of the South Florida Sun Sentinel reports.
+  - Source: ESPN injuries API | 2026-10-19T14:44:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Dolphins head coach Jeff Hafley said that Douglas (ankle) will be a limited participant in Monday's informal practice, David Furones of the South Florida Sun Sentinel reports.
 - **unknown/active_news** Jared Wayne (WR): Wayne was claimed off waivers by the Dolphins on Tuesday.
   - Source: ESPN injuries API | 2026-10-13T21:58:00.000Z
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
@@ -1092,297 +684,524 @@ OL: 1 total / 0 worsening | Defensive front: 4 total / 2 worsening / cluster ris
   - Source: ESPN injuries API | 2026-10-13T17:10:00.000Z
   - Markets: wins | Impact: defensive_major | Group: secondary | human review
   - Evidence: questionable
-- **unknown/status_update** Justin Joly (TE): questionable
-  - Source: ESPN injuries API | 2026-10-13T17:10:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: questionable
-- **unknown/status_update** Caleb Douglas (WR): questionable
-  - Source: ESPN injuries API | 2026-10-13T17:10:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: questionable
 
-### JAX
+### DAL
 
-Events: 32 | Synthesis eligible: 32 | Conflicted intel: 0 | Improving: 1 | Worsening: 8 | Major: 21
+Events: 29 | Synthesis eligible: 29 | Conflicted intel: 0 | Improving: 1 | Worsening: 8 | Major: 19
 
-OL: 3 total / 1 worsening | Defensive front: 2 total / 1 worsening / opponent offense boost risk
+OL: 3 total / 0 worsening | Defensive front: 2 total / 2 worsening / cluster risk / opponent offense boost risk
 
-- **worsening/ir** Caleb Ransaw (CB): Caleb Ransaw IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** B.J. Green II (DE): B.J. Green II IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Jared Bartlett (LB): Jared Bartlett IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Parker Hughes (LB): Parker Hughes IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **improving/limited_return** Nate Boerkircher (TE): Boerkircher (back) was a limited participant in Wednesday's practice.
-  - Source: ESPN injuries API | 2026-10-15T00:19:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Boerkircher (back) was a limited participant in Wednesday's practice.
-- **worsening/setback** Montaric Brown (CB): Brown (hamstring) did not participate in Wednesday's practice.
-  - Source: ESPN injuries API | 2026-10-15T00:12:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Brown (hamstring) did not participate in Wednesday's practice.
-- **unknown/status_update** Cole Van Lanen (OT): questionable
-  - Source: ESPN injuries API | 2026-10-14T23:13:00.000Z
-  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
-  - Evidence: questionable
-- **unknown/status_update** Emmanuel Pregnon (G): questionable
-  - Source: ESPN injuries API | 2026-10-14T23:12:00.000Z
-  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
-  - Evidence: questionable
-- **unknown/status_update** Jourdan Lewis (CB): questionable
-  - Source: ESPN injuries API | 2026-10-14T23:12:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: questionable
-- **unknown/status_update** Jarrian Jones (CB): questionable
-  - Source: ESPN injuries API | 2026-10-14T23:11:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: questionable
-- **unknown/active_news** Travis Hunter (WR): Hunter recorded a nine-yard reception and tallied six tackles and a pass breakup in Sunday's 19-17 win over the Eagles in London.
-  - Source: ESPN injuries API | 2026-10-14T15:36:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Hunter recorded a nine-yard reception and tallied six tackles and a pass breakup in Sunday's 19-17 win over the Eagles in London.
-- **unknown/active_news** Josh Cameron (WR): Cameron caught three of six targets for 43 yards during the Jaguars' 19-17 win over the Eagles on Sunday in London. He also returned one kickoff for 18 yards and added a tackle on special teams.
-  - Source: ESPN injuries API | 2026-10-14T00:58:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Cameron caught three of six targets for 43 yards during the Jaguars' 19-17 win over the Eagles on Sunday in London. He also returned one kickoff for 18 yards and added a tackle on special teams.
-
-### TB
-
-Events: 32 | Synthesis eligible: 32 | Conflicted intel: 0 | Improving: 1 | Worsening: 9 | Major: 19
-
-OL: 0 total / 0 worsening | Defensive front: 0 total / 0 worsening
-
-- **unknown/status_update** Chris Godwin Jr. (WR): Chris Godwin Jr. UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Jalen McMillan (WR): Jalen McMillan IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** David Sills V (WR): David Sills V IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Josh Hayes (CB): Josh Hayes IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Mohamed Kamara (LB): Mohamed Kamara IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **stable/limited** Benjamin Morrison (CB): Morrison (quadriceps) was a limited participant at the Buccaneers' practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-14T23:30:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Morrison (quadriceps) was a limited participant at the Buccaneers' practice Wednesday.
-- **worsening/setback** Antoine Winfield Jr. (S): Winfield (ribs) did not participate at the Buccaneers' practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-14T23:24:00.000Z
-  - Markets: wins, division, conference, super_bowl | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Winfield (ribs) did not participate at the Buccaneers' practice Wednesday.
-- **worsening/setback** Sean Tucker (RB): Tucker did not participate in Wednesday's practice session due to a quadriceps injury.
-  - Source: ESPN injuries API | 2026-10-14T23:09:00.000Z
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Tucker did not participate in Wednesday's practice session due to a quadriceps injury.
-- **unknown/status_update** Ayden Garnes (CB): questionable
-  - Source: ESPN injuries API | 2026-10-14T20:48:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: questionable
-- **worsening/doubtful** Baker Mayfield (QB): Mayfield (right thumb) officially didn't practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-14T20:25:00.000Z
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-  - Evidence: Mayfield (right thumb) officially didn't practice Wednesday.
-- **unknown/status_update** Sean Tucker (RB): Sean Tucker QUESTIONABLE
-  - Source: FantasyPros injuries API | 2026-10-14T00:00:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Antoine Winfield Jr. (S): Antoine Winfield Jr. QUESTIONABLE
-  - Source: FantasyPros injuries API | 2026-10-14T00:00:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-
-### KC
-
-Events: 31 | Synthesis eligible: 31 | Conflicted intel: 0 | Improving: 2 | Worsening: 11 | Major: 19
-
-OL: 1 total / 0 worsening | Defensive front: 2 total / 2 worsening / cluster risk / opponent offense boost risk
-
-- **unknown/status_update** Patrick Mahomes II (QB): Patrick Mahomes II UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **unknown/status_update** Chamarri Conner (S): Chamarri Conner UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Ben VanSumeren (LB): Ben VanSumeren UNKNOWN
+- **unknown/status_update** DeMarvion Overshown (LB): DeMarvion Overshown UNKNOWN
   - Source: FantasyPros injuries API
   - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Tyquan Thornton (WR): Tyquan Thornton IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **unknown/status_update** Cobie Durant (CB): Cobie Durant UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** James Houston (LB): James Houston UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+- **unknown/status_update** Alijah Clark (S): Alijah Clark UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Malik Davis (RB): Malik Davis IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/pup** Omarr Norman-Lott (DT): Omarr Norman-Lott PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **worsening/ir** Princeton Fant (TE): Princeton Fant IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** DJ Rogers (TE): DJ Rogers IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Kelvin Gilliam Jr. (DT): Kelvin Gilliam Jr. IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Ethan Downs (DE): Ethan Downs IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **unknown/status_update** DeMarvion Overshown (LB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+  - Evidence: questionable
+- **unknown/status_update** Drew Shelton (OT): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
+  - Evidence: questionable
+- **unknown/status_update** Cobie Durant (CB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: questionable
+- **unknown/active_news** Brandon Aubrey (PK): Aubrey did not attempt any field goals but converted his only extra-point try during Sunday's 23-13 loss at Green Bay.
+  - Source: ESPN injuries API | 2026-10-20T01:16:00.000Z
+  - Markets: wins | Impact: depth_only | Group: other | human review
+  - Evidence: Aubrey did not attempt any field goals but converted his only extra-point try during Sunday's 23-13 loss at Green Bay.
+
+### IND
+
+Events: 28 | Synthesis eligible: 28 | Conflicted intel: 0 | Improving: 3 | Worsening: 9 | Major: 19
+
+OL: 0 total / 0 worsening | Defensive front: 3 total / 3 worsening / cluster risk / opponent offense boost risk
+
+- **unknown/status_update** Tyler Warren (TE): Tyler Warren UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Ashton Dulin (WR): Ashton Dulin UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Jaylon Carlies (LB): Jaylon Carlies UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Alec Pierce (WR): Alec Pierce IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Arden Key (DE): Arden Key IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Jimmy Holiday (WR): Jimmy Holiday IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **worsening/ir** D.J. Montgomery (WR): D.J. Montgomery IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Cooper McDonald (LB): Cooper McDonald IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** John Michael Gyllenborg (TE): John Michael Gyllenborg IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **worsening/ir** Micheal Clemons (DT): Micheal Clemons IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Cameron Mitchell (CB): Cameron Mitchell IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Carson Towt (TE): Carson Towt IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Jeff Caldwell (WR): Jeff Caldwell IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+- **unknown/status_update** Tyler Warren (TE): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: questionable
+- **unknown/status_update** Jaylon Carlies (LB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+  - Evidence: questionable
+- **unknown/status_update** Ashton Dulin (WR): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: questionable
+
+### SEA
+
+Events: 28 | Synthesis eligible: 28 | Conflicted intel: 0 | Improving: 3 | Worsening: 10 | Major: 19
+
+OL: 1 total / 1 worsening | Defensive front: 0 total / 0 worsening
+
+- **unknown/status_update** Zach Charbonnet (RB): Zach Charbonnet UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Drake Thomas (LB): Drake Thomas UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+- **unknown/status_update** Drew Lock (QB): Drew Lock UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+- **unknown/status_update** Chazz Surratt (LB): Chazz Surratt UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Jadarian Price (RB): Jadarian Price IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **improving/limited_return** Josh Simmons (OT): Simmons (back) was a limited participant at the Chiefs' practice Wednesday.
-  - Source: ESPN injuries API | 2026-10-15T01:15:00.000Z
+- **worsening/ir** Jake Bobo (WR): Jake Bobo IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Robbie Ouzts (TE): Robbie Ouzts IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Julian Neal (CB): Julian Neal IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Bud Clark (S): Bud Clark IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** Chazz Surratt (LB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+  - Evidence: questionable
+- **unknown/status_update** Drake Thomas (LB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+  - Evidence: questionable
+- **worsening/ir** Anthony Bradford (G): Bradford (knee) was designated to return from injured reserve by the Seahawks on Monday, John Boyle of the team's official website reports.
+  - Source: ESPN injuries API | 2026-10-20T00:34:00.000Z
   - Markets: wins, division, conference, super_bowl | Impact: offensive_line_major | Group: offensive_line | human review
-  - Evidence: Simmons (back) was a limited participant at the Chiefs' practice Wednesday.
-- **unknown/status_update** L'Jarius Sneed (CB): questionable
-  - Source: ESPN injuries API | 2026-10-14T21:22:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: questionable
-
-### ATL
-
-Events: 29 | Synthesis eligible: 29 | Conflicted intel: 0 | Improving: 1 | Worsening: 12 | Major: 18
-
-OL: 1 total / 0 worsening | Defensive front: 5 total / 4 worsening / cluster risk / opponent offense boost risk
-
-- **unknown/status_update** Michael Penix Jr. (QB): Michael Penix Jr. UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
-- **unknown/status_update** Za'Darius Smith (LB): Za'Darius Smith UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-- **worsening/pup** DeAngelo Malone (DE): DeAngelo Malone PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/suspension** James Pearce Jr. (DE): James Pearce Jr. SUSPENSION
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Da'Shawn Hand (DT): Da'Shawn Hand IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** A.J. Terrell Jr. (CB): A.J. Terrell Jr. IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **worsening/ir** Trey Sermon (RB): Trey Sermon IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Yasir Abdullah (LB): Yasir Abdullah IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** JD Bertrand (LB): JD Bertrand IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Jalon Walker (LB): Jalon Walker IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/ir** Anterio Thompson (DT): Anterio Thompson IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:01.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **stable/limited** Divine Deablo (LB): Deablo (hamstring) was a limited participant at practice Wednesday, Will McFadden of the Falcons' official site reports.
-  - Source: ESPN injuries API | 2026-10-15T00:10:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
-  - Evidence: Deablo (hamstring) was a limited participant at practice Wednesday, Will McFadden of the Falcons' official site reports.
-
-### DEN
-
-Events: 28 | Synthesis eligible: 28 | Conflicted intel: 0 | Improving: 2 | Worsening: 10 | Major: 17
-
-OL: 0 total / 0 worsening | Defensive front: 2 total / 1 worsening / opponent offense boost risk
-
-- **unknown/status_update** Brandon Jones (S): Brandon Jones UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-- **unknown/status_update** Adam Trautman (TE): Adam Trautman UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **unknown/status_update** Sai'vion Jones (DT): Sai'vion Jones UNKNOWN
-  - Source: FantasyPros injuries API
-  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Jonah Coleman (RB): Jonah Coleman IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Pat Bryant (WR): Pat Bryant IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-- **worsening/ir** Matt Henningsen (DT): Matt Henningsen IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/ir** Levelle Bailey (LB): Levelle Bailey IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
-- **worsening/setback** Riley Moss (CB): Moss (ribs) is listed as questionable for Thursday's game against the Seahawks.
-  - Source: ESPN injuries API | 2026-10-14T23:56:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Moss (ribs) is listed as questionable for Thursday's game against the Seahawks.
-- **worsening/out** Pat Surtain II (CB): Surtain (ankle) has been ruled out for Thursday's game against the Seahawks.
-  - Source: ESPN injuries API | 2026-10-14T23:52:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Surtain (ankle) has been ruled out for Thursday's game against the Seahawks.
-- **worsening/out** Talanoa Hufanga (S): Hufanga (ankle) is expected to miss multiple weeks due to the injury he sustained in Sunday's 23-17 win over the Chargers, Jeremy Fowler and Jeff Legwold of ESPN.com report.
-  - Source: ESPN injuries API | 2026-10-14T18:06:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
-  - Evidence: Hufanga (ankle) is expected to miss multiple weeks due to the injury he sustained in Sunday's 23-17 win over the Chargers, Jeremy Fowler and Jeff Legwold of ESPN.com report.
-- **unknown/active_news** Evan Engram (TE): Engram caught all four of his targets for 55 yards during the Broncos' 23-17 win over the Chargers on Sunday.
-  - Source: ESPN injuries API | 2026-10-14T02:34:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Engram caught all four of his targets for 55 yards during the Broncos' 23-17 win over the Chargers on Sunday.
-- **worsening/out** Talanoa Hufanga (S): Talanoa Hufanga OUT
-  - Source: FantasyPros injuries API | 2026-10-14T00:00:00.000Z
-  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: Bradford (knee) was designated to return from injured reserve by the Seahawks on Monday, John Boyle of the team's official website reports.
 
 ### DET
 
-Events: 28 | Synthesis eligible: 28 | Conflicted intel: 0 | Improving: 1 | Worsening: 12 | Major: 16
+Events: 29 | Synthesis eligible: 29 | Conflicted intel: 0 | Improving: 1 | Worsening: 15 | Major: 18
 
-OL: 2 total / 1 worsening | Defensive front: 2 total / 1 worsening / opponent offense boost risk
+OL: 2 total / 2 worsening / cluster risk | Defensive front: 2 total / 1 worsening / opponent offense boost risk
 
+- **worsening/pup** Kerby Joseph (S): Kerby Joseph PUP
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
 - **worsening/ir** Isiah Pacheco (RB): Isiah Pacheco IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Avonte Maddox (CB): Avonte Maddox IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Devin White (LB): Devin White IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Tom Kennedy (WR): Tom Kennedy IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Payton Turner (DE): Payton Turner IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
-- **worsening/pup** Kerby Joseph (S): Kerby Joseph PUP
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
 - **worsening/ir** Damone Clark (LB): Damone Clark IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
 - **worsening/ir** Kendrick Law (WR): Kendrick Law IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Thomas Harper (S): Thomas Harper IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
-- **unknown/active_news** Isaac TeSlaa (WR): TeSlaa failed to haul in either of his two targets during the Lions' 45-21 win over the Cardinals on Sunday.
-  - Source: ESPN injuries API | 2026-10-14T02:28:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: TeSlaa failed to haul in either of his two targets during the Lions' 45-21 win over the Cardinals on Sunday.
-- **unknown/status_update** Rock Ya-Sin (CB): questionable
-  - Source: ESPN injuries API | 2026-10-13T17:10:00.000Z
+- **worsening/out** Kerby Joseph (S): Lions head coach Dan Campbell stated Kerby (knee) "is in a good headspace" and expects the 25-year-old to play at some point this season, Nolan Bianchi of The Detroit News reports.
+  - Source: ESPN injuries API | 2026-10-20T21:14:00.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+  - Evidence: Lions head coach Dan Campbell stated Kerby (knee) "is in a good headspace" and expects the 25-year-old to play at some point this season, Nolan Bianchi of The Detroit News reports.
+- **worsening/ir** Ben Bartch (G): The Lions placed Bartch (foot) on injured reserve Friday.
+  - Source: ESPN injuries API | 2026-10-17T04:09:00.000Z
+  - Markets: wins, division, conference, super_bowl | Impact: offensive_line_major | Group: offensive_line | human review
+  - Evidence: The Lions placed Bartch (foot) on injured reserve Friday.
+- **worsening/ir** Devin White (LB): The Lions placed White (forearm) on injured reserve Friday.
+  - Source: ESPN injuries API | 2026-10-17T02:00:00.000Z
+  - Markets: wins, division, conference, super_bowl | Impact: defensive_major | Group: linebacker | human review
+  - Evidence: The Lions placed White (forearm) on injured reserve Friday.
+
+### ATL
+
+Events: 28 | Synthesis eligible: 28 | Conflicted intel: 0 | Improving: 3 | Worsening: 12 | Major: 18
+
+OL: 1 total / 0 worsening | Defensive front: 5 total / 4 worsening / cluster risk / opponent offense boost risk
+
+- **unknown/status_update** C.J. Henderson (CB): C.J. Henderson UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/suspension** James Pearce Jr. (DE): James Pearce Jr. SUSPENSION
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/pup** DeAngelo Malone (DE): DeAngelo Malone PUP
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Da'Shawn Hand (DT): Da'Shawn Hand IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** A.J. Terrell Jr. (CB): A.J. Terrell Jr. IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Trey Sermon (RB): Trey Sermon IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Yasir Abdullah (LB): Yasir Abdullah IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** JD Bertrand (LB): JD Bertrand IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Jalon Walker (LB): Jalon Walker IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Anterio Thompson (DT): Anterio Thompson IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **unknown/status_update** C.J. Henderson (CB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
   - Markets: wins | Impact: defensive_major | Group: secondary | human review
   - Evidence: questionable
-- **unknown/status_update** Ben Bartch (G): questionable
-  - Source: ESPN injuries API | 2026-10-13T17:10:00.000Z
+- **unknown/active_news** Nick Folk (PK): Folk made his sole PAT in the Falcons' 31-23 loss to the Bears on Sunday.
+  - Source: ESPN injuries API | 2026-10-20T03:04:00.000Z
+  - Markets: wins | Impact: depth_only | Group: other | human review
+  - Evidence: Folk made his sole PAT in the Falcons' 31-23 loss to the Bears on Sunday.
+
+### TB
+
+Events: 28 | Synthesis eligible: 28 | Conflicted intel: 0 | Improving: 3 | Worsening: 5 | Major: 17
+
+OL: 0 total / 0 worsening | Defensive front: 0 total / 0 worsening
+
+- **unknown/status_update** Baker Mayfield (QB): Baker Mayfield UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+- **unknown/status_update** Sean Tucker (RB): Sean Tucker UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Antoine Winfield Jr. (S): Antoine Winfield Jr. UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** David Sills V (WR): David Sills V UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Benjamin Morrison (CB): Benjamin Morrison UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Jalen McMillan (WR): Jalen McMillan IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Josh Hayes (CB): Josh Hayes IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Mohamed Kamara (LB): Mohamed Kamara IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/doubtful** Antoine Winfield Jr. (S): doubtful
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: doubtful
+- **unknown/status_update** Sean Tucker (RB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: questionable
+- **unknown/status_update** Baker Mayfield (QB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+  - Evidence: questionable
+- **unknown/status_update** Benjamin Morrison (CB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: questionable
+
+### LAC
+
+Events: 27 | Synthesis eligible: 27 | Conflicted intel: 0 | Improving: 1 | Worsening: 9 | Major: 17
+
+OL: 2 total / 0 worsening | Defensive front: 0 total / 0 worsening
+
+- **worsening/ir** David Njoku (TE): David Njoku IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Denzel Perryman (LB): Denzel Perryman IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Alec Ingold (RB): Alec Ingold IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Trey Lance (QB): Trey Lance IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+- **unknown/status_update** Rodney Shelley (CB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: questionable
+- **unknown/status_update** Tre' Harris (WR): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: questionable
+- **unknown/status_update** Donte Jackson (CB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: questionable
+- **unknown/status_update** Derwin James Jr. (S): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: questionable
+- **unknown/status_update** Joe Alt (OT): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
   - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
   - Evidence: questionable
-- **worsening/doubtful** Devin White (LB): Head coach Dan Campbell confirmed Monday that White (forearm) will need surgery but is expected to return "at some point" later this season, Richard Silva of The Detroit News reports.
-  - Source: ESPN injuries API | 2026-10-12T23:37:00.000Z
-  - Markets: division, conference, super_bowl | Impact: defensive_major | Group: linebacker | human review
-  - Evidence: Head coach Dan Campbell confirmed Monday that White (forearm) will need surgery but is expected to return "at some point" later this season, Richard Silva of The Detroit News reports.
-- **worsening/out** Tom Kennedy (WR): Head coach Dan Campbell confirmed Monday that Kennedy will undergo season-ending surgery to repair an MCL injury in his right knee, Nolan Bianchi of The Detroit News reports.
-  - Source: ESPN injuries API | 2026-10-12T23:31:00.000Z
+- **unknown/status_update** Kayode Awosika (G): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
+  - Evidence: questionable
+- **unknown/status_update** Bud Dupree (LB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: linebacker | human review
+  - Evidence: questionable
+- **unknown/active_news** Cameron Dicker (PK): Dicker made both of his field-goal attempts in the Chargers' 22-6 loss to the Chiefs on Sunday.
+  - Source: ESPN injuries API | 2026-10-20T03:01:00.000Z
+  - Markets: wins | Impact: depth_only | Group: other | human review
+  - Evidence: Dicker made both of his field-goal attempts in the Chargers' 22-6 loss to the Chiefs on Sunday.
+
+### BAL
+
+Events: 24 | Synthesis eligible: 24 | Conflicted intel: 0 | Improving: 3 | Worsening: 4 | Major: 17
+
+OL: 2 total / 0 worsening | Defensive front: 2 total / 0 worsening
+
+- **unknown/status_update** Lamar Jackson (QB): Lamar Jackson UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+- **unknown/status_update** Rashod Bateman (WR): Rashod Bateman UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Matt Hibner (TE): Matt Hibner UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Broderick Washington Jr. (DT): Broderick Washington Jr. UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Durham Smythe (TE): Durham Smythe IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Skylar Thompson (QB): Skylar Thompson IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: qb_major | Group: quarterback | human review
+- **worsening/ir** T.J. Tampa Jr. (CB): T.J. Tampa Jr. IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Jahquez Robinson (S): Jahquez Robinson IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** Andrew Vorhees (G): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
+  - Evidence: questionable
+- **unknown/status_update** Broderick Washington Jr. (DT): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+  - Evidence: questionable
+- **unknown/status_update** Cam Jurgens (C): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
+  - Evidence: questionable
+- **unknown/status_update** Matt Hibner (TE): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: questionable
+
+### KC
+
+Events: 27 | Synthesis eligible: 27 | Conflicted intel: 0 | Improving: 2 | Worsening: 11 | Major: 16
+
+OL: 2 total / 1 worsening | Defensive front: 2 total / 2 worsening / cluster risk / opponent offense boost risk
+
+- **unknown/status_update** Rashee Rice (WR): Rashee Rice UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Tyquan Thornton (WR): Tyquan Thornton IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/pup** Omarr Norman-Lott (DT): Omarr Norman-Lott PUP
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Ethan Downs (DE): Ethan Downs IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Jimmy Holiday (WR): Jimmy Holiday IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Cooper McDonald (LB): Cooper McDonald IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** John Michael Gyllenborg (TE): John Michael Gyllenborg IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Jeff Caldwell (WR): Jeff Caldwell IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Rashee Rice (WR): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: questionable
+- **unknown/status_update** Josh Simmons (OT): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
+  - Evidence: questionable
+- **unknown/active_news** Harrison Butker (PK): Butker made three of his four field-goal attempts and one of two PATs in the Chiefs' 22-6 win over the Chargers on Sunday.
+  - Source: ESPN injuries API | 2026-10-20T02:27:00.000Z
+  - Markets: wins | Impact: depth_only | Group: other | human review
+  - Evidence: Butker made three of his four field-goal attempts and one of two PATs in the Chiefs' 22-6 win over the Chargers on Sunday.
+- **unknown/active_news** Andrew Armstrong (WR): Armstrong reverted to the Chiefs' practice squad Monday, per the NFL's transaction log.
+  - Source: ESPN injuries API | 2026-10-20T01:40:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Armstrong reverted to the Chiefs' practice squad Monday, per the NFL's transaction log.
+
+### PIT
+
+Events: 27 | Synthesis eligible: 27 | Conflicted intel: 0 | Improving: 0 | Worsening: 11 | Major: 16
+
+OL: 0 total / 0 worsening | Defensive front: 2 total / 2 worsening / cluster risk / opponent offense boost risk
+
+- **unknown/status_update** Pat Freiermuth (TE): Pat Freiermuth UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** DeShon Elliott (S): DeShon Elliott UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** Ben Skowronek (WR): Ben Skowronek UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Roman Wilson (WR): Roman Wilson IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Michael Pittman Jr. (WR): Michael Pittman Jr. IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Israel Mukuamu (CB): Israel Mukuamu IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Logan Lee (DT): Logan Lee IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Derrick Harmon (DT): Derrick Harmon IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/pup** Donte Kent (CB): Donte Kent PUP
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** Ben Skowronek (WR): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: questionable
+- **unknown/active_news** Chris Boswell (PK): Boswell went 4-for-5 on field-goal attempts while making both of his extra-point tries during Sunday's 26-19 overtime win against Tampa Bay.
+  - Source: ESPN injuries API | 2026-10-20T01:55:00.000Z
+  - Markets: wins | Impact: depth_only | Group: other | human review
+  - Evidence: Boswell went 4-for-5 on field-goal attempts while making both of his extra-point tries during Sunday's 26-19 overtime win against Tampa Bay.
+- **unknown/active_news** Pat Freiermuth (TE): Freiermuth caught two of three targets for 11 yards in Sunday's 26-19 overtime win over the Bucs.
+  - Source: ESPN injuries API | 2026-10-19T03:26:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Freiermuth caught two of three targets for 11 yards in Sunday's 26-19 overtime win over the Bucs.
+
+### BUF
+
+Events: 25 | Synthesis eligible: 25 | Conflicted intel: 0 | Improving: 2 | Worsening: 7 | Major: 16
+
+OL: 0 total / 0 worsening | Defensive front: 3 total / 1 worsening / opponent offense boost risk
+
+- **worsening/suspension** C.J. Gardner-Johnson (S): reserve-sus
+  - Source: ESPN injuries API | 2026-10-20T23:01:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: reserve-sus
+- **worsening/suspension** C.J. Gardner-Johnson (S): C.J. Gardner-Johnson SUSPENSION
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/pup** Tyrell Shavers (WR): Tyrell Shavers PUP
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Dorian Strong (CB): Dorian Strong IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Jordan Hancock (CB): Jordan Hancock IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Zane Durant (DT): Zane Durant IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **unknown/status_update** DJ Moore (WR): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: questionable
+- **unknown/status_update** Ed Oliver (DT): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+  - Evidence: questionable
+- **unknown/active_news** Tyler Bass (PK): Bass converted all four of his field-goal attempts and all three of his extra-point tries during Buffalo's win over the Raiders on Sunday.
+  - Source: ESPN injuries API | 2026-10-20T02:07:00.000Z
+  - Markets: wins | Impact: depth_only | Group: other | human review
+  - Evidence: Bass converted all four of his field-goal attempts and all three of his extra-point tries during Buffalo's win over the Raiders on Sunday.
+- **unknown/active_news** Ty Johnson (RB): Johnson logged a three-yard carry and caught both of his targets for 24 yards during the Bills' 33-30 win over the Raiders on Sunday.
+  - Source: ESPN injuries API | 2026-10-20T00:47:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Johnson logged a three-yard carry and caught both of his targets for 24 yards during the Bills' 33-30 win over the Raiders on Sunday.
+- **improving/return_to_practice** Joshua Palmer (WR): Palmer caught one of two targets for 37 yards during Buffalo's 33-30 win over Las Vegas on Sunday.
+  - Source: ESPN injuries API | 2026-10-20T00:42:00.000Z
   - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Head coach Dan Campbell confirmed Monday that Kennedy will undergo season-ending surgery to repair an MCL injury in his right knee, Nolan Bianchi of The Detroit News reports.
+  - Evidence: Palmer caught one of two targets for 37 yards during Buffalo's 33-30 win over Las Vegas on Sunday.
+- **unknown/active_news** Ray Davis (RB): Davis logged a four-yard carry and a five-yard catch on his lone target while returning three kickoffs for 85 yards during the Bills' 33-30 win over the Raiders on Sunday.
+  - Source: ESPN injuries API | 2026-10-20T00:35:00.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Davis logged a four-yard carry and a five-yard catch on his lone target while returning three kickoffs for 85 yards during the Bills' 33-30 win over the Raiders on Sunday.
 
 ### MIN
 
@@ -1390,18 +1209,19 @@ Events: 26 | Synthesis eligible: 26 | Conflicted intel: 0 | Improving: 3 | Worse
 
 OL: 4 total / 1 worsening | Defensive front: 1 total / 1 worsening / opponent offense boost risk
 
-- **worsening/ir** Jordan Mason (RB): Jordan Mason IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
-  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Jamal Adams (S): Jamal Adams IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
 - **worsening/ir** Josh Oliver (TE): Josh Oliver IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Tyler Batty (DT): Tyler Batty IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
   - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Jordan Mason (RB): The Vikings designated Mason (thumb) for return from injured reserve Monday.
+  - Source: ESPN injuries API | 2026-10-19T21:24:00.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: The Vikings designated Mason (thumb) for return from injured reserve Monday.
 - **unknown/status_update** Christian Darrisaw (OT): questionable
   - Source: ESPN injuries API | 2026-10-13T17:10:00.000Z
   - Markets: wins | Impact: offensive_line_major | Group: offensive_line | human review
@@ -1435,24 +1255,177 @@ OL: 4 total / 1 worsening | Defensive front: 1 total / 1 worsening / opponent of
   - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
   - Evidence: Jefferson (ankle) brought in six of seven targets for 79 yards and a touchdown and rushed once for minus-11 yards in the Vikings' 23-13 win over the Saints on Sunday. He also committed a fumble that remained with Minnesota.
 
+### LV
+
+Events: 28 | Synthesis eligible: 27 | Conflicted intel: 1 | Improving: 1 | Worsening: 7 | Major: 14
+
+OL: 1 total / 0 worsening | Defensive front: 4 total / 1 worsening / opponent offense boost risk
+
+- **unknown/status_update** Tonka Hemingway (DT): Tonka Hemingway UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+- **unknown/status_update** Dont'e Thornton Jr. (WR): Dont'e Thornton Jr. UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Carter Runyon (TE): Carter Runyon UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Jack Bech (WR): Jack Bech IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Seth Williams (WR): Seth Williams IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Brennan Jackson (LB): Brennan Jackson IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Chigozie Anusiem (CB): Chigozie Anusiem IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Chris Collier (RB): Chris Collier IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Keyron Crawford (DE): Keyron Crawford IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **unknown/status_update** Corey Rucker (WR): questionable
+  - Source: ESPN injuries API | 2026-10-20T22:30:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: questionable
+- **unknown/status_update** Tonka Hemingway (DT): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_front_major | Group: defensive_front | human review
+  - Evidence: questionable
+- **unknown/active_news** Matt Gay (PK): Gay converted all three of his field-goal attempts and all three extra-point tries during Las Vegas' loss to the Bills on Sunday.
+  - Source: ESPN injuries API | 2026-10-20T02:55:00.000Z
+  - Markets: wins | Impact: depth_only | Group: other | human review
+  - Evidence: Gay converted all three of his field-goal attempts and all three extra-point tries during Las Vegas' loss to the Bills on Sunday.
+
+### TEN
+
+Events: 26 | Synthesis eligible: 26 | Conflicted intel: 0 | Improving: 4 | Worsening: 10 | Major: 14
+
+OL: 0 total / 0 worsening | Defensive front: 2 total / 2 worsening / cluster risk / opponent offense boost risk
+
+- **unknown/status_update** Kevin Winston Jr. (S): Kevin Winston Jr. UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Tanoh Kpassagnon (DE): Tanoh Kpassagnon IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Milo Eifler (LB): Milo Eifler IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/suspension** Nazeeh Johnson (S): Nazeeh Johnson SUSPENSION
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Kendell Brooks (S): Kendell Brooks IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Dominique Hampton (CB): Dominique Hampton IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Jaylen Harrell (DE): Jaylen Harrell IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Jaren Kanak (TE): Jaren Kanak IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **unknown/status_update** Kevin Winston Jr. (S): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: questionable
+- **unknown/active_news** Calvin Ridley (WR): Ridley failed to haul in either of his two targets during the Titans' 26-20 win over the Colts on Sunday.
+  - Source: ESPN injuries API | 2026-10-20T02:31:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Ridley failed to haul in either of his two targets during the Titans' 26-20 win over the Colts on Sunday.
+- **unknown/active_news** Gunnar Helm (TE): Helm was on the field for 33 of 46 offensive snaps (71.7 percent) but didn't show up on the box score otherwise during the Titans' 26-20 win over the Colts on Sunday.
+  - Source: ESPN injuries API | 2026-10-20T02:24:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Helm was on the field for 33 of 46 offensive snaps (71.7 percent) but didn't show up on the box score otherwise during the Titans' 26-20 win over the Colts on Sunday.
+- **unknown/active_news** Joey Slye (PK): Slye went 4-for-4 on field-goal tries and made both of his PATs during Sunday's 26-20 win over the Colts.
+  - Source: ESPN injuries API | 2026-10-20T01:46:00.000Z
+  - Markets: wins | Impact: depth_only | Group: other | human review
+  - Evidence: Slye went 4-for-4 on field-goal tries and made both of his PATs during Sunday's 26-20 win over the Colts.
+
+### DEN
+
+Events: 25 | Synthesis eligible: 25 | Conflicted intel: 0 | Improving: 0 | Worsening: 8 | Major: 11
+
+OL: 0 total / 0 worsening | Defensive front: 1 total / 1 worsening / opponent offense boost risk
+
+- **unknown/status_update** Talanoa Hufanga (S): Talanoa Hufanga UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **unknown/status_update** Pat Surtain II (CB): Pat Surtain II UNKNOWN
+  - Source: FantasyPros injuries API
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Jonah Coleman (RB): Jonah Coleman IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Pat Bryant (WR): Pat Bryant IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+- **worsening/ir** Matt Henningsen (DT): Matt Henningsen IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Levelle Bailey (LB): Levelle Bailey IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/doubtful** Pat Surtain II (CB): doubtful
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: doubtful
+- **worsening/doubtful** Talanoa Hufanga (S): doubtful
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: doubtful
+- **unknown/active_news** Marvin Mims Jr. (WR): Mims caught two of four passes for 13 yards, returned one punt for 11 yards and returned one kickoff for 24 yards during the Broncos' 17-14 overtime win over the Seahawks on Thursday.
+  - Source: ESPN injuries API | 2026-10-17T16:20:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Mims caught two of four passes for 13 yards, returned one punt for 11 yards and returned one kickoff for 24 yards during the Broncos' 17-14 overtime win over the Seahawks on Thursday.
+- **unknown/active_news** Brandon Jones (S): Jones recorded eight tackles (three solo) in Thursday night's 17-14 overtime win over the Seahawks.
+  - Source: ESPN injuries API | 2026-10-17T05:17:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: Jones recorded eight tackles (three solo) in Thursday night's 17-14 overtime win over the Seahawks.
+- **unknown/active_news** Kris Abrams-Draine (CB): Abrams-Draine recorded six tackles (four solo), three pass breakups, including an interception, and one forced fumble in Thursday night's 17-14 overtime win over the Seahawks.
+  - Source: ESPN injuries API | 2026-10-17T05:13:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: Abrams-Draine recorded six tackles (four solo), three pass breakups, including an interception, and one forced fumble in Thursday night's 17-14 overtime win over the Seahawks.
+- **unknown/active_news** Alex Singleton (LB): Singleton recorded 13 tackles (four solo) in Thursday night's 17-14 overtime win over the Seahawks.
+  - Source: ESPN injuries API | 2026-10-17T05:06:00.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: defensive_major | Group: linebacker | human review
+  - Evidence: Singleton recorded 13 tackles (four solo) in Thursday night's 17-14 overtime win over the Seahawks.
+
 ### CIN
 
-Events: 20 | Synthesis eligible: 20 | Conflicted intel: 0 | Improving: 1 | Worsening: 7 | Major: 11
+Events: 21 | Synthesis eligible: 21 | Conflicted intel: 0 | Improving: 1 | Worsening: 7 | Major: 11
 
 OL: 0 total / 0 worsening | Defensive front: 0 total / 0 worsening
 
 - **worsening/ir** Andrei Iosivas (WR): Andrei Iosivas IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Jalen Davis (CB): Jalen Davis IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** Tanner Hudson (TE): Tanner Hudson IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
 - **worsening/ir** Ja'Sir Taylor (CB): Ja'Sir Taylor IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
 - **worsening/ir** Swayze Bozeman (LB): Swayze Bozeman IR
-  - Source: FantasyPros injuries API | 2026-10-15T01:30:02.000Z
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:01.000Z
   - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **unknown/active_news** Josh Kattus (TE): The Bengals have signed Kattus to their practice squad.
+  - Source: ESPN injuries API | 2026-10-20T18:49:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: The Bengals have signed Kattus to their practice squad.
+- **worsening/ir** Tanner Hudson (TE): Hudson (pectoral) was placed on injured reserve by the Bengals on Monday.
+  - Source: ESPN injuries API | 2026-10-19T23:18:00.000Z
+  - Markets: wins, division, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Hudson (pectoral) was placed on injured reserve by the Bengals on Monday.
 - **improving/return_to_practice** Dohnte Meyers (WR): Meyers brought in both of his targets for 12 yards during the Bengals' 31-24 win over the Dolphins on Sunday.
   - Source: ESPN injuries API | 2026-10-14T02:47:00.000Z
   - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
@@ -1465,10 +1438,6 @@ OL: 0 total / 0 worsening | Defensive front: 0 total / 0 worsening
   - Source: ESPN injuries API | 2026-10-13T17:10:00.000Z
   - Markets: wins | Impact: defensive_major | Group: secondary | human review
   - Evidence: questionable
-- **worsening/out** Tanner Hudson (TE): Hudson's agent revealed Tuesday that the tight end sustained a torn pectoral in Sunday's 31-24 win over the Dolphins and is expected to miss the rest of the season, Charlie Clifford of WLWT News 5 Cincinnati reports.
-  - Source: ESPN injuries API | 2026-10-13T15:52:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Hudson's agent revealed Tuesday that the tight end sustained a torn pectoral in Sunday's 31-24 win over the Dolphins and is expected to miss the rest of the season, Charlie Clifford of WLWT News 5 Cincinnati reports.
 - **worsening/ir** Swayze Bozeman (LB): The Bengals placed Bozeman on injured reserve Monday due to a fractured forearm, Ben Baby of ESPN.com reports.
   - Source: ESPN injuries API | 2026-10-12T21:04:00.000Z
   - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
@@ -1477,12 +1446,55 @@ OL: 0 total / 0 worsening | Defensive front: 0 total / 0 worsening
   - Source: ESPN injuries API | 2026-10-12T14:59:00.000Z
   - Markets: wins | Impact: depth_only | Group: other | human review
   - Evidence: McPherson made his lone field-goal attempt and all four of his extra-point tries during the Bengals' 31-24 win over the Dolphins on Sunday.
-- **unknown/active_news** Samaje Perine (RB): Perine rushed 14 times for 68 yards while catching both of his targets for 10 yards and a touchdown during Sunday's 31-24 win over Miami.
-  - Source: ESPN injuries API | 2026-10-12T00:39:00.000Z
-  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Perine rushed 14 times for 68 yards while catching both of his targets for 10 yards and a touchdown during Sunday's 31-24 win over Miami.
-- **unknown/active_news** Mike Gesicki (TE): Gesicki brought in one of two targets for a four-yard touchdown in the Bengals' 31-24 win over the Dolphins on Sunday.
-  - Source: ESPN injuries API | 2026-10-11T23:58:00.000Z
+
+### JAX
+
+Events: 21 | Synthesis eligible: 21 | Conflicted intel: 0 | Improving: 1 | Worsening: 6 | Major: 9
+
+OL: 1 total / 1 worsening | Defensive front: 1 total / 1 worsening / opponent offense boost risk
+
+- **worsening/ir** Caleb Ransaw (CB): Caleb Ransaw IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: secondary | human review
+- **worsening/ir** B.J. Green II (DE): B.J. Green II IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_front_major | Group: defensive_front | human review
+- **worsening/ir** Jared Bartlett (LB): Jared Bartlett IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **worsening/ir** Parker Hughes (LB): Parker Hughes IR
+  - Source: FantasyPros injuries API | 2026-10-20T23:00:02.000Z
+  - Markets: wins, division | Impact: defensive_major | Group: linebacker | human review
+- **unknown/status_update** Ross Matiscik (LS): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: depth_only | Group: other | human review
+  - Evidence: questionable
+- **unknown/status_update** Montaric Brown (CB): questionable
+  - Source: ESPN injuries API | 2026-10-20T16:10:00.000Z
+  - Markets: wins | Impact: defensive_major | Group: secondary | human review
+  - Evidence: questionable
+- **unknown/active_news** Josh Cameron (WR): Cameron didn't garner a target and recorded 46 kickoff-return yards during Sunday's 34-31 loss to the Texans.
+  - Source: ESPN injuries API | 2026-10-20T02:26:00.000Z
   - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
-  - Evidence: Gesicki brought in one of two targets for a four-yard touchdown in the Bengals' 31-24 win over the Dolphins on Sunday.
+  - Evidence: Cameron didn't garner a target and recorded 46 kickoff-return yards during Sunday's 34-31 loss to the Texans.
+- **unknown/active_news** Cam Little (PK): Little made his sole field-goal attempt and all four of his PATs in the Jaguars' 34-31 loss to the Texans on Sunday in London.
+  - Source: ESPN injuries API | 2026-10-20T01:11:00.000Z
+  - Markets: wins | Impact: depth_only | Group: other | human review
+  - Evidence: Little made his sole field-goal attempt and all four of his PATs in the Jaguars' 34-31 loss to the Texans on Sunday in London.
+- **unknown/active_news** Nate Boerkircher (TE): Boerkircher caught both of his targets for eight yards and a touchdown during Sunday's 34-31 loss to the Texans.
+  - Source: ESPN injuries API | 2026-10-20T00:57:00.000Z
+  - Markets: wins, division, conference, super_bowl, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Boerkircher caught both of his targets for eight yards and a touchdown during Sunday's 34-31 loss to the Texans.
+- **unknown/active_news** Brenton Strange (TE): Strange caught five of seven targets for 44 yards during Sunday's 34-31 loss to the Texans.
+  - Source: ESPN injuries API | 2026-10-19T02:36:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Strange caught five of seven targets for 44 yards during Sunday's 34-31 loss to the Texans.
+- **unknown/active_news** Chris Rodriguez Jr. (RB): Rodriguez rushed 11 times for 55 yards while failing to reel in his only target during Sunday's 34-31 loss to Houston.
+  - Source: ESPN injuries API | 2026-10-19T02:07:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Rodriguez rushed 11 times for 55 yards while failing to reel in his only target during Sunday's 34-31 loss to Houston.
+- **unknown/active_news** Travis Hunter (WR): Hunter caught all four of his targets for 59 yards and a touchdown in Sunday's 34-31 loss to the Texans in London. He also recorded three tackles and an interception.
+  - Source: ESPN injuries API | 2026-10-18T17:56:00.000Z
+  - Markets: wins, player_props, fantasy | Impact: skill_major | Group: offensive_skill | human review
+  - Evidence: Hunter caught all four of his targets for 59 yards and a touchdown in Sunday's 34-31 loss to the Texans in London. He also recorded three tackles and an interception.
 

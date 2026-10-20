@@ -1,5 +1,5 @@
 # NYJ Jets — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:00:32.608Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-20T23:12:45.960Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -53,7 +53,7 @@ Out/IR: none
 Questionable/Doubtful: Joseph Ossai DE Questionable; Dylan Parham G Questionable; Adonai Mitchell WR Doubtful; Breece Hall RB Questionable; Kiko Mauigoa LB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 11 players; skill: Arian Smith WR; Caullin Lacy WR; Chip Trayanum RB
 OL/DL cluster risk (derived): OL none, DL none
-Impact digest (top by score): Geno Smith QB active_news/unknown; Breece Hall RB out/worsening; Breece Hall RB out/worsening
+Impact digest (top by score): Geno Smith QB active_news/unknown; Isaiah Williams WR return_to_practice/improving; Breece Hall RB status_update/unknown; Breece Hall RB status_update/unknown
 Projected starters: manual_and_estimated_signals, 3 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

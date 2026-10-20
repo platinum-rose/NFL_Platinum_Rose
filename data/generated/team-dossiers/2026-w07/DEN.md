@@ -1,5 +1,5 @@
 # DEN Broncos — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:00:31.886Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-20T23:12:45.264Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -53,7 +53,7 @@ Out/IR: Pat Bryant WR Injured Reserve
 Questionable/Doubtful: Pat Surtain II CB Doubtful; Talanoa Hufanga S Doubtful; Tyler Badie RB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Caleb Lohner TE; Jonah Coleman RB
 OL/DL cluster risk (derived): OL none, DL none
-Impact digest (top by score): Bo Nix QB active_news/unknown; Lil'Jordan Humphrey WR active_news/unknown; Adam Prentice FB active_news/unknown
+Impact digest (top by score): Bo Nix QB active_news/unknown; Lil'Jordan Humphrey WR active_news/unknown
 Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

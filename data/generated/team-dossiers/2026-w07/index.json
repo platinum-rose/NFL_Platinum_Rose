@@ -3,10 +3,10 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T23:00:34.295Z",
+  "built_at": "2026-10-20T23:12:47.610Z",
   "builder": "team_dossier_builder_v1.1",
   "builder_sha256": "735dc4782268c01147893bfd1eb6196bf17c4c8106322e617a0216151ee0e1e0",
-  "git_head": "45833b2",
+  "git_head": "297ffcf",
   "market_data_included": false,
   "sources": {
     "standings": {
@@ -150,20 +150,20 @@
     "avail_events": {
       "id": "avail_events",
       "path": "data/player-availability/latest.json",
-      "sha256": "e8a6b93d3ed8cf9642b86cdf88780f83935e0fed2347195d1f79967b90f9c5e7",
+      "sha256": "4f9d1cf628533efe0cf677f119a797caada13f2f4d2874f7bbed6892f05456f7",
       "use_policy": "availability intel only; roster-gate first; event statuses can be stale or conflicted",
-      "generated_at": "2026-10-19T23:30:01.584Z",
+      "generated_at": "2026-10-20T23:12:31.816Z",
       "through_week": null,
       "status": "current"
     },
     "impact_digest": {
       "id": "impact_digest",
       "path": "data/player-availability/impact-digest-latest.json",
-      "sha256": "f21a656a2f2bdf32b9bc65f45232b84209f95be5fd4ab10d0e84f99710742942",
+      "sha256": "54a93f1ceb7eea962ad5ba2804400c4f6f3c644080b88fe138b693a76d3e044e",
       "use_policy": "starter-impact digest; research context only; market-linkage fields dropped",
-      "generated_at": "2026-10-17T02:04:00.537Z",
+      "generated_at": "2026-10-20T23:12:42.057Z",
       "through_week": null,
-      "status": "stale"
+      "status": "current"
     },
     "projected_starters": {
       "id": "projected_starters",
@@ -365,12 +365,12 @@
     "avail_events": {
       "status": "current",
       "through_week": null,
-      "generated_at": "2026-10-19T23:30:01.584Z"
+      "generated_at": "2026-10-20T23:12:31.816Z"
     },
     "impact_digest": {
-      "status": "stale",
+      "status": "current",
       "through_week": null,
-      "generated_at": "2026-10-17T02:04:00.537Z"
+      "generated_at": "2026-10-20T23:12:42.057Z"
     },
     "projected_starters": {
       "status": "current",

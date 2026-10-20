@@ -1,5 +1,5 @@
 # SF 49ers — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:00:32.820Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-20T23:12:46.144Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -53,7 +53,7 @@ Out/IR: Deebo Samuel Sr. WR Out; Garret Wallow LB Out; Christian Kirk WR Injured
 Questionable/Doubtful: Marques Sigle S Questionable; Nick Bosa DE Questionable; Mike Evans WR Questionable; Luke Gifford LB Questionable; Upton Stout CB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 16 players; skill: De'Zhaun Stribling WR; Demarcus Robinson WR; Isaac Guerendo RB; Jake Tonges TE; Ricky Pearsall WR
 OL/DL cluster risk (derived): OL none, DL none
-Impact digest (top by score): Brock Purdy QB active_news/unknown
+Impact digest (top by score): Brock Purdy QB active_news/unknown; Malik Turner WR setback/worsening
 Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

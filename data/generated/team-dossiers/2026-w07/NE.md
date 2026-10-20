@@ -1,5 +1,5 @@
 # NE Patriots — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:00:32.469Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-20T23:12:45.815Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -53,7 +53,7 @@ Out/IR: Romeo Doubs WR Injured Reserve
 Questionable/Doubtful: Jeremiah Webb WR Questionable; A.J. Brown WR Questionable; Ben Brown C Doubtful; Alijah Vera-Tucker G Doubtful; Karon Prunty CB Questionable; Channing Canada CB Questionable (+2 more)
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 12 players; skill: Julian Hill TE; Mack Hollins WR; Myles Montgomery RB; Reggie Gilliam FB
 OL/DL cluster risk (derived): OL cluster, DL none
-Impact digest (top by score): Drake Maye QB status_update/unknown; Rhamondre Stevenson RB limited_return/improving; Corey Kiner RB active_news/unknown
+Impact digest (top by score): Drake Maye QB status_update/unknown; Drake Maye QB active_news/unknown; Rhamondre Stevenson RB active_news/unknown
 Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
