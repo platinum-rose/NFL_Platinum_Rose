@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T19:18:03.177Z",
+  "built_at": "2026-10-20T23:00:32.194Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "020362a",
+  "git_head": "45833b2",
   "market_data_included": false,
   "sources": [
     {
@@ -84,10 +84,10 @@
     {
       "id": "slate",
       "path": "data/generated/team-dossiers/w07-slate.json",
-      "generated_at": "2026-10-20T19:25:00Z",
+      "generated_at": "2026-10-20T22:30:00Z",
       "status": "unknown",
       "through_week": null,
-      "sha256": "6bedec1411e2fb74b25336b194c47e7e5723aaa72b4fd705c2d56304c9f1c6e2",
+      "sha256": "e3285e0e064162e1620d946a675c2379c63872dd742803a8ebf0b0fe9da7e430",
       "use_policy": "target-week opponent and home/away (operator-confirmed slate)"
     },
     {
@@ -973,7 +973,7 @@
               "opportunity_score": 4.5,
               "notes": "LAC Rookie Target Leader.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
+              "availability_flag": "questionable"
             },
             {
               "player_name": "Charlie Kolar",
@@ -1226,28 +1226,417 @@
     }
   },
   "availability": {
-    "status": "missing",
-    "roster_gate": "not_run",
+    "status": "built",
+    "roster_gate": "passed",
     "roster_gate_detail": {
       "source": "data/generated/master-intel/w07-roster-vet.json",
-      "vet_status": null,
-      "blocking_count": null,
-      "roster_snapshot_generated_at": "2026-10-18T06:33:43.096523+00:00",
-      "roster_age_h_at_vet": null,
+      "vet_status": "PASS",
+      "blocking_count": 0,
+      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
+      "roster_age_h_at_vet": 0.2,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": null,
+      "espn_status": "2026-10-20T22:47:55Z",
       "availability_events": "2026-10-19T23:30:01.584Z",
       "impact_digest": "2026-10-17T02:04:00.537Z",
       "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
     },
+    "use_policy": "intel only; roster-gate first; not a projection or recommendation",
+    "qb": {
+      "espn_starter": "Patrick Mahomes",
+      "flag": "ok",
+      "note": null,
+      "depth": [
+        "Patrick Mahomes",
+        "Justin Fields",
+        "Garrett Nussmeier"
+      ],
+      "operator_confirmed": null
+    },
+    "reported_injuries": {
+      "out_ir": [
+        {
+          "player": "Tyquan Thornton",
+          "pos": "WR",
+          "status": "Injured Reserve",
+          "date": "2026-10-13",
+          "comment": "The Chiefs placed Thornton (ankle) on injured reserve Tuesday.",
+          "roster_check": "roster_ir_out_group"
+        }
+      ],
+      "questionable_doubtful": [
+        {
+          "player": "Rashee Rice",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-20",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Josh Simmons",
+          "pos": "OT",
+          "status": "Questionable",
+          "date": "2026-10-20",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jaylon Moore",
+          "pos": "OT",
+          "status": "Questionable",
+          "date": "2026-10-18",
+          "comment": "Moore (concussion) has been ruled out for the remainder of Sunday's game against the Chargers.",
+          "roster_check": "ok"
+        }
+      ],
+      "other": []
+    },
+    "operator_reported": [],
+    "roster_ir_out_unconfirmed": [
+      {
+        "player": "Cooper McDonald",
+        "pos": "LB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Ethan Downs",
+        "pos": "LB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Jeff Caldwell",
+        "pos": "WR",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Jimmy Holiday",
+        "pos": "WR",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "John Michael Gyllenborg",
+        "pos": "TE",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Matt Waletzko",
+        "pos": "OT",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Omarr Norman-Lott",
+        "pos": "DT",
+        "roster_status": "day-to-day"
+      }
+    ],
+    "ol_dl_cluster_risk": {
+      "ol": {
+        "hard_or_doubtful": 0,
+        "questionable": 2,
+        "risk": "watch",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "Josh Simmons OT Questionable",
+          "Jaylon Moore OT Questionable"
+        ]
+      },
+      "dl": {
+        "hard_or_doubtful": 0,
+        "questionable": 0,
+        "risk": "none",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": []
+      }
+    },
+    "live_events": {
+      "window": "published within 10 days of build; latest per player; cap 12",
+      "rows": [
+        {
+          "player_name": "Omarr Norman-Lott",
+          "position": "DT",
+          "normalized_status": "PUP",
+          "availability_trend": "worsening",
+          "event_type": "pup",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:05.000Z",
+          "summary": "Omarr Norman-Lott PUP",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Tyquan Thornton",
+          "position": "WR",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Tyquan Thornton IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Ethan Downs",
+          "position": "DE",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Ethan Downs IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Jimmy Holiday",
+          "position": "WR",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Jimmy Holiday IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Cooper McDonald",
+          "position": "LB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Cooper McDonald IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "John Michael Gyllenborg",
+          "position": "TE",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "John Michael Gyllenborg IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Jeff Caldwell",
+          "position": "WR",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Jeff Caldwell IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Rashee Rice",
+          "position": "WR",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T16:45:00.000Z",
+          "summary": "out",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Josh Simmons",
+          "position": "OT",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T16:45:00.000Z",
+          "summary": "out",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jared Wiley",
+          "position": "TE",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-19T02:20:08.000Z",
+          "summary": "Jared Wiley OUT",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Garrett Nussmeier",
+          "position": "QB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-19T02:20:08.000Z",
+          "summary": "Garrett Nussmeier OUT",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jadon Canady",
+          "position": "CB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-19T02:20:08.000Z",
+          "summary": "Jadon Canady OUT",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "impact_digest": [
+      {
+        "player_name": "Patrick Mahomes",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 93,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-05T00:49:00.000Z",
+        "summary": "Mahomes completed 15 of 30 passes for 225 yards and two touchdowns in Sunday's 30-27 win over the Raiders. He also rushed twice for no gain.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Kenneth Walker III",
+        "position": "RB",
+        "unit": "offensive_skill",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "source_count": 1
+        },
+        "score": 48,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-05T00:16:00.000Z",
+        "summary": "Walker rushed 22 times for 177 yards and two touchdowns while catching his only target for two yards in Sunday's 30-27 win over the Raiders.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      }
+    ],
+    "projected_starters": {
+      "coverage_status": "manual_and_estimated_signals",
+      "as_of": "2026-10-20T18:23:03.995Z",
+      "known": [
+        "Patrick Mahomes QB",
+        "Kenneth Walker III RB"
+      ],
+      "estimated": [],
+      "missing": [
+        "independent second-source depth-chart reconciliation"
+      ],
+      "players": [
+        {
+          "player_name": "Patrick Mahomes",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Kenneth Walker III",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "missing_inputs": [],
     "caveats": [
-      "no ESPN status data for KC"
+      "ESPN injury statuses lag game-day truth; official inactives decide.",
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+      "impact_digest is stale (>36h at build)"
     ]
   },
   "priors": {
@@ -1497,19 +1886,22 @@
       ]
     },
     "availability": {
-      "status": "missing",
+      "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": null,
+        "espn_status": "2026-10-20T22:47:55Z",
         "availability_events": "2026-10-19T23:30:01.584Z",
         "impact_digest": "2026-10-17T02:04:00.537Z",
         "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
       },
-      "roster_gate": "not_run",
+      "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
-        "no ESPN status data for KC"
+        "ESPN injury statuses lag game-day truth; official inactives decide.",
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+        "impact_digest is stale (>36h at build)"
       ]
     },
     "priors": {

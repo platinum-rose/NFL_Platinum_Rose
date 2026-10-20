@@ -1,6 +1,6 @@
 # DEN Broncos — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:02.905Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:31.886Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 DEN · AFC AFC West · HC Sean Payton · Empower Field at Mile High (outdoors, grass) · W7: @ ARI Sun 10/25 13:05
@@ -46,8 +46,15 @@ SRS 1.36 (#13) · net PPG -2.8 (#24) · Pythag 0.421 (#24) · model rank #21
 HC Sean Payton · neutral pass rate 0.573 · sample 2026-09-14 → 2026-10-15 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See DEN.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for DEN
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Bo Nix [ok]
+Out/IR: Pat Bryant WR Injured Reserve
+Questionable/Doubtful: Pat Surtain II CB Doubtful; Talanoa Hufanga S Doubtful; Tyler Badie RB Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Caleb Lohner TE; Jonah Coleman RB
+OL/DL cluster risk (derived): OL none, DL none
+Impact digest (top by score): Bo Nix QB active_news/unknown; Lil'Jordan Humphrey WR active_news/unknown; Adam Prentice FB active_news/unknown
+Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 14-3 · diff 90 · Pythag 0.646 · SRS #9 · EPA off #11 def #5 · DVOA 14.4 (#7) off 3.6 def -10.4

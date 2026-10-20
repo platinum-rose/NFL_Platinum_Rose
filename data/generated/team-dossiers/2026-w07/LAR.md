@@ -1,6 +1,6 @@
 # LAR Rams — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:03.278Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:32.282Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 LAR · NFC NFC West · HC Sean McVay · Melbourne Cricket Ground (dome, matrixturf) · W7: @ LV Sun 10/25 13:25
@@ -46,8 +46,15 @@ SRS 0.48 (#18) · net PPG -0.2 (#17) · Pythag 0.495 (#17) · model rank #16
 HC Sean McVay · neutral pass rate 0.639 · sample 2026-09-10 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See LAR.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for LAR
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Matthew Stafford [ok]
+Out/IR: Terrance Ferguson TE Injured Reserve; Davante Adams WR Injured Reserve; Poona Ford DT Injured Reserve; Blake Grupe PK Injured Reserve; Kobie Turner DE Out; Myles Garrett DE Injured Reserve
+Questionable/Doubtful: Trent McDuffie CB Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Matthew Caldwell QB; Ronnie Rivers RB
+OL/DL cluster risk (derived): OL none, DL cluster
+Impact digest (top by score): Matthew Stafford QB active_news/unknown; Blake Grupe PK active_news/unknown
+Projected starters: manual_and_estimated_signals, 1 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 12-5 · diff 172 · Pythag 0.722 · SRS #2 · EPA off #2 def #11 · DVOA 39.9 (#2) off 30.6 def -12.4

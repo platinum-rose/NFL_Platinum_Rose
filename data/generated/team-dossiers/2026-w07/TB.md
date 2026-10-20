@@ -1,6 +1,6 @@
 # TB Buccaneers — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:03.845Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:32.856Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 TB · NFC NFC South · HC Todd Bowles · Raymond James Stadium (outdoors, grass) · W7: @ CAR Sun 10/25 10:00
@@ -46,8 +46,15 @@ SRS -0.40 (#19) · net PPG -2.4 (#22) · Pythag 0.433 (#23) · model rank #22
 HC Todd Bowles · neutral pass rate 0.573 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See TB.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for TB
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Baker Mayfield [AMBIGUOUS] Baker Mayfield Questionable;
+Out/IR: David Sills V WR Injured Reserve
+Questionable/Doubtful: Antoine Winfield Jr. S Doubtful; Sean Tucker RB Questionable; Baker Mayfield QB Questionable; Benjamin Morrison CB Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 3 players; skill: Jalen McMillan WR
+OL/DL cluster risk (derived): OL none, DL none
+Impact digest (top by score): Jalon Daniels QB setback/worsening
+Projected starters: manual_and_estimated_signals, 1 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 8-9 · diff -31 · Pythag 0.454 · SRS #19 · EPA off #21 def #20 · DVOA -8.3 (#20) off -1.2 def 2

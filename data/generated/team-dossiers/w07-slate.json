@@ -1,8 +1,8 @@
 {
-  "schema": "w07_slate_DRAFT_v1",
-  "generated_at": "2026-10-20T19:25:00Z",
-  "operator_confirmed": false,
-  "source": "DRAFT by Claude 2026-10-20 (NOT operator-confirmed). Pairings/kickoffs from BKR board data/odds/BKR_current_lines_1019_1204_buildfmt (PT); SF@ATL 10:00 PT added from nflverse schedules.csv (not in BKR paste); home/away cross-checked identical across BKR, public/schedule.json and nflverse schedules.csv. PIT@NO is the international game (Stade de France per schedules.csv).",
+  "schema": "w07_operator_slate_v1",
+  "generated_at": "2026-10-20T22:30:00Z",
+  "operator_confirmed": true,
+  "source": "Drafted by Claude 2026-10-20; CONFIRMED by Andy 2026-10-20 15:30 PT. Pairings/kickoffs from BKR board data/odds/BKR_current_lines_1019_1204_buildfmt (PT); SF@ATL 10:00 PT added from nflverse schedules.csv (not in BKR paste); home/away cross-checked identical across BKR, public/schedule.json and nflverse schedules.csv. PIT@NO is the international game (Stade de France per schedules.csv).",
   "byes_derived": [
     "BUF",
     "JAX",
@@ -80,5 +80,6 @@
       "home": "PHI",
       "kickoff_pt": "Mon 10/26 17:15"
     }
-  ]
+  ],
+  "confirmed_at": "2026-10-20T22:30:00Z"
 }

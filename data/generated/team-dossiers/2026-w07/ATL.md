@@ -1,6 +1,6 @@
 # ATL Falcons — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:02.540Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:31.477Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 ATL · NFC NFC South · HC Raheem Morris · Mercedes-Benz Stadium (, fieldturf) · W7: vs SF Sun 10/25 10:00
@@ -46,8 +46,15 @@ SRS 1.55 (#12) · net PPG -0.6 (#19) · Pythag 0.485 (#19) · model rank #15
 HC Raheem Morris · neutral pass rate 0.508 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See ATL.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for ATL
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Michael Penix Jr. [ok]
+Out/IR: none
+Questionable/Doubtful: C.J. Henderson CB Questionable; Kendal Daniels LB Questionable; Billy Bowman Jr. CB Questionable; Divine Deablo LB Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 9 players; skill: Beaux Collins WR; Trey Sermon RB
+OL/DL cluster risk (derived): OL none, DL none
+Impact digest (top by score): Bijan Robinson RB active_news/unknown
+Projected starters: manual_and_estimated_signals, 3 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 8-9 · diff -48 · Pythag 0.425 · SRS #20 · EPA off #23 def #15 · DVOA -6.4 (#19) off -2.8 def -2.7

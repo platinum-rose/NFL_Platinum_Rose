@@ -1,6 +1,6 @@
 # KC Chiefs — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:03.177Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN stale_1wk (through W5) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:32.194Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN stale_1wk (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 KC · AFC AFC West · HC Andy Reid · GEHA Field at Arrowhead Stadium (outdoors, grass) · W7: @ SEA Sun 10/25 17:20 · bye played W5
@@ -46,8 +46,15 @@ SRS 8.61 (#3) · net PPG 10.3 (#3) · Pythag 0.733 (#4) · model rank #4
 HC Andy Reid · neutral pass rate 0.531 · sample 2026-09-14 → 2026-10-18 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See KC.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for KC
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Patrick Mahomes [ok]
+Out/IR: Tyquan Thornton WR Injured Reserve
+Questionable/Doubtful: Rashee Rice WR Questionable; Josh Simmons OT Questionable; Jaylon Moore OT Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Jeff Caldwell WR; Jimmy Holiday WR; John Michael Gyllenborg TE
+OL/DL cluster risk (derived): OL watch, DL none
+Impact digest (top by score): Patrick Mahomes QB active_news/unknown; Kenneth Walker III RB active_news/unknown
+Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 6-11 · diff 34 · Pythag 0.558 · SRS #13 · EPA off #13 def #12 · DVOA 5.6 (#15) off 5.4 def -0.4

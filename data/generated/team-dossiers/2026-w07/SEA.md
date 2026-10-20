@@ -1,6 +1,6 @@
 # SEA Seahawks — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:03.741Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:32.751Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 SEA · NFC NFC West · HC Mike Macdonald · Lumen Field (outdoors, fieldturf) · W7: vs KC Sun 10/25 17:20
@@ -46,8 +46,15 @@ SRS 3.28 (#9) · net PPG 5.8 (#5) · Pythag 0.641 (#5) · model rank #7
 HC Mike Macdonald · neutral pass rate 0.565 · sample 2026-09-09 → 2026-10-15 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See SEA.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for SEA
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Sam Darnold [ok]
+Out/IR: Anthony Bradford G Injured Reserve; Elijah Arroyo TE Out; Zach Charbonnet RB Out; Jadarian Price RB Injured Reserve
+Questionable/Doubtful: Chazz Surratt LB Questionable; Drake Thomas LB Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 5 players; skill: Jake Bobo WR; Robbie Ouzts FB
+OL/DL cluster risk (derived): OL watch, DL none
+Impact digest (top by score): Tyrice Knight LB setback/worsening; Irv Charles WR return_to_practice/improving; Velus Jones Jr. RB active_news/unknown
+Projected starters: estimated_from_local_starter_language, 1 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 14-3 · diff 191 · Pythag 0.767 · SRS #1 · EPA off #14 def #1 · DVOA 41.2 (#1) off 8.5 def -24.2

@@ -1,6 +1,6 @@
 # PHI Eagles — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:03.649Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:32.650Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 PHI · NFC NFC East · HC Nick Sirianni · Lincoln Financial Field (outdoors, grass) · W7: vs DAL Mon 10/26 17:15
@@ -46,8 +46,15 @@ SRS -5.11 (#26) · net PPG -4 (#26) · Pythag 0.386 (#26) · model rank #26
 HC Nick Sirianni · neutral pass rate 0.617 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See PHI.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for PHI
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Tanner McKee [ok]
+Out/IR: Carson Steele RB Out; Jalen Hurts QB Injured Reserve; Lane Johnson OT Out; Jakorian Bennett CB Injured Reserve; Landon Dickerson G Injured Reserve; Eli Stowers TE Injured Reserve (+1 more)
+Questionable/Doubtful: AJ Epenesa DE Questionable; Jalyx Hunt LB Questionable; Saquon Barkley RB Questionable; Michael Carter II CB Questionable; Nolan Smith Jr. LB Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 5 players; skill: Johnny Wilson WR; Will Shipley RB
+OL/DL cluster risk (derived): OL cluster, DL none
+Impact digest (top by score): Jalen Hurts QB out/worsening; Jalen Hurts QB out/worsening; Tanner McKee QB setback/worsening; Saquon Barkley RB out/worsening (+1 more)
+Projected starters: manual_and_estimated_signals, 6 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 11-6 · diff 54 · Pythag 0.590 · SRS #11 · EPA off #16 def #8 · DVOA 7.9 (#13) off 0.5 def -9.9

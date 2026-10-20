@@ -3,10 +3,10 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T19:18:05.697Z",
+  "built_at": "2026-10-20T23:00:34.295Z",
   "builder": "team_dossier_builder_v1.1",
   "builder_sha256": "735dc4782268c01147893bfd1eb6196bf17c4c8106322e617a0216151ee0e1e0",
-  "git_head": "020362a",
+  "git_head": "45833b2",
   "market_data_included": false,
   "sources": {
     "standings": {
@@ -85,9 +85,9 @@
     "slate": {
       "id": "slate",
       "path": "data/generated/team-dossiers/w07-slate.json",
-      "sha256": "6bedec1411e2fb74b25336b194c47e7e5723aaa72b4fd705c2d56304c9f1c6e2",
+      "sha256": "e3285e0e064162e1620d946a675c2379c63872dd742803a8ebf0b0fe9da7e430",
       "use_policy": "target-week opponent and home/away (operator-confirmed slate)",
-      "generated_at": "2026-10-20T19:25:00Z",
+      "generated_at": "2026-10-20T22:30:00Z",
       "status": "unknown"
     },
     "espn_w1": {
@@ -141,11 +141,11 @@
     "espn_status": {
       "id": "espn_status",
       "path": "data/research-intel/source-evidence/espn-status-w07.json",
-      "sha256": null,
+      "sha256": "193c0acce2211f4ba8d35469e83be9d0f3850345ad7ec6e851b118914b68ae5c",
       "use_policy": "ESPN public injuries feed + depth-chart QB + roster IR/Out group (scripts/intel/fetch-espn-status.py); statuses lag game-day truth",
-      "generated_at": null,
+      "generated_at": "2026-10-20T22:47:55Z",
       "through_week": null,
-      "status": "missing"
+      "status": "current"
     },
     "avail_events": {
       "id": "avail_events",
@@ -177,20 +177,20 @@
     "roster_vet": {
       "id": "roster_vet",
       "path": "data/generated/master-intel/w07-roster-vet.json",
-      "sha256": null,
+      "sha256": "c2c4a695643f4a75452845e1b7b3d06e582b164475f7741037bc5da24e466467",
       "use_policy": "roster gate result (scripts/nfl-rosters/roster_vet.py); must be PASS for roster_gate=passed",
       "generated_at": null,
       "through_week": null,
-      "status": "missing"
+      "status": "current"
     },
     "roster_snapshot": {
       "id": "roster_snapshot",
       "path": "data/nfl-rosters/espn-full-rosters-latest.json",
-      "sha256": "afff165a7c07f35c77424cdeb08d54188149d7faca67a04f3456d4b601db0a66",
+      "sha256": "fdfe7aea5b3b28b31e8155d9354e51676932b7a2303ca6c2bf4521e49cd49729",
       "use_policy": "ESPN rosters incl. IR/practice squad plus Andy-reported overrides; name/team ground truth",
-      "generated_at": "2026-10-18T06:33:43.096523+00:00",
+      "generated_at": "2026-10-20T22:47:22.559133+00:00",
       "through_week": null,
-      "status": "stale"
+      "status": "current"
     },
     "operator_overrides": {
       "id": "operator_overrides",
@@ -360,7 +360,7 @@
     "slate": {
       "status": "unknown",
       "through_week": null,
-      "generated_at": "2026-10-20T19:25:00Z"
+      "generated_at": "2026-10-20T22:30:00Z"
     },
     "avail_events": {
       "status": "current",
@@ -378,14 +378,14 @@
       "generated_at": "2026-10-20T18:23:03.995Z"
     },
     "roster_vet": {
-      "status": "missing",
+      "status": "current",
       "through_week": null,
       "generated_at": null
     },
     "roster_snapshot": {
-      "status": "stale",
+      "status": "current",
       "through_week": null,
-      "generated_at": "2026-10-18T06:33:43.096523+00:00"
+      "generated_at": "2026-10-20T22:47:22.559133+00:00"
     },
     "operator_overrides": {
       "status": "current",
@@ -428,7 +428,5 @@
       "generated_at": null
     }
   },
-  "not_built": [
-    "availability"
-  ]
+  "not_built": []
 }

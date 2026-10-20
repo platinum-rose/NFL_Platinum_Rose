@@ -1,6 +1,6 @@
 # NE Patriots — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:03.456Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:32.469Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 NE · AFC AFC East · HC Mike Vrabel · Gillette Stadium (outdoors, fieldturf) · W7: @ CHI Thu 10/22 17:15
@@ -46,8 +46,15 @@ SRS 7.79 (#5) · net PPG 3.2 (#10) · Pythag 0.592 (#9) · model rank #6
 HC Mike Vrabel · neutral pass rate 0.517 · sample 2026-09-09 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See NE.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for NE
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Drake Maye [ok]
+Out/IR: Romeo Doubs WR Injured Reserve
+Questionable/Doubtful: Jeremiah Webb WR Questionable; A.J. Brown WR Questionable; Ben Brown C Doubtful; Alijah Vera-Tucker G Doubtful; Karon Prunty CB Questionable; Channing Canada CB Questionable (+2 more)
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 12 players; skill: Julian Hill TE; Mack Hollins WR; Myles Montgomery RB; Reggie Gilliam FB
+OL/DL cluster risk (derived): OL cluster, DL none
+Impact digest (top by score): Drake Maye QB status_update/unknown; Rhamondre Stevenson RB limited_return/improving; Corey Kiner RB active_news/unknown
+Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 14-3 · diff 170 · Pythag 0.733 · SRS #6 · EPA off #1 def #10 · DVOA 10.5 (#9) off 16.2 def 5.5

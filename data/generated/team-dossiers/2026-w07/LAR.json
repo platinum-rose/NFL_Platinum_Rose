@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T19:18:03.278Z",
+  "built_at": "2026-10-20T23:00:32.282Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "020362a",
+  "git_head": "45833b2",
   "market_data_included": false,
   "sources": [
     {
@@ -84,10 +84,10 @@
     {
       "id": "slate",
       "path": "data/generated/team-dossiers/w07-slate.json",
-      "generated_at": "2026-10-20T19:25:00Z",
+      "generated_at": "2026-10-20T22:30:00Z",
       "status": "unknown",
       "through_week": null,
-      "sha256": "6bedec1411e2fb74b25336b194c47e7e5723aaa72b4fd705c2d56304c9f1c6e2",
+      "sha256": "e3285e0e064162e1620d946a675c2379c63872dd742803a8ebf0b0fe9da7e430",
       "use_policy": "target-week opponent and home/away (operator-confirmed slate)"
     },
     {
@@ -1257,28 +1257,432 @@
     }
   },
   "availability": {
-    "status": "missing",
-    "roster_gate": "not_run",
+    "status": "built",
+    "roster_gate": "passed",
     "roster_gate_detail": {
       "source": "data/generated/master-intel/w07-roster-vet.json",
-      "vet_status": null,
-      "blocking_count": null,
-      "roster_snapshot_generated_at": "2026-10-18T06:33:43.096523+00:00",
-      "roster_age_h_at_vet": null,
+      "vet_status": "PASS",
+      "blocking_count": 0,
+      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
+      "roster_age_h_at_vet": 0.2,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": null,
+      "espn_status": "2026-10-20T22:47:55Z",
       "availability_events": "2026-10-19T23:30:01.584Z",
       "impact_digest": "2026-10-17T02:04:00.537Z",
       "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
     },
+    "use_policy": "intel only; roster-gate first; not a projection or recommendation",
+    "qb": {
+      "espn_starter": "Matthew Stafford",
+      "flag": "ok",
+      "note": null,
+      "depth": [
+        "Matthew Stafford",
+        "Stetson Bennett IV",
+        "Ty Simpson"
+      ],
+      "operator_confirmed": null
+    },
+    "reported_injuries": {
+      "out_ir": [
+        {
+          "player": "Terrance Ferguson",
+          "pos": "TE",
+          "status": "Injured Reserve",
+          "date": "2026-10-20",
+          "comment": "Ferguson (ankle), who is eligible to come off injured reserve next week, isn't expected to be ready at that time, Adam Schefter of ESPN reports.",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Davante Adams",
+          "pos": "WR",
+          "status": "Injured Reserve",
+          "date": "2026-10-20",
+          "comment": "Adams (hamstring) was placed on injured reserve Tuesday, Ian Rapoport of NFL Network reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Poona Ford",
+          "pos": "DT",
+          "status": "Injured Reserve",
+          "date": "2026-10-20",
+          "comment": "Ford (triceps) will miss the remainder of the 2026 season, Greg Beacham of the Associated Press reported Monday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Blake Grupe",
+          "pos": "PK",
+          "status": "Injured Reserve",
+          "date": "2026-10-19",
+          "comment": "Rams head coach Sean McVay announced Monday that Grupe will miss the remainder of the season after sustaining a torn ACL in Sunday's 18-16 loss to the Cardinals",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Kobie Turner",
+          "pos": "DE",
+          "status": "Out",
+          "date": "2026-10-19",
+          "comment": "Rams head coach Sean McVay said Monday that Turner is expected to go on injured reserve after sustaining a groin strain in Sunday's 18-16 loss to the Cardinals,",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Myles Garrett",
+          "pos": "DE",
+          "status": "Injured Reserve",
+          "date": "2026-10-19",
+          "comment": "Rams head coach Sean McVay said Monday that Garrett (knee) won't have his 21-day practice window opened this week, Adam Grosbard of The Orange County Register r",
+          "roster_check": "roster_ir_out_group"
+        }
+      ],
+      "questionable_doubtful": [
+        {
+          "player": "Trent McDuffie",
+          "pos": "CB",
+          "status": "Questionable",
+          "date": "2026-10-20",
+          "comment": "questionable",
+          "roster_check": "ok"
+        }
+      ],
+      "other": []
+    },
+    "operator_reported": [],
+    "roster_ir_out_unconfirmed": [
+      {
+        "player": "Daniel Rickert",
+        "pos": "DE",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Eddie Walls III",
+        "pos": "LB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Justin Dedich",
+        "pos": "G",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Keir Thomas II",
+        "pos": "LB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Matthew Caldwell",
+        "pos": "QB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Ronnie Rivers",
+        "pos": "RB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Zech McPhearson",
+        "pos": "CB",
+        "roster_status": "day-to-day"
+      }
+    ],
+    "ol_dl_cluster_risk": {
+      "ol": {
+        "hard_or_doubtful": 0,
+        "questionable": 0,
+        "risk": "none",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": []
+      },
+      "dl": {
+        "hard_or_doubtful": 3,
+        "questionable": 0,
+        "risk": "cluster",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "Poona Ford DT Injured Reserve",
+          "Kobie Turner DE Out",
+          "Myles Garrett DE Injured Reserve"
+        ]
+      }
+    },
+    "live_events": {
+      "window": "published within 10 days of build; latest per player; cap 12",
+      "rows": [
+        {
+          "player_name": "Terrance Ferguson",
+          "position": "TE",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Terrance Ferguson IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Myles Garrett",
+          "position": "DE",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Myles Garrett IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Ronnie Rivers",
+          "position": "RB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Ronnie Rivers IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Keir Thomas II",
+          "position": "DE",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Keir Thomas II IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Blake Grupe",
+          "position": "K",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Blake Grupe IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Matthew Caldwell",
+          "position": "QB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Matthew Caldwell IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Eddie Walls III",
+          "position": "DT",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Eddie Walls III IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Kobie Turner",
+          "position": "DE",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T21:57:00.000Z",
+          "summary": "Rams head coach Sean McVay said Monday that Turner is expected to go on injured reserve after sustaining a groin strain in Sunday's 18-16 loss to the Cardinals,",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Davante Adams",
+          "position": "WR",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T21:31:00.000Z",
+          "summary": "Adams sustained a ruptured left hamstring in Sunday's 18-16 loss to the Cardinals and is slated to undergo a procedure that he hopes will allow him to return a ",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Poona Ford",
+          "position": "DT",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T21:11:00.000Z",
+          "summary": "out",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "CJ Daniels",
+          "position": "WR",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-19T01:50:03.000Z",
+          "summary": "CJ Daniels OUT",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Tutu Atwell",
+          "position": "WR",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-19T01:50:03.000Z",
+          "summary": "Tutu Atwell OUT",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "impact_digest": [
+      {
+        "player_name": "Matthew Stafford",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 93,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-13T04:58:00.000Z",
+        "summary": "Stafford completed 40 of 54 passes for 383 yards with three touchdowns and no interceptions in the Rams' 37-34 overtime loss to the Bills on Monday night.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Blake Grupe",
+        "position": "PK",
+        "unit": "other",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "depth_only",
+        "starter_match": {
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "source_count": 1
+        },
+        "score": 21,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-13T18:02:00.000Z",
+        "summary": "The Rams signed Grupe off the Jets' practice squad Tuesday, Mike Garafolo of NFL Network reports.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "roster_ir_out_group"
+      }
+    ],
+    "projected_starters": {
+      "coverage_status": "manual_and_estimated_signals",
+      "as_of": "2026-10-20T18:23:03.995Z",
+      "known": [
+        "Matthew Stafford QB"
+      ],
+      "estimated": [],
+      "missing": [
+        "independent second-source depth-chart reconciliation"
+      ],
+      "players": [
+        {
+          "player_name": "Matthew Stafford",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "missing_inputs": [],
     "caveats": [
-      "no ESPN status data for LAR"
+      "ESPN injury statuses lag game-day truth; official inactives decide.",
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+      "impact_digest is stale (>36h at build)"
     ]
   },
   "priors": {
@@ -1505,19 +1909,22 @@
       ]
     },
     "availability": {
-      "status": "missing",
+      "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": null,
+        "espn_status": "2026-10-20T22:47:55Z",
         "availability_events": "2026-10-19T23:30:01.584Z",
         "impact_digest": "2026-10-17T02:04:00.537Z",
         "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
       },
-      "roster_gate": "not_run",
+      "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
-        "no ESPN status data for LAR"
+        "ESPN injury statuses lag game-day truth; official inactives decide.",
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+        "impact_digest is stale (>36h at build)"
       ]
     },
     "priors": {

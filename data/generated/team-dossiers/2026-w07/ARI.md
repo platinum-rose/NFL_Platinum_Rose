@@ -1,6 +1,6 @@
 # ARI Cardinals — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:02.478Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:31.428Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 ARI · NFC NFC West · HC Jonathan Gannon · State Farm Stadium (, grass) · W7: vs DEN Sun 10/25 13:05
@@ -46,8 +46,16 @@ SRS -11.14 (#31) · net PPG -10.8 (#31) · Pythag 0.277 (#29) · model rank #30
 HC Jonathan Gannon · neutral pass rate 0.611 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See ARI.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for ARI
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Jacoby Brissett [ok]
+Out/IR: James Conner RB Injured Reserve
+Questionable/Doubtful: Wydett Williams Jr. S Questionable; Andrew Wingard S Questionable; Jeremiyah Love RB Questionable
+Operator-reported (Andy, not in ESPN): Marvin Harrison Jr. WR traded ARI->HOU
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 13 players; skill: Hunter Long TE; Jameson Geers TE; Tip Reiman TE; Trey Benson RB; Xavier Weaver WR
+OL/DL cluster risk (derived): OL none, DL none
+Impact digest (top by score): James Conner RB ir/worsening; James Conner RB out/worsening; Shawn Bowman TE active_news/unknown
+Projected starters: estimated_from_local_starter_language, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 3-14 · diff -133 · Pythag 0.320 · SRS #25 · EPA off #24 def #26 · DVOA -18.5 (#27) off -6.7 def 4.7

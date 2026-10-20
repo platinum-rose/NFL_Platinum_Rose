@@ -1,6 +1,6 @@
 # LV Raiders — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:03.327Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:32.341Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 LV · AFC AFC West · HC Klint Kubliak · Allegiant Stadium (dome, grass) · W7: vs LAR Sun 10/25 13:25
@@ -46,8 +46,15 @@ SRS 0.83 (#17) · net PPG 0.6 (#13) · Pythag 0.514 (#14) · model rank #14
 HC Klint Kubliak · neutral pass rate 0.593 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See LV.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for LV
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Kirk Cousins [ok]
+Out/IR: Carter Runyon TE Injured Reserve; Dont'e Thornton Jr. WR Injured Reserve
+Questionable/Doubtful: Corey Rucker WR Questionable; Tonka Hemingway DT Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 6 players; skill: Chris Collier RB; Jack Bech WR
+OL/DL cluster risk (derived): OL none, DL none
+Impact digest (top by score): Ashton Jeanty RB return_to_practice/improving; Ashton Jeanty RB status_update/unknown
+Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 3-14 · diff -191 · Pythag 0.201 · SRS #31 · EPA off #32 def #17 · DVOA -32.6 (#30) off -28.4 def -1.2

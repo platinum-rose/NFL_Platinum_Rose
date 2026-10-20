@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T19:18:03.130Z",
+  "built_at": "2026-10-20T23:00:32.141Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "020362a",
+  "git_head": "45833b2",
   "market_data_included": false,
   "sources": [
     {
@@ -84,10 +84,10 @@
     {
       "id": "slate",
       "path": "data/generated/team-dossiers/w07-slate.json",
-      "generated_at": "2026-10-20T19:25:00Z",
+      "generated_at": "2026-10-20T22:30:00Z",
       "status": "unknown",
       "through_week": null,
-      "sha256": "6bedec1411e2fb74b25336b194c47e7e5723aaa72b4fd705c2d56304c9f1c6e2",
+      "sha256": "e3285e0e064162e1620d946a675c2379c63872dd742803a8ebf0b0fe9da7e430",
       "use_policy": "target-week opponent and home/away (operator-confirmed slate)"
     },
     {
@@ -1335,28 +1335,392 @@
     }
   },
   "availability": {
-    "status": "missing",
-    "roster_gate": "not_run",
+    "status": "built",
+    "roster_gate": "passed",
     "roster_gate_detail": {
       "source": "data/generated/master-intel/w07-roster-vet.json",
-      "vet_status": null,
-      "blocking_count": null,
-      "roster_snapshot_generated_at": "2026-10-18T06:33:43.096523+00:00",
-      "roster_age_h_at_vet": null,
+      "vet_status": "PASS",
+      "blocking_count": 0,
+      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
+      "roster_age_h_at_vet": 0.2,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": null,
+      "espn_status": "2026-10-20T22:47:55Z",
       "availability_events": "2026-10-19T23:30:01.584Z",
       "impact_digest": "2026-10-17T02:04:00.537Z",
       "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
     },
+    "use_policy": "intel only; roster-gate first; not a projection or recommendation",
+    "qb": {
+      "espn_starter": "Trevor Lawrence",
+      "flag": "ok",
+      "note": null,
+      "depth": [
+        "Trevor Lawrence",
+        "Quinn Ewers"
+      ],
+      "operator_confirmed": null
+    },
+    "reported_injuries": {
+      "out_ir": [
+        {
+          "player": "Anton Harrison",
+          "pos": "OT",
+          "status": "Injured Reserve",
+          "date": "2026-10-13",
+          "comment": "Harrison is slated to undergo arthroscopic surgery on his right knee next week and could be out for 3-to-5 weeks or 3-to-4 months, depending on what surgeons fi",
+          "roster_check": "roster_ir_out_group"
+        }
+      ],
+      "questionable_doubtful": [
+        {
+          "player": "Ross Matiscik",
+          "pos": "LS",
+          "status": "Questionable",
+          "date": "2026-10-20",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Montaric Brown",
+          "pos": "CB",
+          "status": "Questionable",
+          "date": "2026-10-20",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Antonio Johnson",
+          "pos": "S",
+          "status": "Questionable",
+          "date": "2026-10-18",
+          "comment": "Johnson (ankle) didn't return to second half of Sunday's 34-31 loss to the Texans, Brent Martineau of CBS 47 Jacksonville reports.",
+          "roster_check": "ok"
+        }
+      ],
+      "other": []
+    },
+    "operator_reported": [],
+    "roster_ir_out_unconfirmed": [
+      {
+        "player": "B.J. Green II",
+        "pos": "DE",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Caleb Ransaw",
+        "pos": "S",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Devon Marshall",
+        "pos": "CB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Garrett DiGiorgio",
+        "pos": "OT",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Jared Bartlett",
+        "pos": "LB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Parker Hughes",
+        "pos": "LB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Patrick Mekari",
+        "pos": "G",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Sam Mustipher",
+        "pos": "C",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Zach Durfee",
+        "pos": "DE",
+        "roster_status": "day-to-day"
+      }
+    ],
+    "ol_dl_cluster_risk": {
+      "ol": {
+        "hard_or_doubtful": 1,
+        "questionable": 0,
+        "risk": "watch",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "Anton Harrison OT Injured Reserve"
+        ]
+      },
+      "dl": {
+        "hard_or_doubtful": 0,
+        "questionable": 0,
+        "risk": "none",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": []
+      }
+    },
+    "live_events": {
+      "window": "published within 10 days of build; latest per player; cap 12",
+      "rows": [
+        {
+          "player_name": "Caleb Ransaw",
+          "position": "CB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Caleb Ransaw IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "B.J. Green II",
+          "position": "DE",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "B.J. Green II IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Jared Bartlett",
+          "position": "LB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Jared Bartlett IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Parker Hughes",
+          "position": "LB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Parker Hughes IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Ross Matiscik",
+          "position": "LS",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T16:43:00.000Z",
+          "summary": "out",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Montaric Brown",
+          "position": "CB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T16:43:00.000Z",
+          "summary": "out",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Brenton Strange",
+          "position": "TE",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T02:36:00.000Z",
+          "summary": "Strange caught five of seven targets for 44 yards during Sunday's 34-31 loss to the Texans.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Chris Rodriguez Jr.",
+          "position": "RB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T02:07:00.000Z",
+          "summary": "Rodriguez rushed 11 times for 55 yards while failing to reel in his only target during Sunday's 34-31 loss to Houston.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "CJ Williams",
+          "position": "WR",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-18T19:10:02.000Z",
+          "summary": "CJ Williams OUT",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Albert Regis",
+          "position": "DT",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-18T19:10:02.000Z",
+          "summary": "Albert Regis OUT",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Wesley Williams",
+          "position": "DT",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-18T19:10:02.000Z",
+          "summary": "Wesley Williams OUT",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jalen Huskey",
+          "position": "S",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-18T19:10:02.000Z",
+          "summary": "Jalen Huskey OUT",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "impact_digest": [
+      {
+        "player_name": "Bhayshul Tuten",
+        "position": "RB",
+        "unit": "offensive_skill",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "source_count": 1
+        },
+        "score": 48,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-11T18:51:00.000Z",
+        "summary": "Tuten carried the ball 22 times for 72 yards and caught two of three targets for 24 yards in Sunday's 19-17 win over the Eagles.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      }
+    ],
+    "projected_starters": {
+      "coverage_status": "manual_and_estimated_signals",
+      "as_of": "2026-10-20T18:23:03.995Z",
+      "known": [
+        "Bhayshul Tuten RB"
+      ],
+      "estimated": [],
+      "missing": [
+        "independent second-source depth-chart reconciliation"
+      ],
+      "players": [
+        {
+          "player_name": "Bhayshul Tuten",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "missing_inputs": [],
     "caveats": [
-      "no ESPN status data for JAX"
+      "ESPN injury statuses lag game-day truth; official inactives decide.",
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+      "impact_digest is stale (>36h at build)"
     ]
   },
   "priors": {
@@ -1604,19 +1968,22 @@
       ]
     },
     "availability": {
-      "status": "missing",
+      "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": null,
+        "espn_status": "2026-10-20T22:47:55Z",
         "availability_events": "2026-10-19T23:30:01.584Z",
         "impact_digest": "2026-10-17T02:04:00.537Z",
         "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
       },
-      "roster_gate": "not_run",
+      "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
-        "no ESPN status data for JAX"
+        "ESPN injury statuses lag game-day truth; official inactives decide.",
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+        "impact_digest is stale (>36h at build)"
       ]
     },
     "priors": {

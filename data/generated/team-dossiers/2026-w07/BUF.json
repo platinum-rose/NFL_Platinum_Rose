@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T19:18:02.632Z",
+  "built_at": "2026-10-20T23:00:31.572Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "020362a",
+  "git_head": "45833b2",
   "market_data_included": false,
   "sources": [
     {
@@ -84,10 +84,10 @@
     {
       "id": "slate",
       "path": "data/generated/team-dossiers/w07-slate.json",
-      "generated_at": "2026-10-20T19:25:00Z",
+      "generated_at": "2026-10-20T22:30:00Z",
       "status": "unknown",
       "through_week": null,
-      "sha256": "6bedec1411e2fb74b25336b194c47e7e5723aaa72b4fd705c2d56304c9f1c6e2",
+      "sha256": "e3285e0e064162e1620d946a675c2379c63872dd742803a8ebf0b0fe9da7e430",
       "use_policy": "target-week opponent and home/away (operator-confirmed slate)"
     },
     {
@@ -1022,7 +1022,7 @@
               "opportunity_score": 4.5,
               "notes": "CHI WR1. [moved from CHI per ESPN roster 2026-09-27]",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
+              "availability_flag": "questionable"
             },
             {
               "player_name": "Dalton Kincaid",
@@ -1237,28 +1237,397 @@
     }
   },
   "availability": {
-    "status": "missing",
-    "roster_gate": "not_run",
+    "status": "built",
+    "roster_gate": "passed",
     "roster_gate_detail": {
       "source": "data/generated/master-intel/w07-roster-vet.json",
-      "vet_status": null,
-      "blocking_count": null,
-      "roster_snapshot_generated_at": "2026-10-18T06:33:43.096523+00:00",
-      "roster_age_h_at_vet": null,
+      "vet_status": "PASS",
+      "blocking_count": 0,
+      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
+      "roster_age_h_at_vet": 0.2,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": null,
+      "espn_status": "2026-10-20T22:47:55Z",
       "availability_events": "2026-10-19T23:30:01.584Z",
       "impact_digest": "2026-10-17T02:04:00.537Z",
       "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
     },
+    "use_policy": "intel only; roster-gate first; not a projection or recommendation",
+    "qb": {
+      "espn_starter": "Josh Allen",
+      "flag": "ok",
+      "note": null,
+      "depth": [
+        "Josh Allen",
+        "Kyle Allen"
+      ],
+      "operator_confirmed": null
+    },
+    "reported_injuries": {
+      "out_ir": [],
+      "questionable_doubtful": [
+        {
+          "player": "DJ Moore",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-20",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Ed Oliver",
+          "pos": "DT",
+          "status": "Questionable",
+          "date": "2026-10-20",
+          "comment": "questionable",
+          "roster_check": "ok"
+        }
+      ],
+      "other": [
+        {
+          "player": "C.J. Gardner-Johnson",
+          "pos": "S",
+          "status": "Suspension",
+          "date": "2026-10-20",
+          "comment": "reserve-sus",
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "operator_reported": [],
+    "roster_ir_out_unconfirmed": [
+      {
+        "player": "Dorian Strong",
+        "pos": "CB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Jordan Hancock",
+        "pos": "CB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Tyrell Shavers",
+        "pos": "WR",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Zane Durant",
+        "pos": "DT",
+        "roster_status": "day-to-day"
+      }
+    ],
+    "ol_dl_cluster_risk": {
+      "ol": {
+        "hard_or_doubtful": 0,
+        "questionable": 0,
+        "risk": "none",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": []
+      },
+      "dl": {
+        "hard_or_doubtful": 0,
+        "questionable": 1,
+        "risk": "none",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "Ed Oliver DT Questionable"
+        ]
+      }
+    },
+    "live_events": {
+      "window": "published within 10 days of build; latest per player; cap 12",
+      "rows": [
+        {
+          "player_name": "C.J. Gardner-Johnson",
+          "position": "S",
+          "normalized_status": "SUSPENSION",
+          "availability_trend": "worsening",
+          "event_type": "suspension",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:05.000Z",
+          "summary": "C.J. Gardner-Johnson SUSPENSION",
+          "practice": [
+            "Full",
+            "Full",
+            "Full"
+          ],
+          "probability_of_playing": 1,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Tyrell Shavers",
+          "position": "WR",
+          "normalized_status": "PUP",
+          "availability_trend": "worsening",
+          "event_type": "pup",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:05.000Z",
+          "summary": "Tyrell Shavers PUP",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Dorian Strong",
+          "position": "CB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Dorian Strong IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Jordan Hancock",
+          "position": "CB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Jordan Hancock IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Zane Durant",
+          "position": "DT",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:04.000Z",
+          "summary": "Zane Durant IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Dalton Kincaid",
+          "position": "TE",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T21:50:00.000Z",
+          "summary": "Kincaid (ribs) returned to Sunday's 33-30 win at Las Vegas and finished with seven catches (on eight targets) for 38 yards.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Keon Coleman",
+          "position": "WR",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T10:00:00.000Z",
+          "summary": "Coleman brought in four of six targets for 59 yards and a touchdown in the Bills' 33-30 win over the Raiders on Sunday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Khalil Shakir",
+          "position": "WR",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T09:56:00.000Z",
+          "summary": "Shakir brought in four of six targets for 34 yards and a touchdown in the Bills' 33-30 win over the Raiders on Sunday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Josh Allen",
+          "position": "QB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T07:45:00.000Z",
+          "summary": "Allen completed 23 of 33 passes for 255 yards with two touchdowns and no interceptions and rushed five times for one yard in the Bills' 33-30 win over the Raide",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "James Cook III",
+          "position": "RB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T07:39:00.000Z",
+          "summary": "Cook rushed 22 times for 95 yards and a touchdown and brought in all three targets for 58 yards in the Bills' 33-30 win over the Raiders on Sunday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Mike Danna",
+          "position": "DE",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-19T02:00:06.000Z",
+          "summary": "Mike Danna OUT",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Bradley Chubb",
+          "position": "LB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-18T21:23:00.000Z",
+          "summary": "Chubb (ribs) has returned to Sunday's game against the Raiders, Jay Skurski of The Buffalo News reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "impact_digest": [
+      {
+        "player_name": "Josh Allen",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 93,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-13T04:50:00.000Z",
+        "summary": "Allen completed 12 of 19 passes for 210 yards with one touchdown and one interception while adding 10 carries for 121 yards and another score and a two-point co",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Mike Danna",
+        "position": "DE",
+        "unit": "defensive_front",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "defensive_front_major",
+        "starter_match": {
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "source_count": 1
+        },
+        "score": 61,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-14T02:21:00.000Z",
+        "summary": "Danna re-signed with the Bills on Tuesday.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      }
+    ],
+    "projected_starters": {
+      "coverage_status": "manual_and_estimated_signals",
+      "as_of": "2026-10-20T18:23:03.995Z",
+      "known": [
+        "Josh Allen QB",
+        "James Cook RB"
+      ],
+      "estimated": [],
+      "missing": [
+        "independent second-source depth-chart reconciliation",
+        "Connor McGovern: withheld pending confirmation"
+      ],
+      "players": [
+        {
+          "player_name": "Josh Allen",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "James Cook",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "roster_confidence": 0.85,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "missing_inputs": [],
     "caveats": [
-      "no ESPN status data for BUF"
+      "ESPN injury statuses lag game-day truth; official inactives decide.",
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+      "impact_digest is stale (>36h at build)"
     ]
   },
   "priors": {
@@ -1485,19 +1854,22 @@
       ]
     },
     "availability": {
-      "status": "missing",
+      "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": null,
+        "espn_status": "2026-10-20T22:47:55Z",
         "availability_events": "2026-10-19T23:30:01.584Z",
         "impact_digest": "2026-10-17T02:04:00.537Z",
         "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
       },
-      "roster_gate": "not_run",
+      "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
-        "no ESPN status data for BUF"
+        "ESPN injury statuses lag game-day truth; official inactives decide.",
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+        "impact_digest is stale (>36h at build)"
       ]
     },
     "priors": {

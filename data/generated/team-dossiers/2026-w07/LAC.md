@@ -1,6 +1,6 @@
 # LAC Chargers — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:03.227Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:32.235Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 LAC · AFC AFC West · HC Jim Harbaugh · SoFi Stadium (dome, matrixturf) · W7: BYE
@@ -46,8 +46,15 @@ SRS -9.30 (#29) · net PPG -9 (#29) · Pythag 0.266 (#30) · model rank #29
 HC Jim Harbaugh · neutral pass rate 0.544 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See LAC.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for LAC
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Justin Herbert [ok]
+Out/IR: Alec Ingold FB Injured Reserve; Denzel Perryman LB Injured Reserve
+Questionable/Doubtful: Rodney Shelley CB Questionable; Tre' Harris WR Questionable; Donte Jackson CB Questionable; Derwin James Jr. S Questionable; Joe Alt OT Questionable; Kayode Awosika G Questionable (+2 more)
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 6 players; skill: David Njoku TE; Trey Lance QB
+OL/DL cluster risk (derived): OL watch, DL none
+Impact digest (top by score): Jake Browning QB ir/worsening; Justin Herbert QB active_news/unknown; David Njoku TE ir/worsening
+Projected starters: manual_and_estimated_signals, 4 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 11-6 · diff 28 · Pythag 0.547 · SRS #14 · EPA off #25 def #7 · DVOA 0.4 (#17) off -3.5 def -6.5

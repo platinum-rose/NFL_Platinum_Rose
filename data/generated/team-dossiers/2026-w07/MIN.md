@@ -1,6 +1,6 @@
 # MIN Vikings — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:03.418Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN stale_1wk (through W5) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:32.427Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN stale_1wk (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 MIN · NFC NFC North · HC Kevin O'Connell · U.S. Bank Stadium (dome, sportturf) · W7: vs IND Sun 10/25 10:00 · bye played W6
@@ -46,8 +46,15 @@ SRS 8.29 (#4) · net PPG 9 (#4) · Pythag 0.779 (#2) · model rank #3
 HC Kevin O'Connell · neutral pass rate 0.505 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See MIN.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for MIN
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Kyler Murray [ok]
+Out/IR: Jordan Mason RB Injured Reserve; Donovan Jackson G Injured Reserve; Josh Oliver TE Injured Reserve
+Questionable/Doubtful: Christian Darrisaw OT Questionable; Charles Demmings CB Questionable; Jordan Addison WR Questionable; T.J. Hockenson TE Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 4 players; skill: none
+OL/DL cluster risk (derived): OL watch, DL none
+Impact digest (top by score): Kyle Van Noy LB active_news/unknown
+Projected starters: estimated_from_local_starter_language, 1 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 9-8 · diff 11 · Pythag 0.519 · SRS #18 · EPA off #28 def #6 · DVOA -1.2 (#18) off -18.8 def -15

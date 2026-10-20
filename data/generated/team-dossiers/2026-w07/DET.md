@@ -1,6 +1,6 @@
 # DET Lions — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:02.947Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN stale_1wk (through W5) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:31.952Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN stale_1wk (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 DET · NFC NFC North · HC Dan Campbell · Ford Field (dome, fieldturf) · W7: vs GB Sun 10/25 13:25 · bye played W6
@@ -46,8 +46,15 @@ SRS 1.27 (#14) · net PPG 3.2 (#11) · Pythag 0.560 (#12) · model rank #12
 HC Dan Campbell · neutral pass rate 0.608 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See DET.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for DET
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Jared Goff [ok]
+Out/IR: Kerby Joseph S Out; Ben Bartch G Injured Reserve; Devin White LB Injured Reserve; Tom Kennedy WR Injured Reserve; Cade Mays C Injured Reserve; Brian Branch S Out
+Questionable/Doubtful: Rock Ya-Sin CB Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Isiah Pacheco RB; Kendrick Law WR
+OL/DL cluster risk (derived): OL cluster, DL none
+Impact digest (top by score): Jared Goff QB active_news/unknown; Jahmyr Gibbs RB active_news/unknown
+Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 9-8 · diff 68 · Pythag 0.589 · SRS #10 · EPA off #8 def #14 · DVOA 21.4 (#3) off 11.8 def -7.4

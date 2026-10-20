@@ -54,30 +54,52 @@
   },
   "shared_opponents_so_far": [],
   "availability": {
-    "status": "partial",
-    "roster_gate": "not_run",
+    "status": "built",
+    "roster_gate": "passed",
     "as_of": {
-      "espn_status": null,
+      "espn_status": "2026-10-20T22:47:55Z",
       "availability_events": "2026-10-19T23:30:01.584Z",
       "impact_digest": "2026-10-17T02:04:00.537Z",
       "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
     },
     "away": {
-      "qb": null,
+      "qb": {
+        "espn_starter": "Malik Willis",
+        "flag": "ok",
+        "operator_confirmed": null
+      },
       "out_ir": [],
-      "questionable_doubtful": [],
+      "questionable_doubtful": [
+        "Jonah Savaiinaea G Questionable",
+        "Caleb Douglas WR Questionable",
+        "Reese Taylor CB Questionable",
+        "Justin Joly TE Questionable",
+        "Robert Beal Jr. DE Questionable",
+        "JuJu Brents CB Questionable",
+        "Michael Taaffe S Questionable"
+      ],
       "operator_reported": [],
-      "ol_risk": null,
-      "dl_risk": null
+      "ol_risk": "none",
+      "dl_risk": "none"
     },
     "home": {
-      "qb": null,
+      "qb": {
+        "espn_starter": "Geno Smith",
+        "flag": "ok",
+        "operator_confirmed": null
+      },
       "out_ir": [],
-      "questionable_doubtful": [],
+      "questionable_doubtful": [
+        "Joseph Ossai DE Questionable",
+        "Dylan Parham G Questionable",
+        "Adonai Mitchell WR Doubtful",
+        "Breece Hall RB Questionable",
+        "Kiko Mauigoa LB Questionable"
+      ],
       "operator_reported": [],
-      "ol_risk": null,
-      "dl_risk": null
+      "ol_risk": "none",
+      "dl_risk": "none"
     }
   },
   "freshness": {
@@ -136,19 +158,22 @@
         ]
       },
       "availability": {
-        "status": "missing",
+        "status": "built",
         "through_week": null,
         "as_of": {
-          "espn_status": null,
+          "espn_status": "2026-10-20T22:47:55Z",
           "availability_events": "2026-10-19T23:30:01.584Z",
           "impact_digest": "2026-10-17T02:04:00.537Z",
           "projected_starters": "2026-10-20T18:23:03.995Z",
-          "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+          "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
         },
-        "roster_gate": "not_run",
+        "roster_gate": "passed",
         "null_fields": [],
         "caveats": [
-          "no ESPN status data for MIA"
+          "ESPN injury statuses lag game-day truth; official inactives decide.",
+          "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+          "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+          "impact_digest is stale (>36h at build)"
         ]
       },
       "priors": {
@@ -218,19 +243,22 @@
         ]
       },
       "availability": {
-        "status": "missing",
+        "status": "built",
         "through_week": null,
         "as_of": {
-          "espn_status": null,
+          "espn_status": "2026-10-20T22:47:55Z",
           "availability_events": "2026-10-19T23:30:01.584Z",
           "impact_digest": "2026-10-17T02:04:00.537Z",
           "projected_starters": "2026-10-20T18:23:03.995Z",
-          "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+          "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
         },
-        "roster_gate": "not_run",
+        "roster_gate": "passed",
         "null_fields": [],
         "caveats": [
-          "no ESPN status data for NYJ"
+          "ESPN injury statuses lag game-day truth; official inactives decide.",
+          "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+          "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+          "impact_digest is stale (>36h at build)"
         ]
       },
       "priors": {

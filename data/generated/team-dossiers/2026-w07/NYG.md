@@ -1,6 +1,6 @@
 # NYG Giants — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:03.554Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:32.566Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 NYG · NFC NFC East · HC John Harbaugh · MetLife Stadium (outdoors, fieldturf) · W7: @ HOU Sun 10/25 10:00
@@ -46,8 +46,15 @@ SRS -6.78 (#28) · net PPG 0.6 (#14) · Pythag 0.516 (#13) · model rank #23
 HC John Harbaugh · neutral pass rate 0.580 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See NYG.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for NYG
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Jameis Winston [ok]
+Out/IR: Braxton Berrios WR Injured Reserve
+Questionable/Doubtful: Jermaine Eluemunor OT Questionable; Tyler Nubin S Questionable; Colton Hood CB Questionable; Theo Johnson TE Questionable; Tremaine Edmunds LB Questionable; Darnell Mooney WR Questionable (+1 more)
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 12 players; skill: Calvin Austin III WR; Gunner Olszewski WR; Jaxson Dart QB
+OL/DL cluster risk (derived): OL none, DL none
+Impact digest (top by score): Jaxson Dart QB ir/worsening; J.J. McCarthy QB active_news/unknown; Cam Skattebo RB active_news/unknown
+Projected starters: manual_and_estimated_signals, 4 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 4-13 · diff -58 · Pythag 0.417 · SRS #22 · EPA off #17 def #25 · DVOA -15.1 (#26) off -4.3 def 8.5

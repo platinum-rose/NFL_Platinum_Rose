@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T19:18:03.649Z",
+  "built_at": "2026-10-20T23:00:32.650Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "020362a",
+  "git_head": "45833b2",
   "market_data_included": false,
   "sources": [
     {
@@ -84,10 +84,10 @@
     {
       "id": "slate",
       "path": "data/generated/team-dossiers/w07-slate.json",
-      "generated_at": "2026-10-20T19:25:00Z",
+      "generated_at": "2026-10-20T22:30:00Z",
       "status": "unknown",
       "through_week": null,
-      "sha256": "6bedec1411e2fb74b25336b194c47e7e5723aaa72b4fd705c2d56304c9f1c6e2",
+      "sha256": "e3285e0e064162e1620d946a675c2379c63872dd742803a8ebf0b0fe9da7e430",
       "use_policy": "target-week opponent and home/away (operator-confirmed slate)"
     },
     {
@@ -1334,28 +1334,583 @@
     }
   },
   "availability": {
-    "status": "missing",
-    "roster_gate": "not_run",
+    "status": "built",
+    "roster_gate": "passed",
     "roster_gate_detail": {
       "source": "data/generated/master-intel/w07-roster-vet.json",
-      "vet_status": null,
-      "blocking_count": null,
-      "roster_snapshot_generated_at": "2026-10-18T06:33:43.096523+00:00",
-      "roster_age_h_at_vet": null,
+      "vet_status": "PASS",
+      "blocking_count": 0,
+      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
+      "roster_age_h_at_vet": 0.2,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": null,
+      "espn_status": "2026-10-20T22:47:55Z",
       "availability_events": "2026-10-19T23:30:01.584Z",
       "impact_digest": "2026-10-17T02:04:00.537Z",
       "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
     },
+    "use_policy": "intel only; roster-gate first; not a projection or recommendation",
+    "qb": {
+      "espn_starter": "Tanner McKee",
+      "flag": "ok",
+      "note": null,
+      "depth": [
+        "Tanner McKee",
+        "Cole Payton",
+        "Joe Milton"
+      ],
+      "operator_confirmed": null
+    },
+    "reported_injuries": {
+      "out_ir": [
+        {
+          "player": "Carson Steele",
+          "pos": "RB",
+          "status": "Out",
+          "date": "2026-10-20",
+          "comment": "out",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jalen Hurts",
+          "pos": "QB",
+          "status": "Injured Reserve",
+          "date": "2026-10-19",
+          "comment": "Hurts (calf) is expected to be held out of football activities for multiple months and miss the rest of the season after new imaging over the weekend revealed s",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Lane Johnson",
+          "pos": "OT",
+          "status": "Out",
+          "date": "2026-10-18",
+          "comment": "out",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jakorian Bennett",
+          "pos": "CB",
+          "status": "Injured Reserve",
+          "date": "2026-10-18",
+          "comment": "Bennett (knee) won't come off injured reserve this weekend and has been ruled out for Sunday's Week 6 battle against Carolina.",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Landon Dickerson",
+          "pos": "G",
+          "status": "Injured Reserve",
+          "date": "2026-10-18",
+          "comment": "Dickerson (knee) has been downgraded to out for Sunday's game against the Panthers.",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Eli Stowers",
+          "pos": "TE",
+          "status": "Injured Reserve",
+          "date": "2026-10-18",
+          "comment": "The Eagles have downgraded Stowers (quadriceps) to out for Sunday's game against the Panthers.",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Grant Calcaterra",
+          "pos": "TE",
+          "status": "Injured Reserve",
+          "date": "2026-10-18",
+          "comment": "The Eagles downgraded Calcaterra (back) to out Saturday for Sunday's game against the Panthers.",
+          "roster_check": "roster_ir_out_group"
+        }
+      ],
+      "questionable_doubtful": [
+        {
+          "player": "AJ Epenesa",
+          "pos": "DE",
+          "status": "Questionable",
+          "date": "2026-10-20",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jalyx Hunt",
+          "pos": "LB",
+          "status": "Questionable",
+          "date": "2026-10-20",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Saquon Barkley",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-20",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Michael Carter II",
+          "pos": "CB",
+          "status": "Questionable",
+          "date": "2026-10-20",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Nolan Smith Jr.",
+          "pos": "LB",
+          "status": "Questionable",
+          "date": "2026-10-18",
+          "comment": "Smith (concussion) won't return to Sunday's game against Carolina.",
+          "roster_check": "ok"
+        }
+      ],
+      "other": []
+    },
+    "operator_reported": [],
+    "roster_ir_out_unconfirmed": [
+      {
+        "player": "Andre' Sam",
+        "pos": "S",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Johnny Wilson",
+        "pos": "WR",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Tariq Castro-Fields",
+        "pos": "CB",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Tucker Large",
+        "pos": "S",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Will Shipley",
+        "pos": "RB",
+        "roster_status": "day-to-day"
+      }
+    ],
+    "ol_dl_cluster_risk": {
+      "ol": {
+        "hard_or_doubtful": 2,
+        "questionable": 0,
+        "risk": "cluster",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "Lane Johnson OT Out",
+          "Landon Dickerson G Injured Reserve"
+        ]
+      },
+      "dl": {
+        "hard_or_doubtful": 0,
+        "questionable": 1,
+        "risk": "none",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "AJ Epenesa DE Questionable"
+        ]
+      }
+    },
+    "live_events": {
+      "window": "published within 10 days of build; latest per player; cap 12",
+      "rows": [
+        {
+          "player_name": "Tank Bigsby",
+          "position": "RB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:05.000Z",
+          "summary": "Tank Bigsby IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Johnny Wilson",
+          "position": "WR",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:05.000Z",
+          "summary": "Johnny Wilson IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Andre' Sam",
+          "position": "S",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:05.000Z",
+          "summary": "Andre' Sam IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Tucker Large",
+          "position": "S",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-20T06:20:05.000Z",
+          "summary": "Tucker Large IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "AJ Epenesa",
+          "position": "DE",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T17:14:00.000Z",
+          "summary": "out",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jalyx Hunt",
+          "position": "LB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T17:14:00.000Z",
+          "summary": "out",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Saquon Barkley",
+          "position": "RB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T17:14:00.000Z",
+          "summary": "out",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Michael Carter II",
+          "position": "CB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T17:14:00.000Z",
+          "summary": "out",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jalen Hurts",
+          "position": "QB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T14:18:00.000Z",
+          "summary": "Hurts (calf) is expected to be held out of football activities for multiple months and miss the rest of the season after new imaging over the weekend revealed s",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Tanner McKee",
+          "position": "QB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T09:45:00.000Z",
+          "summary": "McKee completed 26 of 45 passes for 215 yards with a touchdown and no interceptions while adding one carry for no gain in the Eagles' 25-14 loss to the Panthers",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Dameon Pierce",
+          "position": "RB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T09:40:00.000Z",
+          "summary": "Pierce rushed 12 times for 35 yards and a touchdown and brought in four of five targets for 15 yards in the Eagles' 25-14 loss to the Panthers on Sunday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "DeVonta Smith",
+          "position": "WR",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-19T07:30:00.000Z",
+          "summary": "Smith brought in seven of 14 targets for 75 yards and a touchdown in the Eagles' 25-14 loss to the Panthers on Sunday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "impact_digest": [
+      {
+        "player_name": "Jalen Hurts",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "out",
+        "availability_trend": "worsening",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 127,
+        "signal": "negative_availability",
+        "source": "FantasyPros injuries API",
+        "published_at": "2026-10-16T17:47:41.000Z",
+        "summary": "Jalen Hurts OUT",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "roster_ir_out_group"
+      },
+      {
+        "player_name": "Jalen Hurts",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "out",
+        "availability_trend": "worsening",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 127,
+        "signal": "negative_availability",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-15T17:11:00.000Z",
+        "summary": "The Eagles have ruled Hurts out for Sunday's game against the Panthers after a follow-up ultrasound performed on his calf Wednesday revealed movement in a small",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "roster_ir_out_group"
+      },
+      {
+        "player_name": "Tanner McKee",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "setback",
+        "availability_trend": "worsening",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "source_count": 1
+        },
+        "score": 119,
+        "signal": "negative_availability",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-15T17:29:00.000Z",
+        "summary": "McKee appears lined up to start Sunday's game against the Panthers after the Eagles announced Wednesday that Jalen Hurts has been ruled out for Week 6 due to a ",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Saquon Barkley",
+        "position": "RB",
+        "unit": "offensive_skill",
+        "event_type": "out",
+        "availability_trend": "worsening",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.97,
+          "source_count": 1
+        },
+        "score": 105,
+        "signal": "negative_availability",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-16T16:48:00.000Z",
+        "summary": "Barkley (hamstring) wasn't spotted at Friday's practice, Jimmy Kempski of PhillyVoice.com reports.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Saquon Barkley",
+        "position": "RB",
+        "unit": "offensive_skill",
+        "event_type": "out",
+        "availability_trend": "worsening",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.97,
+          "source_count": 1
+        },
+        "score": 86,
+        "signal": "negative_availability",
+        "source": "FantasyPros injuries API",
+        "published_at": "2026-10-16T22:43:39.000Z",
+        "summary": "Saquon Barkley OUT",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      }
+    ],
+    "projected_starters": {
+      "coverage_status": "manual_and_estimated_signals",
+      "as_of": "2026-10-20T18:23:03.995Z",
+      "known": [
+        "Saquon Barkley RB",
+        "Tanner McKee QB",
+        "Jalen Hurts QB"
+      ],
+      "estimated": [
+        "Cole Payton QB",
+        "Jakorian Bennett CB",
+        "Jaydon Blue RB"
+      ],
+      "missing": [
+        "independent second-source depth-chart reconciliation"
+      ],
+      "players": [
+        {
+          "player_name": "Saquon Barkley",
+          "position": "RB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.97,
+          "roster_confidence": 0.97,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jalen Hurts",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Tanner McKee",
+          "position": "QB",
+          "unit": "offense",
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "roster_confidence": 0.95,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Cole Payton",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.78,
+          "roster_confidence": 0.74,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jakorian Bennett",
+          "position": "CB",
+          "unit": "defense",
+          "role": "competition_or_rotation",
+          "starter_confidence": 0.5,
+          "roster_confidence": 0.6,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Jaydon Blue",
+          "position": "RB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "roster_check": "ok"
+        }
+      ]
+    },
+    "missing_inputs": [],
     "caveats": [
-      "no ESPN status data for PHI"
+      "ESPN injury statuses lag game-day truth; official inactives decide.",
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+      "impact_digest is stale (>36h at build)"
     ]
   },
   "priors": {
@@ -1582,19 +2137,22 @@
       ]
     },
     "availability": {
-      "status": "missing",
+      "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": null,
+        "espn_status": "2026-10-20T22:47:55Z",
         "availability_events": "2026-10-19T23:30:01.584Z",
         "impact_digest": "2026-10-17T02:04:00.537Z",
         "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-18T06:33:43.096523+00:00"
+        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
       },
-      "roster_gate": "not_run",
+      "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
-        "no ESPN status data for PHI"
+        "ESPN injury statuses lag game-day truth; official inactives decide.",
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
+        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only",
+        "impact_digest is stale (>36h at build)"
       ]
     },
     "priors": {

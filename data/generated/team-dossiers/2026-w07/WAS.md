@@ -1,6 +1,6 @@
 # WAS Commanders — dossier, target Week 7 (data through W6)
-Built 2026-10-20T19:18:03.931Z · git 020362a · no market data (lines, ATS/OU, prices) in this file · roster_gate: not_run — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
-Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability missing · priors built.
+Built 2026-10-20T23:00:32.957Z · git 45833b2 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
 WAS · NFC NFC East · HC Dan Quinn · Northwest Stadium (outdoors, grass) · W7: BYE
@@ -46,8 +46,15 @@ SRS -9.74 (#30) · net PPG -6.8 (#28) · Pythag 0.351 (#28) · model rank #28
 HC Dan Quinn · neutral pass rate 0.567 · sample 2026-09-13 → 2026-10-19 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See WAS.json → scheme_context.secondary_matchup.
 
-## Availability (missing; intel only; roster_gate not_run; ESPN n/a)
-Not available: no ESPN status data for WAS
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
+QB: Jayden Daniels [ok]
+Out/IR: Terry McLaurin WR Out; Javontae Jean-Baptiste LB Injured Reserve; Jacory Croskey-Merritt RB Injured Reserve
+Questionable/Doubtful: Charles Omenihu DE Questionable; Marcus Mariota QB Doubtful; Javon Kinlaw DT Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 3 players; skill: none
+OL/DL cluster risk (derived): OL none, DL watch
+Impact digest (top by score): Jayden Daniels QB status_update/unknown; Jayden Daniels QB active_news/unknown; Jacory Croskey-Merritt RB status_update/unknown; Jacory Croskey-Merritt RB status_update/unknown
+Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 5-12 · diff -95 · Pythag 0.363 · SRS #27 · EPA off #19 def #31 · DVOA -12.9 (#23) off -5.7 def 11.6
