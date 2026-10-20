@@ -1,48 +1,16 @@
 {
   "meta": {
-    "description": "Auto-refreshed weekly pass seeding obvious starters missed by the injury-report heuristic in build-projected-starters.js. Derived from real Week 4 2026 usage stats (player_stats_weekly.csv) -- top usage player at each team/position where usage clearly dominates the next player at that position (>= 1.8x, above a position-specific volume floor). QBs are high-confidence; RB/WR/TE are single-game samples and flagged needs_human_review. This file is fully overwritten each run -- it never accumulates stale entries from prior weeks.",
-    "derived_from": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026, week 4)",
+    "description": "Auto-refreshed weekly pass seeding obvious starters missed by the injury-report heuristic in build-projected-starters.js. Derived from real Week 6 2026 usage stats (player_stats_weekly.csv) -- top usage player at each team/position where usage clearly dominates the next player at that position (>= 1.8x, above a position-specific volume floor). QBs are high-confidence; RB/WR/TE are single-game samples and flagged needs_human_review. This file is fully overwritten each run -- it never accumulates stale entries from prior weeks.",
+    "derived_from": "data/vault-seed/nflverse/player_stats_weekly.csv (season 2026, week 6)",
     "generated_by": "scripts/build-week-usage-locks.js (Tuesday cadence)",
     "season": 2026,
-    "week": 4,
-    "generated_at": "2026-10-06T18:45:07.819Z"
+    "week": 6,
+    "generated_at": "2026-10-20T18:23:03.516Z"
   },
   "players": [
     {
-      "player_name": "Jacoby Brissett",
-      "team": "ARI",
-      "position": "QB",
-      "role": "starter",
-      "starter_confidence": 0.95,
-      "roster_confidence": 0.95,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at QB for ARI (usage score 35.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Michael Penix Jr.",
-      "team": "ATL",
-      "position": "QB",
-      "role": "starter",
-      "starter_confidence": 0.95,
-      "roster_confidence": 0.95,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at QB for ATL (usage score 20.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Derrick Henry",
-      "team": "BAL",
+      "player_name": "Woody Marks",
+      "team": "HOU",
       "position": "RB",
       "role": "starter",
       "starter_confidence": 0.8,
@@ -54,235 +22,11 @@
         "locked_starter",
         "weekly_usage_dominant"
       ],
-      "evidence": "Week 4 2026 usage leader at RB for BAL (usage score 24.0 vs runner-up 2.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+      "evidence": "Week 6 2026 usage leader at RB for HOU (usage score 16.5 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
     },
     {
-      "player_name": "Chuba Hubbard",
-      "team": "CAR",
-      "position": "RB",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at RB for CAR (usage score 21.0 vs runner-up 5.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Kyle Monangai",
-      "team": "CHI",
-      "position": "RB",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at RB for CHI (usage score 30.5 vs runner-up 16.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Deshaun Watson",
-      "team": "CLE",
-      "position": "QB",
-      "role": "starter",
-      "starter_confidence": 0.95,
-      "roster_confidence": 0.95,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at QB for CLE (usage score 33.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Trevor Lawrence",
-      "team": "JAX",
-      "position": "QB",
-      "role": "starter",
-      "starter_confidence": 0.95,
-      "roster_confidence": 0.95,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at QB for JAX (usage score 23.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Oronde Gadsden II",
-      "team": "LAC",
-      "position": "TE",
-      "role": "starter",
-      "starter_confidence": 0.7,
-      "roster_confidence": 0.8,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "te_uncertain",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at TE for LAC (usage score 8.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Kyren Williams",
-      "team": "LAR",
-      "position": "RB",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at RB for LAR (usage score 22.5 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Tyler Higbee",
-      "team": "LAR",
-      "position": "TE",
-      "role": "starter",
-      "starter_confidence": 0.7,
-      "roster_confidence": 0.8,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "te_uncertain",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at TE for LAR (usage score 6.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Kirk Cousins",
-      "team": "LV",
-      "position": "QB",
-      "role": "starter",
-      "starter_confidence": 0.95,
-      "roster_confidence": 0.95,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at QB for LV (usage score 52.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Kyler Murray",
-      "team": "MIN",
-      "position": "QB",
-      "role": "starter",
-      "starter_confidence": 0.95,
-      "roster_confidence": 0.95,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at QB for MIN (usage score 37.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Aaron Jones",
-      "team": "MIN",
-      "position": "RB",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at RB for MIN (usage score 24.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Jameis Winston",
-      "team": "NYG",
-      "position": "QB",
-      "role": "starter",
-      "starter_confidence": 0.95,
-      "roster_confidence": 0.95,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at QB for NYG (usage score 29.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Braelon Allen",
-      "team": "NYJ",
-      "position": "RB",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at RB for NYJ (usage score 15.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Tank Bigsby",
+      "player_name": "Tanner McKee",
       "team": "PHI",
-      "position": "RB",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at RB for PHI (usage score 14.5 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Jaylen Warren",
-      "team": "PIT",
-      "position": "RB",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at RB for PIT (usage score 20.0 vs runner-up 2.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Sam Darnold",
-      "team": "SEA",
       "position": "QB",
       "role": "starter",
       "starter_confidence": 0.95,
@@ -294,39 +38,7 @@
         "locked_starter",
         "weekly_usage_dominant"
       ],
-      "evidence": "Week 4 2026 usage leader at QB for SEA (usage score 22.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Emanuel Wilson",
-      "team": "SEA",
-      "position": "RB",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at RB for SEA (usage score 23.0 vs runner-up 7.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Christian McCaffrey",
-      "team": "SF",
-      "position": "RB",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at RB for SF (usage score 17.5 vs runner-up 6.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+      "evidence": "Week 6 2026 usage leader at QB for PHI (usage score 45.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
     },
     {
       "player_name": "Jalon Daniels",
@@ -342,55 +54,7 @@
         "locked_starter",
         "weekly_usage_dominant"
       ],
-      "evidence": "Week 4 2026 usage leader at QB for TB (usage score 27.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Bucky Irving",
-      "team": "TB",
-      "position": "RB",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at RB for TB (usage score 16.0 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Tony Pollard",
-      "team": "TEN",
-      "position": "RB",
-      "role": "starter",
-      "starter_confidence": 0.8,
-      "roster_confidence": 0.85,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "rb_major",
-      "needs_human_review": true,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at RB for TEN (usage score 18.0 vs runner-up 3.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
-    },
-    {
-      "player_name": "Athan Kaliakmanis",
-      "team": "WAS",
-      "position": "QB",
-      "role": "starter",
-      "starter_confidence": 0.95,
-      "roster_confidence": 0.95,
-      "confidence_basis": "manual_depth_chart",
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "evidence_tags": [
-        "locked_starter",
-        "weekly_usage_dominant"
-      ],
-      "evidence": "Week 4 2026 usage leader at QB for WAS (usage score 33.0 vs runner-up 4.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+      "evidence": "Week 6 2026 usage leader at QB for TB (usage score 43.0 vs runner-up 0.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
     }
   ]
 }
