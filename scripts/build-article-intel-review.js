@@ -367,6 +367,37 @@ function extractStructuredAnalystSelections(text) {
       quote: clean(match[0]),
     });
   }
+  // VSiN-style closing line: "Bet: Patriots +3 (-105 - 1.5 units) & Patriots ML (+138 - 0.5 units) & Maye Over 1.5 Passing TDs (-115)".
+  // Parts are joined by " & " and carry the price (and optional units) in parentheses. Text after the last closing
+  // paren (next heading, "RELATED ARTICLES") is dropped on purpose so it cannot fuse onto the final selection.
+  const betLinePattern = /\bBets?:\s*((?:[^()&]+\([^)]*\)\s*&\s*)*[^()&]+\([^)]*\))/gi;
+  for (const lineMatch of source.matchAll(betLinePattern)) {
+    for (const part of lineMatch[1].split(/\s+&\s+/)) {
+      const m = part.match(/^\s*(.+?)\s*\(\s*([+-]\d{3,5})(?:\s*-\s*([\d.]+)\s*units?)?\s*\)\s*$/i);
+      if (!m) continue;
+      const label = clean(m[1]);
+      let details = null;
+      let mm;
+      if (/\b(?:ML|Moneyline)\b/i.test(label)) {
+        details = { market: 'moneyline', selection: label, side: 'positive_or_over', line: null };
+      } else if ((mm = label.match(/^(.+?)\s+([+-]\d+(?:\.\d+)?)$/))) {
+        details = { market: 'spread', selection: label, side: mm[2].startsWith('+') ? 'positive_or_over' : 'negative_or_under', line: mm[2] };
+      } else if ((mm = label.match(/^(.*?)\b(Over|Under)\s+(\d+(?:\.\d+)?)\b\s*(.*)$/i))) {
+        const isPlayerProp = mm[1].trim().length > 0 || mm[4].trim().length > 0;
+        details = {
+          market: isPlayerProp ? 'player_prop_or_stat_future' : 'game_total',
+          selection: isPlayerProp ? label : `${mm[2][0].toUpperCase()}${mm[2].slice(1).toLowerCase()} ${mm[3]}`,
+          side: mm[2].toLowerCase(),
+          line: mm[3],
+        };
+      }
+      if (!details) continue;
+      details.price = m[2];
+      details.book = null;
+      details.units = m[3] || null;
+      selections.push({ details, quote: clean(`Bet: ${label} (${m[2]}${m[3] ? ` - ${m[3]} units` : ''})`) });
+    }
+  }
   return selections;
 }
 
@@ -432,7 +463,8 @@ function parseMarketDetails(text, fallbackTeams = []) {
   }
 
   // Handle BettingPros & Analyst Prop Header: "Player/Team Prop Line ( +100 )"
-  const propHeaderMatch = source.match(/\b([A-Z][A-Za-z'.-]+(?:\s+[A-Za-z0-9'+.-]+){1,5})\s*\(\s*([+-]\d{3,5})\s*\)/);
+  const propSource = source.replace(/\bLeg\s*#?\d+:\s*/gi, '');
+  const propHeaderMatch = propSource.match(/\b([A-Z][A-Za-z'.-]+(?:\s+[A-Za-z0-9'+.-]+){1,8})\s*\(\s*([+-]\d{3,5})\s*\)/);
   if (propHeaderMatch && !/courtesy of/i.test(propHeaderMatch[1]) && !/Odds:/i.test(propHeaderMatch[1]) && !/Parlay/i.test(propHeaderMatch[1])) {
     const rawSel = clean(propHeaderMatch[1]).replace(/^(?:Pick|Play|Bet|Lean|Leg\s*#?\d+):\s*/i, '');
     const price = propHeaderMatch[2];
@@ -443,6 +475,12 @@ function parseMarketDetails(text, fallbackTeams = []) {
     if (/\b(?:Moneyline|ML)\b/i.test(rawSel)) {
       market = 'moneyline';
       side = 'positive_or_over';
+    } else if (/\b(?:Over|Under)\s+\d+(?:\.\d+)?\s+Points?\b/i.test(rawSel) && mentionedTeams(rawSel).length >= 2) {
+      // "San Francisco 49ers-Atlanta Falcons Under 50.5 Points" names both teams: a game total, not a team total.
+      const gt = rawSel.match(/\b(Over|Under)\s+(\d+(?:\.\d+)?)/i);
+      market = 'game_total';
+      side = gt[1].toLowerCase();
+      line = gt[2];
     } else if (/\bPoints?\b/i.test(rawSel)) {
       market = 'team_total';
       const ptMatch = rawSel.match(/(\d+)\+/);
@@ -640,7 +678,13 @@ function extractAnalystSelections(article, teams, fullText) {
       source: article.source_meta,
     });
   }
-  return out.slice(0, 24);
+  // A structured "Bet: A & B" pick supersedes a sentence-path duplicate that only differs by trailing heading text
+  // (e.g. "Browns ML (-120 - 2 units) Tampa Bay Buccaneers" next to the clean "Browns ML").
+  const isStructured = (o) => o.review_flags.includes('structured_multi_pick_extract');
+  const structuredPicks = out.filter(isStructured);
+  const deduped = out.filter((o) => isStructured(o) || !structuredPicks.some((st) => st.price === o.price
+    && o.selection.toLowerCase().startsWith(st.selection.toLowerCase())));
+  return deduped.slice(0, 24);
 }
 
 function focusedBody(row) {

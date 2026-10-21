@@ -18,7 +18,7 @@ Built from the W6 data package and game summaries (same folder) plus `scratch/w6
 
 ## 2. What happened on the field
 - Underdogs won outright in 6 of 14 games (DEN, HOU, CLE, TEN, ARI, GB, per ESPN pickcenter lines). Four games landed 13.5+ points under the total (DAL@GB -18.5, BAL@CLE -17.5, ARI@LAR -17.5, LAC@KC -13.5); two landed 14+ over (HOU@JAX +22.5, NO@NYG +14.5).
-- Leg hit rates, 138 unique positions: 71-67 (51%). Sides 17-4, moneyline 7-3, totals 9-5, receptions 9-6, rec yds 8-7, rush 5-6, passing/INT 3-6, **anytime TD 8-24 (25%)**, first TD 0-3.
+- Leg hit rates, 136 unique positions: 70-66 (51%). Sides 16-4, moneyline 7-3, totals 8-5, receptions 9-6, rec yds 8-7, rush 5-6, passing/INT 4-5, **anytime TD 8-24 (25%)**, first TD 0-3.
 - Most-exposed games: SF (38 legs, 25-13), SEA@DEN (41 legs, 18-23), DAL@GB (27 legs, 13-14).
 
 ## 3. Our proposals against the results
@@ -58,9 +58,10 @@ Full entries are D27-D33 in the recommendation ledger.
 - Props: ATD remains the weak market (8-24 placed legs; 0-2 on the sheet). Pass-yardage Overs 3-0 is three data points.
 - Hedging cost $191.30 in a game the hedged side won, against $1,632.30 of exposure. That is the price paid for protection, not an error by itself.
 
-## 6. Gaps (not hidden)
-- The ledger had no Week 5 section; W5 money (-387.24 on $412.45, 32 cash tickets, 0 won) is added as a stub only. Divergences for W5 were not reviewed.
-- W1-2 money does not reproduce from today's wagers file (-552.76 all-funding, -565.63 cash-filter, vs -587.76 in the old ledger); W3-W4 do. Season line uses the old W1-2 figure.
-- MNF island proposals from Mon were not saved to the repo, so they are not graded here.
+## 6. Gaps (status as of 2026-10-21)
+- W5 divergences: reviewed and written to the ledger as D34-D36 (W5 money -387.24 on $412.45, 32 cash tickets, 0 won).
+- W1-2 money: reconciled. -587.76 reproduces on a cash basis (W1 -290.21 on 370.77, W2 -297.55 on 428.79); summing `profit_usd` alone gives -552.76 because four W1 cash losses ($35.00) have null profit. W3-W4 reproduce.
+- MNF island proposals (WAS @ SF): recovered from Andy's pasted text and graded as paper, ledger D37: 4 of 10 legs hit, all three tickets lost, -$40 paper. Not in the placed-position hit rate.
+- Ticket 740512242 (cross-week) retagged to W7 on 2026-10-21; this moved the leg record from 72-66 to 70-66.
+- Validator: `validate_postmortem_data.py --weeks 6` runs clean of errors (ERROR 0, WARN 32, INFO 9). The 31 legs that only one grader can grade were checked independently against nflverse and ESPN box scores: no wrong grades. Four ledger legs spelled `LOSS` were normalized to `LOST`.
 - No CLV: only ESPN pickcenter (DraftKings) lines as a near-close proxy.
-- `validate_postmortem_data.py --weeks 6` still crashes (`KeyError: None`); nflverse W6 stats not yet loaded.

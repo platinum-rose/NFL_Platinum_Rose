@@ -1,6 +1,6 @@
 # Week 6 post-mortem data package (final), 2026-10-19
 
-> Revised 2026-10-20: Bo Nix "under 199.5 passing yds" leg (ticket 1005682691) corrected LOST to WON in the ledger (107 pass yds, commit 124dedc); section 3 re-run (overall 71-67 became 72-66; passing/INT 3-6 became 4-5). No money figure changed. Previous version: scratch/w06-postmortem-data-2026-10-19.pre-nix-rerun.bak.
+> Revised 2026-10-20: Bo Nix "under 199.5 passing yds" leg (ticket 1005682691) corrected LOST to WON in the ledger (107 pass yds, commit 124dedc); section 3 re-run (overall 71-67 became 72-66; passing/INT 3-6 became 4-5). No money figure changed. Revised again 2026-10-21: ticket 740512242 retagged to W7 (two WON legs, one side and one total, leave W6), so 72-66 (138) became 70-66 (136), sides 17-4 became 16-4, totals 9-5 became 8-5. Previous version: scratch/w06-postmortem-data-2026-10-19.pre-nix-rerun.bak.
 
 ## 1. Money
 - Ledger: 37 settled W6 tickets, net **+1187.92**; cash-only (weekly_review basis) **+1178.83** on $1006.91; free/credit tickets: [('15_lv_buf_spread_freebet', 9.09)].
@@ -55,21 +55,21 @@
 | r_740487866_dal_plus9p5_live_hedge | Bookmaker | Straight Bet - Spread | $60.00 | loss | -60.00 | 0/1 of 1 | Dallas Cowboys +9.5 |
 | 0261018_bkr_740482284_dal_ml_hedge | Bookmaker | Straight Bet - Moneyli | $250.00 | loss | -250.00 | 0/1 of 1 | Dallas Cowboys ML |
 
-## 3. Unique graded leg positions by market (138 unique, ticket-duplicates collapsed; coarse key, hypothesis grade only)
+## 3. Unique graded leg positions by market (136 unique, ticket-duplicates collapsed; coarse key, hypothesis grade only)
 
 | Market | Won | Lost | Hit% |
 |---|---|---|---|
 | anytime TD | 8 | 24 | 25% |
-| side (spread) | 17 | 4 | 81% |
+| side (spread) | 16 | 4 | 80% |
 | receptions | 9 | 6 | 60% |
 | receiving yards | 8 | 7 | 53% |
-| game total | 9 | 5 | 64% |
+| game total | 8 | 5 | 62% |
 | rushing (yds/att) | 5 | 6 | 45% |
 | moneyline | 7 | 3 | 70% |
 | passing / INT | 4 | 5 | 44% |
 | kicker / defense | 5 | 3 | 62% |
 | first TD | 0 | 3 | 0% |
-| **all** | 72 | 66 | 52% |
+| **all** | 70 | 66 | 51% |
 
 ## 4. SuperContest (Andy & Amanda official five, contest lines)
 

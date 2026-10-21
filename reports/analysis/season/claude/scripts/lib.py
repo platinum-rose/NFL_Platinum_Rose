@@ -19,10 +19,16 @@ FIX = {'WAS': 'WSH', 'LA': 'LAR', 'LVR': 'LV', 'NOS': 'NO', 'JAC': 'JAX'}
 def T(a): return FIX.get((a or '').upper(), (a or '').upper())
 
 
+# Known long-form/short-form names: ledger legs and box scores use different forms of the same player.
+# Add a pair here when the validator reports a "matched by last name + initial only" WARN for a real starter.
+NAME_ALIASES = {'chigoziem okonkwo': 'chig okonkwo'}
+
+
 def norm(s):
     s = unicodedata.normalize('NFKD', s or '').encode('ascii', 'ignore').decode().lower()
     s = re.sub(r"[\.'’]", "", s); s = re.sub(r"\b(jr|sr|ii|iii|iv)\b", "", s)
-    return ' '.join(re.sub(r"[^a-z ]", " ", s).split())
+    s = ' '.join(re.sub(r"[^a-z ]", " ", s).split())
+    return NAME_ALIASES.get(s, s)
 
 
 def jl(p): return json.load(open(p, encoding='utf-8'))

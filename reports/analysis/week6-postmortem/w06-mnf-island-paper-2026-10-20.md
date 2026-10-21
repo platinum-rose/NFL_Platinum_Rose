@@ -56,4 +56,4 @@ TDs scored: Kittle (pass), McCaffrey x2 (rush), Diggs (pass), White (pass).
 - Volume thesis held for WAS passing: Daniels 40 attempts, 29 completions, Okonkwo 7 targets. It failed on the receiver split (McLaurin 1 target) and on SF's run-heavy script (McCaffrey 2 rushing TDs; Purdy 29 attempts, Kittle 8 targets for 5 catches).
 - Both SGP near-misses were one reception or one completion short. These were correlated legs, so one ticket-level miss is not independent evidence about the thesis.
 - ATD stays the weak market: 0-3 here, 8-24 across the placed W6 legs.
-- Recorded in the recommendation ledger as D37 (2026-10-20, Andy: track recommendations for accuracy, never mix them with placed bets). Not in the wager ledger and not in the 72-66 placed-position hit rate.
+- Recorded in the recommendation ledger as D37 (2026-10-20, Andy: track recommendations for accuracy, never mix them with placed bets). Not in the wager ledger and not in the 70-66 placed-position hit rate.
