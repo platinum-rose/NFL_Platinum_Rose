@@ -1,0 +1,171 @@
+{
+  "schema": "week_weather_venue_review_v1",
+  "season": 2026,
+  "week": 7,
+  "generated_at": "2026-10-21T22:25:26.000Z",
+  "status": "research_context_only_not_picks",
+  "source_evidence": "data/research-intel/source-evidence/2026-10-21-week7-weather-openmeteo.json",
+  "coverage": {
+    "remaining_games": 14,
+    "outdoor_forecasts_captured": 8,
+    "venue_condition_verification_required": 6
+  },
+  "rows": [
+    {
+      "game": "NE@CHI",
+      "weather_status": "forecast_captured",
+      "source_game": "NE@CHI",
+      "materiality": "no_material_weather_flag",
+      "forecast": {
+        "temperature_c": 13.3,
+        "temperature_f": 55.9,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 5.1,
+        "wind_gusts_kmh": 9.0,
+        "wind_direction_deg": 88
+      }
+    },
+    {
+      "game": "PIT@NO",
+      "weather_status": "forecast_captured",
+      "source_game": "PIT@NO",
+      "materiality": "review_required: gusts 47.9 km/h",
+      "forecast": {
+        "temperature_c": 15.9,
+        "temperature_f": 60.6,
+        "precipitation_probability_pct": 24,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 21.8,
+        "wind_gusts_kmh": 47.9,
+        "wind_direction_deg": 279
+      }
+    },
+    {
+      "game": "SF@ATL",
+      "weather_status": "venue_condition_verification_required",
+      "materiality": "retractable roof (ATL): do_not_apply_outdoor_weather_without_current venue/roof confirmation"
+    },
+    {
+      "game": "CLE@TEN",
+      "weather_status": "forecast_captured",
+      "source_game": "CLE@TEN",
+      "materiality": "no_material_weather_flag",
+      "forecast": {
+        "temperature_c": 22.8,
+        "temperature_f": 73.0,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 3.4,
+        "wind_gusts_kmh": 4.0,
+        "wind_direction_deg": 198
+      }
+    },
+    {
+      "game": "IND@MIN",
+      "weather_status": "venue_condition_verification_required",
+      "materiality": "fixed dome (MIN): outdoor weather does not apply"
+    },
+    {
+      "game": "MIA@NYJ",
+      "weather_status": "forecast_captured",
+      "source_game": "MIA@NYJ",
+      "materiality": "no_material_weather_flag",
+      "forecast": {
+        "temperature_c": 17.5,
+        "temperature_f": 63.5,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 11.8,
+        "wind_gusts_kmh": 16.9,
+        "wind_direction_deg": 247
+      }
+    },
+    {
+      "game": "TB@CAR",
+      "weather_status": "forecast_captured",
+      "source_game": "TB@CAR",
+      "materiality": "no_material_weather_flag",
+      "forecast": {
+        "temperature_c": 18.0,
+        "temperature_f": 64.4,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 13.8,
+        "wind_gusts_kmh": 17.6,
+        "wind_direction_deg": 51
+      }
+    },
+    {
+      "game": "CIN@BAL",
+      "weather_status": "forecast_captured",
+      "source_game": "CIN@BAL",
+      "materiality": "no_material_weather_flag",
+      "forecast": {
+        "temperature_c": 17.1,
+        "temperature_f": 62.8,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 8.0,
+        "wind_gusts_kmh": 9.7,
+        "wind_direction_deg": 153
+      }
+    },
+    {
+      "game": "NYG@HOU",
+      "weather_status": "venue_condition_verification_required",
+      "materiality": "retractable roof (HOU, NRG): do_not_apply_outdoor_weather_without_current venue/roof confirmation"
+    },
+    {
+      "game": "DEN@ARI",
+      "weather_status": "venue_condition_verification_required",
+      "materiality": "retractable roof (ARI): do_not_apply_outdoor_weather_without_current venue/roof confirmation"
+    },
+    {
+      "game": "GB@DET",
+      "weather_status": "venue_condition_verification_required",
+      "materiality": "fixed dome (DET): outdoor weather does not apply"
+    },
+    {
+      "game": "LAR@LV",
+      "weather_status": "venue_condition_verification_required",
+      "materiality": "fixed dome (LV): outdoor weather does not apply"
+    },
+    {
+      "game": "KC@SEA",
+      "weather_status": "forecast_captured",
+      "source_game": "KC@SEA",
+      "materiality": "no_material_weather_flag",
+      "forecast": {
+        "temperature_c": 12.0,
+        "temperature_f": 53.6,
+        "precipitation_probability_pct": 16,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 14.8,
+        "wind_gusts_kmh": 22.0,
+        "wind_direction_deg": 354
+      }
+    },
+    {
+      "game": "DAL@PHI",
+      "weather_status": "forecast_captured",
+      "source_game": "DAL@PHI",
+      "materiality": "no_material_weather_flag",
+      "forecast": {
+        "temperature_c": 16.2,
+        "temperature_f": 61.2,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 7.6,
+        "wind_gusts_kmh": 23.0,
+        "wind_direction_deg": 265
+      }
+    }
+  ],
+  "guardrails": {
+    "forecast_not_observation": true,
+    "requires_kickoff_refresh_for_material_conditions": true,
+    "no_market_or_ticket_action": true
+  },
+  "materiality_thresholds": "review_required if wind>=25 km/h or gusts>=40 km/h or precip prob>=40% or precip>=1 mm or temp<=0 C; heat_context_only if >=32 C"
+}

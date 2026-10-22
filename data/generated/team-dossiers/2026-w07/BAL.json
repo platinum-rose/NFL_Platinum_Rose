@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T23:12:44.939Z",
+  "built_at": "2026-10-22T01:22:05.546Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "297ffcf",
+  "git_head": "3d58678",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-17T02:04:07.188Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 6,
-      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
+      "generated_at": "2026-10-20T23:48:44.521Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "649835539e56e244ba5d0abfd8ad9610f6b8e54d228f740d0cbdbce9fa761902",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -948,176 +948,20 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 6,
-      "status": "stale_prior_week_matchups",
+      "source_week": 7,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_10dd0b24fd5db024",
+          "id": "sec_97558e9312bc22e4",
           "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_BAL_at_CLE",
-          "kickoff_utc": "2026-10-18T17:00:00.000Z",
-          "offense_team": "BAL",
-          "offense_team_nick": "Ravens",
-          "defense_team": "CLE",
-          "defense_team_nick": "Browns",
-          "offense_venue": "away",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "man_heavy",
-              "single_high",
-              "blitz_heavy"
-            ],
-            "primary_coverage_family": "man_heavy",
-            "pressure_profile": "aggressive",
-            "confidence": 0.82,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Jim Schwartz high-frequency Press Man / Cover 1 with aggressive 4-man rush."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Damarri Mathis",
-              "team": "CLE",
-              "position": "CB",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Damarri Mathis IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:50:02.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "alpha_wr_boost",
-            "boundary_wr_boost",
-            "deep_pass_boost",
-            "hot_read_boost",
-            "outside_wr_boost",
-            "post_cross_boost",
-            "slot_wr_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Zay Flowers",
-              "team": "BAL",
-              "roles": [
-                "alpha_x",
-                "slot"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "slot",
-                "underneath"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost",
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 6,
-              "notes": "BAL Primary Target.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Rashod Bateman",
-              "team": "BAL",
-              "roles": [
-                "z_receiver",
-                "field_stretcher"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "deep",
-                "boundary"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "BAL Outside WR.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "questionable"
-            },
-            {
-              "player_name": "Mark Andrews",
-              "team": "BAL",
-              "roles": [
-                "te_middle",
-                "red_zone"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "middle",
-                "red_zone"
-              ],
-              "matched_weakness_tags": [
-                "alpha_wr_boost"
-              ],
-              "opportunity_score": 1.5,
-              "notes": "BAL All-Pro TE.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Devontez Walker",
-              "team": "BAL",
-              "roles": [
-                "slot"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle",
-                "short"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 0.8,
-              "notes": "BAL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
-            }
-          ],
-          "severity_score": 1.35,
-          "elite_absence_count": 0,
-          "vulnerability_tier": "watch",
-          "confidence": 0.78,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true,
-          "excluded_unavailable": []
-        },
-        {
-          "id": "sec_2c1530b1ef9e3802",
-          "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_BAL_at_CLE",
-          "kickoff_utc": "2026-10-18T17:00:00.000Z",
-          "offense_team": "CLE",
-          "offense_team_nick": "Browns",
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_CIN_at_BAL",
+          "kickoff_utc": "2026-10-25T17:00:00.000Z",
+          "offense_team": "CIN",
+          "offense_team_nick": "Bengals",
           "defense_team": "BAL",
           "defense_team_nick": "Ravens",
-          "offense_venue": "home",
+          "offense_venue": "away",
           "coverage_scheme": {
             "scheme_tags": [
               "man_heavy",
@@ -1142,7 +986,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-17T01:50:02.000Z",
+              "published_at": "2026-10-21T06:20:01.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1162,7 +1006,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-17T01:50:02.000Z",
+              "published_at": "2026-10-21T06:20:01.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1183,74 +1027,277 @@
           ],
           "target_receivers": [
             {
-              "player_name": "Denzel Boston",
-              "team": "CLE",
+              "player_name": "Ja'Marr Chase",
+              "team": "CIN",
               "roles": [
-                "alpha_x"
+                "alpha_x",
+                "field_stretcher",
+                "slot"
               ],
-              "target_share_tier": "high",
+              "target_share_tier": "alpha",
               "route_area_tags": [
                 "boundary",
-                "intermediate"
+                "deep",
+                "slot"
               ],
               "matched_weakness_tags": [
                 "outside_wr_boost",
                 "alpha_wr_boost",
-                "boundary_wr_boost"
+                "boundary_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost",
+                "slot_wr_boost"
               ],
-              "opportunity_score": 3.6,
-              "notes": "CLE WR1 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "opportunity_score": 9,
+              "notes": "CIN All-Pro Alpha WR.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
             },
             {
-              "player_name": "Jerry Jeudy",
-              "team": "CLE",
+              "player_name": "Tee Higgins",
+              "team": "CIN",
               "roles": [
                 "z_receiver",
-                "slot"
+                "red_zone"
               ],
-              "target_share_tier": "medium",
+              "target_share_tier": "high",
               "route_area_tags": [
-                "slot",
-                "intermediate"
+                "boundary",
+                "deep",
+                "red_zone"
               ],
               "matched_weakness_tags": [
                 "outside_wr_boost",
                 "deep_pass_boost",
                 "post_cross_boost",
-                "slot_wr_boost"
+                "alpha_wr_boost"
               ],
-              "opportunity_score": 3.2,
-              "notes": "CLE WR2.",
+              "opportunity_score": 4.8,
+              "notes": "CIN Premium WR2.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
             },
             {
-              "player_name": "KC Concepcion",
-              "team": "CLE",
+              "player_name": "Colbie Young",
+              "team": "CIN",
               "roles": [
-                "z_receiver"
+                "slot"
               ],
               "target_share_tier": "medium",
               "route_area_tags": [
-                "boundary"
+                "middle",
+                "short"
               ],
               "matched_weakness_tags": [
-                "outside_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
+                "slot_wr_boost"
               ],
-              "opportunity_score": 2.4,
-              "notes": "CLE WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+              "opportunity_score": 0.8,
+              "notes": "CIN WR3 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Mike Gesicki",
+              "team": "CIN",
+              "roles": [
+                "te_middle",
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "slot"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost"
+              ],
+              "opportunity_score": 0.8,
+              "notes": "CIN Big Slot TE.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
             }
           ],
           "severity_score": 2.7,
           "elite_absence_count": 0,
           "vulnerability_tier": "medium",
-          "confidence": 0.83,
+          "confidence": 0.87,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true,
+          "excluded_unavailable": []
+        },
+        {
+          "id": "sec_5a87ce7d129db3b9",
+          "season": 2026,
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_CIN_at_BAL",
+          "kickoff_utc": "2026-10-25T17:00:00.000Z",
+          "offense_team": "BAL",
+          "offense_team_nick": "Ravens",
+          "defense_team": "CIN",
+          "defense_team_nick": "Bengals",
+          "offense_venue": "home",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "match_zone",
+              "single_high"
+            ],
+            "primary_coverage_family": "match_zone",
+            "pressure_profile": "aggressive",
+            "confidence": 0.72,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Anarumo disguises and post-snap rotation using single-high and match principles."
+          },
+          "secondary_absences": [
+            {
+              "player_name": "Jalen Davis",
+              "team": "CIN",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Jalen Davis IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-21T06:20:01.000Z",
+              "role": "slot_cb",
+              "side": "slot",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "slot"
+              ],
+              "weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost"
+              ],
+              "severity_score": 2.03,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Ja'Sir Taylor",
+              "team": "CIN",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Ja'Sir Taylor IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-21T06:20:01.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            }
+          ],
+          "weakness_tags": [
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "inside_seam_boost",
+            "post_cross_boost",
+            "slot_wr_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Zay Flowers",
+              "team": "BAL",
+              "roles": [
+                "alpha_x",
+                "slot"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "boundary",
+                "slot",
+                "underneath"
+              ],
+              "matched_weakness_tags": [
+                "boundary_wr_boost",
+                "slot_wr_boost",
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 4.5,
+              "notes": "BAL Primary Target.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Devontez Walker",
+              "team": "BAL",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "short"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 1.6,
+              "notes": "BAL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Rashod Bateman",
+              "team": "BAL",
+              "roles": [
+                "z_receiver",
+                "field_stretcher"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "deep",
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 1.6,
+              "notes": "BAL Outside WR.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "questionable"
+            },
+            {
+              "player_name": "Mark Andrews",
+              "team": "BAL",
+              "roles": [
+                "te_middle",
+                "red_zone"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "middle",
+                "red_zone"
+              ],
+              "matched_weakness_tags": [
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 1.5,
+              "notes": "BAL All-Pro TE.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            }
+          ],
+          "severity_score": 3.38,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "medium",
+          "confidence": 0.86,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1273,19 +1320,19 @@
       "source": "data/generated/master-intel/w07-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
-      "roster_age_h_at_vet": 0.2,
+      "roster_snapshot_generated_at": "2026-10-22T01:21:24.521422+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-20T22:47:55Z",
-      "availability_events": "2026-10-20T23:12:31.816Z",
-      "impact_digest": "2026-10-20T23:12:42.057Z",
-      "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+      "espn_status": "2026-10-22T01:21:31Z",
+      "availability_events": "2026-10-22T01:21:47.882Z",
+      "impact_digest": "2026-10-22T01:21:56.859Z",
+      "projected_starters": "2026-10-21T22:00:03.496Z",
+      "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1302,6 +1349,62 @@
     "reported_injuries": {
       "out_ir": [],
       "questionable_doubtful": [
+        {
+          "player": "Matt Hibner",
+          "pos": "TE",
+          "status": "Questionable",
+          "date": "2026-10-22",
+          "comment": "Hibner (hand) was a limited participant in Wednesday's practice.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Rashod Bateman",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "Bateman (shoulder) was a limited practice participant Wednesday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Tavius Robinson",
+          "pos": "LB",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Lamar Jackson",
+          "pos": "QB",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "Jackson (ankle) was listed as a  limited participant Wednesday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "John Simpson",
+          "pos": "G",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jaylinn Hawkins",
+          "pos": "S",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Olaivavega Ioane",
+          "pos": "G",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
         {
           "player": "Andrew Vorhees",
           "pos": "G",
@@ -1324,30 +1427,6 @@
           "status": "Questionable",
           "date": "2026-10-20",
           "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Matt Hibner",
-          "pos": "TE",
-          "status": "Questionable",
-          "date": "2026-10-20",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Lamar Jackson",
-          "pos": "QB",
-          "status": "Questionable",
-          "date": "2026-10-20",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Rashod Bateman",
-          "pos": "WR",
-          "status": "Questionable",
-          "date": "2026-10-19",
-          "comment": "Ravens head coach Jesse Minter said Monday that Bateman (shoulder) \"should be OK\" after exiting late in the second quarter of Sunday's 13-10 loss to the Browns,",
           "roster_check": "ok"
         }
       ],
@@ -1394,10 +1473,12 @@
     "ol_dl_cluster_risk": {
       "ol": {
         "hard_or_doubtful": 0,
-        "questionable": 2,
+        "questionable": 4,
         "risk": "watch",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
+          "John Simpson G Questionable",
+          "Olaivavega Ioane G Questionable",
           "Andrew Vorhees G Questionable",
           "Cam Jurgens C Questionable"
         ]
@@ -1422,7 +1503,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Durham Smythe IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1438,7 +1519,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Skylar Thompson IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1454,10 +1535,12 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "T.J. Tampa Jr. IR",
-          "practice": [],
-          "probability_of_playing": null,
+          "practice": [
+            "Limit"
+          ],
+          "probability_of_playing": 0.28209,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1470,7 +1553,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Jahquez Robinson IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1480,61 +1563,45 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Andrew Vorhees",
-          "position": "G",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Broderick Washington Jr.",
-          "position": "DT",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Cam Jurgens",
-          "position": "C",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
           "player_name": "Matt Hibner",
           "position": "TE",
           "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T00:19:00.000Z",
+          "summary": "Hibner (hand) was a limited participant in Wednesday's practice.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Rashod Bateman",
+          "position": "WR",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-21T21:09:00.000Z",
+          "summary": "Bateman (shoulder) was a limited practice participant Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Tavius Robinson",
+          "position": "LB",
+          "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
+          "published_at": "2026-10-21T20:38:00.000Z",
           "summary": "questionable",
           "practice": [],
           "probability_of_playing": null,
@@ -1547,10 +1614,26 @@
           "player_name": "Lamar Jackson",
           "position": "QB",
           "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-21T20:37:00.000Z",
+          "summary": "Jackson (ankle) was listed as a limited participant Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "John Simpson",
+          "position": "G",
+          "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
+          "published_at": "2026-10-21T20:36:00.000Z",
           "summary": "questionable",
           "practice": [],
           "probability_of_playing": null,
@@ -1560,46 +1643,46 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Tyler Loop",
-          "position": "PK",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-20T01:12:00.000Z",
-          "summary": "Loop converted one his two field-goal attempts and his lone extra-point try during Baltimore's loss to Cleveland on Sunday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Mark Andrews",
-          "position": "TE",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "improving",
-          "event_type": "return_to_practice",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-19T23:38:00.000Z",
-          "summary": "Andrews caught one of three targets for four yards during the Ravens' 13-10 loss to the Browns on Sunday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Rashod Bateman",
-          "position": "WR",
+          "player_name": "Jaylinn Hawkins",
+          "position": "S",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-19T19:16:00.000Z",
-          "summary": "Ravens head coach Jesse Minter said Monday that Bateman (shoulder) \"should be OK\" after exiting late in the second quarter of Sunday's 13-10 loss to the Browns,",
+          "published_at": "2026-10-21T20:34:00.000Z",
+          "summary": "questionable",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Olaivavega Ioane",
+          "position": "G",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-21T20:33:00.000Z",
+          "summary": "questionable",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Kyle Hamilton",
+          "position": "S",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-21T01:58:00.000Z",
+          "summary": "Hamilton finished Sunday's 13-10 loss to the Browns with seven tackles (six solo).",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1614,19 +1697,19 @@
         "player_name": "Lamar Jackson",
         "position": "QB",
         "unit": "quarterback",
-        "event_type": "status_update",
-        "availability_trend": "unknown",
+        "event_type": "limited",
+        "availability_trend": "stable",
         "impact_bucket": "qb_major",
         "starter_match": {
           "role": "starter",
           "starter_confidence": 0.95,
           "source_count": 1
         },
-        "score": 94,
+        "score": 100,
         "signal": "review_context",
-        "source": "FantasyPros injuries API",
-        "published_at": null,
-        "summary": "Lamar Jackson UNKNOWN",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-21T20:37:00.000Z",
+        "summary": "Jackson (ankle) was listed as a limited participant Wednesday.",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1647,9 +1730,9 @@
         },
         "score": 94,
         "signal": "review_context",
-        "source": "ESPN injuries API",
-        "published_at": "2026-10-20T16:10:00.000Z",
-        "summary": "questionable",
+        "source": "FantasyPros injuries API",
+        "published_at": "2026-10-21T00:00:00.000Z",
+        "summary": "Lamar Jackson QUESTIONABLE",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1659,7 +1742,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-20T18:23:03.995Z",
+      "as_of": "2026-10-21T22:00:03.496Z",
       "known": [
         "Lamar Jackson QB"
       ],
@@ -1906,18 +1989,18 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-11-03T18:43:44.785Z",
-        "secondary-matchup source week 6"
+        "secondary-matchup source week 7"
       ]
     },
     "availability": {
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-20T22:47:55Z",
-        "availability_events": "2026-10-20T23:12:31.816Z",
-        "impact_digest": "2026-10-20T23:12:42.057Z",
-        "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+        "espn_status": "2026-10-22T01:21:31Z",
+        "availability_events": "2026-10-22T01:21:47.882Z",
+        "impact_digest": "2026-10-22T01:21:56.859Z",
+        "projected_starters": "2026-10-21T22:00:03.496Z",
+        "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],

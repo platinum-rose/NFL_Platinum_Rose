@@ -1,5 +1,5 @@
 # HOU Texans — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:12:45.394Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T01:22:05.990Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -44,16 +44,16 @@ SRS -2.48 (#22) · net PPG -0.4 (#18) · Pythag 0.489 (#18) · model rank #20
 
 ## Scheme context (historical_context_only; historical context only, stale after 2026-11-03T18:43:44.785Z)
 HC DeMeco Ryans · neutral pass rate 0.622 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
-Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See HOU.json → scheme_context.secondary_matchup.
+Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See HOU.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: C.J. Stroud [ok]
-Out/IR: Tank Dell WR Injured Reserve
-Questionable/Doubtful: Jalen Pitre S Doubtful; David Montgomery RB Questionable; Reed Blankenship S Questionable
+Out/IR: Jake Hummel LB Injured Reserve; Tank Dell WR Injured Reserve
+Questionable/Doubtful: Azeez Al-Shaair LB Questionable; Jalen Pitre S Questionable; Dalton Schultz TE Questionable; Henry To'oTo'o LB Questionable; Blake Fisher OT Questionable; Logan Hall DE Questionable (+3 more)
 Operator-reported (Andy, not in ESPN): Marvin Harrison Jr. WR traded ARI->HOU
-Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 11 players; skill: British Brooks RB; Graham Mertz QB; Jayden Higgins WR
-OL/DL cluster risk (derived): OL none, DL none
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 10 players; skill: British Brooks RB; Graham Mertz QB; Jayden Higgins WR
+OL/DL cluster risk (derived): OL watch, DL watch
 Impact digest (top by score): C.J. Stroud QB active_news/unknown; Woody Marks RB active_news/unknown
 Projected starters: manual_and_estimated_signals, 2 players
 

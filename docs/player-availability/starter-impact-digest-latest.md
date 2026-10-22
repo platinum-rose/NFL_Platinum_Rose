@@ -1,19 +1,37 @@
-# Starter Impact Availability Digest - 2026-10-20
+# Starter Impact Availability Digest - 2026-10-22
 
 > Local futures-relevance triage only. This is not a betting recommendation and does not authorize official picks.
 
 Season: 2026
-Generated: 2026-10-20T23:12:42.057Z
-Source events: 947 | Digest events: 625 | Starter-matched: 77
+Generated: 2026-10-22T01:21:56.859Z
+Source events: 1118 | Digest events: 794 | Starter-matched: 79
 
 ## Conflicted / Withheld Intel
 
-- CLE Dylan Sampson (RB): conflicted_intel; synthesis eligible no
+- NE Marcus Bryant (OT): conflicted_intel; synthesis eligible no
   - Classification warning: restrictive_status_vs_return_text
-  - Evidence: Sampson (knee) won't be activated from injured reserve ahead of Sunday's contest against the Ravens, Zac Jackson of The Athletic reports.
+  - Evidence: Bryant (ankle) was a full participant at the Patriots' practice Tuesday.
+- PIT DeShon Elliott (S): conflicted_intel; synthesis eligible no
+  - Classification warning: restrictive_status_vs_return_text
+  - Evidence: Elliott (knee) was a full participant in Wednesday's practice, Teresa Varley of the Steelers' official site reports.
 - LV Dont'e Thornton Jr. (WR): conflicted_intel; synthesis eligible no
   - Classification warning: restrictive_status_vs_return_text
-  - Evidence: Thornton (hamstring) won't be activated from injured reserve for Sunday's game against the Bills, Sam Warren of The Athletic reports.
+  - Evidence: Thornton (hamstring) was a full participant at practice Wednesday.
+- SF Christian Kirk (WR): conflicted_intel; synthesis eligible no
+  - Classification warning: restrictive_status_vs_return_text
+  - Evidence: Kirk (calf) was a full participant in Wednesday's practice, Harrison Rich of the San Francisco Chronicle reports.
+- DET Brian Branch (S): conflicted_intel; synthesis eligible no
+  - Classification warning: restrictive_status_vs_return_text
+  - Evidence: The Lions listed Branch as a full participant on Wednesday's estimated practice report.
+- TB Sean Tucker (RB): conflicted_intel; synthesis eligible no
+  - Classification warning: worsening_label_vs_return_text
+  - Evidence: Tucker (quadriceps) was a full participant at practice Wednesday.
+- SEA Zach Charbonnet (RB): conflicted_intel; synthesis eligible no
+  - Classification warning: restrictive_status_vs_return_text
+  - Evidence: Charbonnet (knee) was a full participant at Wednesday's practice, Corbin K. Smith of EmeraldCitySpectrum.com reports.
+- ATL Kendal Daniels (LB): conflicted_intel; synthesis eligible no
+  - Classification warning: worsening_label_vs_return_text
+  - Evidence: Daniels (neck) was a full participant in Wednesday's practice, Will McFadden of the Falcons' official site reports.
 - GB Micah Parsons (DE): needs_confirmation; synthesis eligible no
   - Named review: withheld_pending_confirmation; missing current human-verified PUP, injury, and return-timeline status; source-reconciled starter/role confirmation
   - Evidence: Packers head coach Matt LaFleur said that Parsons (knee) won't practice in Week 7, Weston Hodkiewicz of the team's official site reports. "He has to clear some hurdles yet before we get to that point," LaFleur said.
@@ -39,10 +57,21 @@ Source events: 947 | Digest events: 625 | Starter-matched: 77
   - worsening/ir | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: likely_starter_or_primary, confidence 0.78, sources 1
   - Evidence: Payton is active as the backup to starting quarterback Tanner McKee in Sunday's game against the Panthers.
+- NYG Jameis Winston (QB): negative_availability, score 121
+  - worsening/setback | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
+  - Starter match: likely_starter_or_primary, confidence 0.78, sources 1
+  - Evidence: Winston is in line to serve as the Giants' backup quarterback Sunday against the Texans with the team planning to move forward with J.J. McCarthy as its starter in Week 7, Jeremy Fowler of ESPN.com reports.
+- MIA Malik Willis (QB): positive_availability, score 111
+  - improving/return_to_practice | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
+  - Starter match: starter, confidence 0.95, sources 1
+  - Evidence: Willis was a full participant in Wednesday's practice after being listed on the Dolphins' injury report with a right thumb issue, David Furones of the South Florida Sun Sentinel reports.
 - TB Jalon Daniels (QB): positive_availability, score 111
   - improving/return_to_practice | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
   - Evidence: Daniels completed 22 of 43 passes for 164 yards and one touchdown with two interceptions in Sunday's 26-19 overtime loss to the Steelers. He added 39 rushing yards on four carries.
+- BAL Skylar Thompson (QB): negative_availability, score 108
+  - worsening/ir | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
+  - Evidence: Skylar Thompson IR
 - HOU Graham Mertz (QB): negative_availability, score 108
   - worsening/ir | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Evidence: Graham Mertz IR
@@ -52,9 +81,6 @@ Source events: 947 | Digest events: 625 | Starter-matched: 77
 - LAR Matthew Caldwell (QB): negative_availability, score 108
   - worsening/ir | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Evidence: Matthew Caldwell IR
-- BAL Skylar Thompson (QB): negative_availability, score 108
-  - worsening/ir | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
-  - Evidence: Skylar Thompson IR
 - SEA Anthony Bradford (G): negative_availability, score 104
   - worsening/ir | offensive_line_major | markets wins, division, conference, super_bowl
   - Evidence: Bradford (knee) was designated to return from injured reserve by the Seahawks on Monday, John Boyle of the team's official website reports.
@@ -64,6 +90,14 @@ Source events: 947 | Digest events: 625 | Starter-matched: 77
 - DET Cade Mays (C): negative_availability, score 104
   - worsening/ir | offensive_line_major | markets wins, division, conference, super_bowl
   - Evidence: Mays (wrist) has been ruled out for Sunday's game against the Cardinals.
+- BAL Lamar Jackson (QB): review_context, score 100
+  - stable/limited | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
+  - Starter match: starter, confidence 0.95, sources 1
+  - Evidence: Jackson (ankle) was listed as a limited participant Wednesday.
+- GB Jordan Love (QB): review_context, score 100
+  - stable/limited | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
+  - Starter match: starter, confidence 0.95, sources 1
+  - Evidence: Love was listed as a limited participant on Wednesday's practice estimate due to a back injury, Matt Schneidman of The Athletic reports.
 - WAS Marcus Mariota (QB): negative_availability, score 100
   - worsening/doubtful | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Evidence: doubtful
@@ -74,23 +108,23 @@ Source events: 947 | Digest events: 625 | Starter-matched: 77
 - CLE Kalia Davis (DT): negative_availability, score 100
   - worsening/ir | defensive_front_major | markets wins, division, conference, super_bowl
   - Evidence: Davis (quadriceps) has been ruled out for Sunday's game against the Ravens.
-- ATL Tua Tagovailoa (QB): positive_availability, score 100
-  - improving/return_to_practice | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
-  - Starter match: competition_or_rotation, confidence 0.5, sources 1
-  - Evidence: With Michael Penix (ribs) cleared to play Sunday against the Bears, Tagovailoa will handle backup duties for the Falcons.
-- IND Arden Key (DE): negative_availability, score 100
-  - worsening/ir | defensive_front_major | markets wins, division, conference, super_bowl
-  - Evidence: The Colts placed Key (hamstring) on injured reserve Saturday.
+- LAR Kobie Turner (DE): negative_availability, score 97
+  - worsening/ir | defensive_front_major | markets division, conference, super_bowl
+  - Evidence: The Rams placed Turner (groin) on injured reserve Wednesday.
 - GB Jordon Riley (DT): negative_availability, score 96
   - worsening/out | defensive_front_major | markets wins, division, conference, super_bowl
   - Evidence: Riley (Achilles) had his 21-day practice window opened by the Packers on Wednesday, Mike Spofford of the team's official site reports.
 - KC Jaylon Moore (OT): negative_availability, score 95
   - worsening/setback | offensive_line_major | markets division, conference, super_bowl
   - Evidence: Moore (concussion) has been ruled out for the remainder of Sunday's game against the Chargers.
-- BAL Lamar Jackson (QB): review_context, score 94
+- CAR Bryce Young (QB): review_context, score 94
   - unknown/status_update | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
-  - Evidence: Lamar Jackson UNKNOWN
+  - Evidence: Bryce Young UNKNOWN
+- MIA Malik Willis (QB): review_context, score 94
+  - unknown/status_update | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
+  - Starter match: starter, confidence 0.95, sources 1
+  - Evidence: Malik Willis UNKNOWN
 - NE Drake Maye (QB): review_context, score 94
   - unknown/status_update | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
@@ -99,10 +133,18 @@ Source events: 947 | Digest events: 625 | Starter-matched: 77
   - unknown/status_update | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
   - Evidence: Tyler Shough UNKNOWN
+- NYG J.J. McCarthy (QB): review_context, score 94
+  - stable/limited | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
+  - Starter match: likely_starter_or_primary, confidence 0.7, sources 1
+  - Evidence: McCarthy will start at quarterback in Week 7, coach John Harbaugh confirmed Wednesday.
 - BAL Lamar Jackson (QB): review_context, score 94
   - unknown/status_update | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
-  - Evidence: questionable
+  - Evidence: Lamar Jackson QUESTIONABLE
+- GB Jordan Love (QB): review_context, score 94
+  - unknown/status_update | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
+  - Starter match: starter, confidence 0.95, sources 1
+  - Evidence: Jordan Love QUESTIONABLE
 - WAS Jayden Daniels (QB): review_context, score 93
   - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
@@ -111,10 +153,6 @@ Source events: 947 | Digest events: 625 | Starter-matched: 77
   - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
   - Evidence: Purdy completed 21 of 29 passes for 264 yards with one touchdown and no interceptions while adding five rushes for 28 yards in the 49ers' 23-17 win over the Commanders on Monday night.
-- MIA Malik Willis (QB): review_context, score 93
-  - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
-  - Starter match: starter, confidence 0.95, sources 1
-  - Evidence: Head coach Jeff Hafley said that Willis should be ready to play Sunday against the Jets after tending to a minor undisclosed injury coming out of the Dolphins' Week 5 loss to the Bengals, David Furones of the South Florida Sun Sentinel reports. "I foresee him being good to go," Hafley said.
 - PHI Tanner McKee (QB): review_context, score 93
   - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
@@ -143,10 +181,6 @@ Source events: 947 | Digest events: 625 | Starter-matched: 77
   - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
   - Evidence: Prescott completed 34 of 54 passes for 258 yards, one touchdown and two interceptions in Sunday's 23-13 loss to the Packers. He also rushed twice for seven yards.
-- GB Jordan Love (QB): review_context, score 93
-  - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
-  - Starter match: starter, confidence 0.95, sources 1
-  - Evidence: Love completed 23 of 41 passes for 276 yards, one touchdown and one interception in Sunday's 23-13 win over the Cowboys. He also rushed twice for 14 yards and a touchdown.
 - PIT Aaron Rodgers (QB): review_context, score 93
   - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
@@ -155,56 +189,40 @@ Source events: 947 | Digest events: 625 | Starter-matched: 77
   - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
   - Evidence: Stafford was 25-for-33 passing for 222 yards, two touchdowns and no interceptions during Sunday's 18-16 defeat against the Cardinals.
-- KC Patrick Mahomes (QB): review_context, score 93
-  - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
-  - Starter match: starter, confidence 0.95, sources 1
-  - Evidence: Mahomes completed 23 of 30 passes for 272 yards, no touchdowns and one interception and rushed five times for 16 yards during Sunday's 22-6 win versus the Chargers.
-- LAC Justin Herbert (QB): review_context, score 93
-  - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
-  - Starter match: starter, confidence 0.95, sources 1
-  - Evidence: Herbert completed 22 of 37 passes for 204 yards, no touchdowns and one interception in Sunday's 22-6 loss to the Chiefs. He also rushed five times for 26 yards.
-- NO Tyler Shough (QB): review_context, score 93
-  - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
-  - Starter match: starter, confidence 0.95, sources 1
-  - Evidence: Shough completed 16 of 30 passes for 144 yards and three touchdowns in Sunday's 34-27 win over the Giants. He added 32 yards and a TD on five carries.
-- IND Daniel Jones (QB): review_context, score 93
-  - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
-  - Starter match: starter, confidence 0.95, sources 1
-  - Evidence: Jones completed 22 of 42 passes for 269 yards and a touchdown with two interceptions in Sunday's 26-20 loss to the Titans.
 
 ## Team Digest
 
 | Team | Events | Eligible | Conflicted | Needs Confirmation | Top Score | Worsening | Improving | Starter Matched | QB | OL Worsening | DL Worsening |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| NYG | 22 | 22 | 0 | 0 | 131 | 12 | 0 | 3 | 2 | 0 | 3 |
-| PHI | 26 | 26 | 0 | 0 | 131 | 17 | 1 | 8 | 4 | 2 | 0 |
-| TB | 11 | 11 | 0 | 0 | 111 | 5 | 3 | 1 | 2 | 0 | 0 |
-| BAL | 13 | 13 | 0 | 0 | 108 | 4 | 3 | 2 | 3 | 0 | 0 |
-| HOU | 21 | 21 | 0 | 0 | 108 | 14 | 2 | 2 | 2 | 0 | 4 |
-| LAC | 23 | 23 | 0 | 0 | 108 | 9 | 1 | 3 | 2 | 0 | 0 |
-| LAR | 23 | 23 | 0 | 0 | 108 | 18 | 1 | 1 | 2 | 0 | 8 |
-| DET | 20 | 20 | 0 | 0 | 104 | 15 | 1 | 2 | 1 | 2 | 1 |
-| SEA | 17 | 17 | 0 | 0 | 104 | 10 | 3 | 1 | 0 | 1 | 0 |
-| ATL | 21 | 21 | 0 | 0 | 100 | 12 | 3 | 3 | 2 | 0 | 4 |
-| CHI | 26 | 26 | 0 | 0 | 100 | 13 | 6 | 3 | 2 | 0 | 5 |
-| CLE | 22 | 21 | 1 | 0 | 100 | 8 | 3 | 3 | 0 | 0 | 2 |
-| IND | 22 | 22 | 0 | 0 | 100 | 9 | 3 | 5 | 1 | 0 | 3 |
-| WAS | 22 | 22 | 0 | 0 | 100 | 12 | 4 | 3 | 2 | 0 | 2 |
-| GB | 25 | 23 | 0 | 2 | 96 | 15 | 1 | 3 | 2 | 0 | 6 |
-| KC | 19 | 19 | 0 | 0 | 95 | 11 | 2 | 2 | 1 | 1 | 2 |
-| NE | 30 | 30 | 0 | 0 | 94 | 14 | 2 | 3 | 2 | 2 | 1 |
-| NO | 19 | 19 | 0 | 0 | 94 | 8 | 3 | 2 | 2 | 0 | 1 |
-| BUF | 18 | 18 | 0 | 0 | 93 | 7 | 2 | 1 | 1 | 0 | 1 |
-| CAR | 23 | 23 | 0 | 0 | 93 | 16 | 3 | 2 | 1 | 1 | 4 |
-| CIN | 12 | 12 | 0 | 0 | 93 | 7 | 1 | 2 | 1 | 0 | 0 |
-| DAL | 15 | 15 | 0 | 0 | 93 | 8 | 1 | 2 | 1 | 0 | 2 |
-| DEN | 11 | 11 | 0 | 0 | 93 | 8 | 0 | 2 | 1 | 0 | 1 |
-| MIA | 24 | 24 | 0 | 0 | 93 | 9 | 2 | 2 | 1 | 0 | 2 |
-| NYJ | 22 | 22 | 0 | 0 | 93 | 13 | 2 | 4 | 1 | 0 | 3 |
-| PIT | 15 | 15 | 0 | 0 | 93 | 11 | 0 | 2 | 1 | 0 | 2 |
-| SF | 27 | 27 | 0 | 0 | 93 | 19 | 1 | 2 | 1 | 0 | 3 |
-| TEN | 18 | 18 | 0 | 0 | 93 | 10 | 4 | 2 | 1 | 0 | 2 |
-| MIN | 17 | 17 | 0 | 0 | 90 | 7 | 3 | 1 | 0 | 1 | 1 |
-| ARI | 17 | 17 | 0 | 0 | 86 | 10 | 1 | 2 | 0 | 0 | 1 |
+| NYG | 34 | 34 | 0 | 0 | 131 | 14 | 1 | 4 | 3 | 0 | 3 |
+| PHI | 27 | 27 | 0 | 0 | 131 | 16 | 1 | 8 | 4 | 2 | 0 |
+| MIA | 30 | 30 | 0 | 0 | 111 | 9 | 3 | 3 | 2 | 0 | 2 |
+| TB | 17 | 16 | 1 | 0 | 111 | 5 | 2 | 1 | 1 | 0 | 0 |
+| BAL | 22 | 22 | 0 | 0 | 108 | 4 | 2 | 2 | 3 | 0 | 0 |
+| HOU | 33 | 33 | 0 | 0 | 108 | 15 | 0 | 2 | 2 | 0 | 4 |
+| LAC | 22 | 22 | 0 | 0 | 108 | 9 | 0 | 3 | 2 | 0 | 0 |
+| LAR | 25 | 25 | 0 | 0 | 108 | 20 | 1 | 1 | 2 | 0 | 8 |
+| DET | 21 | 20 | 1 | 0 | 104 | 14 | 1 | 2 | 1 | 2 | 1 |
+| SEA | 25 | 24 | 1 | 0 | 104 | 9 | 2 | 2 | 2 | 1 | 0 |
+| CHI | 28 | 28 | 0 | 0 | 100 | 19 | 5 | 3 | 2 | 0 | 5 |
+| CLE | 34 | 34 | 0 | 0 | 100 | 10 | 2 | 2 | 0 | 0 | 2 |
+| GB | 38 | 36 | 0 | 2 | 100 | 15 | 0 | 4 | 2 | 0 | 6 |
+| WAS | 21 | 20 | 0 | 0 | 100 | 11 | 4 | 2 | 2 | 0 | 2 |
+| KC | 22 | 22 | 0 | 0 | 95 | 11 | 1 | 2 | 1 | 1 | 2 |
+| CAR | 26 | 26 | 0 | 0 | 94 | 16 | 4 | 4 | 2 | 1 | 5 |
+| NE | 35 | 34 | 1 | 0 | 94 | 19 | 1 | 3 | 2 | 2 | 1 |
+| NO | 25 | 25 | 0 | 0 | 94 | 8 | 4 | 2 | 2 | 0 | 1 |
+| BUF | 20 | 20 | 0 | 0 | 93 | 9 | 2 | 1 | 1 | 0 | 1 |
+| CIN | 14 | 14 | 0 | 0 | 93 | 7 | 1 | 3 | 1 | 0 | 0 |
+| DAL | 16 | 16 | 0 | 0 | 93 | 8 | 1 | 3 | 1 | 0 | 2 |
+| DEN | 16 | 16 | 0 | 0 | 93 | 7 | 0 | 3 | 1 | 0 | 1 |
+| IND | 33 | 33 | 0 | 0 | 93 | 10 | 2 | 5 | 1 | 0 | 2 |
+| NYJ | 29 | 29 | 0 | 0 | 93 | 16 | 2 | 4 | 1 | 0 | 4 |
+| PIT | 21 | 20 | 1 | 0 | 93 | 8 | 0 | 1 | 1 | 0 | 2 |
+| SF | 26 | 25 | 1 | 0 | 93 | 18 | 2 | 1 | 1 | 0 | 4 |
+| TEN | 21 | 21 | 0 | 0 | 93 | 10 | 3 | 2 | 1 | 0 | 2 |
+| MIN | 18 | 18 | 0 | 0 | 90 | 7 | 3 | 0 | 0 | 1 | 1 |
+| ARI | 28 | 28 | 0 | 0 | 86 | 9 | 2 | 0 | 2 | 0 | 1 |
+| ATL | 34 | 33 | 1 | 0 | 86 | 12 | 0 | 3 | 1 | 0 | 4 |
 | JAX | 11 | 11 | 0 | 0 | 86 | 6 | 1 | 1 | 0 | 1 | 1 |
-| LV | 13 | 12 | 1 | 0 | 86 | 7 | 1 | 2 | 0 | 0 | 1 |
+| LV | 22 | 21 | 1 | 0 | 86 | 7 | 1 | 2 | 0 | 0 | 1 |

@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T23:12:45.597Z",
+  "built_at": "2026-10-22T01:22:06.202Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "297ffcf",
+  "git_head": "3d58678",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-17T02:04:07.188Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 6,
-      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
+      "generated_at": "2026-10-20T23:48:44.521Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "649835539e56e244ba5d0abfd8ad9610f6b8e54d228f740d0cbdbce9fa761902",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -946,311 +946,10 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 6,
-      "status": "stale_prior_week_matchups",
-      "entries": [
-        {
-          "id": "sec_607aaea3f178b4c5",
-          "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_LAC_at_KC",
-          "kickoff_utc": "2026-10-18T20:25:00.000Z",
-          "offense_team": "LAC",
-          "offense_team_nick": "Chargers",
-          "defense_team": "KC",
-          "defense_team_nick": "Chiefs",
-          "offense_venue": "away",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "match_zone",
-              "blitz_heavy",
-              "two_high"
-            ],
-            "primary_coverage_family": "match_zone",
-            "pressure_profile": "aggressive",
-            "confidence": 0.85,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Steve Spagnuolo intricate blitz packages and post-snap rotation around Trent McDuffie."
-          },
-          "secondary_absences": [],
-          "weakness_tags": [
-            "hot_read_boost",
-            "inside_seam_boost",
-            "post_cross_boost",
-            "slot_wr_boost",
-            "underneath_volume_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Ladd McConkey",
-              "team": "LAC",
-              "roles": [
-                "slot",
-                "alpha_x"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "slot",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost",
-                "inside_seam_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 4.5,
-              "notes": "LAC Rookie Target Leader.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "questionable"
-            },
-            {
-              "player_name": "Charlie Kolar",
-              "team": "LAC",
-              "roles": [
-                "te_middle"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle"
-              ],
-              "matched_weakness_tags": [
-                "inside_seam_boost"
-              ],
-              "opportunity_score": 0.8,
-              "notes": "LAC TE1 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Quentin Johnston",
-              "team": "LAC",
-              "roles": [
-                "alpha_x",
-                "field_stretcher"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "boundary",
-                "deep"
-              ],
-              "matched_weakness_tags": [
-                "post_cross_boost"
-              ],
-              "opportunity_score": 0.8,
-              "notes": "LAC 1st Round WR.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            }
-          ],
-          "severity_score": 0,
-          "elite_absence_count": 0,
-          "vulnerability_tier": "low",
-          "confidence": 0.67,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true,
-          "excluded_unavailable": []
-        },
-        {
-          "id": "sec_46a2f37b5ef34ceb",
-          "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_LAC_at_KC",
-          "kickoff_utc": "2026-10-18T20:25:00.000Z",
-          "offense_team": "KC",
-          "offense_team_nick": "Chiefs",
-          "defense_team": "LAC",
-          "defense_team_nick": "Chargers",
-          "offense_venue": "home",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "match_zone",
-              "two_high",
-              "quarters"
-            ],
-            "primary_coverage_family": "match_zone",
-            "pressure_profile": "coverage_first",
-            "confidence": 0.78,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Jesse Minter Ravens-style match zone structure with Derwin James in hybrid role."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Rodney Shelley",
-              "team": "LAC",
-              "position": "CB",
-              "event_type": "doubtful",
-              "availability_trend": "worsening",
-              "summary": "Shelley (hamstring) is listed as doubtful for Sunday's game against the Chiefs.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:35:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 0.9,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Derwin James Jr.",
-              "team": "LAC",
-              "position": "S",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "James (hamstring) has been ruled out for Sunday's game against the Chiefs.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:29:00.000Z",
-              "role": "hybrid_safety",
-              "side": "middle",
-              "impact_tier": "elite",
-              "primary_receiver_archetypes_impacted": [
-                "te_middle",
-                "slot"
-              ],
-              "weakness_tags": [
-                "te_middle_boost",
-                "slot_wr_boost",
-                "deep_pass_boost"
-              ],
-              "severity_score": 3.6,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Donte Jackson",
-              "team": "LAC",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Jackson (hamstring) has been ruled out ahead of Sunday's game against the Chiefs.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:24:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "z_receiver"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 1.8,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "boundary_wr_boost",
-            "deep_pass_boost",
-            "inside_seam_boost",
-            "outside_wr_boost",
-            "post_cross_boost",
-            "slot_wr_boost",
-            "te_middle_boost",
-            "underneath_volume_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Xavier Worthy",
-              "team": "KC",
-              "roles": [
-                "z_receiver",
-                "field_stretcher"
-              ],
-              "target_share_tier": "high",
-              "route_area_tags": [
-                "deep",
-                "boundary"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 3.6,
-              "notes": "KC 4.21 Speed 1st Rounder.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Travis Kelce",
-              "team": "KC",
-              "roles": [
-                "te_middle",
-                "red_zone"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "middle",
-                "intermediate",
-                "red_zone"
-              ],
-              "matched_weakness_tags": [
-                "te_middle_boost",
-                "inside_seam_boost"
-              ],
-              "opportunity_score": 3,
-              "notes": "KC All-Pro Future HOF TE.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Jalen Royals",
-              "team": "KC",
-              "roles": [
-                "slot"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle",
-                "short"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost",
-                "inside_seam_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "KC WR3 per ESPN depth chart 2026-10-14; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
-            }
-          ],
-          "severity_score": 6.3,
-          "elite_absence_count": 1,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true,
-          "excluded_unavailable": []
-        }
-      ],
-      "note": "Entries pertain to the source week, not the target week."
+      "source_week": 7,
+      "status": "current",
+      "entries": null,
+      "note": "No team-keyed entries found in source structure; see raw file."
     }
   },
   "availability": {
@@ -1260,19 +959,19 @@
       "source": "data/generated/master-intel/w07-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
-      "roster_age_h_at_vet": 0.2,
+      "roster_snapshot_generated_at": "2026-10-22T01:21:24.521422+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-20T22:47:55Z",
-      "availability_events": "2026-10-20T23:12:31.816Z",
-      "impact_digest": "2026-10-20T23:12:42.057Z",
-      "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+      "espn_status": "2026-10-22T01:21:31Z",
+      "availability_events": "2026-10-22T01:21:47.882Z",
+      "impact_digest": "2026-10-22T01:21:56.859Z",
+      "projected_starters": "2026-10-21T22:00:03.496Z",
+      "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1435,7 +1134,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "David Njoku IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1451,7 +1150,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Denzel Perryman IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1467,7 +1166,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Alec Ingold IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1483,7 +1182,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Trey Lance IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1491,6 +1190,22 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "KeAndre Lambert-Smith",
+          "position": "WR",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-21T01:09:00.000Z",
+          "summary": "Lambert-Smith caught five of nine targets for 32 yards during Sunday's 22-6 loss at Kansas City. He also lost a fumble.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
         },
         {
           "player_name": "Rodney Shelley",
@@ -1603,22 +1318,6 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
-        },
-        {
-          "player_name": "Cameron Dicker",
-          "position": "PK",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-20T03:01:00.000Z",
-          "summary": "Dicker made both of his field-goal attempts in the Chargers' 22-6 loss to the Chiefs on Sunday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
         }
       ]
     },
@@ -1661,7 +1360,7 @@
         "score": 89,
         "signal": "negative_availability",
         "source": "FantasyPros injuries API",
-        "published_at": "2026-10-20T23:00:02.000Z",
+        "published_at": "2026-10-22T01:17:03.000Z",
         "summary": "David Njoku IR",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
@@ -1695,15 +1394,13 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-20T18:23:03.995Z",
+      "as_of": "2026-10-21T22:00:03.496Z",
       "known": [
         "Justin Herbert QB",
         "Omarion Hampton RB",
         "David Njoku TE"
       ],
-      "estimated": [
-        "Jake Browning QB"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -1734,15 +1431,6 @@
           "starter_confidence": 0.7,
           "roster_confidence": 0.8,
           "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player_name": "Jake Browning",
-          "position": "QB",
-          "unit": "offense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "roster_check": "practice_squad"
         }
       ]
     },
@@ -1994,18 +1682,18 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-11-03T18:43:44.785Z",
-        "secondary-matchup source week 6"
+        "secondary-matchup source week 7"
       ]
     },
     "availability": {
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-20T22:47:55Z",
-        "availability_events": "2026-10-20T23:12:31.816Z",
-        "impact_digest": "2026-10-20T23:12:42.057Z",
-        "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+        "espn_status": "2026-10-22T01:21:31Z",
+        "availability_events": "2026-10-22T01:21:47.882Z",
+        "impact_digest": "2026-10-22T01:21:56.859Z",
+        "projected_starters": "2026-10-21T22:00:03.496Z",
+        "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],

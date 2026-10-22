@@ -1,5 +1,5 @@
 # CLE Browns — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:12:45.161Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T01:22:05.756Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -44,17 +44,17 @@ SRS -0.87 (#20) · net PPG -3.8 (#25) · Pythag 0.392 (#25) · model rank #25
 
 ## Scheme context (historical_context_only; historical context only, stale after 2026-11-03T18:43:44.785Z)
 HC Todd Monken · neutral pass rate 0.562 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
-Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See CLE.json → scheme_context.secondary_matchup.
+Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See CLE.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Deshaun Watson [ok]
-Out/IR: Kalia Davis DT Injured Reserve; Dylan Sampson RB Injured Reserve
-Questionable/Doubtful: Quinshon Judkins RB Questionable; Mason Graham DT Questionable; Mike Hall Jr. DT Questionable; Teven Jenkins G Questionable; Justin Jefferson LB Questionable; Grant Delpit S Questionable
+Out/IR: Dylan Sampson RB Injured Reserve; Kalia Davis DT Injured Reserve
+Questionable/Doubtful: Carson Schwesinger LB Questionable; KC Concepcion WR Questionable; Denzel Boston WR Questionable; Quinshon Judkins RB Questionable; Elgton Jenkins C Questionable; Tytus Howard OT Questionable (+6 more)
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 8 players; skill: Dillon Gabriel QB; Joe Royer TE; Raheim Sanders RB
-OL/DL cluster risk (derived): OL none, DL watch
-Impact digest (top by score): Audric Estime RB return_to_practice/improving; Quinshon Judkins RB status_update/unknown; Quinshon Judkins RB status_update/unknown
-Projected starters: manual_and_estimated_signals, 2 players
+OL/DL cluster risk (derived): OL watch, DL watch
+Impact digest (top by score): Quinshon Judkins RB limited/stable; Quinshon Judkins RB status_update/unknown
+Projected starters: manual_and_estimated_signals, 1 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 5-12 · diff -100 · Pythag 0.326 · SRS #29 · EPA off #31 def #4 · DVOA -32.7 (#31) off -34 def -9.7

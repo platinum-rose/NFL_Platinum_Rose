@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T23:12:44.893Z",
+  "built_at": "2026-10-22T01:22:05.505Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "297ffcf",
+  "git_head": "3d58678",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-17T02:04:07.188Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 6,
-      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
+      "generated_at": "2026-10-20T23:48:44.521Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "649835539e56e244ba5d0abfd8ad9610f6b8e54d228f740d0cbdbce9fa761902",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -948,17 +948,17 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 6,
-      "status": "stale_prior_week_matchups",
+      "source_week": 7,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_270bc8d235298e05",
+          "id": "sec_1005178769ae726f",
           "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_CHI_at_ATL",
-          "kickoff_utc": "2026-10-18T17:00:00.000Z",
-          "offense_team": "CHI",
-          "offense_team_nick": "Bears",
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_SF_at_ATL",
+          "kickoff_utc": "2026-10-25T17:00:00.000Z",
+          "offense_team": "SF",
+          "offense_team_nick": "49ers",
           "defense_team": "ATL",
           "defense_team_nick": "Falcons",
           "offense_venue": "away",
@@ -986,7 +986,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-17T01:50:02.000Z",
+              "published_at": "2026-10-21T06:20:01.000Z",
               "role": "outside_cb1",
               "side": "boundary",
               "impact_tier": "elite",
@@ -1000,33 +1000,6 @@
                 "boundary_wr_boost"
               ],
               "severity_score": 4.05,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "C.J. Henderson",
-              "team": "ATL",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Henderson (groin) has been ruled out for Sunday's game against the Bears, Tori McElhaney of the Falcons' official site reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T00:22:00.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "alpha_x"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost",
-                "alpha_wr_boost"
-              ],
-              "severity_score": 1.8,
               "needs_human_review": true
             }
           ],
@@ -1042,30 +1015,59 @@
           ],
           "target_receivers": [
             {
-              "player_name": "Cole Kmet",
-              "team": "CHI",
+              "player_name": "Mike Evans",
+              "team": "SF",
               "roles": [
-                "te_middle",
+                "alpha_x",
+                "field_stretcher",
                 "red_zone"
               ],
-              "target_share_tier": "medium",
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "boundary",
+                "deep",
+                "red_zone"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "alpha_wr_boost",
+                "boundary_wr_boost",
+                "post_cross_boost",
+                "te_middle_boost"
+              ],
+              "opportunity_score": 7.5,
+              "notes": "TB 1,000-yard Streak HOF WR. [moved from TB per ESPN roster 2026-09-27]",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "questionable"
+            },
+            {
+              "player_name": "George Kittle",
+              "team": "SF",
+              "roles": [
+                "te_middle",
+                "field_stretcher",
+                "red_zone"
+              ],
+              "target_share_tier": "alpha",
               "route_area_tags": [
                 "middle",
+                "deep",
                 "red_zone"
               ],
               "matched_weakness_tags": [
                 "te_middle_boost",
                 "inside_seam_boost",
+                "post_cross_boost",
                 "alpha_wr_boost"
               ],
-              "opportunity_score": 2.4,
-              "notes": "CHI TE.",
+              "opportunity_score": 6,
+              "notes": "SF All-Pro YAC Monster.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
             },
             {
-              "player_name": "Kalif Raymond",
-              "team": "CHI",
+              "player_name": "Brandin Cooks",
+              "team": "SF",
               "roles": [
                 "slot"
               ],
@@ -1080,74 +1082,36 @@
                 "underneath_volume_boost"
               ],
               "opportunity_score": 2.4,
-              "notes": "CHI WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "notes": "SF WR3 per ESPN depth chart 2026-10-02; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
               "availability_flag": "none"
             },
             {
-              "player_name": "Rome Odunze",
-              "team": "CHI",
+              "player_name": "Jacob Cowing",
+              "team": "SF",
               "roles": [
-                "z_receiver",
-                "field_stretcher"
+                "slot"
               ],
-              "target_share_tier": "high",
+              "target_share_tier": "medium",
               "route_area_tags": [
-                "deep",
-                "boundary"
+                "middle",
+                "short"
               ],
               "matched_weakness_tags": [
-                "outside_wr_boost",
-                "post_cross_boost"
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
               ],
               "opportunity_score": 2.4,
-              "notes": "CHI Rookie 1st Round WR.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Colston Loveland",
-              "team": "CHI",
-              "roles": [
-                "te_middle"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle"
-              ],
-              "matched_weakness_tags": [
-                "te_middle_boost",
-                "inside_seam_boost"
-              ],
-              "opportunity_score": 1.6,
-              "notes": "CHI TE1 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Luther Burden III",
-              "team": "CHI",
-              "roles": [
-                "z_receiver"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "boundary"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 1.6,
-              "notes": "CHI WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+              "notes": "SF WR3 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
               "availability_flag": "none"
             }
           ],
-          "severity_score": 5.85,
+          "severity_score": 4.05,
           "elite_absence_count": 1,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
+          "vulnerability_tier": "medium",
+          "confidence": 0.9,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1160,40 +1124,41 @@
           "excluded_unavailable": []
         },
         {
-          "id": "sec_28d36dd1e1810244",
+          "id": "sec_c7693386ff9da8ee",
           "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_CHI_at_ATL",
-          "kickoff_utc": "2026-10-18T17:00:00.000Z",
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_SF_at_ATL",
+          "kickoff_utc": "2026-10-25T17:00:00.000Z",
           "offense_team": "ATL",
           "offense_team_nick": "Falcons",
-          "defense_team": "CHI",
-          "defense_team_nick": "Bears",
+          "defense_team": "SF",
+          "defense_team_nick": "49ers",
           "offense_venue": "home",
           "coverage_scheme": {
             "scheme_tags": [
               "zone_heavy",
-              "two_high"
+              "two_high",
+              "quarters"
             ],
-            "primary_coverage_family": "cover_2_two_high",
+            "primary_coverage_family": "zone_heavy",
             "pressure_profile": "front_dependent",
-            "confidence": 0.75,
+            "confidence": 0.85,
             "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Eberflus Tampa 2 / Cover 4 hybrid shell relying on Jaylon Johnson lock down."
+            "notes": "Nick Sorensen 4-3 Cover 3/Cover 4 zone shell anchored by Charvarius Ward and Fred Warner."
           },
           "secondary_absences": [
             {
-              "player_name": "Coby Bryant",
-              "team": "CHI",
-              "position": "CB",
+              "player_name": "Darrick Forrest",
+              "team": "SF",
+              "position": "S",
               "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Coby Bryant IR",
+              "summary": "Darrick Forrest IR",
               "source": "FantasyPros injuries API",
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-17T01:50:02.000Z",
+              "published_at": "2026-10-21T06:20:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1203,17 +1168,17 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Anthony Johnson Jr.",
-              "team": "CHI",
-              "position": "S",
+              "player_name": "Nate Hobbs",
+              "team": "SF",
+              "position": "CB",
               "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "ir",
-              "source": "ESPN injuries API",
+              "summary": "Nate Hobbs IR",
+              "source": "FantasyPros injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-17T01:01:00.000Z",
+              "published_at": "2026-10-21T06:20:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1223,20 +1188,20 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Kyler Gordon",
-              "team": "CHI",
+              "player_name": "Upton Stout",
+              "team": "SF",
               "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "Gordon (calf) is listed as questionable for Sunday's game against the Falcons.",
+              "event_type": "limited",
+              "availability_trend": "stable",
+              "summary": "Stout (shoulder) is active for Monday night's game against the Commanders, Brooke Evans reports.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
                 "ESPN injuries API"
               ],
-              "published_at": "2026-10-17T01:01:00.000Z",
+              "published_at": "2026-10-19T23:09:00.000Z",
               "role": "slot_cb",
               "side": "slot",
-              "impact_tier": "plus",
+              "impact_tier": "starter",
               "primary_receiver_archetypes_impacted": [
                 "slot"
               ],
@@ -1244,13 +1209,14 @@
                 "slot_wr_boost",
                 "inside_seam_boost"
               ],
-              "severity_score": 2.7,
+              "severity_score": 0.83,
               "needs_human_review": true
             }
           ],
           "weakness_tags": [
             "inside_seam_boost",
             "slot_wr_boost",
+            "te_middle_boost",
             "underneath_volume_boost"
           ],
           "target_receivers": [
@@ -1277,6 +1243,27 @@
               "availability_flag": "none"
             },
             {
+              "player_name": "Kyle Pitts",
+              "team": "ATL",
+              "roles": [
+                "te_middle",
+                "field_stretcher"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "middle",
+                "deep"
+              ],
+              "matched_weakness_tags": [
+                "te_middle_boost",
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "ATL Hybrid TE.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            },
+            {
               "player_name": "Olamide Zaccheaus",
               "team": "ATL",
               "roles": [
@@ -1295,33 +1282,34 @@
               "opportunity_score": 2.4,
               "notes": "ATL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
+              "availability_flag": "questionable"
             },
             {
-              "player_name": "Kyle Pitts",
+              "player_name": "Drake London",
               "team": "ATL",
               "roles": [
-                "te_middle",
-                "field_stretcher"
+                "alpha_x",
+                "red_zone"
               ],
-              "target_share_tier": "high",
+              "target_share_tier": "alpha",
               "route_area_tags": [
-                "middle",
-                "deep"
+                "boundary",
+                "intermediate",
+                "red_zone"
               ],
               "matched_weakness_tags": [
-                "inside_seam_boost"
+                "te_middle_boost"
               ],
-              "opportunity_score": 1.2,
-              "notes": "ATL Hybrid TE.",
+              "opportunity_score": 1.5,
+              "notes": "ATL WR1 Alpha.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
             }
           ],
-          "severity_score": 5.4,
-          "elite_absence_count": 1,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
+          "severity_score": 3.53,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "medium",
+          "confidence": 0.92,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1344,19 +1332,19 @@
       "source": "data/generated/master-intel/w07-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
-      "roster_age_h_at_vet": 0.2,
+      "roster_snapshot_generated_at": "2026-10-22T01:21:24.521422+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-20T22:47:55Z",
-      "availability_events": "2026-10-20T23:12:31.816Z",
-      "impact_digest": "2026-10-20T23:12:42.057Z",
-      "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+      "espn_status": "2026-10-22T01:21:31Z",
+      "availability_events": "2026-10-22T01:21:47.882Z",
+      "impact_digest": "2026-10-22T01:21:56.859Z",
+      "projected_starters": "2026-10-21T22:00:03.496Z",
+      "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1371,22 +1359,79 @@
       "operator_confirmed": null
     },
     "reported_injuries": {
-      "out_ir": [],
+      "out_ir": [
+        {
+          "player": "A.J. Terrell Jr.",
+          "pos": "CB",
+          "status": "Injured Reserve",
+          "date": "2026-10-22",
+          "comment": "Terrell (groin) was a limited participant at the Falcons' practice Wednesday, Daniel Flick of The Atlanta Journal-Constitution reports.",
+          "roster_check": "roster_ir_out_group"
+        }
+      ],
       "questionable_doubtful": [
         {
           "player": "C.J. Henderson",
           "pos": "CB",
           "status": "Questionable",
-          "date": "2026-10-20",
+          "date": "2026-10-22",
+          "comment": "Henderson (groin) was a limited participant at the Falcons' practice Wednesday, Daniel Flick of The Atlanta Journal-Constitution reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Divine Deablo",
+          "pos": "LB",
+          "status": "Questionable",
+          "date": "2026-10-22",
+          "comment": "Deablo (arm) did not participate at the Falcons' practice Wednesday, Daniel Flick of The Atlanta Journal-Constitution reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Olamide Zaccheaus",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-22",
+          "comment": "Zaccheaus (shoulder) was a limited participant at the Falcons' practice Wednesday, Daniel Flick of The Atlanta Journal-Constitution reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Brian Robinson Jr.",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "Robinson (hamstring) was a limited participant during Wednesday's practice, Daniel Flick of The Atlanta Journal-Constitution reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Za'Darius Smith",
+          "pos": "DE",
+          "status": "Questionable",
+          "date": "2026-10-21",
           "comment": "questionable",
           "roster_check": "ok"
         },
         {
-          "player": "Kendal Daniels",
-          "pos": "LB",
+          "player": "Avieon Terrell",
+          "pos": "CB",
           "status": "Questionable",
-          "date": "2026-10-18",
-          "comment": "The Falcons announced after Sunday's 31-23 loss to the Bears that Daniels (neck) was alert and had movement in all his extremities after being carted off the fi",
+          "date": "2026-10-21",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Michael Jerrell",
+          "pos": "OT",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Samson Ebukam",
+          "pos": "DE",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "questionable",
           "roster_check": "ok"
         },
         {
@@ -1396,25 +1441,12 @@
           "date": "2026-10-18",
           "comment": "Bowman (hamstring) is doubtful to return to Sunday's game against Atlanta, William McFadden of the Falcons' official site reports.",
           "roster_check": "ok"
-        },
-        {
-          "player": "Divine Deablo",
-          "pos": "LB",
-          "status": "Questionable",
-          "date": "2026-10-18",
-          "comment": "Deablo (arm) has been ruled out for the remainder of Sunday's game against the Bears, William McFadden of the Falcons' official site reports.",
-          "roster_check": "ok"
         }
       ],
       "other": []
     },
     "operator_reported": [],
     "roster_ir_out_unconfirmed": [
-      {
-        "player": "A.J. Terrell Jr.",
-        "pos": "CB",
-        "roster_status": "day-to-day"
-      },
       {
         "player": "Anterio Thompson",
         "pos": "DT",
@@ -1459,17 +1491,22 @@
     "ol_dl_cluster_risk": {
       "ol": {
         "hard_or_doubtful": 0,
-        "questionable": 0,
+        "questionable": 1,
         "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": []
+        "players": [
+          "Michael Jerrell OT Questionable"
+        ]
       },
       "dl": {
         "hard_or_doubtful": 0,
-        "questionable": 0,
-        "risk": "none",
+        "questionable": 2,
+        "risk": "watch",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": []
+        "players": [
+          "Za'Darius Smith DE Questionable",
+          "Samson Ebukam DE Questionable"
+        ]
       }
     },
     "live_events": {
@@ -1482,7 +1519,7 @@
           "availability_trend": "worsening",
           "event_type": "suspension",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "James Pearce Jr. SUSPENSION",
           "practice": [],
           "probability_of_playing": null,
@@ -1492,46 +1529,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "DeAngelo Malone",
-          "position": "DE",
-          "normalized_status": "PUP",
-          "availability_trend": "worsening",
-          "event_type": "pup",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
-          "summary": "DeAngelo Malone PUP",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
-        },
-        {
           "player_name": "Da'Shawn Hand",
           "position": "DT",
           "normalized_status": "IR",
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Da'Shawn Hand IR",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player_name": "A.J. Terrell Jr.",
-          "position": "CB",
-          "normalized_status": "IR",
-          "availability_trend": "worsening",
-          "event_type": "ir",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
-          "summary": "A.J. Terrell Jr. IR",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1546,8 +1551,24 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Trey Sermon IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "DeAngelo Malone",
+          "position": "DE",
+          "normalized_status": "PUP",
+          "availability_trend": "worsening",
+          "event_type": "pup",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-22T01:17:03.000Z",
+          "summary": "DeAngelo Malone PUP",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1562,7 +1583,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Yasir Abdullah IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1578,7 +1599,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "JD Bertrand IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1594,7 +1615,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Jalon Walker IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1610,8 +1631,24 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Anterio Thompson IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "A.J. Terrell Jr.",
+          "position": "CB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T01:07:00.000Z",
+          "summary": "Terrell (groin) was a limited participant at the Falcons' practice Wednesday, Daniel Flick of The Atlanta Journal-Constitution reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1623,11 +1660,11 @@
           "player_name": "C.J. Henderson",
           "position": "CB",
           "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
+          "availability_trend": "worsening",
+          "event_type": "setback",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
-          "summary": "questionable",
+          "published_at": "2026-10-22T01:01:00.000Z",
+          "summary": "Henderson (groin) was a limited participant at the Falcons' practice Wednesday, Daniel Flick of The Atlanta Journal-Constitution reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1636,14 +1673,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Nick Folk",
-          "position": "PK",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
+          "player_name": "Divine Deablo",
+          "position": "LB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "worsening",
+          "event_type": "setback",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T03:04:00.000Z",
-          "summary": "Folk made his sole PAT in the Falcons' 31-23 loss to the Bears on Sunday.",
+          "published_at": "2026-10-22T00:56:00.000Z",
+          "summary": "Deablo (arm) did not participate at the Falcons' practice Wednesday, Daniel Flick of The Atlanta Journal-Constitution reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1652,14 +1689,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Zachariah Branch",
+          "player_name": "Olamide Zaccheaus",
           "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T02:52:00.000Z",
-          "summary": "Branch caught both of his targets for nine yards while adding 85 yards as a kick returner during Sunday's 31-23 loss to Chicago.",
+          "published_at": "2026-10-22T00:53:00.000Z",
+          "summary": "Zaccheaus (shoulder) was a limited participant at the Falcons' practice Wednesday, Daniel Flick of The Atlanta Journal-Constitution reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1670,29 +1707,6 @@
       ]
     },
     "impact_digest": [
-      {
-        "player_name": "Tua Tagovailoa",
-        "position": "QB",
-        "unit": "quarterback",
-        "event_type": "return_to_practice",
-        "availability_trend": "improving",
-        "impact_bucket": "qb_major",
-        "starter_match": {
-          "role": "competition_or_rotation",
-          "starter_confidence": 0.5,
-          "source_count": 1
-        },
-        "score": 100,
-        "signal": "positive_availability",
-        "source": "ESPN injuries API",
-        "published_at": "2026-10-16T23:22:00.000Z",
-        "summary": "With Michael Penix (ribs) cleared to play Sunday against the Bears, Tagovailoa will handle backup duties for the Falcons.",
-        "classification_warning": null,
-        "evidence_status": "unverified_no_conflict_detected",
-        "synthesis_eligible": true,
-        "needs_human_review": true,
-        "roster_check": "ok"
-      },
       {
         "player_name": "Andy Dalton",
         "position": "QB",
@@ -1708,8 +1722,8 @@
         "score": 80,
         "signal": "review_context",
         "source": "ESPN injuries API",
-        "published_at": "2026-10-19T13:50:00.000Z",
-        "summary": "Dalton agreed to a one-year contract with the Falcons on Monday, Adam Schefter of ESPN reports.",
+        "published_at": "2026-10-21T23:13:00.000Z",
+        "summary": "Head coach Kevin Stefanski said Wednesday that Dalton is in a \"ramp-up period\" and will be inactive for Sunday's game against the 49ers, Tori McElhaney of the F",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1738,15 +1752,39 @@
         "synthesis_eligible": true,
         "needs_human_review": true,
         "roster_check": "ok"
+      },
+      {
+        "player_name": "Charles Snowden",
+        "position": "LB",
+        "unit": "linebacker",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "defensive_major",
+        "starter_match": {
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "source_count": 1
+        },
+        "score": 40,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-21T00:12:00.000Z",
+        "summary": "The Falcons signed Snowden off the Commanders' practice squad to the active roster Tuesday, Josh Kendall of The Athletic reports.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
       }
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-20T18:23:03.995Z",
+      "as_of": "2026-10-21T22:00:03.496Z",
       "known": [
         "Bijan Robinson RB"
       ],
       "estimated": [
+        "Charles Snowden LB",
         "Andy Dalton QB",
         "Tua Tagovailoa QB"
       ],
@@ -1769,6 +1807,15 @@
           "unit": "offense",
           "role": "competition_or_rotation",
           "starter_confidence": 0.5,
+          "roster_confidence": 0.6,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Charles Snowden",
+          "position": "LB",
+          "unit": "defense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
           "roster_confidence": 0.6,
           "roster_check": "ok"
         },
@@ -2010,18 +2057,18 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-11-03T18:43:44.785Z",
-        "secondary-matchup source week 6"
+        "secondary-matchup source week 7"
       ]
     },
     "availability": {
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-20T22:47:55Z",
-        "availability_events": "2026-10-20T23:12:31.816Z",
-        "impact_digest": "2026-10-20T23:12:42.057Z",
-        "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+        "espn_status": "2026-10-22T01:21:31Z",
+        "availability_events": "2026-10-22T01:21:47.882Z",
+        "impact_digest": "2026-10-22T01:21:56.859Z",
+        "projected_starters": "2026-10-21T22:00:03.496Z",
+        "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],

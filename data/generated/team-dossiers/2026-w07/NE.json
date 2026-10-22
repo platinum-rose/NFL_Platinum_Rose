@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T23:12:45.815Z",
+  "built_at": "2026-10-22T01:22:06.422Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "297ffcf",
+  "git_head": "3d58678",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-17T02:04:07.188Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 6,
-      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
+      "generated_at": "2026-10-20T23:48:44.521Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "649835539e56e244ba5d0abfd8ad9610f6b8e54d228f740d0cbdbce9fa761902",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -948,44 +948,44 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 6,
-      "status": "stale_prior_week_matchups",
+      "source_week": 7,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_1dee3757c27c0cda",
+          "id": "sec_09d84591b24f7ae0",
           "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_NYJ_at_NE",
-          "kickoff_utc": "2026-10-18T17:00:00.000Z",
-          "offense_team": "NYJ",
-          "offense_team_nick": "Jets",
-          "defense_team": "NE",
-          "defense_team_nick": "Patriots",
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_NE_at_CHI",
+          "kickoff_utc": "2026-10-23T00:15:00.000Z",
+          "offense_team": "NE",
+          "offense_team_nick": "Patriots",
+          "defense_team": "CHI",
+          "defense_team_nick": "Bears",
           "offense_venue": "away",
           "coverage_scheme": {
             "scheme_tags": [
-              "man_heavy",
-              "single_high"
+              "zone_heavy",
+              "two_high"
             ],
-            "primary_coverage_family": "man_heavy",
-            "pressure_profile": "coverage_first",
+            "primary_coverage_family": "cover_2_two_high",
+            "pressure_profile": "front_dependent",
             "confidence": 0.75,
             "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Jerod Mayo Belichick-lineage press man featuring Christian Gonzalez."
+            "notes": "Eberflus Tampa 2 / Cover 4 hybrid shell relying on Jaylon Johnson lock down."
           },
           "secondary_absences": [
             {
-              "player_name": "Dell Pettus",
-              "team": "NE",
-              "position": "S",
+              "player_name": "Coby Bryant",
+              "team": "CHI",
+              "position": "CB",
               "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Dell Pettus IR",
+              "summary": "Coby Bryant IR",
               "source": "FantasyPros injuries API",
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-17T01:50:03.000Z",
+              "published_at": "2026-10-21T06:20:01.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -995,176 +995,17 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Karon Prunty",
-              "team": "NE",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "out",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-16T20:41:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.2,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Carlton Davis III",
-              "team": "NE",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "out",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-16T20:40:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
-              "impact_tier": "plus",
-              "primary_receiver_archetypes_impacted": [
-                "z_receiver"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 2.7,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "alpha_wr_boost",
-            "boundary_wr_boost",
-            "deep_pass_boost",
-            "outside_wr_boost",
-            "post_cross_boost",
-            "slot_wr_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Garrett Wilson",
-              "team": "NYJ",
-              "roles": [
-                "alpha_x",
-                "slot"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "slot",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost",
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 6,
-              "notes": "NYJ All-Pro Target Monster.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Isaiah Williams",
-              "team": "NYJ",
-              "roles": [
-                "slot"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle",
-                "short"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 0.8,
-              "notes": "NYJ WR3 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Tim Patrick",
-              "team": "NYJ",
-              "roles": [
-                "slot"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle",
-                "short"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 0.8,
-              "notes": "NYJ WR3 per ESPN depth chart 2026-10-14; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "roster_ir_out_unconfirmed"
-            }
-          ],
-          "severity_score": 5.25,
-          "elite_absence_count": 1,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true,
-          "excluded_unavailable": []
-        },
-        {
-          "id": "sec_1e4ac89ef7e06475",
-          "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_NYJ_at_NE",
-          "kickoff_utc": "2026-10-18T17:00:00.000Z",
-          "offense_team": "NE",
-          "offense_team_nick": "Patriots",
-          "defense_team": "NYJ",
-          "defense_team_nick": "Jets",
-          "offense_venue": "home",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "zone_heavy",
-              "two_high",
-              "quarters"
-            ],
-            "primary_coverage_family": "cover_3_zone",
-            "pressure_profile": "front_dependent",
-            "confidence": 0.88,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Robert Saleh elite Cover 3/Quarters zone shell led by Sauce Gardner and DJ Reed."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Tre Brown",
-              "team": "NYJ",
-              "position": "CB",
+              "player_name": "Anthony Johnson Jr.",
+              "team": "CHI",
+              "position": "S",
               "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Tre Brown IR",
-              "source": "FantasyPros injuries API",
+              "summary": "ir",
+              "source": "ESPN injuries API",
               "corroborating_sources": [
-                "FantasyPros injuries API"
+                "ESPN injuries API"
               ],
-              "published_at": "2026-10-17T01:50:03.000Z",
+              "published_at": "2026-10-20T23:01:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1176,7 +1017,6 @@
           ],
           "weakness_tags": [
             "slot_wr_boost",
-            "te_middle_boost",
             "underneath_volume_boost"
           ],
           "target_receivers": [
@@ -1219,10 +1059,146 @@
               "notes": "NE WR3 per ESPN depth chart 2026-10-14; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
               "availability_flag": "none"
+            }
+          ],
+          "severity_score": 2.7,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "medium",
+          "confidence": 0.75,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true,
+          "excluded_unavailable": []
+        },
+        {
+          "id": "sec_d54613ab555a318f",
+          "season": 2026,
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_NE_at_CHI",
+          "kickoff_utc": "2026-10-23T00:15:00.000Z",
+          "offense_team": "CHI",
+          "offense_team_nick": "Bears",
+          "defense_team": "NE",
+          "defense_team_nick": "Patriots",
+          "offense_venue": "home",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "man_heavy",
+              "single_high"
+            ],
+            "primary_coverage_family": "man_heavy",
+            "pressure_profile": "coverage_first",
+            "confidence": 0.75,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Jerod Mayo Belichick-lineage press man featuring Christian Gonzalez."
+          },
+          "secondary_absences": [
+            {
+              "player_name": "Dell Pettus",
+              "team": "NE",
+              "position": "S",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Dell Pettus IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-21T06:20:02.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
             },
             {
-              "player_name": "Hunter Henry",
+              "player_name": "Carlton Davis III",
               "team": "NE",
+              "position": "CB",
+              "event_type": "setback",
+              "availability_trend": "worsening",
+              "summary": "Davis (neck) did not participate in Monday's estimated practice.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-20T00:32:00.000Z",
+              "role": "outside_cb2",
+              "side": "field",
+              "impact_tier": "plus",
+              "primary_receiver_archetypes_impacted": [
+                "z_receiver"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 1.91,
+              "needs_human_review": true
+            }
+          ],
+          "weakness_tags": [
+            "alpha_wr_boost",
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "outside_wr_boost",
+            "post_cross_boost",
+            "slot_wr_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Rome Odunze",
+              "team": "CHI",
+              "roles": [
+                "z_receiver",
+                "field_stretcher"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "deep",
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 3.6,
+              "notes": "CHI Rookie 1st Round WR.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Luther Burden III",
+              "team": "CHI",
+              "roles": [
+                "z_receiver"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "CHI WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Cole Kmet",
+              "team": "CHI",
               "roles": [
                 "te_middle",
                 "red_zone"
@@ -1233,18 +1209,37 @@
                 "red_zone"
               ],
               "matched_weakness_tags": [
-                "te_middle_boost"
+                "alpha_wr_boost"
               ],
               "opportunity_score": 0.8,
-              "notes": "NE Veteran TE.",
+              "notes": "CHI TE.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Kalif Raymond",
+              "team": "CHI",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "short"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost"
+              ],
+              "opportunity_score": 0.8,
+              "notes": "CHI WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
               "availability_flag": "none"
             }
           ],
-          "severity_score": 1.35,
-          "elite_absence_count": 0,
-          "vulnerability_tier": "watch",
-          "confidence": 0.8,
+          "severity_score": 3.26,
+          "elite_absence_count": 1,
+          "vulnerability_tier": "medium",
+          "confidence": 0.87,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1254,14 +1249,7 @@
           ],
           "guardrail": "manual_review_required_not_a_pick",
           "needs_human_review": true,
-          "excluded_unavailable": [
-            {
-              "player_name": "Romeo Doubs",
-              "team": "NE",
-              "availability_flag": "reported_out",
-              "note": "removed from target_receivers at build (operator-reported IR or ESPN-reported Out/IR); seed row kept for his return"
-            }
-          ]
+          "excluded_unavailable": []
         }
       ],
       "note": "Entries pertain to the source week, not the target week."
@@ -1274,19 +1262,19 @@
       "source": "data/generated/master-intel/w07-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
-      "roster_age_h_at_vet": 0.2,
+      "roster_snapshot_generated_at": "2026-10-22T01:21:24.521422+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-20T22:47:55Z",
-      "availability_events": "2026-10-20T23:12:31.816Z",
-      "impact_digest": "2026-10-20T23:12:42.057Z",
-      "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+      "espn_status": "2026-10-22T01:21:31Z",
+      "availability_events": "2026-10-22T01:21:47.882Z",
+      "impact_digest": "2026-10-22T01:21:56.859Z",
+      "projected_starters": "2026-10-21T22:00:03.496Z",
+      "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1303,6 +1291,54 @@
     "reported_injuries": {
       "out_ir": [
         {
+          "player": "Carlton Davis III",
+          "pos": "CB",
+          "status": "Out",
+          "date": "2026-10-21",
+          "comment": "Davis (neck) has been ruled out ahead of Thursday night's game against the Bears.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Channing Canada",
+          "pos": "CB",
+          "status": "Out",
+          "date": "2026-10-21",
+          "comment": "out",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Ben Brown",
+          "pos": "C",
+          "status": "Out",
+          "date": "2026-10-21",
+          "comment": "out",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Alijah Vera-Tucker",
+          "pos": "G",
+          "status": "Out",
+          "date": "2026-10-21",
+          "comment": "out",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Karon Prunty",
+          "pos": "CB",
+          "status": "Out",
+          "date": "2026-10-21",
+          "comment": "out",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Marcus Bryant",
+          "pos": "OT",
+          "status": "Injured Reserve",
+          "date": "2026-10-21",
+          "comment": "Bryant (ankle) was a full participant at the Patriots' practice Tuesday.",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
           "player": "Romeo Doubs",
           "pos": "WR",
           "status": "Injured Reserve",
@@ -1313,67 +1349,35 @@
       ],
       "questionable_doubtful": [
         {
-          "player": "Jeremiah Webb",
-          "pos": "WR",
+          "player": "Christian Elliss",
+          "pos": "LB",
           "status": "Questionable",
-          "date": "2026-10-20",
-          "comment": "questionable",
-          "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player": "A.J. Brown",
-          "pos": "WR",
-          "status": "Questionable",
-          "date": "2026-10-20",
-          "comment": "Brown (ankle) was listed as a limited participant on Tuesday's practice report.",
+          "date": "2026-10-21",
+          "comment": "Elliss (chest) is listed as questionable for Thursday night's game against the Bears.",
           "roster_check": "ok"
         },
         {
-          "player": "Ben Brown",
-          "pos": "C",
-          "status": "Doubtful",
-          "date": "2026-10-20",
-          "comment": "doubtful",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Alijah Vera-Tucker",
-          "pos": "G",
-          "status": "Doubtful",
-          "date": "2026-10-20",
-          "comment": "doubtful",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Karon Prunty",
-          "pos": "CB",
+          "player": "Kevin Byard",
+          "pos": "S",
           "status": "Questionable",
-          "date": "2026-10-20",
-          "comment": "questionable",
+          "date": "2026-10-21",
+          "comment": "Byard (chest) is listed as questionable for Thursday night's game against the Bears.",
           "roster_check": "ok"
         },
         {
-          "player": "Channing Canada",
-          "pos": "CB",
+          "player": "Craig Woodson",
+          "pos": "S",
           "status": "Questionable",
-          "date": "2026-10-20",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Carlton Davis III",
-          "pos": "CB",
-          "status": "Questionable",
-          "date": "2026-10-20",
-          "comment": "Davis (neck) did not participate in Monday's estimated practice.",
+          "date": "2026-10-21",
+          "comment": "Woodson (shoulder) is listed as questionable for Thursday night's game against the Bears.",
           "roster_check": "ok"
         },
         {
           "player": "Morgan Moses",
           "pos": "OT",
           "status": "Questionable",
-          "date": "2026-10-18",
-          "comment": "Moses (ankle) was spotted wearing a walking boot after Sunday's 26-19 win over the Jets, Andrew Callahan of the Boston Herald reports.",
+          "date": "2026-10-21",
+          "comment": "Moses (ankle) was a limited participant at the Patriots' practice Tuesday.",
           "roster_check": "ok"
         }
       ],
@@ -1417,11 +1421,6 @@
         "roster_status": "day-to-day"
       },
       {
-        "player": "Marcus Bryant",
-        "pos": "OT",
-        "roster_status": "day-to-day"
-      },
-      {
         "player": "Mike Onwenu",
         "pos": "G",
         "roster_status": "day-to-day"
@@ -1444,13 +1443,14 @@
     ],
     "ol_dl_cluster_risk": {
       "ol": {
-        "hard_or_doubtful": 2,
+        "hard_or_doubtful": 3,
         "questionable": 1,
         "risk": "cluster",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
-          "Ben Brown C Doubtful",
-          "Alijah Vera-Tucker G Doubtful",
+          "Ben Brown C Out",
+          "Alijah Vera-Tucker G Out",
+          "Marcus Bryant OT Injured Reserve",
           "Morgan Moses OT Questionable"
         ]
       },
@@ -1472,7 +1472,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Romeo Doubs IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1488,7 +1488,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Mack Hollins IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1504,7 +1504,7 @@
           "availability_trend": "worsening",
           "event_type": "pup",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Harold Landry III PUP",
           "practice": [],
           "probability_of_playing": null,
@@ -1520,7 +1520,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Reggie Gilliam IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1536,7 +1536,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Julian Hill IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1552,7 +1552,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Dell Pettus IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1568,7 +1568,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Myles Montgomery IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1584,7 +1584,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Quintayvious Hutchins IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1600,7 +1600,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Khalil Jacobs IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1610,30 +1610,14 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Jeremiah Webb",
-          "position": "WR",
+          "player_name": "Christian Elliss",
+          "position": "LB",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T22:13:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player_name": "A.J. Brown",
-          "position": "WR",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "improving",
-          "event_type": "limited_return",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-20T22:01:00.000Z",
-          "summary": "Brown (ankle) was listed as a limited participant on Tuesday's practice report.",
+          "published_at": "2026-10-21T23:46:00.000Z",
+          "summary": "Elliss (chest) is listed as questionable for Thursday night's game against the Bears.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1642,14 +1626,30 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Ben Brown",
-          "position": "C",
-          "normalized_status": "DOUBTFUL",
-          "availability_trend": "worsening",
-          "event_type": "doubtful",
+          "player_name": "Kevin Byard",
+          "position": "S",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T18:21:00.000Z",
-          "summary": "doubtful",
+          "published_at": "2026-10-21T23:45:00.000Z",
+          "summary": "Byard (chest) is listed as questionable for Thursday night's game against the Bears.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Craig Woodson",
+          "position": "S",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-21T23:36:00.000Z",
+          "summary": "Woodson (shoulder) is listed as questionable for Thursday night's game against the Bears.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1732,7 +1732,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-20T18:23:03.995Z",
+      "as_of": "2026-10-21T22:00:03.496Z",
       "known": [
         "Drake Maye QB",
         "Rhamondre Stevenson RB"
@@ -1989,18 +1989,18 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-11-03T18:43:44.785Z",
-        "secondary-matchup source week 6"
+        "secondary-matchup source week 7"
       ]
     },
     "availability": {
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-20T22:47:55Z",
-        "availability_events": "2026-10-20T23:12:31.816Z",
-        "impact_digest": "2026-10-20T23:12:42.057Z",
-        "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+        "espn_status": "2026-10-22T01:21:31Z",
+        "availability_events": "2026-10-22T01:21:47.882Z",
+        "impact_digest": "2026-10-22T01:21:56.859Z",
+        "projected_starters": "2026-10-21T22:00:03.496Z",
+        "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],

@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T23:12:46.189Z",
+  "built_at": "2026-10-22T01:22:06.860Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "297ffcf",
+  "git_head": "3d58678",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-17T02:04:07.188Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 6,
-      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
+      "generated_at": "2026-10-20T23:48:44.521Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "649835539e56e244ba5d0abfd8ad9610f6b8e54d228f740d0cbdbce9fa761902",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -948,20 +948,209 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 6,
-      "status": "stale_prior_week_matchups",
+      "source_week": 7,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_070a57ce27fa1e39",
+          "id": "sec_3a143c7eabe4bdce",
           "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_PIT_at_TB",
-          "kickoff_utc": "2026-10-18T17:00:00.000Z",
-          "offense_team": "PIT",
-          "offense_team_nick": "Steelers",
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_TB_at_CAR",
+          "kickoff_utc": "2026-10-25T17:00:00.000Z",
+          "offense_team": "TB",
+          "offense_team_nick": "Buccaneers",
+          "defense_team": "CAR",
+          "defense_team_nick": "Panthers",
+          "offense_venue": "away",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "zone_heavy",
+              "single_high"
+            ],
+            "primary_coverage_family": "zone_heavy",
+            "pressure_profile": "passive",
+            "confidence": 0.6,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Ejiro Evero 3-4 base zone scheme funneling passing volume underneath."
+          },
+          "secondary_absences": [
+            {
+              "player_name": "Mike Jackson Sr.",
+              "team": "CAR",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Mike Jackson Sr. IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-21T06:20:01.000Z",
+              "role": "outside_cb2",
+              "side": "field",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "z_receiver"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 2.03,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Jaycee Horn",
+              "team": "CAR",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Jaycee Horn IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-21T06:20:01.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "elite",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "alpha_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 4.05,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Akayleb Evans",
+              "team": "CAR",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Evans recorded 11 total tackles (nine solo) and a pass defensed during Sunday night's 32-26 win over the Lions.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-07T02:31:00.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost",
+                "alpha_wr_boost"
+              ],
+              "severity_score": 2.03,
+              "needs_human_review": true
+            }
+          ],
+          "weakness_tags": [
+            "alpha_wr_boost",
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "outside_wr_boost",
+            "post_cross_boost",
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Emeka Egbuka",
+              "team": "TB",
+              "roles": [
+                "alpha_x"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "boundary",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "alpha_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "opportunity_score": 3.6,
+              "notes": "TB WR1 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "questionable"
+            },
+            {
+              "player_name": "Chris Godwin",
+              "team": "TB",
+              "roles": [
+                "slot",
+                "possession"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "slot",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 3,
+              "notes": "TB Elite Slot WR.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Ted Hurst III",
+              "team": "TB",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "short"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 1.6,
+              "notes": "TB WR3 per ESPN depth chart 2026-10-02; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
+            }
+          ],
+          "severity_score": 8.11,
+          "elite_absence_count": 1,
+          "vulnerability_tier": "high",
+          "confidence": 0.94,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true,
+          "excluded_unavailable": []
+        },
+        {
+          "id": "sec_163c38d7d7e5f2f4",
+          "season": 2026,
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_TB_at_CAR",
+          "kickoff_utc": "2026-10-25T17:00:00.000Z",
+          "offense_team": "CAR",
+          "offense_team_nick": "Panthers",
           "defense_team": "TB",
           "defense_team_nick": "Buccaneers",
-          "offense_venue": "away",
+          "offense_venue": "home",
           "coverage_scheme": {
             "scheme_tags": [
               "zone_heavy",
@@ -986,7 +1175,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-17T01:50:03.000Z",
+              "published_at": "2026-10-21T06:20:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -996,44 +1185,17 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Benjamin Morrison",
-              "team": "TB",
-              "position": "CB",
-              "event_type": "doubtful",
-              "availability_trend": "worsening",
-              "summary": "Morrison (quadriceps) is listed as doubtful for Sunday's game against the Steelers.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:10:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "z_receiver"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
               "player_name": "Antoine Winfield Jr.",
               "team": "TB",
               "position": "S",
-              "event_type": "out",
+              "event_type": "doubtful",
               "availability_trend": "worsening",
-              "summary": "Winfield (ribs) has been ruled out ahead of Sunday's game against the Steelers, Brianna Dix of the Buccaneers' official site reports.",
+              "summary": "doubtful",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
+                "ESPN injuries API"
               ],
-              "published_at": "2026-10-16T23:26:00.000Z",
+              "published_at": "2026-10-20T16:10:00.000Z",
               "role": "free_safety",
               "side": "middle",
               "impact_tier": "elite",
@@ -1047,48 +1209,21 @@
                 "slot_wr_boost",
                 "post_cross_boost"
               ],
-              "severity_score": 3.6,
+              "severity_score": 2.7,
               "needs_human_review": true
             }
           ],
           "weakness_tags": [
-            "boundary_wr_boost",
             "deep_pass_boost",
             "hot_read_boost",
-            "outside_wr_boost",
             "post_cross_boost",
             "slot_wr_boost",
             "underneath_volume_boost"
           ],
           "target_receivers": [
             {
-              "player_name": "DK Metcalf",
-              "team": "PIT",
-              "roles": [
-                "alpha_x",
-                "field_stretcher",
-                "red_zone"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "deep",
-                "red_zone"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 6,
-              "notes": "SEA Physical Freak WR1. [moved from SEA per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Germie Bernard",
-              "team": "PIT",
+              "player_name": "Brycen Tremayne",
+              "team": "CAR",
               "roles": [
                 "slot"
               ],
@@ -1102,240 +1237,34 @@
                 "underneath_volume_boost"
               ],
               "opportunity_score": 1.6,
-              "notes": "PIT WR3 per ESPN depth chart 2026-10-14; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
-            }
-          ],
-          "severity_score": 6.3,
-          "elite_absence_count": 1,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true,
-          "excluded_unavailable": []
-        },
-        {
-          "id": "sec_c02ffebafc30af80",
-          "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_PIT_at_TB",
-          "kickoff_utc": "2026-10-18T17:00:00.000Z",
-          "offense_team": "TB",
-          "offense_team_nick": "Buccaneers",
-          "defense_team": "PIT",
-          "defense_team_nick": "Steelers",
-          "offense_venue": "home",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "man_heavy",
-              "single_high",
-              "blitz_heavy"
-            ],
-            "primary_coverage_family": "man_match",
-            "pressure_profile": "aggressive",
-            "confidence": 0.82,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Mike Tomlin/Teryl Austin Cover 1/Cover 3 aggressive shell with Joey Porter Jr. and Minkah Fitzpatrick."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Israel Mukuamu",
-              "team": "PIT",
-              "position": "CB",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Israel Mukuamu IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:50:03.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Donte Kent",
-              "team": "PIT",
-              "position": "CB",
-              "event_type": "pup",
-              "availability_trend": "worsening",
-              "summary": "Donte Kent PUP",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:50:03.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.05,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "DeShon Elliott",
-              "team": "PIT",
-              "position": "S",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Elliott (knee) has been ruled out ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:42:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Jalen Ramsey",
-              "team": "PIT",
-              "position": "CB",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Ramsey (wrist) is listed as questionable for Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-17T01:37:00.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "elite",
-              "primary_receiver_archetypes_impacted": [
-                "alpha_x",
-                "field_stretcher"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 1.65,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Jamel Dean",
-              "team": "PIT",
-              "position": "CB",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Dean (ankle) is listed as questionable ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-17T01:30:00.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "plus",
-              "primary_receiver_archetypes_impacted": [
-                "alpha_x"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 1.24,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "alpha_wr_boost",
-            "boundary_wr_boost",
-            "deep_pass_boost",
-            "hot_read_boost",
-            "outside_wr_boost",
-            "post_cross_boost",
-            "slot_wr_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Emeka Egbuka",
-              "team": "TB",
-              "roles": [
-                "alpha_x"
-              ],
-              "target_share_tier": "high",
-              "route_area_tags": [
-                "boundary",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "opportunity_score": 3.6,
-              "notes": "TB WR1 per ESPN depth chart 2026-09-27; default role - verify.",
+              "notes": "CAR WR3 per ESPN depth chart 2026-10-14; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
               "availability_flag": "none"
             },
             {
-              "player_name": "Chris Godwin",
-              "team": "TB",
+              "player_name": "Jalen Coker",
+              "team": "CAR",
               "roles": [
-                "slot",
-                "possession"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "slot",
-                "intermediate"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 1.5,
-              "notes": "TB Elite Slot WR.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Ted Hurst III",
-              "team": "TB",
-              "roles": [
-                "slot"
+                "z_receiver"
               ],
               "target_share_tier": "medium",
               "route_area_tags": [
-                "middle",
-                "short"
+                "boundary"
               ],
               "matched_weakness_tags": [
-                "slot_wr_boost"
+                "deep_pass_boost",
+                "post_cross_boost"
               ],
-              "opportunity_score": 0.8,
-              "notes": "TB WR3 per ESPN depth chart 2026-10-02; default role - verify.",
+              "opportunity_score": 1.6,
+              "notes": "CAR WR2 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
               "availability_flag": "none"
             }
           ],
-          "severity_score": 6.64,
-          "elite_absence_count": 2,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
+          "severity_score": 4.05,
+          "elite_absence_count": 1,
+          "vulnerability_tier": "medium",
+          "confidence": 0.85,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1358,19 +1287,19 @@
       "source": "data/generated/master-intel/w07-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
-      "roster_age_h_at_vet": 0.2,
+      "roster_snapshot_generated_at": "2026-10-22T01:21:24.521422+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-20T22:47:55Z",
-      "availability_events": "2026-10-20T23:12:31.816Z",
-      "impact_digest": "2026-10-20T23:12:42.057Z",
-      "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+      "espn_status": "2026-10-22T01:21:31Z",
+      "availability_events": "2026-10-22T01:21:47.882Z",
+      "impact_digest": "2026-10-22T01:21:56.859Z",
+      "projected_starters": "2026-10-21T22:00:03.496Z",
+      "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1384,46 +1313,69 @@
       "operator_confirmed": null
     },
     "reported_injuries": {
-      "out_ir": [
-        {
-          "player": "David Sills V",
-          "pos": "WR",
-          "status": "Injured Reserve",
-          "date": "2026-10-17",
-          "comment": "Sills (hamstring) is listed as questionable for Sunday's game against the Steelers.",
-          "roster_check": "roster_ir_out_group"
-        }
-      ],
+      "out_ir": [],
       "questionable_doubtful": [
+        {
+          "player": "Zyon McCollum",
+          "pos": "CB",
+          "status": "Questionable",
+          "date": "2026-10-22",
+          "comment": "McCollum (illness) did not participate at practice Wednesday.",
+          "roster_check": "ok"
+        },
         {
           "player": "Antoine Winfield Jr.",
           "pos": "S",
           "status": "Doubtful",
-          "date": "2026-10-20",
-          "comment": "doubtful",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Sean Tucker",
-          "pos": "RB",
-          "status": "Questionable",
-          "date": "2026-10-20",
-          "comment": "questionable",
+          "date": "2026-10-22",
+          "comment": "Winfield (ribs) was a limited participant at practice Wednesday.",
           "roster_check": "ok"
         },
         {
           "player": "Baker Mayfield",
           "pos": "QB",
           "status": "Questionable",
-          "date": "2026-10-20",
+          "date": "2026-10-21",
+          "comment": "Mayfield (right thumb) was a full practice participant Wednesday, Scott Smith of the Buccaneers' official site reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Bucky Irving",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "Irving (illness) did not practice Wednesday, Greg Auman of Fox Sports reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Emeka Egbuka",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "Egbuka (concussion/foot) was a non-participant in Wednesday's practice, Scott Smith of the Buccaneers' official site reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Calijah Kancey",
+          "pos": "DT",
+          "status": "Questionable",
+          "date": "2026-10-21",
           "comment": "questionable",
           "roster_check": "ok"
         },
         {
-          "player": "Benjamin Morrison",
-          "pos": "CB",
+          "player": "Christian Rozeboom",
+          "pos": "LB",
           "status": "Questionable",
-          "date": "2026-10-20",
+          "date": "2026-10-21",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Luke Goedeke",
+          "pos": "OT",
+          "status": "Questionable",
+          "date": "2026-10-21",
           "comment": "questionable",
           "roster_check": "ok"
         }
@@ -1432,6 +1384,11 @@
     },
     "operator_reported": [],
     "roster_ir_out_unconfirmed": [
+      {
+        "player": "David Sills V",
+        "pos": "WR",
+        "roster_status": "day-to-day"
+      },
       {
         "player": "Jalen McMillan",
         "pos": "WR",
@@ -1451,17 +1408,21 @@
     "ol_dl_cluster_risk": {
       "ol": {
         "hard_or_doubtful": 0,
-        "questionable": 0,
+        "questionable": 1,
         "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": []
+        "players": [
+          "Luke Goedeke OT Questionable"
+        ]
       },
       "dl": {
         "hard_or_doubtful": 0,
-        "questionable": 0,
+        "questionable": 1,
         "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": []
+        "players": [
+          "Calijah Kancey DT Questionable"
+        ]
       }
     },
     "live_events": {
@@ -1474,7 +1435,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Jalen McMillan IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1490,7 +1451,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Josh Hayes IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1506,7 +1467,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Mohamed Kamara IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1516,14 +1477,30 @@
           "roster_check": "roster_ir_out_group"
         },
         {
+          "player_name": "Zyon McCollum",
+          "position": "CB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "worsening",
+          "event_type": "setback",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T00:04:00.000Z",
+          "summary": "McCollum (illness) did not participate at practice Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
           "player_name": "Antoine Winfield Jr.",
           "position": "S",
           "normalized_status": "DOUBTFUL",
           "availability_trend": "worsening",
           "event_type": "doubtful",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
-          "summary": "doubtful",
+          "published_at": "2026-10-22T00:01:00.000Z",
+          "summary": "Winfield (ribs) was a limited participant at practice Wednesday.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1534,12 +1511,28 @@
         {
           "player_name": "Sean Tucker",
           "position": "RB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "worsening",
+          "event_type": "setback",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
-          "summary": "questionable",
+          "published_at": "2026-10-21T23:52:00.000Z",
+          "summary": "Tucker (quadriceps) was a full participant at practice Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "conflicted_intel",
+          "synthesis_eligible": false,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Benjamin Morrison",
+          "position": "CB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "improving",
+          "event_type": "return_to_practice",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-21T23:43:00.000Z",
+          "summary": "Morrison (quadriceps) was a full participant in Wednesday's practice.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1554,8 +1547,8 @@
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
-          "summary": "questionable",
+          "published_at": "2026-10-21T19:32:00.000Z",
+          "summary": "Mayfield (right thumb) was a full practice participant Wednesday, Scott Smith of the Buccaneers' official site reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1564,78 +1557,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Benjamin Morrison",
-          "position": "CB",
+          "player_name": "Bucky Irving",
+          "position": "RB",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Chase McLaughlin",
-          "position": "PK",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-20T01:55:00.000Z",
-          "summary": "McLaughlin connected on all four of his field-goal attempts and converted his lone extra-point try during the Buccaneers' 26-19 overtime loss to the Steelers on",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Ted Hurst III",
-          "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-20T01:24:00.000Z",
-          "summary": "Hurst caught three of six targets for 40 yards during Sunday's 26-19 overtime loss to the Steelers.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Cade Otton",
-          "position": "TE",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-19T03:31:00.000Z",
-          "summary": "Otton caught one of two targets for four yards in Sunday's 26-19 overtime loss to the Steelers.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Chris Godwin Jr.",
-          "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-19T02:49:00.000Z",
-          "summary": "Godwin caught four of eight targets for 37 yards in Sunday's 26-19 overtime loss to the Steelers.",
+          "published_at": "2026-10-21T19:30:00.000Z",
+          "summary": "Irving (illness) did not practice Wednesday, Greg Auman of Fox Sports reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1646,12 +1575,44 @@
         {
           "player_name": "Emeka Egbuka",
           "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
+          "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
-          "event_type": "active_news",
+          "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-19T02:43:00.000Z",
-          "summary": "Egbuka caught seven of 16 targets for 48 yards and a touchdown in Sunday's 26-19 overtime loss to the Steelers.",
+          "published_at": "2026-10-21T19:26:00.000Z",
+          "summary": "Egbuka (concussion/foot) was a non-participant in Wednesday's practice, Scott Smith of the Buccaneers' official site reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Calijah Kancey",
+          "position": "DT",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-21T19:23:00.000Z",
+          "summary": "questionable",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Christian Rozeboom",
+          "position": "LB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-21T19:22:00.000Z",
+          "summary": "questionable",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1688,7 +1649,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-20T18:23:03.995Z",
+      "as_of": "2026-10-21T22:00:03.496Z",
       "known": [
         "Jalon Daniels QB"
       ],
@@ -1935,18 +1896,18 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-11-03T18:43:44.785Z",
-        "secondary-matchup source week 6"
+        "secondary-matchup source week 7"
       ]
     },
     "availability": {
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-20T22:47:55Z",
-        "availability_events": "2026-10-20T23:12:31.816Z",
-        "impact_digest": "2026-10-20T23:12:42.057Z",
-        "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+        "espn_status": "2026-10-22T01:21:31Z",
+        "availability_events": "2026-10-22T01:21:47.882Z",
+        "impact_digest": "2026-10-22T01:21:56.859Z",
+        "projected_starters": "2026-10-21T22:00:03.496Z",
+        "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],

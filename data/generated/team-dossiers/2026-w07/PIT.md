@@ -1,5 +1,5 @@
 # PIT Steelers — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:12:46.053Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T01:22:06.718Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -44,16 +44,16 @@ SRS 2.48 (#11) · net PPG 0.4 (#15) · Pythag 0.511 (#15) · model rank #13
 
 ## Scheme context (historical_context_only; historical context only, stale after 2026-11-03T18:43:44.785Z)
 HC Mike McCarthy · neutral pass rate 0.661 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
-Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See PIT.json → scheme_context.secondary_matchup.
+Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See PIT.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Aaron Rodgers [ok]
-Out/IR: Roman Wilson WR Injured Reserve; DeShon Elliott S Injured Reserve; Michael Pittman Jr. WR Injured Reserve
-Questionable/Doubtful: Ben Skowronek WR Questionable; Brandin Echols CB Questionable
-Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 8 players; skill: Cole Burgess WR; Max Hurleman RB
+Out/IR: DeShon Elliott S Injured Reserve
+Questionable/Doubtful: Ben Skowronek WR Questionable; Rico Dowdle RB Questionable; Sebastian Joseph-Day DT Questionable; Alex Highsmith LB Questionable; Jalen Ramsey CB Questionable; Brandin Echols CB Questionable
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 10 players; skill: Cole Burgess WR; Max Hurleman RB; Michael Pittman Jr. WR; Roman Wilson WR
 OL/DL cluster risk (derived): OL none, DL none
-Impact digest (top by score): Aaron Rodgers QB active_news/unknown; Lew Nichols RB active_news/unknown
+Impact digest (top by score): Aaron Rodgers QB active_news/unknown
 Projected starters: manual_and_estimated_signals, 2 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

@@ -1,5 +1,5 @@
 # DET Lions — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:12:45.308Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T01:22:05.896Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN stale_1wk (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -44,12 +44,12 @@ SRS 1.27 (#14) · net PPG 3.2 (#11) · Pythag 0.560 (#12) · model rank #12
 
 ## Scheme context (historical_context_only; historical context only, stale after 2026-11-03T18:43:44.785Z)
 HC Dan Campbell · neutral pass rate 0.608 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
-Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See DET.json → scheme_context.secondary_matchup.
+Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See DET.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Jared Goff [ok]
-Out/IR: Kerby Joseph S Out; Ben Bartch G Injured Reserve; Devin White LB Injured Reserve; Tom Kennedy WR Injured Reserve; Cade Mays C Injured Reserve; Brian Branch S Out
+Out/IR: Brian Branch S Out; Kerby Joseph S Out; Ben Bartch G Injured Reserve; Devin White LB Injured Reserve; Tom Kennedy WR Injured Reserve; Cade Mays C Injured Reserve
 Questionable/Doubtful: Rock Ya-Sin CB Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 7 players; skill: Isiah Pacheco RB; Kendrick Law WR
 OL/DL cluster risk (derived): OL cluster, DL none

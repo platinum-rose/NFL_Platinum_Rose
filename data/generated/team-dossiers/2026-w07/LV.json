@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T23:12:45.686Z",
+  "built_at": "2026-10-22T01:22:06.289Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "297ffcf",
+  "git_head": "3d58678",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-17T02:04:07.188Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 6,
-      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
+      "generated_at": "2026-10-20T23:48:44.521Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "649835539e56e244ba5d0abfd8ad9610f6b8e54d228f740d0cbdbce9fa761902",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -948,17 +948,17 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 6,
-      "status": "stale_prior_week_matchups",
+      "source_week": 7,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_b150b2737e3465e6",
+          "id": "sec_ceec62323ca399a4",
           "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_BUF_at_LV",
-          "kickoff_utc": "2026-10-18T20:25:00.000Z",
-          "offense_team": "BUF",
-          "offense_team_nick": "Bills",
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_LAR_at_LV",
+          "kickoff_utc": "2026-10-25T20:25:00.000Z",
+          "offense_team": "LAR",
+          "offense_team_nick": "Rams",
           "defense_team": "LV",
           "defense_team_nick": "Raiders",
           "offense_venue": "away",
@@ -985,7 +985,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-17T01:50:03.000Z",
+              "published_at": "2026-10-21T06:20:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1004,95 +1004,53 @@
           ],
           "target_receivers": [
             {
-              "player_name": "DJ Moore",
-              "team": "BUF",
+              "player_name": "Puka Nacua",
+              "team": "LAR",
               "roles": [
                 "alpha_x",
-                "z_receiver"
+                "possession",
+                "red_zone"
               ],
               "target_share_tier": "alpha",
               "route_area_tags": [
                 "boundary",
                 "intermediate",
-                "deep"
+                "red_zone"
               ],
               "matched_weakness_tags": [
                 "boundary_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
+                "underneath_volume_boost"
               ],
-              "opportunity_score": 4.5,
-              "notes": "CHI WR1. [moved from CHI per ESPN roster 2026-09-27]",
+              "opportunity_score": 3,
+              "notes": "LAR Record-Breaking All-Pro.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "questionable"
+              "availability_flag": "none"
             },
             {
-              "player_name": "Dalton Kincaid",
-              "team": "BUF",
+              "player_name": "Jordan Whittington",
+              "team": "LAR",
               "roles": [
-                "te_middle",
                 "slot"
               ],
-              "target_share_tier": "high",
+              "target_share_tier": "medium",
               "route_area_tags": [
                 "middle",
-                "intermediate"
+                "short"
               ],
               "matched_weakness_tags": [
                 "slot_wr_boost",
                 "underneath_volume_boost"
               ],
-              "opportunity_score": 2.4,
-              "notes": "BUF Receiving TE.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Khalil Shakir",
-              "team": "BUF",
-              "roles": [
-                "slot",
-                "possession"
-              ],
-              "target_share_tier": "high",
-              "route_area_tags": [
-                "slot",
-                "underneath"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "BUF YAC Slot WR.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Keon Coleman",
-              "team": "BUF",
-              "roles": [
-                "alpha_x",
-                "red_zone"
-              ],
-              "target_share_tier": "high",
-              "route_area_tags": [
-                "boundary",
-                "red_zone"
-              ],
-              "matched_weakness_tags": [
-                "boundary_wr_boost"
-              ],
-              "opportunity_score": 1.2,
-              "notes": "BUF Rookie X WR.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "opportunity_score": 1.6,
+              "notes": "LAR WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
               "availability_flag": "none"
             }
           ],
           "severity_score": 1.35,
           "elite_absence_count": 0,
           "vulnerability_tier": "watch",
-          "confidence": 0.73,
+          "confidence": 0.65,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1105,73 +1063,30 @@
           "excluded_unavailable": []
         },
         {
-          "id": "sec_e70a394393af8c5d",
+          "id": "sec_457b30799247fbf8",
           "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_BUF_at_LV",
-          "kickoff_utc": "2026-10-18T20:25:00.000Z",
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_LAR_at_LV",
+          "kickoff_utc": "2026-10-25T20:25:00.000Z",
           "offense_team": "LV",
           "offense_team_nick": "Raiders",
-          "defense_team": "BUF",
-          "defense_team_nick": "Bills",
+          "defense_team": "LAR",
+          "defense_team_nick": "Rams",
           "offense_venue": "home",
           "coverage_scheme": {
             "scheme_tags": [
               "zone_heavy",
-              "two_high",
-              "quarters"
+              "two_high"
             ],
-            "primary_coverage_family": "zone_heavy",
-            "pressure_profile": "coverage_first",
-            "confidence": 0.8,
+            "primary_coverage_family": "zone_match",
+            "pressure_profile": "front_dependent",
+            "confidence": 0.7,
             "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "McDermott Cover 4 / Cover 6 zone-heavy structure featuring Taron Johnson in slot."
+            "notes": "Chris Shula Fangio-lineage soft zone two-high shell."
           },
-          "secondary_absences": [
-            {
-              "player_name": "Dorian Strong",
-              "team": "BUF",
-              "position": "CB",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Dorian Strong IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:50:02.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Jordan Hancock",
-              "team": "BUF",
-              "position": "CB",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Jordan Hancock IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:50:02.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            }
-          ],
+          "secondary_absences": [],
           "weakness_tags": [
             "slot_wr_boost",
-            "te_middle_boost",
             "underneath_volume_boost"
           ],
           "target_receivers": [
@@ -1189,14 +1104,13 @@
                 "intermediate"
               ],
               "matched_weakness_tags": [
-                "te_middle_boost",
                 "slot_wr_boost",
                 "underneath_volume_boost"
               ],
-              "opportunity_score": 4.5,
+              "opportunity_score": 3,
               "notes": "LV 1st Round Generational TE.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
+              "availability_flag": "questionable"
             },
             {
               "player_name": "Cody White",
@@ -1219,10 +1133,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 2.7,
+          "severity_score": 0,
           "elite_absence_count": 0,
-          "vulnerability_tier": "medium",
-          "confidence": 0.77,
+          "vulnerability_tier": "low",
+          "confidence": 0.57,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1245,19 +1159,19 @@
       "source": "data/generated/master-intel/w07-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
-      "roster_age_h_at_vet": 0.2,
+      "roster_snapshot_generated_at": "2026-10-22T01:21:24.521422+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-20T22:47:55Z",
-      "availability_events": "2026-10-20T23:12:31.816Z",
-      "impact_digest": "2026-10-20T23:12:42.057Z",
-      "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+      "espn_status": "2026-10-22T01:21:31Z",
+      "availability_events": "2026-10-22T01:21:47.882Z",
+      "impact_digest": "2026-10-22T01:21:56.859Z",
+      "projected_starters": "2026-10-21T22:00:03.496Z",
+      "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1274,30 +1188,62 @@
     "reported_injuries": {
       "out_ir": [
         {
+          "player": "Dont'e Thornton Jr.",
+          "pos": "WR",
+          "status": "Injured Reserve",
+          "date": "2026-10-22",
+          "comment": "Thornton (hamstring) was a full participant at practice Wednesday.",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
           "player": "Carter Runyon",
           "pos": "TE",
           "status": "Injured Reserve",
           "date": "2026-10-17",
           "comment": "Runyon (lower body) has been ruled out ahead of Sunday's game against the Bills, Sam Warren of The Athletic reports.",
           "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player": "Dont'e Thornton Jr.",
-          "pos": "WR",
-          "status": "Injured Reserve",
-          "date": "2026-10-16",
-          "comment": "Thornton (hamstring) won't be activated from injured reserve for Sunday's game against the Bills,  Sam Warren of The Athletic reports.",
-          "roster_check": "roster_ir_out_group"
         }
       ],
       "questionable_doubtful": [
         {
-          "player": "Corey Rucker",
-          "pos": "WR",
+          "player": "Quay Walker",
+          "pos": "LB",
           "status": "Questionable",
-          "date": "2026-10-20",
+          "date": "2026-10-22",
+          "comment": "Walker (chest) was a limited participant at practice Wednesday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Kolton Miller",
+          "pos": "OT",
+          "status": "Questionable",
+          "date": "2026-10-21",
           "comment": "questionable",
-          "roster_check": "roster_ir_out_group"
+          "roster_check": "ok"
+        },
+        {
+          "player": "Folorunso Fatukasi",
+          "pos": "DT",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Mike Washington Jr.",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "Washington (foot/back) was limited in Wednesday's practice, Around The NFL reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Brock Bowers",
+          "pos": "TE",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "Bowers (hamstring/calf) was a limited participant in Wednesday's practice, Around The NFL reports.",
+          "roster_check": "ok"
         },
         {
           "player": "Tonka Hemingway",
@@ -1346,17 +1292,20 @@
     "ol_dl_cluster_risk": {
       "ol": {
         "hard_or_doubtful": 0,
-        "questionable": 0,
-        "risk": "none",
-        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": []
-      },
-      "dl": {
-        "hard_or_doubtful": 0,
         "questionable": 1,
         "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
+          "Kolton Miller OT Questionable"
+        ]
+      },
+      "dl": {
+        "hard_or_doubtful": 0,
+        "questionable": 2,
+        "risk": "watch",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "Folorunso Fatukasi DT Questionable",
           "Tonka Hemingway DT Questionable"
         ]
       }
@@ -1371,7 +1320,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Jack Bech IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1387,7 +1336,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Seth Williams IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1403,7 +1352,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Brennan Jackson IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1419,7 +1368,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Chigozie Anusiem IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1435,7 +1384,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Chris Collier IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1451,7 +1400,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Keyron Crawford IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1461,29 +1410,61 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Corey Rucker",
+          "player_name": "Quay Walker",
+          "position": "LB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T01:14:00.000Z",
+          "summary": "Walker (chest) was a limited participant at practice Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Dont'e Thornton Jr.",
           "position": "WR",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T01:09:00.000Z",
+          "summary": "Thornton (hamstring) was a full participant at practice Wednesday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "conflicted_intel",
+          "synthesis_eligible": false,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Kolton Miller",
+          "position": "OT",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T22:30:00.000Z",
+          "published_at": "2026-10-21T23:58:00.000Z",
           "summary": "questionable",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
+          "roster_check": "ok"
         },
         {
-          "player_name": "Tonka Hemingway",
+          "player_name": "Folorunso Fatukasi",
           "position": "DT",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
+          "published_at": "2026-10-21T23:57:00.000Z",
           "summary": "questionable",
           "practice": [],
           "probability_of_playing": null,
@@ -1493,14 +1474,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Matt Gay",
-          "position": "PK",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
+          "player_name": "Mike Washington Jr.",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T02:55:00.000Z",
-          "summary": "Gay converted all three of his field-goal attempts and all three extra-point tries during Las Vegas' loss to the Bills on Sunday.",
+          "published_at": "2026-10-21T23:34:00.000Z",
+          "summary": "Washington (foot/back) was limited in Wednesday's practice, Around The NFL reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1509,46 +1490,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Fernando Mendoza",
-          "position": "QB",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-20T02:36:00.000Z",
-          "summary": "Mendoza did not play a single snap during the Raiders' 33-30 loss to the Bills on Sunday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Michael Mayer",
+          "player_name": "Brock Bowers",
           "position": "TE",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-19T10:06:00.000Z",
-          "summary": "Mayer brought in seven of nine targets for 95 yards in the Raiders' 33-30 loss to the Bills on Sunday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Kirk Cousins",
-          "position": "QB",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-19T09:51:00.000Z",
-          "summary": "Cousins completed 23 of 41 passes for 313 yards with two touchdowns and one interception in the Raiders' 33-30 loss to the Bills on Sunday.",
+          "published_at": "2026-10-21T23:28:00.000Z",
+          "summary": "Bowers (hamstring/calf) was a limited participant in Wednesday's practice, Around The NFL reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1608,7 +1557,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-20T18:23:03.995Z",
+      "as_of": "2026-10-21T22:00:03.496Z",
       "known": [
         "Ashton Jeanty RB"
       ],
@@ -1866,18 +1815,18 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-11-03T18:43:44.785Z",
-        "secondary-matchup source week 6"
+        "secondary-matchup source week 7"
       ]
     },
     "availability": {
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-20T22:47:55Z",
-        "availability_events": "2026-10-20T23:12:31.816Z",
-        "impact_digest": "2026-10-20T23:12:42.057Z",
-        "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+        "espn_status": "2026-10-22T01:21:31Z",
+        "availability_events": "2026-10-22T01:21:47.882Z",
+        "impact_digest": "2026-10-22T01:21:56.859Z",
+        "projected_starters": "2026-10-21T22:00:03.496Z",
+        "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],

@@ -1,5 +1,5 @@
 # TB Buccaneers — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:12:46.189Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T01:22:06.860Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -44,14 +44,14 @@ SRS -0.40 (#19) · net PPG -2.4 (#22) · Pythag 0.433 (#23) · model rank #22
 
 ## Scheme context (historical_context_only; historical context only, stale after 2026-11-03T18:43:44.785Z)
 HC Todd Bowles · neutral pass rate 0.573 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
-Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See TB.json → scheme_context.secondary_matchup.
+Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See TB.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Baker Mayfield [AMBIGUOUS] Baker Mayfield Questionable;
-Out/IR: David Sills V WR Injured Reserve
-Questionable/Doubtful: Antoine Winfield Jr. S Doubtful; Sean Tucker RB Questionable; Baker Mayfield QB Questionable; Benjamin Morrison CB Questionable
-Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 3 players; skill: Jalen McMillan WR
+Out/IR: none
+Questionable/Doubtful: Zyon McCollum CB Questionable; Antoine Winfield Jr. S Doubtful; Baker Mayfield QB Questionable; Bucky Irving RB Questionable; Emeka Egbuka WR Questionable; Calijah Kancey DT Questionable (+2 more)
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 4 players; skill: David Sills V WR; Jalen McMillan WR
 OL/DL cluster risk (derived): OL none, DL none
 Impact digest (top by score): Jalon Daniels QB return_to_practice/improving
 Projected starters: manual_and_estimated_signals, 1 players

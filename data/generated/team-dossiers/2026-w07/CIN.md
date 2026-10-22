@@ -1,5 +1,5 @@
 # CIN Bengals — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:12:45.123Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T01:22:05.716Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN stale_1wk (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -44,17 +44,17 @@ SRS 4.77 (#7) · net PPG 3.8 (#9) · Pythag 0.594 (#8) · model rank #8
 
 ## Scheme context (historical_context_only; historical context only, stale after 2026-11-03T18:43:44.785Z)
 HC Zac Taylor · neutral pass rate 0.635 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
-Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See CIN.json → scheme_context.secondary_matchup.
+Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See CIN.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Joe Burrow [ok]
 Out/IR: Tanner Hudson TE Injured Reserve; Swayze Bozeman LB Injured Reserve
-Questionable/Doubtful: Colbie Young WR Questionable; Kyle Dugger S Questionable
+Questionable/Doubtful: Kyle Dugger S Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 4 players; skill: Andrei Iosivas WR
 OL/DL cluster risk (derived): OL none, DL none
-Impact digest (top by score): Joe Burrow QB active_news/unknown; Chase Brown RB active_news/unknown
-Projected starters: manual_and_estimated_signals, 2 players
+Impact digest (top by score): Joe Burrow QB active_news/unknown; Chase Brown RB active_news/unknown; Josh Kattus TE active_news/unknown
+Projected starters: manual_and_estimated_signals, 3 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 6-11 · diff -78 · Pythag 0.399 · SRS #23 · EPA off #18 def #29 · DVOA -8.6 (#21) off 4.4 def 16.3

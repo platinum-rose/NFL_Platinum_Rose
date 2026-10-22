@@ -1,5 +1,5 @@
 # IND Colts — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:12:45.448Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T01:22:06.036Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -44,17 +44,17 @@ SRS -2.81 (#23) · net PPG -2.8 (#23) · Pythag 0.437 (#22) · model rank #24
 
 ## Scheme context (historical_context_only; historical context only, stale after 2026-11-03T18:43:44.785Z)
 HC Shane Steichen · neutral pass rate 0.583 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
-Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See IND.json → scheme_context.secondary_matchup.
+Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See IND.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Daniel Jones [ok]
-Out/IR: Alec Pierce WR Injured Reserve; Arden Key DE Injured Reserve
-Questionable/Doubtful: Tyler Warren TE Questionable; Jaylon Carlies LB Questionable; Ashton Dulin WR Questionable; Sauce Gardner CB Doubtful; Rigoberto Sanchez P Questionable; Anthony Gould WR Questionable
-Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 5 players; skill: Carson Towt TE; D.J. Montgomery WR; Sean McKeon TE
-OL/DL cluster risk (derived): OL none, DL watch
-Impact digest (top by score): Daniel Jones QB active_news/unknown; Jonathan Taylor RB active_news/unknown; Tyler Warren TE status_update/unknown; Tyler Warren TE status_update/unknown (+1 more)
-Projected starters: manual_and_estimated_signals, 4 players
+Out/IR: Alec Pierce WR Injured Reserve
+Questionable/Doubtful: Drew Ogletree TE Questionable; Ashton Dulin WR Questionable; Tyler Warren TE Questionable; Jalen Travis OT Questionable; Justin Walley CB Questionable; Matt Goncalves G Questionable (+6 more)
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 6 players; skill: Carson Towt TE; D.J. Montgomery WR; Sean McKeon TE
+OL/DL cluster risk (derived): OL watch, DL none
+Impact digest (top by score): Daniel Jones QB active_news/unknown; Tyler Warren TE setback/worsening; Jonathan Taylor RB status_update/unknown; Jonathan Taylor RB active_news/unknown (+1 more)
+Projected starters: manual_and_estimated_signals, 3 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 8-9 · diff 54 · Pythag 0.573 · SRS #8 · EPA off #7 def #16 · DVOA 18.9 (#5) off 14.2 def -0.6

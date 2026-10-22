@@ -1,5 +1,5 @@
 # LAC Chargers — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:12:45.597Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T01:22:06.202Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -44,9 +44,9 @@ SRS -9.30 (#29) · net PPG -9 (#29) · Pythag 0.266 (#30) · model rank #29
 
 ## Scheme context (historical_context_only; historical context only, stale after 2026-11-03T18:43:44.785Z)
 HC Jim Harbaugh · neutral pass rate 0.544 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
-Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See LAC.json → scheme_context.secondary_matchup.
+Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See LAC.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Justin Herbert [ok]
 Out/IR: Alec Ingold FB Injured Reserve; Denzel Perryman LB Injured Reserve
@@ -54,7 +54,7 @@ Questionable/Doubtful: Rodney Shelley CB Questionable; Tre' Harris WR Questionab
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 6 players; skill: David Njoku TE; Trey Lance QB
 OL/DL cluster risk (derived): OL watch, DL none
 Impact digest (top by score): Justin Herbert QB active_news/unknown; David Njoku TE ir/worsening; Omarion Hampton RB active_news/unknown
-Projected starters: manual_and_estimated_signals, 4 players
+Projected starters: manual_and_estimated_signals, 3 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)
 2025 final [prior_season]: 11-6 · diff 28 · Pythag 0.547 · SRS #14 · EPA off #25 def #7 · DVOA 0.4 (#17) off -3.5 def -6.5

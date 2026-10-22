@@ -1,5 +1,5 @@
 # GB Packers — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:12:45.344Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T01:22:05.947Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -44,16 +44,16 @@ SRS 1.07 (#15) · net PPG -1.6 (#21) · Pythag 0.456 (#21) · model rank #17
 
 ## Scheme context (historical_context_only; historical context only, stale after 2026-11-03T18:43:44.785Z)
 HC Matt LaFleur · neutral pass rate 0.657 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
-Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See GB.json → scheme_context.secondary_matchup.
+Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See GB.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
-QB: Jordan Love [ok]
+QB: Jordan Love [AMBIGUOUS] Jordan Love Questionable;
 Out/IR: Micah Parsons DE Out; Jonathan Ford DT Injured Reserve; Javon Hargrave DT Injured Reserve; Skyy Moore WR Injured Reserve; Jordon Riley DT Out
-Questionable/Doubtful: Benjamin St-Juste CB Questionable; Aaron Banks G Questionable
+Questionable/Doubtful: Brandon Cisse CB Questionable; Bo Melton WR Questionable; Savion Williams WR Questionable; Matthew Golden WR Questionable; Christian Watson WR Questionable; Jordan Love QB Questionable (+3 more)
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 9 players; skill: Chris Brooks RB; Jayden Reed WR; Luke Musgrave TE; Thomas Yassmin TE
 OL/DL cluster risk (derived): OL none, DL cluster
-Impact digest (top by score): Jordan Love QB active_news/unknown; MarShawn Lloyd RB active_news/unknown; Tucker Kraft TE active_news/unknown
+Impact digest (top by score): Jordan Love QB limited/stable; Jordan Love QB status_update/unknown; MarShawn Lloyd RB active_news/unknown; Tucker Kraft TE active_news/unknown
 Projected starters: manual_and_estimated_signals, 3 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

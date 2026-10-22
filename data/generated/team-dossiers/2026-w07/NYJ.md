@@ -1,5 +1,5 @@
 # NYJ Jets — dossier, target Week 7 (data through W6)
-Built 2026-10-20T23:12:45.960Z · git 297ffcf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T01:22:06.617Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -44,16 +44,16 @@ SRS -1.81 (#21) · net PPG -0.6 (#20) · Pythag 0.481 (#20) · model rank #19
 
 ## Scheme context (historical_context_only; historical context only, stale after 2026-11-03T18:43:44.785Z)
 HC Aaron Glenn · neutral pass rate 0.554 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
-Secondary-matchup context is manual_review_capped and keyed to source Week 6 — stale_prior_week_matchups. See NYJ.json → scheme_context.secondary_matchup.
+Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See NYJ.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-20T22:47:55Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Geno Smith [ok]
 Out/IR: none
-Questionable/Doubtful: Joseph Ossai DE Questionable; Dylan Parham G Questionable; Adonai Mitchell WR Doubtful; Breece Hall RB Questionable; Kiko Mauigoa LB Questionable
+Questionable/Doubtful: Kene Nwangwu RB Questionable; Joseph Ossai DE Doubtful; T'Vondre Sweat DT Questionable; Will McDonald IV DE Questionable; Kiko Mauigoa LB Doubtful; Breece Hall RB Questionable (+2 more)
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 11 players; skill: Arian Smith WR; Caullin Lacy WR; Chip Trayanum RB
-OL/DL cluster risk (derived): OL none, DL none
-Impact digest (top by score): Geno Smith QB active_news/unknown; Isaiah Williams WR return_to_practice/improving; Breece Hall RB status_update/unknown; Breece Hall RB status_update/unknown
+OL/DL cluster risk (derived): OL none, DL watch
+Impact digest (top by score): Geno Smith QB active_news/unknown; Breece Hall RB setback/worsening; Isaiah Williams WR return_to_practice/improving; Breece Hall RB status_update/unknown
 Projected starters: manual_and_estimated_signals, 3 players
 
 ## Priors (prior_season / preseason_prior; not current-season evidence)

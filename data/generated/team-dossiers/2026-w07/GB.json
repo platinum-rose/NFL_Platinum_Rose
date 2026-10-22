@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T23:12:45.344Z",
+  "built_at": "2026-10-22T01:22:05.947Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "297ffcf",
+  "git_head": "3d58678",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-17T02:04:07.188Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 6,
-      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
+      "generated_at": "2026-10-20T23:48:44.521Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "649835539e56e244ba5d0abfd8ad9610f6b8e54d228f740d0cbdbce9fa761902",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -948,20 +948,253 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 6,
-      "status": "stale_prior_week_matchups",
+      "source_week": 7,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_974cb49cdc2c1c79",
+          "id": "sec_06a62de0443a0f73",
           "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_DAL_at_GB",
-          "kickoff_utc": "2026-10-19T00:20:00.000Z",
-          "offense_team": "DAL",
-          "offense_team_nick": "Cowboys",
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_GB_at_DET",
+          "kickoff_utc": "2026-10-25T20:25:00.000Z",
+          "offense_team": "GB",
+          "offense_team_nick": "Packers",
+          "defense_team": "DET",
+          "defense_team_nick": "Lions",
+          "offense_venue": "away",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "match_zone",
+              "two_high",
+              "quarters"
+            ],
+            "primary_coverage_family": "match_zone",
+            "pressure_profile": "front_dependent",
+            "confidence": 0.75,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Aaron Glenn split-safety match zone featuring Kerby Joseph and Brian Branch."
+          },
+          "secondary_absences": [
+            {
+              "player_name": "Kerby Joseph",
+              "team": "DET",
+              "position": "S",
+              "event_type": "out",
+              "availability_trend": "worsening",
+              "summary": "Lions head coach Dan Campbell stated Kerby (knee) \"is in a good headspace\" and expects the 25-year-old to play at some point this season, Nolan Bianchi of The Detroit News reports.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API",
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-20T21:14:00.000Z",
+              "role": "deep_safety",
+              "side": "middle",
+              "impact_tier": "elite",
+              "primary_receiver_archetypes_impacted": [
+                "field_stretcher",
+                "te_middle"
+              ],
+              "weakness_tags": [
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "severity_score": 3.6,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Avonte Maddox",
+              "team": "DET",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Avonte Maddox IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-21T06:20:01.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Thomas Harper",
+              "team": "DET",
+              "position": "S",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Thomas Harper IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-21T06:20:01.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Brian Branch",
+              "team": "DET",
+              "position": "S",
+              "event_type": "out",
+              "availability_trend": "worsening",
+              "summary": "Branch (Achilles) has been ruled out ahead of Sunday's game against the Cardinals.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-10T00:56:00.000Z",
+              "role": "hybrid_safety",
+              "side": "slot",
+              "impact_tier": "plus",
+              "primary_receiver_archetypes_impacted": [
+                "slot",
+                "te_middle"
+              ],
+              "weakness_tags": [
+                "slot_wr_boost",
+                "te_middle_boost",
+                "deep_pass_boost"
+              ],
+              "severity_score": 2.7,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "D.J. Reed",
+              "team": "DET",
+              "position": "CB",
+              "event_type": "limited",
+              "availability_trend": "stable",
+              "summary": "Reed (ribs) is active for Sunday night's matchup with the Panthers.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-04T23:18:00.000Z",
+              "role": "outside_cb2",
+              "side": "field",
+              "impact_tier": "elite",
+              "primary_receiver_archetypes_impacted": [
+                "z_receiver"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 1.65,
+              "needs_human_review": true
+            }
+          ],
+          "weakness_tags": [
+            "boundary_wr_boost",
+            "deep_pass_boost",
+            "inside_seam_boost",
+            "outside_wr_boost",
+            "post_cross_boost",
+            "slot_wr_boost",
+            "te_middle_boost",
+            "underneath_volume_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Christian Watson",
+              "team": "GB",
+              "roles": [
+                "z_receiver",
+                "field_stretcher"
+              ],
+              "target_share_tier": "high",
+              "route_area_tags": [
+                "deep",
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "outside_wr_boost",
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 3.6,
+              "notes": "GB Deep Threat.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+              "availability_flag": "questionable"
+            },
+            {
+              "player_name": "Matthew Golden",
+              "team": "GB",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "short"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 2.4,
+              "notes": "GB WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "questionable"
+            },
+            {
+              "player_name": "Tucker Kraft",
+              "team": "GB",
+              "roles": [
+                "te_middle"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle"
+              ],
+              "matched_weakness_tags": [
+                "te_middle_boost",
+                "inside_seam_boost"
+              ],
+              "opportunity_score": 1.6,
+              "notes": "GB TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
+            }
+          ],
+          "severity_score": 10.65,
+          "elite_absence_count": 3,
+          "vulnerability_tier": "high",
+          "confidence": 0.95,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true,
+          "excluded_unavailable": []
+        },
+        {
+          "id": "sec_27db3a2a4e39b5d9",
+          "season": 2026,
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_GB_at_DET",
+          "kickoff_utc": "2026-10-25T20:25:00.000Z",
+          "offense_team": "DET",
+          "offense_team_nick": "Lions",
           "defense_team": "GB",
           "defense_team_nick": "Packers",
-          "offense_venue": "away",
+          "offense_venue": "home",
           "coverage_scheme": {
             "scheme_tags": [
               "zone_heavy",
@@ -985,7 +1218,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-17T01:50:02.000Z",
+              "published_at": "2026-10-21T06:20:01.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -995,37 +1228,17 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Benjamin St-Juste",
-              "team": "GB",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "out",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-16T20:50:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.2,
-              "needs_human_review": true
-            },
-            {
               "player_name": "Keisean Nixon",
               "team": "GB",
               "position": "CB",
               "event_type": "limited",
               "availability_trend": "stable",
-              "summary": "Nixon (groin) was a limited participant at practice Thursday.",
+              "summary": "Nixon (groin) does not carry an injury designation into Sunday's game against the Cowboys, Wes Hodkiewicz of the Packers' official site reports.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
                 "ESPN injuries API"
               ],
-              "published_at": "2026-10-16T00:32:00.000Z",
+              "published_at": "2026-10-17T02:10:00.000Z",
               "role": "slot_cb",
               "side": "slot",
               "impact_tier": "starter",
@@ -1048,18 +1261,18 @@
           ],
           "target_receivers": [
             {
-              "player_name": "CeeDee Lamb",
-              "team": "DAL",
+              "player_name": "Amon-Ra St. Brown",
+              "team": "DET",
               "roles": [
-                "alpha_x",
                 "slot",
-                "red_zone"
+                "alpha_x",
+                "possession"
               ],
               "target_share_tier": "alpha",
               "route_area_tags": [
-                "boundary",
                 "slot",
-                "intermediate"
+                "intermediate",
+                "underneath"
               ],
               "matched_weakness_tags": [
                 "slot_wr_boost",
@@ -1067,13 +1280,13 @@
                 "underneath_volume_boost"
               ],
               "opportunity_score": 4.5,
-              "notes": "DAL All-Pro Alpha Target Monster.",
+              "notes": "DET All-Pro Slot Alpha.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
             },
             {
-              "player_name": "Ryan Flournoy",
-              "team": "DAL",
+              "player_name": "Isaac TeSlaa",
+              "team": "DET",
               "roles": [
                 "slot"
               ],
@@ -1088,177 +1301,34 @@
                 "underneath_volume_boost"
               ],
               "opportunity_score": 2.4,
-              "notes": "DAL WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "notes": "DET WR3 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
               "availability_flag": "none"
             },
             {
-              "player_name": "George Pickens",
-              "team": "DAL",
-              "roles": [
-                "alpha_x",
-                "field_stretcher"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "deep",
-                "red_zone"
-              ],
-              "matched_weakness_tags": [
-                "post_cross_boost"
-              ],
-              "opportunity_score": 1.5,
-              "notes": "PIT Contested Catch WR1.",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Jake Ferguson",
-              "team": "DAL",
+              "player_name": "Sam LaPorta",
+              "team": "DET",
               "roles": [
                 "te_middle",
                 "red_zone"
               ],
-              "target_share_tier": "high",
+              "target_share_tier": "alpha",
               "route_area_tags": [
                 "middle",
-                "red_zone"
+                "red_zone",
+                "intermediate"
               ],
               "matched_weakness_tags": [
                 "inside_seam_boost"
               ],
-              "opportunity_score": 1.2,
-              "notes": "DAL TE1.",
+              "opportunity_score": 1.5,
+              "notes": "DET All-Pro TE.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
-            }
-          ],
-          "severity_score": 3.38,
-          "elite_absence_count": 0,
-          "vulnerability_tier": "medium",
-          "confidence": 0.86,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true,
-          "excluded_unavailable": []
-        },
-        {
-          "id": "sec_9c39e5eb1e0352a1",
-          "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_DAL_at_GB",
-          "kickoff_utc": "2026-10-19T00:20:00.000Z",
-          "offense_team": "GB",
-          "offense_team_nick": "Packers",
-          "defense_team": "DAL",
-          "defense_team_nick": "Cowboys",
-          "offense_venue": "home",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "single_high",
-              "man_heavy",
-              "blitz_heavy"
-            ],
-            "primary_coverage_family": "single_high_man",
-            "pressure_profile": "blitz_heavy",
-            "confidence": 0.78,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Mike Zimmer aggressive Cover 1/Cover 3 blitz-heavy secondary structure."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Cobie Durant",
-              "team": "DAL",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "out",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-16T21:22:00.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "starter",
-              "primary_receiver_archetypes_impacted": [
-                "alpha_x"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost",
-                "alpha_wr_boost"
-              ],
-              "severity_score": 1.8,
-              "needs_human_review": true
             },
             {
-              "player_name": "Jalen Thompson",
-              "team": "DAL",
-              "position": "S",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "injured",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-07T12:00:00.000Z",
-              "role": "free_safety",
-              "side": "middle",
-              "impact_tier": "plus",
-              "primary_receiver_archetypes_impacted": [
-                "field_stretcher"
-              ],
-              "weakness_tags": [
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "severity_score": 2.7,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "P.J. Locke",
-              "team": "DAL",
-              "position": "S",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "injured",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-07T12:00:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.2,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "alpha_wr_boost",
-            "boundary_wr_boost",
-            "deep_pass_boost",
-            "hot_read_boost",
-            "outside_wr_boost",
-            "post_cross_boost",
-            "slot_wr_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Christian Watson",
-              "team": "GB",
+              "player_name": "Jameson Williams",
+              "team": "DET",
               "roles": [
                 "z_receiver",
                 "field_stretcher"
@@ -1269,39 +1339,37 @@
                 "boundary"
               ],
               "matched_weakness_tags": [
-                "outside_wr_boost",
-                "deep_pass_boost",
                 "post_cross_boost"
               ],
-              "opportunity_score": 3.6,
-              "notes": "GB Deep Threat.",
+              "opportunity_score": 1.2,
+              "notes": "DET Deep Threat.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
             },
             {
-              "player_name": "Matthew Golden",
-              "team": "GB",
+              "player_name": "Tyler Conklin",
+              "team": "DET",
               "roles": [
-                "slot"
+                "te_middle"
               ],
               "target_share_tier": "medium",
               "route_area_tags": [
                 "middle",
-                "short"
+                "underneath"
               ],
               "matched_weakness_tags": [
-                "slot_wr_boost"
+                "inside_seam_boost"
               ],
               "opportunity_score": 0.8,
-              "notes": "GB WR3 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "notes": "DET TE.",
+              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
             }
           ],
-          "severity_score": 5.7,
-          "elite_absence_count": 1,
-          "vulnerability_tier": "high",
-          "confidence": 0.94,
+          "severity_score": 2.18,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "watch",
+          "confidence": 0.83,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1324,25 +1392,25 @@
       "source": "data/generated/master-intel/w07-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
-      "roster_age_h_at_vet": 0.2,
+      "roster_snapshot_generated_at": "2026-10-22T01:21:24.521422+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-20T22:47:55Z",
-      "availability_events": "2026-10-20T23:12:31.816Z",
-      "impact_digest": "2026-10-20T23:12:42.057Z",
-      "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+      "espn_status": "2026-10-22T01:21:31Z",
+      "availability_events": "2026-10-22T01:21:47.882Z",
+      "impact_digest": "2026-10-22T01:21:56.859Z",
+      "projected_starters": "2026-10-21T22:00:03.496Z",
+      "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
       "espn_starter": "Jordan Love",
-      "flag": "ok",
-      "note": null,
+      "flag": "AMBIGUOUS",
+      "note": "Jordan Love Questionable;",
       "depth": [
         "Jordan Love",
         "Tyrod Taylor"
@@ -1393,6 +1461,62 @@
         }
       ],
       "questionable_doubtful": [
+        {
+          "player": "Brandon Cisse",
+          "pos": "CB",
+          "status": "Questionable",
+          "date": "2026-10-22",
+          "comment": "Cisse (shoulder) was a limited participant in Wednesday's walkthrough session, Matt Schneidman of The Athletic reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Bo Melton",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-22",
+          "comment": "Melton (back) was a limited participant in Wednesday's walkthrough practice, Matt Schneidman of The Athletic reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Savion Williams",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "Williams (ankle) was listed as a limited participant on Wednesday's estimated injury report, Matt Schneidman of The Athletic reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Matthew Golden",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "Golden (shoulder) was listed as a limited participant on Wednesday's estimated injury report, Matt Schneidman of The Athletic reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Christian Watson",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "Watson was listed as a limited participant on Wednesday's practice estimate due to an ankle injury, Matt Schneidman of The Athletic reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jordan Love",
+          "pos": "QB",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "Love was listed as a limited participant on Wednesday's practice estimate due to a back injury, Matt Schneidman of The Athletic reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Anthony Campbell",
+          "pos": "DT",
+          "status": "Questionable",
+          "date": "2026-10-21",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
         {
           "player": "Benjamin St-Juste",
           "pos": "CB",
@@ -1472,10 +1596,11 @@
       },
       "dl": {
         "hard_or_doubtful": 4,
-        "questionable": 0,
+        "questionable": 1,
         "risk": "cluster",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
+          "Anthony Campbell DT Questionable",
           "Micah Parsons DE Out",
           "Jonathan Ford DT Injured Reserve",
           "Javon Hargrave DT Injured Reserve",
@@ -1487,50 +1612,34 @@
       "window": "published within 10 days of build; latest per player; cap 12",
       "rows": [
         {
-          "player_name": "Micah Parsons",
-          "position": "LB",
-          "normalized_status": "PUP",
-          "availability_trend": "worsening",
-          "event_type": "pup",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
-          "summary": "Micah Parsons PUP",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "withheld_pending_confirmation",
-          "synthesis_eligible": false,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player_name": "Luke Musgrave",
-          "position": "TE",
-          "normalized_status": "PUP",
-          "availability_trend": "worsening",
-          "event_type": "pup",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:02.000Z",
-          "summary": "Luke Musgrave PUP",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
-        },
-        {
           "player_name": "Chris Brooks",
           "position": "RB",
           "normalized_status": "IR",
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Chris Brooks IR",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Micah Parsons",
+          "position": "LB",
+          "normalized_status": "PUP",
+          "availability_trend": "worsening",
+          "event_type": "pup",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-22T01:17:03.000Z",
+          "summary": "Micah Parsons PUP",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "withheld_pending_confirmation",
+          "synthesis_eligible": false,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
         },
@@ -1541,10 +1650,12 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Javon Hargrave IR",
-          "practice": [],
-          "probability_of_playing": 0.02,
+          "practice": [
+            "--"
+          ],
+          "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1557,7 +1668,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Jayden Reed IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1573,10 +1684,12 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Skyy Moore IR",
-          "practice": [],
-          "probability_of_playing": 0.25381,
+          "practice": [
+            "--"
+          ],
+          "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1589,10 +1702,28 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Jonathan Ford IR",
+          "practice": [
+            "--"
+          ],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Luke Musgrave",
+          "position": "TE",
+          "normalized_status": "PUP",
+          "availability_trend": "worsening",
+          "event_type": "pup",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-22T01:17:03.000Z",
+          "summary": "Luke Musgrave PUP",
           "practice": [],
-          "probability_of_playing": 0.02,
+          "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1605,7 +1736,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Edgerrin Cooper IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1621,7 +1752,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Thomas Yassmin IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1637,7 +1768,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Warren Brinson IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1653,7 +1784,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Johnathan Baldwin II IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1663,14 +1794,14 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Benjamin St-Juste",
+          "player_name": "Brandon Cisse",
           "position": "CB",
           "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
+          "availability_trend": "stable",
+          "event_type": "limited",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
-          "summary": "questionable",
+          "published_at": "2026-10-22T00:10:00.000Z",
+          "summary": "Cisse (shoulder) was a limited participant in Wednesday's walkthrough session, Matt Schneidman of The Athletic reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1685,7 +1816,30 @@
         "player_name": "Jordan Love",
         "position": "QB",
         "unit": "quarterback",
-        "event_type": "active_news",
+        "event_type": "limited",
+        "availability_trend": "stable",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 100,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-21T20:13:00.000Z",
+        "summary": "Love was listed as a limited participant on Wednesday's practice estimate due to a back injury, Matt Schneidman of The Athletic reports.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Jordan Love",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "status_update",
         "availability_trend": "unknown",
         "impact_bucket": "qb_major",
         "starter_match": {
@@ -1693,11 +1847,11 @@
           "starter_confidence": 0.95,
           "source_count": 1
         },
-        "score": 93,
+        "score": 94,
         "signal": "review_context",
-        "source": "ESPN injuries API",
-        "published_at": "2026-10-19T04:15:00.000Z",
-        "summary": "Love completed 23 of 41 passes for 276 yards, one touchdown and one interception in Sunday's 23-13 win over the Cowboys. He also rushed twice for 14 yards and a",
+        "source": "FantasyPros injuries API",
+        "published_at": "2026-10-21T00:00:00.000Z",
+        "summary": "Jordan Love QUESTIONABLE",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1753,7 +1907,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-20T18:23:03.995Z",
+      "as_of": "2026-10-21T22:00:03.496Z",
       "known": [
         "Jordan Love QB",
         "MarShawn Lloyd RB",
@@ -2040,18 +2194,18 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-11-03T18:43:44.785Z",
-        "secondary-matchup source week 6"
+        "secondary-matchup source week 7"
       ]
     },
     "availability": {
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-20T22:47:55Z",
-        "availability_events": "2026-10-20T23:12:31.816Z",
-        "impact_digest": "2026-10-20T23:12:42.057Z",
-        "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+        "espn_status": "2026-10-22T01:21:31Z",
+        "availability_events": "2026-10-22T01:21:47.882Z",
+        "impact_digest": "2026-10-22T01:21:56.859Z",
+        "projected_starters": "2026-10-21T22:00:03.496Z",
+        "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],

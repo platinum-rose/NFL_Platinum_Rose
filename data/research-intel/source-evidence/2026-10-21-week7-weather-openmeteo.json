@@ -1,0 +1,178 @@
+{
+  "schema": "weather_forecast_source_capture_v1",
+  "captured_at": "2026-10-21T22:25:26.000Z",
+  "season": 2026,
+  "week": 7,
+  "provider": "Open-Meteo forecast API",
+  "provider_base_url": "https://api.open-meteo.com/v1/forecast",
+  "status": "source_evidence_only",
+  "caveats": [
+    "Forecast data, not observed game conditions.",
+    "Hourly provider values are sampled at the hour at or before kickoff.",
+    "Forecasts must be refreshed close to kickoff before any material weather thesis is retained.",
+    "Stadium coordinates are static reference facts, not a captured source.",
+    "Venues/kickoffs from ESPN scoreboard 2026-10-21; PIT vs NO is at Stade de France (Paris)."
+  ],
+  "outdoor_games": [
+    {
+      "game": "NE@CHI",
+      "kickoff_utc": "2026-10-23T00:15:00Z",
+      "sampled_forecast_utc": "2026-10-23T00:00:00Z",
+      "coordinates": {
+        "latitude": 41.8623,
+        "longitude": -87.6167
+      },
+      "coordinate_note": "Soldier Field (static reference coords)",
+      "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=41.8623&longitude=-87.6167&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-22&end_date=2026-10-24",
+      "forecast": {
+        "temperature_c": 13.3,
+        "temperature_f": 55.9,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 5.1,
+        "wind_gusts_kmh": 9.0,
+        "wind_direction_deg": 88
+      }
+    },
+    {
+      "game": "PIT@NO",
+      "kickoff_utc": "2026-10-25T13:30:00Z",
+      "sampled_forecast_utc": "2026-10-25T13:00:00Z",
+      "coordinates": {
+        "latitude": 48.9245,
+        "longitude": 2.3601
+      },
+      "coordinate_note": "Stade de France (Paris) (static reference coords)",
+      "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=48.9245&longitude=2.3601&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-24&end_date=2026-10-26",
+      "forecast": {
+        "temperature_c": 15.9,
+        "temperature_f": 60.6,
+        "precipitation_probability_pct": 24,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 21.8,
+        "wind_gusts_kmh": 47.9,
+        "wind_direction_deg": 279
+      }
+    },
+    {
+      "game": "CLE@TEN",
+      "kickoff_utc": "2026-10-25T17:00:00Z",
+      "sampled_forecast_utc": "2026-10-25T17:00:00Z",
+      "coordinates": {
+        "latitude": 36.1665,
+        "longitude": -86.7713
+      },
+      "coordinate_note": "Nissan Stadium (static reference coords)",
+      "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=36.1665&longitude=-86.7713&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-24&end_date=2026-10-26",
+      "forecast": {
+        "temperature_c": 22.8,
+        "temperature_f": 73.0,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 3.4,
+        "wind_gusts_kmh": 4.0,
+        "wind_direction_deg": 198
+      }
+    },
+    {
+      "game": "MIA@NYJ",
+      "kickoff_utc": "2026-10-25T17:00:00Z",
+      "sampled_forecast_utc": "2026-10-25T17:00:00Z",
+      "coordinates": {
+        "latitude": 40.8135,
+        "longitude": -74.0745
+      },
+      "coordinate_note": "MetLife (static reference coords)",
+      "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=40.8135&longitude=-74.0745&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-24&end_date=2026-10-26",
+      "forecast": {
+        "temperature_c": 17.5,
+        "temperature_f": 63.5,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 11.8,
+        "wind_gusts_kmh": 16.9,
+        "wind_direction_deg": 247
+      }
+    },
+    {
+      "game": "TB@CAR",
+      "kickoff_utc": "2026-10-25T17:00:00Z",
+      "sampled_forecast_utc": "2026-10-25T17:00:00Z",
+      "coordinates": {
+        "latitude": 35.2258,
+        "longitude": -80.8528
+      },
+      "coordinate_note": "Bank of America (static reference coords)",
+      "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=35.2258&longitude=-80.8528&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-24&end_date=2026-10-26",
+      "forecast": {
+        "temperature_c": 18.0,
+        "temperature_f": 64.4,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 13.8,
+        "wind_gusts_kmh": 17.6,
+        "wind_direction_deg": 51
+      }
+    },
+    {
+      "game": "CIN@BAL",
+      "kickoff_utc": "2026-10-25T17:00:00Z",
+      "sampled_forecast_utc": "2026-10-25T17:00:00Z",
+      "coordinates": {
+        "latitude": 39.278,
+        "longitude": -76.6227
+      },
+      "coordinate_note": "M&T Bank (static reference coords)",
+      "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=39.278&longitude=-76.6227&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-24&end_date=2026-10-26",
+      "forecast": {
+        "temperature_c": 17.1,
+        "temperature_f": 62.8,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 8.0,
+        "wind_gusts_kmh": 9.7,
+        "wind_direction_deg": 153
+      }
+    },
+    {
+      "game": "KC@SEA",
+      "kickoff_utc": "2026-10-26T00:20:00Z",
+      "sampled_forecast_utc": "2026-10-26T00:00:00Z",
+      "coordinates": {
+        "latitude": 47.5952,
+        "longitude": -122.3316
+      },
+      "coordinate_note": "Lumen (static reference coords)",
+      "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=47.5952&longitude=-122.3316&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-25&end_date=2026-10-27",
+      "forecast": {
+        "temperature_c": 12.0,
+        "temperature_f": 53.6,
+        "precipitation_probability_pct": 16,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 14.8,
+        "wind_gusts_kmh": 22.0,
+        "wind_direction_deg": 354
+      }
+    },
+    {
+      "game": "DAL@PHI",
+      "kickoff_utc": "2026-10-27T00:15:00Z",
+      "sampled_forecast_utc": "2026-10-27T00:00:00Z",
+      "coordinates": {
+        "latitude": 39.9008,
+        "longitude": -75.1675
+      },
+      "coordinate_note": "Lincoln Financial (static reference coords)",
+      "forecast_url": "https://api.open-meteo.com/v1/forecast?latitude=39.9008&longitude=-75.1675&hourly=temperature_2m,precipitation_probability,precipitation,wind_speed_10m,wind_direction_10m,wind_gusts_10m&timezone=UTC&start_date=2026-10-26&end_date=2026-10-28",
+      "forecast": {
+        "temperature_c": 16.2,
+        "temperature_f": 61.2,
+        "precipitation_probability_pct": 0,
+        "precipitation_mm": 0.0,
+        "wind_speed_kmh": 7.6,
+        "wind_gusts_kmh": 23.0,
+        "wind_direction_deg": 265
+      }
+    }
+  ]
+}

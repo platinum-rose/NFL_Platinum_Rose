@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-20T23:12:45.030Z",
+  "built_at": "2026-10-22T01:22:05.632Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "297ffcf",
+  "git_head": "3d58678",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-17T02:04:07.188Z",
-      "status": "stale_prior_week_matchups",
-      "through_week": 6,
-      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
+      "generated_at": "2026-10-20T23:48:44.521Z",
+      "status": "current",
+      "through_week": 7,
+      "sha256": "649835539e56e244ba5d0abfd8ad9610f6b8e54d228f740d0cbdbce9fa761902",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -918,208 +918,20 @@
     },
     "secondary_matchup": {
       "label": "manual_review_capped",
-      "source_week": 6,
-      "status": "stale_prior_week_matchups",
+      "source_week": 7,
+      "status": "current",
       "entries": [
         {
-          "id": "sec_29a31d392badb91f",
+          "id": "sec_3a143c7eabe4bdce",
           "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_CAR_at_PHI",
-          "kickoff_utc": "2026-10-18T17:00:00.000Z",
-          "offense_team": "CAR",
-          "offense_team_nick": "Panthers",
-          "defense_team": "PHI",
-          "defense_team_nick": "Eagles",
-          "offense_venue": "away",
-          "coverage_scheme": {
-            "scheme_tags": [
-              "match_zone",
-              "two_high",
-              "quarters"
-            ],
-            "primary_coverage_family": "match_zone",
-            "pressure_profile": "front_dependent",
-            "confidence": 0.82,
-            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-            "notes": "Vic Fangio master match zone / split safety system with Quinyon Mitchell and Cooper DeJean."
-          },
-          "secondary_absences": [
-            {
-              "player_name": "Andre' Sam",
-              "team": "PHI",
-              "position": "S",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Andre' Sam IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:50:03.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Tucker Large",
-              "team": "PHI",
-              "position": "S",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Tucker Large IR",
-              "source": "FantasyPros injuries API",
-              "corroborating_sources": [
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-17T01:50:03.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Michael Carter II",
-              "team": "PHI",
-              "position": "CB",
-              "event_type": "out",
-              "availability_trend": "worsening",
-              "summary": "out",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API",
-                "FantasyPros injuries API"
-              ],
-              "published_at": "2026-10-16T21:02:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.2,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Jakorian Bennett",
-              "team": "PHI",
-              "position": "CB",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Bennett (knee) had his 21-day practice window opened by the Eagles on Wednesday.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-15T01:04:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            }
-          ],
-          "weakness_tags": [
-            "inside_seam_boost",
-            "post_cross_boost",
-            "slot_wr_boost",
-            "te_middle_boost",
-            "underneath_volume_boost"
-          ],
-          "target_receivers": [
-            {
-              "player_name": "Brycen Tremayne",
-              "team": "CAR",
-              "roles": [
-                "slot"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle",
-                "short"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost",
-                "inside_seam_boost",
-                "underneath_volume_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "CAR WR3 per ESPN depth chart 2026-10-14; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Tommy Tremble",
-              "team": "CAR",
-              "roles": [
-                "te_middle"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle"
-              ],
-              "matched_weakness_tags": [
-                "te_middle_boost",
-                "inside_seam_boost"
-              ],
-              "opportunity_score": 1.6,
-              "notes": "CAR TE1 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Jalen Coker",
-              "team": "CAR",
-              "roles": [
-                "z_receiver"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "boundary"
-              ],
-              "matched_weakness_tags": [
-                "post_cross_boost"
-              ],
-              "opportunity_score": 0.8,
-              "notes": "CAR WR2 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
-            }
-          ],
-          "severity_score": 5.25,
-          "elite_absence_count": 0,
-          "vulnerability_tier": "high",
-          "confidence": 0.95,
-          "use_cases": [
-            "wr_props",
-            "qb_props",
-            "game_total",
-            "same_game_parlay",
-            "weekly_matchup_context"
-          ],
-          "guardrail": "manual_review_required_not_a_pick",
-          "needs_human_review": true,
-          "excluded_unavailable": []
-        },
-        {
-          "id": "sec_ee5c01bc2e68a30d",
-          "season": 2026,
-          "week": 6,
-          "game_id": "nfl_2026_2_w06_CAR_at_PHI",
-          "kickoff_utc": "2026-10-18T17:00:00.000Z",
-          "offense_team": "PHI",
-          "offense_team_nick": "Eagles",
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_TB_at_CAR",
+          "kickoff_utc": "2026-10-25T17:00:00.000Z",
+          "offense_team": "TB",
+          "offense_team_nick": "Buccaneers",
           "defense_team": "CAR",
           "defense_team_nick": "Panthers",
-          "offense_venue": "home",
+          "offense_venue": "away",
           "coverage_scheme": {
             "scheme_tags": [
               "zone_heavy",
@@ -1143,7 +955,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-17T01:50:02.000Z",
+              "published_at": "2026-10-21T06:20:01.000Z",
               "role": "outside_cb2",
               "side": "field",
               "impact_tier": "starter",
@@ -1168,7 +980,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-17T01:50:02.000Z",
+              "published_at": "2026-10-21T06:20:01.000Z",
               "role": "outside_cb1",
               "side": "boundary",
               "impact_tier": "elite",
@@ -1221,51 +1033,50 @@
           ],
           "target_receivers": [
             {
-              "player_name": "DeVonta Smith",
-              "team": "PHI",
+              "player_name": "Emeka Egbuka",
+              "team": "TB",
               "roles": [
-                "z_receiver",
-                "field_stretcher"
+                "alpha_x"
               ],
-              "target_share_tier": "alpha",
+              "target_share_tier": "high",
               "route_area_tags": [
-                "deep",
                 "boundary",
                 "intermediate"
               ],
               "matched_weakness_tags": [
                 "outside_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
+                "alpha_wr_boost",
+                "boundary_wr_boost"
               ],
-              "opportunity_score": 4.5,
-              "notes": "PHI Slim Reaper WR1B.",
+              "opportunity_score": 3.6,
+              "notes": "TB WR1 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "questionable"
+            },
+            {
+              "player_name": "Chris Godwin",
+              "team": "TB",
+              "roles": [
+                "slot",
+                "possession"
+              ],
+              "target_share_tier": "alpha",
+              "route_area_tags": [
+                "slot",
+                "intermediate"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 3,
+              "notes": "TB Elite Slot WR.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
             },
             {
-              "player_name": "Dontayvion Wicks",
-              "team": "PHI",
-              "roles": [
-                "z_receiver"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "boundary"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "PHI WR2 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Makai Lemon",
-              "team": "PHI",
+              "player_name": "Ted Hurst III",
+              "team": "TB",
               "roles": [
                 "slot"
               ],
@@ -1279,7 +1090,7 @@
                 "underneath_volume_boost"
               ],
               "opportunity_score": 1.6,
-              "notes": "PHI WR3 per ESPN depth chart 2026-09-27; default role - verify.",
+              "notes": "TB WR3 per ESPN depth chart 2026-10-02; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
               "availability_flag": "none"
             }
@@ -1288,6 +1099,142 @@
           "elite_absence_count": 1,
           "vulnerability_tier": "high",
           "confidence": 0.94,
+          "use_cases": [
+            "wr_props",
+            "qb_props",
+            "game_total",
+            "same_game_parlay",
+            "weekly_matchup_context"
+          ],
+          "guardrail": "manual_review_required_not_a_pick",
+          "needs_human_review": true,
+          "excluded_unavailable": []
+        },
+        {
+          "id": "sec_163c38d7d7e5f2f4",
+          "season": 2026,
+          "week": 7,
+          "game_id": "nfl_2026_2_w07_TB_at_CAR",
+          "kickoff_utc": "2026-10-25T17:00:00.000Z",
+          "offense_team": "CAR",
+          "offense_team_nick": "Panthers",
+          "defense_team": "TB",
+          "defense_team_nick": "Buccaneers",
+          "offense_venue": "home",
+          "coverage_scheme": {
+            "scheme_tags": [
+              "zone_heavy",
+              "two_high",
+              "blitz_heavy"
+            ],
+            "primary_coverage_family": "zone_heavy",
+            "pressure_profile": "blitz_heavy",
+            "confidence": 0.8,
+            "source_url": "https://www.ourlads.com/nfl-depth-charts/",
+            "notes": "Todd Bowles heavy pressure and simulated pressure with Antoine Winfield Jr."
+          },
+          "secondary_absences": [
+            {
+              "player_name": "Josh Hayes",
+              "team": "TB",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Josh Hayes IR",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-21T06:20:02.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Antoine Winfield Jr.",
+              "team": "TB",
+              "position": "S",
+              "event_type": "doubtful",
+              "availability_trend": "worsening",
+              "summary": "doubtful",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-20T16:10:00.000Z",
+              "role": "free_safety",
+              "side": "middle",
+              "impact_tier": "elite",
+              "primary_receiver_archetypes_impacted": [
+                "field_stretcher",
+                "te_middle",
+                "slot"
+              ],
+              "weakness_tags": [
+                "deep_pass_boost",
+                "slot_wr_boost",
+                "post_cross_boost"
+              ],
+              "severity_score": 2.7,
+              "needs_human_review": true
+            }
+          ],
+          "weakness_tags": [
+            "deep_pass_boost",
+            "hot_read_boost",
+            "post_cross_boost",
+            "slot_wr_boost",
+            "underneath_volume_boost"
+          ],
+          "target_receivers": [
+            {
+              "player_name": "Brycen Tremayne",
+              "team": "CAR",
+              "roles": [
+                "slot"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle",
+                "short"
+              ],
+              "matched_weakness_tags": [
+                "slot_wr_boost",
+                "underneath_volume_boost"
+              ],
+              "opportunity_score": 1.6,
+              "notes": "CAR WR3 per ESPN depth chart 2026-10-14; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
+            },
+            {
+              "player_name": "Jalen Coker",
+              "team": "CAR",
+              "roles": [
+                "z_receiver"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "boundary"
+              ],
+              "matched_weakness_tags": [
+                "deep_pass_boost",
+                "post_cross_boost"
+              ],
+              "opportunity_score": 1.6,
+              "notes": "CAR WR2 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
+            }
+          ],
+          "severity_score": 4.05,
+          "elite_absence_count": 1,
+          "vulnerability_tier": "medium",
+          "confidence": 0.85,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1310,19 +1257,19 @@
       "source": "data/generated/master-intel/w07-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-20T22:47:22.559133+00:00",
-      "roster_age_h_at_vet": 0.2,
+      "roster_snapshot_generated_at": "2026-10-22T01:21:24.521422+00:00",
+      "roster_age_h_at_vet": 0,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-20T22:47:55Z",
-      "availability_events": "2026-10-20T23:12:31.816Z",
-      "impact_digest": "2026-10-20T23:12:42.057Z",
-      "projected_starters": "2026-10-20T18:23:03.995Z",
-      "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+      "espn_status": "2026-10-22T01:21:31Z",
+      "availability_events": "2026-10-22T01:21:47.882Z",
+      "impact_digest": "2026-10-22T01:21:56.859Z",
+      "projected_starters": "2026-10-21T22:00:03.496Z",
+      "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1357,19 +1304,11 @@
       ],
       "questionable_doubtful": [
         {
-          "player": "Monroe Freeling",
-          "pos": "OT",
+          "player": "Jaelan Phillips",
+          "pos": "LB",
           "status": "Questionable",
-          "date": "2026-10-20",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "AJ Dillon",
-          "pos": "RB",
-          "status": "Questionable",
-          "date": "2026-10-20",
-          "comment": "questionable",
+          "date": "2026-10-21",
+          "comment": "Phillips (hamstring) was estimated as a non-participant on the Panthers' official injury report Wednesday, Darin Gantt of the team's official site reports.",
           "roster_check": "ok"
         },
         {
@@ -1429,12 +1368,10 @@
     "ol_dl_cluster_risk": {
       "ol": {
         "hard_or_doubtful": 0,
-        "questionable": 1,
+        "questionable": 0,
         "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": [
-          "Monroe Freeling OT Questionable"
-        ]
+        "players": []
       },
       "dl": {
         "hard_or_doubtful": 1,
@@ -1456,7 +1393,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Jonathon Brooks IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1472,7 +1409,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Xavier Legette IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1488,7 +1425,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Mike Jackson Sr. IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1504,7 +1441,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Jaycee Horn IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1520,7 +1457,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Nic Scourton IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1536,7 +1473,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Cam Jackson IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1552,10 +1489,12 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Bam Martin-Scott IR",
-          "practice": [],
-          "probability_of_playing": null,
+          "practice": [
+            "Full"
+          ],
+          "probability_of_playing": 0.29994,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1568,7 +1507,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-20T23:00:01.000Z",
+          "published_at": "2026-10-22T01:17:03.000Z",
           "summary": "Chris Brazzell II IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1578,14 +1517,14 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Monroe Freeling",
-          "position": "OT",
+          "player_name": "Jaelan Phillips",
+          "position": "LB",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
-          "summary": "questionable",
+          "published_at": "2026-10-21T23:38:00.000Z",
+          "summary": "Phillips (hamstring) was estimated as a non-participant on the Panthers' official injury report Wednesday, Darin Gantt of the team's official site reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1596,44 +1535,46 @@
         {
           "player_name": "AJ Dillon",
           "position": "RB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "improving",
+          "event_type": "return_to_practice",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-21T23:31:00.000Z",
+          "summary": "Dillon (ankle) was estimated as a full participant on the Panthers' official injury report Wednesday, Darin Gantt of the team's official site reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Thomas Incoom",
+          "position": "LB",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-20T16:10:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-21T00:00:00.000Z",
+          "summary": "Thomas Incoom QUESTIONABLE",
+          "practice": [
+            "DNP"
+          ],
+          "probability_of_playing": 0.13122,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
         },
         {
-          "player_name": "Ryan Fitzgerald",
-          "position": "PK",
+          "player_name": "Anthony Tyus III",
+          "position": "RB",
           "normalized_status": "ACTIVE_NEWS",
           "availability_trend": "unknown",
           "event_type": "active_news",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-20T02:34:00.000Z",
-          "summary": "Fitzgerald made both of his field-goal attempts but missed one of two PATs in the Panthers' 25-14 win over the Eagles on Sunday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Jalen Coker",
-          "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-19T09:35:00.000Z",
-          "summary": "Coker brought in six of 13 targets for 97 yards in the Panthers' 25-14 win over the Eagles on Sunday. He also committed a fumble recovered by Carolina.",
+          "published_at": "2026-10-20T23:32:00.000Z",
+          "summary": "The Panthers signed Tyus off their practice squad to the active roster Tuesday, Joe Person of The Athletic reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1644,6 +1585,29 @@
       ]
     },
     "impact_digest": [
+      {
+        "player_name": "Bryce Young",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "status_update",
+        "availability_trend": "unknown",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 94,
+        "signal": "review_context",
+        "source": "FantasyPros injuries API",
+        "published_at": null,
+        "summary": "Bryce Young UNKNOWN",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
       {
         "player_name": "Bryce Young",
         "position": "QB",
@@ -1689,16 +1653,41 @@
         "synthesis_eligible": true,
         "needs_human_review": true,
         "roster_check": "ok"
+      },
+      {
+        "player_name": "Anthony Tyus III",
+        "position": "RB",
+        "unit": "offensive_skill",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "source_count": 1
+        },
+        "score": 44,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-20T23:32:00.000Z",
+        "summary": "The Panthers signed Tyus off their practice squad to the active roster Tuesday, Joe Person of The Athletic reports.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
       }
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-20T18:23:03.995Z",
+      "as_of": "2026-10-21T22:00:03.496Z",
       "known": [
         "Bryce Young QB",
         "Tommy Tremble TE"
       ],
-      "estimated": [],
+      "estimated": [
+        "Anthony Tyus III RB"
+      ],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -1719,6 +1708,15 @@
           "role": "starter",
           "starter_confidence": 0.7,
           "roster_confidence": 0.8,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Anthony Tyus III",
+          "position": "RB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
           "roster_check": "ok"
         }
       ]
@@ -1952,18 +1950,18 @@
       "status": "historical_context_only",
       "caveats": [
         "coaching snapshot stale after 2026-11-03T18:43:44.785Z",
-        "secondary-matchup source week 6"
+        "secondary-matchup source week 7"
       ]
     },
     "availability": {
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-20T22:47:55Z",
-        "availability_events": "2026-10-20T23:12:31.816Z",
-        "impact_digest": "2026-10-20T23:12:42.057Z",
-        "projected_starters": "2026-10-20T18:23:03.995Z",
-        "roster_snapshot": "2026-10-20T22:47:22.559133+00:00"
+        "espn_status": "2026-10-22T01:21:31Z",
+        "availability_events": "2026-10-22T01:21:47.882Z",
+        "impact_digest": "2026-10-22T01:21:56.859Z",
+        "projected_starters": "2026-10-21T22:00:03.496Z",
+        "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
