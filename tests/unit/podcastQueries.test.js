@@ -21,6 +21,7 @@ function makeBuilder() {
     eq: vi.fn(function (...a) { this._calls.push(['eq', a]); return this; }),
     gte: vi.fn(function (...a) { this._calls.push(['gte', a]); return this; }),
     order: vi.fn(function (...a) { this._calls.push(['order', a]); return this; }),
+    not: vi.fn(function (...a) { this._calls.push(['not', a]); return this; }),
     limit: vi.fn(function (...a) {
       this._calls.push(['limit', a]);
       return Promise.resolve(nextPayload);
@@ -293,5 +294,50 @@ describe('podcast intel queries — Phase 6', () => {
       const out = await getPlayerPropContext({ player: 'Patrick Mahomes' });
       expect(out.picks).toEqual([]);
     });
+  });
+});
+
+describe('round 3 — direction-aware stances and exact prop stats', () => {
+  it('getTeamPodcastIntel: make-playoffs NO / miss-playoffs YES / win-total UNDER count AGAINST the team', async () => {
+    nextPayload = {
+      data: [ep({
+        id: 'e1',
+        picks: [
+          pick({ category: 'future', subject: 'DAL', subject_market: 'make_playoffs', selection: 'NO', team1: 'DAL', team2: null }),
+          pick({ category: 'future', subject: 'DAL', subject_market: 'Miss_Playoffs', selection: 'YES', team1: 'DAL', team2: null }),
+          pick({ category: 'future', subject: 'DAL', subject_market: 'NFC_East_Win_Total', selection: 'UNDER', team1: 'DAL', team2: null }),
+          pick({ category: 'future', subject: 'DAL', subject_market: 'make_playoffs', selection: 'YES', team1: 'DAL', team2: null }),
+          pick({ category: 'spread', subject: 'DAL', team1: 'DAL', team2: 'PHI', selection: 'DAL' }),
+        ],
+      })],
+      error: null,
+    };
+    const out = await getTeamPodcastIntel({ team: 'DAL' });
+    expect(out.against).toHaveLength(3);
+    expect(out.for).toHaveLength(2);
+  });
+
+  it('getTeamPodcastIntel: a Saints spread pick (selection "NO") is FOR the Saints', async () => {
+    nextPayload = { data: [ep({ id: 'e1', picks: [pick({ subject: 'NO', team1: 'ATL', team2: 'NO', selection: 'NO' })] })], error: null };
+    const out = await getTeamPodcastIntel({ team: 'NO' });
+    expect(out.for).toHaveLength(1);
+    expect(out.against).toHaveLength(0);
+  });
+
+  it('getPlayerPropContext: exact stat match — rush_rec_yds does not count as rec_yds', async () => {
+    nextPayload = {
+      data: [ep({
+        id: 'e1',
+        picks: [
+          pick({ category: 'prop', subject: 'Christian McCaffrey', subject_market: 'receiving_yards', selection: 'OVER' }),
+          pick({ category: 'prop', subject: 'Christian McCaffrey', subject_market: 'rush_rec_yds', selection: 'OVER' }),
+          pick({ category: 'prop', subject: 'Christian McCaffrey', subject_market: 'player_reception_yds', selection: 'UNDER' }),
+        ],
+      })],
+      error: null,
+    };
+    const out = await getPlayerPropContext({ player: 'Christian McCaffrey', propType: 'rec_yds' });
+    expect(out.picks).toHaveLength(2);
+    expect(out.trend).toMatchObject({ OVER: 1, UNDER: 1 });
   });
 });

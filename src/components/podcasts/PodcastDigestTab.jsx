@@ -17,6 +17,7 @@ import { getPodcastEpisodes } from '../../lib/supabase';
 import { addPick } from '../../lib/picksDatabase';
 import { M6 } from '../../lib/apiConfig';
 import { getNFLWeekInfo } from '../../lib/constants';
+import { reconcilePodcastPicks, teamFieldKey } from '../../lib/podcastReconciler';
 
 // Slugify matching 7a aggregate.js and Phase 8 ^[a-z0-9-]{1,64}$ contract.
 function slugify(name) {
@@ -56,7 +57,15 @@ const fmtDuration = (secs) => {
   return h > 0 ? `${h}h ${m}m` : `${m}m`;
 };
 
+// Answers/directions that look like team codes but aren't.
+const NON_TEAM_TOKENS = new Set(['YES', 'OVR', 'UND', 'ATS', 'ML']);
+
 const getPickTeams = (pick = {}) => {
+  const sel = String(pick.selection || '').trim().toUpperCase();
+  // On futures/props the selection is an answer (YES/NO/OVER/UNDER) or a
+  // player — 'NO' there means "no", not the Saints.
+  const selIsAnswer = ['future', 'prop', 'player_prop'].includes(pick.category)
+    && (['YES', 'NO', 'OVER', 'UNDER'].includes(sel) || !teamFieldKey(sel));
   const values = [
     pick.team,
     pick.team1,
@@ -64,11 +73,12 @@ const getPickTeams = (pick = {}) => {
     pick.home,
     pick.visitor,
     pick.away,
-    pick.selection,
+    teamFieldKey(pick.subject),   // audio futures often carry the team only here
+    selIsAnswer ? null : pick.selection,
   ];
-  return values
+  return [...new Set(values
     .flatMap((value) => String(value || '').toUpperCase().match(/\b[A-Z]{2,3}\b/g) || [])
-    .filter((value) => value.length >= 2);
+    .filter((value) => value.length >= 2 && !NON_TEAM_TOKENS.has(value)))];
 };
 
 const pickTeamLabel = (pick = {}) => {
@@ -78,7 +88,33 @@ const pickTeamLabel = (pick = {}) => {
   return teams.join(' / ') || getPickTeams(pick)[0] || '';
 };
 
-const getEpisodePicks = (episode) => episode.podcast_transcripts?.picks ?? [];
+// §1A — merge the audio-transcript picks with this episode's promoted
+// YouTube/Gemini picks. A pick both pipelines caught renders ONCE with
+// dual_extraction:true. It's one opinion transcribed twice, so it's counted
+// once with no extra confidence; counts below use this deduplicated array.
+const _reconciledCache = new WeakMap();
+const getEpisodePicks = (episode) => {
+  if (!episode) return [];
+  if (_reconciledCache.has(episode)) return _reconciledCache.get(episode);
+  const ctx = {
+    episode_id: episode.id,
+    episode_title: episode.title,
+    pub_date: episode.pub_date,
+    feed_name: episode.podcast_feeds?.name ?? null,
+    expert: episode.podcast_feeds?.expert ?? null,
+  };
+  // Same rules as the agent-side _flattenPodcastPicks: transcripts may arrive
+  // as an object or an array, and needs_review picks are never surfaced.
+  const rawTranscripts = episode.podcast_transcripts;
+  const transcriptList = Array.isArray(rawTranscripts) ? rawTranscripts : rawTranscripts ? [rawTranscripts] : [];
+  const audio = transcriptList.flatMap((t) =>
+    (t?.picks ?? []).filter((pick) => pick && pick.needs_review !== true).map((pick) => ({ ...ctx, pick })));
+  const video = (episode.podcast_gemini_intel ?? []).flatMap((row) =>
+    (row.picks ?? []).map((p) => ({ item_type: 'pick', ...ctx, ...p, promoted_at: row.promoted_at })));
+  const picks = reconcilePodcastPicks(audio, video).map((u) => u.pick);
+  _reconciledCache.set(episode, picks);
+  return picks;
+};
 const getEpisodeIntel = (episode) => episode.podcast_transcripts?.intel ?? [];
 const episodeDateMs = (episode) => Date.parse(episode.pub_date || '') || 0;
 
@@ -315,16 +351,34 @@ function EpisodeCard({ episode, isTargeted, onImport, teamFilter }) {
                         {cat.toUpperCase()}
                       </span>
                       <div className="flex-1 min-w-0">
-                        <div className="text-sm font-bold text-white">
-                          {pick.selection}{pick.line != null ? ` ${pick.line > 0 ? '+' : ''}${pick.line}` : ''}
+                        <div className="text-sm font-bold text-white flex items-center gap-2 flex-wrap">
+                          <span>{pick.selection}{pick.line != null ? ` ${pick.line > 0 ? '+' : ''}${pick.line}` : ''}</span>
+                          {pick.dual_extraction && (
+                            <span
+                              className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full border bg-slate-700/40 text-slate-300 border-slate-600/50"
+                              title={`Same pick heard on both the audio feed and the YouTube video — merged and counted once${pick.line_variants?.length > 1 ? ` · lines heard: ${pick.line_variants.join(' / ')}` : ''}`}
+                            >
+                              Audio + Video
+                            </span>
+                          )}
+                          {!pick.dual_extraction && pick.sources?.[0] === 'youtube_gemini' && (
+                            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full border bg-red-500/10 text-red-300 border-red-500/30" title="Only the YouTube/Gemini pipeline caught this pick">
+                              Video only
+                            </span>
+                          )}
                         </div>
                         {pick.summary && (
                           <div className="text-xs text-slate-400 mt-0.5">{pick.summary}</div>
                         )}
+                        {pick.alternate_quote && pick.alternate_quote !== pick.summary && (
+                          <div className="text-[11px] text-slate-500 mt-1 italic border-l-2 border-emerald-500/30 pl-2">
+                            Also heard: “{pick.alternate_quote}”
+                          </div>
+                        )}
                         <div className="flex items-center gap-3 mt-1 text-[10px] text-slate-500 flex-wrap">
                           {pick.team1 && pick.team2 && <span>{pick.team2} @ {pick.team1}</span>}
                           {pickTeamLabel(pick) && <span>{pickTeamLabel(pick)}</span>}
-                          {confPct != null && <span>{confPct}% conf</span>}
+                          {confPct != null && <span>{confPct}% conf{pick.confidence_tier ? ` · ${pick.confidence_tier}` : ''}</span>}
                           {pick.units != null && <span>{pick.units}u</span>}
                           {pick.week && pick.season && <span>W{pick.week} {pick.season}</span>}
                         </div>

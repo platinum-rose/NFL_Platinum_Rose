@@ -2,7 +2,8 @@
 // Enhanced odds API for multiple sportsbooks and line shopping
 
 import logger from './logger';
-import { ODDS_PROXY_URL, SUPABASE_ANON_KEY } from './apiConfig.js';
+import { ODDS_PROXY_URL } from './apiConfig.js';
+import { getEdgeFunctionHeaders } from './edgeAuth.js';
 import { devig, calcEV } from './futures.js';
 import { loadFromStorage, saveToStorage, PR_STORAGE_KEYS } from './storage.js';
 
@@ -65,11 +66,7 @@ export const fetchMultiBookOdds = async () => {
     const bookmakers = Object.keys(SPORTSBOOKS).join(',');
     const response = await fetch(ODDS_PROXY_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-        apikey: SUPABASE_ANON_KEY,
-      },
+      headers: await getEdgeFunctionHeaders(),
       body: JSON.stringify({
         queryParams: {
           regions: 'us',

@@ -620,8 +620,17 @@ async function syncPropToBankroll(entry, { week, season }) {
   }
   const playerId = statCol ? await resolvePlayerId(entry.player, season) : null;
 
+  // 025's bets_insert requires user_id = auth.uid(); without it every prop
+  // logged from the browser is rejected once 056 drops the open 019 policies.
+  let userId = null;
+  try {
+    const { data: sess } = await supabase.auth.getSession();
+    userId = sess?.session?.user?.id ?? null;
+  } catch { /* signed out → insert will be refused by RLS and reported */ }
+
   const row = {
     id: entry.id,
+    user_id: userId,
     timestamp: entry.logged_at,
     week: week ?? null,
     season,

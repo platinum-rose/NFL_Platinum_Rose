@@ -19,11 +19,15 @@
 // Deploy:  supabase functions deploy dispatch-futures-report
 // Secret:  supabase secrets set GITHUB_DISPATCH_TOKEN=ghp_xxx
 // =============================================================================
+// Auth: signed-in user's access token (supabase.functions.invoke attaches it
+// automatically when logged in) or X-Cron-Secret. Anon key alone → 401.
+// =============================================================================
 // @ts-nocheck — Deno runtime; no tsconfig in functions dir
+import { verifyCaller, AUTH_CORS_ALLOW_HEADERS } from '../_shared/auth.ts';
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  'Access-Control-Allow-Headers': AUTH_CORS_ALLOW_HEADERS,
 };
 
 function json(data: unknown, status = 200): Response {
@@ -36,6 +40,10 @@ function json(data: unknown, status = 200): Response {
 Deno.serve(async (req: Request) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: CORS_HEADERS });
   if (req.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
+
+  // Verify caller BEFORE using the GitHub PAT.
+  const auth = await verifyCaller(req);
+  if (!auth.ok) return json({ error: auth.error }, auth.status);
 
   const token = Deno.env.get('GITHUB_DISPATCH_TOKEN');
   if (!token) return json({ error: 'GITHUB_DISPATCH_TOKEN not configured in Supabase secrets' }, 500);

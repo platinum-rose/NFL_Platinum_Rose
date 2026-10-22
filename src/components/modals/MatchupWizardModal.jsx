@@ -1,8 +1,11 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { X, Wand2, User, Quote, Microscope, Target, DollarSign, TrendingUp, Shield, Zap, Activity, Newspaper, Radio, Award, ExternalLink, Sparkles } from 'lucide-react';
 import latestCampReport from '../../../data/training-camp/2026/latest.json';
 import latestEmrReport from '../../../data/research-intel/local/2026-07-13-the-window-emr-ratings.json';
 import { getSecondaryMatchupsForGame } from '../../lib/secondaryMatchupStore';
+import { getMatchupPodcastPicks } from '../../lib/supabase';
+import { getTeamAbbreviation } from '../../lib/teams';
+import SteamAlertPill from '../ui/SteamAlertPill';
 
 // --- 1. SHARED LOGOS ---
 const TEAM_LOGOS = {
@@ -139,8 +142,36 @@ export default function MatchupWizardModal({ isOpen, onClose, game, onBet, stats
   const [selectedBet, setSelectedBet] = useState(null);
 
   // --- MERGE EXPERT PICKS DATA ---
-  const expertData = currentWizardData || game?.consensus || { expertPicks: { spread: [], total: [] } };
+  // §1A — a host whose pick was ingested from both the audio feed and the
+  // YouTube video must never be listed twice for the same pick.
+  const expertData = useMemo(() => {
+    const rawExpertData = currentWizardData || game?.consensus || { expertPicks: { spread: [], total: [] } };
+    const dedupe = (list = []) => {
+      const seen = new Set();
+      return list.filter((p) => {
+        const k = [p.expert, p.pickType, p.pick, p.line].map((v) => String(v ?? '').trim().toLowerCase()).join('|');
+        if (seen.has(k)) return false;
+        seen.add(k);
+        return true;
+      });
+    };
+    const ep = rawExpertData.expertPicks || {};
+    return { ...rawExpertData, expertPicks: { ...ep, spread: dedupe(ep.spread || []), total: dedupe(ep.total || []) } };
+  }, [currentWizardData, game?.consensus]);
   const hasExpertPicks = expertData.expertPicks && (expertData.expertPicks.spread.length > 0 || expertData.expertPicks.total.length > 0);
+
+  // §1A — reconciled podcast picks (audio + YouTube duplicates merged, counted once).
+  const [podcastPicks, setPodcastPicks] = useState([]);
+  useEffect(() => {
+    if (!isOpen || !game) return undefined;
+    let cancelled = false;
+    const home = (getTeamAbbreviation(game.home) || game.home || '').toUpperCase();
+    const away = (getTeamAbbreviation(game.visitor) || game.visitor || '').toUpperCase();
+    getMatchupPodcastPicks({ home, away, week: game.week ?? undefined })
+      .then((rows) => { if (!cancelled) setPodcastPicks(rows || []); })
+      .catch(() => { if (!cancelled) setPodcastPicks([]); });
+    return () => { cancelled = true; };
+  }, [isOpen, game]);
 
   // --- STATS LOGIC ---
   const ranks = useMemo(() => {
@@ -421,6 +452,41 @@ export default function MatchupWizardModal({ isOpen, onClose, game, onBet, stats
                     </div>
                   </div>
                 </div>
+
+                {/* ⚡ STEAM / RLM ALERT (auto-correlated injuries + sharp tweets) */}
+                <SteamAlertPill home={game.home} away={game.visitor} week={game.week} season={game.season} detailed />
+
+                {/* PODCAST PICKS — audio + YouTube reconciled, one row per host pick */}
+                {podcastPicks.length > 0 && (
+                    <div className="space-y-3">
+                        <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
+                            <Radio size={14} /> Podcast Picks ({podcastPicks.length})
+                        </h4>
+                        <div className="grid gap-2">
+                            {podcastPicks.map((row, i) => {
+                                const p = row.pick || {};
+                                return (
+                                    <div key={i} className="bg-slate-950 p-3 rounded-xl border border-slate-800 flex items-start gap-3">
+                                        <div className="flex-1 min-w-0">
+                                            <div className="flex items-center gap-2 flex-wrap">
+                                                <span className="text-sm font-bold text-white">{p.selection}{p.line != null ? ` ${p.line > 0 ? '+' : ''}${p.line}` : ''}</span>
+                                                <span className="text-[10px] uppercase text-slate-500">{p.category}</span>
+                                                {row.dual_extraction ? (
+                                                    <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full border bg-slate-700/40 text-slate-300 border-slate-600/50" title="Same pick heard on both the audio feed and the YouTube video — merged and counted once">Audio + Video</span>
+                                                ) : row.sources?.[0] === 'youtube_gemini' ? (
+                                                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full border bg-red-500/10 text-red-300 border-red-500/30">Video</span>
+                                                ) : null}
+                                                {row.confidence_tier && <span className="text-[10px] text-slate-400">{row.confidence_tier}</span>}
+                                            </div>
+                                            <div className="text-[11px] text-slate-400 mt-0.5">{row.expert || row.feed_name || 'Podcast'}{row.episode_title ? ` — ${row.episode_title}` : ''}</div>
+                                            {p.summary && <div className="text-xs text-slate-300 mt-1 line-clamp-2">{p.summary}</div>}
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                )}
 
                 {/* A. TRACKED EXPERT PICKS */}
                 {hasExpertPicks && (

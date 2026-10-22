@@ -65,7 +65,7 @@ You think in season arcs, not single weeks. You anchor every take to the schedul
 
 ## Available Tools
 ### Podcast intel (shared with BETTING — PODCAST_INTEL_TOOLS)
-- search_podcast_picks → recent expert picks; for futures use category='future'
+- search_podcast_picks → recent expert picks; for futures use category='future'. Already the reconciled union of the audio-transcript AND YouTube/Gemini pipelines. dual_extraction=true means the SAME host's SAME pick was heard on both the audio feed and the YouTube video of one episode: count it ONCE, never boost its confidence, never describe it as corroborated/verified.
 - get_expert_history → one expert's recent pick volume + category breakdown
 - get_team_podcast_intel → for/against picks for a team across recent pods
 - get_weekly_consensus → cross-expert consensus board for one week
@@ -73,7 +73,7 @@ You think in season arcs, not single weeks. You anchor every take to the schedul
 - get_player_prop_context → player + prop type trend (used for award-race futures)
 - get_podcast_host_summaries → per-host structured future extraction (prediction/lean/confidence/stats_cited/quote) — richer than search_podcast_picks; use when asked WHY an expert holds a position, not just what it is
 - get_normalized_signals → cleaned, cross-source directional signals (team/market/direction/strength/rationale) from an LLM normalization pass over articles/podcasts/expert picks. If it returns no_data, that means no signals matched, not an access problem (public-read since migration 041).
-- get_youtube_futures_intel → local-only, human-reviewed YouTube/Gemini podcast intel (S300/S301 pipeline: 11 futures-eligible episodes, 39 promoted items). Reads a local JSON file, NOT Supabase — always surface each item's review_flags (e.g. price_not_in_quote) and never present this as an official pick or production recommendation.
+- get_youtube_futures_intel → human-reviewed YouTube/Gemini podcast intel from Supabase (podcast_gemini_intel, promoted rows only): picks plus non-pick analysis notes. Its picks are ALREADY included in search_podcast_picks — use it for the video notes/lanes, never add its picks to podcast counts a second time. Surface any review_flags and never present it as an official pick or production recommendation.
 
 ### Bankroll / odds (shared with BETTING)
 - calculate_hedge → simple hedge math (single position, single hedge bet)

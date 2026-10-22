@@ -13,7 +13,16 @@
 // Keys are stored as Supabase secrets; the browser never sees them.
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { ANTHROPIC_API, AI_PROXY_URL, SUPABASE_ANON_KEY } from './apiConfig.js';
+import { ANTHROPIC_API, AI_PROXY_URL } from './apiConfig.js';
+import { getEdgeFunctionHeaders } from './edgeAuth.js';
+
+// Provider errors arrive as { error: { message } }; ai-proxy / auth errors
+// (e.g. 401 "sign in required") arrive as { error: "string" }. Surface both.
+function proxyErrorMessage(body) {
+  if (!body) return null;
+  if (typeof body.error === 'string') return body.error;
+  return body.error?.message || null;
+}
 
 const OPENAI_DEFAULT_MODEL  = 'gpt-4o-mini';
 // Model used when falling back from Anthropic due to credit exhaustion.
@@ -85,11 +94,7 @@ async function callAnthropic(
     };
     const response = await fetch(AI_PROXY_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-        apikey: SUPABASE_ANON_KEY,
-      },
+      headers: await getEdgeFunctionHeaders(),
       body: JSON.stringify(proxyBody),
       signal,
     });
@@ -103,7 +108,7 @@ async function callAnthropic(
     if (!response.ok) {
       const errBody = await response.json().catch(() => ({}));
       throw new Error(
-        errBody?.error?.message || `Anthropic API error: ${response.status}`
+        proxyErrorMessage(errBody) || `Anthropic API error: ${response.status}`
       );
     }
     return response.json();
@@ -220,11 +225,7 @@ export async function runOpenAIAgentTurn({
     try {
       const resp = await fetch(AI_PROXY_URL, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-          apikey: SUPABASE_ANON_KEY,
-        },
+        headers: await getEdgeFunctionHeaders(),
         signal,
         body: JSON.stringify({
           provider: 'openai',
@@ -236,7 +237,7 @@ export async function runOpenAIAgentTurn({
       });
       if (!resp.ok) {
         const errBody = await resp.json().catch(() => ({}));
-        throw new Error(errBody?.error?.message || `OpenAI API error: ${resp.status}`);
+        throw new Error(proxyErrorMessage(errBody) || `OpenAI API error: ${resp.status}`);
       }
       data = await resp.json();
     } catch (err) {

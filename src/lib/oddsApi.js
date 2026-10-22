@@ -3,7 +3,8 @@
 
 import logger from './logger';
 import { TEAM_MAPPING, normalizeTeam, getTeamAbbreviation } from './teams.js';
-import { ODDS_API, ODDS_PROXY_URL, SUPABASE_ANON_KEY } from './apiConfig.js';
+import { ODDS_API, ODDS_PROXY_URL } from './apiConfig.js';
+import { getEdgeFunctionHeaders } from './edgeAuth.js';
 
 export const fetchLiveOdds = async () => {
     if (!ODDS_PROXY_URL) {
@@ -15,11 +16,7 @@ export const fetchLiveOdds = async () => {
         logger.log('🔄 Fetching live odds via proxy...');
         const response = await fetch(ODDS_PROXY_URL, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-                apikey: SUPABASE_ANON_KEY,
-            },
+            headers: await getEdgeFunctionHeaders(),
             body: JSON.stringify({
                 queryParams: {
                     regions: ODDS_API.REGION,

@@ -8,6 +8,8 @@
 
 import logger from './logger';
 import { createClient } from '@supabase/supabase-js';
+import { reconcilePodcastPicks, normalizeFuturesSubMarket, normalizePropSubMarket, SOURCE_AUDIO } from './podcastReconciler.js';
+import { getTeamAbbreviation, getTeam } from './teams.js';
 import { canonicalExactMatchup } from './futuresMarketIdentity.js';
 
 const SUPABASE_URL      = import.meta.env.VITE_SUPABASE_URL || '';
@@ -185,7 +187,7 @@ export async function getGamesForSeason(season = 2026) {
  * Normalises to the format used by SteamMoveTracker / LineMovementTracker:
  * { game, type, from, to, movement, book, timestamp }
  */
-export async function getLineMovementsDB(hours = 24) {
+export async function getLineMovementsDB(hours = 24, limit = 200) {
   if (!isAvailable()) return [];
   try {
     const cutoff = new Date(Date.now() - hours * 60 * 60 * 1000).toISOString();
@@ -195,7 +197,7 @@ export async function getLineMovementsDB(hours = 24) {
         .select('*')
         .gte('detected_at', cutoff)
         .order('detected_at', { ascending: false })
-        .limit(200)
+        .limit(limit)
     );
 
     if (error || !data) return [];
@@ -1223,6 +1225,29 @@ export async function getPodcastEpisodes(limit = 30) {
       .limit(limit);
 
     if (error || !data) return [];
+    // §1A — attach promoted YouTube/Gemini picks for the same episodes so the
+    // UI can reconcile (dedupe) audio + YouTube picks. Separate, fail-soft query:
+    // a problem here must never blank the episode list.
+    try {
+      const ids = data.map(ep => ep.id).filter(Boolean);
+      if (ids.length) {
+        const { data: yt } = await supabase
+          .from('podcast_gemini_intel')
+          .select('episode_id, picks, promoted_at')
+          .in('episode_id', ids)
+          .not('promoted_at', 'is', null);
+        if (Array.isArray(yt)) {
+          const byEp = new Map();
+          for (const row of yt) {
+            if (!byEp.has(row.episode_id)) byEp.set(row.episode_id, []);
+            byEp.get(row.episode_id).push(row);
+          }
+          for (const ep of data) ep.podcast_gemini_intel = byEp.get(ep.id) || [];
+        }
+      }
+    } catch (ytErr) {
+      logger.warn('[supabase] getPodcastEpisodes YouTube attach failed (non-fatal):', ytErr.message);
+    }
     return data;
   } catch (e) {
     logger.warn('[supabase] getPodcastEpisodes failed:', e.message);
@@ -1299,12 +1324,80 @@ async function _flattenPodcastPicks({ hours = POD_LOOKBACK_DEFAULT_HOURS, limit 
 }
 
 /**
+ * §1A dual-pipeline reconciliation. Pulls audio-pipeline picks
+ * (podcast_transcripts) AND promoted YouTube/Gemini picks
+ * (podcast_gemini_intel) and collapses picks both pipelines extracted from
+ * the same episode/show into ONE row. A merge is the same pick heard twice,
+ * not a second opinion: it counts once, with no confidence boost or extra
+ * weight (dual_extraction: true just notes both pipelines agreed).
+ * Returns rows in the same { episode_id, pub_date, expert, feed_name, pick }
+ * shape as _flattenPodcastPicks so existing filters keep working; every row
+ * also carries dual_extraction / sources / sourceBadge / confidence_tier.
+ * @param {{ hours?: number, limit?: number, includeYoutube?: boolean }} opts
+ */
+async function _reconciledPodcastRows({ hours = POD_LOOKBACK_DEFAULT_HOURS, limit = 200, includeYoutube = true } = {}) {
+  const audio = await _flattenPodcastPicks({ hours, limit });
+  if (!includeYoutube) {
+    return audio.map(r => ({ ...r, dual_extraction: false, sources: [SOURCE_AUDIO], pick: { ...r.pick, dual_extraction: false, sources: [SOURCE_AUDIO] } }));
+  }
+  const since = Date.now() - hours * 3600 * 1000;
+  const video = (await _flattenGeminiIntel({ hours, limit: Math.max(limit, 300) }))
+    .filter(i => i.item_type === 'pick')
+    .filter(i => { const t = Date.parse(i.pub_date || ''); return !Number.isFinite(t) || t >= since; });
+  return reconcilePodcastPicks(audio, video).map(u => ({
+    episode_id: u.episode_id,
+    episode_title: u.episode_title,
+    pub_date: u.pub_date,
+    expert: u.expert,
+    feed_name: u.show_name,
+    processed_at: u.audio?.processed_at ?? null,
+    dual_extraction: u.dual_extraction,
+    sources: u.sources,
+    sourceBadge: u.sourceBadge,
+    confidence_tier: u.confidence_tier,
+    pick: u.pick,
+  }));
+}
+
+/**
+ * Reconciled (deduplicated) podcast picks for UI surfaces. See
+ * src/lib/podcastReconciler.js for the matching rules.
+ * @param {{ hours?: number, limit?: number }} opts
+ */
+export async function getReconciledPodcastPicks({ hours = POD_LOOKBACK_DEFAULT_HOURS, limit = 300 } = {}) {
+  return _reconciledPodcastRows({ hours, limit });
+}
+
+/**
+ * Reconciled podcast picks touching one matchup (either team), optionally
+ * scoped to a week. Used by the matchup modal so a host's pick heard on both
+ * the audio feed and the YouTube video is listed once.
+ * @param {{ home: string, away: string, week?: number, hours?: number }} opts
+ */
+export async function getMatchupPodcastPicks({ home, away, week, hours = 10 * 24 } = {}) {
+  const codes = [home, away].map(t => String(t || '').toUpperCase()).filter(Boolean);
+  if (!codes.length) return [];
+  const rows = await _reconciledPodcastRows({ hours, limit: 300 });
+  return rows.filter(({ pick }) => {
+    if (week != null && pick.week != null && pick.week !== week) return false;
+    // selection is a team only when it isn't a direction/answer: YES/OVER/UNDER
+    // never are, and on futures/props 'NO' is the answer (a Saints future still
+    // matches through subject/team1).
+    const sel = String(pick.selection || '').toUpperCase();
+    const isAnswer = ['YES', 'OVER', 'UNDER'].includes(sel)
+      || (sel === 'NO' && ['future', 'prop', 'player_prop'].includes(pick.category));
+    const touched = [pick.subject, pick.team1, pick.team2, isAnswer ? '' : sel].map(v => String(v || '').toUpperCase());
+    return codes.some(c => touched.includes(c));
+  });
+}
+
+/**
  * Search recent podcast picks by team / expert / category / week.
  * Tool: `search_podcast_picks`.
  * @param {{ team?: string, expert?: string, category?: string, week?: number, season?: number, limit?: number }} opts
  */
-export async function searchPodcastPicks({ team, expert, category, week, season, limit = 25 } = {}) {
-  const rows = await _flattenPodcastPicks({ limit: 200 });
+export async function searchPodcastPicks({ team, expert, category, week, season, limit = 25, include_youtube = true } = {}) {
+  const rows = await _reconciledPodcastRows({ limit: 200, includeYoutube: include_youtube });
   const teamU = team ? String(team).toUpperCase() : null;
   const expertL = expert ? String(expert).toLowerCase() : null;
   const filtered = rows.filter(({ pick, expert: ex }) => {
@@ -1331,7 +1424,7 @@ export async function searchPodcastPicks({ team, expert, category, week, season,
  */
 export async function getExpertHistory({ expert, weeksBack = 8, limit = 100 } = {}) {
   if (!expert) return { expert: null, total: 0, picks: [], by_category: {} };
-  const rows = await _flattenPodcastPicks({ hours: weeksBack * 7 * 24, limit: 300 });
+  const rows = await _reconciledPodcastRows({ hours: weeksBack * 7 * 24, limit: 300 });
   const expertL = String(expert).toLowerCase();
   const matches = rows.filter(r => r.expert && r.expert.toLowerCase().includes(expertL));
   const byCategory = {};
@@ -1400,31 +1493,46 @@ function classifyGeminiNote(note) {
  * the real production review gate (migration 045), not the local-only
  * bookkeeping file the shadow-harness pipeline still uses in parallel.
  */
-async function _flattenGeminiIntel({ limit = 200 } = {}) {
+async function _flattenGeminiIntel({ hours = null, limit = 200 } = {}) {
   if (!isAvailable()) return [];
   try {
+    let query = supabase
+      .from('podcast_gemini_intel')
+      .select(`
+        episode_id, model, picks, analysis_notes, promoted_at, created_at,
+        podcast_episodes ( title, pub_date, podcast_feeds ( name, expert ) )
+      `)
+      .not('promoted_at', 'is', null);
+    // Date cutoff in SQL so the row limit can't truncate the requested window.
+    // created_at (extraction time) is always >= the episode's pub_date, so
+    // nothing inside the window is excluded; callers still filter on pub_date.
+    if (hours != null) {
+      query = query.gte('created_at', new Date(Date.now() - hours * 3600 * 1000).toISOString());
+    }
     const { data, error } = await withQueryTimeout(
-      supabase
-        .from('podcast_gemini_intel')
-        .select(`
-          episode_id, model, picks, analysis_notes, promoted_at, created_at,
-          podcast_episodes ( title, pub_date )
-        `)
-        .not('promoted_at', 'is', null)
-        .order('created_at', { ascending: false })
-        .limit(limit)
+      query.order('created_at', { ascending: false }).limit(limit)
     );
     if (error || !Array.isArray(data)) return [];
     const items = [];
     for (const row of data) {
       const ep = Array.isArray(row.podcast_episodes) ? row.podcast_episodes[0] : row.podcast_episodes;
       const episodeTitle = ep?.title || '';
+      const feed = Array.isArray(ep?.podcast_feeds) ? ep.podcast_feeds[0] : ep?.podcast_feeds;
       for (const pick of (row.picks || [])) {
         items.push({
           item_type: 'pick',
           item_lane: classifyGeminiPick(pick),
           episode_id: row.episode_id,
           episode_title: episodeTitle,
+          pub_date: ep?.pub_date || null,
+          feed_name: feed?.name || null,
+          expert: feed?.expert || null,
+          speaker: pick.speaker || null,
+          season: pick.season ?? null,
+          player: pick.player || pick.player_name || null,
+          confidence: pick.confidence ?? null,
+          extraction_quality_score: row.extraction_quality_score ?? null,
+          promoted_at: row.promoted_at,
           team: pick.team, market: pick.market, side: pick.side, line: pick.line,
           price: pick.price, week: pick.week ?? null,
           source_timestamp: pick.source_timestamp, supporting_quote: pick.rationale || '',
@@ -1475,6 +1583,29 @@ export async function getPodcastGeminiIntel({ team, market, lane, limit = 25 } =
 }
 
 /**
+ * Is this pick FOR or AGAINST `teamU`? Direction-carrying markets decide by
+ * their answer (make playoffs NO / miss playoffs YES / win total UNDER /
+ * player prop UNDER = against); sides/moneylines by the picked team. Game
+ * totals keep the old rule (they aren't a stance on either team).
+ */
+function _teamStance(pick, teamU) {
+  const sel = String(pick.selection || '').toUpperCase();
+  const subj = String(pick.subject || '').toUpperCase();
+  const cat = pick.category;
+  if (cat === 'future') {
+    const m = normalizeFuturesSubMarket(pick.subject_market || pick.market);
+    if (m === 'make_playoffs' && (sel === 'YES' || sel === 'NO')) return sel === 'YES' ? 'for' : 'against';
+    if (m === 'miss_playoffs' && (sel === 'YES' || sel === 'NO')) return sel === 'YES' ? 'against' : 'for';
+    if (sel === 'OVER') return 'for';
+    if (sel === 'UNDER') return 'against';
+  }
+  if ((cat === 'prop' || cat === 'player_prop') && (sel === 'OVER' || sel === 'UNDER')) {
+    return sel === 'OVER' ? 'for' : 'against';
+  }
+  return (sel === teamU || subj === teamU) ? 'for' : 'against';
+}
+
+/**
  * Picks for and against a given team across recent episodes.
  * Tool: `get_team_podcast_intel`.
  * @param {{ team: string, weeksBack?: number, limit?: number }} opts
@@ -1482,7 +1613,7 @@ export async function getPodcastGeminiIntel({ team, market, lane, limit = 25 } =
 export async function getTeamPodcastIntel({ team, weeksBack = 4, limit = 50 } = {}) {
   if (!team) return { team: null, for: [], against: [], by_expert: {} };
   const teamU = String(team).toUpperCase();
-  const rows = await _flattenPodcastPicks({ hours: weeksBack * 7 * 24, limit: 300 });
+  const rows = await _reconciledPodcastRows({ hours: weeksBack * 7 * 24, limit: 300 });
   const forPicks = [];
   const againstPicks = [];
   const byExpert = {};
@@ -1492,8 +1623,7 @@ export async function getTeamPodcastIntel({ team, weeksBack = 4, limit = 50 } = 
     const t1 = String(pick.team1 || '').toUpperCase();
     const t2 = String(pick.team2 || '').toUpperCase();
     if (subj !== teamU && t1 !== teamU && t2 !== teamU) continue;
-    const sel = String(pick.selection || '').toUpperCase();
-    if (sel === teamU || subj === teamU) forPicks.push(r);
+    if (_teamStance(pick, teamU) === 'for') forPicks.push(r);
     else againstPicks.push(r);
     if (expert) byExpert[expert] = (byExpert[expert] || 0) + 1;
   }
@@ -1513,30 +1643,90 @@ export async function getTeamPodcastIntel({ team, weeksBack = 4, limit = 50 } = 
  */
 export async function getWeeklyConsensus({ week, season } = {}) {
   if (week == null) return { week: null, season: season || null, games: [] };
-  const rows = await _flattenPodcastPicks({ limit: 400 });
+  // Reconciled rows: a host's pick heard on both the audio feed and the
+  // YouTube video counts ONCE — same weight as any other single pick.
+  const rows = await _reconciledPodcastRows({ limit: 400 });
   const games = new Map();
-  for (const r of rows) {
-    const { pick } = r;
-    if (pick.week !== week) continue;
-    if (season != null && pick.season !== season) continue;
-    if (pick.category !== 'spread' && pick.category !== 'moneyline' && pick.category !== 'total') continue;
+  const eligible = rows.filter(({ pick }) => {
+    if (pick.week !== week) return false;
+    // YouTube picks usually carry no season; week + lookback window scope them.
+    if (season != null && pick.season != null && pick.season !== season) return false;
+    return pick.category === 'spread' || pick.category === 'moneyline' || pick.category === 'total';
+  });
+  // Pass 1: matchups known from picks that name both teams.
+  const matchupByTeam = new Map();
+  for (const { pick } of eligible) {
     const t1 = String(pick.team1 || '').toUpperCase();
     const t2 = String(pick.team2 || '').toUpperCase();
-    if (!t1 || !t2) continue;
-    const key = [t1, t2].sort().join('@');
+    if (t1 && t2) { matchupByTeam.set(t1, [t1, t2]); matchupByTeam.set(t2, [t1, t2]); }
+  }
+  // Pass 2: count. YouTube picks name only one team — attach them to that
+  // team's matchup this week instead of silently dropping them.
+  for (const r of eligible) {
+    const { pick } = r;
+    let t1 = String(pick.team1 || '').toUpperCase();
+    let t2 = String(pick.team2 || '').toUpperCase();
+    if (!t1 && !t2) {
+      const sel = String(pick.selection || pick.subject || '').toUpperCase();
+      if (!/^[A-Z]{2,3}$/.test(sel)) continue;
+      t1 = sel;
+    }
+    if (!t2 || !t1) {
+      const known = matchupByTeam.get(t1 || t2);
+      if (known) [t1, t2] = known;
+      else { t1 = t1 || t2; t2 = ''; }
+    }
+    const key = [t1, t2].filter(Boolean).sort().join('@');
     if (!games.has(key)) {
-      games.set(key, { matchup: key, team1: t1, team2: t2, picks: [], by_selection: {} });
+      games.set(key, { matchup: key, team1: t1, team2: t2 || null, picks: [], by_selection: {}, duplicates_merged: 0 });
     }
     const game = games.get(key);
     game.picks.push(r);
     const sel = String(pick.selection || 'unknown').toUpperCase();
     game.by_selection[sel] = (game.by_selection[sel] || 0) + 1;
+    if (r.dual_extraction) game.duplicates_merged += 1;
   }
   return {
     week,
     season: season || null,
     games: Array.from(games.values()).sort((a, b) => b.picks.length - a.picks.length),
   };
+}
+
+/**
+ * Does a pick belong to the requested futures market? Audio picks use the
+ * host-summary taxonomy ('AFC_North', 'Super_Bowl', 'Offensive_ROY'); YouTube
+ * picks use Gemini's ('division_winner', 'super_bowl_winner', 'oroy'); tools
+ * query with either, or with award labels ('Offensive Rookie of the Year').
+ * 1. Both sides must normalize to the same canonical market.
+ * 2. If the query names a division / conference ('AFC_North',
+ *    'NFC_West_Win_Total', 'AFC'), the pick must be in it — taken from the
+ *    pick's own label prefix, else from its team (teams.js).
+ */
+export function _futuresMarketMatches(query, pick) {
+  const raw = (v) => String(v || '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+  const q = raw(query);
+  const pm = raw(pick.subject_market || pick.market);
+  if (!q || !pm) return false;
+  if (q === pm) return true;
+  const qc = normalizeFuturesSubMarket(q);
+  if (!qc || qc !== normalizeFuturesSubMarket(pm)) return false;
+
+  // Tokens may appear anywhere: 'division_afc_north', 'conference_afc'.
+  const DIV = /(?:^|_)(afc|nfc)_(north|south|east|west)(?:_|$)/;
+  const CONF = /(?:^|_)(afc|nfc)(?:_|$)/;
+  const qDiv = DIV.exec(q);
+  const qConf = CONF.exec(q);
+  if (!qDiv && !qConf) return true; // league-wide query: any pick in the market
+
+  const pDiv = DIV.exec(pm);
+  const pConf = CONF.exec(pm);
+  // Try each field: subject may be a label ('NFC North') rather than a team.
+  const team = getTeam(pick.subject) || getTeam(pick.team1) || getTeam(pick.selection);
+  const pickDivision = pDiv ? `${pDiv[1]}_${pDiv[2]}` : (team ? raw(team.division) : null);
+  const pickConference = pConf ? pConf[1] : (team ? raw(team.conference) : null);
+  if (qDiv) return pickDivision === `${qDiv[1]}_${qDiv[2]}`;
+  return pickConference === qConf[1];
 }
 
 /**
@@ -1547,12 +1737,8 @@ export async function getWeeklyConsensus({ week, season } = {}) {
  */
 export async function getFuturesMovement({ market, weeksBack = 12, limit = 100 } = {}) {
   if (!market) return { market: null, picks: [], by_expert: {} };
-  const rows = await _flattenPodcastPicks({ hours: weeksBack * 7 * 24, limit: 400 });
-  const marketL = String(market).toLowerCase();
-  const matches = rows.filter(r =>
-    r.pick.category === 'future' &&
-    String(r.pick.subject_market || '').toLowerCase() === marketL
-  );
+  const rows = await _reconciledPodcastRows({ hours: weeksBack * 7 * 24, limit: 400 });
+  const matches = rows.filter(r => r.pick.category === 'future' && _futuresMarketMatches(market, r.pick));
   matches.sort((a, b) => new Date(a.pub_date) - new Date(b.pub_date));
   const byExpert = {};
   for (const r of matches) {
@@ -1572,19 +1758,28 @@ export async function getFuturesMovement({ market, weeksBack = 12, limit = 100 }
  */
 export async function getPlayerPropContext({ player, propType, weeksBack = 6, limit = 30 } = {}) {
   if (!player || !propType) return { player: null, prop_type: null, picks: [], trend: {} };
-  const rows = await _flattenPodcastPicks({ hours: weeksBack * 7 * 24, limit: 400 });
+  const rows = await _reconciledPodcastRows({ hours: weeksBack * 7 * 24, limit: 400 });
   const playerL = String(player).toLowerCase();
-  const propL = String(propType).toLowerCase();
-  const matches = rows.filter(r =>
-    r.pick.category === 'prop' &&
-    String(r.pick.subject || '').toLowerCase().includes(playerL) &&
-    String(r.pick.subject_market || '').toLowerCase() === propL
-  );
-  const trend = { OVER: 0, UNDER: 0, OTHER: 0 };
+  const propL = normalizePropSubMarket(propType);
+  const matches = [];
+  for (const r of rows) {
+    if (r.pick.category !== 'prop' && r.pick.category !== 'player_prop') continue;
+    if (!String(r.pick.player || r.pick.subject || '').toLowerCase().includes(playerL)) continue;
+    const pk = normalizePropSubMarket(r.pick.subject_market || r.pick.market);
+    // Same stat across taxonomies ('Passing Yards' = 'player_pass_yds'). A pick
+    // whose stat wasn't extracted (generic 'player_prop') is returned but
+    // flagged, and kept out of the trend so a rush prop can't skew pass yds.
+    // Exact after normalisation — substring matching let 'rush_rec_yds' match
+    // 'rec_yds' and 'tds' match 'pass_tds'.
+    if (pk && propL && pk !== propL) continue;
+    matches.push(pk ? r : { ...r, market_unspecified: true });
+  }
+  const trend = { OVER: 0, UNDER: 0, OTHER: 0, UNSPECIFIED_STAT: 0 };
   for (const r of matches) {
-    const sel = String(r.pick.selection || '').toUpperCase();
-    if (sel === 'OVER') trend.OVER += 1;
-    else if (sel === 'UNDER') trend.UNDER += 1;
+    if (r.market_unspecified) { trend.UNSPECIFIED_STAT += 1; continue; }
+    const sel = String(r.pick.selection || r.pick.side || r.pick.lean || '').toUpperCase();
+    if (/\bOVER\b|^O\d/.test(sel)) trend.OVER += 1;
+    else if (/\bUNDER\b|^U\d/.test(sel)) trend.UNDER += 1;
     else trend.OTHER += 1;
   }
   return {
@@ -1917,6 +2112,88 @@ export async function getRecentPlayerInjuries(hours = 168, limit = 100) {
     return data;
   } catch (e) {
     logger.warn('[supabase] getRecentPlayerInjuries failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * §1B — raw inputs for the steam/RLM correlator, fetched in parallel for one
+ * matchup. line_movements stores full team names ("Kansas City Chiefs"), so
+ * rows are matched to abbreviations client-side via teams.js.
+ * @param {{ homeAbbr: string, awayAbbr: string, week?: number, season?: number, hours?: number }} opts
+ */
+export async function getSteamMoveInputs({ homeAbbr, awayAbbr, week, season = 2026, hours = 24 } = {}) {
+  const empty = { lineMovements: [], bettingSplits: [], playerInjuries: [], sharpTweets: [], normalizedSignals: [] };
+  if (!isAvailable() || !homeAbbr || !awayAbbr) return empty;
+  const codes = [homeAbbr, awayAbbr].map(c => String(c).toUpperCase());
+  const cutoff = new Date(Date.now() - hours * 3600 * 1000).toISOString();
+  // Catalyst window needs a little extra history before the oldest move.
+  const catalystCutoff = new Date(Date.now() - (hours + 4) * 3600 * 1000).toISOString();
+  const abbrOf = (name) => (getTeamAbbreviation(name) || '').toUpperCase();
+  const safe = async (label, p) => {
+    try { const { data, error } = await p; return error || !Array.isArray(data) ? [] : data; }
+    catch (e) { logger.warn(`[supabase] getSteamMoveInputs ${label} failed:`, e.message); return []; }
+  };
+  const [moves, splits, injuries, tweets, signals] = await Promise.all([
+    // Newest-first so a busy slate can't push this game's latest moves past
+    // the row limit (the correlator re-sorts chronologically).
+    safe('line_movements', supabase.from('line_movements')
+      .select('id, detected_at, game_key, home_team, away_team, book, type, from_line, to_line, movement')
+      .gte('detected_at', cutoff).order('detected_at', { ascending: false }).limit(1000)),
+    safe('game_splits_history', (() => {
+      let q = supabase.from('game_splits_history')
+        .select('game_id, season, week, home_team, away_team, spread_home_bettors, spread_home_money, total_over_bettors, total_over_money, ml_home_bettors, ml_home_money, captured_at')
+        .eq('season', season).gte('captured_at', catalystCutoff)
+        .order('captured_at', { ascending: false }).limit(800);
+      if (week) q = q.eq('week', week);
+      return q;
+    })()),
+    safe('player_injuries', supabase.from('player_injuries')
+      .select('player_name, team_abbr, position, injury_status, injury_type, short_comment, reported_at, captured_at')
+      .in('team_abbr', codes).gte('captured_at', catalystCutoff).limit(200)),
+    safe('x_sharp_tweets', supabase.from('x_sharp_tweets')
+      .select('author_handle, author_tier, text, tweet_url, published_at, captured_at')
+      .gte('captured_at', catalystCutoff).order('published_at', { ascending: false }).limit(300)),
+    // normalized_signals.team holds canonical NICKNAMES ('Chiefs'), written by
+    // agents/signal-normalize.js via normalizeTeam() — query both forms.
+    safe('normalized_signals', supabase.from('normalized_signals')
+      .select('source_type, author, team, market, direction, strength, rationale, created_at')
+      .in('team', [...new Set([...codes, ...codes.map(c => getTeam(c)?.name).filter(Boolean)])])
+      .gte('created_at', catalystCutoff).limit(200)),
+  ]);
+  const isGame = (h, a) => {
+    const hh = abbrOf(h); const aa = abbrOf(a);
+    return (hh === codes[0] && aa === codes[1]) || (hh === codes[1] && aa === codes[0]);
+  };
+  return {
+    lineMovements: moves.filter(m => isGame(m.home_team, m.away_team)),
+    bettingSplits: splits.filter(s => isGame(s.home_team, s.away_team)),
+    playerInjuries: injuries,
+    sharpTweets: tweets,
+    normalizedSignals: signals,
+  };
+}
+
+/**
+ * §1B — recent betting-split snapshots across the whole slate (newest first).
+ * Lets game cards flag pure reverse-line-movement, not just steam.
+ * @param {{ hours?: number, limit?: number }} opts
+ */
+export async function getRecentGameSplitsHistory({ hours = 72, limit = 800 } = {}) {
+  if (!isAvailable()) return [];
+  try {
+    const cutoff = new Date(Date.now() - hours * 3600 * 1000).toISOString();
+    const { data, error } = await withQueryTimeout(
+      supabase.from('game_splits_history')
+        .select('game_id, season, week, home_team, away_team, spread_home_bettors, spread_home_money, total_over_bettors, total_over_money, captured_at')
+        .gte('captured_at', cutoff)
+        .order('captured_at', { ascending: false })
+        .limit(limit)
+    );
+    if (error || !Array.isArray(data)) return [];
+    return data;
+  } catch (e) {
+    logger.warn('[supabase] getRecentGameSplitsHistory failed:', e.message);
     return [];
   }
 }

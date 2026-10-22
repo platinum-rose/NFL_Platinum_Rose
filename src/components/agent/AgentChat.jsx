@@ -327,6 +327,7 @@ Your job is not to push picks. Your job is to surface information that lets the 
 ## Available Tools
 - get_odds → current lines from all sportsbooks (Supabase cache)
 - get_line_movement → opening vs current line + sharp activity
+- explain_steam_move → WHY a line moved: steam / key-number / reverse-line-movement detection with injuries + sharp tweets time-correlated within ±90 min (cite the timestamps)
 - analyze_matchup → model projections + schedule intel
 - get_injury_report → ESPN injury designations for a team
 - calculate_hedge → hedge math for active positions
@@ -410,6 +411,7 @@ function ToolCallCard({ name, input, result, defaultOpen = false }) {
     read_vault_note:       '\u{1F4D6} Read Vault Note',
     write_vault_note:      '\u{1F4DD} Write Vault Note',
     get_betting_splits:    '\u{1F4CA} Betting Splits',
+    explain_steam_move:    '\u26A1 Steam / RLM',
   };
   const label = toolLabels[name] || '[tool] ' + name;
 

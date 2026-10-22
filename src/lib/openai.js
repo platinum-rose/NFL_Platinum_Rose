@@ -3,7 +3,8 @@
 // OpenAI API Integration — Extracted from App.jsx handleAIAnalyze
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { OPENAI_API } from './apiConfig.js';
+import { OPENAI_API, AI_PROXY_URL } from './apiConfig.js';
+import { getEdgeFunctionHeaders } from './edgeAuth.js';
 
 const TIMEOUT_MS  = 30_000; // 30 s per attempt
 const MAX_RETRIES = 1;      // 1 retry on 5xx (2 total attempts)
@@ -52,12 +53,19 @@ Make sure "selection" is the team's abbreviation or clear identifier from the av
 Transcript: ${text.substring(0, 15000)}
 `;
 
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${sourceData.apiKey}`,
-  };
+  // No per-source key → go through ai-proxy (server-side key, signed-in user).
+  // A per-source key, if a source still supplies one, keeps the direct path.
+  const useProxy = Boolean(AI_PROXY_URL && !sourceData?.apiKey);
+  const url = useProxy ? AI_PROXY_URL : OPENAI_API.BASE_URL;
+  const headers = useProxy
+    ? await getEdgeFunctionHeaders()
+    : {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${sourceData?.apiKey || ''}`,
+      };
 
   const body = JSON.stringify({
+    ...(useProxy ? { provider: 'openai' } : {}),
     model: OPENAI_API.MODEL,
     messages: [
       {
@@ -73,7 +81,7 @@ Transcript: ${text.substring(0, 15000)}
   // Fetch with timeout + 1 retry on 5xx
   let response;
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
-    response = await fetch(OPENAI_API.BASE_URL, {
+    response = await fetch(url, {
       method: 'POST',
       headers,
       body,
@@ -89,7 +97,8 @@ Transcript: ${text.substring(0, 15000)}
   const data = await response.json();
 
   if (data.error) {
-    throw new Error(`OpenAI Error: ${data.error.message}`);
+    const msg = typeof data.error === 'string' ? data.error : (data.error?.message || `HTTP ${response.status}`);
+    throw new Error(`OpenAI Error: ${msg}`);
   }
 
   const content = JSON.parse(data.choices[0].message.content);

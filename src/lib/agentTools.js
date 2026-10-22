@@ -39,6 +39,7 @@ import {
   getGameOddsForWeek,
   getGameSplitsHistory,
   getPodcastGeminiIntel,
+  getSteamMoveInputs,
 } from './supabase.js';
 import { readVaultNote, writeVaultNote, listVaultNotes } from './vaultClient.js';
 import {
@@ -55,6 +56,7 @@ import { PR_STORAGE_KEYS } from './storage.js';
 import { LOCAL_DATA, ESPN_API } from './apiConfig.js';
 import { normalizeTeam, getTeamAbbreviation, getTeam } from './teams.js';
 import { calculateRiskSizing } from './riskSizing.js';
+import { detectAndCorrelateSteamMoves } from './steamMoveCorrelator.js';
 
 // ─── ESPN Team ID Mapping ─────────────────────────────────────────────────────
 // Used by get_injury_report tool
@@ -74,7 +76,7 @@ const ESPN_TEAM_IDS = {
 export const PODCAST_INTEL_TOOLS = [
   {
     name: 'search_podcast_picks',
-    description: 'Search recent picks made by experts on tracked podcasts (e.g. Sharp Football Analysis, BettingPros, VSiN). Use when the Creator asks what an expert said about a team, what experts are taking on a given week, or who is on a specific pick. Excludes picks flagged needs_review.',
+    description: 'Search recent picks made by experts on tracked podcasts (e.g. Sharp Football Analysis, BettingPros, VSiN). Use when the Creator asks what an expert said about a team, what experts are taking on a given week, or who is on a specific pick. Excludes picks flagged needs_review. Audio-transcript and YouTube/Gemini extractions of the same episode are deduplicated: a pick both pipelines caught is returned ONCE (dual_extraction=true, sources=[audio_rss, youtube_gemini]). This is the same host saying the same thing once, NOT independent confirmation — do not treat it as stronger or cite it as verified.',
     input_schema: {
       type: 'object',
       properties: {
@@ -84,6 +86,7 @@ export const PODCAST_INTEL_TOOLS = [
         week: { type: 'number', description: 'NFL week (1-22).' },
         season: { type: 'number', description: 'NFL season year. Default: current.' },
         limit: { type: 'number', description: 'Max picks to return. Default: 25.' },
+        include_youtube: { type: 'boolean', description: 'Merge promoted YouTube/Gemini picks and dedupe against audio picks. Default: true.' },
       },
       required: [],
     },
@@ -116,7 +119,7 @@ export const PODCAST_INTEL_TOOLS = [
   },
   {
     name: 'get_weekly_consensus',
-    description: 'Cross-expert consensus board for a given week: groups sides/totals/moneyline picks by matchup and counts who is taking which side. Surfaces sharp/contrarian alignment from podcast experts.',
+    description: 'Cross-expert consensus board for a given week: groups sides/totals/moneyline picks by matchup and counts who is taking which side. Surfaces sharp/contrarian alignment from podcast experts. A host\'s pick heard on both the audio feed and the YouTube video counts once in by_selection, with the same weight as any other pick.',
     input_schema: {
       type: 'object',
       properties: {
@@ -168,7 +171,7 @@ export const PODCAST_INTEL_TOOLS = [
   },
   {
     name: 'get_youtube_futures_intel',
-    description: 'Production Gemini video-extraction podcast intel (Phase 5, podcast_gemini_intel table). Gemini reads podcast YouTube videos directly and extracts both explicit picks/leans (item_type: "pick", single "lane") and non-pick analysis commentary (item_type: "note", one or more "relevance_tags" — e.g. a role-expansion note can be both fantasy_intel and matchup_analysis). Every returned row has passed the production review gate (promoted_at set by a human reviewer via agents/podcast-gemini-intel.js --promote) — unpromoted extractions are never returned by this tool. Distinct from search_podcast_picks (the GPT-4o/AssemblyAI transcript pipeline, agents/podcast-ingest.js) — this is a separate, parallel-running extraction model; the two are not yet reconciled/deduped against each other, so the same real-world pick may appear from both tools independently. "team" matches a pick’s team or any of a note’s teams; "market" only applies to picks (notes are excluded when market is set); "lane" matches a pick’s lane or any of a note’s relevance_tags. Still not an official pick ledger or parlay mutation — use alongside other podcast/Supabase tools for corroboration, not as sole source.',
+    description: 'Production Gemini video-extraction podcast intel (Phase 5, podcast_gemini_intel table). Gemini reads podcast YouTube videos directly and extracts both explicit picks/leans (item_type: "pick", single "lane") and non-pick analysis commentary (item_type: "note", one or more "relevance_tags" — e.g. a role-expansion note can be both fantasy_intel and matchup_analysis). Every returned row has passed the production review gate (promoted_at set by a human reviewer via agents/podcast-gemini-intel.js --promote) — unpromoted extractions are never returned by this tool. IMPORTANT: search_podcast_picks (and get_team_podcast_intel / get_weekly_consensus / get_expert_history / get_futures_movement / get_player_prop_context) already return the RECONCILED union of the audio-transcript pipeline and these same promoted YouTube picks, with duplicates merged. Use this tool for the raw video notes/lanes; never add its picks on top of search_podcast_picks results, or the same pick will be counted twice. A pick flagged dual_extraction=true is ONE opinion heard on both the audio feed and the YouTube video of the same episode — count it once, do not boost its confidence, and never call it corroborated or verified. "team" matches a pick’s team or any of a note’s teams; "market" only applies to picks (notes are excluded when market is set); "lane" matches a pick’s lane or any of a note’s relevance_tags. Still not an official pick ledger or parlay mutation — use alongside other podcast/Supabase tools for context, not as sole source.',
     input_schema: {
       type: 'object',
       properties: {
@@ -549,7 +552,24 @@ export const BETTING_TOOLS = [
       },
       required: ['query'],
     },
-  },  // ─── Phase 6 podcast intel tools (shared with FUTURES agent) ───────────────
+  },
+  {
+    name: 'explain_steam_move',
+    description: 'Explains WHY a game\'s line moved. Detects steam moves (spread moves >= 1 pt or through a key number like 3/7, total moves >= 1.5 pts inside a 120-min window) and reverse line movement (line moves toward the money side while >= 20 pts more of the tickets are on the other side), then time-correlates each move with injury reports, sharp X/Twitter posts and normalized signals for the two teams within +/-90 minutes. Returns exact timestamps, offsets, the splits snapshot, cited sources (tweet URLs, injured players) and a one-line causal hypothesis. Use whenever the Creator asks "why did this line move", "was that steam", or "is there reverse line movement". If it returns no moves, say so — do not invent a cause.',
+    input_schema: {
+      type: 'object',
+      properties: {
+        game_id: { type: 'string', description: 'Game id in any app format ("2026_07_KC_LV" HOME_AWAY splits/odds id, "nfl_2026_2_w07_LV_at_KC" games-table id) or "LV@KC".' },
+        team_abbr: { type: 'string', description: 'Either team (KC, BUF, ...). Used when game_id is omitted; the opponent is inferred from recent line movements.' },
+        week: { type: 'number', description: 'NFL week, narrows the betting-splits history.' },
+        season: { type: 'number', description: 'Season year. Default: 2026.' },
+        window_hours: { type: 'number', description: 'How far back to scan line movements. Default: 24.' },
+        correlation_window_minutes: { type: 'number', description: 'Catalyst window around each move. Default: 90.' },
+      },
+      required: [],
+    },
+  },
+  // ─── Phase 6 podcast intel tools (shared with FUTURES agent) ───────────────
   ...PODCAST_INTEL_TOOLS,
 ];
 
@@ -872,6 +892,7 @@ export async function executeTool(name, input) {
     case 'read_vault_note':     return toolReadVaultNote(input);
     case 'write_vault_note':    return toolWriteVaultNote(input);
     case 'get_betting_splits': return toolGetBettingSplits(input);
+    case 'explain_steam_move': return toolExplainSteamMove(input);
     case 'search_podcast_picks':    return toolSearchPodcastPicks(input);
     case 'get_expert_history':      return toolGetExpertHistory(input);
     case 'get_team_podcast_intel':  return toolGetTeamPodcastIntel(input);
@@ -1603,6 +1624,93 @@ async function toolGetBettingSplits({ team, week } = {}) {
   };
 }
 
+// ─── §1B — explain_steam_move ────────────────────────────────────────────────
+
+/** Resolve { homeAbbr, awayAbbr, season, week } from any app game_id form. */
+export function resolveSteamGame({ game_id, team_abbr, week, season } = {}) {
+  const id = String(game_id || '').trim();
+  const abbr = (t) => { const a = getTeamAbbreviation(t); return a ? a.toUpperCase() : null; };
+  if (id) {
+    const at = /^([A-Za-z]{2,4})\s*(?:@|_at_|\s+at\s+)\s*([A-Za-z]{2,4})$/i.exec(id);
+    if (at) return { awayAbbr: abbr(at[1]), homeAbbr: abbr(at[2]), season: season ?? 2026, week: week ?? null };
+    const games = /^nfl_(\d{4})_\d+_w(\d{1,2})_([A-Z]{2,4})_at_([A-Z]{2,4})$/i.exec(id);
+    if (games) return { season: Number(games[1]), week: Number(games[2]), awayAbbr: abbr(games[3]), homeAbbr: abbr(games[4]) };
+    const splits = /^(\d{4})_(\d{1,2})_([A-Z]{2,4})_([A-Z]{2,4})$/i.exec(id);
+    if (splits) return { season: Number(splits[1]), week: Number(splits[2]), homeAbbr: abbr(splits[3]), awayAbbr: abbr(splits[4]) };
+  }
+  if (team_abbr) return { teamOnly: abbr(team_abbr), season: season ?? 2026, week: week ?? null };
+  return null;
+}
+
+async function toolExplainSteamMove({ game_id, team_abbr, team, week, season, window_hours = 24, correlation_window_minutes = 90 } = {}) {
+  let g = resolveSteamGame({ game_id, team_abbr: team_abbr || team, week, season });
+  if (!g) return { status: 'invalid', message: 'Provide game_id (e.g. "2026_07_KC_LV" or "LV@KC") or team_abbr.' };
+
+  if (g.teamOnly) {
+    // Infer the opponent from the most recent line movement involving this team.
+    const recent = await getLineMovementsDB(window_hours);
+    const hit = (recent || []).find(m => [m.home_team, m.away_team].some(t => (getTeamAbbreviation(t) || '').toUpperCase() === g.teamOnly));
+    if (!hit) {
+      return { status: 'no_data', message: `No line movements involving ${g.teamOnly} in the last ${window_hours}h.`, guidance: 'Do not speculate about steam or RLM without movement data.' };
+    }
+    g = { ...g, homeAbbr: (getTeamAbbreviation(hit.home_team) || '').toUpperCase(), awayAbbr: (getTeamAbbreviation(hit.away_team) || '').toUpperCase() };
+  }
+  if (!g.homeAbbr || !g.awayAbbr) return { status: 'invalid', message: `Could not resolve both teams from "${game_id || team_abbr}".` };
+
+  const inputs = await getSteamMoveInputs({ homeAbbr: g.homeAbbr, awayAbbr: g.awayAbbr, week: g.week ?? week, season: g.season ?? season ?? 2026, hours: window_hours });
+  const attributions = detectAndCorrelateSteamMoves({
+    gameId: game_id || `${g.awayAbbr}@${g.homeAbbr}`,
+    homeTeam: g.homeAbbr,
+    awayTeam: g.awayAbbr,
+    ...inputs,
+    correlationWindowMinutes: correlation_window_minutes,
+  });
+
+  const base = {
+    matchup: `${g.awayAbbr} @ ${g.homeAbbr}`,
+    window_hours,
+    correlation_window_minutes,
+    inputs_scanned: {
+      line_movements: inputs.lineMovements.length,
+      splits_snapshots: inputs.bettingSplits.length,
+      injuries: inputs.playerInjuries.length,
+      sharp_tweets: inputs.sharpTweets.length,
+      normalized_signals: inputs.normalizedSignals.length,
+    },
+  };
+  if (!attributions.length) {
+    return {
+      ...base,
+      status: inputs.lineMovements.length ? 'no_flagged_moves' : 'no_data',
+      message: inputs.lineMovements.length
+        ? 'Line moved, but nothing met steam/key-number/RLM thresholds.'
+        : 'No line movements recorded for this matchup in the window.',
+      guidance: 'Do not claim steam or reverse line movement.',
+    };
+  }
+  return {
+    ...base,
+    status: 'ok',
+    move_count: attributions.length,
+    moves: attributions.map(a => ({
+      move_type: a.move_type,
+      flags: a.flags,
+      market: a.market,
+      line_before: a.line_before,
+      line_after: a.line_after,
+      delta: a.delta,
+      crossed_key_number: a.crossed_key_number,
+      detected_at: a.timestamp,
+      window: { start: a.windowStart, end: a.windowEnd },
+      confirming_books: a.confirming_books,
+      splits_snapshot: a.splits_snapshot,
+      correlated_catalysts: a.correlated_catalysts.slice(0, 6),
+      causal_hypothesis: a.causal_hypothesis,
+    })),
+    note: 'Correlation, not proof. Cite catalyst timestamps and sources (tweet URL / player + status) when explaining.',
+  };
+}
+
 // ─── Phase 6 — Podcast intel tool implementations ────────────────────────────
 // Thin wrappers around src/lib/supabase.js queries. Shape outputs for the LLM:
 // keep payloads compact and label the source ("podcast" / per-pick episode +
@@ -1611,6 +1719,11 @@ async function toolGetBettingSplits({ team, week } = {}) {
 function _formatPodcastPick(row) {
   const p = row.pick || {};
   return {
+    dual_extraction: row.dual_extraction ?? p.dual_extraction ?? false,
+    sources: row.sources ?? p.sources ?? ['audio_rss'],
+    confidence_tier: row.confidence_tier ?? p.confidence_tier ?? null,
+    ...(p.line_variants && p.line_variants.length > 1 ? { line_variants: p.line_variants } : {}),
+    ...(p.alternate_quote ? { alternate_quote: p.alternate_quote } : {}),
     episode_id: row.episode_id,
     episode_title: row.episode_title,
     pub_date: row.pub_date,
@@ -1630,8 +1743,8 @@ function _formatPodcastPick(row) {
   };
 }
 
-async function toolSearchPodcastPicks({ team, expert, category, week, season, limit } = {}) {
-  const rows = await searchPodcastPicks({ team, expert, category, week, season, limit });
+async function toolSearchPodcastPicks({ team, expert, category, week, season, limit, include_youtube } = {}) {
+  const rows = await searchPodcastPicks({ team, expert, category, week, season, limit, include_youtube });
   if (!rows || rows.length === 0) {
     return {
       status: 'no_data',
@@ -1687,6 +1800,7 @@ async function toolGetWeeklyConsensus({ week, season } = {}) {
       team2: g.team2,
       pick_count: g.picks.length,
       by_selection: g.by_selection,
+      duplicates_merged: g.duplicates_merged ?? 0,
       picks: g.picks.map(_formatPodcastPick),
     })),
   };
@@ -1818,7 +1932,7 @@ export async function toolGetYoutubeFuturesIntel({ team, market, lane, limit = 2
 
   return {
     status: 'ok',
-    guardrail: 'Production Gemini podcast extraction, promoted via human review (agents/podcast-gemini-intel.js --promote). Not yet reconciled against the GPT-4o/AssemblyAI pipeline (search_podcast_picks) — corroborate before treating as sole source. Not an official pick ledger or parlay mutation.',
+    guardrail: 'Production Gemini podcast extraction, promoted via human review (agents/podcast-gemini-intel.js --promote). These picks are ALREADY merged into search_podcast_picks / consensus results — do not count them again on top. A dual_extraction pick is one opinion from one episode (audio + video), not two sources. Not an official pick ledger or parlay mutation.',
     total_matched: items.length,
     returned: items.length,
     items,
@@ -2134,14 +2248,22 @@ async function toolTrackAwardRace({ award, limit = 10 } = {}) {
     }
   }
 
-  // Count podcast mentions per candidate by last name match
+  // Count podcast mentions per candidate by last-name match. Generational
+  // suffixes are stripped first — otherwise "Marvin Harrison Jr." keys on
+  // "jr." and every Jr. in the pool counts as a mention of him. Whole-word
+  // match so "Hill" doesn't match "Churchill".
+  const SUFFIX = /[\s,]+(?:jr|sr|ii|iii|iv|v)\.?$/i;
+  const lastName = (n) => String(n || '').trim().replace(SUFFIX, '').trim().split(/\s+/).pop().toLowerCase().replace(/[^a-z0-9'-]/g, '');
   const mentionCounts = new Map();
   for (const pick of (podcastData.picks || [])) {
-    const subject = String(pick.pick?.subject || pick.subject || '').toLowerCase();
+    const p = pick.pick || pick;
+    const subject = String(p.player || p.subject || p.selection || '').toLowerCase();
     if (!subject) continue;
     for (const [name] of byCandidate) {
-      const last = name.split(' ').pop().toLowerCase();
-      if (subject.includes(last) || subject.includes(name.toLowerCase())) {
+      const last = lastName(name);
+      if (!last) continue;
+      const wholeWord = new RegExp(`(^|[^a-z])${last.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^a-z]|$)`);
+      if (subject.includes(String(name).toLowerCase()) || wholeWord.test(subject)) {
         mentionCounts.set(name, (mentionCounts.get(name) || 0) + 1);
       }
     }

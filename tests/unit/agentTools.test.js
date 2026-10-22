@@ -33,6 +33,7 @@ vi.mock('../../src/lib/supabase.js', () => ({
   getGameOddsForWeek: vi.fn(async () => []),
   getGameSplitsHistory: vi.fn(async () => []),
   getPodcastGeminiIntel: vi.fn(async () => []),
+  getSteamMoveInputs: vi.fn(async () => ({ lineMovements: [], bettingSplits: [], playerInjuries: [], sharpTweets: [], normalizedSignals: [] })),
   supabase: null,
 }));
 
@@ -101,8 +102,8 @@ import {
 
 describe('agentTools', () => {
   describe('BETTING_TOOLS', () => {
-    it('exports exactly 22 tools (14 base + 8 podcast intel)', () => {
-      expect(BETTING_TOOLS).toHaveLength(22);
+    it('exports exactly 23 tools (15 base + 8 podcast intel)', () => {
+      expect(BETTING_TOOLS).toHaveLength(23);
     });
 
     it('each tool has name, description, and input_schema', () => {
@@ -121,6 +122,7 @@ describe('agentTools', () => {
         'calculate_hedge',
         'calculate_risk_sizing',
         'calculate_teaser',
+        'explain_steam_move',
         'get_betting_splits',
         'get_expert_history',
         'get_futures_movement',
@@ -1148,3 +1150,38 @@ describe('agentTools', () => {
   });
 
 });
+
+describe('explain_steam_move', () => {
+  it('resolves every supported game_id format', async () => {
+    const { resolveSteamGame } = await import('../../src/lib/agentTools.js');
+    expect(resolveSteamGame({ game_id: '2026_07_KC_LV' })).toMatchObject({ homeAbbr: 'KC', awayAbbr: 'LV', week: 7, season: 2026 });
+    expect(resolveSteamGame({ game_id: 'nfl_2026_2_w07_LV_at_KC' })).toMatchObject({ homeAbbr: 'KC', awayAbbr: 'LV', week: 7 });
+    expect(resolveSteamGame({ game_id: 'LV@KC' })).toMatchObject({ homeAbbr: 'KC', awayAbbr: 'LV' });
+    expect(resolveSteamGame({ team_abbr: 'Chiefs' })).toMatchObject({ teamOnly: 'KC' });
+    expect(resolveSteamGame({})).toBeNull();
+  });
+
+  it('returns no_data (never a fabricated cause) when there are no moves', async () => {
+    const { executeTool } = await import('../../src/lib/agentTools.js');
+    const out = await executeTool('explain_steam_move', { game_id: '2026_07_KC_LV' });
+    expect(out.status).toBe('no_data');
+    expect(out.matchup).toBe('LV @ KC');
+  });
+});
+
+describe('track_award_race suffix handling (R2-A5)', () => {
+  it('a "Jr." pick only counts for that player, not every Jr. in the pool', async () => {
+    const { executeTool } = await import('../../src/lib/agentTools.js');
+    const { getLatestFuturesOdds, getFuturesMovement } = await import('../../src/lib/supabase.js');
+    getLatestFuturesOdds.mockResolvedValueOnce([
+      { market_type: 'award_offensive_rookie_of_year', team: 'Marvin Harrison Jr.', odds: 500, book: 'dk' },
+      { market_type: 'award_offensive_rookie_of_year', team: 'Brian Thomas Jr.', odds: 800, book: 'dk' },
+    ]);
+    getFuturesMovement.mockResolvedValueOnce({ market: 'Offensive Rookie of the Year', picks: [{ pick: { subject: 'Brian Thomas Jr.' } }], by_expert: {} });
+    const out = await executeTool('track_award_race', { award: 'OROY' });
+    const by = Object.fromEntries(out.leaderboard.map(r => [r.candidate, r.expert_mentions]));
+    expect(by['Brian Thomas Jr.']).toBe(1);
+    expect(by['Marvin Harrison Jr.']).toBe(0);
+  });
+});
+

@@ -11,6 +11,7 @@ import { getTopInjuries, getInjuryDataSourceState } from '../../lib/injuries';
 import { TEAM_LOGOS } from '../../lib/teams';
 import { getContractForGame } from '../../lib/predictionMarketStore';
 import { getSecondaryMatchupsForGame } from '../../lib/secondaryMatchupStore';
+import SteamAlertPill from '../ui/SteamAlertPill';
 
 const clean = (val) => parseFloat(String(val).replace(/[^0-9.]/g, '')) || 0;
 const getAbbr = (name) => {
@@ -475,6 +476,7 @@ const MatchupCard = ({ game, onPlaceBet, onShowHistory, onAnalyze, onShowInjurie
                 LIVE: {game.visitor} {game.visitorScore ?? 0} - {game.homeScore ?? 0} {game.home}
               </span>
             ) : null}
+            <SteamAlertPill home={game.home} away={game.visitor} week={game.week} season={game.season} />
             {secMatchups && secMatchups.maxSeverity >= 2 && (
               <div className="relative group/sec font-sans normal-case tracking-normal">
                 <div className="flex items-center gap-1 bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2 py-0.5 rounded text-[10px] font-bold cursor-help">
