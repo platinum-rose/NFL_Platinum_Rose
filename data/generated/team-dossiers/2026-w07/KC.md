@@ -1,5 +1,5 @@
 # KC Chiefs — dossier, target Week 7 (data through W6)
-Built 2026-10-22T01:22:06.151Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T18:21:00.478Z · git aecd94b · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN stale_1wk (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -46,7 +46,7 @@ SRS 8.61 (#3) · net PPG 10.3 (#3) · Pythag 0.733 (#4) · model rank #4
 HC Andy Reid · neutral pass rate 0.531 · sample 2026-09-14 → 2026-10-18 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See KC.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T14:39:14Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Patrick Mahomes [ok]
 Out/IR: Cooper McDonald LB Injured Reserve; Tyquan Thornton WR Injured Reserve

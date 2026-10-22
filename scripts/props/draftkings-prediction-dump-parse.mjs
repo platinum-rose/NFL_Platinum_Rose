@@ -64,10 +64,6 @@ export const TEAM_ABBR_MAP = {
 };
 
 export const PLAYER_ALIAS_MAP = {
-  // Added 2026-10-16 (W6 DKP gate): ESPN full roster 2026-10-16 lists BAL, injuredReserveOrOut/day-to-day
-  "Ja'Kobi Lane": 'BAL',
-  // Added 2026-10-16: DKP lists legal name; ESPN roster 2026-10-16 has "Hollywood Brown" (espn_id 4241372) PHI WR active
-  'Marquise Brown': 'PHI',
   // Suffix variations
   'James Cook': 'BUF',
   'Aaron Jones': 'MIN',
@@ -100,9 +96,18 @@ export const PLAYER_ALIAS_MAP = {
   // ESPN lists these in the injured/out group, which roster-map-latest.json omits
   'Omar Cooper Jr.': 'NYJ',
   'Tim Patrick': 'NYJ',
+  // Added 2026-10-16 (W6 DKP gate): ESPN full roster 2026-10-16 lists BAL, injuredReserveOrOut/day-to-day
+  "Ja'Kobi Lane": 'BAL',
+  // Added 2026-10-16: DKP lists legal name; ESPN roster 2026-10-16 has "Hollywood Brown" (espn_id 4241372) PHI WR active; Andy supplied the ESPN link
+  'Marquise Brown': 'PHI',
+  // Added 2026-10-17 (W6 DKP gate): ESPN full roster 2026-10-16 lists NE WR, injuredReserveOrOut/day-to-day (espn_id 4047646)
+  'A.J. Brown': 'NE',
   // Free agents / recent additions
   "Lil'Jordan Humphrey": 'DEN',
-  'Kaytron Allen': 'WAS',
+  // Added 2026-10-22 (W7 DKP gate): Dolphins claimed Kaytron Allen off waivers from WSH; ESPN roster 2026-10-22 lists MIA RB active (espn_id 4685246)
+  'Kaytron Allen': 'MIA',
+  // Added 2026-10-22 (W7 DKP gate): ESPN roster 2026-10-22 lists DEN RB, injuredReserveOrOut/day-to-day (espn_id 4702555); roster-map-latest.json omits that group
+  'Jonah Coleman': 'DEN',
 };
 
 export function normalizeTeamAbbr(team) {

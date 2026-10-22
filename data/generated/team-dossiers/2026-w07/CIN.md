@@ -1,5 +1,5 @@
 # CIN Bengals — dossier, target Week 7 (data through W6)
-Built 2026-10-22T01:22:05.716Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T18:21:00.277Z · git aecd94b · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN stale_1wk (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -46,7 +46,7 @@ SRS 4.77 (#7) · net PPG 3.8 (#9) · Pythag 0.594 (#8) · model rank #8
 HC Zac Taylor · neutral pass rate 0.635 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See CIN.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T14:39:14Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Joe Burrow [ok]
 Out/IR: Tanner Hudson TE Injured Reserve; Swayze Bozeman LB Injured Reserve

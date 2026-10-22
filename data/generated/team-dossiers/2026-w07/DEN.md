@@ -1,5 +1,5 @@
 # DEN Broncos — dossier, target Week 7 (data through W6)
-Built 2026-10-22T01:22:05.847Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T18:21:00.342Z · git aecd94b · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -46,7 +46,7 @@ SRS 1.36 (#13) · net PPG -2.8 (#24) · Pythag 0.421 (#24) · model rank #21
 HC Sean Payton · neutral pass rate 0.573 · sample 2026-09-14 → 2026-10-15 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See DEN.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T14:39:14Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Bo Nix [ok]
 Out/IR: Jonah Coleman RB Injured Reserve

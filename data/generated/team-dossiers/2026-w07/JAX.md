@@ -1,5 +1,5 @@
 # JAX Jaguars — dossier, target Week 7 (data through W6)
-Built 2026-10-22T01:22:06.109Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T18:21:00.460Z · git aecd94b · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -46,13 +46,13 @@ SRS 11.19 (#1) · net PPG 10.6 (#2) · Pythag 0.792 (#1) · model rank #1
 HC Liam Coen · neutral pass rate 0.537 · sample 2026-09-13 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See JAX.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T14:39:14Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Trevor Lawrence [ok]
-Out/IR: Anton Harrison OT Injured Reserve
+Out/IR: none
 Questionable/Doubtful: Ross Matiscik LS Questionable; Montaric Brown CB Questionable; Antonio Johnson S Questionable
-Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 9 players; skill: none
-OL/DL cluster risk (derived): OL watch, DL none
+Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 10 players; skill: none
+OL/DL cluster risk (derived): OL none, DL none
 Impact digest (top by score): Bhayshul Tuten RB active_news/unknown
 Projected starters: manual_and_estimated_signals, 1 players
 

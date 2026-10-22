@@ -3,8 +3,8 @@
 > Local futures-relevance triage only. This is not a betting recommendation and does not authorize official picks.
 
 Season: 2026
-Generated: 2026-10-22T01:21:56.859Z
-Source events: 1118 | Digest events: 794 | Starter-matched: 79
+Generated: 2026-10-22T14:39:29.587Z
+Source events: 1133 | Digest events: 806 | Starter-matched: 79
 
 ## Conflicted / Withheld Intel
 
@@ -20,6 +20,9 @@ Source events: 1118 | Digest events: 794 | Starter-matched: 79
 - SF Christian Kirk (WR): conflicted_intel; synthesis eligible no
   - Classification warning: restrictive_status_vs_return_text
   - Evidence: Kirk (calf) was a full participant in Wednesday's practice, Harrison Rich of the San Francisco Chronicle reports.
+- CLE Dylan Sampson (RB): conflicted_intel; synthesis eligible no
+  - Classification warning: restrictive_status_vs_return_text
+  - Evidence: Browns head coach Todd Monken said that he's optimistic that Sampson (knee) will be activated from injured reserve ahead of Sunday's game against the Titans, Daniel Oyefusi of ESPN.com reports.
 - DET Brian Branch (S): conflicted_intel; synthesis eligible no
   - Classification warning: restrictive_status_vs_return_text
   - Evidence: The Lions listed Branch as a full participant on Wednesday's estimated practice report.
@@ -69,9 +72,6 @@ Source events: 1118 | Digest events: 794 | Starter-matched: 79
   - improving/return_to_practice | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
   - Evidence: Daniels completed 22 of 43 passes for 164 yards and one touchdown with two interceptions in Sunday's 26-19 overtime loss to the Steelers. He added 39 rushing yards on four carries.
-- BAL Skylar Thompson (QB): negative_availability, score 108
-  - worsening/ir | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
-  - Evidence: Skylar Thompson IR
 - HOU Graham Mertz (QB): negative_availability, score 108
   - worsening/ir | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Evidence: Graham Mertz IR
@@ -81,6 +81,9 @@ Source events: 1118 | Digest events: 794 | Starter-matched: 79
 - LAR Matthew Caldwell (QB): negative_availability, score 108
   - worsening/ir | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Evidence: Matthew Caldwell IR
+- BAL Skylar Thompson (QB): negative_availability, score 108
+  - worsening/ir | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
+  - Evidence: Skylar Thompson IR
 - SEA Anthony Bradford (G): negative_availability, score 104
   - worsening/ir | offensive_line_major | markets wins, division, conference, super_bowl
   - Evidence: Bradford (knee) was designated to return from injured reserve by the Seahawks on Monday, John Boyle of the team's official website reports.
@@ -108,6 +111,9 @@ Source events: 1118 | Digest events: 794 | Starter-matched: 79
 - CLE Kalia Davis (DT): negative_availability, score 100
   - worsening/ir | defensive_front_major | markets wins, division, conference, super_bowl
   - Evidence: Davis (quadriceps) has been ruled out for Sunday's game against the Ravens.
+- NE Ben Brown (C): negative_availability, score 97
+  - worsening/out | offensive_line_major | markets division, conference, super_bowl
+  - Evidence: Brown (knee) has been ruled out for Thursday's game against the Bears.
 - LAR Kobie Turner (DE): negative_availability, score 97
   - worsening/ir | defensive_front_major | markets division, conference, super_bowl
   - Evidence: The Rams placed Turner (groin) on injured reserve Wednesday.
@@ -136,7 +142,7 @@ Source events: 1118 | Digest events: 794 | Starter-matched: 79
 - NYG J.J. McCarthy (QB): review_context, score 94
   - stable/limited | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: likely_starter_or_primary, confidence 0.7, sources 1
-  - Evidence: McCarthy will start at quarterback in Week 7, coach John Harbaugh confirmed Wednesday.
+  - Evidence: McCarthy will start at quarterback in Week 7 against Houston, coach John Harbaugh confirmed Wednesday.
 - BAL Lamar Jackson (QB): review_context, score 94
   - unknown/status_update | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
@@ -185,44 +191,40 @@ Source events: 1118 | Digest events: 794 | Starter-matched: 79
   - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
   - Starter match: starter, confidence 0.95, sources 1
   - Evidence: Rodgers completed 33 of 49 passes for 253 yards and two touchdowns with one interception in Sunday's 26-19 overtime win over the Buccaneers.
-- LAR Matthew Stafford (QB): review_context, score 93
-  - unknown/active_news | qb_major | markets wins, division, conference, super_bowl, player_props, fantasy
-  - Starter match: starter, confidence 0.95, sources 1
-  - Evidence: Stafford was 25-for-33 passing for 222 yards, two touchdowns and no interceptions during Sunday's 18-16 defeat against the Cardinals.
 
 ## Team Digest
 
 | Team | Events | Eligible | Conflicted | Needs Confirmation | Top Score | Worsening | Improving | Starter Matched | QB | OL Worsening | DL Worsening |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | NYG | 34 | 34 | 0 | 0 | 131 | 14 | 1 | 4 | 3 | 0 | 3 |
-| PHI | 27 | 27 | 0 | 0 | 131 | 16 | 1 | 8 | 4 | 2 | 0 |
-| MIA | 30 | 30 | 0 | 0 | 111 | 9 | 3 | 3 | 2 | 0 | 2 |
+| PHI | 25 | 25 | 0 | 0 | 131 | 15 | 0 | 8 | 4 | 2 | 0 |
+| MIA | 32 | 32 | 0 | 0 | 111 | 10 | 4 | 3 | 2 | 0 | 2 |
 | TB | 17 | 16 | 1 | 0 | 111 | 5 | 2 | 1 | 1 | 0 | 0 |
-| BAL | 22 | 22 | 0 | 0 | 108 | 4 | 2 | 2 | 3 | 0 | 0 |
+| BAL | 23 | 23 | 0 | 0 | 108 | 5 | 3 | 2 | 3 | 0 | 0 |
 | HOU | 33 | 33 | 0 | 0 | 108 | 15 | 0 | 2 | 2 | 0 | 4 |
 | LAC | 22 | 22 | 0 | 0 | 108 | 9 | 0 | 3 | 2 | 0 | 0 |
 | LAR | 25 | 25 | 0 | 0 | 108 | 20 | 1 | 1 | 2 | 0 | 8 |
 | DET | 21 | 20 | 1 | 0 | 104 | 14 | 1 | 2 | 1 | 2 | 1 |
 | SEA | 25 | 24 | 1 | 0 | 104 | 9 | 2 | 2 | 2 | 1 | 0 |
-| CHI | 28 | 28 | 0 | 0 | 100 | 19 | 5 | 3 | 2 | 0 | 5 |
-| CLE | 34 | 34 | 0 | 0 | 100 | 10 | 2 | 2 | 0 | 0 | 2 |
+| CHI | 29 | 29 | 0 | 0 | 100 | 19 | 5 | 3 | 2 | 0 | 5 |
+| CLE | 35 | 34 | 1 | 0 | 100 | 9 | 3 | 2 | 0 | 0 | 2 |
 | GB | 38 | 36 | 0 | 2 | 100 | 15 | 0 | 4 | 2 | 0 | 6 |
 | WAS | 21 | 20 | 0 | 0 | 100 | 11 | 4 | 2 | 2 | 0 | 2 |
+| NE | 35 | 34 | 1 | 0 | 97 | 19 | 1 | 3 | 2 | 2 | 1 |
 | KC | 22 | 22 | 0 | 0 | 95 | 11 | 1 | 2 | 1 | 1 | 2 |
-| CAR | 26 | 26 | 0 | 0 | 94 | 16 | 4 | 4 | 2 | 1 | 5 |
-| NE | 35 | 34 | 1 | 0 | 94 | 19 | 1 | 3 | 2 | 2 | 1 |
+| CAR | 26 | 26 | 0 | 0 | 94 | 17 | 4 | 4 | 2 | 1 | 5 |
 | NO | 25 | 25 | 0 | 0 | 94 | 8 | 4 | 2 | 2 | 0 | 1 |
-| BUF | 20 | 20 | 0 | 0 | 93 | 9 | 2 | 1 | 1 | 0 | 1 |
+| BUF | 19 | 19 | 0 | 0 | 93 | 8 | 2 | 1 | 1 | 0 | 1 |
 | CIN | 14 | 14 | 0 | 0 | 93 | 7 | 1 | 3 | 1 | 0 | 0 |
 | DAL | 16 | 16 | 0 | 0 | 93 | 8 | 1 | 3 | 1 | 0 | 2 |
 | DEN | 16 | 16 | 0 | 0 | 93 | 7 | 0 | 3 | 1 | 0 | 1 |
 | IND | 33 | 33 | 0 | 0 | 93 | 10 | 2 | 5 | 1 | 0 | 2 |
-| NYJ | 29 | 29 | 0 | 0 | 93 | 16 | 2 | 4 | 1 | 0 | 4 |
+| NYJ | 29 | 29 | 0 | 0 | 93 | 16 | 3 | 4 | 1 | 0 | 4 |
 | PIT | 21 | 20 | 1 | 0 | 93 | 8 | 0 | 1 | 1 | 0 | 2 |
-| SF | 26 | 25 | 1 | 0 | 93 | 18 | 2 | 1 | 1 | 0 | 4 |
-| TEN | 21 | 21 | 0 | 0 | 93 | 10 | 3 | 2 | 1 | 0 | 2 |
-| MIN | 18 | 18 | 0 | 0 | 90 | 7 | 3 | 0 | 0 | 1 | 1 |
-| ARI | 28 | 28 | 0 | 0 | 86 | 9 | 2 | 0 | 2 | 0 | 1 |
+| SF | 35 | 34 | 1 | 0 | 93 | 16 | 2 | 1 | 1 | 0 | 3 |
+| TEN | 22 | 22 | 0 | 0 | 93 | 11 | 3 | 2 | 1 | 0 | 2 |
+| MIN | 19 | 19 | 0 | 0 | 90 | 7 | 4 | 0 | 0 | 1 | 1 |
+| ARI | 28 | 28 | 0 | 0 | 86 | 8 | 2 | 0 | 2 | 0 | 1 |
 | ATL | 34 | 33 | 1 | 0 | 86 | 12 | 0 | 3 | 1 | 0 | 4 |
-| JAX | 11 | 11 | 0 | 0 | 86 | 6 | 1 | 1 | 0 | 1 | 1 |
+| JAX | 10 | 10 | 0 | 0 | 86 | 5 | 1 | 1 | 0 | 0 | 1 |
 | LV | 22 | 21 | 1 | 0 | 86 | 7 | 1 | 2 | 0 | 0 | 1 |

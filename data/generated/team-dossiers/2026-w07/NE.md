@@ -1,5 +1,5 @@
 # NE Patriots — dossier, target Week 7 (data through W6)
-Built 2026-10-22T01:22:06.422Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T18:21:00.609Z · git aecd94b · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -46,11 +46,11 @@ SRS 7.79 (#5) · net PPG 3.2 (#10) · Pythag 0.592 (#9) · model rank #6
 HC Mike Vrabel · neutral pass rate 0.517 · sample 2026-09-09 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See NE.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T14:39:14Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Drake Maye [ok]
-Out/IR: Carlton Davis III CB Out; Channing Canada CB Out; Ben Brown C Out; Alijah Vera-Tucker G Out; Karon Prunty CB Out; Marcus Bryant OT Injured Reserve (+1 more)
-Questionable/Doubtful: Christian Elliss LB Questionable; Kevin Byard S Questionable; Craig Woodson S Questionable; Morgan Moses OT Questionable
+Out/IR: Channing Canada CB Out; Karon Prunty CB Out; Ben Brown C Out; Alijah Vera-Tucker G Out; Carlton Davis III CB Out; Marcus Bryant OT Injured Reserve (+1 more)
+Questionable/Doubtful: Morgan Moses OT Questionable; Christian Elliss LB Questionable; Kevin Byard S Questionable; Craig Woodson S Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 11 players; skill: Julian Hill TE; Mack Hollins WR; Myles Montgomery RB; Reggie Gilliam FB
 OL/DL cluster risk (derived): OL cluster, DL none
 Impact digest (top by score): Drake Maye QB status_update/unknown; Drake Maye QB active_news/unknown; Rhamondre Stevenson RB active_news/unknown

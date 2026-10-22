@@ -1,5 +1,5 @@
 # LAR Rams — dossier, target Week 7 (data through W6)
-Built 2026-10-22T01:22:06.241Z · git 3d58678 · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T18:21:00.521Z · git aecd94b · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -46,7 +46,7 @@ SRS 0.48 (#18) · net PPG -0.2 (#17) · Pythag 0.495 (#17) · model rank #16
 HC Sean McVay · neutral pass rate 0.639 · sample 2026-09-10 → 2026-10-18 (6g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 7 — current. See LAR.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T01:21:31Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T14:39:14Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Matthew Stafford [ok]
 Out/IR: Kobie Turner DE Injured Reserve; Poona Ford DT Injured Reserve; Terrance Ferguson TE Injured Reserve; Davante Adams WR Injured Reserve; Blake Grupe PK Injured Reserve; Myles Garrett DE Injured Reserve

@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-22T01:22:06.109Z",
+  "built_at": "2026-10-22T18:21:00.460Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "3d58678",
+  "git_head": "aecd94b",
   "market_data_included": false,
   "sources": [
     {
@@ -66,10 +66,10 @@
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-20T23:48:44.521Z",
+      "generated_at": "2026-10-22T18:20:58.482Z",
       "status": "current",
       "through_week": 7,
-      "sha256": "649835539e56e244ba5d0abfd8ad9610f6b8e54d228f740d0cbdbce9fa761902",
+      "sha256": "71d596a66b5a8f49eb5461fc16e8072cedeb96879adb677bc0c50da856aba136",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -959,19 +959,19 @@
       "source": "data/generated/master-intel/w07-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-22T01:21:24.521422+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-22T14:39:12.738634+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-22T01:21:31Z",
-      "availability_events": "2026-10-22T01:21:47.882Z",
-      "impact_digest": "2026-10-22T01:21:56.859Z",
+      "espn_status": "2026-10-22T14:39:14Z",
+      "availability_events": "2026-10-22T14:39:26.249Z",
+      "impact_digest": "2026-10-22T14:39:29.587Z",
       "projected_starters": "2026-10-21T22:00:03.496Z",
-      "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
+      "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -985,16 +985,7 @@
       "operator_confirmed": null
     },
     "reported_injuries": {
-      "out_ir": [
-        {
-          "player": "Anton Harrison",
-          "pos": "OT",
-          "status": "Injured Reserve",
-          "date": "2026-10-13",
-          "comment": "Harrison is slated to undergo arthroscopic surgery on his right knee next week and could be out for 3-to-5 weeks or 3-to-4 months, depending on what surgeons fi",
-          "roster_check": "roster_ir_out_group"
-        }
-      ],
+      "out_ir": [],
       "questionable_doubtful": [
         {
           "player": "Ross Matiscik",
@@ -1025,6 +1016,11 @@
     },
     "operator_reported": [],
     "roster_ir_out_unconfirmed": [
+      {
+        "player": "Anton Harrison",
+        "pos": "OT",
+        "roster_status": "day-to-day"
+      },
       {
         "player": "B.J. Green II",
         "pos": "DE",
@@ -1073,13 +1069,11 @@
     ],
     "ol_dl_cluster_risk": {
       "ol": {
-        "hard_or_doubtful": 1,
+        "hard_or_doubtful": 0,
         "questionable": 0,
-        "risk": "watch",
+        "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": [
-          "Anton Harrison OT Injured Reserve"
-        ]
+        "players": []
       },
       "dl": {
         "hard_or_doubtful": 0,
@@ -1099,7 +1093,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T01:17:03.000Z",
+          "published_at": "2026-10-22T14:30:02.000Z",
           "summary": "Caleb Ransaw IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1115,7 +1109,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T01:17:03.000Z",
+          "published_at": "2026-10-22T14:30:02.000Z",
           "summary": "B.J. Green II IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1131,7 +1125,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T01:17:03.000Z",
+          "published_at": "2026-10-22T14:30:02.000Z",
           "summary": "Jared Bartlett IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1147,7 +1141,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T01:17:03.000Z",
+          "published_at": "2026-10-22T14:30:02.000Z",
           "summary": "Parker Hughes IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1155,6 +1149,22 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Foyesade Oluokun",
+          "position": "LB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T02:09:00.000Z",
+          "summary": "Oluokun logged eight tackles (four solo) in the Jaguars' 34-31 loss to the Texans in London on Sunday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
         },
         {
           "player_name": "Ross Matiscik",
@@ -1261,22 +1271,6 @@
           "source": "ESPN injuries API",
           "published_at": "2026-10-19T02:07:00.000Z",
           "summary": "Rodriguez rushed 11 times for 55 yards while failing to reel in his only target during Sunday's 34-31 loss to Houston.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Travis Hunter",
-          "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-18T17:56:00.000Z",
-          "summary": "Hunter caught all four of his targets for 59 yards and a touchdown in Sunday's 34-31 loss to the Texans in London. He also recorded three tackles and an interce",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1588,11 +1582,11 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-22T01:21:31Z",
-        "availability_events": "2026-10-22T01:21:47.882Z",
-        "impact_digest": "2026-10-22T01:21:56.859Z",
+        "espn_status": "2026-10-22T14:39:14Z",
+        "availability_events": "2026-10-22T14:39:26.249Z",
+        "impact_digest": "2026-10-22T14:39:29.587Z",
         "projected_starters": "2026-10-21T22:00:03.496Z",
-        "roster_snapshot": "2026-10-22T01:21:24.521422+00:00"
+        "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
