@@ -248,3 +248,83 @@ describe('article intel review fixes (2026-10-07)', () => {
     expect(report.articles[0].pick_review_status).toBe('explicit_selection_extracted');
   });
 });
+
+describe('article intel review extractor fix (2026-10-22): listed props, SGP legs, ATD lists', () => {
+  const pick = (report, re) => report.analyst_selections.filter((item) => re.test(item.selection));
+
+  it('extracts an SGP list without dashes, including a Team/Team game-total leg', () => {
+    const report = buildReport([
+      article({
+        id: 'an-sgp',
+        source: 'Action Network',
+        title: 'Bears vs Patriots Odds, Picks, Parlay for Thursday Night Football',
+        summary: 'Bears vs Patriots Same-Game Parlay Patriots/Bears Over 50.5 (-118) A.J. Brown Over 69.5 Receiving Yards (-112) D\'Andre Swift Over 61.5 Rushing Yards (-111) Parlay Odds: +440 ( DraftKings ).',
+      }),
+    ], SINCE, collection());
+    const total = report.analyst_selections.find((i) => i.selection === 'Over 50.5');
+    expect(total?.market).toBe('game_total');
+    expect(total?.price).toBe('-118');
+    expect(pick(report, /A\.J\. Brown Over 69\.5 Receiving Yards/)).toHaveLength(1);
+    expect(pick(report, /D'Andre Swift Over 61\.5 Rushing Yards/)).toHaveLength(1);
+    expect(report.analyst_selections.filter((i) => /Brown|Swift|Over 50\.5/.test(i.selection))).toHaveLength(3);
+  });
+
+  it('extracts every anytime-TD pick from a "(+price; book)" list and strips page-word prefixes', () => {
+    const report = buildReport([
+      article({
+        id: 'an-atd',
+        source: 'Action Network',
+        title: 'Patriots vs Bears Anytime Touchdown Scorer Props',
+        summary: 'Scorer Picks Hunter Henry Anytime Touchdown (+240; betMGM) Caleb Williams Anytime Touchdown (+350; DraftKings) Kyle Williams Anytime Touchdown (+750; DraftKings).',
+      }),
+    ], SINCE, collection());
+    const names = report.analyst_selections.map((i) => i.selection).sort();
+    expect(names).toEqual(['Caleb Williams Anytime Touchdown', 'Hunter Henry Anytime Touchdown', 'Kyle Williams Anytime Touchdown']);
+    const henry = report.analyst_selections.find((i) => /Henry/.test(i.selection));
+    expect(henry.price).toBe('+240');
+    expect(henry.book).toBe('BetMGM');
+  });
+
+  it('keeps all four props from a summary list, with no fused line or "NOW" prefix, and one row per pick', () => {
+    const report = buildReport([
+      article({
+        id: 'an-props',
+        source: 'Action Network',
+        title: 'Patriots vs Bears Player Props',
+        summary: 'D’Andre Swift Over 16.5 Receiving Yards (-115, Bet365 ) AJ Brown Over 5.5 Receptions (+124, DraftKings ) AJ Brown Anytime Touchdown (+145, BetMGM ) Eli Raridon Anytime Touchdown (+600, BetMGM ). NOW A.J. Brown Anytime Touchdown (+145) Eli Raridon Anytime Touchdown (+600 at BetMGM).',
+      }),
+    ], SINCE, collection());
+    expect(report.analyst_selections).toHaveLength(4);
+    const swift = report.analyst_selections.find((i) => /Swift/.test(i.selection));
+    expect(swift.line).toBe('16.5');
+    const raridon = report.analyst_selections.find((i) => /Raridon/.test(i.selection));
+    expect(raridon.line).toBeNull();
+    expect(report.analyst_selections.some((i) => /^NOW\b/.test(i.selection))).toBe(false);
+  });
+
+  it('collapses a sentence-fragment spread pick to one clean selection', () => {
+    const report = buildReport([
+      article({
+        id: 'an-1h',
+        source: 'Action Network',
+        title: 'Patriots vs Bears Prediction, Pick, Odds',
+        summary: 'Patriots vs Bears pick: Patriots 1st Half Spread +2.5 My Patriots vs Bears best bet is the Patriots to cover the first half. Patriots 1st Half Spread +2.5 Patriots vs Bears Betting Trends.',
+      }),
+    ], SINCE, collection());
+    const spreads = report.analyst_selections.filter((i) => i.market === 'spread');
+    expect(spreads).toHaveLength(1);
+    expect(spreads[0].selection).toBe('Patriots 1st Half Spread +2.5');
+  });
+
+  it('rejects team-led or single-token names', () => {
+    const report = buildReport([
+      article({
+        id: 'an-junk',
+        source: 'Action Network',
+        title: 'NFL picks',
+        summary: 'Bears Over 2.5 Passing Touchdowns (+116). Parlay Over 40.5 Rushing Yards (-112).',
+      }),
+    ], SINCE, collection());
+    expect(report.analyst_selections.filter((i) => /Bears|Parlay/.test(i.selection) && i.market === 'player_prop_or_stat_future')).toHaveLength(0);
+  });
+});

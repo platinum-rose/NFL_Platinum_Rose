@@ -398,6 +398,47 @@ function extractStructuredAnalystSelections(text) {
       selections.push({ details, quote: clean(`Bet: ${label} (${m[2]}${m[3] ? ` - ${m[3]} units` : ''})`) });
     }
   }
+  // 2026-10-22 extractor fix: three formats the passes above missed (Action Network / BettingPros lists and SGPs).
+  const NAME = String.raw`((?:[A-Z][A-Za-z'.’-]+)(?:\s+(?:[A-Z][A-Za-z'.’-]+|Jr\.|Sr\.|II|III)){1,3})`;
+  const BOOK_CANON = { betmgm: 'BetMGM', draftkings: 'DraftKings', fanduel: 'FanDuel', bet365: 'Bet365', caesars: 'Caesars', 'espn bet': 'ESPN BET', 'hard rock': 'Hard Rock', betonline: 'BetOnline', bookmaker: 'BookMaker', fanatics: 'Fanatics' };
+  const canonBook = (b) => (b ? (BOOK_CANON[clean(b).toLowerCase()] || null) : null);
+  const NAME_SUFFIX = /^(?:Jr\.?|Sr\.?|II|III|IV)$/i;
+  const NAME_PARTICLE = /^(?:St\.?|Van|Von|De|Di|Le|La)$/i;
+  const NAME_INITIALS = /^(?:[A-Z]\.){1,3}$/;
+  const TEAM_WORDS = new Set(['cardinals', 'falcons', 'ravens', 'bills', 'panthers', 'bears', 'bengals', 'browns', 'cowboys', 'broncos', 'lions', 'packers', 'texans', 'colts', 'jaguars', 'chiefs', 'raiders', 'chargers', 'rams', 'dolphins', 'vikings', 'patriots', 'saints', 'giants', 'jets', 'eagles', 'steelers', '49ers', 'seahawks', 'buccaneers', 'titans', 'commanders', 'chicago', 'kansas', 'green', 'tampa', 'miami', 'dallas', 'denver', 'detroit', 'houston', 'seattle', 'atlanta', 'carolina', 'baltimore', 'cincinnati', 'cleveland', 'indianapolis', 'jacksonville', 'minnesota', 'pittsburgh', 'philadelphia', 'arizona', 'tennessee', 'washington', 'buffalo', 'new', 'san', 'las', 'los', 'same-game', 'parlay', 'picks', 'props', 'scorer', 'preview', 'touchdown']);
+  // Player names are the last 2 tokens (3 with a Jr./III suffix or an "St."-style particle); leading page words
+  // ("Same-Game Parlay", "ET ESPN", "Scorer Picks", "Chicago.") are dropped. Single-token or team-led names are rejected.
+  const cleanName = (raw) => {
+    let t = clean(raw).replace(/’/g, "'").split(/\s+/).filter(Boolean);
+    for (let i = t.length - 2; i >= 0; i--) {
+      if (/\.$/.test(t[i]) && !NAME_SUFFIX.test(t[i]) && !NAME_PARTICLE.test(t[i]) && !NAME_INITIALS.test(t[i])) { t = t.slice(i + 1); break; }
+    }
+    if (t.length < 2) return '';
+    const take = NAME_SUFFIX.test(t[t.length - 1]) || (t.length >= 3 && NAME_PARTICLE.test(t[t.length - 2])) ? 3 : 2;
+    t = t.slice(-take);
+    if (t.length < 2 || TEAM_WORDS.has(t[0].toLowerCase()) || TEAM_WORDS.has(t[t.length - 1].toLowerCase())) return '';
+    return t.join(' ');
+  };
+  const pushStructured = (details, quote, extraFlag = null) => selections.push({ details, quote: clean(quote), extraFlag });
+  // (a) "D'Andre Swift Over 16.5 Receiving Yards (-115, Bet365)" / "A.J. Brown Over 69.5 Receiving Yards (-112)" (no dash before Over).
+  const propNoDash = new RegExp(`${NAME}\\s+(Over|Under)\\s+(\\d+(?:\\.\\d+)?)\\s+((?:(?:Passing|Rushing|Receiving)\\s+)?(?:Yards?|Touchdowns?|TDs?|Receptions?|Completions?|Rush Attempts?|Attempts?|Interceptions?|Carries|Sacks?))\\s*\\(\\s*([+-]\\d{3,5})(?:\\s*[,;]\\s*([A-Za-z0-9 ]+?))?\\s*\\)`, 'g');
+  for (const m of source.matchAll(propNoDash)) {
+    const name = cleanName(m[1]);
+    if (!name) continue;
+    pushStructured({ market: 'player_prop_or_stat_future', selection: `${name} ${m[2][0].toUpperCase()}${m[2].slice(1).toLowerCase()} ${m[3]} ${m[4]}`, side: m[2].toLowerCase(), line: m[3], price: m[5], book: canonBook(m[6]) }, m[0], 'structured_listed_prop');
+  }
+  // (b) "Hunter Henry Anytime Touchdown (+240; betMGM)" / "Eli Raridon Anytime Touchdown (+600)".
+  const atdList = new RegExp(`${NAME}\\s+(?:Anytime\\s+(?:Touchdown|TD)(?:\\s+Scorer)?|ATD)\\s*\\(\\s*([+-]\\d{3,5})(?:\\s*[,;]\\s*([A-Za-z0-9 ]+?))?\\s*\\)`, 'g');
+  for (const m of source.matchAll(atdList)) {
+    const name = cleanName(m[1]);
+    if (!name) continue;
+    pushStructured({ market: 'player_prop_or_stat_future', selection: `${name} Anytime Touchdown`, side: 'over', line: null, price: m[2], book: canonBook(m[3]) }, m[0], 'structured_listed_prop');
+  }
+  // (c) SGP game-total leg: "Patriots/Bears Over 50.5 (-118)".
+  const sgpTotal = /\b([A-Z][a-z]+\/[A-Z][a-z]+)\s+(Over|Under)\s+(\d+(?:\.\d+)?)\s*\(\s*([+-]\d{3,5})\s*\)/g;
+  for (const m of source.matchAll(sgpTotal)) {
+    pushStructured({ market: 'game_total', selection: `${m[2][0].toUpperCase()}${m[2].slice(1).toLowerCase()} ${m[3]}`, side: m[2].toLowerCase(), line: m[3], price: m[4], book: null }, m[0], 'structured_listed_prop');
+  }
   return selections;
 }
 
@@ -638,6 +679,12 @@ function extractAnalystSelections(article, teams, fullText) {
     if (!details.selection) continue;
     if (/^(?:on\s+)?teams?\s+to\b/i.test(details.selection) || /\bgamblers wager on teams\b/i.test(sentence)) continue;
     if (/\b(?:Penn State|Alabama Crimson|Ohio State|Georgia Bulldogs|Michigan Wolverines|Notre Dame|College Football|NCAAF|CFB Hub)\b/i.test(`${details.selection} ${sentence}`)) continue;
+    if (details.market === 'spread' && !candidate.structured) {
+      details.selection = clean(details.selection)
+        .replace(/^.*?\bpick:\s*/i, '')
+        .replace(/^(.*?[+-]\d+(?:\.\d+)?)\s+(?:My|The|I|We|Our|Betting|[A-Z][a-z]+\s+vs\.?)\b.*$/s, '$1')
+        .trim();
+    }
     const key = clean(`${details.market}|${details.selection}|${details.side}|${details.line}|${details.price}|${details.book}`).toLowerCase();
     if (seen.has(key)) continue;
     seen.add(key);
@@ -672,6 +719,7 @@ function extractAnalystSelections(article, teams, fullText) {
       review_flags: reviewFlagsForPick(sentence, targetTeams, details, [
         ...(missingCore ? ['low_confidence'] : []),
         ...(candidate.structured ? ['structured_multi_pick_extract'] : []),
+        ...(candidate.extraFlag ? [candidate.extraFlag] : []),
         ...(evidenceStatus === 'execution_evidence_present' ? [] : ['not_execution_usable']),
         ...(details.consensusAssumed ? ['consensus_pricing_assumed'] : []),
       ]),
@@ -682,9 +730,24 @@ function extractAnalystSelections(article, teams, fullText) {
   // (e.g. "Browns ML (-120 - 2 units) Tampa Bay Buccaneers" next to the clean "Browns ML").
   const isStructured = (o) => o.review_flags.includes('structured_multi_pick_extract');
   const structuredPicks = out.filter(isStructured);
-  const deduped = out.filter((o) => isStructured(o) || !structuredPicks.some((st) => st.price === o.price
-    && o.selection.toLowerCase().startsWith(st.selection.toLowerCase())));
-  return deduped.slice(0, 24);
+  const deduped = out.filter((o) => isStructured(o) || !structuredPicks.some((st) => {
+    const normSel = (x) => String(x || '').toLowerCase().replace(/[.'\u2019]/g, '');
+    const sameSel = normSel(o.selection).includes(normSel(st.selection));
+    const samePrice = st.price === o.price;
+    const sameLine = st.line != null && o.line != null && String(st.line) === String(o.line);
+    return sameSel && (samePrice || sameLine);
+  }));
+  // The same listed prop often appears twice (once in the summary list with a book, once in the body without).
+  // Key ignores price when a line exists (a +124/+125 shop difference is the same pick); ATDs have no line so keep price.
+  const listedKey = (o) => `${String(o.selection || '').toLowerCase().replace(/[.'\u2019]/g, '')}|${o.line ?? ''}|${o.line != null ? '' : (o.price ?? '')}`;
+  const bestListed = new Map();
+  for (const o of deduped) {
+    if (!o.review_flags.includes('structured_listed_prop')) continue;
+    const prev = bestListed.get(listedKey(o));
+    if (!prev || (!prev.book && o.book)) bestListed.set(listedKey(o), o);
+  }
+  const finalPicks = deduped.filter((o) => !o.review_flags.includes('structured_listed_prop') || bestListed.get(listedKey(o)) === o);
+  return finalPicks.slice(0, 24);
 }
 
 function focusedBody(row) {
