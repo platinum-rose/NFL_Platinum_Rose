@@ -1,6 +1,6 @@
-# NFL Week 5 settlement preview
+# NFL Week 7 settlement preview
 
-Generated: 2026-10-07T10:30:02.084Z  
+Generated: 2026-10-22T14:42:33.958Z  
 Season: 2026  
 Mode: completed games only; pending games are never graded.
 
@@ -8,8 +8,8 @@ Mode: completed games only; pending games are never graded.
 
 Final (0): none
 
-Pending (15): TB @ DAL; PHI @ JAX; CHI @ GB; HOU @ TEN; CIN @ MIA; LV @ NE; MIN @ NO; CLE @ NYJ; IND @ PIT; NYG @ WAS; DEN @ LAC; DET @ ARI; SF @ SEA; BAL @ ATL; BUF @ LAR
+Pending (14): NE @ CHI; PIT @ NO; SF @ ATL; CLE @ TEN; IND @ MIN; MIA @ NYJ; TB @ CAR; CIN @ BAL; NYG @ HOU; DEN @ ARI; GB @ DET; LAR @ LV; KC @ SEA; DAL @ PHI
 
-## Week 5 tickets (0)
+## Week 7 tickets (1)
 
-
+- bet_20261019_bkr_740512242_6team_flex_sgp_xweek: **PENDING**
