@@ -2,16 +2,16 @@
   "meta": {
     "schema": "projected_starters_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-10-21T22:00:03.496Z",
+    "generated_at": "2026-10-23T14:34:03.177Z",
     "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
-    "player_count": 69,
+    "player_count": 60,
     "manual_row_count": 50,
     "eligible_manual_row_count": 50,
-    "estimated_row_count": 19,
+    "estimated_row_count": 10,
     "withheld_named_manual_row_count": 0,
     "human_review_approved_count": 206,
     "human_review_rejected_count": 0,
-    "teams_with_signals": 31,
+    "teams_with_signals": 29,
     "teams_needing_manual_depth_chart": 3,
     "named_status_review_validation": {
       "schema": "named_status_review_validation_v1",
@@ -30,7 +30,7 @@
     "inputs": {
       "availability": {
         "path": "data\\player-availability\\latest.json",
-        "generated_at": "2026-10-21T22:00:01.001Z",
+        "generated_at": "2026-10-23T14:34:00.747Z",
         "evidence_validation_status": "pass"
       },
       "named_status_review": {
@@ -139,76 +139,14 @@
     "ARI": {
       "team": "ARI",
       "team_name": "Arizona Cardinals",
-      "coverage_status": "estimated_from_local_starter_language",
+      "coverage_status": "needs_manual_depth_chart",
       "known": [],
-      "estimated": [
-        "Shawn Bowman TE",
-        "James Conner RB"
-      ],
+      "estimated": [],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "verified all-position depth chart",
+        "manual source count reconciliation"
       ],
-      "players": [
-        {
-          "id": "starter_8ad95f9c85334090",
-          "team": "ARI",
-          "team_nick": "Cardinals",
-          "player_name": "James Conner",
-          "position": "RB",
-          "unit": "offense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.62,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-13T19:00:00.000Z",
-              "evidence": "Conner (foot) is close to practicing, but the Cardinals aren't expected to open his 21-day evaluation window this week, John Gambadoro of Arizona Sports 98.7 FM reports."
-            }
-          ],
-          "evidence_tags": [
-            "primary_role"
-          ],
-          "impact_bucket": "skill_major",
-          "needs_human_review": false,
-          "confidence_basis": "local_availability_starter_language",
-          "human_review_decision": "approved",
-          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
-        },
-        {
-          "id": "starter_052dfd3c5bda024a",
-          "team": "ARI",
-          "team_nick": "Cardinals",
-          "player_name": "Shawn Bowman",
-          "position": "TE",
-          "unit": "offense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-14T22:44:00.000Z",
-              "evidence": "Bowman was signed from the practice squad to the active roster Wednesday."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "skill_major",
-          "needs_human_review": false,
-          "confidence_basis": "local_availability_starter_language",
-          "human_review_decision": "approved",
-          "human_review_decided_at": "2026-10-15T15:09:02.070Z"
-        }
-      ],
+      "players": [],
       "named_status_reviews": []
     },
     "ATL": {
@@ -219,9 +157,7 @@
         "Bijan Robinson RB"
       ],
       "estimated": [
-        "Charles Snowden LB",
-        "Andy Dalton QB",
-        "Tua Tagovailoa QB"
+        "Charles Snowden LB"
       ],
       "missing": [
         "independent second-source depth-chart reconciliation"
@@ -258,33 +194,6 @@
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
         },
         {
-          "id": "starter_cecdd867b7989eda",
-          "team": "ATL",
-          "team_nick": "Falcons",
-          "player_name": "Tua Tagovailoa",
-          "position": "QB",
-          "unit": "offense",
-          "role": "competition_or_rotation",
-          "starter_confidence": 0.5,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-16T23:22:00.000Z",
-              "evidence": "With Michael Penix (ribs) cleared to play Sunday against the Bears, Tagovailoa will handle backup duties for the Falcons."
-            }
-          ],
-          "evidence_tags": [
-            "competition"
-          ],
-          "impact_bucket": "qb_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
           "id": "starter_153042c142c05b73",
           "team": "ATL",
           "team_nick": "Falcons",
@@ -308,33 +217,6 @@
             "roster_signal"
           ],
           "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
-          "id": "starter_ab97496dee032343",
-          "team": "ATL",
-          "team_nick": "Falcons",
-          "player_name": "Andy Dalton",
-          "position": "QB",
-          "unit": "offense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-19T13:50:00.000Z",
-              "evidence": "Dalton agreed to a one-year contract with the Falcons on Monday, Adam Schefter of ESPN reports."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "qb_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
         }
@@ -580,9 +462,7 @@
         "Caleb Williams QB",
         "Kalif Raymond WR"
       ],
-      "estimated": [
-        "Tyson Bagent QB"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -644,35 +524,6 @@
           "confidence_basis": "manual_depth_chart",
           "human_review_decision": "approved",
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
-        },
-        {
-          "id": "starter_91d78327c9efc060",
-          "team": "CHI",
-          "team_nick": "Bears",
-          "player_name": "Tyson Bagent",
-          "position": "QB",
-          "unit": "offense",
-          "role": "competition_or_rotation",
-          "starter_confidence": 0.5,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-18T16:08:00.000Z",
-              "evidence": "With Caleb Williams (hamstring) active, Tyson Bagent will serve as the Bears' backup quarterback against the Falcons on Sunday, Mike Garafolo of NFL Network reports."
-            }
-          ],
-          "evidence_tags": [
-            "competition"
-          ],
-          "impact_bucket": "qb_major",
-          "needs_human_review": false,
-          "confidence_basis": "local_availability_starter_language",
-          "human_review_decision": "approved",
-          "human_review_decided_at": "2026-10-15T15:08:48.411Z"
         }
       ],
       "named_status_reviews": []
@@ -935,9 +786,7 @@
       "known": [
         "Bo Nix QB"
       ],
-      "estimated": [
-        "Pat Surtain II CB"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -969,33 +818,6 @@
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
-        },
-        {
-          "id": "starter_b1bc6d645ea296c2",
-          "team": "DEN",
-          "team_nick": "Broncos",
-          "player_name": "Pat Surtain II",
-          "position": "CB",
-          "unit": "defense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-21T21:11:00.000Z",
-              "evidence": "Surtain (ankle) was on the field for the start of practice Wednesday, Zac Stevens of TheDNVR.com reports."
-            }
-          ],
-          "evidence_tags": [
-            "starter"
-          ],
-          "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -1008,7 +830,9 @@
         "Jared Goff QB",
         "Jahmyr Gibbs RB"
       ],
-      "estimated": [],
+      "estimated": [
+        "DeAndre Carter WR"
+      ],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -1070,6 +894,33 @@
           "confidence_basis": "manual_depth_chart",
           "human_review_decision": "approved",
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+        },
+        {
+          "id": "starter_160c73b4722b31f1",
+          "team": "DET",
+          "team_nick": "Lions",
+          "player_name": "DeAndre Carter",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-22T21:05:00.000Z",
+              "evidence": "The Lions signed Carter to the active roster Thursday."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -2033,7 +1884,7 @@
               "source_type": "structured_injury",
               "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
               "published_at": "2026-10-21T19:16:00.000Z",
-              "evidence": "McCarthy will start at quarterback in Week 7, coach John Harbaugh confirmed Wednesday."
+              "evidence": "McCarthy will start at quarterback in Week 7 against Houston, coach John Harbaugh confirmed Wednesday."
             }
           ],
           "evidence_tags": [
@@ -2160,10 +2011,7 @@
         "Tanner McKee QB",
         "Jalen Hurts QB"
       ],
-      "estimated": [
-        "Cole Payton QB",
-        "Jakorian Bennett CB"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -2251,61 +2099,6 @@
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
-        },
-        {
-          "id": "starter_6bbcc86335b31acd",
-          "team": "PHI",
-          "team_nick": "Eagles",
-          "player_name": "Cole Payton",
-          "position": "QB",
-          "unit": "offense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.78,
-          "roster_confidence": 0.74,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-18T16:26:00.000Z",
-              "evidence": "Payton is active as the backup to starting quarterback Tanner McKee in Sunday's game against the Panthers."
-            }
-          ],
-          "evidence_tags": [
-            "starter",
-            "competition"
-          ],
-          "impact_bucket": "qb_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        },
-        {
-          "id": "starter_851ed9b762a6bab8",
-          "team": "PHI",
-          "team_nick": "Eagles",
-          "player_name": "Jakorian Bennett",
-          "position": "CB",
-          "unit": "defense",
-          "role": "competition_or_rotation",
-          "starter_confidence": 0.5,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-18T03:01:00.000Z",
-              "evidence": "Bennett (knee) won't come off injured reserve this weekend and has been ruled out for Sunday's Week 6 battle against Carolina."
-            }
-          ],
-          "evidence_tags": [
-            "competition"
-          ],
-          "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -2317,9 +2110,7 @@
       "known": [
         "Aaron Rodgers QB"
       ],
-      "estimated": [
-        "Lew Nichols RB"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -2351,33 +2142,6 @@
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
-        },
-        {
-          "id": "starter_15324e0cc407be34",
-          "team": "PIT",
-          "team_nick": "Steelers",
-          "player_name": "Lew Nichols",
-          "position": "RB",
-          "unit": "offense",
-          "role": "roster_depth_signal",
-          "starter_confidence": 0.42,
-          "roster_confidence": 0.6,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-18T01:48:00.000Z",
-              "evidence": "The Steelers signed Nichols off their practice squad Saturday."
-            }
-          ],
-          "evidence_tags": [
-            "roster_signal"
-          ],
-          "impact_bucket": "skill_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -2428,44 +2192,14 @@
     "SEA": {
       "team": "SEA",
       "team_name": "Seattle Seahawks",
-      "coverage_status": "estimated_from_local_starter_language",
+      "coverage_status": "needs_manual_depth_chart",
       "known": [],
-      "estimated": [
-        "Tyrice Knight LB"
-      ],
+      "estimated": [],
       "missing": [
-        "manual all-position depth chart",
-        "independent source confirmation"
+        "verified all-position depth chart",
+        "manual source count reconciliation"
       ],
-      "players": [
-        {
-          "id": "starter_ebf7699561aa76d1",
-          "team": "SEA",
-          "team_nick": "Seahawks",
-          "player_name": "Tyrice Knight",
-          "position": "LB",
-          "unit": "defense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-15T22:27:00.000Z",
-              "evidence": "Knight will start in Thursday's game against the Broncos, Brady Henderson of ESPN.com reports."
-            }
-          ],
-          "evidence_tags": [
-            "starter"
-          ],
-          "impact_bucket": "defensive_major",
-          "needs_human_review": true,
-          "confidence_basis": "local_availability_starter_language"
-        }
-      ],
+      "players": [],
       "named_status_reviews": []
     },
     "TB": {
@@ -4112,29 +3846,29 @@
       "human_review_decided_at": "2026-09-16T03:10:05.798Z"
     },
     {
-      "id": "starter_b1bc6d645ea296c2",
-      "team": "DEN",
-      "team_nick": "Broncos",
-      "player_name": "Pat Surtain II",
-      "position": "CB",
-      "unit": "defense",
-      "role": "likely_starter_or_primary",
-      "starter_confidence": 0.7,
-      "roster_confidence": 0.66,
+      "id": "starter_160c73b4722b31f1",
+      "team": "DET",
+      "team_nick": "Lions",
+      "player_name": "DeAndre Carter",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
       "source_count": 1,
       "sources": [
         {
           "source": "ESPN injuries API",
           "source_type": "structured_injury",
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-21T21:11:00.000Z",
-          "evidence": "Surtain (ankle) was on the field for the start of practice Wednesday, Zac Stevens of TheDNVR.com reports."
+          "published_at": "2026-10-22T21:05:00.000Z",
+          "evidence": "The Lions signed Carter to the active roster Thursday."
         }
       ],
       "evidence_tags": [
-        "starter"
+        "roster_signal"
       ],
-      "impact_bucket": "defensive_major",
+      "impact_bucket": "skill_major",
       "needs_human_review": true,
       "confidence_basis": "local_availability_starter_language"
     },
@@ -4155,7 +3889,7 @@
           "source_type": "structured_injury",
           "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
           "published_at": "2026-10-21T19:16:00.000Z",
-          "evidence": "McCarthy will start at quarterback in Week 7, coach John Harbaugh confirmed Wednesday."
+          "evidence": "McCarthy will start at quarterback in Week 7 against Houston, coach John Harbaugh confirmed Wednesday."
         }
       ],
       "evidence_tags": [
@@ -4304,33 +4038,6 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_ab97496dee032343",
-      "team": "ATL",
-      "team_nick": "Falcons",
-      "player_name": "Andy Dalton",
-      "position": "QB",
-      "unit": "offense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-19T13:50:00.000Z",
-          "evidence": "Dalton agreed to a one-year contract with the Falcons on Monday, Adam Schefter of ESPN reports."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "qb_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
       "id": "starter_97369e8c8a8974a7",
       "team": "LV",
       "team_nick": "Raiders",
@@ -4354,117 +4061,6 @@
         "starter"
       ],
       "impact_bucket": "defensive_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_6bbcc86335b31acd",
-      "team": "PHI",
-      "team_nick": "Eagles",
-      "player_name": "Cole Payton",
-      "position": "QB",
-      "unit": "offense",
-      "role": "likely_starter_or_primary",
-      "starter_confidence": 0.78,
-      "roster_confidence": 0.74,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-18T16:26:00.000Z",
-          "evidence": "Payton is active as the backup to starting quarterback Tanner McKee in Sunday's game against the Panthers."
-        }
-      ],
-      "evidence_tags": [
-        "starter",
-        "competition"
-      ],
-      "impact_bucket": "qb_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_91d78327c9efc060",
-      "team": "CHI",
-      "team_nick": "Bears",
-      "player_name": "Tyson Bagent",
-      "position": "QB",
-      "unit": "offense",
-      "role": "competition_or_rotation",
-      "starter_confidence": 0.5,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-18T16:08:00.000Z",
-          "evidence": "With Caleb Williams (hamstring) active, Tyson Bagent will serve as the Bears' backup quarterback against the Falcons on Sunday, Mike Garafolo of NFL Network reports."
-        }
-      ],
-      "evidence_tags": [
-        "competition"
-      ],
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "confidence_basis": "local_availability_starter_language",
-      "human_review_decision": "approved",
-      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
-    },
-    {
-      "id": "starter_851ed9b762a6bab8",
-      "team": "PHI",
-      "team_nick": "Eagles",
-      "player_name": "Jakorian Bennett",
-      "position": "CB",
-      "unit": "defense",
-      "role": "competition_or_rotation",
-      "starter_confidence": 0.5,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-18T03:01:00.000Z",
-          "evidence": "Bennett (knee) won't come off injured reserve this weekend and has been ruled out for Sunday's Week 6 battle against Carolina."
-        }
-      ],
-      "evidence_tags": [
-        "competition"
-      ],
-      "impact_bucket": "defensive_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_15324e0cc407be34",
-      "team": "PIT",
-      "team_nick": "Steelers",
-      "player_name": "Lew Nichols",
-      "position": "RB",
-      "unit": "offense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-18T01:48:00.000Z",
-          "evidence": "The Steelers signed Nichols off their practice squad Saturday."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "skill_major",
       "needs_human_review": true,
       "confidence_basis": "local_availability_starter_language"
     },
@@ -4496,89 +4092,6 @@
       "confidence_basis": "local_availability_starter_language"
     },
     {
-      "id": "starter_cecdd867b7989eda",
-      "team": "ATL",
-      "team_nick": "Falcons",
-      "player_name": "Tua Tagovailoa",
-      "position": "QB",
-      "unit": "offense",
-      "role": "competition_or_rotation",
-      "starter_confidence": 0.5,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-16T23:22:00.000Z",
-          "evidence": "With Michael Penix (ribs) cleared to play Sunday against the Bears, Tagovailoa will handle backup duties for the Falcons."
-        }
-      ],
-      "evidence_tags": [
-        "competition"
-      ],
-      "impact_bucket": "qb_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_ebf7699561aa76d1",
-      "team": "SEA",
-      "team_nick": "Seahawks",
-      "player_name": "Tyrice Knight",
-      "position": "LB",
-      "unit": "defense",
-      "role": "likely_starter_or_primary",
-      "starter_confidence": 0.7,
-      "roster_confidence": 0.66,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-15T22:27:00.000Z",
-          "evidence": "Knight will start in Thursday's game against the Broncos, Brady Henderson of ESPN.com reports."
-        }
-      ],
-      "evidence_tags": [
-        "starter"
-      ],
-      "impact_bucket": "defensive_major",
-      "needs_human_review": true,
-      "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_052dfd3c5bda024a",
-      "team": "ARI",
-      "team_nick": "Cardinals",
-      "player_name": "Shawn Bowman",
-      "position": "TE",
-      "unit": "offense",
-      "role": "roster_depth_signal",
-      "starter_confidence": 0.42,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-14T22:44:00.000Z",
-          "evidence": "Bowman was signed from the practice squad to the active roster Wednesday."
-        }
-      ],
-      "evidence_tags": [
-        "roster_signal"
-      ],
-      "impact_bucket": "skill_major",
-      "needs_human_review": false,
-      "confidence_basis": "local_availability_starter_language",
-      "human_review_decision": "approved",
-      "human_review_decided_at": "2026-10-15T15:09:02.070Z"
-    },
-    {
       "id": "starter_99a8b0bb401438eb",
       "team": "MIA",
       "team_nick": "Dolphins",
@@ -4600,35 +4113,6 @@
       ],
       "evidence_tags": [
         "roster_signal"
-      ],
-      "impact_bucket": "skill_major",
-      "needs_human_review": false,
-      "confidence_basis": "local_availability_starter_language",
-      "human_review_decision": "approved",
-      "human_review_decided_at": "2026-10-15T15:08:48.411Z"
-    },
-    {
-      "id": "starter_8ad95f9c85334090",
-      "team": "ARI",
-      "team_nick": "Cardinals",
-      "player_name": "James Conner",
-      "position": "RB",
-      "unit": "offense",
-      "role": "likely_starter_or_primary",
-      "starter_confidence": 0.62,
-      "roster_confidence": 0.6,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-13T19:00:00.000Z",
-          "evidence": "Conner (foot) is close to practicing, but the Cardinals aren't expected to open his 21-day evaluation window this week, John Gambadoro of Arizona Sports 98.7 FM reports."
-        }
-      ],
-      "evidence_tags": [
-        "primary_role"
       ],
       "impact_bucket": "skill_major",
       "needs_human_review": false,

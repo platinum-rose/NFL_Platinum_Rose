@@ -1,0 +1,271 @@
+{
+  "evaluated_at": "2026-10-23T15:56:13.998Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 1,
+  "total_episodes_evaluated": 1,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 0,
+  "extraction_failure_count": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.014077,
+  "average_cost_usd": 0.014077,
+  "total_latency_ms": 41743,
+  "average_latency_ms": 41743,
+  "total_extracted_picks": 6,
+  "reprocess_queue": [],
+  "failed_extractions": [],
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-Bxi6PLPlETY",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_5d6a421684bf",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=Bxi6PLPlETY",
+        "latency_ms": 41743,
+        "estimated_cost_usd": 0.014077,
+        "input_tokens": 127887,
+        "output_tokens": 3222,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Matt Perrault and Pat Fitzmaurice preview NFL Week 7 Survivor Pool selections and break down early best bets against the spread and totals. They highlight Minnesota and Houston as top Survivor picks, while endorsing game totals in Colts-Vikings, Dolphins-Jets, and Packers-Lions.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1384,\n    \"last_analyzed_timestamp\": 1384,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 31.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"Welcome into BettingPros for Week 7 Survivor pools and early bets. I took the Bucks in Week 2 and the Rams recently, and the Cardinals ended that run.\"\n    },\n    {\n      \"start\": 31.0,\n      \"end\": 114.0,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"text\": \"I'm also done in Survivor pools losing on the Rams. The Cardinals own SoFi Stadium this year. But people who survived those landmines are still alive.\"\n    },\n    {\n      \"start\": 114.0,\n      \"end\": 213.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"Congratulations if you are still alive. Week 7 is not easy. Would you even entertain taking the Bears on Thursday Night Football against New England?\"\n    },\n    {\n      \"start\": 213.0,\n      \"end\": 230.0,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"text\": \"I would not. I know how banged up New England is, but Drake Maye makes them a live dog on Thursday night. I wouldn't feel good going against Drake Maye.\"\n    },\n    {\n      \"start\": 230.0,\n      \"end\": 302.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"My rule is never play Thursday night games in Survivor or picks contests. So Pat, who is your recommended Survivor pick for Week 7?\"\n    },\n    {\n      \"start\": 302.0,\n      \"end\": 420.0,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"text\": \"I don't trust the Indianapolis Colts going into Minnesota against Brian Flores' defense. Jonathan Taylor is their only working piece and their defense is awful. I'm taking the Vikings.\"\n    },\n    {\n      \"start\": 420.0,\n      \"end\": 704.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"The Vikings have won 10 straight dating back to last year. Meanwhile, the Colts fired GM Chris Ballard. I like Minnesota as well.\"\n    },\n    {\n      \"start\": 704.0,\n      \"end\": 813.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"For my Survivor pick, I want a piece of the Houston Texans facing the New York Giants. CJ Stroud is rolling, and the Giants QB situation is a total mess.\"\n    },\n    {\n      \"start\": 813.0,\n      \"end\": 1208.0,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"text\": \"That's a solid fade of the Giants. If someone wants to live dangerously in Survivor, the New York Jets over the Miami Dolphins is an option because Miami's pass rush is non-existent.\"\n    },\n    {\n      \"start\": 1208.0,\n      \"end\": 1542.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"What about Denver against Arizona? Arizona stinks at home (1-9 in their last 10). Denver's offense is out of sync with Bo Nix, but they beat the defending champions.\"\n    },\n    {\n      \"start\": 1542.0,\n      \"end\": 1599.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"Let's move to early bets. Minnesota -5.5 against Indianapolis feels light. We should jump on the Vikings laying 5.5 right now.\"\n    },\n    {\n      \"start\": 1599.0,\n      \"end\": 1632.0,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"text\": \"I already took Minnesota -5.5. I also like Colts at Vikings Under 41.5 because I expect a rock fight with Indy struggling to score.\"\n    },\n    {\n      \"start\": 1632.0,\n      \"end\": 1738.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"I like Dolphins vs Jets Under 39.5. Neither offense inspires confidence, so a 13-10 or 10-10 type battle favors the Under.\"\n    },\n    {\n      \"start\": 1738.0,\n      \"end\": 2108.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"For our consensus play, Packers vs Lions Over 52.5 is too low. Jordan Love and the Green Bay offense have come to life and Detroit plays high-scoring games.\"\n    },\n    {\n      \"start\": 2108.0,\n      \"end\": 2384.0,\n      \"speaker\": \"Matt Perrault\",\n      \"text\": \"Bet smarter using the Smart Money Tool at BettingPros. We wrap up Week 7 Survivor and early bets. Best of luck and see you next week!\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"survivor_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 326,\n      \"rationale\": \"Colts passing game is struggling against Brian Flores' defense, Jonathan Taylor is their only weapon, and the Colts defense is among the worst in the league.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": null,\n      \"market\": \"survivor_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Matt Perrault\",\n      \"source_timestamp\": 705,\n      \"rationale\": \"Texans are improving with CJ Stroud, while the Giants are in disarray and coming off a rough stretch.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"MIN\",\n      \"line\": -5.5,\n      \"price\": -108,\n      \"week\": 7,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 1550,\n      \"rationale\": \"Line feels low for a Vikings team playing at home coming off a bye against a struggling Colts squad.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"UNDER\",\n      \"line\": 41.5,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 1613,\n      \"rationale\": \"Hard to see the Colts scoring more than 17 points against Brian Flores' defense, and Minnesota's offense hasn't been a juggernaut.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"UNDER\",\n      \"line\": 39.5,\n      \"price\": -113,\n      \"week\": 7,\n      \"speaker\": \"Matt Perrault\",\n      \"source_timestamp\": 1634,\n      \"rationale\": \"Both offenses are struggling and both defenses should control the game, making it a low-scoring rock fight.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"OVER\",\n      \"line\": 52.5,\n      \"price\": -111,\n      \"week\": 7,\n      \"speaker\": \"Matt Perrault\",\n      \"source_timestamp\": 1739,\n      \"rationale\": \"The Packers offense has clicked into gear under Jordan Love, while the Lions offense is potent and their defense gives up points.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"CHI\", \"NE\"],\n      \"players\": [\"Drake Maye\", \"Caleb Williams\"],\n      \"topic\": \"Bears vs Patriots Thursday Night matchup\",\n      \"summary\": \"Pat Fitzmaurice warns against backing the Bears on Thursday night because Drake Maye makes the Patriots a dangerous underdog.\",\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 133,\n      \"quote\": \"I would not... Drake Maye... I would not feel good about going against Drake Maye in a Survivor pool.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"IND\"],\n      \"players\": [\"Jonathan Taylor\"],\n      \"topic\": \"Colts internal instability and offensive limitations\",\n      \"summary\": \"The Colts fired GM Chris Ballard, and Jonathan Taylor remains the only reliable component of an otherwise struggling offense.\",\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 218,\n      \"quote\": \"Jonathan Taylor is kind of the only thing that works in that offense.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"NYG\"],\n      \"players\": [\"JJ McCarthy\", \"Jameis Winston\"],\n      \"topic\": \"Giants quarterback uncertainty and team disarray\",\n      \"summary\": \"The Giants are struggling with quarterback instability between McCarthy and Winston, leaving the team vulnerable on the road.\",\n      \"speaker\": \"Matt Perrault\",\n      \"source_timestamp\": 525,\n      \"quote\": \"I'm not trusting this Giants team to go on the road to Houston.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"MIA\"],\n      \"players\": [\"Geno Smith\"],\n      \"topic\": \"Dolphins lack of pass rush\",\n      \"summary\": \"Miami's pass rush has been extremely weak with only 4 sacks through 5 games, giving opposing QBs ample time to throw.\",\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"source_timestamp\": 820,\n      \"quote\": \"Miami has recorded four sacks in their first five games... Geno is going to get his time to throw.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"ARI\", \"DEN\"],\n      \"players\": [\"Bo Nix\"],\n      \"topic\": \"Cardinals home struggles vs Broncos uncertainty\",\n      \"summary\": \"Arizona is 1-9 in their last 10 home games, but Denver's offense remains inconsistent with Bo Nix struggling.\",\n      \"speaker\": \"Matt Perrault\",\n      \"source_timestamp\": 852,\n      \"quote\": \"They're 1 and 9 straight up over their last 10 home games.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"GB\"],\n      \"players\": [\"Jordan Love\", \"Josh Jacobs\"],\n      \"topic\": \"Packers NFC Championship and Super Bowl futures value\",\n      \"summary\": \"Matt Perrault sees Green Bay at 35-1 futures odds as strong value due to Jordan Love's elevated play and key playmakers healthy.\",\n      \"speaker\": \"Matt Perrault\",\n      \"source_timestamp\": 1215,\n      \"quote\": \"35 to 1 Pat... as well as Jordan Love is playing, that's not unreasonable.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Vikings Survivor Pick\",\n      \"timestamp\": 326,\n      \"speaker\": \"Pat Fitzmaurice\",\n      \"quote\": \"I don't trust the Indianapolis Colts going into Minnesota.\"\n    },\n    {\n      \"topic\": \"Texans Survivor Pick\",\n      \"timestamp\": 705,\n      \"speaker\": \"Matt Perrault\",\n      \"quote\": \"I want a part of the Texans on the way up.\"\n    },\n    {\n      \"topic\": \"Vikings Spread Bet\",\n      \"timestamp\": 1550,\n      \"speaker\": \"Matt Perrault\",\n      \"quote\": \"The 5.5 feels light for the Vikings.\"\n    },\n    {\n      \"topic\": \"Packers Lions Over Bet\",\n      \"timestamp\": 1739,\n      \"speaker\": \"Matt Perrault\",\n      \"quote\": \"This line being 52.5 for the Packers and the Lions to me, this feels like a rinse and repeat type of number.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "MIN",
+            "player": null,
+            "market": "survivor_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 7,
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 326,
+            "rationale": "Colts passing game is struggling against Brian Flores' defense, Jonathan Taylor is their only weapon, and the Colts defense is among the worst in the league."
+          },
+          {
+            "team": "HOU",
+            "player": null,
+            "market": "survivor_pick",
+            "side": "NO",
+            "line": null,
+            "price": null,
+            "week": 7,
+            "speaker": "Matt Perrault",
+            "source_timestamp": 705,
+            "rationale": "Texans are improving with CJ Stroud, while the Giants are in disarray and coming off a rough stretch."
+          },
+          {
+            "team": "MIN",
+            "player": null,
+            "market": "spread",
+            "side": "MIN",
+            "line": -5.5,
+            "price": -108,
+            "week": 7,
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 1550,
+            "rationale": "Line feels low for a Vikings team playing at home coming off a bye against a struggling Colts squad."
+          },
+          {
+            "team": "IND",
+            "player": null,
+            "market": "total",
+            "side": "UNDER",
+            "line": 41.5,
+            "price": -110,
+            "week": 7,
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 1613,
+            "rationale": "Hard to see the Colts scoring more than 17 points against Brian Flores' defense, and Minnesota's offense hasn't been a juggernaut."
+          },
+          {
+            "team": "NYJ",
+            "player": null,
+            "market": "total",
+            "side": "UNDER",
+            "line": 39.5,
+            "price": -113,
+            "week": 7,
+            "speaker": "Matt Perrault",
+            "source_timestamp": 1634,
+            "rationale": "Both offenses are struggling and both defenses should control the game, making it a low-scoring rock fight."
+          },
+          {
+            "team": "GB",
+            "player": null,
+            "market": "total",
+            "side": "OVER",
+            "line": 52.5,
+            "price": -111,
+            "week": 7,
+            "speaker": "Matt Perrault",
+            "source_timestamp": 1739,
+            "rationale": "The Packers offense has clicked into gear under Jordan Love, while the Lions offense is potent and their defense gives up points."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "matchup_analysis",
+            "teams": [
+              "CHI",
+              "NE"
+            ],
+            "players": [
+              "Drake Maye",
+              "Caleb Williams"
+            ],
+            "topic": "Bears vs Patriots Thursday Night matchup",
+            "summary": "Pat Fitzmaurice warns against backing the Bears on Thursday night because Drake Maye makes the Patriots a dangerous underdog.",
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 133,
+            "quote": "I would not... Drake Maye... I would not feel good about going against Drake Maye in a Survivor pool.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "IND"
+            ],
+            "players": [
+              "Jonathan Taylor"
+            ],
+            "topic": "Colts internal instability and offensive limitations",
+            "summary": "The Colts fired GM Chris Ballard, and Jonathan Taylor remains the only reliable component of an otherwise struggling offense.",
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 218,
+            "quote": "Jonathan Taylor is kind of the only thing that works in that offense.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "NYG"
+            ],
+            "players": [
+              "JJ McCarthy",
+              "Jameis Winston"
+            ],
+            "topic": "Giants quarterback uncertainty and team disarray",
+            "summary": "The Giants are struggling with quarterback instability between McCarthy and Winston, leaving the team vulnerable on the road.",
+            "speaker": "Matt Perrault",
+            "source_timestamp": 525,
+            "quote": "I'm not trusting this Giants team to go on the road to Houston.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "MIA"
+            ],
+            "players": [
+              "Geno Smith"
+            ],
+            "topic": "Dolphins lack of pass rush",
+            "summary": "Miami's pass rush has been extremely weak with only 4 sacks through 5 games, giving opposing QBs ample time to throw.",
+            "speaker": "Pat Fitzmaurice",
+            "source_timestamp": 820,
+            "quote": "Miami has recorded four sacks in their first five games... Geno is going to get his time to throw.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "ARI",
+              "DEN"
+            ],
+            "players": [
+              "Bo Nix"
+            ],
+            "topic": "Cardinals home struggles vs Broncos uncertainty",
+            "summary": "Arizona is 1-9 in their last 10 home games, but Denver's offense remains inconsistent with Bo Nix struggling.",
+            "speaker": "Matt Perrault",
+            "source_timestamp": 852,
+            "quote": "They're 1 and 9 straight up over their last 10 home games.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "GB"
+            ],
+            "players": [
+              "Jordan Love",
+              "Josh Jacobs"
+            ],
+            "topic": "Packers NFC Championship and Super Bowl futures value",
+            "summary": "Matt Perrault sees Green Bay at 35-1 futures odds as strong value due to Jordan Love's elevated play and key playmakers healthy.",
+            "speaker": "Matt Perrault",
+            "source_timestamp": 1215,
+            "quote": "35 to 1 Pat... as well as Jordan Love is playing, that's not unreasonable.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Vikings Survivor Pick",
+            "timestamp": 326,
+            "speaker": "Pat Fitzmaurice",
+            "quote": "I don't trust the Indianapolis Colts going into Minnesota."
+          },
+          {
+            "topic": "Texans Survivor Pick",
+            "timestamp": 705,
+            "speaker": "Matt Perrault",
+            "quote": "I want a part of the Texans on the way up."
+          },
+          {
+            "topic": "Vikings Spread Bet",
+            "timestamp": 1550,
+            "speaker": "Matt Perrault",
+            "quote": "The 5.5 feels light for the Vikings."
+          },
+          {
+            "topic": "Packers Lions Over Bet",
+            "timestamp": 1739,
+            "speaker": "Matt Perrault",
+            "quote": "This line being 52.5 for the Packers and the Lions to me, this feels like a rinse and repeat type of number."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 2384,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 1384,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1.723
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 6,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-10-10T19:15:50.357Z",
+  "evaluated_at": "2026-10-23T15:57:04.229Z",
   "mode": "live-youtube",
   "model": "gemini-3.5-flash",
   "total_episodes_evaluated": 1,
@@ -7,12 +7,12 @@
   "reprocess_required_count": 0,
   "extraction_failure_count": 0,
   "average_f1_score_pct": null,
-  "total_cost_usd": 0.016681,
-  "average_latency_ms": 54430,
+  "total_cost_usd": 0.016608,
+  "average_latency_ms": 48218,
   "reprocess_queue": [],
   "queue_runs": [
     {
-      "episode_slug": "youtube-47vtEAEbrhU",
+      "episode_slug": "youtube-ucD-cDqOotc",
       "show": "YouTube Discovery",
       "date": "manual",
       "priority": "manual",
@@ -23,214 +23,206 @@
       "reprocess_reason": null,
       "quality_flags": [],
       "run": {
-        "run_id": "youtube_gemini_a0713a4d05df",
+        "run_id": "youtube_gemini_e8e5e655400e",
         "mode": "live-youtube",
         "model": "gemini-3.5-flash",
         "input_source": "youtube_video_url",
-        "youtube_url": "https://www.youtube.com/watch?v=47vtEAEbrhU",
-        "latency_ms": 54430,
-        "estimated_cost_usd": 0.016681,
-        "input_tokens": 152924,
-        "output_tokens": 3472,
-        "raw_model_response": "{\n  \"transcript_summary\": \"Ross Tucker and Greg Cosell analyze key upcoming NFL games from a film and scheme perspective, focusing on offensive line performance, quarterback developments, and unique defensive pressure schemes. Ross Tucker and Producer Jack wrap up the show with 'Tuck's Takes,' discussing major trade moves and coaching play-calling adjustments.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1660,\n    \"last_analyzed_timestamp\": 1660,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 17.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"The Jets ran 32 offensive plays, Ross, this past week. They ran four plays in the first quarter and two plays in the fourth quarter. I've never heard of that. That's the fewest I've ever heard. How many did the Bears run? 89.\"\n    },\n    {\n      \"start\": 17.0,\n      \"end\": 31.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"You're tuned in to the Ross Tucker Football Podcast.\"\n    },\n    {\n      \"start\": 31.0,\n      \"end\": 135.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Oh yeah, it is! But it's not just any Ross Tucker Football Podcast. It's Teaching Tutorial Thursday, which means we've got Greg Cosell, the NFL Films legend in the house.\"\n    },\n    {\n      \"start\": 135.0,\n      \"end\": 327.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"I really hope Ross, I would imagine you feel the same way, I hope people appreciate what they've seen these last 13-14 years with Lane Johnson. I'm not sure we've seen a better right tackle than Lane Johnson.\"\n    },\n    {\n      \"start\": 327.0,\n      \"end\": 482.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"I watched Jalon Daniels pretty carefully this week. He showed at Kansas that he knew how to play the quarterback position, that he had a sense of timing and anticipation, and could progression read.\"\n    },\n    {\n      \"start\": 482.0,\n      \"end\": 624.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"The Eagles will now have basically a brand new offensive line. In this game against a Jaguars defense coached by Anthony Campanile... he is really good with pressure schemes.\"\n    },\n    {\n      \"start\": 624.0,\n      \"end\": 768.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"The Bengals are right now a little out of whack. They've got the second fewest rushing attempts of any team in the league and the second fewest rushing yards, and they've got a very good back in Chase Brown.\"\n    },\n    {\n      \"start\": 768.0,\n      \"end\": 962.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"The Raiders got Brock Bowers back two weeks ago. You know how many snaps in these two games they played with three wide receivers on the field? Seven in the two games.\"\n    },\n    {\n      \"start\": 962.0,\n      \"end\": 1000.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"WestShoreHome.com/Ross, get an extra $500 off your project and all installation costs waived!\"\n    },\n    {\n      \"start\": 1000.0,\n      \"end\": 1193.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"The Vikings are a fascinating defense because no team pressures more out of a base defensive personnel than the Vikings. They've been rushing five or more literally on 70% of quarterback dropbacks out of base.\"\n    },\n    {\n      \"start\": 1193.0,\n      \"end\": 1318.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"The Browns defense is one of my most favorite watches through three weeks. They play a ton of man coverage, single high post safety... And the Jets ran 32 offensive plays.\"\n    },\n    {\n      \"start\": 1318.0,\n      \"end\": 1477.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"When I watch the Steelers, I always come away feeling that Jaylen Warren is their best player on offense. That offense has to run through Jaylen Warren.\"\n    },\n    {\n      \"start\": 1477.0,\n      \"end\": 1634.0,\n      \"speaker\": \"Producer Jack\",\n      \"text\": \"Eagles trade offensive lineman Cam Jurgens and a seventh-round pick to the Ravens for a second and fifth-round pick. Also Texans designate Tank Dell to return and DeMeco Ryans takes back defensive play-calling.\"\n    },\n    {\n      \"start\": 1634.0,\n      \"end\": 1660.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Thanks for tuning in to the Ross Tucker Football Podcast! Check out the College Draft Podcast and Even Money Betting Podcast on DraftKings Network, YouTube, or your favorite platform.\"\n    }\n  ],\n  \"extracted_picks\": [],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\n        \"PHI\"\n      ],\n      \"players\": [\n        \"Lane Johnson\",\n        \"Brandon Graham\"\n      ],\n      \"topic\": \"Lane Johnson retirement & signature technique\",\n      \"summary\": \"Greg Cosell evaluates Lane Johnson as one of the greatest right tackles in NFL history, highlighting his signature double-under pass protection move developed against Brandon Graham during practice.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 135,\n      \"quote\": \"I'm not sure we've seen a better right tackle than Lane Johnson... that double-under pass protection move... he developed that against Brandon Graham in practice.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\n        \"TB\",\n        \"DAL\"\n      ],\n      \"players\": [\n        \"Jalon Daniels\",\n        \"DaRon Bland\",\n        \"Caleb Downs\"\n      ],\n      \"topic\": \"Jalon Daniels QB progression and Cowboys secondary alignment\",\n      \"summary\": \"Greg Cosell highlights Jalon Daniels' timing, anticipation, and progression reading. On defense, Dallas shifted Caleb Downs from slot to true safety, putting Stewart in the slot while re-evaluating outside corner roles with DaRon Bland.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 335,\n      \"quote\": \"He showed at Kansas that he knew how to play the quarterback position... he had a sense of timing and anticipation that he could progression read.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\n        \"PHI\",\n        \"JAX\"\n      ],\n      \"players\": [\n        \"Jalen Hurts\"\n      ],\n      \"topic\": \"Eagles third down blitz vulnerability vs Jaguars pressure\",\n      \"summary\": \"Eagles struggle against extra pressure, going 0-for-12 on third downs last week when facing 5+ rushers. Jaguars DC Anthony Campanile presents a significant test with his aggressive blitz schemes.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 482,\n      \"quote\": \"All eight of those Hurts dropbacks on third down, the Rams rushed five or more... and they did not have an answer.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"CIN\",\n        \"MIA\"\n      ],\n      \"players\": [\n        \"Chase Brown\",\n        \"Joe Burrow\"\n      ],\n      \"topic\": \"Bengals pass-heavy offense imbalance\",\n      \"summary\": \"Bengals offense is overly reliant on Joe Burrow's arm, ranking second-lowest in rushing attempts and yards despite having Chase Brown, creating a reactive strain on the offensive line.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 624,\n      \"quote\": \"They've got the second fewest rushing attempts of any team in the league and the second fewest rushing yards.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\n        \"LV\",\n        \"NE\"\n      ],\n      \"players\": [\n        \"Brock Bowers\",\n        \"Maxx Crosby\"\n      ],\n      \"topic\": \"Raiders heavy personnel reliance with Brock Bowers\",\n      \"summary\": \"Raiders ran 11 personnel (3 WRs) on just 7 total snaps over two games with Brock Bowers back, leaning heavily into 12, 13, and 21 sets. Patriots offense responded by utilizing 6 O-linemen to handle Maxx Crosby.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 768,\n      \"quote\": \"You know how many snaps in these two games they played with three wide receivers on the field? Seven.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\n        \"MIN\",\n        \"NO\"\n      ],\n      \"players\": [],\n      \"topic\": \"Vikings Brian Flores base defense pressure scheme\",\n      \"summary\": \"Brian Flores runs a unique defense that brings 5+ rushers on over 70% of dropbacks directly out of base personnel, relying on zone match principles behind the blitz.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1000,\n      \"quote\": \"They've been rushing five or more literally on 70% of quarterback dropbacks out of base.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\n        \"CLE\",\n        \"NYJ\"\n      ],\n      \"players\": [\n        \"Ronnie Hickman\",\n        \"Grant Delpit\"\n      ],\n      \"topic\": \"Browns dominant man defense vs Jets historic low play volume\",\n      \"summary\": \"Browns play the highest rate of single-high man coverage with an aggressive secondary. The Jets offense managed a historic low 32 total offensive plays last week (4 in Q1, 2 in Q4).\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1193,\n      \"quote\": \"The Jets ran 32 offensive plays, Ross, this past week... they ran four plays in the first quarter and two plays in the fourth quarter.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\n        \"PIT\"\n      ],\n      \"players\": [\n        \"Jaylen Warren\",\n        \"Darnell Washington\",\n        \"Pat Freiermuth\"\n      ],\n      \"topic\": \"Steelers offensive identity through Jaylen Warren and TEs\",\n      \"summary\": \"Greg Cosell argues Jaylen Warren is the Steelers' top offensive weapon and should be featured with 20+ touches, advising Pittsburgh to throw inside to tight ends rather than forcing outside 1-on-1s.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1318,\n      \"quote\": \"When I watch the Steelers, I always come away feeling that Jaylen Warren is their best player on offense.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\n        \"PHI\",\n        \"BAL\"\n      ],\n      \"players\": [\n        \"Cam Jurgens\"\n      ],\n      \"topic\": \"Ravens acquire Cam Jurgens in trade with Eagles\",\n      \"summary\": \"Eagles trade interior offensive lineman Cam Jurgens to Baltimore for 2nd and 5th round picks. Ravens bolster center position for a playoff push while Eagles gain draft capital and cap relief.\",\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1481,\n      \"quote\": \"The Ravens recognize that they have a window here including this year to do something special.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\n        \"HOU\"\n      ],\n      \"players\": [\n        \"Tank Dell\",\n        \"DeMeco Ryans\",\n        \"Matt Burke\"\n      ],\n      \"topic\": \"DeMeco Ryans reassumes defensive play-calling; Tank Dell IR return\",\n      \"summary\": \"Houston Texans head coach DeMeco Ryans takes back defensive play-calling duties from DC Matt Burke, while wide receiver Tank Dell is designated to return from IR.\",\n      \"speaker\": \"Producer Jack\",\n      \"source_timestamp\": 1594,\n      \"quote\": \"Head coach DeMeco Ryans taking over defensive play calling from defensive coordinator Matt Burke.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Lane Johnson technique\",\n      \"timestamp\": 135,\n      \"speaker\": \"Greg Cosell\",\n      \"quote\": \"that double-under pass protection move... he developed that against Brandon Graham in practice.\"\n    },\n    {\n      \"topic\": \"Eagles third down blitz\",\n      \"timestamp\": 482,\n      \"speaker\": \"Greg Cosell\",\n      \"quote\": \"All eight of those Hurts dropbacks on third down, the Rams rushed five or more... and they did not have an answer.\"\n    },\n    {\n      \"topic\": \"Jets offensive play count\",\n      \"timestamp\": 1193,\n      \"speaker\": \"Greg Cosell\",\n      \"quote\": \"The Jets ran 32 offensive plays, Ross, this past week... they ran four plays in the first quarter and two plays in the fourth quarter.\"\n    },\n    {\n      \"topic\": \"Jaylen Warren importance\",\n      \"timestamp\": 1318,\n      \"speaker\": \"Greg Cosell\",\n      \"quote\": \"When I watch the Steelers, I always come away feeling that Jaylen Warren is their best player on offense.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "youtube_url": "https://www.youtube.com/watch?v=ucD-cDqOotc",
+        "latency_ms": 48218,
+        "estimated_cost_usd": 0.016608,
+        "input_tokens": 153189,
+        "output_tokens": 3224,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Ross Tucker and Greg Cosell break down key NFL matchups for the upcoming slate, focusing on offensive line cohesion, quarterback footwork, defensive pressure packages, and personnel usage. Ross closes with his recap of the Bears-Patriots Thursday night game featuring rookie QBs Caleb Williams and Drake Maye.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1662,\n    \"last_analyzed_timestamp\": 1662,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 14.0,\n      \"speaker\": \"Greg Cosell\",\n      \"text\": \"Since Bowers came back week three, the Raiders have played only 19 snaps of 11 personnel, meaning three wide receivers. 83% of their snaps since week three have had two or three tight ends on the field.\"\n    },\n    {\n      \"start\": 14.0,\n      \"end\": 27.0,\n      \"speaker\": \"Show Intro\",\n      \"text\": \"[Ross Tucker Football Podcast Intro Graphic]\"\n    },\n    {\n      \"start\": 27.0,\n      \"end\": 134.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Ho ho ho, yeah it is! But it's not just any Ross Tucker Football Podcast... Finishing strong Friday from a hotel room in Chicago before flying to Minneapolis for Vikings vs Colts on Sunday. Let's get to the rest of the Week previews with the man, Greg Cosell.\"\n    },\n    {\n      \"start\": 134.0,\n      \"end\": 288.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Indianapolis Colts at Minnesota Vikings. Greg notes the Colts' inability to generate run productivity with Jonathan Taylor and their dependence on young defensive players leading to mistakes. Ross notes the condensed offense without a vertical stretch element.\"\n    },\n    {\n      \"start\": 288.0,\n      \"end\": 376.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Miami Dolphins at New York Jets. Greg praises the Jets' defensive front and safety tandem, while noting their slot cornerback blitz frequency with Brownlee. Dolphins getting run game rhythm off the bye.\"\n    },\n    {\n      \"start\": 376.0,\n      \"end\": 665.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Cleveland Browns at Tennessee Titans. Deep dive into QB footwork issues in the pocket, rushed mechanics, and accuracy. Greg details the Browns single-high man coverage defense, secondary play, and fast linebacker pairing.\"\n    },\n    {\n      \"start\": 665.0,\n      \"end\": 839.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Denver Broncos at Arizona Cardinals. Analysis of Broncos static run game, poor 1st down rushing, Bo Nix's pocket discomfort, lack of intermediate passing routes, and 3rd down efficiency struggles.\"\n    },\n    {\n      \"start\": 839.0,\n      \"end\": 955.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Ad reads for West Shore Home and Little Caesars Mix & Match deal.\"\n    },\n    {\n      \"start\": 955.0,\n      \"end\": 1134.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Green Bay Packers at Detroit Lions. Discussion on defensive coordinator schemes, high rate of defensive back blitzing across the NFL, and safety play with Xavier McKinney and Evan Williams.\"\n    },\n    {\n      \"start\": 1134.0,\n      \"end\": 1288.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Los Angeles Rams at Las Vegas Raiders. Analysis of Rams missing under-center play-action passing effectiveness. Raiders personnel usage featuring Brock Bowers and multi-TE sets.\"\n    },\n    {\n      \"start\": 1288.0,\n      \"end\": 1407.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Kansas City Chiefs at Seattle Seahawks. Seahawks offensive imbalance and dropback volume vs Chiefs strong first-down rushing success.\"\n    },\n    {\n      \"start\": 1407.0,\n      \"end\": 1552.0,\n      \"speaker\": \"Ross Tucker & Greg Cosell\",\n      \"text\": \"Discussion on Dallas Cowboys at Philadelphia Eagles. Eagles offensive line cohesion issues with injury replacements/free agent starts. Cowboys regression in 1st down rushing efficiency with Javonte Williams and high pass dropback volume for Dak Prescott.\"\n    },\n    {\n      \"start\": 1552.0,\n      \"end\": 1615.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Tuck's Takes: Recap of Bears vs Patriots Thursday Night Football game featuring Caleb Williams and Drake Maye.\"\n    },\n    {\n      \"start\": 1615.0,\n      \"end\": 1662.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Show wrap-up, Saturday preview with Stephen Holder regarding Colts GM news, and sponsor shoutouts.\"\n    }\n  ],\n  \"extracted_picks\": [],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"IND\"],\n      \"players\": [\"Jonathan Taylor\"],\n      \"topic\": \"Colts Rushing Attack and Offensive Stagnation\",\n      \"summary\": \"Greg Cosell highlights that the Colts have failed to produce in the run game at the level required for their overall offense to function effectively.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 195,\n      \"quote\": \"They've not run the ball the way that they need to for their offense to truly be effective.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"NYJ\"],\n      \"players\": [],\n      \"topic\": \"Jets Slot Corner Blitz Scheme\",\n      \"summary\": \"Jets slot cornerback Brownlee leads slot cornerbacks in blitz rate across the league, making pre-snap awareness vital for opposing offenses.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 352,\n      \"quote\": \"Brownlee, who's their slot corner, he's got the most blitzes of any true slot corner in the league.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"TEN\"],\n      \"players\": [],\n      \"topic\": \"Quarterback Pocket Mechanics and Footwork Concerns\",\n      \"summary\": \"Ross and Greg detail fundamental footwork issues in the pocket—bouncing, failing to plant the back foot, rushing the delivery, and inconsistent ball placement.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 458,\n      \"quote\": \"He's very unsettled in the pocket. He does not plant a back foot, he bounces, it's almost as if he's not ready to deliver the football, and because of that he has to hurry his throwing motion.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"CLE\"],\n      \"players\": [\"Ronnie Hickman\"],\n      \"topic\": \"Browns Defensive Coverages and Linebacker Speed\",\n      \"summary\": \"Cleveland runs the lowest percentage of two-high safety looks in the NFL, operating primarily single-high man coverage. Linebackers Schwesinger and Williams provide elite play speed.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 566,\n      \"quote\": \"They play the lowest percentage of two-high safety structure in the league, they're a single-high defense.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"DEN\"],\n      \"players\": [\"Bo Nix\"],\n      \"topic\": \"Broncos Passing Game and First-Down Rushing Struggles\",\n      \"summary\": \"Denver's offense is hampered by weak first-down rushing numbers, O-line pass protection issues, and a lack of clean, defined intermediate routes for Bo Nix.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 692,\n      \"quote\": \"Their rushing numbers on first down are bad... they have an ineffective passing game with no intermediate dimension.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"GB\"],\n      \"players\": [\"Xavier McKinney\", \"Evan Williams\"],\n      \"topic\": \"Packers Defensive Pressure and Safety Blitz Trend\",\n      \"summary\": \"Packers defense under Jonathan Gannon utilizes third-level blitzers heavily, reflecting a broader NFL trend where defensive backs are increasingly deployed as pass rushers.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1022,\n      \"quote\": \"More and more teams are using defensive backs as blitzers.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"LV\"],\n      \"players\": [\"Brock Bowers\"],\n      \"topic\": \"Raiders Heavy Tight End Personnel Usage\",\n      \"summary\": \"Since Brock Bowers returned in Week 3, Las Vegas runs 12/13 personnel on 83% of snaps, throwing 72% of the time when Bowers is on the field.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1171,\n      \"quote\": \"83% of their snaps in that since week three have had two and three tight ends on the field... with Bowers on the field they've thrown the ball 72% of the time.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"LAR\"],\n      \"players\": [\"Matthew Stafford\"],\n      \"topic\": \"Rams Play-Action Pass Game Decline\",\n      \"summary\": \"Los Angeles Rams under-center play-action passing game has regressed significantly compared to last season when it was among the most dominant in the NFL.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1347,\n      \"quote\": \"Their play-action pass game has not been anything near what it was a year ago when it was unbelievably great.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"PHI\"],\n      \"players\": [],\n      \"topic\": \"Eagles Offensive Line Cohesion Issues\",\n      \"summary\": \"Philadelphia is struggling against pressure looks due to a lack of offensive line cohesion while starting free agents and a rookie right tackle.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1432,\n      \"quote\": \"O-line play is about cohesion... right now they're not really aware of how to do all that.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"DAL\"],\n      \"players\": [\"Dak Prescott\", \"Javonte Williams\"],\n      \"topic\": \"Cowboys Rushing Efficiency Drop and Prescott Dropbacks\",\n      \"summary\": \"Dallas first-down rushing average dropped from 5.1 ypc last year to 3.5 ypc this year, forcing Dak Prescott into unsustainable 45+ dropbacks per game.\",\n      \"speaker\": \"Greg Cosell\",\n      \"source_timestamp\": 1492,\n      \"quote\": \"Javonte Williams in over 150 first-down rushes averaged 5.1. This year he's averaging 3.5... Dak Prescott is dropping back basically over 45 times per game.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"CHI\", \"NE\"],\n      \"players\": [\"Caleb Williams\", \"Drake Maye\"],\n      \"topic\": \"Bears vs Patriots Thursday Night Game Summary\",\n      \"summary\": \"Caleb Williams and Drake Maye both topped 300 passing yards and 2 TDs in a back-and-forth contest decided by Cairo Santos' career-high 58-yard FG.\",\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1568,\n      \"quote\": \"Both guys threw for over 300 yards and two touchdowns.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Raiders Tight End Personnel Usage\",\n      \"timestamp\": 8,\n      \"speaker\": \"Greg Cosell\",\n      \"quote\": \"83% of their snaps in that since week three have had two and three tight ends on the field.\"\n    },\n    {\n      \"topic\": \"Packers Defensive DB Blitz Trend\",\n      \"timestamp\": 1032,\n      \"speaker\": \"Greg Cosell\",\n      \"quote\": \"More and more teams are using defensive backs as blitzers.\"\n    },\n    {\n      \"topic\": \"Cowboys First-Down Rushing Regress\",\n      \"timestamp\": 1492,\n      \"speaker\": \"Greg Cosell\",\n      \"quote\": \"Last year Javonte Williams... averaged 5.1. This year he's averaging 3.5.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
         "extracted_picks": [],
         "analysis_notes": [
           {
-            "note_type": "player_evaluation",
+            "note_type": "team_evaluation",
             "teams": [
-              "PHI"
+              "IND"
             ],
             "players": [
-              "Lane Johnson",
-              "Brandon Graham"
+              "Jonathan Taylor"
             ],
-            "topic": "Lane Johnson retirement & signature technique",
-            "summary": "Greg Cosell evaluates Lane Johnson as one of the greatest right tackles in NFL history, highlighting his signature double-under pass protection move developed against Brandon Graham during practice.",
+            "topic": "Colts Rushing Attack and Offensive Stagnation",
+            "summary": "Greg Cosell highlights that the Colts have failed to produce in the run game at the level required for their overall offense to function effectively.",
             "speaker": "Greg Cosell",
-            "source_timestamp": 135,
-            "quote": "I'm not sure we've seen a better right tackle than Lane Johnson... that double-under pass protection move... he developed that against Brandon Graham in practice.",
-            "confidence": "stated"
-          },
-          {
-            "note_type": "player_evaluation",
-            "teams": [
-              "TB",
-              "DAL"
-            ],
-            "players": [
-              "Jalon Daniels",
-              "DaRon Bland",
-              "Caleb Downs"
-            ],
-            "topic": "Jalon Daniels QB progression and Cowboys secondary alignment",
-            "summary": "Greg Cosell highlights Jalon Daniels' timing, anticipation, and progression reading. On defense, Dallas shifted Caleb Downs from slot to true safety, putting Stewart in the slot while re-evaluating outside corner roles with DaRon Bland.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 335,
-            "quote": "He showed at Kansas that he knew how to play the quarterback position... he had a sense of timing and anticipation that he could progression read.",
+            "source_timestamp": 195,
+            "quote": "They've not run the ball the way that they need to for their offense to truly be effective.",
             "confidence": "stated"
           },
           {
             "note_type": "coaching_or_scheme",
             "teams": [
-              "PHI",
-              "JAX"
+              "NYJ"
+            ],
+            "players": [],
+            "topic": "Jets Slot Corner Blitz Scheme",
+            "summary": "Jets slot cornerback Brownlee leads slot cornerbacks in blitz rate across the league, making pre-snap awareness vital for opposing offenses.",
+            "speaker": "Greg Cosell",
+            "source_timestamp": 352,
+            "quote": "Brownlee, who's their slot corner, he's got the most blitzes of any true slot corner in the league.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "player_evaluation",
+            "teams": [
+              "TEN"
+            ],
+            "players": [],
+            "topic": "Quarterback Pocket Mechanics and Footwork Concerns",
+            "summary": "Ross and Greg detail fundamental footwork issues in the pocket—bouncing, failing to plant the back foot, rushing the delivery, and inconsistent ball placement.",
+            "speaker": "Greg Cosell",
+            "source_timestamp": 458,
+            "quote": "He's very unsettled in the pocket. He does not plant a back foot, he bounces, it's almost as if he's not ready to deliver the football, and because of that he has to hurry his throwing motion.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "CLE"
             ],
             "players": [
-              "Jalen Hurts"
+              "Ronnie Hickman"
             ],
-            "topic": "Eagles third down blitz vulnerability vs Jaguars pressure",
-            "summary": "Eagles struggle against extra pressure, going 0-for-12 on third downs last week when facing 5+ rushers. Jaguars DC Anthony Campanile presents a significant test with his aggressive blitz schemes.",
+            "topic": "Browns Defensive Coverages and Linebacker Speed",
+            "summary": "Cleveland runs the lowest percentage of two-high safety looks in the NFL, operating primarily single-high man coverage. Linebackers Schwesinger and Williams provide elite play speed.",
             "speaker": "Greg Cosell",
-            "source_timestamp": 482,
-            "quote": "All eight of those Hurts dropbacks on third down, the Rams rushed five or more... and they did not have an answer.",
+            "source_timestamp": 566,
+            "quote": "They play the lowest percentage of two-high safety structure in the league, they're a single-high defense.",
             "confidence": "stated"
           },
           {
             "note_type": "team_evaluation",
             "teams": [
-              "CIN",
-              "MIA"
+              "DEN"
             ],
             "players": [
-              "Chase Brown",
-              "Joe Burrow"
+              "Bo Nix"
             ],
-            "topic": "Bengals pass-heavy offense imbalance",
-            "summary": "Bengals offense is overly reliant on Joe Burrow's arm, ranking second-lowest in rushing attempts and yards despite having Chase Brown, creating a reactive strain on the offensive line.",
+            "topic": "Broncos Passing Game and First-Down Rushing Struggles",
+            "summary": "Denver's offense is hampered by weak first-down rushing numbers, O-line pass protection issues, and a lack of clean, defined intermediate routes for Bo Nix.",
             "speaker": "Greg Cosell",
-            "source_timestamp": 624,
-            "quote": "They've got the second fewest rushing attempts of any team in the league and the second fewest rushing yards.",
+            "source_timestamp": 692,
+            "quote": "Their rushing numbers on first down are bad... they have an ineffective passing game with no intermediate dimension.",
             "confidence": "stated"
           },
           {
             "note_type": "coaching_or_scheme",
             "teams": [
-              "LV",
-              "NE"
+              "GB"
             ],
             "players": [
-              "Brock Bowers",
-              "Maxx Crosby"
+              "Xavier McKinney",
+              "Evan Williams"
             ],
-            "topic": "Raiders heavy personnel reliance with Brock Bowers",
-            "summary": "Raiders ran 11 personnel (3 WRs) on just 7 total snaps over two games with Brock Bowers back, leaning heavily into 12, 13, and 21 sets. Patriots offense responded by utilizing 6 O-linemen to handle Maxx Crosby.",
+            "topic": "Packers Defensive Pressure and Safety Blitz Trend",
+            "summary": "Packers defense under Jonathan Gannon utilizes third-level blitzers heavily, reflecting a broader NFL trend where defensive backs are increasingly deployed as pass rushers.",
             "speaker": "Greg Cosell",
-            "source_timestamp": 768,
-            "quote": "You know how many snaps in these two games they played with three wide receivers on the field? Seven.",
+            "source_timestamp": 1022,
+            "quote": "More and more teams are using defensive backs as blitzers.",
             "confidence": "stated"
           },
           {
             "note_type": "coaching_or_scheme",
             "teams": [
-              "MIN",
-              "NO"
+              "LV"
+            ],
+            "players": [
+              "Brock Bowers"
+            ],
+            "topic": "Raiders Heavy Tight End Personnel Usage",
+            "summary": "Since Brock Bowers returned in Week 3, Las Vegas runs 12/13 personnel on 83% of snaps, throwing 72% of the time when Bowers is on the field.",
+            "speaker": "Greg Cosell",
+            "source_timestamp": 1171,
+            "quote": "83% of their snaps in that since week three have had two and three tight ends on the field... with Bowers on the field they've thrown the ball 72% of the time.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "LAR"
+            ],
+            "players": [
+              "Matthew Stafford"
+            ],
+            "topic": "Rams Play-Action Pass Game Decline",
+            "summary": "Los Angeles Rams under-center play-action passing game has regressed significantly compared to last season when it was among the most dominant in the NFL.",
+            "speaker": "Greg Cosell",
+            "source_timestamp": 1347,
+            "quote": "Their play-action pass game has not been anything near what it was a year ago when it was unbelievably great.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "PHI"
             ],
             "players": [],
-            "topic": "Vikings Brian Flores base defense pressure scheme",
-            "summary": "Brian Flores runs a unique defense that brings 5+ rushers on over 70% of dropbacks directly out of base personnel, relying on zone match principles behind the blitz.",
+            "topic": "Eagles Offensive Line Cohesion Issues",
+            "summary": "Philadelphia is struggling against pressure looks due to a lack of offensive line cohesion while starting free agents and a rookie right tackle.",
             "speaker": "Greg Cosell",
-            "source_timestamp": 1000,
-            "quote": "They've been rushing five or more literally on 70% of quarterback dropbacks out of base.",
+            "source_timestamp": 1432,
+            "quote": "O-line play is about cohesion... right now they're not really aware of how to do all that.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "DAL"
+            ],
+            "players": [
+              "Dak Prescott",
+              "Javonte Williams"
+            ],
+            "topic": "Cowboys Rushing Efficiency Drop and Prescott Dropbacks",
+            "summary": "Dallas first-down rushing average dropped from 5.1 ypc last year to 3.5 ypc this year, forcing Dak Prescott into unsustainable 45+ dropbacks per game.",
+            "speaker": "Greg Cosell",
+            "source_timestamp": 1492,
+            "quote": "Javonte Williams in over 150 first-down rushes averaged 5.1. This year he's averaging 3.5... Dak Prescott is dropping back basically over 45 times per game.",
             "confidence": "stated"
           },
           {
             "note_type": "matchup_analysis",
             "teams": [
-              "CLE",
-              "NYJ"
+              "CHI",
+              "NE"
             ],
             "players": [
-              "Ronnie Hickman",
-              "Grant Delpit"
+              "Caleb Williams",
+              "Drake Maye"
             ],
-            "topic": "Browns dominant man defense vs Jets historic low play volume",
-            "summary": "Browns play the highest rate of single-high man coverage with an aggressive secondary. The Jets offense managed a historic low 32 total offensive plays last week (4 in Q1, 2 in Q4).",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 1193,
-            "quote": "The Jets ran 32 offensive plays, Ross, this past week... they ran four plays in the first quarter and two plays in the fourth quarter.",
-            "confidence": "stated"
-          },
-          {
-            "note_type": "player_evaluation",
-            "teams": [
-              "PIT"
-            ],
-            "players": [
-              "Jaylen Warren",
-              "Darnell Washington",
-              "Pat Freiermuth"
-            ],
-            "topic": "Steelers offensive identity through Jaylen Warren and TEs",
-            "summary": "Greg Cosell argues Jaylen Warren is the Steelers' top offensive weapon and should be featured with 20+ touches, advising Pittsburgh to throw inside to tight ends rather than forcing outside 1-on-1s.",
-            "speaker": "Greg Cosell",
-            "source_timestamp": 1318,
-            "quote": "When I watch the Steelers, I always come away feeling that Jaylen Warren is their best player on offense.",
-            "confidence": "stated"
-          },
-          {
-            "note_type": "roster_or_depth_chart",
-            "teams": [
-              "PHI",
-              "BAL"
-            ],
-            "players": [
-              "Cam Jurgens"
-            ],
-            "topic": "Ravens acquire Cam Jurgens in trade with Eagles",
-            "summary": "Eagles trade interior offensive lineman Cam Jurgens to Baltimore for 2nd and 5th round picks. Ravens bolster center position for a playoff push while Eagles gain draft capital and cap relief.",
+            "topic": "Bears vs Patriots Thursday Night Game Summary",
+            "summary": "Caleb Williams and Drake Maye both topped 300 passing yards and 2 TDs in a back-and-forth contest decided by Cairo Santos' career-high 58-yard FG.",
             "speaker": "Ross Tucker",
-            "source_timestamp": 1481,
-            "quote": "The Ravens recognize that they have a window here including this year to do something special.",
-            "confidence": "stated"
-          },
-          {
-            "note_type": "coaching_or_scheme",
-            "teams": [
-              "HOU"
-            ],
-            "players": [
-              "Tank Dell",
-              "DeMeco Ryans",
-              "Matt Burke"
-            ],
-            "topic": "DeMeco Ryans reassumes defensive play-calling; Tank Dell IR return",
-            "summary": "Houston Texans head coach DeMeco Ryans takes back defensive play-calling duties from DC Matt Burke, while wide receiver Tank Dell is designated to return from IR.",
-            "speaker": "Producer Jack",
-            "source_timestamp": 1594,
-            "quote": "Head coach DeMeco Ryans taking over defensive play calling from defensive coordinator Matt Burke.",
+            "source_timestamp": 1568,
+            "quote": "Both guys threw for over 300 yards and two touchdowns.",
             "confidence": "stated"
           }
         ],
         "quote_timestamps": [
           {
-            "topic": "Lane Johnson technique",
-            "timestamp": 135,
+            "topic": "Raiders Tight End Personnel Usage",
+            "timestamp": 8,
             "speaker": "Greg Cosell",
-            "quote": "that double-under pass protection move... he developed that against Brandon Graham in practice."
+            "quote": "83% of their snaps in that since week three have had two and three tight ends on the field."
           },
           {
-            "topic": "Eagles third down blitz",
-            "timestamp": 482,
+            "topic": "Packers Defensive DB Blitz Trend",
+            "timestamp": 1032,
             "speaker": "Greg Cosell",
-            "quote": "All eight of those Hurts dropbacks on third down, the Rams rushed five or more... and they did not have an answer."
+            "quote": "More and more teams are using defensive backs as blitzers."
           },
           {
-            "topic": "Jets offensive play count",
-            "timestamp": 1193,
+            "topic": "Cowboys First-Down Rushing Regress",
+            "timestamp": 1492,
             "speaker": "Greg Cosell",
-            "quote": "The Jets ran 32 offensive plays, Ross, this past week... they ran four plays in the first quarter and two plays in the fourth quarter."
-          },
-          {
-            "topic": "Jaylen Warren importance",
-            "timestamp": 1318,
-            "speaker": "Greg Cosell",
-            "quote": "When I watch the Steelers, I always come away feeling that Jaylen Warren is their best player on offense."
+            "quote": "Last year Javonte Williams... averaged 5.1. This year he's averaging 3.5."
           }
         ],
         "coverage_assessment": {
-          "last_covered_timestamp": 1660,
+          "last_covered_timestamp": 1662,
           "self_reported_reached_end": true,
-          "duration_used_for_check": 1660,
+          "duration_used_for_check": 1662,
           "segment_start_seconds": null,
           "segment_end_seconds": null,
           "suspected_incomplete": false,

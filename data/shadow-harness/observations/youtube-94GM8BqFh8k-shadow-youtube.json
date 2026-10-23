@@ -1,0 +1,183 @@
+{
+  "episode_slug": "youtube-94GM8BqFh8k",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
+  "run": {
+    "run_id": "youtube_gemini_5e1a0bd45b1f",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=94GM8BqFh8k",
+    "latency_ms": 33456,
+    "estimated_cost_usd": 0.021737,
+    "input_tokens": 207068,
+    "output_tokens": 2576,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Seth Woolcock and Andrew Erickson share their top NFL best bets, spreads, totals, longshot props, and parlay picks for the upcoming slate. They break down key matchups including Packers vs. Lions, Vikings vs. Colts, 49ers vs. Falcons, Chiefs vs. Seahawks, and Eagles vs. Cowboys.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 2254,\n    \"last_analyzed_timestamp\": 2254,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 36.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Welcome into the BettingPros NFL Podcast. The temperature continues to drop, but the picks are only heating up. We've got a fresh case of best bets that we can't wait to crack in here. I'm Seth Woolcock and back with Andrew Erickson, who had a clean sweep last week.\"\n    },\n    {\n      \"start\": 36.0,\n      \"end\": 205.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The brooms are out because we swept the board last week! A perfect 5-0 on sides and totals. We celebrated the dubs because it's not always green across the board.\"\n    },\n    {\n      \"start\": 205.0,\n      \"end\": 498.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Halloween certainly came early and it was more treats this year than tricks. Let's dive into our picks.\"\n    },\n    {\n      \"start\": 498.0,\n      \"end\": 751.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"First best bet is Green Bay Packers at Detroit Lions Over 52.5 points (-117). We're playing at Ford Field, the Coors Field of the NFL. Game totals closing at 52 or higher are 6-1 to the over this season, and Lions home games average huge point totals.\"\n    },\n    {\n      \"start\": 751.0,\n      \"end\": 843.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"The Lions are 6th in pace and the Packers are 13th. Both teams love to throw in neutral game scripts.\"\n    },\n    {\n      \"start\": 843.0,\n      \"end\": 1256.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Next play is Minnesota Vikings -5.0 (-125) vs Indianapolis Colts. The Vikings are fresh off a bye, while the Colts are banged up with injuries in their secondary and offensive inconsistency.\"\n    },\n    {\n      \"start\": 1256.0,\n      \"end\": 1419.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"The Colts just fired GM Chris Ballard recently and have faced mounting internal pressure, making this a tough road spot for them.\"\n    },\n    {\n      \"start\": 1419.0,\n      \"end\": 1486.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"Before we keep it moving, a quick reminder to check out the Smart Money tool at BettingPros.com/smart.\"\n    },\n    {\n      \"start\": 1486.0,\n      \"end\": 1725.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"My first best bet is San Francisco 49ers -3.0 (-120) vs Atlanta Falcons. The 49ers have covered this line in 5 of 6 games, while Atlanta's defense is struggling and Michael Penix Jr. has been under constant pressure.\"\n    },\n    {\n      \"start\": 1725.0,\n      \"end\": 1842.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"The line feels short for San Francisco. Fred Warner has completely anchored that 49ers defense and erases opposing ground games and tight ends.\"\n    },\n    {\n      \"start\": 1842.0,\n      \"end\": 2000.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"Next play: Kansas City Chiefs +3.0 (-118) at Seattle Seahawks on Sunday Night Football. Patrick Mahomes as an underdog in his career is 13-3-1 ATS (79%). You take elite quarterbacks as underdogs every time.\"\n    },\n    {\n      \"start\": 2000.0,\n      \"end\": 2223.0,\n      \"speaker\": \"Andrew Erickson\",\n      \"text\": \"My final pick is Philadelphia Eagles +4.5 (-108) vs Dallas Cowboys. Divisional home underdogs have hit at a very high rate this season, and Dallas has underperformed in back-to-back primetime spots.\"\n    },\n    {\n      \"start\": 2223.0,\n      \"end\": 2254.0,\n      \"speaker\": \"Seth Woolcock\",\n      \"text\": \"My longshot special is Kenneth Walker III 2+ TDs (+500), and my Parlay of the Week is 49ers -3.0 + Christian McCaffrey 5+ Receptions (+170). Thank you everyone for watching, hit subscribe, and take care!\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"GB\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"OVER\",\n      \"line\": 52.5,\n      \"price\": -117,\n      \"week\": 8,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 500,\n      \"rationale\": \"Ford Field acts as the Coors Field of the NFL. High game totals closing 52+ are 6-1 to the over this season, and Detroit home games consistently produce shootouts.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"MIN\",\n      \"line\": -5.0,\n      \"price\": -125,\n      \"week\": 8,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 845,\n      \"rationale\": \"Vikings come off a bye week fully healthy with all key offensive weapons available, facing a heavily injured Colts secondary on the road.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"SF\",\n      \"line\": -3.0,\n      \"price\": -120,\n      \"week\": 8,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1486,\n      \"rationale\": \"49ers are 4-2 ATS and outperforming the spread. Atlanta's defense lacks pass rush and secondary depth to slow Brock Purdy.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"KC\",\n      \"line\": 3.0,\n      \"price\": -118,\n      \"week\": 8,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2001,\n      \"rationale\": \"Patrick Mahomes is 13-3-1 ATS as a career underdog (79%). Elite quarterbacks catching points on primetime are automatic plays.\"\n    },\n    {\n      \"team\": \"PHI\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"PHI\",\n      \"line\": 4.5,\n      \"price\": -108,\n      \"week\": 8,\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 2223,\n      \"rationale\": \"Divisional home underdogs are 19-5 ATS this season. Dallas has underperformed in back-to-back primetime games.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"player\": \"Kenneth Walker III\",\n      \"market\": \"player_prop\",\n      \"side\": \"OVER\",\n      \"line\": 1.5,\n      \"price\": 500,\n      \"week\": 8,\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 2223,\n      \"rationale\": \"Revenge game narrative against Seattle; Walker has scored 2+ touchdowns in 4 of 5 games this season and owns 100% of Chiefs RB red-zone carries.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"DET\", \"GB\"],\n      \"players\": [],\n      \"topic\": \"High game total trend in Detroit\",\n      \"summary\": \"Detroit home games average 62.4 combined points this season and are 5-0 to the over.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 554,\n      \"quote\": \"Games have been averaging 62.4 combined points.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"IND\"],\n      \"players\": [\"Sauce Gardner\", \"Charvarius Ward\", \"Justin Walley\"],\n      \"topic\": \"Colts secondary injuries\",\n      \"summary\": \"Indianapolis has multiple starting defensive backs listed on the injury report ahead of Week 8.\",\n      \"speaker\": \"Andrew Erickson\",\n      \"source_timestamp\": 1020,\n      \"quote\": \"Those are the three starting cornerbacks for the Indianapolis Colts that are all on the injury report.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"SF\"],\n      \"players\": [\"Christian McCaffrey\"],\n      \"topic\": \"McCaffrey target share without key receivers\",\n      \"summary\": \"McCaffrey saw 9 receptions last week and remains the primary outlet for Brock Purdy in missing receiver lineups.\",\n      \"speaker\": \"Seth Woolcock\",\n      \"source_timestamp\": 1890,\n      \"quote\": \"9 receptions last week folks, and that was without Deebo Samuel and Mike Evans.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Mahomes Underdog Record\",\n      \"timestamp\": 2311,\n      \"speaker\": \"Andrew Erickson\",\n      \"quote\": \"Patrick Mahomes as an underdog in his career... 13, 3, and 1 against the spread.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "extracted_picks": [
+      {
+        "team": "GB",
+        "player": null,
+        "market": "total",
+        "side": "OVER",
+        "line": 52.5,
+        "price": -117,
+        "week": 8,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 500,
+        "rationale": "Ford Field acts as the Coors Field of the NFL. High game totals closing 52+ are 6-1 to the over this season, and Detroit home games consistently produce shootouts."
+      },
+      {
+        "team": "MIN",
+        "player": null,
+        "market": "spread",
+        "side": "MIN",
+        "line": -5,
+        "price": -125,
+        "week": 8,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 845,
+        "rationale": "Vikings come off a bye week fully healthy with all key offensive weapons available, facing a heavily injured Colts secondary on the road."
+      },
+      {
+        "team": "SF",
+        "player": null,
+        "market": "spread",
+        "side": "SF",
+        "line": -3,
+        "price": -120,
+        "week": 8,
+        "speaker": "Seth Woolcock",
+        "source_timestamp": 1486,
+        "rationale": "49ers are 4-2 ATS and outperforming the spread. Atlanta's defense lacks pass rush and secondary depth to slow Brock Purdy."
+      },
+      {
+        "team": "KC",
+        "player": null,
+        "market": "spread",
+        "side": "KC",
+        "line": 3,
+        "price": -118,
+        "week": 8,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 2001,
+        "rationale": "Patrick Mahomes is 13-3-1 ATS as a career underdog (79%). Elite quarterbacks catching points on primetime are automatic plays."
+      },
+      {
+        "team": "PHI",
+        "player": null,
+        "market": "spread",
+        "side": "PHI",
+        "line": 4.5,
+        "price": -108,
+        "week": 8,
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 2223,
+        "rationale": "Divisional home underdogs are 19-5 ATS this season. Dallas has underperformed in back-to-back primetime games."
+      },
+      {
+        "team": "KC",
+        "player": "Kenneth Walker III",
+        "market": "player_prop",
+        "side": "OVER",
+        "line": 1.5,
+        "price": 500,
+        "week": 8,
+        "speaker": "Seth Woolcock",
+        "source_timestamp": 2223,
+        "rationale": "Revenge game narrative against Seattle; Walker has scored 2+ touchdowns in 4 of 5 games this season and owns 100% of Chiefs RB red-zone carries."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "DET",
+          "GB"
+        ],
+        "players": [],
+        "topic": "High game total trend in Detroit",
+        "summary": "Detroit home games average 62.4 combined points this season and are 5-0 to the over.",
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 554,
+        "quote": "Games have been averaging 62.4 combined points.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "IND"
+        ],
+        "players": [
+          "Sauce Gardner",
+          "Charvarius Ward",
+          "Justin Walley"
+        ],
+        "topic": "Colts secondary injuries",
+        "summary": "Indianapolis has multiple starting defensive backs listed on the injury report ahead of Week 8.",
+        "speaker": "Andrew Erickson",
+        "source_timestamp": 1020,
+        "quote": "Those are the three starting cornerbacks for the Indianapolis Colts that are all on the injury report.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "SF"
+        ],
+        "players": [
+          "Christian McCaffrey"
+        ],
+        "topic": "McCaffrey target share without key receivers",
+        "summary": "McCaffrey saw 9 receptions last week and remains the primary outlet for Brock Purdy in missing receiver lineups.",
+        "speaker": "Seth Woolcock",
+        "source_timestamp": 1890,
+        "quote": "9 receptions last week folks, and that was without Deebo Samuel and Mike Evans.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Mahomes Underdog Record",
+        "timestamp": 2311,
+        "speaker": "Andrew Erickson",
+        "quote": "Patrick Mahomes as an underdog in his career... 13, 3, and 1 against the spread."
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 2254,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 2254,
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 6,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

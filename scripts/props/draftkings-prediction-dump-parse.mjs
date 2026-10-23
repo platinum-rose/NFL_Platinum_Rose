@@ -108,6 +108,8 @@ export const PLAYER_ALIAS_MAP = {
   'Kaytron Allen': 'MIA',
   // Added 2026-10-22 (W7 DKP gate): ESPN roster 2026-10-22 lists DEN RB, injuredReserveOrOut/day-to-day (espn_id 4702555); roster-map-latest.json omits that group
   'Jonah Coleman': 'DEN',
+  // Added 2026-10-23 (W7 DKP gate): ESPN injuries API + FantasyPros list Jordan Mason as MIN RB (injured group, omitted by roster-map-latest.json)
+  'Jordan Mason': 'MIN',
 };
 
 export function normalizeTeamAbbr(team) {

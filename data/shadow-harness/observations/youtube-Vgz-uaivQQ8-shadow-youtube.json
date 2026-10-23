@@ -1,0 +1,204 @@
+{
+  "episode_slug": "youtube-Vgz-uaivQQ8",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
+  "run": {
+    "run_id": "youtube_gemini_338b75579868",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=Vgz-uaivQQ8",
+    "latency_ms": 70415,
+    "estimated_cost_usd": 0.03287,
+    "input_tokens": 313732,
+    "output_tokens": 3741,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Brandon Kravitz and Kendra Middleton preview Week 7 NFL betting action on The Favorites. Dr. David Chao breaks down key injury situations including Jalen Hurts, Lamar Jackson, Baker Mayfield, and Patrick Surtain II, before Emerson Lotzia joins to finalize their five contest spread picks.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 3427,\n    \"last_analyzed_timestamp\": 3427,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 45.0,\n      \"speaker\": \"Intro / Show Announcer\",\n      \"text\": \"Welcome to The Favorites presented by DraftKings Sportsbook, an Action Network Podcast with Kendra Middleton and Brandon Kravitz.\"\n    },\n    {\n      \"start\": 45.0,\n      \"end\": 128.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"We are an Action Network Podcast. I'm your host Brandon Kravitz joined by Kendra Middleton. Week 7 full breakdown preview and our official 5 contest plays.\"\n    },\n    {\n      \"start\": 128.0,\n      \"end\": 292.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"We were so close with the Monday Night Football parlay. I have been deep in the weeds on special teams, punter, and kicker props on DraftKings.\"\n    },\n    {\n      \"start\": 292.0,\n      \"end\": 362.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"If you find an angle with derivative markets, have at it. You have to stay consistent and not overwhelm yourself with too many bets.\"\n    },\n    {\n      \"start\": 362.0,\n      \"end\": 420.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Taking notes when watching back games and checking full season stats has really helped me dial in my process.\"\n    },\n    {\n      \"start\": 420.0,\n      \"end\": 521.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"There is so much going on with the expanded sports menu. Up next, we have Dr. David Chao joining us for our weekly injury report update.\"\n    },\n    {\n      \"start\": 521.0,\n      \"end\": 601.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"DraftKings offer code FAVORITES: spend $5 get $200 in bonus rewards. Download the DraftKings Sportsbook app.\"\n    },\n    {\n      \"start\": 601.0,\n      \"end\": 631.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Dr. David Chao joins us from SICscore.com, our go-to source for injury news and analysis.\"\n    },\n    {\n      \"start\": 631.0,\n      \"end\": 1008.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Regarding Jalen Hurts and the pulmonary embolism rumors: optics were bad, but standard medical care was followed. Unless there's an underlying disorder, PE recovery has allowed many players like Taylor Moton or Chris Olave to return safely.\"\n    },\n    {\n      \"start\": 1008.0,\n      \"end\": 1038.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"What do you think the long-term career outlook is for Jalen Hurts based on the available information?\"\n    },\n    {\n      \"start\": 1038.0,\n      \"end\": 1231.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Barring an unrevealed hypercoagulable disease, Hurts should have every opportunity to return to the NFL and have a full career once appropriately treated.\"\n    },\n    {\n      \"start\": 1231.0,\n      \"end\": 1546.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"I advocate for better transparent medical communication between teams, players, and pool reporters to avoid unnecessary public confusion and rumors.\"\n    },\n    {\n      \"start\": 1546.0,\n      \"end\": 1620.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Let's move to Week 7 player injuries. What is the latest update on Lamar Jackson's status?\"\n    },\n    {\n      \"start\": 1620.0,\n      \"end\": 1743.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Lamar Jackson is about 2/3 unlikely to play, 1/3 chance to play this week. He's a high-performance formula-one player who needs 100% ankle mobility.\"\n    },\n    {\n      \"start\": 1743.0,\n      \"end\": 1798.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"What are your thoughts on Baker Mayfield's availability for Tampa Bay this week?\"\n    },\n    {\n      \"start\": 1798.0,\n      \"end\": 1910.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Thumbs up on Baker Mayfield. I am very confident he plays this week; his thumb splint taped up shows he can grip and throw.\"\n    },\n    {\n      \"start\": 1910.0,\n      \"end\": 2133.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"For Mike Evans, Achilles tendinitis aggravation means yellow light medically, but red light on playing due to Tampa Bay's upcoming bye week.\"\n    },\n    {\n      \"start\": 2133.0,\n      \"end\": 2225.0,\n      \"speaker\": \"Dr. David Chao\",\n      \"text\": \"Patrick Surtain II is a yellow light pulling up stop. He was limited Wednesday with a soft tissue injury, so caution is expected.\"\n    },\n    {\n      \"start\": 2225.0,\n      \"end\": 2276.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Check out SICscore.com and use code ACTION for a free week of access. Thanks Dr. Chao!\"\n    },\n    {\n      \"start\": 2276.0,\n      \"end\": 2440.0,\n      \"speaker\": \"Emerson Lotzia\",\n      \"text\": \"Great to be back with you guys after returning from London. I have some great picks lined up for Week 7.\"\n    },\n    {\n      \"start\": 2440.0,\n      \"end\": 2500.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Let's start with Patriots at Bears (-3 / -2.5 in contest). Where are we leaning?\"\n    },\n    {\n      \"start\": 2500.0,\n      \"end\": 2625.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"I am nominating the Bears -2.5. Ben Johnson's offense and Chicago at home will outscore New England.\"\n    },\n    {\n      \"start\": 2625.0,\n      \"end\": 2720.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Bears -2.5 is officially in as our first contest selection.\"\n    },\n    {\n      \"start\": 2720.0,\n      \"end\": 2938.0,\n      \"speaker\": \"Emerson Lotzia\",\n      \"text\": \"Saints +3.5 against Pittsburgh. The Saints arrived in Europe early, Pittsburgh had an grueling OT game. Give me Saints +3.5.\"\n    },\n    {\n      \"start\": 2938.0,\n      \"end\": 3008.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Giants at Texans (-10.5). That's a huge rat line line for Houston returning from London. We are passing.\"\n    },\n    {\n      \"start\": 3008.0,\n      \"end\": 3140.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Buccaneers at Panthers (-3.5). I'll nominate Tampa Bay +3.5, but Kendra dissents.\"\n    },\n    {\n      \"start\": 3140.0,\n      \"end\": 3310.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Falcons +3.5 against 49ers. San Francisco is banged up and looking ahead to their bye week. Give me Atlanta.\"\n    },\n    {\n      \"start\": 3310.0,\n      \"end\": 3410.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Lions -2.5 vs Packers and Chiefs +2.5 vs Seahawks round out our 5 contest plays. Emerson also likes Eagles +4.5 as his peg.\"\n    },\n    {\n      \"start\": 3410.0,\n      \"end\": 3427.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"That's going to do it for us on The Favorites previewing Week 7. See you Monday!\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"CHI\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"CHI\",\n      \"line\": -2.5,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Kendra Middleton\",\n      \"source_timestamp\": 2509,\n      \"rationale\": \"Bears offense under Ben Johnson at home has performed well, while New England has major receiver and injury issues.\"\n    },\n    {\n      \"team\": \"NO\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NO\",\n      \"line\": 3.5,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Emerson Lotzia\",\n      \"source_timestamp\": 2752,\n      \"rationale\": \"Saints traveled early to Europe while Pittsburgh is coming off a brutal overtime game; great spot for Saints to keep it close.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ATL\",\n      \"line\": 3.5,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Kendra Middleton\",\n      \"source_timestamp\": 3140,\n      \"rationale\": \"49ers are heavily injured, looking ahead to their upcoming bye week, and traveling across country to Atlanta.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"DET\",\n      \"line\": -2.5,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 3310,\n      \"rationale\": \"Dan Campbell and Jared Goff off extended preparation / bye week with strong ATS record at home.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"KC\",\n      \"line\": 2.5,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Emerson Lotzia\",\n      \"source_timestamp\": 3320,\n      \"rationale\": \"Undefeated Chiefs getting points in prime time with Patrick Mahomes is an easy play.\"\n    },\n    {\n      \"team\": \"PHI\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"PHI\",\n      \"line\": 4.5,\n      \"price\": -110,\n      \"week\": 7,\n      \"speaker\": \"Emerson Lotzia\",\n      \"source_timestamp\": 3501,\n      \"rationale\": \"Emerson's 'Peg of the Week': expects Eagles to step up and rally behind Jalen Hurts.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"BAL\"],\n      \"players\": [\"Lamar Jackson\"],\n      \"topic\": \"Lamar Jackson Ankle Injury\",\n      \"summary\": \"Dr. Chao estimates a 2/3 probability Lamar Jackson misses Week 7 due to ankle mobility needs for his playstyle.\",\n      \"speaker\": \"Dr. David Chao\",\n      \"source_timestamp\": 1620,\n      \"quote\": \"I said two thirds not play, one third play. That's kind of where we're headed towards right now.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"TB\"],\n      \"players\": [\"Baker Mayfield\"],\n      \"topic\": \"Baker Mayfield Thumb Injury\",\n      \"summary\": \"Dr. Chao gives Baker Mayfield a thumbs up to play Week 7, noting his sideline splint/tape allows throwing.\",\n      \"speaker\": \"Dr. David Chao\",\n      \"source_timestamp\": 1821,\n      \"quote\": \"I am more confident that Baker will play than Lamar Jackson won't play.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"TB\"],\n      \"players\": [\"Mike Evans\"],\n      \"topic\": \"Mike Evans Achilles Tendinitis\",\n      \"summary\": \"Dr. Chao expects Tampa Bay to hold Mike Evans out in Week 7 to give him 3 weeks of recovery surrounding their bye week.\",\n      \"speaker\": \"Dr. David Chao\",\n      \"source_timestamp\": 1999,\n      \"quote\": \"Because it's not a division game and they have a bye week, I do not believe Mike Evans will play this week.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"DEN\", \"ARI\"],\n      \"players\": [\"Bo Nix\"],\n      \"topic\": \"Broncos offense vs Cardinals Defense\",\n      \"summary\": \"Kendra noted Bo Nix's passing struggles, making his longest completion under 32.5 yards a strong prop consideration.\",\n      \"speaker\": \"Kendra Middleton\",\n      \"source_timestamp\": 2852,\n      \"quote\": \"Bo Nix longest completion under 32.5 yards feels like a baller option considering the kid can't throw down the damn field.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Bears Nomination\",\n      \"timestamp\": 2509,\n      \"speaker\": \"Kendra Middleton\",\n      \"quote\": \"I am nominating the Bears... I think that their offense and with the injuries that the Patriots have... I really, really love the Bears here.\"\n    },\n    {\n      \"topic\": \"Saints Nomination\",\n      \"timestamp\": 2752,\n      \"speaker\": \"Emerson Lotzia\",\n      \"quote\": \"Give me the Saints with the hook in Paris.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "extracted_picks": [
+      {
+        "team": "CHI",
+        "player": null,
+        "market": "spread",
+        "side": "CHI",
+        "line": -2.5,
+        "price": -110,
+        "week": 7,
+        "speaker": "Kendra Middleton",
+        "source_timestamp": 2509,
+        "rationale": "Bears offense under Ben Johnson at home has performed well, while New England has major receiver and injury issues."
+      },
+      {
+        "team": "NO",
+        "player": null,
+        "market": "spread",
+        "side": "NO",
+        "line": 3.5,
+        "price": -110,
+        "week": 7,
+        "speaker": "Emerson Lotzia",
+        "source_timestamp": 2752,
+        "rationale": "Saints traveled early to Europe while Pittsburgh is coming off a brutal overtime game; great spot for Saints to keep it close."
+      },
+      {
+        "team": "ATL",
+        "player": null,
+        "market": "spread",
+        "side": "ATL",
+        "line": 3.5,
+        "price": -110,
+        "week": 7,
+        "speaker": "Kendra Middleton",
+        "source_timestamp": 3140,
+        "rationale": "49ers are heavily injured, looking ahead to their upcoming bye week, and traveling across country to Atlanta."
+      },
+      {
+        "team": "DET",
+        "player": null,
+        "market": "spread",
+        "side": "DET",
+        "line": -2.5,
+        "price": -110,
+        "week": 7,
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 3310,
+        "rationale": "Dan Campbell and Jared Goff off extended preparation / bye week with strong ATS record at home."
+      },
+      {
+        "team": "KC",
+        "player": null,
+        "market": "spread",
+        "side": "KC",
+        "line": 2.5,
+        "price": -110,
+        "week": 7,
+        "speaker": "Emerson Lotzia",
+        "source_timestamp": 3320,
+        "rationale": "Undefeated Chiefs getting points in prime time with Patrick Mahomes is an easy play."
+      },
+      {
+        "team": "PHI",
+        "player": null,
+        "market": "spread",
+        "side": "PHI",
+        "line": 4.5,
+        "price": -110,
+        "week": 7,
+        "speaker": "Emerson Lotzia",
+        "source_timestamp": 3501,
+        "rationale": "Emerson's 'Peg of the Week': expects Eagles to step up and rally behind Jalen Hurts."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "BAL"
+        ],
+        "players": [
+          "Lamar Jackson"
+        ],
+        "topic": "Lamar Jackson Ankle Injury",
+        "summary": "Dr. Chao estimates a 2/3 probability Lamar Jackson misses Week 7 due to ankle mobility needs for his playstyle.",
+        "speaker": "Dr. David Chao",
+        "source_timestamp": 1620,
+        "quote": "I said two thirds not play, one third play. That's kind of where we're headed towards right now.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "TB"
+        ],
+        "players": [
+          "Baker Mayfield"
+        ],
+        "topic": "Baker Mayfield Thumb Injury",
+        "summary": "Dr. Chao gives Baker Mayfield a thumbs up to play Week 7, noting his sideline splint/tape allows throwing.",
+        "speaker": "Dr. David Chao",
+        "source_timestamp": 1821,
+        "quote": "I am more confident that Baker will play than Lamar Jackson won't play.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "TB"
+        ],
+        "players": [
+          "Mike Evans"
+        ],
+        "topic": "Mike Evans Achilles Tendinitis",
+        "summary": "Dr. Chao expects Tampa Bay to hold Mike Evans out in Week 7 to give him 3 weeks of recovery surrounding their bye week.",
+        "speaker": "Dr. David Chao",
+        "source_timestamp": 1999,
+        "quote": "Because it's not a division game and they have a bye week, I do not believe Mike Evans will play this week.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "DEN",
+          "ARI"
+        ],
+        "players": [
+          "Bo Nix"
+        ],
+        "topic": "Broncos offense vs Cardinals Defense",
+        "summary": "Kendra noted Bo Nix's passing struggles, making his longest completion under 32.5 yards a strong prop consideration.",
+        "speaker": "Kendra Middleton",
+        "source_timestamp": 2852,
+        "quote": "Bo Nix longest completion under 32.5 yards feels like a baller option considering the kid can't throw down the damn field.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Bears Nomination",
+        "timestamp": 2509,
+        "speaker": "Kendra Middleton",
+        "quote": "I am nominating the Bears... I think that their offense and with the injuries that the Patriots have... I really, really love the Bears here."
+      },
+      {
+        "topic": "Saints Nomination",
+        "timestamp": 2752,
+        "speaker": "Emerson Lotzia",
+        "quote": "Give me the Saints with the hook in Paris."
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 3501,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 3427,
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1.022
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 6,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

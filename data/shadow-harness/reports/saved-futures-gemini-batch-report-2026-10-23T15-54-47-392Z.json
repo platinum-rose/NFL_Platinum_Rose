@@ -1,0 +1,362 @@
+{
+  "evaluated_at": "2026-10-23T15:54:47.387Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 1,
+  "total_episodes_evaluated": 1,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 0,
+  "extraction_failure_count": 0,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0.016778,
+  "average_cost_usd": 0.016778,
+  "total_latency_ms": 59647,
+  "average_latency_ms": 59647,
+  "total_extracted_picks": 18,
+  "reprocess_queue": [],
+  "failed_extractions": [],
+  "queue_runs": [
+    {
+      "episode_slug": "youtube-f9sJImNONrQ",
+      "show": "YouTube Discovery",
+      "date": "manual",
+      "priority": "manual",
+      "mode": "live-youtube",
+      "model": "gemini-3.5-flash",
+      "input_source": "youtube_video_url",
+      "reprocess_required": false,
+      "reprocess_reason": null,
+      "quality_flags": [],
+      "run": {
+        "run_id": "youtube_gemini_cc5734196ec7",
+        "mode": "live-youtube",
+        "model": "gemini-3.5-flash",
+        "input_source": "youtube_video_url",
+        "youtube_url": "https://www.youtube.com/watch?v=f9sJImNONrQ",
+        "latency_ms": 59647,
+        "estimated_cost_usd": 0.016778,
+        "input_tokens": 149927,
+        "output_tokens": 4462,
+        "raw_model_response": "{\n  \"transcript_summary\": \"Ross Tucker and Steve Fezzik recap their betting performance from NFL Week 6 before diving into game-by-game spread, total, and teaser picks for NFL Week 7.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1627,\n    \"last_analyzed_timestamp\": 1627,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 11.5,\n      \"speaker\": \"Intro Announcer\",\n      \"text\": \"If you like to make your NFL games a little bit more interesting, you've come to the right place. It's the Even Money Podcast with Ross Tucker and Steve Fezzik.\"\n    },\n    {\n      \"start\": 11.5,\n      \"end\": 158.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Yeah, Vegas baby, Vegas! It is the Even Money NFL betting podcast. You've come to the right place... Patreon.com/RTMedia to get access to our spread sheet...\"\n    },\n    {\n      \"start\": 158.0,\n      \"end\": 270.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Steve Fezzik is the only two-time winner of the Super Contest in Vegas. Check him out @FezzikSports on social media. I'm Ross Tucker, former NFL offensive lineman...\"\n    },\n    {\n      \"start\": 270.0,\n      \"end\": 430.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Solid week Steve, especially for me. I was up 6.5 units for the week. You were up 0.4 units. Let's recap Week 6. Broncos-Chiefs on Thursday...\"\n    },\n    {\n      \"start\": 430.0,\n      \"end\": 446.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"Well, you're going to go... there's too much math involved. Plus 6 units.\"\n    },\n    {\n      \"start\": 446.0,\n      \"end\": 598.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Close, 3.8 units... Pretty crazy, 6 teaser legs, 5 of them right. Only the Cowboys let me down. Texans-Jags, Fezzik had 2 units on Texans +3, they won outright...\"\n    },\n    {\n      \"start\": 598.0,\n      \"end\": 627.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"Yeah, these NFL teams are getting more savvy down 10, all they care about is winning and they kick the field goal at the end...\"\n    },\n    {\n      \"start\": 627.0,\n      \"end\": 741.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Panthers-Eagles, you leaned under, both of us had Panthers teaser leg. Titans-Colts, Fezzik 2u on Colts, Ross 1u on Titans. Best Bet Bucs lost in OT...\"\n    },\n    {\n      \"start\": 741.0,\n      \"end\": 801.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"Maybe sportsbooks should sell overtime protection! I've been saying this for years...\"\n    },\n    {\n      \"start\": 801.0,\n      \"end\": 943.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Ravens-Browns, 2 units on Browns, won outright. Saints-Giants teaser leg hit. Bears-Falcons, Caleb Williams was lights out, Falcons lost by 8...\"\n    },\n    {\n      \"start\": 943.0,\n      \"end\": 1008.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"NFL coaches continue to refuse to bleed the clock... giving the ball back to your opponent with 47 seconds left is fraught with danger.\"\n    },\n    {\n      \"start\": 1008.0,\n      \"end\": 1202.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Cardinals won outright +13.5. Chiefs-Chargers teased Chiefs -2.5 hit. Commanders-Niners hit. Now let's move on to Week 7!\"\n    },\n    {\n      \"start\": 1202.0,\n      \"end\": 1336.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"West Shore Home, Sports Injury Central... Check out SICpicks.com for injury-based picks.\"\n    },\n    {\n      \"start\": 1336.0,\n      \"end\": 1400.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"NFL Week 7 Bets! Thursday night: Patriots at Bears. Bears -3, total 50.5.\"\n    },\n    {\n      \"start\": 1400.0,\n      \"end\": 1493.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"Bears are actually really good, undervalued because Caleb Williams was down. Strong lean Bears -3.\"\n    },\n    {\n      \"start\": 1493.0,\n      \"end\": 1507.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Sunday games! Steelers and Saints... Steelers laying 3.5, total 44.5.\"\n    },\n    {\n      \"start\": 1507.0,\n      \"end\": 1530.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"Saints injury report is unbelievably long. I pass.\"\n    },\n    {\n      \"start\": 1530.0,\n      \"end\": 1544.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"I'm still going 1 unit on Saints +3.5. Next: Colts at Vikings.\"\n    },\n    {\n      \"start\": 1544.0,\n      \"end\": 1617.0,\n      \"speaker\": \"Steve Fezzik\",\n      \"text\": \"Vikings have the worst offense in terms of yards per play. I'm on Colts 2 units +6.5.\"\n    },\n    {\n      \"start\": 1617.0,\n      \"end\": 1627.0,\n      \"speaker\": \"Ross Tucker\",\n      \"text\": \"Thanks for tuning into the Even Money Podcast! Make sure to subscribe on your favorite platform.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"NO\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NO\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1537,\n      \"rationale\": \"Saints are banged up, but getting 3.5 points against the Steelers, taking 1 unit.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"IND\",\n      \"line\": 6.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 1616,\n      \"rationale\": \"Vikings are barely an above-average team with poor yards per play on offense; taking Colts +6.5 for 2 units.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYG\",\n      \"line\": 10.0,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 1720,\n      \"rationale\": \"10 points is too many when fading Houston after back-to-back emotional games and international travel.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYG\",\n      \"line\": 10.0,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1723,\n      \"rationale\": \"Agrees with Fezzik; Texans returning from London, taking Giants +10 for 2 units as a Best Bet.\"\n    },\n    {\n      \"team\": \"CAR\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"OVER\",\n      \"line\": 44.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 1752,\n      \"rationale\": \"Carolina defense is weak but offense is improving; taking Over 44.5 for 2 units.\"\n    },\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"TB\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1800,\n      \"rationale\": \"Bucs keep games close and play well in divisional games; taking Bucs +3.5 for 2 units.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"CIN\",\n      \"line\": 3.0,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 1919,\n      \"rationale\": \"Lamar Jackson might not play, and even if he does, +3 is a strong line; taking Bengals +3 for 2 units.\"\n    },\n    {\n      \"team\": \"CIN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"CIN\",\n      \"line\": 3.0,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 1921,\n      \"rationale\": \"Agrees on Bengals +3 for 2 units; Best Bet with Ross.\"\n    },\n    {\n      \"team\": \"CLE\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"UNDER\",\n      \"line\": 38.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 2022,\n      \"rationale\": \"Titans have virtually no offense, especially outdoors; taking Under 38.5 for 2 units.\"\n    },\n    {\n      \"team\": \"CLE\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"UNDER\",\n      \"line\": 38.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 2034,\n      \"rationale\": \"Expects a low-scoring 13-10 or 17-13 game; taking Under 38.5 for 2 units as a Best Bet.\"\n    },\n    {\n      \"team\": \"TEN\",\n      \"player\": null,\n      \"market\": \"teaser\",\n      \"side\": \"TEN\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 2047,\n      \"rationale\": \"Teasing Titans up from +1.5 to +7.5 for 2 units in a expected low-scoring game.\"\n    },\n    {\n      \"team\": \"MIA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"MIA\",\n      \"line\": 4.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 2120,\n      \"rationale\": \"Winless Dolphins coming off a bye against the Jets are bound to win a game; taking Dolphins +4.5 for 2 units.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ATL\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 2208,\n      \"rationale\": \"Short week for 49ers traveling across country to Atlanta; taking Falcons +3.5 for 2 units.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ARI\",\n      \"line\": 4.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 2245,\n      \"rationale\": \"Broncos offense stinks on the road; taking Cardinals +4.5 for 2 units.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ARI\",\n      \"line\": 4.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 2249,\n      \"rationale\": \"Agrees it will be a close game; taking Cardinals +4.5 for 2 units as a Best Bet.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"LV\",\n      \"line\": 4.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 2320,\n      \"rationale\": \"Rams don't have it this year while Raiders are plucky; taking Raiders +4.5 for 1 unit.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"LV\",\n      \"line\": 4.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 2323,\n      \"rationale\": \"Rams are heavily damaged by injuries; taking Raiders +4.5 for 2 units as a Best Bet.\"\n    },\n    {\n      \"team\": \"KC\",\n      \"player\": null,\n      \"market\": \"teaser\",\n      \"side\": \"KC\",\n      \"line\": 8.5,\n      \"price\": null,\n      \"week\": 7,\n      \"speaker\": \"Ross Tucker\",\n      \"source_timestamp\": 2506,\n      \"rationale\": \"Teasing Chiefs from +2.5 up to +8.5 for 2 units, paired with Titans +7.5.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"CHI\"],\n      \"players\": [\"Caleb Williams\"],\n      \"topic\": \"Bears offense improvement\",\n      \"summary\": \"Fezzik considers the Bears undervalued in the market because Caleb Williams missed earlier time due to injury, but he performed very well in his return.\",\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 1350,\n      \"quote\": \"The Bears are actually really good, they're undervalued because Caleb Williams was down.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"NO\"],\n      \"players\": [],\n      \"topic\": \"Saints injury list length\",\n      \"summary\": \"Fezzik passes on the Saints-Steelers game due to New Orleans having an unbelievably long injury report.\",\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 1522,\n      \"quote\": \"The Saints injury report is absolutely unbelievably long. I cannot back the Saints here.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"MIN\"],\n      \"players\": [],\n      \"topic\": \"Vikings offensive yards per play efficiency\",\n      \"summary\": \"Fezzik notes Minnesota has the lowest yards per play in the NFL despite their undefeated record, making them vulnerable against the spread.\",\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 1624,\n      \"quote\": \"They got the worst offense in terms of yards per play in the NFL.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"LAR\"],\n      \"players\": [],\n      \"topic\": \"Clock management on goal line possessions\",\n      \"summary\": \"Fezzik criticizes NFL coaches for rushing to score on late possessions instead of draining the clock before taking goal-line shots.\",\n      \"speaker\": \"Steve Fezzik\",\n      \"source_timestamp\": 945,\n      \"quote\": \"NFL coaches continue to refuse to try to bleed the clock. They're paranoid they're not going to get in the end zone.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Giants +10 Best Bet\",\n      \"timestamp\": 1723,\n      \"speaker\": \"Ross Tucker\",\n      \"quote\": \"I like the Giants getting the 10 quite a bit.\"\n    },\n    {\n      \"topic\": \"Browns/Titans Under 38.5 Best Bet\",\n      \"timestamp\": 2034,\n      \"speaker\": \"Ross Tucker\",\n      \"quote\": \"That's going to be a Best Bet under 38.5 for the Browns and the Titans.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+        "extracted_picks": [
+          {
+            "team": "NO",
+            "player": null,
+            "market": "spread",
+            "side": "NO",
+            "line": 3.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1537,
+            "rationale": "Saints are banged up, but getting 3.5 points against the Steelers, taking 1 unit."
+          },
+          {
+            "team": "IND",
+            "player": null,
+            "market": "spread",
+            "side": "IND",
+            "line": 6.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 1616,
+            "rationale": "Vikings are barely an above-average team with poor yards per play on offense; taking Colts +6.5 for 2 units."
+          },
+          {
+            "team": "NYG",
+            "player": null,
+            "market": "spread",
+            "side": "NYG",
+            "line": 10,
+            "price": null,
+            "week": 7,
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 1720,
+            "rationale": "10 points is too many when fading Houston after back-to-back emotional games and international travel."
+          },
+          {
+            "team": "NYG",
+            "player": null,
+            "market": "spread",
+            "side": "NYG",
+            "line": 10,
+            "price": null,
+            "week": 7,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1723,
+            "rationale": "Agrees with Fezzik; Texans returning from London, taking Giants +10 for 2 units as a Best Bet."
+          },
+          {
+            "team": "CAR",
+            "player": null,
+            "market": "total",
+            "side": "OVER",
+            "line": 44.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 1752,
+            "rationale": "Carolina defense is weak but offense is improving; taking Over 44.5 for 2 units."
+          },
+          {
+            "team": "TB",
+            "player": null,
+            "market": "spread",
+            "side": "TB",
+            "line": 3.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1800,
+            "rationale": "Bucs keep games close and play well in divisional games; taking Bucs +3.5 for 2 units."
+          },
+          {
+            "team": "CIN",
+            "player": null,
+            "market": "spread",
+            "side": "CIN",
+            "line": 3,
+            "price": null,
+            "week": 7,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 1919,
+            "rationale": "Lamar Jackson might not play, and even if he does, +3 is a strong line; taking Bengals +3 for 2 units."
+          },
+          {
+            "team": "CIN",
+            "player": null,
+            "market": "spread",
+            "side": "CIN",
+            "line": 3,
+            "price": null,
+            "week": 7,
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 1921,
+            "rationale": "Agrees on Bengals +3 for 2 units; Best Bet with Ross."
+          },
+          {
+            "team": "CLE",
+            "player": null,
+            "market": "total",
+            "side": "UNDER",
+            "line": 38.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 2022,
+            "rationale": "Titans have virtually no offense, especially outdoors; taking Under 38.5 for 2 units."
+          },
+          {
+            "team": "CLE",
+            "player": null,
+            "market": "total",
+            "side": "UNDER",
+            "line": 38.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 2034,
+            "rationale": "Expects a low-scoring 13-10 or 17-13 game; taking Under 38.5 for 2 units as a Best Bet."
+          },
+          {
+            "team": "TEN",
+            "player": null,
+            "market": "teaser",
+            "side": "TEN",
+            "line": 7.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 2047,
+            "rationale": "Teasing Titans up from +1.5 to +7.5 for 2 units in a expected low-scoring game."
+          },
+          {
+            "team": "MIA",
+            "player": null,
+            "market": "spread",
+            "side": "MIA",
+            "line": 4.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 2120,
+            "rationale": "Winless Dolphins coming off a bye against the Jets are bound to win a game; taking Dolphins +4.5 for 2 units."
+          },
+          {
+            "team": "ATL",
+            "player": null,
+            "market": "spread",
+            "side": "ATL",
+            "line": 3.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 2208,
+            "rationale": "Short week for 49ers traveling across country to Atlanta; taking Falcons +3.5 for 2 units."
+          },
+          {
+            "team": "ARI",
+            "player": null,
+            "market": "spread",
+            "side": "ARI",
+            "line": 4.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 2245,
+            "rationale": "Broncos offense stinks on the road; taking Cardinals +4.5 for 2 units."
+          },
+          {
+            "team": "ARI",
+            "player": null,
+            "market": "spread",
+            "side": "ARI",
+            "line": 4.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 2249,
+            "rationale": "Agrees it will be a close game; taking Cardinals +4.5 for 2 units as a Best Bet."
+          },
+          {
+            "team": "LV",
+            "player": null,
+            "market": "spread",
+            "side": "LV",
+            "line": 4.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 2320,
+            "rationale": "Rams don't have it this year while Raiders are plucky; taking Raiders +4.5 for 1 unit."
+          },
+          {
+            "team": "LV",
+            "player": null,
+            "market": "spread",
+            "side": "LV",
+            "line": 4.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 2323,
+            "rationale": "Rams are heavily damaged by injuries; taking Raiders +4.5 for 2 units as a Best Bet."
+          },
+          {
+            "team": "KC",
+            "player": null,
+            "market": "teaser",
+            "side": "KC",
+            "line": 8.5,
+            "price": null,
+            "week": 7,
+            "speaker": "Ross Tucker",
+            "source_timestamp": 2506,
+            "rationale": "Teasing Chiefs from +2.5 up to +8.5 for 2 units, paired with Titans +7.5."
+          }
+        ],
+        "analysis_notes": [
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "CHI"
+            ],
+            "players": [
+              "Caleb Williams"
+            ],
+            "topic": "Bears offense improvement",
+            "summary": "Fezzik considers the Bears undervalued in the market because Caleb Williams missed earlier time due to injury, but he performed very well in his return.",
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 1350,
+            "quote": "The Bears are actually really good, they're undervalued because Caleb Williams was down.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "injury_or_health",
+            "teams": [
+              "NO"
+            ],
+            "players": [],
+            "topic": "Saints injury list length",
+            "summary": "Fezzik passes on the Saints-Steelers game due to New Orleans having an unbelievably long injury report.",
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 1522,
+            "quote": "The Saints injury report is absolutely unbelievably long. I cannot back the Saints here.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "team_evaluation",
+            "teams": [
+              "MIN"
+            ],
+            "players": [],
+            "topic": "Vikings offensive yards per play efficiency",
+            "summary": "Fezzik notes Minnesota has the lowest yards per play in the NFL despite their undefeated record, making them vulnerable against the spread.",
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 1624,
+            "quote": "They got the worst offense in terms of yards per play in the NFL.",
+            "confidence": "stated"
+          },
+          {
+            "note_type": "coaching_or_scheme",
+            "teams": [
+              "LAR"
+            ],
+            "players": [],
+            "topic": "Clock management on goal line possessions",
+            "summary": "Fezzik criticizes NFL coaches for rushing to score on late possessions instead of draining the clock before taking goal-line shots.",
+            "speaker": "Steve Fezzik",
+            "source_timestamp": 945,
+            "quote": "NFL coaches continue to refuse to try to bleed the clock. They're paranoid they're not going to get in the end zone.",
+            "confidence": "stated"
+          }
+        ],
+        "quote_timestamps": [
+          {
+            "topic": "Giants +10 Best Bet",
+            "timestamp": 1723,
+            "speaker": "Ross Tucker",
+            "quote": "I like the Giants getting the 10 quite a bit."
+          },
+          {
+            "topic": "Browns/Titans Under 38.5 Best Bet",
+            "timestamp": 2034,
+            "speaker": "Ross Tucker",
+            "quote": "That's going to be a Best Bet under 38.5 for the Browns and the Titans."
+          }
+        ],
+        "coverage_assessment": {
+          "last_covered_timestamp": 2506,
+          "self_reported_reached_end": true,
+          "duration_used_for_check": 1627,
+          "segment_start_seconds": null,
+          "segment_end_seconds": null,
+          "suspected_incomplete": false,
+          "reason": null,
+          "coverage_ratio": 1.54
+        }
+      },
+      "scoring": {
+        "score_status": "not_scored",
+        "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+        "total_ground_truth": 0,
+        "total_shadow_extracted": 18,
+        "full_exact_matches": 0,
+        "precision_pct": "not scored",
+        "recall_pct": "not scored",
+        "f1_score_pct": "not scored",
+        "dimension_accuracy": {
+          "team": null,
+          "market": null,
+          "side": null,
+          "line": null,
+          "price": null,
+          "speaker": null,
+          "source_timestamp": null
+        }
+      }
+    }
+  ]
+}

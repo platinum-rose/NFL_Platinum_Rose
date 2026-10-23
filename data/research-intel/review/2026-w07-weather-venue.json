@@ -2,20 +2,20 @@
   "schema": "week_weather_venue_review_v1",
   "season": 2026,
   "week": 7,
-  "generated_at": "2026-10-21T22:25:26.000Z",
+  "generated_at": "2026-10-23T19:26:57Z",
   "status": "research_context_only_not_picks",
-  "source_evidence": "data/research-intel/source-evidence/2026-10-21-week7-weather-openmeteo.json",
+  "source_evidence": "data/research-intel/source-evidence/2026-10-23-week7-weather-openmeteo.json",
   "coverage": {
-    "remaining_games": 14,
+    "remaining_games": 13,
     "outdoor_forecasts_captured": 8,
     "venue_condition_verification_required": 6
   },
   "rows": [
     {
       "game": "NE@CHI",
-      "weather_status": "forecast_captured",
+      "weather_status": "game_played",
       "source_game": "NE@CHI",
-      "materiality": "no_material_weather_flag",
+      "materiality": "played_2026-10-22",
       "forecast": {
         "temperature_c": 13.3,
         "temperature_f": 55.9,
@@ -30,15 +30,15 @@
       "game": "PIT@NO",
       "weather_status": "forecast_captured",
       "source_game": "PIT@NO",
-      "materiality": "review_required: gusts 47.9 km/h",
+      "materiality": "review_required: wind 26.1 km/h; gusts 53.6 km/h",
       "forecast": {
-        "temperature_c": 15.9,
-        "temperature_f": 60.6,
-        "precipitation_probability_pct": 24,
+        "temperature_c": 16.0,
+        "temperature_f": 60.8,
+        "precipitation_probability_pct": 0,
         "precipitation_mm": 0.0,
-        "wind_speed_kmh": 21.8,
-        "wind_gusts_kmh": 47.9,
-        "wind_direction_deg": 279
+        "wind_speed_kmh": 26.1,
+        "wind_gusts_kmh": 53.6,
+        "wind_direction_deg": 281
       }
     },
     {
@@ -52,13 +52,13 @@
       "source_game": "CLE@TEN",
       "materiality": "no_material_weather_flag",
       "forecast": {
-        "temperature_c": 22.8,
-        "temperature_f": 73.0,
+        "temperature_c": 22.7,
+        "temperature_f": 72.9,
         "precipitation_probability_pct": 0,
         "precipitation_mm": 0.0,
-        "wind_speed_kmh": 3.4,
-        "wind_gusts_kmh": 4.0,
-        "wind_direction_deg": 198
+        "wind_speed_kmh": 3.8,
+        "wind_gusts_kmh": 5.4,
+        "wind_direction_deg": 221
       }
     },
     {
@@ -72,13 +72,13 @@
       "source_game": "MIA@NYJ",
       "materiality": "no_material_weather_flag",
       "forecast": {
-        "temperature_c": 17.5,
-        "temperature_f": 63.5,
+        "temperature_c": 17.8,
+        "temperature_f": 64.0,
         "precipitation_probability_pct": 0,
         "precipitation_mm": 0.0,
-        "wind_speed_kmh": 11.8,
-        "wind_gusts_kmh": 16.9,
-        "wind_direction_deg": 247
+        "wind_speed_kmh": 5.5,
+        "wind_gusts_kmh": 7.6,
+        "wind_direction_deg": 293
       }
     },
     {
@@ -87,13 +87,13 @@
       "source_game": "TB@CAR",
       "materiality": "no_material_weather_flag",
       "forecast": {
-        "temperature_c": 18.0,
-        "temperature_f": 64.4,
+        "temperature_c": 19.4,
+        "temperature_f": 66.9,
         "precipitation_probability_pct": 0,
         "precipitation_mm": 0.0,
-        "wind_speed_kmh": 13.8,
-        "wind_gusts_kmh": 17.6,
-        "wind_direction_deg": 51
+        "wind_speed_kmh": 15.5,
+        "wind_gusts_kmh": 19.4,
+        "wind_direction_deg": 54
       }
     },
     {
@@ -102,13 +102,13 @@
       "source_game": "CIN@BAL",
       "materiality": "no_material_weather_flag",
       "forecast": {
-        "temperature_c": 17.1,
-        "temperature_f": 62.8,
+        "temperature_c": 17.4,
+        "temperature_f": 63.3,
         "precipitation_probability_pct": 0,
         "precipitation_mm": 0.0,
-        "wind_speed_kmh": 8.0,
-        "wind_gusts_kmh": 9.7,
-        "wind_direction_deg": 153
+        "wind_speed_kmh": 4.9,
+        "wind_gusts_kmh": 5.0,
+        "wind_direction_deg": 163
       }
     },
     {
@@ -137,13 +137,13 @@
       "source_game": "KC@SEA",
       "materiality": "no_material_weather_flag",
       "forecast": {
-        "temperature_c": 12.0,
-        "temperature_f": 53.6,
-        "precipitation_probability_pct": 16,
+        "temperature_c": 11.5,
+        "temperature_f": 52.7,
+        "precipitation_probability_pct": 29,
         "precipitation_mm": 0.0,
-        "wind_speed_kmh": 14.8,
-        "wind_gusts_kmh": 22.0,
-        "wind_direction_deg": 354
+        "wind_speed_kmh": 13.0,
+        "wind_gusts_kmh": 20.5,
+        "wind_direction_deg": 355
       }
     },
     {
@@ -152,13 +152,13 @@
       "source_game": "DAL@PHI",
       "materiality": "no_material_weather_flag",
       "forecast": {
-        "temperature_c": 16.2,
-        "temperature_f": 61.2,
+        "temperature_c": 16.6,
+        "temperature_f": 61.9,
         "precipitation_probability_pct": 0,
         "precipitation_mm": 0.0,
-        "wind_speed_kmh": 7.6,
-        "wind_gusts_kmh": 23.0,
-        "wind_direction_deg": 265
+        "wind_speed_kmh": 8.0,
+        "wind_gusts_kmh": 21.6,
+        "wind_direction_deg": 306
       }
     }
   ],
