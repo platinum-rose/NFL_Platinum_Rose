@@ -152,10 +152,10 @@ DraftKings, FanDuel, BetMGM, Caesars, BetOnline, Bookmaker, PointsBet, Unibet
 
 ### Session Start
 1. Read `HANDOFF.md` first. It is the root current-state index.
-2. Reconcile live Git before trusting handoff prose:
-   - `git status -sb`
+2. Reconcile live Git before trusting handoff prose (fast check only; full `git status` on this checkout takes 2+ minutes and can hang):
+   - `git rev-parse --short HEAD` (use a 20 s timeout)
    - `git branch --show-current`
-   - `git log -5 --oneline`
+   - Run `git status -sb` only when about to commit.
 3. If `HANDOFF.md` has `Needs Andy / Stop Conditions`, surface those before editing.
 4. If `HANDOFF.md` links a dated handoff for the current lane, read only that dated handoff.
 5. If `HANDOFF.md`, a dated handoff, memory, or live Git disagree, live Git wins; stop and report the mismatch.
@@ -168,7 +168,8 @@ Resume Platinum Rose NFL. HEAD = {commit} ({branch}). Suite: {N/N}. {one-sentenc
 - **MANDATORY, EVERY TIME (Andy has had to ask repeatedly): every handoff / wrap-up / end-session / "resume prompt" request MUST print the full RESUME PROMPT IN-SESSION, in the chat reply, in a copy-paste code block, in the same response that does the handoff. Writing it only to a file or Project doc does not count. Never wait to be asked for it.
 
 ### Session Close
-- Create or update a dated handoff in `handoffs/` for detailed session history.
+- Create or update a dated handoff in `handoffs/` for detailed session history. The resume prompt in it must carry the real HEAD hash and test count (no `<fill after push>` placeholders).
+- OVERWRITE the pickup block in root `HANDOFF.md`; never stack a new pickup above older ones.
 - Keep root `HANDOFF.md` short: current pickup, guardrails, open decisions, and links only.
 - Do not broad-stage. Stage narrow, reviewed file sets only.
 - Commit/push only when the current scope is ready, verified, and does not include unrelated dirty work.

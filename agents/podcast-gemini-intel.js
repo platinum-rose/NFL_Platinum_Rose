@@ -78,6 +78,7 @@ const PROMOTE   = hasFlag('--promote');
 const PROMOTE_ALL = hasFlag('--all');
 const LIMIT     = Number(argVal('--limit', '0')) || 0;
 const ONE_EP    = argVal('--episode', null);
+const SINCE     = argVal('--since', null);
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -208,6 +209,7 @@ function runGeminiExtraction({ youtubeUrl, title, show, pubDate, durationSecs })
     '--episode-title', title || 'NFL Podcast',
     '--show', show || 'Podcast',
     '--date', (pubDate || '').slice(0, 10) || '2026',
+    '--max-retries', '2',
   ];
   // Added 2026-07-28: same full-duration-coverage fix as
   // scripts/gemini-podcast-shadow-harness.js::runLiveGeminiYoutube. Pass the
@@ -219,7 +221,7 @@ function runGeminiExtraction({ youtubeUrl, title, show, pubDate, durationSecs })
     ? path.join(ROOT, '.venv', 'Scripts', 'python.exe')
     : (fs.existsSync(path.join(ROOT, '.venv', 'bin', 'python')) ? path.join(ROOT, '.venv', 'bin', 'python') : 'python'));
 
-  const rawOutput = execFileSync(pythonBin, cliArgs, { encoding: 'utf8' });
+  const rawOutput = execFileSync(pythonBin, cliArgs, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 });
   const jsonRes = JSON.parse(rawOutput);
   if (jsonRes.error) throw new Error(jsonRes.error);
 
@@ -248,6 +250,7 @@ async function runExtract(supabase) {
     .select('id, title, pub_date, feed_id, youtube_url')
     .not('youtube_url', 'is', null);
   if (ONE_EP) epQuery = epQuery.eq('id', ONE_EP);
+  if (SINCE) epQuery = epQuery.gte('pub_date', SINCE);
   epQuery = epQuery.order('pub_date', { ascending: false });
   const { data: episodes, error: epErr } = await epQuery;
   if (epErr) { console.error(`❌ load episodes: ${epErr.message}`); process.exit(1); }

@@ -16,7 +16,7 @@ $Cadences = @(
   @{ Cadence = "wednesday";    Name = "Wednesday";   At = @("Wednesday 09:00");                      LimitMin = 60; Why = "podcast/YouTube sweep (no Gemini), research intel + Twitter bookmarks (dry runs)" },
   @{ Cadence = "wednesday-pm"; Name = "WednesdayPM"; At = @("Wednesday 15:00");                      LimitMin = 30; Why = "first practice reports, projected starters, Kalshi/Polymarket + map + coherence, Alpha packet" },
   @{ Cadence = "thursday";     Name = "Thursday";    At = @("Thursday 14:30");                       LimitMin = 30; Why = "practice reports, market lines vs SuperContest (0 credits), TNF props intel" },
-  @{ Cadence = "friday";       Name = "Friday";      At = @("Friday 15:00");                         LimitMin = 30; Why = "final injury reports, starters, secondary matrix, Sunday props/SGPs, prediction markets, Alpha packet" },
+  @{ Cadence = "friday";       Name = "Friday";      At = @("Friday 15:00");                         LimitMin = 30; Why = "final injury reports, starters, secondary matrix, Sunday props/SGPs, current-week FTN stats context, prediction markets, Alpha packet" },
   @{ Cadence = "saturday";     Name = "Saturday";    At = @("Saturday 10:00");                       LimitMin = 20; Why = "official-pick inbox, CLV line check (0 credits), placed wagers -> Supabase bankroll mirror" },
   @{ Cadence = "sunday";       Name = "Sunday";      At = @("Sunday 08:30", "Sunday 11:45");    LimitMin = 20; Why = "inactives (early + late window) and live tracker build; no browser launch" },
   @{ Cadence = "monday";       Name = "Monday";      At = @("Monday 22:30");                         LimitMin = 15; Why = "settlement preview (dry run); weekly archive follows at 23:30" }

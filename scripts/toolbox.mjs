@@ -23,6 +23,7 @@ import { createInterface } from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { getNFLWeekInfo } from '../src/lib/constants.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -240,6 +241,7 @@ async function runCadence(day) {
       break;
 
     case 'friday':
+      const currentWeek = getNFLWeekInfo(new Date()).week;
       console.log(`${c.cyan}1. Final Friday Injury Reports & Practice Status...${c.reset}`);
       await run('node', ['scripts/build-player-availability.js', '--live-injuries']);
       console.log(`${c.cyan}2. Building Projected Starters...${c.reset}`);
@@ -248,13 +250,15 @@ async function runCadence(day) {
       await run('node', ['scripts/build-secondary-matchup-vulnerability.js']);
       console.log(`${c.cyan}4. Generating Sunday SGP Models & Curated Parlays...${c.reset}`);
       await run('node', ['scripts/build-player-props-intel.js']);
+      console.log(`${c.cyan}5. Building FTN Stats IQ weekly synthesis context (requires current-week browser CSV exports)...${c.reset}`);
+      await run('node', ['scripts/build-ftn-stats-weekly-context.js', '--week', String(currentWeek)]);
       // 2026-09-19: Kalshi/Polymarket were never refreshed by any cadence (feed sat at 09-13).
       // Runs before the Alpha packet, which reads data/prediction-markets/.
-      console.log(`${c.cyan}5. Refreshing Kalshi/Polymarket + Market Map + Coherence...${c.reset}`);
+      console.log(`${c.cyan}6. Refreshing Kalshi/Polymarket + Market Map + Coherence...${c.reset}`);
       await run('node', ['scripts/build-prediction-markets.js']);
       await run('node', ['scripts/build-prediction-market-map.js']);
       await run('node', ['scripts/build-cross-market-coherence.js']);
-      console.log(`${c.cyan}6. Compiling Alpha Data Packet...${c.reset}`);
+      console.log(`${c.cyan}7. Compiling Alpha Data Packet...${c.reset}`);
       await run('node', ['scripts/build-alpha-data-packet.js']);
       break;
 

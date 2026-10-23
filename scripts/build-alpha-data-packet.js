@@ -285,6 +285,7 @@ const buildTeamDashboards = ({
   predictionMarkets,
   recommendationsByTeam,
   officialPicksByTeam,
+  ftnStatsByTeam,
 }) => {
   const trainingTeams = trainingCamp.teams || {};
   const predictionTeams = Array.isArray(predictionMarkets.teams) ? predictionMarkets.teams : [];
@@ -313,6 +314,7 @@ const buildTeamDashboards = ({
       power_rating: powerRatings.get(normalized) || null,
       coaching_tendency: coaching.get(normalized) || null,
       regression_profile: regression.get(normalized) || null,
+      ftn_stats_context: ftnStatsByTeam.get(team.abbreviation) || null,
       prediction_market_context: predictionByTeam.get(normalized) || null,
       synthesized_recommendations: recommendationsByTeam.get(normalized) || [],
       official_paper_picks: officialPicksByTeam.get(normalized) || [],
@@ -374,10 +376,21 @@ export const buildAlphaDataPacket = async ({
   );
   const articleIntel = await requiredJson('data/research-intel/review/article-intel-review-latest.json', provenance, 'article_intel_review');
   const youtubeFuturesIntel = await requiredJson('data/shadow-harness/review/youtube-futures-agent-intel-summary.json', provenance, 'youtube_futures_intel_summary');
+  const ftnWeeklyContext = await optionalJson(
+    'data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json',
+    provenance,
+    'ftn_stats_weekly_context',
+  );
   const { snapshot: trainingCamp, sourcePath: trainingCampSourcePath } = await findRichestTrainingCampSnapshot(provenance);
 
   const recommendationsByTeam = groupByTeam(actionableRecommendations, (row) => row.team || row.selection);
   const officialPicksByTeam = groupByTeam(officialPaperLedger.picks || [], (row) => row.team || row.selection);
+  const ftnStatsByTeam = new Map(Object.entries(ftnWeeklyContext?.team_context || {}));
+  const ftnContextFreshness = !ftnWeeklyContext
+    ? 'missing_optional_context'
+    : Number(ftnWeeklyContext.week) === Number(currentWeek)
+      ? 'current_week_context'
+      : 'stale_or_wrong_week_context';
   const nflTeamDashboards = buildTeamDashboards({
     schedule,
     weeklyIntel,
@@ -390,6 +403,7 @@ export const buildAlphaDataPacket = async ({
     predictionMarkets,
     recommendationsByTeam,
     officialPicksByTeam,
+    ftnStatsByTeam,
   });
 
   const packet = {
@@ -433,6 +447,29 @@ export const buildAlphaDataPacket = async ({
       },
     },
     weekly_intel: weeklyIntel,
+    ftn_stats: ftnWeeklyContext ? {
+      schema: ftnWeeklyContext.schema,
+      generated_at: ftnWeeklyContext.generated_at,
+      season: ftnWeeklyContext.season,
+      season_type: ftnWeeklyContext.season_type,
+      source: ftnWeeklyContext.source,
+      status: ftnWeeklyContext.status,
+      freshness_status: ftnContextFreshness,
+      week: ftnWeeklyContext.week,
+      source_capture_started_at: ftnWeeklyContext.source_capture_started_at,
+      source_capture_completed_at: ftnWeeklyContext.source_capture_completed_at,
+      recommendation_status: ftnWeeklyContext.recommendation_status,
+      execution_authorized: false,
+      table_count: ftnWeeklyContext.table_count,
+      record_count: ftnWeeklyContext.record_count,
+      drafting_guidance: ftnWeeklyContext.drafting_guidance,
+      caveats: ftnWeeklyContext.caveats,
+    } : {
+      status: 'missing_optional_context',
+      freshness_status: ftnContextFreshness,
+      recommendation_status: 'not_available_not_recommendations',
+      execution_authorized: false,
+    },
     market_context: {
       recommendation_status: 'research_context_only_not_betting_execution',
       sportsbook_context: {

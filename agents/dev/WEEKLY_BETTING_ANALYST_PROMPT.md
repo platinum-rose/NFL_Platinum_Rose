@@ -8,7 +8,7 @@ scope:
     data/secondary-matchups/latest.json, data/prediction-markets/cross-market-coherence-latest.json,
     data/player-availability/latest.json, data/podcasts/actionable_betting_recommendations_2026.json,
     data/expert-tracking/expert-picks-registry-2026.json, data/supercontest/*.json, data/intel/*.json,
-    data/generated/team-profiles/team-dvoa-snapshots-*.json, data/generated/team-profiles/team-power-ratings-*.json,
+    data/generated/team-profiles/team-power-ratings-*.json,
     data/generated/team-profiles/team-coaching-tendency-snapshots-*.json, data/generated/team-profiles/team-regression-snapshots-*.json]
 docsOnly: true
 dataDependencies: [public/schedule.json, data/secondary-matchups/latest.json,
@@ -298,15 +298,16 @@ named expert pick, then prediction-market price, then board price alone (flagged
 >     plus the CLV-check tool in `src/lib/agentTools.js` (~line 825, compares this app's earliest-tracked odds
 >     against nflverse's true consensus close). Use post-mortem, or to judge whether a live line has already
 >     moved past fair value.
-> 12. **Team-profile snapshots (DVOA, power rating, coaching tendency, regression)** —
->     `data/generated/team-profiles/team-dvoa-snapshots-<season>.json`,
+> 12. **Team-profile snapshots (FTN analytics, power rating, coaching tendency, regression)** —
+>     `data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json`,
 >     `team-power-ratings-<season>.json`, `team-coaching-tendency-snapshots-<season>-w<week>.json`, and
 >     `team-regression-snapshots-<season>-w<week>.json`. Always use the file matching the CURRENT season (e.g.
 >     `-2026` / `-2026-w<N>`) — older `-2025`/`-2025-w18` files sitting alongside them are last season's final
 >     numbers and are not current-season signal. These are regenerated weekly (Tuesday, after MNF) via a
 >     scheduled task that re-pulls `data/vault-seed/nflverse/games.csv`/`team_stats.csv` and reruns
->     `scripts/build-{power-ratings,coaching-tendency-snapshots,regression-signals,team-analytics-snapshots,
->     dvoa-snapshots}.js`; if a file's season/week looks stale, that refresh may have failed — flag it rather
+>     `scripts/build-power-ratings.js`, `build-coaching-tendency-snapshots.js`,
+>     `build-regression-signals.js`, and `build-team-analytics-snapshots.js`; FTN context is rebuilt
+>     only from current-week rendered FTN CSV exports. If a file's season/week looks stale, flag it rather
 >     than trusting an old snapshot. (The bundled `data/alpha/alpha-packet-2026.json` is a point-in-time,
 >     offline snapshot built for alpha testers — not a dependable or current source for anything, including
 >     these team profiles; use the files above directly instead.)

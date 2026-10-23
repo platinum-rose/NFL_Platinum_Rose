@@ -4,7 +4,7 @@ description: Use whenever the user asks for a resume prompt to hand to another s
 ---
 
 Treat this as a fresh Session Start, not a continuation. Read `HANDOFF.md`, reconcile
-live Git (`git status -sb`, branch, and recent log), and identify the active lane.
+live Git with the fast check (`git rev-parse --short HEAD` with a 20 s timeout, plus branch; full `git status -sb` only before committing, it takes 2+ minutes on this checkout), and identify the active lane.
 
 For a standard handoff, name only the one dated handoff needed for that lane. For H2C2,
 start with the packet's `H2C2_START_HERE.md`, then route to the relevant lane section;

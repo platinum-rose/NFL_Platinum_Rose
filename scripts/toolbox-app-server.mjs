@@ -102,18 +102,20 @@ export const DELIVERABLES_CONFIG = {
   },
   friday: {
     day: 'friday',
-    title: 'Friday • Starters, Secondary & Alpha Packet',
-    objective: 'Final Friday injury designations, projected depth chart starters, secondary vulnerability matrix, and compile Alpha Packet.',
+    title: 'Friday • Starters, Secondary, FTN Context & Alpha Packet',
+    objective: 'Final Friday injury designations, projected depth chart starters, secondary vulnerability matrix, current-week FTN stats context, and compile Alpha Packet.',
     pipelineTask: 'friday',
     deliverables: [
       { key: 'starters', name: 'Projected Starters (2026)', path: 'data/projected-starters/2026/latest.json', maxAgeHours: 36 },
       { key: 'secondary', name: 'Secondary Matchup Vulnerability', path: 'data/secondary-matchups/latest.json', maxAgeHours: 36 },
+      { key: 'ftn-stats', name: 'FTN Stats IQ Weekly Context', path: 'data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json', maxAgeHours: 36 },
       { key: 'alpha', name: 'Master Alpha Data Packet', path: 'public/alpha/alpha-packet-2026.json', maxAgeHours: 36 }
     ],
     subtasks: [
       { key: 'friday-injuries', name: 'Final Injury Reports', desc: 'Official game designations' },
       { key: 'friday-starters', name: 'Build Projected Starters', desc: 'Offense & defense depth' },
       { key: 'friday-secondary', name: 'Secondary Vulnerability', desc: 'Coverage vs WR matchups' },
+      { key: 'friday-ftn-stats', name: 'Build FTN Stats Context', desc: 'Requires all current-week in-session FTN CSV exports' },
       { key: 'friday-alpha', name: 'Compile Alpha Data Packet', desc: 'Unified master packet' }
     ]
   },
@@ -295,13 +297,13 @@ const DIAGNOSTIC_FILE_SOURCES = [
     runTask: 'friday-starters'
   },
   {
-    key: 'dvoa',
-    label: 'Advanced Team Metrics (DVOA)',
-    detail: 'Efficiency ratings for every team, used to sanity-check spreads and totals against a second opinion.',
-    path: 'data/generated/team-profiles/team-dvoa-snapshots-2026.json',
-    maxAgeHours: 240,
+    key: 'ftn_team_analytics',
+    label: 'FTN Team Analytics',
+    detail: 'Current-season offense, defense, efficiency, pace, and unit DVOA context from the verified FTN export set.',
+    path: 'data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json',
+    maxAgeHours: 36,
     group: 'Game & Player Data',
-    runTask: 'dvoa-refresh'
+    runTask: 'friday-ftn-stats'
   },
   {
     key: 'prediction_markets',
@@ -901,6 +903,10 @@ export function runTask(taskKey) {
       cmd = 'node';
       args = ['scripts/build-secondary-matchup-vulnerability.js'];
       break;
+    case 'friday-ftn-stats':
+      cmd = 'npm.cmd';
+      args = ['run', 'ftn:weekly-context'];
+      break;
     case 'friday-alpha':
       cmd = 'node';
       args = ['scripts/build-alpha-data-packet.js'];
@@ -949,8 +955,10 @@ export function runTask(taskKey) {
       args = ['agents/betting-splits-ingest.js'];
       break;
     case 'dvoa-refresh':
-      cmd = 'node';
-      args = ['scripts/build-dvoa-snapshots.js', '--season', '2026'];
+      // Legacy task id retained for existing toolbar links. The DVOA-shaped
+      // snapshot lane is retired; this rebuilds the current FTN context only.
+      cmd = 'npm.cmd';
+      args = ['run', 'ftn:weekly-context'];
       break;
     case 'prediction-markets-refresh':
       cmd = 'node';

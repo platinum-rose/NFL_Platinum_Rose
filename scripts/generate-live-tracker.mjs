@@ -120,7 +120,7 @@ function legDirection(leg) {
 // ESPN "Kyle Pitts Sr." vs ticket "Kyle Pitts"). Strips accents, punctuation and trailing
 // generational suffixes (Jr, Sr, II, III, IV, V) so "Pitts Sr." and "Pitts" share one key.
 function playerNameKey(name) {
-  return String(name || '')
+  const key = String(name || '')
     .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .replace(/[\u2018\u2019'`.,]/g, '')
@@ -128,6 +128,10 @@ function playerNameKey(name) {
     .replace(/\s+/g, ' ').trim()
     .replace(/(?:\s(?:jr|sr|ii|iii|iv|v))+$/, '')
     .trim();
+  // Ticket/book full legal names -> the name ESPN's box score uses. Kept inside the function body
+  // because playerNameKey.toString() is injected into the client script. Add new pairs here.
+  const PLAYER_NAME_ALIASES = { 'chigoziem okonkwo': 'chig okonkwo' };
+  return PLAYER_NAME_ALIASES[key] || key;
 }
 
 function ftdNormName(s) {
@@ -416,6 +420,17 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
   const rawWagers = await readFile(WAGERS_PATH, 'utf8');
   const allWagers = JSON.parse(rawWagers);
   const wagers = allWagers.filter(w => (w.week === week || !w.week) && w.game !== 'NFL Futures');
+  // SGP-paired game-line legs are stored as sgp_spread / sgp_total / sgp_moneyline (to keep the
+  // pair label), but the live grader only understands spread / total / moneyline, so those legs
+  // never got a live projection. Normalize in memory only; the ledger keeps the sgp_ names.
+  for (const w of wagers) {
+    for (const l of (w.legs || [])) {
+      if (typeof l.market === 'string' && /^sgp_(spread|total|moneyline)$/i.test(l.market)) {
+        l.sgp_market = l.market;
+        l.market = l.market.slice(4).toLowerCase();
+      }
+    }
+  }
   try {
     const untrackable = validateWagers(wagers);
     for (const u of untrackable) {
@@ -504,6 +519,21 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     return '';
   }
 
+  // Cross-week guard: a leg carrying its own game_start date (e.g. a Week 7 leg on a Week 6 ticket)
+  // must never be matched, via the team-only fallbacks below, to a different week's game for the same team.
+  function legGameDateKey(leg) {
+    const m = String((leg && leg.game_start) || '').match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+    return m ? m[3] + '-' + m[1].padStart(2, '0') + '-' + m[2].padStart(2, '0') : null;
+  }
+  function fallbackGameDateOk(leg, g) {
+    const want = legGameDateKey(leg);
+    if (!want || !g || !g.kickoff_utc) return true;
+    const d = new Date(g.kickoff_utc);
+    if (isNaN(d.getTime())) return true;
+    const have = d.toLocaleDateString('en-CA', { timeZone: 'America/Los_Angeles' });
+    return Math.abs(new Date(want + 'T12:00:00Z') - new Date(have + 'T12:00:00Z')) <= 36 * 3600 * 1000;
+  }
+
   function findScheduleGameForLeg(leg, schedList) {
     if (leg.game) {
       const parts = leg.game.split(/\s*[@vV][sS]?\.?\s*/);
@@ -524,17 +554,17 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
         (normalizeTeam(g.visitor) === t1 && normalizeTeam(g.home) === t2) ||
         (normalizeTeam(g.visitor) === t2 && normalizeTeam(g.home) === t1)
       );
-      if (match) return match;
+      if (match && fallbackGameDateOk(leg, match)) return match;
     }
     if (leg.team) {
       const t = normalizeTeam(leg.team);
-      const match = schedList.find(g => normalizeTeam(g.visitor) === t || normalizeTeam(g.home) === t);
+      const match = schedList.find(g => (normalizeTeam(g.visitor) === t || normalizeTeam(g.home) === t) && fallbackGameDateOk(leg, g));
       if (match) return match;
     }
     if (leg.selection) {
       for (const [key, abbr] of Object.entries(TEAM_MAP)) {
         if (key.length >= 3 && new RegExp('\\b' + key + '\\b', 'i').test(leg.selection)) {
-          const match = schedList.find(g => normalizeTeam(g.visitor) === abbr || normalizeTeam(g.home) === abbr);
+          const match = schedList.find(g => (normalizeTeam(g.visitor) === abbr || normalizeTeam(g.home) === abbr) && fallbackGameDateOk(leg, g));
           if (match) return match;
         }
       }
@@ -1672,6 +1702,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                     ? `<span class="badge badge-paper" title="Not placed. Imaginary money, excluded from all totals.">📝 PAPER · IMAGINARY $${(bet.stake_usd ?? 0).toFixed(0)} · NOT PLACED</span>`
                     : `<span class="badge ${isPromo ? 'badge-promo' : 'badge-cash'}">${isPromo ? '$0 CASH (PROMO)' : 'CASH'}</span>`}
                   ${bet.ticket_type?.includes('Open') ? '<span class="badge badge-open">OPEN PARLAY</span>' : ''}
+                  ${(() => { const n = (bet.legs || []).filter(l => (l.market === 'open_slot' || l.status === 'OPEN')).length; return (n && bet.status !== 'SETTLED') ? `<span class="badge badge-decision" title="This ticket still has open spots to fill with picks">⚠️ DECISION NEEDED · ${n} OPEN SPOT${n > 1 ? 'S' : ''}</span>` : ''; })()}
                   <span class="badge badge-cash" id="badge-split-${bet.id}" style="display:none;">🤝 50/50 SPLIT</span>
                   <span class="cashed-badge"${cashedBadgeStyle ? ` style="${cashedBadgeStyle}"` : ''}>CASHED</span>
                   <span class="burnt-badge"${burntBadgeStyle ? ` style="${burntBadgeStyle}"` : ''}>BURNT</span>
@@ -1746,7 +1777,7 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
                 if (isOpenSlot) {
                   initialPacingClass = 'pace-open-slot';
                   initialBadgeClass = 'badge-pacing-open-slot';
-                  initialBadgeText = '⬜ Open Slot';
+                  initialBadgeText = '⚠️ DECISION NEEDED';
                 } else if (isWon) {
                   initialPacingClass = 'pace-green pace-hit';
                   initialBadgeClass = 'badge-pacing-won';
@@ -3176,13 +3207,17 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
     }
     .leg-item.leg-out .leg-icon { color: #8B5CF6 !important; }
     .leg-item.leg-open-slot {
-      border-color: #334155 !important;
-      background: rgba(100, 116, 139, 0.06) !important;
-      opacity: 0.65;
+      border-color: #F59E0B !important;
+      border-left: 4px solid #F59E0B !important;
+      background: rgba(245, 158, 11, 0.10) !important;
       cursor: default;
     }
-    .leg-item.leg-open-slot:hover { background: rgba(100, 116, 139, 0.06) !important; }
-    .leg-item.leg-open-slot .leg-icon { color: #64748B !important; }
+    .leg-item.leg-open-slot:hover { background: rgba(245, 158, 11, 0.14) !important; }
+    .leg-item.leg-open-slot .leg-icon { color: #F59E0B !important; }
+    .badge-decision { background: #78350F; color: #FDE68A; border: 1px solid #F59E0B; font-weight: 800; }
+    .decision-banner { margin: 0 0 12px; padding: 10px 14px; background: rgba(245, 158, 11, 0.12); border: 1px solid #F59E0B; border-left: 5px solid #F59E0B; border-radius: 8px; color: #FDE68A; font-size: 0.82rem; }
+    .decision-banner b { color: #FBBF24; }
+    .decision-banner ul { margin: 6px 0 0 18px; padding: 0; }
 
     .btn-leg-burn {
       background: #1E293B;
@@ -3393,10 +3428,10 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
       font-weight: 800;
     }
     .badge-pacing-open-slot {
-      background: rgba(100, 116, 139, 0.15);
-      color: #94A3B8;
-      border: 1px solid #475569;
-      font-style: italic;
+      background: rgba(245, 158, 11, 0.18);
+      color: #FDE68A;
+      border: 1px solid #F59E0B;
+      font-weight: 800;
     }
 
     @keyframes pulseRisk {
@@ -3731,6 +3766,11 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
 
       <!-- TAB 1: TICKETS VIEW (3 CARDS WIDE) -->
       <div id="tab-tickets-wrap">
+        ${(() => {
+          const openTix = liveWagers.map(w => ({ w, n: (w.legs || []).filter(l => (l.market === 'open_slot' || l.status === 'OPEN')).length })).filter(x => x.n > 0);
+          if (!openTix.length) return '';
+          return `<div class="decision-banner"><b>⚠️ ${openTix.reduce((a, x) => a + x.n, 0)} open spot(s) need a decision</b> across ${openTix.length} ticket(s):<ul>${openTix.map(x => `<li>${escapeHtml(x.w.game_title || x.w.game)} (${escapeHtml(x.w.book || '')}${x.w.ticket_number ? ' #' + escapeHtml(String(x.w.ticket_number)) : ''}) — ${x.n} open spot${x.n > 1 ? 's' : ''}</li>`).join('')}</ul></div>`;
+        })()}
         <div class="filter-bar">
           <span>Filter Wagers:</span>
           <button type="button" id="btn-live-only" aria-pressed="false" title="Show only open tickets: hides the Game Board, ledger, Cashed, Imaginary and Burnt sections">🎯 Live only</button>
@@ -7592,6 +7632,18 @@ export async function generateLiveTracker({ week = DEFAULT_WEEK, outPaths = [DEF
             const t2 = normalizeClientTeam(parts[1]);
             ev = eventMap[t1 + '_' + t2] || eventMap[t1] || eventMap[t2];
           }
+        }
+
+        // Cross-week guard: eventMap is keyed by team, so a Week 7 leg (e.g. CHI vs NE) used to pick up
+        // that team's Week 6 game (CHI @ ATL, final) and grade as Hit/Failed. The event must contain
+        // BOTH teams named by the leg's game label (or team + opponent); otherwise treat as pre-game.
+        if (ev) {
+          const evTeams = [normalizeClientTeam(ev.homeAbbr), normalizeClientTeam(ev.awayAbbr)];
+          let wantTeams = [];
+          const gParts = rawGame.split(/\s*@\s*|\s+vs\.?\s+/i);
+          if (gParts.length === 2) wantTeams = [normalizeClientTeam(gParts[0]), normalizeClientTeam(gParts[1])];
+          else if (rawTeam && rawOpp) wantTeams = [rawTeam, rawOpp];
+          if (wantTeams.length === 2 && wantTeams.some(t => t && !evTeams.includes(t))) ev = null;
         }
 
         // Pre-game or missing event

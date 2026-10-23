@@ -112,7 +112,7 @@ $TasksConfig = @(
     @{
         Name        = "NFL_Dashboard_Toolbox_Friday"
         Script      = "toolbox-friday.cmd"
-        Description = "toolbox --cadence friday (see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-friday.log"
+        Description = "toolbox --cadence friday (includes current-week FTN stats context after manual browser exports; see scripts/windows/register-toolbox-cadence-tasks.ps1). Log: logs\toolbox-friday.log"
         Type        = "Weekly"
         WeeklyAt    = ,@("Friday", "15:00")
         LimitMin    = 30

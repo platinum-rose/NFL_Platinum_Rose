@@ -8,19 +8,21 @@ import publishedWeek1Data from '../../data/supercontest/week-01-lines.json';
 import publishedWeek2Data from '../../data/supercontest/week-02-lines.json';
 import publishedWeek3Data from '../../data/supercontest/week-03-lines.json';
 import publishedWeek4Data from '../../data/supercontest/week-04-lines.json';
+import publishedWeek5Data from '../../data/supercontest/week-05-lines.json';
 import liveMarketComparison from '../../data/supercontest/live-market-comparison.json';
 // Bookmaker (BKR) "current line" snapshots, pasted by Andy. When a week has one, it
 // drives the Current Line / Movement / total columns instead of the DraftKings feed.
 import bkrCurrentWeek2 from '../../data/supercontest/bkr-current-lines-week-02.json';
+import bkrCurrentWeek5 from '../../data/supercontest/bkr-current-lines-week-05.json';
 import { PR_STORAGE_KEYS } from './storage.js';
 
 export const WATCHLIST_STORAGE_KEY = PR_STORAGE_KEYS.SUPERCONTEST_WATCHLIST?.key || 'nfl_supercontest_watchlist_v1';
 export const SUNDAY_TRACKER_SC_KEY_PREFIX = 'sunday_supercontest_picks_week_';
 
 /** Wednesday-published contest lines by week. Add each new week's week-NN-lines.json here. */
-const PUBLISHED_LINES_BY_WEEK = { 1: publishedWeek1Data, 2: publishedWeek2Data, 3: publishedWeek3Data, 4: publishedWeek4Data };
+const PUBLISHED_LINES_BY_WEEK = { 1: publishedWeek1Data, 2: publishedWeek2Data, 3: publishedWeek3Data, 4: publishedWeek4Data, 5: publishedWeek5Data };
 
-export const BKR_CURRENT_LINES_BY_WEEK = { 2: bkrCurrentWeek2 };
+export const BKR_CURRENT_LINES_BY_WEEK = { 2: bkrCurrentWeek2, 5: bkrCurrentWeek5 };
 // Older weeks stay in PUBLISHED_LINES_BY_WEEK for lookups/grading only. The dashboard shows ONLY the
 // current week (Andy, 2026-10-02): the newest week that has a published week-NN-lines.json.
 const ALL_PUBLISHED_WEEKS = Object.keys(PUBLISHED_LINES_BY_WEEK).map(Number).sort((a, b) => a - b);
@@ -68,7 +70,21 @@ export const SC_WEEK2_RECOMMENDED_PICKS = {
   'BUF': 'BUF', 'DET': 'BUF'  // TNF final
 };
 
-const RECOMMENDED_PICKS_BY_WEEK = { 1: SC_WEEK1_RECOMMENDED_PICKS, 2: SC_WEEK2_RECOMMENDED_PICKS };
+/** Week 5 card (Opus verified synthesis, 2026-10-10) -- see reports/bets/2026-w05-opus-decision-support.md */
+export const SC_WEEK5_RECOMMENDED_PICKS = {
+  'JAX': 'JAX', 'PHI': 'JAX', // Jaguars -7.5 (#1 Pick)
+  'MIN': 'MIN', 'NO': 'MIN',  // Vikings -2.5 (#2 Pick)
+  'SF': 'SF', 'SEA': 'SF',    // 49ers +3.0 (#3 Pick)
+  'LV': 'LV', 'NE': 'LV',     // Raiders +3.5 (#4 Pick)
+  'TEN': 'TEN', 'HOU': 'TEN', // Titans +7.5 (#5 Pick)
+  'LAR': 'LAR', 'BUF': 'LAR', // Rams -3.0 (#6 Alternate)
+  'CIN': 'CIN', 'MIA': 'CIN', // Bengals -7.0 (#7 Alternate)
+  'PIT': 'PIT', 'IND': 'PIT', // Steelers -2.5 (#8 Alternate)
+  'DEN': 'DEN', 'LAC': 'DEN', // Broncos -3.5 (#9 Alternate)
+  'ARI': 'ARI', 'DET': 'ARI'  // Cardinals +5.5 (#10 Alternate)
+};
+
+const RECOMMENDED_PICKS_BY_WEEK = { 1: SC_WEEK1_RECOMMENDED_PICKS, 2: SC_WEEK2_RECOMMENDED_PICKS, 5: SC_WEEK5_RECOMMENDED_PICKS };
 
 export const SUNDAY_TRACKER_LOCKED_CARD_PREFIX = 'sunday_supercontest_locked_card_week_';
 

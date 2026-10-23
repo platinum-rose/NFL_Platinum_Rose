@@ -251,7 +251,8 @@ def extract_youtube(url, meta, max_retries=0, retry_delay_seconds=20):
             break
         except Exception as exc:
             last_error = exc
-            retryable = "503" in str(exc) or "UNAVAILABLE" in str(exc).upper()
+            err_str = str(exc).upper()
+            retryable = any(code in err_str for code in ["503", "500", "UNAVAILABLE", "INTERNAL", "RESOURCE_EXHAUSTED"])
             if not retryable or attempt >= max_retries:
                 raise
             delay = retry_delay_seconds * (attempt + 1)

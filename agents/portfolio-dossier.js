@@ -1044,53 +1044,12 @@ async function fetchAdvancedAnalytics() {
   }));
 }
 async function fetchDvoaSnapshots() {
-  // 2026-09-10 fix (Round 9 v8 step 5, Phase 3): .limit(2000) silently
-  // truncated once this table's season rows exceeded 2000 -- migrated to
-  // fetchAllRows() (exhaustive keyset pagination). Safe now that Phase 2
-  // made latestByTeam()'s reduction explicit-comparison-based rather than
-  // delivery-order-dependent, so fetchAllRows()'s PK-ascending order (NOT
-  // snapshot_at order) no longer matters here.
-  let data, error;
-  try {
-    data = await fetchAllRows('fetchDvoaSnapshots', {
-      sb, table: 'team_dvoa_snapshots', select: 'id, season, week, team, source_key, source_name, source_url, snapshot_at, games_played, overall_dvoa, overall_dvoa_rank, offensive_dvoa, offensive_dvoa_rank, defensive_dvoa, defensive_dvoa_rank, special_teams_dvoa, special_teams_dvoa_rank, weighted_dvoa, weighted_dvoa_rank, attribution_note',
-      filters: [{ column: 'season', op: 'eq', value: SEASON }],
-    });
-  } catch (e) { error = e; }
-  if (error) {
-    console.warn(`   team_dvoa_snapshots unavailable: ${error.message} - DVOA disabled`);
-    const localRows = await loadGeneratedProfileRows('team-dvoa-snapshots-');
-    if (localRows.length) console.warn(`   using ${localRows.length} local generated DVOA row(s)`);
-    return latestByTeam(localRows, (r) => r, { fromLocalFallback: true });
-  }
-  if (!(data || []).length) {
-    const localRows = await loadGeneratedProfileRows('team-dvoa-snapshots-');
-    if (localRows.length) console.warn(`   using ${localRows.length} local generated DVOA row(s)`);
-    return latestByTeam(localRows, (r) => r, { fromLocalFallback: true });
-  }
-  return latestByTeam(data, (r) => ({
-    season: r.season ?? null,
-    week: r.week ?? null,
-    source_key: r.source_key ?? null,
-    source_name: r.source_name ?? null,
-    source_url: r.source_url ?? null,
-    snapshot_at: r.snapshot_at ?? null,
-    games_played: r.games_played ?? null,
-    overall_dvoa: r.overall_dvoa ?? null,
-    overall_dvoa_rank: r.overall_dvoa_rank ?? null,
-    offensive_dvoa: r.offensive_dvoa ?? null,
-    offensive_dvoa_rank: r.offensive_dvoa_rank ?? null,
-    defensive_dvoa: r.defensive_dvoa ?? null,
-    defensive_dvoa_rank: r.defensive_dvoa_rank ?? null,
-    special_teams_dvoa: r.special_teams_dvoa ?? null,
-    special_teams_dvoa_rank: r.special_teams_dvoa_rank ?? null,
-    weighted_dvoa: r.weighted_dvoa ?? null,
-    weighted_dvoa_rank: r.weighted_dvoa_rank ?? null,
-    attribution_note: r.attribution_note ?? null,
-    is_current_season: true,
-    seasons_behind: 0,
-    staleness_note: null,
-  }));
+  // Retired 2026-10-10: a DVOA-shaped ESPN FPI import and its prior-season
+  // fallback are not valid current-week signal. Synthesis now relies on the
+  // attributable, season-to-date FTN offense/defense efficiency, passing,
+  // rushing, and DVOA fields. Historic DVOA records remain archival only.
+  console.warn('   DVOA snapshot lane retired for current-season synthesis; using FTN team analytics instead');
+  return {};
 }
 async function fetchCoachingProfiles() {
   // 2026-09-10 fix (Round 9 v8 step 5, Phase 3): .limit(2000) silently
