@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "The Honey Badgers — Week 4"
-created: "2026-10-06T19:27:53.806Z"
-modified: "2026-10-06T19:27:53.806Z"
+created: "2026-10-08T13:00:48.651Z"
+modified: "2026-10-08T13:00:48.651Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"
@@ -26,27 +26,27 @@ my_rank: 9
 |---|---|---|---|---|---|---|
 | Olivators | 188.98 | 129.3 | vs | JRZ | 154.9 | 131.19 |
 | CopperTheBigRedDog | 179.37 | 129.61 | vs | Unicorn Love | 143.2 | 123.18 |
-| Dolphin Boobiez | 137.37 | 148.23 | vs | Comfy In Chair | 133.11 | 141.2 |
+| Dolphin Boobiez | 135.87 | 148.23 | vs | Comfy In Chair | 133.11 | 141.2 |
 | Fat Lazy Americans | 109.51 | 129.86 | vs | The Curious Case of Cookus | 130.77 | 135.32 |
-| Jesus take the wheel | 80.74 | 118.21 | vs | Kryponite | 107.4 | 105.18 |
+| Jesus take the wheel | 79.99 | 118.21 | vs | Kryponite | 107.4 | 105.18 |
 | My Balls Are Afoot | 155.62 | 133.16 | vs | The Trophy Wives | 129.43 | 131.14 |
 
 ## Standings
 
 | Rank | Team | W-L-T | PF | PA |
 |---|---|---|---|---|
-| 1 | Dolphin Boobiez | 4-0-0 | 640.41 | 529.95 |
+| 1 | Dolphin Boobiez | 4-0-0 | 638.91 | 529.95 |
 | 2 | The Curious Case of Cookus | 4-0-0 | 604.23 | 450.46 |
 | 3 | CopperTheBigRedDog | 3-1-0 | 646.77 | 547.65 |
 | 4 | Olivators | 2-2-0 | 623.64 | 633.2099999999999 |
 | 5 | My Balls Are Afoot | 2-2-0 | 573.49 | 607.66 |
-| 6 | Comfy In Chair | 2-2-0 | 555.06 | 548.27 |
+| 6 | Comfy In Chair | 2-2-0 | 555.06 | 546.77 |
 | 7 | The Trophy Wives | 2-2-0 | 534.51 | 510.09000000000003 |
 | 8 | JRZ | 1-3-0 | 544.48 | 601.38 |
 | 9 | **Fat Lazy Americans** | 1-3-0 | 507.68 | 564.84 |
 | 10 | Unicorn Love | 1-3-0 | 485.24 | 564.08 |
-| 11 | Jesus take the wheel | 1-3-0 | 431.47 | 548.03 |
-| 12 | Kryponite | 1-3-0 | 430.1 | 471.46000000000004 |
+| 11 | Jesus take the wheel | 1-3-0 | 430.72 | 548.03 |
+| 12 | Kryponite | 1-3-0 | 430.1 | 470.71000000000004 |
 
 ## My lineup (Fat Lazy Americans)
 

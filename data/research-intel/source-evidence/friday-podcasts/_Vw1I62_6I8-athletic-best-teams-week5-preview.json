@@ -1,0 +1,238 @@
+{
+  "model": "gemini-3.5-flash",
+  "mode": "youtube_video_url",
+  "youtube_url": "https://www.youtube.com/watch?v=_Vw1I62_6I8",
+  "latency_ms": 240157,
+  "estimated_cost_usd": 0.04613,
+  "input_tokens": 451377,
+  "output_tokens": 2481,
+  "raw_model_response": "{\n  \"transcript_summary\": \"Hosts Robert Mays, Dave Helman, and Derrik Klassen preview Week 5 of the NFL season, analyzing marquee matchups including 49ers-Seahawks and Bills-Rams. They also discuss the critical state of the Philadelphia Eagles following key roster departures and injury concerns.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1279,\n    \"last_analyzed_timestamp\": 1279,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 11.0,\n      \"speaker\": \"Robert Mays\",\n      \"text\": \"[Intro Music]\"\n    },\n    {\n      \"start\": 11.0,\n      \"end\": 71.0,\n      \"speaker\": \"Robert Mays\",\n      \"text\": \"It's the week five preview, a lot of good stuff to dig into today. We've got two games of the week, a couple of other newsy bits, including some surprising coaching changes and injuries.\"\n    },\n    {\n      \"start\": 71.0,\n      \"end\": 572.0,\n      \"speaker\": \"Robert Mays\",\n      \"text\": \"Let's dig into our first game of the week here: Niners at Seahawks. Really looking forward to this one. There's a lot of interesting matchups, especially with the physicality of the Niners' interior line and Mike Macdonald's defensive scheme.\"\n    },\n    {\n      \"start\": 572.0,\n      \"end\": 707.0,\n      \"speaker\": \"Dave Helman\",\n      \"text\": \"The Philadelphia Eagles are entering the danger zone. With Lane Johnson's sudden retirement and Cam Jurgens being traded, this team is undergoing a major transition under high-pressure circumstances.\"\n    },\n    {\n      \"start\": 707.0,\n      \"end\": 894.0,\n      \"speaker\": \"Robert Mays\",\n      \"text\": \"Let's move on to Bills at Rams on Monday Night Football. This was a very popular Super Bowl matchup prediction before the season, and it features a fascinating battle between two potent offenses.\"\n    },\n    {\n      \"start\": 894.0,\n      \"end\": 1111.0,\n      \"speaker\": \"Robert Mays\",\n      \"text\": \"Can you stop the run for the Ravens against the Falcons? Atlanta's run game has been absolutely lethal, while Baltimore's run defense is adjusting to different front alignments.\"\n    },\n    {\n      \"start\": 1111.0,\n      \"end\": 1193.0,\n      \"speaker\": \"Derrik Klassen\",\n      \"text\": \"Bears vs Packers is always a physical matchup, and I want to see how Green Bay's offense executes their downfield passing game under pressure.\"\n    },\n    {\n      \"start\": 1193.0,\n      \"end\": 1266.0,\n      \"speaker\": \"Dave Helman\",\n      \"text\": \"I want to know if the Minnesota Vikings can show me anything on offense against the Saints. They've struggled heavily to score points through the first month of the season.\"\n    },\n    {\n      \"start\": 1266.0,\n      \"end\": 1279.0,\n      \"speaker\": \"Robert Mays\",\n      \"text\": \"That's all we got for the Week 5 preview. Make sure to subscribe on YouTube and follow us on your favorite podcast platform. We'll talk to you soon.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"PHI\",\n      \"player\": null,\n      \"market\": \"make_playoffs\",\n      \"side\": \"NO\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": null,\n      \"speaker\": \"Robert Mays\",\n      \"source_timestamp\": 604,\n      \"rationale\": \"Mays believes the offense is unwatchable and the defense, while fine, is not season-changing. He projects them to win around 7 games and pick in the top 10 of the draft.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Derrik Klassen\",\n      \"source_timestamp\": 974,\n      \"rationale\": \"Klassen explicitly states he would pick the Falcons to win if Lamar Jackson is unable to play for the Ravens due to his ankle injury.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\n        \"DEN\"\n      ],\n      \"players\": [\n        \"Sean Payton\",\n        \"Davis Webb\"\n      ],\n      \"topic\": \"Sean Payton reclaiming playcalling duties\",\n      \"summary\": \"The hosts note that Sean Payton has taken back playcalling responsibilities from offensive coordinator Davis Webb less than a month into the season, ending a very short-lived experiment.\",\n      \"speaker\": \"Derrik Klassen\",\n      \"source_timestamp\": 32,\n      \"quote\": \"Does Sean Payton taking back playcalling count as surprising news?\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\n        \"SF\",\n        \"SEA\"\n      ],\n      \"players\": [],\n      \"topic\": \"Mike Macdonald's schematic success against Kyle Shanahan\",\n      \"summary\": \"Seahawks head coach Mike Macdonald historically has had success scheming against Kyle Shanahan's offense, which presents a major schematic obstacle for the 49ers.\",\n      \"speaker\": \"Dave Helman\",\n      \"source_timestamp\": 106,\n      \"quote\": \"By the end of the year, you were like, 'Oh man, Mike Macdonald's got Kyle Shanahan's number, doesn't he?'\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\n        \"SF\"\n      ],\n      \"players\": [\n        \"Connor Colby\",\n        \"Dominic Puni\",\n        \"Kyle Juszczyk\"\n      ],\n      \"topic\": \"Physicality of the 49ers' interior offensive line\",\n      \"summary\": \"The 49ers' interior offensive line, featuring Colby and Puni, is playing with a much higher level of physicality than in previous years, which will be crucial with fullback Kyle Juszczyk sidelined.\",\n      \"speaker\": \"Dave Helman\",\n      \"source_timestamp\": 353,\n      \"quote\": \"I think you've just felt a different level of physicality from the interior for the Niners this year than we've become accustomed to.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"BUF\"\n      ],\n      \"players\": [\n        \"Deone Walker\",\n        \"Ed Oliver\",\n        \"Landen Jackson\"\n      ],\n      \"topic\": \"Dominance of the Bills' defensive front\",\n      \"summary\": \"Derrik Klassen highlights the Bills' defensive line as playing out of their minds, collapsing pockets and setting edges at an elite level.\",\n      \"speaker\": \"Derrik Klassen\",\n      \"source_timestamp\": 832,\n      \"quote\": \"I think the front is playing out of their mind... Dion Walker, Ed Oliver... Landen Jackson...\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\n        \"LAR\"\n      ],\n      \"players\": [\n        \"Matthew Stafford\"\n      ],\n      \"topic\": \"Rams' pass protection breakdowns and Stafford's interceptions\",\n      \"summary\": \"Stafford has thrown 6 interceptions in 4 games primarily due to severe pass protection breakdowns in pure dropback situations, where he is unable to move and escape pressure.\",\n      \"speaker\": \"Derrik Klassen\",\n      \"source_timestamp\": 912,\n      \"quote\": \"Stafford struggle in pure pass protection... he's going to stand on his spot and if he's crowded he's going to throw it...\",\n      \"confidence\": \"implied\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\n        \"PHI\"\n      ],\n      \"players\": [\n        \"Lane Johnson\",\n        \"Cam Jurgens\",\n        \"Jordan Mailata\"\n      ],\n      \"topic\": \"Eagles' offensive line transition concerns\",\n      \"summary\": \"With Lane Johnson retiring and Cam Jurgens traded, the Eagles' line is severely depleted, leaving Jordan Mailata as the lone stabilizer from their elite championship-caliber core.\",\n      \"speaker\": \"Dave Helman\",\n      \"source_timestamp\": 1193,\n      \"quote\": \"This is a team that was already on life support... Lane Johnson's gone, Jason Kelce is gone, Landon Dickerson is hurt...\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"MIN\"\n      ],\n      \"players\": [\n        \"Justin Jefferson\"\n      ],\n      \"topic\": \"Vikings' offensive output desperation\",\n      \"summary\": \"Dave Helman emphasizes that the Vikings' offense has been historically unproductive for a 4-0 team, scoring only 86 points through four weeks, and desperately needs to show signs of life against the Saints.\",\n      \"speaker\": \"Dave Helman\",\n      \"source_timestamp\": 1193,\n      \"quote\": \"I just need the Vikings to do anything on offense... score a touchdown.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Eagles miss playoffs\",\n      \"timestamp\": 604,\n      \"speaker\": \"Robert Mays\",\n      \"quote\": \"I would be more apt to bet on the Eagles to have a top 10 pick than I would be for them to be a playoff team.\"\n    },\n    {\n      \"topic\": \"Falcons pick\",\n      \"timestamp\": 974,\n      \"speaker\": \"Derrik Klassen\",\n      \"quote\": \"I'd pick them if Lamar's not playing.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+  "parsed_json": {
+    "transcript_summary": "Hosts Robert Mays, Dave Helman, and Derrik Klassen preview Week 5 of the NFL season, analyzing marquee matchups including 49ers-Seahawks and Bills-Rams. They also discuss the critical state of the Philadelphia Eagles following key roster departures and injury concerns.",
+    "coverage_check": {
+      "video_duration_seconds": 1279,
+      "last_analyzed_timestamp": 1279,
+      "reached_end_of_video": true
+    },
+    "speaker_segments": [
+      {
+        "start": 0.0,
+        "end": 11.0,
+        "speaker": "Robert Mays",
+        "text": "[Intro Music]"
+      },
+      {
+        "start": 11.0,
+        "end": 71.0,
+        "speaker": "Robert Mays",
+        "text": "It's the week five preview, a lot of good stuff to dig into today. We've got two games of the week, a couple of other newsy bits, including some surprising coaching changes and injuries."
+      },
+      {
+        "start": 71.0,
+        "end": 572.0,
+        "speaker": "Robert Mays",
+        "text": "Let's dig into our first game of the week here: Niners at Seahawks. Really looking forward to this one. There's a lot of interesting matchups, especially with the physicality of the Niners' interior line and Mike Macdonald's defensive scheme."
+      },
+      {
+        "start": 572.0,
+        "end": 707.0,
+        "speaker": "Dave Helman",
+        "text": "The Philadelphia Eagles are entering the danger zone. With Lane Johnson's sudden retirement and Cam Jurgens being traded, this team is undergoing a major transition under high-pressure circumstances."
+      },
+      {
+        "start": 707.0,
+        "end": 894.0,
+        "speaker": "Robert Mays",
+        "text": "Let's move on to Bills at Rams on Monday Night Football. This was a very popular Super Bowl matchup prediction before the season, and it features a fascinating battle between two potent offenses."
+      },
+      {
+        "start": 894.0,
+        "end": 1111.0,
+        "speaker": "Robert Mays",
+        "text": "Can you stop the run for the Ravens against the Falcons? Atlanta's run game has been absolutely lethal, while Baltimore's run defense is adjusting to different front alignments."
+      },
+      {
+        "start": 1111.0,
+        "end": 1193.0,
+        "speaker": "Derrik Klassen",
+        "text": "Bears vs Packers is always a physical matchup, and I want to see how Green Bay's offense executes their downfield passing game under pressure."
+      },
+      {
+        "start": 1193.0,
+        "end": 1266.0,
+        "speaker": "Dave Helman",
+        "text": "I want to know if the Minnesota Vikings can show me anything on offense against the Saints. They've struggled heavily to score points through the first month of the season."
+      },
+      {
+        "start": 1266.0,
+        "end": 1279.0,
+        "speaker": "Robert Mays",
+        "text": "That's all we got for the Week 5 preview. Make sure to subscribe on YouTube and follow us on your favorite podcast platform. We'll talk to you soon."
+      }
+    ],
+    "extracted_picks": [
+      {
+        "team": "PHI",
+        "player": null,
+        "market": "make_playoffs",
+        "side": "NO",
+        "line": null,
+        "price": null,
+        "week": null,
+        "speaker": "Robert Mays",
+        "source_timestamp": 604,
+        "rationale": "Mays believes the offense is unwatchable and the defense, while fine, is not season-changing. He projects them to win around 7 games and pick in the top 10 of the draft."
+      },
+      {
+        "team": "ATL",
+        "player": null,
+        "market": "moneyline",
+        "side": "YES",
+        "line": null,
+        "price": null,
+        "week": 5,
+        "speaker": "Derrik Klassen",
+        "source_timestamp": 974,
+        "rationale": "Klassen explicitly states he would pick the Falcons to win if Lamar Jackson is unable to play for the Ravens due to his ankle injury."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "DEN"
+        ],
+        "players": [
+          "Sean Payton",
+          "Davis Webb"
+        ],
+        "topic": "Sean Payton reclaiming playcalling duties",
+        "summary": "The hosts note that Sean Payton has taken back playcalling responsibilities from offensive coordinator Davis Webb less than a month into the season, ending a very short-lived experiment.",
+        "speaker": "Derrik Klassen",
+        "source_timestamp": 32,
+        "quote": "Does Sean Payton taking back playcalling count as surprising news?",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "matchup_analysis",
+        "teams": [
+          "SF",
+          "SEA"
+        ],
+        "players": [],
+        "topic": "Mike Macdonald's schematic success against Kyle Shanahan",
+        "summary": "Seahawks head coach Mike Macdonald historically has had success scheming against Kyle Shanahan's offense, which presents a major schematic obstacle for the 49ers.",
+        "speaker": "Dave Helman",
+        "source_timestamp": 106,
+        "quote": "By the end of the year, you were like, 'Oh man, Mike Macdonald's got Kyle Shanahan's number, doesn't he?'",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "roster_or_depth_chart",
+        "teams": [
+          "SF"
+        ],
+        "players": [
+          "Connor Colby",
+          "Dominic Puni",
+          "Kyle Juszczyk"
+        ],
+        "topic": "Physicality of the 49ers' interior offensive line",
+        "summary": "The 49ers' interior offensive line, featuring Colby and Puni, is playing with a much higher level of physicality than in previous years, which will be crucial with fullback Kyle Juszczyk sidelined.",
+        "speaker": "Dave Helman",
+        "source_timestamp": 353,
+        "quote": "I think you've just felt a different level of physicality from the interior for the Niners this year than we've become accustomed to.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "BUF"
+        ],
+        "players": [
+          "Deone Walker",
+          "Ed Oliver",
+          "Landen Jackson"
+        ],
+        "topic": "Dominance of the Bills' defensive front",
+        "summary": "Derrik Klassen highlights the Bills' defensive line as playing out of their minds, collapsing pockets and setting edges at an elite level.",
+        "speaker": "Derrik Klassen",
+        "source_timestamp": 832,
+        "quote": "I think the front is playing out of their mind... Dion Walker, Ed Oliver... Landen Jackson...",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "matchup_analysis",
+        "teams": [
+          "LAR"
+        ],
+        "players": [
+          "Matthew Stafford"
+        ],
+        "topic": "Rams' pass protection breakdowns and Stafford's interceptions",
+        "summary": "Stafford has thrown 6 interceptions in 4 games primarily due to severe pass protection breakdowns in pure dropback situations, where he is unable to move and escape pressure.",
+        "speaker": "Derrik Klassen",
+        "source_timestamp": 912,
+        "quote": "Stafford struggle in pure pass protection... he's going to stand on his spot and if he's crowded he's going to throw it...",
+        "confidence": "implied"
+      },
+      {
+        "note_type": "roster_or_depth_chart",
+        "teams": [
+          "PHI"
+        ],
+        "players": [
+          "Lane Johnson",
+          "Cam Jurgens",
+          "Jordan Mailata"
+        ],
+        "topic": "Eagles' offensive line transition concerns",
+        "summary": "With Lane Johnson retiring and Cam Jurgens traded, the Eagles' line is severely depleted, leaving Jordan Mailata as the lone stabilizer from their elite championship-caliber core.",
+        "speaker": "Dave Helman",
+        "source_timestamp": 1193,
+        "quote": "This is a team that was already on life support... Lane Johnson's gone, Jason Kelce is gone, Landon Dickerson is hurt...",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "MIN"
+        ],
+        "players": [
+          "Justin Jefferson"
+        ],
+        "topic": "Vikings' offensive output desperation",
+        "summary": "Dave Helman emphasizes that the Vikings' offense has been historically unproductive for a 4-0 team, scoring only 86 points through four weeks, and desperately needs to show signs of life against the Saints.",
+        "speaker": "Dave Helman",
+        "source_timestamp": 1193,
+        "quote": "I just need the Vikings to do anything on offense... score a touchdown.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Eagles miss playoffs",
+        "timestamp": 604,
+        "speaker": "Robert Mays",
+        "quote": "I would be more apt to bet on the Eagles to have a top 10 pick than I would be for them to be a playoff team."
+      },
+      {
+        "topic": "Falcons pick",
+        "timestamp": 974,
+        "speaker": "Derrik Klassen",
+        "quote": "I'd pick them if Lamar's not playing."
+      }
+    ],
+    "uncertainty_flags": []
+  },
+  "coverage_assessment": {
+    "last_covered_timestamp": 1279.0,
+    "self_reported_reached_end": true,
+    "duration_used_for_check": 1279,
+    "segment_start_seconds": null,
+    "segment_end_seconds": null,
+    "suspected_incomplete": false,
+    "reason": null,
+    "coverage_ratio": 1.0
+  }
+}

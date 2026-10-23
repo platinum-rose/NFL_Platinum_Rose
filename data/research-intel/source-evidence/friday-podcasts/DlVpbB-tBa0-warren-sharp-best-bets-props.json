@@ -1,0 +1,396 @@
+{
+  "model": "gemini-3.5-flash",
+  "mode": "youtube_video_url",
+  "youtube_url": "https://www.youtube.com/watch?v=DlVpbB-tBa0",
+  "latency_ms": 113073,
+  "estimated_cost_usd": 0.02929,
+  "input_tokens": 276564,
+  "output_tokens": 4083,
+  "raw_model_response": "{\n  \"transcript_summary\": \"Warren Sharp and his team of experts analyze the betting landscape for NFL and college football Week 5 in 2026. The crew breaks down matchups using advanced metrics, player trends, and referee tendencies to identify high-value props and game lines.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 2515,\n    \"last_analyzed_timestamp\": 2515,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 78.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"I'm Warren Sharp of Sharp Football Analysis, and I'm pretty sure this has become your new favorite betting podcast because I've assembled a team of experts to walk through the upcoming college football slate this weekend...\"\n    },\n    {\n      \"start\": 78.0,\n      \"end\": 342.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"I'm so excited about this weekend's slate of football... Let's start with that massive divisional tilt between the 49ers and the Seattle Seahawks. I want to talk about who wins the middle of the field...\"\n    },\n    {\n      \"start\": 342.0,\n      \"end\": 553.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"Next up, we have to discuss the Cincinnati Bengals receiving corps. They might be down Ja'Marr Chase and Tee Higgins... Could losing the receivers actually help Chase Brown running the football?\"\n    },\n    {\n      \"start\": 553.0,\n      \"end\": 670.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"Alright, we're almost to the best bet segment here... but before we get to that, one more topic to cover: the big tilt between the Green Bay Packers and the Chicago Bears. The Bears are actually road favorites...\"\n    },\n    {\n      \"start\": 670.0,\n      \"end\": 800.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"Now it's time for our college football betting expert, Ryan McCrystal, to talk about some of the biggest games on the college football slate.\"\n    },\n    {\n      \"start\": 800.0,\n      \"end\": 992.0,\n      \"speaker\": \"Ryan McCrystal\",\n      \"text\": \"Alabama-Georgia is a critical matchup in the SEC... and then we have the Red River Rivalry with Texas and Oklahoma.\"\n    },\n    {\n      \"start\": 992.0,\n      \"end\": 1147.0,\n      \"speaker\": \"Ryan McCrystal\",\n      \"text\": \"Okay, we've got UCLA at Oregon in a huge game in the Big Ten... I'm kind of leaning towards UCLA right now.\"\n    },\n    {\n      \"start\": 1147.0,\n      \"end\": 1269.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"Outstanding analysis as per usual... Let's bring in Rich Hribar to discuss some of his favorite player props for this week.\"\n    },\n    {\n      \"start\": 1269.0,\n      \"end\": 1680.0,\n      \"speaker\": \"Rich Hribar\",\n      \"text\": \"My first prop is Kyren Williams over 19.5 receiving yards... Next up, we have Cam Skattebo under 14.5 longest rush... and Aaron Jones over 18.5 receiving yards.\"\n    },\n    {\n      \"start\": 1680.0,\n      \"end\": 1773.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"Awesome breakdown from Rich. Now let's hear from our referee expert, Joe Gibbs, to see what impact the officiating crews will have this week.\"\n    },\n    {\n      \"start\": 1773.0,\n      \"end\": 2232.0,\n      \"speaker\": \"Joe Gibbs\",\n      \"text\": \"We've got Carl Cheffers calling Lions at Cardinals... Brad Allen for Ravens at Falcons... and Scott Novak officiating Bills at Rams on Monday Night.\"\n    },\n    {\n      \"start\": 2232.0,\n      \"end\": 2470.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"And now it is time for the best bet of the week... I'm going with Brock Purdy over 19.5 rushing yards.\"\n    },\n    {\n      \"start\": 2470.0,\n      \"end\": 2515.0,\n      \"speaker\": \"Warren Sharp\",\n      \"text\": \"That'll do it for our Week 5 edition. Make sure you guys are subscribed so you never miss another episode. Good luck with your bets!\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"ALA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ALA\",\n      \"line\": -1.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Ryan McCrystal\",\n      \"source_timestamp\": 800,\n      \"rationale\": \"I'm leaning towards Alabama... DeBoer is 2-1 against Kirby Smart, and the upgrade to Russell at quarterback neutralizes the blitz threat Georgia utilized last year.\"\n    },\n    {\n      \"team\": \"OKLA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"OKLA\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Ryan McCrystal\",\n      \"source_timestamp\": 980,\n      \"rationale\": \"I don't trust either offense to win by more than a touchdown. Arch Manning cannot throw downfield with accuracy, and Oklahoma's defense matches up well against Texas's offensive line.\"\n    },\n    {\n      \"team\": \"UCLA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"UCLA\",\n      \"line\": 11.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Ryan McCrystal\",\n      \"source_timestamp\": 1040,\n      \"rationale\": \"UCLA has an elite running scheme with James Madison transfers who dominated Oregon last year. 11.5 points is too big of a line.\"\n    },\n    {\n      \"team\": \"LAR\",\n      \"player\": \"Kyren Williams\",\n      \"market\": \"receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 19.5,\n      \"week\": 5,\n      \"speaker\": \"Rich Hribar\",\n      \"source_timestamp\": 1269,\n      \"rationale\": \"Kyren is dominating backfield snaps and has a larger receiving role due to tight end injuries pushing the Rams into more 11 personnel.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": \"Cam Skattebo\",\n      \"market\": \"longest_rush\",\n      \"side\": \"UNDER\",\n      \"line\": 14.5,\n      \"week\": 5,\n      \"speaker\": \"Rich Hribar\",\n      \"source_timestamp\": 1425,\n      \"rationale\": \"Skattebo has struggled with efficiency (3.5 YPC) and NextGen Stats show him well below expected yardage. Commanders run defense is disciplined at preventing long gains.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": \"Aaron Jones\",\n      \"market\": \"receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 18.5,\n      \"week\": 5,\n      \"speaker\": \"Rich Hribar\",\n      \"source_timestamp\": 1510,\n      \"rationale\": \"With Justin Jefferson expected to be sidelined, Aaron Jones should continue capturing a massive target share out of the backfield.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ARI\",\n      \"line\": null,\n      \"week\": 5,\n      \"speaker\": \"Joe Gibbs\",\n      \"source_timestamp\": 1773,\n      \"rationale\": \"Cheffers is highly home-field friendly (63% ATS for home dogs). Lions are heavily penalized on the road, setting up a good spot for Arizona.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"OVER\",\n      \"line\": null,\n      \"week\": 5,\n      \"speaker\": \"Joe Gibbs\",\n      \"source_timestamp\": 1800,\n      \"rationale\": \"Cheffers calls lots of DPI, and both teams are highly penalized in the secondary.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ATL\",\n      \"line\": -3.5,\n      \"week\": 5,\n      \"speaker\": \"Joe Gibbs\",\n      \"source_timestamp\": 1871,\n      \"rationale\": \"Allen's crew is highly penalizing. Ravens are sloppy on offense while Falcons are highly disciplined. Assuming Lamar Jackson is out or limited, Atlanta has the edge.\"\n    },\n    {\n      \"team\": \"LAR\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"LAR\",\n      \"line\": null,\n      \"week\": 5,\n      \"speaker\": \"Joe Gibbs\",\n      \"source_timestamp\": 1966,\n      \"rationale\": \"Novak's crew is very aggressive calling offensive holding. Rams are historically among the least penalized in this category. Coaching matchup heavily favors McVay.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": \"Brock Purdy\",\n      \"market\": \"rushing_yards\",\n      \"side\": \"OVER\",\n      \"line\": 19.5,\n      \"week\": 5,\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 2232,\n      \"rationale\": \"Purdy has easily cleared this mark in every game this season. Banged-up receivers and a hostile environment will force him to rely on scrambles.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"SF\", \"SEA\"],\n      \"players\": [\"Sam Darnold\"],\n      \"topic\": \"Darnold middle of the field vulnerability\",\n      \"summary\": \"Warren Sharp noted Darnold relies heavily on passing between the numbers where he is highly efficient, but the 49ers defense funnels passers outside the numbers where Darnold is dead last in the league.\",\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 110,\n      \"quote\": \"This is going to be massive. The Niners funnel you outside. Darnold lives in the middle.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"CIN\", \"MIA\"],\n      \"players\": [\"Chase Brown\"],\n      \"topic\": \"Bengals offensive splits without star WRs\",\n      \"summary\": \"Bengals likely using heavier, fewer-receiver personnel blocks the Dolphins' optimal defensive alignments, opening up highly efficient run paths for Chase Brown.\",\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 342,\n      \"quote\": \"The Bengals may not have three receivers to use. Chase Brown runs into the Dolphins' weak split.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"CHI\", \"GB\"],\n      \"players\": [],\n      \"topic\": \"Bears outside zone run identity vs Packers defense\",\n      \"summary\": \"Bears lean heavily on outside zone running, where the Packers defense is dead last in yards after contact allowed.\",\n      \"speaker\": \"Warren Sharp\",\n      \"source_timestamp\": 553,\n      \"quote\": \"Outside zone against a defense that cannot stop it.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"ALA\", \"UGA\"],\n      \"players\": [\"Ty Simpson\", \"Keelon Russell\"],\n      \"topic\": \"Blitz matchups and quarterback adjustments\",\n      \"summary\": \"Georgia heavily blitzed Ty Simpson in the SEC title game because he was terrible under pressure. Russell represents a substantial athletic upgrade capable of burning the blitz.\",\n      \"speaker\": \"Ryan McCrystal\",\n      \"source_timestamp\": 800,\n      \"quote\": \"They blitzed a season-high 51% of the time in that SEC title game... But Simpson's gone and they've got an upgrade at quarterback in Keelon Russell.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"TEX\"],\n      \"players\": [\"Arch Manning\"],\n      \"topic\": \"Arch Manning downfield passing accuracy concerns\",\n      \"summary\": \"Manning struggles with downfield accuracy (51% on-target rate beyond 10 yards) and taking sacks under pressure, which is a major concern facing Oklahoma's defensive unit.\",\n      \"speaker\": \"Ryan McCrystal\",\n      \"source_timestamp\": 1040,\n      \"quote\": \"On throws 10 or more yards downfield, his on-target rate is 51%. That ranks 102nd in the country.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"UCLA\", \"ORE\"],\n      \"players\": [\"Wayne Knight\"],\n      \"topic\": \"UCLA offensive scheme and run efficiency\",\n      \"summary\": \"UCLA's Bob Chesney utilizes James Madison transfers who are already highly comfortable with his offensive system, creating high yards-before-contact figures.\",\n      \"speaker\": \"Ryan McCrystal\",\n      \"source_timestamp\": 1200,\n      \"quote\": \"Dean Kennedy designs the run game that creates a lot of open spaces for his team to run.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\"LAR\"],\n      \"players\": [\"Kyren Williams\"],\n      \"topic\": \"Tight end injuries dictating Rams personnel groupings\",\n      \"summary\": \"With key tight ends injured, the Rams are utilizing more 11 personnel, resulting in Kyren Williams absorbing a much larger share of team targets.\",\n      \"speaker\": \"Rich Hribar\",\n      \"source_timestamp\": 1269,\n      \"quote\": \"The Rams have been forced to kind of abandon their heavy 13 personnel... pushing Kyren into a larger receiving role.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"other\",\n      \"teams\": [\"DET\", \"ARI\"],\n      \"players\": [],\n      \"topic\": \"Carl Cheffers defensive pass interference calls\",\n      \"summary\": \"Carl Cheffers' crew aggressively penalizes defensive pass interference, a major vulnerability for both Detroit's and Arizona's defensive backfields.\",\n      \"speaker\": \"Joe Gibbs\",\n      \"source_timestamp\": 1773,\n      \"quote\": \"Both the Cardinals and the Lions defenses rank as top 10 units surrendering defensive pass interference.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Darnold Outside the Numbers\",\n      \"timestamp\": 232,\n      \"speaker\": \"Warren Sharp\",\n      \"quote\": \"He drops to the worst in the NFL, dead last, when trying to push the ball outside the numbers.\"\n    },\n    {\n      \"topic\": \"Manning Sack Rate\",\n      \"timestamp\": 1040,\n      \"speaker\": \"Ryan McCrystal\",\n      \"quote\": \"He's taking sacks on 24% of his dropbacks versus pressure.\"\n    },\n    {\n      \"topic\": \"Skattebo Longest Rush Line\",\n      \"timestamp\": 1425,\n      \"speaker\": \"Rich Hribar\",\n      \"quote\": \"I was seeing 12.5 at some of the earliest shops... and now that it's gotten posted more, it's 14.5.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 1000,\n      \"field\": \"line\",\n      \"reason\": \"Texas is favored by 'a touchdown and change' - precise spread not specified by speaker.\"\n    },\n    {\n      \"timestamp\": 1773,\n      \"field\": \"line\",\n      \"reason\": \"precise line for Cardinals ATS not specified by speaker.\"\n    },\n    {\n      \"timestamp\": 1966,\n      \"field\": \"line\",\n      \"reason\": \"precise line for Rams ATS not specified by speaker.\"\n    }\n  ]\n}",
+  "parsed_json": {
+    "transcript_summary": "Warren Sharp and his team of experts analyze the betting landscape for NFL and college football Week 5 in 2026. The crew breaks down matchups using advanced metrics, player trends, and referee tendencies to identify high-value props and game lines.",
+    "coverage_check": {
+      "video_duration_seconds": 2515,
+      "last_analyzed_timestamp": 2515,
+      "reached_end_of_video": true
+    },
+    "speaker_segments": [
+      {
+        "start": 0.0,
+        "end": 78.0,
+        "speaker": "Warren Sharp",
+        "text": "I'm Warren Sharp of Sharp Football Analysis, and I'm pretty sure this has become your new favorite betting podcast because I've assembled a team of experts to walk through the upcoming college football slate this weekend..."
+      },
+      {
+        "start": 78.0,
+        "end": 342.0,
+        "speaker": "Warren Sharp",
+        "text": "I'm so excited about this weekend's slate of football... Let's start with that massive divisional tilt between the 49ers and the Seattle Seahawks. I want to talk about who wins the middle of the field..."
+      },
+      {
+        "start": 342.0,
+        "end": 553.0,
+        "speaker": "Warren Sharp",
+        "text": "Next up, we have to discuss the Cincinnati Bengals receiving corps. They might be down Ja'Marr Chase and Tee Higgins... Could losing the receivers actually help Chase Brown running the football?"
+      },
+      {
+        "start": 553.0,
+        "end": 670.0,
+        "speaker": "Warren Sharp",
+        "text": "Alright, we're almost to the best bet segment here... but before we get to that, one more topic to cover: the big tilt between the Green Bay Packers and the Chicago Bears. The Bears are actually road favorites..."
+      },
+      {
+        "start": 670.0,
+        "end": 800.0,
+        "speaker": "Warren Sharp",
+        "text": "Now it's time for our college football betting expert, Ryan McCrystal, to talk about some of the biggest games on the college football slate."
+      },
+      {
+        "start": 800.0,
+        "end": 992.0,
+        "speaker": "Ryan McCrystal",
+        "text": "Alabama-Georgia is a critical matchup in the SEC... and then we have the Red River Rivalry with Texas and Oklahoma."
+      },
+      {
+        "start": 992.0,
+        "end": 1147.0,
+        "speaker": "Ryan McCrystal",
+        "text": "Okay, we've got UCLA at Oregon in a huge game in the Big Ten... I'm kind of leaning towards UCLA right now."
+      },
+      {
+        "start": 1147.0,
+        "end": 1269.0,
+        "speaker": "Warren Sharp",
+        "text": "Outstanding analysis as per usual... Let's bring in Rich Hribar to discuss some of his favorite player props for this week."
+      },
+      {
+        "start": 1269.0,
+        "end": 1680.0,
+        "speaker": "Rich Hribar",
+        "text": "My first prop is Kyren Williams over 19.5 receiving yards... Next up, we have Cam Skattebo under 14.5 longest rush... and Aaron Jones over 18.5 receiving yards."
+      },
+      {
+        "start": 1680.0,
+        "end": 1773.0,
+        "speaker": "Warren Sharp",
+        "text": "Awesome breakdown from Rich. Now let's hear from our referee expert, Joe Gibbs, to see what impact the officiating crews will have this week."
+      },
+      {
+        "start": 1773.0,
+        "end": 2232.0,
+        "speaker": "Joe Gibbs",
+        "text": "We've got Carl Cheffers calling Lions at Cardinals... Brad Allen for Ravens at Falcons... and Scott Novak officiating Bills at Rams on Monday Night."
+      },
+      {
+        "start": 2232.0,
+        "end": 2470.0,
+        "speaker": "Warren Sharp",
+        "text": "And now it is time for the best bet of the week... I'm going with Brock Purdy over 19.5 rushing yards."
+      },
+      {
+        "start": 2470.0,
+        "end": 2515.0,
+        "speaker": "Warren Sharp",
+        "text": "That'll do it for our Week 5 edition. Make sure you guys are subscribed so you never miss another episode. Good luck with your bets!"
+      }
+    ],
+    "extracted_picks": [
+      {
+        "team": "ALA",
+        "player": null,
+        "market": "spread",
+        "side": "ALA",
+        "line": -1.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Ryan McCrystal",
+        "source_timestamp": 800,
+        "rationale": "I'm leaning towards Alabama... DeBoer is 2-1 against Kirby Smart, and the upgrade to Russell at quarterback neutralizes the blitz threat Georgia utilized last year."
+      },
+      {
+        "team": "OKLA",
+        "player": null,
+        "market": "spread",
+        "side": "OKLA",
+        "line": 7.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Ryan McCrystal",
+        "source_timestamp": 980,
+        "rationale": "I don't trust either offense to win by more than a touchdown. Arch Manning cannot throw downfield with accuracy, and Oklahoma's defense matches up well against Texas's offensive line."
+      },
+      {
+        "team": "UCLA",
+        "player": null,
+        "market": "spread",
+        "side": "UCLA",
+        "line": 11.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Ryan McCrystal",
+        "source_timestamp": 1040,
+        "rationale": "UCLA has an elite running scheme with James Madison transfers who dominated Oregon last year. 11.5 points is too big of a line."
+      },
+      {
+        "team": "LAR",
+        "player": "Kyren Williams",
+        "market": "receiving_yards",
+        "side": "OVER",
+        "line": 19.5,
+        "week": 5,
+        "speaker": "Rich Hribar",
+        "source_timestamp": 1269,
+        "rationale": "Kyren is dominating backfield snaps and has a larger receiving role due to tight end injuries pushing the Rams into more 11 personnel."
+      },
+      {
+        "team": "NYG",
+        "player": "Cam Skattebo",
+        "market": "longest_rush",
+        "side": "UNDER",
+        "line": 14.5,
+        "week": 5,
+        "speaker": "Rich Hribar",
+        "source_timestamp": 1425,
+        "rationale": "Skattebo has struggled with efficiency (3.5 YPC) and NextGen Stats show him well below expected yardage. Commanders run defense is disciplined at preventing long gains."
+      },
+      {
+        "team": "MIN",
+        "player": "Aaron Jones",
+        "market": "receiving_yards",
+        "side": "OVER",
+        "line": 18.5,
+        "week": 5,
+        "speaker": "Rich Hribar",
+        "source_timestamp": 1510,
+        "rationale": "With Justin Jefferson expected to be sidelined, Aaron Jones should continue capturing a massive target share out of the backfield."
+      },
+      {
+        "team": "ARI",
+        "player": null,
+        "market": "spread",
+        "side": "ARI",
+        "line": null,
+        "week": 5,
+        "speaker": "Joe Gibbs",
+        "source_timestamp": 1773,
+        "rationale": "Cheffers is highly home-field friendly (63% ATS for home dogs). Lions are heavily penalized on the road, setting up a good spot for Arizona."
+      },
+      {
+        "team": "ARI",
+        "player": null,
+        "market": "total",
+        "side": "OVER",
+        "line": null,
+        "week": 5,
+        "speaker": "Joe Gibbs",
+        "source_timestamp": 1800,
+        "rationale": "Cheffers calls lots of DPI, and both teams are highly penalized in the secondary."
+      },
+      {
+        "team": "ATL",
+        "player": null,
+        "market": "spread",
+        "side": "ATL",
+        "line": -3.5,
+        "week": 5,
+        "speaker": "Joe Gibbs",
+        "source_timestamp": 1871,
+        "rationale": "Allen's crew is highly penalizing. Ravens are sloppy on offense while Falcons are highly disciplined. Assuming Lamar Jackson is out or limited, Atlanta has the edge."
+      },
+      {
+        "team": "LAR",
+        "player": null,
+        "market": "spread",
+        "side": "LAR",
+        "line": null,
+        "week": 5,
+        "speaker": "Joe Gibbs",
+        "source_timestamp": 1966,
+        "rationale": "Novak's crew is very aggressive calling offensive holding. Rams are historically among the least penalized in this category. Coaching matchup heavily favors McVay."
+      },
+      {
+        "team": "SF",
+        "player": "Brock Purdy",
+        "market": "rushing_yards",
+        "side": "OVER",
+        "line": 19.5,
+        "week": 5,
+        "speaker": "Warren Sharp",
+        "source_timestamp": 2232,
+        "rationale": "Purdy has easily cleared this mark in every game this season. Banged-up receivers and a hostile environment will force him to rely on scrambles."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "matchup_analysis",
+        "teams": [
+          "SF",
+          "SEA"
+        ],
+        "players": [
+          "Sam Darnold"
+        ],
+        "topic": "Darnold middle of the field vulnerability",
+        "summary": "Warren Sharp noted Darnold relies heavily on passing between the numbers where he is highly efficient, but the 49ers defense funnels passers outside the numbers where Darnold is dead last in the league.",
+        "speaker": "Warren Sharp",
+        "source_timestamp": 110,
+        "quote": "This is going to be massive. The Niners funnel you outside. Darnold lives in the middle.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "CIN",
+          "MIA"
+        ],
+        "players": [
+          "Chase Brown"
+        ],
+        "topic": "Bengals offensive splits without star WRs",
+        "summary": "Bengals likely using heavier, fewer-receiver personnel blocks the Dolphins' optimal defensive alignments, opening up highly efficient run paths for Chase Brown.",
+        "speaker": "Warren Sharp",
+        "source_timestamp": 342,
+        "quote": "The Bengals may not have three receivers to use. Chase Brown runs into the Dolphins' weak split.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "matchup_analysis",
+        "teams": [
+          "CHI",
+          "GB"
+        ],
+        "players": [],
+        "topic": "Bears outside zone run identity vs Packers defense",
+        "summary": "Bears lean heavily on outside zone running, where the Packers defense is dead last in yards after contact allowed.",
+        "speaker": "Warren Sharp",
+        "source_timestamp": 553,
+        "quote": "Outside zone against a defense that cannot stop it.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "ALA",
+          "UGA"
+        ],
+        "players": [
+          "Ty Simpson",
+          "Keelon Russell"
+        ],
+        "topic": "Blitz matchups and quarterback adjustments",
+        "summary": "Georgia heavily blitzed Ty Simpson in the SEC title game because he was terrible under pressure. Russell represents a substantial athletic upgrade capable of burning the blitz.",
+        "speaker": "Ryan McCrystal",
+        "source_timestamp": 800,
+        "quote": "They blitzed a season-high 51% of the time in that SEC title game... But Simpson's gone and they've got an upgrade at quarterback in Keelon Russell.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "TEX"
+        ],
+        "players": [
+          "Arch Manning"
+        ],
+        "topic": "Arch Manning downfield passing accuracy concerns",
+        "summary": "Manning struggles with downfield accuracy (51% on-target rate beyond 10 yards) and taking sacks under pressure, which is a major concern facing Oklahoma's defensive unit.",
+        "speaker": "Ryan McCrystal",
+        "source_timestamp": 1040,
+        "quote": "On throws 10 or more yards downfield, his on-target rate is 51%. That ranks 102nd in the country.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "UCLA",
+          "ORE"
+        ],
+        "players": [
+          "Wayne Knight"
+        ],
+        "topic": "UCLA offensive scheme and run efficiency",
+        "summary": "UCLA's Bob Chesney utilizes James Madison transfers who are already highly comfortable with his offensive system, creating high yards-before-contact figures.",
+        "speaker": "Ryan McCrystal",
+        "source_timestamp": 1200,
+        "quote": "Dean Kennedy designs the run game that creates a lot of open spaces for his team to run.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "roster_or_depth_chart",
+        "teams": [
+          "LAR"
+        ],
+        "players": [
+          "Kyren Williams"
+        ],
+        "topic": "Tight end injuries dictating Rams personnel groupings",
+        "summary": "With key tight ends injured, the Rams are utilizing more 11 personnel, resulting in Kyren Williams absorbing a much larger share of team targets.",
+        "speaker": "Rich Hribar",
+        "source_timestamp": 1269,
+        "quote": "The Rams have been forced to kind of abandon their heavy 13 personnel... pushing Kyren into a larger receiving role.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "other",
+        "teams": [
+          "DET",
+          "ARI"
+        ],
+        "players": [],
+        "topic": "Carl Cheffers defensive pass interference calls",
+        "summary": "Carl Cheffers' crew aggressively penalizes defensive pass interference, a major vulnerability for both Detroit's and Arizona's defensive backfields.",
+        "speaker": "Joe Gibbs",
+        "source_timestamp": 1773,
+        "quote": "Both the Cardinals and the Lions defenses rank as top 10 units surrendering defensive pass interference.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Darnold Outside the Numbers",
+        "timestamp": 232,
+        "speaker": "Warren Sharp",
+        "quote": "He drops to the worst in the NFL, dead last, when trying to push the ball outside the numbers."
+      },
+      {
+        "topic": "Manning Sack Rate",
+        "timestamp": 1040,
+        "speaker": "Ryan McCrystal",
+        "quote": "He's taking sacks on 24% of his dropbacks versus pressure."
+      },
+      {
+        "topic": "Skattebo Longest Rush Line",
+        "timestamp": 1425,
+        "speaker": "Rich Hribar",
+        "quote": "I was seeing 12.5 at some of the earliest shops... and now that it's gotten posted more, it's 14.5."
+      }
+    ],
+    "uncertainty_flags": [
+      {
+        "timestamp": 1000,
+        "field": "line",
+        "reason": "Texas is favored by 'a touchdown and change' - precise spread not specified by speaker."
+      },
+      {
+        "timestamp": 1773,
+        "field": "line",
+        "reason": "precise line for Cardinals ATS not specified by speaker."
+      },
+      {
+        "timestamp": 1966,
+        "field": "line",
+        "reason": "precise line for Rams ATS not specified by speaker."
+      }
+    ]
+  },
+  "coverage_assessment": {
+    "last_covered_timestamp": 2515.0,
+    "self_reported_reached_end": true,
+    "duration_used_for_check": 2515,
+    "segment_start_seconds": null,
+    "segment_end_seconds": null,
+    "suspected_incomplete": false,
+    "reason": null,
+    "coverage_ratio": 1.0
+  }
+}

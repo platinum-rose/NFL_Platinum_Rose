@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: team-week
 canonical_status: generated
 title: "JAX — Week 4"
-created: "2026-10-06T19:27:53.380Z"
-modified: "2026-10-06T19:27:53.380Z"
+created: "2026-10-08T13:00:48.636Z"
+modified: "2026-10-08T13:00:48.636Z"
 season: 2026
 week: 4
 type: "team-week"

@@ -1,0 +1,663 @@
+{
+  "model": "gemini-3.5-flash",
+  "mode": "youtube_video_url",
+  "youtube_url": "https://www.youtube.com/watch?v=Spi9x-cD95o",
+  "latency_ms": 141492,
+  "estimated_cost_usd": 0.034585,
+  "input_tokens": 322607,
+  "output_tokens": 5812,
+  "raw_model_response": "{\n  \"transcript_summary\": \"Matt Moore and Brandon Anderson break down their favorite bets, player props, escalators, and parlay cards for Week 5 of the NFL season. They discuss several quarterback and receiver props before outlining their contest picks and a lookahead bet for Week 6.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 3495,\n    \"last_analyzed_timestamp\": 3495,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 50.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"This is the Action Network Podcast presented by DraftKings. I'm your host Matt Moore, joined as always by Brandon Anderson for Brandon's Playground for NFL Week 5 best bets.\"\n    },\n    {\n      \"start\": 50.0,\n      \"end\": 72.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Finally kind of a more normal week... up now just under 10% ROI on the year, plus 5.6 units on the season.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"NYJ\",\n      \"player\": \"Aaron Rodgers\",\n      \"market\": \"passing_yards\",\n      \"side\": \"OVER\",\n      \"line\": 220.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 191,\n      \"rationale\": \"The Bengals defense has been a pass funnel. He expects Rodgers to have plenty of passing attempts and volume in this matchup.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": \"Aaron Rodgers\",\n      \"market\": \"passing_yards\",\n      \"side\": \"OVER\",\n      \"line\": 250.0,\n      \"price\": 187,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 265,\n      \"rationale\": \"Part of the Rodgers passing yards escalator.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": \"Aaron Rodgers\",\n      \"market\": \"passing_yards\",\n      \"side\": \"OVER\",\n      \"line\": 275.0,\n      \"price\": 310,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 276,\n      \"rationale\": \"Part of the Rodgers passing yards escalator.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": \"Aaron Rodgers\",\n      \"market\": \"passing_yards\",\n      \"side\": \"OVER\",\n      \"line\": 300.0,\n      \"price\": 650,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 284,\n      \"rationale\": \"Part of the Rodgers passing yards escalator.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": \"Christian McCaffrey\",\n      \"market\": \"receptions\",\n      \"side\": \"OVER\",\n      \"line\": 4.5,\n      \"price\": -116,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 816,\n      \"rationale\": \"Seahawks defense shuts down the run but allows a high volume of catches to opposing running backs.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": \"Christian McCaffrey\",\n      \"market\": \"receptions\",\n      \"side\": \"OVER\",\n      \"line\": 6.0,\n      \"price\": 166,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 941,\n      \"rationale\": \"Part of the McCaffrey receptions escalator.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": \"Christian McCaffrey\",\n      \"market\": \"receptions\",\n      \"side\": \"OVER\",\n      \"line\": 7.0,\n      \"price\": 305,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 949,\n      \"rationale\": \"Part of the McCaffrey receptions escalator.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": \"Michael Wilson\",\n      \"market\": \"receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 72.5,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1279,\n      \"rationale\": \"Detroit's pass defense struggles against WR1s and allows massive volume and yardage.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": \"Michael Wilson\",\n      \"market\": \"receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 100.0,\n      \"price\": 250,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1294,\n      \"rationale\": \"Part of the Michael Wilson yardage escalator.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": \"Michael Wilson\",\n      \"market\": \"receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 125.0,\n      \"price\": 550,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1328,\n      \"rationale\": \"Part of the Michael Wilson yardage escalator.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": \"Michael Wilson\",\n      \"market\": \"receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 150.0,\n      \"price\": 1150,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1334,\n      \"rationale\": \"Part of the Michael Wilson yardage escalator.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": \"Michael Wilson\",\n      \"market\": \"receptions\",\n      \"side\": \"OVER\",\n      \"line\": 9.5,\n      \"price\": 900,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1259,\n      \"rationale\": \"Taking 10+ catches on the escalator.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYG\",\n      \"line\": 4.0,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1643,\n      \"rationale\": \"Believes the line is incorrect and favors the Giants significantly.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"alternative_spread\",\n      \"side\": \"NYG\",\n      \"line\": -8.5,\n      \"price\": 260,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1687,\n      \"rationale\": \"Same-game parlay: Giants Moneyline + Washington +8.5, projecting Giants to win by 1 to 8 points.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"alternative_spread\",\n      \"side\": \"NYG\",\n      \"line\": -6.5,\n      \"price\": 425,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1692,\n      \"rationale\": \"Giants to win by 1 to 6 points.\"\n    },\n    {\n      \"team\": \"JAC\",\n      \"player\": \"Brenton Strange\",\n      \"market\": \"receiving_yards\",\n      \"side\": \"UNDER\",\n      \"line\": 35.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1918,\n      \"rationale\": \"Eagles defense is strong against tight ends and Brenton Strange's usage is trending downward.\"\n    },\n    {\n      \"team\": \"JAC\",\n      \"player\": \"Trevor Lawrence\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 310,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2009,\n      \"rationale\": \"The Eagles defense regularly allows rushing touchdowns to opposing quarterbacks.\"\n    },\n    {\n      \"team\": \"JAC\",\n      \"player\": \"Trevor Lawrence\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": 1.5,\n      \"price\": 3000,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2041,\n      \"rationale\": \"Longshot bet for Lawrence to score 2+ rushing touchdowns.\"\n    },\n    {\n      \"team\": \"BAL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"BAL\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2496,\n      \"rationale\": \"The 10-point line swing due to Lamar Jackson's status is too much of an overreaction.\"\n    },\n    {\n      \"team\": \"BUF\",\n      \"player\": \"Josh Allen\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": -105,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2407,\n      \"rationale\": \"Joe Brady uses Josh Allen heavily as a run threat near the goal line.\"\n    },\n    {\n      \"team\": \"BUF\",\n      \"player\": \"Josh Allen\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 675,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2511,\n      \"rationale\": \"Allen first touchdown scorer.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYJ\",\n      \"line\": -1.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2579,\n      \"rationale\": \"Jets are the better team and the Browns cannot run the ball.\"\n    },\n    {\n      \"team\": \"TEN\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"UNDER\",\n      \"line\": 38.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2711,\n      \"rationale\": \"Part of same-game parlay with Texans moneyline.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"HOU\",\n      \"line\": null,\n      \"price\": 147,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2723,\n      \"rationale\": \"Texans Moneyline + Under 38.5 parlay.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"total\",\n      \"side\": \"UNDER\",\n      \"line\": 42.0,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2875,\n      \"rationale\": \"Part of the road trip parlay card.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"MIN\",\n      \"line\": null,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2892,\n      \"rationale\": \"Vikings to score first and win (+173) as part of road trip card.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": \"Will Reichard\",\n      \"market\": \"kicking_points\",\n      \"side\": \"OVER\",\n      \"line\": 7.5,\n      \"price\": 105,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2908,\n      \"rationale\": \"Part of road trip card; Reichard has been reliable and high-scoring.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"parlay\",\n      \"side\": \"MIN\",\n      \"line\": null,\n      \"price\": 650,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2969,\n      \"rationale\": \"Vikings Road Trip Parlay (Under 42 + Vikings Score First & Win + Reichard Over 7.5 Kicking Points).\"\n    },\n    {\n      \"team\": \"TEN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"TEN\",\n      \"line\": 6.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Matt Moore\",\n      \"source_timestamp\": 3142,\n      \"rationale\": \"Matt's contest pick.\"\n    },\n    {\n      \"team\": \"SEA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"SEA\",\n      \"line\": -2.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Matt Moore\",\n      \"source_timestamp\": 3185,\n      \"rationale\": \"Matt's contest pick.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"LAC\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Matt Moore\",\n      \"source_timestamp\": 3187,\n      \"rationale\": \"Matt's contest pick.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"IND\",\n      \"line\": 2.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Matt Moore\",\n      \"source_timestamp\": 3196,\n      \"rationale\": \"Matt's contest pick.\"\n    },\n    {\n      \"team\": \"MIA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"MIA\",\n      \"line\": 7.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Matt Moore\",\n      \"source_timestamp\": 3202,\n      \"rationale\": \"Matt's contest pick.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYG\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Matt Moore\",\n      \"source_timestamp\": 3206,\n      \"rationale\": \"Matt's contest pick.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"DET\",\n      \"line\": -4.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Matt Moore\",\n      \"source_timestamp\": 3208,\n      \"rationale\": \"Matt's contest pick.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYG\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3232,\n      \"rationale\": \"Brandon's pick for the Four Square Parlay.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"LAC\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3236,\n      \"rationale\": \"Brandon's pick for the Four Square Parlay.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"DET\",\n      \"line\": -4.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3241,\n      \"rationale\": \"Brandon's pick for the Four Square Parlay.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"IND\",\n      \"line\": 2.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3246,\n      \"rationale\": \"Brandon's pick for the Four Square Parlay.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"player\": null,\n      \"market\": \"parlay\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": 1250,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3275,\n      \"rationale\": \"Brandon's Four Square Parlay card (Giants +3.5, Chargers +3.5, Lions -4.5, Colts +2.5).\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYG\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3325,\n      \"rationale\": \"Brandon's Contest Pick.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"LAC\",\n      \"line\": 3.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3326,\n      \"rationale\": \"Brandon's Contest Pick.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYJ\",\n      \"line\": -2.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3329,\n      \"rationale\": \"Brandon's Contest Pick.\"\n    },\n    {\n      \"team\": \"LAR\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"LAR\",\n      \"line\": -2.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3331,\n      \"rationale\": \"Brandon's Contest Pick.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"GB\",\n      \"line\": 2.5,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3337,\n      \"rationale\": \"Brandon's Contest Pick.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"SF\",\n      \"line\": -7.0,\n      \"price\": null,\n      \"week\": 6,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3385,\n      \"rationale\": \"Lookahead to Week 6: Commanders are highly overrated in the market.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"IND\", \"PIT\"],\n      \"players\": [],\n      \"topic\": \"Colts vs Steelers Schedule Spot\",\n      \"summary\": \"Brandon outlines Colts vs Steelers as a very poor spot for Indy coming back from London on short rest while Pittsburgh is resting at home on TNF.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 128,\n      \"quote\": \"This is I think the single worst spot on the schedule for any team this season.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"SF\", \"SEA\"],\n      \"players\": [\"Christian McCaffrey\"],\n      \"topic\": \"Seahawks Run Defense Scheme\",\n      \"summary\": \"Seattle's defensive strategy effectively eliminates the standard ground game but remains a major pass funnel for running backs out of the backfield.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 678,\n      \"quote\": \"They shut down the run game, they allowed the second fewest fantasy points to running backs, but the most running back receptions.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"WAS\"],\n      \"players\": [\"Jayden Daniels\"],\n      \"topic\": \"Jayden Daniels Injury Status\",\n      \"summary\": \"Daniels is expected back for Washington, but his health and rust levels are significant question marks on a highly congested injury report.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1515,\n      \"quote\": \"Washington has 23 names on their injury report.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Rodgers yards line\",\n      \"timestamp\": 191,\n      \"speaker\": \"Brandon Anderson\",\n      \"quote\": \"And I saw Rodgers passing yards line: only 220. I just think that's too low.\"\n    },\n    {\n      \"topic\": \"Lawrence TD\",\n      \"timestamp\": 2009,\n      \"speaker\": \"Brandon Anderson\",\n      \"quote\": \"The Eagles for whatever reason allow a lot of rushing touchdowns to quarterbacks.\"\n    }\n  ],\n  \"uncertainty_flags\": [\n    {\n      \"timestamp\": 191,\n      \"field\": \"price\",\n      \"reason\": \"DraftKings price for main Over 220.5 line was not explicitly stated.\"\n    }\n  ]\n}",
+  "parsed_json": {
+    "transcript_summary": "Matt Moore and Brandon Anderson break down their favorite bets, player props, escalators, and parlay cards for Week 5 of the NFL season. They discuss several quarterback and receiver props before outlining their contest picks and a lookahead bet for Week 6.",
+    "coverage_check": {
+      "video_duration_seconds": 3495,
+      "last_analyzed_timestamp": 3495,
+      "reached_end_of_video": true
+    },
+    "speaker_segments": [
+      {
+        "start": 0.0,
+        "end": 50.0,
+        "speaker": "Matt Moore",
+        "text": "This is the Action Network Podcast presented by DraftKings. I'm your host Matt Moore, joined as always by Brandon Anderson for Brandon's Playground for NFL Week 5 best bets."
+      },
+      {
+        "start": 50.0,
+        "end": 72.0,
+        "speaker": "Brandon Anderson",
+        "text": "Finally kind of a more normal week... up now just under 10% ROI on the year, plus 5.6 units on the season."
+      }
+    ],
+    "extracted_picks": [
+      {
+        "team": "NYJ",
+        "player": "Aaron Rodgers",
+        "market": "passing_yards",
+        "side": "OVER",
+        "line": 220.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 191,
+        "rationale": "The Bengals defense has been a pass funnel. He expects Rodgers to have plenty of passing attempts and volume in this matchup."
+      },
+      {
+        "team": "NYJ",
+        "player": "Aaron Rodgers",
+        "market": "passing_yards",
+        "side": "OVER",
+        "line": 250.0,
+        "price": 187,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 265,
+        "rationale": "Part of the Rodgers passing yards escalator."
+      },
+      {
+        "team": "NYJ",
+        "player": "Aaron Rodgers",
+        "market": "passing_yards",
+        "side": "OVER",
+        "line": 275.0,
+        "price": 310,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 276,
+        "rationale": "Part of the Rodgers passing yards escalator."
+      },
+      {
+        "team": "NYJ",
+        "player": "Aaron Rodgers",
+        "market": "passing_yards",
+        "side": "OVER",
+        "line": 300.0,
+        "price": 650,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 284,
+        "rationale": "Part of the Rodgers passing yards escalator."
+      },
+      {
+        "team": "SF",
+        "player": "Christian McCaffrey",
+        "market": "receptions",
+        "side": "OVER",
+        "line": 4.5,
+        "price": -116,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 816,
+        "rationale": "Seahawks defense shuts down the run but allows a high volume of catches to opposing running backs."
+      },
+      {
+        "team": "SF",
+        "player": "Christian McCaffrey",
+        "market": "receptions",
+        "side": "OVER",
+        "line": 6.0,
+        "price": 166,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 941,
+        "rationale": "Part of the McCaffrey receptions escalator."
+      },
+      {
+        "team": "SF",
+        "player": "Christian McCaffrey",
+        "market": "receptions",
+        "side": "OVER",
+        "line": 7.0,
+        "price": 305,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 949,
+        "rationale": "Part of the McCaffrey receptions escalator."
+      },
+      {
+        "team": "ARI",
+        "player": "Michael Wilson",
+        "market": "receiving_yards",
+        "side": "OVER",
+        "line": 72.5,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1279,
+        "rationale": "Detroit's pass defense struggles against WR1s and allows massive volume and yardage."
+      },
+      {
+        "team": "ARI",
+        "player": "Michael Wilson",
+        "market": "receiving_yards",
+        "side": "OVER",
+        "line": 100.0,
+        "price": 250,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1294,
+        "rationale": "Part of the Michael Wilson yardage escalator."
+      },
+      {
+        "team": "ARI",
+        "player": "Michael Wilson",
+        "market": "receiving_yards",
+        "side": "OVER",
+        "line": 125.0,
+        "price": 550,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1328,
+        "rationale": "Part of the Michael Wilson yardage escalator."
+      },
+      {
+        "team": "ARI",
+        "player": "Michael Wilson",
+        "market": "receiving_yards",
+        "side": "OVER",
+        "line": 150.0,
+        "price": 1150,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1334,
+        "rationale": "Part of the Michael Wilson yardage escalator."
+      },
+      {
+        "team": "ARI",
+        "player": "Michael Wilson",
+        "market": "receptions",
+        "side": "OVER",
+        "line": 9.5,
+        "price": 900,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1259,
+        "rationale": "Taking 10+ catches on the escalator."
+      },
+      {
+        "team": "NYG",
+        "player": null,
+        "market": "spread",
+        "side": "NYG",
+        "line": 4.0,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1643,
+        "rationale": "Believes the line is incorrect and favors the Giants significantly."
+      },
+      {
+        "team": "NYG",
+        "player": null,
+        "market": "alternative_spread",
+        "side": "NYG",
+        "line": -8.5,
+        "price": 260,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1687,
+        "rationale": "Same-game parlay: Giants Moneyline + Washington +8.5, projecting Giants to win by 1 to 8 points."
+      },
+      {
+        "team": "NYG",
+        "player": null,
+        "market": "alternative_spread",
+        "side": "NYG",
+        "line": -6.5,
+        "price": 425,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1692,
+        "rationale": "Giants to win by 1 to 6 points."
+      },
+      {
+        "team": "JAC",
+        "player": "Brenton Strange",
+        "market": "receiving_yards",
+        "side": "UNDER",
+        "line": 35.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1918,
+        "rationale": "Eagles defense is strong against tight ends and Brenton Strange's usage is trending downward."
+      },
+      {
+        "team": "JAC",
+        "player": "Trevor Lawrence",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 310,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2009,
+        "rationale": "The Eagles defense regularly allows rushing touchdowns to opposing quarterbacks."
+      },
+      {
+        "team": "JAC",
+        "player": "Trevor Lawrence",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": 1.5,
+        "price": 3000,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2041,
+        "rationale": "Longshot bet for Lawrence to score 2+ rushing touchdowns."
+      },
+      {
+        "team": "BAL",
+        "player": null,
+        "market": "spread",
+        "side": "BAL",
+        "line": 3.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2496,
+        "rationale": "The 10-point line swing due to Lamar Jackson's status is too much of an overreaction."
+      },
+      {
+        "team": "BUF",
+        "player": "Josh Allen",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": -105,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2407,
+        "rationale": "Joe Brady uses Josh Allen heavily as a run threat near the goal line."
+      },
+      {
+        "team": "BUF",
+        "player": "Josh Allen",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 675,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2511,
+        "rationale": "Allen first touchdown scorer."
+      },
+      {
+        "team": "NYJ",
+        "player": null,
+        "market": "spread",
+        "side": "NYJ",
+        "line": -1.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2579,
+        "rationale": "Jets are the better team and the Browns cannot run the ball."
+      },
+      {
+        "team": "TEN",
+        "player": null,
+        "market": "total",
+        "side": "UNDER",
+        "line": 38.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2711,
+        "rationale": "Part of same-game parlay with Texans moneyline."
+      },
+      {
+        "team": "HOU",
+        "player": null,
+        "market": "moneyline",
+        "side": "HOU",
+        "line": null,
+        "price": 147,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2723,
+        "rationale": "Texans Moneyline + Under 38.5 parlay."
+      },
+      {
+        "team": "MIN",
+        "player": null,
+        "market": "total",
+        "side": "UNDER",
+        "line": 42.0,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2875,
+        "rationale": "Part of the road trip parlay card."
+      },
+      {
+        "team": "MIN",
+        "player": null,
+        "market": "moneyline",
+        "side": "MIN",
+        "line": null,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2892,
+        "rationale": "Vikings to score first and win (+173) as part of road trip card."
+      },
+      {
+        "team": "MIN",
+        "player": "Will Reichard",
+        "market": "kicking_points",
+        "side": "OVER",
+        "line": 7.5,
+        "price": 105,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2908,
+        "rationale": "Part of road trip card; Reichard has been reliable and high-scoring."
+      },
+      {
+        "team": "MIN",
+        "player": null,
+        "market": "parlay",
+        "side": "MIN",
+        "line": null,
+        "price": 650,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2969,
+        "rationale": "Vikings Road Trip Parlay (Under 42 + Vikings Score First & Win + Reichard Over 7.5 Kicking Points)."
+      },
+      {
+        "team": "TEN",
+        "player": null,
+        "market": "spread",
+        "side": "TEN",
+        "line": 6.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Matt Moore",
+        "source_timestamp": 3142,
+        "rationale": "Matt's contest pick."
+      },
+      {
+        "team": "SEA",
+        "player": null,
+        "market": "spread",
+        "side": "SEA",
+        "line": -2.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Matt Moore",
+        "source_timestamp": 3185,
+        "rationale": "Matt's contest pick."
+      },
+      {
+        "team": "LAC",
+        "player": null,
+        "market": "spread",
+        "side": "LAC",
+        "line": 3.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Matt Moore",
+        "source_timestamp": 3187,
+        "rationale": "Matt's contest pick."
+      },
+      {
+        "team": "IND",
+        "player": null,
+        "market": "spread",
+        "side": "IND",
+        "line": 2.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Matt Moore",
+        "source_timestamp": 3196,
+        "rationale": "Matt's contest pick."
+      },
+      {
+        "team": "MIA",
+        "player": null,
+        "market": "spread",
+        "side": "MIA",
+        "line": 7.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Matt Moore",
+        "source_timestamp": 3202,
+        "rationale": "Matt's contest pick."
+      },
+      {
+        "team": "NYG",
+        "player": null,
+        "market": "spread",
+        "side": "NYG",
+        "line": 3.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Matt Moore",
+        "source_timestamp": 3206,
+        "rationale": "Matt's contest pick."
+      },
+      {
+        "team": "DET",
+        "player": null,
+        "market": "spread",
+        "side": "DET",
+        "line": -4.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Matt Moore",
+        "source_timestamp": 3208,
+        "rationale": "Matt's contest pick."
+      },
+      {
+        "team": "NYG",
+        "player": null,
+        "market": "spread",
+        "side": "NYG",
+        "line": 3.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3232,
+        "rationale": "Brandon's pick for the Four Square Parlay."
+      },
+      {
+        "team": "LAC",
+        "player": null,
+        "market": "spread",
+        "side": "LAC",
+        "line": 3.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3236,
+        "rationale": "Brandon's pick for the Four Square Parlay."
+      },
+      {
+        "team": "DET",
+        "player": null,
+        "market": "spread",
+        "side": "DET",
+        "line": -4.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3241,
+        "rationale": "Brandon's pick for the Four Square Parlay."
+      },
+      {
+        "team": "IND",
+        "player": null,
+        "market": "spread",
+        "side": "IND",
+        "line": 2.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3246,
+        "rationale": "Brandon's pick for the Four Square Parlay."
+      },
+      {
+        "team": "IND",
+        "player": null,
+        "market": "parlay",
+        "side": null,
+        "line": null,
+        "price": 1250,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3275,
+        "rationale": "Brandon's Four Square Parlay card (Giants +3.5, Chargers +3.5, Lions -4.5, Colts +2.5)."
+      },
+      {
+        "team": "NYG",
+        "player": null,
+        "market": "spread",
+        "side": "NYG",
+        "line": 3.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3325,
+        "rationale": "Brandon's Contest Pick."
+      },
+      {
+        "team": "LAC",
+        "player": null,
+        "market": "spread",
+        "side": "LAC",
+        "line": 3.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3326,
+        "rationale": "Brandon's Contest Pick."
+      },
+      {
+        "team": "NYJ",
+        "player": null,
+        "market": "spread",
+        "side": "NYJ",
+        "line": -2.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3329,
+        "rationale": "Brandon's Contest Pick."
+      },
+      {
+        "team": "LAR",
+        "player": null,
+        "market": "spread",
+        "side": "LAR",
+        "line": -2.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3331,
+        "rationale": "Brandon's Contest Pick."
+      },
+      {
+        "team": "GB",
+        "player": null,
+        "market": "spread",
+        "side": "GB",
+        "line": 2.5,
+        "price": null,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3337,
+        "rationale": "Brandon's Contest Pick."
+      },
+      {
+        "team": "SF",
+        "player": null,
+        "market": "spread",
+        "side": "SF",
+        "line": -7.0,
+        "price": null,
+        "week": 6,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3385,
+        "rationale": "Lookahead to Week 6: Commanders are highly overrated in the market."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "IND",
+          "PIT"
+        ],
+        "players": [],
+        "topic": "Colts vs Steelers Schedule Spot",
+        "summary": "Brandon outlines Colts vs Steelers as a very poor spot for Indy coming back from London on short rest while Pittsburgh is resting at home on TNF.",
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 128,
+        "quote": "This is I think the single worst spot on the schedule for any team this season.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "matchup_analysis",
+        "teams": [
+          "SF",
+          "SEA"
+        ],
+        "players": [
+          "Christian McCaffrey"
+        ],
+        "topic": "Seahawks Run Defense Scheme",
+        "summary": "Seattle's defensive strategy effectively eliminates the standard ground game but remains a major pass funnel for running backs out of the backfield.",
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 678,
+        "quote": "They shut down the run game, they allowed the second fewest fantasy points to running backs, but the most running back receptions.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "WAS"
+        ],
+        "players": [
+          "Jayden Daniels"
+        ],
+        "topic": "Jayden Daniels Injury Status",
+        "summary": "Daniels is expected back for Washington, but his health and rust levels are significant question marks on a highly congested injury report.",
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1515,
+        "quote": "Washington has 23 names on their injury report.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Rodgers yards line",
+        "timestamp": 191,
+        "speaker": "Brandon Anderson",
+        "quote": "And I saw Rodgers passing yards line: only 220. I just think that's too low."
+      },
+      {
+        "topic": "Lawrence TD",
+        "timestamp": 2009,
+        "speaker": "Brandon Anderson",
+        "quote": "The Eagles for whatever reason allow a lot of rushing touchdowns to quarterbacks."
+      }
+    ],
+    "uncertainty_flags": [
+      {
+        "timestamp": 191,
+        "field": "price",
+        "reason": "DraftKings price for main Over 220.5 line was not explicitly stated."
+      }
+    ]
+  },
+  "coverage_assessment": {
+    "last_covered_timestamp": 3385.0,
+    "self_reported_reached_end": true,
+    "duration_used_for_check": 3495,
+    "segment_start_seconds": null,
+    "segment_end_seconds": null,
+    "suspected_incomplete": false,
+    "reason": null,
+    "coverage_ratio": 0.969
+  }
+}

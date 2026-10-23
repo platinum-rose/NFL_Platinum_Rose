@@ -1,0 +1,130 @@
+{
+  "schema": "w05_game_synthesis_v1",
+  "game": "CHI@GB",
+  "model": "sonnet",
+  "generated_at": "2026-10-11T01:50:00Z",
+  "head": "a6c4980",
+  "market": {
+    "book": "BKR",
+    "captured_at": "2026-10-11T01:15:40.538Z",
+    "home_line": 1.5,
+    "total": 46
+  },
+  "disposition": "conflicted",
+  "tier": "2-",
+  "side": {
+    "pick": null,
+    "line": null,
+    "price": null
+  },
+  "total_lean": {
+    "pick": null
+  },
+  "edge_hypothesis": {
+    "home_margin_pts": 0.0,
+    "total_pts": 0.0,
+    "basis": [
+      "default zero: ratings (SRS CHI +12.1 vs GB -7.4) and quantitative pass (CHI by 4.6) lean CHI, VSiN row 519 leans GB, Bagent start and 4-game sample offset",
+      "wind gusts 42.1 km/h forecast has no calibrated total adjustment"
+    ],
+    "cap_exception": null
+  },
+  "simulator": {
+    "home_cover": 0.5,
+    "away_cover": 0.5,
+    "over": 0.4848,
+    "under": 0.4848,
+    "side_push": 0,
+    "total_push": 0.0304
+  },
+  "cited_rows": [
+    {
+      "row": "w05-expert-verified.json#rows[519]",
+      "outlet": "VSiN",
+      "supports_tier": true,
+      "quote": "Bet: Packers ML (+120)"
+    },
+    {
+      "row": "w05-expert-verified.json#rows[512]",
+      "outlet": "VSiN",
+      "supports_tier": false,
+      "quote": "NFL Best Bet: I'll back a much more motivated Green Bay +1.5 vs."
+    },
+    {
+      "row": "w05-expert-verified.json#rows[392]",
+      "outlet": "ESPN NFL",
+      "supports_tier": false,
+      "quote": "Watson has scored at least one touchdown in three of four games played, and he has four end zone targets on the season."
+    }
+  ],
+  "context": {
+    "away": "CHI 3-1 (+47), wins by 22, 20, 11, one 3-9 loss to MIN; opponents 9-7; 0-1 in division; 7 days rest, bye wk10 ahead. QBs rotated (Williams, Keenum, Bagent); Bagent starts. Four-game sample only.",
+    "home": "GB 2-2 (-32), wins by 3 at NYJ and at TB (0-4), losses by 17 and 21; opponents 7-9; 0-1 home, 0-1 division; 7 days rest, bye wk11 ahead. Fourth in NFC North behind MIN 4-0."
+  },
+  "invalidators": [
+    "Official inactives: Bagent replaced by Williams or Keenum, or GB C Monk / G Banks ruled out, would change the matchup read",
+    "BKR or BEO line moving through 3 (either side) is a different bet; total repriced 1 point or more from 46",
+    "Gusts forecast materially above 42.1 km/h or precipitation appearing would make a total lean researchable",
+    "VSiN ML +120 row is stale against BKR +103 / BEO -101; reprice before relying on it",
+    "No observed or later weather capture"
+  ],
+  "gaps": [
+    "Packet does not state why Caleb Williams is not starting or his current status",
+    "Roster-vet file read instead of rerunning npm run roster:vet; it lists no CHI/GB items and roster source is 23 h old",
+    "Only one tier-eligible outlet (VSiN, two rows) for the side; ESPN eligible row is a prop",
+    "No calibrated wind-to-total adjustment; weather is an 8-hour-old Open-Meteo forecast",
+    "FTN and ratings are four-game samples; secondary-matchup context is manual",
+    "SuperContest lists CHI -3 (contest reference, differs 1.5 from BKR); labels reversed in file",
+    "Existing quantitative pass (CHI by 4.6, away cover 57.2%) is provisional and unbacktested and disagrees with VSiN"
+  ],
+  "props": [
+    {
+      "player": "Christian Watson",
+      "team": "GB",
+      "market": "anytime touchdown",
+      "side": "Yes",
+      "line": 0.5,
+      "price": 169,
+      "book": "BKR",
+      "captured_at": "2026-10-11T01:15:40.538Z",
+      "status": "high-variance TD",
+      "rationale": "ESPN row 392 source price +195, now BKR +169 / BEO +180. Weeks 1-4 targets 8, 11, 10, 3; receiving TDs 2, 1, 1, 0 (nflverse)."
+    },
+    {
+      "player": "Luther Burden",
+      "team": "CHI",
+      "market": "anytime touchdown",
+      "side": "Yes",
+      "line": 0.5,
+      "price": 250,
+      "book": "BEO",
+      "captured_at": "2026-10-11T01:19:56.400Z",
+      "status": "high-variance TD",
+      "rationale": "Digest ATD +240 is corroboration-only. Weeks 1-4 targets 5, 7, 11, 6; one receiving TD (week 3). BKR price +221."
+    },
+    {
+      "player": "Tucker Kraft",
+      "team": "GB",
+      "market": "anytime touchdown",
+      "side": "Yes",
+      "line": 0.5,
+      "price": 220,
+      "book": "BEO",
+      "captured_at": "2026-10-11T01:19:56.400Z",
+      "status": "high-variance TD",
+      "rationale": "Digest ATD +250 is corroboration-only. Weeks 1-4 targets 6, 3, 8, 7; one receiving TD (week 4). BKR price +221."
+    },
+    {
+      "player": "Rome Odunze",
+      "team": "CHI",
+      "market": "receiving yards",
+      "side": "Over",
+      "line": 40.5,
+      "price": -115,
+      "book": "BEO",
+      "captured_at": "2026-10-11T01:19:56.400Z",
+      "status": "usage context only",
+      "rationale": "Weeks 1-4 receiving yards 52, 43, 44, 94 on targets 3, 4, 6, 7 (nflverse); no source pick; Bagent passing volume uncertain."
+    }
+  ]
+}

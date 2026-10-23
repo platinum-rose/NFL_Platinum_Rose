@@ -1,0 +1,74 @@
+{
+  "schema": "availability_conflict_user_evidence_v1",
+  "captured_at": "2026-10-10T00:00:00-07:00",
+  "season": 2026,
+  "week": 5,
+  "source_class": "user_provided_secondary_source_excerpt",
+  "usage": "review-only; does not overwrite upstream availability events or create recommendations",
+  "items": [
+    {
+      "player_name": "Micah Parsons",
+      "team": "GB",
+      "claim": "Green Bay player; still rehabbing a torn ACL sustained last season.",
+      "source": "User-provided confirmation",
+      "source_url": null,
+      "attributable_quote": "Micah Parsons, GB is on Green Bay, still rehabbing from a torn ACL from last season.",
+      "resolution": "team_assignment_confirmed_for_review",
+      "synthesis_eligibility": "withheld_pending_current_status_and_role_confirmation",
+      "linked_records": [
+        "availability_evidence_d0467a76b82aada690c5",
+        "named-status-gb-micah-parsons-2026-08-11"
+      ],
+      "limitations": [
+        "Yahoo Fantasy Sports player lookup returned GB and PUP-R; its private league route is not persisted.",
+        "The confirmation does not establish a current game-status designation, return date, or starting role."
+      ]
+    },
+    {
+      "player_name": "D'Andre Swift",
+      "team": "CHI",
+      "claim": "Full Friday practice participant with no Week 5 injury designation; expected to be available against Green Bay.",
+      "source": "Yahoo player news / Rotowire excerpt supplied by user",
+      "source_url": null,
+      "published_time": "2026-10-09T12:01:00-07:00",
+      "attributable_quote": "Swift (hip/knee) was a full participant in Friday's practice and doesn't have an injury designation for Sunday's game against the Packers.",
+      "resolution": "current_return_signal_recorded_for_review",
+      "synthesis_eligibility": "withheld_from_automatic_override_pending_canonical_source_capture",
+      "linked_records": [
+        "availability_evidence_8fbc561c20e94ab0fabd"
+      ],
+      "limitations": [
+        "Yahoo Fantasy Sports player lookup returned CHI with no fantasy injury status; it does not carry the Rotowire news text or an NFL game designation.",
+        "No Yahoo article URL or API news payload was supplied with the Rotowire excerpt.",
+        "This does not modify the conflicting upstream event; it is retained as a separate review record."
+      ]
+    }
+  ],
+  "resolved_review_routing": [
+    {
+      "player_name": "Braden Smith",
+      "team": "IND",
+      "conflict": "restrictive_status_vs_return_text",
+      "position": "OT",
+      "user_review": "Not fantasy relevant. His availability may matter only as an Indianapolis offensive-efficiency / line-continuity context input.",
+      "synthesis_disposition": "exclude_from_fantasy and player-prop features; retain only as a qualified Colts offensive-line context note if a current official designation is captured",
+      "source_record_caveat": "The upstream HOU assignment is a source-identity error and must not be used for Texans analysis."
+    },
+    {
+      "player_name": "Kayden McDonald",
+      "team": "HOU",
+      "conflict": "restrictive_status_vs_return_text",
+      "position": "DT",
+      "user_review": "Defensive tackle for Houston; has not played with the starters and has no Week 5 relevance.",
+      "synthesis_disposition": "exclude_from Week 5 starter-impact, team-efficiency, fantasy, and player-prop features",
+      "source_record_caveat": "Yahoo Fantasy Sports returned HOU and IR-R; this confirms team identity only and is not used as a Week 5 impact signal."
+    }
+  ],
+  "yahoo_fantasy_api_attempt": {
+    "attempted_at": "2026-10-10T00:00:00-07:00",
+    "endpoint_family": "Yahoo Fantasy Sports API player search",
+    "players": ["D'Andre Swift", "Braden Smith", "Kayden McDonald", "Micah Parsons"],
+    "result": "partial_player_metadata_corroboration",
+    "detail": "Authenticated, read-only league-scoped searches returned Micah Parsons (GB, PUP-R), Kayden McDonald (HOU, IR-R), and D'Andre Swift (CHI, no fantasy injury status). Braden Smith returned no player match. Yahoo Fantasy metadata does not expose the supplied Rotowire article/news body. No Yahoo data was written and no tokens were exposed."
+  }
+}

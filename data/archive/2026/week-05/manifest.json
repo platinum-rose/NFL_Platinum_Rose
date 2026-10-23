@@ -1,0 +1,66 @@
+{
+ "schema": "weekly_archive_manifest_v1",
+ "season": 2026,
+ "week": 5,
+ "started_at": "2026-10-15T13:00:00.589Z",
+ "host": "win32",
+ "steps": {
+  "espn": {
+   "ok": true,
+   "ms": 1344,
+   "games": 15,
+   "cached": 15,
+   "not_final": []
+  },
+  "betting": {
+   "ok": true,
+   "ms": 24023,
+   "team_postmortem": "wrote week-05-teams.json/.csv: 30 team rows, pending []",
+   "espn_week": "week 5: 15 final games written; pending: none",
+   "grade_apply": "0 change(s); 0 unresolved leg(s).",
+   "left_open": [],
+   "weekly_review": "Week 5: net -387.24 on $412.45 · season net -1709.13 on $2111.74 · open 0 · unique legs 751 (from box 0)",
+   "player_games": "week 5: 15 games, 988 player-game rows, 0 linked to nflverse ids\r | wrote data\\archive\\2026\\season\\player-games.csv 5162 rows",
+   "validation": "ERRORS FOUND (see out/data-validation.md): reports/analysis/season/claude/scripts/validate_postmortem_data.py exit 1: e'] or None)\r\n                                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \""
+  },
+  "yahoo": {
+   "ok": true,
+   "ms": 29156,
+   "summary": "parsed: 5 leagues, 56 rosters, other games: yahoops,nflp"
+  },
+  "pools": {
+   "ok": true,
+   "ms": 3,
+   "files": [
+    "yahoo-472-g-4087-2026-w05.json"
+   ]
+  },
+  "rollups": {
+   "ok": true,
+   "ms": 55,
+   "team_weeks": 158,
+   "fantasy_player_weeks": 4646,
+   "fantasy_matchups": 140
+  },
+  "drafts": {
+   "ok": true,
+   "ms": 953,
+   "fetched": false,
+   "summary": "25 leagues"
+  },
+  "notes": {
+   "ok": true,
+   "ms": 87,
+   "notes": 53,
+   "staged": "data/archive/2026/week-05/vault"
+  },
+  "vault": {
+   "ok": true,
+   "ms": 151,
+   "written": 30,
+   "unchanged": 23
+  }
+ },
+ "status": "ok",
+ "finished_at": "2026-10-15T13:00:57.166Z"
+}

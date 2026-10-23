@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:57.110Z",
+  "built_at": "2026-10-17T02:04:50.990Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "40.8"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "EPA/PLY": "-0.142",
+          "DVOA": "-22.5%",
+          "SUCC%": "36.4%",
+          "EXP%": "5.7%",
+          "CONV%": "40.3%",
+          "TO": "7",
+          "TO%": "2.8%",
+          "3&O": "30.4%",
+          "MTKL%": "8.8%",
+          "PEN%": "6.5%",
+          "PENY": "51.0"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "2"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "YD/PLY": "4.3",
+          "PT/GM": "16.8",
+          "FD%": "23.9%",
+          "TO": "7",
+          "DPBK%": "60.3%",
+          "YD": "645",
+          "TD": "6",
+          "INT": "6",
+          "RUSH%": "39.7%",
+          "YD__2": "408",
+          "TD__2": "1"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "21.2%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "DPBK": "149",
+          "SK": "11",
+          "SK%": "7.4%",
+          "QBH%": "20.8%",
+          "PRESS": "55",
+          "PRESS%": "36.9%",
+          "QPRESS%": "52.7%",
+          "TTPR": "2.47",
+          "DISR%": "6.0%",
+          "BLZ%": "21.5%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "5.2%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "EPA/DB": "-0.078",
+          "SUCC%": "40.9%",
+          "DVOA": "-10.9%",
+          "CPOE": "-0.36%",
+          "CBALL%": "71.8%",
+          "EXP%": "6.4%",
+          "INTW%": "5.6%",
+          "TGHT%": "21.8%",
+          "OPEN%": "59.7%",
+          "TA%": "4.0%",
+          "DROP%": "5.6%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "1.65"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "EPA/ATT": "-0.239",
+          "SUCC%": "29.6%",
+          "DVOA": "-37.4%",
+          "aRYOE": "",
+          "EXP%": "6.1%",
+          "STF%": "24.5%",
+          "YBCO": "0.98",
+          "YACO": "1.51"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "7.74%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "EPA/PLY": "0.001",
+          "DVOA": "-2.7%",
+          "SUCC%": "43.9%",
+          "EXP%": "10.1%",
+          "CONV%": "34.0%",
+          "TO": "5",
+          "TO%": "2.11%",
+          "PENY": "30.8",
+          "PEN%": "8.02%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "4"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "YD/PLY": "6.1",
+          "PT/GM": "24.8",
+          "FD%": "32.5%",
+          "TO": "5",
+          "DPBK%": "53.6%",
+          "YD": "996",
+          "TD": "10",
+          "INT": "3",
+          "RUSH%": "46.4%",
+          "YD__2": "441",
+          "TD__2": "3"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "55.8%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "SK": "6",
+          "SK%": "4.7%",
+          "QBSK%": "50.0%",
+          "QBH%": "18.1%",
+          "PRESS%": "28.3%",
+          "UPRES%": "34.5%",
+          "BLITZ%": "40.9%",
+          "TTPR": "3.01",
+          "TTT": "2.86",
+          "EPA/DB": "-0.575",
+          "DVOA": "-104.2%",
+          "SUCC%": "27.8%",
+          "EPA/DB__2": "0.497",
+          "DVOA__2": "56.0%",
+          "SUCC%__2": "60.4%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "6.1"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "EPA/DB": "0.193",
+          "SUCC%": "51.2%",
+          "DVOA": "40.2%",
+          "CPOE": "3.0%",
+          "CBALL%": "78.0%",
+          "EXP%": "16.0%",
+          "INTW%": "2.5%",
+          "HLT%": "2.5%",
+          "TA%": "3.4%",
+          "DROP%": "4.2%",
+          "aDOT": "7.0",
+          "aYAC": "6.1"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "54.8%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "EPA/ATT": "-0.220",
+          "SUCC%": "35.5%",
+          "DVOA": "-28.4%",
+          "aRYOE": "",
+          "EXP%": "9.1%",
+          "STF%": "24.5%",
+          "aYBCO": "1.09",
+          "aYACO": "2.01",
+          "CRT%": "53.4%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "41.0%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "PLY/GM": "59.3",
+          "TOP": "28.86",
+          "DRV/GM": "11.8",
+          "SEC/PLY": "29.2",
+          "PLY/DRV": "5.0",
+          "YD/DRV": "30.6",
+          "SEC/DRV": "147",
+          "3&O": "12.8%",
+          "SCD%": "38.3%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Seattle Seahawks",
           "GP": "5",
@@ -703,13 +885,30 @@
           "PWR%": "13.3%",
           "CTR%": "5.9%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Seattle Seahawks",
+          "GP": "4",
+          "DPBK%": "53.6%",
+          "RUSH%": "46.4%",
+          "SHG%": "45.1%",
+          "NH%": "1.7%",
+          "MOT%": "56.5%",
+          "PA%": "34.6%",
+          "IZ%": "17.3%",
+          "OZ%": "40.0%",
+          "MD%": "15.5%",
+          "PWR%": "14.5%",
+          "CTR%": "5.5%"
+        }
       }
     },
     "qb1": {
       "player": "Sam Darnold",
       "position": "QB",
       "tables": {
-        "passing/air-yards": {
+        "passing/air-yards (1)": {
           "Player": "Sam Darnold",
           "Team": "Seattle Seahawks",
           "Position": "QB",
@@ -722,7 +921,20 @@
           "PRYD%": "22.7%",
           "dAIR": "48"
         },
-        "passing/analytics": {
+        "passing/air-yards": {
+          "Player": "Sam Darnold",
+          "Team": "Seattle Seahawks",
+          "Position": "QB",
+          "GP": "3",
+          "aDOT": "6.8",
+          "AIR": "469",
+          "cAIR": "371",
+          "cAIR%": "79.1%",
+          "PRYD": "98",
+          "PRYD%": "20.9%",
+          "dAIR": "15"
+        },
+        "passing/analytics (1)": {
           "Player": "Sam Darnold",
           "Team": "Seattle Seahawks",
           "Position": "QB",
@@ -737,7 +949,22 @@
           "CPOE": "1.5%",
           "aYDOE": "0.659"
         },
-        "passing/efficiency": {
+        "passing/analytics": {
+          "Player": "Sam Darnold",
+          "Team": "Seattle Seahawks",
+          "Position": "QB",
+          "GP": "3",
+          "EPA": "-0.6",
+          "EPA/DB": "-0.009",
+          "SUCC%": "50.7%",
+          "ACOMP%": "73.8%",
+          "DVOA": "-3.5%",
+          "DYAR": "38",
+          "xCOMP": "61.1%",
+          "CPOE": "4.2%",
+          "aYDOE": "1.104"
+        },
+        "passing/efficiency (1)": {
           "Player": "Sam Darnold",
           "Team": "Seattle Seahawks",
           "Position": "QB",
@@ -752,7 +979,22 @@
           "INT%": "5.1%",
           "SK%": "8.2%"
         },
-        "passing/overview": {
+        "passing/efficiency": {
+          "Player": "Sam Darnold",
+          "Team": "Seattle Seahawks",
+          "Position": "QB",
+          "GP": "3",
+          "CBALL%": "78.3%",
+          "INTW%": "2.9%",
+          "HLT%": "2.9%",
+          "EXP%": "11.6%",
+          "DROP%": "4.3%",
+          "TA%": "5.8%",
+          "TD%": "8.7%",
+          "INT%": "4.3%",
+          "SK%": "5.3%"
+        },
+        "passing/overview (1)": {
           "Player": "Sam Darnold",
           "Team": "Seattle Seahawks",
           "Position": "QB",
@@ -767,7 +1009,52 @@
           "INT": "5",
           "FUML": "0"
         },
-        "passing/pressure": {
+        "passing/overview (2)": {
+          "Player": "Sam Darnold",
+          "Team": "Seattle Seahawks",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "110",
+          "ATT": "98",
+          "COMP": "63",
+          "COMP%": "64.3%",
+          "YD": "755",
+          "YD/ATT": "7.7",
+          "TD": "7",
+          "INT": "5",
+          "FUML": "0"
+        },
+        "passing/overview (3)": {
+          "Player": "Sam Darnold",
+          "Team": "Seattle Seahawks",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "110",
+          "ATT": "98",
+          "COMP": "63",
+          "COMP%": "64.3%",
+          "YD": "755",
+          "YD/ATT": "7.7",
+          "TD": "7",
+          "INT": "5",
+          "FUML": "0"
+        },
+        "passing/overview": {
+          "Player": "Sam Darnold",
+          "Team": "Seattle Seahawks",
+          "Position": "QB",
+          "GP": "3",
+          "DPBK": "75",
+          "ATT": "69",
+          "COMP": "45",
+          "COMP%": "65.2%",
+          "YD": "560",
+          "YD/ATT": "8.1",
+          "TD": "6",
+          "INT": "3",
+          "FUML": "0"
+        },
+        "passing/pressure (1)": {
           "Player": "Sam Darnold",
           "Team": "Seattle Seahawks",
           "Position": "QB",
@@ -785,28 +1072,66 @@
           "RATE__2": "68.2%",
           "EPA/DB__2": "0.211",
           "DVOA__2": "27.1%"
+        },
+        "passing/pressure": {
+          "Player": "Sam Darnold",
+          "Team": "Seattle Seahawks",
+          "Position": "QB",
+          "GP": "3",
+          "SK": "4",
+          "SK%": "5.3%",
+          "QBSK%": "75.0%",
+          "AVSK%": "5.3%",
+          "QBH%": "18.7%",
+          "TTPR": "3.17",
+          "TTT": "3.02",
+          "RATE": "29.3%",
+          "EPA/DB": "-0.893",
+          "DVOA": "-150.4%",
+          "RATE__2": "70.7%",
+          "EPA/DB__2": "0.359",
+          "DVOA__2": "51.1%"
         }
       }
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
-      "passing/air-yards": 4,
-      "passing/analytics": 4,
-      "passing/efficiency": 4,
-      "passing/overview": 4,
-      "passing/pressure": 4,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "passing/air-yards (1)": 4,
+      "passing/air-yards": 3,
+      "passing/analytics (1)": 4,
+      "passing/analytics": 3,
+      "passing/efficiency (1)": 4,
+      "passing/efficiency": 3,
+      "passing/overview (1)": 4,
+      "passing/overview (2)": 4,
+      "passing/overview (3)": 4,
+      "passing/overview": 3,
+      "passing/pressure (1)": 4,
+      "passing/pressure": 3,
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -929,17 +1254,44 @@
           },
           "secondary_absences": [
             {
+              "player_name": "Talanoa Hufanga",
+              "team": "DEN",
+              "position": "S",
+              "event_type": "out",
+              "availability_trend": "worsening",
+              "summary": "inactive",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API",
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-15T22:49:00.000Z",
+              "role": "box_safety",
+              "side": "middle",
+              "impact_tier": "plus",
+              "primary_receiver_archetypes_impacted": [
+                "te_middle"
+              ],
+              "weakness_tags": [
+                "te_middle_boost",
+                "middle_field_boost"
+              ],
+              "severity_score": 2.7,
+              "needs_human_review": true
+            },
+            {
               "player_name": "Pat Surtain II",
               "team": "DEN",
               "position": "CB",
-              "event_type": "doubtful",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "doubtful",
+              "summary": "Surtain (ankle) has been ruled out for Thursday's game against the Seahawks.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-13T17:10:00.000Z",
+              "published_at": "2026-10-14T23:52:00.000Z",
               "role": "outside_cb1",
               "side": "boundary",
               "impact_tier": "starter",
@@ -951,7 +1303,7 @@
                 "boundary_wr_boost",
                 "alpha_wr_boost"
               ],
-              "severity_score": 1.35,
+              "severity_score": 1.8,
               "needs_human_review": true
             }
           ],
@@ -960,9 +1312,11 @@
             "boundary_wr_boost",
             "deep_pass_boost",
             "hot_read_boost",
+            "middle_field_boost",
             "outside_wr_boost",
             "post_cross_boost",
-            "slot_wr_boost"
+            "slot_wr_boost",
+            "te_middle_boost"
           ],
           "target_receivers": [
             {
@@ -983,9 +1337,10 @@
                 "slot_wr_boost",
                 "outside_wr_boost",
                 "alpha_wr_boost",
-                "boundary_wr_boost"
+                "boundary_wr_boost",
+                "middle_field_boost"
               ],
-              "opportunity_score": 6,
+              "opportunity_score": 7.5,
               "notes": "LAR Triple Crown WR. [moved from LAR per ESPN roster 2026-09-27]",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
@@ -1024,18 +1379,38 @@
                 "intermediate"
               ],
               "matched_weakness_tags": [
-                "slot_wr_boost"
+                "slot_wr_boost",
+                "middle_field_boost"
               ],
-              "opportunity_score": 1.2,
+              "opportunity_score": 2.4,
               "notes": "SEA Rising Slot Star.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
+            },
+            {
+              "player_name": "AJ Barner",
+              "team": "SEA",
+              "roles": [
+                "te_middle"
+              ],
+              "target_share_tier": "medium",
+              "route_area_tags": [
+                "middle"
+              ],
+              "matched_weakness_tags": [
+                "te_middle_boost",
+                "middle_field_boost"
+              ],
+              "opportunity_score": 1.6,
+              "notes": "SEA TE1 per ESPN depth chart 2026-09-27; default role - verify.",
+              "source_url": "https://www.espn.com/nfl/team/depth/",
+              "availability_flag": "none"
             }
           ],
-          "severity_score": 1.35,
-          "elite_absence_count": 0,
-          "vulnerability_tier": "watch",
-          "confidence": 0.73,
+          "severity_score": 4.5,
+          "elite_absence_count": 1,
+          "vulnerability_tier": "medium",
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1080,10 +1455,9 @@
               "summary": "Julian Neal IR",
               "source": "FantasyPros injuries API",
               "corroborating_sources": [
-                "FantasyPros injuries API",
-                "ESPN injuries API"
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1103,13 +1477,34 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
               "primary_receiver_archetypes_impacted": [],
               "weakness_tags": [],
               "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Avery Smith",
+              "team": "SEA",
+              "position": "CB",
+              "event_type": "out",
+              "availability_trend": "worsening",
+              "summary": "Avery Smith OUT",
+              "source": "FantasyPros injuries API",
+              "corroborating_sources": [
+                "FantasyPros injuries API",
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-15T23:00:03.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.2,
               "needs_human_review": true
             }
           ],
@@ -1232,10 +1627,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 2.7,
+          "severity_score": 3.9,
           "elite_absence_count": 0,
           "vulnerability_tier": "medium",
-          "confidence": 0.89,
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1258,19 +1653,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1286,6 +1681,54 @@
     },
     "reported_injuries": {
       "out_ir": [
+        {
+          "player": "Jadarian Price",
+          "pos": "RB",
+          "status": "Injured Reserve",
+          "date": "2026-10-16",
+          "comment": "Head coach Mike Macdonald said Friday that Price \"should be looking at a sooner rather than later return after\" the Seahawks' next game in Week 7, Brady Henders",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jalen Milroe",
+          "pos": "QB",
+          "status": "Out",
+          "date": "2026-10-15",
+          "comment": "Milroe (coach's decision) is inactive for Thursday's game against Denver, though he will once again serve as the Seahawks' emergency quarterback.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Brandon Pili",
+          "pos": "DT",
+          "status": "Out",
+          "date": "2026-10-15",
+          "comment": "inactive",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Avery Smith",
+          "pos": "CB",
+          "status": "Out",
+          "date": "2026-10-15",
+          "comment": "inactive",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Montorie Foster Jr.",
+          "pos": "WR",
+          "status": "Out",
+          "date": "2026-10-15",
+          "comment": "inactive",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Robert Henry Jr.",
+          "pos": "RB",
+          "status": "Out",
+          "date": "2026-10-15",
+          "comment": "inactive",
+          "roster_check": "ok"
+        },
         {
           "player": "Chazz Surratt",
           "pos": "LB",
@@ -1309,17 +1752,18 @@
           "date": "2026-10-14",
           "comment": "Charbonnet (knee) has been ruled out for Thursday's game at Denver, Corbin K. Smith of EmeraldCitySpectrum.com reports.",
           "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player": "Julian Neal",
-          "pos": "CB",
-          "status": "Injured Reserve",
-          "date": "2026-10-11",
-          "comment": "The Seahawks placed Neal (hamstring) on injured reserve Saturday, John Boyle of the team's official site reports.",
-          "roster_check": "roster_ir_out_group"
         }
       ],
-      "questionable_doubtful": [],
+      "questionable_doubtful": [
+        {
+          "player": "Elijah Arroyo",
+          "pos": "TE",
+          "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "questionable",
+          "roster_check": "ok"
+        }
+      ],
       "other": []
     },
     "operator_reported": [],
@@ -1337,6 +1781,11 @@
       {
         "player": "Jake Bobo",
         "pos": "WR",
+        "roster_status": "day-to-day"
+      },
+      {
+        "player": "Julian Neal",
+        "pos": "CB",
         "roster_status": "day-to-day"
       },
       {
@@ -1359,11 +1808,13 @@
         "players": []
       },
       "dl": {
-        "hard_or_doubtful": 0,
+        "hard_or_doubtful": 1,
         "questionable": 0,
-        "risk": "none",
+        "risk": "watch",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": []
+        "players": [
+          "Brandon Pili DT Out"
+        ]
       }
     },
     "live_events": {
@@ -1376,7 +1827,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Jadarian Price IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1392,7 +1843,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Jake Bobo IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1408,7 +1859,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Robbie Ouzts IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1424,7 +1875,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Julian Neal IR",
           "practice": [
             "--",
@@ -1444,88 +1895,8 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Bud Clark IR",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player_name": "Chazz Surratt",
-          "position": "LB",
-          "normalized_status": "OUT",
-          "availability_trend": "worsening",
-          "event_type": "out",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T01:42:00.000Z",
-          "summary": "Surratt (calf) has been ruled out for Thursday night's contest against the Broncos, John Boyle of the Seahawks' official site reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Drake Thomas",
-          "position": "LB",
-          "normalized_status": "OUT",
-          "availability_trend": "worsening",
-          "event_type": "out",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T00:24:00.000Z",
-          "summary": "Thomas (ankle) has been ruled out for Thursday night's game against the Broncos, John Boyle of the Seahawks' official site reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Drew Lock",
-          "position": "QB",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "stable",
-          "event_type": "limited",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:17:00.000Z",
-          "summary": "Lock (forearm) won't carry an injury designation into Thursday night's matchup with Denver, John Boyle of the Seahawks' official site reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Jaxon Smith-Njigba",
-          "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "stable",
-          "event_type": "limited",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T22:33:00.000Z",
-          "summary": "Smith-Njigba (ankle) practiced fully Wednesday and doesn't have a designation for Thursday's game in Denver, Curtis Crabtree of Fox 13 Seattle reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Zach Charbonnet",
-          "position": "RB",
-          "normalized_status": "OUT",
-          "availability_trend": "worsening",
-          "event_type": "out",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T22:14:00.000Z",
-          "summary": "Charbonnet (knee) has been ruled out for Thursday's game at Denver, Corbin K. Smith of EmeraldCitySpectrum.com reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1537,11 +1908,27 @@
           "player_name": "Cooper Kupp",
           "position": "WR",
           "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "stable",
-          "event_type": "limited",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-14T02:20:00.000Z",
-          "summary": "Kupp caught two of three passes for 15 yards during Sunday's 32-29 loss to the 49ers.",
+          "published_at": "2026-10-17T00:41:00.000Z",
+          "summary": "Kupp caught five of 10 targets for 50 yards during the Seahawks' 17-14 overtime loss to the Broncos on Thursday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "AJ Barner",
+          "position": "TE",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T00:34:00.000Z",
+          "summary": "Barner caught three of four passes for 16 yards during the Seahawks' 17-14 overtime loss to the Broncos on Thursday.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1556,8 +1943,72 @@
           "availability_trend": "improving",
           "event_type": "return_to_practice",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-13T02:04:00.000Z",
-          "summary": "Holani rushed four times for seven yards and lost a fumble while reeling in all four of his targets for 24 yards during Sunday's 32-29 loss to the 49ers.",
+          "published_at": "2026-10-16T05:19:00.000Z",
+          "summary": "Holani rushed five times for 20 yards and a touchdown in the Seahawks' 17-14 overtime loss to the Broncos on Thursday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Rashid Shaheed",
+          "position": "WR",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T05:13:00.000Z",
+          "summary": "Shaheed brought in five of eight targets for 66 yards, rushed once for two yards, returned three kickoffs for 77 yards and ran back three punts for 39 yards in ",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Sam Darnold",
+          "position": "QB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T04:17:00.000Z",
+          "summary": "Darnold completed 27 of 51 passes for 278 yards with no touchdowns and two interceptions and rushed twice for 19 yards in the Seahawks' 17-14 overtime loss to t",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Elijah Arroyo",
+          "position": "TE",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T04:10:00.000Z",
+          "summary": "questionable",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Emanuel Wilson",
+          "position": "RB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "improving",
+          "event_type": "return_to_practice",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T04:08:00.000Z",
+          "summary": "Wilson rushed 14 times for 52 yards and failed to bring in his only target in the Seahawks' 17-14 overtime loss to the Broncos on Thursday.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1567,23 +2018,124 @@
         }
       ]
     },
-    "impact_digest": [],
+    "impact_digest": [
+      {
+        "player_name": "Tyrice Knight",
+        "position": "LB",
+        "unit": "linebacker",
+        "event_type": "setback",
+        "availability_trend": "worsening",
+        "impact_bucket": "defensive_major",
+        "starter_match": {
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "source_count": 1
+        },
+        "score": 78,
+        "signal": "negative_availability",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-15T22:27:00.000Z",
+        "summary": "Knight will start in Thursday's game against the Broncos, Brady Henderson of ESPN.com reports.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Irv Charles",
+        "position": "WR",
+        "unit": "offensive_skill",
+        "event_type": "return_to_practice",
+        "availability_trend": "improving",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "source_count": 1
+        },
+        "score": 57,
+        "signal": "positive_availability",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-15T22:57:00.000Z",
+        "summary": "Charles was elevated from the practice squad to the active roster ahead of Thursday's game against Denver, John Boyle of the team's official site reports.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Velus Jones Jr.",
+        "position": "RB",
+        "unit": "offensive_skill",
+        "event_type": "active_news",
+        "availability_trend": "unknown",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "source_count": 1
+        },
+        "score": 39,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-16T00:46:00.000Z",
+        "summary": "Jones was signed from the practice squad to the active roster ahead of Thursday's game against the Broncos.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      }
+    ],
     "projected_starters": {
-      "coverage_status": "needs_manual_depth_chart",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "coverage_status": "estimated_from_local_starter_language",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [],
-      "estimated": [],
-      "missing": [
-        "verified all-position depth chart",
-        "manual source count reconciliation"
+      "estimated": [
+        "Velus Jones Jr. RB",
+        "Irv Charles WR",
+        "Tyrice Knight LB"
       ],
-      "players": []
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "player_name": "Tyrice Knight",
+          "position": "LB",
+          "unit": "defense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Irv Charles",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Velus Jones Jr.",
+          "position": "RB",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "roster_check": "ok"
+        }
+      ]
     },
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1834,18 +2386,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:57.231Z",
+  "built_at": "2026-10-17T02:04:51.125Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "20.6"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "EPA/PLY": "0.047",
+          "DVOA": "12.1%",
+          "SUCC%": "42.1%",
+          "EXP%": "9.4%",
+          "CONV%": "40.4%",
+          "TO": "2",
+          "TO%": "0.8%",
+          "3&O": "23.8%",
+          "MTKL%": "11.4%",
+          "PEN%": "4.7%",
+          "PENY": "18.8"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "5"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "YD/PLY": "5.4",
+          "PT/GM": "20.8",
+          "FD%": "28.7%",
+          "TO": "2",
+          "DPBK%": "50.0%",
+          "YD": "882",
+          "TD": "4",
+          "INT": "2",
+          "RUSH%": "50.0%",
+          "YD__2": "491",
+          "TD__2": "4"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "22.1%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "DPBK": "127",
+          "SK": "8",
+          "SK%": "6.3%",
+          "QBH%": "12.6%",
+          "PRESS": "29",
+          "PRESS%": "22.8%",
+          "QPRESS%": "31.0%",
+          "TTPR": "2.95",
+          "DISR%": "0.0%",
+          "BLZ%": "22.0%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "5.5%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "EPA/DB": "0.196",
+          "SUCC%": "47.2%",
+          "DVOA": "35.8%",
+          "CPOE": "3.18%",
+          "CBALL%": "82.1%",
+          "EXP%": "15.9%",
+          "INTW%": "1.8%",
+          "TGHT%": "16.1%",
+          "OPEN%": "63.4%",
+          "TA%": "5.4%",
+          "DROP%": "6.3%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "1.51"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "EPA/ATT": "-0.101",
+          "SUCC%": "37.0%",
+          "DVOA": "-7.3%",
+          "aRYOE": "",
+          "EXP%": "7.1%",
+          "STF%": "22.8%",
+          "YBCO": "1.13",
+          "YACO": "1.39"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "6.20%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "EPA/PLY": "-0.085",
+          "DVOA": "-10.8%",
+          "SUCC%": "41.2%",
+          "EXP%": "7.9%",
+          "CONV%": "36.5%",
+          "TO": "2",
+          "TO%": "0.93%",
+          "PENY": "22.5",
+          "PEN%": "5.09%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "3"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "YD/PLY": "5.0",
+          "PT/GM": "13.8",
+          "FD%": "25.9%",
+          "TO": "2",
+          "DPBK%": "63.0%",
+          "YD": "726",
+          "TD": "3",
+          "INT": "2",
+          "RUSH%": "37.0%",
+          "YD__2": "356",
+          "TD__2": "3"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "50.0%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "SK": "6",
+          "SK%": "4.4%",
+          "QBSK%": "50.0%",
+          "QBH%": "11.8%",
+          "PRESS%": "27.9%",
+          "UPRES%": "7.9%",
+          "BLITZ%": "22.1%",
+          "TTPR": "2.72",
+          "TTT": "2.78",
+          "EPA/DB": "-0.509",
+          "DVOA": "-122.1%",
+          "SUCC%": "26.3%",
+          "EPA/DB__2": "0.053",
+          "DVOA__2": "18.6%",
+          "SUCC%__2": "50.0%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "4.8"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "EPA/DB": "-0.104",
+          "SUCC%": "43.4%",
+          "DVOA": "0.6%",
+          "CPOE": "0.4%",
+          "CBALL%": "70.8%",
+          "EXP%": "12.0%",
+          "INTW%": "2.5%",
+          "HLT%": "3.3%",
+          "TA%": "10.0%",
+          "DROP%": "3.3%",
+          "aDOT": "6.5",
+          "aYAC": "5.0"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "52.0%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "EPA/ATT": "-0.053",
+          "SUCC%": "37.5%",
+          "DVOA": "-19.7%",
+          "aRYOE": "",
+          "EXP%": "8.8%",
+          "STF%": "15.0%",
+          "aYBCO": "0.93",
+          "aYACO": "1.88",
+          "CRT%": "49.5%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "22.4%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "PLY/GM": "54.0",
+          "TOP": "23.72",
+          "DRV/GM": "10.0",
+          "SEC/PLY": "26.4",
+          "PLY/DRV": "5.4",
+          "YD/DRV": "27.1",
+          "SEC/DRV": "142",
+          "3&O": "35.0%",
+          "SCD%": "25.0%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Tennessee Titans",
           "GP": "5",
@@ -703,13 +885,30 @@
           "PWR%": "8.2%",
           "CTR%": "8.2%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Tennessee Titans",
+          "GP": "4",
+          "DPBK%": "63.0%",
+          "RUSH%": "37.0%",
+          "SHG%": "68.5%",
+          "NH%": "13.4%",
+          "MOT%": "45.8%",
+          "PA%": "21.3%",
+          "IZ%": "26.3%",
+          "OZ%": "12.5%",
+          "MD%": "32.5%",
+          "PWR%": "10.0%",
+          "CTR%": "10.0%"
+        }
       }
     },
     "qb1": {
       "player": "Cam Ward",
       "position": "QB",
       "tables": {
-        "passing/air-yards": {
+        "passing/air-yards (1)": {
           "Player": "Cam Ward",
           "Team": "Tennessee Titans",
           "Position": "QB",
@@ -722,7 +921,20 @@
           "PRYD%": "52.5%",
           "dAIR": "48"
         },
-        "passing/analytics": {
+        "passing/air-yards": {
+          "Player": "Cam Ward",
+          "Team": "Tennessee Titans",
+          "Position": "QB",
+          "GP": "4",
+          "aDOT": "6.5",
+          "AIR": "786",
+          "cAIR": "404",
+          "cAIR%": "51.4%",
+          "PRYD": "382",
+          "PRYD%": "48.6%",
+          "dAIR": "20"
+        },
+        "passing/analytics (1)": {
           "Player": "Cam Ward",
           "Team": "Tennessee Titans",
           "Position": "QB",
@@ -737,7 +949,22 @@
           "CPOE": "-0.4%",
           "aYDOE": "-0.982"
         },
-        "passing/efficiency": {
+        "passing/analytics": {
+          "Player": "Cam Ward",
+          "Team": "Tennessee Titans",
+          "Position": "QB",
+          "GP": "4",
+          "EPA": "-14.2",
+          "EPA/DB": "-0.104",
+          "SUCC%": "43.4%",
+          "ACOMP%": "73.1%",
+          "DVOA": "-11.5%",
+          "DYAR": "-36",
+          "xCOMP": "62.1%",
+          "CPOE": "0.4%",
+          "aYDOE": "-0.673"
+        },
+        "passing/efficiency (1)": {
           "Player": "Cam Ward",
           "Team": "Tennessee Titans",
           "Position": "QB",
@@ -752,7 +979,22 @@
           "INT%": "1.9%",
           "SK%": "5.6%"
         },
-        "passing/overview": {
+        "passing/efficiency": {
+          "Player": "Cam Ward",
+          "Team": "Tennessee Titans",
+          "Position": "QB",
+          "GP": "4",
+          "CBALL%": "70.8%",
+          "INTW%": "2.5%",
+          "HLT%": "3.3%",
+          "EXP%": "7.5%",
+          "DROP%": "3.3%",
+          "TA%": "10.0%",
+          "TD%": "2.5%",
+          "INT%": "1.7%",
+          "SK%": "4.4%"
+        },
+        "passing/overview (1)": {
           "Player": "Cam Ward",
           "Team": "Tennessee Titans",
           "Position": "QB",
@@ -767,7 +1009,52 @@
           "INT": "3",
           "FUML": "0"
         },
-        "passing/pressure": {
+        "passing/overview (2)": {
+          "Player": "Cam Ward",
+          "Team": "Tennessee Titans",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "177",
+          "ATT": "156",
+          "COMP": "98",
+          "COMP%": "62.8%",
+          "YD": "896",
+          "YD/ATT": "5.7",
+          "TD": "3",
+          "INT": "3",
+          "FUML": "0"
+        },
+        "passing/overview (3)": {
+          "Player": "Cam Ward",
+          "Team": "Tennessee Titans",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "177",
+          "ATT": "156",
+          "COMP": "98",
+          "COMP%": "62.8%",
+          "YD": "896",
+          "YD/ATT": "5.7",
+          "TD": "3",
+          "INT": "3",
+          "FUML": "0"
+        },
+        "passing/overview": {
+          "Player": "Cam Ward",
+          "Team": "Tennessee Titans",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "136",
+          "ATT": "120",
+          "COMP": "75",
+          "COMP%": "62.5%",
+          "YD": "726",
+          "YD/ATT": "6.0",
+          "TD": "3",
+          "INT": "2",
+          "FUML": "0"
+        },
+        "passing/pressure (1)": {
           "Player": "Cam Ward",
           "Team": "Tennessee Titans",
           "Position": "QB",
@@ -785,28 +1072,66 @@
           "RATE__2": "68.9%",
           "EPA/DB__2": "0.034",
           "DVOA__2": "16.8%"
+        },
+        "passing/pressure": {
+          "Player": "Cam Ward",
+          "Team": "Tennessee Titans",
+          "Position": "QB",
+          "GP": "4",
+          "SK": "6",
+          "SK%": "4.4%",
+          "QBSK%": "50.0%",
+          "AVSK%": "6.6%",
+          "QBH%": "11.8%",
+          "TTPR": "2.72",
+          "TTT": "2.78",
+          "RATE": "27.9%",
+          "EPA/DB": "-0.509",
+          "DVOA": "-122.1%",
+          "RATE__2": "72.1%",
+          "EPA/DB__2": "0.053",
+          "DVOA__2": "18.6%"
         }
       }
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
-      "passing/air-yards": 5,
-      "passing/analytics": 5,
-      "passing/efficiency": 5,
-      "passing/overview": 5,
-      "passing/pressure": 5,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "passing/air-yards (1)": 5,
+      "passing/air-yards": 4,
+      "passing/analytics (1)": 5,
+      "passing/analytics": 4,
+      "passing/efficiency (1)": 5,
+      "passing/efficiency": 4,
+      "passing/overview (1)": 5,
+      "passing/overview (2)": 5,
+      "passing/overview (3)": 5,
+      "passing/overview": 4,
+      "passing/pressure (1)": 5,
+      "passing/pressure": 4,
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -938,7 +1263,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1087,7 +1412,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1107,7 +1432,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1117,28 +1442,29 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Cor'Dale Flott",
+              "player_name": "Kevin Winston Jr.",
               "team": "TEN",
-              "position": "CB",
-              "event_type": "setback",
+              "position": "S",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "Flott (chest) has been ruled out for the remainder of Sunday's game against the Texans.",
+              "summary": "Winston (quadriceps) has been ruled out ahead of Sunday's game against the Colts, Paul Kuharsky of PaulKuharsky.com reports.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-11T19:25:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
+              "published_at": "2026-10-16T23:17:00.000Z",
+              "role": "free_safety",
+              "side": "middle",
               "impact_tier": "starter",
               "primary_receiver_archetypes_impacted": [
-                "z_receiver"
+                "field_stretcher"
               ],
               "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
+                "deep_pass_boost",
+                "post_cross_boost"
               ],
-              "severity_score": 1.27,
+              "severity_score": 1.8,
               "needs_human_review": true
             },
             {
@@ -1166,31 +1492,9 @@
             "boundary_wr_boost",
             "deep_pass_boost",
             "inside_seam_boost",
-            "outside_wr_boost",
             "post_cross_boost"
           ],
           "target_receivers": [
-            {
-              "player_name": "Darius Slayton",
-              "team": "IND",
-              "roles": [
-                "z_receiver",
-                "field_stretcher"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "deep"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "NYG Deep Threat. [moved from NYG per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
             {
               "player_name": "Josh Downs",
               "team": "IND",
@@ -1265,10 +1569,10 @@
               "opportunity_score": 0.8,
               "notes": "IND TE1 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
+              "availability_flag": "questionable"
             }
           ],
-          "severity_score": 5.32,
+          "severity_score": 5.85,
           "elite_absence_count": 0,
           "vulnerability_tier": "high",
           "confidence": 0.95,
@@ -1294,19 +1598,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1322,6 +1626,22 @@
     "reported_injuries": {
       "out_ir": [
         {
+          "player": "Jordan Elliott",
+          "pos": "DT",
+          "status": "Out",
+          "date": "2026-10-17",
+          "comment": "Elliott (personal) has been ruled out ahead of Sunday's game against the Colts.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Kevin Winston Jr.",
+          "pos": "S",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "Winston (quadriceps) has been ruled out ahead of Sunday's game against the Colts, Paul Kuharsky of PaulKuharsky.com reports.",
+          "roster_check": "ok"
+        },
+        {
           "player": "Joshua Williams",
           "pos": "CB",
           "status": "Injured Reserve",
@@ -1335,40 +1655,8 @@
           "player": "Tyjae Spears",
           "pos": "RB",
           "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Spears (knee) didn't practice Thursday.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "David Martin-Robinson",
-          "pos": "TE",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Martin-Robinson (hamstring) was a limited participant in Wednesday's practice.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Amani Hooker",
-          "pos": "S",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Hooker (concussion) was a limited participant in Wednesday's practice.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Kevin Winston Jr.",
-          "pos": "S",
-          "status": "Doubtful",
-          "date": "2026-10-14",
-          "comment": "Titans head coach Robert Saleh said that Winston (quadriceps) has \"a real uphill climb\" to play Sunday against the Colts, Easton Freeze of AtoZSports.com report",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Marcus Harris",
-          "pos": "CB",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
+          "date": "2026-10-16",
+          "comment": "Spears (knee) is listed as questionable for Sunday's game against the Colts.",
           "roster_check": "ok"
         }
       ],
@@ -1426,16 +1714,34 @@
         "players": []
       },
       "dl": {
-        "hard_or_doubtful": 0,
+        "hard_or_doubtful": 1,
         "questionable": 0,
-        "risk": "none",
+        "risk": "watch",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": []
+        "players": [
+          "Jordan Elliott DT Out"
+        ]
       }
     },
     "live_events": {
       "window": "published within 10 days of build; latest per player; cap 12",
       "rows": [
+        {
+          "player_name": "Amani Hooker",
+          "position": "S",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "improving",
+          "event_type": "return_to_practice",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T01:53:00.000Z",
+          "summary": "Hooker (concussion) does not have any injury designation ahead of Sunday's game against the Colts.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
         {
           "player_name": "Tanoh Kpassagnon",
           "position": "DE",
@@ -1443,7 +1749,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Tanoh Kpassagnon IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1459,7 +1765,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Milo Eifler IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1475,7 +1781,7 @@
           "availability_trend": "worsening",
           "event_type": "suspension",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Nazeeh Johnson SUSPENSION",
           "practice": [],
           "probability_of_playing": null,
@@ -1491,7 +1797,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Kendell Brooks IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1507,7 +1813,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Dominique Hampton IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1523,7 +1829,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Jaylen Harrell IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1539,7 +1845,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Jaren Kanak IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1549,14 +1855,14 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Tyjae Spears",
-          "position": "RB",
-          "normalized_status": "QUESTIONABLE",
+          "player_name": "Jordan Elliott",
+          "position": "DT",
+          "normalized_status": "OUT",
           "availability_trend": "worsening",
-          "event_type": "setback",
+          "event_type": "out",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:18:00.000Z",
-          "summary": "Spears (knee) didn't practice Thursday.",
+          "published_at": "2026-10-17T01:48:00.000Z",
+          "summary": "Elliott (personal) has been ruled out ahead of Sunday's game against the Colts.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1567,75 +1873,58 @@
         {
           "player_name": "Kevin Winston Jr.",
           "position": "S",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Kevin Winston Jr. QUESTIONABLE",
-          "practice": [
-            "DNP",
-            "DNP"
-          ],
-          "probability_of_playing": 0.09248,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "David Martin-Robinson",
-          "position": "TE",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "David Martin-Robinson QUESTIONABLE",
-          "practice": [
-            "Limit",
-            "Limit"
-          ],
-          "probability_of_playing": 0.60552,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Marcus Harris",
-          "position": "CB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Marcus Harris QUESTIONABLE",
-          "practice": [
-            "Limit",
-            "Limit"
-          ],
-          "probability_of_playing": 0.92987,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Amani Hooker",
-          "position": "S",
-          "normalized_status": "QUESTIONABLE",
+          "normalized_status": "OUT",
           "availability_trend": "worsening",
-          "event_type": "setback",
+          "event_type": "out",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:19:00.000Z",
-          "summary": "Hooker (concussion) was a limited participant in Wednesday's practice.",
+          "published_at": "2026-10-16T23:17:00.000Z",
+          "summary": "Winston (quadriceps) has been ruled out ahead of Sunday's game against the Colts, Paul Kuharsky of PaulKuharsky.com reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
+        },
+        {
+          "player_name": "Tyjae Spears",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-16T22:45:50.000Z",
+          "summary": "Tyjae Spears QUESTIONABLE",
+          "practice": [
+            "Limit",
+            "DNP",
+            "Full"
+          ],
+          "probability_of_playing": 0.95801,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Joshua Williams",
+          "position": "CB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-16T00:00:00.000Z",
+          "summary": "Joshua Williams QUESTIONABLE",
+          "practice": [
+            "Full",
+            "Full",
+            "Full"
+          ],
+          "probability_of_playing": 0.33748,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
         }
       ]
     },
@@ -1689,7 +1978,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [
         "Cam Ward QB",
         "Gunnar Helm TE"
@@ -1722,8 +2011,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1953,18 +2241,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

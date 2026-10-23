@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-22T18:21:00.342Z",
+  "built_at": "2026-10-22T22:58:54.198Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "aecd94b",
+  "git_head": "645efaf",
   "market_data_included": false,
   "sources": [
     {
@@ -1324,7 +1324,7 @@
       "vet_status": "PASS",
       "blocking_count": 0,
       "roster_snapshot_generated_at": "2026-10-22T14:39:12.738634+00:00",
-      "roster_age_h_at_vet": 3.7,
+      "roster_age_h_at_vet": 8.3,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
@@ -1332,7 +1332,7 @@
     },
     "as_of": {
       "espn_status": "2026-10-22T14:39:14Z",
-      "availability_events": "2026-10-22T14:39:26.249Z",
+      "availability_events": "2026-10-22T22:58:47.007Z",
       "impact_digest": "2026-10-22T14:39:29.587Z",
       "projected_starters": "2026-10-21T22:00:03.496Z",
       "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -1468,7 +1468,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Pat Bryant IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1484,7 +1484,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Matt Henningsen IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1500,7 +1500,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Levelle Bailey IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1508,6 +1508,38 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Jonah Coleman",
+          "position": "RB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T20:26:00.000Z",
+          "summary": "Coleman (ankle) was at practice for a second straight day Thursday, Zac Stevens of DNVR Sports reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Jaylen Waddle",
+          "position": "WR",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T20:19:00.000Z",
+          "summary": "Waddle (chest) was at practice Thursday after being limited Wednesday, Zac Stevens of TheDNVR.com reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
         },
         {
           "player_name": "Talanoa Hufanga",
@@ -1572,38 +1604,6 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
-        },
-        {
-          "player_name": "Jaylen Waddle",
-          "position": "WR",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T23:22:00.000Z",
-          "summary": "Waddle was limited at Wednesday's practice due to a chest injury, Aric DiLalla of the Broncos' official site reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Jonah Coleman",
-          "position": "RB",
-          "normalized_status": "IR",
-          "availability_trend": "worsening",
-          "event_type": "ir",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T20:59:00.000Z",
-          "summary": "Coleman (ankle) was on the field for practice Wednesday after being designated for return from injured reserve, Chris Tomasson of The Denver Gazette reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
         },
         {
           "player_name": "Marvin Mims Jr.",
@@ -1762,8 +1762,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -2015,7 +2014,7 @@
       "through_week": null,
       "as_of": {
         "espn_status": "2026-10-22T14:39:14Z",
-        "availability_events": "2026-10-22T14:39:26.249Z",
+        "availability_events": "2026-10-22T22:58:47.007Z",
         "impact_digest": "2026-10-22T14:39:29.587Z",
         "projected_starters": "2026-10-21T22:00:03.496Z",
         "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -2024,8 +2023,7 @@
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

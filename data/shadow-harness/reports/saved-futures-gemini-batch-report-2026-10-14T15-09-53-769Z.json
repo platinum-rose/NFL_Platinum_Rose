@@ -1,0 +1,46 @@
+{
+  "evaluated_at": "2026-10-14T15:09:53.769Z",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "batch_label": "saved-futures",
+  "total_candidates_attempted": 5,
+  "total_episodes_evaluated": 0,
+  "total_episodes_scored": 0,
+  "reprocess_required_count": 0,
+  "extraction_failure_count": 5,
+  "average_f1_score_pct": null,
+  "total_cost_usd": 0,
+  "average_cost_usd": 0,
+  "total_latency_ms": 0,
+  "average_latency_ms": 0,
+  "total_extracted_picks": 0,
+  "reprocess_queue": [],
+  "failed_extractions": [
+    {
+      "episode_slug": "youtube-06-42WRzKQI",
+      "reason": "No fresh observation was saved for youtube-06-42WRzKQI. Gemini may have failed before extraction completed.",
+      "exit_status": 1
+    },
+    {
+      "episode_slug": "youtube-slfl5V7gaOY",
+      "reason": "No fresh observation was saved for youtube-slfl5V7gaOY. Gemini may have failed before extraction completed.",
+      "exit_status": 1
+    },
+    {
+      "episode_slug": "youtube-b_vEEqWIg2c",
+      "reason": "No fresh observation was saved for youtube-b_vEEqWIg2c. Gemini may have failed before extraction completed.",
+      "exit_status": 1
+    },
+    {
+      "episode_slug": "youtube-Di8EC4Nu_XE",
+      "reason": "No fresh observation was saved for youtube-Di8EC4Nu_XE. Gemini may have failed before extraction completed.",
+      "exit_status": 1
+    },
+    {
+      "episode_slug": "youtube-EC4r_E6mc0E",
+      "reason": "No fresh observation was saved for youtube-EC4r_E6mc0E. Gemini may have failed before extraction completed.",
+      "exit_status": 1
+    }
+  ],
+  "queue_runs": []
+}

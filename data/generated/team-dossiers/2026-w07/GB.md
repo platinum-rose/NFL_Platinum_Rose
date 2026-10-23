@@ -1,5 +1,5 @@
 # GB Packers — dossier, target Week 7 (data through W6)
-Built 2026-10-22T18:21:00.390Z · git aecd94b · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T22:58:54.258Z · git 645efaf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -48,7 +48,7 @@ Secondary-matchup context is manual_review_capped and keyed to source Week 7 —
 
 ## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T14:39:14Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
-QB: Jordan Love [AMBIGUOUS] Jordan Love Questionable;
+QB: Jordan Love [AMBIGUOUS] Jordan Love Questionable; · operator-confirmed Jordan Love
 Out/IR: Micah Parsons DE Out; Jonathan Ford DT Injured Reserve; Javon Hargrave DT Injured Reserve; Skyy Moore WR Injured Reserve; Jordon Riley DT Out
 Questionable/Doubtful: Brandon Cisse CB Questionable; Bo Melton WR Questionable; Savion Williams WR Questionable; Matthew Golden WR Questionable; Christian Watson WR Questionable; Jordan Love QB Questionable (+3 more)
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 9 players; skill: Chris Brooks RB; Jayden Reed WR; Luke Musgrave TE; Thomas Yassmin TE

@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:57.067Z",
+  "built_at": "2026-10-17T02:04:50.931Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "27.2"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "EPA/PLY": "-0.001",
+          "DVOA": "-0.5%",
+          "SUCC%": "45.2%",
+          "EXP%": "11.0%",
+          "CONV%": "39.6%",
+          "TO": "6",
+          "TO%": "2.6%",
+          "3&O": "13.0%",
+          "MTKL%": "12.8%",
+          "PEN%": "4.8%",
+          "PENY": "32.8"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "4"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "YD/PLY": "5.9",
+          "PT/GM": "18.8",
+          "FD%": "29.4%",
+          "TO": "6",
+          "DPBK%": "57.0%",
+          "YD": "901",
+          "TD": "5",
+          "INT": "4",
+          "RUSH%": "43.0%",
+          "YD__2": "451",
+          "TD__2": "3"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "26.9%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "DPBK": "130",
+          "SK": "10",
+          "SK%": "7.7%",
+          "QBH%": "16.9%",
+          "PRESS": "31",
+          "PRESS%": "23.8%",
+          "QPRESS%": "32.3%",
+          "TTPR": "2.65",
+          "DISR%": "1.5%",
+          "BLZ%": "28.5%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "2.5%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "EPA/DB": "0.054",
+          "SUCC%": "49.2%",
+          "DVOA": "11.0%",
+          "CPOE": "-2.08%",
+          "CBALL%": "75.4%",
+          "EXP%": "17.9%",
+          "INTW%": "3.5%",
+          "TGHT%": "20.2%",
+          "OPEN%": "68.4%",
+          "TA%": "0.9%",
+          "DROP%": "1.8%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "1.79"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "EPA/ATT": "-0.074",
+          "SUCC%": "39.8%",
+          "DVOA": "-13.7%",
+          "aRYOE": "",
+          "EXP%": "9.2%",
+          "STF%": "23.5%",
+          "YBCO": "1.18",
+          "YACO": "1.60"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "6.45%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "EPA/PLY": "-0.115",
+          "DVOA": "-6.0%",
+          "SUCC%": "40.2%",
+          "EXP%": "9.0%",
+          "CONV%": "34.0%",
+          "TO": "5",
+          "TO%": "1.95%",
+          "PENY": "27.3",
+          "PEN%": "5.86%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "1"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "YD/PLY": "5.4",
+          "PT/GM": "16.3",
+          "FD%": "26.2%",
+          "TO": "5",
+          "DPBK%": "67.2%",
+          "YD": "999",
+          "TD": "7",
+          "INT": "4",
+          "RUSH%": "32.8%",
+          "YD__2": "381",
+          "TD__2": "0"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "47.7%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "SK": "13",
+          "SK%": "7.6%",
+          "QBSK%": "46.2%",
+          "QBH%": "18.0%",
+          "PRESS%": "26.2%",
+          "UPRES%": "36.6%",
+          "BLITZ%": "26.7%",
+          "TTPR": "2.83",
+          "TTT": "2.64",
+          "EPA/DB": "-0.796",
+          "DVOA": "-126.9%",
+          "SUCC%": "17.8%",
+          "EPA/DB__2": "0.083",
+          "DVOA__2": "10.7%",
+          "SUCC%__2": "50.4%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "6.5"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "EPA/DB": "-0.147",
+          "SUCC%": "41.9%",
+          "DVOA": "0.8%",
+          "CPOE": "-3.8%",
+          "CBALL%": "64.7%",
+          "EXP%": "15.9%",
+          "INTW%": "1.9%",
+          "HLT%": "1.9%",
+          "TA%": "4.5%",
+          "DROP%": "5.1%",
+          "aDOT": "9.2",
+          "aYAC": "6.2"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "66.0%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "EPA/ATT": "-0.051",
+          "SUCC%": "36.9%",
+          "DVOA": "-1.4%",
+          "aRYOE": "",
+          "EXP%": "9.5%",
+          "STF%": "21.4%",
+          "aYBCO": "0.55",
+          "aYACO": "2.68",
+          "CRT%": "62.3%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "36.8%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "PLY/GM": "64.0",
+          "TOP": "29.27",
+          "DRV/GM": "11.8",
+          "SEC/PLY": "27.4",
+          "PLY/DRV": "5.4",
+          "YD/DRV": "29.4",
+          "SEC/DRV": "149",
+          "3&O": "27.7%",
+          "SCD%": "31.9%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Pittsburgh Steelers",
           "GP": "5",
@@ -703,13 +885,30 @@
           "PWR%": "3.8%",
           "CTR%": "0.0%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Pittsburgh Steelers",
+          "GP": "4",
+          "DPBK%": "67.2%",
+          "RUSH%": "32.8%",
+          "SHG%": "65.2%",
+          "NH%": "10.2%",
+          "MOT%": "48.0%",
+          "PA%": "20.3%",
+          "IZ%": "17.9%",
+          "OZ%": "27.4%",
+          "MD%": "40.5%",
+          "PWR%": "4.8%",
+          "CTR%": "0.0%"
+        }
       }
     },
     "qb1": {
       "player": "Aaron Rodgers",
       "position": "QB",
       "tables": {
-        "passing/air-yards": {
+        "passing/air-yards (1)": {
           "Player": "Aaron Rodgers",
           "Team": "Pittsburgh Steelers",
           "Position": "QB",
@@ -722,7 +921,20 @@
           "PRYD%": "57.3%",
           "dAIR": "82"
         },
-        "passing/analytics": {
+        "passing/air-yards": {
+          "Player": "Aaron Rodgers",
+          "Team": "Pittsburgh Steelers",
+          "Position": "QB",
+          "GP": "4",
+          "aDOT": "9.3",
+          "AIR": "1,433",
+          "cAIR": "576",
+          "cAIR%": "40.2%",
+          "PRYD": "857",
+          "PRYD%": "59.8%",
+          "dAIR": "79"
+        },
+        "passing/analytics (1)": {
           "Player": "Aaron Rodgers",
           "Team": "Pittsburgh Steelers",
           "Position": "QB",
@@ -737,7 +949,22 @@
           "CPOE": "-2.5%",
           "aYDOE": "-0.347"
         },
-        "passing/efficiency": {
+        "passing/analytics": {
+          "Player": "Aaron Rodgers",
+          "Team": "Pittsburgh Steelers",
+          "Position": "QB",
+          "GP": "4",
+          "EPA": "-22.3",
+          "EPA/DB": "-0.132",
+          "SUCC%": "42.6%",
+          "ACOMP%": "65.3%",
+          "DVOA": "-18.4%",
+          "DYAR": "-122",
+          "xCOMP": "60.8%",
+          "CPOE": "-3.7%",
+          "aYDOE": "-0.565"
+        },
+        "passing/efficiency (1)": {
           "Player": "Aaron Rodgers",
           "Team": "Pittsburgh Steelers",
           "Position": "QB",
@@ -752,7 +979,22 @@
           "INT%": "2.2%",
           "SK%": "6.9%"
         },
-        "passing/overview": {
+        "passing/efficiency": {
+          "Player": "Aaron Rodgers",
+          "Team": "Pittsburgh Steelers",
+          "Position": "QB",
+          "GP": "4",
+          "CBALL%": "64.9%",
+          "INTW%": "1.9%",
+          "HLT%": "1.9%",
+          "EXP%": "9.1%",
+          "DROP%": "5.2%",
+          "TA%": "4.5%",
+          "TD%": "4.5%",
+          "INT%": "2.6%",
+          "SK%": "7.7%"
+        },
+        "passing/overview (1)": {
           "Player": "Aaron Rodgers",
           "Team": "Pittsburgh Steelers",
           "Position": "QB",
@@ -767,7 +1009,52 @@
           "INT": "4",
           "FUML": "1"
         },
-        "passing/pressure": {
+        "passing/overview (2)": {
+          "Player": "Aaron Rodgers",
+          "Team": "Pittsburgh Steelers",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "202",
+          "ATT": "185",
+          "COMP": "110",
+          "COMP%": "59.5%",
+          "YD": "1,234",
+          "YD/ATT": "6.7",
+          "TD": "10",
+          "INT": "4",
+          "FUML": "1"
+        },
+        "passing/overview (3)": {
+          "Player": "Aaron Rodgers",
+          "Team": "Pittsburgh Steelers",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "202",
+          "ATT": "185",
+          "COMP": "110",
+          "COMP%": "59.5%",
+          "YD": "1,234",
+          "YD/ATT": "6.7",
+          "TD": "10",
+          "INT": "4",
+          "FUML": "1"
+        },
+        "passing/overview": {
+          "Player": "Aaron Rodgers",
+          "Team": "Pittsburgh Steelers",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "169",
+          "ATT": "154",
+          "COMP": "88",
+          "COMP%": "57.1%",
+          "YD": "999",
+          "YD/ATT": "6.5",
+          "TD": "7",
+          "INT": "4",
+          "FUML": "1"
+        },
+        "passing/pressure (1)": {
           "Player": "Aaron Rodgers",
           "Team": "Pittsburgh Steelers",
           "Position": "QB",
@@ -785,28 +1072,66 @@
           "RATE__2": "74.8%",
           "EPA/DB__2": "0.089",
           "DVOA__2": "10.0%"
+        },
+        "passing/pressure": {
+          "Player": "Aaron Rodgers",
+          "Team": "Pittsburgh Steelers",
+          "Position": "QB",
+          "GP": "4",
+          "SK": "13",
+          "SK%": "7.7%",
+          "QBSK%": "46.2%",
+          "AVSK%": "1.2%",
+          "QBH%": "17.8%",
+          "TTPR": "2.83",
+          "TTT": "2.64",
+          "RATE": "26.0%",
+          "EPA/DB": "-0.773",
+          "DVOA": "-126.6%",
+          "RATE__2": "74.0%",
+          "EPA/DB__2": "0.094",
+          "DVOA__2": "11.8%"
         }
       }
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
-      "passing/air-yards": 5,
-      "passing/analytics": 5,
-      "passing/efficiency": 5,
-      "passing/overview": 5,
-      "passing/pressure": 5,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "passing/air-yards (1)": 5,
+      "passing/air-yards": 4,
+      "passing/analytics (1)": 5,
+      "passing/analytics": 4,
+      "passing/efficiency (1)": 5,
+      "passing/efficiency": 4,
+      "passing/overview (1)": 5,
+      "passing/overview (2)": 5,
+      "passing/overview (3)": 5,
+      "passing/overview": 4,
+      "passing/pressure (1)": 5,
+      "passing/pressure": 4,
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -939,7 +1264,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -949,17 +1274,44 @@
               "needs_human_review": true
             },
             {
+              "player_name": "Benjamin Morrison",
+              "team": "TB",
+              "position": "CB",
+              "event_type": "doubtful",
+              "availability_trend": "worsening",
+              "summary": "Morrison (quadriceps) is listed as doubtful for Sunday's game against the Steelers.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API",
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-17T01:10:00.000Z",
+              "role": "outside_cb2",
+              "side": "field",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "z_receiver"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
               "player_name": "Antoine Winfield Jr.",
               "team": "TB",
               "position": "S",
-              "event_type": "doubtful",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "doubtful",
+              "summary": "Winfield (ribs) has been ruled out ahead of Sunday's game against the Steelers, Brianna Dix of the Buccaneers' official site reports.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-13T17:10:00.000Z",
+              "published_at": "2026-10-16T23:26:00.000Z",
               "role": "free_safety",
               "side": "middle",
               "impact_tier": "elite",
@@ -973,13 +1325,15 @@
                 "slot_wr_boost",
                 "post_cross_boost"
               ],
-              "severity_score": 2.7,
+              "severity_score": 3.6,
               "needs_human_review": true
             }
           ],
           "weakness_tags": [
+            "boundary_wr_boost",
             "deep_pass_boost",
             "hot_read_boost",
+            "outside_wr_boost",
             "post_cross_boost",
             "slot_wr_boost",
             "underneath_volume_boost"
@@ -1000,13 +1354,15 @@
                 "red_zone"
               ],
               "matched_weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost",
                 "deep_pass_boost",
                 "post_cross_boost"
               ],
-              "opportunity_score": 3,
+              "opportunity_score": 6,
               "notes": "SEA Physical Freak WR1. [moved from SEA per ESPN roster 2026-09-27]",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
+              "availability_flag": "questionable"
             },
             {
               "player_name": "Germie Bernard",
@@ -1029,10 +1385,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 4.05,
+          "severity_score": 6.3,
           "elite_absence_count": 1,
-          "vulnerability_tier": "medium",
-          "confidence": 0.85,
+          "vulnerability_tier": "high",
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1079,7 +1435,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1099,7 +1455,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1114,18 +1470,72 @@
               "position": "S",
               "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Elliott (knee) has been ruled out ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports.",
+              "summary": "Elliott (knee) has been ruled out ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-09T23:23:00.000Z",
+              "published_at": "2026-10-17T01:42:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
               "primary_receiver_archetypes_impacted": [],
               "weakness_tags": [],
               "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Jalen Ramsey",
+              "team": "PIT",
+              "position": "CB",
+              "event_type": "limited",
+              "availability_trend": "stable",
+              "summary": "Ramsey (wrist) is listed as questionable for Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-17T01:37:00.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "elite",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x",
+                "field_stretcher"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "alpha_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 1.65,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Jamel Dean",
+              "team": "PIT",
+              "position": "CB",
+              "event_type": "limited",
+              "availability_trend": "stable",
+              "summary": "Dean (ankle) is listed as questionable ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-17T01:30:00.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "plus",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "alpha_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 1.24,
               "needs_human_review": true
             }
           ],
@@ -1200,10 +1610,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 3.75,
-          "elite_absence_count": 0,
-          "vulnerability_tier": "medium",
-          "confidence": 0.88,
+          "severity_score": 6.64,
+          "elite_absence_count": 2,
+          "vulnerability_tier": "high",
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1226,19 +1636,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1254,6 +1664,14 @@
     },
     "reported_injuries": {
       "out_ir": [
+        {
+          "player": "DeShon Elliott",
+          "pos": "S",
+          "status": "Injured Reserve",
+          "date": "2026-10-17",
+          "comment": "Elliott (knee) has been ruled out ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
+          "roster_check": "roster_ir_out_group"
+        },
         {
           "player": "Ben Skowronek",
           "pos": "WR",
@@ -1279,14 +1697,6 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player": "DeShon Elliott",
-          "pos": "S",
-          "status": "Injured Reserve",
-          "date": "2026-10-09",
-          "comment": "Elliott (knee) has been ruled out ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports.",
-          "roster_check": "roster_ir_out_group"
-        },
-        {
           "player": "Derrick Harmon",
           "pos": "DT",
           "status": "Injured Reserve",
@@ -1297,19 +1707,35 @@
       ],
       "questionable_doubtful": [
         {
-          "player": "Jamel Dean",
-          "pos": "CB",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Dean (ankle) was a limited participant at the Steelers' practice Wednesday, Mike DeFabo of The Athletic reports.",
-          "roster_check": "ok"
-        },
-        {
           "player": "Jalen Ramsey",
           "pos": "CB",
           "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
+          "date": "2026-10-17",
+          "comment": "Ramsey (wrist) is listed as questionable for Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jamel Dean",
+          "pos": "CB",
+          "status": "Questionable",
+          "date": "2026-10-17",
+          "comment": "Dean (ankle) is listed as questionable ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "DK Metcalf",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "Metcalf is listed as questionable for Sunday's game against the Buccaneers after missing Friday's practice due to an illness.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Rico Dowdle",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "Dowdle (toe) is listed as questionable for Sunday's game against the Buccaneers after being a full participant in practice Thursday and Friday.",
           "roster_check": "ok"
         },
         {
@@ -1390,9 +1816,10 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Michael Pittman Jr. IR",
           "practice": [
+            "--",
             "--",
             "--"
           ],
@@ -1409,7 +1836,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Israel Mukuamu IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1425,7 +1852,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Logan Lee IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1441,7 +1868,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Derrick Harmon IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1457,7 +1884,7 @@
           "availability_trend": "worsening",
           "event_type": "pup",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Donte Kent PUP",
           "practice": [],
           "probability_of_playing": null,
@@ -1467,127 +1894,124 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Rico Dowdle",
-          "position": "RB",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "improving",
-          "event_type": "limited_return",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:13:00.000Z",
-          "summary": "Dowdle (toe) was a full participant at Thursday's practice, Ray Fittipaldo of the Pittsburgh Post-Gazette reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Jalen Ramsey",
-          "position": "CB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Jalen Ramsey QUESTIONABLE",
-          "practice": [
-            "DNP",
-            "Limit"
-          ],
-          "probability_of_playing": 0.95562,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
           "player_name": "DeShon Elliott",
           "position": "S",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "DeShon Elliott QUESTIONABLE",
-          "practice": [
-            "Limit",
-            "Limit"
-          ],
-          "probability_of_playing": 0.50549,
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T01:42:00.000Z",
+          "summary": "Elliott (knee) has been ruled out ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
+          "practice": [],
+          "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Jamel Dean",
+          "player_name": "Jalen Ramsey",
           "position": "CB",
           "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Jamel Dean QUESTIONABLE",
-          "practice": [
-            "Limit",
-            "Limit"
-          ],
-          "probability_of_playing": 0.63072,
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T01:37:00.000Z",
+          "summary": "Ramsey (wrist) is listed as questionable for Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
+          "practice": [],
+          "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
         },
         {
-          "player_name": "Ben Skowronek",
+          "player_name": "Jamel Dean",
+          "position": "CB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T01:30:00.000Z",
+          "summary": "Dean (ankle) is listed as questionable ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Germie Bernard",
+          "position": "WR",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "worsening",
+          "event_type": "setback",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T23:54:00.000Z",
+          "summary": "Bernard and return specialist Kaden Wetjen are the only wide receivers on Pittsburgh's active roster without injury designations for Week 6.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Roman Wilson",
+          "position": "WR",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-16T22:44:51.000Z",
+          "summary": "Roman Wilson OUT",
+          "practice": [
+            "DNP",
+            "DNP",
+            "DNP"
+          ],
+          "probability_of_playing": 0,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Rico Dowdle",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-16T22:44:31.000Z",
+          "summary": "Rico Dowdle QUESTIONABLE",
+          "practice": [
+            "Limit",
+            "Full",
+            "Full"
+          ],
+          "probability_of_playing": 0.83111,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "DK Metcalf",
           "position": "WR",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Ben Skowronek QUESTIONABLE",
+          "published_at": "2026-10-16T22:44:11.000Z",
+          "summary": "DK Metcalf QUESTIONABLE",
           "practice": [
-            "DNP",
+            "--",
+            "--",
             "DNP"
           ],
-          "probability_of_playing": 0.07245,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Keeanu Benton",
-          "position": "DT",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Keeanu Benton QUESTIONABLE",
-          "practice": [
-            "DNP",
-            "Limit"
-          ],
-          "probability_of_playing": 0.86113,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Darnell Washington",
-          "position": "TE",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T02:11:00.000Z",
-          "summary": "Washington caught two of three targets for 12 yards during the Steelers' 34-22 win over the Colts on Sunday.",
-          "practice": [],
-          "probability_of_playing": null,
+          "probability_of_playing": 0.82332,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1691,7 +2115,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [
         "Aaron Rodgers QB"
       ],
@@ -1745,8 +2169,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1995,18 +2418,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

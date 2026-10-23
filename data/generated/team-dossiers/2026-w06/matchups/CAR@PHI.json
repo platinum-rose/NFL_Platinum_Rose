@@ -59,11 +59,11 @@
     "status": "built",
     "roster_gate": "passed",
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "away": {
       "qb": {
@@ -72,20 +72,18 @@
         "operator_confirmed": null
       },
       "out_ir": [
+        "Trevor Etienne RB Injured Reserve",
+        "AJ Dillon RB Out",
         "Jonathon Brooks RB Injured Reserve",
         "Taylor Moton OT Out",
-        "Trevor Etienne RB Injured Reserve",
         "Cam Jackson DT Injured Reserve",
         "Tershawn Wharton DT Out",
         "Ikem Ekwonu OT Out"
       ],
       "questionable_doubtful": [
-        "Darren Waller TE Questionable",
-        "Tommy Tremble TE Questionable",
-        "AJ Dillon RB Questionable",
-        "Damien Lewis G Questionable",
-        "Monroe Freeling OT Questionable",
-        "Jaelan Phillips LB Questionable"
+        "Jaelan Phillips LB Questionable",
+        "Monroe Freeling OT Doubtful",
+        "Damien Lewis G Questionable"
       ],
       "operator_reported": [],
       "ol_risk": "cluster",
@@ -95,9 +93,13 @@
       "qb": {
         "espn_starter": "Tanner McKee",
         "flag": "ok",
-        "operator_confirmed": null
+        "operator_confirmed": "Tanner McKee"
       },
       "out_ir": [
+        "Jalyx Hunt LB Out",
+        "Michael Carter II CB Out",
+        "Will Shipley RB Injured Reserve",
+        "Saquon Barkley RB Out",
         "Jalen Hurts QB Out",
         "Landon Dickerson G Injured Reserve",
         "Jakorian Bennett CB Injured Reserve",
@@ -105,22 +107,12 @@
         "Grant Calcaterra TE Injured Reserve"
       ],
       "questionable_doubtful": [
-        "Saquon Barkley RB Questionable",
-        "DeVonta Smith WR Questionable",
-        "Jonathan Greenard LB Questionable",
-        "Marcus Epps S Questionable",
-        "Hollywood Brown WR Questionable",
-        "Tyler Steen G Questionable",
-        "E.J. Jenkins TE Questionable",
-        "AJ Epenesa DE Questionable",
-        "Will Shipley RB Doubtful",
-        "Dontayvion Wicks WR Questionable",
-        "Jalyx Hunt LB Doubtful",
+        "AJ Epenesa DE Doubtful",
         "Drew Kendall C Questionable"
       ],
       "operator_reported": [],
       "ol_risk": "watch",
-      "dl_risk": "none"
+      "dl_risk": "watch"
     }
   },
   "freshness": {
@@ -182,18 +174,17 @@
         "status": "built",
         "through_week": null,
         "as_of": {
-          "espn_status": "2026-10-15T21:03:20Z",
-          "availability_events": "2026-10-15T21:03:43.426Z",
-          "impact_digest": "2026-10-15T21:03:48.941Z",
-          "projected_starters": "2026-10-15T15:09:02.072Z",
-          "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+          "espn_status": "2026-10-17T02:03:26Z",
+          "availability_events": "2026-10-17T02:03:53.371Z",
+          "impact_digest": "2026-10-17T02:04:00.537Z",
+          "projected_starters": "2026-10-16T22:22:21.784Z",
+          "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
         },
         "roster_gate": "passed",
         "null_fields": [],
         "caveats": [
           "ESPN injury statuses lag game-day truth; official inactives decide.",
-          "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-          "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+          "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
         ]
       },
       "priors": {
@@ -266,18 +257,17 @@
         "status": "built",
         "through_week": null,
         "as_of": {
-          "espn_status": "2026-10-15T21:03:20Z",
-          "availability_events": "2026-10-15T21:03:43.426Z",
-          "impact_digest": "2026-10-15T21:03:48.941Z",
-          "projected_starters": "2026-10-15T15:09:02.072Z",
-          "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+          "espn_status": "2026-10-17T02:03:26Z",
+          "availability_events": "2026-10-17T02:03:53.371Z",
+          "impact_digest": "2026-10-17T02:04:00.537Z",
+          "projected_starters": "2026-10-16T22:22:21.784Z",
+          "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
         },
         "roster_gate": "passed",
         "null_fields": [],
         "caveats": [
           "ESPN injury statuses lag game-day truth; official inactives decide.",
-          "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-          "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+          "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
         ]
       },
       "priors": {

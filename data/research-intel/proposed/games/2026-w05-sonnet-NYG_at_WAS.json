@@ -1,0 +1,104 @@
+{
+ "schema": "w05_game_synthesis_v1",
+ "game": "NYG@WAS",
+ "model": "sonnet",
+ "generated_at": "2026-10-11T01:48:58Z",
+ "head": "d9f3644",
+ "market": {
+  "book": "BKR",
+  "captured_at": "2026-10-11T01:15:40.538Z",
+  "home_line": -3.5,
+  "total": 41.5
+ },
+ "disposition": "conflicted",
+ "tier": "skip",
+ "side": {
+  "pick": null,
+  "line": null,
+  "price": null
+ },
+ "total_lean": {
+  "pick": null
+ },
+ "edge_hypothesis": {
+  "home_margin_pts": 0.0,
+  "total_pts": 0.0,
+  "basis": [
+   "default 0.0: only tier-eligible rows are two opposite VSiN picks (one outlet)",
+   "SRS gap (NYG -4.1 vs WAS -11.4) is a four-game sample and the line already prices Daniels and home field",
+   "weather forecast (72% precip probability, 0 mm, gusts 26.3 km/h) is not material, no total adjustment"
+  ],
+  "cap_exception": null
+ },
+ "simulator": {
+  "home_cover": 0.5,
+  "away_cover": 0.5,
+  "over": 0.5,
+  "under": 0.5,
+  "side_push": 0,
+  "total_push": 0
+ },
+ "cited_rows": [
+  {
+   "row": "w05-expert-verified.json#rows[452]",
+   "outlet": "VSiN",
+   "supports_tier": false,
+   "quote": "Washington Commanders -3.5 vs."
+  },
+  {
+   "row": "w05-expert-verified.json#rows[564]",
+   "outlet": "VSiN",
+   "supports_tier": false,
+   "quote": "Best Bet: Giants +3.5 (Pool Play Percentages: Giants 67/33 in ATS contests, but Commanders still 67/33 in SU pools)."
+  }
+ ],
+ "context": {
+  "away": "NYG 3-1, first in NFC East (div 1-0), 5th in NFC. W DAL 28-20, L at LAR 6-28, W TEN 12-7, W ARI 36-24; opponents 5-11 combined, three home games. Point diff +3, SRS -4.1. Rest 7.0 days, bye Week 8. Next: NO, at HOU. Four-game sample.",
+  "home": "WAS 1-3, last in NFC East (div 0-2), point diff -34, SRS -11.4. L at PHI 22-24, L at DAL 20-37, W SEA 33-31, L IND 13-30; opponents 9-7 combined. Allows 30.5 per game. Rest 7.1 days, bye Week 7. Next: at SF, PHI."
+ },
+ "invalidators": [
+  "Daniels inactive or limited at official inactives (operator confirmation is stated, not verified)",
+  "Giants starting QB confirmed as someone other than Winston, or Dart active",
+  "BKR line moving through 3 (to WAS -3 or -4) or total moving 1.0 point or more",
+  "BKR/BEO spread gap reaching 1.0 point, or BKR window lapsing (ends 2026-10-11T07:15:40Z)",
+  "Weather recheck showing material rain or wind above current 26.3 km/h gusts",
+  "A second independent tier-eligible outlet appearing on one side"
+ ],
+ "gaps": [
+  "WEATHER review_required: precipitation probability 72%; precip 0 mm, no adjustment applied",
+  "Global: 25 corroboration-only rows and 11 near-miss rows in the slate (none for this game); SuperContest label reversals exist for other games (TEN@HOU, MIA@CIN, NO@MIN, GB@CHI, LAC@DEN, ARI@DET)",
+  "Both tier-eligible rows are VSiN and contradict each other; row 452 quote is a fragment",
+  "Packet QB section lists Dart (Week 1 usage lock, 0.95) as NYG starter; 2026 stats and book prop rows show Winston; digest lists Dart as IR; no operator confirmation for NYG",
+  "Daniels operator-confirmed, not verified; digest has a setback event; nflverse stats show Daniels only in Weeks 1-2 (no Week 3-4 QB rows for WAS)",
+  "Existing quantitative pass (WAS cover 43.4%, home margin +0.76, total 42.5) differs from the market; not copied",
+  "Roster gate: read w05-roster-vet.json (status PASS, blocking 0) instead of running roster:vet; Cameron Skattebo and Chigoziem Okonkwo listed UNVERIFIED for book props, so not used",
+  "Action Network splits captured 2026-10-09 at WAS -4.5, stale at a different number",
+  "No current injury report or inactives in the packet; four-game sample"
+ ],
+ "props": [
+  {
+   "player": "Isaiah Likely",
+   "team": "NYG",
+   "market": "receiving yards",
+   "side": "Over",
+   "line": 42.5,
+   "price": -108,
+   "book": "BKR",
+   "captured_at": "2026-10-11T01:15:40.538Z",
+   "status": "usage context only",
+   "rationale": "Source (Sharp Football) quoted Over 40.5 at -125, captured BKR main line is 42.5 at -108, a 2.0-point difference so the source is downgraded. 2026 usage weeks 1-4: 8, 10, 5, 12 targets and 78, 33, 13, 66 receiving yards (over 42.5 in 2 of 4). Corroboration-only source; no model probability."
+  },
+  {
+   "player": "Isaiah Likely",
+   "team": "NYG",
+   "market": "anytime touchdown",
+   "side": "Yes",
+   "line": 0.5,
+   "price": 240,
+   "book": "BEO",
+   "captured_at": "2026-10-11T01:19:56.400Z",
+   "status": "high-variance TD",
+   "rationale": "Source (Action Network) quoted +245; captured BEO price is +240 (show both). 2026 usage: 2 receiving TDs in week 1, none in weeks 2-4, with 8, 10, 5 and 12 targets. Corroboration-only source; no model probability."
+  }
+ ]
+}

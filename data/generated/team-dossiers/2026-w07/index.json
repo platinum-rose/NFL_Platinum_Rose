@@ -3,10 +3,10 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-22T18:21:01.461Z",
+  "built_at": "2026-10-22T22:58:55.658Z",
   "builder": "team_dossier_builder_v1.1",
   "builder_sha256": "735dc4782268c01147893bfd1eb6196bf17c4c8106322e617a0216151ee0e1e0",
-  "git_head": "aecd94b",
+  "git_head": "645efaf",
   "market_data_included": false,
   "sources": {
     "standings": {
@@ -150,9 +150,9 @@
     "avail_events": {
       "id": "avail_events",
       "path": "data/player-availability/latest.json",
-      "sha256": "82df9388f27468837a83a8d520fc22e7c1d675f9e4e78c7ba405dcc6b2cbdf6a",
+      "sha256": "5b4c876809eeaed8b8d79299e2c217b9355918e291b5e8c2946fdc771b4219a1",
       "use_policy": "availability intel only; roster-gate first; event statuses can be stale or conflicted",
-      "generated_at": "2026-10-22T14:39:26.249Z",
+      "generated_at": "2026-10-22T22:58:47.007Z",
       "through_week": null,
       "status": "current"
     },
@@ -177,7 +177,7 @@
     "roster_vet": {
       "id": "roster_vet",
       "path": "data/generated/master-intel/w07-roster-vet.json",
-      "sha256": "c93ef9b07839fdfa82513cbb4d6944916d8e88464866a92b8ffa0bc81f438534",
+      "sha256": "34a3b86582de9e1cf0178fb8b8aa4eb34e72c92bea2b2719721d32aea7b3c4b2",
       "use_policy": "roster gate result (scripts/nfl-rosters/roster_vet.py); must be PASS for roster_gate=passed",
       "generated_at": null,
       "through_week": null,
@@ -204,11 +204,11 @@
     "operator_starters": {
       "id": "operator_starters",
       "path": "data/research-intel/operator-confirmed-starters-2026-w07.json",
-      "sha256": null,
+      "sha256": "25fe20dadc8e13ffe661ab95e83ef32af8870df69a744b3d5a4250ed249d1098",
       "use_policy": "operator-stated starters for the target week; not independently verified",
-      "generated_at": null,
+      "generated_at": "2026-10-22T20:15:00Z",
       "through_week": null,
-      "status": "missing"
+      "status": "current"
     },
     "prior_analytic": {
       "id": "prior_analytic",
@@ -365,7 +365,7 @@
     "avail_events": {
       "status": "current",
       "through_week": null,
-      "generated_at": "2026-10-22T14:39:26.249Z"
+      "generated_at": "2026-10-22T22:58:47.007Z"
     },
     "impact_digest": {
       "status": "current",
@@ -393,9 +393,9 @@
       "generated_at": null
     },
     "operator_starters": {
-      "status": "missing",
+      "status": "current",
       "through_week": null,
-      "generated_at": null
+      "generated_at": "2026-10-22T20:15:00Z"
     },
     "prior_analytic": {
       "status": "prior_season",

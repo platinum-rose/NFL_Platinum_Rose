@@ -1,0 +1,68 @@
+{
+ "schema": "weekly_archive_manifest_v1",
+ "season": 2026,
+ "week": 6,
+ "started_at": "2026-10-22T14:42:33.469Z",
+ "host": "win32",
+ "steps": {
+  "espn": {
+   "ok": true,
+   "ms": 2063,
+   "games": 14,
+   "cached": 14,
+   "not_final": []
+  },
+  "betting": {
+   "ok": true,
+   "ms": 20992,
+   "team_postmortem": "wrote week-06-teams.json/.csv: 28 team rows, pending []",
+   "espn_week": "week 6: 14 final games written; pending: none",
+   "grade_apply": "0 change(s); 0 unresolved leg(s).",
+   "left_open": [],
+   "weekly_review": "Week 6: net +1178.83 on $1006.91 · season net -530.30 on $3118.65 · open 0 · unique legs 885 (from box 0)",
+   "player_games": "week 6: 14 games, 921 player-game rows, 914 linked to nflverse ids\r | wrote data\\archive\\2026\\season\\player-games.csv 6083 rows",
+   "validation": "ERRORS FOUND (see out/data-validation.md): reports/analysis/season/claude/scripts/validate_postmortem_data.py exit 1: e'] or None)\r\n                                 ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \""
+  },
+  "yahoo": {
+   "ok": true,
+   "ms": 29866,
+   "summary": "parsed: 5 leagues, 56 rosters, other games: yahoops,nflp"
+  },
+  "pools": {
+   "ok": true,
+   "ms": 6,
+   "files": [
+    "cbs-bukbuk-2026-w06-partial.json",
+    "simplysportsware-duma2-2026-w06-partial.json",
+    "yahoo-472-g-4087-2026-w06.json"
+   ]
+  },
+  "rollups": {
+   "ok": true,
+   "ms": 40,
+   "team_weeks": 186,
+   "fantasy_player_weeks": 5581,
+   "fantasy_matchups": 168
+  },
+  "drafts": {
+   "ok": true,
+   "ms": 690,
+   "fetched": false,
+   "summary": "25 leagues"
+  },
+  "notes": {
+   "ok": true,
+   "ms": 51,
+   "notes": 50,
+   "staged": "data/archive/2026/week-06/vault"
+  },
+  "vault": {
+   "ok": true,
+   "ms": 52,
+   "written": 4,
+   "unchanged": 46
+  }
+ },
+ "status": "ok",
+ "finished_at": "2026-10-22T14:43:27.760Z"
+}

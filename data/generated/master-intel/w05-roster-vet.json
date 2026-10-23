@@ -1,11 +1,12 @@
 {
  "week": 5,
  "status": "PASS",
- "roster_source": "2026-10-10T02:16:47.619206+00:00",
- "roster_age_h": 19.0,
+ "roster_source": "2026-10-11T06:35:36.033564+00:00",
+ "roster_age_h": 2.6,
  "totals": {
   "QUESTIONABLE": 3,
-  "UNVERIFIED": 11
+  "UNVERIFIED": 24,
+  "MISMATCH": 1
  },
  "blocking": [],
  "sections": {
@@ -20,7 +21,7 @@
     [
      "Ashton Jeanty LV"
     ],
-    "LV@NE | Ashton Jeanty ATD | Yes | V: PFF; RO: @thepropdealer (X); src px not BKR; QUESTIONABLE per availability feed 2026-10-10T18:46Z | 2-"
+    "LV@NE | Ashton Jeanty ATD | Yes | RO: PFF, @thepropdealer (X); src px not BKR; QUESTIONABLE per availability feed 2026-10-10T18:46Z | 2- res"
    ],
    [
     "QUESTIONABLE",
@@ -32,7 +33,7 @@
     [
      "Justin Jefferson MIN"
     ],
-    "MIN@NO | Justin Jefferson ATD | Yes | V: Action Network, Gilles Gallant; src px not BKR; QUESTIONABLE per availability feed 2026-10-10T18:48"
+    "MIN@NO | Justin Jefferson ATD | Yes | RO: Action Network, Gilles Gallant; src px not BKR; QUESTIONABLE per availability feed 2026-10-10T18:4"
    ],
    [
     "QUESTIONABLE",
@@ -44,10 +45,19 @@
     [
      "Zay Flowers BAL"
     ],
-    "BAL@ATL | Zay Flowers o68.5 rec yds -115 | Over | V: BettingPros; YT/PI: Tera Roberts (YT); src px not BKR; QUESTIONABLE per availability fe"
+    "BAL@ATL | Zay Flowers o68.5 rec yds -115 | Over | YT/PI: Tera Roberts (YT); RO: BettingPros; src px not BKR; QUESTIONABLE per availability f"
    ]
   ],
   "secondary-matchups:absences": [
+   [
+    "UNVERIFIED",
+    "Christian Braswell",
+    [
+     "JAX"
+    ],
+    "-",
+    "nfl_2026_2_w05_PHI_at_JAX"
+   ],
    [
     "UNVERIFIED",
     "Travis Hunter (CB)",
@@ -76,7 +86,7 @@
     "nfl_2026_2_w05_IND_at_PIT"
    ]
   ],
-  "book-props:bookmaker-live-2026-10-10-week5.json": [
+  "book-props:bookmaker-live-2026-10-11-week5.json": [
    [
     "UNVERIFIED",
     "Andrew Ogletree",
@@ -86,6 +96,16 @@
     ],
     "-",
     "Indianapolis Colts @ Pittsburgh Steelers"
+   ],
+   [
+    "UNVERIFIED",
+    "Jamaal Pritchett",
+    [
+     "CLE",
+     "NYJ"
+    ],
+    "-",
+    "Cleveland Browns @ New York Jets"
    ],
    [
     "UNVERIFIED",
@@ -109,6 +129,16 @@
    ],
    [
     "UNVERIFIED",
+    "Chigoziem Okonkwo",
+    [
+     "NYG",
+     "WSH"
+    ],
+    "-",
+    "New York Giants @ Washington Commanders"
+   ],
+   [
+    "UNVERIFIED",
     "Cameron Ward",
     [
      "HOU",
@@ -119,17 +149,37 @@
    ],
    [
     "UNVERIFIED",
-    "Re'Mahn Davis",
+    "Michael Evans",
     [
-     "BUF",
-     "LAR"
+     "SEA",
+     "SF"
     ],
     "-",
-    "Buffalo Bills @ Los Angeles Rams"
+    "San Francisco 49ers @ Seattle Seahawks"
    ],
    [
     "UNVERIFIED",
-    "Josh Palmer",
+    "Zonovan Knight",
+    [
+     "ARI",
+     "DET"
+    ],
+    "-",
+    "Detroit Lions @ Arizona Cardinals"
+   ],
+   [
+    "UNVERIFIED",
+    "Reginald Virgil",
+    [
+     "ARI",
+     "DET"
+    ],
+    "-",
+    "Detroit Lions @ Arizona Cardinals"
+   ],
+   [
+    "UNVERIFIED",
+    "Re'Mahn Davis",
     [
      "BUF",
      "LAR"
@@ -158,6 +208,95 @@
     ],
     "-",
     "TB_DAL"
+   ],
+   [
+    "UNVERIFIED",
+    "Bhayshul Tutten",
+    [
+     "JAX",
+     "PHI"
+    ],
+    "-",
+    "PHI_JAX"
+   ],
+   [
+    "UNVERIFIED",
+    "J.J. Dobbins",
+    [
+     "DEN",
+     "LAC"
+    ],
+    "-",
+    "DEN_LAC"
+   ],
+   [
+    "UNVERIFIED",
+    "Will Lutz",
+    [
+     "DEN",
+     "LAC"
+    ],
+    "-",
+    "DEN_LAC"
+   ],
+   [
+    "UNVERIFIED",
+    "Tyler Huntely",
+    [
+     "ATL",
+     "BAL"
+    ],
+    "-",
+    "BAL_ATL"
+   ]
+  ],
+  "roster-map-latest": [
+   [
+    "UNVERIFIED",
+    "Mark Gronowski",
+    [
+     "HOU"
+    ],
+    "-",
+    ""
+   ],
+   [
+    "UNVERIFIED",
+    "Brady Cook",
+    [
+     "MIA"
+    ],
+    "-",
+    ""
+   ],
+   [
+    "MISMATCH",
+    "Kaytron Allen",
+    [
+     "MIN"
+    ],
+    [
+     "MIA"
+    ],
+    ""
+   ],
+   [
+    "UNVERIFIED",
+    "Kevin Austin Jr.",
+    [
+     "NO"
+    ],
+    "-",
+    ""
+   ],
+   [
+    "UNVERIFIED",
+    "Jamaal Pritchett",
+    [
+     "NYJ"
+    ],
+    "-",
+    ""
    ]
   ]
  }

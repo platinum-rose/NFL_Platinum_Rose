@@ -1,44 +1,44 @@
 {
   "schema": "player_props_intel_v1",
-  "generated_at": "2026-10-16T22:22:36.182Z",
-  "week": 6,
+  "generated_at": "2026-10-22T21:30:08.709Z",
+  "week": 7,
   "season": 2026,
   "summary": {
-    "articles_scanned": 513,
-    "total_props": 8,
-    "tier_1_props": 7,
-    "touchdown_props": 1,
-    "curated_parlays": 2,
-    "games_covered": 6
+    "articles_scanned": 334,
+    "total_props": 17,
+    "tier_1_props": 14,
+    "touchdown_props": 6,
+    "curated_parlays": 1,
+    "games_covered": 3
   },
   "parlayCards": [
     {
-      "id": "parlay__PIT_at_TB__pit_stack",
-      "title": "PIT Prop Stack SGP (PIT @ TB)",
-      "game": "PIT @ TB",
-      "game_slate": "Sunday Early Window",
+      "id": "parlay__NE_at_CHI__ne/chi_stack",
+      "title": "NE/CHI Prop Stack SGP (NE @ CHI)",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
       "type": "same_game_parlay",
       "book": "DraftKings / FanDuel",
-      "leg_count": 2,
+      "leg_count": 3,
       "legs": [
         {
-          "id": "prop__8286__germie_bernard__receiving_yards",
-          "player": "Germie Bernard",
-          "team": "PIT",
-          "game": "PIT @ TB",
-          "game_slate": "Sunday Early Window",
+          "id": "prop__9166__a_j_brown__receiving_yards",
+          "player": "A.J. Brown",
+          "team": "NE",
+          "game": "NE @ CHI",
+          "game_slate": "Thursday Night Football",
           "category": "receiving_yards",
           "category_label": "Receiving Yards",
           "stat_type": "receiving",
-          "line": "40.5",
+          "line": "69.5",
           "side": "over",
-          "price": "-115",
+          "price": "-112",
           "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Josh Shepardson (Sharp Football)",
-          "source_article_id": 8286,
-          "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-6-2026/",
-          "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 6 Best Prop Bet: Derrick Henry Over 87.5 Rushing Yards (-112) In a game and a half since Tyler Huntley took over for an injured Lamar Jackson , Henry has carried the ball 38 times for 136 yards. The Ravens had a -4.8% pass rate over expected (PROE) in Week 5.",
-          "week": 6,
+          "analyst": "Frank Ammirante ... (Action Network)",
+          "source_article_id": 9166,
+          "source_url": "https://www.actionnetwork.com/nfl/bears-vs-patriots-odds-picks-parlay-for-thursday-night-football",
+          "rationale": "D'Andre Swift Over 61.5 Rushing Yards (-111) Parlay Odds: +440 ( DraftKings ) Odds via DraftKings are subject to change* Bears vs Patriots Odds Thursday, Oct 22 8:15 p.m. ET Amazon Prime Video Patriots Odds Spread Total Moneyline +3 -118 50.5 -118o / -102u +130 Bears Odds Spread Total Moneyline -3 -102 50.5 -118o / -102u -155 Odds via DraftKings .",
+          "week": 7,
           "tier": 1,
           "tier_label": "Tier 1: Featured Pick",
           "weight": 1,
@@ -46,220 +46,114 @@
             "role": "Pass-Catching Piece",
             "synergy_tags": [
               "receiving_yards",
-              "PIT_offense"
+              "NE_offense"
             ],
             "positive_correlations": [
-              "Aaron Rodgers Passing TDs"
+              "DeMario Douglas Anytime Touchdown Scorer",
+              "DeMario Douglas Receptions",
+              "DeMario Douglas Receptions"
             ]
           },
-          "selection": "Over 40.5 Receiving Yards"
+          "selection": "Over 69.5 Receiving Yards"
         },
         {
-          "id": "prop__8208__aaron_rodgers__passing_tds",
-          "player": "Aaron Rodgers",
-          "team": "PIT",
-          "game": "PIT @ TB",
-          "game_slate": "Sunday Early Window",
-          "category": "passing_tds",
-          "category_label": "Passing TDs",
-          "stat_type": "passing",
-          "line": "2+",
+          "id": "prop__9166__d_andre_swift__rushing_yards",
+          "player": "D'Andre Swift",
+          "team": "CHI",
+          "game": "NE @ CHI",
+          "game_slate": "Thursday Night Football",
+          "category": "rushing_yards",
+          "category_label": "Rushing Yards",
+          "stat_type": "rushing",
+          "line": "61.5",
           "side": "over",
-          "price": "+137",
+          "price": "-111",
           "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL)",
-          "source_article_id": 8208,
-          "source_url": "https://www.espn.com/espn/betting/story/_/id/50133296/week-6-nfl-odds-touchdown-props-best-bets-sunday-preview",
-          "rationale": "I love taking Rodgers passing touchdown props because of how aggressively his teams tend to throw the ball in the red zone. The Pittsburgh Steelers lead the league in called red zone pass rate at 76%.",
-          "week": 6,
+          "analyst": "Frank Ammirante ... (Action Network)",
+          "source_article_id": 9166,
+          "source_url": "https://www.actionnetwork.com/nfl/bears-vs-patriots-odds-picks-parlay-for-thursday-night-football",
+          "rationale": "Parlay Odds: +440 ( DraftKings ) Odds via DraftKings are subject to change* Bears vs Patriots Odds Thursday, Oct 22 8:15 p.m. ET Amazon Prime Video Patriots Odds Spread Total Moneyline +3 -118 50.5 -118o / -102u +130 Bears Odds Spread Total Moneyline -3 -102 50.5 -118o / -102u -155 Odds via DraftKings .",
+          "week": 7,
           "tier": 1,
           "tier_label": "Tier 1: Featured Pick",
           "weight": 1,
           "parlay_utility": {
-            "role": "Passing Volume Anchor",
+            "role": "Ground Game Piece",
             "synergy_tags": [
-              "passing_tds",
-              "PIT_offense"
+              "rushing_yards",
+              "CHI_offense"
             ],
             "positive_correlations": [
-              "Germie Bernard Receiving Yards"
+              "Caleb Williams Passing TDs",
+              "Colston Loveland Receiving Yards",
+              "D'Andre Swift First Touchdown Scorer"
             ]
           },
-          "selection": "Over 2+ Passing TDs"
-        }
-      ],
-      "estimated_odds": "+343",
-      "payout_multiplier": "4.43x",
-      "payout_on_10": "$44.31",
-      "payout_on_25": "$110.78",
-      "correlation_rating": "Same-Team Stack",
-      "synergy_rationale": "Combines 2 real props extracted this week from Josh Shepardson (Sharp Football), Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL) for PIT @ TB."
-    },
-    {
-      "id": "parlay__BUF_at_LV__lv_stack",
-      "title": "LV Prop Stack SGP (BUF @ LV)",
-      "game": "BUF @ LV",
-      "game_slate": "Sunday Late Window",
-      "type": "same_game_parlay",
-      "book": "DraftKings / FanDuel",
-      "leg_count": 2,
-      "legs": [
-        {
-          "id": "prop__8266__tre_tucker__receiving_yards",
-          "player": "Tre Tucker",
-          "team": "LV",
-          "game": "BUF @ LV",
-          "game_slate": "Sunday Late Window",
-          "category": "receiving_yards",
-          "category_label": "Receiving Yards",
-          "stat_type": "receiving",
-          "line": "38.5",
-          "side": "over",
-          "price": "-120",
-          "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Dustin Swedelson (VSiN)",
-          "source_article_id": 8266,
-          "source_url": "https://vsin.com/nfl/favorite-week-6-nfl-player-props-from-dustin-swedelson-and-optaai/",
-          "rationale": "Through five games, Buffalo has allowed the fourth-most receiving yards (187.4) to opposing wide receivers. I've already got plays on Brock Bowers and Ashton Jeanty to go over their receiving yardage totals.",
-          "week": 6,
-          "tier": 1,
-          "tier_label": "Tier 1: Featured Pick",
-          "weight": 1,
-          "parlay_utility": {
-            "role": "Pass-Catching Piece",
-            "synergy_tags": [
-              "receiving_yards",
-              "LV_offense"
-            ],
-            "positive_correlations": [
-              "Brock Bowers Receptions"
-            ]
-          },
-          "selection": "Over 38.5 Receiving Yards"
+          "selection": "Over 61.5 Rushing Yards"
         },
         {
-          "id": "prop__8208__brock_bowers__receptions",
-          "player": "Brock Bowers",
-          "team": "LV",
-          "game": "BUF @ LV",
-          "game_slate": "Sunday Late Window",
-          "category": "receptions",
-          "category_label": "Receptions",
-          "stat_type": "receiving",
-          "line": "8+",
-          "side": "over",
-          "price": "+140",
+          "id": "prop__9146__demario_douglas__anytime_td",
+          "player": "DeMario Douglas",
+          "team": "NE",
+          "game": "NE @ CHI",
+          "game_slate": "Thursday Night Football",
+          "category": "anytime_td",
+          "category_label": "Anytime Touchdown Scorer",
+          "stat_type": "touchdown",
+          "line": "Yes",
+          "side": "anytime",
+          "price": "+320",
           "book": "DraftKings/FanDuel (per source article)",
-          "analyst": "Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL)",
-          "source_article_id": 8208,
-          "source_url": "https://www.espn.com/espn/betting/story/_/id/50133296/week-6-nfl-odds-touchdown-props-best-bets-sunday-preview",
-          "rationale": "Bowers has seen 14, 11 and 10 targets through three healthy games this season as he continues to establish himself as one of the league's best receivers. And that's what he is; 83% of Bowers' routes have come from the slot or wide alignments this season, and his primary matchup defender in each of his three games has been a cornerback.",
-          "week": 6,
+          "analyst": "Action Network Staff ... (Action Network)",
+          "source_article_id": 9146,
+          "source_url": "https://www.actionnetwork.com/nfl/patriots-vs-bears-picks-props-odds-predictions-thursday-night-football-oct-22",
+          "rationale": "8:15 p.m. DeMario Douglas Over 3.5 Receptions (+115) Specific betting recommendations come from the sportsbook offering preferred odds as of writing.",
+          "week": 7,
           "tier": 1,
           "tier_label": "Tier 1: Featured Pick",
           "weight": 1,
           "parlay_utility": {
-            "role": "Pass-Catching Piece",
+            "role": "End-Zone Target",
             "synergy_tags": [
-              "receptions",
-              "LV_offense"
+              "anytime_td",
+              "NE_offense"
             ],
             "positive_correlations": [
-              "Tre Tucker Receiving Yards"
+              "A.J. Brown Receiving Yards",
+              "DeMario Douglas Receptions",
+              "DeMario Douglas Receptions"
             ]
           },
-          "selection": "Over 8+ Receptions"
+          "selection": "Anytime Touchdown Scorer"
         }
       ],
-      "estimated_odds": "+340",
-      "payout_multiplier": "4.40x",
-      "payout_on_10": "$44.00",
-      "payout_on_25": "$110.00",
-      "correlation_rating": "Same-Team Stack",
-      "synergy_rationale": "Combines 2 real props extracted this week from Dustin Swedelson (VSiN), Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL) for BUF @ LV."
+      "estimated_odds": "+1411",
+      "payout_multiplier": "15.11x",
+      "payout_on_10": "$151.12",
+      "payout_on_25": "$377.80",
+      "correlation_rating": "Cross-Team Game Stack",
+      "synergy_rationale": "Combines 3 real props extracted this week from Frank Ammirante ... (Action Network), Action Network Staff ... (Action Network) for NE @ CHI."
     }
   ],
   "props": [
     {
-      "id": "prop__8286__germie_bernard__receiving_yards",
-      "player": "Germie Bernard",
-      "team": "PIT",
-      "game": "PIT @ TB",
-      "game_slate": "Sunday Early Window",
+      "id": "prop__9166__a_j_brown__receiving_yards",
+      "player": "A.J. Brown",
+      "team": "NE",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
       "category": "receiving_yards",
       "category_label": "Receiving Yards",
       "stat_type": "receiving",
-      "line": "40.5",
-      "side": "over",
-      "price": "-115",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Josh Shepardson (Sharp Football)",
-      "source_article_id": 8286,
-      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-6-2026/",
-      "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 6 Best Prop Bet: Derrick Henry Over 87.5 Rushing Yards (-112) In a game and a half since Tyler Huntley took over for an injured Lamar Jackson , Henry has carried the ball 38 times for 136 yards. The Ravens had a -4.8% pass rate over expected (PROE) in Week 5.",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Pass-Catching Piece",
-        "synergy_tags": [
-          "receiving_yards",
-          "PIT_offense"
-        ],
-        "positive_correlations": [
-          "Aaron Rodgers Passing TDs"
-        ]
-      }
-    },
-    {
-      "id": "prop__8286__derrick_henry__rushing_yards",
-      "player": "Derrick Henry",
-      "team": "BAL",
-      "game": "BAL @ CLE",
-      "game_slate": "Sunday Early Window",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "87.5",
+      "line": "69.5",
       "side": "over",
       "price": "-112",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Josh Shepardson (Sharp Football)",
-      "source_article_id": 8286,
-      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-6-2026/",
-      "rationale": "In a game and a half since Tyler Huntley took over for an injured Lamar Jackson , Henry has carried the ball 38 times for 136 yards. The Ravens had a -4.8% pass rate over expected (PROE) in Week 5.",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Ground Game Piece",
-        "synergy_tags": [
-          "rushing_yards",
-          "BAL_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__8266__tre_tucker__receiving_yards",
-      "player": "Tre Tucker",
-      "team": "LV",
-      "game": "BUF @ LV",
-      "game_slate": "Sunday Late Window",
-      "category": "receiving_yards",
-      "category_label": "Receiving Yards",
-      "stat_type": "receiving",
-      "line": "38.5",
-      "side": "over",
-      "price": "-120",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Dustin Swedelson (VSiN)",
-      "source_article_id": 8266,
-      "source_url": "https://vsin.com/nfl/favorite-week-6-nfl-player-props-from-dustin-swedelson-and-optaai/",
-      "rationale": "Through five games, Buffalo has allowed the fourth-most receiving yards (187.4) to opposing wide receivers. I've already got plays on Brock Bowers and Ashton Jeanty to go over their receiving yardage totals.",
-      "week": 6,
+      "analyst": "Frank Ammirante ... (Action Network)",
+      "source_article_id": 9166,
+      "source_url": "https://www.actionnetwork.com/nfl/bears-vs-patriots-odds-picks-parlay-for-thursday-night-football",
+      "rationale": "D'Andre Swift Over 61.5 Rushing Yards (-111) Parlay Odds: +440 ( DraftKings ) Odds via DraftKings are subject to change* Bears vs Patriots Odds Thursday, Oct 22 8:15 p.m. ET Amazon Prime Video Patriots Odds Spread Total Moneyline +3 -118 50.5 -118o / -102u +130 Bears Odds Spread Total Moneyline -3 -102 50.5 -118o / -102u -155 Odds via DraftKings .",
+      "week": 7,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
@@ -267,31 +161,33 @@
         "role": "Pass-Catching Piece",
         "synergy_tags": [
           "receiving_yards",
-          "LV_offense"
+          "NE_offense"
         ],
         "positive_correlations": [
-          "Brock Bowers Receptions"
+          "DeMario Douglas Anytime Touchdown Scorer",
+          "DeMario Douglas Receptions",
+          "DeMario Douglas Receptions"
         ]
       }
     },
     {
-      "id": "prop__8266__najee_harris__rushing_yards",
-      "player": "Najee Harris",
-      "team": "NYG",
-      "game": "NO @ NYG",
-      "game_slate": "Sunday Early Window",
+      "id": "prop__9166__d_andre_swift__rushing_yards",
+      "player": "D'Andre Swift",
+      "team": "CHI",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
       "category": "rushing_yards",
       "category_label": "Rushing Yards",
       "stat_type": "rushing",
-      "line": "23.5",
+      "line": "61.5",
       "side": "over",
-      "price": "-115",
+      "price": "-111",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Dustin Swedelson (VSiN)",
-      "source_article_id": 8266,
-      "source_url": "https://vsin.com/nfl/favorite-week-6-nfl-player-props-from-dustin-swedelson-and-optaai/",
-      "rationale": "The Giants had a golden opportunity last week to beat the Washington Commanders and take a commanding lead in the NFC East. Instead, Cam Skattebo fumbled in overtime with New York already in field goal range at Washington's 24-yard line.",
-      "week": 6,
+      "analyst": "Frank Ammirante ... (Action Network)",
+      "source_article_id": 9166,
+      "source_url": "https://www.actionnetwork.com/nfl/bears-vs-patriots-odds-picks-parlay-for-thursday-night-football",
+      "rationale": "Parlay Odds: +440 ( DraftKings ) Odds via DraftKings are subject to change* Bears vs Patriots Odds Thursday, Oct 22 8:15 p.m. ET Amazon Prime Video Patriots Odds Spread Total Moneyline +3 -118 50.5 -118o / -102u +130 Bears Odds Spread Total Moneyline -3 -102 50.5 -118o / -102u -155 Odds via DraftKings .",
+      "week": 7,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
@@ -299,91 +195,67 @@
         "role": "Ground Game Piece",
         "synergy_tags": [
           "rushing_yards",
-          "NYG_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__8266__chuba_hubbard__rushing_yards",
-      "player": "Chuba Hubbard",
-      "team": "CAR",
-      "game": "CAR @ PHI",
-      "game_slate": "Sunday Early Window",
-      "category": "rushing_yards",
-      "category_label": "Rushing Yards",
-      "stat_type": "rushing",
-      "line": "70.5",
-      "side": "over",
-      "price": "-115",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Dustin Swedelson (VSiN)",
-      "source_article_id": 8266,
-      "source_url": "https://vsin.com/nfl/favorite-week-6-nfl-player-props-from-dustin-swedelson-and-optaai/",
-      "rationale": "This is a prop I initially liked but was planning to stay away from. When Carolina opened as a 1.5-point underdog at Philadelphia, I had some reservations.",
-      "week": 6,
-      "tier": 2,
-      "tier_label": "Tier 2: Secondary Pick",
-      "weight": 0.7,
-      "parlay_utility": {
-        "role": "Ground Game Piece",
-        "synergy_tags": [
-          "rushing_yards",
-          "CAR_offense"
-        ],
-        "positive_correlations": []
-      }
-    },
-    {
-      "id": "prop__8208__aaron_rodgers__passing_tds",
-      "player": "Aaron Rodgers",
-      "team": "PIT",
-      "game": "PIT @ TB",
-      "game_slate": "Sunday Early Window",
-      "category": "passing_tds",
-      "category_label": "Passing TDs",
-      "stat_type": "passing",
-      "line": "2+",
-      "side": "over",
-      "price": "+137",
-      "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL)",
-      "source_article_id": 8208,
-      "source_url": "https://www.espn.com/espn/betting/story/_/id/50133296/week-6-nfl-odds-touchdown-props-best-bets-sunday-preview",
-      "rationale": "I love taking Rodgers passing touchdown props because of how aggressively his teams tend to throw the ball in the red zone. The Pittsburgh Steelers lead the league in called red zone pass rate at 76%.",
-      "week": 6,
-      "tier": 1,
-      "tier_label": "Tier 1: Featured Pick",
-      "weight": 1,
-      "parlay_utility": {
-        "role": "Passing Volume Anchor",
-        "synergy_tags": [
-          "passing_tds",
-          "PIT_offense"
+          "CHI_offense"
         ],
         "positive_correlations": [
-          "Germie Bernard Receiving Yards"
+          "Caleb Williams Passing TDs",
+          "Colston Loveland Receiving Yards",
+          "D'Andre Swift First Touchdown Scorer"
         ]
       }
     },
     {
-      "id": "prop__8208__brock_bowers__receptions",
-      "player": "Brock Bowers",
-      "team": "LV",
-      "game": "BUF @ LV",
-      "game_slate": "Sunday Late Window",
+      "id": "prop__9146__demario_douglas__anytime_td",
+      "player": "DeMario Douglas",
+      "team": "NE",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "+320",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Action Network Staff ... (Action Network)",
+      "source_article_id": 9146,
+      "source_url": "https://www.actionnetwork.com/nfl/patriots-vs-bears-picks-props-odds-predictions-thursday-night-football-oct-22",
+      "rationale": "8:15 p.m. DeMario Douglas Over 3.5 Receptions (+115) Specific betting recommendations come from the sportsbook offering preferred odds as of writing.",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "anytime_td",
+          "NE_offense"
+        ],
+        "positive_correlations": [
+          "A.J. Brown Receiving Yards",
+          "DeMario Douglas Receptions",
+          "DeMario Douglas Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__9146__demario_douglas__receptions",
+      "player": "DeMario Douglas",
+      "team": "NE",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
       "category": "receptions",
       "category_label": "Receptions",
       "stat_type": "receiving",
-      "line": "8+",
+      "line": "3.5",
       "side": "over",
-      "price": "+140",
+      "price": "+115",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Ben Solak, Seth Walder, Matt Bowen and Mike Clay (ESPN NFL)",
-      "source_article_id": 8208,
-      "source_url": "https://www.espn.com/espn/betting/story/_/id/50133296/week-6-nfl-odds-touchdown-props-best-bets-sunday-preview",
-      "rationale": "Bowers has seen 14, 11 and 10 targets through three healthy games this season as he continues to establish himself as one of the league's best receivers. And that's what he is; 83% of Bowers' routes have come from the slot or wide alignments this season, and his primary matchup defender in each of his three games has been a cornerback.",
-      "week": 6,
+      "analyst": "Action Network Staff ... (Action Network)",
+      "source_article_id": 9146,
+      "source_url": "https://www.actionnetwork.com/nfl/patriots-vs-bears-picks-props-odds-predictions-thursday-night-football-oct-22",
+      "rationale": "Specific betting recommendations come from the sportsbook offering preferred odds as of writing. Always shop for the best price using our NFL Odds page , which automatically surfaces the best lines for every game.",
+      "week": 7,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
@@ -391,31 +263,263 @@
         "role": "Pass-Catching Piece",
         "synergy_tags": [
           "receptions",
-          "LV_offense"
+          "NE_offense"
         ],
         "positive_correlations": [
-          "Tre Tucker Receiving Yards"
+          "A.J. Brown Receiving Yards",
+          "DeMario Douglas Anytime Touchdown Scorer",
+          "DeMario Douglas Receptions"
         ]
       }
     },
     {
-      "id": "prop__7864__bhayshul_tuten__rushing_yards",
-      "player": "Bhayshul Tuten",
-      "team": "JAX",
-      "game": "HOU @ JAX",
+      "id": "prop__9096__caleb_williams__passing_tds",
+      "player": "Caleb Williams",
+      "team": "CHI",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
+      "category": "passing_tds",
+      "category_label": "Passing TDs",
+      "stat_type": "passing",
+      "line": "2+",
+      "side": "over",
+      "price": "-152",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 9096,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-patriots-vs-bears/",
+      "rationale": "The juice on this selection is a bit out of control. If you want to add this prop to your bets this evening, get in early.",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_tds",
+          "CHI_offense"
+        ],
+        "positive_correlations": [
+          "D'Andre Swift Rushing Yards",
+          "Colston Loveland Receiving Yards",
+          "D'Andre Swift First Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__9096__demario_douglas__receptions",
+      "player": "DeMario Douglas",
+      "team": "NE",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "4+",
+      "side": "over",
+      "price": "+102",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 9096,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-patriots-vs-bears/",
+      "rationale": "Our next selection could be one of the more popular plays tonight. DeMario Douglas was a reliable target on Sunday.",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receptions",
+          "NE_offense"
+        ],
+        "positive_correlations": [
+          "A.J. Brown Receiving Yards",
+          "DeMario Douglas Anytime Touchdown Scorer",
+          "DeMario Douglas Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__9096__colston_loveland__receiving_yards",
+      "player": "Colston Loveland",
+      "team": "CHI",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "40+",
+      "side": "over",
+      "price": "-151",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 9096,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-player-props-bets-patriots-vs-bears/",
+      "rationale": "We round things out with a disappointing return based on the juice. Colston Loveland has produced 40+ yards in only two out of six games.",
+      "week": 7,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "CHI_offense"
+        ],
+        "positive_correlations": [
+          "D'Andre Swift Rushing Yards",
+          "Caleb Williams Passing TDs",
+          "D'Andre Swift First Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__8921__aaron_rodgers__pass_attempts",
+      "player": "Aaron Rodgers",
+      "team": "PIT",
+      "game": "PIT @ NO",
       "game_slate": "Sunday Early Window",
+      "category": "pass_attempts",
+      "category_label": "Pass Attempts",
+      "stat_type": "passing",
+      "line": "28+",
+      "side": "over",
+      "price": "-542",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 8921,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-7-picks-predictions-best-early-parlays-2026/",
+      "rationale": "This prop has been one of the most lucrative legs of the season, and we are once again going back to the well. Truth be told, passing attempts have yielded massive success over the first seven weeks.",
+      "week": 7,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "pass_attempts",
+          "PIT_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__8921__nico_collins__anytime_td",
+      "player": "Nico Collins",
+      "team": "HOU",
+      "game": "NYG @ HOU",
+      "game_slate": "Sunday Early Window",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "+100",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Steve Krebs (BettingPros)",
+      "source_article_id": 8921,
+      "source_url": "https://www.bettingpros.com/articles/nfl-week-7-picks-predictions-best-early-parlays-2026/",
+      "rationale": "We close out our parlay with another positive return that is sure to drop throughout the week. You will want to get in on this leg before it is no longer a positive return.",
+      "week": 7,
+      "tier": 2,
+      "tier_label": "Tier 2: Secondary Pick",
+      "weight": 0.7,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "anytime_td",
+          "HOU_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__9098__d_andre_swift__first_td",
+      "player": "D'Andre Swift",
+      "team": "CHI",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
+      "category": "first_td",
+      "category_label": "First Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "+600",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Mike Spector (BettingPros)",
+      "source_article_id": 9098,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-td-scorers-picks-patriots-vs-bears-2026/",
+      "rationale": "D'Andre Swift scored two touchdowns last week despite being outgained by Roschon Johnson, but he showed his versatility out of the backfield with four receptions on five targets. With fellow running back Kyle Monangai likely unavailable again on a short week to steal goal-line touches, Swift's value for crossing the goal line rises even more.",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "first_td",
+          "CHI_offense"
+        ],
+        "positive_correlations": [
+          "D'Andre Swift Rushing Yards",
+          "Caleb Williams Passing TDs",
+          "Colston Loveland Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__9098__hunter_henry__anytime_td",
+      "player": "Hunter Henry",
+      "team": "NE",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
+      "category": "anytime_td",
+      "category_label": "Anytime Touchdown Scorer",
+      "stat_type": "touchdown",
+      "line": "Yes",
+      "side": "anytime",
+      "price": "+230",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Mike Spector (BettingPros)",
+      "source_article_id": 9098,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-td-scorers-picks-patriots-vs-bears-2026/",
+      "rationale": "In Drake Maye's first three games, he logged a 49 total quarterback rating, averaged 195 passing yards per game and recorded a 1:6 touchdown-to-interception ratio. He has heated up, posting a league-high 91 total quarterback rating over the last three games, averaging 293 passing yards, and recording a 10:1 touchdown-to-interception ratio.",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "End-Zone Target",
+        "synergy_tags": [
+          "anytime_td",
+          "NE_offense"
+        ],
+        "positive_correlations": [
+          "A.J. Brown Receiving Yards",
+          "DeMario Douglas Anytime Touchdown Scorer",
+          "DeMario Douglas Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__9099__drake_maye__rushing_yards",
+      "player": "Drake Maye",
+      "team": "NE",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
       "category": "rushing_yards",
       "category_label": "Rushing Yards",
       "stat_type": "rushing",
-      "line": "50+",
+      "line": "29.5",
       "side": "over",
-      "price": "-296",
+      "price": "-112",
       "book": "DraftKings/FanDuel (per source article)",
-      "analyst": "Steve Krebs (BettingPros)",
-      "source_article_id": 7864,
-      "source_url": "https://www.bettingpros.com/articles/nfl-week-6-picks-predictions-best-early-parlays-2026/",
-      "rationale": "We close out our parlay with a recency bias play that we have been tailing for a few weeks now. It's a tough matchup against a Houston team that is only allowing 78.4 rushing yards per game.",
-      "week": 6,
+      "analyst": "Josh Shepardson (BettingPros)",
+      "source_article_id": 9099,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-picks-patriots-vs-bears-week-7-2026/",
+      "rationale": "Drake Maye has cleared 29.5 rushing yards only twice in six games. However, he's averaged 30.8 rushing yards per game, though his median is 24.5.",
+      "week": 7,
       "tier": 1,
       "tier_label": "Tier 1: Featured Pick",
       "weight": 1,
@@ -423,9 +527,181 @@
         "role": "Ground Game Piece",
         "synergy_tags": [
           "rushing_yards",
-          "JAX_offense"
+          "NE_offense"
         ],
-        "positive_correlations": []
+        "positive_correlations": [
+          "A.J. Brown Receiving Yards",
+          "DeMario Douglas Anytime Touchdown Scorer",
+          "DeMario Douglas Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__9099__d_andre_swift__receiving_yards",
+      "player": "D'Andre Swift",
+      "team": "CHI",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "17.5",
+      "side": "over",
+      "price": "-111",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (BettingPros)",
+      "source_article_id": 9099,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-picks-patriots-vs-bears-week-7-2026/",
+      "rationale": "D'Andre Swift isn't a bell-cow running back, and he'll share work. Still, his 36.8% route participation rate paces Chicago's backfield, ahead of Kyle Monangai (25.8%) and Roschon Johnson (19.3%).",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "CHI_offense"
+        ],
+        "positive_correlations": [
+          "D'Andre Swift Rushing Yards",
+          "Caleb Williams Passing TDs",
+          "Colston Loveland Receiving Yards"
+        ]
+      }
+    },
+    {
+      "id": "prop__9100__d_andre_swift__rush_attempts",
+      "player": "D'Andre Swift",
+      "team": "CHI",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
+      "category": "rush_attempts",
+      "category_label": "Rush Attempts",
+      "stat_type": "rushing",
+      "line": "14.5",
+      "side": "under",
+      "price": "-126",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Richard Janvrin (BettingPros)",
+      "source_article_id": 9100,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-same-game-parlay-patriots-vs-bears/",
+      "rationale": "Fellow Bears running back Kyle Monangai missed Week 6 with a thumb and toe injury. Without him, D'Andre Swift ran 16 times for 44 yards and scored twice.",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Ground Game Piece",
+        "synergy_tags": [
+          "rush_attempts",
+          "CHI_offense"
+        ],
+        "positive_correlations": [
+          "D'Andre Swift First Touchdown Scorer"
+        ]
+      }
+    },
+    {
+      "id": "prop__9100__a_j_brown__receiving_yards",
+      "player": "A.J. Brown",
+      "team": "NE",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
+      "category": "receiving_yards",
+      "category_label": "Receiving Yards",
+      "stat_type": "receiving",
+      "line": "70+",
+      "side": "over",
+      "price": "-103",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Richard Janvrin (BettingPros)",
+      "source_article_id": 9100,
+      "source_url": "https://www.bettingpros.com/articles/nfl-thursday-night-football-same-game-parlay-patriots-vs-bears/",
+      "rationale": "It wasn't a great return to the lineup: A.J. Brown caught three passes for 27 yards.",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receiving_yards",
+          "NE_offense"
+        ],
+        "positive_correlations": [
+          "A.J. Brown Receiving Yards",
+          "DeMario Douglas Anytime Touchdown Scorer",
+          "DeMario Douglas Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__9085__a_j_brown__receptions",
+      "player": "A.J. Brown",
+      "team": "NE",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "5.5",
+      "side": "over",
+      "price": "+125",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Sam Farley ... (Action Network)",
+      "source_article_id": 9085,
+      "source_url": "https://www.actionnetwork.com/nfl/patriots-vs-bears-player-props-for-dandre-swift-aj-brown-eli-raridon",
+      "rationale": "In his first game this season, A.J. Brown got four targets early against the Seahawks before getting injured.",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receptions",
+          "NE_offense"
+        ],
+        "positive_correlations": [
+          "A.J. Brown Receiving Yards",
+          "DeMario Douglas Anytime Touchdown Scorer",
+          "DeMario Douglas Receptions"
+        ]
+      }
+    },
+    {
+      "id": "prop__9028__drake_maye__passing_tds",
+      "player": "Drake Maye",
+      "team": "NE",
+      "game": "NE @ CHI",
+      "game_slate": "Thursday Night Football",
+      "category": "passing_tds",
+      "category_label": "Passing TDs",
+      "stat_type": "passing",
+      "line": "1.5",
+      "side": "over",
+      "price": "-115",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Zachary Cohen (VSiN)",
+      "source_article_id": 9028,
+      "source_url": "https://vsin.com/nfl/expert-nfl-picks-week-7-best-bets-predictions-and-player-props-from-zachary-cohen/",
+      "rationale": "- Check out my Thursday Night Football Preview ! PARLAY: Vikings ML vs.",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_tds",
+          "NE_offense"
+        ],
+        "positive_correlations": [
+          "A.J. Brown Receiving Yards",
+          "DeMario Douglas Anytime Touchdown Scorer",
+          "DeMario Douglas Receptions"
+        ]
       }
     }
   ]

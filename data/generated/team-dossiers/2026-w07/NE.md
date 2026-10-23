@@ -1,5 +1,5 @@
 # NE Patriots — dossier, target Week 7 (data through W6)
-Built 2026-10-22T18:21:00.609Z · git aecd94b · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T22:58:54.543Z · git 645efaf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -48,7 +48,7 @@ Secondary-matchup context is manual_review_capped and keyed to source Week 7 —
 
 ## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T14:39:14Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
-QB: Drake Maye [ok]
+QB: Drake Maye [ok] · operator-confirmed Drake Maye
 Out/IR: Channing Canada CB Out; Karon Prunty CB Out; Ben Brown C Out; Alijah Vera-Tucker G Out; Carlton Davis III CB Out; Marcus Bryant OT Injured Reserve (+1 more)
 Questionable/Doubtful: Morgan Moses OT Questionable; Christian Elliss LB Questionable; Kevin Byard S Questionable; Craig Woodson S Questionable
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 11 players; skill: Julian Hill TE; Mack Hollins WR; Myles Montgomery RB; Reggie Gilliam FB

@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:56.454Z",
+  "built_at": "2026-10-17T02:04:50.249Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "24.0"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "EPA/PLY": "0.035",
+          "DVOA": "-0.5%",
+          "SUCC%": "39.1%",
+          "EXP%": "9.8%",
+          "CONV%": "42.1%",
+          "TO": "3",
+          "TO%": "1.2%",
+          "3&O": "13.3%",
+          "MTKL%": "15.3%",
+          "PEN%": "3.1%",
+          "PENY": "21.3"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "5"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "YD/PLY": "5.6",
+          "PT/GM": "27.3",
+          "FD%": "28.9%",
+          "TO": "3",
+          "DPBK%": "62.5%",
+          "YD": "1,111",
+          "TD": "6",
+          "INT": "1",
+          "RUSH%": "37.5%",
+          "YD__2": "335",
+          "TD__2": "5"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "19.9%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "DPBK": "160",
+          "SK": "14",
+          "SK%": "8.8%",
+          "QBH%": "17.5%",
+          "PRESS": "41",
+          "PRESS%": "25.6%",
+          "QPRESS%": "36.6%",
+          "TTPR": "3.12",
+          "DISR%": "1.9%",
+          "BLZ%": "20.6%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "2.8%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "EPA/DB": "0.122",
+          "SUCC%": "40.0%",
+          "DVOA": "15.5%",
+          "CPOE": "0.71%",
+          "CBALL%": "73.2%",
+          "EXP%": "17.7%",
+          "INTW%": "3.5%",
+          "TGHT%": "32.4%",
+          "OPEN%": "58.5%",
+          "TA%": "2.8%",
+          "DROP%": "2.1%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "2.41"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "EPA/ATT": "-0.110",
+          "SUCC%": "37.5%",
+          "DVOA": "-23.6%",
+          "aRYOE": "",
+          "EXP%": "7.3%",
+          "STF%": "17.7%",
+          "YBCO": "0.68",
+          "YACO": "2.46"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "8.83%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "EPA/PLY": "-0.027",
+          "DVOA": "1.9%",
+          "SUCC%": "41.3%",
+          "EXP%": "10.2%",
+          "CONV%": "34.4%",
+          "TO": "2",
+          "TO%": "0.79%",
+          "PENY": "45.8",
+          "PEN%": "8.27%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "5"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "YD/PLY": "5.7",
+          "PT/GM": "21.0",
+          "FD%": "27.6%",
+          "TO": "2",
+          "DPBK%": "67.3%",
+          "YD": "1,141",
+          "TD": "5",
+          "INT": "0",
+          "RUSH%": "32.7%",
+          "YD__2": "316",
+          "TD__2": "4"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "56.6%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "SK": "12",
+          "SK%": "7.0%",
+          "QBSK%": "0.0%",
+          "QBH%": "15.8%",
+          "PRESS%": "24.6%",
+          "UPRES%": "15.7%",
+          "BLITZ%": "19.9%",
+          "TTPR": "2.88",
+          "TTT": "2.82",
+          "EPA/DB": "-0.857",
+          "DVOA": "-149.2%",
+          "SUCC%": "14.3%",
+          "EPA/DB__2": "0.368",
+          "DVOA__2": "45.5%",
+          "SUCC%__2": "57.4%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "4.3"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "EPA/DB": "0.067",
+          "SUCC%": "46.8%",
+          "DVOA": "25.8%",
+          "CPOE": "7.9%",
+          "CBALL%": "64.5%",
+          "EXP%": "20.4%",
+          "INTW%": "0.7%",
+          "HLT%": "2.6%",
+          "TA%": "5.3%",
+          "DROP%": "0.7%",
+          "aDOT": "10.0",
+          "aYAC": "4.3"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "66.5%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "EPA/ATT": "-0.221",
+          "SUCC%": "30.1%",
+          "DVOA": "-19.3%",
+          "aRYOE": "",
+          "EXP%": "4.8%",
+          "STF%": "24.1%",
+          "aYBCO": "0.66",
+          "aYACO": "1.98",
+          "CRT%": "65.1%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "40.0%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "PLY/GM": "63.5",
+          "TOP": "28.25",
+          "DRV/GM": "11.3",
+          "SEC/PLY": "26.7",
+          "PLY/DRV": "5.6",
+          "YD/DRV": "32.4",
+          "SEC/DRV": "151",
+          "3&O": "31.1%",
+          "SCD%": "35.6%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Houston Texans",
           "GP": "5",
@@ -703,13 +885,30 @@
           "PWR%": "13.6%",
           "CTR%": "10.0%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Houston Texans",
+          "GP": "4",
+          "DPBK%": "67.3%",
+          "RUSH%": "32.7%",
+          "SHG%": "60.2%",
+          "NH%": "7.5%",
+          "MOT%": "54.7%",
+          "PA%": "21.1%",
+          "IZ%": "12.0%",
+          "OZ%": "28.9%",
+          "MD%": "15.7%",
+          "PWR%": "16.9%",
+          "CTR%": "13.3%"
+        }
       }
     },
     "qb1": {
       "player": "C.J. Stroud",
       "position": "QB",
       "tables": {
-        "passing/air-yards": {
+        "passing/air-yards (1)": {
           "Player": "C.J. Stroud",
           "Team": "Houston Texans",
           "Position": "QB",
@@ -722,7 +921,20 @@
           "PRYD%": "46.2%",
           "dAIR": "30"
         },
-        "passing/analytics": {
+        "passing/air-yards": {
+          "Player": "C.J. Stroud",
+          "Team": "Houston Texans",
+          "Position": "QB",
+          "GP": "4",
+          "aDOT": "10.0",
+          "AIR": "1,517",
+          "cAIR": "794",
+          "cAIR%": "52.3%",
+          "PRYD": "723",
+          "PRYD%": "47.7%",
+          "dAIR": "11"
+        },
+        "passing/analytics (1)": {
           "Player": "C.J. Stroud",
           "Team": "Houston Texans",
           "Position": "QB",
@@ -737,7 +949,22 @@
           "CPOE": "7.6%",
           "aYDOE": "0.386"
         },
-        "passing/efficiency": {
+        "passing/analytics": {
+          "Player": "C.J. Stroud",
+          "Team": "Houston Texans",
+          "Position": "QB",
+          "GP": "4",
+          "EPA": "14.8",
+          "EPA/DB": "0.087",
+          "SUCC%": "47.1%",
+          "ACOMP%": "65.7%",
+          "DVOA": "1.1%",
+          "DYAR": "111",
+          "xCOMP": "53.6%",
+          "CPOE": "8.0%",
+          "aYDOE": "0.400"
+        },
+        "passing/efficiency (1)": {
           "Player": "C.J. Stroud",
           "Team": "Houston Texans",
           "Position": "QB",
@@ -752,7 +979,22 @@
           "INT%": "0.0%",
           "SK%": "6.8%"
         },
-        "passing/overview": {
+        "passing/efficiency": {
+          "Player": "C.J. Stroud",
+          "Team": "Houston Texans",
+          "Position": "QB",
+          "GP": "4",
+          "CBALL%": "64.9%",
+          "INTW%": "0.7%",
+          "HLT%": "2.6%",
+          "EXP%": "12.6%",
+          "DROP%": "0.7%",
+          "TA%": "5.3%",
+          "TD%": "3.3%",
+          "INT%": "0.0%",
+          "SK%": "7.1%"
+        },
+        "passing/overview (1)": {
           "Player": "C.J. Stroud",
           "Team": "Houston Texans",
           "Position": "QB",
@@ -767,7 +1009,52 @@
           "INT": "0",
           "FUML": "2"
         },
-        "passing/pressure": {
+        "passing/overview (2)": {
+          "Player": "C.J. Stroud",
+          "Team": "Houston Texans",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "206",
+          "ATT": "185",
+          "COMP": "119",
+          "COMP%": "64.3%",
+          "YD": "1,402",
+          "YD/ATT": "7.6",
+          "TD": "6",
+          "INT": "0",
+          "FUML": "2"
+        },
+        "passing/overview (3)": {
+          "Player": "C.J. Stroud",
+          "Team": "Houston Texans",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "206",
+          "ATT": "185",
+          "COMP": "119",
+          "COMP%": "64.3%",
+          "YD": "1,402",
+          "YD/ATT": "7.6",
+          "TD": "6",
+          "INT": "0",
+          "FUML": "2"
+        },
+        "passing/overview": {
+          "Player": "C.J. Stroud",
+          "Team": "Houston Texans",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "170",
+          "ATT": "151",
+          "COMP": "93",
+          "COMP%": "61.6%",
+          "YD": "1,141",
+          "YD/ATT": "7.6",
+          "TD": "5",
+          "INT": "0",
+          "FUML": "2"
+        },
+        "passing/pressure (1)": {
           "Player": "C.J. Stroud",
           "Team": "Houston Texans",
           "Position": "QB",
@@ -785,28 +1072,66 @@
           "RATE__2": "76.7%",
           "EPA/DB__2": "0.362",
           "DVOA__2": "41.4%"
+        },
+        "passing/pressure": {
+          "Player": "C.J. Stroud",
+          "Team": "Houston Texans",
+          "Position": "QB",
+          "GP": "4",
+          "SK": "12",
+          "SK%": "7.1%",
+          "QBSK%": "0.0%",
+          "AVSK%": "0.0%",
+          "QBH%": "15.9%",
+          "TTPR": "2.82",
+          "TTT": "2.80",
+          "RATE": "24.7%",
+          "EPA/DB": "-0.857",
+          "DVOA": "-149.2%",
+          "RATE__2": "75.3%",
+          "EPA/DB__2": "0.396",
+          "DVOA__2": "45.5%"
         }
       }
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
-      "passing/air-yards": 5,
-      "passing/analytics": 5,
-      "passing/efficiency": 5,
-      "passing/overview": 5,
-      "passing/pressure": 5,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "passing/air-yards (1)": 5,
+      "passing/air-yards": 4,
+      "passing/analytics (1)": 5,
+      "passing/analytics": 4,
+      "passing/efficiency (1)": 5,
+      "passing/efficiency": 4,
+      "passing/overview (1)": 5,
+      "passing/overview (2)": 5,
+      "passing/overview (3)": 5,
+      "passing/overview": 4,
+      "passing/pressure (1)": 5,
+      "passing/pressure": 4,
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -939,7 +1264,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -952,14 +1277,15 @@
               "player_name": "Montaric Brown",
               "team": "JAX",
               "position": "CB",
-              "event_type": "setback",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "Brown (hamstring) is questionable to return to Sunday's game against the Eagles.",
+              "summary": "Brown (hamstring) has been ruled out ahead of Sunday's game against the Texans.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-11T16:08:00.000Z",
+              "published_at": "2026-10-17T00:48:00.000Z",
               "role": "outside_cb2",
               "side": "field",
               "impact_tier": "starter",
@@ -970,7 +1296,7 @@
                 "outside_wr_boost",
                 "boundary_wr_boost"
               ],
-              "severity_score": 1.27,
+              "severity_score": 1.8,
               "needs_human_review": true
             },
             {
@@ -984,7 +1310,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2025-04-03T19:00:00.000Z",
+              "published_at": "2025-04-03T12:00:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1094,10 +1420,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 3.82,
+          "severity_score": 4.35,
           "elite_absence_count": 0,
           "vulnerability_tier": "medium",
-          "confidence": 0.93,
+          "confidence": 0.92,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1107,14 +1433,7 @@
           ],
           "guardrail": "manual_review_required_not_a_pick",
           "needs_human_review": true,
-          "excluded_unavailable": [
-            {
-              "player_name": "Tank Dell",
-              "team": "HOU",
-              "availability_flag": "reported_out",
-              "note": "removed from target_receivers at build (operator-reported IR or ESPN-reported Out/IR); seed row kept for his return"
-            }
-          ]
+          "excluded_unavailable": []
         },
         {
           "id": "sec_3b490d67af49b6ca",
@@ -1151,7 +1470,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1164,14 +1483,15 @@
               "player_name": "Jalen Pitre",
               "team": "HOU",
               "position": "S",
-              "event_type": "doubtful",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "Texans head coach DeMeco Ryans said Monday that Pitre is \"week-to-week\" due to a left shoulder injury that he sustained in Sunday's 26-3 win over the Titans, Jonathan M. Alexander of the Houston Chronicle reports.",
+              "summary": "Pitre (shoulder) is ruled out for Sunday's game against Jacksonville.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-12T16:42:00.000Z",
+              "published_at": "2026-10-16T00:20:00.000Z",
               "role": "hybrid_safety",
               "side": "slot",
               "impact_tier": "plus",
@@ -1184,27 +1504,27 @@
                 "te_middle_boost",
                 "deep_pass_boost"
               ],
-              "severity_score": 2.02,
+              "severity_score": 2.7,
               "needs_human_review": true
             },
             {
-              "player_name": "M.J. Stewart",
+              "player_name": "Ja'Marcus Ingram",
               "team": "HOU",
-              "position": "S",
-              "event_type": "pup",
+              "position": "CB",
+              "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Stewart is active for Sunday's game against the Titans.",
+              "summary": "The Texans opened Ingram's 21-day return window from injured reserve Wednesday.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
                 "ESPN injuries API"
               ],
-              "published_at": "2026-10-11T15:53:00.000Z",
+              "published_at": "2026-10-15T01:04:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
               "primary_receiver_archetypes_impacted": [],
               "weakness_tags": [],
-              "severity_score": 1.05,
+              "severity_score": 1.35,
               "needs_human_review": true
             }
           ],
@@ -1275,10 +1595,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 4.42,
+          "severity_score": 5.4,
           "elite_absence_count": 1,
-          "vulnerability_tier": "medium",
-          "confidence": 0.92,
+          "vulnerability_tier": "high",
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1301,19 +1621,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1330,72 +1650,47 @@
     "reported_injuries": {
       "out_ir": [
         {
-          "player": "Ja'Marcus Ingram",
-          "pos": "CB",
+          "player": "Jalen Pitre",
+          "pos": "S",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "Pitre (shoulder) is ruled out for Sunday's game against Jacksonville.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Henry To'oTo'o",
+          "pos": "LB",
           "status": "Injured Reserve",
           "date": "2026-10-15",
-          "comment": "The Texans opened  Ingram's 21-day return window from injured reserve Wednesday.",
+          "comment": "To'oTo'o (shoulder) was a full participant at practice Thursday.",
           "roster_check": "roster_ir_out_group"
         },
         {
           "player": "Tank Dell",
           "pos": "WR",
           "status": "Injured Reserve",
-          "date": "2026-10-14",
-          "comment": "Dell (knee) was a full participant in Wednesday's practice.",
+          "date": "2026-10-15",
+          "comment": "The Texans ruled out Dell (knee) for Sunday's game against the Jaguars in London.",
           "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player": "Henry To'oTo'o",
-          "pos": "LB",
-          "status": "Injured Reserve",
-          "date": "2026-10-14",
-          "comment": "The Texans designated To'oTo'o (shoulder) for return from injured reserve Wednesday.",
-          "roster_check": "roster_ir_out_group"
-        }
-      ],
-      "questionable_doubtful": [
-        {
-          "player": "Jadeveon Clowney",
-          "pos": "DE",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Trent Brown",
-          "pos": "OT",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Azeez Al-Shaair",
-          "pos": "LB",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
         },
         {
           "player": "David Montgomery",
           "pos": "RB",
-          "status": "Doubtful",
-          "date": "2026-10-14",
-          "comment": "Montgomery (groin) isn't practicing Wednesday, Aaron Wilson of KPRC 2 Houston reports.",
+          "status": "Out",
+          "date": "2026-10-15",
+          "comment": "The Texans ruled Montgomery (groin) out for Sunday's game against the Jaguars in London.",
           "roster_check": "ok"
         },
         {
-          "player": "Jalen Pitre",
-          "pos": "S",
-          "status": "Doubtful",
-          "date": "2026-10-14",
-          "comment": "Pitre will not need surgery and will not need to be placed on injured reserve as a result of the shoulder injury he suffered during Sunday's game at Tennessee, ",
-          "roster_check": "ok"
+          "player": "Ja'Marcus Ingram",
+          "pos": "CB",
+          "status": "Injured Reserve",
+          "date": "2026-10-15",
+          "comment": "The Texans opened  Ingram's 21-day return window from injured reserve Wednesday.",
+          "roster_check": "roster_ir_out_group"
         }
       ],
+      "questionable_doubtful": [],
       "other": []
     },
     "operator_reported": [
@@ -1471,35 +1766,31 @@
     "ol_dl_cluster_risk": {
       "ol": {
         "hard_or_doubtful": 0,
-        "questionable": 1,
+        "questionable": 0,
         "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": [
-          "Trent Brown OT Questionable"
-        ]
+        "players": []
       },
       "dl": {
         "hard_or_doubtful": 0,
-        "questionable": 1,
+        "questionable": 0,
         "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": [
-          "Jadeveon Clowney DE Questionable"
-        ]
+        "players": []
       }
     },
     "live_events": {
       "window": "published within 10 days of build; latest per player; cap 12",
       "rows": [
         {
-          "player_name": "Mario Edwards Jr.",
-          "position": "DE",
-          "normalized_status": "IR",
+          "player_name": "E.J. Speed",
+          "position": "LB",
+          "normalized_status": "PUP",
           "availability_trend": "worsening",
-          "event_type": "ir",
+          "event_type": "pup",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
-          "summary": "Mario Edwards Jr. IR",
+          "published_at": "2026-10-17T01:50:03.000Z",
+          "summary": "E.J. Speed PUP",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1508,14 +1799,14 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "E.J. Speed",
-          "position": "LB",
-          "normalized_status": "PUP",
+          "player_name": "Mario Edwards Jr.",
+          "position": "DE",
+          "normalized_status": "IR",
           "availability_trend": "worsening",
-          "event_type": "pup",
+          "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
-          "summary": "E.J. Speed PUP",
+          "published_at": "2026-10-17T01:50:02.000Z",
+          "summary": "Mario Edwards Jr. IR",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1530,7 +1821,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Graham Mertz IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1546,7 +1837,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Ali Gaye IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1562,7 +1853,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Jake Hummel IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1578,7 +1869,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Dylan Horton IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1594,7 +1885,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Solomon Byrd IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1610,7 +1901,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "British Brooks IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1626,7 +1917,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Jayden Higgins IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1642,7 +1933,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Jaylin Smith IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1658,7 +1949,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "K.C. Ossai IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1668,20 +1959,24 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Ja'Marcus Ingram",
-          "position": "CB",
-          "normalized_status": "IR",
+          "player_name": "David Montgomery",
+          "position": "RB",
+          "normalized_status": "OUT",
           "availability_trend": "worsening",
-          "event_type": "ir",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T01:04:00.000Z",
-          "summary": "The Texans opened Ingram's 21-day return window from injured reserve Wednesday.",
-          "practice": [],
-          "probability_of_playing": null,
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-16T22:36:10.000Z",
+          "summary": "David Montgomery OUT",
+          "practice": [
+            "DNP",
+            "DNP",
+            "DNP"
+          ],
+          "probability_of_playing": 0,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
+          "roster_check": "ok"
         }
       ]
     },
@@ -1758,7 +2053,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [
         "C.J. Stroud QB"
       ],
@@ -1792,8 +2087,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -2044,18 +2338,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

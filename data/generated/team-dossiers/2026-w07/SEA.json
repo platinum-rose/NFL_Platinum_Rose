@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-22T18:21:00.756Z",
+  "built_at": "2026-10-22T22:58:54.725Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "aecd94b",
+  "git_head": "645efaf",
   "market_data_included": false,
   "sources": [
     {
@@ -1271,7 +1271,7 @@
       "vet_status": "PASS",
       "blocking_count": 0,
       "roster_snapshot_generated_at": "2026-10-22T14:39:12.738634+00:00",
-      "roster_age_h_at_vet": 3.7,
+      "roster_age_h_at_vet": 8.3,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
@@ -1279,7 +1279,7 @@
     },
     "as_of": {
       "espn_status": "2026-10-22T14:39:14Z",
-      "availability_events": "2026-10-22T14:39:26.249Z",
+      "availability_events": "2026-10-22T22:58:47.007Z",
       "impact_digest": "2026-10-22T14:39:29.587Z",
       "projected_starters": "2026-10-21T22:00:03.496Z",
       "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -1448,8 +1448,24 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:05.000Z",
           "summary": "Jadarian Price IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Elijah Arroyo",
+          "position": "TE",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-22T22:50:05.000Z",
+          "summary": "Elijah Arroyo IR",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1464,7 +1480,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:05.000Z",
           "summary": "Jake Bobo IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1480,7 +1496,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:05.000Z",
           "summary": "Robbie Ouzts IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1496,7 +1512,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:05.000Z",
           "summary": "Julian Neal IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1512,8 +1528,24 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:05.000Z",
           "summary": "Bud Clark IR",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Zach Charbonnet",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "improving",
+          "event_type": "return_to_practice",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T18:09:00.000Z",
+          "summary": "The Seahawks activated Charbonnet (knee) from the reserve/PUP list Thursday, John Boyle of the team's official site reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1600,38 +1632,6 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
-        },
-        {
-          "player_name": "Tyrice Knight",
-          "position": "LB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T23:06:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Zach Charbonnet",
-          "position": "RB",
-          "normalized_status": "OUT",
-          "availability_trend": "worsening",
-          "event_type": "out",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T23:01:00.000Z",
-          "summary": "Charbonnet (knee) was a full participant at Wednesday's practice, Corbin K. Smith of EmeraldCitySpectrum.com reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "conflicted_intel",
-          "synthesis_eligible": false,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
         }
       ]
     },
@@ -1709,8 +1709,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1962,7 +1961,7 @@
       "through_week": null,
       "as_of": {
         "espn_status": "2026-10-22T14:39:14Z",
-        "availability_events": "2026-10-22T14:39:26.249Z",
+        "availability_events": "2026-10-22T22:58:47.007Z",
         "impact_digest": "2026-10-22T14:39:29.587Z",
         "projected_starters": "2026-10-21T22:00:03.496Z",
         "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -1971,8 +1970,7 @@
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

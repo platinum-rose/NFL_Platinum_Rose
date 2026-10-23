@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:56.797Z",
+  "built_at": "2026-10-17T02:04:50.643Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -497,13 +497,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -520,7 +520,24 @@
           "PENY": "21.0"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "EPA/PLY": "-0.184",
+          "DVOA": "-22.1%",
+          "SUCC%": "32.8%",
+          "EXP%": "9.7%",
+          "CONV%": "25.0%",
+          "TO": "7",
+          "TO%": "2.9%",
+          "3&O": "23.9%",
+          "MTKL%": "7.5%",
+          "PEN%": "3.8%",
+          "PENY": "26.3"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -537,7 +554,24 @@
           "TD__2": "2"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "YD/PLY": "5.3",
+          "PT/GM": "14.3",
+          "FD%": "22.7%",
+          "TO": "7",
+          "DPBK%": "64.7%",
+          "YD": "881",
+          "TD": "3",
+          "INT": "4",
+          "RUSH%": "35.3%",
+          "YD__2": "378",
+          "TD__2": "1"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -553,7 +587,23 @@
           "BLZ%": "70.0%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "DPBK": "154",
+          "SK": "16",
+          "SK%": "10.4%",
+          "QBH%": "24.0%",
+          "PRESS": "63",
+          "PRESS%": "40.9%",
+          "QPRESS%": "42.9%",
+          "TTPR": "2.79",
+          "DISR%": "0.6%",
+          "BLZ%": "72.1%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -570,7 +620,24 @@
           "DROP%": "3.8%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "EPA/DB": "-0.164",
+          "SUCC%": "34.4%",
+          "DVOA": "-18.3%",
+          "CPOE": "-11.87%",
+          "CBALL%": "58.8%",
+          "EXP%": "17.9%",
+          "INTW%": "3.8%",
+          "TGHT%": "26.7%",
+          "OPEN%": "61.1%",
+          "TA%": "4.6%",
+          "DROP%": "4.6%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -584,7 +651,21 @@
           "YACO": "2.53"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "EPA/ATT": "-0.222",
+          "SUCC%": "29.8%",
+          "DVOA": "-28.0%",
+          "aRYOE": "",
+          "EXP%": "10.7%",
+          "STF%": "20.2%",
+          "YBCO": "1.31",
+          "YACO": "2.55"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -599,7 +680,22 @@
           "PEN%": "6.82%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "EPA/PLY": "-0.119",
+          "DVOA": "-23.4%",
+          "SUCC%": "32.5%",
+          "EXP%": "7.1%",
+          "CONV%": "38.5%",
+          "TO": "2",
+          "TO%": "0.83%",
+          "PENY": "28.8",
+          "PEN%": "7.08%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -616,7 +712,24 @@
           "TD__2": "3"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "YD/PLY": "4.7",
+          "PT/GM": "20.0",
+          "FD%": "22.1%",
+          "TO": "2",
+          "DPBK%": "55.0%",
+          "YD": "709",
+          "TD": "4",
+          "INT": "2",
+          "RUSH%": "45.0%",
+          "YD__2": "427",
+          "TD__2": "2"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -637,7 +750,28 @@
           "SUCC%__2": "44.2%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "SK": "13",
+          "SK%": "9.8%",
+          "QBSK%": "7.7%",
+          "QBH%": "15.9%",
+          "PRESS%": "28.0%",
+          "UPRES%": "27.0%",
+          "BLITZ%": "37.9%",
+          "TTPR": "2.75",
+          "TTT": "2.50",
+          "EPA/DB": "-0.610",
+          "DVOA": "-143.5%",
+          "SUCC%": "16.2%",
+          "EPA/DB__2": "0.147",
+          "DVOA__2": "14.9%",
+          "SUCC%__2": "41.1%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -655,7 +789,25 @@
           "aYAC": "4.8"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "EPA/DB": "-0.066",
+          "SUCC%": "34.1%",
+          "DVOA": "-17.4%",
+          "CPOE": "-4.5%",
+          "CBALL%": "67.6%",
+          "EXP%": "13.2%",
+          "INTW%": "1.8%",
+          "HLT%": "1.8%",
+          "TA%": "9.0%",
+          "DROP%": "2.7%",
+          "aDOT": "6.9",
+          "aYAC": "4.7"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -670,7 +822,22 @@
           "CRT%": "57.1%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "EPA/ATT": "-0.185",
+          "SUCC%": "30.6%",
+          "DVOA": "-11.3%",
+          "aRYOE": "",
+          "EXP%": "6.5%",
+          "STF%": "22.2%",
+          "aYBCO": "1.31",
+          "aYACO": "1.76",
+          "CRT%": "49.9%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -685,7 +852,22 @@
           "SCD%": "42.1%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "PLY/GM": "60.0",
+          "TOP": "30.31",
+          "DRV/GM": "11.5",
+          "SEC/PLY": "30.3",
+          "PLY/DRV": "5.2",
+          "YD/DRV": "24.7",
+          "SEC/DRV": "158",
+          "3&O": "30.4%",
+          "SCD%": "41.3%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Minnesota Vikings",
           "GP": "5",
@@ -701,13 +883,30 @@
           "PWR%": "6.6%",
           "CTR%": "2.2%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Minnesota Vikings",
+          "GP": "4",
+          "DPBK%": "55.0%",
+          "RUSH%": "45.0%",
+          "SHG%": "55.0%",
+          "NH%": "5.8%",
+          "MOT%": "55.4%",
+          "PA%": "27.3%",
+          "IZ%": "20.4%",
+          "OZ%": "27.8%",
+          "MD%": "29.6%",
+          "PWR%": "6.5%",
+          "CTR%": "1.9%"
+        }
       }
     },
     "qb1": {
       "player": "Kyler Murray",
       "position": "QB",
       "tables": {
-        "passing/air-yards": {
+        "passing/air-yards (1)": {
           "Player": "Kyler Murray",
           "Team": "Minnesota Vikings",
           "Position": "QB",
@@ -720,7 +919,20 @@
           "PRYD%": "40.7%",
           "dAIR": "35"
         },
-        "passing/analytics": {
+        "passing/air-yards": {
+          "Player": "Kyler Murray",
+          "Team": "Minnesota Vikings",
+          "Position": "QB",
+          "GP": "3",
+          "aDOT": "6.5",
+          "AIR": "465",
+          "cAIR": "275",
+          "cAIR%": "59.1%",
+          "PRYD": "190",
+          "PRYD%": "40.9%",
+          "dAIR": "41"
+        },
+        "passing/analytics (1)": {
           "Player": "Kyler Murray",
           "Team": "Minnesota Vikings",
           "Position": "QB",
@@ -735,7 +947,22 @@
           "CPOE": "1.5%",
           "aYDOE": "-0.613"
         },
-        "passing/efficiency": {
+        "passing/analytics": {
+          "Player": "Kyler Murray",
+          "Team": "Minnesota Vikings",
+          "Position": "QB",
+          "GP": "3",
+          "EPA": "-13.3",
+          "EPA/DB": "-0.158",
+          "SUCC%": "31.0%",
+          "ACOMP%": "78.7%",
+          "DVOA": "-44.0%",
+          "DYAR": "-147",
+          "xCOMP": "62.7%",
+          "CPOE": "0.6%",
+          "aYDOE": "-0.692"
+        },
+        "passing/efficiency (1)": {
           "Player": "Kyler Murray",
           "Team": "Minnesota Vikings",
           "Position": "QB",
@@ -750,7 +977,22 @@
           "INT%": "2.0%",
           "SK%": "7.3%"
         },
-        "passing/overview": {
+        "passing/efficiency": {
+          "Player": "Kyler Murray",
+          "Team": "Minnesota Vikings",
+          "Position": "QB",
+          "GP": "3",
+          "CBALL%": "71.8%",
+          "INTW%": "1.4%",
+          "HLT%": "2.8%",
+          "EXP%": "8.5%",
+          "DROP%": "4.2%",
+          "TA%": "14.1%",
+          "TD%": "1.4%",
+          "INT%": "2.8%",
+          "SK%": "8.3%"
+        },
+        "passing/overview (1)": {
           "Player": "Kyler Murray",
           "Team": "Minnesota Vikings",
           "Position": "QB",
@@ -765,7 +1007,52 @@
           "INT": "2",
           "FUML": "0"
         },
-        "passing/pressure": {
+        "passing/overview (2)": {
+          "Player": "Kyler Murray",
+          "Team": "Minnesota Vikings",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "123",
+          "ATT": "101",
+          "COMP": "69",
+          "COMP%": "68.3%",
+          "YD": "662",
+          "YD/ATT": "6.6",
+          "TD": "2",
+          "INT": "2",
+          "FUML": "0"
+        },
+        "passing/overview (3)": {
+          "Player": "Kyler Murray",
+          "Team": "Minnesota Vikings",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "123",
+          "ATT": "101",
+          "COMP": "69",
+          "COMP%": "68.3%",
+          "YD": "662",
+          "YD/ATT": "6.6",
+          "TD": "2",
+          "INT": "2",
+          "FUML": "0"
+        },
+        "passing/overview": {
+          "Player": "Kyler Murray",
+          "Team": "Minnesota Vikings",
+          "Position": "QB",
+          "GP": "3",
+          "DPBK": "84",
+          "ATT": "71",
+          "COMP": "45",
+          "COMP%": "63.4%",
+          "YD": "433",
+          "YD/ATT": "6.1",
+          "TD": "1",
+          "INT": "2",
+          "FUML": "0"
+        },
+        "passing/pressure (1)": {
           "Player": "Kyler Murray",
           "Team": "Minnesota Vikings",
           "Position": "QB",
@@ -783,28 +1070,66 @@
           "RATE__2": "74.8%",
           "EPA/DB__2": "0.051",
           "DVOA__2": "10.2%"
+        },
+        "passing/pressure": {
+          "Player": "Kyler Murray",
+          "Team": "Minnesota Vikings",
+          "Position": "QB",
+          "GP": "3",
+          "SK": "7",
+          "SK%": "8.3%",
+          "QBSK%": "14.3%",
+          "AVSK%": "3.6%",
+          "QBH%": "15.5%",
+          "TTPR": "2.94",
+          "TTT": "2.54",
+          "RATE": "31.0%",
+          "EPA/DB": "-0.577",
+          "DVOA": "-144.5%",
+          "RATE__2": "69.0%",
+          "EPA/DB__2": "0.030",
+          "DVOA__2": "0.8%"
         }
       }
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
-      "passing/air-yards": 4,
-      "passing/analytics": 4,
-      "passing/efficiency": 4,
-      "passing/overview": 4,
-      "passing/pressure": 4,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "passing/air-yards (1)": 4,
+      "passing/air-yards": 3,
+      "passing/analytics (1)": 4,
+      "passing/analytics": 3,
+      "passing/efficiency (1)": 4,
+      "passing/efficiency": 3,
+      "passing/overview (1)": 4,
+      "passing/overview (2)": 4,
+      "passing/overview (3)": 4,
+      "passing/overview": 3,
+      "passing/pressure (1)": 4,
+      "passing/pressure": 3,
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -912,19 +1237,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1053,7 +1378,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Jordan Mason IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1069,7 +1394,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Jamal Adams IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1085,7 +1410,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Josh Oliver IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1101,7 +1426,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Tyler Batty IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1267,7 +1592,7 @@
     ],
     "projected_starters": {
       "coverage_status": "estimated_from_local_starter_language",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [],
       "estimated": [
         "Kyle Van Noy LB"
@@ -1291,8 +1616,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1522,18 +1846,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

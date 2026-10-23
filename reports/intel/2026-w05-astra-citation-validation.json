@@ -1,0 +1,3623 @@
+{
+  "schema": "astra_citation_input_preflight_v1",
+  "checked_at": "2026-10-10T22:38:47.534Z",
+  "status": "FAIL_STOP_BEFORE_SYNTHESIS",
+  "pins": {
+    "head": "7ef79fff37c4cab99fd3b23699452dc1fafcfcdc",
+    "calibration": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "csv": "51f762960b078c5a10ab61e79716cdfc22162ba91a357a42b620f1f816f0fc51"
+  },
+  "actual": {
+    "head": "7ef79fff37c4cab99fd3b23699452dc1fafcfcdc",
+    "calibration": "0ea3559255d4b31fb919d585d9f07fdd542ea2f0bccb5745eb9b73ecd5935d33",
+    "csv": "51f762960b078c5a10ab61e79716cdfc22162ba91a357a42b620f1f816f0fc51",
+    "embedded_csv": "51f762960b078c5a10ab61e79716cdfc22162ba91a357a42b620f1f816f0fc51"
+  },
+  "pin_failures": [],
+  "source": {
+    "path": "data/generated/master-intel/w05-expert-verified.json",
+    "sha256": "5fe1d48a2513f5ac0a6f9198078638c5233ea74bfad7c58d40fbd92511dcd1f5",
+    "generated_at": "2026-10-10T20:44:36+00:00"
+  },
+  "verified_rows": 460,
+  "failed_rows": 460,
+  "by_kind": {
+    "expert_feed": {
+      "verified": 185,
+      "failed": 185,
+      "issues": {
+        "missing_source_row_id": 185,
+        "missing_retained_url": 185
+      }
+    },
+    "podcast": {
+      "verified": 134,
+      "failed": 134,
+      "issues": {
+        "missing_source_row_id": 134,
+        "missing_retained_url": 134
+      }
+    },
+    "article": {
+      "verified": 141,
+      "failed": 141,
+      "issues": {
+        "missing_source_row_id": 141,
+        "missing_supporting_quote": 22
+      }
+    }
+  },
+  "failures": [
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/0",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/1",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/2",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/3",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/4",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/5",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/6",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/7",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/9",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/10",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/11",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/12",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/13",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/14",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/15",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/16",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/17",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/18",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/19",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/20",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/21",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/22",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/23",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/24",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/25",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/26",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/27",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/28",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/29",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/30",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/31",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/32",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/33",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/34",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/35",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/36",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/37",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/38",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/39",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/40",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/41",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/42",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/43",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/44",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/45",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/46",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/47",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/48",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/49",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/50",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/51",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/52",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/53",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/54",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/55",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/56",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/57",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/58",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/59",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/60",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/61",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/62",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/63",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/64",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/65",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/66",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/67",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/68",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/69",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/70",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/71",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/72",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/73",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/74",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/75",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/76",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/77",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/78",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/79",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/80",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/81",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/82",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/83",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/85",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/86",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/87",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/88",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/89",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/90",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/91",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/92",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/93",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/94",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/95",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/96",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/97",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/98",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/99",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/100",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/101",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/102",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/103",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/105",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/106",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/107",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/108",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/109",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/110",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/111",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/112",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/113",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/114",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/115",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/116",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/117",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/120",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/121",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/123",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/124",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/127",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/128",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/129",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/130",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/131",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/132",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/133",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/134",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/135",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/136",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/137",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/138",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/139",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/140",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/141",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/149",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/150",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/151",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/152",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/153",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/154",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/156",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/157",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/158",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/159",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/160",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/161",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/162",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/163",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/164",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/166",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/167",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/168",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/169",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/170",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/173",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/175",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/176",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/177",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/178",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/179",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/180",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/181",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/182",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/183",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/184",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/185",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/186",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/187",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/188",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/189",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/190",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/191",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/192",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/193",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/194",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/195",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/196",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/197",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/198",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/199",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/200",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/201",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/202",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/203",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/204",
+      "kind": "expert_feed",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/205",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/206",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/207",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/208",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/209",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/210",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/211",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/212",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/213",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/214",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/215",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/216",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/217",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/218",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/219",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/220",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/221",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/222",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/223",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/224",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/225",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/226",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/227",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/229",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/230",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/231",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/232",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/233",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/234",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/235",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/236",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/237",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/244",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/245",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/246",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/248",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/249",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/250",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/251",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/252",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/253",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/254",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/255",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/256",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/257",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/258",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/259",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/260",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/261",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/262",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/263",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/264",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/265",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/266",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/267",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/281",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/283",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/284",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/285",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/286",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/289",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/291",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/292",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/293",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/294",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/295",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/296",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/297",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/298",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/299",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/300",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/301",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/302",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/303",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/304",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/305",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/306",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/307",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/308",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/309",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/310",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/311",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/312",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/313",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/314",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/315",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/318",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/319",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/320",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/321",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/322",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/323",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/324",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/325",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/326",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/327",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/328",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/329",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/330",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/331",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/332",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/333",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/334",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/335",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/336",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/337",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/338",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/339",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/340",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/341",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/342",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/343",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/344",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/346",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/347",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/348",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/349",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/350",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/351",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/352",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/353",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/355",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/357",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/358",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/359",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/368",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/369",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/370",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/371",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/372",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/373",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/374",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/375",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/376",
+      "kind": "podcast",
+      "issues": [
+        "missing_source_row_id",
+        "missing_retained_url"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/377",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/378",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/379",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/380",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/381",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/383",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/384",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/385",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/386",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/387",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/388",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/390",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/391",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/392",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/393",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/394",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/395",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/396",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/397",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/398",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/399",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/400",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/402",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/403",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/413",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/414",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/415",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/416",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/417",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/418",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/419",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/420",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/421",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/422",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/423",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/425",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/426",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/427",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/428",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/429",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/430",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/431",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/433",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/434",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/435",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/436",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/437",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/444",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/445",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/446",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/447",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/448",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/449",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/450",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/451",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/452",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/453",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/454",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/455",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/464",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/465",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/466",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/467",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/468",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/469",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/470",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/471",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/472",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/473",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/474",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/475",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/476",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/477",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/478",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/479",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/480",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/481",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id",
+        "missing_supporting_quote"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/505",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/506",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/507",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/509",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/510",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/511",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/512",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/514",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/516",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/517",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/518",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/519",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/521",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/525",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/532",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/533",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/534",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/535",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/536",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/537",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/538",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/539",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/540",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/541",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/542",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/543",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/544",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/545",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/559",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/562",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/563",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/564",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/565",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/567",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/568",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/570",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/575",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/578",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/579",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/580",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/581",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/582",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/583",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/593",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/594",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/595",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/596",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/597",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/598",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/599",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/600",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/601",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/602",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/603",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/604",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/605",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/606",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/607",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/608",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/609",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/610",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/611",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/612",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    },
+    {
+      "pointer": "data/generated/master-intel/w05-expert-verified.json#/rows/618",
+      "kind": "article",
+      "issues": [
+        "missing_source_row_id"
+      ]
+    }
+  ],
+  "scope": "Required citation fields on verifier-verified inputs only. Field presence is necessary, never sufficient.",
+  "not_performed": [
+    "upstream source-ID resolution",
+    "raw-source verbatim quote matching",
+    "claimed team/player/game validation",
+    "market-price citation validation",
+    "simulation",
+    "synthesis"
+  ],
+  "recommendation_citations_issued": 0
+}

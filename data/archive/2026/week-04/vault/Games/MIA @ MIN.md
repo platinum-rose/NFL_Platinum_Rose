@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "MIA @ MIN — Week 4"
-created: "2026-10-06T19:27:53.067Z"
-modified: "2026-10-06T19:27:53.067Z"
+created: "2026-10-08T13:00:48.627Z"
+modified: "2026-10-08T13:00:48.627Z"
 season: 2026
 week: 4
 type: "game-week"

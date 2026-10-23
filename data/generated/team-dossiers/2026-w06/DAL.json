@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:56.263Z",
+  "built_at": "2026-10-17T02:04:50.044Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "38.0"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "EPA/PLY": "0.187",
+          "DVOA": "21.8%",
+          "SUCC%": "51.8%",
+          "EXP%": "12.2%",
+          "CONV%": "50.0%",
+          "TO": "1",
+          "TO%": "0.4%",
+          "3&O": "15.4%",
+          "MTKL%": "14.1%",
+          "PEN%": "6.1%",
+          "PENY": "35.8"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "6"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "YD/PLY": "6.4",
+          "PT/GM": "28.0",
+          "FD%": "34.3%",
+          "TO": "1",
+          "DPBK%": "53.9%",
+          "YD": "970",
+          "TD": "9",
+          "INT": "0",
+          "RUSH%": "46.1%",
+          "YD__2": "601",
+          "TD__2": "4"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "27.0%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "DPBK": "132",
+          "SK": "4",
+          "SK%": "3.0%",
+          "QBH%": "12.9%",
+          "PRESS": "38",
+          "PRESS%": "28.8%",
+          "QPRESS%": "63.2%",
+          "TTPR": "2.40",
+          "DISR%": "2.3%",
+          "BLZ%": "26.5%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "2.1%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "EPA/DB": "0.435",
+          "SUCC%": "60.6%",
+          "DVOA": "49.9%",
+          "CPOE": "5.84%",
+          "CBALL%": "74.8%",
+          "EXP%": "18.3%",
+          "INTW%": "1.7%",
+          "TGHT%": "20.9%",
+          "OPEN%": "69.6%",
+          "TA%": "3.5%",
+          "DROP%": "1.7%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "1.94"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "EPA/ATT": "-0.103",
+          "SUCC%": "41.6%",
+          "DVOA": "-9.4%",
+          "aRYOE": "",
+          "EXP%": "9.7%",
+          "STF%": "16.8%",
+          "YBCO": "1.35",
+          "YACO": "2.35"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "4.23%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "EPA/PLY": "0.166",
+          "DVOA": "19.0%",
+          "SUCC%": "47.8%",
+          "EXP%": "6.8%",
+          "CONV%": "53.8%",
+          "TO": "1",
+          "TO%": "0.40%",
+          "PENY": "28.5",
+          "PEN%": "4.78%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "7"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "YD/PLY": "5.7",
+          "PT/GM": "30.5",
+          "FD%": "33.9%",
+          "TO": "1",
+          "DPBK%": "66.9%",
+          "YD": "1,065",
+          "TD": "8",
+          "INT": "1",
+          "RUSH%": "33.1%",
+          "YD__2": "358",
+          "TD__2": "6"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "60.5%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "SK": "6",
+          "SK%": "3.6%",
+          "QBSK%": "66.7%",
+          "QBH%": "15.5%",
+          "PRESS%": "26.8%",
+          "UPRES%": "34.1%",
+          "BLITZ%": "31.0%",
+          "TTPR": "2.65",
+          "TTT": "2.38",
+          "EPA/DB": "-0.614",
+          "DVOA": "-111.4%",
+          "SUCC%": "22.2%",
+          "EPA/DB__2": "0.584",
+          "DVOA__2": "61.3%",
+          "SUCC%__2": "60.2%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "4.3"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "EPA/DB": "0.263",
+          "SUCC%": "50.0%",
+          "DVOA": "36.9%",
+          "CPOE": "4.0%",
+          "CBALL%": "77.5%",
+          "EXP%": "8.6%",
+          "INTW%": "2.6%",
+          "HLT%": "2.6%",
+          "TA%": "4.0%",
+          "DROP%": "3.3%",
+          "aDOT": "7.2",
+          "aYAC": "4.0"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "54.2%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "EPA/ATT": "-0.030",
+          "SUCC%": "43.4%",
+          "DVOA": "-6.0%",
+          "aRYOE": "",
+          "EXP%": "7.2%",
+          "STF%": "21.7%",
+          "aYBCO": "0.66",
+          "aYACO": "2.22",
+          "CRT%": "62.4%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "54.3%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "PLY/GM": "62.8",
+          "TOP": "28.23",
+          "DRV/GM": "9.0",
+          "SEC/PLY": "27.0",
+          "PLY/DRV": "7.0",
+          "YD/DRV": "39.5",
+          "SEC/DRV": "188",
+          "3&O": "11.1%",
+          "SCD%": "61.1%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Dallas Cowboys",
           "GP": "5",
@@ -703,13 +885,30 @@
           "PWR%": "9.4%",
           "CTR%": "5.2%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Dallas Cowboys",
+          "GP": "4",
+          "DPBK%": "66.9%",
+          "RUSH%": "33.1%",
+          "SHG%": "65.7%",
+          "NH%": "5.6%",
+          "MOT%": "54.6%",
+          "PA%": "23.8%",
+          "IZ%": "26.5%",
+          "OZ%": "16.9%",
+          "MD%": "30.1%",
+          "PWR%": "9.6%",
+          "CTR%": "6.0%"
+        }
       }
     },
     "qb1": {
       "player": "Dak Prescott",
       "position": "QB",
       "tables": {
-        "passing/air-yards": {
+        "passing/air-yards (1)": {
           "Player": "Dak Prescott",
           "Team": "Dallas Cowboys",
           "Position": "QB",
@@ -722,7 +921,20 @@
           "PRYD%": "30.5%",
           "dAIR": "115"
         },
-        "passing/analytics": {
+        "passing/air-yards": {
+          "Player": "Dak Prescott",
+          "Team": "Dallas Cowboys",
+          "Position": "QB",
+          "GP": "4",
+          "aDOT": "7.2",
+          "AIR": "1,085",
+          "cAIR": "767",
+          "cAIR%": "70.7%",
+          "PRYD": "318",
+          "PRYD%": "29.3%",
+          "dAIR": "68"
+        },
+        "passing/analytics (1)": {
           "Player": "Dak Prescott",
           "Team": "Dallas Cowboys",
           "Position": "QB",
@@ -737,7 +949,22 @@
           "CPOE": "1.7%",
           "aYDOE": "0.240"
         },
-        "passing/efficiency": {
+        "passing/analytics": {
+          "Player": "Dak Prescott",
+          "Team": "Dallas Cowboys",
+          "Position": "QB",
+          "GP": "4",
+          "EPA": "44.2",
+          "EPA/DB": "0.263",
+          "SUCC%": "50.0%",
+          "ACOMP%": "75.9%",
+          "DVOA": "22.0%",
+          "DYAR": "285",
+          "xCOMP": "65.6%",
+          "CPOE": "4.0%",
+          "aYDOE": "0.079"
+        },
+        "passing/efficiency (1)": {
           "Player": "Dak Prescott",
           "Team": "Dallas Cowboys",
           "Position": "QB",
@@ -752,7 +979,22 @@
           "INT%": "1.5%",
           "SK%": "2.8%"
         },
-        "passing/overview": {
+        "passing/efficiency": {
+          "Player": "Dak Prescott",
+          "Team": "Dallas Cowboys",
+          "Position": "QB",
+          "GP": "4",
+          "CBALL%": "77.5%",
+          "INTW%": "2.6%",
+          "HLT%": "2.6%",
+          "EXP%": "6.0%",
+          "DROP%": "3.3%",
+          "TA%": "4.0%",
+          "TD%": "5.3%",
+          "INT%": "0.7%",
+          "SK%": "3.6%"
+        },
+        "passing/overview (1)": {
           "Player": "Dak Prescott",
           "Team": "Dallas Cowboys",
           "Position": "QB",
@@ -767,7 +1009,52 @@
           "INT": "3",
           "FUML": "0"
         },
-        "passing/pressure": {
+        "passing/overview (2)": {
+          "Player": "Dak Prescott",
+          "Team": "Dallas Cowboys",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "211",
+          "ATT": "194",
+          "COMP": "129",
+          "COMP%": "66.5%",
+          "YD": "1,381",
+          "YD/ATT": "7.1",
+          "TD": "9",
+          "INT": "3",
+          "FUML": "0"
+        },
+        "passing/overview (3)": {
+          "Player": "Dak Prescott",
+          "Team": "Dallas Cowboys",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "211",
+          "ATT": "194",
+          "COMP": "129",
+          "COMP%": "66.5%",
+          "YD": "1,381",
+          "YD/ATT": "7.1",
+          "TD": "9",
+          "INT": "3",
+          "FUML": "0"
+        },
+        "passing/overview": {
+          "Player": "Dak Prescott",
+          "Team": "Dallas Cowboys",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "168",
+          "ATT": "151",
+          "COMP": "105",
+          "COMP%": "69.5%",
+          "YD": "1,065",
+          "YD/ATT": "7.1",
+          "TD": "8",
+          "INT": "1",
+          "FUML": "0"
+        },
+        "passing/pressure (1)": {
           "Player": "Dak Prescott",
           "Team": "Dallas Cowboys",
           "Position": "QB",
@@ -785,28 +1072,66 @@
           "RATE__2": "74.4%",
           "EPA/DB__2": "0.483",
           "DVOA__2": "48.5%"
+        },
+        "passing/pressure": {
+          "Player": "Dak Prescott",
+          "Team": "Dallas Cowboys",
+          "Position": "QB",
+          "GP": "4",
+          "SK": "6",
+          "SK%": "3.6%",
+          "QBSK%": "66.7%",
+          "AVSK%": "2.4%",
+          "QBH%": "15.5%",
+          "TTPR": "2.65",
+          "TTT": "2.38",
+          "RATE": "26.8%",
+          "EPA/DB": "-0.614",
+          "DVOA": "-111.4%",
+          "RATE__2": "73.2%",
+          "EPA/DB__2": "0.584",
+          "DVOA__2": "61.3%"
         }
       }
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
-      "passing/air-yards": 5,
-      "passing/analytics": 5,
-      "passing/efficiency": 5,
-      "passing/overview": 5,
-      "passing/pressure": 5,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "passing/air-yards (1)": 5,
+      "passing/air-yards": 4,
+      "passing/analytics (1)": 5,
+      "passing/analytics": 4,
+      "passing/efficiency (1)": 5,
+      "passing/efficiency": 4,
+      "passing/overview (1)": 5,
+      "passing/overview (2)": 5,
+      "passing/overview (3)": 5,
+      "passing/overview": 4,
+      "passing/pressure (1)": 5,
+      "passing/pressure": 4,
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -938,7 +1263,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -951,20 +1276,45 @@
               "player_name": "Benjamin St-Juste",
               "team": "GB",
               "position": "CB",
-              "event_type": "setback",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "St-Juste (hamstring) is questionable to return to Sunday's game against the Bears.",
+              "summary": "out",
               "source": "ESPN injuries API",
               "corroborating_sources": [
                 "ESPN injuries API"
               ],
-              "published_at": "2026-10-11T19:36:00.000Z",
+              "published_at": "2026-10-16T20:50:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
               "primary_receiver_archetypes_impacted": [],
               "weakness_tags": [],
-              "severity_score": 0.85,
+              "severity_score": 1.2,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Keisean Nixon",
+              "team": "GB",
+              "position": "CB",
+              "event_type": "limited",
+              "availability_trend": "stable",
+              "summary": "Nixon (groin) was a limited participant at practice Thursday.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-16T00:32:00.000Z",
+              "role": "slot_cb",
+              "side": "slot",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "slot"
+              ],
+              "weakness_tags": [
+                "slot_wr_boost",
+                "inside_seam_boost"
+              ],
+              "severity_score": 0.83,
               "needs_human_review": true
             }
           ],
@@ -1062,10 +1412,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 2.2,
+          "severity_score": 3.38,
           "elite_absence_count": 0,
-          "vulnerability_tier": "watch",
-          "confidence": 0.79,
+          "vulnerability_tier": "medium",
+          "confidence": 0.86,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1102,23 +1452,30 @@
           },
           "secondary_absences": [
             {
-              "player_name": "Alijah Clark",
+              "player_name": "Cobie Durant",
               "team": "DAL",
-              "position": "S",
-              "event_type": "setback",
+              "position": "CB",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "Clark (hamstring) has been ruled out for the remainder of Thursday night's contest against the Buccaneers, Calvin Watkins of The Dallas Morning News reports.",
+              "summary": "out",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-09T02:27:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 0.85,
+              "published_at": "2026-10-16T21:22:00.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost",
+                "alpha_wr_boost"
+              ],
+              "severity_score": 1.8,
               "needs_human_review": true
             },
             {
@@ -1132,7 +1489,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-07T19:00:00.000Z",
+              "published_at": "2026-10-07T12:00:00.000Z",
               "role": "free_safety",
               "side": "middle",
               "impact_tier": "plus",
@@ -1157,7 +1514,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-07T19:00:00.000Z",
+              "published_at": "2026-10-07T12:00:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1217,31 +1574,12 @@
               "notes": "GB WR3 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
               "availability_flag": "none"
-            },
-            {
-              "player_name": "Skyy Moore",
-              "team": "GB",
-              "roles": [
-                "slot"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle",
-                "short"
-              ],
-              "matched_weakness_tags": [
-                "slot_wr_boost"
-              ],
-              "opportunity_score": 0.8,
-              "notes": "GB WR3 per ESPN depth chart 2026-10-02; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "questionable"
             }
           ],
-          "severity_score": 4.75,
+          "severity_score": 5.7,
           "elite_absence_count": 1,
-          "vulnerability_tier": "medium",
-          "confidence": 0.93,
+          "vulnerability_tier": "high",
+          "confidence": 0.94,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1264,19 +1602,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1290,30 +1628,47 @@
       "operator_confirmed": null
     },
     "reported_injuries": {
-      "out_ir": [],
-      "questionable_doubtful": [
+      "out_ir": [
+        {
+          "player": "Drew Shelton",
+          "pos": "OT",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "out",
+          "roster_check": "ok"
+        },
         {
           "player": "Cobie Durant",
           "pos": "CB",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "out",
+          "roster_check": "ok"
+        }
+      ],
+      "questionable_doubtful": [
+        {
+          "player": "LT Overton",
+          "pos": "DT",
           "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Durant (hamstring) did not participate in Wednesday's practice, Patrik Walker of the Cowboys' official site reports.",
+          "date": "2026-10-16",
+          "comment": "questionable",
           "roster_check": "ok"
         },
         {
           "player": "Joey Porter Jr.",
           "pos": "CB",
           "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Porter (illness) was limited in Wednesday's practice session, Patrik Walker of the Cowboys' official site reports.",
+          "date": "2026-10-16",
+          "comment": "Porter (illness) was a full participant in Thursday's practice, Calvin Watkins of The Dallas Morning News reports.",
           "roster_check": "ok"
         },
         {
           "player": "DeMarvion Overshown",
           "pos": "LB",
           "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Overshown (hamstring) did not practice Wednesday, Patrik Walker of the Cowboys' official site reports.",
+          "date": "2026-10-16",
+          "comment": "Overshown (hamstring) was a limited participant in Thursday's practice, Calvin Watkins of The Dallas Morning News reports.",
           "roster_check": "ok"
         },
         {
@@ -1321,14 +1676,6 @@
           "pos": "CB",
           "status": "Questionable",
           "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Drew Shelton",
-          "pos": "OT",
-          "status": "Questionable",
-          "date": "2026-10-13",
           "comment": "questionable",
           "roster_check": "ok"
         }
@@ -1390,20 +1737,22 @@
     ],
     "ol_dl_cluster_risk": {
       "ol": {
+        "hard_or_doubtful": 1,
+        "questionable": 0,
+        "risk": "watch",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "Drew Shelton OT Out"
+        ]
+      },
+      "dl": {
         "hard_or_doubtful": 0,
         "questionable": 1,
         "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
-          "Drew Shelton OT Questionable"
+          "LT Overton DT Questionable"
         ]
-      },
-      "dl": {
-        "hard_or_doubtful": 0,
-        "questionable": 0,
-        "risk": "none",
-        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": []
       }
     },
     "live_events": {
@@ -1416,7 +1765,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Malik Davis IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1432,7 +1781,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Princeton Fant IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1448,7 +1797,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "DJ Rogers IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1464,7 +1813,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Kelvin Gilliam Jr. IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1474,14 +1823,30 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Malachi Lawrence",
-          "position": "LB",
+          "player_name": "George Pickens",
+          "position": "WR",
           "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "improving",
+          "event_type": "return_to_practice",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T23:46:00.000Z",
+          "summary": "With CeeDee Lamb (quadriceps) healthy and cleared to play Sunday night against the Packers, Pickens will handle his normal role as Dallas' WR2.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "LT Overton",
+          "position": "DT",
+          "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
-          "event_type": "active_news",
+          "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T02:06:00.000Z",
-          "summary": "Lawrence is expected to get more opportunities on the Cowboys' defense moving forward, Jon Machota of The Athletic reports.",
+          "published_at": "2026-10-16T21:23:00.000Z",
+          "summary": "questionable",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1490,30 +1855,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Tyler Guyton",
+          "player_name": "Drew Shelton",
           "position": "OT",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "improving",
-          "event_type": "return_to_practice",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T01:34:00.000Z",
-          "summary": "Guyton (back) was a full participant in Wednesday's practice, Patrik Walker of the Cowboys' official site reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Alijah Clark",
-          "position": "S",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "improving",
-          "event_type": "return_to_practice",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T01:28:00.000Z",
-          "summary": "Clark (hamstring) was a full participant in Wednesday's practice, Patrik Walker of the Cowboys' official site reports.",
+          "published_at": "2026-10-16T21:22:00.000Z",
+          "summary": "out",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1524,12 +1873,12 @@
         {
           "player_name": "Cobie Durant",
           "position": "CB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "improving",
-          "event_type": "limited_return",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T00:18:00.000Z",
-          "summary": "Durant (hamstring) did not participate in Wednesday's practice, Patrik Walker of the Cowboys' official site reports.",
+          "published_at": "2026-10-16T21:22:00.000Z",
+          "summary": "out",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1544,8 +1893,8 @@
           "availability_trend": "improving",
           "event_type": "limited_return",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T00:14:00.000Z",
-          "summary": "Porter (illness) was limited in Wednesday's practice session, Patrik Walker of the Cowboys' official site reports.",
+          "published_at": "2026-10-16T01:44:00.000Z",
+          "summary": "Porter (illness) was a full participant in Thursday's practice, Calvin Watkins of The Dallas Morning News reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1560,8 +1909,8 @@
           "availability_trend": "stable",
           "event_type": "limited",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T00:09:00.000Z",
-          "summary": "Overshown (hamstring) did not practice Wednesday, Patrik Walker of the Cowboys' official site reports.",
+          "published_at": "2026-10-16T01:35:00.000Z",
+          "summary": "Overshown (hamstring) was a limited participant in Thursday's practice, Calvin Watkins of The Dallas Morning News reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1575,25 +1924,29 @@
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:05:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-16T00:00:00.000Z",
+          "summary": "Ameer Speed QUESTIONABLE",
+          "practice": [
+            "DNP",
+            "Limit",
+            "Limit"
+          ],
+          "probability_of_playing": 0.64892,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
         },
         {
-          "player_name": "CeeDee Lamb",
-          "position": "WR",
+          "player_name": "Malachi Lawrence",
+          "position": "LB",
           "normalized_status": "ACTIVE_NEWS",
           "availability_trend": "unknown",
           "event_type": "active_news",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-14T21:17:00.000Z",
-          "summary": "Lamb (thigh) was a full practice participant Wednesday, Patrik Walker of the Cowboys' official site reports.",
+          "published_at": "2026-10-15T02:06:00.000Z",
+          "summary": "Lawrence is expected to get more opportunities on the Cowboys' defense moving forward, Jon Machota of The Athletic reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1676,7 +2029,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [
         "Dak Prescott QB",
         "Javonte Williams RB"
@@ -1720,8 +2073,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1970,18 +2322,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

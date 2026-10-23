@@ -1,4 +1,4 @@
-EVENT|Houston Texans @ Jacksonville Jaguars|/sportsbook/football/nfl/game/491147416|2026-10-17T02:08:20.992Z|Sun, 6:30 AM|491147416
+EVENT|Houston Texans @ Jacksonville Jaguars|/sportsbook/football/nfl/game/491147416|2026-10-17T21:15:26.601Z|Tomorrow, 6:30 AM|491147416
 RAW_TEXT_START
 Starting in
 
@@ -26,9 +26,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -59,7 +59,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -72,7 +71,7 @@ FOOTBALL
 
 Houston Texans
 Jacksonville Jaguars
-Sunday
+Tomorrow
 6:30 AM
 All Markets
 
@@ -90,9 +89,9 @@ Houston Texans
 
 +2.5
 
--104
+-105
 
-+125
++122
 
 O 42.5
 
@@ -102,9 +101,9 @@ Jacksonville Jaguars
 
 -2.5
 
--116
+-115
 
--145
+-142
 
 U 42.5
 
@@ -150,7 +149,7 @@ Houston Texans
 
 -115
 
-+115
++117
 
 O 20.5
 
@@ -162,7 +161,7 @@ Jacksonville Jaguars
 
 -105
 
--135
+-137
 
 U 20.5
 
@@ -178,7 +177,7 @@ Houston Texans
 
 +0.5
 
--145
+-140
 
 O 7.5
 
@@ -188,7 +187,7 @@ Jacksonville Jaguars
 
 -0.5
 
-+125
++120
 
 U 7.5
 
@@ -279,11 +278,11 @@ Nico Collins HOU Receiving Yards
 
 Over 74.5 Receiving Yards
 
--125
+-115
 
 Under 74.5 Receiving Yards
 
--105
+-115
 
 Nico Collins HOU Receptions
 
@@ -309,21 +308,31 @@ Nico Collins HOU Longest Reception
 
 Over 24.5 Yards
 
--115
+-125
 
 Under 24.5 Yards
 
--115
+-105
+
+Nico Collins HOU Score a Touchdown
+
+Yes
+
++160
+
+No
+
+-200
 
 Nico Collins HOU Fantasy Points (Std. ESPN PPR)
 
-Over 14.5 Fantasy Points
+Over 15.5 Fantasy Points
 
--140
+-120
 
-Under 14.5 Fantasy Points
+Under 15.5 Fantasy Points
 
-+110
+-110
 
 Dalton Schultz HOU Receiving Yards
 
@@ -364,6 +373,16 @@ Over 14.5 Yards
 Under 14.5 Yards
 
 -115
+
+Dalton Schultz HOU Score a Touchdown
+
+Yes
+
++350
+
+No
+
+-500
 
 Dalton Schultz HOU Fantasy Points (Std. ESPN PPR)
 
@@ -409,11 +428,21 @@ Parker Washington JAC Longest Reception
 
 Over 23.5 Yards
 
--125
+-140
 
 Under 23.5 Yards
 
--105
++110
+
+Parker Washington JAC Score a Touchdown
+
+Yes
+
++160
+
+No
+
+-200
 
 Parker Washington JAC Fantasy Points Std. ESPN PPR
 
@@ -464,6 +493,16 @@ Over 17.5 Yards
 Under 17.5 Yards
 
 -115
+
+Jakobi Meyers JAC Score a Touchdown
+
+Yes
+
++350
+
+No
+
+-500
 
 Jakobi Meyers JAC Fantasy Points (Std. ESPN PPR)
 
@@ -534,6 +573,16 @@ Over 5.5 Targets
 Under 5.5 Targets
 
 -115
+
+Brenton Strange JAC Score a Touchdown
+
+Yes
+
++375
+
+No
+
+-550
 
 Brenton Strange JAC Longest Reception
 
@@ -831,21 +880,21 @@ Ka'imi Fairbairn HOU Fantasy Points Std. ESPN PPR
 
 Over 8.5 Fantasy Points
 
--115
+-110
 
 Under 8.5 Fantasy Points
 
--115
+-120
 
 Cam Little JAC Fantasy Points (Std. ESPN PPR)
 
 Over 8.5 Fantasy Points
 
--115
+-110
 
 Under 8.5 Fantasy Points
 
--115
+-120
 
 Woody Marks HOU Rushing+Receiving Yards
 
@@ -947,6 +996,16 @@ Under 37.5 Yards
 
 -115
 
+Trevor Lawrence JAC Score a Touchdown?
+
+Yes
+
++425
+
+No
+
+-650
+
 Trevor Lawrence JAC Rushing Yards
 
 Over 13.5 Rushing Yards
@@ -961,11 +1020,11 @@ Trevor Lawrence JAC Fantasy Points (Std. ESPN PPR)
 
 Over 16.5 Fantasy Points
 
--115
+-105
 
 Under 16.5 Fantasy Points
 
--115
+-125
 
 Bhayshul Tuten JAC Rushing Yards
 
@@ -997,6 +1056,16 @@ Under 9.5 Receiving Yards
 
 -120
 
+Bhayshul Tuten JAC Receptions
+
+Over 1.5 Receptions
+
+-155
+
+Under 1.5 Receptions
+
++125
+
 Bhayshul Tuten JAC Longest Rush
 
 Over 13.5 Yards
@@ -1007,25 +1076,35 @@ Under 13.5 Yards
 
 -115
 
+Bhayshul Tuten JAC Score a Touchdown
+
+Yes
+
++145
+
+No
+
+-175
+
 Bhayshul Tuten JAC Fantasy Points (Std. ESPN PPR)
 
-Over 11.5 Fantasy Points
+Over 12.5 Fantasy Points
 
--130
+-120
 
-Under 11.5 Fantasy Points
+Under 12.5 Fantasy Points
 
-+100
+-110
 
 Woody Marks HOU Rushing Yards
 
 Over 47.5 Rushing Yards
 
--115
+-125
 
 Under 47.5 Rushing Yards
 
--115
+-105
 
 Woody Marks HOU Rushing Attempts
 
@@ -1067,15 +1146,25 @@ Under 10.5 Yards
 
 -115
 
+Woody Marks HOU Score a Touchdown
+
+Yes
+
++125
+
+No
+
+-155
+
 Woody Marks HOU Fantasy Points (Std. ESPN PPR)
 
-Over 10.5 Fantasy Points
+Over 11.5 Fantasy Points
 
--130
+-120
 
-Under 10.5 Fantasy Points
+Under 11.5 Fantasy Points
 
-+100
+-110
 
 Kayshon Boutte HOU Receiving Yards
 
@@ -1197,11 +1286,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:08:20 PM
+10/17/2026, 2:15:26 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|New York Jets @ New England Patriots|/sportsbook/football/nfl/game/491147422|2026-10-17T02:08:26.200Z|Sun, 10:00 AM|491147422
+EVENT|New York Jets @ New England Patriots|/sportsbook/football/nfl/game/491147422|2026-10-17T21:15:31.176Z|Tomorrow, 10:00 AM|491147422
 RAW_TEXT_START
 Starting in
 
@@ -1229,9 +1318,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -1262,7 +1351,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -1275,7 +1363,7 @@ FOOTBALL
 
 New York Jets
 New England Patriots
-Sunday
+Tomorrow
 10:00 AM
 All Markets
 
@@ -1293,11 +1381,11 @@ New York Jets
 
 +7
 
--110
+-105
 
-+267
++280
 
-O 43.5
+O 43
 
 -110
 
@@ -1305,11 +1393,11 @@ New England Patriots
 
 -7
 
--110
+-115
 
--330
+-350
 
-U 43.5
+U 43
 
 -110
 
@@ -1385,7 +1473,7 @@ New York Jets
 
 O 7.5
 
--105
++100
 
 New England Patriots
 
@@ -1395,7 +1483,7 @@ New England Patriots
 
 U 7.5
 
--115
+-120
 
 Parlay Builder
 Team to Commit 1st Accepted Penalty
@@ -1768,6 +1856,26 @@ No
 
 -450
 
+Jason Sanders NYJ Fantasy Points (Std. ESPN PPR)
+
+Over 6 Fantasy Points
+
+-115
+
+Under 6 Fantasy Points
+
+-115
+
+Andy Borregales NE Fantasy Points (Std. ESPN PPR)
+
+Over 8.5 Fantasy Points
+
+-115
+
+Under 8.5 Fantasy Points
+
+-115
+
 QUICK LINKS
 About Us
 Refer a Friend
@@ -1828,11 +1936,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:08:25 PM
+10/17/2026, 2:15:30 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|Pittsburgh Steelers @ Tampa Bay Buccaneers|/sportsbook/football/nfl/game/491147420|2026-10-17T02:08:31.752Z|Sun, 10:00 AM|491147420
+EVENT|Pittsburgh Steelers @ Tampa Bay Buccaneers|/sportsbook/football/nfl/game/491147420|2026-10-17T21:15:35.667Z|Tomorrow, 10:00 AM|491147420
 RAW_TEXT_START
 Starting in
 
@@ -1860,9 +1968,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -1893,7 +2001,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -1906,7 +2013,7 @@ FOOTBALL
 
 Pittsburgh Steelers
 Tampa Bay Buccaneers
-Sunday
+Tomorrow
 10:00 AM
 All Markets
 
@@ -1988,7 +2095,7 @@ Pittsburgh Steelers
 
 O 19.5
 
--120
+-115
 
 Tampa Bay Buccaneers
 
@@ -2000,7 +2107,7 @@ Tampa Bay Buccaneers
 
 U 19.5
 
-+100
+-105
 
 1st Quarter Period
 
@@ -2154,6 +2261,26 @@ Yes
 No
 
 -550
+
+Chris Boswell PIT Fantasy Points (Std. ESPN PPR)
+
+Over 8.5 Fantasy Points
+
+-130
+
+Under 8.5 Fantasy Points
+
++100
+
+Chase McLaughlin TB Fantasy Points (Std. ESPN PPR)
+
+Over 8.5 Fantasy Points
+
+-115
+
+Under 8.5 Fantasy Points
+
+-115
 
 Team to Commit 1st Accepted Penalty
 
@@ -2377,11 +2504,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:08:31 PM
+10/17/2026, 2:15:34 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|Baltimore Ravens @ Cleveland Browns|/sportsbook/football/nfl/game/491147418|2026-10-17T02:08:37.599Z|Sun, 10:00 AM|491147418
+EVENT|Baltimore Ravens @ Cleveland Browns|/sportsbook/football/nfl/game/491147418|2026-10-17T21:15:40.066Z|Tomorrow, 10:00 AM|491147418
 RAW_TEXT_START
 Starting in
 
@@ -2409,9 +2536,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -2442,7 +2569,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -2455,7 +2581,7 @@ FOOTBALL
 
 Baltimore Ravens
 Cleveland Browns
-Sunday
+Tomorrow
 10:00 AM
 All Markets
 
@@ -2475,7 +2601,7 @@ Baltimore Ravens
 
 -115
 
--165
+-177
 
 O 40
 
@@ -2487,7 +2613,7 @@ Cleveland Browns
 
 -105
 
-+145
++155
 
 U 40
 
@@ -2565,7 +2691,7 @@ Baltimore Ravens
 
 O 7.5
 
-+110
++115
 
 Cleveland Browns
 
@@ -2575,9 +2701,259 @@ Cleveland Browns
 
 U 7.5
 
--130
+-135
 
 Parlay Builder
+Tyler Huntley BAL Score a Touchdown
+
+Yes
+
++325
+
+No
+
+-550
+
+Tyler Huntley BAL Fantasy Points (Std. ESPN PPR)
+
+Over 14.5 Fantasy Points
+
+-115
+
+Under 14.5 Fantasy Points
+
+-115
+
+Deshaun Watson CLE Score a Touchdown?
+
+Yes
+
++525
+
+No
+
+-850
+
+Deshaun Watson CLE Fantasy Points (Std. ESPN PPR)
+
+Over 14.5 Fantasy Points
+
+-115
+
+Under 14.5 Fantasy Points
+
+-115
+
+Derrick Henry BAL Score a Touchdown
+
+Yes
+
+-150
+
+No
+
++120
+
+Derrick Henry BAL Fantasy Points (Std. ESPN PPR)
+
+Over 16.5 Fantasy Points
+
+-115
+
+Under 16.5 Fantasy Points
+
+-115
+
+Zay Flowers BAL Targets
+
+Over 8 Targets
+
+-120
+
+Under 8 Targets
+
+-110
+
+Zay Flowers BAL Score a Touchdown
+
+Yes
+
++210
+
+No
+
+-270
+
+Zay Flowers BAL Fantasy Points (Std. ESPN PPR)
+
+Over 14.5 Fantasy Points
+
++100
+
+Under 14.5 Fantasy Points
+
+-130
+
+Rashod Bateman BAL Score a Touchdown
+
+Yes
+
++575
+
+No
+
+-950
+
+Rashod Bateman BAL Fantasy Points (Std. ESPN PPR)
+
+Over 6.5 Fantasy Points
+
++140
+
+Under 6.5 Fantasy Points
+
+-170
+
+Mark Andrews BAL Targets
+
+Over 5.5 Targets
+
+-115
+
+Under 5.5 Targets
+
+-115
+
+Mark Andrews BAL Score a Touchdown
+
+Yes
+
++275
+
+No
+
+-350
+
+Mark Andrews BAL Fantasy Points (Std. ESPN PPR)
+
+Over 7.5 Fantasy Points
+
+-130
+
+Under 7.5 Fantasy Points
+
++100
+
+KC Concepcion CLE Targets
+
+Over 6.5 Targets
+
+-115
+
+Under 6.5 Targets
+
+-115
+
+KC Concepcion CLE Score a Touchdown
+
+Yes
+
++325
+
+No
+
+-450
+
+KC Concepcion CLE Fantasy Points (Std. ESPN PPR)
+
+Over 9.5 Fantasy Points
+
+-125
+
+Under 9.5 Fantasy Points
+
+-105
+
+Harold Fannin CLE Targets
+
+Over 5.5 Targets
+
+-115
+
+Under 5.5 Targets
+
+-115
+
+Harold Fannin CLE Score a Touchdown
+
+Yes
+
++250
+
+No
+
+-325
+
+Harold Fannin CLE Fantasy Points (Std. ESPN PPR)
+
+Over 9.5 Fantasy Points
+
+-115
+
+Under 9.5 Fantasy Points
+
+-115
+
+Denzel Boston CLE Targets
+
+Over 6.5 Targets
+
+-115
+
+Under 6.5 Targets
+
+-115
+
+Denzel Boston CLE Fantasy Points (Std. ESPN PPR)
+
+Over 10.5 Fantasy Points
+
+-115
+
+Under 10.5 Fantasy Points
+
+-115
+
+Quinshon Judkins CLE Score a Touchdown
+
+Yes
+
++160
+
+No
+
+-200
+
+Tyler Loop BAL Fantasy Points (Std. ESPN PPR)
+
+Over 8.5 Fantasy Points
+
+-115
+
+Under 8.5 Fantasy Points
+
+-115
+
+Andre Szmyt CLE Fantasy Points (Std. ESPN PPR)
+
+Over 7.5 Fantasy Points
+
+-115
+
+Under 7.5 Fantasy Points
+
+-115
+
 QUICK LINKS
 About Us
 Refer a Friend
@@ -2638,11 +3014,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:08:37 PM
+10/17/2026, 2:15:39 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|Chicago Bears @ Atlanta Falcons|/sportsbook/football/nfl/game/491147417|2026-10-17T02:08:43.394Z|Sun, 10:00 AM|491147417
+EVENT|Chicago Bears @ Atlanta Falcons|/sportsbook/football/nfl/game/491147417|2026-10-17T21:15:44.483Z|Tomorrow, 10:00 AM|491147417
 RAW_TEXT_START
 Starting in
 
@@ -2670,9 +3046,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -2703,7 +3079,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -2716,7 +3091,7 @@ FOOTBALL
 
 Chicago Bears
 Atlanta Falcons
-Sunday
+Tomorrow
 10:00 AM
 All Markets
 
@@ -2734,9 +3109,9 @@ Pk
 
 -114
 
-O 52
+O 52.5
 
--115
+-110
 
 Atlanta Falcons
 
@@ -2744,9 +3119,9 @@ Pk
 
 -106
 
-U 52
+U 52.5
 
--105
+-110
 
 Team Points Game
 
@@ -2758,11 +3133,11 @@ Chicago Bears
 
 O 26.5
 
--115
+-120
 
 U 26.5
 
--115
+-110
 
 Atlanta Falcons
 
@@ -2827,354 +3202,6 @@ U 9.5
 +110
 
 Parlay Builder
-Team to Commit 1st Accepted Penalty
-
-Chicago Bears
-
--115
-
-Atlanta Falcons
-
--115
-
-1st Team Charged with a Timeout
-
-Chicago Bears
-
--115
-
-Atlanta Falcons
-
--115
-
-1st Team to Use a Challenge
-
-Chicago Bears
-
--115
-
-Atlanta Falcons
-
--115
-
-1st Half Margin of Victory
-
-Chicago Bears By 13 Or More Points
-
-+500
-
-Chicago Bears By 4 To 6 Points
-
-+700
-
-Atlanta Falcons By 1 To 3 Points
-
-+750
-
-Atlanta Falcons By 13 Or More Points
-
-+800
-
-Tie
-
-+1000
-
-Atlanta Falcons By 10 To 12 Points
-
-+1100
-
-Chicago Bears By 1 To 3 Points
-
-+650
-
-Chicago Bears By 7 To 9 Points
-
-+725
-
-Chicago Bears By 10 To 12 Points
-
-+800
-
-Atlanta Falcons By 4 To 6 Points
-
-+900
-
-Atlanta Falconsby 7 To 9 Points
-
-+1000
-
-Margin of Victory
-
-Chicago Bears By 1 To 6 Points
-
-+310
-
-Chicago Bears By 7 To 12 Points
-
-+475
-
-Chicago Bears By 13 To 18 Points
-
-+700
-
-Chicago Bears By 19 To 24 Points
-
-+1100
-
-Chicago Bears By 25 To 30 Points
-
-+2200
-
-Chicago Bears By 31 To 36 Points
-
-+4000
-
-Chicago Bears By 37 To 42 Points
-
-+6600
-
-Atlanta Falcons By 37 To 42 Points
-
-+8000
-
-Atlanta Falcons By 1 To 6 Points
-
-+340
-
-Atlanta Falcons By 7 To 12 Points
-
-+550
-
-Atlanta Falcons By 13 To 18 Points
-
-+1000
-
-Atlanta Falcons By 19 To 24 Points
-
-+2000
-
-Atlanta Falcons By 25 To 30 Points
-
-+3300
-
-Atlanta Falcons By 31 To 36 Points
-
-+6000
-
-Chicago Bears By 43 Or More Points
-
-+8000
-
-Atlanta Falcons By 43 Or More Points
-
-+10000
-
-Both Teams to Score in the 1st Quarter
-
-Yes
-
-+100
-
-No
-
--130
-
-Will there be a Touchdown in the 1st Quarter?
-
-Yes
-
--325
-
-No
-
-+250
-
-Will there be Points Scored in Every Quarter?
-
-Yes
-
--800
-
-No
-
-+500
-
-Will there be a Touchdown Scored in Every Quarter?
-
-Yes
-
-+105
-
-No
-
--135
-
-Will there be a Field Goal Scored in Every Quarter
-
-Yes
-
-+500
-
-No
-
--800
-
-Longest Touchdown of the Game
-
-Over 42.5 Yards
-
--115
-
-Under 42.5 Yards
-
--115
-
-Shortest Touchdown of the Game
-
-Over 1.5 Yards
-
-+140
-
-Under 1.5 Yards
-
--170
-
-Longest Field Goal of the Game
-
-Over 49.5 Yards
-
--125
-
-Under 49.5 Yards
-
--105
-
-Shortest Field Goal of the Game
-
-Over 27.5 Yards
-
--105
-
-Under 27.5 Yards
-
--125
-
-Total Touchdowns
-
-Over 5.5 Touchdowns
-
--130
-
-Under 5.5 Touchdowns
-
-+100
-
-Total Touchdowns Chicago Bears
-
-Over 2.5 Touchdowns
-
--200
-
-Under 2.5 Touchdowns
-
-+160
-
-Total Touchdowns Atlanta Falcons
-
-Over 2.5 Touchdowns
-
--160
-
-Under 2.5 Touchdowns
-
-+130
-
-Total Field Goals
-
-Over 3.5 Field Goals
-
-+110
-
-Under 3.5 Field Goals
-
--140
-
-Total Field Goals Chicago Bears
-
-Over 1.5 Field Goals
-
--135
-
-Under 1.5 Field Goals
-
-+105
-
-Total Field Goals Atlanta Falcons
-
-Over 1.5 Field Goals
-
--130
-
-Under 1.5 Field Goals
-
-+100
-
-Exact Touchdowns
-
-6
-
-+300
-
-7
-
-+375
-
-8
-
-+600
-
-9
-
-+1100
-
-2
-
-+1800
-
-0
-
-+8000
-
-5
-
-+325
-
-4
-
-+425
-
-3
-
-+900
-
-10 Or More
-
-+1600
-
-1
-
-+5000
-
-Will there be a Successful 2-Point Conversion?
-
-Yes
-
-+240
-
-No
-
--300
-
 QUICK LINKS
 About Us
 Refer a Friend
@@ -3235,11 +3262,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:08:42 PM
+10/17/2026, 2:15:44 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|Tennessee Titans @ Indianapolis Colts|/sportsbook/football/nfl/game/491147415|2026-10-17T02:08:49.190Z|Sun, 10:00 AM|491147415
+EVENT|Tennessee Titans @ Indianapolis Colts|/sportsbook/football/nfl/game/491147415|2026-10-17T21:15:50.077Z|Tomorrow, 10:00 AM|491147415
 RAW_TEXT_START
 Starting in
 
@@ -3267,9 +3294,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -3300,7 +3327,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -3313,7 +3339,7 @@ FOOTBALL
 
 Tennessee Titans
 Indianapolis Colts
-Sunday
+Tomorrow
 10:00 AM
 All Markets
 
@@ -3331,7 +3357,7 @@ Tennessee Titans
 
 +7
 
--112
+-115
 
 +260
 
@@ -3343,7 +3369,7 @@ Indianapolis Colts
 
 -7
 
--108
+-105
 
 -320
 
@@ -3784,6 +3810,26 @@ No
 
 -400
 
+Joey Slye TEN Fantasy Points (Std. ESPN PPR)
+
+Over 6.5 Fantasy Points
+
+-115
+
+Under 6.5 Fantasy Points
+
+-115
+
+Spencer Shrader IND Fantasy Points (Std. ESPN PPR)
+
+Over 9.5 Fantasy Points
+
+-130
+
+Under 9.5 Fantasy Points
+
++100
+
 QUICK LINKS
 About Us
 Refer a Friend
@@ -3844,11 +3890,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:08:48 PM
+10/17/2026, 2:15:49 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|Carolina Panthers @ Philadelphia Eagles|/sportsbook/football/nfl/game/491147421|2026-10-17T02:08:54.493Z|Sun, 10:00 AM|491147421
+EVENT|Carolina Panthers @ Philadelphia Eagles|/sportsbook/football/nfl/game/491147421|2026-10-17T21:15:55.313Z|Tomorrow, 10:00 AM|491147421
 RAW_TEXT_START
 Starting in
 
@@ -3876,9 +3922,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -3909,7 +3955,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -3922,7 +3967,7 @@ FOOTBALL
 
 Carolina Panthers
 Philadelphia Eagles
-Sunday
+Tomorrow
 10:00 AM
 All Markets
 
@@ -3938,9 +3983,9 @@ Total
 
 Carolina Panthers
 
--3.5
+-3
 
-+101
+-115
 
 -175
 
@@ -3950,9 +3995,9 @@ O 39
 
 Philadelphia Eagles
 
-+3.5
++3
 
--121
+-105
 
 +153
 
@@ -3998,9 +4043,9 @@ Carolina Panthers
 
 -2.5
 
--120
+-110
 
--158
+-150
 
 O 19.5
 
@@ -4010,9 +4055,9 @@ Philadelphia Eagles
 
 +2.5
 
-+100
+-110
 
-+138
++130
 
 U 19.5
 
@@ -4045,6 +4090,136 @@ U 7
 +100
 
 Parlay Builder
+Bryce Young CAR Fantasy Points (Std. ESPN PPR)
+
+Over 16.5 Fantasy Points
+
+-115
+
+Under 16.5 Fantasy Points
+
+-115
+
+Chuba Hubbard CAR Score a Touchdown
+
+Yes
+
+-115
+
+No
+
+-115
+
+Chuba Hubbard CAR Fantasy Points (Std. ESPN PPR)
+
+Over 14.5 Fantasy Points
+
+-130
+
+Under 14.5 Fantasy Points
+
++100
+
+Jalen Coker CAR Targets
+
+Over 6.5 Targets
+
+-115
+
+Under 6.5 Targets
+
+-115
+
+Jalen Coker CAR Fantasy Points (Std. ESPN PPR)
+
+Over 11.5 Fantasy Points
+
+-130
+
+Under 11.5 Fantasy Points
+
++100
+
+Tetairoa McMillan CAR Targets
+
+Over 8.5 Targets
+
+-115
+
+Under 8.5 Targets
+
+-115
+
+Tetairoa McMillan CAR Score a Touchdown
+
+Yes
+
++210
+
+No
+
+-270
+
+Tetairoa McMillan CAR Fantasy Points Std. ESPN PPR
+
+Over 14.5 Fantasy Points
+
+-115
+
+Under 14.5 Fantasy Points
+
+-115
+
+Darren Waller CAR Targets
+
+Over 4 Targets
+
+-115
+
+Under 4 Targets
+
+-115
+
+Darren Waller CAR Fantasy Points (Std. ESPN PPR)
+
+Over 6.5 Fantasy Points
+
+-130
+
+Under 6.5 Fantasy Points
+
++100
+
+Dallas Goedert PHI Fantasy Points (Std. ESPN PPR)
+
+Over 8.5 Fantasy Points
+
+-130
+
+Under 8.5 Fantasy Points
+
++100
+
+Ryan Fitzgerald CAR Fantasy Points (Std. ESPN PPR)
+
+Over 7.5 Fantasy Points
+
+-130
+
+Under 7.5 Fantasy Points
+
++100
+
+Jake Elliott PHI Fantasy Points (Std. ESPN PPR)
+
+Over 6.5 Fantasy Points
+
++100
+
+Under 6.5 Fantasy Points
+
+-130
+
 QUICK LINKS
 About Us
 Refer a Friend
@@ -4105,11 +4280,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:08:53 PM
+10/17/2026, 2:15:54 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|New Orleans Saints @ New York Giants|/sportsbook/football/nfl/game/491147411|2026-10-17T02:09:00.167Z|Sun, 10:00 AM|491147411
+EVENT|New Orleans Saints @ New York Giants|/sportsbook/football/nfl/game/491147411|2026-10-17T21:15:59.749Z|Tomorrow, 10:00 AM|491147411
 RAW_TEXT_START
 Starting in
 
@@ -4137,9 +4312,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -4170,7 +4345,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -4183,7 +4357,7 @@ FOOTBALL
 
 New Orleans Saints
 New York Giants
-Sunday
+Tomorrow
 10:00 AM
 All Markets
 
@@ -4199,7 +4373,7 @@ New Orleans Saints
 
 Pk
 
--113
+-110
 
 O 46
 
@@ -4209,7 +4383,7 @@ New York Giants
 
 Pk
 
--107
+-110
 
 U 46
 
@@ -4642,6 +4816,16 @@ No
 
 -350
 
+Daniel Carlson NO Fantasy Points (Std. ESPN PPR)
+
+Over 8.5 Fantasy Points
+
+-115
+
+Under 8.5 Fantasy Points
+
+-115
+
 QUICK LINKS
 About Us
 Refer a Friend
@@ -4702,11 +4886,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:08:59 PM
+10/17/2026, 2:15:59 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|Arizona Cardinals @ Los Angeles Rams|/sportsbook/football/nfl/game/491147414|2026-10-17T02:09:05.800Z|Sun, 1:05 PM|491147414
+EVENT|Arizona Cardinals @ Los Angeles Rams|/sportsbook/football/nfl/game/491147414|2026-10-17T21:16:04.402Z|Tomorrow, 1:05 PM|491147414
 RAW_TEXT_START
 Starting in
 
@@ -4734,9 +4918,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -4767,7 +4951,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -4780,7 +4963,7 @@ FOOTBALL
 
 Arizona Cardinals
 Los Angeles Rams
-Sunday
+Tomorrow
 1:05 PM
 All Markets
 
@@ -4800,7 +4983,7 @@ Arizona Cardinals
 
 -110
 
-+574
++586
 
 O 51
 
@@ -4812,7 +4995,7 @@ Los Angeles Rams
 
 -110
 
--825
+-850
 
 U 51
 
@@ -4903,6 +5086,176 @@ U 10
 -110
 
 Parlay Builder
+Jacoby Brissett ARI Fantasy Points (Std. ESPN PPR)
+
+Over 15.5 Fantasy Points
+
++110
+
+Under 15.5 Fantasy Points
+
+-140
+
+Matthew Stafford LAR Fantasy Points Std. ESPN PPR
+
+Over 19.5 Fantasy Points
+
+-130
+
+Under 19.5 Fantasy Points
+
++100
+
+Tyler Allgeier ATL Fantasy Points (Std. ESPN PPR)
+
+Over 10.5 Fantasy Points
+
+-115
+
+Under 10.5 Fantasy Points
+
+-115
+
+Michael Wilson ARI Targets
+
+Over 9 Targets
+
+-115
+
+Under 9 Targets
+
+-115
+
+Michael Wilson ARI Score a Touchdown
+
+Yes
+
++220
+
+No
+
+-280
+
+Michael Wilson ARI Fantasy Points (Std. ESPN PPR)
+
+Over 12.5 Fantasy Points
+
+-140
+
+Under 12.5 Fantasy Points
+
++110
+
+Trey McBride ARI Targets
+
+Over 10 Targets
+
+-115
+
+Under 10 Targets
+
+-115
+
+Trey McBride ARI Score a Touchdown
+
+Yes
+
++145
+
+No
+
+-175
+
+Trey McBride ARI Fantasy Points (Std. ESPN PPR)
+
+Over 16.5 Fantasy Points
+
+-115
+
+Under 16.5 Fantasy Points
+
+-115
+
+Puka Nacua LAR Targets
+
+Over 11.5 Targets
+
++100
+
+Under 11.5 Targets
+
+-130
+
+Puka Nacua LAR Score a Touchdown
+
+Yes
+
+-170
+
+No
+
++140
+
+Puka Nacua LAR Fantasy Points (Std. ESPN PPR)
+
+Over 22.5 Fantasy Points
+
+-105
+
+Under 22.5 Fantasy Points
+
+-125
+
+Davante Adams LAR Targets
+
+Over 7.5 Targets
+
+-115
+
+Under 7.5 Targets
+
+-115
+
+Davante Adams LAR Score a Touchdown
+
+Yes
+
+-130
+
+No
+
++100
+
+Davante Adams LAR Fantasy Points (Std. ESPN PPR)
+
+Over 14.5 Fantasy Points
+
++110
+
+Under 14.5 Fantasy Points
+
+-140
+
+Kyren Williams LAR Score a Touchdown
+
+Yes
+
+-200
+
+No
+
++160
+
+Kyren Williams LAR Fantasy Points (Std. ESPN PPR)
+
+Over 18.5 Fantasy Points
+
+-105
+
+Under 18.5 Fantasy Points
+
+-125
+
 Team to Commit 1st Accepted Penalty
 
 Arizona Cardinals
@@ -5251,6 +5604,26 @@ No
 
 -350
 
+Chad Ryland ARI Fantasy Points (Std. ESPN PPR)
+
+Over 6.5 Fantasy Points
+
+-130
+
+Under 6.5 Fantasy Points
+
++100
+
+Blake Grupe LAR Fantasy Points (Std. ESPN PPR)
+
+Over 8.5 Fantasy Points
+
+-150
+
+Under 8.5 Fantasy Points
+
++120
+
 QUICK LINKS
 About Us
 Refer a Friend
@@ -5311,11 +5684,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:09:04 PM
+10/17/2026, 2:16:04 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|Buffalo Bills @ Las Vegas Raiders|/sportsbook/football/nfl/game/491147419|2026-10-17T02:09:11.969Z|Sun, 1:25 PM|491147419
+EVENT|Buffalo Bills @ Las Vegas Raiders|/sportsbook/football/nfl/game/491147419|2026-10-17T21:16:09.290Z|Tomorrow, 1:25 PM|491147419
 RAW_TEXT_START
 Starting in
 
@@ -5343,9 +5716,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -5376,7 +5749,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -5389,7 +5761,7 @@ FOOTBALL
 
 Buffalo Bills
 Las Vegas Raiders
-Sunday
+Tomorrow
 1:25 PM
 All Markets
 
@@ -5409,11 +5781,11 @@ Buffalo Bills
 
 -110
 
--235
+-230
 
 O 53.5
 
--107
+-110
 
 Las Vegas Raiders
 
@@ -5421,11 +5793,11 @@ Las Vegas Raiders
 
 -110
 
-+195
++192
 
 U 53.5
 
--113
+-110
 
 Team Points Game
 
@@ -5447,11 +5819,11 @@ Las Vegas Raiders
 
 O 23.5
 
--125
+-130
 
 U 23.5
 
--105
++100
 
 1st Half Period
 
@@ -5552,6 +5924,16 @@ Under 0.5 Interceptions Thrown
 
 -140
 
+Josh Allen BUF Passing Attempts
+
+Over 29.5 Passing Attempts
+
+-125
+
+Under 29.5 Passing Attempts
+
+-125
+
 Josh Allen BUF Longest Completion
 
 Over 37.5 Yards
@@ -5561,6 +5943,16 @@ Over 37.5 Yards
 Under 37.5 Yards
 
 -115
+
+Josh Allen BUF Score a Touchdown?
+
+Yes
+
+-165
+
+No
+
++135
 
 Josh Allen BUF Rushing Yards
 
@@ -5722,6 +6114,16 @@ Under 18.5 Yards
 
 -115
 
+James Cook BUF Score a Touchdown
+
+Yes
+
+-160
+
+No
+
++130
+
 James Cook BUF Fantasy Points (Std. ESPN PPR)
 
 Over 16.5 Fantasy Points
@@ -5734,11 +6136,11 @@ Under 16.5 Fantasy Points
 
 Ashton Jeanty LV Rushing Yards
 
-Over 56.5 Rushing Yards
+Over 54.5 Rushing Yards
 
 -115
 
-Under 56.5 Rushing Yards
+Under 54.5 Rushing Yards
 
 -115
 
@@ -5782,6 +6184,16 @@ Under 11.5 Yards
 
 -115
 
+Ashton Jeanty LV Score a Touchdown
+
+Yes
+
+-130
+
+No
+
++100
+
 Ashton Jeanty LV Fantasy Points (Std. ESPN PPR)
 
 Over 15.5 Fantasy Points
@@ -5796,21 +6208,21 @@ DJ Moore BUF Receiving Yards
 
 Over 48.5 Receiving Yards
 
--115
+-120
 
 Under 48.5 Receiving Yards
 
--115
+-110
 
 DJ Moore CHI Receptions
 
 Over 3.5 Receptions
 
--130
+-135
 
 Under 3.5 Receptions
 
-+100
++105
 
 DJ Moore BUF Longest Reception
 
@@ -5821,6 +6233,16 @@ Over 21.5 Yards
 Under 21.5 Yards
 
 -115
+
+DJ Moore BUF Score a Touchdown
+
+Yes
+
++210
+
+No
+
+-270
 
 Dalton Kincaid BUF Receiving Yards
 
@@ -5836,11 +6258,11 @@ Dalton Kincaid BUF Receptions
 
 Over 4.5 Receptions
 
-+105
++120
 
 Under 4.5 Receptions
 
--135
+-150
 
 Dalton Kincaid BUF Longest Reception
 
@@ -5851,6 +6273,26 @@ Over 19.5 Yards
 Under 19.5 Yards
 
 -115
+
+Dalton Kincaid BUF Score a Touchdown
+
+Yes
+
++190
+
+No
+
+-230
+
+Dalton Kincaid BUF Fantasy Points (Std. ESPN PPR)
+
+Over 9.5 Fantasy Points
+
+-130
+
+Under 9.5 Fantasy Points
+
++100
 
 Brock Bowers LV Receiving Yards
 
@@ -5866,11 +6308,21 @@ Brock Bowers LV Receptions
 
 Over 6.5 Receptions
 
--135
+-130
 
 Under 6.5 Receptions
 
-+105
++100
+
+Brock Bowers LV Targets
+
+Over 10 Targets
+
+-115
+
+Under 10 Targets
+
+-115
 
 Brock Bowers LV Longest Reception
 
@@ -5881,6 +6333,16 @@ Over 22.5 Yards
 Under 22.5 Yards
 
 -115
+
+Brock Bowers LV Score a Touchdown
+
+Yes
+
+-110
+
+No
+
+-120
 
 Brock Bowers LV Fantasy Points (Std. ESPN PPR)
 
@@ -5906,11 +6368,11 @@ Tre Tucker LV Receptions
 
 Over 3.5 Receptions
 
--130
++100
 
 Under 3.5 Receptions
 
-+100
+-130
 
 Tre Tucker LV Longest Reception
 
@@ -6208,11 +6670,11 @@ Total Field Goals Las Vegas Raiders
 
 Over 1.5 Field Goals
 
-+115
++105
 
 Under 1.5 Field Goals
 
--145
+-135
 
 Exact Touchdowns
 
@@ -6370,11 +6832,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:09:11 PM
+10/17/2026, 2:16:08 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|Los Angeles Chargers @ Kansas City Chiefs|/sportsbook/football/nfl/game/491147412|2026-10-17T02:09:18.577Z|Sun, 1:25 PM|491147412
+EVENT|Los Angeles Chargers @ Kansas City Chiefs|/sportsbook/football/nfl/game/491147412|2026-10-17T21:16:13.518Z|Tomorrow, 1:25 PM|491147412
 RAW_TEXT_START
 Starting in
 
@@ -6402,9 +6864,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -6435,7 +6897,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -6448,7 +6909,7 @@ FOOTBALL
 
 Los Angeles Chargers
 Kansas City Chiefs
-Sunday
+Tomorrow
 1:25 PM
 All Markets
 
@@ -6464,27 +6925,27 @@ Total
 
 Los Angeles Chargers
 
-+9
++7.5
 
--125
+-112
 
-+330
++313
 
-O 41.5
+O 41
 
--105
+-110
 
 Kansas City Chiefs
 
--9
+-7.5
 
-+105
+-108
 
--420
+-395
 
-U 41.5
+U 41
 
--115
+-110
 
 Team Points Game
 
@@ -6506,11 +6967,11 @@ Kansas City Chiefs
 
 O 26.5
 
--110
++105
 
 U 26.5
 
--120
+-135
 
 1st Half Period
 
@@ -6524,9 +6985,9 @@ Los Angeles Chargers
 
 +4.5
 
--117
+-125
 
-+230
++222
 
 O 21
 
@@ -6536,9 +6997,9 @@ Kansas City Chiefs
 
 -4.5
 
--103
++105
 
--280
+-270
 
 U 21
 
@@ -6571,6 +7032,66 @@ U 7.5
 -120
 
 Parlay Builder
+Justin Herbert LAC Score a Touchdown?
+
+Yes
+
++500
+
+No
+
+-800
+
+Justin Herbert LAC Fantasy Points (Std. ESPN PPR)
+
+Over 13.5 Fantasy Points
+
+-115
+
+Under 13.5 Fantasy Points
+
+-115
+
+Patrick Mahomes KC Score a Touchdown?
+
+Yes
+
++400
+
+No
+
+-600
+
+Patrick Mahomes KC Fantasy Points (Std. ESPN PPR)
+
+Over 17.5 Fantasy Points
+
+-115
+
+Under 17.5 Fantasy Points
+
+-115
+
+Kenneth Walker KC Score a Touchdown
+
+Yes
+
+-160
+
+No
+
++130
+
+Kenneth Walker KC Fantasy Points (Std. ESPN PPR)
+
+Over 20.5 Fantasy Points
+
+-115
+
+Under 20.5 Fantasy Points
+
+-115
+
 Team to Commit 1st Accepted Penalty
 
 Los Angeles Chargers
@@ -6919,6 +7440,26 @@ No
 
 -500
 
+Cameron Dicker LAC Fantasy Points (Std. ESPN PPR)
+
+Over 6.5 Fantasy Points
+
+-130
+
+Under 6.5 Fantasy Points
+
++100
+
+Harrison Butker KC Fantasy Points (Std. ESPN PPR)
+
+Over 8.5 Fantasy Points
+
+-130
+
+Under 8.5 Fantasy Points
+
++100
+
 QUICK LINKS
 About Us
 Refer a Friend
@@ -6979,11 +7520,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:09:17 PM
+10/17/2026, 2:16:13 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|Dallas Cowboys @ Green Bay Packers|/sportsbook/football/nfl/game/491147413|2026-10-17T02:09:23.943Z|Sun, 5:20 PM|491147413
+EVENT|Dallas Cowboys @ Green Bay Packers|/sportsbook/football/nfl/game/491147413|2026-10-17T21:16:19.175Z|Tomorrow, 5:20 PM|491147413
 RAW_TEXT_START
 Starting in
 
@@ -7011,9 +7552,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -7044,7 +7585,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -7057,7 +7597,7 @@ FOOTBALL
 
 Dallas Cowboys
 Green Bay Packers
-Sunday
+Tomorrow
 5:20 PM
 All Markets
 
@@ -7079,9 +7619,9 @@ Dallas Cowboys
 
 -105
 
-O 53
+O 53.5
 
--115
+-110
 
 Green Bay Packers
 
@@ -7091,9 +7631,9 @@ Green Bay Packers
 
 -115
 
-U 53
+U 53.5
 
--105
+-110
 
 Team Points Game
 
@@ -7135,7 +7675,7 @@ Dallas Cowboys
 
 -115
 
-+105
++100
 
 O 26.5
 
@@ -7147,7 +7687,7 @@ Green Bay Packers
 
 -105
 
--125
+-120
 
 U 26.5
 
@@ -7184,11 +7724,11 @@ Dak Prescott DAL Passing Yards
 
 Over 279.5 Passing Yards
 
--115
+-105
 
 Under 279.5 Passing Yards
 
--115
+-125
 
 Dak Prescott DAL Completions
 
@@ -7250,6 +7790,16 @@ Under 10.5 Rushing Yards
 
 -115
 
+Dak Prescott DAL Fantasy Points (Std. ESPN PPR)
+
+Over 17.5 Fantasy Points
+
+-140
+
+Under 17.5 Fantasy Points
+
++110
+
 Jordan Love GB Passing Yards
 
 Over 274.5 Passing Yards
@@ -7264,11 +7814,11 @@ Jordan Love GB Completions
 
 Over 21.5 Completions
 
--115
+-140
 
 Under 21.5 Completions
 
--115
++110
 
 Jordan Love GB Passing Touchdowns
 
@@ -7320,6 +7870,16 @@ Under 5.5 Rushing Yards
 
 -115
 
+Jordan Love GB Fantasy Points (Std. ESPN PPR)
+
+Over 19.5 Fantasy Points
+
+-115
+
+Under 19.5 Fantasy Points
+
+-115
+
 Javonte Williams DAL Rushing Yards
 
 Over 70.5 Rushing Yards
@@ -7354,11 +7914,11 @@ Javonte Williams DAL Receptions
 
 Over 2.5 Receptions
 
--130
+-115
 
 Under 2.5 Receptions
 
-+100
+-115
 
 Javonte Williams DAL Longest Rush
 
@@ -7369,6 +7929,16 @@ Over 14.5 Yards
 Under 14.5 Yards
 
 -115
+
+Javonte Williams DAL Fantasy Points Std. ESPN PPR
+
+Over 15.5 Fantasy Points
+
+-120
+
+Under 15.5 Fantasy Points
+
+-110
 
 MarShawn Lloyd GB Rushing Yards
 
@@ -7394,11 +7964,11 @@ Marshawn Lloyd GB Receiving Yards
 
 Over 12.5 Receiving Yards
 
--115
+-110
 
 Under 12.5 Receiving Yards
 
--115
+-120
 
 MarShawn Lloyd GB Receptions
 
@@ -7419,6 +7989,16 @@ Over 12.5 Yards
 Under 12.5 Yards
 
 -115
+
+Marshawn Lloyd GB Fantasy Points (Std. ESPN PPR)
+
+Over 10.5 Fantasy Points
+
+-125
+
+Under 10.5 Fantasy Points
+
+-105
 
 CeeDee Lamb DAL Receiving Yards
 
@@ -7459,6 +8039,16 @@ Over 26.5 Yards
 Under 26.5 Yards
 
 -115
+
+CeeDee Lamb DAL Fantasy Points (Std. ESPN PPR)
+
+Over 18.5 Fantasy Points
+
++100
+
+Under 18.5 Fantasy Points
+
+-130
 
 George Pickens DAL Receiving Yards
 
@@ -7554,11 +8144,11 @@ Jake Ferguson DAL Receptions
 
 Over 3.5 Receptions
 
--105
++115
 
 Under 3.5 Receptions
 
--125
+-145
 
 Jake Ferguson DAL Targets
 
@@ -7577,6 +8167,16 @@ Over 13.5 Yards
 -115
 
 Under 13.5 Yards
+
+-115
+
+Jake Ferguson DAL Fantasy Points (Std. ESPN PPR)
+
+Over 6.5 Fantasy Points
+
+-115
+
+Under 6.5 Fantasy Points
 
 -115
 
@@ -7620,6 +8220,16 @@ Under 28.5 Yards
 
 -115
 
+Christian Watson GB Fantasy Points (Std. ESPN PPR)
+
+Over 15.5 Fantasy Points
+
+-115
+
+Under 15.5 Fantasy Points
+
+-115
+
 Matthew Golden GB Receiving Yards
 
 Over 66.5 Receiving Yards
@@ -7657,6 +8267,16 @@ Over 23.5 Yards
 -115
 
 Under 23.5 Yards
+
+-115
+
+Matthew Golden GB Fantasy Points (Std. ESPN PPR)
+
+Over 14.5 Fantasy Points
+
+-115
+
+Under 14.5 Fantasy Points
 
 -115
 
@@ -8148,11 +8768,11 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:09:23 PM
+10/17/2026, 2:16:18 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 
-EVENT|Washington Commanders @ San Francisco 49ers|/sportsbook/football/nfl/game/491147423|2026-10-17T02:09:29.460Z|Mon, 5:15 PM|491147423
+EVENT|Washington Commanders @ San Francisco 49ers|/sportsbook/football/nfl/game/491147423|2026-10-17T21:16:24.641Z|Mon, 5:15 PM|491147423
 RAW_TEXT_START
 Starting in
 
@@ -8180,9 +8800,9 @@ Top Leagues
 NCAA - NCAA Football Game
 NFL - NFL Football Game
 MMA - UFC Edmonton
-EPL - English Premier League
-MMA - PFL Chicago
-La Liga - Spanish La Liga
+NHL - NHL Hockey Game
+MLB - MLB Baseball Game
+MLS - Major League Soccer
 Football
 Baseball
 Basketball
@@ -8213,7 +8833,6 @@ Moto Gp
 Rugby League
 Rugby Union
 Snooker
-Surfing
 Table Tennis
 Volleyball
 Winter Sports
@@ -8771,7 +9390,7 @@ At BetOnline, our company's guiding principle is to establish long-lasting, posi
  
  
 OFFICIAL PARTNERS
-10/16/2026, 7:09:28 PM
+10/17/2026, 2:16:23 PM
 Copyright ©2026 BetOnline.ag. All rights reserved.
 RAW_TEXT_END
 END|13

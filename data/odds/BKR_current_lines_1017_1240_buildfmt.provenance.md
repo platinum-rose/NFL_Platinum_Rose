@@ -1,0 +1,3 @@
+# BKR_current_lines_1017_1240_buildfmt
+
+Derived by Claude Sat 2026-10-17 ~14:20 PT from the Bookmaker live capture `data/generated/props/bookmaker-live-2026-10-17-week6.json` (captured ~12:40 PM PT, `game_lines` rows of each game). Same format and kickoff labels as `BKR_current_lines_1017_0100_buildfmt` (left untouched, superseded). Material changes vs 1 AM: CHI@ATL flipped back to CHI -1 / ATL +1 (total 51.5 -> 52.5, ML CHI -119 / ATL +105); WSH@SF 7.5 -> 8 (ML +324/-390); BAL@CLE ML -171/+154; the other games are juice-only moves. Bookmaker game lines only; not a CLV baseline (use actionnetwork-openers-2026-w06.json for openers).

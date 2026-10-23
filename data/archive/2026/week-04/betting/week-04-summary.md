@@ -40,9 +40,9 @@ Promo/credit: 2 tickets, $110.00 credit → $8.70 value.
 
 | Provenance | Tickets | Won | Staked | Returned | Net |
 |---|---|---|---|---|---|
-| claude | 6 | 0 | $62.81 | $0.00 | −$62.81 |
-| andy | 1 | 0 | $5.00 | $0.00 | −$5.00 |
-| unknown | 20 | 1 | $333.51 | $126.39 | −$207.12 |
+| claude | 5 | 0 | $179.35 | $96.75 | −$82.60 |
+| mixed | 15 | 1 | $149.07 | $29.64 | −$119.43 |
+| andy | 7 | 0 | $72.90 | $0.00 | −$72.90 |
 
 ## Season to date
 
@@ -89,16 +89,15 @@ Promo/credit: 11 tickets, $189.78 credit → $8.70 value.
 
 | Provenance | Tickets | Won | Staked | Returned | Net |
 |---|---|---|---|---|---|
-| claude | 55 | 4 | $1015.03 | $164.60 | −$850.43 |
-| mixed | 22 | 1 | $140.95 | $16.39 | −$124.56 |
-| andy | 22 | 1 | $209.80 | $70.02 | −$139.78 |
-| unknown | 20 | 1 | $333.51 | $126.39 | −$207.12 |
+| claude | 54 | 4 | $1131.57 | $261.35 | −$870.22 |
+| mixed | 37 | 2 | $290.02 | $46.03 | −$243.99 |
+| andy | 28 | 1 | $277.70 | $70.02 | −$207.68 |
 
 ## Leg markets, season to date (unique positions)
 
 | Market | Hit | n | 95% CI | Priced | $ back per $1 | Break-even | z vs price |
 |---|---|---|---|---|---|---|---|
-| Anytime TD | 44/111 (40%) | 111 | 31–49% | 57 | $1.06 | 42% | 0.24 |
+| Anytime TD | 44/110 (40%) | 110 | 31–49% | 57 | $1.06 | 42% | 0.24 |
 | Receptions | 31/65 (48%) | 65 | 36–60% | 46 | $0.91 | 58% | -0.54 |
 | Receiving yds | 32/63 (51%) | 63 | 39–63% | 33 | $0.87 | 55% | -0.79 |
 | Spread (dog) | 20/45 (44%) | 45 | 31–59% | 43 | $0.80 | 55% | -1.36 |
@@ -121,7 +120,8 @@ Promo/credit: 11 tickets, $189.78 credit → $8.70 value.
 | Defensive INT | 0/2 (0%) | 2 | 0–66% | 2 | $0.00 | 11% | -0.49 |
 | CFB | 1/1 (100%) | 1 | 21–100% | 1 | $1.77 | 56% | 0.88 |
 | Kicker FGs | 1/1 (100%) | 1 | 21–100% | 0 | — | — | — |
-| Other | 0/1 (0%) | 1 | 0–79% | 1 | $0.00 | 14% | -0.4 |
+| Kicker points | 0/1 (0%) | 1 | 0–79% | 0 | — | — | — |
+| D/ST TD | 0/1 (0%) | 1 | 0–79% | 1 | $0.00 | 14% | -0.4 |
 
 ## W1–3 hypotheses re-tested (season to date)
 
@@ -132,8 +132,8 @@ Promo/credit: 11 tickets, $189.78 credit → $8.70 value.
 
 **H2. Anytime TDs hit when the team scores 3+ TDs.** Baseline: W1–3: 54% with 3+ team TDs vs 26% otherwise.
 - team 3+ TDs: 33/72, $1.03 per $1 on 38 priced — hypothesis (<1.5 SE)
-- team <3 TDs: 11/39, $1.14 per $1 on 19 priced — hypothesis (<1.5 SE)
-- difference: 1.81 SE
+- team <3 TDs: 11/38, $1.14 per $1 on 19 priced — hypothesis (<1.5 SE)
+- difference: 1.72 SE
 
 **H3. QB markets (pass-TD overs, INT yes) are positive.** Baseline: W1–3: INT yes $1.41/$1 (n=8), pass-TD over $1.25 (n=20).
 - Passing TD over: 21/33, $1.24 per $1 on 17 priced — hypothesis (<1.5 SE)
@@ -182,28 +182,3 @@ Tickets that kept every rule: 14 · $269.27 staked · net −$56.90
 - Week 4 DET@CAR: $117.22 across 12 tickets (14 games over $25 that week)
 - Week 4 NE@BUF: $85.08 across 6 tickets (14 games over $25 that week)
 - Week 4 KC@LV: $85.06 across 9 tickets (14 games over $25 that week)
-
-## Provenance unknown (22 tickets) — add them to provenance.json
-
-- W4 bet_20261001_betonline_1001392960
-- W4 bet_20261001_betonline_1001390385
-- W4 bet_20261001_betonline_1001388000
-- W4 bet_20261001_bkr_739565346
-- W4 bet_20260930_bkr_739527199
-- W4 bet_20261002_w04_jays_lockbox_promo_2team
-- W4 bet_20261004_bkr_739714646_round_robin_8x4
-- W4 bet_20261004_bkr_739714534_6team_parlay
-- W4 bet_20261004_bkr_739714258_5team_parlay
-- W4 bet_20261004_bkr_739713560_round_robin_6x2
-- W4 bet_20261004_bkr_739713279_round_robin_5x2
-- W4 bet_20261004_bkr_739713278_5team_parlay
-- W4 bet_20261004_betonline_1002306890_ne_buf_spread
-- W4 bet_20261004_betonline_1002306704_2td_parlay
-- W4 bet_20261004_betonline_1002306303_hybrid_prop_parlay
-- W4 bet_20261004_betonline_1002304945_morning_prop_parlay
-- W4 bet_20261004_betonline_1002303293_atd_parlay
-- W4 bet_20261004_betonline_1002396982_late_prop_parlay
-- W4 bet_20261004_betonline_afternoon_8leg_20261004
-- W4 bet_20261004_betonline_afternoon_8leg_b_20261004
-- W4 bet_20261004_bkr_739761492_5team_parlay
-- W4 bet_20261004_betonline_snf_7leg_b_20261004

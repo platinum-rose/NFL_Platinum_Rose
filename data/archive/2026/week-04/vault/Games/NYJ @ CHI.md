@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: game-week
 canonical_status: generated
 title: "NYJ @ CHI — Week 4"
-created: "2026-10-06T19:27:53.034Z"
-modified: "2026-10-06T19:27:53.034Z"
+created: "2026-10-08T13:00:48.626Z"
+modified: "2026-10-08T13:00:48.626Z"
 season: 2026
 week: 4
 type: "game-week"

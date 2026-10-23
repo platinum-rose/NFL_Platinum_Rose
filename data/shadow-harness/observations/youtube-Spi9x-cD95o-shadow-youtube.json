@@ -1,0 +1,365 @@
+{
+  "episode_slug": "youtube-Spi9x-cD95o",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
+  "run": {
+    "run_id": "youtube_gemini_26e9080ef181",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=Spi9x-cD95o",
+    "latency_ms": 122524,
+    "estimated_cost_usd": 0.034228,
+    "input_tokens": 322635,
+    "output_tokens": 4912,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Brandon Anderson and Matt Moore present their Week 5 NFL best bets and betting angles on The Action Network Podcast. They cover player prop escalators, game spreads, same-game parlays, longshots, DraftKings contest picks, and a Week 6 lookahead play.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 3524,\n    \"last_analyzed_timestamp\": 3524,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 50.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Welcome to The Action Network Podcast presented by DraftKings. I'm Matt Moore joined by Brandon Anderson for Brandon's Playground Week 5 best bets.\"\n    },\n    {\n      \"start\": 50.0,\n      \"end\": 112.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Recapping last week, we had a pretty normal week, up a couple units, sitting at nearly 10% ROI on the season. Ready for October football.\"\n    },\n    {\n      \"start\": 112.0,\n      \"end\": 151.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Let's start off with ladder action and escalators, fading a bad defense with Aaron Rodgers against the Colts.\"\n    },\n    {\n      \"start\": 151.0,\n      \"end\": 514.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"The Colts defense is a pass funnel under Lou Anarumo, allowing high passing yardage. Aaron Rodgers passing yards line at 220.5 is too low. We're laddering him up to 250, 275, and 300 yards.\"\n    },\n    {\n      \"start\": 514.0,\n      \"end\": 697.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Discussing Rodgers' efficiency and why the line might be set where it is based on prior season averages.\"\n    },\n    {\n      \"start\": 697.0,\n      \"end\": 735.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Explaining the reluctant Rodgers escalator, focusing on the Colts allowing high pass volume and big games to opposing QBs.\"\n    },\n    {\n      \"start\": 735.0,\n      \"end\": 806.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Moving on to the 49ers vs Seahawks matchup and Christian McCaffrey's involvement in the passing game.\"\n    },\n    {\n      \"start\": 806.0,\n      \"end\": 1045.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Seattle's defense shuts down the run but surrenders receptions to running backs. McCaffrey's snap count has risen to 79%. We take over 4.5 receptions (-116) and ladder to 6 (+166) and 7 catches (+305).\"\n    },\n    {\n      \"start\": 1045.0,\n      \"end\": 1135.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Analyzing Brock Purdy's pressure numbers against Seattle's two-high shell defense and how checkdowns to McCaffrey fit.\"\n    },\n    {\n      \"start\": 1135.0,\n      \"end\": 1435.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Next escalator: Michael Wilson vs Detroit Lions. Detroit gives up huge production to opposing WR1s (averaging 104 yards per game). Wilson with Jacoby Brissett is pacing for monster target numbers.\"\n    },\n    {\n      \"start\": 1435.0,\n      \"end\": 1823.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Ladders for Michael Wilson: Over 72.5 yards base, 100+ (+250), 125+ (+550), 150+ (+1150), 10+ catches (+900), and Most Receiving Yards of the Week.\"\n    },\n    {\n      \"start\": 1823.0,\n      \"end\": 1934.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Questioning Detroit's defense conceding YAC and explosive plays vs target volume.\"\n    },\n    {\n      \"start\": 1934.0,\n      \"end\": 2018.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Explaining the 7-10 Split concept on New York Giants +3.5 / Giants Moneyline (+260) with Commanders +8.5 in an SGP.\"\n    },\n    {\n      \"start\": 2018.0,\n      \"end\": 2119.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Evaluating Jameis Winston's stats versus the Commanders' blitz rate and scheme matchup.\"\n    },\n    {\n      \"start\": 2119.0,\n      \"end\": 2411.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Detailing the rationale for Giants +4 / ML +260 and Giants to win by 1-8 points based on historical matchup margins.\"\n    },\n    {\n      \"start\": 2411.0,\n      \"end\": 2450.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Transitioning to 'The Sandbox' for the remaining single best plays.\"\n    },\n    {\n      \"start\": 2450.0,\n      \"end\": 2831.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Sandbox plays: Brenton Strange Under 35.5 receiving yards vs Eagles (Fangio defense limits tight ends); Trevor Lawrence Anytime TD (+310); Ravens +3.5 vs Falcons (10-point line overreaction).\"\n    },\n    {\n      \"start\": 2831.0,\n      \"end\": 2934.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Breakdown of the Josh Allen MNF matchup against the Rams.\"\n    },\n    {\n      \"start\": 2934.0,\n      \"end\": 3009.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"DraftKings Sportsbook advertisement.\"\n    },\n    {\n      \"start\": 3009.0,\n      \"end\": 3043.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Returning to the podcast and continuing Sandbox picks.\"\n    },\n    {\n      \"start\": 3043.0,\n      \"end\": 3197.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Josh Allen anytime TD (-105) and 1st TD (+675) vs Rams. New York Jets -1.5 vs Cleveland Browns.\"\n    },\n    {\n      \"start\": 3197.0,\n      \"end\": 3411.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Longshots & Parlays: Texans ML + Under 38.5 SGP (+147); Vikings Road Trip SGP (+650); Braden Willis Anytime TD (+2200 / 22-1).\"\n    },\n    {\n      \"start\": 3411.0,\n      \"end\": 3447.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Introducing the Four Square Parlay presented by DraftKings.\"\n    },\n    {\n      \"start\": 3447.0,\n      \"end\": 3500.0,\n      \"speaker\": \"Brandon Anderson\",\n      \"text\": \"Selecting the Four Square Parlay: Giants +3.5, Chargers +3.5, Lions -4.5, Colts +2.5 (+1250 payout). Week 6 Lookahead: 49ers -7 vs Commanders.\"\n    },\n    {\n      \"start\": 3500.0,\n      \"end\": 3524.0,\n      \"speaker\": \"Matt Moore\",\n      \"text\": \"Closing remarks, Action App promotion, and podcast sign-off.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"NYJ\",\n      \"player\": \"Aaron Rodgers\",\n      \"market\": \"player_passing_yards\",\n      \"side\": \"OVER\",\n      \"line\": 220.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 198,\n      \"rationale\": \"Colts defense is a pass funnel, allowing high passing yardage to opposing QBs.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": \"Christian McCaffrey\",\n      \"market\": \"player_receptions\",\n      \"side\": \"OVER\",\n      \"line\": 4.5,\n      \"price\": -116,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 737,\n      \"rationale\": \"Seattle limits rushing yards but allows high reception volume to running backs.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": \"Michael Wilson\",\n      \"market\": \"player_receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 72.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1281,\n      \"rationale\": \"Detroit allows an average of 104 receiving yards to opposing WR1s.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYG\",\n      \"line\": 3.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1643,\n      \"rationale\": \"Washington has 23 players on the injury report and is overvalued coming off London.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"player\": \"Brenton Strange\",\n      \"market\": \"player_receiving_yards\",\n      \"side\": \"UNDER\",\n      \"line\": 35.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1990,\n      \"rationale\": \"Vic Fangio's Eagles defense consistently suppresses opponent tight end yards.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"player\": \"Trevor Lawrence\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 310,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2010,\n      \"rationale\": \"Eagles defense has allowed the most QB rushing touchdowns in the NFL since last season.\"\n    },\n    {\n      \"team\": \"BAL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"BAL\",\n      \"line\": 3.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2306,\n      \"rationale\": \"10-point line swing from Lamar injury is an extreme overreaction to Atlanta.\"\n    },\n    {\n      \"team\": \"BUF\",\n      \"player\": \"Josh Allen\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": -105,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2405,\n      \"rationale\": \"Allen has scored rushing TDs in all 4 games under OC Joe Brady.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYJ\",\n      \"line\": -1.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2580,\n      \"rationale\": \"Jets defense matchup advantage over Browns offense.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"HOU\",\n      \"line\": null,\n      \"price\": 147,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2787,\n      \"rationale\": \"Texans ML paired with Under 38.5 in SGP; DeMico Ryans defense drives low-scoring wins.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": null,\n      \"market\": \"moneyline\",\n      \"side\": \"MIN\",\n      \"line\": null,\n      \"price\": 650,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2965,\n      \"rationale\": \"Vikings Road Trip SGP: Vikings ML + Score 1st + Under 42 + Will Reichard Over 7.5 kicking points.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": \"Braden Willis\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 2200,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3088,\n      \"rationale\": \"Kyle Juszczyk is out, opening fullback/H-back goal-line snaps for Willis.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYG\",\n      \"line\": 3.5,\n      \"price\": 1250,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3272,\n      \"rationale\": \"Four Square Parlay leg 1 of 4.\"\n    },\n    {\n      \"team\": \"TEN\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"TEN\",\n      \"line\": 6.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Matt Moore\",\n      \"source_timestamp\": 3282,\n      \"rationale\": \"Matt's contest pick 1: Titans +6.5.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYG\",\n      \"line\": 3.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3326,\n      \"rationale\": \"Brandon's contest pick 1: Giants +3.5.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"SF\",\n      \"line\": -7.0,\n      \"price\": -110,\n      \"week\": 6,\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 3442,\n      \"rationale\": \"Week 6 Lookahead: 49ers expected to easily cover -7 against Commanders.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"IND\", \"NYJ\"],\n      \"players\": [\"Aaron Rodgers\"],\n      \"topic\": \"Colts pass defense funnel\",\n      \"summary\": \"Colts rank top-12 against the run but bottom-10 against the pass, funneling opponent offense into heavy passing volume.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 198,\n      \"quote\": \"Colts defense has very much been a pass funnel under Lou Anarumo.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"SF\", \"SEA\"],\n      \"players\": [\"Christian McCaffrey\"],\n      \"topic\": \"Seahawks defense vs running back receptions\",\n      \"summary\": \"Seattle suppresses rushing yards effectively but gives up high reception volume to running backs due to their defensive scheme.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 737,\n      \"quote\": \"Seattle shuts down the run game... but allows the most running back receptions.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"ARI\", \"DET\"],\n      \"players\": [\"Michael Wilson\", \"Jacoby Brissett\"],\n      \"topic\": \"Michael Wilson WR1 target share\",\n      \"summary\": \"Michael Wilson is averaging 11 targets per game with Brissett at QB, pacing for top-tier receiver production.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1281,\n      \"quote\": \"His season-long pace with Brissett is 115 catches and 1463 yards.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"WAS\"],\n      \"players\": [\"Jayden Daniels\"],\n      \"topic\": \"Commanders injury report depth\",\n      \"summary\": \"Washington lists 23 players on their weekly injury report, compromising roster depth and stamina.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1643,\n      \"quote\": \"Washington has 23 names on their injury report.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"PHI\"],\n      \"players\": [\"Brenton Strange\"],\n      \"topic\": \"Vic Fangio tight end defense\",\n      \"summary\": \"Vic Fangio's defensive system consistently holds opposing tight ends well below average receiving totals.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 1990,\n      \"quote\": \"Only 4 opponent tight ends have gone over 36 yards against Fangio's Eagles since last season.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"market_sentiment\",\n      \"teams\": [\"BAL\", \"ATL\"],\n      \"players\": [\"Lamar Jackson\", \"Tyler Huntley\"],\n      \"topic\": \"Ravens line movement overreaction\",\n      \"summary\": \"Market moved the Ravens line 10 full points on Lamar Jackson's injury, which represents an excessive overvaluation of Atlanta.\",\n      \"speaker\": \"Brandon Anderson\",\n      \"source_timestamp\": 2306,\n      \"quote\": \"A 10-point swing from Ravens -6.5 to +3.5 is way too much faith in Atlanta.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Aaron Rodgers Pass Yards\",\n      \"timestamp\": 198,\n      \"speaker\": \"Brandon Anderson\",\n      \"quote\": \"Aaron Rodgers passing yards line at 220.5 is just too low.\"\n    },\n    {\n      \"topic\": \"McCaffrey Receptions\",\n      \"timestamp\": 737,\n      \"speaker\": \"Brandon Anderson\",\n      \"quote\": \"Seattle shuts down the run game... but allows the most running back receptions.\"\n    },\n    {\n      \"topic\": \"Michael Wilson Escalator\",\n      \"timestamp\": 1281,\n      \"speaker\": \"Brandon Anderson\",\n      \"quote\": \"This might be my single favorite escalator of the season so far.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "extracted_picks": [
+      {
+        "team": "NYJ",
+        "player": "Aaron Rodgers",
+        "market": "season_passing_yards",
+        "side": "OVER",
+        "line": 220.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 198,
+        "rationale": "Colts defense is a pass funnel, allowing high passing yardage to opposing QBs."
+      },
+      {
+        "team": "SF",
+        "player": "Christian McCaffrey",
+        "market": "player_receptions",
+        "side": "OVER",
+        "line": 4.5,
+        "price": -116,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 737,
+        "rationale": "Seattle limits rushing yards but allows high reception volume to running backs."
+      },
+      {
+        "team": "ARI",
+        "player": "Michael Wilson",
+        "market": "season_receiving_yards",
+        "side": "OVER",
+        "line": 72.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1281,
+        "rationale": "Detroit allows an average of 104 receiving yards to opposing WR1s."
+      },
+      {
+        "team": "NYG",
+        "player": null,
+        "market": "spread",
+        "side": "NYG",
+        "line": 3.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1643,
+        "rationale": "Washington has 23 players on the injury report and is overvalued coming off London."
+      },
+      {
+        "team": "JAX",
+        "player": "Brenton Strange",
+        "market": "season_receiving_yards",
+        "side": "UNDER",
+        "line": 35.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1990,
+        "rationale": "Vic Fangio's Eagles defense consistently suppresses opponent tight end yards."
+      },
+      {
+        "team": "JAX",
+        "player": "Trevor Lawrence",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 310,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2010,
+        "rationale": "Eagles defense has allowed the most QB rushing touchdowns in the NFL since last season."
+      },
+      {
+        "team": "BAL",
+        "player": null,
+        "market": "spread",
+        "side": "BAL",
+        "line": 3.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2306,
+        "rationale": "10-point line swing from Lamar injury is an extreme overreaction to Atlanta."
+      },
+      {
+        "team": "BUF",
+        "player": "Josh Allen",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": -105,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2405,
+        "rationale": "Allen has scored rushing TDs in all 4 games under OC Joe Brady."
+      },
+      {
+        "team": "NYJ",
+        "player": null,
+        "market": "spread",
+        "side": "NYJ",
+        "line": -1.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2580,
+        "rationale": "Jets defense matchup advantage over Browns offense."
+      },
+      {
+        "team": "HOU",
+        "player": null,
+        "market": "moneyline",
+        "side": "HOU",
+        "line": null,
+        "price": 147,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2787,
+        "rationale": "Texans ML paired with Under 38.5 in SGP; DeMico Ryans defense drives low-scoring wins."
+      },
+      {
+        "team": "MIN",
+        "player": null,
+        "market": "moneyline",
+        "side": "MIN",
+        "line": null,
+        "price": 650,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2965,
+        "rationale": "Vikings Road Trip SGP: Vikings ML + Score 1st + Under 42 + Will Reichard Over 7.5 kicking points."
+      },
+      {
+        "team": "SF",
+        "player": "Braden Willis",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 2200,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3088,
+        "rationale": "Kyle Juszczyk is out, opening fullback/H-back goal-line snaps for Willis."
+      },
+      {
+        "team": "NYG",
+        "player": null,
+        "market": "spread",
+        "side": "NYG",
+        "line": 3.5,
+        "price": 1250,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3272,
+        "rationale": "Four Square Parlay leg 1 of 4."
+      },
+      {
+        "team": "TEN",
+        "player": null,
+        "market": "spread",
+        "side": "TEN",
+        "line": 6.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Matt Moore",
+        "source_timestamp": 3282,
+        "rationale": "Matt's contest pick 1: Titans +6.5."
+      },
+      {
+        "team": "NYG",
+        "player": null,
+        "market": "spread",
+        "side": "NYG",
+        "line": 3.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3326,
+        "rationale": "Brandon's contest pick 1: Giants +3.5."
+      },
+      {
+        "team": "SF",
+        "player": null,
+        "market": "spread",
+        "side": "SF",
+        "line": -7,
+        "price": -110,
+        "week": 6,
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 3442,
+        "rationale": "Week 6 Lookahead: 49ers expected to easily cover -7 against Commanders."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "IND",
+          "NYJ"
+        ],
+        "players": [
+          "Aaron Rodgers"
+        ],
+        "topic": "Colts pass defense funnel",
+        "summary": "Colts rank top-12 against the run but bottom-10 against the pass, funneling opponent offense into heavy passing volume.",
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 198,
+        "quote": "Colts defense has very much been a pass funnel under Lou Anarumo.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "matchup_analysis",
+        "teams": [
+          "SF",
+          "SEA"
+        ],
+        "players": [
+          "Christian McCaffrey"
+        ],
+        "topic": "Seahawks defense vs running back receptions",
+        "summary": "Seattle suppresses rushing yards effectively but gives up high reception volume to running backs due to their defensive scheme.",
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 737,
+        "quote": "Seattle shuts down the run game... but allows the most running back receptions.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "ARI",
+          "DET"
+        ],
+        "players": [
+          "Michael Wilson",
+          "Jacoby Brissett"
+        ],
+        "topic": "Michael Wilson WR1 target share",
+        "summary": "Michael Wilson is averaging 11 targets per game with Brissett at QB, pacing for top-tier receiver production.",
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1281,
+        "quote": "His season-long pace with Brissett is 115 catches and 1463 yards.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "WAS"
+        ],
+        "players": [
+          "Jayden Daniels"
+        ],
+        "topic": "Commanders injury report depth",
+        "summary": "Washington lists 23 players on their weekly injury report, compromising roster depth and stamina.",
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1643,
+        "quote": "Washington has 23 names on their injury report.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "PHI"
+        ],
+        "players": [
+          "Brenton Strange"
+        ],
+        "topic": "Vic Fangio tight end defense",
+        "summary": "Vic Fangio's defensive system consistently holds opposing tight ends well below average receiving totals.",
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 1990,
+        "quote": "Only 4 opponent tight ends have gone over 36 yards against Fangio's Eagles since last season.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "market_sentiment",
+        "teams": [
+          "BAL",
+          "ATL"
+        ],
+        "players": [
+          "Lamar Jackson",
+          "Tyler Huntley"
+        ],
+        "topic": "Ravens line movement overreaction",
+        "summary": "Market moved the Ravens line 10 full points on Lamar Jackson's injury, which represents an excessive overvaluation of Atlanta.",
+        "speaker": "Brandon Anderson",
+        "source_timestamp": 2306,
+        "quote": "A 10-point swing from Ravens -6.5 to +3.5 is way too much faith in Atlanta.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Aaron Rodgers Pass Yards",
+        "timestamp": 198,
+        "speaker": "Brandon Anderson",
+        "quote": "Aaron Rodgers passing yards line at 220.5 is just too low."
+      },
+      {
+        "topic": "McCaffrey Receptions",
+        "timestamp": 737,
+        "speaker": "Brandon Anderson",
+        "quote": "Seattle shuts down the run game... but allows the most running back receptions."
+      },
+      {
+        "topic": "Michael Wilson Escalator",
+        "timestamp": 1281,
+        "speaker": "Brandon Anderson",
+        "quote": "This might be my single favorite escalator of the season so far."
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 3524,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 3524,
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 16,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:56.134Z",
+  "built_at": "2026-10-17T02:04:49.893Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "8.6"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "EPA/PLY": "-0.059",
+          "DVOA": "-7.1%",
+          "SUCC%": "41.1%",
+          "EXP%": "9.9%",
+          "CONV%": "23.8%",
+          "TO": "3",
+          "TO%": "1.6%",
+          "3&O": "30.8%",
+          "MTKL%": "9.2%",
+          "PEN%": "4.7%",
+          "PENY": "8.3"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "5"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "YD/PLY": "6.2",
+          "PT/GM": "16.3",
+          "FD%": "27.1%",
+          "TO": "3",
+          "DPBK%": "60.4%",
+          "YD": "776",
+          "TD": "4",
+          "INT": "3",
+          "RUSH%": "39.6%",
+          "YD__2": "410",
+          "TD__2": "3"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "38.4%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "DPBK": "116",
+          "SK": "10",
+          "SK%": "8.6%",
+          "QBH%": "17.2%",
+          "PRESS": "41",
+          "PRESS%": "35.3%",
+          "QPRESS%": "43.9%",
+          "TTPR": "2.66",
+          "DISR%": "0.9%",
+          "BLZ%": "39.7%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "3.1%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "EPA/DB": "-0.095",
+          "SUCC%": "38.8%",
+          "DVOA": "-13.3%",
+          "CPOE": "-0.73%",
+          "CBALL%": "61.6%",
+          "EXP%": "15.5%",
+          "INTW%": "6.1%",
+          "TGHT%": "33.3%",
+          "OPEN%": "54.5%",
+          "TA%": "7.1%",
+          "DROP%": "2.0%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "1.98"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "EPA/ATT": "-0.005",
+          "SUCC%": "44.7%",
+          "DVOA": "1.1%",
+          "aRYOE": "",
+          "EXP%": "10.5%",
+          "STF%": "14.5%",
+          "YBCO": "1.82",
+          "YACO": "2.00"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "6.01%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "EPA/PLY": "0.077",
+          "DVOA": "12.3%",
+          "SUCC%": "47.0%",
+          "EXP%": "10.7%",
+          "CONV%": "49.3%",
+          "TO": "4",
+          "TO%": "1.34%",
+          "PENY": "38.8",
+          "PEN%": "6.71%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "10"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "YD/PLY": "5.9",
+          "PT/GM": "28.0",
+          "FD%": "29.9%",
+          "TO": "4",
+          "DPBK%": "50.7%",
+          "YD": "976",
+          "TD": "4",
+          "INT": "2",
+          "RUSH%": "49.3%",
+          "YD__2": "785",
+          "TD__2": "9"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "51.9%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "SK": "7",
+          "SK%": "4.6%",
+          "QBSK%": "0.0%",
+          "QBH%": "11.9%",
+          "PRESS%": "33.8%",
+          "UPRES%": "22.8%",
+          "BLITZ%": "47.7%",
+          "TTPR": "2.85",
+          "TTT": "2.84",
+          "EPA/DB": "0.129",
+          "DVOA": "-21.2%",
+          "SUCC%": "43.1%",
+          "EPA/DB__2": "0.268",
+          "DVOA__2": "33.4%",
+          "SUCC%__2": "55.0%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "5.0"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "EPA/DB": "0.221",
+          "SUCC%": "51.0%",
+          "DVOA": "39.8%",
+          "CPOE": "6.0%",
+          "CBALL%": "72.0%",
+          "EXP%": "15.6%",
+          "INTW%": "2.3%",
+          "HLT%": "1.5%",
+          "TA%": "6.8%",
+          "DROP%": "3.0%",
+          "aDOT": "7.0",
+          "aYAC": "5.2"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "62.3%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "EPA/ATT": "-0.071",
+          "SUCC%": "42.9%",
+          "DVOA": "-2.5%",
+          "aRYOE": "",
+          "EXP%": "10.2%",
+          "STF%": "17.7%",
+          "aYBCO": "1.49",
+          "aYACO": "2.85",
+          "CRT%": "60.9%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "39.6%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "PLY/GM": "74.5",
+          "TOP": "35.11",
+          "DRV/GM": "10.3",
+          "SEC/PLY": "28.3",
+          "PLY/DRV": "7.3",
+          "YD/DRV": "43.0",
+          "SEC/DRV": "206",
+          "3&O": "7.3%",
+          "SCD%": "48.8%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Chicago Bears",
           "GP": "5",
@@ -703,23 +885,52 @@
           "PWR%": "4.8%",
           "CTR%": "2.4%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Chicago Bears",
+          "GP": "4",
+          "DPBK%": "50.7%",
+          "RUSH%": "49.3%",
+          "SHG%": "46.3%",
+          "NH%": "6.0%",
+          "MOT%": "45.6%",
+          "PA%": "32.5%",
+          "IZ%": "28.6%",
+          "OZ%": "44.2%",
+          "MD%": "12.2%",
+          "PWR%": "4.1%",
+          "CTR%": "2.0%"
+        }
       }
     },
     "qb1": null,
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -852,7 +1063,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:02.000Z",
               "role": "outside_cb1",
               "side": "boundary",
               "impact_tier": "elite",
@@ -866,6 +1077,33 @@
                 "boundary_wr_boost"
               ],
               "severity_score": 4.05,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "C.J. Henderson",
+              "team": "ATL",
+              "position": "CB",
+              "event_type": "out",
+              "availability_trend": "worsening",
+              "summary": "Henderson (groin) has been ruled out for Sunday's game against the Bears, Tori McElhaney of the Falcons' official site reports.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API",
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-17T00:22:00.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost",
+                "alpha_wr_boost"
+              ],
+              "severity_score": 1.8,
               "needs_human_review": true
             }
           ],
@@ -983,10 +1221,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 4.05,
+          "severity_score": 5.85,
           "elite_absence_count": 1,
-          "vulnerability_tier": "medium",
-          "confidence": 0.94,
+          "vulnerability_tier": "high",
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1032,7 +1270,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1052,7 +1290,7 @@
               "corroborating_sources": [
                 "ESPN injuries API"
               ],
-              "published_at": "2026-10-13T23:05:00.000Z",
+              "published_at": "2026-10-17T01:01:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1062,42 +1300,17 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Tyrique Stevenson Sr.",
-              "team": "CHI",
-              "position": "CB",
-              "event_type": "setback",
-              "availability_trend": "worsening",
-              "summary": "Stevenson (hamstring) is doubtful to return to Sunday's game against the Packers.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-11T19:00:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
-              "impact_tier": "plus",
-              "primary_receiver_archetypes_impacted": [
-                "z_receiver"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 1.91,
-              "needs_human_review": true
-            },
-            {
               "player_name": "Kyler Gordon",
               "team": "CHI",
               "position": "CB",
               "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "Gordon (calf) has been ruled out for Sunday's game against the Packers.",
+              "summary": "Gordon (calf) is listed as questionable for Sunday's game against the Falcons.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
                 "ESPN injuries API"
               ],
-              "published_at": "2026-10-10T19:40:00.000Z",
+              "published_at": "2026-10-17T01:01:00.000Z",
               "role": "slot_cb",
               "side": "slot",
               "impact_tier": "plus",
@@ -1113,9 +1326,7 @@
             }
           ],
           "weakness_tags": [
-            "boundary_wr_boost",
             "inside_seam_boost",
-            "outside_wr_boost",
             "slot_wr_boost",
             "underneath_volume_boost"
           ],
@@ -1133,35 +1344,12 @@
                 "boundary"
               ],
               "matched_weakness_tags": [
-                "outside_wr_boost",
                 "slot_wr_boost",
                 "inside_seam_boost",
                 "underneath_volume_boost"
               ],
-              "opportunity_score": 3.2,
+              "opportunity_score": 2.4,
               "notes": "WAS WR2. [moved from WAS per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
-            {
-              "player_name": "Drake London",
-              "team": "ATL",
-              "roles": [
-                "alpha_x",
-                "red_zone"
-              ],
-              "target_share_tier": "alpha",
-              "route_area_tags": [
-                "boundary",
-                "intermediate",
-                "red_zone"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "opportunity_score": 3,
-              "notes": "ATL WR1 Alpha.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
               "availability_flag": "none"
             },
@@ -1207,8 +1395,8 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 7.31,
-          "elite_absence_count": 2,
+          "severity_score": 5.4,
+          "elite_absence_count": 1,
           "vulnerability_tier": "high",
           "confidence": 0.95,
           "use_cases": [
@@ -1233,19 +1421,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1262,10 +1450,18 @@
     "reported_injuries": {
       "out_ir": [
         {
+          "player": "Dayo Odeyingbo",
+          "pos": "DE",
+          "status": "Out",
+          "date": "2026-10-17",
+          "comment": "Odeyingbo (quadriceps) has been ruled out for Sunday's game against the Falcons.",
+          "roster_check": "ok"
+        },
+        {
           "player": "Anthony Johnson Jr.",
           "pos": "S",
           "status": "Injured Reserve",
-          "date": "2026-10-15",
+          "date": "2026-10-17",
           "comment": "ir",
           "roster_check": "practice_squad"
         },
@@ -1273,58 +1469,50 @@
           "player": "Kyler Gordon",
           "pos": "CB",
           "status": "Out",
-          "date": "2026-10-15",
-          "comment": "Gordon (calf) was estimated as a full participant on the Bears' official injury report Wednesday.",
+          "date": "2026-10-17",
+          "comment": "Gordon (calf) is listed as questionable for Sunday's game against the Falcons.",
           "roster_check": "roster_ir_out_group"
-        }
-      ],
-      "questionable_doubtful": [
-        {
-          "player": "Caleb Williams",
-          "pos": "QB",
-          "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Williams (hamstring) said Thursday that he doesn't know if he'll play this weekend against Atlanta because he still has medical protocols to complete, Sean Hamm",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Kyle Monangai",
-          "pos": "RB",
-          "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Monangai (toe) was listed as a non-participant on Thursday's injury report.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Tyrique Stevenson Sr.",
-          "pos": "CB",
-          "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Stevenson (hip) was estimated as a limited participant on the Bears' official injury report Wednesday.",
-          "roster_check": "ok"
         },
         {
           "player": "T.J. Edwards",
           "pos": "LB",
-          "status": "Doubtful",
-          "date": "2026-10-15",
-          "comment": "Edwards (hamstring) was estimated as a non-participant in Wednesday's walk-through practice.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Dayo Odeyingbo",
-          "pos": "DE",
-          "status": "Doubtful",
-          "date": "2026-10-14",
-          "comment": "Bears head coach Ben Johnson said Wednesday that Odeyingbo (quadriceps) is likely to avoid a stint on injured reserve but is expected to miss time, Adam Hoge of",
+          "status": "Out",
+          "date": "2026-10-17",
+          "comment": "Edwards (hamstring) has been ruled out for Sunday's game against the Falcons.",
           "roster_check": "ok"
         },
         {
           "player": "Keyshaun Elliott",
           "pos": "LB",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "out",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Kyle Monangai",
+          "pos": "RB",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "Monangai (thumb/toe) was ruled out for Sunday's game in Atlanta.",
+          "roster_check": "ok"
+        }
+      ],
+      "questionable_doubtful": [
+        {
+          "player": "Tyrique Stevenson Sr.",
+          "pos": "CB",
           "status": "Questionable",
-          "date": "2026-10-13",
-          "comment": "questionable",
+          "date": "2026-10-17",
+          "comment": "Stevenson (hip) is questionable for Sunday's game against the Falcons.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Caleb Williams",
+          "pos": "QB",
+          "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "Williams (hamstring) is listed as questionable for Sunday's game against Atlanta.",
           "roster_check": "ok"
         }
       ],
@@ -1401,7 +1589,7 @@
         "risk": "watch",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
-          "Dayo Odeyingbo DE Doubtful",
+          "Dayo Odeyingbo DE Out",
           "Montez Sweat DE Suspension"
         ]
       }
@@ -1416,7 +1604,7 @@
           "availability_trend": "worsening",
           "event_type": "suspension",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Montez Sweat SUSPENSION",
           "practice": [],
           "probability_of_playing": null,
@@ -1426,13 +1614,29 @@
           "roster_check": "ok"
         },
         {
+          "player_name": "Beanie Bishop Jr.",
+          "position": "CB",
+          "normalized_status": "SUSPENSION",
+          "availability_trend": "worsening",
+          "event_type": "suspension",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-17T01:50:03.000Z",
+          "summary": "Beanie Bishop Jr. SUSPENSION",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "not_on_any_roster"
+        },
+        {
           "player_name": "Tony Fields II",
           "position": "LB",
           "normalized_status": "IR",
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Tony Fields II IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1448,7 +1652,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Coby Bryant IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1464,7 +1668,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Nephi Sewell IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1480,7 +1684,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Nikola Kalinic IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1496,7 +1700,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Brittain Brown IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1506,29 +1710,13 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Beanie Bishop Jr.",
-          "position": "CB",
-          "normalized_status": "SUSPENSION",
-          "availability_trend": "worsening",
-          "event_type": "suspension",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
-          "summary": "Beanie Bishop Jr. SUSPENSION",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "not_on_any_roster"
-        },
-        {
           "player_name": "Hayden Large",
           "position": "TE",
           "normalized_status": "IR",
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Hayden Large IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1538,13 +1726,29 @@
           "roster_check": "roster_ir_out_group"
         },
         {
+          "player_name": "Dayo Odeyingbo",
+          "position": "DE",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T01:05:00.000Z",
+          "summary": "Odeyingbo (quadriceps) has been ruled out for Sunday's game against the Falcons.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
           "player_name": "Anthony Johnson Jr.",
           "position": "S",
           "normalized_status": "IR",
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:51:00.000Z",
+          "published_at": "2026-10-17T01:01:00.000Z",
           "summary": "ir",
           "practice": [],
           "probability_of_playing": null,
@@ -1554,52 +1758,36 @@
           "roster_check": "practice_squad"
         },
         {
-          "player_name": "Caleb Williams",
-          "position": "QB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:06:00.000Z",
-          "summary": "Williams (hamstring) said Thursday that he doesn't know if he'll play this weekend against Atlanta because he still has medical protocols to complete, Sean Hamm",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Kyle Monangai",
-          "position": "RB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T19:38:00.000Z",
-          "summary": "Monangai (toe) was listed as a non-participant on Thursday's injury report.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
           "player_name": "Kyler Gordon",
           "position": "CB",
           "normalized_status": "OUT",
           "availability_trend": "worsening",
           "event_type": "out",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T00:36:00.000Z",
-          "summary": "Gordon (calf) was estimated as a full participant on the Bears' official injury report Wednesday.",
+          "published_at": "2026-10-17T01:01:00.000Z",
+          "summary": "Gordon (calf) is listed as questionable for Sunday's game against the Falcons.",
           "practice": [],
           "probability_of_playing": null,
-          "evidence_status": "conflicted_intel",
-          "synthesis_eligible": false,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Tyrique Stevenson Sr.",
+          "position": "CB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "improving",
+          "event_type": "limited_return",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T00:59:00.000Z",
+          "summary": "Stevenson (hip) is questionable for Sunday's game against the Falcons.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
         }
       ]
     },
@@ -1619,8 +1807,8 @@
         "score": 105,
         "signal": "positive_availability",
         "source": "ESPN injuries API",
-        "published_at": "2026-10-12T20:20:00.000Z",
-        "summary": "Head coach Ben Johnson said Monday that a decision hasn't been made regarding whether Bagent, Case Keenum or Caleb Williams (hamstring) will take reps with the ",
+        "published_at": "2026-10-16T23:33:00.000Z",
+        "summary": "Whether Bagent starts or serves in a backup role against the Falcons on Sunday depends largely on whether Caleb William (hamstring) is cleared to return from a ",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1642,8 +1830,8 @@
         "score": 94,
         "signal": "review_context",
         "source": "FantasyPros injuries API",
-        "published_at": null,
-        "summary": "Caleb Williams UNKNOWN",
+        "published_at": "2026-10-16T22:34:53.000Z",
+        "summary": "Caleb Williams QUESTIONABLE",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1665,8 +1853,8 @@
         "score": 94,
         "signal": "review_context",
         "source": "ESPN injuries API",
-        "published_at": "2026-10-15T20:06:00.000Z",
-        "summary": "Williams (hamstring) said Thursday that he doesn't know if he'll play this weekend against Atlanta because he still has medical protocols to complete, Sean Hamm",
+        "published_at": "2026-10-16T19:03:00.000Z",
+        "summary": "Williams (hamstring) is listed as questionable for Sunday's game against Atlanta.",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1699,7 +1887,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [
         "Caleb Williams QB",
         "Kalif Raymond WR"
@@ -1743,8 +1931,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1993,18 +2180,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

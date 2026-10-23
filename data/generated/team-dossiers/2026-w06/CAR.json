@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:56.094Z",
+  "built_at": "2026-10-17T02:04:49.841Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -468,12 +468,29 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 4,
     "status": "stale_1wk",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
+      "team-defense/efficiency (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "EPA/PLY": "0.076",
+          "DVOA": "1.6%",
+          "SUCC%": "46.4%",
+          "EXP%": "9.2%",
+          "CONV%": "42.9%",
+          "TO": "4",
+          "TO%": "1.6%",
+          "3&O": "12.2%",
+          "MTKL%": "12.5%",
+          "PEN%": "4.0%",
+          "PENY": "21.8"
+        }
+      },
       "team-defense/efficiency": {
         "metrics": {
           "Team": "Carolina Panthers",
@@ -489,6 +506,23 @@
           "MTKL%": "12.5%",
           "PEN%": "4.0%",
           "PENY": "21.8"
+        }
+      },
+      "team-defense/overview (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "YD/PLY": "6.1",
+          "PT/GM": "25.8",
+          "FD%": "31.2%",
+          "TO": "4",
+          "DPBK%": "60.0%",
+          "YD": "911",
+          "TD": "5",
+          "INT": "2",
+          "RUSH%": "40.0%",
+          "YD__2": "610",
+          "TD__2": "7"
         }
       },
       "team-defense/overview": {
@@ -508,6 +542,22 @@
           "TD__2": "7"
         }
       },
+      "team-defense/pass-rush (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "DPBK": "150",
+          "SK": "6",
+          "SK%": "4.0%",
+          "QBH%": "9.3%",
+          "PRESS": "46",
+          "PRESS%": "30.7%",
+          "QPRESS%": "60.9%",
+          "TTPR": "2.45",
+          "DISR%": "0.7%",
+          "BLZ%": "32.7%"
+        }
+      },
       "team-defense/pass-rush": {
         "metrics": {
           "Team": "Carolina Panthers",
@@ -522,6 +572,23 @@
           "TTPR": "2.45",
           "DISR%": "0.7%",
           "BLZ%": "32.7%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "EPA/DB": "0.153",
+          "SUCC%": "49.3%",
+          "DVOA": "14.9%",
+          "CPOE": "-3.60%",
+          "CBALL%": "67.7%",
+          "EXP%": "11.3%",
+          "INTW%": "3.1%",
+          "TGHT%": "31.5%",
+          "OPEN%": "62.3%",
+          "TA%": "5.4%",
+          "DROP%": "3.1%"
         }
       },
       "team-defense/passing-analytics": {
@@ -541,6 +608,20 @@
           "DROP%": "3.1%"
         }
       },
+      "team-defense/rush-analytics (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "EPA/ATT": "-0.040",
+          "SUCC%": "36.0%",
+          "DVOA": "-5.5%",
+          "aRYOE": "",
+          "EXP%": "10.0%",
+          "STF%": "14.0%",
+          "YBCO": "1.07",
+          "YACO": "2.46"
+        }
+      },
       "team-defense/rush-analytics": {
         "metrics": {
           "Team": "Carolina Panthers",
@@ -553,6 +634,21 @@
           "STF%": "14.0%",
           "YBCO": "1.07",
           "YACO": "2.46"
+        }
+      },
+      "team-offense/efficiency (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "EPA/PLY": "0.093",
+          "DVOA": "9.4%",
+          "SUCC%": "43.5%",
+          "EXP%": "10.8%",
+          "CONV%": "37.9%",
+          "TO": "2",
+          "TO%": "0.74%",
+          "PENY": "45.8",
+          "PEN%": "9.29%"
         }
       },
       "team-offense/efficiency": {
@@ -570,6 +666,23 @@
           "PEN%": "9.29%"
         }
       },
+      "team-offense/overview (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "YD/PLY": "6.3",
+          "PT/GM": "28.8",
+          "FD%": "32.3%",
+          "TO": "2",
+          "DPBK%": "66.2%",
+          "YD": "1,268",
+          "TD": "9",
+          "INT": "2",
+          "RUSH%": "33.8%",
+          "YD__2": "418",
+          "TD__2": "4"
+        }
+      },
       "team-offense/overview": {
         "metrics": {
           "Team": "Carolina Panthers",
@@ -585,6 +698,27 @@
           "RUSH%": "33.8%",
           "YD__2": "418",
           "TD__2": "4"
+        }
+      },
+      "team-offense/pass-protection (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "SK": "10",
+          "SK%": "5.6%",
+          "QBSK%": "0.0%",
+          "QBH%": "16.9%",
+          "PRESS%": "33.1%",
+          "UPRES%": "20.0%",
+          "BLITZ%": "23.6%",
+          "TTPR": "2.69",
+          "TTT": "2.63",
+          "EPA/DB": "-0.120",
+          "DVOA": "-61.7%",
+          "SUCC%": "32.2%",
+          "EPA/DB__2": "0.401",
+          "DVOA__2": "53.1%",
+          "SUCC%__2": "52.9%"
         }
       },
       "team-offense/pass-protection": {
@@ -608,6 +742,24 @@
           "SUCC%__2": "52.9%"
         }
       },
+      "team-offense/passing-analytics (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "EPA/DB": "0.228",
+          "SUCC%": "46.1%",
+          "DVOA": "29.2%",
+          "CPOE": "5.0%",
+          "CBALL%": "63.8%",
+          "EXP%": "16.8%",
+          "INTW%": "0.6%",
+          "HLT%": "3.1%",
+          "TA%": "12.9%",
+          "DROP%": "1.8%",
+          "aDOT": "9.0",
+          "aYAC": "4.8"
+        }
+      },
       "team-offense/passing-analytics": {
         "metrics": {
           "Team": "Carolina Panthers",
@@ -626,6 +778,21 @@
           "aYAC": "4.8"
         }
       },
+      "team-offense/rushing-analytics (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "EPA/ATT": "-0.171",
+          "SUCC%": "38.5%",
+          "DVOA": "-4.9%",
+          "aRYOE": "",
+          "EXP%": "12.1%",
+          "STF%": "18.7%",
+          "aYBCO": "1.04",
+          "aYACO": "1.44",
+          "CRT%": "35.3%"
+        }
+      },
       "team-offense/rushing-analytics": {
         "metrics": {
           "Team": "Carolina Panthers",
@@ -641,6 +808,21 @@
           "CRT%": "35.3%"
         }
       },
+      "team-offense/tempo (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "PLY/GM": "67.3",
+          "TOP": "27.77",
+          "DRV/GM": "11.8",
+          "SEC/PLY": "24.8",
+          "PLY/DRV": "5.7",
+          "YD/DRV": "35.9",
+          "SEC/DRV": "142",
+          "3&O": "14.9%",
+          "SCD%": "48.9%"
+        }
+      },
       "team-offense/tempo": {
         "metrics": {
           "Team": "Carolina Panthers",
@@ -654,6 +836,23 @@
           "SEC/DRV": "142",
           "3&O": "14.9%",
           "SCD%": "48.9%"
+        }
+      },
+      "team-offense/tendencies (1)": {
+        "metrics": {
+          "Team": "Carolina Panthers",
+          "GP": "4",
+          "DPBK%": "66.2%",
+          "RUSH%": "33.8%",
+          "SHG%": "61.3%",
+          "NH%": "6.3%",
+          "MOT%": "53.9%",
+          "PA%": "26.4%",
+          "IZ%": "24.2%",
+          "OZ%": "27.5%",
+          "MD%": "35.2%",
+          "PWR%": "6.6%",
+          "CTR%": "0.0%"
         }
       },
       "team-offense/tendencies": {
@@ -678,6 +877,19 @@
       "player": "Bryce Young",
       "position": "QB",
       "tables": {
+        "passing/air-yards (1)": {
+          "Player": "Bryce Young",
+          "Team": "Carolina Panthers",
+          "Position": "QB",
+          "GP": "4",
+          "aDOT": "9.0",
+          "AIR": "1,459",
+          "cAIR": "789",
+          "cAIR%": "54.1%",
+          "PRYD": "670",
+          "PRYD%": "45.9%",
+          "dAIR": "19"
+        },
         "passing/air-yards": {
           "Player": "Bryce Young",
           "Team": "Carolina Panthers",
@@ -690,6 +902,21 @@
           "PRYD": "670",
           "PRYD%": "45.9%",
           "dAIR": "19"
+        },
+        "passing/analytics (1)": {
+          "Player": "Bryce Young",
+          "Team": "Carolina Panthers",
+          "Position": "QB",
+          "GP": "4",
+          "EPA": "39.3",
+          "EPA/DB": "0.224",
+          "SUCC%": "46.0%",
+          "ACOMP%": "73.8%",
+          "DVOA": "16.3%",
+          "DYAR": "286",
+          "xCOMP": "57.1%",
+          "CPOE": "5.2%",
+          "aYDOE": "0.914"
         },
         "passing/analytics": {
           "Player": "Bryce Young",
@@ -706,6 +933,21 @@
           "CPOE": "5.2%",
           "aYDOE": "0.914"
         },
+        "passing/efficiency (1)": {
+          "Player": "Bryce Young",
+          "Team": "Carolina Panthers",
+          "Position": "QB",
+          "GP": "4",
+          "CBALL%": "64.2%",
+          "INTW%": "0.6%",
+          "HLT%": "3.1%",
+          "EXP%": "10.5%",
+          "DROP%": "1.9%",
+          "TA%": "13.0%",
+          "TD%": "5.6%",
+          "INT%": "1.2%",
+          "SK%": "5.7%"
+        },
         "passing/efficiency": {
           "Player": "Bryce Young",
           "Team": "Carolina Panthers",
@@ -721,6 +963,51 @@
           "INT%": "1.2%",
           "SK%": "5.7%"
         },
+        "passing/overview (1)": {
+          "Player": "Bryce Young",
+          "Team": "Carolina Panthers",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "176",
+          "ATT": "162",
+          "COMP": "101",
+          "COMP%": "62.3%",
+          "YD": "1,268",
+          "YD/ATT": "7.8",
+          "TD": "9",
+          "INT": "2",
+          "FUML": "0"
+        },
+        "passing/overview (2)": {
+          "Player": "Bryce Young",
+          "Team": "Carolina Panthers",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "176",
+          "ATT": "162",
+          "COMP": "101",
+          "COMP%": "62.3%",
+          "YD": "1,268",
+          "YD/ATT": "7.8",
+          "TD": "9",
+          "INT": "2",
+          "FUML": "0"
+        },
+        "passing/overview (3)": {
+          "Player": "Bryce Young",
+          "Team": "Carolina Panthers",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "176",
+          "ATT": "162",
+          "COMP": "101",
+          "COMP%": "62.3%",
+          "YD": "1,268",
+          "YD/ATT": "7.8",
+          "TD": "9",
+          "INT": "2",
+          "FUML": "0"
+        },
         "passing/overview": {
           "Player": "Bryce Young",
           "Team": "Carolina Panthers",
@@ -735,6 +1022,25 @@
           "TD": "9",
           "INT": "2",
           "FUML": "0"
+        },
+        "passing/pressure (1)": {
+          "Player": "Bryce Young",
+          "Team": "Carolina Panthers",
+          "Position": "QB",
+          "GP": "4",
+          "SK": "10",
+          "SK%": "5.7%",
+          "QBSK%": "0.0%",
+          "AVSK%": "0.6%",
+          "QBH%": "17.0%",
+          "TTPR": "2.69",
+          "TTT": "2.64",
+          "RATE": "33.0%",
+          "EPA/DB": "-0.151",
+          "DVOA": "-61.7%",
+          "RATE__2": "67.0%",
+          "EPA/DB__2": "0.408",
+          "DVOA__2": "55.3%"
         },
         "passing/pressure": {
           "Player": "Bryce Young",
@@ -759,22 +1065,41 @@
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
+      "passing/air-yards (1)": 4,
       "passing/air-yards": 4,
+      "passing/analytics (1)": 4,
       "passing/analytics": 4,
+      "passing/efficiency (1)": 4,
       "passing/efficiency": 4,
+      "passing/overview (1)": 4,
+      "passing/overview (2)": 4,
+      "passing/overview (3)": 4,
       "passing/overview": 4,
+      "passing/pressure (1)": 4,
       "passing/pressure": 4,
+      "team-defense/efficiency (1)": 4,
       "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 4,
       "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 4,
       "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 4,
       "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 4,
       "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 4,
       "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 4,
       "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 4,
       "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 4,
       "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 4,
       "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 4,
       "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 4,
       "team-offense/tendencies": 4
     }
   },
@@ -908,7 +1233,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -928,7 +1253,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -941,20 +1266,41 @@
               "player_name": "Michael Carter II",
               "team": "PHI",
               "position": "CB",
-              "event_type": "setback",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "Carter (abdomen) has been ruled out for the remainder of Sunday's game against the Jaguars in London.",
+              "summary": "out",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-11T16:06:00.000Z",
+              "published_at": "2026-10-16T21:02:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
               "primary_receiver_archetypes_impacted": [],
               "weakness_tags": [],
-              "severity_score": 0.85,
+              "severity_score": 1.2,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Jakorian Bennett",
+              "team": "PHI",
+              "position": "CB",
+              "event_type": "ir",
+              "availability_trend": "worsening",
+              "summary": "Bennett (knee) had his 21-day practice window opened by the Eagles on Wednesday.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-15T01:04:00.000Z",
+              "role": null,
+              "side": null,
+              "impact_tier": "unrated",
+              "primary_receiver_archetypes_impacted": [],
+              "weakness_tags": [],
+              "severity_score": 1.35,
               "needs_human_review": true
             }
           ],
@@ -1004,7 +1350,7 @@
               "opportunity_score": 1.6,
               "notes": "CAR TE1 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "questionable"
+              "availability_flag": "none"
             },
             {
               "player_name": "Jalen Coker",
@@ -1025,10 +1371,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 3.55,
+          "severity_score": 5.25,
           "elite_absence_count": 0,
-          "vulnerability_tier": "medium",
-          "confidence": 0.87,
+          "vulnerability_tier": "high",
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1074,7 +1420,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:02.000Z",
               "role": "outside_cb2",
               "side": "field",
               "impact_tier": "starter",
@@ -1099,7 +1445,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:02.000Z",
               "role": "outside_cb1",
               "side": "boundary",
               "impact_tier": "elite",
@@ -1172,7 +1518,7 @@
               "opportunity_score": 4.5,
               "notes": "PHI Slim Reaper WR1B.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "questionable"
+              "availability_flag": "none"
             },
             {
               "player_name": "Dontayvion Wicks",
@@ -1192,7 +1538,7 @@
               "opportunity_score": 2.4,
               "notes": "PHI WR2 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "questionable"
+              "availability_flag": "none"
             },
             {
               "player_name": "Makai Lemon",
@@ -1241,19 +1587,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1270,6 +1616,22 @@
     "reported_injuries": {
       "out_ir": [
         {
+          "player": "Trevor Etienne",
+          "pos": "RB",
+          "status": "Injured Reserve",
+          "date": "2026-10-16",
+          "comment": "Etienne (ankle) is listed as questionablefor Sunday's game against the Eagles.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "AJ Dillon",
+          "pos": "RB",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "Dillon (ankle) has been ruled out for Sunday's game against the Eagles.",
+          "roster_check": "ok"
+        },
+        {
           "player": "Jonathon Brooks",
           "pos": "RB",
           "status": "Injured Reserve",
@@ -1283,14 +1645,6 @@
           "status": "Out",
           "date": "2026-10-15",
           "comment": "Moton (illness) was a full participant in Wednesday's practice.",
-          "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player": "Trevor Etienne",
-          "pos": "RB",
-          "status": "Injured Reserve",
-          "date": "2026-10-14",
-          "comment": "Etienne (ankle) was a full participant at practice Wednesday.",
           "roster_check": "roster_ir_out_group"
         },
         {
@@ -1320,27 +1674,19 @@
       ],
       "questionable_doubtful": [
         {
-          "player": "Darren Waller",
-          "pos": "TE",
+          "player": "Jaelan Phillips",
+          "pos": "LB",
           "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Waller (toe) remained limited at Thursday's practice.",
+          "date": "2026-10-16",
+          "comment": "Phillips (hamstring) is listed as questionable for Sunday's game against the Eagles.",
           "roster_check": "ok"
         },
         {
-          "player": "Tommy Tremble",
-          "pos": "TE",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Tremble (ribs) was a limited participant at practice Wednesday.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "AJ Dillon",
-          "pos": "RB",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Dillon didn't practice Wednesday due to an ankle injury.",
+          "player": "Monroe Freeling",
+          "pos": "OT",
+          "status": "Doubtful",
+          "date": "2026-10-16",
+          "comment": "doubtful",
           "roster_check": "ok"
         },
         {
@@ -1349,22 +1695,6 @@
           "status": "Questionable",
           "date": "2026-10-06",
           "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Monroe Freeling",
-          "pos": "OT",
-          "status": "Questionable",
-          "date": "2026-10-06",
-          "comment": "Freeling (knee) could return to the field as soon as the Panthers' Week 6 game against the Eagles on Sunday, Oct. 18, Mike Kaye of ESPN.com reported Monday.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Jaelan Phillips",
-          "pos": "LB",
-          "status": "Questionable",
-          "date": "2026-10-05",
-          "comment": "Phillips (hamstring) could return to the Panthers' lineup as early as the Week 6 game against the Eagles on Sunday, Oct. 18, Mike Kaye of ESPN.com reported Mond",
           "roster_check": "ok"
         }
       ],
@@ -1410,15 +1740,15 @@
     ],
     "ol_dl_cluster_risk": {
       "ol": {
-        "hard_or_doubtful": 2,
-        "questionable": 2,
+        "hard_or_doubtful": 3,
+        "questionable": 1,
         "risk": "cluster",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
+          "Monroe Freeling OT Doubtful",
           "Taylor Moton OT Out",
           "Damien Lewis G Questionable",
-          "Ikem Ekwonu OT Out",
-          "Monroe Freeling OT Questionable"
+          "Ikem Ekwonu OT Out"
         ]
       },
       "dl": {
@@ -1442,7 +1772,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Jonathon Brooks IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1458,7 +1788,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Xavier Legette IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1474,7 +1804,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Mike Jackson Sr. IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1490,7 +1820,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Jaycee Horn IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1506,7 +1836,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Nic Scourton IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1522,7 +1852,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Cam Jackson IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1538,7 +1868,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Bam Martin-Scott IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1554,7 +1884,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Chris Brazzell II IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1564,51 +1894,16 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Darren Waller",
-          "position": "TE",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T19:42:00.000Z",
-          "summary": "Waller (toe) remained limited at Thursday's practice.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Taylor Moton",
-          "position": "OT",
-          "normalized_status": "OUT",
-          "availability_trend": "worsening",
-          "event_type": "out",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T01:17:00.000Z",
-          "summary": "Moton (illness) was a full participant in Wednesday's practice.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "conflicted_intel",
-          "synthesis_eligible": false,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
-        },
-        {
           "player_name": "Tommy Tremble",
           "position": "TE",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Tommy Tremble QUESTIONABLE",
-          "practice": [
-            "Limit",
-            "Limit"
-          ],
-          "probability_of_playing": 0.74572,
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "improving",
+          "event_type": "limited_return",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T23:54:00.000Z",
+          "summary": "Tremble (ribs) has no injury designation ahead of Sunday's game against the Eagles.",
+          "practice": [],
+          "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1616,18 +1911,47 @@
         },
         {
           "player_name": "Jaelan Phillips",
-          "position": "DE",
+          "position": "LB",
           "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Jaelan Phillips QUESTIONABLE",
-          "practice": [
-            "Limit",
-            "Limit"
-          ],
-          "probability_of_playing": 0.74342,
+          "availability_trend": "improving",
+          "event_type": "limited_return",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T23:48:00.000Z",
+          "summary": "Phillips (hamstring) is listed as questionable for Sunday's game against the Eagles.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Trevor Etienne",
+          "position": "RB",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T20:54:00.000Z",
+          "summary": "Etienne (ankle) is listed as questionablefor Sunday's game against the Eagles.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "AJ Dillon",
+          "position": "RB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T20:51:00.000Z",
+          "summary": "Dillon (ankle) has been ruled out for Sunday's game against the Eagles.",
+          "practice": [],
+          "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1686,19 +2010,19 @@
         "player_name": "Tommy Tremble",
         "position": "TE",
         "unit": "offensive_skill",
-        "event_type": "limited",
-        "availability_trend": "stable",
+        "event_type": "limited_return",
+        "availability_trend": "improving",
         "impact_bucket": "skill_major",
         "starter_match": {
           "role": "starter",
           "starter_confidence": 0.7,
           "source_count": 1
         },
-        "score": 53,
-        "signal": "review_context",
+        "score": 62,
+        "signal": "positive_availability",
         "source": "ESPN injuries API",
-        "published_at": "2026-10-14T23:28:00.000Z",
-        "summary": "Tremble (ribs) was a limited participant at practice Wednesday.",
+        "published_at": "2026-10-16T23:54:00.000Z",
+        "summary": "Tremble (ribs) has no injury designation ahead of Sunday's game against the Eagles.",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1720,8 +2044,8 @@
         "score": 47,
         "signal": "review_context",
         "source": "FantasyPros injuries API",
-        "published_at": "2026-10-15T00:00:00.000Z",
-        "summary": "Tommy Tremble QUESTIONABLE",
+        "published_at": null,
+        "summary": "Tommy Tremble UNKNOWN",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1731,7 +2055,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [
         "Bryce Young QB",
         "Tommy Tremble TE"
@@ -1764,8 +2088,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1997,18 +2320,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

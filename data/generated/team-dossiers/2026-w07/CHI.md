@@ -1,5 +1,5 @@
 # CHI Bears — dossier, target Week 7 (data through W6)
-Built 2026-10-22T18:21:00.254Z · git aecd94b · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-22T22:58:54.066Z · git 645efaf · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W6) · ESPN game log current (W6) · nflverse efficiency current (W6) · FTN current (through W6) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -48,7 +48,7 @@ Secondary-matchup context is manual_review_capped and keyed to source Week 7 —
 
 ## Availability (built; intel only; roster_gate passed; ESPN 2026-10-22T14:39:14Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
-QB: Caleb Williams [ok]
+QB: Caleb Williams [ok] · operator-confirmed Caleb Williams
 Out/IR: Anthony Johnson Jr. S Injured Reserve; Jack Sanborn LB Out; Kyle Monangai RB Out; Dayo Odeyingbo DE Injured Reserve
 Questionable/Doubtful: Tyrique Stevenson Sr. CB Questionable; T.J. Edwards LB Doubtful
 Roster IR/Out group, unconfirmed (ESPN day-to-day, not confirmed Out): 9 players; skill: Brittain Brown RB; Hayden Large TE; Nikola Kalinic TE

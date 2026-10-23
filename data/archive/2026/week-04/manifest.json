@@ -2,25 +2,67 @@
  "schema": "weekly_archive_manifest_v1",
  "season": 2026,
  "week": 4,
- "started_at": "2026-10-06T19:27:52.458Z",
- "host": "linux",
+ "started_at": "2026-10-08T13:00:00.479Z",
+ "host": "win32",
  "steps": {
+  "espn": {
+   "ok": true,
+   "ms": 1236,
+   "games": 16,
+   "cached": 16,
+   "not_final": []
+  },
+  "betting": {
+   "ok": true,
+   "ms": 13614,
+   "team_postmortem": "wrote week-04-teams.json/.csv: 32 team rows, pending []",
+   "espn_week": "week 4: 16 final games written; pending: none",
+   "grade_apply": "0 change(s); 0 unresolved leg(s).",
+   "left_open": [],
+   "weekly_review": "Week 4: net -274.93 on $401.32 · season net -1321.89 on $1699.29 · open 0 · unique legs 613 (from box 0)",
+   "player_games": "week 4: 16 games, 1040 player-game rows, 1027 linked to nflverse ids\r | wrote data\\archive\\2026\\season\\player-games.csv 4174 rows",
+   "validation": "## WARN (2)\r | {'INFO': 36, 'WARN': 2}"
+  },
+  "yahoo": {
+   "ok": true,
+   "ms": 32128,
+   "summary": "parsed: 5 leagues, 56 rosters, other games: yahoops,nflp"
+  },
+  "pools": {
+   "ok": true,
+   "ms": 8,
+   "files": [
+    "cbs-bukbuk-2026-w04.json",
+    "simplysportsware-duma2-2026-w04.json",
+    "yahoo-472-g-4087-2026-w04.json"
+   ]
+  },
   "rollups": {
    "ok": true,
-   "ms": 278,
+   "ms": 29,
    "team_weeks": 128,
    "fantasy_player_weeks": 3712,
    "fantasy_matchups": 112
   },
+  "drafts": {
+   "ok": true,
+   "ms": 649,
+   "fetched": false,
+   "summary": "25 leagues"
+  },
   "notes": {
    "ok": true,
-   "ms": 1235,
+   "ms": 61,
    "notes": 56,
    "staged": "data/archive/2026/week-04/vault"
+  },
+  "vault": {
+   "ok": true,
+   "ms": 73,
+   "written": 6,
+   "unchanged": 50
   }
  },
- "last_full_run": "2026-10-06T14:13:46.825Z",
- "mode": "vault-only rebuild",
  "status": "ok",
- "finished_at": "2026-10-06T19:27:54.348Z"
+ "finished_at": "2026-10-08T13:00:48.760Z"
 }

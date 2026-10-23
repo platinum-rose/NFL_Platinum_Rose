@@ -1,0 +1,219 @@
+{
+  "episode_slug": "youtube--jqw2xpoLlU",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
+  "run": {
+    "run_id": "youtube_gemini_c52865809f15",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=-jqw2xpoLlU",
+    "latency_ms": 76605,
+    "estimated_cost_usd": 0.034286,
+    "input_tokens": 330648,
+    "output_tokens": 3054,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Brandon Kravitz and Kendra Middleton are joined by Evan Abrams for NFL Week 5 betting trends, followed by guest picker Emerson Lotzia to break down the slate and finalize their five official Pick 'Em ATS selections.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 3613,\n    \"last_analyzed_timestamp\": 3612,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 49.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Intro sequence and show title sequence for The Favorites.\"\n    },\n    {\n      \"start\": 49.0,\n      \"end\": 346.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Welcome to The Favorites podcast presented by DraftKings. I'm Brandon Kravitz with Kendra Middleton. We discuss Philadelphia Eagles turmoil and coaches on the hot seat including Nick Sirianni, Todd Bowles, DeMeco Ryans, and Dan Quinn.\"\n    },\n    {\n      \"start\": 346.0,\n      \"end\": 692.0,\n      \"speaker\": \"Evan Abrams\",\n      \"text\": \"Evan Abrams joins for Two-Minute Trends covering 6-plus point favorites struggling ATS, double-digit win total teams facing non-double-digit teams, division underdogs performing well, and line movement trends for Eagles vs. Jaguars.\"\n    },\n    {\n      \"start\": 692.0,\n      \"end\": 724.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"DraftKings promotional read: Spend $5, get $150 in bonus bets.\"\n    },\n    {\n      \"start\": 724.0,\n      \"end\": 860.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Emerson Lotzia joins the show sipping his pumpkin protein cold foam coffee.\"\n    },\n    {\n      \"start\": 860.0,\n      \"end\": 1068.0,\n      \"speaker\": \"Emerson Lotzia\",\n      \"text\": \"Buccaneers at Cowboys preview. Discussion on Tampa Bay's point differential and Dallas defense.\"\n    },\n    {\n      \"start\": 1068.0,\n      \"end\": 1354.0,\n      \"speaker\": \"Emerson Lotzia\",\n      \"text\": \"Eagles at Jaguars in London preview. Discussion on Jacksonville's history in London and Eagles injuries.\"\n    },\n    {\n      \"start\": 1354.0,\n      \"end\": 1576.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Bears at Packers preview. Discussing Green Bay receiving points at Lambeau Field.\"\n    },\n    {\n      \"start\": 1576.0,\n      \"end\": 1690.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Bengals at Dolphins preview. Discussing injuries and player props.\"\n    },\n    {\n      \"start\": 1690.0,\n      \"end\": 1876.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Texans at Titans preview. Discussing C.J. Stroud's struggles without Nico Collins.\"\n    },\n    {\n      \"start\": 1876.0,\n      \"end\": 2022.0,\n      \"speaker\": \"Emerson Lotzia\",\n      \"text\": \"Colts at Steelers preview. Discussion on schedule spot for Indianapolis.\"\n    },\n    {\n      \"start\": 2022.0,\n      \"end\": 2308.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Raiders at Patriots preview. Brandon uses his veto on the Raiders.\"\n    },\n    {\n      \"start\": 2308.0,\n      \"end\": 2443.0,\n      \"speaker\": \"Emerson Lotzia\",\n      \"text\": \"Browns at Jets preview. Evaluating Deshaun Watson vs. Jets defense.\"\n    },\n    {\n      \"start\": 2443.0,\n      \"end\": 2689.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Giants at Commanders preview. Consensus on New York catching points.\"\n    },\n    {\n      \"start\": 2689.0,\n      \"end\": 2806.0,\n      \"speaker\": \"Kendra Middleton\",\n      \"text\": \"Vikings at Saints preview. Kendra uses her veto on New Orleans.\"\n    },\n    {\n      \"start\": 2806.0,\n      \"end\": 3007.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Broncos at Chargers preview. Discussing Bo Nix on the road vs. injured Chargers.\"\n    },\n    {\n      \"start\": 3007.0,\n      \"end\": 3141.0,\n      \"speaker\": \"Emerson Lotzia\",\n      \"text\": \"Lions at Cardinals preview. Evaluating Detroit coming off a road loss.\"\n    },\n    {\n      \"start\": 3141.0,\n      \"end\": 3365.0,\n      \"speaker\": \"Emerson Lotzia\",\n      \"text\": \"49ers at Seahawks preview. Discussing Seattle's defense and Kyle Juszczyk injury.\"\n    },\n    {\n      \"start\": 3365.0,\n      \"end\": 3447.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Ravens at Falcons preview. Discussing Lamar Jackson availability.\"\n    },\n    {\n      \"start\": 3447.0,\n      \"end\": 3612.0,\n      \"speaker\": \"Brandon Kravitz\",\n      \"text\": \"Finalizing the 5 official Pick 'Em ATS picks: TB (+8.5), NYG (+3.5), DET (-4.5), SEA (-3), ATL (+2.5). Outro.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"TB\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"TB\",\n      \"line\": 8.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Emerson Lotzia\",\n      \"source_timestamp\": 948,\n      \"rationale\": \"This may be my peg of the week. Buccaneers with a back-door cover.\"\n    },\n    {\n      \"team\": \"JAX\",\n      \"player\": null,\n      \"market\": \"player_prop\",\n      \"side\": \"OVER\",\n      \"line\": 0.5,\n      \"price\": -120,\n      \"week\": 5,\n      \"speaker\": \"Kendra Middleton\",\n      \"source_timestamp\": 1332,\n      \"rationale\": \"Jaguars first team to record a sack at -120 against injured Eagles offensive line.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"GB\",\n      \"line\": 2.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Emerson Lotzia\",\n      \"source_timestamp\": 1518,\n      \"rationale\": \"Getting Green Bay plus points at Lambeau Field against a Bears team with a backup QB.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYG\",\n      \"line\": 3.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 2503,\n      \"rationale\": \"Getting more than a field goal in a division game against a Commanders team returning from London.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"DET\",\n      \"line\": -4.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Emerson Lotzia\",\n      \"source_timestamp\": 3092,\n      \"rationale\": \"Great get-right spot for Detroit coming off a loss, with Cardinals facing offensive line injuries.\"\n    },\n    {\n      \"team\": \"SEA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"SEA\",\n      \"line\": -3.0,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Emerson Lotzia\",\n      \"source_timestamp\": 3255,\n      \"rationale\": \"Shanahan struggles against Seattle, and 49ers key offensive injuries impact their efficiency.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"ATL\",\n      \"line\": 2.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 3365,\n      \"rationale\": \"Contest gift at +2.5 with Lamar Jackson likely out and Bijan Robinson thriving in prime time.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"PHI\"],\n      \"players\": [\"Nick Sirianni\"],\n      \"topic\": \"Sirianni hot seat evaluation\",\n      \"summary\": \"Hosts discuss Nick Sirianni's hot seat in Philadelphia amidst team turmoil and roster changes.\",\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 135,\n      \"quote\": \"His seat has to be scorching with all the turmoil and Jalen Hurts regression.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"market_sentiment\",\n      \"teams\": [],\n      \"players\": [],\n      \"topic\": \"Big favorites and division underdogs trends\",\n      \"summary\": \"Evan Abrams notes 6+ point favorites are 6-13-2 ATS this season, while division dogs are 12-5 ATS.\",\n      \"speaker\": \"Evan Abrams\",\n      \"source_timestamp\": 372,\n      \"quote\": \"Division dogs above 500 straight up, 12 and 5 against the spread.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"PHI\"],\n      \"players\": [\"Lane Johnson\", \"Saquon Barkley\", \"Devonta Smith\"],\n      \"topic\": \"Eagles injury report\",\n      \"summary\": \"Eagles missing key offensive starters ahead of their London matchup against Jacksonville.\",\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 1200,\n      \"quote\": \"Lane Johnson announced retirement, Saquon Barkley out, Devonta Smith out.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"DEN\"],\n      \"players\": [\"Bo Nix\"],\n      \"topic\": \"Bo Nix home vs. road splits\",\n      \"summary\": \"Bo Nix performs significantly worse on the road (2-10 ATS last 12 road starts) compared to Mile High.\",\n      \"speaker\": \"Brandon Kravitz\",\n      \"source_timestamp\": 2840,\n      \"quote\": \"The Broncos are plus 11 at home, minus 31 on the road.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Buccaneers Peg of the Week\",\n      \"timestamp\": 948,\n      \"speaker\": \"Emerson Lotzia\",\n      \"quote\": \"This may be my peg of the week to where I see the Buccaneers with a little back door cover.\"\n    },\n    {\n      \"topic\": \"Jaguars First Sack\",\n      \"timestamp\": 1332,\n      \"speaker\": \"Kendra Middleton\",\n      \"quote\": \"You can get the Jags first sack minus 120.\"\n    },\n    {\n      \"topic\": \"Giants Spread Value\",\n      \"timestamp\": 2503,\n      \"speaker\": \"Brandon Kravitz\",\n      \"quote\": \"And they're catching three and a half points in a division game against a team that's flying back from London.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "extracted_picks": [
+      {
+        "team": "TB",
+        "player": null,
+        "market": "spread",
+        "side": "TB",
+        "line": 8.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Emerson Lotzia",
+        "source_timestamp": 948,
+        "rationale": "This may be my peg of the week. Buccaneers with a back-door cover."
+      },
+      {
+        "team": "JAX",
+        "player": null,
+        "market": "player_prop",
+        "side": "OVER",
+        "line": 0.5,
+        "price": -120,
+        "week": 5,
+        "speaker": "Kendra Middleton",
+        "source_timestamp": 1332,
+        "rationale": "Jaguars first team to record a sack at -120 against injured Eagles offensive line."
+      },
+      {
+        "team": "GB",
+        "player": null,
+        "market": "spread",
+        "side": "GB",
+        "line": 2.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Emerson Lotzia",
+        "source_timestamp": 1518,
+        "rationale": "Getting Green Bay plus points at Lambeau Field against a Bears team with a backup QB."
+      },
+      {
+        "team": "NYG",
+        "player": null,
+        "market": "spread",
+        "side": "NYG",
+        "line": 3.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 2503,
+        "rationale": "Getting more than a field goal in a division game against a Commanders team returning from London."
+      },
+      {
+        "team": "DET",
+        "player": null,
+        "market": "spread",
+        "side": "DET",
+        "line": -4.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Emerson Lotzia",
+        "source_timestamp": 3092,
+        "rationale": "Great get-right spot for Detroit coming off a loss, with Cardinals facing offensive line injuries."
+      },
+      {
+        "team": "SEA",
+        "player": null,
+        "market": "spread",
+        "side": "SEA",
+        "line": -3,
+        "price": -110,
+        "week": 5,
+        "speaker": "Emerson Lotzia",
+        "source_timestamp": 3255,
+        "rationale": "Shanahan struggles against Seattle, and 49ers key offensive injuries impact their efficiency."
+      },
+      {
+        "team": "ATL",
+        "player": null,
+        "market": "spread",
+        "side": "ATL",
+        "line": 2.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 3365,
+        "rationale": "Contest gift at +2.5 with Lamar Jackson likely out and Bijan Robinson thriving in prime time."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "PHI"
+        ],
+        "players": [
+          "Nick Sirianni"
+        ],
+        "topic": "Sirianni hot seat evaluation",
+        "summary": "Hosts discuss Nick Sirianni's hot seat in Philadelphia amidst team turmoil and roster changes.",
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 135,
+        "quote": "His seat has to be scorching with all the turmoil and Jalen Hurts regression.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "market_sentiment",
+        "teams": [],
+        "players": [],
+        "topic": "Big favorites and division underdogs trends",
+        "summary": "Evan Abrams notes 6+ point favorites are 6-13-2 ATS this season, while division dogs are 12-5 ATS.",
+        "speaker": "Evan Abrams",
+        "source_timestamp": 372,
+        "quote": "Division dogs above 500 straight up, 12 and 5 against the spread.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "PHI"
+        ],
+        "players": [
+          "Lane Johnson",
+          "Saquon Barkley",
+          "Devonta Smith"
+        ],
+        "topic": "Eagles injury report",
+        "summary": "Eagles missing key offensive starters ahead of their London matchup against Jacksonville.",
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 1200,
+        "quote": "Lane Johnson announced retirement, Saquon Barkley out, Devonta Smith out.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "matchup_analysis",
+        "teams": [
+          "DEN"
+        ],
+        "players": [
+          "Bo Nix"
+        ],
+        "topic": "Bo Nix home vs. road splits",
+        "summary": "Bo Nix performs significantly worse on the road (2-10 ATS last 12 road starts) compared to Mile High.",
+        "speaker": "Brandon Kravitz",
+        "source_timestamp": 2840,
+        "quote": "The Broncos are plus 11 at home, minus 31 on the road.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Buccaneers Peg of the Week",
+        "timestamp": 948,
+        "speaker": "Emerson Lotzia",
+        "quote": "This may be my peg of the week to where I see the Buccaneers with a little back door cover."
+      },
+      {
+        "topic": "Jaguars First Sack",
+        "timestamp": 1332,
+        "speaker": "Kendra Middleton",
+        "quote": "You can get the Jags first sack minus 120."
+      },
+      {
+        "topic": "Giants Spread Value",
+        "timestamp": 2503,
+        "speaker": "Brandon Kravitz",
+        "quote": "And they're catching three and a half points in a division game against a team that's flying back from London."
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 3612,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 3613,
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 7,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "Rose Bowl XIX — Week 4"
-created: "2026-10-06T19:27:53.826Z"
-modified: "2026-10-06T19:27:53.826Z"
+created: "2026-10-08T13:00:48.652Z"
+modified: "2026-10-08T13:00:48.652Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"
@@ -14,7 +14,7 @@ tags: ["nfl", "season-2026", "week-04", "nfl/fantasy-league-week", "fantasy"]
 league: "Rose Bowl XIX"
 league_key: "470.l.735815"
 my_team: "Fat Lazy Americans"
-my_points: 157.32
+my_points: 156.32
 opp_points: 158.38
 my_rank: 12
 ---
@@ -24,10 +24,10 @@ my_rank: 12
 
 | Team | Pts | Proj |  | Team | Pts | Proj |
 |---|---|---|---|---|---|---|
-| Fat Lazy Americans | 157.32 | 129.54 | vs | L.V. Rosekillers | 158.38 | 140.85 |
+| Fat Lazy Americans | 156.32 | 129.54 | vs | L.V. Rosekillers | 158.38 | 140.85 |
 | Nabers of the Lost Ark | 119.54 | 148.47 | vs | Panda XL | 103.7 | 125.41 |
-| CallinginSickMonday | 165.3 | 144.34 | vs | Bear Force One | 191.56 | 134.05 |
-| Chubbtown Brownies | 172.48 | 129.27 | vs | Sir Nix A Lot | 107.76 | 139.06 |
+| CallinginSickMonday | 165.3 | 144.34 | vs | Bear Force One | 190.56 | 134.05 |
+| Chubbtown Brownies | 173.48 | 129.27 | vs | Sir Nix A Lot | 107.76 | 139.06 |
 | Concussion Protocol | 110.58 | 138.64 | vs | Jukin Junies | 109.02 | 131.04 |
 | OUTLAWS | 134.74 | 109.53 | vs | Waiting for Basketball | 107.18 | 118.71 |
 
@@ -38,15 +38,15 @@ my_rank: 12
 | 1 | Concussion Protocol | 4-0-0 | 566.52 | 479.59999999999997 |
 | 2 | Jukin Junies | 3-1-0 | 654.56 | 495.97999999999996 |
 | 3 | Nabers of the Lost Ark | 3-1-0 | 558.74 | 512.5 |
-| 4 | Sir Nix A Lot | 3-1-0 | 455.36 | 481.84000000000003 |
-| 5 | CallinginSickMonday | 2-2-0 | 625.86 | 667 |
-| 6 | Chubbtown Brownies | 2-2-0 | 550.92 | 560.5200000000001 |
-| 7 | L.V. Rosekillers | 2-2-0 | 536.78 | 512.7 |
-| 8 | Bear Force One | 2-2-0 | 524.64 | 530.72 |
+| 4 | Sir Nix A Lot | 3-1-0 | 455.36 | 482.84000000000003 |
+| 5 | CallinginSickMonday | 2-2-0 | 625.86 | 666 |
+| 6 | Chubbtown Brownies | 2-2-0 | 551.92 | 560.5200000000001 |
+| 7 | L.V. Rosekillers | 2-2-0 | 536.78 | 511.7 |
+| 8 | Bear Force One | 2-2-0 | 523.64 | 530.72 |
 | 9 | Panda XL | 1-3-0 | 524.08 | 539.3199999999999 |
 | 10 | OUTLAWS | 1-3-0 | 479.9 | 471.40000000000003 |
 | 11 | Waiting for Basketball | 1-3-0 | 463.66 | 544.8800000000001 |
-| 12 | **Fat Lazy Americans** | 0-4-0 | 537.6 | 682.16 |
+| 12 | **Fat Lazy Americans** | 0-4-0 | 536.6 | 682.16 |
 
 ## My lineup (Fat Lazy Americans)
 
@@ -65,12 +65,12 @@ my_rank: 12
 | BN | Jalen Coker | CAR | WR | 0 |
 | BN | Dontayvion Wicks | PHI | WR | 4.8 |
 | K | Harrison Butker | KC | K | 6 |
-| D | Jamien Sherwood | NYJ | LB | 12 |
+| D | Jamien Sherwood | NYJ | LB | 11 |
 | D | Ernest Jones IV | SEA | LB | 16 |
 | D | Josiah Trotter | TB | LB | 8 |
 | BN | Cedric Gray | TEN | LB | 4 |
 
-Starters 157.32 · bench 54.42
+Starters 156.32 · bench 54.42
 
 ## Top rostered scorers
 

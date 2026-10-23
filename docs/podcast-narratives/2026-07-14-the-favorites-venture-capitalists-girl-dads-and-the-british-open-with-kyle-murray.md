@@ -4,7 +4,7 @@
 
 ## Narrative Summary
 
-The NFL discussion centered on Super Bowl. Across 1 extracted NFL futures, the lean mix was 1 back/over, 0 fade/under, and 0 neutral or unclear. Teams/players discussed included Rams.
+The NFL discussion centered on NFC West. Across 1 extracted NFL futures, the lean mix was 1 back/over, 0 fade/under, and 0 neutral or unclear. Teams/players discussed included Rams.
 
 ## Episode Participants
 
@@ -16,7 +16,7 @@ The NFL discussion centered on Super Bowl. Across 1 extracted NFL futures, the l
 
 ## Best Bets / Clear Leans
 
-- **Brandon Kravitz** (14:38): Back Rams in Super Bowl - will start the season at the top of everybody's power rankings.
+- **Brandon Kravitz** (14:38): Back Rams in NFC West - they will start the season at the top of everybody's power rankings.
 
 ## Timing / Watchlist Conjectures
 
@@ -26,8 +26,8 @@ The NFL discussion centered on Super Bowl. Across 1 extracted NFL futures, the l
 
 | Expert | Market | Subject | Lean | Type | Prediction | Conf | Time | Data Cited |
 |---|---|---|---|---|---|---:|---|---|
-| Brandon Kravitz | Super Bowl | Rams | Back | bet | will start the season at the top of everybody's power rankings | 65 | 14:38 | - |
+| Brandon Kravitz | NFC West | Rams | Back | bet | they will start the season at the top of everybody's power rankings | 65 | 14:38 | - |
 
 ## Representative Quotes
 
-- **Brandon Kravitz on Rams (14:38):** "if Donald signs there, no doubt they will start the season at the top of everybody's power rankings and certainly will be the highest power rated team going into the 2026 NFL season."
+- **Brandon Kravitz on Rams (14:38):** "if Donald signs there, no doubt they will start the season at the top of everybody's power rankings"

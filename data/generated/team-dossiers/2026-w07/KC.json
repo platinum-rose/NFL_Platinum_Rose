@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-22T18:21:00.478Z",
+  "built_at": "2026-10-22T22:58:54.365Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "aecd94b",
+  "git_head": "645efaf",
   "market_data_included": false,
   "sources": [
     {
@@ -1241,7 +1241,7 @@
       "vet_status": "PASS",
       "blocking_count": 0,
       "roster_snapshot_generated_at": "2026-10-22T14:39:12.738634+00:00",
-      "roster_age_h_at_vet": 3.7,
+      "roster_age_h_at_vet": 8.3,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
@@ -1249,7 +1249,7 @@
     },
     "as_of": {
       "espn_status": "2026-10-22T14:39:14Z",
-      "availability_events": "2026-10-22T14:39:26.249Z",
+      "availability_events": "2026-10-22T22:58:47.007Z",
       "impact_digest": "2026-10-22T14:39:29.587Z",
       "projected_starters": "2026-10-21T22:00:03.496Z",
       "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -1385,14 +1385,14 @@
       "window": "published within 10 days of build; latest per player; cap 12",
       "rows": [
         {
-          "player_name": "Tyquan Thornton",
-          "position": "WR",
-          "normalized_status": "IR",
+          "player_name": "Omarr Norman-Lott",
+          "position": "DT",
+          "normalized_status": "PUP",
           "availability_trend": "worsening",
-          "event_type": "ir",
+          "event_type": "pup",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
-          "summary": "Tyquan Thornton IR",
+          "published_at": "2026-10-22T22:50:05.000Z",
+          "summary": "Omarr Norman-Lott PUP",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1401,14 +1401,14 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Omarr Norman-Lott",
-          "position": "DT",
-          "normalized_status": "PUP",
+          "player_name": "Tyquan Thornton",
+          "position": "WR",
+          "normalized_status": "IR",
           "availability_trend": "worsening",
-          "event_type": "pup",
+          "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
-          "summary": "Omarr Norman-Lott PUP",
+          "published_at": "2026-10-22T22:50:04.000Z",
+          "summary": "Tyquan Thornton IR",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1423,7 +1423,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Ethan Downs IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1439,7 +1439,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Jimmy Holiday IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1455,7 +1455,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "John Michael Gyllenborg IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1471,7 +1471,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Jeff Caldwell IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1487,8 +1487,40 @@
           "availability_trend": "stable",
           "event_type": "limited",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-21T23:08:00.000Z",
-          "summary": "Kelce (ankle) was a limited practice participant Wednesday, Matt Derrick of ChiefsDigest.com reports.",
+          "published_at": "2026-10-22T20:56:00.000Z",
+          "summary": "Kelce (ankle) was listed as a limited participant in Thursday's practice.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Rashee Rice",
+          "position": "WR",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "worsening",
+          "event_type": "setback",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T20:55:00.000Z",
+          "summary": "Rice (hamstring/knee) did not practice Thursday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Josh Simmons",
+          "position": "OT",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T18:25:00.000Z",
+          "summary": "The Chiefs placed Simmons (lower back) on injured reserve Thursday.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1502,31 +1534,37 @@
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T23:04:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-22T00:00:00.000Z",
+          "summary": "L'Jarius Sneed QUESTIONABLE",
+          "practice": [
+            "Limit",
+            "Limit"
+          ],
+          "probability_of_playing": 0.94641,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
         },
         {
-          "player_name": "Rashee Rice",
-          "position": "WR",
+          "player_name": "Cooper McDonald",
+          "position": "LB",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T16:59:00.000Z",
-          "summary": "Chiefs head coach Andy Reid said that Rice (hamstring/knee) won't practice Wednesday, Nate Taylor of ESPN.com reports.",
-          "practice": [],
-          "probability_of_playing": null,
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-22T00:00:00.000Z",
+          "summary": "Cooper McDonald QUESTIONABLE",
+          "practice": [
+            "Limit",
+            "Limit"
+          ],
+          "probability_of_playing": 0.27712,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
-          "roster_check": "ok"
+          "roster_check": "roster_ir_out_group"
         },
         {
           "player_name": "George Karlaftis",
@@ -1537,38 +1575,6 @@
           "source": "ESPN injuries API",
           "published_at": "2026-10-21T15:36:00.000Z",
           "summary": "Karlaftis registered six total tackles, a sack and two pass breakups in Sunday's 22-6 win over the Chargers.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Nick Bolton",
-          "position": "LB",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T01:36:00.000Z",
-          "summary": "Bolton recorded 11 total tackles (three solo) during Sunday's 22-6 win over the Chargers.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Jalen Royals",
-          "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T01:11:00.000Z",
-          "summary": "Royals caught two of his four targets for 24 yards during Kansas City's win over the Chargers on Sunday.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1661,8 +1667,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1916,7 +1921,7 @@
       "through_week": null,
       "as_of": {
         "espn_status": "2026-10-22T14:39:14Z",
-        "availability_events": "2026-10-22T14:39:26.249Z",
+        "availability_events": "2026-10-22T22:58:47.007Z",
         "impact_digest": "2026-10-22T14:39:29.587Z",
         "projected_starters": "2026-10-21T22:00:03.496Z",
         "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -1925,8 +1930,7 @@
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

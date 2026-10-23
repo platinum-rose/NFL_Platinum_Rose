@@ -3,10 +3,10 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:58.634Z",
+  "built_at": "2026-10-17T02:04:52.700Z",
   "builder": "team_dossier_builder_v1.1",
   "builder_sha256": "735dc4782268c01147893bfd1eb6196bf17c4c8106322e617a0216151ee0e1e0",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": {
     "standings": {
@@ -59,9 +59,9 @@
     "ftn": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "through_week": null,
       "note": "through_week read per-table from GP; see dossier ftn section",
       "status": "see_tables"
@@ -69,9 +69,9 @@
     "secondary": {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "through_week": 6,
       "status": "current"
     },
@@ -133,43 +133,43 @@
     "espn_status": {
       "id": "espn_status",
       "path": "data/research-intel/source-evidence/espn-status-w06.json",
-      "sha256": "289ea32f9a34d612eae55a59b1ed37feb0236dde572b5e5cf96f3f9543897085",
+      "sha256": "a911c7d4b6fc2ce89b72a902eb4b2f8e84b1d83c5467dc765fe4a86d74ea5e25",
       "use_policy": "ESPN public injuries feed + depth-chart QB + roster IR/Out group (scripts/intel/fetch-espn-status.py); statuses lag game-day truth",
-      "generated_at": "2026-10-15T21:03:20Z",
+      "generated_at": "2026-10-17T02:03:26Z",
       "through_week": null,
       "status": "current"
     },
     "avail_events": {
       "id": "avail_events",
       "path": "data/player-availability/latest.json",
-      "sha256": "55fcd367e7f5f85a8f40377bb5d694f522fe933ec5341347bd8df7f19b304882",
+      "sha256": "7a1181fd256ef39a072be25f3f96c12bdbdd894ded7339df1796df02c30e45a3",
       "use_policy": "availability intel only; roster-gate first; event statuses can be stale or conflicted",
-      "generated_at": "2026-10-15T21:03:43.426Z",
+      "generated_at": "2026-10-17T02:03:53.371Z",
       "through_week": null,
       "status": "current"
     },
     "impact_digest": {
       "id": "impact_digest",
       "path": "data/player-availability/impact-digest-latest.json",
-      "sha256": "39c51d58e3093e210a01843b0acb487e080fa0c4c0799c447c36de62131282a3",
+      "sha256": "f21a656a2f2bdf32b9bc65f45232b84209f95be5fd4ab10d0e84f99710742942",
       "use_policy": "starter-impact digest; research context only; market-linkage fields dropped",
-      "generated_at": "2026-10-15T21:03:48.941Z",
+      "generated_at": "2026-10-17T02:04:00.537Z",
       "through_week": null,
       "status": "current"
     },
     "projected_starters": {
       "id": "projected_starters",
       "path": "data/projected-starters/2026/latest.json",
-      "sha256": "72f05d6a120e5ec8d5a40a0d0a8758dba2f46f452e3a13c062bc7814e25141ad",
+      "sha256": "7d2c1f6ba3a7a2d15efc365ef14a61290c2f4e9921b378b35067f93a37ebac1a",
       "use_policy": "projected starters; coverage is partly estimated from local starter language; check coverage_status",
-      "generated_at": "2026-10-15T15:09:02.072Z",
+      "generated_at": "2026-10-16T22:22:21.784Z",
       "through_week": null,
       "status": "current"
     },
     "roster_vet": {
       "id": "roster_vet",
       "path": "data/generated/master-intel/w06-roster-vet.json",
-      "sha256": "e8a53cf2e7ec8c824db6666902a1232efafb4460d7b5843d9e5f9ba9f5f4f1a4",
+      "sha256": "06aa1df483732dbe40bb119c4e43b643769e5226705a713a7762ffb598d3523a",
       "use_policy": "roster gate result (scripts/nfl-rosters/roster_vet.py); must be PASS for roster_gate=passed",
       "generated_at": null,
       "through_week": null,
@@ -178,9 +178,9 @@
     "roster_snapshot": {
       "id": "roster_snapshot",
       "path": "data/nfl-rosters/espn-full-rosters-latest.json",
-      "sha256": "8d286ae81b76ec6c0b8cf62c126388ccd40ebc4c5ff5c086ef1a3f78360dd298",
+      "sha256": "ea6471c4c8e39cb981363ee01ebd1cee3e4eea915b5991c051a87040ec50c328",
       "use_policy": "ESPN rosters incl. IR/practice squad plus Andy-reported overrides; name/team ground truth",
-      "generated_at": "2026-10-15T21:03:14.961865+00:00",
+      "generated_at": "2026-10-16T22:20:35.498594+00:00",
       "through_week": null,
       "status": "current"
     },
@@ -196,11 +196,11 @@
     "operator_starters": {
       "id": "operator_starters",
       "path": "data/research-intel/operator-confirmed-starters-2026-w06.json",
-      "sha256": null,
+      "sha256": "f43f0bae9ce45017996c131bb16928e65f592d5a3b099cdf4e3ee4f74086a44b",
       "use_policy": "operator-stated starters for the target week; not independently verified",
-      "generated_at": null,
+      "generated_at": "2026-10-16T21:53:00Z",
       "through_week": null,
-      "status": "missing"
+      "status": "current"
     },
     "prior_analytic": {
       "id": "prior_analytic",
@@ -337,12 +337,12 @@
     "ftn": {
       "status": "see_tables",
       "through_week": null,
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "secondary": {
       "status": "current",
       "through_week": 6,
-      "generated_at": "2026-10-14T14:03:52.042Z"
+      "generated_at": "2026-10-17T02:04:07.188Z"
     },
     "schedules": {
       "status": "unknown",
@@ -357,17 +357,17 @@
     "avail_events": {
       "status": "current",
       "through_week": null,
-      "generated_at": "2026-10-15T21:03:43.426Z"
+      "generated_at": "2026-10-17T02:03:53.371Z"
     },
     "impact_digest": {
       "status": "current",
       "through_week": null,
-      "generated_at": "2026-10-15T21:03:48.941Z"
+      "generated_at": "2026-10-17T02:04:00.537Z"
     },
     "projected_starters": {
       "status": "current",
       "through_week": null,
-      "generated_at": "2026-10-15T15:09:02.072Z"
+      "generated_at": "2026-10-16T22:22:21.784Z"
     },
     "roster_vet": {
       "status": "current",
@@ -377,7 +377,7 @@
     "roster_snapshot": {
       "status": "current",
       "through_week": null,
-      "generated_at": "2026-10-15T21:03:14.961865+00:00"
+      "generated_at": "2026-10-16T22:20:35.498594+00:00"
     },
     "operator_overrides": {
       "status": "current",
@@ -385,9 +385,9 @@
       "generated_at": null
     },
     "operator_starters": {
-      "status": "missing",
+      "status": "current",
       "through_week": null,
-      "generated_at": null
+      "generated_at": "2026-10-16T21:53:00Z"
     },
     "prior_analytic": {
       "status": "prior_season",

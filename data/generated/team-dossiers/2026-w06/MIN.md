@@ -1,5 +1,5 @@
 # MIN Vikings — dossier, target Week 6 (data through W5)
-Built 2026-10-15T21:03:56.797Z · git d93786a · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
+Built 2026-10-17T02:04:50.643Z · git 40650ea · no market data (lines, ATS/OU, prices) in this file · roster_gate: passed — player names appear ONLY in the Availability section (roster-gated); never name players from anywhere else.
 Freshness: standing current (W5) · ESPN game log current (W5) · nflverse efficiency current (W5) · FTN current (through W5) · coaching historical_context_only · availability built · priors built.
 
 ## Identity [Source: schedules.csv/coaching/slate]
@@ -23,20 +23,32 @@ EPA/play off -0.088 (#28) · def -0.210 (#1) · EPA/dropback -0.018 · CPOE 1.69
 Pythag win% 0.779 (3.90 exp wins, delta 1.10, rank 2) · one-score 3-0
 Unavailable in source (null, not imputed): dropback_success_rate, success_rate, explosive_play_rate, explosive_pass_rate, explosive_run_rate, pressure_rate_allowed, pressure_rate_generated, early_down_pass_rate, shotgun_rate, no_huddle_rate, play_action_rate, motion_rate, fumble_recovery_pct, takeaway_margin, rz_td_pct_off, rz_td_pct_def, third_down_over_expected.
 
-## FTN Stats iQ (team tables; through W5, current; statistical context only) [Source: data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json, generated 2026-10-13T18:14:44.676Z]
-- team-defense/efficiency: GP 5 · EPA/PLY -0.210 · DVOA -24.7% · SUCC% 33.1% · EXP% 8.2% · CONV% 26.0% · TO 9 · TO% 3.2% · 3&O 26.8% · MTKL% 9.4% · PEN% 3.2% · PENY 21.0
-- team-defense/overview: GP 5 · YD/PLY 5.0 · PT/GM 12.8 · FD% 22.4% · TO 9 · DPBK% 64.1% · YD 977 · TD 3 · INT 6 · RUSH% 35.9% · YD__2 433 · TD__2 2
-- team-defense/pass-rush: GP 5 · DPBK 180 · SK 17 · SK% 9.4% · QBH% 22.8% · PRESS 69 · PRESS% 38.3% · QPRESS% 44.9% · TTPR 2.75 · DISR% 0.6% · BLZ% 70.0%
-- team-defense/passing-analytics: GP 5 · EPA/DB -0.206 · SUCC% 35.0% · DVOA -24.0% · CPOE -9.12% · CBALL% 59.6% · EXP% 14.5% · INTW% 5.1% · TGHT% 32.7% · OPEN% 55.8% · TA% 4.5% · DROP% 3.8%
-- team-defense/rush-analytics: GP 5 · EPA/ATT -0.216 · SUCC% 29.7% · DVOA -25.7% · aRYOE  · EXP% 8.9% · STF% 19.8% · YBCO 1.23 · YACO 2.53
-- team-offense/efficiency: GP 5 · EPA/PLY -0.120 · DVOA -19.4% · SUCC% 35.1% · EXP% 7.8% · CONV% 41.0% · TO 3 · TO% 0.97% · PENY 29.0 · PEN% 6.82%
-- team-offense/overview: GP 5 · YD/PLY 4.9 · PT/GM 19.4 · FD% 23.1% · TO 3 · DPBK% 55.5% · YD 938 · TD 5 · INT 2 · RUSH% 44.5% · YD__2 580 · TD__2 3
-- team-offense/pass-protection: GP 5 · SK 15 · SK% 8.8% · QBSK% 20.0% · QBH% 14.0% · PRESS% 24.6% · UPRES% 23.8% · BLITZ% 37.4% · TTPR 2.84 · TTT 2.59 · EPA/DB -0.528 · DVOA -133.7% · SUCC% 19.0% · EPA/DB__2 0.131 · DVOA__2 18.0% · SUCC%__2 44.2%
-- team-offense/passing-analytics: GP 5 · EPA/DB -0.031 · SUCC% 38.0% · DVOA -8.5% · CPOE -2.8% · CBALL% 70.9% · EXP% 13.0% · INTW% 1.4% · HLT% 2.8% · TA% 7.1% · DROP% 2.8% · aDOT 6.6 · aYAC 4.8
-- team-offense/rushing-analytics: GP 5 · EPA/ATT -0.231 · SUCC% 31.4% · DVOA -15.4% · aRYOE  · EXP% 6.6% · STF% 22.6% · aYBCO 1.18 · aYACO 2.00 · CRT% 57.1%
-- team-offense/tempo: GP 5 · PLY/GM 61.6 · TOP 31.86 · DRV/GM 11.4 · SEC/PLY 31.0 · PLY/DRV 5.4 · YD/DRV 26.6 · SEC/DRV 168 · 3&O 29.8% · SCD% 42.1%
-- team-offense/tendencies: GP 5 · DPBK% 55.5% · RUSH% 44.5% · SHG% 54.2% · NH% 5.8% · MOT% 51.9% · PA% 29.8% · IZ% 26.3% · OZ% 27.0% · MD% 24.1% · PWR% 6.6% · CTR% 2.2%
-- QB1 (Kyler Murray): air-yards [GP 4, aDOT 6.3, AIR 634, cAIR 376, cAIR% 59.3%, PRYD 258, PRYD% 40.7%, dAIR 35] · analytics [GP 4, EPA -9.9, EPA/DB -0.080, SUCC% 37.4%, ACOMP% 80.2%, DVOA -26.3%, DYAR -96, xCOMP 66.8%, CPOE 1.5%, aYDOE -0.613] · efficiency [GP 4, CBALL% 75.2%, INTW% 1.0%, HLT% 4.0%, EXP% 8.9%, DROP% 4.0%, TA% 9.9%, TD% 2.0%, INT% 2.0%, SK% 7.3%] · overview [GP 4, DPBK 123, ATT 101, COMP 69, COMP% 68.3%, YD 662, YD/ATT 6.6, TD 2, INT 2, FUML 0] · pressure [GP 4, SK 9, SK% 7.3%, QBSK% 33.3%, AVSK% 3.3%, QBH% 13.0%, TTPR 3.03, TTT 2.65, RATE 25.2%, EPA/DB -0.470, DVOA -131.1%, RATE__2 74.8%, EPA/DB__2 0.051, DVOA__2 10.2%]
+## FTN Stats iQ (team tables; through W5, current; statistical context only) [Source: data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json, generated 2026-10-16T22:00:08.769Z]
+- team-defense/efficiency (1): GP 5 · EPA/PLY -0.210 · DVOA -24.7% · SUCC% 33.1% · EXP% 8.2% · CONV% 26.0% · TO 9 · TO% 3.2% · 3&O 26.8% · MTKL% 9.4% · PEN% 3.2% · PENY 21.0
+- team-defense/efficiency: GP 4 · EPA/PLY -0.184 · DVOA -22.1% · SUCC% 32.8% · EXP% 9.7% · CONV% 25.0% · TO 7 · TO% 2.9% · 3&O 23.9% · MTKL% 7.5% · PEN% 3.8% · PENY 26.3
+- team-defense/overview (1): GP 5 · YD/PLY 5.0 · PT/GM 12.8 · FD% 22.4% · TO 9 · DPBK% 64.1% · YD 977 · TD 3 · INT 6 · RUSH% 35.9% · YD__2 433 · TD__2 2
+- team-defense/overview: GP 4 · YD/PLY 5.3 · PT/GM 14.3 · FD% 22.7% · TO 7 · DPBK% 64.7% · YD 881 · TD 3 · INT 4 · RUSH% 35.3% · YD__2 378 · TD__2 1
+- team-defense/pass-rush (1): GP 5 · DPBK 180 · SK 17 · SK% 9.4% · QBH% 22.8% · PRESS 69 · PRESS% 38.3% · QPRESS% 44.9% · TTPR 2.75 · DISR% 0.6% · BLZ% 70.0%
+- team-defense/pass-rush: GP 4 · DPBK 154 · SK 16 · SK% 10.4% · QBH% 24.0% · PRESS 63 · PRESS% 40.9% · QPRESS% 42.9% · TTPR 2.79 · DISR% 0.6% · BLZ% 72.1%
+- team-defense/passing-analytics (1): GP 5 · EPA/DB -0.206 · SUCC% 35.0% · DVOA -24.0% · CPOE -9.12% · CBALL% 59.6% · EXP% 14.5% · INTW% 5.1% · TGHT% 32.7% · OPEN% 55.8% · TA% 4.5% · DROP% 3.8%
+- team-defense/passing-analytics: GP 4 · EPA/DB -0.164 · SUCC% 34.4% · DVOA -18.3% · CPOE -11.87% · CBALL% 58.8% · EXP% 17.9% · INTW% 3.8% · TGHT% 26.7% · OPEN% 61.1% · TA% 4.6% · DROP% 4.6%
+- team-defense/rush-analytics (1): GP 5 · EPA/ATT -0.216 · SUCC% 29.7% · DVOA -25.7% · aRYOE  · EXP% 8.9% · STF% 19.8% · YBCO 1.23 · YACO 2.53
+- team-defense/rush-analytics: GP 4 · EPA/ATT -0.222 · SUCC% 29.8% · DVOA -28.0% · aRYOE  · EXP% 10.7% · STF% 20.2% · YBCO 1.31 · YACO 2.55
+- team-offense/efficiency (1): GP 5 · EPA/PLY -0.120 · DVOA -19.4% · SUCC% 35.1% · EXP% 7.8% · CONV% 41.0% · TO 3 · TO% 0.97% · PENY 29.0 · PEN% 6.82%
+- team-offense/efficiency: GP 4 · EPA/PLY -0.119 · DVOA -23.4% · SUCC% 32.5% · EXP% 7.1% · CONV% 38.5% · TO 2 · TO% 0.83% · PENY 28.8 · PEN% 7.08%
+- team-offense/overview (1): GP 5 · YD/PLY 4.9 · PT/GM 19.4 · FD% 23.1% · TO 3 · DPBK% 55.5% · YD 938 · TD 5 · INT 2 · RUSH% 44.5% · YD__2 580 · TD__2 3
+- team-offense/overview: GP 4 · YD/PLY 4.7 · PT/GM 20.0 · FD% 22.1% · TO 2 · DPBK% 55.0% · YD 709 · TD 4 · INT 2 · RUSH% 45.0% · YD__2 427 · TD__2 2
+- team-offense/pass-protection (1): GP 5 · SK 15 · SK% 8.8% · QBSK% 20.0% · QBH% 14.0% · PRESS% 24.6% · UPRES% 23.8% · BLITZ% 37.4% · TTPR 2.84 · TTT 2.59 · EPA/DB -0.528 · DVOA -133.7% · SUCC% 19.0% · EPA/DB__2 0.131 · DVOA__2 18.0% · SUCC%__2 44.2%
+- team-offense/pass-protection: GP 4 · SK 13 · SK% 9.8% · QBSK% 7.7% · QBH% 15.9% · PRESS% 28.0% · UPRES% 27.0% · BLITZ% 37.9% · TTPR 2.75 · TTT 2.50 · EPA/DB -0.610 · DVOA -143.5% · SUCC% 16.2% · EPA/DB__2 0.147 · DVOA__2 14.9% · SUCC%__2 41.1%
+- team-offense/passing-analytics (1): GP 5 · EPA/DB -0.031 · SUCC% 38.0% · DVOA -8.5% · CPOE -2.8% · CBALL% 70.9% · EXP% 13.0% · INTW% 1.4% · HLT% 2.8% · TA% 7.1% · DROP% 2.8% · aDOT 6.6 · aYAC 4.8
+- team-offense/passing-analytics: GP 4 · EPA/DB -0.066 · SUCC% 34.1% · DVOA -17.4% · CPOE -4.5% · CBALL% 67.6% · EXP% 13.2% · INTW% 1.8% · HLT% 1.8% · TA% 9.0% · DROP% 2.7% · aDOT 6.9 · aYAC 4.7
+- team-offense/rushing-analytics (1): GP 5 · EPA/ATT -0.231 · SUCC% 31.4% · DVOA -15.4% · aRYOE  · EXP% 6.6% · STF% 22.6% · aYBCO 1.18 · aYACO 2.00 · CRT% 57.1%
+- team-offense/rushing-analytics: GP 4 · EPA/ATT -0.185 · SUCC% 30.6% · DVOA -11.3% · aRYOE  · EXP% 6.5% · STF% 22.2% · aYBCO 1.31 · aYACO 1.76 · CRT% 49.9%
+- team-offense/tempo (1): GP 5 · PLY/GM 61.6 · TOP 31.86 · DRV/GM 11.4 · SEC/PLY 31.0 · PLY/DRV 5.4 · YD/DRV 26.6 · SEC/DRV 168 · 3&O 29.8% · SCD% 42.1%
+- team-offense/tempo: GP 4 · PLY/GM 60.0 · TOP 30.31 · DRV/GM 11.5 · SEC/PLY 30.3 · PLY/DRV 5.2 · YD/DRV 24.7 · SEC/DRV 158 · 3&O 30.4% · SCD% 41.3%
+- team-offense/tendencies (1): GP 5 · DPBK% 55.5% · RUSH% 44.5% · SHG% 54.2% · NH% 5.8% · MOT% 51.9% · PA% 29.8% · IZ% 26.3% · OZ% 27.0% · MD% 24.1% · PWR% 6.6% · CTR% 2.2%
+- team-offense/tendencies: GP 4 · DPBK% 55.0% · RUSH% 45.0% · SHG% 55.0% · NH% 5.8% · MOT% 55.4% · PA% 27.3% · IZ% 20.4% · OZ% 27.8% · MD% 29.6% · PWR% 6.5% · CTR% 1.9%
+- QB1 (Kyler Murray): air-yards (1) [GP 4, aDOT 6.3, AIR 634, cAIR 376, cAIR% 59.3%, PRYD 258, PRYD% 40.7%, dAIR 35] · air-yards [GP 3, aDOT 6.5, AIR 465, cAIR 275, cAIR% 59.1%, PRYD 190, PRYD% 40.9%, dAIR 41] · analytics (1) [GP 4, EPA -9.9, EPA/DB -0.080, SUCC% 37.4%, ACOMP% 80.2%, DVOA -26.3%, DYAR -96, xCOMP 66.8%, CPOE 1.5%, aYDOE -0.613] · analytics [GP 3, EPA -13.3, EPA/DB -0.158, SUCC% 31.0%, ACOMP% 78.7%, DVOA -44.0%, DYAR -147, xCOMP 62.7%, CPOE 0.6%, aYDOE -0.692] · efficiency (1) [GP 4, CBALL% 75.2%, INTW% 1.0%, HLT% 4.0%, EXP% 8.9%, DROP% 4.0%, TA% 9.9%, TD% 2.0%, INT% 2.0%, SK% 7.3%] · efficiency [GP 3, CBALL% 71.8%, INTW% 1.4%, HLT% 2.8%, EXP% 8.5%, DROP% 4.2%, TA% 14.1%, TD% 1.4%, INT% 2.8%, SK% 8.3%] · overview (1) [GP 4, DPBK 123, ATT 101, COMP 69, COMP% 68.3%, YD 662, YD/ATT 6.6, TD 2, INT 2, FUML 0] · overview (2) [GP 4, DPBK 123, ATT 101, COMP 69, COMP% 68.3%, YD 662, YD/ATT 6.6, TD 2, INT 2, FUML 0] · overview (3) [GP 4, DPBK 123, ATT 101, COMP 69, COMP% 68.3%, YD 662, YD/ATT 6.6, TD 2, INT 2, FUML 0] · overview [GP 3, DPBK 84, ATT 71, COMP 45, COMP% 63.4%, YD 433, YD/ATT 6.1, TD 1, INT 2, FUML 0] · pressure (1) [GP 4, SK 9, SK% 7.3%, QBSK% 33.3%, AVSK% 3.3%, QBH% 13.0%, TTPR 3.03, TTT 2.65, RATE 25.2%, EPA/DB -0.470, DVOA -131.1%, RATE__2 74.8%, EPA/DB__2 0.051, DVOA__2 10.2%] · pressure [GP 3, SK 7, SK% 8.3%, QBSK% 14.3%, AVSK% 3.6%, QBH% 15.5%, TTPR 2.94, TTT 2.54, RATE 31.0%, EPA/DB -0.577, DVOA -144.5%, RATE__2 69.0%, EPA/DB__2 0.030, DVOA__2 0.8%]
 
 ## Power (separate signal, not a projection) [Source: data/generated/team-profiles/team-power-ratings-2026.json]
 SRS 8.29 (#4) · net PPG 9 (#4) · Pythag 0.779 (#2) · model rank #3
@@ -45,7 +57,7 @@ SRS 8.29 (#4) · net PPG 9 (#4) · Pythag 0.779 (#2) · model rank #3
 HC Kevin O'Connell · neutral pass rate 0.505 · sample 2026-09-13 → 2026-10-11 (5g) · 4th-down, shotgun, no-huddle, play-action, motion, pace: unavailable (null in source)
 Secondary-matchup context is manual_review_capped and keyed to source Week 6 — current. See MIN.json → scheme_context.secondary_matchup.
 
-## Availability (built; intel only; roster_gate passed; ESPN 2026-10-15T21:03:20Z)
+## Availability (built; intel only; roster_gate passed; ESPN 2026-10-17T02:03:26Z)
 Names below are ESPN/operator data re-checked against the roster snapshot; ESPN statuses lag, official inactives decide.
 QB: Kyler Murray [ok]
 Out/IR: Jordan Mason RB Injured Reserve; Donovan Jackson G Injured Reserve; Josh Oliver TE Injured Reserve

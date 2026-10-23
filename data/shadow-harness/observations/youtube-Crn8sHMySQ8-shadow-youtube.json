@@ -1,0 +1,303 @@
+{
+  "episode_slug": "youtube-Crn8sHMySQ8",
+  "show": "YouTube Discovery",
+  "date": "manual",
+  "priority": "manual",
+  "mode": "live-youtube",
+  "model": "gemini-3.5-flash",
+  "input_source": "youtube_video_url",
+  "reprocess_required": false,
+  "reprocess_reason": null,
+  "quality_flags": [],
+  "run": {
+    "run_id": "youtube_gemini_24f993f85ac3",
+    "mode": "live-youtube",
+    "model": "gemini-3.5-flash",
+    "input_source": "youtube_video_url",
+    "youtube_url": "https://www.youtube.com/watch?v=Crn8sHMySQ8",
+    "latency_ms": 67624,
+    "estimated_cost_usd": 0.036254,
+    "input_tokens": 346035,
+    "output_tokens": 4125,
+    "raw_model_response": "{\n  \"transcript_summary\": \"Chad Millman and professional bettor Simon Hunter review NFL Week 5 market moves, line shifts, and sharp action. They deliver their weekly best bets, including the Brass Balls Trade of the Week on Washington, breakdown of line movements across major matchups, and their official survivor pool pick.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 3782,\n    \"last_analyzed_timestamp\": 3782,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 140.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Welcome to Sharp or Square presented by Polymarket, part of The Volume Podcast Network. Joined as always by my co-host, my BFF, professional bettor Simon Hunter.\"\n    },\n    {\n      \"start\": 140.0,\n      \"end\": 356.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Crazy week with line movement, Chad. A lot of guys taking positions and moving pretty big numbers. Texans, Dolphins, Falcons, and Packers/Bears have been major topics.\"\n    },\n    {\n      \"start\": 356.0,\n      \"end\": 525.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Let's talk about Thursday Night Football: Tampa Bay at Dallas. Line started at 9.5, dropped to 7.5, and is back up to 8.5.\"\n    },\n    {\n      \"start\": 525.0,\n      \"end\": 784.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"I get why pros are taking Tampa. Underlying numbers aren't terrible and prime time dogs of 7+ points facing teams off 30+ point performances are 17-5 ATS.\"\n    },\n    {\n      \"start\": 784.0,\n      \"end\": 984.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Wild 48 hours for the Eagles in London vs Jaguars. Lane Johnson retires, Cam Jurgens traded, injuries mounting up, line swung from Eagles -2.5 to Jaguars -7.5.\"\n    },\n    {\n      \"start\": 984.0,\n      \"end\": 1180.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Minnesota at New Orleans: Saints down to +1.5 after opening +2.5. Pros jumped on New Orleans early at +2.5 key number.\"\n    },\n    {\n      \"start\": 1180.0,\n      \"end\": 1485.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Time for our Brass Balls Trade of the Week presented by Polymarket: Washington Commanders -3.5 vs New York Giants, trading at 52% probability on Polymarket.\"\n    },\n    {\n      \"start\": 1485.0,\n      \"end\": 1684.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Jayden Daniels expected to play and Dan Quinn is 6-0 SU and 5-1 ATS vs the Giants since 2015. Great spot for Washington.\"\n    },\n    {\n      \"start\": 1684.0,\n      \"end\": 1929.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Cincinnati at Miami: line dropped from 7 to 6.5 with sharp money on the Dolphins. Public continues to back Joe Burrow and the Bengals.\"\n    },\n    {\n      \"start\": 1929.0,\n      \"end\": 2224.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Browns at Jets (-2.5): 90% of bets and money on Cleveland as public dogs, making this a classic sharp spot to back New York.\"\n    },\n    {\n      \"start\": 2224.0,\n      \"end\": 2406.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Indianapolis at Pittsburgh: line at Steelers -2.5, creeping toward 3. Sharp money coming in on Pittsburgh at home.\"\n    },\n    {\n      \"start\": 2406.0,\n      \"end\": 2614.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Raiders at Patriots (-3.5): Las Vegas is a massive public dog getting the key +3.5 hook, but sharp action is split between the two sides.\"\n    },\n    {\n      \"start\": 2614.0,\n      \"end\": 2931.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Bears (-1.5) at Packers: Line moved down from 2.5/3 to 1.5. Books taking a massive stance on Green Bay despite public heavy on Chicago.\"\n    },\n    {\n      \"start\": 2931.0,\n      \"end\": 3187.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Niners at Seahawks (-3): Discord group bet selected Seattle -3. Sharp models grade San Francisco high, but Seattle at home under a field goal is strong value.\"\n    },\n    {\n      \"start\": 3187.0,\n      \"end\": 3317.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Lions (-5.5) at Cardinals: Line moved from 4.5 to 5.5. Wise guy money driving Detroit up after their embarrassing loss.\"\n    },\n    {\n      \"start\": 3317.0,\n      \"end\": 3511.0,\n      \"speaker\": \"Simon Hunter\",\n      \"text\": \"Bills at Rams (-3): Line moved from 2.5 to 3. Smart money driving Rams up, but taking Josh Allen as a 3-point underdog is hard to pass up.\"\n    },\n    {\n      \"start\": 3511.0,\n      \"end\": 3604.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"Rounding out our moneyline parlays and biggest bets for Week 5, including Sharp vs Square picks and consensus Survivor Pool.\"\n    },\n    {\n      \"start\": 3604.0,\n      \"end\": 3782.0,\n      \"speaker\": \"Chad Millman\",\n      \"text\": \"We both agree on Houston for Survivor. Thanks for watching Sharp or Square, see you Sunday morning!\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"WAS\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"WAS\",\n      \"line\": -3.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 1225,\n      \"rationale\": \"Brass Balls Trade of the Week. Dan Quinn is 6-0 SU and 5-1 ATS vs the Giants; Jayden Daniels is fully healthy.\"\n    },\n    {\n      \"team\": \"MIA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"MIA\",\n      \"line\": 6.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1330,\n      \"rationale\": \"Sharp money moved line from +7 to +6.5. Bookmakers allowing public to easily teaser Cincy creates a classic trap spot.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"NYJ\",\n      \"line\": -2.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1780,\n      \"rationale\": \"Classic sharp reverse line move setup with 90% of public money on Cleveland as road underdog.\"\n    },\n    {\n      \"team\": \"PIT\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"PIT\",\n      \"line\": -2.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1950,\n      \"rationale\": \"Pros taking Pittsburgh under a field goal against an injured Colts receiving corps.\"\n    },\n    {\n      \"team\": \"LV\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"LV\",\n      \"line\": 3.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 2180,\n      \"rationale\": \"Raiders +3.5 hook provides key value; Las Vegas has been underrated by bookmakers all season.\"\n    },\n    {\n      \"team\": \"SEA\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"SEA\",\n      \"line\": -3.0,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 2720,\n      \"rationale\": \"Discord Group Bet winner for Week 5. Strong home field advantage against an injured 49ers squad.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"DET\",\n      \"line\": -5.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 2880,\n      \"rationale\": \"Lions under 6 points is great value. Dan Campbell teams historically bounce back strong after embarrassing losses.\"\n    },\n    {\n      \"team\": \"BUF\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"BUF\",\n      \"line\": 3.0,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3020,\n      \"rationale\": \"Josh Allen as a 3-point underdog presents strong value despite pro money moving Rams line up.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"HOU\",\n      \"line\": -7.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 3605,\n      \"rationale\": \"Chad's Sharp vs Square pick. DeMeco Ryans taking over play-calling in an all-in spot against Tennessee.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": null,\n      \"market\": \"spread\",\n      \"side\": \"DET\",\n      \"line\": -5.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3630,\n      \"rationale\": \"Simon's Sharp vs Square pick.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": null,\n      \"market\": \"survivor_pick\",\n      \"side\": null,\n      \"line\": null,\n      \"price\": null,\n      \"week\": 5,\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 3665,\n      \"rationale\": \"Consensus survivor pick. Safest matchup on the board with DeMeco Ryans in a must-win situation.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"market_sentiment\",\n      \"teams\": [\n        \"HOU\",\n        \"TEN\"\n      ],\n      \"players\": [],\n      \"topic\": \"Texans line move from -6.5 to -7.5\",\n      \"summary\": \"Heavy professional action backed Houston, pushing the line past the key number of 7 despite public skepticism.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 150,\n      \"quote\": \"So much money, so many guys I've talked to have the same view I have.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\n        \"BAL\",\n        \"ATL\"\n      ],\n      \"players\": [\n        \"Lamar Jackson\"\n      ],\n      \"topic\": \"Lamar Jackson ankle injury impact on Falcons line\",\n      \"summary\": \"Line moved from Atlanta +3.5 to Falcons -3.5 due to uncertainty around Lamar Jackson's ankle status and potential absence.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 250,\n      \"quote\": \"If Lamar plays with an ankle injury, you're getting great value.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\n        \"TB\",\n        \"DAL\"\n      ],\n      \"players\": [],\n      \"topic\": \"Bucs vs Cowboys trends\",\n      \"summary\": \"Prime time underdogs of 7+ points facing teams coming off 30+ point scoring games are 17-5 ATS historically.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 435,\n      \"quote\": \"Prime time dogs of seven plus points facing a team that's coming off putting over 30 points are 17 and 5 in this spot.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"roster_or_depth_chart\",\n      \"teams\": [\n        \"PHI\"\n      ],\n      \"players\": [\n        \"Lane Johnson\",\n        \"Cam Jurgens\",\n        \"Saquon Barkley\",\n        \"DeVonta Smith\"\n      ],\n      \"topic\": \"Eagles roster turnover and injury report in London\",\n      \"summary\": \"Eagles dealing with Lane Johnson retirement, Cam Jurgens trade, and Wednesday practice absences for Barkley and Smith ahead of London matchup.\",\n      \"speaker\": \"Chad Millman\",\n      \"source_timestamp\": 530,\n      \"quote\": \"Lane Johnson retires, Cam Jurgens gets traded, Saquon doesn't practice... 10 point swing in the line.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\n        \"CIN\"\n      ],\n      \"players\": [\n        \"Joe Burrow\"\n      ],\n      \"topic\": \"Joe Burrow late-game record stat\",\n      \"summary\": \"Joe Burrow is 1-34 in games when trailing or tied with under 8 minutes remaining in the 4th quarter.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1580,\n      \"quote\": \"If a guy's 1 and 34 in games when there's 8 minutes left and he's tied or losing, he doesn't come back.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\n        \"WAS\",\n        \"NYG\"\n      ],\n      \"players\": [\n        \"Dan Quinn\",\n        \"Jayden Daniels\"\n      ],\n      \"topic\": \"Dan Quinn historical dominance over Giants\",\n      \"summary\": \"Dan Quinn is 6-0 SU and 5-1 ATS versus the Giants since 2015. Jayden Daniels returning to full health strengthens Washington's position.\",\n      \"speaker\": \"Simon Hunter\",\n      \"source_timestamp\": 1100,\n      \"quote\": \"Dan Quinn in his career is 6 and 0 straight up and 5 and 1 against the spread since 2015 against the Giants.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Texans Line Shift\",\n      \"timestamp\": 150,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"So much money, so many guys I've talked to have the same view I have.\"\n    },\n    {\n      \"topic\": \"Bucs Trend\",\n      \"timestamp\": 435,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"Prime time dogs of seven plus points facing a team that's coming off putting over 30 points are 17 and 5 in this spot.\"\n    },\n    {\n      \"topic\": \"Joe Burrow Stat\",\n      \"timestamp\": 1580,\n      \"speaker\": \"Simon Hunter\",\n      \"quote\": \"If a guy's 1 and 34 in games when there's 8 minutes left and he's tied or losing, he doesn't come back.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+    "extracted_picks": [
+      {
+        "team": "WAS",
+        "player": null,
+        "market": "spread",
+        "side": "WAS",
+        "line": -3.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Chad Millman",
+        "source_timestamp": 1225,
+        "rationale": "Brass Balls Trade of the Week. Dan Quinn is 6-0 SU and 5-1 ATS vs the Giants; Jayden Daniels is fully healthy."
+      },
+      {
+        "team": "MIA",
+        "player": null,
+        "market": "spread",
+        "side": "MIA",
+        "line": 6.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1330,
+        "rationale": "Sharp money moved line from +7 to +6.5. Bookmakers allowing public to easily teaser Cincy creates a classic trap spot."
+      },
+      {
+        "team": "NYJ",
+        "player": null,
+        "market": "spread",
+        "side": "NYJ",
+        "line": -2.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1780,
+        "rationale": "Classic sharp reverse line move setup with 90% of public money on Cleveland as road underdog."
+      },
+      {
+        "team": "PIT",
+        "player": null,
+        "market": "spread",
+        "side": "PIT",
+        "line": -2.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1950,
+        "rationale": "Pros taking Pittsburgh under a field goal against an injured Colts receiving corps."
+      },
+      {
+        "team": "LV",
+        "player": null,
+        "market": "spread",
+        "side": "LV",
+        "line": 3.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 2180,
+        "rationale": "Raiders +3.5 hook provides key value; Las Vegas has been underrated by bookmakers all season."
+      },
+      {
+        "team": "SEA",
+        "player": null,
+        "market": "spread",
+        "side": "SEA",
+        "line": -3,
+        "price": -110,
+        "week": 5,
+        "speaker": "Chad Millman",
+        "source_timestamp": 2720,
+        "rationale": "Discord Group Bet winner for Week 5. Strong home field advantage against an injured 49ers squad."
+      },
+      {
+        "team": "DET",
+        "player": null,
+        "market": "spread",
+        "side": "DET",
+        "line": -5.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 2880,
+        "rationale": "Lions under 6 points is great value. Dan Campbell teams historically bounce back strong after embarrassing losses."
+      },
+      {
+        "team": "BUF",
+        "player": null,
+        "market": "spread",
+        "side": "BUF",
+        "line": 3,
+        "price": -110,
+        "week": 5,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3020,
+        "rationale": "Josh Allen as a 3-point underdog presents strong value despite pro money moving Rams line up."
+      },
+      {
+        "team": "HOU",
+        "player": null,
+        "market": "spread",
+        "side": "HOU",
+        "line": -7.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Chad Millman",
+        "source_timestamp": 3605,
+        "rationale": "Chad's Sharp vs Square pick. DeMeco Ryans taking over play-calling in an all-in spot against Tennessee."
+      },
+      {
+        "team": "DET",
+        "player": null,
+        "market": "spread",
+        "side": "DET",
+        "line": -5.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3630,
+        "rationale": "Simon's Sharp vs Square pick."
+      },
+      {
+        "team": "HOU",
+        "player": null,
+        "market": "survivor_pick",
+        "side": "NO",
+        "line": null,
+        "price": null,
+        "week": 5,
+        "speaker": "Simon Hunter",
+        "source_timestamp": 3665,
+        "rationale": "Consensus survivor pick. Safest matchup on the board with DeMeco Ryans in a must-win situation."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "market_sentiment",
+        "teams": [
+          "HOU",
+          "TEN"
+        ],
+        "players": [],
+        "topic": "Texans line move from -6.5 to -7.5",
+        "summary": "Heavy professional action backed Houston, pushing the line past the key number of 7 despite public skepticism.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 150,
+        "quote": "So much money, so many guys I've talked to have the same view I have.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "BAL",
+          "ATL"
+        ],
+        "players": [
+          "Lamar Jackson"
+        ],
+        "topic": "Lamar Jackson ankle injury impact on Falcons line",
+        "summary": "Line moved from Atlanta +3.5 to Falcons -3.5 due to uncertainty around Lamar Jackson's ankle status and potential absence.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 250,
+        "quote": "If Lamar plays with an ankle injury, you're getting great value.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "TB",
+          "DAL"
+        ],
+        "players": [],
+        "topic": "Bucs vs Cowboys trends",
+        "summary": "Prime time underdogs of 7+ points facing teams coming off 30+ point scoring games are 17-5 ATS historically.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 435,
+        "quote": "Prime time dogs of seven plus points facing a team that's coming off putting over 30 points are 17 and 5 in this spot.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "roster_or_depth_chart",
+        "teams": [
+          "PHI"
+        ],
+        "players": [
+          "Lane Johnson",
+          "Cam Jurgens",
+          "Saquon Barkley",
+          "DeVonta Smith"
+        ],
+        "topic": "Eagles roster turnover and injury report in London",
+        "summary": "Eagles dealing with Lane Johnson retirement, Cam Jurgens trade, and Wednesday practice absences for Barkley and Smith ahead of London matchup.",
+        "speaker": "Chad Millman",
+        "source_timestamp": 530,
+        "quote": "Lane Johnson retires, Cam Jurgens gets traded, Saquon doesn't practice... 10 point swing in the line.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "CIN"
+        ],
+        "players": [
+          "Joe Burrow"
+        ],
+        "topic": "Joe Burrow late-game record stat",
+        "summary": "Joe Burrow is 1-34 in games when trailing or tied with under 8 minutes remaining in the 4th quarter.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1580,
+        "quote": "If a guy's 1 and 34 in games when there's 8 minutes left and he's tied or losing, he doesn't come back.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "WAS",
+          "NYG"
+        ],
+        "players": [
+          "Dan Quinn",
+          "Jayden Daniels"
+        ],
+        "topic": "Dan Quinn historical dominance over Giants",
+        "summary": "Dan Quinn is 6-0 SU and 5-1 ATS versus the Giants since 2015. Jayden Daniels returning to full health strengthens Washington's position.",
+        "speaker": "Simon Hunter",
+        "source_timestamp": 1100,
+        "quote": "Dan Quinn in his career is 6 and 0 straight up and 5 and 1 against the spread since 2015 against the Giants.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Texans Line Shift",
+        "timestamp": 150,
+        "speaker": "Simon Hunter",
+        "quote": "So much money, so many guys I've talked to have the same view I have."
+      },
+      {
+        "topic": "Bucs Trend",
+        "timestamp": 435,
+        "speaker": "Simon Hunter",
+        "quote": "Prime time dogs of seven plus points facing a team that's coming off putting over 30 points are 17 and 5 in this spot."
+      },
+      {
+        "topic": "Joe Burrow Stat",
+        "timestamp": 1580,
+        "speaker": "Simon Hunter",
+        "quote": "If a guy's 1 and 34 in games when there's 8 minutes left and he's tied or losing, he doesn't come back."
+      }
+    ],
+    "coverage_assessment": {
+      "last_covered_timestamp": 3782,
+      "self_reported_reached_end": true,
+      "duration_used_for_check": 3782,
+      "segment_start_seconds": null,
+      "segment_end_seconds": null,
+      "suspected_incomplete": false,
+      "reason": null,
+      "coverage_ratio": 1
+    }
+  },
+  "scoring": {
+    "score_status": "not_scored",
+    "score_reason": "No explicit extracted_picks ground truth exists for this baseline episode.",
+    "total_ground_truth": 0,
+    "total_shadow_extracted": 11,
+    "full_exact_matches": 0,
+    "precision_pct": "not scored",
+    "recall_pct": "not scored",
+    "f1_score_pct": "not scored",
+    "dimension_accuracy": {
+      "team": null,
+      "market": null,
+      "side": null,
+      "line": null,
+      "price": null,
+      "speaker": null,
+      "source_timestamp": null
+    }
+  }
+}

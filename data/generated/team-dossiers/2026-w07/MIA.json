@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-22T18:21:00.567Z",
+  "built_at": "2026-10-22T22:58:54.482Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "aecd94b",
+  "git_head": "645efaf",
   "market_data_included": false,
   "sources": [
     {
@@ -1276,7 +1276,7 @@
       "vet_status": "PASS",
       "blocking_count": 0,
       "roster_snapshot_generated_at": "2026-10-22T14:39:12.738634+00:00",
-      "roster_age_h_at_vet": 3.7,
+      "roster_age_h_at_vet": 8.3,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
@@ -1284,7 +1284,7 @@
     },
     "as_of": {
       "espn_status": "2026-10-22T14:39:14Z",
-      "availability_events": "2026-10-22T14:39:26.249Z",
+      "availability_events": "2026-10-22T22:58:47.007Z",
       "impact_digest": "2026-10-22T14:39:29.587Z",
       "projected_starters": "2026-10-21T22:00:03.496Z",
       "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -1418,13 +1418,29 @@
       "window": "published within 10 days of build; latest per player; cap 12",
       "rows": [
         {
+          "player_name": "Darrell Baker Jr.",
+          "position": "CB",
+          "normalized_status": "PUP",
+          "availability_trend": "worsening",
+          "event_type": "pup",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-22T22:50:05.000Z",
+          "summary": "Darrell Baker Jr. PUP",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
           "player_name": "Ronnie Harrison Jr.",
           "position": "S",
           "normalized_status": "IR",
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Ronnie Harrison Jr. IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1440,7 +1456,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "De'Von Achane IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1456,24 +1472,8 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Cole Turner IR",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player_name": "Darrell Baker Jr.",
-          "position": "CB",
-          "normalized_status": "PUP",
-          "availability_trend": "worsening",
-          "event_type": "pup",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
-          "summary": "Darrell Baker Jr. PUP",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1488,7 +1488,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Trey Moore IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1504,7 +1504,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Rene Konga IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1512,6 +1512,54 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Jaylen Wright",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T20:58:00.000Z",
+          "summary": "Wright (foot) remained limited at Thursday's practice, Marce Louis-Jacques of ESPN.com reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Caleb Douglas",
+          "position": "WR",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T20:36:00.000Z",
+          "summary": "Douglas (ankle) was a limited participant in Thursday's practice, Marcel Louis-Jacques of ESPN.com reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Willie Gay Jr.",
+          "position": "LB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T20:18:00.000Z",
+          "summary": "questionable",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
         },
         {
           "player_name": "Jonah Savaiinaea",
@@ -1554,54 +1602,6 @@
           "source": "ESPN injuries API",
           "published_at": "2026-10-22T00:39:00.000Z",
           "summary": "Brents (neck) was a full participant at the Dolphins' practice Wednesday, David Furones of the South Florida Sun Sentinel reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Will Kacmarek",
-          "position": "TE",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-22T00:31:00.000Z",
-          "summary": "Kacmarek (hamstring) was a limited participant at the Dolphins' practice Wednesday, David Furones of the South Florida Sun Sentinel reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Justin Joly",
-          "position": "TE",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-22T00:25:00.000Z",
-          "summary": "Joly (concussion) did not appear on the Dolphins' injury report Wednesday, David Furones of the South Florida Sun Sentinel reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Michael Taaffe",
-          "position": "S",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-22T00:18:00.000Z",
-          "summary": "Taaffe (chest) did not appear on the Dolphins' injury report Wednesday, David Furones of the South Florida Sun Sentinel reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1718,8 +1718,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1952,7 +1951,7 @@
       "through_week": null,
       "as_of": {
         "espn_status": "2026-10-22T14:39:14Z",
-        "availability_events": "2026-10-22T14:39:26.249Z",
+        "availability_events": "2026-10-22T22:58:47.007Z",
         "impact_digest": "2026-10-22T14:39:29.587Z",
         "projected_starters": "2026-10-21T22:00:03.496Z",
         "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -1961,8 +1960,7 @@
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

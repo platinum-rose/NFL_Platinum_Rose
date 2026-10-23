@@ -1,7 +1,7 @@
 {
  "schema_version": "1.0",
  "season": 2026,
- "as_of": "2026-10-15",
+ "as_of": "2026-10-22",
  "units": {
   "futures_usd": 20,
   "in_season_usd": 10
@@ -515,6 +515,60 @@
    "to_win_usd": 16.67,
    "result_status": "pending",
    "estimate_note": "Official anchor-ladder position, logged verbatim from Andy's BetOnline ticket. Settles on Green Bay qualifying for the 2026 postseason."
+  },
+  {
+   "id": "sea_kc_exacta_1007917596",
+   "market": "superbowl_matchup",
+   "selection": "Seattle Seahawks vs Kansas City Chiefs",
+   "role": "exacta_amplifier",
+   "stake_usd": 10.0,
+   "price": 4300,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1007917596",
+   "accepted_date": "2026-10-22",
+   "to_win_usd": 430.0,
+   "result_status": "pending",
+   "funding": "cash",
+   "estimate_note": "Official BetOnline ticket 1007917596 (accepted 2026-10-22), supplied by Andy. Cash. Gap-fill: KC-SEA SB previously paid $0."
+  },
+  {
+   "id": "lar_kc_exacta_1007917596",
+   "market": "superbowl_matchup",
+   "selection": "Los Angeles Rams vs Kansas City Chiefs",
+   "role": "exacta_amplifier",
+   "stake_usd": 10.0,
+   "price": 4100,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1007917596",
+   "accepted_date": "2026-10-22",
+   "to_win_usd": 410.0,
+   "result_status": "pending",
+   "funding": "cash",
+   "estimate_note": "Official BetOnline ticket 1007917596 (accepted 2026-10-22), supplied by Andy. Cash. Gap-fill: KC-LAR SB previously paid $0."
+  },
+  {
+   "id": "lar_buf_exacta_1007917596",
+   "market": "superbowl_matchup",
+   "selection": "Los Angeles Rams vs Buffalo Bills",
+   "role": "exacta_amplifier",
+   "stake_usd": 10.0,
+   "price": 3500,
+   "status": "open",
+   "known_input": true,
+   "book": "betonline",
+   "book_confirmed": true,
+   "ticket_number": "1007917596",
+   "accepted_date": "2026-10-22",
+   "to_win_usd": 350.0,
+   "result_status": "pending",
+   "funding": "cash",
+   "estimate_note": "Official BetOnline ticket 1007917596 (accepted 2026-10-22), supplied by Andy. Cash. Covers BUF-LAR SB (previously -$234.70 if BUF won, $0 if LAR won)."
   }
  ],
  "open_parlays": {

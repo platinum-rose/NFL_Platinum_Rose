@@ -1,0 +1,657 @@
+{
+  "model": "gemini-3.5-flash",
+  "mode": "youtube_video_url",
+  "youtube_url": "https://www.youtube.com/watch?v=zHst1TgR4Ag",
+  "latency_ms": 377313,
+  "estimated_cost_usd": 0.034876,
+  "input_tokens": 317784,
+  "output_tokens": 7745,
+  "raw_model_response": "{\n  \"transcript_summary\": \"In this episode of SportsLine's player props show, host EC and analysts Dave and Sia break down their favorite betting angles and player props for NFL Week 5. They analyze key matchups including Packers vs. Bears, Seahawks vs. 49ers, and Giants vs. Commanders.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 381,\n    \"last_analyzed_timestamp\": 381,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 24.0,\n      \"speaker\": null,\n      \"text\": \"[Countdown introduction]\"\n    },\n    {\n      \"start\": 24.0,\n      \"end\": 50.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Welcome to the Take the Points NFL Player Prop Show for week number five. Great to have you with us. I'm EC, that's Uncle Dave, that's Sia. And we're missing one member of our team who is a little under the weather today.\"\n    },\n    {\n      \"start\": 50.0,\n      \"end\": 112.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Let's see the recap screen. It was not good for me. I was 0 for last week. Proppy was about 500. Uncle Dave, 2 and 1 outstanding. So we'll see what the guys have in store.\"\n    },\n    {\n      \"start\": 112.0,\n      \"end\": 256.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"Well, the first thing you need to do is stop with this kicker nonsense that you're doing. It's tough to pinpoint when kickers are going to be able to go out there and hit multiple field goals. I go back to basics, and I go with volume-based bets: pass attempts, pass completions, rush attempts, and I stick with the stars of the NFL.\"\n    },\n    {\n      \"start\": 256.0,\n      \"end\": 315.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Sia, you hit a 100-to-1 in golf last week, that's still unbelievable. Just get me some words of wisdom on top of what Dave said to get me hyped up before we give out our picks.\"\n    },\n    {\n      \"start\": 315.0,\n      \"end\": 428.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"Well, I think especially this time of year, you got to lean into comfortable bets and comfortable game betting environments. There's a lot of games this week where there's confusion because of injury news, but there's also weather implications with a lot of these games.\"\n    },\n    {\n      \"start\": 428.0,\n      \"end\": 502.0,\n      \"speaker\": \"EC\",\n      \"text\": \"I like that, and I'm going to play an under for a kicker later in the show that relates to weather. Let's get to the picks, starting with running backs. Proppy has Omarion Hampton over 37.5 rushing yards.\"\n    },\n    {\n      \"start\": 502.0,\n      \"end\": 637.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"Usually when I have that feeling about a prop, I get that Spidey sense. The Denver run defense is not good against the run, but I don't think the Chargers offensive line nor Omarion Hampton himself is in a particularly good spot. Keeton Mitchell can break off long runs, and I'm not sure Hampton can do that without really good blocking.\"\n    },\n    {\n      \"start\": 637.0,\n      \"end\": 724.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"Keeton Mitchell fits better in the Mike McDaniel system. He got ten rushes last week compared to Hampton's nine. So I certainly lean to the over, but this is very much an offensive line issues conversation with the Chargers.\"\n    },\n    {\n      \"start\": 724.0,\n      \"end\": 801.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Sia, your next pick is Kaleb Johnson over 34.5 rushing yards.\"\n    },\n    {\n      \"start\": 801.0,\n      \"end\": 900.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"Kaleb Johnson over 34.5 rushing yards at -107. The Green Bay Packers have a terrible offensive line, but the Bears are not a very tough rush defense. They are bottom ten, bottom two in yards before contact. If he gets ten carries, I think he goes over.\"\n    },\n    {\n      \"start\": 900.0,\n      \"end\": 935.0,\n      \"speaker\": \"EC\",\n      \"text\": \"And Chris Brooks is potentially out this week for the Packers.\"\n    },\n    {\n      \"start\": 935.0,\n      \"end\": 1017.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"I don't think Chris Brooks is going to play. I think Pierre Strong might end up playing. This was going to be a play that I was going to take the opposite and show down the heck out of this one, but then I did a little bit of extra digging. As long as that offensive line isn't as horrible as it was two weeks ago, I think you're right.\"\n    },\n    {\n      \"start\": 1017.0,\n      \"end\": 1153.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"Yeah, part of this is I don't think Chris Brooks is going to play. I didn't want to wait for that news to come out because I thought if it did, maybe this line changes. It's already up to 35.5.\"\n    },\n    {\n      \"start\": 1153.0,\n      \"end\": 1158.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"Chris Brooks was out for the third straight day of practice today, Friday. So I would not expect Brooks to play.\"\n    },\n    {\n      \"start\": 1158.0,\n      \"end\": 1218.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Do you think Josh Jacobs will play for the Packers this year, Uncle Dave?\"\n    },\n    {\n      \"start\": 1218.0,\n      \"end\": 1252.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"I'm not sure what the NFL is waiting for here. It's been a little strange that it's gone on this long without the NFL making a ruling on Josh Jacobs' status. I expected him to miss anywhere from six to eight games.\"\n    },\n    {\n      \"start\": 1252.0,\n      \"end\": 1306.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Let's move on to Dave's prop, Emanuel Wilson under 82.5 total yards.\"\n    },\n    {\n      \"start\": 1306.0,\n      \"end\": 1439.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"Emanuel Wilson under 82.5 total yards at -114. This is a 49ers run defense that has held running backs under four yards per rush with zero rushing touchdowns this year. Emanuel Wilson struggles with gap runs, which is something San Francisco defends well. Ryan Grubb is the offensive coordinator for Seattle, and he knows what he's about to see.\"\n    },\n    {\n      \"start\": 1439.0,\n      \"end\": 1454.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Your next prop is Cam Skattebo under 77.5 rushing + receiving yards.\"\n    },\n    {\n      \"start\": 1454.0,\n      \"end\": 1524.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"Yeah, 77.5 is a lot. This is a pretty good Washington rush defense, so I would be on the under here of Proppy's play, Cam Skattebo under 77.5.\"\n    },\n    {\n      \"start\": 1524.0,\n      \"end\": 1550.0,\n      \"speaker\": \"EC\",\n      \"text\": \"I'm going to play Derrick Henry under 85.5 rushing yards at -114. Atlanta has the best rush defense in the NFL by far, giving up less than 50 yards per game.\"\n    },\n    {\n      \"start\": 1550.0,\n      \"end\": 1630.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"With Lamar Jackson ruled out, Atlanta's game plan on defense should be very clear: stack the box to stop Derrick Henry and make Tyler Huntley beat them.\"\n    },\n    {\n      \"start\": 1630.0,\n      \"end\": 1703.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Right, and so really the best way for that to happen for the Falcons is to just keep on running the ball and control the game script.\"\n    },\n    {\n      \"start\": 1703.0,\n      \"end\": 1737.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"I'm a little nervous about this one, but I do see where you're coming from with that Falcons front. I just don't think I'd go a full unit on under Derrick Henry.\"\n    },\n    {\n      \"start\": 1737.0,\n      \"end\": 1753.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"I agree with your play. I would be on the under as opposed to the over.\"\n    },\n    {\n      \"start\": 1753.0,\n      \"end\": 1829.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"I just looked at Skattebo's rushing attempts prop, it's 15.5. In a rain-soaked game, I could see the Giants really leaning on their running game. But I still like the under on the total yards.\"\n    },\n    {\n      \"start\": 1829.0,\n      \"end\": 1840.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Next is Kyren Williams over 89.5 total yards.\"\n    },\n    {\n      \"start\": 1840.0,\n      \"end\": 2006.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"I love it. I think Kyren Williams could get over this number just on rushing alone. This Bills defense isn't very good, and I don't expect Ed Oliver to play. Kyren is getting a ton of chances with the ball.\"\n    },\n    {\n      \"start\": 2006.0,\n      \"end\": 2134.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"Kyren has been the guy. 16 carries for 80 yards and 10 receptions for 67 yards last week, and the week before 15 for 88 and 6 catches. This is the offense.\"\n    },\n    {\n      \"start\": 2134.0,\n      \"end\": 2227.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"With Monangai out, I expect DeAndre Swift to be the feature back and get in the neighborhood of 17 to 20 carries. Swift's carry prop is 19.5, which is very high.\"\n    },\n    {\n      \"start\": 2227.0,\n      \"end\": 2247.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"And on Chase Brown, the line is 64.5. They are begging you to take the under, which means you should take the over.\"\n    },\n    {\n      \"start\": 2247.0,\n      \"end\": 2348.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"I would just go with his rushing and receiving, because I think he can get there.\"\n    },\n    {\n      \"start\": 2348.0,\n      \"end\": 2506.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"I personally like Tuten quite a bit, over 80 rushing and receiving yards. Danny Brasco gave out his over rushing yards at 63.5. I think this game script is going to lend itself to running the ball.\"\n    },\n    {\n      \"start\": 2506.0,\n      \"end\": 2517.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Let's move on to wide receiver and tight end props. Amon-Ra St. Brown over 78.5 receiving yards.\"\n    },\n    {\n      \"start\": 2517.0,\n      \"end\": 2614.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"This is a high number, but it's not high enough. Jared Goff loves Amon-Ra St. Brown, and in this projected shootout, I absolutely think Amon-Ra St. Brown can go over.\"\n    },\n    {\n      \"start\": 2614.0,\n      \"end\": 2640.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Dave, which Lions receiver do you feel better about with their receiving totals?\"\n    },\n    {\n      \"start\": 2640.0,\n      \"end\": 2728.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"I think Sam LaPorta is probably where I would go first, and I might take Jameson Williams second. The Cardinals defense is terrible, they can't get pressure, and they don't have a secondary that can cover.\"\n    },\n    {\n      \"start\": 2728.0,\n      \"end\": 2753.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"Jamesion Williams' line is actually 50 to 52 at most major books, so shop around.\"\n    },\n    {\n      \"start\": 2753.0,\n      \"end\": 2803.0,\n      \"speaker\": \"EC\",\n      \"text\": \"We have three props in the Packers-Bears game. Dave, Rome Odunze over 3.5 receptions.\"\n    },\n    {\n      \"start\": 2803.0,\n      \"end\": 2858.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"Rome Odunze over 3.5 receptions at +126. Tyson Bagent plays within structure. The Packers have a zone-leaning defense and they've got a low pass-rush pressure rate. Odunze saw a big boost last week with a 22% target rate and 6 catches.\"\n    },\n    {\n      \"start\": 2858.0,\n      \"end\": 3002.0,\n      \"speaker\": \"EC\",\n      \"text\": \"I like Colston Loveland over 3.5 receptions at -154. Loveland had a 67% route share, 35% first-read share, and a 27% target share in Bagent's start. Packers are soft in the middle against tight ends.\"\n    },\n    {\n      \"start\": 3002.0,\n      \"end\": 3113.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Proppy has Tucker Kraft under 4.5 receptions.\"\n    },\n    {\n      \"start\": 3113.0,\n      \"end\": 3154.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"I would lean to the under as well. I think there's going to be a commitment to the run from Green Bay, which takes Kraft out of the equation.\"\n    },\n    {\n      \"start\": 3154.0,\n      \"end\": 3251.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"The Bears play the second-most man-to-man coverage in the NFL. When that's been the case, Tucker Kraft has a 7.1% target per route run rate. I think the Packers are really leaning into their receivers: Watson, Doubs, Wicks.\"\n    },\n    {\n      \"start\": 3251.0,\n      \"end\": 3291.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Which Packer receiver do you like the best, Dave?\"\n    },\n    {\n      \"start\": 3291.0,\n      \"end\": 3312.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"Christian Watson. Over Golden.\"\n    },\n    {\n      \"start\": 3312.0,\n      \"end\": 3329.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Watson over 60.5, Golden 56.5. With the passing of Mike Ditka today, you got to think the Bears have extra motivation.\"\n    },\n    {\n      \"start\": 3329.0,\n      \"end\": 3351.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Proppy has Malik Nabers over 54.5 receiving yards.\"\n    },\n    {\n      \"start\": 3351.0,\n      \"end\": 3419.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"I absolutely love this over. Anyone can cook the Washington secondary. Nabers can take a slant to the house even in the rain.\"\n    },\n    {\n      \"start\": 3419.0,\n      \"end\": 3451.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"Zack Taylor has talked a lot about Dante Miller being the next fastest receiver on the team next to Ja'Marr Chase. If his line is under 40.5, I would take the over.\"\n    },\n    {\n      \"start\": 3451.0,\n      \"end\": 3534.0,\n      \"speaker\": \"EC\",\n      \"text\": \"What about Joe Burrow over 250.5 passing yards?\"\n    },\n    {\n      \"start\": 3534.0,\n      \"end\": 3556.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"It would be a no play for me. I think this is a Chase Brown game, and we don't know the status of Tee Higgins.\"\n    },\n    {\n      \"start\": 3556.0,\n      \"end\": 3596.0,\n      \"speaker\": \"EC\",\n      \"text\": \"I have Commanders kicker Drew Stevens under 1.5 field goals made at +113. Heavy rain is expected, and the Giants have only given up one made field goal all year.\"\n    },\n    {\n      \"start\": 3596.0,\n      \"end\": 3615.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"I feel like this is a smashmouth game where they take the field goals. So this would be a stay-away for me.\"\n    },\n    {\n      \"start\": 3615.0,\n      \"end\": 3640.0,\n      \"speaker\": \"EC\",\n      \"text\": \"Let's see the recap screen. Propstarz has Tucker Kraft under 4.5 receptions, Amon-Ra St. Brown over 78.5 receiving yards, Malik Nabers over 54.5, Cam Skattebo under 77.5, Omarion Hampton over 37.5, and Kyren Williams over 89.5.\"\n    },\n    {\n      \"start\": 3640.0,\n      \"end\": 3656.0,\n      \"speaker\": \"Sia\",\n      \"text\": \"Sia has Kaleb Johnson over 34.5 rushing yards, Jacoby Brissett over 1.5 TD passes, and Michael Penix under 30.5 pass attempts.\"\n    },\n    {\n      \"start\": 3656.0,\n      \"end\": 3672.0,\n      \"speaker\": \"Dave\",\n      \"text\": \"Dave has Rome Odunze over 3.5 receptions, Emanuel Wilson under 82.5 total yards, and Tyler Shough over 22.5 completions.\"\n    },\n    {\n      \"start\": 3672.0,\n      \"end\": 381.0,\n      \"speaker\": \"EC\",\n      \"text\": \"And EC has Colston Loveland over 3.5 receptions, Derrick Henry under 85.5 rushing yards, Jacoby Brissett over 265.5 passing yards, and Drew Stevens under 1.5 field goals. Let's hit it big!\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"GB\",\n      \"player\": \"Tucker Kraft\",\n      \"market\": \"player_receptions\",\n      \"side\": \"UNDER\",\n      \"line\": 4.5,\n      \"price\": -122,\n      \"week\": 5,\n      \"speaker\": \"Propstarz\",\n      \"source_timestamp\": 1813,\n      \"rationale\": \"Dave notes the Bears play heavy man coverage where Kraft has a very low 7.1% target per route run rate.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": \"Amon-Ra St. Brown\",\n      \"market\": \"player_receiving_yds\",\n      \"side\": \"OVER\",\n      \"line\": 78.5,\n      \"price\": -115,\n      \"week\": 5,\n      \"speaker\": \"Propstarz\",\n      \"source_timestamp\": 1521,\n      \"rationale\": \"High projected game total and Goff's reliance on St. Brown in a shootout environment.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": \"Malik Nabers\",\n      \"market\": \"player_receiving_yds\",\n      \"side\": \"OVER\",\n      \"line\": 54.5,\n      \"price\": -114,\n      \"week\": 5,\n      \"speaker\": \"Propstarz\",\n      \"source_timestamp\": 2591,\n      \"rationale\": \"Washington's secondary is highly vulnerable and has shown little resistance to opposing wide receivers.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": \"Cam Skattebo\",\n      \"market\": \"player_total_yds\",\n      \"side\": \"UNDER\",\n      \"line\": 77.5,\n      \"price\": -120,\n      \"week\": 5,\n      \"speaker\": \"Propstarz\",\n      \"source_timestamp\": 1982,\n      \"rationale\": \"Giants running back room rotation and Skattebo's potential limitation in total yards.\"\n    },\n    {\n      \"team\": \"LAC\",\n      \"player\": \"Omarion Hampton\",\n      \"market\": \"player_rush_yds\",\n      \"side\": \"OVER\",\n      \"line\": 37.5,\n      \"price\": -115,\n      \"week\": 5,\n      \"speaker\": \"Propstarz\",\n      \"source_timestamp\": 310,\n      \"rationale\": \"Denver's defense presents a favorable matchup, though the line remains low.\"\n    },\n    {\n      \"team\": \"LAR\",\n      \"player\": \"Kyren Williams\",\n      \"market\": \"player_total_yds\",\n      \"side\": \"OVER\",\n      \"line\": 89.5,\n      \"price\": -115,\n      \"week\": 5,\n      \"speaker\": \"Propstarz\",\n      \"source_timestamp\": 1121,\n      \"rationale\": \"Kyren Williams has dominated workload shares in Los Angeles over Blake Corum.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": \"Kaleb Johnson\",\n      \"market\": \"player_rush_yds\",\n      \"side\": \"OVER\",\n      \"line\": 34.5,\n      \"price\": -107,\n      \"week\": 5,\n      \"speaker\": \"Sia\",\n      \"source_timestamp\": 481,\n      \"rationale\": \"Bears secondary is bottom ten in yards before contact, which should enable explosive runs.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": \"Jacoby Brissett\",\n      \"market\": \"player_passing_tds\",\n      \"side\": \"OVER\",\n      \"line\": 1.5,\n      \"price\": -127,\n      \"week\": 5,\n      \"speaker\": \"Sia\",\n      \"source_timestamp\": 4227,\n      \"rationale\": \"High passing volume expected against Detroit's vulnerable secondary.\"\n    },\n    {\n      \"team\": \"ATL\",\n      \"player\": \"Michael Penix\",\n      \"market\": \"player_pass_attempts\",\n      \"side\": \"UNDER\",\n      \"line\": 30.5,\n      \"price\": -136,\n      \"week\": 5,\n      \"speaker\": \"Sia\",\n      \"source_timestamp\": 1176,\n      \"rationale\": \"Falcons are likely to heavily lean on their running game to keep Baltimore's offense off the field.\"\n    },\n    {\n      \"team\": \"CHI\",\n      \"player\": \"Colston Loveland\",\n      \"market\": \"player_receptions\",\n      \"side\": \"OVER\",\n      \"line\": 3.5,\n      \"price\": -154,\n      \"week\": 5,\n      \"speaker\": \"EC\",\n      \"source_timestamp\": 1814,\n      \"rationale\": \"Loveland retains high route, first-read, and target shares with Bagent under center.\"\n    },\n    {\n      \"team\": \"BAL\",\n      \"player\": \"Derrick Henry\",\n      \"market\": \"player_rush_yds\",\n      \"side\": \"UNDER\",\n      \"line\": 85.5,\n      \"price\": -114,\n      \"week\": 5,\n      \"speaker\": \"EC\",\n      \"source_timestamp\": 932,\n      \"rationale\": \"Atlanta's front boasts the top run defense in the league, giving up less than 50 yards per game.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": \"Jacoby Brissett\",\n      \"market\": \"player_passing_yds\",\n      \"side\": \"OVER\",\n      \"line\": 265.5,\n      \"price\": -111,\n      \"week\": 5,\n      \"speaker\": \"EC\",\n      \"source_timestamp\": 3001,\n      \"rationale\": \"Expected garbage-time volume and Detroit's bottom-ranked pass defense.\"\n    },\n    {\n      \"team\": \"WAS\",\n      \"player\": \"Drew Stevens\",\n      \"market\": \"player_field_goals\",\n      \"side\": \"UNDER\",\n      \"line\": 1.5,\n      \"price\": 113,\n      \"week\": 5,\n      \"speaker\": \"EC\",\n      \"source_timestamp\": 1270,\n      \"rationale\": \"Heavy rain forecast and Giants' stingy field goal defense.\"\n    },\n    {\n      \"team\": \"CHI\",\n      \"player\": \"Rome Odunze\",\n      \"market\": \"player_receptions\",\n      \"side\": \"OVER\",\n      \"line\": 3.5,\n      \"price\": 126,\n      \"week\": 5,\n      \"speaker\": \"Dave\",\n      \"source_timestamp\": 1689,\n      \"rationale\": \"Bagent plays within structure, giving Odunze consistent targets against zone schemes.\"\n    },\n    {\n      \"team\": \"SEA\",\n      \"player\": \"Emanuel Wilson\",\n      \"market\": \"player_total_yds\",\n      \"side\": \"UNDER\",\n      \"line\": 82.5,\n      \"price\": -114,\n      \"week\": 5,\n      \"speaker\": \"Dave\",\n      \"source_timestamp\": 791,\n      \"rationale\": \"San Francisco defends Seattle's preferred zone-running schemes exceptionally well.\"\n    },\n    {\n      \"team\": \"NO\",\n      \"player\": \"Tyler Shough\",\n      \"market\": \"player_pass_completions\",\n      \"side\": \"OVER\",\n      \"line\": 22.5,\n      \"price\": -119,\n      \"week\": 5,\n      \"speaker\": \"Dave\",\n      \"source_timestamp\": 1845,\n      \"rationale\": \"Saints will be forced into quick-game passes to neutralize Minnesota's heavy blitz packages.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"injury_or_health\",\n      \"teams\": [\"GB\"],\n      \"players\": [\"Chris Brooks\"],\n      \"topic\": \"Chris Brooks practice status\",\n      \"summary\": \"Chris Brooks was sidelined for a third consecutive practice on Friday, cementing his expected absence for Week 5.\",\n      \"speaker\": \"Dave\",\n      \"source_timestamp\": 714,\n      \"quote\": \"Chris Brooks was out for the third straight day of practice today, Friday.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"player_evaluation\",\n      \"teams\": [\"GB\"],\n      \"players\": [\"Josh Jacobs\"],\n      \"topic\": \"Josh Jacobs suspension/status update\",\n      \"summary\": \"The league has not yet issued a ruling on Josh Jacobs, though Dave expects an eventual suspension of 6 to 8 games.\",\n      \"speaker\": \"Dave\",\n      \"source_timestamp\": 738,\n      \"quote\": \"I'm not sure what the NFL is waiting for here... I expected him to miss anywhere from six to eight games.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"SEA\", \"SF\"],\n      \"players\": [\"Emanuel Wilson\"],\n      \"topic\": \"Seahawks zone scheme vs 49ers defense\",\n      \"summary\": \"San Francisco's defensive front specializes in stopping zone runs, whereas Emanuel Wilson's effectiveness is limited when running gap schemes.\",\n      \"speaker\": \"Dave\",\n      \"source_timestamp\": 821,\n      \"quote\": \"The Seahawks do zone runs... San Francisco defends them well.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"CHI\", \"GB\"],\n      \"players\": [\"Rome Odunze\"],\n      \"topic\": \"Rome Odunze usage vs Packers coverage\",\n      \"summary\": \"Green Bay's defensive tendency to drop into zone and generate minimal pressure allows Tyson Bagent extra time to target Odunze.\",\n      \"speaker\": \"Dave\",\n      \"source_timestamp\": 1748,\n      \"quote\": \"The Packers have a zone leaning defense, they've got a low pass rush pressure rate.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Hampton Over\",\n      \"timestamp\": 310,\n      \"speaker\": \"Propstarz\",\n      \"quote\": \"Omarion Hampton over 37.5 rushing\"\n    },\n    {\n      \"topic\": \"Henry Under\",\n      \"timestamp\": 932,\n      \"speaker\": \"EC\",\n      \"quote\": \"Derrick Henry under 85.5 rushing yards\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+  "parsed_json": {
+    "transcript_summary": "In this episode of SportsLine's player props show, host EC and analysts Dave and Sia break down their favorite betting angles and player props for NFL Week 5. They analyze key matchups including Packers vs. Bears, Seahawks vs. 49ers, and Giants vs. Commanders.",
+    "coverage_check": {
+      "video_duration_seconds": 381,
+      "last_analyzed_timestamp": 381,
+      "reached_end_of_video": true
+    },
+    "speaker_segments": [
+      {
+        "start": 0.0,
+        "end": 24.0,
+        "speaker": null,
+        "text": "[Countdown introduction]"
+      },
+      {
+        "start": 24.0,
+        "end": 50.0,
+        "speaker": "EC",
+        "text": "Welcome to the Take the Points NFL Player Prop Show for week number five. Great to have you with us. I'm EC, that's Uncle Dave, that's Sia. And we're missing one member of our team who is a little under the weather today."
+      },
+      {
+        "start": 50.0,
+        "end": 112.0,
+        "speaker": "EC",
+        "text": "Let's see the recap screen. It was not good for me. I was 0 for last week. Proppy was about 500. Uncle Dave, 2 and 1 outstanding. So we'll see what the guys have in store."
+      },
+      {
+        "start": 112.0,
+        "end": 256.0,
+        "speaker": "Dave",
+        "text": "Well, the first thing you need to do is stop with this kicker nonsense that you're doing. It's tough to pinpoint when kickers are going to be able to go out there and hit multiple field goals. I go back to basics, and I go with volume-based bets: pass attempts, pass completions, rush attempts, and I stick with the stars of the NFL."
+      },
+      {
+        "start": 256.0,
+        "end": 315.0,
+        "speaker": "EC",
+        "text": "Sia, you hit a 100-to-1 in golf last week, that's still unbelievable. Just get me some words of wisdom on top of what Dave said to get me hyped up before we give out our picks."
+      },
+      {
+        "start": 315.0,
+        "end": 428.0,
+        "speaker": "Sia",
+        "text": "Well, I think especially this time of year, you got to lean into comfortable bets and comfortable game betting environments. There's a lot of games this week where there's confusion because of injury news, but there's also weather implications with a lot of these games."
+      },
+      {
+        "start": 428.0,
+        "end": 502.0,
+        "speaker": "EC",
+        "text": "I like that, and I'm going to play an under for a kicker later in the show that relates to weather. Let's get to the picks, starting with running backs. Proppy has Omarion Hampton over 37.5 rushing yards."
+      },
+      {
+        "start": 502.0,
+        "end": 637.0,
+        "speaker": "Dave",
+        "text": "Usually when I have that feeling about a prop, I get that Spidey sense. The Denver run defense is not good against the run, but I don't think the Chargers offensive line nor Omarion Hampton himself is in a particularly good spot. Keeton Mitchell can break off long runs, and I'm not sure Hampton can do that without really good blocking."
+      },
+      {
+        "start": 637.0,
+        "end": 724.0,
+        "speaker": "Sia",
+        "text": "Keeton Mitchell fits better in the Mike McDaniel system. He got ten rushes last week compared to Hampton's nine. So I certainly lean to the over, but this is very much an offensive line issues conversation with the Chargers."
+      },
+      {
+        "start": 724.0,
+        "end": 801.0,
+        "speaker": "EC",
+        "text": "Sia, your next pick is Kaleb Johnson over 34.5 rushing yards."
+      },
+      {
+        "start": 801.0,
+        "end": 900.0,
+        "speaker": "Sia",
+        "text": "Kaleb Johnson over 34.5 rushing yards at -107. The Green Bay Packers have a terrible offensive line, but the Bears are not a very tough rush defense. They are bottom ten, bottom two in yards before contact. If he gets ten carries, I think he goes over."
+      },
+      {
+        "start": 900.0,
+        "end": 935.0,
+        "speaker": "EC",
+        "text": "And Chris Brooks is potentially out this week for the Packers."
+      },
+      {
+        "start": 935.0,
+        "end": 1017.0,
+        "speaker": "Dave",
+        "text": "I don't think Chris Brooks is going to play. I think Pierre Strong might end up playing. This was going to be a play that I was going to take the opposite and show down the heck out of this one, but then I did a little bit of extra digging. As long as that offensive line isn't as horrible as it was two weeks ago, I think you're right."
+      },
+      {
+        "start": 1017.0,
+        "end": 1153.0,
+        "speaker": "Sia",
+        "text": "Yeah, part of this is I don't think Chris Brooks is going to play. I didn't want to wait for that news to come out because I thought if it did, maybe this line changes. It's already up to 35.5."
+      },
+      {
+        "start": 1153.0,
+        "end": 1158.0,
+        "speaker": "Dave",
+        "text": "Chris Brooks was out for the third straight day of practice today, Friday. So I would not expect Brooks to play."
+      },
+      {
+        "start": 1158.0,
+        "end": 1218.0,
+        "speaker": "EC",
+        "text": "Do you think Josh Jacobs will play for the Packers this year, Uncle Dave?"
+      },
+      {
+        "start": 1218.0,
+        "end": 1252.0,
+        "speaker": "Dave",
+        "text": "I'm not sure what the NFL is waiting for here. It's been a little strange that it's gone on this long without the NFL making a ruling on Josh Jacobs' status. I expected him to miss anywhere from six to eight games."
+      },
+      {
+        "start": 1252.0,
+        "end": 1306.0,
+        "speaker": "EC",
+        "text": "Let's move on to Dave's prop, Emanuel Wilson under 82.5 total yards."
+      },
+      {
+        "start": 1306.0,
+        "end": 1439.0,
+        "speaker": "Dave",
+        "text": "Emanuel Wilson under 82.5 total yards at -114. This is a 49ers run defense that has held running backs under four yards per rush with zero rushing touchdowns this year. Emanuel Wilson struggles with gap runs, which is something San Francisco defends well. Ryan Grubb is the offensive coordinator for Seattle, and he knows what he's about to see."
+      },
+      {
+        "start": 1439.0,
+        "end": 1454.0,
+        "speaker": "EC",
+        "text": "Your next prop is Cam Skattebo under 77.5 rushing + receiving yards."
+      },
+      {
+        "start": 1454.0,
+        "end": 1524.0,
+        "speaker": "Sia",
+        "text": "Yeah, 77.5 is a lot. This is a pretty good Washington rush defense, so I would be on the under here of Proppy's play, Cam Skattebo under 77.5."
+      },
+      {
+        "start": 1524.0,
+        "end": 1550.0,
+        "speaker": "EC",
+        "text": "I'm going to play Derrick Henry under 85.5 rushing yards at -114. Atlanta has the best rush defense in the NFL by far, giving up less than 50 yards per game."
+      },
+      {
+        "start": 1550.0,
+        "end": 1630.0,
+        "speaker": "Dave",
+        "text": "With Lamar Jackson ruled out, Atlanta's game plan on defense should be very clear: stack the box to stop Derrick Henry and make Tyler Huntley beat them."
+      },
+      {
+        "start": 1630.0,
+        "end": 1703.0,
+        "speaker": "EC",
+        "text": "Right, and so really the best way for that to happen for the Falcons is to just keep on running the ball and control the game script."
+      },
+      {
+        "start": 1703.0,
+        "end": 1737.0,
+        "speaker": "Dave",
+        "text": "I'm a little nervous about this one, but I do see where you're coming from with that Falcons front. I just don't think I'd go a full unit on under Derrick Henry."
+      },
+      {
+        "start": 1737.0,
+        "end": 1753.0,
+        "speaker": "Sia",
+        "text": "I agree with your play. I would be on the under as opposed to the over."
+      },
+      {
+        "start": 1753.0,
+        "end": 1829.0,
+        "speaker": "Sia",
+        "text": "I just looked at Skattebo's rushing attempts prop, it's 15.5. In a rain-soaked game, I could see the Giants really leaning on their running game. But I still like the under on the total yards."
+      },
+      {
+        "start": 1829.0,
+        "end": 1840.0,
+        "speaker": "EC",
+        "text": "Next is Kyren Williams over 89.5 total yards."
+      },
+      {
+        "start": 1840.0,
+        "end": 2006.0,
+        "speaker": "Dave",
+        "text": "I love it. I think Kyren Williams could get over this number just on rushing alone. This Bills defense isn't very good, and I don't expect Ed Oliver to play. Kyren is getting a ton of chances with the ball."
+      },
+      {
+        "start": 2006.0,
+        "end": 2134.0,
+        "speaker": "Sia",
+        "text": "Kyren has been the guy. 16 carries for 80 yards and 10 receptions for 67 yards last week, and the week before 15 for 88 and 6 catches. This is the offense."
+      },
+      {
+        "start": 2134.0,
+        "end": 2227.0,
+        "speaker": "Dave",
+        "text": "With Monangai out, I expect DeAndre Swift to be the feature back and get in the neighborhood of 17 to 20 carries. Swift's carry prop is 19.5, which is very high."
+      },
+      {
+        "start": 2227.0,
+        "end": 2247.0,
+        "speaker": "Dave",
+        "text": "And on Chase Brown, the line is 64.5. They are begging you to take the under, which means you should take the over."
+      },
+      {
+        "start": 2247.0,
+        "end": 2348.0,
+        "speaker": "Sia",
+        "text": "I would just go with his rushing and receiving, because I think he can get there."
+      },
+      {
+        "start": 2348.0,
+        "end": 2506.0,
+        "speaker": "Sia",
+        "text": "I personally like Tuten quite a bit, over 80 rushing and receiving yards. Danny Brasco gave out his over rushing yards at 63.5. I think this game script is going to lend itself to running the ball."
+      },
+      {
+        "start": 2506.0,
+        "end": 2517.0,
+        "speaker": "EC",
+        "text": "Let's move on to wide receiver and tight end props. Amon-Ra St. Brown over 78.5 receiving yards."
+      },
+      {
+        "start": 2517.0,
+        "end": 2614.0,
+        "speaker": "Sia",
+        "text": "This is a high number, but it's not high enough. Jared Goff loves Amon-Ra St. Brown, and in this projected shootout, I absolutely think Amon-Ra St. Brown can go over."
+      },
+      {
+        "start": 2614.0,
+        "end": 2640.0,
+        "speaker": "EC",
+        "text": "Dave, which Lions receiver do you feel better about with their receiving totals?"
+      },
+      {
+        "start": 2640.0,
+        "end": 2728.0,
+        "speaker": "Dave",
+        "text": "I think Sam LaPorta is probably where I would go first, and I might take Jameson Williams second. The Cardinals defense is terrible, they can't get pressure, and they don't have a secondary that can cover."
+      },
+      {
+        "start": 2728.0,
+        "end": 2753.0,
+        "speaker": "Sia",
+        "text": "Jamesion Williams' line is actually 50 to 52 at most major books, so shop around."
+      },
+      {
+        "start": 2753.0,
+        "end": 2803.0,
+        "speaker": "EC",
+        "text": "We have three props in the Packers-Bears game. Dave, Rome Odunze over 3.5 receptions."
+      },
+      {
+        "start": 2803.0,
+        "end": 2858.0,
+        "speaker": "Dave",
+        "text": "Rome Odunze over 3.5 receptions at +126. Tyson Bagent plays within structure. The Packers have a zone-leaning defense and they've got a low pass-rush pressure rate. Odunze saw a big boost last week with a 22% target rate and 6 catches."
+      },
+      {
+        "start": 2858.0,
+        "end": 3002.0,
+        "speaker": "EC",
+        "text": "I like Colston Loveland over 3.5 receptions at -154. Loveland had a 67% route share, 35% first-read share, and a 27% target share in Bagent's start. Packers are soft in the middle against tight ends."
+      },
+      {
+        "start": 3002.0,
+        "end": 3113.0,
+        "speaker": "EC",
+        "text": "Proppy has Tucker Kraft under 4.5 receptions."
+      },
+      {
+        "start": 3113.0,
+        "end": 3154.0,
+        "speaker": "Sia",
+        "text": "I would lean to the under as well. I think there's going to be a commitment to the run from Green Bay, which takes Kraft out of the equation."
+      },
+      {
+        "start": 3154.0,
+        "end": 3251.0,
+        "speaker": "Dave",
+        "text": "The Bears play the second-most man-to-man coverage in the NFL. When that's been the case, Tucker Kraft has a 7.1% target per route run rate. I think the Packers are really leaning into their receivers: Watson, Doubs, Wicks."
+      },
+      {
+        "start": 3251.0,
+        "end": 3291.0,
+        "speaker": "EC",
+        "text": "Which Packer receiver do you like the best, Dave?"
+      },
+      {
+        "start": 3291.0,
+        "end": 3312.0,
+        "speaker": "Dave",
+        "text": "Christian Watson. Over Golden."
+      },
+      {
+        "start": 3312.0,
+        "end": 3329.0,
+        "speaker": "EC",
+        "text": "Watson over 60.5, Golden 56.5. With the passing of Mike Ditka today, you got to think the Bears have extra motivation."
+      },
+      {
+        "start": 3329.0,
+        "end": 3351.0,
+        "speaker": "EC",
+        "text": "Proppy has Malik Nabers over 54.5 receiving yards."
+      },
+      {
+        "start": 3351.0,
+        "end": 3419.0,
+        "speaker": "Sia",
+        "text": "I absolutely love this over. Anyone can cook the Washington secondary. Nabers can take a slant to the house even in the rain."
+      },
+      {
+        "start": 3419.0,
+        "end": 3451.0,
+        "speaker": "Dave",
+        "text": "Zack Taylor has talked a lot about Dante Miller being the next fastest receiver on the team next to Ja'Marr Chase. If his line is under 40.5, I would take the over."
+      },
+      {
+        "start": 3451.0,
+        "end": 3534.0,
+        "speaker": "EC",
+        "text": "What about Joe Burrow over 250.5 passing yards?"
+      },
+      {
+        "start": 3534.0,
+        "end": 3556.0,
+        "speaker": "Sia",
+        "text": "It would be a no play for me. I think this is a Chase Brown game, and we don't know the status of Tee Higgins."
+      },
+      {
+        "start": 3556.0,
+        "end": 3596.0,
+        "speaker": "EC",
+        "text": "I have Commanders kicker Drew Stevens under 1.5 field goals made at +113. Heavy rain is expected, and the Giants have only given up one made field goal all year."
+      },
+      {
+        "start": 3596.0,
+        "end": 3615.0,
+        "speaker": "Sia",
+        "text": "I feel like this is a smashmouth game where they take the field goals. So this would be a stay-away for me."
+      },
+      {
+        "start": 3615.0,
+        "end": 3640.0,
+        "speaker": "EC",
+        "text": "Let's see the recap screen. Propstarz has Tucker Kraft under 4.5 receptions, Amon-Ra St. Brown over 78.5 receiving yards, Malik Nabers over 54.5, Cam Skattebo under 77.5, Omarion Hampton over 37.5, and Kyren Williams over 89.5."
+      },
+      {
+        "start": 3640.0,
+        "end": 3656.0,
+        "speaker": "Sia",
+        "text": "Sia has Kaleb Johnson over 34.5 rushing yards, Jacoby Brissett over 1.5 TD passes, and Michael Penix under 30.5 pass attempts."
+      },
+      {
+        "start": 3656.0,
+        "end": 3672.0,
+        "speaker": "Dave",
+        "text": "Dave has Rome Odunze over 3.5 receptions, Emanuel Wilson under 82.5 total yards, and Tyler Shough over 22.5 completions."
+      },
+      {
+        "start": 3672.0,
+        "end": 381.0,
+        "speaker": "EC",
+        "text": "And EC has Colston Loveland over 3.5 receptions, Derrick Henry under 85.5 rushing yards, Jacoby Brissett over 265.5 passing yards, and Drew Stevens under 1.5 field goals. Let's hit it big!"
+      }
+    ],
+    "extracted_picks": [
+      {
+        "team": "GB",
+        "player": "Tucker Kraft",
+        "market": "player_receptions",
+        "side": "UNDER",
+        "line": 4.5,
+        "price": -122,
+        "week": 5,
+        "speaker": "Propstarz",
+        "source_timestamp": 1813,
+        "rationale": "Dave notes the Bears play heavy man coverage where Kraft has a very low 7.1% target per route run rate."
+      },
+      {
+        "team": "DET",
+        "player": "Amon-Ra St. Brown",
+        "market": "player_receiving_yds",
+        "side": "OVER",
+        "line": 78.5,
+        "price": -115,
+        "week": 5,
+        "speaker": "Propstarz",
+        "source_timestamp": 1521,
+        "rationale": "High projected game total and Goff's reliance on St. Brown in a shootout environment."
+      },
+      {
+        "team": "NYG",
+        "player": "Malik Nabers",
+        "market": "player_receiving_yds",
+        "side": "OVER",
+        "line": 54.5,
+        "price": -114,
+        "week": 5,
+        "speaker": "Propstarz",
+        "source_timestamp": 2591,
+        "rationale": "Washington's secondary is highly vulnerable and has shown little resistance to opposing wide receivers."
+      },
+      {
+        "team": "NYG",
+        "player": "Cam Skattebo",
+        "market": "player_total_yds",
+        "side": "UNDER",
+        "line": 77.5,
+        "price": -120,
+        "week": 5,
+        "speaker": "Propstarz",
+        "source_timestamp": 1982,
+        "rationale": "Giants running back room rotation and Skattebo's potential limitation in total yards."
+      },
+      {
+        "team": "LAC",
+        "player": "Omarion Hampton",
+        "market": "player_rush_yds",
+        "side": "OVER",
+        "line": 37.5,
+        "price": -115,
+        "week": 5,
+        "speaker": "Propstarz",
+        "source_timestamp": 310,
+        "rationale": "Denver's defense presents a favorable matchup, though the line remains low."
+      },
+      {
+        "team": "LAR",
+        "player": "Kyren Williams",
+        "market": "player_total_yds",
+        "side": "OVER",
+        "line": 89.5,
+        "price": -115,
+        "week": 5,
+        "speaker": "Propstarz",
+        "source_timestamp": 1121,
+        "rationale": "Kyren Williams has dominated workload shares in Los Angeles over Blake Corum."
+      },
+      {
+        "team": "GB",
+        "player": "Kaleb Johnson",
+        "market": "player_rush_yds",
+        "side": "OVER",
+        "line": 34.5,
+        "price": -107,
+        "week": 5,
+        "speaker": "Sia",
+        "source_timestamp": 481,
+        "rationale": "Bears secondary is bottom ten in yards before contact, which should enable explosive runs."
+      },
+      {
+        "team": "ARI",
+        "player": "Jacoby Brissett",
+        "market": "player_passing_tds",
+        "side": "OVER",
+        "line": 1.5,
+        "price": -127,
+        "week": 5,
+        "speaker": "Sia",
+        "source_timestamp": 4227,
+        "rationale": "High passing volume expected against Detroit's vulnerable secondary."
+      },
+      {
+        "team": "ATL",
+        "player": "Michael Penix",
+        "market": "player_pass_attempts",
+        "side": "UNDER",
+        "line": 30.5,
+        "price": -136,
+        "week": 5,
+        "speaker": "Sia",
+        "source_timestamp": 1176,
+        "rationale": "Falcons are likely to heavily lean on their running game to keep Baltimore's offense off the field."
+      },
+      {
+        "team": "CHI",
+        "player": "Colston Loveland",
+        "market": "player_receptions",
+        "side": "OVER",
+        "line": 3.5,
+        "price": -154,
+        "week": 5,
+        "speaker": "EC",
+        "source_timestamp": 1814,
+        "rationale": "Loveland retains high route, first-read, and target shares with Bagent under center."
+      },
+      {
+        "team": "BAL",
+        "player": "Derrick Henry",
+        "market": "player_rush_yds",
+        "side": "UNDER",
+        "line": 85.5,
+        "price": -114,
+        "week": 5,
+        "speaker": "EC",
+        "source_timestamp": 932,
+        "rationale": "Atlanta's front boasts the top run defense in the league, giving up less than 50 yards per game."
+      },
+      {
+        "team": "ARI",
+        "player": "Jacoby Brissett",
+        "market": "player_passing_yds",
+        "side": "OVER",
+        "line": 265.5,
+        "price": -111,
+        "week": 5,
+        "speaker": "EC",
+        "source_timestamp": 3001,
+        "rationale": "Expected garbage-time volume and Detroit's bottom-ranked pass defense."
+      },
+      {
+        "team": "WAS",
+        "player": "Drew Stevens",
+        "market": "player_field_goals",
+        "side": "UNDER",
+        "line": 1.5,
+        "price": 113,
+        "week": 5,
+        "speaker": "EC",
+        "source_timestamp": 1270,
+        "rationale": "Heavy rain forecast and Giants' stingy field goal defense."
+      },
+      {
+        "team": "CHI",
+        "player": "Rome Odunze",
+        "market": "player_receptions",
+        "side": "OVER",
+        "line": 3.5,
+        "price": 126,
+        "week": 5,
+        "speaker": "Dave",
+        "source_timestamp": 1689,
+        "rationale": "Bagent plays within structure, giving Odunze consistent targets against zone schemes."
+      },
+      {
+        "team": "SEA",
+        "player": "Emanuel Wilson",
+        "market": "player_total_yds",
+        "side": "UNDER",
+        "line": 82.5,
+        "price": -114,
+        "week": 5,
+        "speaker": "Dave",
+        "source_timestamp": 791,
+        "rationale": "San Francisco defends Seattle's preferred zone-running schemes exceptionally well."
+      },
+      {
+        "team": "NO",
+        "player": "Tyler Shough",
+        "market": "player_pass_completions",
+        "side": "OVER",
+        "line": 22.5,
+        "price": -119,
+        "week": 5,
+        "speaker": "Dave",
+        "source_timestamp": 1845,
+        "rationale": "Saints will be forced into quick-game passes to neutralize Minnesota's heavy blitz packages."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "injury_or_health",
+        "teams": [
+          "GB"
+        ],
+        "players": [
+          "Chris Brooks"
+        ],
+        "topic": "Chris Brooks practice status",
+        "summary": "Chris Brooks was sidelined for a third consecutive practice on Friday, cementing his expected absence for Week 5.",
+        "speaker": "Dave",
+        "source_timestamp": 714,
+        "quote": "Chris Brooks was out for the third straight day of practice today, Friday.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "player_evaluation",
+        "teams": [
+          "GB"
+        ],
+        "players": [
+          "Josh Jacobs"
+        ],
+        "topic": "Josh Jacobs suspension/status update",
+        "summary": "The league has not yet issued a ruling on Josh Jacobs, though Dave expects an eventual suspension of 6 to 8 games.",
+        "speaker": "Dave",
+        "source_timestamp": 738,
+        "quote": "I'm not sure what the NFL is waiting for here... I expected him to miss anywhere from six to eight games.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "SEA",
+          "SF"
+        ],
+        "players": [
+          "Emanuel Wilson"
+        ],
+        "topic": "Seahawks zone scheme vs 49ers defense",
+        "summary": "San Francisco's defensive front specializes in stopping zone runs, whereas Emanuel Wilson's effectiveness is limited when running gap schemes.",
+        "speaker": "Dave",
+        "source_timestamp": 821,
+        "quote": "The Seahawks do zone runs... San Francisco defends them well.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "CHI",
+          "GB"
+        ],
+        "players": [
+          "Rome Odunze"
+        ],
+        "topic": "Rome Odunze usage vs Packers coverage",
+        "summary": "Green Bay's defensive tendency to drop into zone and generate minimal pressure allows Tyson Bagent extra time to target Odunze.",
+        "speaker": "Dave",
+        "source_timestamp": 1748,
+        "quote": "The Packers have a zone leaning defense, they've got a low pass rush pressure rate.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Hampton Over",
+        "timestamp": 310,
+        "speaker": "Propstarz",
+        "quote": "Omarion Hampton over 37.5 rushing"
+      },
+      {
+        "topic": "Henry Under",
+        "timestamp": 932,
+        "speaker": "EC",
+        "quote": "Derrick Henry under 85.5 rushing yards"
+      }
+    ],
+    "uncertainty_flags": []
+  },
+  "coverage_assessment": {
+    "last_covered_timestamp": 4227.0,
+    "self_reported_reached_end": true,
+    "duration_used_for_check": 381,
+    "segment_start_seconds": null,
+    "segment_end_seconds": null,
+    "suspected_incomplete": false,
+    "reason": null,
+    "coverage_ratio": 11.094
+  }
+}

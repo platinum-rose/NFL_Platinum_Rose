@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-22T18:21:00.731Z",
+  "built_at": "2026-10-22T22:58:54.692Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "aecd94b",
+  "git_head": "645efaf",
   "market_data_included": false,
   "sources": [
     {
@@ -1357,7 +1357,7 @@
       "vet_status": "PASS",
       "blocking_count": 0,
       "roster_snapshot_generated_at": "2026-10-22T14:39:12.738634+00:00",
-      "roster_age_h_at_vet": 3.7,
+      "roster_age_h_at_vet": 8.3,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
@@ -1365,7 +1365,7 @@
     },
     "as_of": {
       "espn_status": "2026-10-22T14:39:14Z",
-      "availability_events": "2026-10-22T14:39:26.249Z",
+      "availability_events": "2026-10-22T22:58:47.007Z",
       "impact_digest": "2026-10-22T14:39:29.587Z",
       "projected_starters": "2026-10-21T22:00:03.496Z",
       "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -1526,7 +1526,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:05.000Z",
           "summary": "Michael Pittman Jr. IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1542,9 +1542,10 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:05.000Z",
           "summary": "Roman Wilson IR",
           "practice": [
+            "--",
             "--"
           ],
           "probability_of_playing": null,
@@ -1554,13 +1555,32 @@
           "roster_check": "roster_ir_out_group"
         },
         {
+          "player_name": "Sebastian Joseph-Day",
+          "position": "DT",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-22T22:50:05.000Z",
+          "summary": "Sebastian Joseph-Day IR",
+          "practice": [
+            "DNP",
+            "--"
+          ],
+          "probability_of_playing": 0.37426,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
           "player_name": "Israel Mukuamu",
           "position": "CB",
           "normalized_status": "IR",
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:05.000Z",
           "summary": "Israel Mukuamu IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1576,7 +1596,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:05.000Z",
           "summary": "Logan Lee IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1592,7 +1612,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:05.000Z",
           "summary": "Derrick Harmon IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1608,7 +1628,7 @@
           "availability_trend": "worsening",
           "event_type": "pup",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:05.000Z",
           "summary": "Donte Kent PUP",
           "practice": [],
           "probability_of_playing": null,
@@ -1616,6 +1636,70 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Ben Skowronek",
+          "position": "WR",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T21:48:00.000Z",
+          "summary": "The Steelers have ruled Skowronek (calf) out for Sunday's matchup against the Saints, Mike DeFabo of The Athletic reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "T.J. Watt",
+          "position": "LB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T21:40:00.000Z",
+          "summary": "Watt (calf) was added to the Steelers' injury report as a limited participant Thursday, Mike DeFabo of The Athletic reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Rico Dowdle",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T19:17:00.000Z",
+          "summary": "Dowdle (knee) was listed as a limited participant on Thursday's injury report, Alan Saunders of SteelersNow.com reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Brandin Echols",
+          "position": "CB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-22T19:11:00.000Z",
+          "summary": "out",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
         },
         {
           "player_name": "DeShon Elliott",
@@ -1632,86 +1716,6 @@
           "synthesis_eligible": false,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player_name": "Ben Skowronek",
-          "position": "WR",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-22T00:37:00.000Z",
-          "summary": "Skowronek (calf) did not practice Wednesday, Teresa Varley of the Steelers' official site reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Rico Dowdle",
-          "position": "RB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T21:39:00.000Z",
-          "summary": "Dowdle was listed as a limited participant for Wednesday's practice due to a knee injury, Mike DeFabo of The Athletic reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Sebastian Joseph-Day",
-          "position": "DT",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T21:34:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Alex Highsmith",
-          "position": "LB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T21:34:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Jaquan Brisker",
-          "position": "S",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-21T02:36:00.000Z",
-          "summary": "Brisker posted seven tackles (four solo) during the Steelers' 26-19 overtime win over the Buccaneers on Sunday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
         }
       ]
     },
@@ -1776,8 +1780,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -2027,7 +2030,7 @@
       "through_week": null,
       "as_of": {
         "espn_status": "2026-10-22T14:39:14Z",
-        "availability_events": "2026-10-22T14:39:26.249Z",
+        "availability_events": "2026-10-22T22:58:47.007Z",
         "impact_digest": "2026-10-22T14:39:29.587Z",
         "projected_starters": "2026-10-21T22:00:03.496Z",
         "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -2036,8 +2039,7 @@
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

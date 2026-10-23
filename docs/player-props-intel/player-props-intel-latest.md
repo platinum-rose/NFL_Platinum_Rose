@@ -1,8 +1,8 @@
-# NFL Week 6 Player Prop & Parlay Intelligence Dossier
+# NFL Week 7 Player Prop & Parlay Intelligence Dossier
 
-> **Generated**: 2026-10-15T22:32:29.378Z  
-> **Scope**: Dedicated player prop extraction pass from recent intelligence articles (370 articles scanned).  
-> **Actionable Props Extracted**: **19 player props** across **2 games**.  
+> **Generated**: 2026-10-22T21:30:08.709Z  
+> **Scope**: Dedicated player prop extraction pass from recent intelligence articles (334 articles scanned).  
+> **Actionable Props Extracted**: **17 player props** across **3 games**.  
 > **Curated Pre-Built Parlay Stacks**: **1 correlated parlay cards** ready for execution.
 
 ---
@@ -13,61 +13,64 @@ This dossier isolates pure player prop intelligence to build high-ROI Same Game 
 
 | Metric | Value | Meaning |
 | :--- | :--- | :--- |
-| **Total Player Props** | **19** | Verified player prop recommendations with lines and odds |
+| **Total Player Props** | **17** | Verified player prop recommendations with lines and odds |
 | **Tier 1 Best Bet Props** | **14** | Official analyst recommended best bets (Weight: 1.00) |
-| **Anytime / First TD Scorers** | **3** | High-leverage end-zone targets for multiplier legs |
+| **Anytime / First TD Scorers** | **6** | High-leverage end-zone targets for multiplier legs |
 | **Curated Parlay Cards** | **1** | Positively correlated SGP & cross-game cards (+645 to +810) |
-| **Games With Extracted Props** | **2** | SEA @ DEN, HOU @ JAX |
+| **Games With Extracted Props** | **3** | NE @ CHI, PIT @ NO, NYG @ HOU |
 
 ---
 
 ## 2. Curated Pre-Built Parlay Cards (Positive Correlation Synergy)
 
-### 🎯 SEA Prop Stack SGP (SEA @ DEN)
-- **Game / Slate**: `SEA @ DEN` (Thursday Night Football)
-- **Estimated Parlay Odds**: **`+399`** (Payout: **4.99x** | $10 pays $49.86, $25 pays $124.65)
-- **Correlation Rating**: **Same-Team Stack**
+### 🎯 NE/CHI Prop Stack SGP (NE @ CHI)
+- **Game / Slate**: `NE @ CHI` (Thursday Night Football)
+- **Estimated Parlay Odds**: **`+1411`** (Payout: **15.11x** | $10 pays $151.12, $25 pays $377.80)
+- **Correlation Rating**: **Cross-Team Game Stack**
 - **Recommended Sportsbook**: DraftKings / FanDuel
-- **Synergy Rationale**: *Combines 3 real props extracted this week from Frank Ammirante ... (Action Network), Steve Krebs (BettingPros) for SEA @ DEN.*
+- **Synergy Rationale**: *Combines 3 real props extracted this week from Frank Ammirante ... (Action Network), Action Network Staff ... (Action Network) for NE @ CHI.*
 
 | Leg # | Player | Team | Category | Selection | Stated Odds | Source Analyst |
 | :---: | :--- | :---: | :--- | :--- | :---: | :--- |
-| **#1** | **Jaxon Smith-Njigba** | SEA | Receiving Yards | `Over 92.5 Receiving Yards` | **-113** | Frank Ammirante ... (Action Network) |
-| **#2** | **Emanuel Wilson** | SEA | Rushing Yards | `Over 66.5 Rushing Yards` | **-113** | Frank Ammirante ... (Action Network) |
-| **#3** | **Jaxon Smith-Njigba** | SEA | Receiving/Rushing Yards | `Over 70+ Receiving/Rushing Yards` | **-248** | Steve Krebs (BettingPros) |
+| **#1** | **A.J. Brown** | NE | Receiving Yards | `Over 69.5 Receiving Yards` | **-112** | Frank Ammirante ... (Action Network) |
+| **#2** | **D'Andre Swift** | CHI | Rushing Yards | `Over 61.5 Rushing Yards` | **-111** | Frank Ammirante ... (Action Network) |
+| **#3** | **DeMario Douglas** | NE | Anytime Touchdown Scorer | `Anytime Touchdown Scorer` | **+320** | Action Network Staff ... (Action Network) |
 
 ---
 
 ## 3. Master Player Prop Board (Grouped by Game & Category)
 
-### 🏈 Matchup: HOU @ JAX (Sunday Early Window)
+### 🏈 Matchup: NE @ CHI (Thursday Night Football)
 
 | Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
 | :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
-| **Bhayshul Tuten** | JAX | Rushing Yards | `50+ OVER` | **-296** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Steve Krebs (BettingPros) | *Ground Game Piece* | We close out our parlay with a recency bias play that we have been tailing for a few weeks now. It's a tough matchup against a Houston team that is only allowing 78.4 rushing yards per game. |
+| **A.J. Brown** | NE | Receiving Yards | `69.5 OVER` | **-112** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Frank Ammirante ... (Action Network) | *Pass-Catching Piece* | D'Andre Swift Over 61.5 Rushing Yards (-111) Parlay Odds: +440 ( DraftKings ) Odds via DraftKings are subject to change* Bears vs Patriots Odds Thursday, Oct 22 8:15 p.m. ET Amazon Prime Video Patriots Odds Spread Total Moneyline +3 -118 50.5 -118o / -102u +130 Bears Odds Spread Total Moneyline -3 -102 50.5 -118o / -102u -155 Odds via DraftKings . |
+| **D'Andre Swift** | CHI | Rushing Yards | `61.5 OVER` | **-111** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Frank Ammirante ... (Action Network) | *Ground Game Piece* | Parlay Odds: +440 ( DraftKings ) Odds via DraftKings are subject to change* Bears vs Patriots Odds Thursday, Oct 22 8:15 p.m. ET Amazon Prime Video Patriots Odds Spread Total Moneyline +3 -118 50.5 -118o / -102u +130 Bears Odds Spread Total Moneyline -3 -102 50.5 -118o / -102u -155 Odds via DraftKings . |
+| **DeMario Douglas** | NE | Anytime Touchdown Scorer | `Yes ANYTIME` | **+320** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Action Network Staff ... (Action Network) | *End-Zone Target* | 8:15 p.m. DeMario Douglas Over 3.5 Receptions (+115) Specific betting recommendations come from the sportsbook offering preferred odds as of writing. |
+| **DeMario Douglas** | NE | Receptions | `3.5 OVER` | **+115** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Action Network Staff ... (Action Network) | *Pass-Catching Piece* | Specific betting recommendations come from the sportsbook offering preferred odds as of writing. Always shop for the best price using our NFL Odds page , which automatically surfaces the best lines for every game. |
+| **Caleb Williams** | CHI | Passing TDs | `2+ OVER` | **-152** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Steve Krebs (BettingPros) | *Passing Volume Anchor* | The juice on this selection is a bit out of control. If you want to add this prop to your bets this evening, get in early. |
+| **DeMario Douglas** | NE | Receptions | `4+ OVER` | **+102** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Steve Krebs (BettingPros) | *Pass-Catching Piece* | Our next selection could be one of the more popular plays tonight. DeMario Douglas was a reliable target on Sunday. |
+| **Colston Loveland** | CHI | Receiving Yards | `40+ OVER` | **-151** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Steve Krebs (BettingPros) | *Pass-Catching Piece* | We round things out with a disappointing return based on the juice. Colston Loveland has produced 40+ yards in only two out of six games. |
+| **D'Andre Swift** | CHI | First Touchdown Scorer | `Yes ANYTIME` | **+600** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Mike Spector (BettingPros) | *End-Zone Target* | D'Andre Swift scored two touchdowns last week despite being outgained by Roschon Johnson, but he showed his versatility out of the backfield with four receptions on five targets. With fellow running back Kyle Monangai likely unavailable again on a short week to steal goal-line touches, Swift's value for crossing the goal line rises even more. |
+| **Hunter Henry** | NE | Anytime Touchdown Scorer | `Yes ANYTIME` | **+230** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Mike Spector (BettingPros) | *End-Zone Target* | In Drake Maye's first three games, he logged a 49 total quarterback rating, averaged 195 passing yards per game and recorded a 1:6 touchdown-to-interception ratio. He has heated up, posting a league-high 91 total quarterback rating over the last three games, averaging 293 passing yards, and recording a 10:1 touchdown-to-interception ratio. |
+| **Drake Maye** | NE | Rushing Yards | `29.5 OVER` | **-112** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Josh Shepardson (BettingPros) | *Ground Game Piece* | Drake Maye has cleared 29.5 rushing yards only twice in six games. However, he's averaged 30.8 rushing yards per game, though his median is 24.5. |
+| **D'Andre Swift** | CHI | Receiving Yards | `17.5 OVER` | **-111** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Josh Shepardson (BettingPros) | *Pass-Catching Piece* | D'Andre Swift isn't a bell-cow running back, and he'll share work. Still, his 36.8% route participation rate paces Chicago's backfield, ahead of Kyle Monangai (25.8%) and Roschon Johnson (19.3%). |
+| **D'Andre Swift** | CHI | Rush Attempts | `14.5 UNDER` | **-126** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Richard Janvrin (BettingPros) | *Ground Game Piece* | Fellow Bears running back Kyle Monangai missed Week 6 with a thumb and toe injury. Without him, D'Andre Swift ran 16 times for 44 yards and scored twice. |
+| **A.J. Brown** | NE | Receiving Yards | `70+ OVER` | **-103** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Richard Janvrin (BettingPros) | *Pass-Catching Piece* | It wasn't a great return to the lineup: A.J. Brown caught three passes for 27 yards. |
+| **A.J. Brown** | NE | Receptions | `5.5 OVER` | **+125** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Sam Farley ... (Action Network) | *Pass-Catching Piece* | In his first game this season, A.J. Brown got four targets early against the Seahawks before getting injured. |
+| **Drake Maye** | NE | Passing TDs | `1.5 OVER` | **-115** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Zachary Cohen (VSiN) | *Passing Volume Anchor* | - Check out my Thursday Night Football Preview ! PARLAY: Vikings ML vs. |
 
-### 🏈 Matchup: SEA @ DEN (Thursday Night Football)
+### 🏈 Matchup: NYG @ HOU (Sunday Early Window)
 
 | Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
 | :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
-| **Jaxon Smith-Njigba** | SEA | Receiving Yards | `92.5 OVER` | **-113** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Frank Ammirante ... (Action Network) | *Pass-Catching Piece* | Emanuel Wilson Over 66.5 Rushing Yards (-113) Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel . |
-| **Emanuel Wilson** | SEA | Rushing Yards | `66.5 OVER` | **-113** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Frank Ammirante ... (Action Network) | *Ground Game Piece* | Bo Nix Under 197.5 Passing Yards (-113) RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel . |
-| **Bo Nix** | DEN | Passing Yards | `197.5 UNDER` | **-113** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Frank Ammirante ... (Action Network) | *Passing Volume Anchor* | RJ Harvey Over 20.5 Receiving Yards (-113) Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel . |
-| **RJ Harvey** | DEN | Receiving Yards | `20.5 OVER` | **-113** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Frank Ammirante ... (Action Network) | *Pass-Catching Piece* | Courtland Sutton Under 31.5 Receiving Yards (-113) Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel . |
-| **Courtland Sutton** | DEN | Receiving Yards | `31.5 UNDER` | **-113** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Frank Ammirante ... (Action Network) | *Pass-Catching Piece* | Parlay Odds: +3720 Odds via FanDuel are subject to change* Broncos vs Seahawks Odds Thursday, Oct 15 8:15 p.m. ET Amazon Prime Video Seahawks Odds Spread Total Moneyline -2.5 -115 40.5 -115o / -105u -146 Broncos Odds Spread Total Moneyline +2.5 -105 40.5 -115o / -105u +124 Odds via FanDuel . |
-| **RJ Harvey** | DEN | Receptions | `3.5 OVER` | **-108** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Action Network Staff ... (Action Network) | *Pass-Catching Piece* | Escalators : 5+ Receptions (+203; Kalshi ) | 6+ Receptions (+375; Hard Rock) | 8+ Receptions (+1400; Hard Rock) Click here to return to the table of contents. Seahawks vs Broncos Anytime Touchdown Pick Thursday, Oct. |
-| **Jaxon Smith-Njigba** | SEA | Receptions | `8+ OVER` | **+130** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Ben Solak (ESPN NFL) | *Pass-Catching Piece* | Eric Moody: Smith-Njigba has averaged 10.0 targets per game this season and recorded at least eight receptions in three of five games. He also reached that mark in 11 of 20 games last season, including the postseason, and has a 74% catch rate since the start of last season. |
-| **Troy Franklin** | DEN | Receiving Yards | `15+ OVER` | **-138** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Steve Krebs (BettingPros) | *Pass-Catching Piece* | We round things out with a bit of a disappointing return based on the juice. Troy Franklin doesn't get much volume, to be candid, which makes the high tax even more disheartening. |
-| **Jaxon Smith-Njigba** | SEA | Receiving/Rushing Yards | `70+ OVER` | **-248** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Steve Krebs (BettingPros) | *Complementary Piece* | There are two avenues that we heavily considered for this leg of the parlay. The first was to take Jaxon Smith-Njigba to score a touchdown, which returns +110 . |
-| **Jaxon Smith-Njigba** | SEA | First Touchdown Scorer | `Yes ANYTIME` | **+600** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Mike Spector (BettingPros) | *End-Zone Target* | Given Bo Nix's propensity for leading fourth-quarter comebacks (he has led the NFL in such comebacks since 2024 and has three this year), I am backing Seattle to score the game's first touchdown, led by its most consistent offensive weapon. Jaxon Smith-Njigba leads the league in target share (35.2%) and percentage of air yards (52.4%). |
-| **J.K. Dobbins** | DEN | Anytime Touchdown Scorer | `Yes ANYTIME` | **+180** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Mike Spector (BettingPros) | *End-Zone Target* | The matchup is a brutal one for J.K. Dobbins. |
-| **Bo Nix** | DEN | Passing Yards | `200.5 UNDER` | **-111** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Richard Janvrin (BettingPros) | *Passing Volume Anchor* | Heading into Week 6, Bo Nix has thrown for 201+ yards in two games, but he's coming off 123 passing yards on 27 attempts. Through five weeks, he's completed 59.9% of his passes for 942 yards (5.8 yards per attempt), six touchdowns and three interceptions. |
-| **Jaxon Smith-Njigba** | SEA | Anytime Touchdown Scorer | `Yes ANYTIME` | **+105** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Richard Janvrin (BettingPros) | *End-Zone Target* | It's likely no surprise, but Jaxon Smith-Njigba has scored in all but one game this season. He leads the NFL in receiving yards and receiving touchdowns. |
-| **Emanuel Wilson** | SEA | Receiving Yards | `9.5 OVER` | **-114** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Sam Farley ... (Action Network) | *Pass-Catching Piece* | It’s been two games since Jadarian Price went down and Emanuel Wilson has had significant volume as the Seahawks’ RB1 with 41 rushing attempts. The over on his rushing yards is intriguing, but I'm going to target his receiving yards in this spot. |
-| **Bo Nix** | DEN | Passing Yards | `199.5 UNDER` | **-111** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Josh Shepardson (BettingPros) | *Passing Volume Anchor* | Bo Nix has struggled mightily this season. According to the Fantasy Points Data Suite 2.0, among 37 quarterbacks with at least 50 dropbacks, Nix ranks: 32nd in completion rate (59.9%) 21st in adjusted completion rate (76.1%) 30th in completion percentage over expectation (-1.0% CPOE) 27th in passing yards per game (188.4) 25th in adjusted net yards per pass attempt (5.35 ANY/A) Nix has reached the 200-passing-yard threshold only twice in five starts, and he threw for a season-low 123 yards in S |
-| **Jaxon Smith-Njigba** | SEA | Receiving Yards | `94.5 OVER` | **-112** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Josh Shepardson (BettingPros) | *Pass-Catching Piece* | Jaxon Smith-Njigba is following up his electrifying 2025 campaign with an even more impressive start. Among 102 players with at least 100 routes, Smith-Njigba ranks: 2nd in target share (32.7%) 2nd in targets per route run (0.35 TPRR) 1st in first-read rate (43.1%) 1st in air yard share (53.3%) 1st in receiving yards per game (116.6) 1st in yards per route run (4.22 YPRR) Patrick Surtain II was listed as a non-participant for Denver's walkthrough on Tuesday after missing last week's game with a |
-| **J.K. Dobbins** | DEN | Rush Attempts | `13.5 OVER` | **-114** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Josh Shepardson (BettingPros) | *Ground Game Piece* | In the first four weeks, J.K. Dobbins had 46 rush attempts (11.5 per game). |
-| **Jaylen Waddle** | DEN | Receiving Yards | `46.5 OVER` | **-115** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Zachary Cohen (VSiN) | *Pass-Catching Piece* | vs. Seahawks - Check out my Thursday Night Football Preview ! |
+| **Nico Collins** | HOU | Anytime Touchdown Scorer | `Yes ANYTIME` | **+100** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Steve Krebs (BettingPros) | *End-Zone Target* | We close out our parlay with another positive return that is sure to drop throughout the week. You will want to get in on this leg before it is no longer a positive return. |
+
+### 🏈 Matchup: PIT @ NO (Sunday Early Window)
+
+| Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
+| :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
+| **Aaron Rodgers** | PIT | Pass Attempts | `28+ OVER` | **-542** | DraftKings/FanDuel (per source article) | 🔵 Tier 2 | Steve Krebs (BettingPros) | *Passing Volume Anchor* | This prop has been one of the most lucrative legs of the season, and we are once again going back to the well. Truth be told, passing attempts have yielded massive success over the first seven weeks. |
 
 ---
 

@@ -4,7 +4,7 @@
  "week": 6,
  "cutoff_utc": "2026-10-12T00:00:00Z",
  "label": "Action Network open, Sun 10/11 5:00 PM PT",
- "pulled_at_utc": "2026-10-16T22:22:55+00:00",
+ "pulled_at_utc": "2026-10-17T02:04:34+00:00",
  "source": "https://api.actionnetwork.com/web/v2/scoreboard/nfl + https://api.actionnetwork.com/web/v2/markets/event/<id>/history, book_id 30 (\"Open\")",
  "definition": "first line recorded by the AN \"Open\" book on/after cutoff_utc; spreads are each team's handicap",
  "raw_history_dir": "data/generated/odds/actionnetwork-history-2026-w06",

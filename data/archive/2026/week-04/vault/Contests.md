@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: contests-week
 canonical_status: generated
 title: "Contests — Week 4"
-created: "2026-10-06T19:27:53.964Z"
-modified: "2026-10-06T19:27:53.964Z"
+created: "2026-10-08T13:00:48.655Z"
+modified: "2026-10-08T13:00:48.655Z"
 season: 2026
 week: 4
 type: "contests-week"
@@ -94,7 +94,7 @@ pools: ["BUKBUK NFL POOL", "the duma 2", "Ken's Pickem League"]
 ## Survivor
 
 
-**Generated:** 2026-10-06T14:10:37.364Z | **Season:** 2026 | **Week:** 4
+**Generated:** 2026-10-08T13:00:47.698Z | **Season:** 2026 | **Week:** 4
 
 ---
 

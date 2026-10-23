@@ -1,22 +1,48 @@
 {
  "week": 6,
- "status": "PASS",
- "roster_source": "2026-10-16T22:20:35.498594+00:00",
- "roster_age_h": 6.1,
+ "status": "BLOCK",
+ "roster_source": "2026-10-18T06:33:43.096523+00:00",
+ "roster_age_h": 22.2,
  "totals": {
-  "INFO": 1,
-  "UNVERIFIED": 4,
-  "MISMATCH": 1
+  "QUESTIONABLE": 1,
+  "UNVERIFIED": 6
  },
- "blocking": [],
- "sections": {
-  "card": [
+ "blocking": [
+  [
+   "seed:secondary-roles-2026.json",
+   "UNVERIFIED",
+   "Xavier Woods",
    [
-    "INFO",
-    "(no card file yet)",
-    [],
+    "CHI"
+   ],
+   "-",
+   ""
+  ]
+ ],
+ "sections": {
+  "digest-warnings": [
+   [
+    "QUESTIONABLE",
+    "Chris Olave",
+    [
+     "NO",
+     "NYG"
+    ],
+    [
+     "Chris Olave NO"
+    ],
+    "| NO@NYG | Chris Olave over 79.5 receiving yards (+101 BKR) | Over | strength 3/5; NO offense vs NYG secondary HIGH (7.05), NYG short three "
+   ]
+  ],
+  "seed:secondary-roles-2026.json": [
+   [
+    "UNVERIFIED",
+    "Xavier Woods",
+    [
+     "CHI"
+    ],
     "-",
-    "/sessions/rcw-01gr4ws551tvvfubrn7awcsy/mnt/dev/projects/NFL_Dashboard/reports/bets/2026-w06-card.md"
+    ""
    ]
   ],
   "secondary-matchups:absences": [
@@ -48,26 +74,21 @@
     "nfl_2026_2_w06_PIT_at_TB"
    ]
   ],
-  "book-props:bookmaker-live-2026-10-16-week6.json": [
-   [
-    "MISMATCH",
-    "Jared Wayne",
-    [
-     "HOU",
-     "JAX"
-    ],
-    [
-     "MIA"
-    ],
-    "Houston Texans @ Jacksonville Jaguars"
-   ]
-  ],
   "roster-map-latest": [
    [
     "UNVERIFIED",
     "Darius Slayton",
     [
      "IND"
+    ],
+    "-",
+    ""
+   ],
+   [
+    "UNVERIFIED",
+    "Marquez Valdes-Scantling",
+    [
+     "LAC"
     ],
     "-",
     ""

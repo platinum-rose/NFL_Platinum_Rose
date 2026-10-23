@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "CC Bowl XV CHAMPIONS LEAGUE — Week 4"
-created: "2026-10-06T19:27:53.848Z"
-modified: "2026-10-06T19:27:53.848Z"
+created: "2026-10-08T13:00:48.652Z"
+modified: "2026-10-08T13:00:48.652Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"
@@ -14,7 +14,7 @@ tags: ["nfl", "season-2026", "week-04", "nfl/fantasy-league-week", "fantasy"]
 league: "CC Bowl XV CHAMPIONS LEAGUE"
 league_key: "470.l.735870"
 my_team: "Fat Lazy Americans"
-my_points: 153.32
+my_points: 152.32
 opp_points: 141.04
 my_rank: 1
 ---
@@ -24,7 +24,7 @@ my_rank: 1
 
 | Team | Pts | Proj |  | Team | Pts | Proj |
 |---|---|---|---|---|---|---|
-| Fat Lazy Americans | 153.32 | 160.86 | vs | Ava's Mafia | 141.04 | 134.74 |
+| Fat Lazy Americans | 152.32 | 160.86 | vs | Ava's Mafia | 141.04 | 134.74 |
 | CallingInSickMonday | 125.48 | 156.49 | vs | The Omen | 157.26 | 163.41 |
 | Isotopes | 227.66 | 138.48 | vs | Prestige Worldwide | 148 | 150.04 |
 | KC Masterpiece | 135.48 | 142.93 | vs | Ninja Goblins | 136.68 | 131.69 |
@@ -33,14 +33,14 @@ my_rank: 1
 
 | Rank | Team | W-L-T | PF | PA |
 |---|---|---|---|---|
-| 1 | **Fat Lazy Americans** | 4-0-0 | 705.26 | 490.12 |
+| 1 | **Fat Lazy Americans** | 4-0-0 | 704.26 | 490.12 |
 | 2 | CallingInSickMonday | 3-1-0 | 622.48 | 471.46000000000004 |
 | 3 | Ninja Goblins | 3-1-0 | 519.48 | 563.66 |
 | 4 | KC Masterpiece | 2-2-0 | 622.36 | 636.96 |
 | 5 | The Omen | 2-2-0 | 619.76 | 572.64 |
 | 6 | Isotopes | 1-3-0 | 589.74 | 573.2 |
 | 7 | Prestige Worldwide | 1-3-0 | 541.42 | 764.98 |
-| 8 | Ava's Mafia | 0-4-0 | 510.26 | 657.74 |
+| 8 | Ava's Mafia | 0-4-0 | 510.26 | 656.74 |
 
 ## My lineup (Fat Lazy Americans)
 
@@ -60,10 +60,10 @@ my_rank: 1
 | K | Cairo Santos | CHI | K | 11 |
 | DEF | Jaguars | JAX | DEF | 15 |
 | D | Jordyn Brooks | MIA | LB | 10 |
-| D | Jack Campbell | DET | LB | 10 |
+| D | Jack Campbell | DET | LB | 9 |
 | BN | Carson Schwesinger | CLE | LB | 6 |
 
-Starters 153.32 · bench 56.90
+Starters 152.32 · bench 56.90
 
 ## Top rostered scorers
 

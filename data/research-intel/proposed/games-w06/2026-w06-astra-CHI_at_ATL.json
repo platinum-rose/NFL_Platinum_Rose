@@ -1,0 +1,204 @@
+{
+  "game": "CHI@ATL",
+  "generated_at": "2026-10-18T02:19:54Z",
+  "head": "ccd875320b275449386fd6cd9a714b9b55a6a165",
+  "packet_ref": "scratch/w06-astra-synthesis-queue.json#packets[matchup=CHI@ATL] (dossier 2026-10-17T02:04:52Z; quant 2026-10-17T21:11:11Z; board 2026-10-17T19:40Z)",
+  "disposition": "conflicted",
+  "tier": "2-",
+  "tier_note": "2- applies to the SuperContest ATL +3 contest-only lean; every market-price position is research_only. Capped at 2- by CHI_STARTER_UNCONFIRMED.",
+  "lean": {
+    "contest": "ATL +3 (SuperContest locked line, spread-only)",
+    "market": "none at CHI -1 / ATL +1 (50.0% / 49.2%)",
+    "total": "none (over 50.0-51.5% if Williams plays, 43.9% if out)"
+  },
+  "scenarios": {
+    "williams_plays": {
+      "margin_adj": -0.3,
+      "total_adj": 0.5
+    },
+    "williams_out": {
+      "margin_adj": 2.5,
+      "total_adj": -2.0
+    },
+    "flip_to_chi": "Penix ruled out with Williams active, or added ATL defensive/OL absences; Williams out flips toward ATL/under"
+  },
+  "adjustments": {
+    "margin_adj": {
+      "williams_plays": -0.3,
+      "williams_out": 2.5
+    },
+    "total_adj": {
+      "williams_plays": 0.5,
+      "williams_out": -2.0
+    },
+    "reasons": [
+      "H1 -0.3/+0.5: CHI pass-offense DVOA +39.8% and SRS edge offset by CHI losing Edwards/Odeyingbo/Monangai; tempo 74.5 vs 57.0 supports +0.5 total",
+      "H2 +2.5/-2.0: Williams to Bagent swing; no model QB term; held at 2.5 (soft cap 2.0, hard cap 3.0), total at soft cap",
+      "Contest rows add a mechanical +2.0 line-gap translation (ATL +3 vs live ATL +1), not a judgment adjustment"
+    ]
+  },
+  "sim_runs": [
+    {
+      "label": "baseline",
+      "home_line": 1,
+      "total": 52.5,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "atl_cover_ex_push": 0.5,
+      "chi_cover_ex_push": 0.5,
+      "over": 0.5,
+      "atl_win": 0.4757
+    },
+    {
+      "label": "H1 Williams plays",
+      "home_line": 1,
+      "total": 52.5,
+      "margin_adj": -0.3,
+      "total_adj": 0.5,
+      "atl_cover_ex_push": 0.4919,
+      "chi_cover_ex_push": 0.5081,
+      "over": 0.5152,
+      "atl_win": 0.4678
+    },
+    {
+      "label": "H2 Williams out",
+      "home_line": 1,
+      "total": 52.5,
+      "margin_adj": 2.5,
+      "total_adj": -2.0,
+      "atl_cover_ex_push": 0.5669,
+      "chi_cover_ex_push": 0.4331,
+      "over": 0.4395,
+      "atl_win": 0.5412
+    },
+    {
+      "label": "contest ATL+3 baseline gap",
+      "home_line": 3,
+      "total": 52.5,
+      "margin_adj": 2.0,
+      "total_adj": 0,
+      "atl_cover_ex_push": 0.5569,
+      "push": 0.0822
+    },
+    {
+      "label": "contest ATL+3 H1",
+      "home_line": 3,
+      "total": 52.5,
+      "margin_adj": 1.7,
+      "total_adj": 0.5,
+      "atl_cover_ex_push": 0.5484,
+      "push": 0.0824
+    },
+    {
+      "label": "contest ATL+3 H2",
+      "home_line": 3,
+      "total": 52.5,
+      "margin_adj": 4.5,
+      "total_adj": -2.0,
+      "atl_cover_ex_push": 0.6259,
+      "push": 0.0796
+    }
+  ],
+  "sim_caveat": "Probabilities are conditional on the scenario and the market-calibrated centre; P(Williams plays) is not modeled. Props/SGPs/teasers have no joint model.",
+  "market_snapshot": {
+    "opener": {
+      "spread": "CHI -2",
+      "total": 48,
+      "ml": "CHI -129 / ATL +102",
+      "at": "2026-10-12T00:22Z"
+    },
+    "current_bkr_1240pt": {
+      "spread": "CHI -1 -113 / ATL +1 -103",
+      "total": "52.5 -108/-108",
+      "ml": "CHI -119 / ATL +105",
+      "captured_at": "2026-10-17T19:40:00Z",
+      "source": "data/odds/BKR_current_lines_1017_1240_buildfmt line 6"
+    },
+    "supercontest_locked": "CHI -3 (captured 2026-10-15 2:29 PM PT)",
+    "splits": {
+      "spread_atl_bets_pct": 63,
+      "spread_atl_money_pct": 68,
+      "over_bets_pct": 69,
+      "over_money_pct": 70,
+      "captured_at": "2026-10-17T18:14:06Z",
+      "moneyline": "stale 42.6h, withheld"
+    },
+    "executable_live_prices": "none verified"
+  },
+  "props_verified_bkr": [
+    {
+      "player": "Bijan Robinson",
+      "market": "rush_yds",
+      "line": 93.5,
+      "over": -108,
+      "under": -108,
+      "pointers": [
+        "/rows/1689",
+        "/rows/1690"
+      ],
+      "captured_at": "2026-10-17T19:41:24Z",
+      "note": "Sharp 89.5 now 4.0 yards stale; no model probability"
+    },
+    {
+      "player": "Bijan Robinson",
+      "market": "carries",
+      "line": 18.5,
+      "over": 107,
+      "under": -124,
+      "pointers": [
+        "/rows/1738",
+        "/rows/1739"
+      ],
+      "captured_at": "2026-10-17T19:41:24Z"
+    }
+  ],
+  "props_omitted": "All Caleb Williams, CHI passing-game legs; ESPN Bijan longest rush (no row); Penix attempts/1Q yards (no priced row); TD legs (no rows)",
+  "gate_notes": [
+    "Packet synthesis_status blocked / queued_hold, blocker CHI_STARTER_UNCONFIRMED: used anyway, tier capped at 2-",
+    "Conditions open: OFFICIAL_INACTIVES, KICKOFF_WEATHER; ARTICLE_GATE_RESOLVED non-blocking",
+    "HEAD observed ccd8753; packet pin ea74728e1e1f not enforced; no re-hash",
+    "Kickoff 2026-10-18T17:00Z not passed (about 14.6h away at generation)",
+    "Roster vet PASS, roster source 2026-10-17T22:22:11Z (about 4h old), no CHI/ATL player in unverified rows; roster:vet not rerun",
+    "BEO 10/17 21:15Z has 4 game rows and no player rows; props from BKR only",
+    "Availability-layer board (CHI -3 / 49.5) is older than the BKR 12:40 PM PT board, which governs",
+    "Williams QB unconfirmed; ATL retractable roof unconfirmed, no outdoor weather applied"
+  ],
+  "sources": [
+    "scratch/w06-astra-synthesis-queue.json packets[CHI@ATL]",
+    "data/odds/BKR_current_lines_1017_1240_buildfmt line 6, 2026-10-17T19:40Z",
+    "data/odds/actionnetwork-openers-2026-w06.json, 2026-10-12",
+    "data/supercontest/week-06-lines.json, 2026-10-15 2:29 PM PT",
+    "data/generated/master-intel/w06-splits-all.json games/4, 2026-10-17T18:14:06Z",
+    "data/generated/master-intel/w06-roster-vet.json, status PASS, 2026-10-17T22:22:11Z",
+    "data/research-intel/availability/2026-w06-availability-layer.json, 2026-10-17T02:03:52Z",
+    "data/research-intel/operator-confirmed-starters-2026-w06.json, 2026-10-16T21:53Z, note 2026-10-17 13:13 PT",
+    "data/research-intel/review/2026-w06-weather-venue.json, 2026-10-17T20:16Z",
+    "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json, capture 2026-10-13T18:14Z",
+    "data/research-intel/proposed/2026-w06-quantitative-synthesis.json games[2], 2026-10-17T21:11Z",
+    "data/podcasts/youtube-extracted-picks-2026-w06.json approved picks /picks/58,72,73,106,115,24",
+    "data/research-intel/review/w06-article-leads-read-2026-10-17.json CHI@ATL (8187, 8208, 8332, 8207, 8365, 8331, 8054)",
+    "reports/intel/master-intel-narratives-2026-w06.md CHI@ATL",
+    "scripts/intel/margin-simulator.mjs (selftest PASS)"
+  ],
+  "ambiguities": [
+    "Williams status unconfirmed (ESPN Questionable, operator expected to play); P(plays) not modeled",
+    "Roof status unknown; weather not applied",
+    "Official inactives missing",
+    "ATL backup QB depth in availability layer (Tagovailoa, Rush) unverified",
+    "Kyler Gordon row status Out vs comment questionable",
+    "HEAD differs from packet pin; not re-hashed",
+    "Moneyline splits stale 42.6h; BEO thin; no TD rows",
+    "Availability-layer vs BKR board disagree (CHI -3/49.5 vs CHI -1/52.5); BKR governs",
+    "validate-game-output.py pinned to W05; manual self-check only",
+    "Contest H2 margin-adj 4.5 includes 2.0 mechanical line-gap; directional"
+  ],
+  "delta_checklist": [
+    "Williams decision/inactives: out flips to ATL +1 (56.7%) and under (over 43.9%) only if price still available; in keeps contest-only ATL +3 (54.8% ex-push, 8.2% push)",
+    "Penix out with Williams active, or added ATL absences: flip to CHI, re-run sim",
+    "Roof/weather confirmation: open roof and wind shades total and favors run props",
+    "Price crossings: ATL +1.5/+2 with Williams in moves to ~52-54%; pick'em or ATL -1 reverses; total crossing 51.5 or 54",
+    "Props: Bijan rush 93.5 vs Sharp 89.5, carries 18.5; omit CHI passing legs until QB official",
+    "Official inactives: CHI Gordon, Stevenson; ATL Za'Darius Smith; confirm Edwards, Odeyingbo, Monangai Out",
+    "SuperContest push exposure 8.2% on ATL +3"
+  ]
+}

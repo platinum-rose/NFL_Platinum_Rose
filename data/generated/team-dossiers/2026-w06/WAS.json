@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:57.275Z",
+  "built_at": "2026-10-17T02:04:51.172Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "25.0"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "EPA/PLY": "0.031",
+          "DVOA": "5.3%",
+          "SUCC%": "45.1%",
+          "EXP%": "8.9%",
+          "CONV%": "44.2%",
+          "TO": "5",
+          "TO%": "2.1%",
+          "3&O": "21.7%",
+          "MTKL%": "13.8%",
+          "PEN%": "3.8%",
+          "PENY": "19.0"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "3"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "YD/PLY": "5.9",
+          "PT/GM": "29.0",
+          "FD%": "30.0%",
+          "TO": "5",
+          "DPBK%": "64.1%",
+          "YD": "1,018",
+          "TD": "11",
+          "INT": "3",
+          "RUSH%": "35.9%",
+          "YD__2": "374",
+          "TD__2": "3"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "45.8%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "DPBK": "152",
+          "SK": "7",
+          "SK%": "4.6%",
+          "QBH%": "14.5%",
+          "PRESS": "39",
+          "PRESS%": "25.7%",
+          "QPRESS%": "35.9%",
+          "TTPR": "2.72",
+          "DISR%": "0.7%",
+          "BLZ%": "47.4%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "3.7%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "EPA/DB": "0.101",
+          "SUCC%": "48.0%",
+          "DVOA": "19.7%",
+          "CPOE": "1.83%",
+          "CBALL%": "75.0%",
+          "EXP%": "13.2%",
+          "INTW%": "2.2%",
+          "TGHT%": "22.8%",
+          "OPEN%": "72.1%",
+          "TA%": "8.1%",
+          "DROP%": "2.9%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "2.30"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "EPA/ATT": "-0.094",
+          "SUCC%": "40.0%",
+          "DVOA": "-17.5%",
+          "aRYOE": "",
+          "EXP%": "7.1%",
+          "STF%": "23.5%",
+          "YBCO": "0.58",
+          "YACO": "2.75"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "7.76%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "EPA/PLY": "-0.051",
+          "DVOA": "-16.6%",
+          "SUCC%": "38.3%",
+          "EXP%": "7.7%",
+          "CONV%": "34.4%",
+          "TO": "1",
+          "TO%": "0.38%",
+          "PENY": "37.0",
+          "PEN%": "8.05%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "4"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "YD/PLY": "4.9",
+          "PT/GM": "20.5",
+          "FD%": "25.7%",
+          "TO": "1",
+          "DPBK%": "60.2%",
+          "YD": "786",
+          "TD": "8",
+          "INT": "1",
+          "RUSH%": "39.8%",
+          "YD__2": "496",
+          "TD__2": "1"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "49.2%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "SK": "5",
+          "SK%": "3.2%",
+          "QBSK%": "0.0%",
+          "QBH%": "17.2%",
+          "PRESS%": "34.4%",
+          "UPRES%": "25.0%",
+          "BLITZ%": "19.7%",
+          "TTPR": "2.53",
+          "TTT": "2.79",
+          "EPA/DB": "-0.358",
+          "DVOA": "-81.6%",
+          "SUCC%": "27.8%",
+          "EPA/DB__2": "0.235",
+          "DVOA__2": "25.6%",
+          "SUCC%__2": "45.6%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "4.4"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "EPA/DB": "0.031",
+          "SUCC%": "39.5%",
+          "DVOA": "3.1%",
+          "CPOE": "-1.6%",
+          "CBALL%": "67.4%",
+          "EXP%": "11.5%",
+          "INTW%": "1.4%",
+          "HLT%": "2.2%",
+          "TA%": "8.0%",
+          "DROP%": "5.1%",
+          "aDOT": "9.7",
+          "aYAC": "4.0"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "50.3%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "EPA/ATT": "-0.174",
+          "SUCC%": "36.5%",
+          "DVOA": "-22.0%",
+          "aRYOE": "",
+          "EXP%": "5.8%",
+          "STF%": "21.2%",
+          "aYBCO": "1.40",
+          "aYACO": "2.09",
+          "CRT%": "58.0%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "35.0%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "PLY/GM": "65.3",
+          "TOP": "30.08",
+          "DRV/GM": "11.8",
+          "SEC/PLY": "27.7",
+          "PLY/DRV": "5.6",
+          "YD/DRV": "27.3",
+          "SEC/DRV": "154",
+          "3&O": "25.5%",
+          "SCD%": "34.0%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Washington Commanders",
           "GP": "5",
@@ -703,13 +885,30 @@
           "PWR%": "5.5%",
           "CTR%": "3.1%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Washington Commanders",
+          "GP": "4",
+          "DPBK%": "60.2%",
+          "RUSH%": "39.8%",
+          "SHG%": "64.0%",
+          "NH%": "8.8%",
+          "MOT%": "51.3%",
+          "PA%": "22.3%",
+          "IZ%": "26.0%",
+          "OZ%": "43.3%",
+          "MD%": "16.3%",
+          "PWR%": "3.8%",
+          "CTR%": "1.9%"
+        }
       }
     },
     "qb1": {
       "player": "Jayden Daniels",
       "position": "QB",
       "tables": {
-        "passing/air-yards": {
+        "passing/air-yards (1)": {
           "Player": "Jayden Daniels",
           "Team": "Washington Commanders",
           "Position": "QB",
@@ -722,7 +921,7 @@
           "PRYD%": "58.5%",
           "dAIR": "18"
         },
-        "passing/analytics": {
+        "passing/analytics (1)": {
           "Player": "Jayden Daniels",
           "Team": "Washington Commanders",
           "Position": "QB",
@@ -737,7 +936,7 @@
           "CPOE": "-2.0%",
           "aYDOE": "-0.866"
         },
-        "passing/efficiency": {
+        "passing/efficiency (1)": {
           "Player": "Jayden Daniels",
           "Team": "Washington Commanders",
           "Position": "QB",
@@ -752,7 +951,7 @@
           "INT%": "0.0%",
           "SK%": "6.0%"
         },
-        "passing/overview": {
+        "passing/overview (1)": {
           "Player": "Jayden Daniels",
           "Team": "Washington Commanders",
           "Position": "QB",
@@ -767,7 +966,37 @@
           "INT": "0",
           "FUML": "0"
         },
-        "passing/pressure": {
+        "passing/overview (2)": {
+          "Player": "Jayden Daniels",
+          "Team": "Washington Commanders",
+          "Position": "QB",
+          "GP": "3",
+          "DPBK": "100",
+          "ATT": "78",
+          "COMP": "46",
+          "COMP%": "59.0%",
+          "YD": "459",
+          "YD/ATT": "5.9",
+          "TD": "3",
+          "INT": "0",
+          "FUML": "0"
+        },
+        "passing/overview (3)": {
+          "Player": "Jayden Daniels",
+          "Team": "Washington Commanders",
+          "Position": "QB",
+          "GP": "3",
+          "DPBK": "100",
+          "ATT": "78",
+          "COMP": "46",
+          "COMP%": "59.0%",
+          "YD": "459",
+          "YD/ATT": "5.9",
+          "TD": "3",
+          "INT": "0",
+          "FUML": "0"
+        },
+        "passing/pressure (1)": {
           "Player": "Jayden Daniels",
           "Team": "Washington Commanders",
           "Position": "QB",
@@ -790,23 +1019,37 @@
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
-      "passing/air-yards": 3,
-      "passing/analytics": 3,
-      "passing/efficiency": 3,
-      "passing/overview": 3,
-      "passing/pressure": 3,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "passing/air-yards (1)": 3,
+      "passing/analytics (1)": 3,
+      "passing/efficiency (1)": 3,
+      "passing/overview (1)": 3,
+      "passing/overview (2)": 3,
+      "passing/overview (3)": 3,
+      "passing/pressure (1)": 3,
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -939,7 +1182,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -959,7 +1202,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -974,12 +1217,12 @@
               "position": "S",
               "event_type": "doubtful",
               "availability_trend": "worsening",
-              "summary": "doubtful",
+              "summary": "Sigle (ankle) didn't take part in Thursday's practice, Matt Barrows of The Athletic reports.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
                 "ESPN injuries API"
               ],
-              "published_at": "2026-10-13T17:10:00.000Z",
+              "published_at": "2026-10-16T04:32:00.000Z",
               "role": "strong_safety",
               "side": "middle",
               "impact_tier": "starter",
@@ -1097,28 +1340,7 @@
             "source_url": "https://www.ourlads.com/nfl-depth-charts/",
             "notes": "Dan Quinn Cover 3 / Quarters zone structure featuring Mike Sainristil in nickel."
           },
-          "secondary_absences": [
-            {
-              "player_name": "Trey Amos",
-              "team": "WAS",
-              "position": "CB",
-              "event_type": "ir",
-              "availability_trend": "worsening",
-              "summary": "Amos (ankle) has been downgraded to out for Sunday's game against the Giants.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-11T01:02:00.000Z",
-              "role": null,
-              "side": null,
-              "impact_tier": "unrated",
-              "primary_receiver_archetypes_impacted": [],
-              "weakness_tags": [],
-              "severity_score": 1.35,
-              "needs_human_review": true
-            }
-          ],
+          "secondary_absences": [],
           "weakness_tags": [
             "slot_wr_boost",
             "underneath_volume_boost"
@@ -1165,10 +1387,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 1.35,
+          "severity_score": 0,
           "elite_absence_count": 0,
-          "vulnerability_tier": "watch",
-          "confidence": 0.63,
+          "vulnerability_tier": "low",
+          "confidence": 0.55,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1191,19 +1413,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1220,29 +1442,109 @@
     "reported_injuries": {
       "out_ir": [
         {
-          "player": "Trey Amos",
-          "pos": "CB",
+          "player": "Jordan Magee",
+          "pos": "LB",
           "status": "Injured Reserve",
-          "date": "2026-10-11",
-          "comment": "Amos (ankle) has been downgraded to out for Sunday's game against the Giants.",
-          "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player": "Jeremy McNichols",
-          "pos": "RB",
-          "status": "Injured Reserve",
-          "date": "2026-10-11",
-          "comment": "McNichols (quadriceps) has been ruled out for Sunday's game against the Giants.",
-          "roster_check": "roster_ir_out_group"
+          "date": "2026-10-15",
+          "comment": "Magee (hamstring) was designated to return from injured reserve Thursday.",
+          "roster_check": "ok"
         }
       ],
       "questionable_doubtful": [
         {
+          "player": "Treylon Burks",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "Burks (shoulder) remained limited in Friday's practice.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Austin Ekeler",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "Ekeler (chest) remained limited in Friday's practice.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Rachaad White",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "White practiced in a limited capacity Friday due to a shoulder injury.",
+          "roster_check": "ok"
+        },
+        {
           "player": "Stefon Diggs",
           "pos": "WR",
           "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "Diggs (hamstring) was limited at Friday's practice.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Lucas Patrick",
+          "pos": "G",
+          "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Javon Kinlaw",
+          "pos": "DT",
+          "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jacory Croskey-Merritt",
+          "pos": "RB",
+          "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "Croskey-Merritt (groin) didn't practice Friday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Terry McLaurin",
+          "pos": "WR",
+          "status": "Questionable",
+          "date": "2026-10-16",
+          "comment": "McLaurin is getting a veteran rest day Friday, John Keim of ESPN.com reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Marcus Mariota",
+          "pos": "QB",
+          "status": "Doubtful",
+          "date": "2026-10-16",
+          "comment": "Mariota (knee) did not participate at practice Thursday.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Fabian Moreau",
+          "pos": "CB",
+          "status": "Questionable",
           "date": "2026-10-15",
-          "comment": "Diggs (hamstring) won't practice Thursday, Zach Selby of the Commanders' official site reports.",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jeremy Reaves",
+          "pos": "S",
+          "status": "Questionable",
+          "date": "2026-10-15",
+          "comment": "questionable",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Javontae Jean-Baptiste",
+          "pos": "LB",
+          "status": "Questionable",
+          "date": "2026-10-15",
+          "comment": "questionable",
           "roster_check": "ok"
         },
         {
@@ -1259,14 +1561,6 @@
           "status": "Questionable",
           "date": "2026-10-13",
           "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Marcus Mariota",
-          "pos": "QB",
-          "status": "Doubtful",
-          "date": "2026-10-13",
-          "comment": "doubtful",
           "roster_check": "ok"
         },
         {
@@ -1288,8 +1582,8 @@
         "roster_status": "day-to-day"
       },
       {
-        "player": "Jordan Magee",
-        "pos": "LB",
+        "player": "Jeremy McNichols",
+        "pos": "RB",
         "roster_status": "day-to-day"
       },
       {
@@ -1301,22 +1595,30 @@
         "player": "Leo Chenal",
         "pos": "LB",
         "roster_status": "day-to-day"
+      },
+      {
+        "player": "Trey Amos",
+        "pos": "CB",
+        "roster_status": "day-to-day"
       }
     ],
     "ol_dl_cluster_risk": {
       "ol": {
         "hard_or_doubtful": 0,
-        "questionable": 0,
-        "risk": "none",
-        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": []
-      },
-      "dl": {
-        "hard_or_doubtful": 0,
         "questionable": 1,
         "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
+          "Lucas Patrick G Questionable"
+        ]
+      },
+      "dl": {
+        "hard_or_doubtful": 0,
+        "questionable": 2,
+        "risk": "watch",
+        "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
+        "players": [
+          "Javon Kinlaw DT Questionable",
           "Charles Omenihu DE Questionable"
         ]
       }
@@ -1331,7 +1633,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Leo Chenal IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1347,7 +1649,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Jer'Zhan Newton IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1363,7 +1665,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Jaylin Lane IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1373,14 +1675,46 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Jacory Croskey-Merritt",
-          "position": "RB",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
+          "player_name": "Treylon Burks",
+          "position": "WR",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T17:21:00.000Z",
-          "summary": "Croskey-Merritt (undisclosed) wasn't present for the portion of Thursday's practice open to the media, Ben Standig of The Team 980 Washington D.C. reports.",
+          "published_at": "2026-10-16T23:15:00.000Z",
+          "summary": "Burks (shoulder) remained limited in Friday's practice.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Austin Ekeler",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T23:13:00.000Z",
+          "summary": "Ekeler (chest) remained limited in Friday's practice.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Rachaad White",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "worsening",
+          "event_type": "setback",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T22:26:00.000Z",
+          "summary": "White practiced in a limited capacity Friday due to a shoulder injury.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1392,11 +1726,11 @@
           "player_name": "Stefon Diggs",
           "position": "WR",
           "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
+          "availability_trend": "stable",
+          "event_type": "limited",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T16:49:00.000Z",
-          "summary": "Diggs (hamstring) won't practice Thursday, Zach Selby of the Commanders' official site reports.",
+          "published_at": "2026-10-16T22:21:00.000Z",
+          "summary": "Diggs (hamstring) was limited at Friday's practice.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1405,45 +1739,13 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Treylon Burks",
-          "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "improving",
-          "event_type": "return_to_practice",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T00:44:00.000Z",
-          "summary": "Burks caught two passes on five targets for 16 yards during Sunday's 27-27 tie with the Giants.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Antonio Williams",
-          "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T00:36:00.000Z",
-          "summary": "Williams hauled in all three of his targets for 31 yards and added a two-yard punt return during the Commanders' 27-27 tie with the Giants on Sunday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Charles Omenihu",
-          "position": "DE",
+          "player_name": "Lucas Patrick",
+          "position": "G",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-13T17:10:00.000Z",
+          "published_at": "2026-10-16T22:18:00.000Z",
           "summary": "questionable",
           "practice": [],
           "probability_of_playing": null,
@@ -1453,14 +1755,46 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Tyler Owens",
-          "position": "S",
+          "player_name": "Javon Kinlaw",
+          "position": "DT",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-13T17:10:00.000Z",
+          "published_at": "2026-10-16T22:17:00.000Z",
           "summary": "questionable",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jacory Croskey-Merritt",
+          "position": "RB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T22:16:00.000Z",
+          "summary": "Croskey-Merritt (groin) didn't practice Friday.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Terry McLaurin",
+          "position": "WR",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T16:58:00.000Z",
+          "summary": "McLaurin is getting a veteran rest day Friday, John Keim of ESPN.com reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1475,40 +1809,8 @@
           "availability_trend": "worsening",
           "event_type": "doubtful",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-13T17:10:00.000Z",
-          "summary": "doubtful",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Percy Butler",
-          "position": "S",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-13T17:10:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Van Jefferson",
-          "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-13T04:19:00.000Z",
-          "summary": "Jefferson reverted to the Commanders' practice squad Monday.",
+          "published_at": "2026-10-16T00:40:00.000Z",
+          "summary": "Mariota (knee) did not participate at practice Thursday.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1519,6 +1821,29 @@
       ]
     },
     "impact_digest": [
+      {
+        "player_name": "Jayden Daniels",
+        "position": "QB",
+        "unit": "quarterback",
+        "event_type": "status_update",
+        "availability_trend": "unknown",
+        "impact_bucket": "qb_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.95,
+          "source_count": 1
+        },
+        "score": 94,
+        "signal": "review_context",
+        "source": "FantasyPros injuries API",
+        "published_at": null,
+        "summary": "Jayden Daniels UNKNOWN",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
       {
         "player_name": "Jayden Daniels",
         "position": "QB",
@@ -1546,7 +1871,7 @@
         "player_name": "Jacory Croskey-Merritt",
         "position": "RB",
         "unit": "offensive_skill",
-        "event_type": "active_news",
+        "event_type": "status_update",
         "availability_trend": "unknown",
         "impact_bucket": "skill_major",
         "starter_match": {
@@ -1554,11 +1879,34 @@
           "starter_confidence": 0.8,
           "source_count": 1
         },
-        "score": 48,
+        "score": 49,
         "signal": "review_context",
         "source": "ESPN injuries API",
-        "published_at": "2026-10-15T17:21:00.000Z",
-        "summary": "Croskey-Merritt (undisclosed) wasn't present for the portion of Thursday's practice open to the media, Ben Standig of The Team 980 Washington D.C. reports.",
+        "published_at": "2026-10-16T22:16:00.000Z",
+        "summary": "Croskey-Merritt (groin) didn't practice Friday.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
+        "player_name": "Jacory Croskey-Merritt",
+        "position": "RB",
+        "unit": "offensive_skill",
+        "event_type": "status_update",
+        "availability_trend": "unknown",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.8,
+          "source_count": 1
+        },
+        "score": 49,
+        "signal": "review_context",
+        "source": "FantasyPros injuries API",
+        "published_at": "2026-10-16T00:00:00.000Z",
+        "summary": "Jacory Croskey-Merritt QUESTIONABLE",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1568,7 +1916,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [
         "Jayden Daniels QB",
         "Jacory Croskey-Merritt RB"
@@ -1601,8 +1949,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1832,18 +2179,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

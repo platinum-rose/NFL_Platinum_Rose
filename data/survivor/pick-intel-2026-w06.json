@@ -1,0 +1,152 @@
+{
+ "schema": "survivor_pick_intel_v1",
+ "season": 2026,
+ "week": 6,
+ "captured_at": "2026-10-17T19:15:00-07:00",
+ "sources": {
+  "pick_pct": "https://www.survivorgrid.com/",
+  "pick_pct_label": "SurvivorGrid (pick share and value score)",
+  "ev": "https://www.survivorgrid.com/",
+  "note": "https://www.espn.com/fantasy/football/story/_/id/50184062/nfl-survivor-week-6-survivor-pool-strategy-advice-picks",
+  "note_label": "ESPN / Hard Rock / Lineups.com / Rotowire",
+  "extra": [
+   "https://www.hardrock.bet/news/the-best-week-6-nfl-survivor-picks-current-ownership-chalk-and-contrarian-plays/",
+   "https://www.lineups.com/articles/nfl-week-6-survivor-picks-rams-colts-patriots-among-popular-plays/",
+   "https://www.rotowire.com/football/article/nfl-survivor-pool-picks-2026-grid-odds-strategy-126290",
+   "https://abc30.com/post/nfl-survivor-power-rankings-should-use-rams-patriots/19938679/"
+  ],
+  "method": "Pick share and value score are SurvivorGrid's Week 6 grid as fetched Saturday Oct 17 (its spreads for a few games run about a point from our current lines, so its value score will differ slightly from one computed on ours). Notes cite ESPN, Yahoo, Hard Rock and Rotowire. Pick share varies a lot by site and by contest, so the notes show the range. Teams from the Thursday game (SEA/DEN) are omitted. No pool-specific ownership for Andy's Yahoo groups was available."
+ },
+ "teams": {
+  "KC": {
+   "pick_pct": 6.1,
+   "ev": 1.07,
+   "note": "Pick share 5-10% (ESPN 5%, SurvivorGrid 6%, Hard Rock 8%, Yahoo 10%). ESPN: low ownership and a good week to burn them (future value 4th). Rotowire: best in a small pool."
+  },
+  "SF": {
+   "pick_pct": 7.5,
+   "ev": 1.07,
+   "note": "Pick share 8-13% (ESPN 8%, SurvivorGrid 7.5%, Hard Rock 10%, Yahoo 13%). ESPN: highest future value on the board (1st), but this is their easiest remaining game per ESPN Analytics. Monday-night game."
+  },
+  "LAR": {
+   "pick_pct": 39.2,
+   "ev": 1.06,
+   "note": "Pick share by site: SurvivorGrid 39%, ESPN 33%, Yahoo 28%, Hard Rock 25%. ESPN: optimal in one-pick-per-week pools, especially small ones; in big pools or multi-pick weeks it prefers saving them (future value 5th)."
+  },
+  "NE": {
+   "pick_pct": 18.7,
+   "ev": 0.97,
+   "note": "Pick share 17-21% (Hard Rock 17%, Yahoo 18%, ESPN 21%). ESPN's top choice for larger or multi-pick pools: 'the best chance all season to use New England' (future value 13th). Rotowire calls it a save candidate for big pools."
+  },
+  "IND": {
+   "pick_pct": 17.2,
+   "ev": 0.96,
+   "note": "Pick share 15-23% (ESPN 15%, Yahoo 14.5%, Hard Rock 23%). ESPN: a contrarian option because the Week 10 game will draw more chalk (future value 17th). Hard Rock's writer ranks the Colts first."
+  },
+  "BUF": {
+   "pick_pct": 2.7,
+   "ev": 0.95,
+   "note": "Pick share 3-4%. ESPN: recommended only for Splash, as a way to avoid the popular Week 11 game (future value 3rd). Rotowire: save for Week 11."
+  },
+  "BAL": {
+   "pick_pct": 0.9,
+   "ev": 0.87,
+   "note": "Pick share 1-3%. Rotowire flags the quarterback's ankle as still uncertain. Win chance is only ~61-63%."
+  },
+  "CAR": {
+   "pick_pct": 1.4,
+   "ev": 0.86,
+   "note": "Pick share 1-4%. Hard Rock's contrarian option; picking against Philadelphia at home is generally considered risky."
+  },
+  "PIT": {
+   "pick_pct": 1.3,
+   "ev": 0.8,
+   "note": "Pick share 1-2%. Pick'em-range game; not survivor-grade at this price."
+  },
+  "JAX": {
+   "pick_pct": 2.7,
+   "ev": 0.79,
+   "note": "Pick share 2-3%. Pick'em-range game in London; not survivor-grade at this price."
+  },
+  "CHI": {
+   "pick_pct": 0.2,
+   "ev": 0.73,
+   "note": ""
+  },
+  "GB": {
+   "pick_pct": 0.3,
+   "ev": 0.73,
+   "note": ""
+  },
+  "NO": {
+   "pick_pct": 0.1,
+   "ev": 0.73,
+   "note": ""
+  },
+  "NYG": {
+   "pick_pct": 0.8,
+   "ev": 0.7,
+   "note": ""
+  },
+  "DAL": {
+   "pick_pct": 0.0,
+   "ev": 0.7,
+   "note": ""
+  },
+  "ATL": {
+   "pick_pct": 0.1,
+   "ev": 0.7,
+   "note": ""
+  },
+  "HOU": {
+   "pick_pct": 0.0,
+   "ev": 0.64,
+   "note": ""
+  },
+  "TB": {
+   "pick_pct": 0.0,
+   "ev": 0.63,
+   "note": ""
+  },
+  "PHI": {
+   "pick_pct": 0.1,
+   "ev": 0.57,
+   "note": ""
+  },
+  "CLE": {
+   "pick_pct": 0.0,
+   "ev": 0.56,
+   "note": ""
+  },
+  "LV": {
+   "pick_pct": 0.0,
+   "ev": 0.48,
+   "note": ""
+  },
+  "TEN": {
+   "pick_pct": 0.0,
+   "ev": 0.47,
+   "note": ""
+  },
+  "NYJ": {
+   "pick_pct": 0.0,
+   "ev": 0.46,
+   "note": ""
+  },
+  "ARI": {
+   "pick_pct": 0.0,
+   "ev": 0.37,
+   "note": ""
+  },
+  "WSH": {
+   "pick_pct": 0.0,
+   "ev": 0.36,
+   "note": ""
+  },
+  "LAC": {
+   "pick_pct": 0.0,
+   "ev": 0.36,
+   "note": ""
+  }
+ }
+}

@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:56.540Z",
+  "built_at": "2026-10-17T02:04:50.351Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "24.8"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "EPA/PLY": "-0.048",
+          "DVOA": "-19.2%",
+          "SUCC%": "43.7%",
+          "EXP%": "8.8%",
+          "CONV%": "36.7%",
+          "TO": "6",
+          "TO%": "2.5%",
+          "3&O": "10.8%",
+          "MTKL%": "7.9%",
+          "PEN%": "3.8%",
+          "PENY": "25.0"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "3"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "YD/PLY": "6.1",
+          "PT/GM": "13.3",
+          "FD%": "30.7%",
+          "TO": "6",
+          "DPBK%": "65.1%",
+          "YD": "1,166",
+          "TD": "3",
+          "INT": "6",
+          "RUSH%": "34.9%",
+          "YD__2": "297",
+          "TD__2": "2"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "28.9%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "DPBK": "155",
+          "SK": "9",
+          "SK%": "5.8%",
+          "QBH%": "16.8%",
+          "PRESS": "46",
+          "PRESS%": "29.7%",
+          "QPRESS%": "39.1%",
+          "TTPR": "2.71",
+          "DISR%": "0.6%",
+          "BLZ%": "25.8%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "1.7%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "EPA/DB": "0.017",
+          "SUCC%": "49.0%",
+          "DVOA": "-6.7%",
+          "CPOE": "2.17%",
+          "CBALL%": "72.5%",
+          "EXP%": "16.8%",
+          "INTW%": "7.2%",
+          "TGHT%": "21.7%",
+          "OPEN%": "71.0%",
+          "TA%": "2.9%",
+          "DROP%": "1.4%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "1.35"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "EPA/ATT": "-0.170",
+          "SUCC%": "33.7%",
+          "DVOA": "-32.5%",
+          "aRYOE": "",
+          "EXP%": "6.0%",
+          "STF%": "18.1%",
+          "YBCO": "1.05",
+          "YACO": "1.34"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "10.20%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "EPA/PLY": "0.173",
+          "DVOA": "21.1%",
+          "SUCC%": "48.2%",
+          "EXP%": "10.2%",
+          "CONV%": "51.1%",
+          "TO": "2",
+          "TO%": "0.88%",
+          "PENY": "36.5",
+          "PEN%": "8.41%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "4"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "YD/PLY": "5.8",
+          "PT/GM": "26.0",
+          "FD%": "34.1%",
+          "TO": "2",
+          "DPBK%": "50.9%",
+          "YD": "843",
+          "TD": "8",
+          "INT": "2",
+          "RUSH%": "49.1%",
+          "YD__2": "469",
+          "TD__2": "4"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "56.1%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "SK": "8",
+          "SK%": "7.0%",
+          "QBSK%": "0.0%",
+          "QBH%": "19.1%",
+          "PRESS%": "28.7%",
+          "UPRES%": "21.4%",
+          "BLITZ%": "28.7%",
+          "TTPR": "2.76",
+          "TTT": "2.56",
+          "EPA/DB": "-0.097",
+          "DVOA": "-27.5%",
+          "SUCC%": "33.3%",
+          "EPA/DB__2": "0.419",
+          "DVOA__2": "54.2%",
+          "SUCC%__2": "58.5%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "5.1"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "EPA/DB": "0.271",
+          "SUCC%": "51.3%",
+          "DVOA": "47.2%",
+          "CPOE": "3.3%",
+          "CBALL%": "77.1%",
+          "EXP%": "15.3%",
+          "INTW%": "2.9%",
+          "HLT%": "2.9%",
+          "TA%": "4.8%",
+          "DROP%": "4.8%",
+          "aDOT": "8.4",
+          "aYAC": "4.4"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "64.1%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "EPA/ATT": "0.072",
+          "SUCC%": "45.0%",
+          "DVOA": "7.3%",
+          "aRYOE": "",
+          "EXP%": "10.8%",
+          "STF%": "18.9%",
+          "aYBCO": "1.43",
+          "aYACO": "2.42",
+          "CRT%": "58.4%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "46.0%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "PLY/GM": "56.5",
+          "TOP": "29.26",
+          "DRV/GM": "9.3",
+          "SEC/PLY": "31.1",
+          "PLY/DRV": "6.1",
+          "YD/DRV": "35.5",
+          "SEC/DRV": "190",
+          "3&O": "10.8%",
+          "SCD%": "51.4%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Jacksonville Jaguars",
           "GP": "5",
@@ -703,13 +885,30 @@
           "PWR%": "3.7%",
           "CTR%": "5.2%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Jacksonville Jaguars",
+          "GP": "4",
+          "DPBK%": "50.9%",
+          "RUSH%": "49.1%",
+          "SHG%": "51.3%",
+          "NH%": "5.8%",
+          "MOT%": "59.3%",
+          "PA%": "26.1%",
+          "IZ%": "24.3%",
+          "OZ%": "38.7%",
+          "MD%": "11.7%",
+          "PWR%": "4.5%",
+          "CTR%": "4.5%"
+        }
       }
     },
     "qb1": {
       "player": "Trevor Lawrence",
       "position": "QB",
       "tables": {
-        "passing/air-yards": {
+        "passing/air-yards (1)": {
           "Player": "Trevor Lawrence",
           "Team": "Jacksonville Jaguars",
           "Position": "QB",
@@ -722,7 +921,20 @@
           "PRYD%": "31.0%",
           "dAIR": "52"
         },
-        "passing/analytics": {
+        "passing/air-yards": {
+          "Player": "Trevor Lawrence",
+          "Team": "Jacksonville Jaguars",
+          "Position": "QB",
+          "GP": "4",
+          "aDOT": "8.4",
+          "AIR": "886",
+          "cAIR": "623",
+          "cAIR%": "70.3%",
+          "PRYD": "263",
+          "PRYD%": "29.7%",
+          "dAIR": "44"
+        },
+        "passing/analytics (1)": {
           "Player": "Trevor Lawrence",
           "Team": "Jacksonville Jaguars",
           "Position": "QB",
@@ -737,7 +949,22 @@
           "CPOE": "3.8%",
           "aYDOE": "0.845"
         },
-        "passing/efficiency": {
+        "passing/analytics": {
+          "Player": "Trevor Lawrence",
+          "Team": "Jacksonville Jaguars",
+          "Position": "QB",
+          "GP": "4",
+          "EPA": "31.2",
+          "EPA/DB": "0.271",
+          "SUCC%": "51.3%",
+          "ACOMP%": "77.0%",
+          "DVOA": "32.7%",
+          "DYAR": "286",
+          "xCOMP": "65.3%",
+          "CPOE": "3.3%",
+          "aYDOE": "0.171"
+        },
+        "passing/efficiency (1)": {
           "Player": "Trevor Lawrence",
           "Team": "Jacksonville Jaguars",
           "Position": "QB",
@@ -752,7 +979,22 @@
           "INT%": "2.1%",
           "SK%": "6.3%"
         },
-        "passing/overview": {
+        "passing/efficiency": {
+          "Player": "Trevor Lawrence",
+          "Team": "Jacksonville Jaguars",
+          "Position": "QB",
+          "GP": "4",
+          "CBALL%": "77.1%",
+          "INTW%": "2.9%",
+          "HLT%": "2.9%",
+          "EXP%": "10.5%",
+          "DROP%": "4.8%",
+          "TA%": "4.8%",
+          "TD%": "7.6%",
+          "INT%": "1.9%",
+          "SK%": "7.0%"
+        },
+        "passing/overview (1)": {
           "Player": "Trevor Lawrence",
           "Team": "Jacksonville Jaguars",
           "Position": "QB",
@@ -767,7 +1009,52 @@
           "INT": "3",
           "FUML": "0"
         },
-        "passing/pressure": {
+        "passing/overview (2)": {
+          "Player": "Trevor Lawrence",
+          "Team": "Jacksonville Jaguars",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "159",
+          "ATT": "144",
+          "COMP": "96",
+          "COMP%": "66.7%",
+          "YD": "1,174",
+          "YD/ATT": "8.2",
+          "TD": "10",
+          "INT": "3",
+          "FUML": "0"
+        },
+        "passing/overview (3)": {
+          "Player": "Trevor Lawrence",
+          "Team": "Jacksonville Jaguars",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "159",
+          "ATT": "144",
+          "COMP": "96",
+          "COMP%": "66.7%",
+          "YD": "1,174",
+          "YD/ATT": "8.2",
+          "TD": "10",
+          "INT": "3",
+          "FUML": "0"
+        },
+        "passing/overview": {
+          "Player": "Trevor Lawrence",
+          "Team": "Jacksonville Jaguars",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "115",
+          "ATT": "105",
+          "COMP": "72",
+          "COMP%": "68.6%",
+          "YD": "843",
+          "YD/ATT": "8.0",
+          "TD": "8",
+          "INT": "2",
+          "FUML": "0"
+        },
+        "passing/pressure (1)": {
           "Player": "Trevor Lawrence",
           "Team": "Jacksonville Jaguars",
           "Position": "QB",
@@ -785,28 +1072,66 @@
           "RATE__2": "71.7%",
           "EPA/DB__2": "0.484",
           "DVOA__2": "56.2%"
+        },
+        "passing/pressure": {
+          "Player": "Trevor Lawrence",
+          "Team": "Jacksonville Jaguars",
+          "Position": "QB",
+          "GP": "4",
+          "SK": "8",
+          "SK%": "7.0%",
+          "QBSK%": "0.0%",
+          "AVSK%": "5.2%",
+          "QBH%": "19.1%",
+          "TTPR": "2.76",
+          "TTT": "2.56",
+          "RATE": "28.7%",
+          "EPA/DB": "-0.097",
+          "DVOA": "-27.5%",
+          "RATE__2": "71.3%",
+          "EPA/DB__2": "0.419",
+          "DVOA__2": "54.2%"
         }
       }
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
-      "passing/air-yards": 5,
-      "passing/analytics": 5,
-      "passing/efficiency": 5,
-      "passing/overview": 5,
-      "passing/pressure": 5,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "passing/air-yards (1)": 5,
+      "passing/air-yards": 4,
+      "passing/analytics (1)": 5,
+      "passing/analytics": 4,
+      "passing/efficiency (1)": 5,
+      "passing/efficiency": 4,
+      "passing/overview (1)": 5,
+      "passing/overview (2)": 5,
+      "passing/overview (3)": 5,
+      "passing/overview": 4,
+      "passing/pressure (1)": 5,
+      "passing/pressure": 4,
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -939,7 +1264,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -952,14 +1277,15 @@
               "player_name": "Montaric Brown",
               "team": "JAX",
               "position": "CB",
-              "event_type": "setback",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "Brown (hamstring) is questionable to return to Sunday's game against the Eagles.",
+              "summary": "Brown (hamstring) has been ruled out ahead of Sunday's game against the Texans.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-11T16:08:00.000Z",
+              "published_at": "2026-10-17T00:48:00.000Z",
               "role": "outside_cb2",
               "side": "field",
               "impact_tier": "starter",
@@ -970,7 +1296,7 @@
                 "outside_wr_boost",
                 "boundary_wr_boost"
               ],
-              "severity_score": 1.27,
+              "severity_score": 1.8,
               "needs_human_review": true
             },
             {
@@ -984,7 +1310,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2025-04-03T19:00:00.000Z",
+              "published_at": "2025-04-03T12:00:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1094,10 +1420,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 3.82,
+          "severity_score": 4.35,
           "elite_absence_count": 0,
           "vulnerability_tier": "medium",
-          "confidence": 0.93,
+          "confidence": 0.92,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1107,14 +1433,7 @@
           ],
           "guardrail": "manual_review_required_not_a_pick",
           "needs_human_review": true,
-          "excluded_unavailable": [
-            {
-              "player_name": "Tank Dell",
-              "team": "HOU",
-              "availability_flag": "reported_out",
-              "note": "removed from target_receivers at build (operator-reported IR or ESPN-reported Out/IR); seed row kept for his return"
-            }
-          ]
+          "excluded_unavailable": []
         },
         {
           "id": "sec_3b490d67af49b6ca",
@@ -1151,7 +1470,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1164,14 +1483,15 @@
               "player_name": "Jalen Pitre",
               "team": "HOU",
               "position": "S",
-              "event_type": "doubtful",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "Texans head coach DeMeco Ryans said Monday that Pitre is \"week-to-week\" due to a left shoulder injury that he sustained in Sunday's 26-3 win over the Titans, Jonathan M. Alexander of the Houston Chronicle reports.",
+              "summary": "Pitre (shoulder) is ruled out for Sunday's game against Jacksonville.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-12T16:42:00.000Z",
+              "published_at": "2026-10-16T00:20:00.000Z",
               "role": "hybrid_safety",
               "side": "slot",
               "impact_tier": "plus",
@@ -1184,27 +1504,27 @@
                 "te_middle_boost",
                 "deep_pass_boost"
               ],
-              "severity_score": 2.02,
+              "severity_score": 2.7,
               "needs_human_review": true
             },
             {
-              "player_name": "M.J. Stewart",
+              "player_name": "Ja'Marcus Ingram",
               "team": "HOU",
-              "position": "S",
-              "event_type": "pup",
+              "position": "CB",
+              "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Stewart is active for Sunday's game against the Titans.",
+              "summary": "The Texans opened Ingram's 21-day return window from injured reserve Wednesday.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
                 "ESPN injuries API"
               ],
-              "published_at": "2026-10-11T15:53:00.000Z",
+              "published_at": "2026-10-15T01:04:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
               "primary_receiver_archetypes_impacted": [],
               "weakness_tags": [],
-              "severity_score": 1.05,
+              "severity_score": 1.35,
               "needs_human_review": true
             }
           ],
@@ -1275,10 +1595,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 4.42,
+          "severity_score": 5.4,
           "elite_absence_count": 1,
-          "vulnerability_tier": "medium",
-          "confidence": 0.92,
+          "vulnerability_tier": "high",
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1301,19 +1621,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1329,6 +1649,22 @@
     "reported_injuries": {
       "out_ir": [
         {
+          "player": "Montaric Brown",
+          "pos": "CB",
+          "status": "Out",
+          "date": "2026-10-17",
+          "comment": "Brown (hamstring) has been ruled out ahead of Sunday's game against the Texans.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Ross Matiscik",
+          "pos": "LS",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "out",
+          "roster_check": "ok"
+        },
+        {
           "player": "Anton Harrison",
           "pos": "OT",
           "status": "Injured Reserve",
@@ -1337,72 +1673,7 @@
           "roster_check": "roster_ir_out_group"
         }
       ],
-      "questionable_doubtful": [
-        {
-          "player": "Nate Boerkircher",
-          "pos": "TE",
-          "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Boerkircher (back) was a limited participant in Wednesday's practice.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Montaric Brown",
-          "pos": "CB",
-          "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Brown (hamstring) did not participate in Wednesday's practice.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Cole Van Lanen",
-          "pos": "OT",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Emmanuel Pregnon",
-          "pos": "G",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Jourdan Lewis",
-          "pos": "CB",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Jarrian Jones",
-          "pos": "CB",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Eric Murray",
-          "pos": "S",
-          "status": "Questionable",
-          "date": "2026-10-13",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Ross Matiscik",
-          "pos": "LS",
-          "status": "Questionable",
-          "date": "2026-10-11",
-          "comment": "Matiscik (shoulder) will not return to Sunday's game against the Eagles in London.",
-          "roster_check": "ok"
-        }
-      ],
+      "questionable_doubtful": [],
       "other": []
     },
     "operator_reported": [],
@@ -1456,12 +1727,10 @@
     "ol_dl_cluster_risk": {
       "ol": {
         "hard_or_doubtful": 1,
-        "questionable": 2,
+        "questionable": 0,
         "risk": "watch",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
-          "Cole Van Lanen OT Questionable",
-          "Emmanuel Pregnon G Questionable",
           "Anton Harrison OT Injured Reserve"
         ]
       },
@@ -1483,7 +1752,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Caleb Ransaw IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1499,7 +1768,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "B.J. Green II IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1515,7 +1784,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Jared Bartlett IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1531,7 +1800,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Parker Hughes IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1541,14 +1810,14 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Nate Boerkircher",
-          "position": "TE",
-          "normalized_status": "QUESTIONABLE",
+          "player_name": "Eric Murray",
+          "position": "S",
+          "normalized_status": "ACTIVE_NEWS",
           "availability_trend": "improving",
-          "event_type": "limited_return",
+          "event_type": "return_to_practice",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T00:19:00.000Z",
-          "summary": "Boerkircher (back) was a limited participant in Wednesday's practice.",
+          "published_at": "2026-10-17T00:55:00.000Z",
+          "summary": "Murray (concussion) does not have any injury designation ahead of Sunday's game against the Texans.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1559,12 +1828,12 @@
         {
           "player_name": "Montaric Brown",
           "position": "CB",
-          "normalized_status": "QUESTIONABLE",
+          "normalized_status": "OUT",
           "availability_trend": "worsening",
-          "event_type": "setback",
+          "event_type": "out",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T00:12:00.000Z",
-          "summary": "Brown (hamstring) did not participate in Wednesday's practice.",
+          "published_at": "2026-10-17T00:48:00.000Z",
+          "summary": "Brown (hamstring) has been ruled out ahead of Sunday's game against the Texans.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1573,14 +1842,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Cole Van Lanen",
-          "position": "OT",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
+          "player_name": "Nate Boerkircher",
+          "position": "TE",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "improving",
+          "event_type": "limited_return",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:13:00.000Z",
-          "summary": "questionable",
+          "published_at": "2026-10-17T00:40:00.000Z",
+          "summary": "Boerkircher (back) does not have any injury designation ahead of Sunday's game against the Texans.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1589,14 +1858,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Emmanuel Pregnon",
-          "position": "G",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
+          "player_name": "Ross Matiscik",
+          "position": "LS",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:12:00.000Z",
-          "summary": "questionable",
+          "published_at": "2026-10-16T18:45:00.000Z",
+          "summary": "out",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1605,32 +1874,20 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Jourdan Lewis",
+          "player_name": "Jaylon Jones",
           "position": "CB",
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:12:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Jarrian Jones",
-          "position": "CB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:11:00.000Z",
-          "summary": "questionable",
-          "practice": [],
-          "probability_of_playing": null,
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-16T00:00:00.000Z",
+          "summary": "Jaylon Jones QUESTIONABLE",
+          "practice": [
+            "Limit",
+            "Limit",
+            "Limit"
+          ],
+          "probability_of_playing": 0.35866,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1667,6 +1924,22 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
+        },
+        {
+          "player_name": "Anton Harrison",
+          "position": "OT",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-13T19:12:00.000Z",
+          "summary": "Harrison is slated to undergo arthroscopic surgery on his right knee next week and could be out for 3-to-5 weeks or 3-to-4 months, depending on what surgeons fi",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
         }
       ]
     },
@@ -1697,7 +1970,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [
         "Bhayshul Tuten RB"
       ],
@@ -1720,8 +1993,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1972,18 +2244,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

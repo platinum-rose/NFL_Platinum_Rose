@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:57.189Z",
+  "built_at": "2026-10-17T02:04:51.082Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "18.0"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "EPA/PLY": "-0.071",
+          "DVOA": "-6.6%",
+          "SUCC%": "39.5%",
+          "EXP%": "7.5%",
+          "CONV%": "36.2%",
+          "TO": "4",
+          "TO%": "1.8%",
+          "3&O": "26.1%",
+          "MTKL%": "9.8%",
+          "PEN%": "4.4%",
+          "PENY": "18.3"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "2"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "YD/PLY": "5.1",
+          "PT/GM": "19.5",
+          "FD%": "26.3%",
+          "TO": "4",
+          "DPBK%": "59.6%",
+          "YD": "857",
+          "TD": "6",
+          "INT": "3",
+          "RUSH%": "40.4%",
+          "YD__2": "314",
+          "TD__2": "1"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "41.3%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "DPBK": "136",
+          "SK": "6",
+          "SK%": "4.4%",
+          "QBH%": "11.8%",
+          "PRESS": "42",
+          "PRESS%": "30.9%",
+          "QPRESS%": "54.8%",
+          "TTPR": "2.60",
+          "DISR%": "0.0%",
+          "BLZ%": "41.9%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "7.8%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "EPA/DB": "0.044",
+          "SUCC%": "44.1%",
+          "DVOA": "9.4%",
+          "CPOE": "-1.12%",
+          "CBALL%": "79.0%",
+          "EXP%": "10.5%",
+          "INTW%": "1.6%",
+          "TGHT%": "16.9%",
+          "OPEN%": "68.5%",
+          "TA%": "4.8%",
+          "DROP%": "5.6%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "1.48"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "EPA/ATT": "-0.241",
+          "SUCC%": "32.6%",
+          "DVOA": "-26.9%",
+          "aRYOE": "",
+          "EXP%": "7.6%",
+          "STF%": "26.1%",
+          "YBCO": "0.80",
+          "YACO": "1.65"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "8.55%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "EPA/PLY": "-0.153",
+          "DVOA": "-12.5%",
+          "SUCC%": "38.5%",
+          "EXP%": "7.1%",
+          "CONV%": "36.1%",
+          "TO": "9",
+          "TO%": "3.77%",
+          "PENY": "31.5",
+          "PEN%": "6.69%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "5"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "YD/PLY": "5.0",
+          "PT/GM": "17.5",
+          "FD%": "25.5%",
+          "TO": "9",
+          "DPBK%": "66.1%",
+          "YD": "763",
+          "TD": "3",
+          "INT": "5",
+          "RUSH%": "33.9%",
+          "YD__2": "424",
+          "TD__2": "3"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "52.3%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "SK": "16",
+          "SK%": "10.1%",
+          "QBSK%": "31.3%",
+          "QBH%": "17.1%",
+          "PRESS%": "44.3%",
+          "UPRES%": "12.9%",
+          "BLITZ%": "39.2%",
+          "TTPR": "2.53",
+          "TTT": "2.74",
+          "EPA/DB": "-0.605",
+          "DVOA": "-98.6%",
+          "SUCC%": "25.7%",
+          "EPA/DB__2": "0.103",
+          "DVOA__2": "13.5%",
+          "SUCC%__2": "50.0%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "6.3"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "EPA/DB": "-0.211",
+          "SUCC%": "39.2%",
+          "DVOA": "-3.5%",
+          "CPOE": "-3.0%",
+          "CBALL%": "72.2%",
+          "EXP%": "11.3%",
+          "INTW%": "4.0%",
+          "HLT%": "2.4%",
+          "TA%": "4.0%",
+          "DROP%": "4.8%",
+          "aDOT": "8.5",
+          "aYAC": "6.2"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "36.4%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "EPA/ATT": "-0.039",
+          "SUCC%": "37.0%",
+          "DVOA": "-9.5%",
+          "aRYOE": "",
+          "EXP%": "6.2%",
+          "STF%": "18.5%",
+          "aYBCO": "1.43",
+          "aYACO": "2.10",
+          "CRT%": "55.6%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "37.5%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "PLY/GM": "59.8",
+          "TOP": "28.57",
+          "DRV/GM": "11.3",
+          "SEC/PLY": "28.7",
+          "PLY/DRV": "5.3",
+          "YD/DRV": "26.4",
+          "SEC/DRV": "152",
+          "3&O": "22.2%",
+          "SCD%": "37.8%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Tampa Bay Buccaneers",
           "GP": "5",
@@ -703,12 +885,42 @@
           "PWR%": "18.3%",
           "CTR%": "3.5%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Tampa Bay Buccaneers",
+          "GP": "4",
+          "DPBK%": "66.1%",
+          "RUSH%": "33.9%",
+          "SHG%": "59.8%",
+          "NH%": "8.4%",
+          "MOT%": "69.9%",
+          "PA%": "24.1%",
+          "IZ%": "34.6%",
+          "OZ%": "19.8%",
+          "MD%": "13.6%",
+          "PWR%": "14.8%",
+          "CTR%": "4.9%"
+        }
       }
     },
     "qb1": {
       "player": "Baker Mayfield",
       "position": "QB",
       "tables": {
+        "passing/air-yards (1)": {
+          "Player": "Baker Mayfield",
+          "Team": "Tampa Bay Buccaneers",
+          "Position": "QB",
+          "GP": "3",
+          "aDOT": "8.9",
+          "AIR": "852",
+          "cAIR": "331",
+          "cAIR%": "38.8%",
+          "PRYD": "521",
+          "PRYD%": "61.2%",
+          "dAIR": "42"
+        },
         "passing/air-yards": {
           "Player": "Baker Mayfield",
           "Team": "Tampa Bay Buccaneers",
@@ -721,6 +933,21 @@
           "PRYD": "521",
           "PRYD%": "61.2%",
           "dAIR": "42"
+        },
+        "passing/analytics (1)": {
+          "Player": "Baker Mayfield",
+          "Team": "Tampa Bay Buccaneers",
+          "Position": "QB",
+          "GP": "3",
+          "EPA": "-30.2",
+          "EPA/DB": "-0.256",
+          "SUCC%": "38.1%",
+          "ACOMP%": "71.7%",
+          "DVOA": "-21.1%",
+          "DYAR": "-75",
+          "xCOMP": "68.6%",
+          "CPOE": "-5.1%",
+          "aYDOE": "-1.829"
         },
         "passing/analytics": {
           "Player": "Baker Mayfield",
@@ -737,6 +964,21 @@
           "CPOE": "-5.1%",
           "aYDOE": "-1.829"
         },
+        "passing/efficiency (1)": {
+          "Player": "Baker Mayfield",
+          "Team": "Tampa Bay Buccaneers",
+          "Position": "QB",
+          "GP": "3",
+          "CBALL%": "70.8%",
+          "INTW%": "2.1%",
+          "HLT%": "3.1%",
+          "EXP%": "8.3%",
+          "DROP%": "5.2%",
+          "TA%": "4.2%",
+          "TD%": "2.1%",
+          "INT%": "2.1%",
+          "SK%": "11.0%"
+        },
         "passing/efficiency": {
           "Player": "Baker Mayfield",
           "Team": "Tampa Bay Buccaneers",
@@ -752,6 +994,51 @@
           "INT%": "2.1%",
           "SK%": "11.0%"
         },
+        "passing/overview (1)": {
+          "Player": "Baker Mayfield",
+          "Team": "Tampa Bay Buccaneers",
+          "Position": "QB",
+          "GP": "3",
+          "DPBK": "118",
+          "ATT": "96",
+          "COMP": "61",
+          "COMP%": "63.5%",
+          "YD": "615",
+          "YD/ATT": "6.4",
+          "TD": "2",
+          "INT": "2",
+          "FUML": "3"
+        },
+        "passing/overview (2)": {
+          "Player": "Baker Mayfield",
+          "Team": "Tampa Bay Buccaneers",
+          "Position": "QB",
+          "GP": "3",
+          "DPBK": "118",
+          "ATT": "96",
+          "COMP": "61",
+          "COMP%": "63.5%",
+          "YD": "615",
+          "YD/ATT": "6.4",
+          "TD": "2",
+          "INT": "2",
+          "FUML": "3"
+        },
+        "passing/overview (3)": {
+          "Player": "Baker Mayfield",
+          "Team": "Tampa Bay Buccaneers",
+          "Position": "QB",
+          "GP": "3",
+          "DPBK": "118",
+          "ATT": "96",
+          "COMP": "61",
+          "COMP%": "63.5%",
+          "YD": "615",
+          "YD/ATT": "6.4",
+          "TD": "2",
+          "INT": "2",
+          "FUML": "3"
+        },
         "passing/overview": {
           "Player": "Baker Mayfield",
           "Team": "Tampa Bay Buccaneers",
@@ -766,6 +1053,25 @@
           "TD": "2",
           "INT": "2",
           "FUML": "3"
+        },
+        "passing/pressure (1)": {
+          "Player": "Baker Mayfield",
+          "Team": "Tampa Bay Buccaneers",
+          "Position": "QB",
+          "GP": "3",
+          "SK": "13",
+          "SK%": "11.0%",
+          "QBSK%": "38.5%",
+          "AVSK%": "14.4%",
+          "QBH%": "16.9%",
+          "TTPR": "2.58",
+          "TTT": "2.73",
+          "RATE": "45.8%",
+          "EPA/DB": "-0.623",
+          "DVOA": "-86.0%",
+          "RATE__2": "54.2%",
+          "EPA/DB__2": "0.054",
+          "DVOA__2": "22.0%"
         },
         "passing/pressure": {
           "Player": "Baker Mayfield",
@@ -790,23 +1096,42 @@
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
+      "passing/air-yards (1)": 3,
       "passing/air-yards": 3,
+      "passing/analytics (1)": 3,
       "passing/analytics": 3,
+      "passing/efficiency (1)": 3,
       "passing/efficiency": 3,
+      "passing/overview (1)": 3,
+      "passing/overview (2)": 3,
+      "passing/overview (3)": 3,
       "passing/overview": 3,
+      "passing/pressure (1)": 3,
       "passing/pressure": 3,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -939,7 +1264,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -949,17 +1274,44 @@
               "needs_human_review": true
             },
             {
+              "player_name": "Benjamin Morrison",
+              "team": "TB",
+              "position": "CB",
+              "event_type": "doubtful",
+              "availability_trend": "worsening",
+              "summary": "Morrison (quadriceps) is listed as doubtful for Sunday's game against the Steelers.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API",
+                "FantasyPros injuries API"
+              ],
+              "published_at": "2026-10-17T01:10:00.000Z",
+              "role": "outside_cb2",
+              "side": "field",
+              "impact_tier": "starter",
+              "primary_receiver_archetypes_impacted": [
+                "z_receiver"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
               "player_name": "Antoine Winfield Jr.",
               "team": "TB",
               "position": "S",
-              "event_type": "doubtful",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "doubtful",
+              "summary": "Winfield (ribs) has been ruled out ahead of Sunday's game against the Steelers, Brianna Dix of the Buccaneers' official site reports.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-13T17:10:00.000Z",
+              "published_at": "2026-10-16T23:26:00.000Z",
               "role": "free_safety",
               "side": "middle",
               "impact_tier": "elite",
@@ -973,13 +1325,15 @@
                 "slot_wr_boost",
                 "post_cross_boost"
               ],
-              "severity_score": 2.7,
+              "severity_score": 3.6,
               "needs_human_review": true
             }
           ],
           "weakness_tags": [
+            "boundary_wr_boost",
             "deep_pass_boost",
             "hot_read_boost",
+            "outside_wr_boost",
             "post_cross_boost",
             "slot_wr_boost",
             "underneath_volume_boost"
@@ -1000,13 +1354,15 @@
                 "red_zone"
               ],
               "matched_weakness_tags": [
+                "outside_wr_boost",
+                "boundary_wr_boost",
                 "deep_pass_boost",
                 "post_cross_boost"
               ],
-              "opportunity_score": 3,
+              "opportunity_score": 6,
               "notes": "SEA Physical Freak WR1. [moved from SEA per ESPN roster 2026-09-27]",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
+              "availability_flag": "questionable"
             },
             {
               "player_name": "Germie Bernard",
@@ -1029,10 +1385,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 4.05,
+          "severity_score": 6.3,
           "elite_absence_count": 1,
-          "vulnerability_tier": "medium",
-          "confidence": 0.85,
+          "vulnerability_tier": "high",
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1079,7 +1435,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1099,7 +1455,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1114,18 +1470,72 @@
               "position": "S",
               "event_type": "ir",
               "availability_trend": "worsening",
-              "summary": "Elliott (knee) has been ruled out ahead of Sunday's game against the Colts, Mark Kaboly of 93.7 The Fan Pittsburgh reports.",
+              "summary": "Elliott (knee) has been ruled out ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-09T23:23:00.000Z",
+              "published_at": "2026-10-17T01:42:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
               "primary_receiver_archetypes_impacted": [],
               "weakness_tags": [],
               "severity_score": 1.35,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Jalen Ramsey",
+              "team": "PIT",
+              "position": "CB",
+              "event_type": "limited",
+              "availability_trend": "stable",
+              "summary": "Ramsey (wrist) is listed as questionable for Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-17T01:37:00.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "elite",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x",
+                "field_stretcher"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "alpha_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 1.65,
+              "needs_human_review": true
+            },
+            {
+              "player_name": "Jamel Dean",
+              "team": "PIT",
+              "position": "CB",
+              "event_type": "limited",
+              "availability_trend": "stable",
+              "summary": "Dean (ankle) is listed as questionable ahead of Sunday's game against the Buccaneers, Adam Caplan of SiriusXM NFL Radio reports.",
+              "source": "ESPN injuries API",
+              "corroborating_sources": [
+                "ESPN injuries API"
+              ],
+              "published_at": "2026-10-17T01:30:00.000Z",
+              "role": "outside_cb1",
+              "side": "boundary",
+              "impact_tier": "plus",
+              "primary_receiver_archetypes_impacted": [
+                "alpha_x"
+              ],
+              "weakness_tags": [
+                "outside_wr_boost",
+                "alpha_wr_boost",
+                "boundary_wr_boost"
+              ],
+              "severity_score": 1.24,
               "needs_human_review": true
             }
           ],
@@ -1200,10 +1610,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 3.75,
-          "elite_absence_count": 0,
-          "vulnerability_tier": "medium",
-          "confidence": 0.88,
+          "severity_score": 6.64,
+          "elite_absence_count": 2,
+          "vulnerability_tier": "high",
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1226,30 +1636,34 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
-      "espn_starter": "Baker Mayfield",
-      "flag": "AMBIGUOUS",
-      "note": "Baker Mayfield Doubtful;",
+      "espn_starter": "Jalon Daniels",
+      "flag": "ok",
+      "note": "Baker Mayfield Out;",
       "depth": [
         "Baker Mayfield",
         "Jalon Daniels"
       ],
-      "operator_confirmed": null
+      "operator_confirmed": {
+        "player": "Jalon Daniels",
+        "confirmed_at": "2026-10-16T21:53:00Z",
+        "note": "Hurts OUT stated by operator. BAL and TB starters recorded on operator approval, based on ESPN and FantasyPros Out reports (not an operator-originated injury report). PHI starter McKee derived from ESPN depth chart. CHI Williams unresolved. Official inactives decide."
+      }
     },
     "reported_injuries": {
       "out_ir": [
@@ -1257,42 +1671,50 @@
           "player": "David Sills V",
           "pos": "WR",
           "status": "Injured Reserve",
-          "date": "2026-10-12",
-          "comment": "Sills (hamstring) had his 21-day practice window opened by the Buccaneers on Monday, Scott Smith &amp; Brianna Dix of the team's official website reports.",
+          "date": "2026-10-17",
+          "comment": "Sills (hamstring) is listed as questionable for Sunday's game against the Steelers.",
           "roster_check": "roster_ir_out_group"
-        }
-      ],
-      "questionable_doubtful": [
-        {
-          "player": "Baker Mayfield",
-          "pos": "QB",
-          "status": "Doubtful",
-          "date": "2026-10-15",
-          "comment": "Buccaneers offensive coordinator Zac Robinson said Thursday that Mayfield's right thumb is \"just not quite ready\" this week, Greg Auman of Fox Sports reports.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Benjamin Morrison",
-          "pos": "CB",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Morrison (quadriceps) was a limited participant at the Buccaneers' practice Wednesday.",
-          "roster_check": "ok"
         },
         {
           "player": "Antoine Winfield Jr.",
           "pos": "S",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "Winfield (ribs) has been ruled out ahead of Sunday's game against the Steelers, Brianna Dix of the Buccaneers' official site reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Baker Mayfield",
+          "pos": "QB",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "Mayfield (thumb) will not play Sunday, Brianna Dix of the Buccaneers' official site reports.",
+          "roster_check": "ok"
+        }
+      ],
+      "questionable_doubtful": [
+        {
+          "player": "Benjamin Morrison",
+          "pos": "CB",
           "status": "Doubtful",
-          "date": "2026-10-14",
-          "comment": "Winfield (ribs) did not participate at the Buccaneers' practice Wednesday.",
+          "date": "2026-10-17",
+          "comment": "Morrison (quadriceps) is listed as doubtful for Sunday's game against the Steelers.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Josiah Trotter",
+          "pos": "LB",
+          "status": "Questionable",
+          "date": "2026-10-17",
+          "comment": "Trotter (knee) is listed as questionable for Sunday's game against the Steelers.",
           "roster_check": "ok"
         },
         {
           "player": "Sean Tucker",
           "pos": "RB",
           "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Tucker didn't participate in Wednesday's practice session due to a quadriceps injury.",
+          "date": "2026-10-16",
+          "comment": "Tucker (quadriceps) is listed as questionable and considered a game-time decision for Sunday's matchup with Pittsburgh, Brianna Dix of the Buccaneers' official ",
           "roster_check": "ok"
         },
         {
@@ -1358,7 +1780,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Jalen McMillan IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1374,7 +1796,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Josh Hayes IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1390,7 +1812,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Mohamed Kamara IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1400,16 +1822,100 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Baker Mayfield",
-          "position": "QB",
+          "player_name": "David Sills V",
+          "position": "WR",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T01:18:00.000Z",
+          "summary": "Sills (hamstring) is listed as questionable for Sunday's game against the Steelers.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Benjamin Morrison",
+          "position": "CB",
           "normalized_status": "DOUBTFUL",
           "availability_trend": "worsening",
           "event_type": "doubtful",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:16:00.000Z",
-          "summary": "Buccaneers offensive coordinator Zac Robinson said Thursday that Mayfield's right thumb is \"just not quite ready\" this week, Greg Auman of Fox Sports reports.",
+          "published_at": "2026-10-17T01:10:00.000Z",
+          "summary": "Morrison (quadriceps) is listed as doubtful for Sunday's game against the Steelers.",
           "practice": [],
           "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Josiah Trotter",
+          "position": "LB",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "stable",
+          "event_type": "limited",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T01:01:00.000Z",
+          "summary": "Trotter (knee) is listed as questionable for Sunday's game against the Steelers.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jalon Daniels",
+          "position": "QB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "worsening",
+          "event_type": "setback",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T00:10:00.000Z",
+          "summary": "Daniels will be the Buccaneers' starting quarterback against the Steelers after Baker Mayfield (right thumb) was ruled out.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Antoine Winfield Jr.",
+          "position": "S",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T23:26:00.000Z",
+          "summary": "Winfield (ribs) has been ruled out ahead of Sunday's game against the Steelers, Brianna Dix of the Buccaneers' official site reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Baker Mayfield",
+          "position": "QB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-16T22:45:31.000Z",
+          "summary": "Baker Mayfield OUT",
+          "practice": [
+            "DNP",
+            "DNP",
+            "DNP"
+          ],
+          "probability_of_playing": 0,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1421,14 +1927,11 @@
           "normalized_status": "QUESTIONABLE",
           "availability_trend": "unknown",
           "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Sean Tucker QUESTIONABLE",
-          "practice": [
-            "DNP",
-            "Limit"
-          ],
-          "probability_of_playing": 0.50549,
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T20:57:00.000Z",
+          "summary": "Tucker (quadriceps) is listed as questionable and considered a game-time decision for Sunday's matchup with Pittsburgh, Brianna Dix of the Buccaneers' official ",
+          "practice": [],
+          "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1441,32 +1944,14 @@
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
+          "published_at": "2026-10-16T00:00:00.000Z",
           "summary": "SirVocea Dennis QUESTIONABLE",
           "practice": [
             "Limit",
-            "Limit"
-          ],
-          "probability_of_playing": 0.62634,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Benjamin Morrison",
-          "position": "CB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Benjamin Morrison QUESTIONABLE",
-          "practice": [
             "Limit",
-            "Limit"
+            "Full"
           ],
-          "probability_of_playing": 0.48191,
+          "probability_of_playing": 0.71916,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1479,77 +1964,14 @@
           "availability_trend": "unknown",
           "event_type": "status_update",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
+          "published_at": "2026-10-16T00:00:00.000Z",
           "summary": "Ayden Garnes QUESTIONABLE",
           "practice": [
             "DNP",
-            "Limit"
+            "Limit",
+            "Full"
           ],
-          "probability_of_playing": 0.47505,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Antoine Winfield Jr.",
-          "position": "S",
-          "normalized_status": "DOUBTFUL",
-          "availability_trend": "worsening",
-          "event_type": "doubtful",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:24:00.000Z",
-          "summary": "Winfield (ribs) did not participate at the Buccaneers' practice Wednesday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "David Sills V",
-          "position": "WR",
-          "normalized_status": "IR",
-          "availability_trend": "worsening",
-          "event_type": "ir",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-12T23:06:00.000Z",
-          "summary": "Sills (hamstring) had his 21-day practice window opened by the Buccaneers on Monday, Scott Smith &amp; Brianna Dix of the team's official website reports.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player_name": "Jacob Parrish",
-          "position": "CB",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-12T00:15:00.000Z",
-          "summary": "Parrish recorded nine total tackles (eight solo) and four passes defensed during Thursday night's 24-16 win over the Cowboys.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Josiah Trotter",
-          "position": "LB",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "unknown",
-          "event_type": "active_news",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-12T00:06:00.000Z",
-          "summary": "Trotter recorded seven total tackles (five solo) during Thursday night's 24-16 victory against the Cowboys.",
-          "practice": [],
-          "probability_of_playing": null,
+          "probability_of_playing": 0.66005,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1562,19 +1984,19 @@
         "player_name": "Jalon Daniels",
         "position": "QB",
         "unit": "quarterback",
-        "event_type": "active_news",
-        "availability_trend": "unknown",
+        "event_type": "setback",
+        "availability_trend": "worsening",
         "impact_bucket": "qb_major",
         "starter_match": {
           "role": "likely_starter_or_primary",
           "starter_confidence": 0.7,
           "source_count": 1
         },
-        "score": 87,
-        "signal": "review_context",
+        "score": 119,
+        "signal": "negative_availability",
         "source": "ESPN injuries API",
-        "published_at": "2026-10-09T15:23:00.000Z",
-        "summary": "Buccaneers coach Todd Bowles said Friday that he plans on starting Daniels in Week 6 against Pittsburgh, Scott Smith of the team's official site reports.",
+        "published_at": "2026-10-17T00:10:00.000Z",
+        "summary": "Daniels will be the Buccaneers' starting quarterback against the Steelers after Baker Mayfield (right thumb) was ruled out.",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1584,7 +2006,7 @@
     ],
     "projected_starters": {
       "coverage_status": "estimated_from_local_starter_language",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [],
       "estimated": [
         "Jalon Daniels QB"
@@ -1608,8 +2030,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1839,18 +2260,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

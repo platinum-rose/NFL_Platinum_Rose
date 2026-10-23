@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 7,
   "completed_weeks": 6,
-  "built_at": "2026-10-22T18:21:00.414Z",
+  "built_at": "2026-10-22T22:58:54.286Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "aecd94b",
+  "git_head": "645efaf",
   "market_data_included": false,
   "sources": [
     {
@@ -1427,7 +1427,7 @@
       "vet_status": "PASS",
       "blocking_count": 0,
       "roster_snapshot_generated_at": "2026-10-22T14:39:12.738634+00:00",
-      "roster_age_h_at_vet": 3.7,
+      "roster_age_h_at_vet": 8.3,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
@@ -1435,7 +1435,7 @@
     },
     "as_of": {
       "espn_status": "2026-10-22T14:39:14Z",
-      "availability_events": "2026-10-22T14:39:26.249Z",
+      "availability_events": "2026-10-22T22:58:47.007Z",
       "impact_digest": "2026-10-22T14:39:29.587Z",
       "projected_starters": "2026-10-21T22:00:03.496Z",
       "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -1638,14 +1638,14 @@
       "window": "published within 10 days of build; latest per player; cap 12",
       "rows": [
         {
-          "player_name": "Mario Edwards Jr.",
-          "position": "DE",
-          "normalized_status": "IR",
+          "player_name": "E.J. Speed",
+          "position": "LB",
+          "normalized_status": "PUP",
           "availability_trend": "worsening",
-          "event_type": "ir",
+          "event_type": "pup",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
-          "summary": "Mario Edwards Jr. IR",
+          "published_at": "2026-10-22T22:50:05.000Z",
+          "summary": "E.J. Speed PUP",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1654,14 +1654,14 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "E.J. Speed",
-          "position": "LB",
-          "normalized_status": "PUP",
+          "player_name": "Mario Edwards Jr.",
+          "position": "DE",
+          "normalized_status": "IR",
           "availability_trend": "worsening",
-          "event_type": "pup",
+          "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
-          "summary": "E.J. Speed PUP",
+          "published_at": "2026-10-22T22:50:04.000Z",
+          "summary": "Mario Edwards Jr. IR",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1676,7 +1676,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Graham Mertz IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1692,7 +1692,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Ali Gaye IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1708,7 +1708,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Jake Hummel IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1724,7 +1724,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Dylan Horton IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1740,7 +1740,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Solomon Byrd IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1756,7 +1756,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "British Brooks IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1772,7 +1772,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Jayden Higgins IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1788,7 +1788,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "Jaylin Smith IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1804,7 +1804,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-22T14:30:02.000Z",
+          "published_at": "2026-10-22T22:50:04.000Z",
           "summary": "K.C. Ossai IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1814,14 +1814,14 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Azeez Al-Shaair",
-          "position": "LB",
+          "player_name": "Brevin Jordan",
+          "position": "TE",
           "normalized_status": "QUESTIONABLE",
-          "availability_trend": "worsening",
-          "event_type": "setback",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-22T00:39:00.000Z",
-          "summary": "Al-Shaair (knee) did not participate in Wednesday's practice.",
+          "published_at": "2026-10-22T20:47:00.000Z",
+          "summary": "questionable",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1914,8 +1914,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -2167,7 +2166,7 @@
       "through_week": null,
       "as_of": {
         "espn_status": "2026-10-22T14:39:14Z",
-        "availability_events": "2026-10-22T14:39:26.249Z",
+        "availability_events": "2026-10-22T22:58:47.007Z",
         "impact_digest": "2026-10-22T14:39:29.587Z",
         "projected_starters": "2026-10-21T22:00:03.496Z",
         "roster_snapshot": "2026-10-22T14:39:12.738634+00:00"
@@ -2176,8 +2175,7 @@
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W7; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

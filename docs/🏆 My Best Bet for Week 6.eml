@@ -1,0 +1,868 @@
+Received: from SJ0P220MB0525.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:3bb::24)
+ by CO6P220MB0324.NAMP220.PROD.OUTLOOK.COM with HTTPS; Sat, 17 Oct 2026
+ 13:19:10 +0000
+Received: from MW4PR04CA0197.namprd04.prod.outlook.com (2603:10b6:303:86::22)
+ by SJ0P220MB0525.NAMP220.PROD.OUTLOOK.COM (2603:10b6:a03:3bb::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.522.12; Sat, 17 Oct
+ 2026 13:19:08 +0000
+Received: from MWH0EPF000A6730.namprd04.prod.outlook.com
+ (2603:10b6:303:86:cafe::14) by MW4PR04CA0197.outlook.office365.com
+ (2603:10b6:303:86::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.522.18 via Frontend Transport; Sat,
+ 17 Oct 2026 13:19:08 +0000
+Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP is
+ 143.55.239.140) smtp.mailfrom=cioeu110566.codybrownbets.com; dkim=pass
+ (signature was verified) header.d=cioeu110566.codybrownbets.com;dmarc=pass
+ action=none header.from=codybrownbets.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of
+ cioeu110566.codybrownbets.com designates 143.55.239.140 as permitted sender)
+ receiver=protection.outlook.com; client-ip=143.55.239.140;
+ helo=v5140.v5a39be5d.euw1.send.eu.mailgun.net; pr=C
+Received: from v5140.v5a39be5d.euw1.send.eu.mailgun.net (143.55.239.140) by
+ MWH0EPF000A6730.mail.protection.outlook.com (10.167.249.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.522.6 via Frontend Transport; Sat, 17 Oct 2026 13:19:08 +0000
+X-IncomingTopHeaderMarker: OriginalChecksum:F6ECF94495C9413898AF883E67F9FCF8C61FB2022B6414F346417CF42C6CD8D9;UpperCasedChecksum:94C53695F0611F2B087790DCDC2B57912747FFEACEF64108123CD03EA2AAD45E;SizeAsReceived:1751;Count:20
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=cioeu110566.codybrownbets.com; q=dns/txt; s=mta; t=1792243146; x=1792250346;
+ h=Message-Id: List-Unsubscribe-Post: List-Unsubscribe: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: Date: Sender;
+ bh=oQK/kPBeMxMFlgjf+b6kjvCrQ8QSrQkmpP/UspfoH/Y=;
+ b=NsIRIGjQyVrA4AJXysLPHn2OmiGKPp7ea3zRygJ0SkDUtvdJm3w2S8iO0V4F2qalc61/2+He4A9JtKa0Q46KcZRppNq3ldDliZBmli2bWq6Tt+W7VA0tl2Immq5rJSSey6jKAAQJFvFoJzVMTfRXL/6DTwmpGC53y+kPUR4zABM=
+X-Mailgun-Sid: WyJhN2U0OSIsImFuZHJld2xyb3NlQGhvdG1haWwuY29tIiwiYjYwYTgiXQ==
+Received: by 441015dce8e52940d2e4d79d75bb8119fd022064b9bb7cc87bd590a1367f8316 with HTTP
+ id 6ad375ca88eca7c78d78f9ce; Sat, 17 Oct 2026 13:19:06 GMT
+X-Mailgun-Sending-Ip: 143.55.239.140
+Date: Sat, 17 Oct 2026 13:19:06 +0000
+Content-Type: multipart/alternative;
+ boundary="0034582cff76ba23bfb5e2118459b9278b464ca494281903740979374119"
+Subject: =?UTF-8?q?=F0=9F=8F=86_My_Best_Bet_for_Week_6...?=
+From: Cody Brown Bets <cody@codybrownbets.com>
+To: andrewlrose@hotmail.com
+X-Mailgun-Dkim: true
+X-Mailgun-Native-Send: true
+X-Mailgun-Track-Clicks: false
+X-Mailgun-Track-Opens: false
+X-Report-Abuse-To: badactor@customer.io
+List-Unsubscribe: <mailto:32.MRTVGNDNIFXUIQKMOZWEI4TSNRCGOR3IKNTUGSKTIR2XG4JVMVCVK23UGRHW4NB5@unsubscribe-eu.customer.io>,
+ <https://e-eu.customeriomail.com/unsubscribe/dgS4mAoDALvlDrrlDgGhSgCISDusq5eEUkt4On4=>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Mailer: Customer.io (dgS4mAoDALvlDrrlDgGhSgCISDusq5eEUkt4On4=;
+ +https://whatis.customeriomail.com)
+X-Mailgun-Variables: {"email_id": "dgS4mAoDALvlDrrlDgGhSgCISDusq5eEUkt4On4="}
+Message-Id: <20261017131906.c54e64982c28405e@cioeu110566.codybrownbets.com>
+X-IncomingHeaderCount: 20
+Return-Path: postmaster@cioeu110566.codybrownbets.com
+X-MS-Exchange-Organization-ExpirationStartTime: 17 Oct 2026 13:19:08.7489
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id: 04e868aa-b659-448a-34e9-08df2c513a08
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A6730:EE_|SJ0P220MB0525:EE_|CO6P220MB0324:EE_
+X-MS-Exchange-Organization-AuthSource: MWH0EPF000A6730.namprd04.prod.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 10/17/2026 1:07:45 PM
+X-MS-Office365-Filtering-Correlation-Id: 04e868aa-b659-448a-34e9-08df2c513a08
+X-Sender-IP: 143.55.239.140
+X-MS-Exchange-EOPDirect: true
+X-SID-PRA: CODY@CODYBROWNBETS.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;ARA:1444111002|10300799038|9400799043|3069299007|5149299006|260826003000599003|9000799056|60050799012|1680799066|5139299004|32080799009|33080799006|30140799009|119000799009|260928210016899003|260925184616899003|1602099012|30041999003|1360799030|1122599022|56899033|1370799030|1380799030|4302099013|3412199025|440099028|2406899039;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Oct 2026 13:19:08.2069
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 04e868aa-b659-448a-34e9-08df2c513a08
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000A6730.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0P220MB0525
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.7970592
+X-MS-Exchange-Processed-By-BccFoldering: 15.21.0522.007
+X-Microsoft-Antispam-Mailbox-Delivery:
+	wl:1;pcwl:1;ucf:0;jmr:0;ex:1;auth:1;dest:I;OFR:TrustedSenderList;ENG:(5062000311)(920221119095)(90000117)(920221120095)(90012020)(91020020)(91040095)(9050020)(9065024)(9100341)(944500132)(2008001181)(4810010)(4910033)(9575002)(10195002)(9439006)(9310011)(9220031)(120001)(1110175);
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0xO1NDTD0tMQ==
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?S21zbDdmd3FERm11ZlV4SS9EZnZ6eEE4b3J3S1B0emhDNjNNOUh0QWhyenkv?=
+ =?utf-8?B?cmVPbjFFbzFOUWp4N2hRVU5ITzl5dWVqajYveFU1R205NU1OZnVJNDRIQlZT?=
+ =?utf-8?B?QlVySG5TTEs4QWFOb3B0cXFkSkZtZ1FGRGs1MStod0NmWHZsQnhRam9td1Ur?=
+ =?utf-8?B?NnBYSk01U2ZnUWgxRkNuODFrR3c3Z0J6NmM3OWlKUGhQM3JTYmJHZ0tVVENX?=
+ =?utf-8?B?U1grbW1rNE5ZSmFEVmlPNWRUZEg5TVdOWnA1WXdITGRTdmlrY080dXdFdlpk?=
+ =?utf-8?B?Qk5NdW1FNjNGTm1Nb1JtWDlkMFB3NnR3VXdEU2VRN2ZQQ2d6bnlXaUFVUFBW?=
+ =?utf-8?B?ZklERXJyckY1M2k3YnF5Tm9QUlpsTXhCa2d3QWZuTXd0bUU4bGs2RW4xMG1C?=
+ =?utf-8?B?dFUxYnl1YjgvbGNubmVzb3NSMi9nSHN3NVY3N0lNTGpHQUUzTXo3RzhISng0?=
+ =?utf-8?B?L3NYYWQ3S3AzWmdCLzdQYStrWEkrZ2VsZGNXNWFhazhPUWNiOElGV21pZ1Nh?=
+ =?utf-8?B?NHY2c1FpeEJMZzlCeVpVS05ZRUpoRkFwU20vejg3VkVvN1VLUUJzS1dVWGZH?=
+ =?utf-8?B?TkpQRVQxRVljNlpsbC9FNlBxN0N3Um43MFRIcWZkS3ArM256cFNnZXpNVFhw?=
+ =?utf-8?B?U3drSUNGRlZVZ0xXamFUQ0M4OE9sdG0yMjBsa2FFOUNVbUNvWTdNWUlJZFJu?=
+ =?utf-8?B?dGVJMkxSSDQ0dTBQeUliMWhSa2huS0VhVzVPeGIrL3RYN1Ftb1A5NlZmTVJD?=
+ =?utf-8?B?ZHVscU84S0UzUG9SMGQ3Q2VNZVVXZ1U5Y1pFeDFISlE3TlcwVjl0SEU1dmVJ?=
+ =?utf-8?B?S01lZnlCNjZNVk1JKzJvY29SVlIweHl1Snh3b0ZWYnNrSUZPVEZMbVdmd1Vz?=
+ =?utf-8?B?MmRsWnBNNElaNk94S0JXdEs4VGVtUStnMWFlSVpqczZBWVg3bndITlY5b1Nr?=
+ =?utf-8?B?cHIrU1lWQXVzQlEvdU85V2F2MHQ4bmQzVTBFRW5EaGRTMm0xV05FUjl0eWNB?=
+ =?utf-8?B?Tjh4a2RTVWtTZ2d2RWtDRFl3aGdYMytSdThqVHFpT3dMOUJqZ0lQODNtcjlY?=
+ =?utf-8?B?KzBwMVVlczJHM0lPWUdMdEZ4VDZJRUJwL1RoblRzenB4MERweXo1eS9nUFB2?=
+ =?utf-8?B?TG5pUk9sNlFnR25xTGtvcTNpd3UvU3ZRdURWS3Nld1Ntc0RqalBKWXRQMWhj?=
+ =?utf-8?B?ZnNEdTBFTkhGRVdxdWhldWQzdVRIbDFidndoNTJUU1NpUTdVbVB2N1VNYW9n?=
+ =?utf-8?B?OWpiSFEzczZZeWZDNUd1bi9yZFV5QlNSR00vUTY3UUQ2anZYeHQwL3oyRy9S?=
+ =?utf-8?B?TExSKzRzTWZpN01scGlleWlMbEQwd0RTS1JxSjRHeWFXMmFmMkFNRFBKZ1lZ?=
+ =?utf-8?B?cTdXbU5uUWNuckxteGhZSnQvcG5HSjJFVTRYYXJPMHZZcGhDeUFBRXFwamNX?=
+ =?utf-8?B?Zmh6TDFPbkFNbVc3cW13Vnd1UW83Lzc0TDgzYUpuVmdOMUN6ZksxbHlmU0x2?=
+ =?utf-8?B?Q05YRXpXN1FLS2dlclViRm95RnZndlRmb1RvVXh2WDl5Z04yQksxK2FlUGpB?=
+ =?utf-8?B?U3I3MHJ4czltMWdHQUZZdWtGUklRWVk0ckpaYWVSR2k5WEMrQ0FJSzRvZnRB?=
+ =?utf-8?B?Ty9qZWRDWkhGbWIvdWg3dmQ0ZFFLTzdoTnY1MmdyV242YktJREw3ZWttY01x?=
+ =?utf-8?B?M1EyQ0Z4bXdqZDlJVys1YkhEZHJmcFp0QkQrdFZxcjFoN095Z0hIVXhVdlNQ?=
+ =?utf-8?B?eDF6RCtYSmpPNGlkY2tZa0NFdUdsUjdPaU9CM2dpQm95QUpVMDdnR0kyZXFo?=
+ =?utf-8?B?Z0dHRlZYS3JUd3lqUVZ6NEF1V1JxeXFNUDVGV0ZVdDQza2ZPL3BOelFNdmdj?=
+ =?utf-8?B?UWU4dkFCZU4wUFd5d25UU0tvWWJpMWtxVjQwamZEWXk2R1lzc2Y4UDJ6YU8y?=
+ =?utf-8?B?QVA1UnF5eEVnd25QWVpOdVBhb1NVekhKNTVnMnBYVU9tMnFGZ09xMGlQZzU0?=
+ =?utf-8?B?WHFiU2ExNmhHZzVHVTVUVkhmemY2MnR1UlZNTzVhOXBJNjNncmpveDdhdktI?=
+ =?utf-8?B?cWNpOXFvT1l2QmY4MUt0a0RnMG52Yy9LZ0hQazBHZE9hLzl4VFJITDlDY1lS?=
+ =?utf-8?B?dUlPd0JQb2lna0NPd29vQk03NGlOSGxtR0lMMTFlUGFqWkFUYXZLVDhiY095?=
+ =?utf-8?B?dmgzUE50bUhhVVp0eGE0WHROa2ZoR25Cd1M1N2g3cGEwT1UxRHR6dXFoSGJz?=
+ =?utf-8?B?ZnY4TUgrN1dRajBFNjlRaFpiOFRrc1hUalZCa1d2MXQrWVJDZTFtRC8xY1VE?=
+ =?utf-8?B?OWlwSFdJMHl4NmVaRks0WWM2WkFlNGlham4vYzRxOG1TNmFjY1I0ZWtZaGxK?=
+ =?utf-8?B?Z2g5Qm1tMERQZU84QlZFRGQ3SFBHRUZ1UGVPMnlsTUlwMVNXN2d0Tkc5U2sx?=
+ =?utf-8?B?OVYwcEw0MEkrbnRoRE15MzdoS2RMWUtZekp5bjNpSjdkdE03TDM2VkR6S0dn?=
+ =?utf-8?B?Nnl0UGZ2Ulh1QkR2STgzSVlRdXd4NENlWXN6dTg1SE4vb1ZwMGlDc2J4ZGE2?=
+ =?utf-8?B?ajRoUldkZUZSRVRLNWNDdVZwbGVoaHNXaC9QOHc5ZStyUzlrMnYzVnpUMGNq?=
+ =?utf-8?B?M25DWFJ6NkJ1eEY1SkUwR2dmdnN6eWRuTnFZekZSUUdHVTNoaVI3bFJ2RjJF?=
+ =?utf-8?B?L0NTVWF6dzg1WTBsbkQ3UlFMTzU4eWFGMldLNnh4UnV0Z2VVWU1IK0E2NW41?=
+ =?utf-8?B?a2I5ck5QUkR4cmZwZldXcisyUTk1U2pxakhCMmE1d0g0RFZoSzc5ZXpvL1Qr?=
+ =?utf-8?B?U0JvOG53dzJhT3ZCMFBlSmVyelM2VEJkS0JRMjJ1eTJaMzc4NmJ4K3hrUkFG?=
+ =?utf-8?B?VGVzcFFTVVRxenc3ekRjT0RZK3U1ZEhIay9pRjQrNFQ5RzBSLzIwVmNrRk9S?=
+ =?utf-8?B?cjYxcWQ2WEhmVjFhZ1JyTmpmNDRtVmxqL2J2b0JHdE1qTDh4SnVVWmxPdncz?=
+ =?utf-8?B?VDZFNTVFdFRDUGhFeGV6cEhkM3ZvL3d5WVd0aTJkbDZCS291YWp1R0hhQ25T?=
+ =?utf-8?B?RHhRcXA3cTRPRVdXbndtOVgvYlJ2cmZQWU5SSGRMVE5iTjFDNDIwZTh5TFJE?=
+ =?utf-8?Q?br9G7oTaL?=
+MIME-Version: 1.0
+
+--0034582cff76ba23bfb5e2118459b9278b464ca494281903740979374119
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+
+Three straight prime time parlays cashed...
+
+CODY BROWN BETS
+
+---------------
+CODY BROWN BETS
+---------------
+
+**********
+WEEKLY NFL
+
+CHEAT CODE
+**********
+
+Over a third of the way through the season already!
+
+It's been a bit of an up and down start but we've found some nice form late=
+ly with 3 straight prime time winners.
+
+Let's build on that this Sunday.
+
+Below is my Best Bet, TD parlay and some betting intel to help you cash.
+
+****************
++14102 TD Parlay
+****************
+
+These guys all have elite matchups...
+
+Tap the link below if you want to tail!
+
+( https://tail.link/8TDSW6 )
+Place my TD Lotto ( https://tail.link/8TDSW6 )
+
+***************
+Sunday best bet
+***************
+
+=F0=9F=8F=88
+
+Luther Burden Over 49.5 Receiving Yards
+
+Chicago Bears @ Atlanta Falcons
+
+Caleb Williams should be back this week and that adds a massive boost to th=
+e Bears=E2=80=99 passing game. Burden has been solid without setting the wo=
+rld on fire this season, averaging just over 50 yards per game. We need to =
+remember that four of those games have been without Caleb.
+
+He=E2=80=99s still managed to cover this line in two of his last three game=
+s, with the one miss ending on 47 yards. I think we=E2=80=99re getting a bi=
+g discount on his line here and I don=E2=80=99t expect it to be this low ag=
+ain this season.
+
+The matchup is great against the Falcons who have been leaking yards to wid=
+e receivers all season. They give up an average of 181 yards per game to th=
+e position. Ten different receivers have covered this line against them in =
+five games so far.
+
+Burden played a season-high 77% of snaps last week and should be heavily in=
+volved in this game. It=E2=80=99s a nice game environment with a 51.5 point=
+ total and this game is indoors too.
+
+Odds are currently -114 on FanDuel.
+
+21+, gamble responsibly.
+
+Place my Best Bet ( https://tail.link/LBBBWk6 )
+
+*************
+Betting intel
+*************
+
+* Kirk Cousins has cashed his FanDuel passing yards line of 241.5 in four s=
+traight games, and now faces the Bills secondary allowing the second most p=
+assing yards per game on a short week.
+* Justin Herbert continues to struggle and has thrown an interception in ev=
+ery game (7 in total)... The Chiefs defense has a pick in all four games th=
+is season.
+* Drake London has had 27 receptions this season but is yet to score a touc=
+hdown. He's surely due and he plays the Bears defense who have given up thr=
+ee TDs to wide receivers in the last two games.
+* Isaiah Likely has had at least 12 targets in back-to-back games and score=
+d a season-high 94 yards last week. He now faces a Saints defense that has =
+given up the third-most targets and fourth-most receptions in the league.
+* Zay Flowers has 90 receiving yards on crossing routes this season, third =
+most in the NFL. Cleveland has given up the fourth-most yards on crossing r=
+outes through five games.
+* The Raiders defense gives up 5.2 rushing yards per attempt, tied for seco=
+nd highest in the league. Cook, third in rushing yards (532), and Allen, mo=
+st rushing yards by a QB (239), could be in for a big day.
+* Patrick Mahomes has two touchdowns in all four games, and has found six d=
+ifferent receivers in the end zone.
+
+Touchdown sheet
+Here are eight guys I like to score this week...
+
+Take them as straights or parlay a few!
+
+Thanks for reading
+
+I'm feeling a big week for us...
+
+As always, all my picks will be posted for free so check my twitter/IG/Face=
+book if you want to get involved.
+Have a great Saturday.
+
+Cody.
+
+Unsubscribe ( https://track.customer.io/unsubscribe/dgS4mAoDALvlDrrlDgGhSgC=
+ISDusq5eEUkt4On4=3D )
+--0034582cff76ba23bfb5e2118459b9278b464ca494281903740979374119
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset="utf-8"
+
+<!DOCTYPE html><html style=3D"margin: 0; padding: 0; box-sizing: border-box=
+; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; =
+display: block; background-color: #061838;"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"></=
+head>
+  <body style=3D"margin: 0; padding: 0; box-sizing: border-box; width: 100%=
+; font-size: 16px; overflow-x: hidden; color: #061838; background: #061838 =
+url(https://assets.codybrownbetting.com/background.avif) no-repeat; backgro=
+und-position: TOP left; background-attachment: fixed; background-size: 40%;=
+ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; d=
+isplay: grid;"><div style=3D"display: none">Three straight prime time parla=
+ys cashed... =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=
+=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=
+=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=
+=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =
+=E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=CD=8F =E2=80=87=
+=CD=8F =E2=80=87=CD=8F =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =
+=C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=AD =C2=
+=AD =C2=AD =C2=AD&nbsp;</div>
+    <!-- We'll replace this content tag with whatever you write in your ema=
+il  -->
+   =20
+
+ =20
+   =20
+    <meta content=3D"width=3Ddevice-width, initial-scale=3D1.0" name=3D"vie=
+wport">
+    <title>
+      CODY BROWN BETS
+    </title>
+    <link rel=3D"preconnect" href=3D"https://fonts.googleapis.com">
+    <link rel=3D"preconnect" href=3D"https://fonts.gstatic.com" crossorigin=
+=3D"">
+    <link href=3D"https://fonts.googleapis.com/css2?family=3DInter:opsz@14.=
+.32&amp;family=3DRoboto+Condensed:wght@900&amp;display=3Dswap" rel=3D"style=
+sheet">
+    <style>
+@media (max-width: 599px) {
+  .holder {
+    width: auto;
+    max-width: none;
+    display: inline-block;
+  }
+
+  h1 {
+    font-size: 36px !important;
+  }
+
+  h2 {
+    font-size: 18px !important;
+  }
+
+  .content h1 {
+    font-size: 36px !important;
+  }
+}
+</style>
+ =20
+ =20
+    <div class=3D"holder" style=3D"box-sizing: border-box; -webkit-font-smo=
+othing: antialiased; -moz-osx-font-smoothing: grayscale; margin: 60px auto =
+100px; width: 100%; max-width: 680px; padding: 5%;">
+      <h2 style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-f=
+ont-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family=
+: 'Roboto Condensed', 'Impact', sans-serif; font-optical-sizing: auto; font=
+-weight: 900; font-style: normal; font-size: 1.7em; line-height: normal; te=
+xt-decoration: none; color: #EDD03D; text-transform: uppercase;">
+        CODY BROWN BETS
+      </h2>
+      <h1 style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-f=
+ont-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family=
+: 'Roboto Condensed', 'Impact', sans-serif; font-optical-sizing: auto; font=
+-weight: 900; font-style: normal; font-size: 3.5em; line-height: 90%; text-=
+decoration: none; color: white; text-transform: uppercase;">
+        WEEKLY NFL
+        <br style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit=
+-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+        CHEAT CODE
+      </h1>
+      <div class=3D"content" style=3D"margin: 0; -webkit-font-smoothing: an=
+tialiased; -moz-osx-font-smoothing: grayscale; margin-top: 50px; padding: 5=
+0px 10%; box-sizing: border-box; border-radius: 15px; background-color: whi=
+te !important; color: #061838 !important;">
+        <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-=
+font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-famil=
+y: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-s=
+tyle: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; =
+text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+          <strong style=3D"margin: 0; padding: 0; box-sizing: border-box; -=
+webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">Ov=
+er a third of the way through the season already!</strong>
+        </p>
+        <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-=
+font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-famil=
+y: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-s=
+tyle: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; =
+text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+It's been a bit of an up and down start but we've found some nice form late=
+ly with 3 straight prime time winners.
+        </p>
+        <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-=
+font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-famil=
+y: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-s=
+tyle: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; =
+text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+Let's build on that this Sunday.
+</p>
+        <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-=
+font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-famil=
+y: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-s=
+tyle: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; =
+text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+Below is my Best Bet, TD parlay and some betting intel to help you cash.
+        </p>
+        <h1 style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit=
+-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fami=
+ly: 'Roboto Condensed', 'Impact', sans-serif; font-optical-sizing: auto; fo=
+nt-weight: 900; font-style: normal; font-size: 3.5em; line-height: 90%; tex=
+t-decoration: none; text-transform: uppercase; background: none; -webkit-ba=
+ckground-clip: unset; margin-top: 50px; margin-bottom: 20px; color: #061838=
+ !important;">
+          +14102 TD Parlay</h1>
+        <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-=
+font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-famil=
+y: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-s=
+tyle: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; =
+text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+These guys all have elite matchups...
+        </p>
+        <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-=
+font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-famil=
+y: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-s=
+tyle: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; =
+text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+          Tap the link below if you want to tail!</p>
+        <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhtt=
+p%3A%2F%2Fm.codybrownbets.com%2Fe%2Fc%2FeyJlbWFpbF9pZCI6ImRnUzRtQW9EQUx2bER=
+ycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJocmVmIjoiaHR0cHM6Ly90YWlsLmxpbmsvOF=
+REU1c2IiwiaW50ZXJuYWwiOiJiODk4MGEwOGJhMTJiYmU1MGUiLCJsaW5rX2lkIjo1Nzl9%2F65=
+32c1b89230eda66440bcbcf83315c4c179909ac08103c83fc5342cab09c2a0&amp;data=3D0=
+5%7C02%7C%7C04e868aab659448a34e908df2c513a08%7C84df9e7fe9f640afb435aaaaaaaa=
+aaaa%7C1%7C0%7C639278399503455799%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiO=
+nRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D=
+%7C0%7C%7C%7C&amp;sdata=3DvmcNQlVqCZbApu91e7UnA1OWNLD75WLsgT%2FZaa%2FJDHc%3=
+D&amp;reserved=3D0" originalsrc=3D"http://m.codybrownbets.com/e/c/eyJlbWFpb=
+F9pZCI6ImRnUzRtQW9EQUx2bERycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJocmVmIjoi=
+aHR0cHM6Ly90YWlsLmxpbmsvOFREU1c2IiwiaW50ZXJuYWwiOiJiODk4MGEwOGJhMTJiYmU1MGU=
+iLCJsaW5rX2lkIjo1Nzl9/6532c1b89230eda66440bcbcf83315c4c179909ac08103c83fc53=
+42cab09c2a0" style=3D"margin: 0; padding: 0; box-sizing: border-box; -webki=
+t-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+          <img class=3D"image" src=3D"https://assets.codybrownbetting.com/e=
+mails/20261016_parlay.avif" style=3D"margin: 0; padding: 0; box-sizing: bor=
+der-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: gray=
+scale; background-color: #EFEFEF; margin-top: 30px; width: 100%; border-rad=
+ius: 6px;">
+        </a>
+        <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhtt=
+p%3A%2F%2Fm.codybrownbets.com%2Fe%2Fc%2FeyJlbWFpbF9pZCI6ImRnUzRtQW9EQUx2bER=
+ycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJocmVmIjoiaHR0cHM6Ly90YWlsLmxpbmsvOF=
+REU1c2IiwiaW50ZXJuYWwiOiJiODk4MGEwOGJhMTJiYmU1MGUiLCJsaW5rX2lkIjo1Nzl9%2F65=
+32c1b89230eda66440bcbcf83315c4c179909ac08103c83fc5342cab09c2a0&amp;data=3D0=
+5%7C02%7C%7C04e868aab659448a34e908df2c513a08%7C84df9e7fe9f640afb435aaaaaaaa=
+aaaa%7C1%7C0%7C639278399503487433%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiO=
+nRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D=
+%7C0%7C%7C%7C&amp;sdata=3DdEXC5h2y%2FJmifXMIbUKp8qmMpElFL3jISI20WPD%2F04U%3=
+D&amp;reserved=3D0" originalsrc=3D"http://m.codybrownbets.com/e/c/eyJlbWFpb=
+F9pZCI6ImRnUzRtQW9EQUx2bERycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJocmVmIjoi=
+aHR0cHM6Ly90YWlsLmxpbmsvOFREU1c2IiwiaW50ZXJuYWwiOiJiODk4MGEwOGJhMTJiYmU1MGU=
+iLCJsaW5rX2lkIjo1Nzl9/6532c1b89230eda66440bcbcf83315c4c179909ac08103c83fc53=
+42cab09c2a0" style=3D"margin: 0; padding: 0; box-sizing: border-box; -webki=
+t-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+          <button class=3D"button" style=3D"margin: 0; box-sizing: border-b=
+ox; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale=
+; background-color: #EDD03D; border: none; color: #061838; padding: 15px 32=
+px; text-align: center; text-transform: uppercase; display: inline-block; f=
+ont-family: 'Roboto Condensed', sans-serif; font-optical-sizing: auto; font=
+-weight: 900; font-style: normal; font-size: 1em; border-radius: 6px; width=
+: 100%; max-width: 275px; cursor: pointer; margin-top: 10px;">
+            Place my TD Lotto
+          </button>
+        </a>
+        <h1 style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit=
+-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fami=
+ly: 'Roboto Condensed', 'Impact', sans-serif; font-optical-sizing: auto; fo=
+nt-weight: 900; font-style: normal; font-size: 3.5em; line-height: 90%; tex=
+t-decoration: none; text-transform: uppercase; background: none; -webkit-ba=
+ckground-clip: unset; margin-top: 50px; margin-bottom: 20px; color: #061838=
+ !important;">
+          Sunday best bet
+        </h1>
+        <div class=3D"bestbet" style=3D"margin: 0; box-sizing: border-box; =
+-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; wi=
+dth: 100%; background-color: #EFEFEF; border-radius: 6px; padding: 20px; ma=
+rgin-bottom: 30px; display: flex;">
+          <div class=3D"emoji" style=3D"margin: 0; padding: 0; box-sizing: =
+border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: g=
+rayscale; float: left; font-size: 38px; margin-right: 10px;">
+            =F0=9F=8F=88
+          </div>
+          <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webki=
+t-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fam=
+ily: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font=
+-style: normal; font-size: .95em; line-height: 1.5em; text-decoration: none=
+; text-transform: none; margin-bottom: 0px; margin-top: 4px; float: left; c=
+olor: #061838 !important;">
+            <strong style=3D"margin: 0; padding: 0; box-sizing: border-box;=
+ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+Luther Burden Over 49.5 Receiving Yards
+      </strong>
+            <br style=3D"margin: 0; padding: 0; box-sizing: border-box; -we=
+bkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+            Chicago Bears @ Atlanta Falcons
+          </p>
+        </div>
+        <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-=
+font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-famil=
+y: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-s=
+tyle: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; =
+text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+          Caleb Williams should be back this week and that adds a massive b=
+oost to the Bears=E2=80=99 passing game. Burden has been solid without sett=
+ing the world on fire this season, averaging just over 50 yards per game. W=
+e need to remember that four of those games have been without Caleb.
+        </p>
+        <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-=
+font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-famil=
+y: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-s=
+tyle: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; =
+text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+          He=E2=80=99s still managed to cover this line in two of his last =
+three games, with the one miss ending on 47 yards. I think we=E2=80=99re ge=
+tting a big discount on his line here and I don=E2=80=99t expect it to be t=
+his low again this season.
+        </p>
+        <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-=
+font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-famil=
+y: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-s=
+tyle: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; =
+text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+The matchup is great against the Falcons who have been leaking yards to wid=
+e receivers all season. They give up an average of 181 yards per game to th=
+e position. Ten different receivers have covered this line against them in =
+five games so far.     </p>
+        <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-=
+font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-famil=
+y: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-s=
+tyle: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; =
+text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+         Burden played a season-high 77% of snaps last week and should be h=
+eavily involved in this game. It=E2=80=99s a nice game environment with a 5=
+1.5 point total and this game is indoors too.
+        </p>
+        <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-=
+font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-famil=
+y: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-s=
+tyle: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; =
+text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+          <strong style=3D"margin: 0; padding: 0; box-sizing: border-box; -=
+webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+      Odds are currently -114 on FanDuel.
+     </strong>
+          <br style=3D"margin: 0; padding: 0; box-sizing: border-box; -webk=
+it-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+          21+, gamble responsibly.
+        </p>
+        <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhtt=
+p%3A%2F%2Fm.codybrownbets.com%2Fe%2Fc%2FeyJlbWFpbF9pZCI6ImRnUzRtQW9EQUx2bER=
+ycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJocmVmIjoiaHR0cHM6Ly90YWlsLmxpbmsvTE=
+JCQldrNiIsImludGVybmFsIjoiYjg5ODBhMDhiYTEyYmJlNTBlIiwibGlua19pZCI6NTgwfQ%2F=
+ba1fd1bbb8091314f510812c6b118c06478feac703b1991a43466663d2aaa9ea&amp;data=
+=3D05%7C02%7C%7C04e868aab659448a34e908df2c513a08%7C84df9e7fe9f640afb435aaaa=
+aaaaaaaa%7C1%7C0%7C639278399503509337%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hc=
+GkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3=
+D%3D%7C0%7C%7C%7C&amp;sdata=3DsFAu3LRqGBf5lr5PdgHenBb%2FaStGjitBQTu7oKL0vFE=
+%3D&amp;reserved=3D0" originalsrc=3D"http://m.codybrownbets.com/e/c/eyJlbWF=
+pbF9pZCI6ImRnUzRtQW9EQUx2bERycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJocmVmIj=
+oiaHR0cHM6Ly90YWlsLmxpbmsvTEJCQldrNiIsImludGVybmFsIjoiYjg5ODBhMDhiYTEyYmJlN=
+TBlIiwibGlua19pZCI6NTgwfQ/ba1fd1bbb8091314f510812c6b118c06478feac703b1991a4=
+3466663d2aaa9ea" style=3D"margin: 0; padding: 0; box-sizing: border-box; -w=
+ebkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+          <button class=3D"button" style=3D"margin: 0; box-sizing: border-b=
+ox; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale=
+; background-color: #EDD03D; border: none; color: #061838; padding: 15px 32=
+px; text-align: center; text-transform: uppercase; display: inline-block; f=
+ont-family: 'Roboto Condensed', sans-serif; font-optical-sizing: auto; font=
+-weight: 900; font-style: normal; font-size: 1em; border-radius: 6px; width=
+: 100%; max-width: 275px; cursor: pointer; margin-top: 10px;">
+            Place my Best Bet
+          </button>
+        </a>
+        <h1 style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit=
+-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fami=
+ly: 'Roboto Condensed', 'Impact', sans-serif; font-optical-sizing: auto; fo=
+nt-weight: 900; font-style: normal; font-size: 3.5em; line-height: 90%; tex=
+t-decoration: none; text-transform: uppercase; background: none; -webkit-ba=
+ckground-clip: unset; margin-top: 50px; margin-bottom: 20px; color: #061838=
+ !important;">
+          Betting intel
+        </h1>
+        <ul style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit=
+-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fami=
+ly: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-=
+style: normal; font-size: .95em; line-height: 1.5em; text-decoration: none;=
+ text-transform: none; margin-bottom: 20px; list-style: none; color: #06183=
+8 !important;">
+          <li style=3D"margin: 0; padding: 0; box-sizing: border-box; -webk=
+it-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fa=
+mily: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; fon=
+t-style: normal; font-size: .95em; line-height: 1.5em; text-decoration: non=
+e; text-transform: none; border-left: 6px solid #EDD03D; padding-left: 14px=
+; margin-bottom: 20px; color: #061838 !important;">
+            Kirk Cousins has cashed his FanDuel passing yards line of 241.5=
+ in four straight games, and now faces the Bills secondary allowing the sec=
+ond most passing yards per game on a short week.=20
+          </li>
+          <li style=3D"margin: 0; padding: 0; box-sizing: border-box; -webk=
+it-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fa=
+mily: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; fon=
+t-style: normal; font-size: .95em; line-height: 1.5em; text-decoration: non=
+e; text-transform: none; border-left: 6px solid #EDD03D; padding-left: 14px=
+; margin-bottom: 20px; color: #061838 !important;">
+            Justin Herbert continues to struggle and has thrown an intercep=
+tion in every game (7 in total)... The Chiefs defense has a pick in all fou=
+r games this season.=20
+          </li><li style=3D"margin: 0; padding: 0; box-sizing: border-box; =
+-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; fo=
+nt-family: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400=
+; font-style: normal; font-size: .95em; line-height: 1.5em; text-decoration=
+: none; text-transform: none; border-left: 6px solid #EDD03D; padding-left:=
+ 14px; margin-bottom: 20px; color: #061838 !important;">
+Drake London has had 27 receptions this season but is yet to score a touchd=
+own. He's surely due and he plays the Bears defense who have given up three=
+ TDs to wide receivers in the last two games.=20
+          </li><li style=3D"margin: 0; padding: 0; box-sizing: border-box; =
+-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; fo=
+nt-family: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400=
+; font-style: normal; font-size: .95em; line-height: 1.5em; text-decoration=
+: none; text-transform: none; border-left: 6px solid #EDD03D; padding-left:=
+ 14px; margin-bottom: 20px; color: #061838 !important;">
+            Isaiah Likely has had at least 12 targets in back-to-back games=
+ and scored a season-high 94 yards last week. He now faces a Saints defense=
+ that has given up the third-most targets and fourth-most receptions in the=
+ league.
+          </li>
+          <li style=3D"margin: 0; padding: 0; box-sizing: border-box; -webk=
+it-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fa=
+mily: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; fon=
+t-style: normal; font-size: .95em; line-height: 1.5em; text-decoration: non=
+e; text-transform: none; border-left: 6px solid #EDD03D; padding-left: 14px=
+; margin-bottom: 20px; color: #061838 !important;">
+            Zay Flowers has 90 receiving yards on crossing routes this seas=
+on, third most in the NFL. Cleveland has given up the fourth-most yards on =
+crossing routes through five games.
+          </li><li style=3D"margin: 0; padding: 0; box-sizing: border-box; =
+-webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; fo=
+nt-family: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400=
+; font-style: normal; font-size: .95em; line-height: 1.5em; text-decoration=
+: none; text-transform: none; border-left: 6px solid #EDD03D; padding-left:=
+ 14px; margin-bottom: 20px; color: #061838 !important;">
+            The Raiders defense gives up 5.2 rushing yards per attempt, tie=
+d for second highest in the league. Cook, third in rushing yards (532), and=
+ Allen, most rushing yards by a QB (239), could be in for a big day.=20
+          </li>
+          <li style=3D"margin: 0; padding: 0; box-sizing: border-box; -webk=
+it-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fa=
+mily: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; fon=
+t-style: normal; font-size: .95em; line-height: 1.5em; text-decoration: non=
+e; text-transform: none; border-left: 6px solid #EDD03D; padding-left: 14px=
+; margin-bottom: 20px; color: #061838 !important;">
+            Patrick Mahomes has two touchdowns in all four games, and has f=
+ound six different receivers in the end zone.=20
+          </li>
+          <h1 style=3D"margin: 0; padding: 0; box-sizing: border-box; -webk=
+it-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fa=
+mily: 'Roboto Condensed', 'Impact', sans-serif; font-optical-sizing: auto; =
+font-weight: 900; font-style: normal; font-size: 3.5em; line-height: 90%; t=
+ext-decoration: none; text-transform: uppercase; background: none; -webkit-=
+background-clip: unset; margin-top: 50px; margin-bottom: 20px; color: #0618=
+38 !important;">
+            Touchdown sheet </h1>
+          <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webki=
+t-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fam=
+ily: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font=
+-style: normal; font-size: .95em; line-height: 1.5em; text-decoration: none=
+; text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+            Here are eight guys I like to score this week...
+
+            <br style=3D"margin: 0; padding: 0; box-sizing: border-box; -we=
+bkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;"><br =
+style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smooth=
+ing: antialiased; -moz-osx-font-smoothing: grayscale;">Take them as straigh=
+ts or parlay a few!
+          </p>
+          <img class=3D"image" src=3D"https://assets.codybrownbetting.com/e=
+mails/20261016_sheet.avif" style=3D"margin: 0; padding: 0; box-sizing: bord=
+er-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grays=
+cale; background-color: #EFEFEF; margin-top: 30px; width: 100%; border-radi=
+us: 6px;">
+          <h1 style=3D"margin: 0; padding: 0; box-sizing: border-box; -webk=
+it-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fa=
+mily: 'Roboto Condensed', 'Impact', sans-serif; font-optical-sizing: auto; =
+font-weight: 900; font-style: normal; font-size: 3.5em; line-height: 90%; t=
+ext-decoration: none; text-transform: uppercase; background: none; -webkit-=
+background-clip: unset; margin-top: 50px; margin-bottom: 20px; color: #0618=
+38 !important;">
+            Thanks for reading
+          </h1>
+          <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webki=
+t-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fam=
+ily: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font=
+-style: normal; font-size: .95em; line-height: 1.5em; text-decoration: none=
+; text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+            I'm feeling a big week for us...
+          </p><p style=3D"margin: 0; padding: 0; box-sizing: border-box; -w=
+ebkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font=
+-family: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; =
+font-style: normal; font-size: .95em; line-height: 1.5em; text-decoration: =
+none; text-transform: none; margin-bottom: 20px; color: #061838 !important;=
+">
+            As always, all my picks will be posted for free so check my twi=
+tter/IG/Facebook if you want to get involved. </p>
+          <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webki=
+t-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fam=
+ily: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font=
+-style: normal; font-size: .95em; line-height: 1.5em; text-decoration: none=
+; text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+            Have a great Saturday.</p>
+          <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webki=
+t-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-fam=
+ily: 'Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font=
+-style: normal; font-size: .95em; line-height: 1.5em; text-decoration: none=
+; text-transform: none; margin-bottom: 20px; color: #061838 !important;">
+            <strong style=3D"margin: 0; padding: 0; box-sizing: border-box;=
+ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">
+      Cody.
+     </strong>
+          </p>
+          <div class=3D"social" style=3D"margin: 0; padding: 0; box-sizing:=
+ border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: =
+grayscale; display: flex; margin-top: 50px;">
+            <a href=3D"https://na01.safelinks.protection.outlook.com/?url=
+=3Dhttp%3A%2F%2Fm.codybrownbets.com%2Fe%2Fc%2FeyJlbWFpbF9pZCI6ImRnUzRtQW9EQ=
+Ux2bERycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJocmVmIjoiaHR0cHM6Ly94LmNvbS9D=
+b2R5QnJvd25CZXRzIiwiaW50ZXJuYWwiOiJiODk4MGEwOGJhMTJiYmU1MGUiLCJsaW5rX2lkIjo=
+yfQ%2Ff2add5773913f5eceeeac454d44c88f31fdb9d81323dbdba106de34b55594d48&amp;=
+data=3D05%7C02%7C%7C04e868aab659448a34e908df2c513a08%7C84df9e7fe9f640afb435=
+aaaaaaaaaaaa%7C1%7C0%7C639278399503534083%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0e=
+U1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoy=
+fQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3DUsuPRc5AjkM4VZOAxHq6PujGhee0q%2BUH8diJ7BV=
+Kv%2FQ%3D&amp;reserved=3D0" originalsrc=3D"http://m.codybrownbets.com/e/c/e=
+yJlbWFpbF9pZCI6ImRnUzRtQW9EQUx2bERycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJo=
+cmVmIjoiaHR0cHM6Ly94LmNvbS9Db2R5QnJvd25CZXRzIiwiaW50ZXJuYWwiOiJiODk4MGEwOGJ=
+hMTJiYmU1MGUiLCJsaW5rX2lkIjoyfQ/f2add5773913f5eceeeac454d44c88f31fdb9d81323=
+dbdba106de34b55594d48" style=3D"margin: 0; padding: 0; box-sizing: border-b=
+ox; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale=
+; width: 40px; margin-right: 30px;">
+              <div class=3D"x" style=3D"margin: 0; padding: 0; box-sizing: =
+border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: g=
+rayscale; float: left; height: 40px; width: 40px; background: url(https://a=
+ssets.codybrownbetting.com/x.avif) no-repeat; background-size: 100%;">
+              </div>
+            </a>
+            <a href=3D"https://na01.safelinks.protection.outlook.com/?url=
+=3Dhttp%3A%2F%2Fm.codybrownbets.com%2Fe%2Fc%2FeyJlbWFpbF9pZCI6ImRnUzRtQW9EQ=
+Ux2bERycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJocmVmIjoiaHR0cHM6Ly93d3cuaW5z=
+dGFncmFtLmNvbS9jb2R5YnJvd25waWNrcyIsImludGVybmFsIjoiYjg5ODBhMDhiYTEyYmJlNTB=
+lIiwibGlua19pZCI6NH0%2Fc82c8f7b0151e69b9364877188f208f4686a66edb3a598863900=
+962c56986d5c&amp;data=3D05%7C02%7C%7C04e868aab659448a34e908df2c513a08%7C84d=
+f9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639278399503558174%7CUnknown%7CTWFp=
+bGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjo=
+iTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3D29vh82NcELT4PD6ZPmHdmXq2=
+93xqfDDU%2F%2BPkiqtO12k%3D&amp;reserved=3D0" originalsrc=3D"http://m.codybr=
+ownbets.com/e/c/eyJlbWFpbF9pZCI6ImRnUzRtQW9EQUx2bERycmxEZ0doU2dDSVNEdXNxNWV=
+FVWt0NE9uND0iLCJocmVmIjoiaHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9jb2R5YnJvd25waW=
+NrcyIsImludGVybmFsIjoiYjg5ODBhMDhiYTEyYmJlNTBlIiwibGlua19pZCI6NH0/c82c8f7b0=
+151e69b9364877188f208f4686a66edb3a598863900962c56986d5c" style=3D"margin: 0=
+; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; =
+-moz-osx-font-smoothing: grayscale; width: 40px; margin-right: 30px;">
+              <div class=3D"insta" style=3D"margin: 0; padding: 0; box-sizi=
+ng: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothin=
+g: grayscale; float: left; height: 40px; width: 40px; background: url(https=
+://assets.codybrownbetting.com/insta.avif) no-repeat; background-size: 100%=
+;">
+              </div>
+            </a>
+            <a href=3D"https://na01.safelinks.protection.outlook.com/?url=
+=3Dhttp%3A%2F%2Fm.codybrownbets.com%2Fe%2Fc%2FeyJlbWFpbF9pZCI6ImRnUzRtQW9EQ=
+Ux2bERycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJocmVmIjoiaHR0cHM6Ly93d3cuZmFj=
+ZWJvb2suY29tL3Byb2ZpbGUucGhwP2lkPTYxNTU4NDk5NTMyMjQ3IiwiaW50ZXJuYWwiOiJiODk=
+4MGEwOGJhMTJiYmU1MGUiLCJsaW5rX2lkIjoxfQ%2F294b230db39224447b53324f65d1762eb=
+7c36b23ac0981dfdfa24f090e402d1f&amp;data=3D05%7C02%7C%7C04e868aab659448a34e=
+908df2c513a08%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C6392783995035800=
+24%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAi=
+OiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3DTu97y=
+gQQsePKd0JsPg3rqnujW6ZmX%2B%2B9rKQ9dzwum50%3D&amp;reserved=3D0" originalsrc=
+=3D"http://m.codybrownbets.com/e/c/eyJlbWFpbF9pZCI6ImRnUzRtQW9EQUx2bERycmxE=
+Z0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJocmVmIjoiaHR0cHM6Ly93d3cuZmFjZWJvb2suY29=
+tL3Byb2ZpbGUucGhwP2lkPTYxNTU4NDk5NTMyMjQ3IiwiaW50ZXJuYWwiOiJiODk4MGEwOGJhMT=
+JiYmU1MGUiLCJsaW5rX2lkIjoxfQ/294b230db39224447b53324f65d1762eb7c36b23ac0981=
+dfdfa24f090e402d1f" style=3D"margin: 0; padding: 0; box-sizing: border-box;=
+ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; w=
+idth: 40px; margin-right: 30px;">
+              <div class=3D"facebook" style=3D"margin: 0; padding: 0; box-s=
+izing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoot=
+hing: grayscale; float: left; height: 40px; width: 40px; background: url(ht=
+tps://assets.codybrownbetting.com/facebook.avif) no-repeat; background-size=
+: 100%;">
+              </div>
+            </a>
+            <a href=3D"https://na01.safelinks.protection.outlook.com/?url=
+=3Dhttp%3A%2F%2Fm.codybrownbets.com%2Fe%2Fc%2FeyJlbWFpbF9pZCI6ImRnUzRtQW9EQ=
+Ux2bERycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0iLCJocmVmIjoiaHR0cHM6Ly93d3cudGlr=
+dG9rLmNvbS9AY29keWJyb3ducGlja3MiLCJpbnRlcm5hbCI6ImI4OTgwYTA4YmExMmJiZTUwZSI=
+sImxpbmtfaWQiOjN9%2F4c12ae98f010625caafd42bf6cb672dfa644ce3230c80cfe3c1f9c6=
+ae6d8f564&amp;data=3D05%7C02%7C%7C04e868aab659448a34e908df2c513a08%7C84df9e=
+7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C639278399503600849%7CUnknown%7CTWFpbGZ=
+sb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTW=
+FpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3DEHL%2BMdCorSgE1A5%2BxPypNxJ=
+lF2JogI6%2BQxO4aGDNqjs%3D&amp;reserved=3D0" originalsrc=3D"http://m.codybro=
+wnbets.com/e/c/eyJlbWFpbF9pZCI6ImRnUzRtQW9EQUx2bERycmxEZ0doU2dDSVNEdXNxNWVF=
+VWt0NE9uND0iLCJocmVmIjoiaHR0cHM6Ly93d3cudGlrdG9rLmNvbS9AY29keWJyb3ducGlja3M=
+iLCJpbnRlcm5hbCI6ImI4OTgwYTA4YmExMmJiZTUwZSIsImxpbmtfaWQiOjN9/4c12ae98f0106=
+25caafd42bf6cb672dfa644ce3230c80cfe3c1f9c6ae6d8f564" style=3D"margin: 0; pa=
+dding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; -moz=
+-osx-font-smoothing: grayscale; width: 40px; margin-right: 30px;">
+              <div class=3D"tiktok" style=3D"margin: 0; padding: 0; box-siz=
+ing: border-box; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothi=
+ng: grayscale; float: left; height: 40px; width: 40px; background: url(http=
+s://assets.codybrownbetting.com/tiktok.avif) no-repeat; background-size: 10=
+0%;">
+              </div>
+            </a>
+          </div>
+      </ul></div>
+    </div>
+ =20
+
+
+    <p style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit-font=
+-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: '=
+Inter', sans-serif; font-optical-sizing: auto; font-weight: 400; font-style=
+: normal; font-size: .95em; line-height: 1.5em; text-decoration: none; text=
+-transform: none; margin-bottom: 20px; color: #061838 !important;">
+      <a class=3D"untracked" href=3D"https://na01.safelinks.protection.outl=
+ook.com/?url=3Dhttp%3A%2F%2Fm.codybrownbets.com%2Funsubscribe%2FdgS4mAoDALv=
+lDrrlDgGhSgCISDusq5eEUkt4On4%3D&amp;data=3D05%7C02%7C%7C04e868aab659448a34e=
+908df2c513a08%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C6392783995036220=
+24%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAi=
+OiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&amp;sdata=3Dm4Rf5=
+Y0XWV2Eve6RtYEfSbx0U4X%2Bz3TN7CK9wyHzGNM%3D&amp;reserved=3D0" originalsrc=
+=3D"http://m.codybrownbets.com/unsubscribe/dgS4mAoDALvlDrrlDgGhSgCISDusq5eE=
+Ukt4On4=3D" style=3D"margin: 0; padding: 0; box-sizing: border-box; -webkit=
+-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;">Unsubscr=
+ibe</a>
+    </p>
+ =20
+<img src=3D"http://m.codybrownbets.com/e/o/eyJlbWFpbF9pZCI6ImRnUzRtQW9EQUx2=
+bERycmxEZ0doU2dDSVNEdXNxNWVFVWt0NE9uND0ifQ=3D=3D" style=3D"height: 1px !imp=
+ortant; max-height: 1px !important; max-width: 1px !important; width: 1px !=
+important; display: none !important;" alt=3D""></body></html>=
+
+--0034582cff76ba23bfb5e2118459b9278b464ca494281903740979374119--

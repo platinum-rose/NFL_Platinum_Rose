@@ -1,0 +1,420 @@
+{
+  "model": "gemini-3.5-flash",
+  "mode": "youtube_video_url",
+  "youtube_url": "https://www.youtube.com/watch?v=wl4Ey6QOQe4",
+  "latency_ms": 219399,
+  "estimated_cost_usd": 0.021754,
+  "input_tokens": 200668,
+  "output_tokens": 4219,
+  "raw_model_response": "{\n  \"transcript_summary\": \"Scott Bogman and Jo Madden host the BettingPros Top 10 Prop Picks for NFL Week 5. They discuss various player prop selections, anytime touchdown scorers, and first touchdown bets, emphasizing time of possession and recent team defensive trends.\",\n  \"coverage_check\": {\n    \"video_duration_seconds\": 1395,\n    \"last_analyzed_timestamp\": 1395,\n    \"reached_end_of_video\": true\n  },\n  \"speaker_segments\": [\n    {\n      \"start\": 0.0,\n      \"end\": 96.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"Welcome back it's the BP top 10 prop picks, I'm your host Scott Bogman joined by Jo Madden. Erickson and Welsh are on vacation so we are covering for them today.\"\n    },\n    {\n      \"start\": 96.0,\n      \"end\": 218.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"Let's review the results from last week before we dive into Week 5 props.\"\n    },\n    {\n      \"start\": 218.0,\n      \"end\": 314.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"Starting early with Jalen Hurts under 6.5 rushing attempts. Even though he's explosive, the game plan with injuries will likely favor quick passes.\"\n    },\n    {\n      \"start\": 314.0,\n      \"end\": 439.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"I like that call. My first is Brock Purdy under 32.5 pass attempts. He has only hit this once in week 1 and doesn't pass as much against Seattle.\"\n    },\n    {\n      \"start\": 439.0,\n      \"end\": 530.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"I'm looking at Daniel Jones under 31.5 pass attempts facing the Steelers' tough defense. I expect a heavy run game with Jonathan Taylor.\"\n    },\n    {\n      \"start\": 530.0,\n      \"end\": 619.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"Next is Jordan Love under 33.5 pass attempts. Chicago hogs the ball, keeping Love off the field.\"\n    },\n    {\n      \"start\": 619.0,\n      \"end\": 704.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"I have Jaxon Smith-Njigba over 94.5 receiving yards at home against the 49ers.\"\n    },\n    {\n      \"start\": 704.0,\n      \"end\": 820.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"I like Nico Collins over 5.5 receptions at the Titans. Wide receivers have cleared this easily against Tennessee.\"\n    },\n    {\n      \"start\": 820.0,\n      \"end\": 970.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"I am going with Tyson Bagent over 10.5 rushing yards. He should scramble enough to hit this easily.\"\n    },\n    {\n      \"start\": 970.0,\n      \"end\": 1006.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"For anytime touchdowns, I like Garrett Wilson at +140 vs the Browns, Stefon Diggs at +170 vs the Giants, and Bo Nix at +410 vs the Chargers.\"\n    },\n    {\n      \"start\": 1006.0,\n      \"end\": 1206.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"For my anytime touchdowns, I'm backing Nico Collins at +140, Trey McBride at +120, and Roman Wilson at +250.\"\n    },\n    {\n      \"start\": 1206.0,\n      \"end\": 1253.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"My final prop is Woody Marks over 39.5 rushing and receiving yards.\"\n    },\n    {\n      \"start\": 1253.0,\n      \"end\": 1326.0,\n      \"speaker\": \"Jo Madden\",\n      \"text\": \"And for first touchdowns, I have Amon-Ra St. Brown at +700 and Justin Jefferson at +800.\"\n    },\n    {\n      \"start\": 1326.0,\n      \"end\": 1395.0,\n      \"speaker\": \"Scott Bogman\",\n      \"text\": \"I have RJ Harvey over 5.5 rushing attempts as my last prop, and my first touchdowns are Aaron Jones Sr. at +400 and Isaiah Likely at +1300.\"\n    }\n  ],\n  \"extracted_picks\": [\n    {\n      \"team\": \"PHI\",\n      \"player\": \"Jalen Hurts\",\n      \"market\": \"player_rushing_attempts\",\n      \"side\": \"UNDER\",\n      \"line\": 6.5,\n      \"price\": -120,\n      \"week\": 5,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 218,\n      \"rationale\": \"Supported by the BettingPros app projecting 5.7 attempts. Jalen has stayed under in 7 of his last 10, including the last 3. The Jaguars have allowed only 19 rushing attempts to opposing QBs.\"\n    },\n    {\n      \"team\": \"SF\",\n      \"player\": \"Brock Purdy\",\n      \"market\": \"player_pass_attempts\",\n      \"side\": \"UNDER\",\n      \"line\": 32.5,\n      \"price\": -120,\n      \"week\": 5,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 314,\n      \"rationale\": \"Purdy has only gone over this number once this season (Week 1). In 7 career starts against Seattle, he has only gone over 32 pass attempts once.\"\n    },\n    {\n      \"team\": \"IND\",\n      \"player\": \"Daniel Jones\",\n      \"market\": \"player_pass_attempts\",\n      \"side\": \"UNDER\",\n      \"line\": 31.5,\n      \"price\": -103,\n      \"week\": 5,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 439,\n      \"rationale\": \"Steelers defense has allowed an average of 28.5 pass attempts per game. Expecting Colts to rely heavily on Jonathan Taylor's run game.\"\n    },\n    {\n      \"team\": \"GB\",\n      \"player\": \"Jordan Love\",\n      \"market\": \"player_pass_attempts\",\n      \"side\": \"UNDER\",\n      \"line\": 33.5,\n      \"price\": -109,\n      \"week\": 5,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 530,\n      \"rationale\": \"Chicago is first in time of possession, keeping opponents off the field. In 6 starts against the Bears, Love has never had more than 32 pass attempts.\"\n    },\n    {\n      \"team\": \"SEA\",\n      \"player\": \"Jaxon Smith-Njigba\",\n      \"market\": \"player_receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 94.5,\n      \"price\": -110,\n      \"week\": 5,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 619,\n      \"rationale\": \"JSN cleared 100 receiving yards in 3 out of 4 games this season. Sam Darnold will feed him the ball at home vs San Francisco.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": \"Nico Collins\",\n      \"market\": \"player_receptions\",\n      \"side\": \"OVER\",\n      \"line\": 5.5,\n      \"price\": -122,\n      \"week\": 5,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 704,\n      \"rationale\": \"Passed this line in both games played. Top wide receivers have cleared 5.5 receptions easily against the Tennessee secondary.\"\n    },\n    {\n      \"team\": \"CHI\",\n      \"player\": \"Tyson Bagent\",\n      \"market\": \"player_rushing_yards\",\n      \"side\": \"OVER\",\n      \"line\": 10.5,\n      \"price\": -115,\n      \"week\": 5,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 820,\n      \"rationale\": \"Packers allow decent rushing yards to opposing QBs. Bagent had 8 rushing attempts for 55 yards last week.\"\n    },\n    {\n      \"team\": \"NYJ\",\n      \"player\": \"Garrett Wilson\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 140,\n      \"week\": 5,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 970,\n      \"rationale\": \"Anytime touchdown vs the Cleveland Browns who struggle to defend pass touchdowns to wide receivers.\"\n    },\n    {\n      \"team\": \"WAS\",\n      \"player\": \"Stefon Diggs\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 170,\n      \"week\": 5,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1006,\n      \"rationale\": \"Has 3 touchdowns on the season. Expecting targets with Jayden Daniels back in the lineup vs Giants secondary.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": \"Bo Nix\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 410,\n      \"week\": 5,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1048,\n      \"rationale\": \"Nix has the mobility to make plays in the endzone, and the Chargers have struggled containing mobile quarterbacks.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": \"Michael Wilson\",\n      \"market\": \"player_receptions\",\n      \"side\": \"OVER\",\n      \"line\": 5.5,\n      \"price\": 115,\n      \"week\": 5,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 1068,\n      \"rationale\": \"Detroit's secondary has allowed the most receptions to wide receivers (61 receptions).\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": \"Nico Collins\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 140,\n      \"week\": 5,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 1109,\n      \"rationale\": \"Top target with a limited run game, highly likely to score.\"\n    },\n    {\n      \"team\": \"ARI\",\n      \"player\": \"Trey McBride\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 120,\n      \"week\": 5,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 1158,\n      \"rationale\": \"Detroit secondary struggles heavily, making McBride an auto-take at plus money.\"\n    },\n    {\n      \"team\": \"PIT\",\n      \"player\": \"Roman Wilson\",\n      \"market\": \"anytime_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 250,\n      \"week\": 5,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 1196,\n      \"rationale\": \"Michael Pittman is missing the game. Aaron Rodgers has been targeting him regularly.\"\n    },\n    {\n      \"team\": \"HOU\",\n      \"player\": \"Woody Marks\",\n      \"market\": \"player_rushing_receiving_yards\",\n      \"side\": \"OVER\",\n      \"line\": 39.5,\n      \"price\": -115,\n      \"week\": 5,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1206,\n      \"rationale\": \"Woody Marks is seeing more workload with Montgomery not getting going.\"\n    },\n    {\n      \"team\": \"DET\",\n      \"player\": \"Amon-Ra St. Brown\",\n      \"market\": \"first_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 700,\n      \"week\": 5,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1253,\n      \"rationale\": \"Already has 5 touchdowns through 4 games. Arizona pass defense has struggled.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": \"Justin Jefferson\",\n      \"market\": \"first_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 800,\n      \"week\": 5,\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1332,\n      \"rationale\": \"First touchdown story-line bet playing in his home state of Louisiana.\"\n    },\n    {\n      \"team\": \"DEN\",\n      \"player\": \"RJ Harvey\",\n      \"market\": \"player_rushing_attempts\",\n      \"side\": \"OVER\",\n      \"line\": 5.5,\n      \"price\": 106,\n      \"week\": 5,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 1326,\n      \"rationale\": \"Chargers allow the fourth-most rushing attempts in the league, and Sean Payton is back to playcalling.\"\n    },\n    {\n      \"team\": \"MIN\",\n      \"player\": \"Aaron Jones Sr.\",\n      \"market\": \"first_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 400,\n      \"week\": 5,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 1334,\n      \"rationale\": \"He has touched the ball 20+ times in two consecutive weeks.\"\n    },\n    {\n      \"team\": \"NYG\",\n      \"player\": \"Isaiah Likely\",\n      \"market\": \"first_touchdown\",\n      \"side\": \"YES\",\n      \"line\": null,\n      \"price\": 1300,\n      \"week\": 5,\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 1375,\n      \"rationale\": \"Great odds at 13-to-1 for a consistent number two target.\"\n    }\n  ],\n  \"analysis_notes\": [\n    {\n      \"note_type\": \"coaching_or_scheme\",\n      \"teams\": [\"DEN\"],\n      \"players\": [\"RJ Harvey\"],\n      \"topic\": \"Sean Payton playcalling duties\",\n      \"summary\": \"Sean Payton has resumed playcalling duties, which is expected to result in a heavier rushing workload for the Broncos.\",\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1311,\n      \"quote\": \"Sean Payton has taken back over the playcalling. I love that.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"team_evaluation\",\n      \"teams\": [\"GB\", \"CHI\"],\n      \"players\": [\"Jordan Love\"],\n      \"topic\": \"Time of Possession comparison\",\n      \"summary\": \"Chicago ranks 1st in the league in time of possession (36:35), whereas Green Bay ranks 31st (26:14). This limits Jordan Love's total pass attempts.\",\n      \"speaker\": \"Scott Bogman\",\n      \"source_timestamp\": 535,\n      \"quote\": \"Chicago has been hogging the ball; first in time of possession.\",\n      \"confidence\": \"stated\"\n    },\n    {\n      \"note_type\": \"matchup_analysis\",\n      \"teams\": [\"DET\", \"ARI\"],\n      \"players\": [\"Amon-Ra St. Brown\"],\n      \"topic\": \"Cardinals pass defense weakness\",\n      \"summary\": \"Arizona's struggling pass defense has allowed 11 passing touchdowns, presenting a strong matchup for Detroit pass catchers.\",\n      \"speaker\": \"Jo Madden\",\n      \"source_timestamp\": 1262,\n      \"quote\": \"Arizona's pass defense has struggled, giving up 11 passing touchdowns.\",\n      \"confidence\": \"stated\"\n    }\n  ],\n  \"quote_timestamps\": [\n    {\n      \"topic\": \"Jalen Hurts Under\",\n      \"timestamp\": 218,\n      \"speaker\": \"Jo Madden\",\n      \"quote\": \"I'm looking at him to go under 6.5 rushing attempts.\"\n    },\n    {\n      \"topic\": \"Purdy Under attempts\",\n      \"timestamp\": 314,\n      \"speaker\": \"Scott Bogman\",\n      \"quote\": \"Brock Purdy under 32.5 pass attempts.\"\n    }\n  ],\n  \"uncertainty_flags\": []\n}",
+  "parsed_json": {
+    "transcript_summary": "Scott Bogman and Jo Madden host the BettingPros Top 10 Prop Picks for NFL Week 5. They discuss various player prop selections, anytime touchdown scorers, and first touchdown bets, emphasizing time of possession and recent team defensive trends.",
+    "coverage_check": {
+      "video_duration_seconds": 1395,
+      "last_analyzed_timestamp": 1395,
+      "reached_end_of_video": true
+    },
+    "speaker_segments": [
+      {
+        "start": 0.0,
+        "end": 96.0,
+        "speaker": "Scott Bogman",
+        "text": "Welcome back it's the BP top 10 prop picks, I'm your host Scott Bogman joined by Jo Madden. Erickson and Welsh are on vacation so we are covering for them today."
+      },
+      {
+        "start": 96.0,
+        "end": 218.0,
+        "speaker": "Scott Bogman",
+        "text": "Let's review the results from last week before we dive into Week 5 props."
+      },
+      {
+        "start": 218.0,
+        "end": 314.0,
+        "speaker": "Jo Madden",
+        "text": "Starting early with Jalen Hurts under 6.5 rushing attempts. Even though he's explosive, the game plan with injuries will likely favor quick passes."
+      },
+      {
+        "start": 314.0,
+        "end": 439.0,
+        "speaker": "Scott Bogman",
+        "text": "I like that call. My first is Brock Purdy under 32.5 pass attempts. He has only hit this once in week 1 and doesn't pass as much against Seattle."
+      },
+      {
+        "start": 439.0,
+        "end": 530.0,
+        "speaker": "Jo Madden",
+        "text": "I'm looking at Daniel Jones under 31.5 pass attempts facing the Steelers' tough defense. I expect a heavy run game with Jonathan Taylor."
+      },
+      {
+        "start": 530.0,
+        "end": 619.0,
+        "speaker": "Scott Bogman",
+        "text": "Next is Jordan Love under 33.5 pass attempts. Chicago hogs the ball, keeping Love off the field."
+      },
+      {
+        "start": 619.0,
+        "end": 704.0,
+        "speaker": "Jo Madden",
+        "text": "I have Jaxon Smith-Njigba over 94.5 receiving yards at home against the 49ers."
+      },
+      {
+        "start": 704.0,
+        "end": 820.0,
+        "speaker": "Scott Bogman",
+        "text": "I like Nico Collins over 5.5 receptions at the Titans. Wide receivers have cleared this easily against Tennessee."
+      },
+      {
+        "start": 820.0,
+        "end": 970.0,
+        "speaker": "Jo Madden",
+        "text": "I am going with Tyson Bagent over 10.5 rushing yards. He should scramble enough to hit this easily."
+      },
+      {
+        "start": 970.0,
+        "end": 1006.0,
+        "speaker": "Jo Madden",
+        "text": "For anytime touchdowns, I like Garrett Wilson at +140 vs the Browns, Stefon Diggs at +170 vs the Giants, and Bo Nix at +410 vs the Chargers."
+      },
+      {
+        "start": 1006.0,
+        "end": 1206.0,
+        "speaker": "Scott Bogman",
+        "text": "For my anytime touchdowns, I'm backing Nico Collins at +140, Trey McBride at +120, and Roman Wilson at +250."
+      },
+      {
+        "start": 1206.0,
+        "end": 1253.0,
+        "speaker": "Jo Madden",
+        "text": "My final prop is Woody Marks over 39.5 rushing and receiving yards."
+      },
+      {
+        "start": 1253.0,
+        "end": 1326.0,
+        "speaker": "Jo Madden",
+        "text": "And for first touchdowns, I have Amon-Ra St. Brown at +700 and Justin Jefferson at +800."
+      },
+      {
+        "start": 1326.0,
+        "end": 1395.0,
+        "speaker": "Scott Bogman",
+        "text": "I have RJ Harvey over 5.5 rushing attempts as my last prop, and my first touchdowns are Aaron Jones Sr. at +400 and Isaiah Likely at +1300."
+      }
+    ],
+    "extracted_picks": [
+      {
+        "team": "PHI",
+        "player": "Jalen Hurts",
+        "market": "player_rushing_attempts",
+        "side": "UNDER",
+        "line": 6.5,
+        "price": -120,
+        "week": 5,
+        "speaker": "Jo Madden",
+        "source_timestamp": 218,
+        "rationale": "Supported by the BettingPros app projecting 5.7 attempts. Jalen has stayed under in 7 of his last 10, including the last 3. The Jaguars have allowed only 19 rushing attempts to opposing QBs."
+      },
+      {
+        "team": "SF",
+        "player": "Brock Purdy",
+        "market": "player_pass_attempts",
+        "side": "UNDER",
+        "line": 32.5,
+        "price": -120,
+        "week": 5,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 314,
+        "rationale": "Purdy has only gone over this number once this season (Week 1). In 7 career starts against Seattle, he has only gone over 32 pass attempts once."
+      },
+      {
+        "team": "IND",
+        "player": "Daniel Jones",
+        "market": "player_pass_attempts",
+        "side": "UNDER",
+        "line": 31.5,
+        "price": -103,
+        "week": 5,
+        "speaker": "Jo Madden",
+        "source_timestamp": 439,
+        "rationale": "Steelers defense has allowed an average of 28.5 pass attempts per game. Expecting Colts to rely heavily on Jonathan Taylor's run game."
+      },
+      {
+        "team": "GB",
+        "player": "Jordan Love",
+        "market": "player_pass_attempts",
+        "side": "UNDER",
+        "line": 33.5,
+        "price": -109,
+        "week": 5,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 530,
+        "rationale": "Chicago is first in time of possession, keeping opponents off the field. In 6 starts against the Bears, Love has never had more than 32 pass attempts."
+      },
+      {
+        "team": "SEA",
+        "player": "Jaxon Smith-Njigba",
+        "market": "player_receiving_yards",
+        "side": "OVER",
+        "line": 94.5,
+        "price": -110,
+        "week": 5,
+        "speaker": "Jo Madden",
+        "source_timestamp": 619,
+        "rationale": "JSN cleared 100 receiving yards in 3 out of 4 games this season. Sam Darnold will feed him the ball at home vs San Francisco."
+      },
+      {
+        "team": "HOU",
+        "player": "Nico Collins",
+        "market": "player_receptions",
+        "side": "OVER",
+        "line": 5.5,
+        "price": -122,
+        "week": 5,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 704,
+        "rationale": "Passed this line in both games played. Top wide receivers have cleared 5.5 receptions easily against the Tennessee secondary."
+      },
+      {
+        "team": "CHI",
+        "player": "Tyson Bagent",
+        "market": "player_rushing_yards",
+        "side": "OVER",
+        "line": 10.5,
+        "price": -115,
+        "week": 5,
+        "speaker": "Jo Madden",
+        "source_timestamp": 820,
+        "rationale": "Packers allow decent rushing yards to opposing QBs. Bagent had 8 rushing attempts for 55 yards last week."
+      },
+      {
+        "team": "NYJ",
+        "player": "Garrett Wilson",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 140,
+        "week": 5,
+        "speaker": "Jo Madden",
+        "source_timestamp": 970,
+        "rationale": "Anytime touchdown vs the Cleveland Browns who struggle to defend pass touchdowns to wide receivers."
+      },
+      {
+        "team": "WAS",
+        "player": "Stefon Diggs",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 170,
+        "week": 5,
+        "speaker": "Jo Madden",
+        "source_timestamp": 1006,
+        "rationale": "Has 3 touchdowns on the season. Expecting targets with Jayden Daniels back in the lineup vs Giants secondary."
+      },
+      {
+        "team": "DEN",
+        "player": "Bo Nix",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 410,
+        "week": 5,
+        "speaker": "Jo Madden",
+        "source_timestamp": 1048,
+        "rationale": "Nix has the mobility to make plays in the endzone, and the Chargers have struggled containing mobile quarterbacks."
+      },
+      {
+        "team": "ARI",
+        "player": "Michael Wilson",
+        "market": "player_receptions",
+        "side": "OVER",
+        "line": 5.5,
+        "price": 115,
+        "week": 5,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 1068,
+        "rationale": "Detroit's secondary has allowed the most receptions to wide receivers (61 receptions)."
+      },
+      {
+        "team": "HOU",
+        "player": "Nico Collins",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 140,
+        "week": 5,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 1109,
+        "rationale": "Top target with a limited run game, highly likely to score."
+      },
+      {
+        "team": "ARI",
+        "player": "Trey McBride",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 120,
+        "week": 5,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 1158,
+        "rationale": "Detroit secondary struggles heavily, making McBride an auto-take at plus money."
+      },
+      {
+        "team": "PIT",
+        "player": "Roman Wilson",
+        "market": "anytime_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 250,
+        "week": 5,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 1196,
+        "rationale": "Michael Pittman is missing the game. Aaron Rodgers has been targeting him regularly."
+      },
+      {
+        "team": "HOU",
+        "player": "Woody Marks",
+        "market": "player_rushing_receiving_yards",
+        "side": "OVER",
+        "line": 39.5,
+        "price": -115,
+        "week": 5,
+        "speaker": "Jo Madden",
+        "source_timestamp": 1206,
+        "rationale": "Woody Marks is seeing more workload with Montgomery not getting going."
+      },
+      {
+        "team": "DET",
+        "player": "Amon-Ra St. Brown",
+        "market": "first_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 700,
+        "week": 5,
+        "speaker": "Jo Madden",
+        "source_timestamp": 1253,
+        "rationale": "Already has 5 touchdowns through 4 games. Arizona pass defense has struggled."
+      },
+      {
+        "team": "MIN",
+        "player": "Justin Jefferson",
+        "market": "first_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 800,
+        "week": 5,
+        "speaker": "Jo Madden",
+        "source_timestamp": 1332,
+        "rationale": "First touchdown story-line bet playing in his home state of Louisiana."
+      },
+      {
+        "team": "DEN",
+        "player": "RJ Harvey",
+        "market": "player_rushing_attempts",
+        "side": "OVER",
+        "line": 5.5,
+        "price": 106,
+        "week": 5,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 1326,
+        "rationale": "Chargers allow the fourth-most rushing attempts in the league, and Sean Payton is back to playcalling."
+      },
+      {
+        "team": "MIN",
+        "player": "Aaron Jones Sr.",
+        "market": "first_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 400,
+        "week": 5,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 1334,
+        "rationale": "He has touched the ball 20+ times in two consecutive weeks."
+      },
+      {
+        "team": "NYG",
+        "player": "Isaiah Likely",
+        "market": "first_touchdown",
+        "side": "YES",
+        "line": null,
+        "price": 1300,
+        "week": 5,
+        "speaker": "Scott Bogman",
+        "source_timestamp": 1375,
+        "rationale": "Great odds at 13-to-1 for a consistent number two target."
+      }
+    ],
+    "analysis_notes": [
+      {
+        "note_type": "coaching_or_scheme",
+        "teams": [
+          "DEN"
+        ],
+        "players": [
+          "RJ Harvey"
+        ],
+        "topic": "Sean Payton playcalling duties",
+        "summary": "Sean Payton has resumed playcalling duties, which is expected to result in a heavier rushing workload for the Broncos.",
+        "speaker": "Jo Madden",
+        "source_timestamp": 1311,
+        "quote": "Sean Payton has taken back over the playcalling. I love that.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "team_evaluation",
+        "teams": [
+          "GB",
+          "CHI"
+        ],
+        "players": [
+          "Jordan Love"
+        ],
+        "topic": "Time of Possession comparison",
+        "summary": "Chicago ranks 1st in the league in time of possession (36:35), whereas Green Bay ranks 31st (26:14). This limits Jordan Love's total pass attempts.",
+        "speaker": "Scott Bogman",
+        "source_timestamp": 535,
+        "quote": "Chicago has been hogging the ball; first in time of possession.",
+        "confidence": "stated"
+      },
+      {
+        "note_type": "matchup_analysis",
+        "teams": [
+          "DET",
+          "ARI"
+        ],
+        "players": [
+          "Amon-Ra St. Brown"
+        ],
+        "topic": "Cardinals pass defense weakness",
+        "summary": "Arizona's struggling pass defense has allowed 11 passing touchdowns, presenting a strong matchup for Detroit pass catchers.",
+        "speaker": "Jo Madden",
+        "source_timestamp": 1262,
+        "quote": "Arizona's pass defense has struggled, giving up 11 passing touchdowns.",
+        "confidence": "stated"
+      }
+    ],
+    "quote_timestamps": [
+      {
+        "topic": "Jalen Hurts Under",
+        "timestamp": 218,
+        "speaker": "Jo Madden",
+        "quote": "I'm looking at him to go under 6.5 rushing attempts."
+      },
+      {
+        "topic": "Purdy Under attempts",
+        "timestamp": 314,
+        "speaker": "Scott Bogman",
+        "quote": "Brock Purdy under 32.5 pass attempts."
+      }
+    ],
+    "uncertainty_flags": []
+  },
+  "coverage_assessment": {
+    "last_covered_timestamp": 1395.0,
+    "self_reported_reached_end": true,
+    "duration_used_for_check": 1395,
+    "segment_start_seconds": null,
+    "segment_end_seconds": null,
+    "suspected_incomplete": false,
+    "reason": null,
+    "coverage_ratio": 1.0
+  }
+}

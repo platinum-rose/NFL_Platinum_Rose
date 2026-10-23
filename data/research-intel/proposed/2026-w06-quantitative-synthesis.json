@@ -1,7 +1,7 @@
 {
   "schema": "week6_quantitative_synthesis_v1",
   "week": 6,
-  "generated_at": "2026-10-17T02:36:52.349Z",
+  "generated_at": "2026-10-17T21:11:11.361Z",
   "status": "proposed_analysis_only",
   "engine": {
     "name": "scripts/intel/margin-simulator.mjs analyzeGame",
@@ -51,8 +51,8 @@
       "role": "numeric season-to-date SRS component"
     },
     "bookmaker": {
-      "source": "data/odds/BKR_current_lines_1016_1933_buildfmt",
-      "captured": "2026-10-17T02:33:00.000Z",
+      "source": "data/odds/BKR_current_lines_1017_1240_buildfmt",
+      "captured": "2026-10-17T19:40:00.000Z",
       "captured_basis": "board filename time, PT, approximate",
       "rows": 13,
       "role": "market anchor"
@@ -3183,7 +3183,7 @@
       "market": {
         "home_spread": -2.5,
         "total": 42,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3258,8 +3258,8 @@
       "home_name": "ATL",
       "market": {
         "home_spread": 1,
-        "total": 51.5,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "total": 52.5,
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3284,43 +3284,43 @@
         }
       },
       "means": {
-        "home": 25.447011484121344,
-        "away": 26.556625439290595,
-        "total": 52.00363692341194,
-        "home_margin": -1.1096139551692517
+        "home": 25.94701148412135,
+        "away": 27.056625439290595,
+        "total": 53.003636923411946,
+        "home_margin": -1.1096139551692445
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 25.447011484121344,
-        "mean_away": 26.556625439290595,
-        "home_win_pct": 0.47280589760921476,
-        "home_cover_pct": 0.484947620756777,
-        "away_cover_pct": 0.4906988392135875,
-        "side_push_pct": 0.024353540029635648,
-        "home_cover_excl_push_pct": 0.49705261142597434,
-        "away_cover_excl_push_pct": 0.5029473885740257,
-        "over_pct": 0.5152988750733348,
-        "under_pct": 0.48470112492666473,
+        "mean_home": 25.94701148412135,
+        "mean_away": 27.056625439290595,
+        "home_win_pct": 0.47280589760921465,
+        "home_cover_pct": 0.48494762075677683,
+        "away_cover_pct": 0.49069883921358676,
+        "side_push_pct": 0.02435354002963527,
+        "home_cover_excl_push_pct": 0.4970526114259746,
+        "away_cover_excl_push_pct": 0.5029473885740254,
+        "over_pct": 0.5152994700608858,
+        "under_pct": 0.4847005299391145,
         "total_push_pct": 0,
-        "over_excl_push_pct": 0.515298875073335,
-        "under_excl_push_pct": 0.48470112492666495,
+        "over_excl_push_pct": 0.5152994700608856,
+        "under_excl_push_pct": 0.4847005299391143,
         "adjustments_vs_market": {
-          "margin": -0.10961395516925165,
-          "total": 0.5036369234119391
+          "margin": -0.10961395516924455,
+          "total": 0.5036369234119462
         },
         "distribution": {
-          "mean_margin": -0.8850746475194283,
+          "mean_margin": -0.8850746475194198,
           "median_margin": -1,
-          "mean_total": 52.004786016811416,
-          "median_total": 52
+          "mean_total": 53.0044881944571,
+          "median_total": 53
         }
       },
       "model_menu": {
         "side": "CHI",
-        "side_cover_pct": 0.5029473885740257,
+        "side_cover_pct": 0.5029473885740254,
         "total": "Over",
-        "total_pct": 0.515298875073335,
+        "total_pct": 0.5152994700608856,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3335,7 +3335,7 @@
       "market": {
         "home_spread": 3,
         "total": 40.5,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3410,8 +3410,8 @@
       "home_name": "IND",
       "market": {
         "home_spread": -7,
-        "total": 44,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "total": 44.5,
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3436,35 +3436,35 @@
         }
       },
       "means": {
-        "home": 25.149225406623277,
-        "away": 18.52850035366545,
-        "total": 43.67772576028872,
+        "home": 25.39922540662328,
+        "away": 18.778500353665454,
+        "total": 44.17772576028874,
         "home_margin": 6.620725052957827
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 25.149225406623277,
-        "mean_away": 18.52850035366545,
+        "mean_home": 25.39922540662328,
+        "mean_away": 18.778500353665454,
         "home_win_pct": 0.720452658496728,
         "home_cover_pct": 0.4617091602618958,
         "away_cover_pct": 0.48265412761449433,
         "side_push_pct": 0.05563671212361011,
         "home_cover_excl_push_pct": 0.48891053494905656,
         "away_cover_excl_push_pct": 0.5110894650509434,
-        "over_pct": 0.4750354598897372,
-        "under_pct": 0.4945809674127498,
-        "total_push_pct": 0.030383572697512913,
-        "over_excl_push_pct": 0.4899210105291899,
-        "under_excl_push_pct": 0.5100789894708102,
+        "over_pct": 0.490218610664608,
+        "under_pct": 0.5097813893353917,
+        "total_push_pct": 0,
+        "over_excl_push_pct": 0.4902186106646081,
+        "under_excl_push_pct": 0.5097813893353919,
         "adjustments_vs_market": {
           "margin": -0.37927494704217324,
-          "total": -0.3222742397112768
+          "total": -0.32227423971126257
         },
         "distribution": {
           "mean_margin": 7.7047913099038405,
           "median_margin": 7,
-          "mean_total": 43.6902010818958,
+          "mean_total": 44.18874759075126,
           "median_total": 44
         }
       },
@@ -3472,7 +3472,7 @@
         "side": "TEN",
         "side_cover_pct": 0.5110894650509434,
         "total": "Under",
-        "total_pct": 0.5100789894708102,
+        "total_pct": 0.5097813893353919,
         "basis": "excluding pushes"
       },
       "contest": null
@@ -3487,7 +3487,7 @@
       "market": {
         "home_spread": -7,
         "total": 43.5,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3563,7 +3563,7 @@
       "market": {
         "home_spread": -1,
         "total": 46,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3639,7 +3639,7 @@
       "market": {
         "home_spread": 3,
         "total": 39,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3715,7 +3715,7 @@
       "market": {
         "home_spread": 2.5,
         "total": 39,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3791,7 +3791,7 @@
       "market": {
         "home_spread": -13.5,
         "total": 52,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3867,7 +3867,7 @@
       "market": {
         "home_spread": 4.5,
         "total": 53.5,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -3943,7 +3943,7 @@
       "market": {
         "home_spread": -7.5,
         "total": 41.5,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -4019,7 +4019,7 @@
       "market": {
         "home_spread": -1.5,
         "total": 53,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -4093,9 +4093,9 @@
       "away_name": "WAS",
       "home_name": "SF",
       "market": {
-        "home_spread": -7.5,
+        "home_spread": -8,
         "total": 51.5,
-        "captured_at": "2026-10-17T02:33:00.000Z"
+        "captured_at": "2026-10-17T19:40:00.000Z"
       },
       "features": {
         "offense_z": {
@@ -4120,33 +4120,33 @@
         }
       },
       "means": {
-        "home": 30.056050148773938,
-        "away": 21.13422102572703,
+        "home": 30.206050148773937,
+        "away": 20.98422102572703,
         "total": 51.190271174500964,
-        "home_margin": 8.921829123046908
+        "home_margin": 9.221829123046906
       },
       "simulation": {
         "engine": "calibrated-pmf",
         "iterations": null,
-        "mean_home": 30.056050148773938,
-        "mean_away": 21.13422102572703,
-        "home_win_pct": 0.7803732599346439,
-        "home_cover_pct": 0.5399764010779878,
-        "away_cover_pct": 0.4600235989220121,
-        "side_push_pct": 0,
-        "home_cover_excl_push_pct": 0.5399764010779878,
-        "away_cover_excl_push_pct": 0.4600235989220121,
+        "mean_home": 30.206050148773937,
+        "mean_away": 20.98422102572703,
+        "home_win_pct": 0.7852453912803208,
+        "home_cover_pct": 0.5222612169039484,
+        "away_cover_pct": 0.4531883744171261,
+        "side_push_pct": 0.024550408678924836,
+        "home_cover_excl_push_pct": 0.5354056442800265,
+        "away_cover_excl_push_pct": 0.46459435571997354,
         "over_pct": 0.49059013620307973,
         "under_pct": 0.5094098637969198,
         "total_push_pct": 0,
         "over_excl_push_pct": 0.49059013620307995,
         "under_excl_push_pct": 0.50940986379692,
         "adjustments_vs_market": {
-          "margin": 1.4218291230469084,
+          "margin": 1.2218291230469056,
           "total": -0.309728825499036
         },
         "distribution": {
-          "mean_margin": 10.308430770139958,
+          "mean_margin": 10.53958017092642,
           "median_margin": 9,
           "mean_total": 51.191911716162764,
           "median_total": 51
@@ -4154,7 +4154,7 @@
       },
       "model_menu": {
         "side": "SF",
-        "side_cover_pct": 0.5399764010779878,
+        "side_cover_pct": 0.5354056442800265,
         "total": "Under",
         "total_pct": 0.50940986379692,
         "basis": "excluding pushes"

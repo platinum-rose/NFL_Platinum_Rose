@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:56.496Z",
+  "built_at": "2026-10-17T02:04:50.300Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "11.8"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "EPA/PLY": "0.059",
+          "DVOA": "5.6%",
+          "SUCC%": "44.1%",
+          "EXP%": "9.8%",
+          "CONV%": "30.4%",
+          "TO": "2",
+          "TO%": "0.8%",
+          "3&O": "17.4%",
+          "MTKL%": "12.6%",
+          "PEN%": "2.4%",
+          "PENY": "8.8"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "6"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "YD/PLY": "6.4",
+          "PT/GM": "26.0",
+          "FD%": "30.7%",
+          "TO": "2",
+          "DPBK%": "60.2%",
+          "YD": "1,105",
+          "TD": "6",
+          "INT": "1",
+          "RUSH%": "39.8%",
+          "YD__2": "524",
+          "TD__2": "5"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "19.9%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "DPBK": "153",
+          "SK": "9",
+          "SK%": "5.9%",
+          "QBH%": "15.0%",
+          "PRESS": "36",
+          "PRESS%": "23.5%",
+          "QPRESS%": "47.2%",
+          "TTPR": "2.60",
+          "DISR%": "0.7%",
+          "BLZ%": "20.3%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "3.6%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "EPA/DB": "0.109",
+          "SUCC%": "45.1%",
+          "DVOA": "12.1%",
+          "CPOE": "2.06%",
+          "CBALL%": "68.4%",
+          "EXP%": "15.7%",
+          "INTW%": "2.2%",
+          "TGHT%": "39.7%",
+          "OPEN%": "52.9%",
+          "TA%": "5.9%",
+          "DROP%": "3.7%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "2.74"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "EPA/ATT": "-0.017",
+          "SUCC%": "42.6%",
+          "DVOA": "-2.2%",
+          "aRYOE": "",
+          "EXP%": "8.9%",
+          "STF%": "16.8%",
+          "YBCO": "1.27",
+          "YACO": "2.39"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "4.66%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "EPA/PLY": "-0.066",
+          "DVOA": "-9.7%",
+          "SUCC%": "42.7%",
+          "EXP%": "9.1%",
+          "CONV%": "44.1%",
+          "TO": "7",
+          "TO%": "2.77%",
+          "PENY": "17.5",
+          "PEN%": "3.95%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "8"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "YD/PLY": "4.7",
+          "PT/GM": "25.5",
+          "FD%": "28.9%",
+          "TO": "7",
+          "DPBK%": "56.9%",
+          "YD": "754",
+          "TD": "3",
+          "INT": "4",
+          "RUSH%": "43.1%",
+          "YD__2": "438",
+          "TD__2": "7"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "47.6%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "SK": "8",
+          "SK%": "5.6%",
+          "QBSK%": "12.5%",
+          "QBH%": "16.7%",
+          "PRESS%": "27.1%",
+          "UPRES%": "25.6%",
+          "BLITZ%": "34.7%",
+          "TTPR": "2.46",
+          "TTT": "2.48",
+          "EPA/DB": "-1.060",
+          "DVOA": "-164.3%",
+          "SUCC%": "17.9%",
+          "EPA/DB__2": "0.112",
+          "DVOA__2": "9.3%",
+          "SUCC%__2": "48.6%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "4.5"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "EPA/DB": "-0.205",
+          "SUCC%": "40.3%",
+          "DVOA": "-19.4%",
+          "CPOE": "-5.6%",
+          "CBALL%": "69.7%",
+          "EXP%": "10.7%",
+          "INTW%": "4.5%",
+          "HLT%": "0.8%",
+          "TA%": "6.8%",
+          "DROP%": "3.8%",
+          "aDOT": "5.8",
+          "aYAC": "4.3"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "52.2%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "EPA/ATT": "0.119",
+          "SUCC%": "45.9%",
+          "DVOA": "9.4%",
+          "aRYOE": "",
+          "EXP%": "12.8%",
+          "STF%": "17.4%",
+          "aYBCO": "1.25",
+          "aYACO": "1.80",
+          "CRT%": "46.0%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "49.1%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "PLY/GM": "63.3",
+          "TOP": "30.52",
+          "DRV/GM": "11.3",
+          "SEC/PLY": "28.9",
+          "PLY/DRV": "5.6",
+          "YD/DRV": "26.5",
+          "SEC/DRV": "163",
+          "3&O": "13.3%",
+          "SCD%": "46.7%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Indianapolis Colts",
           "GP": "5",
@@ -703,13 +885,30 @@
           "PWR%": "12.0%",
           "CTR%": "2.3%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Indianapolis Colts",
+          "GP": "4",
+          "DPBK%": "56.9%",
+          "RUSH%": "43.1%",
+          "SHG%": "54.2%",
+          "NH%": "3.6%",
+          "MOT%": "59.7%",
+          "PA%": "30.6%",
+          "IZ%": "18.3%",
+          "OZ%": "45.0%",
+          "MD%": "8.3%",
+          "PWR%": "12.8%",
+          "CTR%": "2.8%"
+        }
       }
     },
     "qb1": {
       "player": "Daniel Jones",
       "position": "QB",
       "tables": {
-        "passing/air-yards": {
+        "passing/air-yards (1)": {
           "Player": "Daniel Jones",
           "Team": "Indianapolis Colts",
           "Position": "QB",
@@ -722,7 +921,20 @@
           "PRYD%": "42.8%",
           "dAIR": "49"
         },
-        "passing/analytics": {
+        "passing/air-yards": {
+          "Player": "Daniel Jones",
+          "Team": "Indianapolis Colts",
+          "Position": "QB",
+          "GP": "4",
+          "aDOT": "5.8",
+          "AIR": "772",
+          "cAIR": "453",
+          "cAIR%": "58.7%",
+          "PRYD": "319",
+          "PRYD%": "41.3%",
+          "dAIR": "34"
+        },
+        "passing/analytics (1)": {
           "Player": "Daniel Jones",
           "Team": "Indianapolis Colts",
           "Position": "QB",
@@ -737,7 +949,22 @@
           "CPOE": "-6.7%",
           "aYDOE": "-1.554"
         },
-        "passing/efficiency": {
+        "passing/analytics": {
+          "Player": "Daniel Jones",
+          "Team": "Indianapolis Colts",
+          "Position": "QB",
+          "GP": "4",
+          "EPA": "-29.5",
+          "EPA/DB": "-0.205",
+          "SUCC%": "40.3%",
+          "ACOMP%": "72.4%",
+          "DVOA": "-30.3%",
+          "DYAR": "-219",
+          "xCOMP": "69.3%",
+          "CPOE": "-5.6%",
+          "aYDOE": "-1.137"
+        },
+        "passing/efficiency (1)": {
           "Player": "Daniel Jones",
           "Team": "Indianapolis Colts",
           "Position": "QB",
@@ -752,7 +979,22 @@
           "INT%": "2.3%",
           "SK%": "4.8%"
         },
-        "passing/overview": {
+        "passing/efficiency": {
+          "Player": "Daniel Jones",
+          "Team": "Indianapolis Colts",
+          "Position": "QB",
+          "GP": "4",
+          "CBALL%": "69.7%",
+          "INTW%": "4.5%",
+          "HLT%": "0.8%",
+          "EXP%": "6.8%",
+          "DROP%": "3.8%",
+          "TA%": "6.8%",
+          "TD%": "2.3%",
+          "INT%": "3.0%",
+          "SK%": "5.6%"
+        },
+        "passing/overview (1)": {
           "Player": "Daniel Jones",
           "Team": "Indianapolis Colts",
           "Position": "QB",
@@ -767,7 +1009,52 @@
           "INT": "4",
           "FUML": "3"
         },
-        "passing/pressure": {
+        "passing/overview (2)": {
+          "Player": "Daniel Jones",
+          "Team": "Indianapolis Colts",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "189",
+          "ATT": "176",
+          "COMP": "108",
+          "COMP%": "61.4%",
+          "YD": "1,021",
+          "YD/ATT": "5.8",
+          "TD": "3",
+          "INT": "4",
+          "FUML": "3"
+        },
+        "passing/overview (3)": {
+          "Player": "Daniel Jones",
+          "Team": "Indianapolis Colts",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "189",
+          "ATT": "176",
+          "COMP": "108",
+          "COMP%": "61.4%",
+          "YD": "1,021",
+          "YD/ATT": "5.8",
+          "TD": "3",
+          "INT": "4",
+          "FUML": "3"
+        },
+        "passing/overview": {
+          "Player": "Daniel Jones",
+          "Team": "Indianapolis Colts",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "144",
+          "ATT": "132",
+          "COMP": "84",
+          "COMP%": "63.6%",
+          "YD": "754",
+          "YD/ATT": "5.7",
+          "TD": "3",
+          "INT": "4",
+          "FUML": "3"
+        },
+        "passing/pressure (1)": {
           "Player": "Daniel Jones",
           "Team": "Indianapolis Colts",
           "Position": "QB",
@@ -785,28 +1072,66 @@
           "RATE__2": "76.7%",
           "EPA/DB__2": "0.101",
           "DVOA__2": "10.2%"
+        },
+        "passing/pressure": {
+          "Player": "Daniel Jones",
+          "Team": "Indianapolis Colts",
+          "Position": "QB",
+          "GP": "4",
+          "SK": "8",
+          "SK%": "5.6%",
+          "QBSK%": "12.5%",
+          "AVSK%": "0.7%",
+          "QBH%": "16.7%",
+          "TTPR": "2.46",
+          "TTT": "2.48",
+          "RATE": "27.1%",
+          "EPA/DB": "-1.060",
+          "DVOA": "-164.3%",
+          "RATE__2": "72.9%",
+          "EPA/DB__2": "0.112",
+          "DVOA__2": "9.3%"
         }
       }
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
-      "passing/air-yards": 5,
-      "passing/analytics": 5,
-      "passing/efficiency": 5,
-      "passing/overview": 5,
-      "passing/pressure": 5,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "passing/air-yards (1)": 5,
+      "passing/air-yards": 4,
+      "passing/analytics (1)": 5,
+      "passing/analytics": 4,
+      "passing/efficiency (1)": 5,
+      "passing/efficiency": 4,
+      "passing/overview (1)": 5,
+      "passing/overview (2)": 5,
+      "passing/overview (3)": 5,
+      "passing/overview": 4,
+      "passing/pressure (1)": 5,
+      "passing/pressure": 4,
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -938,7 +1263,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1087,7 +1412,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1107,7 +1432,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1117,28 +1442,29 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Cor'Dale Flott",
+              "player_name": "Kevin Winston Jr.",
               "team": "TEN",
-              "position": "CB",
-              "event_type": "setback",
+              "position": "S",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "Flott (chest) has been ruled out for the remainder of Sunday's game against the Texans.",
+              "summary": "Winston (quadriceps) has been ruled out ahead of Sunday's game against the Colts, Paul Kuharsky of PaulKuharsky.com reports.",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-11T19:25:00.000Z",
-              "role": "outside_cb2",
-              "side": "field",
+              "published_at": "2026-10-16T23:17:00.000Z",
+              "role": "free_safety",
+              "side": "middle",
               "impact_tier": "starter",
               "primary_receiver_archetypes_impacted": [
-                "z_receiver"
+                "field_stretcher"
               ],
               "weakness_tags": [
-                "outside_wr_boost",
-                "boundary_wr_boost"
+                "deep_pass_boost",
+                "post_cross_boost"
               ],
-              "severity_score": 1.27,
+              "severity_score": 1.8,
               "needs_human_review": true
             },
             {
@@ -1166,31 +1492,9 @@
             "boundary_wr_boost",
             "deep_pass_boost",
             "inside_seam_boost",
-            "outside_wr_boost",
             "post_cross_boost"
           ],
           "target_receivers": [
-            {
-              "player_name": "Darius Slayton",
-              "team": "IND",
-              "roles": [
-                "z_receiver",
-                "field_stretcher"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "deep"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "NYG Deep Threat. [moved from NYG per ESPN roster 2026-09-27]",
-              "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "none"
-            },
             {
               "player_name": "Josh Downs",
               "team": "IND",
@@ -1265,10 +1569,10 @@
               "opportunity_score": 0.8,
               "notes": "IND TE1 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "none"
+              "availability_flag": "questionable"
             }
           ],
-          "severity_score": 5.32,
+          "severity_score": 5.85,
           "elite_absence_count": 0,
           "vulnerability_tier": "high",
           "confidence": 0.95,
@@ -1294,19 +1598,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1323,6 +1627,30 @@
     "reported_injuries": {
       "out_ir": [
         {
+          "player": "Will Mallory",
+          "pos": "TE",
+          "status": "Injured Reserve",
+          "date": "2026-10-17",
+          "comment": "Mallory (thumb) is listed as questionable for Sunday's game against the Titans.",
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Ashton Dulin",
+          "pos": "WR",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "Dulin (hamstring) has been ruled out ahead of Sunday's game against the Titans, Joel A. Erickson of The Indianapolis Star reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Jaylon Carlies",
+          "pos": "LB",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "out",
+          "roster_check": "ok"
+        },
+        {
           "player": "Alec Pierce",
           "pos": "WR",
           "status": "Injured Reserve",
@@ -1337,39 +1665,15 @@
           "date": "2026-10-10",
           "comment": "The Colts placed Key (hamstring) on injured reserve Saturday.",
           "roster_check": "roster_ir_out_group"
-        },
-        {
-          "player": "Will Mallory",
-          "pos": "TE",
-          "status": "Injured Reserve",
-          "date": "2026-10-09",
-          "comment": "Mallory (thumb) has been ruled out ahead of Sunday's game against the Steelers.",
-          "roster_check": "roster_ir_out_group"
         }
       ],
       "questionable_doubtful": [
         {
-          "player": "Ashton Dulin",
-          "pos": "WR",
+          "player": "Tyler Warren",
+          "pos": "TE",
           "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Dulin (hamstring) did not participate in Wednesday's practice session.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Jalen Travis",
-          "pos": "OT",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Jaylon Carlies",
-          "pos": "LB",
-          "status": "Questionable",
-          "date": "2026-10-13",
-          "comment": "questionable",
+          "date": "2026-10-16",
+          "comment": "Warren (groin) is listed as questionable for Sunday's game against the Titans after being added to the practice report Friday as a limited participant.",
           "roster_check": "ok"
         }
       ],
@@ -1406,12 +1710,10 @@
     "ol_dl_cluster_risk": {
       "ol": {
         "hard_or_doubtful": 0,
-        "questionable": 1,
+        "questionable": 0,
         "risk": "none",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
-        "players": [
-          "Jalen Travis OT Questionable"
-        ]
+        "players": []
       },
       "dl": {
         "hard_or_doubtful": 1,
@@ -1433,7 +1735,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Alec Pierce IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1449,9 +1751,10 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Arden Key IR",
           "practice": [
+            "--",
             "--",
             "--"
           ],
@@ -1468,7 +1771,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "D.J. Montgomery IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1484,7 +1787,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Micheal Clemons IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1500,7 +1803,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Cameron Mitchell IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1516,7 +1819,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Carson Towt IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1524,6 +1827,74 @@
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Will Mallory",
+          "position": "TE",
+          "normalized_status": "IR",
+          "availability_trend": "worsening",
+          "event_type": "ir",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T01:17:00.000Z",
+          "summary": "Mallory (thumb) is listed as questionable for Sunday's game against the Titans.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player_name": "Ashton Dulin",
+          "position": "WR",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T23:40:00.000Z",
+          "summary": "Dulin (hamstring) has been ruled out ahead of Sunday's game against the Titans, Joel A. Erickson of The Indianapolis Star reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Tyler Warren",
+          "position": "TE",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-16T22:36:42.000Z",
+          "summary": "Tyler Warren QUESTIONABLE",
+          "practice": [
+            "--",
+            "--",
+            "Limit"
+          ],
+          "probability_of_playing": 0.79853,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Jaylon Carlies",
+          "position": "LB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T16:47:00.000Z",
+          "summary": "out",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
         },
         {
           "player_name": "Josh Downs",
@@ -1542,60 +1913,6 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Ashton Dulin",
-          "position": "WR",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Ashton Dulin QUESTIONABLE",
-          "practice": [
-            "DNP",
-            "DNP"
-          ],
-          "probability_of_playing": 0.01617,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Jaylon Carlies",
-          "position": "LB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Jaylon Carlies QUESTIONABLE",
-          "practice": [
-            "DNP",
-            "DNP"
-          ],
-          "probability_of_playing": 0.0221,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Darius Slayton",
-          "position": "WR",
-          "normalized_status": "ACTIVE_NEWS",
-          "availability_trend": "improving",
-          "event_type": "return_to_practice",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T23:19:00.000Z",
-          "summary": "Slayton (knee) was a full participant in Wednesday's practice.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
           "player_name": "Keenan Allen",
           "position": "WR",
           "normalized_status": "ACTIVE_NEWS",
@@ -1604,22 +1921,6 @@
           "source": "ESPN injuries API",
           "published_at": "2026-10-14T20:51:00.000Z",
           "summary": "Allen was a non-participant in Wednesday's practice due to rest.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Jalen Travis",
-          "position": "OT",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-14T20:41:00.000Z",
-          "summary": "questionable",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1677,6 +1978,29 @@
         "roster_check": "ok"
       },
       {
+        "player_name": "Tyler Warren",
+        "position": "TE",
+        "unit": "offensive_skill",
+        "event_type": "limited",
+        "availability_trend": "stable",
+        "impact_bucket": "skill_major",
+        "starter_match": {
+          "role": "starter",
+          "starter_confidence": 0.7,
+          "source_count": 1
+        },
+        "score": 53,
+        "signal": "review_context",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-16T19:57:00.000Z",
+        "summary": "Warren (groin) is listed as questionable for Sunday's game against the Titans after being added to the practice report Friday as a limited participant.",
+        "classification_warning": null,
+        "evidence_status": "unverified_no_conflict_detected",
+        "synthesis_eligible": true,
+        "needs_human_review": true,
+        "roster_check": "ok"
+      },
+      {
         "player_name": "Jonathan Taylor",
         "position": "RB",
         "unit": "offensive_skill",
@@ -1726,7 +2050,7 @@
         "player_name": "Tyler Warren",
         "position": "TE",
         "unit": "offensive_skill",
-        "event_type": "active_news",
+        "event_type": "status_update",
         "availability_trend": "unknown",
         "impact_bucket": "skill_major",
         "starter_match": {
@@ -1734,11 +2058,11 @@
           "starter_confidence": 0.7,
           "source_count": 1
         },
-        "score": 46,
+        "score": 47,
         "signal": "review_context",
-        "source": "ESPN injuries API",
-        "published_at": "2026-10-11T23:51:00.000Z",
-        "summary": "Warren caught seven of nine targets for 83 yards and added a one-yard touchdown on his only carry in Sunday's 34-22 loss to the Steelers.",
+        "source": "FantasyPros injuries API",
+        "published_at": "2026-10-16T22:36:42.000Z",
+        "summary": "Tyler Warren QUESTIONABLE",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1771,7 +2095,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [
         "Daniel Jones QB",
         "Jonathan Taylor RB",
@@ -1825,8 +2149,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -2077,18 +2400,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

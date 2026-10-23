@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:56.984Z",
+  "built_at": "2026-10-17T02:04:50.841Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "43.8"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "EPA/PLY": "-0.021",
+          "DVOA": "1.9%",
+          "SUCC%": "48.4%",
+          "EXP%": "8.3%",
+          "CONV%": "38.5%",
+          "TO": "3",
+          "TO%": "1.2%",
+          "3&O": "22.5%",
+          "MTKL%": "12.8%",
+          "PEN%": "6.7%",
+          "PENY": "44.3"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "4"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "YD/PLY": "5.2",
+          "PT/GM": "21.0",
+          "FD%": "29.0%",
+          "TO": "3",
+          "DPBK%": "56.7%",
+          "YD": "822",
+          "TD": "5",
+          "INT": "1",
+          "RUSH%": "43.3%",
+          "YD__2": "494",
+          "TD__2": "4"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "38.5%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "DPBK": "143",
+          "SK": "9",
+          "SK%": "6.3%",
+          "QBH%": "10.5%",
+          "PRESS": "24",
+          "PRESS%": "16.8%",
+          "QPRESS%": "29.2%",
+          "TTPR": "2.83",
+          "DISR%": "0.7%",
+          "BLZ%": "37.1%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "6.3%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "EPA/DB": "0.076",
+          "SUCC%": "50.3%",
+          "DVOA": "5.7%",
+          "CPOE": "1.34%",
+          "CBALL%": "76.4%",
+          "EXP%": "10.6%",
+          "INTW%": "1.6%",
+          "TGHT%": "30.7%",
+          "OPEN%": "59.8%",
+          "TA%": "5.5%",
+          "DROP%": "3.9%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "2.59"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "EPA/ATT": "-0.149",
+          "SUCC%": "45.9%",
+          "DVOA": "-2.7%",
+          "aRYOE": "",
+          "EXP%": "11.0%",
+          "STF%": "15.6%",
+          "YBCO": "1.51",
+          "YACO": "2.67"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "9.12%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "EPA/PLY": "0.007",
+          "DVOA": "-6.7%",
+          "SUCC%": "43.0%",
+          "EXP%": "8.7%",
+          "CONV%": "37.0%",
+          "TO": "1",
+          "TO%": "0.43%",
+          "PENY": "33.3",
+          "PEN%": "8.70%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "4"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "YD/PLY": "5.4",
+          "PT/GM": "19.0",
+          "FD%": "28.3%",
+          "TO": "1",
+          "DPBK%": "60.4%",
+          "YD": "902",
+          "TD": "5",
+          "INT": "0",
+          "RUSH%": "39.6%",
+          "YD__2": "336",
+          "TD__2": "3"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "53.0%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "SK": "12",
+          "SK%": "8.6%",
+          "QBSK%": "0.0%",
+          "QBH%": "15.8%",
+          "PRESS%": "23.0%",
+          "UPRES%": "15.8%",
+          "BLITZ%": "25.2%",
+          "TTPR": "2.64",
+          "TTT": "2.78",
+          "EPA/DB": "-0.592",
+          "DVOA": "-121.3%",
+          "SUCC%": "25.0%",
+          "EPA/DB__2": "0.356",
+          "DVOA__2": "39.3%",
+          "SUCC%__2": "53.3%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "5.0"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "EPA/DB": "0.137",
+          "SUCC%": "46.8%",
+          "DVOA": "23.1%",
+          "CPOE": "5.8%",
+          "CBALL%": "81.5%",
+          "EXP%": "14.1%",
+          "INTW%": "1.7%",
+          "HLT%": "2.5%",
+          "TA%": "3.4%",
+          "DROP%": "5.0%",
+          "aDOT": "7.0",
+          "aYAC": "4.8"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "71.6%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "EPA/ATT": "-0.193",
+          "SUCC%": "37.4%",
+          "DVOA": "-12.7%",
+          "aRYOE": "",
+          "EXP%": "7.7%",
+          "STF%": "24.2%",
+          "aYBCO": "1.07",
+          "aYACO": "1.97",
+          "CRT%": "60.3%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "34.0%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "PLY/GM": "57.5",
+          "TOP": "29.66",
+          "DRV/GM": "10.0",
+          "SEC/PLY": "31.0",
+          "PLY/DRV": "5.8",
+          "YD/DRV": "30.9",
+          "SEC/DRV": "178",
+          "3&O": "25.0%",
+          "SCD%": "37.5%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "New York Jets",
           "GP": "5",
@@ -703,13 +885,30 @@
           "PWR%": "4.1%",
           "CTR%": "2.5%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "New York Jets",
+          "GP": "4",
+          "DPBK%": "60.4%",
+          "RUSH%": "39.6%",
+          "SHG%": "57.8%",
+          "NH%": "4.8%",
+          "MOT%": "46.5%",
+          "PA%": "21.6%",
+          "IZ%": "28.6%",
+          "OZ%": "29.7%",
+          "MD%": "24.2%",
+          "PWR%": "5.5%",
+          "CTR%": "3.3%"
+        }
       }
     },
     "qb1": {
       "player": "Geno Smith",
       "position": "QB",
       "tables": {
-        "passing/air-yards": {
+        "passing/air-yards (1)": {
           "Player": "Geno Smith",
           "Team": "New York Jets",
           "Position": "QB",
@@ -722,7 +921,20 @@
           "PRYD%": "24.4%",
           "dAIR": "62"
         },
-        "passing/analytics": {
+        "passing/air-yards": {
+          "Player": "Geno Smith",
+          "Team": "New York Jets",
+          "Position": "QB",
+          "GP": "4",
+          "aDOT": "7.0",
+          "AIR": "834",
+          "cAIR": "634",
+          "cAIR%": "76.0%",
+          "PRYD": "200",
+          "PRYD%": "24.0%",
+          "dAIR": "36"
+        },
+        "passing/analytics (1)": {
           "Player": "Geno Smith",
           "Team": "New York Jets",
           "Position": "QB",
@@ -737,7 +949,22 @@
           "CPOE": "2.9%",
           "aYDOE": "0.069"
         },
-        "passing/efficiency": {
+        "passing/analytics": {
+          "Player": "Geno Smith",
+          "Team": "New York Jets",
+          "Position": "QB",
+          "GP": "4",
+          "EPA": "19.1",
+          "EPA/DB": "0.137",
+          "SUCC%": "46.8%",
+          "ACOMP%": "79.1%",
+          "DVOA": "10.2%",
+          "DYAR": "132",
+          "xCOMP": "65.6%",
+          "CPOE": "5.8%",
+          "aYDOE": "0.161"
+        },
+        "passing/efficiency (1)": {
           "Player": "Geno Smith",
           "Team": "New York Jets",
           "Position": "QB",
@@ -752,7 +979,22 @@
           "INT%": "0.0%",
           "SK%": "9.2%"
         },
-        "passing/overview": {
+        "passing/efficiency": {
+          "Player": "Geno Smith",
+          "Team": "New York Jets",
+          "Position": "QB",
+          "GP": "4",
+          "CBALL%": "81.5%",
+          "INTW%": "1.7%",
+          "HLT%": "2.5%",
+          "EXP%": "10.1%",
+          "DROP%": "5.0%",
+          "TA%": "3.4%",
+          "TD%": "4.2%",
+          "INT%": "0.0%",
+          "SK%": "8.6%"
+        },
+        "passing/overview (1)": {
           "Player": "Geno Smith",
           "Team": "New York Jets",
           "Position": "QB",
@@ -767,7 +1009,52 @@
           "INT": "0",
           "FUML": "2"
         },
-        "passing/pressure": {
+        "passing/overview (2)": {
+          "Player": "Geno Smith",
+          "Team": "New York Jets",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "174",
+          "ATT": "149",
+          "COMP": "102",
+          "COMP%": "68.5%",
+          "YD": "1,084",
+          "YD/ATT": "7.3",
+          "TD": "6",
+          "INT": "0",
+          "FUML": "2"
+        },
+        "passing/overview (3)": {
+          "Player": "Geno Smith",
+          "Team": "New York Jets",
+          "Position": "QB",
+          "GP": "5",
+          "DPBK": "174",
+          "ATT": "149",
+          "COMP": "102",
+          "COMP%": "68.5%",
+          "YD": "1,084",
+          "YD/ATT": "7.3",
+          "TD": "6",
+          "INT": "0",
+          "FUML": "2"
+        },
+        "passing/overview": {
+          "Player": "Geno Smith",
+          "Team": "New York Jets",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "139",
+          "ATT": "119",
+          "COMP": "85",
+          "COMP%": "71.4%",
+          "YD": "902",
+          "YD/ATT": "7.6",
+          "TD": "5",
+          "INT": "0",
+          "FUML": "1"
+        },
+        "passing/pressure (1)": {
           "Player": "Geno Smith",
           "Team": "New York Jets",
           "Position": "QB",
@@ -785,28 +1072,66 @@
           "RATE__2": "77.0%",
           "EPA/DB__2": "0.299",
           "DVOA__2": "37.3%"
+        },
+        "passing/pressure": {
+          "Player": "Geno Smith",
+          "Team": "New York Jets",
+          "Position": "QB",
+          "GP": "4",
+          "SK": "12",
+          "SK%": "8.6%",
+          "QBSK%": "0.0%",
+          "AVSK%": "2.9%",
+          "QBH%": "15.8%",
+          "TTPR": "2.64",
+          "TTT": "2.78",
+          "RATE": "23.0%",
+          "EPA/DB": "-0.592",
+          "DVOA": "-121.3%",
+          "RATE__2": "77.0%",
+          "EPA/DB__2": "0.356",
+          "DVOA__2": "39.3%"
         }
       }
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
-      "passing/air-yards": 5,
-      "passing/analytics": 5,
-      "passing/efficiency": 5,
-      "passing/overview": 5,
-      "passing/pressure": 5,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "passing/air-yards (1)": 5,
+      "passing/air-yards": 4,
+      "passing/analytics (1)": 5,
+      "passing/analytics": 4,
+      "passing/efficiency (1)": 5,
+      "passing/efficiency": 4,
+      "passing/overview (1)": 5,
+      "passing/overview (2)": 5,
+      "passing/overview (3)": 5,
+      "passing/overview": 4,
+      "passing/pressure (1)": 5,
+      "passing/pressure": 4,
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -938,7 +1263,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -948,48 +1273,50 @@
               "needs_human_review": true
             },
             {
-              "player_name": "Charles Woods",
+              "player_name": "Karon Prunty",
               "team": "NE",
               "position": "CB",
-              "event_type": "setback",
+              "event_type": "out",
               "availability_trend": "worsening",
-              "summary": "Woods (shoulder) is questionable to return to Sunday's game against the Raiders.",
+              "summary": "out",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-11T19:31:00.000Z",
+              "published_at": "2026-10-16T20:41:00.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
               "primary_receiver_archetypes_impacted": [],
               "weakness_tags": [],
-              "severity_score": 0.85,
+              "severity_score": 1.2,
               "needs_human_review": true
             },
             {
-              "player_name": "Craig Woodson",
+              "player_name": "Carlton Davis III",
               "team": "NE",
-              "position": "S",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Woodson (shoulder) is active Week 5 against the Raiders.",
+              "position": "CB",
+              "event_type": "out",
+              "availability_trend": "worsening",
+              "summary": "out",
               "source": "ESPN injuries API",
               "corroborating_sources": [
-                "ESPN injuries API"
+                "ESPN injuries API",
+                "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-11T15:58:00.000Z",
-              "role": "strong_safety",
-              "side": "middle",
-              "impact_tier": "starter",
+              "published_at": "2026-10-16T20:40:00.000Z",
+              "role": "outside_cb2",
+              "side": "field",
+              "impact_tier": "plus",
               "primary_receiver_archetypes_impacted": [
-                "te_middle"
+                "z_receiver"
               ],
               "weakness_tags": [
-                "te_middle_boost",
-                "slot_wr_boost"
+                "outside_wr_boost",
+                "boundary_wr_boost"
               ],
-              "severity_score": 0.83,
+              "severity_score": 2.7,
               "needs_human_review": true
             }
           ],
@@ -999,8 +1326,7 @@
             "deep_pass_boost",
             "outside_wr_boost",
             "post_cross_boost",
-            "slot_wr_boost",
-            "te_middle_boost"
+            "slot_wr_boost"
           ],
           "target_receivers": [
             {
@@ -1028,26 +1354,6 @@
               "availability_flag": "none"
             },
             {
-              "player_name": "Adonai Mitchell",
-              "team": "NYJ",
-              "roles": [
-                "z_receiver"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "boundary"
-              ],
-              "matched_weakness_tags": [
-                "outside_wr_boost",
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "opportunity_score": 2.4,
-              "notes": "NYJ WR2 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "doubtful"
-            },
-            {
               "player_name": "Isaiah Williams",
               "team": "NYJ",
               "roles": [
@@ -1065,24 +1371,6 @@
               "notes": "NYJ WR3 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
               "availability_flag": "none"
-            },
-            {
-              "player_name": "Kenyon Sadiq",
-              "team": "NYJ",
-              "roles": [
-                "te_middle"
-              ],
-              "target_share_tier": "medium",
-              "route_area_tags": [
-                "middle"
-              ],
-              "matched_weakness_tags": [
-                "te_middle_boost"
-              ],
-              "opportunity_score": 0.8,
-              "notes": "NYJ TE1 per ESPN depth chart 2026-09-27; default role - verify.",
-              "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "questionable"
             },
             {
               "player_name": "Tim Patrick",
@@ -1104,10 +1392,10 @@
               "availability_flag": "roster_ir_out_unconfirmed"
             }
           ],
-          "severity_score": 3.03,
-          "elite_absence_count": 0,
-          "vulnerability_tier": "medium",
-          "confidence": 0.89,
+          "severity_score": 5.25,
+          "elite_absence_count": 1,
+          "vulnerability_tier": "high",
+          "confidence": 0.95,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1154,7 +1442,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:02.000Z",
+              "published_at": "2026-10-17T01:50:03.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1162,37 +1450,9 @@
               "weakness_tags": [],
               "severity_score": 1.35,
               "needs_human_review": true
-            },
-            {
-              "player_name": "Minkah Fitzpatrick",
-              "team": "NYJ",
-              "position": "S",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Fitzpatrick recorded 16 tackles (eight solo) and an interception during the Jets' 23-12 loss to the Bears on Sunday.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-05T23:12:00.000Z",
-              "role": "free_safety",
-              "side": "middle",
-              "impact_tier": "elite",
-              "primary_receiver_archetypes_impacted": [
-                "field_stretcher",
-                "post_cross_boost"
-              ],
-              "weakness_tags": [
-                "deep_pass_boost",
-                "post_cross_boost"
-              ],
-              "severity_score": 1.65,
-              "needs_human_review": true
             }
           ],
           "weakness_tags": [
-            "deep_pass_boost",
-            "post_cross_boost",
             "slot_wr_boost",
             "te_middle_boost",
             "underneath_volume_boost"
@@ -1279,10 +1539,10 @@
               "availability_flag": "none"
             }
           ],
-          "severity_score": 3,
-          "elite_absence_count": 1,
-          "vulnerability_tier": "medium",
-          "confidence": 0.9,
+          "severity_score": 1.35,
+          "elite_absence_count": 0,
+          "vulnerability_tier": "watch",
+          "confidence": 0.8,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1305,19 +1565,19 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
@@ -1333,12 +1593,44 @@
     "reported_injuries": {
       "out_ir": [
         {
+          "player": "Joseph Ossai",
+          "pos": "DE",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "Ossai (ankle) has been ruled out ahead of Sunday's game against the Patriots, Brian Costello of the New York Post reports.",
+          "roster_check": "ok"
+        },
+        {
           "player": "Omar Cooper Jr.",
           "pos": "WR",
           "status": "Injured Reserve",
-          "date": "2026-10-15",
-          "comment": "Cooper (ankle) was a limited participant in Thursday's practice.",
+          "date": "2026-10-16",
+          "comment": "Cooper (ankle) is listed as questionable for Sunday's game at New England.",
           "roster_check": "roster_ir_out_group"
+        },
+        {
+          "player": "Adonai Mitchell",
+          "pos": "WR",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "Mitchell (finger) has been ruled out for Sunday's game, Brian Costello of the New York Post reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Breece Hall",
+          "pos": "RB",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "Hall (quadriceps) is out for Sunday's game, Brian Costello of the New York Post reports.",
+          "roster_check": "ok"
+        },
+        {
+          "player": "Dylan Parham",
+          "pos": "G",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "out",
+          "roster_check": "ok"
         },
         {
           "player": "Braiden McGregor",
@@ -1351,43 +1643,11 @@
       ],
       "questionable_doubtful": [
         {
-          "player": "Adonai Mitchell",
-          "pos": "WR",
-          "status": "Doubtful",
-          "date": "2026-10-15",
-          "comment": "Mitchell (finger) didn't practice Thursday.",
-          "roster_check": "ok"
-        },
-        {
           "player": "Kenyon Sadiq",
           "pos": "TE",
           "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Sadiq (concussion) remained limited at Thursday's practice.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Breece Hall",
-          "pos": "RB",
-          "status": "Doubtful",
-          "date": "2026-10-15",
-          "comment": "Hall (quadriceps) wasn't taking part in practice but was spotted working out on a side field with trainers Thursday, Zack Rosenblatt of The Athletic reports.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Dylan Parham",
-          "pos": "G",
-          "status": "Doubtful",
-          "date": "2026-10-15",
-          "comment": "Coach Aaron Glenn said Wednesday that Parham (knee) is still week-to-week as the Jets start preparing for Week 6, Antwan V. Staley of the New York Daily News re",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Joseph Ossai",
-          "pos": "DE",
-          "status": "Doubtful",
-          "date": "2026-10-14",
-          "comment": "Ossai (ankle) was estimated to be a nonparticipant at Wednesday's walkthrough, Rich Cimini of ESPN.com reports.",
+          "date": "2026-10-16",
+          "comment": "Sadiq (concussion) is listed as questionable for Sunday's game against the Patriots after logging a full practice Friday.",
           "roster_check": "ok"
         },
         {
@@ -1461,7 +1721,7 @@
         "risk": "watch",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
-          "Dylan Parham G Doubtful"
+          "Dylan Parham G Out"
         ]
       },
       "dl": {
@@ -1470,7 +1730,7 @@
         "risk": "cluster",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
-          "Joseph Ossai DE Doubtful",
+          "Joseph Ossai DE Out",
           "Braiden McGregor DE Injured Reserve"
         ]
       }
@@ -1485,7 +1745,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "David Onyemata IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1501,7 +1761,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Tre Brown IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1517,7 +1777,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Arian Smith IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1533,7 +1793,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Marcelino McCrary-Ball IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1549,7 +1809,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Kingsley Jonathan IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1565,7 +1825,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Braiden McGregor IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1581,7 +1841,7 @@
           "availability_trend": "worsening",
           "event_type": "pup",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Tyler Baron PUP",
           "practice": [],
           "probability_of_playing": null,
@@ -1597,7 +1857,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:03.000Z",
           "summary": "Chip Trayanum IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1607,14 +1867,30 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Omar Cooper Jr.",
+          "player_name": "Isaiah Williams",
           "position": "WR",
-          "normalized_status": "IR",
-          "availability_trend": "worsening",
-          "event_type": "ir",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "improving",
+          "event_type": "return_to_practice",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:21:00.000Z",
-          "summary": "Cooper (ankle) was a limited participant in Thursday's practice.",
+          "published_at": "2026-10-17T00:22:00.000Z",
+          "summary": "Williams should continue to serve as the No. 3 wide receiver behind Garrett Wilson and Tim Patrick for Sunday's game against the Patriots due to the absence of ",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Tim Patrick",
+          "position": "WR",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-17T00:12:00.000Z",
+          "summary": "Patrick is set to continue as the No. 2 wide receiver for the Jets' game against the Patriots on Sunday.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1623,46 +1899,30 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Adonai Mitchell",
-          "position": "WR",
-          "normalized_status": "DOUBTFUL",
-          "availability_trend": "worsening",
-          "event_type": "doubtful",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:19:00.000Z",
-          "summary": "Mitchell (finger) didn't practice Thursday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Kenyon Sadiq",
-          "position": "TE",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:09:00.000Z",
-          "summary": "Sadiq (concussion) remained limited at Thursday's practice.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Breece Hall",
+          "player_name": "Braelon Allen",
           "position": "RB",
-          "normalized_status": "DOUBTFUL",
-          "availability_trend": "worsening",
-          "event_type": "doubtful",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T16:59:00.000Z",
-          "summary": "Hall (quadriceps) wasn't taking part in practice but was spotted working out on a side field with trainers Thursday, Zack Rosenblatt of The Athletic reports.",
+          "published_at": "2026-10-17T00:02:00.000Z",
+          "summary": "Allen will once again operate as the Jets' primary running back for Sunday's game against the Patriots due to the absence of Breece Hall (quadriceps).",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Joseph Ossai",
+          "position": "DE",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T23:08:00.000Z",
+          "summary": "Ossai (ankle) has been ruled out ahead of Sunday's game against the Patriots, Brian Costello of the New York Post reports.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1673,29 +1933,6 @@
       ]
     },
     "impact_digest": [
-      {
-        "player_name": "Dylan Parham",
-        "position": "G",
-        "unit": "offensive_line",
-        "event_type": "doubtful",
-        "availability_trend": "worsening",
-        "impact_bucket": "offensive_line_major",
-        "starter_match": {
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "source_count": 1
-        },
-        "score": 99,
-        "signal": "negative_availability",
-        "source": "ESPN injuries API",
-        "published_at": "2026-10-15T00:52:00.000Z",
-        "summary": "Coach Aaron Glenn said Wednesday that Parham (knee) is still week-to-week as the Jets start preparing for Week 6, Antwan V. Staley of the New York Daily News re",
-        "classification_warning": null,
-        "evidence_status": "unverified_no_conflict_detected",
-        "synthesis_eligible": true,
-        "needs_human_review": true,
-        "roster_check": "ok"
-      },
       {
         "player_name": "Geno Smith",
         "position": "QB",
@@ -1723,7 +1960,7 @@
         "player_name": "Breece Hall",
         "position": "RB",
         "unit": "offensive_skill",
-        "event_type": "doubtful",
+        "event_type": "out",
         "availability_trend": "worsening",
         "impact_bucket": "skill_major",
         "starter_match": {
@@ -1731,11 +1968,11 @@
           "starter_confidence": 0.8,
           "source_count": 1
         },
-        "score": 78,
+        "score": 82,
         "signal": "negative_availability",
-        "source": "ESPN injuries API",
-        "published_at": "2026-10-15T16:59:00.000Z",
-        "summary": "Hall (quadriceps) wasn't taking part in practice but was spotted working out on a side field with trainers Thursday, Zack Rosenblatt of The Athletic reports.",
+        "source": "FantasyPros injuries API",
+        "published_at": "2026-10-16T17:48:43.000Z",
+        "summary": "Breece Hall OUT",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1746,19 +1983,19 @@
         "player_name": "Breece Hall",
         "position": "RB",
         "unit": "offensive_skill",
-        "event_type": "status_update",
-        "availability_trend": "unknown",
+        "event_type": "out",
+        "availability_trend": "worsening",
         "impact_bucket": "skill_major",
         "starter_match": {
           "role": "starter",
           "starter_confidence": 0.8,
           "source_count": 1
         },
-        "score": 49,
-        "signal": "review_context",
-        "source": "FantasyPros injuries API",
-        "published_at": "2026-10-15T00:00:00.000Z",
-        "summary": "Breece Hall QUESTIONABLE",
+        "score": 82,
+        "signal": "negative_availability",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-16T15:29:00.000Z",
+        "summary": "Hall (quadriceps) is out for Sunday's game, Brian Costello of the New York Post reports.",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1768,14 +2005,12 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [
         "Geno Smith QB",
         "Breece Hall RB"
       ],
-      "estimated": [
-        "Dylan Parham G"
-      ],
+      "estimated": [],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -1797,23 +2032,13 @@
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
           "roster_check": "ok"
-        },
-        {
-          "player_name": "Dylan Parham",
-          "position": "G",
-          "unit": "offensive_line",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
-          "roster_check": "ok"
         }
       ]
     },
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -2064,18 +2289,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

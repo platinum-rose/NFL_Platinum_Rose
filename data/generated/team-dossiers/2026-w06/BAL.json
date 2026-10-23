@@ -4,9 +4,9 @@
   "season": 2026,
   "target_week": 6,
   "completed_weeks": 5,
-  "built_at": "2026-10-15T21:03:56.014Z",
+  "built_at": "2026-10-17T02:04:49.747Z",
   "builder": "team_dossier_builder_v1.1",
-  "git_head": "d93786a",
+  "git_head": "40650ea",
   "market_data_included": false,
   "sources": [
     {
@@ -57,19 +57,19 @@
     {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z",
+      "generated_at": "2026-10-16T22:00:08.769Z",
       "status": "see_tables",
       "through_week": null,
-      "sha256": "01e0dde644cfd62553766d32a3c3ebe6e748f0bd1c0be660257b6e79f109da77",
+      "sha256": "8629d869ae8ccd492cae666e7ae77bac8a4251385b1ea1bb0bfe9db6cede807e",
       "use_policy": "statistical context only; numeric team source of record"
     },
     {
       "id": "secondary",
       "path": "data/secondary-matchups/latest.json",
-      "generated_at": "2026-10-14T14:03:52.042Z",
+      "generated_at": "2026-10-17T02:04:07.188Z",
       "status": "current",
       "through_week": 6,
-      "sha256": "5e0f3efba9328ad9e630b083a589e5ced510d2ca2b91ef52cd8aa4b727f6ee4e",
+      "sha256": "ee937836554a701480df00ca6413e1848b8b0cbdde734edd2f26688d96c0f3fe",
       "use_policy": "manual_review_capped; per-matchup coverage context; check meta.week"
     },
     {
@@ -499,13 +499,13 @@
     "source": {
       "id": "ftn",
       "path": "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
-      "generated_at": "2026-10-13T18:14:44.676Z"
+      "generated_at": "2026-10-16T22:00:08.769Z"
     },
     "through_week": 5,
     "status": "current",
     "use_policy": "statistical context only; numeric team source of record",
     "team_tables": {
-      "team-defense/efficiency": {
+      "team-defense/efficiency (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -522,7 +522,24 @@
           "PENY": "31.6"
         }
       },
-      "team-defense/overview": {
+      "team-defense/efficiency": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "EPA/PLY": "-0.015",
+          "DVOA": "-3.0%",
+          "SUCC%": "43.0%",
+          "EXP%": "9.2%",
+          "CONV%": "40.0%",
+          "TO": "2",
+          "TO%": "0.8%",
+          "3&O": "18.6%",
+          "MTKL%": "10.3%",
+          "PEN%": "5.2%",
+          "PENY": "39.5"
+        }
+      },
+      "team-defense/overview (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -539,7 +556,24 @@
           "TD__2": "6"
         }
       },
-      "team-defense/pass-rush": {
+      "team-defense/overview": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "YD/PLY": "5.3",
+          "PT/GM": "24.0",
+          "FD%": "30.1%",
+          "TO": "2",
+          "DPBK%": "62.7%",
+          "YD": "916",
+          "TD": "4",
+          "INT": "2",
+          "RUSH%": "37.3%",
+          "YD__2": "402",
+          "TD__2": "6"
+        }
+      },
+      "team-defense/pass-rush (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -555,7 +589,23 @@
           "BLZ%": "31.6%"
         }
       },
-      "team-defense/passing-analytics": {
+      "team-defense/pass-rush": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "DPBK": "156",
+          "SK": "7",
+          "SK%": "4.5%",
+          "QBH%": "16.7%",
+          "PRESS": "48",
+          "PRESS%": "30.8%",
+          "QPRESS%": "43.8%",
+          "TTPR": "2.47",
+          "DISR%": "1.3%",
+          "BLZ%": "30.8%"
+        }
+      },
+      "team-defense/passing-analytics (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -572,7 +622,24 @@
           "DROP%": "6.4%"
         }
       },
-      "team-defense/rush-analytics": {
+      "team-defense/passing-analytics": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "EPA/DB": "-0.009",
+          "SUCC%": "44.9%",
+          "DVOA": "0.4%",
+          "CPOE": "-1.95%",
+          "CBALL%": "76.1%",
+          "EXP%": "13.2%",
+          "INTW%": "1.4%",
+          "TGHT%": "19.6%",
+          "OPEN%": "54.3%",
+          "TA%": "7.2%",
+          "DROP%": "5.8%"
+        }
+      },
+      "team-defense/rush-analytics (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -586,7 +653,21 @@
           "YACO": "1.95"
         }
       },
-      "team-offense/efficiency": {
+      "team-defense/rush-analytics": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "EPA/ATT": "-0.027",
+          "SUCC%": "39.8%",
+          "DVOA": "-7.6%",
+          "aRYOE": "",
+          "EXP%": "9.7%",
+          "STF%": "21.5%",
+          "YBCO": "1.13",
+          "YACO": "1.63"
+        }
+      },
+      "team-offense/efficiency (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -601,7 +682,22 @@
           "PEN%": "9.94%"
         }
       },
-      "team-offense/overview": {
+      "team-offense/efficiency": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "EPA/PLY": "0.165",
+          "DVOA": "23.5%",
+          "SUCC%": "50.6%",
+          "EXP%": "13.8%",
+          "CONV%": "31.7%",
+          "TO": "2",
+          "TO%": "0.84%",
+          "PENY": "42.8",
+          "PEN%": "10.88%"
+        }
+      },
+      "team-offense/overview (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -618,7 +714,24 @@
           "TD__2": "9"
         }
       },
-      "team-offense/pass-protection": {
+      "team-offense/overview": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "YD/PLY": "6.9",
+          "PT/GM": "29.0",
+          "FD%": "33.9%",
+          "TO": "2",
+          "DPBK%": "51.5%",
+          "YD": "1,030",
+          "TD": "6",
+          "INT": "1",
+          "RUSH%": "48.5%",
+          "YD__2": "614",
+          "TD__2": "8"
+        }
+      },
+      "team-offense/pass-protection (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -639,7 +752,28 @@
           "SUCC%__2": "64.0%"
         }
       },
-      "team-offense/passing-analytics": {
+      "team-offense/pass-protection": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "SK": "7",
+          "SK%": "5.7%",
+          "QBSK%": "0.0%",
+          "QBH%": "10.6%",
+          "PRESS%": "28.5%",
+          "UPRES%": "40.5%",
+          "BLITZ%": "31.7%",
+          "TTPR": "2.59",
+          "TTT": "2.79",
+          "EPA/DB": "-0.237",
+          "DVOA": "-64.2%",
+          "SUCC%": "40.0%",
+          "EPA/DB__2": "0.583",
+          "DVOA__2": "67.1%",
+          "SUCC%__2": "64.8%"
+        }
+      },
+      "team-offense/passing-analytics (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -657,7 +791,25 @@
           "aYAC": "5.9"
         }
       },
-      "team-offense/rushing-analytics": {
+      "team-offense/passing-analytics": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "EPA/DB": "0.349",
+          "SUCC%": "57.7%",
+          "DVOA": "69.4%",
+          "CPOE": "1.7%",
+          "CBALL%": "78.1%",
+          "EXP%": "18.4%",
+          "INTW%": "2.9%",
+          "HLT%": "1.9%",
+          "TA%": "3.8%",
+          "DROP%": "4.8%",
+          "aDOT": "9.3",
+          "aYAC": "6.4"
+        }
+      },
+      "team-offense/rushing-analytics (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -672,7 +824,22 @@
           "CRT%": "44.2%"
         }
       },
-      "team-offense/tempo": {
+      "team-offense/rushing-analytics": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "EPA/ATT": "-0.031",
+          "SUCC%": "43.1%",
+          "DVOA": "5.5%",
+          "aRYOE": "",
+          "EXP%": "11.2%",
+          "STF%": "22.4%",
+          "aYBCO": "1.31",
+          "aYACO": "2.02",
+          "CRT%": "47.0%"
+        }
+      },
+      "team-offense/tempo (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -687,7 +854,22 @@
           "SCD%": "46.4%"
         }
       },
-      "team-offense/tendencies": {
+      "team-offense/tempo": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "PLY/GM": "59.8",
+          "TOP": "29.76",
+          "DRV/GM": "11.3",
+          "SEC/PLY": "29.9",
+          "PLY/DRV": "5.3",
+          "YD/DRV": "36.5",
+          "SEC/DRV": "159",
+          "3&O": "22.2%",
+          "SCD%": "44.4%"
+        }
+      },
+      "team-offense/tendencies (1)": {
         "metrics": {
           "Team": "Baltimore Ravens",
           "GP": "5",
@@ -703,12 +885,42 @@
           "PWR%": "9.3%",
           "CTR%": "1.3%"
         }
+      },
+      "team-offense/tendencies": {
+        "metrics": {
+          "Team": "Baltimore Ravens",
+          "GP": "4",
+          "DPBK%": "51.5%",
+          "RUSH%": "48.5%",
+          "SHG%": "49.4%",
+          "NH%": "4.2%",
+          "MOT%": "61.9%",
+          "PA%": "29.3%",
+          "IZ%": "23.3%",
+          "OZ%": "40.5%",
+          "MD%": "16.4%",
+          "PWR%": "9.5%",
+          "CTR%": "1.7%"
+        }
       }
     },
     "qb1": {
       "player": "Lamar Jackson",
       "position": "QB",
       "tables": {
+        "passing/air-yards (1)": {
+          "Player": "Lamar Jackson",
+          "Team": "Baltimore Ravens",
+          "Position": "QB",
+          "GP": "4",
+          "aDOT": "10.1",
+          "AIR": "972",
+          "cAIR": "660",
+          "cAIR%": "67.9%",
+          "PRYD": "312",
+          "PRYD%": "32.1%",
+          "dAIR": "37"
+        },
         "passing/air-yards": {
           "Player": "Lamar Jackson",
           "Team": "Baltimore Ravens",
@@ -721,6 +933,21 @@
           "PRYD": "312",
           "PRYD%": "32.1%",
           "dAIR": "37"
+        },
+        "passing/analytics (1)": {
+          "Player": "Lamar Jackson",
+          "Team": "Baltimore Ravens",
+          "Position": "QB",
+          "GP": "4",
+          "EPA": "42.1",
+          "EPA/DB": "0.373",
+          "SUCC%": "57.5%",
+          "ACOMP%": "78.3%",
+          "DVOA": "43.5%",
+          "DYAR": "314",
+          "xCOMP": "69.3%",
+          "CPOE": "1.5%",
+          "aYDOE": "1.342"
         },
         "passing/analytics": {
           "Player": "Lamar Jackson",
@@ -737,6 +964,21 @@
           "CPOE": "1.5%",
           "aYDOE": "1.342"
         },
+        "passing/efficiency (1)": {
+          "Player": "Lamar Jackson",
+          "Team": "Baltimore Ravens",
+          "Position": "QB",
+          "GP": "4",
+          "CBALL%": "76.0%",
+          "INTW%": "3.1%",
+          "HLT%": "2.1%",
+          "EXP%": "14.6%",
+          "DROP%": "4.2%",
+          "TA%": "4.2%",
+          "TD%": "6.3%",
+          "INT%": "1.0%",
+          "SK%": "6.2%"
+        },
         "passing/efficiency": {
           "Player": "Lamar Jackson",
           "Team": "Baltimore Ravens",
@@ -752,6 +994,51 @@
           "INT%": "1.0%",
           "SK%": "6.2%"
         },
+        "passing/overview (1)": {
+          "Player": "Lamar Jackson",
+          "Team": "Baltimore Ravens",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "113",
+          "ATT": "96",
+          "COMP": "68",
+          "COMP%": "70.8%",
+          "YD": "967",
+          "YD/ATT": "10.1",
+          "TD": "6",
+          "INT": "1",
+          "FUML": "1"
+        },
+        "passing/overview (2)": {
+          "Player": "Lamar Jackson",
+          "Team": "Baltimore Ravens",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "113",
+          "ATT": "96",
+          "COMP": "68",
+          "COMP%": "70.8%",
+          "YD": "967",
+          "YD/ATT": "10.1",
+          "TD": "6",
+          "INT": "1",
+          "FUML": "1"
+        },
+        "passing/overview (3)": {
+          "Player": "Lamar Jackson",
+          "Team": "Baltimore Ravens",
+          "Position": "QB",
+          "GP": "4",
+          "DPBK": "113",
+          "ATT": "96",
+          "COMP": "68",
+          "COMP%": "70.8%",
+          "YD": "967",
+          "YD/ATT": "10.1",
+          "TD": "6",
+          "INT": "1",
+          "FUML": "1"
+        },
         "passing/overview": {
           "Player": "Lamar Jackson",
           "Team": "Baltimore Ravens",
@@ -766,6 +1053,25 @@
           "TD": "6",
           "INT": "1",
           "FUML": "1"
+        },
+        "passing/pressure (1)": {
+          "Player": "Lamar Jackson",
+          "Team": "Baltimore Ravens",
+          "Position": "QB",
+          "GP": "4",
+          "SK": "7",
+          "SK%": "6.2%",
+          "QBSK%": "0.0%",
+          "AVSK%": "1.8%",
+          "QBH%": "11.5%",
+          "TTPR": "2.60",
+          "TTT": "2.83",
+          "RATE": "30.1%",
+          "EPA/DB": "-0.261",
+          "DVOA": "-64.2%",
+          "RATE__2": "69.9%",
+          "EPA/DB__2": "0.646",
+          "DVOA__2": "72.8%"
         },
         "passing/pressure": {
           "Player": "Lamar Jackson",
@@ -790,23 +1096,42 @@
     },
     "player_depth": "qb1_only (schema decision A); other player rows intentionally omitted until roster gate",
     "gp_by_table": {
+      "passing/air-yards (1)": 4,
       "passing/air-yards": 4,
+      "passing/analytics (1)": 4,
       "passing/analytics": 4,
+      "passing/efficiency (1)": 4,
       "passing/efficiency": 4,
+      "passing/overview (1)": 4,
+      "passing/overview (2)": 4,
+      "passing/overview (3)": 4,
       "passing/overview": 4,
+      "passing/pressure (1)": 4,
       "passing/pressure": 4,
-      "team-defense/efficiency": 5,
-      "team-defense/overview": 5,
-      "team-defense/pass-rush": 5,
-      "team-defense/passing-analytics": 5,
-      "team-defense/rush-analytics": 5,
-      "team-offense/efficiency": 5,
-      "team-offense/overview": 5,
-      "team-offense/pass-protection": 5,
-      "team-offense/passing-analytics": 5,
-      "team-offense/rushing-analytics": 5,
-      "team-offense/tempo": 5,
-      "team-offense/tendencies": 5
+      "team-defense/efficiency (1)": 5,
+      "team-defense/efficiency": 4,
+      "team-defense/overview (1)": 5,
+      "team-defense/overview": 4,
+      "team-defense/pass-rush (1)": 5,
+      "team-defense/pass-rush": 4,
+      "team-defense/passing-analytics (1)": 5,
+      "team-defense/passing-analytics": 4,
+      "team-defense/rush-analytics (1)": 5,
+      "team-defense/rush-analytics": 4,
+      "team-offense/efficiency (1)": 5,
+      "team-offense/efficiency": 4,
+      "team-offense/overview (1)": 5,
+      "team-offense/overview": 4,
+      "team-offense/pass-protection (1)": 5,
+      "team-offense/pass-protection": 4,
+      "team-offense/passing-analytics (1)": 5,
+      "team-offense/passing-analytics": 4,
+      "team-offense/rushing-analytics (1)": 5,
+      "team-offense/rushing-analytics": 4,
+      "team-offense/tempo (1)": 5,
+      "team-offense/tempo": 4,
+      "team-offense/tendencies (1)": 5,
+      "team-offense/tendencies": 4
     }
   },
   "power": {
@@ -939,7 +1264,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -981,7 +1306,7 @@
               "opportunity_score": 6,
               "notes": "BAL Primary Target.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "questionable"
+              "availability_flag": "none"
             },
             {
               "player_name": "Rashod Bateman",
@@ -1003,7 +1328,7 @@
               "opportunity_score": 2.4,
               "notes": "BAL Outside WR.",
               "source_url": "https://www.ourlads.com/nfl-depth-charts/",
-              "availability_flag": "questionable"
+              "availability_flag": "none"
             },
             {
               "player_name": "Mark Andrews",
@@ -1095,7 +1420,7 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
@@ -1115,40 +1440,13 @@
               "corroborating_sources": [
                 "FantasyPros injuries API"
               ],
-              "published_at": "2026-10-14T06:20:01.000Z",
+              "published_at": "2026-10-17T01:50:02.000Z",
               "role": null,
               "side": null,
               "impact_tier": "unrated",
               "primary_receiver_archetypes_impacted": [],
               "weakness_tags": [],
               "severity_score": 1.35,
-              "needs_human_review": true
-            },
-            {
-              "player_name": "Marlon Humphrey",
-              "team": "BAL",
-              "position": "CB",
-              "event_type": "limited",
-              "availability_trend": "stable",
-              "summary": "Humphrey (calf/hamstring) is active for Sunday night's matchup with Atlanta.",
-              "source": "ESPN injuries API",
-              "corroborating_sources": [
-                "ESPN injuries API"
-              ],
-              "published_at": "2026-10-11T23:14:00.000Z",
-              "role": "outside_cb1",
-              "side": "boundary",
-              "impact_tier": "elite",
-              "primary_receiver_archetypes_impacted": [
-                "alpha_x",
-                "slot"
-              ],
-              "weakness_tags": [
-                "outside_wr_boost",
-                "alpha_wr_boost",
-                "boundary_wr_boost"
-              ],
-              "severity_score": 1.65,
               "needs_human_review": true
             }
           ],
@@ -1181,7 +1479,7 @@
               "opportunity_score": 3.6,
               "notes": "CLE WR1 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "questionable"
+              "availability_flag": "none"
             },
             {
               "player_name": "Jerry Jeudy",
@@ -1224,13 +1522,13 @@
               "opportunity_score": 2.4,
               "notes": "CLE WR2 per ESPN depth chart 2026-09-27; default role - verify.",
               "source_url": "https://www.espn.com/nfl/team/depth/",
-              "availability_flag": "questionable"
+              "availability_flag": "none"
             }
           ],
-          "severity_score": 4.35,
-          "elite_absence_count": 1,
+          "severity_score": 2.7,
+          "elite_absence_count": 0,
           "vulnerability_tier": "medium",
-          "confidence": 0.93,
+          "confidence": 0.83,
           "use_cases": [
             "wr_props",
             "qb_props",
@@ -1253,127 +1551,83 @@
       "source": "data/generated/master-intel/w06-roster-vet.json",
       "vet_status": "PASS",
       "blocking_count": 0,
-      "roster_snapshot_generated_at": "2026-10-15T21:03:14.961865+00:00",
-      "roster_age_h_at_vet": 0,
+      "roster_snapshot_generated_at": "2026-10-16T22:20:35.498594+00:00",
+      "roster_age_h_at_vet": 3.7,
       "operator_overrides_applied": [
         "harrison-trade-2026-10-13"
       ],
       "scope": "Gate covers card legs, narratives, matchup seeds and secondary targets. Every name in this section comes from ESPN/operator data and is re-checked against the roster snapshot here (roster_check)."
     },
     "as_of": {
-      "espn_status": "2026-10-15T21:03:20Z",
-      "availability_events": "2026-10-15T21:03:43.426Z",
-      "impact_digest": "2026-10-15T21:03:48.941Z",
-      "projected_starters": "2026-10-15T15:09:02.072Z",
-      "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+      "espn_status": "2026-10-17T02:03:26Z",
+      "availability_events": "2026-10-17T02:03:53.371Z",
+      "impact_digest": "2026-10-17T02:04:00.537Z",
+      "projected_starters": "2026-10-16T22:22:21.784Z",
+      "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
     },
     "use_policy": "intel only; roster-gate first; not a projection or recommendation",
     "qb": {
-      "espn_starter": "Lamar Jackson",
-      "flag": "AMBIGUOUS",
-      "note": "Lamar Jackson Questionable;",
+      "espn_starter": "Tyler Huntley",
+      "flag": "ok",
+      "note": "Lamar Jackson Out;",
       "depth": [
         "Lamar Jackson",
         "Tyler Huntley",
         "Joe Fagnano"
       ],
-      "operator_confirmed": null
+      "operator_confirmed": {
+        "player": "Tyler Huntley",
+        "confirmed_at": "2026-10-16T21:53:00Z",
+        "note": "Hurts OUT stated by operator. BAL and TB starters recorded on operator approval, based on ESPN and FantasyPros Out reports (not an operator-originated injury report). PHI starter McKee derived from ESPN depth chart. CHI Williams unresolved. Official inactives decide."
+      }
     },
     "reported_injuries": {
       "out_ir": [
         {
+          "player": "Matt Hibner",
+          "pos": "TE",
+          "status": "Out",
+          "date": "2026-10-17",
+          "comment": "Hibner (hand) has been ruled out for Sunday's game against the Browns.",
+          "roster_check": "ok"
+        },
+        {
           "player": "Ja'Kobi Lane",
           "pos": "WR",
           "status": "Injured Reserve",
-          "date": "2026-10-14",
-          "comment": "Lane (wrist) was a full participant in practice Wednesday after being designated for return from injured reserve.",
+          "date": "2026-10-16",
+          "comment": "Lane (wrist) is listed as questionable for Sunday's game at Cleveland.",
           "roster_check": "roster_ir_out_group"
-        }
-      ],
-      "questionable_doubtful": [
-        {
-          "player": "Mike Green",
-          "pos": "LB",
-          "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Rashod Bateman",
-          "pos": "WR",
-          "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Bateman (shoulder) didn't practice Thursday.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Zay Flowers",
-          "pos": "WR",
-          "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Flowers (toe) was a limited participant at Thursday's practice.",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Lamar Jackson",
-          "pos": "QB",
-          "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Jackson (ankle) officially went down as a non-participant at Thursday's practice.",
-          "roster_check": "ok"
         },
         {
           "player": "Broderick Washington Jr.",
           "pos": "DT",
-          "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Washington (ankle) was a limited participant at the Ravens' practice Wednesday.",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "out",
           "roster_check": "ok"
         },
         {
           "player": "Cam Jurgens",
           "pos": "C",
-          "status": "Questionable",
-          "date": "2026-10-15",
-          "comment": "Jurgens (concussion) was a limited participant at the Ravens' practice Wednesday.",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "out",
           "roster_check": "ok"
         },
         {
-          "player": "Matt Hibner",
-          "pos": "TE",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "Hibner (hand) did not participate at practice Wednesday.",
+          "player": "Lamar Jackson",
+          "pos": "QB",
+          "status": "Out",
+          "date": "2026-10-16",
+          "comment": "Jackson (ankle) isn't practicing Friday, making him unlikely to play Sunday at Cleveland, according to Brian Wacker of The Baltimore Sun.",
           "roster_check": "ok"
-        },
-        {
-          "player": "Trenton Simpson",
-          "pos": "LB",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "John Simpson",
-          "pos": "G",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
+        }
+      ],
+      "questionable_doubtful": [
         {
           "player": "Emery Jones Jr.",
           "pos": "OT",
-          "status": "Questionable",
-          "date": "2026-10-14",
-          "comment": "questionable",
-          "roster_check": "ok"
-        },
-        {
-          "player": "Teddye Buchanan",
-          "pos": "LB",
           "status": "Questionable",
           "date": "2026-10-14",
           "comment": "questionable",
@@ -1430,24 +1684,23 @@
     ],
     "ol_dl_cluster_risk": {
       "ol": {
-        "hard_or_doubtful": 0,
-        "questionable": 4,
+        "hard_or_doubtful": 1,
+        "questionable": 2,
         "risk": "watch",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
-          "Cam Jurgens C Questionable",
-          "John Simpson G Questionable",
+          "Cam Jurgens C Out",
           "Emery Jones Jr. OT Questionable",
           "Andrew Vorhees G Questionable"
         ]
       },
       "dl": {
-        "hard_or_doubtful": 0,
-        "questionable": 1,
-        "risk": "none",
+        "hard_or_doubtful": 1,
+        "questionable": 0,
+        "risk": "watch",
         "rule": "derived here (not a source field): cluster = 2+ Out/IR/Doubtful in the group; watch = 1 Out/IR/Doubtful or 2+ Questionable; ESPN feed only",
         "players": [
-          "Broderick Washington Jr. DT Questionable"
+          "Broderick Washington Jr. DT Out"
         ]
       }
     },
@@ -1461,9 +1714,10 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Durham Smythe IR",
           "practice": [
+            "--",
             "--",
             "--"
           ],
@@ -1480,7 +1734,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Skylar Thompson IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1496,7 +1750,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "T.J. Tampa Jr. IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1512,7 +1766,7 @@
           "availability_trend": "worsening",
           "event_type": "ir",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T21:00:02.000Z",
+          "published_at": "2026-10-17T01:50:02.000Z",
           "summary": "Jahquez Robinson IR",
           "practice": [],
           "probability_of_playing": null,
@@ -1522,62 +1776,66 @@
           "roster_check": "roster_ir_out_group"
         },
         {
-          "player_name": "Mike Green",
-          "position": "LB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
+          "player_name": "Matt Hibner",
+          "position": "TE",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:49:00.000Z",
-          "summary": "questionable",
+          "published_at": "2026-10-17T00:19:00.000Z",
+          "summary": "Hibner (hand) has been ruled out for Sunday's game against the Browns.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
           "roster_check": "ok"
+        },
+        {
+          "player_name": "Tyler Huntley",
+          "position": "QB",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "worsening",
+          "event_type": "setback",
+          "source": "ESPN injuries API",
+          "published_at": "2026-10-16T23:17:00.000Z",
+          "summary": "Huntley will be the Ravens' starting QB against the Browns on Sunday after Lamar Jackson (ankle) was ruled out, Ryan Mink of the Ravens' official site reports.",
+          "practice": [],
+          "probability_of_playing": null,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "ok"
+        },
+        {
+          "player_name": "Ja'Kobi Lane",
+          "position": "WR",
+          "normalized_status": "QUESTIONABLE",
+          "availability_trend": "unknown",
+          "event_type": "status_update",
+          "source": "FantasyPros injuries API",
+          "published_at": "2026-10-16T22:32:32.000Z",
+          "summary": "Ja'Kobi Lane QUESTIONABLE",
+          "practice": [
+            "Full",
+            "Full",
+            "Full"
+          ],
+          "probability_of_playing": 0.74649,
+          "evidence_status": "unverified_no_conflict_detected",
+          "synthesis_eligible": true,
+          "needs_human_review": true,
+          "roster_check": "roster_ir_out_group"
         },
         {
           "player_name": "Rashod Bateman",
           "position": "WR",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
+          "normalized_status": "ACTIVE_NEWS",
+          "availability_trend": "unknown",
+          "event_type": "active_news",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:46:00.000Z",
-          "summary": "Bateman (shoulder) didn't practice Thursday.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Zay Flowers",
-          "position": "WR",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "improving",
-          "event_type": "limited_return",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:46:00.000Z",
-          "summary": "Flowers (toe) was a limited participant at Thursday's practice.",
-          "practice": [],
-          "probability_of_playing": null,
-          "evidence_status": "unverified_no_conflict_detected",
-          "synthesis_eligible": true,
-          "needs_human_review": true,
-          "roster_check": "ok"
-        },
-        {
-          "player_name": "Lamar Jackson",
-          "position": "QB",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "improving",
-          "event_type": "return_to_practice",
-          "source": "ESPN injuries API",
-          "published_at": "2026-10-15T20:40:00.000Z",
-          "summary": "Jackson (ankle) officially went down as a non-participant at Thursday's practice.",
+          "published_at": "2026-10-16T20:31:00.000Z",
+          "summary": "Bateman (shoulder) doesn't have an injury designation for Sunday's game at Cleveland.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1588,12 +1846,12 @@
         {
           "player_name": "Broderick Washington Jr.",
           "position": "DT",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T01:35:00.000Z",
-          "summary": "Washington (ankle) was a limited participant at the Ravens' practice Wednesday.",
+          "published_at": "2026-10-16T20:28:00.000Z",
+          "summary": "out",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1604,12 +1862,12 @@
         {
           "player_name": "Cam Jurgens",
           "position": "C",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "stable",
-          "event_type": "limited",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T01:27:00.000Z",
-          "summary": "Jurgens (concussion) was a limited participant at the Ravens' practice Wednesday.",
+          "published_at": "2026-10-16T20:28:00.000Z",
+          "summary": "out",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1618,14 +1876,14 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Trey Hendrickson",
-          "position": "LB",
+          "player_name": "Zay Flowers",
+          "position": "WR",
           "normalized_status": "ACTIVE_NEWS",
           "availability_trend": "improving",
           "event_type": "limited_return",
           "source": "ESPN injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Hendrickson (finger) was a full participant at practice Wednesday.",
+          "published_at": "2026-10-16T20:05:00.000Z",
+          "summary": "Flowers (toe) is has been cleared to play for Sunday's game at Cleveland.",
           "practice": [],
           "probability_of_playing": null,
           "evidence_status": "unverified_no_conflict_detected",
@@ -1634,19 +1892,20 @@
           "roster_check": "ok"
         },
         {
-          "player_name": "Matt Hibner",
-          "position": "TE",
-          "normalized_status": "QUESTIONABLE",
-          "availability_trend": "unknown",
-          "event_type": "status_update",
+          "player_name": "Lamar Jackson",
+          "position": "QB",
+          "normalized_status": "OUT",
+          "availability_trend": "worsening",
+          "event_type": "out",
           "source": "FantasyPros injuries API",
-          "published_at": "2026-10-15T00:00:00.000Z",
-          "summary": "Matt Hibner QUESTIONABLE",
+          "published_at": "2026-10-16T17:47:01.000Z",
+          "summary": "Lamar Jackson OUT",
           "practice": [
+            "DNP",
             "DNP",
             "DNP"
           ],
-          "probability_of_playing": 0.14591,
+          "probability_of_playing": 0,
           "evidence_status": "unverified_no_conflict_detected",
           "synthesis_eligible": true,
           "needs_human_review": true,
@@ -1659,19 +1918,19 @@
         "player_name": "Lamar Jackson",
         "position": "QB",
         "unit": "quarterback",
-        "event_type": "return_to_practice",
-        "availability_trend": "improving",
+        "event_type": "out",
+        "availability_trend": "worsening",
         "impact_bucket": "qb_major",
         "starter_match": {
           "role": "starter",
           "starter_confidence": 0.95,
           "source_count": 1
         },
-        "score": 111,
-        "signal": "positive_availability",
-        "source": "ESPN injuries API",
-        "published_at": "2026-10-15T20:40:00.000Z",
-        "summary": "Jackson (ankle) officially went down as a non-participant at Thursday's practice.",
+        "score": 127,
+        "signal": "negative_availability",
+        "source": "FantasyPros injuries API",
+        "published_at": "2026-10-16T17:47:01.000Z",
+        "summary": "Lamar Jackson OUT",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1682,19 +1941,19 @@
         "player_name": "Lamar Jackson",
         "position": "QB",
         "unit": "quarterback",
-        "event_type": "status_update",
-        "availability_trend": "unknown",
+        "event_type": "out",
+        "availability_trend": "worsening",
         "impact_bucket": "qb_major",
         "starter_match": {
           "role": "starter",
           "starter_confidence": 0.95,
           "source_count": 1
         },
-        "score": 94,
-        "signal": "review_context",
-        "source": "FantasyPros injuries API",
-        "published_at": "2026-10-15T00:00:00.000Z",
-        "summary": "Lamar Jackson QUESTIONABLE",
+        "score": 127,
+        "signal": "negative_availability",
+        "source": "ESPN injuries API",
+        "published_at": "2026-10-16T16:43:00.000Z",
+        "summary": "Jackson (ankle) isn't practicing Friday, making him unlikely to play Sunday at Cleveland, according to Brian Wacker of The Baltimore Sun.",
         "classification_warning": null,
         "evidence_status": "unverified_no_conflict_detected",
         "synthesis_eligible": true,
@@ -1704,7 +1963,7 @@
     ],
     "projected_starters": {
       "coverage_status": "manual_and_estimated_signals",
-      "as_of": "2026-10-15T15:09:02.072Z",
+      "as_of": "2026-10-16T22:22:21.784Z",
       "known": [
         "Lamar Jackson QB"
       ],
@@ -1727,8 +1986,7 @@
     "missing_inputs": [],
     "caveats": [
       "ESPN injury statuses lag game-day truth; official inactives decide.",
-      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-      "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+      "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
     ]
   },
   "priors": {
@@ -1958,18 +2216,17 @@
       "status": "built",
       "through_week": null,
       "as_of": {
-        "espn_status": "2026-10-15T21:03:20Z",
-        "availability_events": "2026-10-15T21:03:43.426Z",
-        "impact_digest": "2026-10-15T21:03:48.941Z",
-        "projected_starters": "2026-10-15T15:09:02.072Z",
-        "roster_snapshot": "2026-10-15T21:03:14.961865+00:00"
+        "espn_status": "2026-10-17T02:03:26Z",
+        "availability_events": "2026-10-17T02:03:53.371Z",
+        "impact_digest": "2026-10-17T02:04:00.537Z",
+        "projected_starters": "2026-10-16T22:22:21.784Z",
+        "roster_snapshot": "2026-10-16T22:20:35.498594+00:00"
       },
       "roster_gate": "passed",
       "null_fields": [],
       "caveats": [
         "ESPN injury statuses lag game-day truth; official inactives decide.",
-        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out.",
-        "no operator-confirmed starters file for W6; QB status is ESPN depth chart + feed only"
+        "roster_ir_out_unconfirmed = ESPN roster IR/Out group not in the injury feed (ESPN marks them day-to-day): not confirmed Out."
       ]
     },
     "priors": {

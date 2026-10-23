@@ -5,8 +5,8 @@ source_system: weekly-archive
 source_type: fantasy-league-week
 canonical_status: generated
 title: "2026 -  The League — Week 4"
-created: "2026-10-06T19:27:53.786Z"
-modified: "2026-10-06T19:27:53.786Z"
+created: "2026-10-08T13:00:48.650Z"
+modified: "2026-10-08T13:00:48.650Z"
 season: 2026
 week: 4
 type: "fantasy-league-week"
@@ -15,7 +15,7 @@ league: "2026 -  The League"
 league_key: "470.l.117200"
 my_team: "Fat Lazy Americans"
 my_points: 128.22
-opp_points: 110.24
+opp_points: 109.24
 my_rank: 4
 ---
 # 2026 -  The League — Week 4
@@ -25,8 +25,8 @@ my_rank: 4
 | Team | Pts | Proj |  | Team | Pts | Proj |
 |---|---|---|---|---|---|---|
 | Berserker | 150.68 | 134.79 | vs | Wailin Raylans | 135.5 | 118.81 |
-| Billy Goat Tavern | 110.24 | 118.47 | vs | Fat Lazy Americans | 128.22 | 124 |
-| Dumpster Fire | 115.48 | 115.49 | vs | Rafi Bomb Returns! | 147.58 | 132.17 |
+| Billy Goat Tavern | 109.24 | 118.47 | vs | Fat Lazy Americans | 128.22 | 124 |
+| Dumpster Fire | 115.48 | 115.49 | vs | Rafi Bomb Returns! | 146.58 | 132.17 |
 | I LIKE BIG TDS | 152.7 | 135.69 | vs | MombaMentality | 135.92 | 120.92 |
 | Kona’s Kickers | 103.08 | 113.19 | vs | No Talent Ass Clowns | 104.1 | 105.46 |
 | Oroszlanok | 157.82 | 125.21 | vs | Postino's Banditos | 131.96 | 127.62 |
@@ -35,17 +35,17 @@ my_rank: 4
 
 | Rank | Team | W-L-T | PF | PA |
 |---|---|---|---|---|
-| 1 | Rafi Bomb Returns! | 4-0-0 | 566.22 | 422.76 |
+| 1 | Rafi Bomb Returns! | 4-0-0 | 565.22 | 422.76 |
 | 2 | I LIKE BIG TDS | 4-0-0 | 554.22 | 464.64 |
 | 3 | Berserker | 3-1-0 | 590.38 | 556.24 |
-| 4 | **Fat Lazy Americans** | 3-1-0 | 519.5 | 459.71999999999997 |
+| 4 | **Fat Lazy Americans** | 3-1-0 | 519.5 | 458.71999999999997 |
 | 5 | Oroszlanok | 2-2-0 | 538.18 | 513.78 |
 | 6 | Kona’s Kickers | 2-2-0 | 435.92 | 425.78 |
 | 7 | No Talent Ass Clowns | 2-2-0 | 410.2 | 445.21999999999997 |
 | 8 | Postino's Banditos | 1-3-0 | 496.98 | 566.28 |
 | 9 | MombaMentality | 1-3-0 | 489.06 | 559.96 |
-| 10 | Dumpster Fire | 1-3-0 | 467.02 | 537.44 |
-| 11 | Billy Goat Tavern | 1-3-0 | 465.42 | 537.72 |
+| 10 | Dumpster Fire | 1-3-0 | 467.02 | 536.44 |
+| 11 | Billy Goat Tavern | 1-3-0 | 464.42 | 537.72 |
 | 12 | Wailin Raylans | 0-4-0 | 477.5 | 521.06 |
 
 ## My lineup (Fat Lazy Americans)

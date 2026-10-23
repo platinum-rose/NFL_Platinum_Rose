@@ -2,12 +2,12 @@
   "meta": {
     "schema": "projected_starters_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-10-09T20:00:30.854Z",
+    "generated_at": "2026-10-09T22:00:14.472Z",
     "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
-    "player_count": 103,
+    "player_count": 102,
     "manual_row_count": 71,
     "eligible_manual_row_count": 71,
-    "estimated_row_count": 34,
+    "estimated_row_count": 33,
     "withheld_named_manual_row_count": 0,
     "human_review_approved_count": 183,
     "human_review_rejected_count": 0,
@@ -30,7 +30,7 @@
     "inputs": {
       "availability": {
         "path": "data\\player-availability\\latest.json",
-        "generated_at": "2026-10-09T20:00:18.737Z",
+        "generated_at": "2026-10-09T22:00:03.213Z",
         "evidence_validation_status": "pass"
       },
       "named_status_review": {
@@ -2766,7 +2766,6 @@
       ],
       "estimated": [
         "Dameon Pierce RB",
-        "Andy Dalton QB",
         "Tanner McKee QB"
       ],
       "missing": [
@@ -2884,36 +2883,6 @@
           "impact_bucket": "qb_major",
           "needs_human_review": true,
           "confidence_basis": "local_availability_starter_language"
-        },
-        {
-          "id": "starter_87ea29bd86379091",
-          "team": "PHI",
-          "team_nick": "Eagles",
-          "player_name": "Andy Dalton",
-          "position": "QB",
-          "unit": "offense",
-          "role": "likely_starter_or_primary",
-          "starter_confidence": 0.7,
-          "roster_confidence": 0.66,
-          "source_count": 1,
-          "sources": [
-            {
-              "source": "ESPN injuries API",
-              "source_type": "structured_injury",
-              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-              "published_at": "2026-10-04T12:58:00.000Z",
-              "evidence": "Dalton is expected to serve as the Eagles' No. 3 quarterback for Sunday's game against the Rams, while Tanner McKee moves up to second on the depth chart as the top backup to Jalen Hurts, Mike Garafolo of NFL Network reports."
-            }
-          ],
-          "evidence_tags": [
-            "primary_role",
-            "competition"
-          ],
-          "impact_bucket": "qb_major",
-          "needs_human_review": false,
-          "confidence_basis": "local_availability_starter_language",
-          "human_review_decision": "approved",
-          "human_review_decided_at": "2026-09-22T18:34:00.198Z"
         },
         {
           "id": "starter_832eb08f1c0218da",
@@ -6363,36 +6332,6 @@
       "impact_bucket": "defensive_major",
       "needs_human_review": true,
       "confidence_basis": "local_availability_starter_language"
-    },
-    {
-      "id": "starter_87ea29bd86379091",
-      "team": "PHI",
-      "team_nick": "Eagles",
-      "player_name": "Andy Dalton",
-      "position": "QB",
-      "unit": "offense",
-      "role": "likely_starter_or_primary",
-      "starter_confidence": 0.7,
-      "roster_confidence": 0.66,
-      "source_count": 1,
-      "sources": [
-        {
-          "source": "ESPN injuries API",
-          "source_type": "structured_injury",
-          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
-          "published_at": "2026-10-04T12:58:00.000Z",
-          "evidence": "Dalton is expected to serve as the Eagles' No. 3 quarterback for Sunday's game against the Rams, while Tanner McKee moves up to second on the depth chart as the top backup to Jalen Hurts, Mike Garafolo of NFL Network reports."
-        }
-      ],
-      "evidence_tags": [
-        "primary_role",
-        "competition"
-      ],
-      "impact_bucket": "qb_major",
-      "needs_human_review": false,
-      "confidence_basis": "local_availability_starter_language",
-      "human_review_decision": "approved",
-      "human_review_decided_at": "2026-09-22T18:34:00.198Z"
     },
     {
       "id": "starter_e3ddb5ceddd51981",

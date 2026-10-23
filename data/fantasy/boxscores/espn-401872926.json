@@ -422,7 +422,7 @@
                   "1",
                   "0",
                   "1-0",
-                  "80.9",
+                  "84.6",
                   "103.1"
                 ]
               }
@@ -1986,7 +1986,7 @@
                   "1",
                   "1",
                   "3-22",
-                  "41.4",
+                  "42.5",
                   "83.7"
                 ]
               }
@@ -22812,7 +22812,7 @@
                 "status": "Active",
                 "injuries": {
                   "status": "Active",
-                  "date": "2026-09-27T23:10Z",
+                  "date": "2026-10-19T00:49Z",
                   "type": {
                     "id": "0",
                     "name": "INJURY_STATUS_ACTIVE",
@@ -22871,7 +22871,7 @@
                 "status": "Active",
                 "injuries": {
                   "status": "Active",
-                  "date": "2026-09-27T22:32Z",
+                  "date": "2026-10-19T00:44Z",
                   "type": {
                     "id": "0",
                     "name": "INJURY_STATUS_ACTIVE",
@@ -22930,7 +22930,7 @@
                 "status": "Questionable",
                 "injuries": {
                   "status": "Questionable",
-                  "date": "2026-10-04T11:12Z",
+                  "date": "2026-10-18T21:14Z",
                   "type": {
                     "id": "2",
                     "name": "INJURY_STATUS_QUESTIONABLE",
@@ -22940,14 +22940,13 @@
                   "details": {
                     "fantasyStatus": {
                       "description": "QUESTIONABLE",
-                      "abbreviation": "QUESTIONABLE",
-                      "displayDescription": "Questionable"
+                      "abbreviation": "QUESTIONABLE"
                     },
-                    "type": "Foot",
-                    "location": "Leg",
-                    "detail": "Not Specified",
+                    "type": "Concussion",
+                    "location": "Head",
+                    "detail": "Concussion",
                     "side": "Not Specified",
-                    "returnDate": "2026-10-04"
+                    "returnDate": "2026-11-01"
                   }
                 }
               },
@@ -23060,7 +23059,7 @@
                 "status": "Questionable",
                 "injuries": {
                   "status": "Questionable",
-                  "date": "2026-10-02T22:55Z",
+                  "date": "2026-10-20T16:10Z",
                   "type": {
                     "id": "2",
                     "name": "INJURY_STATUS_QUESTIONABLE",
@@ -23070,13 +23069,14 @@
                   "details": {
                     "fantasyStatus": {
                       "description": "QUESTIONABLE",
-                      "abbreviation": "QUESTIONABLE"
+                      "abbreviation": "QUESTIONABLE",
+                      "displayDescription": "Questionable"
                     },
                     "type": "Hamstring",
                     "location": "Leg",
                     "detail": "Not Specified",
                     "side": "Not Specified",
-                    "returnDate": "2026-10-04"
+                    "returnDate": "2026-11-01"
                   }
                 }
               },
@@ -23198,7 +23198,7 @@
                 "status": "Active",
                 "injuries": {
                   "status": "Active",
-                  "date": "2026-09-28T01:59Z",
+                  "date": "2026-10-19T00:14Z",
                   "type": {
                     "id": "0",
                     "name": "INJURY_STATUS_ACTIVE",
@@ -23257,7 +23257,7 @@
                 "status": "Active",
                 "injuries": {
                   "status": "Active",
-                  "date": "2026-09-29T04:15Z",
+                  "date": "2026-10-19T00:12Z",
                   "type": {
                     "id": "0",
                     "name": "INJURY_STATUS_ACTIVE",
@@ -23316,7 +23316,7 @@
                 "status": "Active",
                 "injuries": {
                   "status": "Active",
-                  "date": "2026-09-28T01:25Z",
+                  "date": "2026-10-18T23:51Z",
                   "type": {
                     "id": "0",
                     "name": "INJURY_STATUS_ACTIVE",
@@ -23523,129 +23523,7 @@
       "injuries": [
         {
           "status": "Questionable",
-          "date": "2026-10-04T11:12Z",
-          "athlete": {
-            "id": "4612826",
-            "uid": "s:20~l:28~a:4612826",
-            "guid": "ea99dfb4-efbc-32ae-aefe-267c745f722b",
-            "lastName": "McConkey",
-            "fullName": "Ladd McConkey",
-            "displayName": "Ladd McConkey",
-            "shortName": "L. McConkey",
-            "links": [
-              {
-                "rel": [
-                  "playercard",
-                  "desktop",
-                  "athlete"
-                ],
-                "href": "https://www.espn.com/nfl/player/_/id/4612826/ladd-mcconkey",
-                "text": "Player Card"
-              }
-            ],
-            "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4612826.png",
-              "alt": "Ladd McConkey"
-            },
-            "jersey": "15",
-            "position": {
-              "name": "Wide Receiver",
-              "displayName": "Wide Receiver",
-              "abbreviation": "WR"
-            },
-            "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4612826?lang=en&region=us"
-            },
-            "status": {
-              "id": "1",
-              "name": "Active",
-              "type": "active",
-              "abbreviation": "Active"
-            }
-          },
-          "type": {
-            "id": "2",
-            "name": "INJURY_STATUS_QUESTIONABLE",
-            "description": "questionable",
-            "abbreviation": "Q"
-          },
-          "details": {
-            "fantasyStatus": {
-              "description": "QUESTIONABLE",
-              "abbreviation": "QUESTIONABLE",
-              "displayDescription": "Questionable"
-            },
-            "type": "Foot",
-            "location": "Leg",
-            "detail": "Not Specified",
-            "side": "Not Specified",
-            "returnDate": "2026-10-04"
-          }
-        },
-        {
-          "status": "Out",
-          "date": "2026-10-02T23:21Z",
-          "athlete": {
-            "id": "2979860",
-            "uid": "s:20~l:28~a:2979860",
-            "guid": "554e0b9e-fc77-cd9c-d9d8-e29ff23919b0",
-            "lastName": "Tomlinson",
-            "fullName": "Dalvin Tomlinson",
-            "displayName": "Dalvin Tomlinson",
-            "shortName": "D. Tomlinson",
-            "links": [
-              {
-                "rel": [
-                  "playercard",
-                  "desktop",
-                  "athlete"
-                ],
-                "href": "https://www.espn.com/nfl/player/_/id/2979860/dalvin-tomlinson",
-                "text": "Player Card"
-              }
-            ],
-            "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/2979860.png",
-              "alt": "Dalvin Tomlinson"
-            },
-            "jersey": "94",
-            "position": {
-              "name": "Defensive Tackle",
-              "displayName": "Defensive Tackle",
-              "abbreviation": "DT"
-            },
-            "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/535761?lang=en&region=us"
-            },
-            "status": {
-              "id": "1",
-              "name": "Active",
-              "type": "active",
-              "abbreviation": "Active"
-            }
-          },
-          "type": {
-            "id": "4",
-            "name": "INJURY_STATUS_OUT",
-            "description": "out",
-            "abbreviation": "O"
-          },
-          "details": {
-            "fantasyStatus": {
-              "description": "OUT",
-              "abbreviation": "OUT",
-              "displayDescription": "Out"
-            },
-            "type": "Hamstring",
-            "location": "Leg",
-            "detail": "Not Specified",
-            "side": "Not Specified",
-            "returnDate": "2026-10-11"
-          }
-        },
-        {
-          "status": "Out",
-          "date": "2026-10-02T23:16Z",
+          "date": "2026-10-22T14:48Z",
           "athlete": {
             "id": "4685553",
             "uid": "s:20~l:28~a:4685553",
@@ -23686,35 +23564,35 @@
             }
           },
           "type": {
-            "id": "4",
-            "name": "INJURY_STATUS_OUT",
-            "description": "out",
-            "abbreviation": "O"
+            "id": "2",
+            "name": "INJURY_STATUS_QUESTIONABLE",
+            "description": "questionable",
+            "abbreviation": "Q"
           },
           "details": {
             "fantasyStatus": {
-              "description": "OUT",
-              "abbreviation": "OUT",
-              "displayDescription": "Out"
+              "description": "QUESTIONABLE",
+              "abbreviation": "QUESTIONABLE",
+              "displayDescription": "Questionable"
             },
             "type": "Quadriceps",
             "location": "Leg",
             "detail": "Not Specified",
             "side": "Not Specified",
-            "returnDate": "2026-10-11"
+            "returnDate": "2026-11-01"
           }
         },
         {
-          "status": "Out",
-          "date": "2026-10-02T23:11Z",
+          "status": "Questionable",
+          "date": "2026-10-20T16:10Z",
           "athlete": {
-            "id": "4241263",
-            "uid": "s:20~l:28~a:4241263",
-            "guid": "1aa460fd-689e-4a44-7d48-2a49e7de1c43",
-            "lastName": "Kolar",
-            "fullName": "Charlie Kolar",
-            "displayName": "Charlie Kolar",
-            "shortName": "C. Kolar",
+            "id": "4838693",
+            "uid": "s:20~l:28~a:4838693",
+            "guid": "35ad32ba-ed96-3e8f-bddc-faaacaa159f7",
+            "lastName": "Shelley",
+            "fullName": "Rodney Shelley",
+            "displayName": "Rodney Shelley",
+            "shortName": "R. Shelley",
             "links": [
               {
                 "rel": [
@@ -23722,22 +23600,22 @@
                   "desktop",
                   "athlete"
                 ],
-                "href": "https://www.espn.com/nfl/player/_/id/4241263/charlie-kolar",
+                "href": "https://www.espn.com/nfl/player/_/id/4838693/rodney-shelley",
                 "text": "Player Card"
               }
             ],
             "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4241263.png",
-              "alt": "Charlie Kolar"
+              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4838693.png",
+              "alt": "Rodney Shelley"
             },
-            "jersey": "88",
+            "jersey": "24",
             "position": {
-              "name": "Tight End",
-              "displayName": "Tight End",
-              "abbreviation": "TE"
+              "name": "Cornerback",
+              "displayName": "Cornerback",
+              "abbreviation": "CB"
             },
             "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4241263?lang=en&region=us"
+              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4838693?lang=en&region=us"
             },
             "status": {
               "id": "1",
@@ -23747,27 +23625,88 @@
             }
           },
           "type": {
-            "id": "4",
-            "name": "INJURY_STATUS_OUT",
-            "description": "out",
-            "abbreviation": "O"
+            "id": "2",
+            "name": "INJURY_STATUS_QUESTIONABLE",
+            "description": "questionable",
+            "abbreviation": "Q"
           },
           "details": {
             "fantasyStatus": {
-              "description": "OUT",
-              "abbreviation": "OUT",
-              "displayDescription": "Out"
+              "description": "QUESTIONABLE",
+              "abbreviation": "QUESTIONABLE",
+              "displayDescription": "Questionable"
             },
-            "type": "Forearm",
-            "location": "Arm",
-            "detail": "Surgery",
-            "side": "Left",
-            "returnDate": "2026-10-11"
+            "type": "Hamstring",
+            "location": "Leg",
+            "detail": "Not Specified",
+            "side": "Not Specified",
+            "returnDate": "2026-11-01"
           }
         },
         {
           "status": "Questionable",
-          "date": "2026-10-02T23:08Z",
+          "date": "2026-10-20T16:10Z",
+          "athlete": {
+            "id": "4686612",
+            "uid": "s:20~l:28~a:4686612",
+            "guid": "33a8b56f-7466-3118-bccb-5ebff76f4590",
+            "lastName": "Harris",
+            "fullName": "Tre' Harris",
+            "displayName": "Tre' Harris",
+            "shortName": "T. Harris",
+            "links": [
+              {
+                "rel": [
+                  "playercard",
+                  "desktop",
+                  "athlete"
+                ],
+                "href": "https://www.espn.com/nfl/player/_/id/4686612/tre-harris",
+                "text": "Player Card"
+              }
+            ],
+            "headshot": {
+              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4686612.png",
+              "alt": "Tre' Harris"
+            },
+            "jersey": "9",
+            "position": {
+              "name": "Wide Receiver",
+              "displayName": "Wide Receiver",
+              "abbreviation": "WR"
+            },
+            "collegeAthlete": {
+              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4686612?lang=en&region=us"
+            },
+            "status": {
+              "id": "1",
+              "name": "Active",
+              "type": "active",
+              "abbreviation": "Active"
+            }
+          },
+          "type": {
+            "id": "2",
+            "name": "INJURY_STATUS_QUESTIONABLE",
+            "description": "questionable",
+            "abbreviation": "Q"
+          },
+          "details": {
+            "fantasyStatus": {
+              "description": "QUESTIONABLE",
+              "abbreviation": "QUESTIONABLE",
+              "displayDescription": "Questionable"
+            },
+            "type": "Hamstring",
+            "location": "Leg",
+            "detail": "Not Specified",
+            "side": "Not Specified",
+            "returnDate": "2026-11-01"
+          }
+        },
+        {
+          "status": "Questionable",
+          "date": "2026-10-20T16:10Z",
           "athlete": {
             "id": "3843769",
             "uid": "s:20~l:28~a:3843769",
@@ -23819,11 +23758,72 @@
               "abbreviation": "QUESTIONABLE",
               "displayDescription": "Questionable"
             },
-            "type": "Concussion",
-            "location": "Head",
-            "detail": "Concussion",
+            "type": "Hamstring",
+            "location": "Leg",
+            "detail": "Not Specified",
             "side": "Not Specified",
-            "returnDate": "2026-10-04"
+            "returnDate": "2026-11-01"
+          }
+        },
+        {
+          "status": "Questionable",
+          "date": "2026-10-20T16:10Z",
+          "athlete": {
+            "id": "3691739",
+            "uid": "s:20~l:28~a:3691739",
+            "guid": "14969854-347a-8b06-9520-b6b3dd7eea36",
+            "lastName": "James Jr.",
+            "fullName": "Derwin James Jr.",
+            "displayName": "Derwin James Jr.",
+            "shortName": "D. James Jr.",
+            "links": [
+              {
+                "rel": [
+                  "playercard",
+                  "desktop",
+                  "athlete"
+                ],
+                "href": "https://www.espn.com/nfl/player/_/id/3691739/derwin-james-jr",
+                "text": "Player Card"
+              }
+            ],
+            "headshot": {
+              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/3691739.png",
+              "alt": "Derwin James Jr."
+            },
+            "jersey": "3",
+            "position": {
+              "name": "Safety",
+              "displayName": "Safety",
+              "abbreviation": "S"
+            },
+            "collegeAthlete": {
+              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/3691739?lang=en&region=us"
+            },
+            "status": {
+              "id": "1",
+              "name": "Active",
+              "type": "active",
+              "abbreviation": "Active"
+            }
+          },
+          "type": {
+            "id": "2",
+            "name": "INJURY_STATUS_QUESTIONABLE",
+            "description": "questionable",
+            "abbreviation": "Q"
+          },
+          "details": {
+            "fantasyStatus": {
+              "description": "QUESTIONABLE",
+              "abbreviation": "QUESTIONABLE",
+              "displayDescription": "Questionable"
+            },
+            "type": "Hamstring",
+            "location": "Leg",
+            "detail": "Not Specified",
+            "side": "Not Specified",
+            "returnDate": "2026-11-01"
           }
         }
       ]
@@ -23896,15 +23896,15 @@
       "injuries": [
         {
           "status": "Questionable",
-          "date": "2026-10-04T17:34Z",
+          "date": "2026-10-22T23:28Z",
           "athlete": {
-            "id": "3918331",
-            "uid": "s:20~l:28~a:3918331",
-            "guid": "34f896c4-ad49-013d-d9b6-47096cfb89e0",
-            "lastName": "Wingard",
-            "fullName": "Andrew Wingard",
-            "displayName": "Andrew Wingard",
-            "shortName": "A. Wingard",
+            "id": "4870808",
+            "uid": "s:20~l:28~a:4870808",
+            "guid": "56491a70-2fa6-3f66-9731-4167ecbeb252",
+            "lastName": "Love",
+            "fullName": "Jeremiyah Love",
+            "displayName": "Jeremiyah Love",
+            "shortName": "J. Love",
             "links": [
               {
                 "rel": [
@@ -23912,22 +23912,142 @@
                   "desktop",
                   "athlete"
                 ],
-                "href": "https://www.espn.com/nfl/player/_/id/3918331/andrew-wingard",
+                "href": "https://www.espn.com/nfl/player/_/id/4870808/jeremiyah-love",
                 "text": "Player Card"
               }
             ],
             "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/3918331.png",
-              "alt": "Andrew Wingard"
+              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4870808.png",
+              "alt": "Jeremiyah Love"
             },
-            "jersey": "28",
+            "jersey": "4",
             "position": {
-              "name": "Safety",
-              "displayName": "Safety",
-              "abbreviation": "S"
+              "name": "Running Back",
+              "displayName": "Running Back",
+              "abbreviation": "RB"
             },
             "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/3918331?lang=en&region=us"
+              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4870808?lang=en&region=us"
+            },
+            "status": {
+              "id": "1",
+              "name": "Active",
+              "type": "active",
+              "abbreviation": "Active"
+            }
+          },
+          "type": {
+            "id": "2",
+            "name": "INJURY_STATUS_QUESTIONABLE",
+            "description": "questionable",
+            "abbreviation": "Q"
+          },
+          "details": {
+            "fantasyStatus": {
+              "description": "QUESTIONABLE",
+              "abbreviation": "QUESTIONABLE",
+              "displayDescription": "Questionable"
+            },
+            "type": "Ankle",
+            "location": "Leg",
+            "detail": "Not Specified",
+            "side": "Not Specified",
+            "returnDate": "2026-10-25"
+          }
+        },
+        {
+          "status": "Questionable",
+          "date": "2026-10-22T23:26Z",
+          "athlete": {
+            "id": "4569480",
+            "uid": "s:20~l:28~a:4569480",
+            "guid": "00be5413-6bb3-9d47-065f-5adec0dec45e",
+            "lastName": "Robinson",
+            "fullName": "Darius Robinson",
+            "displayName": "Darius Robinson",
+            "shortName": "D. Robinson",
+            "links": [
+              {
+                "rel": [
+                  "playercard",
+                  "desktop",
+                  "athlete"
+                ],
+                "href": "https://www.espn.com/nfl/player/_/id/4569480/darius-robinson",
+                "text": "Player Card"
+              }
+            ],
+            "headshot": {
+              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4569480.png",
+              "alt": "Darius Robinson"
+            },
+            "jersey": "56",
+            "position": {
+              "name": "Defensive End",
+              "displayName": "Defensive End",
+              "abbreviation": "DE"
+            },
+            "collegeAthlete": {
+              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4569480?lang=en&region=us"
+            },
+            "status": {
+              "id": "1",
+              "name": "Active",
+              "type": "active",
+              "abbreviation": "Active"
+            }
+          },
+          "type": {
+            "id": "2",
+            "name": "INJURY_STATUS_QUESTIONABLE",
+            "description": "questionable",
+            "abbreviation": "Q"
+          },
+          "details": {
+            "fantasyStatus": {
+              "description": "QUESTIONABLE",
+              "abbreviation": "QUESTIONABLE",
+              "displayDescription": "Questionable"
+            },
+            "type": "Back",
+            "location": "Torso",
+            "returnDate": "2026-10-25"
+          }
+        },
+        {
+          "status": "Questionable",
+          "date": "2026-10-22T23:26Z",
+          "athlete": {
+            "id": "4367199",
+            "uid": "s:20~l:28~a:4367199",
+            "guid": "731adf24-78b7-0653-620f-009e100647a4",
+            "lastName": "Gaines II",
+            "fullName": "Jon Gaines II",
+            "displayName": "Jon Gaines II",
+            "shortName": "J. Gaines II",
+            "links": [
+              {
+                "rel": [
+                  "playercard",
+                  "desktop",
+                  "athlete"
+                ],
+                "href": "https://www.espn.com/nfl/player/_/id/4367199/jon-gaines-ii",
+                "text": "Player Card"
+              }
+            ],
+            "headshot": {
+              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4367199.png",
+              "alt": "Jon Gaines II"
+            },
+            "jersey": "71",
+            "position": {
+              "name": "Guard",
+              "displayName": "Guard",
+              "abbreviation": "G"
+            },
+            "collegeAthlete": {
+              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4367199?lang=en&region=us"
             },
             "status": {
               "id": "1",
@@ -23950,21 +24070,20 @@
             },
             "type": "Knee",
             "location": "Leg",
-            "detail": "Not Specified",
-            "returnDate": "2026-10-04"
+            "returnDate": "2026-10-25"
           }
         },
         {
-          "status": "Out",
-          "date": "2026-10-04T15:50Z",
+          "status": "Questionable",
+          "date": "2026-10-22T02:06Z",
           "athlete": {
-            "id": "4869132",
-            "uid": "s:20~l:28~a:4869132",
-            "guid": "35bc3d2a-15a4-3cc6-915b-af851fcb67a3",
-            "lastName": "Virgil",
-            "fullName": "Reggie Virgil",
-            "displayName": "Reggie Virgil",
-            "shortName": "R. Virgil",
+            "id": "3127287",
+            "uid": "s:20~l:28~a:3127287",
+            "guid": "f5cbcf51-a79e-aaa1-a51b-7ee4b99a9718",
+            "lastName": "Baker",
+            "fullName": "Budda Baker",
+            "displayName": "Budda Baker",
+            "shortName": "B. Baker",
             "links": [
               {
                 "rel": [
@@ -23972,22 +24091,22 @@
                   "desktop",
                   "athlete"
                 ],
-                "href": "https://www.espn.com/nfl/player/_/id/4869132/reggie-virgil",
+                "href": "https://www.espn.com/nfl/player/_/id/3127287/budda-baker",
                 "text": "Player Card"
               }
             ],
             "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4869132.png",
-              "alt": "Reggie Virgil"
+              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/3127287.png",
+              "alt": "Budda Baker"
             },
-            "jersey": "82",
+            "jersey": "3",
             "position": {
-              "name": "Wide Receiver",
-              "displayName": "Wide Receiver",
-              "abbreviation": "WR"
+              "name": "Safety",
+              "displayName": "Safety",
+              "abbreviation": "S"
             },
             "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4869132?lang=en&region=us"
+              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/3127287?lang=en&region=us"
             },
             "status": {
               "id": "1",
@@ -23997,27 +24116,27 @@
             }
           },
           "type": {
-            "id": "4",
-            "name": "INJURY_STATUS_OUT",
-            "description": "out",
-            "abbreviation": "O"
+            "id": "2",
+            "name": "INJURY_STATUS_QUESTIONABLE",
+            "description": "questionable",
+            "abbreviation": "Q"
           },
           "details": {
             "fantasyStatus": {
-              "description": "INACTIVE",
-              "abbreviation": "INACTIVE",
-              "displayDescription": "Inactive"
+              "description": "QUESTIONABLE",
+              "abbreviation": "QUESTIONABLE",
+              "displayDescription": "Questionable"
             },
-            "type": "Coach's Decision",
-            "location": "Other",
+            "type": "Groin",
+            "location": "Groin",
             "detail": "Not Specified",
             "side": "Not Specified",
-            "returnDate": "2026-10-11"
+            "returnDate": "2026-10-25"
           }
         },
         {
-          "status": "Out",
-          "date": "2026-10-04T15:47Z",
+          "status": "Questionable",
+          "date": "2026-10-22T00:56Z",
           "athlete": {
             "id": "4430841",
             "uid": "s:20~l:28~a:4430841",
@@ -24058,144 +24177,22 @@
             }
           },
           "type": {
-            "id": "4",
-            "name": "INJURY_STATUS_OUT",
-            "description": "out",
-            "abbreviation": "O"
+            "id": "2",
+            "name": "INJURY_STATUS_QUESTIONABLE",
+            "description": "questionable",
+            "abbreviation": "Q"
           },
           "details": {
             "fantasyStatus": {
-              "description": "INACTIVE",
-              "abbreviation": "INACTIVE",
-              "displayDescription": "Inactive"
-            },
-            "type": "Coach's Decision",
-            "location": "Other",
-            "detail": "Not Specified",
-            "side": "Not Specified",
-            "returnDate": "2026-10-11"
-          }
-        },
-        {
-          "status": "Out",
-          "date": "2026-10-04T15:33Z",
-          "athlete": {
-            "id": "4900789",
-            "uid": "s:20~l:28~a:4900789",
-            "guid": "6b084c07-a1ac-354b-9ee9-c3dc97bb9168",
-            "lastName": "Robertson",
-            "fullName": "Cameron Robertson",
-            "displayName": "Cameron Robertson",
-            "shortName": "C. Robertson",
-            "links": [
-              {
-                "rel": [
-                  "playercard",
-                  "desktop",
-                  "athlete"
-                ],
-                "href": "https://www.espn.com/nfl/player/_/id/4900789/cameron-robertson",
-                "text": "Player Card"
-              }
-            ],
-            "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4900789.png",
-              "alt": "Cameron Robertson"
-            },
-            "jersey": "49",
-            "position": {
-              "name": "Linebacker",
-              "displayName": "Linebacker",
-              "abbreviation": "LB"
-            },
-            "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4900789?lang=en&region=us"
-            },
-            "status": {
-              "id": "1",
-              "name": "Active",
-              "type": "active",
-              "abbreviation": "Active"
-            }
-          },
-          "type": {
-            "id": "4",
-            "name": "INJURY_STATUS_OUT",
-            "description": "out",
-            "abbreviation": "O"
-          },
-          "details": {
-            "fantasyStatus": {
-              "description": "INACTIVE",
-              "abbreviation": "INACTIVE",
-              "displayDescription": "Inactive"
-            },
-            "type": "Coach's Decision",
-            "location": "Other",
-            "detail": "Not Specified",
-            "side": "Not Specified",
-            "returnDate": "2026-10-11"
-          }
-        },
-        {
-          "status": "Out",
-          "date": "2026-10-04T15:33Z",
-          "athlete": {
-            "id": "4428633",
-            "uid": "s:20~l:28~a:4428633",
-            "guid": "ae45ba25-9225-b3e4-e534-a8ae3e9e5183",
-            "lastName": "Taylor-Demerson",
-            "fullName": "Dadrion Taylor-Demerson",
-            "displayName": "Dadrion Taylor-Demerson",
-            "shortName": "D. Taylor-Demerson",
-            "links": [
-              {
-                "rel": [
-                  "playercard",
-                  "desktop",
-                  "athlete"
-                ],
-                "href": "https://www.espn.com/nfl/player/_/id/4428633/dadrion-taylor-demerson",
-                "text": "Player Card"
-              }
-            ],
-            "headshot": {
-              "href": "https://a.espncdn.com/i/headshots/nfl/players/full/4428633.png",
-              "alt": "Dadrion Taylor-Demerson"
-            },
-            "jersey": "42",
-            "position": {
-              "name": "Safety",
-              "displayName": "Safety",
-              "abbreviation": "S"
-            },
-            "collegeAthlete": {
-              "$ref": "http://sports.core.api.espn.pvt/v2/sports/football/leagues/college-football/athletes/4428633?lang=en&region=us"
-            },
-            "status": {
-              "id": "1",
-              "name": "Active",
-              "type": "active",
-              "abbreviation": "Active"
-            }
-          },
-          "type": {
-            "id": "4",
-            "name": "INJURY_STATUS_OUT",
-            "description": "out",
-            "abbreviation": "O"
-          },
-          "details": {
-            "fantasyStatus": {
-              "description": "INACTIVE",
-              "abbreviation": "INACTIVE",
-              "displayDescription": "Inactive"
+              "description": "QUESTIONABLE",
+              "abbreviation": "QUESTIONABLE",
+              "displayDescription": "Questionable"
             },
             "type": "Back",
             "location": "Torso",
             "detail": "Not Specified",
             "side": "Not Specified",
-            "returnDate": "2026-10-11"
+            "returnDate": "2026-10-25"
           }
         }
       ]
@@ -24576,1456 +24573,6 @@
       "records": []
     }
   ],
-  "news": {
-    "header": "NFL News",
-    "link": {
-      "language": "en",
-      "rel": [
-        "index",
-        "desktop",
-        "league"
-      ],
-      "href": "https://www.espn.com/nfl/",
-      "text": "All NFL News",
-      "shortText": "All News",
-      "isExternal": false,
-      "isPremium": false
-    },
-    "articles": [
-      {
-        "id": 50100819,
-        "nowId": "1-50100819",
-        "contentKey": "50100819-1-293-1",
-        "dataSourceIdentifier": "f9dfa5c7e0bd7",
-        "type": "Media",
-        "headline": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-        "description": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-        "lastModified": "2026-10-04T17:30:04Z",
-        "published": "2026-10-04T17:30:04Z",
-        "images": [
-          {
-            "name": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-            "caption": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-            "alt": "",
-            "height": 324,
-            "width": 576,
-            "url": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1004/dm_261004_fantsay_taylor_reax/dm_261004_fantsay_taylor_reax.jpg"
-          }
-        ],
-        "categories": [
-          {
-            "id": 409228,
-            "type": "topic",
-            "guid": "3d170ccb-7b75-54f1-78c4-cfbf3ee3322d",
-            "description": "fantasy",
-            "sportId": 0,
-            "topicId": 785
-          },
-          {
-            "id": 12024,
-            "type": "league",
-            "uid": "s:20~l:3080",
-            "guid": "a472a0eb-d630-3568-bf2a-59572429de6c",
-            "description": "Fantasy NFL",
-            "sportId": 3080,
-            "leagueId": 3080,
-            "league": {
-              "id": 3080,
-              "description": "Fantasy NFL",
-              "abbreviation": "NFLFD"
-            }
-          },
-          {
-            "id": 435130,
-            "type": "athlete",
-            "uid": "s:20~l:28~a:4242335",
-            "guid": "ddd8786c-fd5a-4e55-ccc8-6ddf6f1ede33",
-            "description": "Jonathan Taylor",
-            "sportId": 28,
-            "athleteId": 4242335,
-            "athlete": {
-              "id": 4242335,
-              "description": "Jonathan Taylor",
-              "links": {
-                "mobile": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/4242335/jonathan-taylor"
-                  }
-                },
-                "web": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/4242335/jonathan-taylor"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 730035,
-            "type": "editorialindicator",
-            "guid": "765b3968-7a2d-3d80-bded-8ba8b1e1cc03",
-            "description": "Verts - Exclude Content"
-          },
-          {
-            "id": 9572,
-            "type": "league",
-            "uid": "s:20~l:28",
-            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
-            "description": "NFL",
-            "sportId": 28,
-            "leagueId": 28,
-            "league": {
-              "id": 28,
-              "description": "NFL",
-              "abbreviation": "NFL",
-              "links": {
-                "mobile": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                },
-                "web": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                }
-              }
-            }
-          }
-        ],
-        "links": {
-          "api": {
-            "artwork": {
-              "href": "https://artwork.api.espn.com/artwork/collections/media/42b6fae1-1f01-44e6-9ee8-029f60888701"
-            },
-            "self": {
-              "href": "https://content.core.api.espn.com/v1/video/clips/50100819"
-            }
-          },
-          "sportscenter": {
-            "href": "sportscenter://x-callback-url/showVideo?videoID=50100819&videoDSI=f9dfa5c7e0bd7"
-          },
-          "web": {
-            "href": "https://www.espn.com/video/clip/_/id/50100819/jonathan-taylor-looking-rb3-fantasy-football",
-            "self": {
-              "href": "https://www.espn.com/video/clip/_/id/50100819/jonathan-taylor-looking-rb3-fantasy-football",
-              "dsi": {
-                "href": "https://www.espn.com/video/clip?id=f9dfa5c7e0bd7"
-              }
-            }
-          }
-        },
-        "premium": false
-      },
-      {
-        "id": 50100617,
-        "nowId": "1-50100617",
-        "contentKey": "50100617-1-293-1",
-        "dataSourceIdentifier": "68ef5f93126da",
-        "type": "Media",
-        "headline": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-        "description": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-        "lastModified": "2026-10-04T17:21:32Z",
-        "published": "2026-10-04T17:21:32Z",
-        "images": [
-          {
-            "name": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-            "caption": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-            "alt": "",
-            "height": 324,
-            "width": 576,
-            "url": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1004/ss_20261004_131311677_3685045/ss_20261004_131311677_3685045.jpg"
-          }
-        ],
-        "categories": [
-          {
-            "id": 12024,
-            "type": "league",
-            "uid": "s:20~l:3080",
-            "guid": "a472a0eb-d630-3568-bf2a-59572429de6c",
-            "description": "Fantasy NFL",
-            "sportId": 3080,
-            "leagueId": 3080,
-            "league": {
-              "id": 3080,
-              "description": "Fantasy NFL",
-              "abbreviation": "NFLFD"
-            }
-          },
-          {
-            "id": 409228,
-            "type": "topic",
-            "guid": "3d170ccb-7b75-54f1-78c4-cfbf3ee3322d",
-            "description": "fantasy",
-            "sportId": 0,
-            "topicId": 785
-          },
-          {
-            "id": 435130,
-            "type": "athlete",
-            "uid": "s:20~l:28~a:4242335",
-            "guid": "ddd8786c-fd5a-4e55-ccc8-6ddf6f1ede33",
-            "description": "Jonathan Taylor",
-            "sportId": 28,
-            "athleteId": 4242335,
-            "athlete": {
-              "id": 4242335,
-              "description": "Jonathan Taylor",
-              "links": {
-                "mobile": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/4242335/jonathan-taylor"
-                  }
-                },
-                "web": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/4242335/jonathan-taylor"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 730035,
-            "type": "editorialindicator",
-            "guid": "765b3968-7a2d-3d80-bded-8ba8b1e1cc03",
-            "description": "Verts - Exclude Content"
-          },
-          {
-            "id": 9572,
-            "type": "league",
-            "uid": "s:20~l:28",
-            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
-            "description": "NFL",
-            "sportId": 28,
-            "leagueId": 28,
-            "league": {
-              "id": 28,
-              "description": "NFL",
-              "abbreviation": "NFL",
-              "links": {
-                "mobile": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                },
-                "web": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                }
-              }
-            }
-          }
-        ],
-        "links": {
-          "api": {
-            "artwork": {
-              "href": "https://artwork.api.espn.com/artwork/collections/media/2ae74fe7-6d2a-41d4-81dd-6fdb6bd99c89"
-            },
-            "self": {
-              "href": "https://content.core.api.espn.com/v1/video/clips/50100617"
-            }
-          },
-          "sportscenter": {
-            "href": "sportscenter://x-callback-url/showVideo?videoID=50100617&videoDSI=68ef5f93126da"
-          },
-          "web": {
-            "href": "https://www.espn.com/video/clip/_/id/50100617/jonathan-taylor-looking-rb3-fantasy-football",
-            "self": {
-              "href": "https://www.espn.com/video/clip/_/id/50100617/jonathan-taylor-looking-rb3-fantasy-football",
-              "dsi": {
-                "href": "https://www.espn.com/video/clip?id=68ef5f93126da"
-              }
-            }
-          }
-        },
-        "premium": false
-      },
-      {
-        "id": 50100584,
-        "nowId": "1-50100584",
-        "contentKey": "50100584-1-293-1",
-        "dataSourceIdentifier": "1f9f887630ce5",
-        "type": "Media",
-        "headline": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-        "description": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-        "lastModified": "2026-10-04T17:11:09Z",
-        "published": "2026-10-04T17:11:09Z",
-        "images": [
-          {
-            "name": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-            "caption": "Michael Florio: Jonathan Taylor looking like the RB3 of fantasy football",
-            "alt": "",
-            "height": 324,
-            "width": 576,
-            "url": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1004/ss_20261004_130714765_3685037789/ss_20261004_130714765_3685037789.jpg"
-          }
-        ],
-        "categories": [
-          {
-            "id": 12024,
-            "type": "league",
-            "uid": "s:20~l:3080",
-            "guid": "a472a0eb-d630-3568-bf2a-59572429de6c",
-            "description": "Fantasy NFL",
-            "sportId": 3080,
-            "leagueId": 3080,
-            "league": {
-              "id": 3080,
-              "description": "Fantasy NFL",
-              "abbreviation": "NFLFD"
-            }
-          },
-          {
-            "id": 409228,
-            "type": "topic",
-            "guid": "3d170ccb-7b75-54f1-78c4-cfbf3ee3322d",
-            "description": "fantasy",
-            "sportId": 0,
-            "topicId": 785
-          },
-          {
-            "id": 435130,
-            "type": "athlete",
-            "uid": "s:20~l:28~a:4242335",
-            "guid": "ddd8786c-fd5a-4e55-ccc8-6ddf6f1ede33",
-            "description": "Jonathan Taylor",
-            "sportId": 28,
-            "athleteId": 4242335,
-            "athlete": {
-              "id": 4242335,
-              "description": "Jonathan Taylor",
-              "links": {
-                "mobile": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/4242335/jonathan-taylor"
-                  }
-                },
-                "web": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/4242335/jonathan-taylor"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 730035,
-            "type": "editorialindicator",
-            "guid": "765b3968-7a2d-3d80-bded-8ba8b1e1cc03",
-            "description": "Verts - Exclude Content"
-          },
-          {
-            "id": 9572,
-            "type": "league",
-            "uid": "s:20~l:28",
-            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
-            "description": "NFL",
-            "sportId": 28,
-            "leagueId": 28,
-            "league": {
-              "id": 28,
-              "description": "NFL",
-              "abbreviation": "NFL",
-              "links": {
-                "mobile": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                },
-                "web": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                }
-              }
-            }
-          }
-        ],
-        "links": {
-          "api": {
-            "artwork": {
-              "href": "https://artwork.api.espn.com/artwork/collections/media/cbc60b50-6e7a-40b0-b94e-41db28568899"
-            },
-            "self": {
-              "href": "https://content.core.api.espn.com/v1/video/clips/50100584"
-            }
-          },
-          "sportscenter": {
-            "href": "sportscenter://x-callback-url/showVideo?videoID=50100584&videoDSI=1f9f887630ce5"
-          },
-          "web": {
-            "href": "https://www.espn.com/video/clip/_/id/50100584/jonathan-taylor-looking-rb3-fantasy-football",
-            "self": {
-              "href": "https://www.espn.com/video/clip/_/id/50100584/jonathan-taylor-looking-rb3-fantasy-football",
-              "dsi": {
-                "href": "https://www.espn.com/video/clip?id=1f9f887630ce5"
-              }
-            }
-          }
-        },
-        "premium": false
-      },
-      {
-        "id": 50100573,
-        "nowId": "1-50100573",
-        "contentKey": "50100573-1-293-1",
-        "dataSourceIdentifier": "48acba9c84e59",
-        "type": "Media",
-        "headline": "Indianapolis Colts vs. Washington Commanders Game Highlights",
-        "description": "Indianapolis Colts vs. Washington Commanders Game Highlights",
-        "lastModified": "2026-10-04T17:24:07Z",
-        "published": "2026-10-04T17:24:07Z",
-        "images": [
-          {
-            "name": "Indianapolis Colts vs. Washington Commanders Game Highlights",
-            "caption": "Indianapolis Colts vs. Washington Commanders Game Highlights",
-            "alt": "",
-            "height": 324,
-            "width": 576,
-            "url": "https://espnmedia-cdn.akamaized.net/espn/media/common/wsc/2026/1004/950a4aae-7301-4e04-9c56-1a73487258c8/950a4aae-7301-4e04-9c56-1a73487258c8.jpg"
-          }
-        ],
-        "categories": [
-          {
-            "id": 9572,
-            "type": "league",
-            "uid": "s:20~l:28",
-            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
-            "description": "NFL",
-            "sportId": 28,
-            "leagueId": 28,
-            "league": {
-              "id": 28,
-              "description": "NFL",
-              "abbreviation": "NFL",
-              "links": {
-                "mobile": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                },
-                "web": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 491987,
-            "type": "athlete",
-            "uid": "s:20~l:28~a:4432722",
-            "guid": "594a650f-b992-3e6a-b143-275ca583a5b4",
-            "description": "Athan Kaliakmanis",
-            "sportId": 28,
-            "athleteId": 4432722,
-            "athlete": {
-              "id": 4432722,
-              "description": "Athan Kaliakmanis",
-              "links": {
-                "mobile": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/4432722/athan-kaliakmanis"
-                  }
-                },
-                "web": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/4432722/athan-kaliakmanis"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 1462,
-            "type": "team",
-            "uid": "s:20~l:28~t:28",
-            "guid": "fbeaf73e-6d6c-cca4-0809-713d9d741f90",
-            "description": "Washington Commanders",
-            "sportId": 28,
-            "teamId": 28,
-            "team": {
-              "id": 28,
-              "description": "Washington Commanders",
-              "abbreviation": "WSH",
-              "shortDisplayName": "Commanders",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/wsh/washington-commanders"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/wsh/washington-commanders"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 379778,
-            "type": "athlete",
-            "uid": "s:20~l:28~a:3917792",
-            "guid": "5ad1bcc2-57bc-bb72-bcd0-0cdd0d945444",
-            "description": "Daniel Jones",
-            "sportId": 28,
-            "athleteId": 3917792,
-            "athlete": {
-              "id": 3917792,
-              "description": "Daniel Jones",
-              "links": {
-                "mobile": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/3917792/daniel-jones"
-                  }
-                },
-                "web": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/3917792/daniel-jones"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 711821,
-            "type": "editorialindicator",
-            "guid": "f3e05446-8d07-3064-a239-c10c32884ea2",
-            "description": "SC4U - Full Highlight"
-          },
-          {
-            "id": 711824,
-            "type": "editorialindicator",
-            "guid": "d348c764-47d9-3e31-bd75-d39dfde52c26",
-            "description": "SC4U  - Eligible"
-          },
-          {
-            "id": 435130,
-            "type": "athlete",
-            "uid": "s:20~l:28~a:4242335",
-            "guid": "ddd8786c-fd5a-4e55-ccc8-6ddf6f1ede33",
-            "description": "Jonathan Taylor",
-            "sportId": 28,
-            "athleteId": 4242335,
-            "athlete": {
-              "id": 4242335,
-              "description": "Jonathan Taylor",
-              "links": {
-                "mobile": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/4242335/jonathan-taylor"
-                  }
-                },
-                "web": {
-                  "athletes": {
-                    "href": "https://www.espn.com/nfl/player/_/id/4242335/jonathan-taylor"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2942,
-            "type": "team",
-            "uid": "s:20~l:28~t:11",
-            "guid": "582d14eb-da61-e505-cc40-d972a1b60ed1",
-            "description": "Indianapolis Colts",
-            "sportId": 28,
-            "teamId": 11,
-            "team": {
-              "id": 11,
-              "description": "Indianapolis Colts",
-              "abbreviation": "IND",
-              "shortDisplayName": "Colts",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/ind/indianapolis-colts"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/ind/indianapolis-colts"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 711828,
-            "type": "editorialindicator",
-            "guid": "b14f9e1f-2d2c-3b10-b39d-d781f4c4aba7",
-            "description": "4 Star Rating"
-          },
-          {
-            "type": "event",
-            "uid": "s:20~l:28~e:401872965",
-            "guid": "c921f691-065a-3281-a8f5-9a3dcb293b57",
-            "description": "Indianapolis Colts @ Washington Commanders",
-            "eventId": 401872965,
-            "event": {
-              "id": 401872965,
-              "sport": "football",
-              "league": "nfl",
-              "description": "Indianapolis Colts @ Washington Commanders",
-              "links": {
-                "mobile": {
-                  "event": {
-                    "href": "https://www.espn.com/nfl/game/_/gameId/401872965"
-                  }
-                },
-                "web": {
-                  "event": {
-                    "href": "https://www.espn.com/nfl/game/_/gameId/401872965"
-                  }
-                }
-              }
-            }
-          }
-        ],
-        "links": {
-          "api": {
-            "artwork": {
-              "href": "https://artwork.api.espn.com/artwork/collections/media/7aebb384-7fa0-48f1-bcb3-5d3b5acbfcf6"
-            },
-            "self": {
-              "href": "https://content.core.api.espn.com/v1/video/clips/50100573"
-            }
-          },
-          "sportscenter": {
-            "href": "sportscenter://x-callback-url/showVideo?videoID=50100573&videoDSI=48acba9c84e59"
-          },
-          "web": {
-            "href": "https://www.espn.com/video/clip/_/id/50100573/indianapolis-colts-vs-washington-commanders-game-highlights",
-            "self": {
-              "href": "https://www.espn.com/video/clip/_/id/50100573/indianapolis-colts-vs-washington-commanders-game-highlights",
-              "dsi": {
-                "href": "https://www.espn.com/video/clip?id=48acba9c84e59"
-              }
-            }
-          }
-        },
-        "premium": false
-      },
-      {
-        "id": 50077236,
-        "nowId": "1-50077236",
-        "contentKey": "50077236-1-6-1",
-        "dataSourceIdentifier": "13dc1d4147c8c",
-        "type": "Story",
-        "headline": "NFL Week 4: Big takeaways, questions and fantasy spin from Sunday's games",
-        "description": "Our NFL Nation reporters react to all the action, answering the biggest questions coming out of each Sunday game. Here's what we learned from Week 4.",
-        "lastModified": "2026-10-04T17:52:03Z",
-        "published": "2026-10-04T17:52:03Z",
-        "images": [
-          {
-            "dataSourceIdentifier": "2c2a31a4d0c57",
-            "id": 50100295,
-            "type": "header",
-            "name": "Tyler Warren [1296x729]",
-            "credit": "Kirby Lee-Imagn Images",
-            "height": 729,
-            "width": 1296,
-            "url": "https://a.espncdn.com/photo/2026/1004/r1725796_1296x729_16-9.jpg"
-          },
-          {
-            "type": "Media",
-            "name": "Dyami Brown's sensational catch leaves the announcers in disbelief",
-            "caption": "Dyami Brown's sensational catch leaves the announcers in disbelief",
-            "height": 324,
-            "width": 576,
-            "url": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1004/b428db4ff1c34e6793082adb4427e578744/b428db4ff1c34e6793082adb4427e578744.jpg"
-          }
-        ],
-        "categories": [
-          {
-            "id": 9572,
-            "type": "league",
-            "uid": "s:20~l:28",
-            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
-            "description": "NFL",
-            "sportId": 28,
-            "leagueId": 28,
-            "league": {
-              "id": 28,
-              "description": "NFL",
-              "abbreviation": "NFL",
-              "links": {
-                "mobile": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                },
-                "web": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 409222,
-            "type": "topic",
-            "guid": "b66e959d-b64e-9bd6-7d5c-1bcb0d53c0cb",
-            "description": "daily",
-            "sportId": 0,
-            "topicId": 779
-          },
-          {
-            "id": 2942,
-            "type": "team",
-            "uid": "s:20~l:28~t:11",
-            "guid": "582d14eb-da61-e505-cc40-d972a1b60ed1",
-            "description": "Indianapolis Colts",
-            "sportId": 28,
-            "teamId": 11,
-            "team": {
-              "id": 11,
-              "description": "Indianapolis Colts",
-              "abbreviation": "IND",
-              "shortDisplayName": "Colts",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/ind/indianapolis-colts"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/ind/indianapolis-colts"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 1462,
-            "type": "team",
-            "uid": "s:20~l:28~t:28",
-            "guid": "fbeaf73e-6d6c-cca4-0809-713d9d741f90",
-            "description": "Washington Commanders",
-            "sportId": 28,
-            "teamId": 28,
-            "team": {
-              "id": 28,
-              "description": "Washington Commanders",
-              "abbreviation": "WSH",
-              "shortDisplayName": "Commanders",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/wsh/washington-commanders"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/wsh/washington-commanders"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 700448,
-            "type": "contributor",
-            "guid": "037de313-2fe3-3e3c-a5f6-da543b98e5d2",
-            "description": "NFL Nation",
-            "slug": "nfl-nation",
-            "contributor": {
-              "id": 3824,
-              "description": "NFL Nation"
-            }
-          }
-        ],
-        "byline": "NFL Nation",
-        "links": {
-          "api": {
-            "self": {
-              "href": "https://content.core.api.espn.com/v1/sports/news/50077236"
-            }
-          },
-          "app": {
-            "sportscenter": {
-              "href": "sportscenter://x-callback-url/showStory?uid=50077236"
-            }
-          },
-          "mobile": {
-            "href": "http://m.espn.go.com/nfl/story?storyId=50077236"
-          },
-          "web": {
-            "href": "https://www.espn.com/nfl/story/_/id/50077236/week-4-sunday-games-takeaways-questions-2026"
-          }
-        },
-        "premium": false
-      },
-      {
-        "id": 50079780,
-        "nowId": "1-50079780",
-        "contentKey": "50079780-1-6-1",
-        "dataSourceIdentifier": "cef218993789a",
-        "type": "Story",
-        "headline": "NFL Week 4's best arrivals, led by Bears RB Kyle Monangai",
-        "description": "NFL stars continue to turn game-day arrivals into their own weekly fashion showcase.",
-        "lastModified": "2026-10-04T17:04:18Z",
-        "published": "2026-10-04T17:04:18Z",
-        "images": [
-          {
-            "dataSourceIdentifier": "4325fa4bd10e3",
-            "id": 50100540,
-            "type": "header",
-            "name": "Kyle [608x342]",
-            "caption": "Kyle Monangai arrived in a custom matching jacket gifted to him by Brenda, a Bears fan and breast cancer patient at Advocate Health Care.",
-            "credit": "Chicago Bears",
-            "height": 342,
-            "width": 608,
-            "url": "https://a.espncdn.com/photo/2026/1004/r1725814_608x342_16-9.png"
-          },
-          {
-            "dataSourceIdentifier": "4e931cb4e93b5",
-            "id": 50079910,
-            "type": "header",
-            "name": "Browns Mascot [608x342]",
-            "caption": "The Cleveland Browns' mascot channels Prince, complete with a purple jacket and matching guitar.",
-            "credit": "Kennedy Rodrigues/Cleveland Browns",
-            "height": 342,
-            "width": 608,
-            "url": "https://a.espncdn.com/photo/2026/1001/r1724681_608x342_16-9.png"
-          }
-        ],
-        "categories": [
-          {
-            "id": 9572,
-            "type": "league",
-            "uid": "s:20~l:28",
-            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
-            "description": "NFL",
-            "sportId": 28,
-            "leagueId": 28,
-            "league": {
-              "id": 28,
-              "description": "NFL",
-              "abbreviation": "NFL",
-              "links": {
-                "mobile": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                },
-                "web": {
-                  "leagues": {
-                    "href": "https://www.espn.com/nfl/"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 1861,
-            "type": "team",
-            "uid": "s:20~l:28~t:9",
-            "guid": "06cd3bcf-7a86-53d4-28e7-aa049dd36261",
-            "description": "Green Bay Packers",
-            "sportId": 28,
-            "teamId": 9,
-            "team": {
-              "id": 9,
-              "description": "Green Bay Packers",
-              "abbreviation": "GB",
-              "shortDisplayName": "Packers",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/gb/green-bay-packers"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/gb/green-bay-packers"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 1979,
-            "type": "team",
-            "uid": "s:20~l:28~t:1",
-            "guid": "49fd392a-86fe-4df3-1b77-9bbfa18b2ad5",
-            "description": "Atlanta Falcons",
-            "sportId": 28,
-            "teamId": 1,
-            "team": {
-              "id": 1,
-              "description": "Atlanta Falcons",
-              "abbreviation": "ATL",
-              "shortDisplayName": "Falcons",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/atl/atlanta-falcons"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/atl/atlanta-falcons"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2496,
-            "type": "team",
-            "uid": "s:20~l:28~t:12",
-            "guid": "f68f2343-8ceb-7a02-740d-af6338be21d2",
-            "description": "Kansas City Chiefs",
-            "sportId": 28,
-            "teamId": 12,
-            "team": {
-              "id": 12,
-              "description": "Kansas City Chiefs",
-              "abbreviation": "KC",
-              "shortDisplayName": "Chiefs",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/kc/kansas-city-chiefs"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/kc/kansas-city-chiefs"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 1352,
-            "type": "team",
-            "uid": "s:20~l:28~t:19",
-            "guid": "378600ea-2397-8364-8399-b7c1606a49a7",
-            "description": "New York Giants",
-            "sportId": 28,
-            "teamId": 19,
-            "team": {
-              "id": 19,
-              "description": "New York Giants",
-              "abbreviation": "NYG",
-              "shortDisplayName": "Giants",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/nyg/new-york-giants"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/nyg/new-york-giants"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2719,
-            "type": "team",
-            "uid": "s:20~l:28~t:5",
-            "guid": "539babc5-e5fb-753b-8ae1-c15032a91ef4",
-            "description": "Cleveland Browns",
-            "sportId": 28,
-            "teamId": 5,
-            "team": {
-              "id": 5,
-              "description": "Cleveland Browns",
-              "abbreviation": "CLE",
-              "shortDisplayName": "Browns",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/cle/cleveland-browns"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/cle/cleveland-browns"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2610,
-            "type": "team",
-            "uid": "s:20~l:28~t:24",
-            "guid": "84caf62b-c753-71ea-a787-44fd224a4294",
-            "description": "Los Angeles Chargers",
-            "sportId": 28,
-            "teamId": 24,
-            "team": {
-              "id": 24,
-              "description": "Los Angeles Chargers",
-              "abbreviation": "LAC",
-              "shortDisplayName": "Chargers",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/lac/los-angeles-chargers"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/lac/los-angeles-chargers"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2942,
-            "type": "team",
-            "uid": "s:20~l:28~t:11",
-            "guid": "582d14eb-da61-e505-cc40-d972a1b60ed1",
-            "description": "Indianapolis Colts",
-            "sportId": 28,
-            "teamId": 11,
-            "team": {
-              "id": 11,
-              "description": "Indianapolis Colts",
-              "abbreviation": "IND",
-              "shortDisplayName": "Colts",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/ind/indianapolis-colts"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/ind/indianapolis-colts"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2146,
-            "type": "team",
-            "uid": "s:20~l:28~t:29",
-            "guid": "647c27bf-ab86-550e-5b83-91c29e73e4a9",
-            "description": "Carolina Panthers",
-            "sportId": 28,
-            "teamId": 29,
-            "team": {
-              "id": 29,
-              "description": "Carolina Panthers",
-              "abbreviation": "CAR",
-              "shortDisplayName": "Panthers",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/car/carolina-panthers"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/car/carolina-panthers"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2886,
-            "type": "team",
-            "uid": "s:20~l:28~t:10",
-            "guid": "0a0aea59-9a5e-01b3-57a3-0151cf4bf393",
-            "description": "Tennessee Titans",
-            "sportId": 28,
-            "teamId": 10,
-            "team": {
-              "id": 10,
-              "description": "Tennessee Titans",
-              "abbreviation": "TEN",
-              "shortDisplayName": "Titans",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/ten/tennessee-titans"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/ten/tennessee-titans"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2776,
-            "type": "team",
-            "uid": "s:20~l:28~t:23",
-            "guid": "debcd592-8d53-71f1-fc15-5c8b8ef9df6e",
-            "description": "Pittsburgh Steelers",
-            "sportId": 28,
-            "teamId": 23,
-            "team": {
-              "id": 23,
-              "description": "Pittsburgh Steelers",
-              "abbreviation": "PIT",
-              "shortDisplayName": "Steelers",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/pit/pittsburgh-steelers"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/pit/pittsburgh-steelers"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 3053,
-            "type": "team",
-            "uid": "s:20~l:28~t:34",
-            "guid": "595690b3-2161-4913-a7a7-814af2fd2621",
-            "description": "Houston Texans",
-            "sportId": 28,
-            "teamId": 34,
-            "team": {
-              "id": 34,
-              "description": "Houston Texans",
-              "abbreviation": "HOU",
-              "shortDisplayName": "Texans",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/hou/houston-texans"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/hou/houston-texans"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 1462,
-            "type": "team",
-            "uid": "s:20~l:28~t:28",
-            "guid": "fbeaf73e-6d6c-cca4-0809-713d9d741f90",
-            "description": "Washington Commanders",
-            "sportId": 28,
-            "teamId": 28,
-            "team": {
-              "id": 28,
-              "description": "Washington Commanders",
-              "abbreviation": "WSH",
-              "shortDisplayName": "Commanders",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/wsh/washington-commanders"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/wsh/washington-commanders"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2830,
-            "type": "team",
-            "uid": "s:20~l:28~t:33",
-            "guid": "38248455-3da4-84e4-8090-98b5cc38ffdc",
-            "description": "Baltimore Ravens",
-            "sportId": 28,
-            "teamId": 33,
-            "team": {
-              "id": 33,
-              "description": "Baltimore Ravens",
-              "abbreviation": "BAL",
-              "shortDisplayName": "Ravens",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/bal/baltimore-ravens"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/bal/baltimore-ravens"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 1920,
-            "type": "team",
-            "uid": "s:20~l:28~t:16",
-            "guid": "3db556c9-ed76-a7a5-4ccb-a92fc6db4334",
-            "description": "Minnesota Vikings",
-            "sportId": 28,
-            "teamId": 16,
-            "team": {
-              "id": 16,
-              "description": "Minnesota Vikings",
-              "abbreviation": "MIN",
-              "shortDisplayName": "Vikings",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/min/minnesota-vikings"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/min/minnesota-vikings"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2091,
-            "type": "team",
-            "uid": "s:20~l:28~t:27",
-            "guid": "13e8b157-a75a-ff24-ae91-fa3d52ddf204",
-            "description": "Tampa Bay Buccaneers",
-            "sportId": 28,
-            "teamId": 27,
-            "team": {
-              "id": 27,
-              "description": "Tampa Bay Buccaneers",
-              "abbreviation": "TB",
-              "shortDisplayName": "Buccaneers",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/tb/tampa-bay-buccaneers"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/tb/tampa-bay-buccaneers"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2553,
-            "type": "team",
-            "uid": "s:20~l:28~t:13",
-            "guid": "b18540eb-6f2b-534c-e7f9-9bd930518da9",
-            "description": "Las Vegas Raiders",
-            "sportId": 28,
-            "teamId": 13,
-            "team": {
-              "id": 13,
-              "description": "Las Vegas Raiders",
-              "abbreviation": "LV",
-              "shortDisplayName": "Raiders",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/lv/las-vegas-raiders"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/lv/las-vegas-raiders"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 2035,
-            "type": "team",
-            "uid": "s:20~l:28~t:18",
-            "guid": "97d2f6c9-2f22-459c-306a-046941ccab2a",
-            "description": "New Orleans Saints",
-            "sportId": 28,
-            "teamId": 18,
-            "team": {
-              "id": 18,
-              "description": "New Orleans Saints",
-              "abbreviation": "NO",
-              "shortDisplayName": "Saints",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/no/new-orleans-saints"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/no/new-orleans-saints"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 1583,
-            "type": "team",
-            "uid": "s:20~l:28~t:22",
-            "guid": "8fc7b962-95e1-3cb8-6a7d-b499de9ad546",
-            "description": "Arizona Cardinals",
-            "sportId": 28,
-            "teamId": 22,
-            "team": {
-              "id": 22,
-              "description": "Arizona Cardinals",
-              "abbreviation": "ARI",
-              "shortDisplayName": "Cardinals",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/ari/arizona-cardinals"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/ari/arizona-cardinals"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 1298,
-            "type": "team",
-            "uid": "s:20~l:28~t:6",
-            "guid": "b0fc8fb7-9dbe-e574-9008-6f0ee7c6b234",
-            "description": "Dallas Cowboys",
-            "sportId": 28,
-            "teamId": 6,
-            "team": {
-              "id": 6,
-              "description": "Dallas Cowboys",
-              "abbreviation": "DAL",
-              "shortDisplayName": "Cowboys",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/dal/dallas-cowboys"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/dal/dallas-cowboys"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 1407,
-            "type": "team",
-            "uid": "s:20~l:28~t:21",
-            "guid": "d1a9b001-1df7-fbd7-ae4c-6ca7065286ec",
-            "description": "Philadelphia Eagles",
-            "sportId": 28,
-            "teamId": 21,
-            "team": {
-              "id": 21,
-              "description": "Philadelphia Eagles",
-              "abbreviation": "PHI",
-              "shortDisplayName": "Eagles",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/phi/philadelphia-eagles"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/phi/philadelphia-eagles"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 1750,
-            "type": "team",
-            "uid": "s:20~l:28~t:3",
-            "guid": "19d73366-b5a5-cca2-a176-a2c024ce0bb3",
-            "description": "Chicago Bears",
-            "sportId": 28,
-            "teamId": 3,
-            "team": {
-              "id": 3,
-              "description": "Chicago Bears",
-              "abbreviation": "CHI",
-              "shortDisplayName": "Bears",
-              "links": {
-                "mobile": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/chi/chicago-bears"
-                  }
-                },
-                "web": {
-                  "teams": {
-                    "href": "https://www.espn.com/nfl/team/_/name/chi/chicago-bears"
-                  }
-                }
-              }
-            }
-          },
-          {
-            "id": 701887,
-            "type": "contributor",
-            "guid": "3139123a-2bc7-3127-b40d-448cdb859378",
-            "description": "ESPN Staff Profile",
-            "slug": "espn-staff-profile",
-            "contributor": {
-              "id": 2462,
-              "description": "ESPN Staff Profile"
-            }
-          }
-        ],
-        "byline": "ESPN Staff",
-        "links": {
-          "api": {
-            "self": {
-              "href": "https://content.core.api.espn.com/v1/sports/news/50079780"
-            }
-          },
-          "app": {
-            "sportscenter": {
-              "href": "sportscenter://x-callback-url/showStory?uid=50079780"
-            }
-          },
-          "mobile": {
-            "href": "http://m.espn.go.com/nfl/story?storyId=50079780"
-          },
-          "web": {
-            "href": "https://www.espn.com/nfl/story/_/id/50079780/nfl-week-4-fashionable-arrivals"
-          }
-        },
-        "premium": false
-      }
-    ]
-  },
   "scoringPlays": [
     {
       "id": "401872926301",
@@ -26724,933 +25271,1272 @@
       }
     }
   ],
-  "winprobability": [
-    {
-      "homeWinPercentage": 0.798,
-      "tiePercentage": 0,
-      "playId": "4018729261"
-    },
-    {
-      "homeWinPercentage": 0.7818,
-      "tiePercentage": 0,
-      "playId": "40187292639"
-    },
-    {
-      "homeWinPercentage": 0.7543,
-      "tiePercentage": 0,
-      "playId": "40187292662"
-    },
-    {
-      "homeWinPercentage": 0.7648,
-      "tiePercentage": 0,
-      "playId": "40187292687"
-    },
-    {
-      "homeWinPercentage": 0.7753,
-      "tiePercentage": 0,
-      "playId": "401872926109"
-    },
-    {
-      "homeWinPercentage": 0.733,
-      "tiePercentage": 0,
-      "playId": "401872926132"
-    },
-    {
-      "homeWinPercentage": 0.7258,
-      "tiePercentage": 0,
-      "playId": "401872926154"
-    },
-    {
-      "homeWinPercentage": 0.7075,
-      "tiePercentage": 0,
-      "playId": "401872926181"
-    },
-    {
-      "homeWinPercentage": 0.7097,
-      "tiePercentage": 0,
-      "playId": "401872926203"
-    },
-    {
-      "homeWinPercentage": 0.7309,
-      "tiePercentage": 0,
-      "playId": "401872926225"
-    },
-    {
-      "homeWinPercentage": 0.6994,
-      "tiePercentage": 0,
-      "playId": "401872926247"
-    },
-    {
-      "homeWinPercentage": 0.7,
-      "tiePercentage": 0,
-      "playId": "401872926260"
-    },
-    {
-      "homeWinPercentage": 0.6959,
-      "tiePercentage": 0,
-      "playId": "401872926272"
-    },
-    {
-      "homeWinPercentage": 0.6489,
-      "tiePercentage": 0,
-      "playId": "401872926301"
-    },
-    {
-      "homeWinPercentage": 0.6464,
-      "tiePercentage": 0,
-      "playId": "401872926327"
-    },
-    {
-      "homeWinPercentage": 0.6477,
-      "tiePercentage": 0,
-      "playId": "401872926334"
-    },
-    {
-      "homeWinPercentage": 0.6371,
-      "tiePercentage": 0,
-      "playId": "401872926364"
-    },
-    {
-      "homeWinPercentage": 0.6712,
-      "tiePercentage": 0,
-      "playId": "401872926386"
-    },
-    {
-      "homeWinPercentage": 0.6492,
-      "tiePercentage": 0,
-      "playId": "401872926411"
-    },
-    {
-      "homeWinPercentage": 0.6987,
-      "tiePercentage": 0,
-      "playId": "401872926433"
-    },
-    {
-      "homeWinPercentage": 0.7289,
-      "tiePercentage": 0,
-      "playId": "401872926458"
-    },
-    {
-      "homeWinPercentage": 0.7139,
-      "tiePercentage": 0,
-      "playId": "401872926483"
-    },
-    {
-      "homeWinPercentage": 0.7257,
-      "tiePercentage": 0,
-      "playId": "401872926505"
-    },
-    {
-      "homeWinPercentage": 0.7642,
-      "tiePercentage": 0,
-      "playId": "401872926527"
-    },
-    {
-      "homeWinPercentage": 0.7659,
-      "tiePercentage": 0,
-      "playId": "401872926553"
-    },
-    {
-      "homeWinPercentage": 0.758,
-      "tiePercentage": 0,
-      "playId": "401872926560"
-    },
-    {
-      "homeWinPercentage": 0.7702,
-      "tiePercentage": 0,
-      "playId": "401872926590"
-    },
-    {
-      "homeWinPercentage": 0.744,
-      "tiePercentage": 0,
-      "playId": "401872926612"
-    },
-    {
-      "homeWinPercentage": 0.7755,
-      "tiePercentage": 0,
-      "playId": "401872926637"
-    },
-    {
-      "homeWinPercentage": 0.7315,
-      "tiePercentage": 0,
-      "playId": "401872926678"
-    },
-    {
-      "homeWinPercentage": 0.7177,
-      "tiePercentage": 0,
-      "playId": "401872926703"
-    },
-    {
-      "homeWinPercentage": 0.7339,
-      "tiePercentage": 0,
-      "playId": "401872926728"
-    },
-    {
-      "homeWinPercentage": 0.7181,
-      "tiePercentage": 0,
-      "playId": "401872926753"
-    },
-    {
-      "homeWinPercentage": 0.7161,
-      "tiePercentage": 0,
-      "playId": "401872926778"
-    },
-    {
-      "homeWinPercentage": 0.7527,
-      "tiePercentage": 0,
-      "playId": "401872926798"
-    },
-    {
-      "homeWinPercentage": 0.7916,
-      "tiePercentage": 0,
-      "playId": "401872926821"
-    },
-    {
-      "homeWinPercentage": 0.7991,
-      "tiePercentage": 0,
-      "playId": "401872926832"
-    },
-    {
-      "homeWinPercentage": 0.8127,
-      "tiePercentage": 0,
-      "playId": "401872926842"
-    },
-    {
-      "homeWinPercentage": 0.8246,
-      "tiePercentage": 0,
-      "playId": "401872926871"
-    },
-    {
-      "homeWinPercentage": 0.8099,
-      "tiePercentage": 0,
-      "playId": "401872926901"
-    },
-    {
-      "homeWinPercentage": 0.7349,
-      "tiePercentage": 0,
-      "playId": "401872926924"
-    },
-    {
-      "homeWinPercentage": 0.7341,
-      "tiePercentage": 0,
-      "playId": "401872926943"
-    },
-    {
-      "homeWinPercentage": 0.7146,
-      "tiePercentage": 0,
-      "playId": "401872926962"
-    },
-    {
-      "homeWinPercentage": 0.7312,
-      "tiePercentage": 0,
-      "playId": "401872926994"
-    },
-    {
-      "homeWinPercentage": 0.7035,
-      "tiePercentage": 0,
-      "playId": "4018729261018"
-    },
-    {
-      "homeWinPercentage": 0.7064,
-      "tiePercentage": 0,
-      "playId": "4018729261045"
-    },
-    {
-      "homeWinPercentage": 0.681,
-      "tiePercentage": 0,
-      "playId": "4018729261072"
-    },
-    {
-      "homeWinPercentage": 0.6787,
-      "tiePercentage": 0,
-      "playId": "4018729261094"
-    },
-    {
-      "homeWinPercentage": 0.6778,
-      "tiePercentage": 0,
-      "playId": "4018729261105"
-    },
-    {
-      "homeWinPercentage": 0.7099,
-      "tiePercentage": 0,
-      "playId": "4018729261116"
-    },
-    {
-      "homeWinPercentage": 0.7132,
-      "tiePercentage": 0,
-      "playId": "4018729261150"
-    },
-    {
-      "homeWinPercentage": 0.6967,
-      "tiePercentage": 0,
-      "playId": "4018729261172"
-    },
-    {
-      "homeWinPercentage": 0.6418,
-      "tiePercentage": 0,
-      "playId": "4018729261197"
-    },
-    {
-      "homeWinPercentage": 0.6482,
-      "tiePercentage": 0,
-      "playId": "4018729261222"
-    },
-    {
-      "homeWinPercentage": 0.6358,
-      "tiePercentage": 0,
-      "playId": "4018729261244"
-    },
-    {
-      "homeWinPercentage": 0.6928,
-      "tiePercentage": 0,
-      "playId": "4018729261269"
-    },
-    {
-      "homeWinPercentage": 0.6843,
-      "tiePercentage": 0,
-      "playId": "4018729261299"
-    },
-    {
-      "homeWinPercentage": 0.6843,
-      "tiePercentage": 0,
-      "playId": "4018729261311"
-    },
-    {
-      "homeWinPercentage": 0.6831,
-      "tiePercentage": 0,
-      "playId": "4018729261322"
-    },
-    {
-      "homeWinPercentage": 0.6364,
-      "tiePercentage": 0,
-      "playId": "4018729261363"
-    },
-    {
-      "homeWinPercentage": 0.699,
-      "tiePercentage": 0,
-      "playId": "4018729261399"
-    },
-    {
-      "homeWinPercentage": 0.6878,
-      "tiePercentage": 0,
-      "playId": "4018729261433"
-    },
-    {
-      "homeWinPercentage": 0.7175,
-      "tiePercentage": 0,
-      "playId": "4018729261455"
-    },
-    {
-      "homeWinPercentage": 0.7027,
-      "tiePercentage": 0,
-      "playId": "4018729261480"
-    },
-    {
-      "homeWinPercentage": 0.7595,
-      "tiePercentage": 0,
-      "playId": "4018729261502"
-    },
-    {
-      "homeWinPercentage": 0.7863,
-      "tiePercentage": 0,
-      "playId": "4018729261527"
-    },
-    {
-      "homeWinPercentage": 0.7755,
-      "tiePercentage": 0,
-      "playId": "4018729261549"
-    },
-    {
-      "homeWinPercentage": 0.748,
-      "tiePercentage": 0,
-      "playId": "4018729261574"
-    },
-    {
-      "homeWinPercentage": 0.73,
-      "tiePercentage": 0,
-      "playId": "4018729261596"
-    },
-    {
-      "homeWinPercentage": 0.709,
-      "tiePercentage": 0,
-      "playId": "4018729261619"
-    },
-    {
-      "homeWinPercentage": 0.7084,
-      "tiePercentage": 0,
-      "playId": "4018729261630"
-    },
-    {
-      "homeWinPercentage": 0.6494,
-      "tiePercentage": 0,
-      "playId": "4018729261641"
-    },
-    {
-      "homeWinPercentage": 0.6453,
-      "tiePercentage": 0,
-      "playId": "4018729261655"
-    },
-    {
-      "homeWinPercentage": 0.6335,
-      "tiePercentage": 0,
-      "playId": "4018729261668"
-    },
-    {
-      "homeWinPercentage": 0.6174,
-      "tiePercentage": 0,
-      "playId": "4018729261697"
-    },
-    {
-      "homeWinPercentage": 0.5856,
-      "tiePercentage": 0,
-      "playId": "4018729261722"
-    },
-    {
-      "homeWinPercentage": 0.5621,
-      "tiePercentage": 0,
-      "playId": "4018729261747"
-    },
-    {
-      "homeWinPercentage": 0.5423,
-      "tiePercentage": 0,
-      "playId": "4018729261781"
-    },
-    {
-      "homeWinPercentage": 0.5465,
-      "tiePercentage": 0,
-      "playId": "4018729261794"
-    },
-    {
-      "homeWinPercentage": 0.5554,
-      "tiePercentage": 0,
-      "playId": "4018729261806"
-    },
-    {
-      "homeWinPercentage": 0.5258,
-      "tiePercentage": 0,
-      "playId": "4018729261836"
-    },
-    {
-      "homeWinPercentage": 0.5306,
-      "tiePercentage": 0,
-      "playId": "4018729261849"
-    },
-    {
-      "homeWinPercentage": 0.5406,
-      "tiePercentage": 0,
-      "playId": "4018729261861"
-    },
-    {
-      "homeWinPercentage": 0.5408,
-      "tiePercentage": 0,
-      "playId": "4018729261876"
-    },
-    {
-      "homeWinPercentage": 0.5721,
-      "tiePercentage": 0,
-      "playId": "4018729261891"
-    },
-    {
-      "homeWinPercentage": 0.5771,
-      "tiePercentage": 0,
-      "playId": "4018729261932"
-    },
-    {
-      "homeWinPercentage": 0.5396,
-      "tiePercentage": 0,
-      "playId": "4018729261952"
-    },
-    {
-      "homeWinPercentage": 0.5833,
-      "tiePercentage": 0,
-      "playId": "4018729261970"
-    },
-    {
-      "homeWinPercentage": 0.5817,
-      "tiePercentage": 0,
-      "playId": "4018729261993"
-    },
-    {
-      "homeWinPercentage": 0.5836,
-      "tiePercentage": 0,
-      "playId": "4018729262018"
-    },
-    {
-      "homeWinPercentage": 0.5706,
-      "tiePercentage": 0,
-      "playId": "4018729262029"
-    },
-    {
-      "homeWinPercentage": 0.5746,
-      "tiePercentage": 0,
-      "playId": "4018729262040"
-    },
-    {
-      "homeWinPercentage": 0.5433,
-      "tiePercentage": 0,
-      "playId": "4018729262080"
-    },
-    {
-      "homeWinPercentage": 0.5463,
-      "tiePercentage": 0,
-      "playId": "4018729262109"
-    },
-    {
-      "homeWinPercentage": 0.4986,
-      "tiePercentage": 0,
-      "playId": "4018729262131"
-    },
-    {
-      "homeWinPercentage": 0.5299,
-      "tiePercentage": 0,
-      "playId": "4018729262154"
-    },
-    {
-      "homeWinPercentage": 0.5289,
-      "tiePercentage": 0,
-      "playId": "4018729262164"
-    },
-    {
-      "homeWinPercentage": 0.5379,
-      "tiePercentage": 0,
-      "playId": "4018729262174"
-    },
-    {
-      "homeWinPercentage": 0.448,
-      "tiePercentage": 0,
-      "playId": "4018729262203"
-    },
-    {
-      "homeWinPercentage": 0.4705,
-      "tiePercentage": 0,
-      "playId": "4018729262228"
-    },
-    {
-      "homeWinPercentage": 0.4076,
-      "tiePercentage": 0,
-      "playId": "4018729262252"
-    },
-    {
-      "homeWinPercentage": 0.3674,
-      "tiePercentage": 0,
-      "playId": "4018729262277"
-    },
-    {
-      "homeWinPercentage": 0.3228,
-      "tiePercentage": 0,
-      "playId": "4018729262302"
-    },
-    {
-      "homeWinPercentage": 0.3584,
-      "tiePercentage": 0,
-      "playId": "4018729262324"
-    },
-    {
-      "homeWinPercentage": 0.3685,
-      "tiePercentage": 0,
-      "playId": "4018729262346"
-    },
-    {
-      "homeWinPercentage": 0.3908,
-      "tiePercentage": 0,
-      "playId": "4018729262369"
-    },
-    {
-      "homeWinPercentage": 0.3637,
-      "tiePercentage": 0,
-      "playId": "4018729262392"
-    },
-    {
-      "homeWinPercentage": 0.3637,
-      "tiePercentage": 0,
-      "playId": "4018729262402"
-    },
-    {
-      "homeWinPercentage": 0.4048,
-      "tiePercentage": 0,
-      "playId": "4018729262412"
-    },
-    {
-      "homeWinPercentage": 0.5227,
-      "tiePercentage": 0,
-      "playId": "4018729262435"
-    },
-    {
-      "homeWinPercentage": 0.4989,
-      "tiePercentage": 0,
-      "playId": "4018729262481"
-    },
-    {
-      "homeWinPercentage": 0.4937,
-      "tiePercentage": 0,
-      "playId": "4018729262503"
-    },
-    {
-      "homeWinPercentage": 0.6044,
-      "tiePercentage": 0,
-      "playId": "4018729262530"
-    },
-    {
-      "homeWinPercentage": 0.6077,
-      "tiePercentage": 0,
-      "playId": "4018729262559"
-    },
-    {
-      "homeWinPercentage": 0.609,
-      "tiePercentage": 0,
-      "playId": "4018729262566"
-    },
-    {
-      "homeWinPercentage": 0.6333,
-      "tiePercentage": 0,
-      "playId": "4018729262596"
-    },
-    {
-      "homeWinPercentage": 0.6137,
-      "tiePercentage": 0,
-      "playId": "4018729262619"
-    },
-    {
-      "homeWinPercentage": 0.5611,
-      "tiePercentage": 0,
-      "playId": "4018729262644"
-    },
-    {
-      "homeWinPercentage": 0.565,
-      "tiePercentage": 0,
-      "playId": "4018729262680"
-    },
-    {
-      "homeWinPercentage": 0.5288,
-      "tiePercentage": 0,
-      "playId": "4018729262702"
-    },
-    {
-      "homeWinPercentage": 0.5697,
-      "tiePercentage": 0,
-      "playId": "4018729262727"
-    },
-    {
-      "homeWinPercentage": 0.5783,
-      "tiePercentage": 0,
-      "playId": "4018729262751"
-    },
-    {
-      "homeWinPercentage": 0.5917,
-      "tiePercentage": 0,
-      "playId": "4018729262781"
-    },
-    {
-      "homeWinPercentage": 0.5991,
-      "tiePercentage": 0,
-      "playId": "4018729262804"
-    },
-    {
-      "homeWinPercentage": 0.5841,
-      "tiePercentage": 0,
-      "playId": "4018729262829"
-    },
-    {
-      "homeWinPercentage": 0.5833,
-      "tiePercentage": 0,
-      "playId": "4018729262839"
-    },
-    {
-      "homeWinPercentage": 0.6008,
-      "tiePercentage": 0,
-      "playId": "4018729262849"
-    },
-    {
-      "homeWinPercentage": 0.6092,
-      "tiePercentage": 0,
-      "playId": "4018729262886"
-    },
-    {
-      "homeWinPercentage": 0.5604,
-      "tiePercentage": 0,
-      "playId": "4018729262908"
-    },
-    {
-      "homeWinPercentage": 0.5485,
-      "tiePercentage": 0,
-      "playId": "4018729262932"
-    },
-    {
-      "homeWinPercentage": 0.5311,
-      "tiePercentage": 0,
-      "playId": "4018729262955"
-    },
-    {
-      "homeWinPercentage": 0.5122,
-      "tiePercentage": 0,
-      "playId": "4018729262977"
-    },
-    {
-      "homeWinPercentage": 0.5113,
-      "tiePercentage": 0,
-      "playId": "4018729262989"
-    },
-    {
-      "homeWinPercentage": 0.5393,
-      "tiePercentage": 0,
-      "playId": "4018729263000"
-    },
-    {
-      "homeWinPercentage": 0.5675,
-      "tiePercentage": 0,
-      "playId": "4018729263035"
-    },
-    {
-      "homeWinPercentage": 0.5661,
-      "tiePercentage": 0,
-      "playId": "4018729263057"
-    },
-    {
-      "homeWinPercentage": 0.5535,
-      "tiePercentage": 0,
-      "playId": "4018729263077"
-    },
-    {
-      "homeWinPercentage": 0.5897,
-      "tiePercentage": 0,
-      "playId": "4018729263102"
-    },
-    {
-      "homeWinPercentage": 0.5881,
-      "tiePercentage": 0,
-      "playId": "4018729263115"
-    },
-    {
-      "homeWinPercentage": 0.5779,
-      "tiePercentage": 0,
-      "playId": "4018729263127"
-    },
-    {
-      "homeWinPercentage": 0.5222,
-      "tiePercentage": 0,
-      "playId": "4018729263155"
-    },
-    {
-      "homeWinPercentage": 0.5155,
-      "tiePercentage": 0,
-      "playId": "4018729263175"
-    },
-    {
-      "homeWinPercentage": 0.4798,
-      "tiePercentage": 0,
-      "playId": "4018729263200"
-    },
-    {
-      "homeWinPercentage": 0.2911,
-      "tiePercentage": 0,
-      "playId": "4018729263223"
-    },
-    {
-      "homeWinPercentage": 0.3064,
-      "tiePercentage": 0,
-      "playId": "4018729263261"
-    },
-    {
-      "homeWinPercentage": 0.2208,
-      "tiePercentage": 0,
-      "playId": "4018729263285"
-    },
-    {
-      "homeWinPercentage": 0.2033,
-      "tiePercentage": 0,
-      "playId": "4018729263324"
-    },
-    {
-      "homeWinPercentage": 0.2438,
-      "tiePercentage": 0,
-      "playId": "4018729263347"
-    },
-    {
-      "homeWinPercentage": 0.218,
-      "tiePercentage": 0,
-      "playId": "4018729263372"
-    },
-    {
-      "homeWinPercentage": 0.237,
-      "tiePercentage": 0,
-      "playId": "4018729263394"
-    },
-    {
-      "homeWinPercentage": 0.1889,
-      "tiePercentage": 0,
-      "playId": "4018729263419"
-    },
-    {
-      "homeWinPercentage": 0.1856,
-      "tiePercentage": 0,
-      "playId": "4018729263443"
-    },
-    {
-      "homeWinPercentage": 0.2028,
-      "tiePercentage": 0,
-      "playId": "4018729263467"
-    },
-    {
-      "homeWinPercentage": 0.1855,
-      "tiePercentage": 0,
-      "playId": "4018729263496"
-    },
-    {
-      "homeWinPercentage": 0.1334,
-      "tiePercentage": 0,
-      "playId": "4018729263518"
-    },
-    {
-      "homeWinPercentage": 0.1048,
-      "tiePercentage": 0,
-      "playId": "4018729263543"
-    },
-    {
-      "homeWinPercentage": 0.0753,
-      "tiePercentage": 0,
-      "playId": "4018729263565"
-    },
-    {
-      "homeWinPercentage": 0.0718,
-      "tiePercentage": 0,
-      "playId": "4018729263587"
-    },
-    {
-      "homeWinPercentage": 0.0543,
-      "tiePercentage": 0,
-      "playId": "4018729263609"
-    },
-    {
-      "homeWinPercentage": 0.0791,
-      "tiePercentage": 0,
-      "playId": "4018729263631"
-    },
-    {
-      "homeWinPercentage": 0.0641,
-      "tiePercentage": 0,
-      "playId": "4018729263660"
-    },
-    {
-      "homeWinPercentage": 0.0854,
-      "tiePercentage": 0,
-      "playId": "4018729263686"
-    },
-    {
-      "homeWinPercentage": 0.0593,
-      "tiePercentage": 0,
-      "playId": "4018729263713"
-    },
-    {
-      "homeWinPercentage": 0.0378,
-      "tiePercentage": 0,
-      "playId": "4018729263736"
-    },
-    {
-      "homeWinPercentage": 0.025,
-      "tiePercentage": 0,
-      "playId": "4018729263760"
-    },
-    {
-      "homeWinPercentage": 0.0187,
-      "tiePercentage": 0,
-      "playId": "4018729263784"
-    },
-    {
-      "homeWinPercentage": 0.014,
-      "tiePercentage": 0,
-      "playId": "4018729263821"
-    },
-    {
-      "homeWinPercentage": 0.0082,
-      "tiePercentage": 0,
-      "playId": "4018729263835"
-    },
-    {
-      "homeWinPercentage": 0.0101,
-      "tiePercentage": 0,
-      "playId": "4018729263849"
-    },
-    {
-      "homeWinPercentage": 0.0095,
-      "tiePercentage": 0,
-      "playId": "4018729263881"
-    },
-    {
-      "homeWinPercentage": 0.0249,
-      "tiePercentage": 0,
-      "playId": "4018729263917"
-    },
-    {
-      "homeWinPercentage": 0.0223,
-      "tiePercentage": 0,
-      "playId": "4018729263928"
-    },
-    {
-      "homeWinPercentage": 0.0238,
-      "tiePercentage": 0,
-      "playId": "4018729263939"
-    },
-    {
-      "homeWinPercentage": 0.0279,
-      "tiePercentage": 0,
-      "playId": "4018729263968"
-    },
-    {
-      "homeWinPercentage": 0.0064,
-      "tiePercentage": 0,
-      "playId": "4018729263990"
-    },
-    {
-      "homeWinPercentage": 0.0109,
-      "tiePercentage": 0,
-      "playId": "4018729264010"
-    },
-    {
-      "homeWinPercentage": 0.0037,
-      "tiePercentage": 0,
-      "playId": "4018729264027"
-    },
-    {
-      "homeWinPercentage": 0.0011,
-      "tiePercentage": 0,
-      "playId": "4018729264047"
-    },
-    {
-      "homeWinPercentage": 0.003,
-      "tiePercentage": 0,
-      "playId": "4018729264070"
-    },
-    {
-      "homeWinPercentage": 0.0024,
-      "tiePercentage": 0,
-      "playId": "4018729264083"
-    },
-    {
-      "homeWinPercentage": 0.001,
-      "tiePercentage": 0,
-      "playId": "4018729264095"
-    },
-    {
-      "homeWinPercentage": 0.001,
-      "tiePercentage": 0,
-      "playId": "4018729264127"
-    },
-    {
-      "homeWinPercentage": 0.001,
-      "tiePercentage": 0,
-      "playId": "4018729264149"
-    },
-    {
-      "homeWinPercentage": 0.001,
-      "tiePercentage": 0,
-      "playId": "4018729264171"
-    },
-    {
-      "homeWinPercentage": 0,
-      "tiePercentage": 0,
-      "playId": "4018729264193"
-    }
-  ],
+  "news": {
+    "header": "NFL News",
+    "link": {
+      "language": "en",
+      "rel": [
+        "index",
+        "desktop",
+        "league"
+      ],
+      "href": "https://www.espn.com/nfl/",
+      "text": "All NFL News",
+      "shortText": "All News",
+      "isExternal": false,
+      "isPremium": false
+    },
+    "articles": [
+      {
+        "id": 50253430,
+        "nowId": "1-50253430",
+        "contentKey": "50253430-1-22-1",
+        "dataSourceIdentifier": "67c440396ab20",
+        "type": "Preview",
+        "headline": "A battered Rams team faces a near must-win at Las Vegas",
+        "description": "— The tone for the Rams' season was set from the beginning when they ",
+        "lastModified": "2026-10-23T00:25:09Z",
+        "published": "2026-10-23T00:25:09Z",
+        "images": [
+          {
+            "type": "stitcher",
+            "name": "espn.applewatch.awayhome.1",
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.applewatch.awayhome.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.applewatch.homeaway.1",
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.applewatch.homeaway.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.16x9.1",
+            "ratio": "16x9",
+            "height": 173,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.all.awayhome.16x9.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.16x9.1",
+            "ratio": "16x9",
+            "height": 173,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.all.homeaway.16x9.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.1x1.1",
+            "ratio": "1x1",
+            "height": 308,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.all.awayhome.1x1.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.1x1.1",
+            "ratio": "1x1",
+            "height": 308,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.all.homeaway.1x1.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.5x2.1",
+            "ratio": "5x2",
+            "height": 124,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.all.awayhome.5x2.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.5x2.1",
+            "ratio": "5x2",
+            "height": 124,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.all.homeaway.5x2.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.16x9.2",
+            "ratio": "16x9",
+            "height": 353,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.all.awayhome.16x9.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.16x9.2",
+            "ratio": "16x9",
+            "height": 353,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.all.homeaway.16x9.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.5x2.2",
+            "ratio": "5x2",
+            "height": 251,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.all.awayhome.5x2.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.5x2.2",
+            "ratio": "5x2",
+            "height": 251,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873021.png?templateId=espn.all.homeaway.5x2.2"
+          }
+        ],
+        "categories": [
+          {
+            "id": 9572,
+            "type": "league",
+            "uid": "s:20~l:28",
+            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
+            "description": "NFL",
+            "sportId": 28,
+            "leagueId": 28,
+            "league": {
+              "id": 28,
+              "description": "NFL",
+              "abbreviation": "NFL",
+              "links": {
+                "mobile": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                },
+                "web": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 2553,
+            "type": "team",
+            "uid": "s:20~l:28~t:13",
+            "guid": "b18540eb-6f2b-534c-e7f9-9bd930518da9",
+            "description": "Las Vegas Raiders",
+            "sportId": 28,
+            "teamId": 13,
+            "team": {
+              "id": 13,
+              "description": "Las Vegas Raiders",
+              "abbreviation": "LV",
+              "shortDisplayName": "Raiders",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/lv/las-vegas-raiders"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/lv/las-vegas-raiders"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 1519,
+            "type": "team",
+            "uid": "s:20~l:28~t:14",
+            "guid": "2e1473b2-e269-fd7a-1137-c1edacb85986",
+            "description": "Los Angeles Rams",
+            "sportId": 28,
+            "teamId": 14,
+            "team": {
+              "id": 14,
+              "description": "Los Angeles Rams",
+              "abbreviation": "LAR",
+              "shortDisplayName": "Rams",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/lar/los-angeles-rams"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/lar/los-angeles-rams"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "event",
+            "uid": "s:20~l:28~e:401873021",
+            "guid": "70f9540a-f8ce-31e2-8658-1ef8269cd0d7",
+            "description": "Los Angeles Rams @ Las Vegas Raiders",
+            "eventId": 401873021,
+            "event": {
+              "id": 401873021,
+              "sport": "football",
+              "league": "nfl",
+              "description": "Los Angeles Rams @ Las Vegas Raiders"
+            }
+          }
+        ],
+        "links": {
+          "api": {
+            "self": {
+              "href": "https://content.core.api.espn.com/v1/sports/news/50253430"
+            }
+          },
+          "app": {
+            "sportscenter": {
+              "href": "sportscenter://x-callback-url/showStory?uid=50253430"
+            }
+          },
+          "mobile": {
+            "href": "http://m.espn.go.com/nfl/story?storyId=50253430"
+          },
+          "web": {
+            "href": "http://www.espn.com/nfl/preview?gameId=401873021"
+          }
+        },
+        "premium": false
+      },
+      {
+        "id": 50253313,
+        "nowId": "1-50253313",
+        "contentKey": "50253313-1-22-1",
+        "dataSourceIdentifier": "c454d9cb777b9",
+        "type": "Preview",
+        "headline": "Eagles still trying to salvage NFC East crown without Hurts as they host Cowboys on Monday night",
+        "description": "— Tanner McKee spent most of his two seasons widely considered one of the top young backup quarterbacks in the NFL.",
+        "lastModified": "2026-10-23T00:03:25Z",
+        "published": "2026-10-23T00:03:25Z",
+        "images": [
+          {
+            "type": "stitcher",
+            "name": "espn.applewatch.awayhome.1",
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.applewatch.awayhome.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.applewatch.homeaway.1",
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.applewatch.homeaway.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.16x9.1",
+            "ratio": "16x9",
+            "height": 173,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.all.awayhome.16x9.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.16x9.1",
+            "ratio": "16x9",
+            "height": 173,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.all.homeaway.16x9.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.1x1.1",
+            "ratio": "1x1",
+            "height": 308,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.all.awayhome.1x1.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.1x1.1",
+            "ratio": "1x1",
+            "height": 308,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.all.homeaway.1x1.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.5x2.1",
+            "ratio": "5x2",
+            "height": 124,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.all.awayhome.5x2.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.5x2.1",
+            "ratio": "5x2",
+            "height": 124,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.all.homeaway.5x2.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.16x9.2",
+            "ratio": "16x9",
+            "height": 353,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.all.awayhome.16x9.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.16x9.2",
+            "ratio": "16x9",
+            "height": 353,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.all.homeaway.16x9.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.5x2.2",
+            "ratio": "5x2",
+            "height": 251,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.all.awayhome.5x2.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.5x2.2",
+            "ratio": "5x2",
+            "height": 251,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873009.png?templateId=espn.all.homeaway.5x2.2"
+          },
+          {
+            "type": "Media",
+            "name": "Why Stephen A. expects Cowboys to beat 'anemic' Eagles",
+            "caption": "Why Stephen A. expects Cowboys to beat 'anemic' Eagles  ",
+            "height": 324,
+            "width": 576,
+            "url": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1022/ss_20261022_104208526_3705792647/ss_20261022_104208526_3705792647.jpg"
+          }
+        ],
+        "categories": [
+          {
+            "id": 9572,
+            "type": "league",
+            "uid": "s:20~l:28",
+            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
+            "description": "NFL",
+            "sportId": 28,
+            "leagueId": 28,
+            "league": {
+              "id": 28,
+              "description": "NFL",
+              "abbreviation": "NFL",
+              "links": {
+                "mobile": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                },
+                "web": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 1407,
+            "type": "team",
+            "uid": "s:20~l:28~t:21",
+            "guid": "d1a9b001-1df7-fbd7-ae4c-6ca7065286ec",
+            "description": "Philadelphia Eagles",
+            "sportId": 28,
+            "teamId": 21,
+            "team": {
+              "id": 21,
+              "description": "Philadelphia Eagles",
+              "abbreviation": "PHI",
+              "shortDisplayName": "Eagles",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/phi/philadelphia-eagles"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/phi/philadelphia-eagles"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 1298,
+            "type": "team",
+            "uid": "s:20~l:28~t:6",
+            "guid": "b0fc8fb7-9dbe-e574-9008-6f0ee7c6b234",
+            "description": "Dallas Cowboys",
+            "sportId": 28,
+            "teamId": 6,
+            "team": {
+              "id": 6,
+              "description": "Dallas Cowboys",
+              "abbreviation": "DAL",
+              "shortDisplayName": "Cowboys",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/dal/dallas-cowboys"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/dal/dallas-cowboys"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "event",
+            "uid": "s:20~l:28~e:401873009",
+            "guid": "b109f6b3-d0d3-3f8a-aef0-fe053a87606b",
+            "description": "Dallas Cowboys @ Philadelphia Eagles",
+            "eventId": 401873009,
+            "event": {
+              "id": 401873009,
+              "sport": "football",
+              "league": "nfl",
+              "description": "Dallas Cowboys @ Philadelphia Eagles"
+            }
+          }
+        ],
+        "links": {
+          "api": {
+            "self": {
+              "href": "https://content.core.api.espn.com/v1/sports/news/50253313"
+            }
+          },
+          "app": {
+            "sportscenter": {
+              "href": "sportscenter://x-callback-url/showStory?uid=50253313"
+            }
+          },
+          "mobile": {
+            "href": "http://m.espn.go.com/nfl/story?storyId=50253313"
+          },
+          "web": {
+            "href": "http://www.espn.com/nfl/preview?gameId=401873009"
+          }
+        },
+        "premium": false
+      },
+      {
+        "id": 50253264,
+        "nowId": "1-50253264",
+        "contentKey": "50253264-1-22-1",
+        "dataSourceIdentifier": "2b26e7453124b",
+        "type": "Preview",
+        "headline": "Trey Hendrickson is set to face the Bengals for the first time since signing with Baltimore",
+        "description": "— Trey Hendrickson is finally looking healthier — just in time for a matchup with his former team.",
+        "lastModified": "2026-10-22T23:47:08Z",
+        "published": "2026-10-22T23:47:08Z",
+        "images": [
+          {
+            "type": "stitcher",
+            "name": "espn.applewatch.awayhome.1",
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.applewatch.awayhome.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.applewatch.homeaway.1",
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.applewatch.homeaway.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.16x9.1",
+            "ratio": "16x9",
+            "height": 173,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.all.awayhome.16x9.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.16x9.1",
+            "ratio": "16x9",
+            "height": 173,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.all.homeaway.16x9.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.1x1.1",
+            "ratio": "1x1",
+            "height": 308,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.all.awayhome.1x1.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.1x1.1",
+            "ratio": "1x1",
+            "height": 308,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.all.homeaway.1x1.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.5x2.1",
+            "ratio": "5x2",
+            "height": 124,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.all.awayhome.5x2.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.5x2.1",
+            "ratio": "5x2",
+            "height": 124,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.all.homeaway.5x2.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.16x9.2",
+            "ratio": "16x9",
+            "height": 353,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.all.awayhome.16x9.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.16x9.2",
+            "ratio": "16x9",
+            "height": 353,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.all.homeaway.16x9.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.5x2.2",
+            "ratio": "5x2",
+            "height": 251,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.all.awayhome.5x2.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.5x2.2",
+            "ratio": "5x2",
+            "height": 251,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873012.png?templateId=espn.all.homeaway.5x2.2"
+          },
+          {
+            "type": "Media",
+            "name": "What a win over the Ravens would mean for the Bengals",
+            "caption": "What a win over the Ravens would mean for the Bengals",
+            "height": 324,
+            "width": 576,
+            "url": "https://espnmedia-cdn.akamaized.net/espn/media/common/2026/1022/ss_20261022_091642644_3705756571/ss_20261022_091642644_3705756571.jpg"
+          }
+        ],
+        "categories": [
+          {
+            "id": 9572,
+            "type": "league",
+            "uid": "s:20~l:28",
+            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
+            "description": "NFL",
+            "sportId": 28,
+            "leagueId": 28,
+            "league": {
+              "id": 28,
+              "description": "NFL",
+              "abbreviation": "NFL",
+              "links": {
+                "mobile": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                },
+                "web": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 2830,
+            "type": "team",
+            "uid": "s:20~l:28~t:33",
+            "guid": "38248455-3da4-84e4-8090-98b5cc38ffdc",
+            "description": "Baltimore Ravens",
+            "sportId": 28,
+            "teamId": 33,
+            "team": {
+              "id": 33,
+              "description": "Baltimore Ravens",
+              "abbreviation": "BAL",
+              "shortDisplayName": "Ravens",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/bal/baltimore-ravens"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/bal/baltimore-ravens"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 2664,
+            "type": "team",
+            "uid": "s:20~l:28~t:4",
+            "guid": "75b8623b-8926-b411-0476-3d3602b78523",
+            "description": "Cincinnati Bengals",
+            "sportId": 28,
+            "teamId": 4,
+            "team": {
+              "id": 4,
+              "description": "Cincinnati Bengals",
+              "abbreviation": "CIN",
+              "shortDisplayName": "Bengals",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/cin/cincinnati-bengals"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/cin/cincinnati-bengals"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "event",
+            "uid": "s:20~l:28~e:401873012",
+            "guid": "85876773-263a-3c71-8c87-c264ad1ea3d4",
+            "description": "Cincinnati Bengals @ Baltimore Ravens",
+            "eventId": 401873012,
+            "event": {
+              "id": 401873012,
+              "sport": "football",
+              "league": "nfl",
+              "description": "Cincinnati Bengals @ Baltimore Ravens"
+            }
+          }
+        ],
+        "links": {
+          "api": {
+            "self": {
+              "href": "https://content.core.api.espn.com/v1/sports/news/50253264"
+            }
+          },
+          "app": {
+            "sportscenter": {
+              "href": "sportscenter://x-callback-url/showStory?uid=50253264"
+            }
+          },
+          "mobile": {
+            "href": "http://m.espn.go.com/nfl/story?storyId=50253264"
+          },
+          "web": {
+            "href": "http://www.espn.com/nfl/preview?gameId=401873012"
+          }
+        },
+        "premium": false
+      },
+      {
+        "id": 50253179,
+        "nowId": "1-50253179",
+        "contentKey": "50253179-1-6-1",
+        "dataSourceIdentifier": "880a30a238ede",
+        "type": "Story",
+        "headline": "Week 7 NFL TNF highlights: Best plays, moments, TDs, more",
+        "description": "Here's a look at the best plays from the Bears vs. the Patriots on TNF.",
+        "lastModified": "2026-10-22T23:52:28Z",
+        "published": "2026-10-22T23:52:28Z",
+        "images": [
+          {
+            "dataSourceIdentifier": "9219cbdd0bff2",
+            "id": 50197746,
+            "type": "header",
+            "name": "Caleb Williams [1296x729]",
+            "credit": "Michael Reaves/Getty Images",
+            "height": 729,
+            "width": 1296,
+            "url": "https://a.espncdn.com/photo/2026/1016/r1731766_1296x729_16-9.jpg"
+          }
+        ],
+        "categories": [
+          {
+            "id": 9572,
+            "type": "league",
+            "uid": "s:20~l:28",
+            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
+            "description": "NFL",
+            "sportId": 28,
+            "leagueId": 28,
+            "league": {
+              "id": 28,
+              "description": "NFL",
+              "abbreviation": "NFL",
+              "links": {
+                "mobile": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                },
+                "web": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 1750,
+            "type": "team",
+            "uid": "s:20~l:28~t:3",
+            "guid": "19d73366-b5a5-cca2-a176-a2c024ce0bb3",
+            "description": "Chicago Bears",
+            "sportId": 28,
+            "teamId": 3,
+            "team": {
+              "id": 3,
+              "description": "Chicago Bears",
+              "abbreviation": "CHI",
+              "shortDisplayName": "Bears",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/chi/chicago-bears"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/chi/chicago-bears"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 2321,
+            "type": "team",
+            "uid": "s:20~l:28~t:17",
+            "guid": "0078f353-fe3e-67ed-a42c-43cca0568e21",
+            "description": "New England Patriots",
+            "sportId": 28,
+            "teamId": 17,
+            "team": {
+              "id": 17,
+              "description": "New England Patriots",
+              "abbreviation": "NE",
+              "shortDisplayName": "Patriots",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/ne/new-england-patriots"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/ne/new-england-patriots"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 696440,
+            "type": "contributor",
+            "guid": "bdee10fe-a1a2-3ced-87dd-43089bf47931",
+            "description": "Mike Reiss",
+            "slug": "mike-reiss",
+            "contributor": {
+              "id": 1800,
+              "description": "Mike Reiss"
+            }
+          },
+          {
+            "id": 696378,
+            "type": "contributor",
+            "guid": "62542aff-50b7-3753-881e-e1e90708e353",
+            "description": "Courtney Cronin",
+            "slug": "courtney-cronin",
+            "contributor": {
+              "id": 3108,
+              "description": "Courtney Cronin"
+            }
+          }
+        ],
+        "byline": "Mike Reiss and Courtney Cronin",
+        "links": {
+          "api": {
+            "self": {
+              "href": "https://content.core.api.espn.com/v1/sports/news/50253179"
+            }
+          },
+          "app": {
+            "sportscenter": {
+              "href": "sportscenter://x-callback-url/showStory?uid=50253179"
+            }
+          },
+          "mobile": {
+            "href": "http://m.espn.go.com/nfl/story?storyId=50253179"
+          },
+          "web": {
+            "href": "https://www.espn.com/nfl/story/_/id/50253179/week-7-nfl-tnf-highlights-best-plays-moments-touchdowns"
+          }
+        },
+        "premium": false
+      },
+      {
+        "id": 50253140,
+        "nowId": "1-50253140",
+        "contentKey": "50253140-1-22-1",
+        "dataSourceIdentifier": "0c7cfed5fd1f8",
+        "type": "Preview",
+        "headline": "Baker Mayfield set to make return vs. Panthers, looks to turn around struggling Buccaneers",
+        "description": "— The last-place Tampa Bay Buccaneers are in need of a spark.",
+        "lastModified": "2026-10-22T23:24:09Z",
+        "published": "2026-10-22T23:24:09Z",
+        "images": [
+          {
+            "type": "stitcher",
+            "name": "espn.applewatch.awayhome.1",
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.applewatch.awayhome.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.applewatch.homeaway.1",
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.applewatch.homeaway.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.16x9.1",
+            "ratio": "16x9",
+            "height": 173,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.all.awayhome.16x9.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.16x9.1",
+            "ratio": "16x9",
+            "height": 173,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.all.homeaway.16x9.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.1x1.1",
+            "ratio": "1x1",
+            "height": 308,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.all.awayhome.1x1.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.1x1.1",
+            "ratio": "1x1",
+            "height": 308,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.all.homeaway.1x1.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.5x2.1",
+            "ratio": "5x2",
+            "height": 124,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.all.awayhome.5x2.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.5x2.1",
+            "ratio": "5x2",
+            "height": 124,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.all.homeaway.5x2.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.16x9.2",
+            "ratio": "16x9",
+            "height": 353,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.all.awayhome.16x9.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.16x9.2",
+            "ratio": "16x9",
+            "height": 353,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.all.homeaway.16x9.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.5x2.2",
+            "ratio": "5x2",
+            "height": 251,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.all.awayhome.5x2.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.5x2.2",
+            "ratio": "5x2",
+            "height": 251,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873018.png?templateId=espn.all.homeaway.5x2.2"
+          }
+        ],
+        "categories": [
+          {
+            "id": 9572,
+            "type": "league",
+            "uid": "s:20~l:28",
+            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
+            "description": "NFL",
+            "sportId": 28,
+            "leagueId": 28,
+            "league": {
+              "id": 28,
+              "description": "NFL",
+              "abbreviation": "NFL",
+              "links": {
+                "mobile": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                },
+                "web": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 2146,
+            "type": "team",
+            "uid": "s:20~l:28~t:29",
+            "guid": "647c27bf-ab86-550e-5b83-91c29e73e4a9",
+            "description": "Carolina Panthers",
+            "sportId": 28,
+            "teamId": 29,
+            "team": {
+              "id": 29,
+              "description": "Carolina Panthers",
+              "abbreviation": "CAR",
+              "shortDisplayName": "Panthers",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/car/carolina-panthers"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/car/carolina-panthers"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 2091,
+            "type": "team",
+            "uid": "s:20~l:28~t:27",
+            "guid": "13e8b157-a75a-ff24-ae91-fa3d52ddf204",
+            "description": "Tampa Bay Buccaneers",
+            "sportId": 28,
+            "teamId": 27,
+            "team": {
+              "id": 27,
+              "description": "Tampa Bay Buccaneers",
+              "abbreviation": "TB",
+              "shortDisplayName": "Buccaneers",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/tb/tampa-bay-buccaneers"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/tb/tampa-bay-buccaneers"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "event",
+            "uid": "s:20~l:28~e:401873018",
+            "guid": "f2381245-e139-3d2e-8baf-0acdebb4ab4e",
+            "description": "Tampa Bay Buccaneers @ Carolina Panthers",
+            "eventId": 401873018,
+            "event": {
+              "id": 401873018,
+              "sport": "football",
+              "league": "nfl",
+              "description": "Tampa Bay Buccaneers @ Carolina Panthers"
+            }
+          }
+        ],
+        "links": {
+          "api": {
+            "self": {
+              "href": "https://content.core.api.espn.com/v1/sports/news/50253140"
+            }
+          },
+          "app": {
+            "sportscenter": {
+              "href": "sportscenter://x-callback-url/showStory?uid=50253140"
+            }
+          },
+          "mobile": {
+            "href": "http://m.espn.go.com/nfl/story?storyId=50253140"
+          },
+          "web": {
+            "href": "http://www.espn.com/nfl/preview?gameId=401873018"
+          }
+        },
+        "premium": false
+      },
+      {
+        "id": 50253068,
+        "nowId": "1-50253068",
+        "contentKey": "50253068-1-22-1",
+        "dataSourceIdentifier": "16ad5c19a5bce",
+        "type": "Preview",
+        "headline": "Lions kick off quest to win NFC North with 1st division game of year against surging Packers at home",
+        "description": "— The Detroit Lions are kicking off their first of six NFC North games against the Green Bay Packers and Minnesota Vikings in the Motor City over...",
+        "lastModified": "2026-10-22T23:12:09Z",
+        "published": "2026-10-22T23:12:09Z",
+        "images": [
+          {
+            "type": "stitcher",
+            "name": "espn.applewatch.awayhome.1",
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.applewatch.awayhome.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.applewatch.homeaway.1",
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.applewatch.homeaway.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.16x9.1",
+            "ratio": "16x9",
+            "height": 173,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.all.awayhome.16x9.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.16x9.1",
+            "ratio": "16x9",
+            "height": 173,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.all.homeaway.16x9.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.1x1.1",
+            "ratio": "1x1",
+            "height": 308,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.all.awayhome.1x1.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.1x1.1",
+            "ratio": "1x1",
+            "height": 308,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.all.homeaway.1x1.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.5x2.1",
+            "ratio": "5x2",
+            "height": 124,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.all.awayhome.5x2.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.5x2.1",
+            "ratio": "5x2",
+            "height": 124,
+            "width": 308,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.all.homeaway.5x2.1"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.16x9.2",
+            "ratio": "16x9",
+            "height": 353,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.all.awayhome.16x9.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.16x9.2",
+            "ratio": "16x9",
+            "height": 353,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.all.homeaway.16x9.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.awayhome.5x2.2",
+            "ratio": "5x2",
+            "height": 251,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.all.awayhome.5x2.2"
+          },
+          {
+            "type": "stitcher",
+            "name": "espn.all.homeaway.5x2.2",
+            "ratio": "5x2",
+            "height": 251,
+            "width": 628,
+            "url": "https://s.espncdn.com/stitcher/sports/football/nfl/events/401873020.png?templateId=espn.all.homeaway.5x2.2"
+          }
+        ],
+        "categories": [
+          {
+            "id": 9572,
+            "type": "league",
+            "uid": "s:20~l:28",
+            "guid": "ad4c3bd2-ddb6-3f8c-8abf-744855a08fa4",
+            "description": "NFL",
+            "sportId": 28,
+            "leagueId": 28,
+            "league": {
+              "id": 28,
+              "description": "NFL",
+              "abbreviation": "NFL",
+              "links": {
+                "mobile": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                },
+                "web": {
+                  "leagues": {
+                    "href": "https://www.espn.com/nfl/"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 1805,
+            "type": "team",
+            "uid": "s:20~l:28~t:8",
+            "guid": "56caffee-178d-f6f2-a076-b277486b8c32",
+            "description": "Detroit Lions",
+            "sportId": 28,
+            "teamId": 8,
+            "team": {
+              "id": 8,
+              "description": "Detroit Lions",
+              "abbreviation": "DET",
+              "shortDisplayName": "Lions",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/det/detroit-lions"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/det/detroit-lions"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "id": 1861,
+            "type": "team",
+            "uid": "s:20~l:28~t:9",
+            "guid": "06cd3bcf-7a86-53d4-28e7-aa049dd36261",
+            "description": "Green Bay Packers",
+            "sportId": 28,
+            "teamId": 9,
+            "team": {
+              "id": 9,
+              "description": "Green Bay Packers",
+              "abbreviation": "GB",
+              "shortDisplayName": "Packers",
+              "links": {
+                "mobile": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/gb/green-bay-packers"
+                  }
+                },
+                "web": {
+                  "teams": {
+                    "href": "https://www.espn.com/nfl/team/_/name/gb/green-bay-packers"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "event",
+            "uid": "s:20~l:28~e:401873020",
+            "guid": "6851e517-d137-3265-9e44-df6b03859045",
+            "description": "Green Bay Packers @ Detroit Lions",
+            "eventId": 401873020,
+            "event": {
+              "id": 401873020,
+              "sport": "football",
+              "league": "nfl",
+              "description": "Green Bay Packers @ Detroit Lions"
+            }
+          }
+        ],
+        "links": {
+          "api": {
+            "self": {
+              "href": "https://content.core.api.espn.com/v1/sports/news/50253068"
+            }
+          },
+          "app": {
+            "sportscenter": {
+              "href": "sportscenter://x-callback-url/showStory?uid=50253068"
+            }
+          },
+          "mobile": {
+            "href": "http://m.espn.go.com/nfl/story?storyId=50253068"
+          },
+          "web": {
+            "href": "http://www.espn.com/nfl/preview?gameId=401873020"
+          }
+        },
+        "premium": false
+      }
+    ]
+  },
   "article": {
     "id": 49934704,
     "nowId": "1-49934704",
@@ -28643,6 +27529,933 @@
     }
   },
   "wallclockAvailable": true,
+  "winprobability": [
+    {
+      "homeWinPercentage": 0.798,
+      "tiePercentage": 0,
+      "playId": "4018729261"
+    },
+    {
+      "homeWinPercentage": 0.7818,
+      "tiePercentage": 0,
+      "playId": "40187292639"
+    },
+    {
+      "homeWinPercentage": 0.7543,
+      "tiePercentage": 0,
+      "playId": "40187292662"
+    },
+    {
+      "homeWinPercentage": 0.7648,
+      "tiePercentage": 0,
+      "playId": "40187292687"
+    },
+    {
+      "homeWinPercentage": 0.7753,
+      "tiePercentage": 0,
+      "playId": "401872926109"
+    },
+    {
+      "homeWinPercentage": 0.733,
+      "tiePercentage": 0,
+      "playId": "401872926132"
+    },
+    {
+      "homeWinPercentage": 0.7258,
+      "tiePercentage": 0,
+      "playId": "401872926154"
+    },
+    {
+      "homeWinPercentage": 0.7075,
+      "tiePercentage": 0,
+      "playId": "401872926181"
+    },
+    {
+      "homeWinPercentage": 0.7097,
+      "tiePercentage": 0,
+      "playId": "401872926203"
+    },
+    {
+      "homeWinPercentage": 0.7309,
+      "tiePercentage": 0,
+      "playId": "401872926225"
+    },
+    {
+      "homeWinPercentage": 0.6994,
+      "tiePercentage": 0,
+      "playId": "401872926247"
+    },
+    {
+      "homeWinPercentage": 0.7,
+      "tiePercentage": 0,
+      "playId": "401872926260"
+    },
+    {
+      "homeWinPercentage": 0.6959,
+      "tiePercentage": 0,
+      "playId": "401872926272"
+    },
+    {
+      "homeWinPercentage": 0.6489,
+      "tiePercentage": 0,
+      "playId": "401872926301"
+    },
+    {
+      "homeWinPercentage": 0.6464,
+      "tiePercentage": 0,
+      "playId": "401872926327"
+    },
+    {
+      "homeWinPercentage": 0.6477,
+      "tiePercentage": 0,
+      "playId": "401872926334"
+    },
+    {
+      "homeWinPercentage": 0.6371,
+      "tiePercentage": 0,
+      "playId": "401872926364"
+    },
+    {
+      "homeWinPercentage": 0.6712,
+      "tiePercentage": 0,
+      "playId": "401872926386"
+    },
+    {
+      "homeWinPercentage": 0.6492,
+      "tiePercentage": 0,
+      "playId": "401872926411"
+    },
+    {
+      "homeWinPercentage": 0.6987,
+      "tiePercentage": 0,
+      "playId": "401872926433"
+    },
+    {
+      "homeWinPercentage": 0.7289,
+      "tiePercentage": 0,
+      "playId": "401872926458"
+    },
+    {
+      "homeWinPercentage": 0.7139,
+      "tiePercentage": 0,
+      "playId": "401872926483"
+    },
+    {
+      "homeWinPercentage": 0.7257,
+      "tiePercentage": 0,
+      "playId": "401872926505"
+    },
+    {
+      "homeWinPercentage": 0.7642,
+      "tiePercentage": 0,
+      "playId": "401872926527"
+    },
+    {
+      "homeWinPercentage": 0.7659,
+      "tiePercentage": 0,
+      "playId": "401872926553"
+    },
+    {
+      "homeWinPercentage": 0.758,
+      "tiePercentage": 0,
+      "playId": "401872926560"
+    },
+    {
+      "homeWinPercentage": 0.7702,
+      "tiePercentage": 0,
+      "playId": "401872926590"
+    },
+    {
+      "homeWinPercentage": 0.744,
+      "tiePercentage": 0,
+      "playId": "401872926612"
+    },
+    {
+      "homeWinPercentage": 0.7755,
+      "tiePercentage": 0,
+      "playId": "401872926637"
+    },
+    {
+      "homeWinPercentage": 0.7315,
+      "tiePercentage": 0,
+      "playId": "401872926678"
+    },
+    {
+      "homeWinPercentage": 0.7177,
+      "tiePercentage": 0,
+      "playId": "401872926703"
+    },
+    {
+      "homeWinPercentage": 0.7339,
+      "tiePercentage": 0,
+      "playId": "401872926728"
+    },
+    {
+      "homeWinPercentage": 0.7181,
+      "tiePercentage": 0,
+      "playId": "401872926753"
+    },
+    {
+      "homeWinPercentage": 0.7161,
+      "tiePercentage": 0,
+      "playId": "401872926778"
+    },
+    {
+      "homeWinPercentage": 0.7527,
+      "tiePercentage": 0,
+      "playId": "401872926798"
+    },
+    {
+      "homeWinPercentage": 0.7916,
+      "tiePercentage": 0,
+      "playId": "401872926821"
+    },
+    {
+      "homeWinPercentage": 0.7991,
+      "tiePercentage": 0,
+      "playId": "401872926832"
+    },
+    {
+      "homeWinPercentage": 0.8127,
+      "tiePercentage": 0,
+      "playId": "401872926842"
+    },
+    {
+      "homeWinPercentage": 0.8246,
+      "tiePercentage": 0,
+      "playId": "401872926871"
+    },
+    {
+      "homeWinPercentage": 0.8099,
+      "tiePercentage": 0,
+      "playId": "401872926901"
+    },
+    {
+      "homeWinPercentage": 0.7349,
+      "tiePercentage": 0,
+      "playId": "401872926924"
+    },
+    {
+      "homeWinPercentage": 0.7341,
+      "tiePercentage": 0,
+      "playId": "401872926943"
+    },
+    {
+      "homeWinPercentage": 0.7146,
+      "tiePercentage": 0,
+      "playId": "401872926962"
+    },
+    {
+      "homeWinPercentage": 0.7312,
+      "tiePercentage": 0,
+      "playId": "401872926994"
+    },
+    {
+      "homeWinPercentage": 0.7035,
+      "tiePercentage": 0,
+      "playId": "4018729261018"
+    },
+    {
+      "homeWinPercentage": 0.7064,
+      "tiePercentage": 0,
+      "playId": "4018729261045"
+    },
+    {
+      "homeWinPercentage": 0.681,
+      "tiePercentage": 0,
+      "playId": "4018729261072"
+    },
+    {
+      "homeWinPercentage": 0.6787,
+      "tiePercentage": 0,
+      "playId": "4018729261094"
+    },
+    {
+      "homeWinPercentage": 0.6778,
+      "tiePercentage": 0,
+      "playId": "4018729261105"
+    },
+    {
+      "homeWinPercentage": 0.7099,
+      "tiePercentage": 0,
+      "playId": "4018729261116"
+    },
+    {
+      "homeWinPercentage": 0.7132,
+      "tiePercentage": 0,
+      "playId": "4018729261150"
+    },
+    {
+      "homeWinPercentage": 0.6967,
+      "tiePercentage": 0,
+      "playId": "4018729261172"
+    },
+    {
+      "homeWinPercentage": 0.6418,
+      "tiePercentage": 0,
+      "playId": "4018729261197"
+    },
+    {
+      "homeWinPercentage": 0.6482,
+      "tiePercentage": 0,
+      "playId": "4018729261222"
+    },
+    {
+      "homeWinPercentage": 0.6358,
+      "tiePercentage": 0,
+      "playId": "4018729261244"
+    },
+    {
+      "homeWinPercentage": 0.6928,
+      "tiePercentage": 0,
+      "playId": "4018729261269"
+    },
+    {
+      "homeWinPercentage": 0.6843,
+      "tiePercentage": 0,
+      "playId": "4018729261299"
+    },
+    {
+      "homeWinPercentage": 0.6843,
+      "tiePercentage": 0,
+      "playId": "4018729261311"
+    },
+    {
+      "homeWinPercentage": 0.6831,
+      "tiePercentage": 0,
+      "playId": "4018729261322"
+    },
+    {
+      "homeWinPercentage": 0.6364,
+      "tiePercentage": 0,
+      "playId": "4018729261363"
+    },
+    {
+      "homeWinPercentage": 0.699,
+      "tiePercentage": 0,
+      "playId": "4018729261399"
+    },
+    {
+      "homeWinPercentage": 0.6878,
+      "tiePercentage": 0,
+      "playId": "4018729261433"
+    },
+    {
+      "homeWinPercentage": 0.7175,
+      "tiePercentage": 0,
+      "playId": "4018729261455"
+    },
+    {
+      "homeWinPercentage": 0.7027,
+      "tiePercentage": 0,
+      "playId": "4018729261480"
+    },
+    {
+      "homeWinPercentage": 0.7595,
+      "tiePercentage": 0,
+      "playId": "4018729261502"
+    },
+    {
+      "homeWinPercentage": 0.7863,
+      "tiePercentage": 0,
+      "playId": "4018729261527"
+    },
+    {
+      "homeWinPercentage": 0.7755,
+      "tiePercentage": 0,
+      "playId": "4018729261549"
+    },
+    {
+      "homeWinPercentage": 0.748,
+      "tiePercentage": 0,
+      "playId": "4018729261574"
+    },
+    {
+      "homeWinPercentage": 0.73,
+      "tiePercentage": 0,
+      "playId": "4018729261596"
+    },
+    {
+      "homeWinPercentage": 0.709,
+      "tiePercentage": 0,
+      "playId": "4018729261619"
+    },
+    {
+      "homeWinPercentage": 0.7084,
+      "tiePercentage": 0,
+      "playId": "4018729261630"
+    },
+    {
+      "homeWinPercentage": 0.6494,
+      "tiePercentage": 0,
+      "playId": "4018729261641"
+    },
+    {
+      "homeWinPercentage": 0.6453,
+      "tiePercentage": 0,
+      "playId": "4018729261655"
+    },
+    {
+      "homeWinPercentage": 0.6335,
+      "tiePercentage": 0,
+      "playId": "4018729261668"
+    },
+    {
+      "homeWinPercentage": 0.6174,
+      "tiePercentage": 0,
+      "playId": "4018729261697"
+    },
+    {
+      "homeWinPercentage": 0.5856,
+      "tiePercentage": 0,
+      "playId": "4018729261722"
+    },
+    {
+      "homeWinPercentage": 0.5621,
+      "tiePercentage": 0,
+      "playId": "4018729261747"
+    },
+    {
+      "homeWinPercentage": 0.5423,
+      "tiePercentage": 0,
+      "playId": "4018729261781"
+    },
+    {
+      "homeWinPercentage": 0.5465,
+      "tiePercentage": 0,
+      "playId": "4018729261794"
+    },
+    {
+      "homeWinPercentage": 0.5554,
+      "tiePercentage": 0,
+      "playId": "4018729261806"
+    },
+    {
+      "homeWinPercentage": 0.5258,
+      "tiePercentage": 0,
+      "playId": "4018729261836"
+    },
+    {
+      "homeWinPercentage": 0.5306,
+      "tiePercentage": 0,
+      "playId": "4018729261849"
+    },
+    {
+      "homeWinPercentage": 0.5406,
+      "tiePercentage": 0,
+      "playId": "4018729261861"
+    },
+    {
+      "homeWinPercentage": 0.5408,
+      "tiePercentage": 0,
+      "playId": "4018729261876"
+    },
+    {
+      "homeWinPercentage": 0.5721,
+      "tiePercentage": 0,
+      "playId": "4018729261891"
+    },
+    {
+      "homeWinPercentage": 0.5771,
+      "tiePercentage": 0,
+      "playId": "4018729261932"
+    },
+    {
+      "homeWinPercentage": 0.5396,
+      "tiePercentage": 0,
+      "playId": "4018729261952"
+    },
+    {
+      "homeWinPercentage": 0.5833,
+      "tiePercentage": 0,
+      "playId": "4018729261970"
+    },
+    {
+      "homeWinPercentage": 0.5817,
+      "tiePercentage": 0,
+      "playId": "4018729261993"
+    },
+    {
+      "homeWinPercentage": 0.5836,
+      "tiePercentage": 0,
+      "playId": "4018729262018"
+    },
+    {
+      "homeWinPercentage": 0.5706,
+      "tiePercentage": 0,
+      "playId": "4018729262029"
+    },
+    {
+      "homeWinPercentage": 0.5746,
+      "tiePercentage": 0,
+      "playId": "4018729262040"
+    },
+    {
+      "homeWinPercentage": 0.5433,
+      "tiePercentage": 0,
+      "playId": "4018729262080"
+    },
+    {
+      "homeWinPercentage": 0.5463,
+      "tiePercentage": 0,
+      "playId": "4018729262109"
+    },
+    {
+      "homeWinPercentage": 0.4986,
+      "tiePercentage": 0,
+      "playId": "4018729262131"
+    },
+    {
+      "homeWinPercentage": 0.5299,
+      "tiePercentage": 0,
+      "playId": "4018729262154"
+    },
+    {
+      "homeWinPercentage": 0.5289,
+      "tiePercentage": 0,
+      "playId": "4018729262164"
+    },
+    {
+      "homeWinPercentage": 0.5379,
+      "tiePercentage": 0,
+      "playId": "4018729262174"
+    },
+    {
+      "homeWinPercentage": 0.448,
+      "tiePercentage": 0,
+      "playId": "4018729262203"
+    },
+    {
+      "homeWinPercentage": 0.4705,
+      "tiePercentage": 0,
+      "playId": "4018729262228"
+    },
+    {
+      "homeWinPercentage": 0.4076,
+      "tiePercentage": 0,
+      "playId": "4018729262252"
+    },
+    {
+      "homeWinPercentage": 0.3674,
+      "tiePercentage": 0,
+      "playId": "4018729262277"
+    },
+    {
+      "homeWinPercentage": 0.3228,
+      "tiePercentage": 0,
+      "playId": "4018729262302"
+    },
+    {
+      "homeWinPercentage": 0.3584,
+      "tiePercentage": 0,
+      "playId": "4018729262324"
+    },
+    {
+      "homeWinPercentage": 0.3685,
+      "tiePercentage": 0,
+      "playId": "4018729262346"
+    },
+    {
+      "homeWinPercentage": 0.3908,
+      "tiePercentage": 0,
+      "playId": "4018729262369"
+    },
+    {
+      "homeWinPercentage": 0.3637,
+      "tiePercentage": 0,
+      "playId": "4018729262392"
+    },
+    {
+      "homeWinPercentage": 0.3637,
+      "tiePercentage": 0,
+      "playId": "4018729262402"
+    },
+    {
+      "homeWinPercentage": 0.4048,
+      "tiePercentage": 0,
+      "playId": "4018729262412"
+    },
+    {
+      "homeWinPercentage": 0.5227,
+      "tiePercentage": 0,
+      "playId": "4018729262435"
+    },
+    {
+      "homeWinPercentage": 0.4989,
+      "tiePercentage": 0,
+      "playId": "4018729262481"
+    },
+    {
+      "homeWinPercentage": 0.4937,
+      "tiePercentage": 0,
+      "playId": "4018729262503"
+    },
+    {
+      "homeWinPercentage": 0.6044,
+      "tiePercentage": 0,
+      "playId": "4018729262530"
+    },
+    {
+      "homeWinPercentage": 0.6077,
+      "tiePercentage": 0,
+      "playId": "4018729262559"
+    },
+    {
+      "homeWinPercentage": 0.609,
+      "tiePercentage": 0,
+      "playId": "4018729262566"
+    },
+    {
+      "homeWinPercentage": 0.6333,
+      "tiePercentage": 0,
+      "playId": "4018729262596"
+    },
+    {
+      "homeWinPercentage": 0.6137,
+      "tiePercentage": 0,
+      "playId": "4018729262619"
+    },
+    {
+      "homeWinPercentage": 0.5611,
+      "tiePercentage": 0,
+      "playId": "4018729262644"
+    },
+    {
+      "homeWinPercentage": 0.565,
+      "tiePercentage": 0,
+      "playId": "4018729262680"
+    },
+    {
+      "homeWinPercentage": 0.5288,
+      "tiePercentage": 0,
+      "playId": "4018729262702"
+    },
+    {
+      "homeWinPercentage": 0.5697,
+      "tiePercentage": 0,
+      "playId": "4018729262727"
+    },
+    {
+      "homeWinPercentage": 0.5783,
+      "tiePercentage": 0,
+      "playId": "4018729262751"
+    },
+    {
+      "homeWinPercentage": 0.5917,
+      "tiePercentage": 0,
+      "playId": "4018729262781"
+    },
+    {
+      "homeWinPercentage": 0.5991,
+      "tiePercentage": 0,
+      "playId": "4018729262804"
+    },
+    {
+      "homeWinPercentage": 0.5841,
+      "tiePercentage": 0,
+      "playId": "4018729262829"
+    },
+    {
+      "homeWinPercentage": 0.5833,
+      "tiePercentage": 0,
+      "playId": "4018729262839"
+    },
+    {
+      "homeWinPercentage": 0.6008,
+      "tiePercentage": 0,
+      "playId": "4018729262849"
+    },
+    {
+      "homeWinPercentage": 0.6092,
+      "tiePercentage": 0,
+      "playId": "4018729262886"
+    },
+    {
+      "homeWinPercentage": 0.5604,
+      "tiePercentage": 0,
+      "playId": "4018729262908"
+    },
+    {
+      "homeWinPercentage": 0.5485,
+      "tiePercentage": 0,
+      "playId": "4018729262932"
+    },
+    {
+      "homeWinPercentage": 0.5311,
+      "tiePercentage": 0,
+      "playId": "4018729262955"
+    },
+    {
+      "homeWinPercentage": 0.5122,
+      "tiePercentage": 0,
+      "playId": "4018729262977"
+    },
+    {
+      "homeWinPercentage": 0.5113,
+      "tiePercentage": 0,
+      "playId": "4018729262989"
+    },
+    {
+      "homeWinPercentage": 0.5393,
+      "tiePercentage": 0,
+      "playId": "4018729263000"
+    },
+    {
+      "homeWinPercentage": 0.5675,
+      "tiePercentage": 0,
+      "playId": "4018729263035"
+    },
+    {
+      "homeWinPercentage": 0.5661,
+      "tiePercentage": 0,
+      "playId": "4018729263057"
+    },
+    {
+      "homeWinPercentage": 0.5535,
+      "tiePercentage": 0,
+      "playId": "4018729263077"
+    },
+    {
+      "homeWinPercentage": 0.5897,
+      "tiePercentage": 0,
+      "playId": "4018729263102"
+    },
+    {
+      "homeWinPercentage": 0.5881,
+      "tiePercentage": 0,
+      "playId": "4018729263115"
+    },
+    {
+      "homeWinPercentage": 0.5779,
+      "tiePercentage": 0,
+      "playId": "4018729263127"
+    },
+    {
+      "homeWinPercentage": 0.5222,
+      "tiePercentage": 0,
+      "playId": "4018729263155"
+    },
+    {
+      "homeWinPercentage": 0.5155,
+      "tiePercentage": 0,
+      "playId": "4018729263175"
+    },
+    {
+      "homeWinPercentage": 0.4798,
+      "tiePercentage": 0,
+      "playId": "4018729263200"
+    },
+    {
+      "homeWinPercentage": 0.2911,
+      "tiePercentage": 0,
+      "playId": "4018729263223"
+    },
+    {
+      "homeWinPercentage": 0.3064,
+      "tiePercentage": 0,
+      "playId": "4018729263261"
+    },
+    {
+      "homeWinPercentage": 0.2208,
+      "tiePercentage": 0,
+      "playId": "4018729263285"
+    },
+    {
+      "homeWinPercentage": 0.2033,
+      "tiePercentage": 0,
+      "playId": "4018729263324"
+    },
+    {
+      "homeWinPercentage": 0.2438,
+      "tiePercentage": 0,
+      "playId": "4018729263347"
+    },
+    {
+      "homeWinPercentage": 0.218,
+      "tiePercentage": 0,
+      "playId": "4018729263372"
+    },
+    {
+      "homeWinPercentage": 0.237,
+      "tiePercentage": 0,
+      "playId": "4018729263394"
+    },
+    {
+      "homeWinPercentage": 0.1889,
+      "tiePercentage": 0,
+      "playId": "4018729263419"
+    },
+    {
+      "homeWinPercentage": 0.1856,
+      "tiePercentage": 0,
+      "playId": "4018729263443"
+    },
+    {
+      "homeWinPercentage": 0.2028,
+      "tiePercentage": 0,
+      "playId": "4018729263467"
+    },
+    {
+      "homeWinPercentage": 0.1855,
+      "tiePercentage": 0,
+      "playId": "4018729263496"
+    },
+    {
+      "homeWinPercentage": 0.1334,
+      "tiePercentage": 0,
+      "playId": "4018729263518"
+    },
+    {
+      "homeWinPercentage": 0.1048,
+      "tiePercentage": 0,
+      "playId": "4018729263543"
+    },
+    {
+      "homeWinPercentage": 0.0753,
+      "tiePercentage": 0,
+      "playId": "4018729263565"
+    },
+    {
+      "homeWinPercentage": 0.0718,
+      "tiePercentage": 0,
+      "playId": "4018729263587"
+    },
+    {
+      "homeWinPercentage": 0.0543,
+      "tiePercentage": 0,
+      "playId": "4018729263609"
+    },
+    {
+      "homeWinPercentage": 0.0791,
+      "tiePercentage": 0,
+      "playId": "4018729263631"
+    },
+    {
+      "homeWinPercentage": 0.0641,
+      "tiePercentage": 0,
+      "playId": "4018729263660"
+    },
+    {
+      "homeWinPercentage": 0.0854,
+      "tiePercentage": 0,
+      "playId": "4018729263686"
+    },
+    {
+      "homeWinPercentage": 0.0593,
+      "tiePercentage": 0,
+      "playId": "4018729263713"
+    },
+    {
+      "homeWinPercentage": 0.0378,
+      "tiePercentage": 0,
+      "playId": "4018729263736"
+    },
+    {
+      "homeWinPercentage": 0.025,
+      "tiePercentage": 0,
+      "playId": "4018729263760"
+    },
+    {
+      "homeWinPercentage": 0.0187,
+      "tiePercentage": 0,
+      "playId": "4018729263784"
+    },
+    {
+      "homeWinPercentage": 0.014,
+      "tiePercentage": 0,
+      "playId": "4018729263821"
+    },
+    {
+      "homeWinPercentage": 0.0082,
+      "tiePercentage": 0,
+      "playId": "4018729263835"
+    },
+    {
+      "homeWinPercentage": 0.0101,
+      "tiePercentage": 0,
+      "playId": "4018729263849"
+    },
+    {
+      "homeWinPercentage": 0.0095,
+      "tiePercentage": 0,
+      "playId": "4018729263881"
+    },
+    {
+      "homeWinPercentage": 0.0249,
+      "tiePercentage": 0,
+      "playId": "4018729263917"
+    },
+    {
+      "homeWinPercentage": 0.0223,
+      "tiePercentage": 0,
+      "playId": "4018729263928"
+    },
+    {
+      "homeWinPercentage": 0.0238,
+      "tiePercentage": 0,
+      "playId": "4018729263939"
+    },
+    {
+      "homeWinPercentage": 0.0279,
+      "tiePercentage": 0,
+      "playId": "4018729263968"
+    },
+    {
+      "homeWinPercentage": 0.0064,
+      "tiePercentage": 0,
+      "playId": "4018729263990"
+    },
+    {
+      "homeWinPercentage": 0.0109,
+      "tiePercentage": 0,
+      "playId": "4018729264010"
+    },
+    {
+      "homeWinPercentage": 0.0037,
+      "tiePercentage": 0,
+      "playId": "4018729264027"
+    },
+    {
+      "homeWinPercentage": 0.0011,
+      "tiePercentage": 0,
+      "playId": "4018729264047"
+    },
+    {
+      "homeWinPercentage": 0.003,
+      "tiePercentage": 0,
+      "playId": "4018729264070"
+    },
+    {
+      "homeWinPercentage": 0.0024,
+      "tiePercentage": 0,
+      "playId": "4018729264083"
+    },
+    {
+      "homeWinPercentage": 0.001,
+      "tiePercentage": 0,
+      "playId": "4018729264095"
+    },
+    {
+      "homeWinPercentage": 0.001,
+      "tiePercentage": 0,
+      "playId": "4018729264127"
+    },
+    {
+      "homeWinPercentage": 0.001,
+      "tiePercentage": 0,
+      "playId": "4018729264149"
+    },
+    {
+      "homeWinPercentage": 0.001,
+      "tiePercentage": 0,
+      "playId": "4018729264171"
+    },
+    {
+      "homeWinPercentage": 0,
+      "tiePercentage": 0,
+      "playId": "4018729264193"
+    }
+  ],
   "meta": {
     "gp_topic": "gp-football-nfl-401872926",
     "gameSwitcherEnabled": true,
@@ -28686,8 +28499,8 @@
                   "description": "Total Points Against",
                   "abbreviation": "PA",
                   "type": "pointsagainst",
-                  "value": 50,
-                  "displayValue": "50"
+                  "value": 110,
+                  "displayValue": "110"
                 },
                 {
                   "name": "pointsFor",
@@ -28696,8 +28509,8 @@
                   "description": "Total Points For",
                   "abbreviation": "PF",
                   "type": "pointsfor",
-                  "value": 98,
-                  "displayValue": "98"
+                  "value": 177,
+                  "displayValue": "177"
                 },
                 {
                   "name": "ties",
@@ -28726,16 +28539,16 @@
                   "description": "Wins",
                   "abbreviation": "W",
                   "type": "wins",
-                  "value": 3,
-                  "displayValue": "3"
+                  "value": 6,
+                  "displayValue": "6"
                 },
                 {
                   "id": "0",
                   "name": "overall",
                   "abbreviation": "Any",
                   "type": "total",
-                  "summary": "3-0",
-                  "displayValue": "3-0"
+                  "summary": "6-0",
+                  "displayValue": "6-0"
                 }
               ],
               "logo": [
@@ -28777,8 +28590,8 @@
                   "description": "Losses",
                   "abbreviation": "L",
                   "type": "losses",
-                  "value": 1,
-                  "displayValue": "1"
+                  "value": 3,
+                  "displayValue": "3"
                 },
                 {
                   "name": "pointsAgainst",
@@ -28787,8 +28600,8 @@
                   "description": "Total Points Against",
                   "abbreviation": "PA",
                   "type": "pointsagainst",
-                  "value": 50,
-                  "displayValue": "50"
+                  "value": 122,
+                  "displayValue": "122"
                 },
                 {
                   "name": "pointsFor",
@@ -28797,8 +28610,8 @@
                   "description": "Total Points For",
                   "abbreviation": "PF",
                   "type": "pointsfor",
-                  "value": 75,
-                  "displayValue": "75"
+                  "value": 148,
+                  "displayValue": "148"
                 },
                 {
                   "name": "ties",
@@ -28817,8 +28630,8 @@
                   "description": "Winning Percentage",
                   "abbreviation": "PCT",
                   "type": "winpercent",
-                  "value": 0.6666667,
-                  "displayValue": ".667"
+                  "value": 0.5,
+                  "displayValue": ".500"
                 },
                 {
                   "name": "wins",
@@ -28827,16 +28640,16 @@
                   "description": "Wins",
                   "abbreviation": "W",
                   "type": "wins",
-                  "value": 2,
-                  "displayValue": "2"
+                  "value": 3,
+                  "displayValue": "3"
                 },
                 {
                   "id": "0",
                   "name": "overall",
                   "abbreviation": "Any",
                   "type": "total",
-                  "summary": "2-1",
-                  "displayValue": "2-1"
+                  "summary": "3-3",
+                  "displayValue": "3-3"
                 }
               ],
               "logo": [
@@ -28866,107 +28679,6 @@
               ]
             },
             {
-              "team": "Los Angeles",
-              "link": "https://www.espn.com/nfl/team/_/name/lar/los-angeles-rams",
-              "id": "14",
-              "uid": "s:20~l:28~t:14",
-              "stats": [
-                {
-                  "name": "losses",
-                  "displayName": "Losses",
-                  "shortDisplayName": "L",
-                  "description": "Losses",
-                  "abbreviation": "L",
-                  "type": "losses",
-                  "value": 2,
-                  "displayValue": "2"
-                },
-                {
-                  "name": "pointsAgainst",
-                  "displayName": "Points Against",
-                  "shortDisplayName": "PA",
-                  "description": "Total Points Against",
-                  "abbreviation": "PA",
-                  "type": "pointsagainst",
-                  "value": 63,
-                  "displayValue": "63"
-                },
-                {
-                  "name": "pointsFor",
-                  "displayName": "Points For",
-                  "shortDisplayName": "PF",
-                  "description": "Total Points For",
-                  "abbreviation": "PF",
-                  "type": "pointsfor",
-                  "value": 61,
-                  "displayValue": "61"
-                },
-                {
-                  "name": "ties",
-                  "displayName": "Ties",
-                  "shortDisplayName": "T",
-                  "description": "Ties",
-                  "abbreviation": "T",
-                  "type": "ties",
-                  "value": 0,
-                  "displayValue": "0"
-                },
-                {
-                  "name": "winPercent",
-                  "displayName": "Win Percentage",
-                  "shortDisplayName": "PCT",
-                  "description": "Winning Percentage",
-                  "abbreviation": "PCT",
-                  "type": "winpercent",
-                  "value": 0.33333334,
-                  "displayValue": ".333"
-                },
-                {
-                  "name": "wins",
-                  "displayName": "Wins",
-                  "shortDisplayName": "W",
-                  "description": "Wins",
-                  "abbreviation": "W",
-                  "type": "wins",
-                  "value": 1,
-                  "displayValue": "1"
-                },
-                {
-                  "id": "0",
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "1-2",
-                  "displayValue": "1-2"
-                }
-              ],
-              "logo": [
-                {
-                  "href": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
-                  "width": 500,
-                  "height": 500,
-                  "alt": "",
-                  "rel": [
-                    "full",
-                    "default"
-                  ],
-                  "lastUpdated": "2026-04-24T14:36Z"
-                },
-                {
-                  "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/lar.png",
-                  "width": 500,
-                  "height": 500,
-                  "alt": "",
-                  "rel": [
-                    "full",
-                    "scoreboard",
-                    "dark"
-                  ],
-                  "lastUpdated": "2026-04-24T14:27Z"
-                }
-              ]
-            },
-            {
               "team": "Arizona",
               "link": "https://www.espn.com/nfl/team/_/name/ari/arizona-cardinals",
               "id": "22",
@@ -28979,8 +28691,8 @@
                   "description": "Losses",
                   "abbreviation": "L",
                   "type": "losses",
-                  "value": 2,
-                  "displayValue": "2"
+                  "value": 4,
+                  "displayValue": "4"
                 },
                 {
                   "name": "pointsAgainst",
@@ -28989,8 +28701,8 @@
                   "description": "Total Points Against",
                   "abbreviation": "PA",
                   "type": "pointsagainst",
-                  "value": 81,
-                  "displayValue": "81"
+                  "value": 178,
+                  "displayValue": "178"
                 },
                 {
                   "name": "pointsFor",
@@ -28999,8 +28711,8 @@
                   "description": "Total Points For",
                   "abbreviation": "PF",
                   "type": "pointsfor",
-                  "value": 63,
-                  "displayValue": "63"
+                  "value": 126,
+                  "displayValue": "126"
                 },
                 {
                   "name": "ties",
@@ -29029,16 +28741,16 @@
                   "description": "Wins",
                   "abbreviation": "W",
                   "type": "wins",
-                  "value": 1,
-                  "displayValue": "1"
+                  "value": 2,
+                  "displayValue": "2"
                 },
                 {
                   "id": "0",
                   "name": "overall",
                   "abbreviation": "Any",
                   "type": "total",
-                  "summary": "1-2",
-                  "displayValue": "1-2"
+                  "summary": "2-4",
+                  "displayValue": "2-4"
                 }
               ],
               "logo": [
@@ -29064,6 +28776,107 @@
                     "dark"
                   ],
                   "lastUpdated": "2024-06-25T18:43Z"
+                }
+              ]
+            },
+            {
+              "team": "Los Angeles",
+              "link": "https://www.espn.com/nfl/team/_/name/lar/los-angeles-rams",
+              "id": "14",
+              "uid": "s:20~l:28~t:14",
+              "stats": [
+                {
+                  "name": "losses",
+                  "displayName": "Losses",
+                  "shortDisplayName": "L",
+                  "description": "Losses",
+                  "abbreviation": "L",
+                  "type": "losses",
+                  "value": 4,
+                  "displayValue": "4"
+                },
+                {
+                  "name": "pointsAgainst",
+                  "displayName": "Points Against",
+                  "shortDisplayName": "PA",
+                  "description": "Total Points Against",
+                  "abbreviation": "PA",
+                  "type": "pointsagainst",
+                  "value": 138,
+                  "displayValue": "138"
+                },
+                {
+                  "name": "pointsFor",
+                  "displayName": "Points For",
+                  "shortDisplayName": "PF",
+                  "description": "Total Points For",
+                  "abbreviation": "PF",
+                  "type": "pointsfor",
+                  "value": 135,
+                  "displayValue": "135"
+                },
+                {
+                  "name": "ties",
+                  "displayName": "Ties",
+                  "shortDisplayName": "T",
+                  "description": "Ties",
+                  "abbreviation": "T",
+                  "type": "ties",
+                  "value": 0,
+                  "displayValue": "0"
+                },
+                {
+                  "name": "winPercent",
+                  "displayName": "Win Percentage",
+                  "shortDisplayName": "PCT",
+                  "description": "Winning Percentage",
+                  "abbreviation": "PCT",
+                  "type": "winpercent",
+                  "value": 0.33333334,
+                  "displayValue": ".333"
+                },
+                {
+                  "name": "wins",
+                  "displayName": "Wins",
+                  "shortDisplayName": "W",
+                  "description": "Wins",
+                  "abbreviation": "W",
+                  "type": "wins",
+                  "value": 2,
+                  "displayValue": "2"
+                },
+                {
+                  "id": "0",
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "2-4",
+                  "displayValue": "2-4"
+                }
+              ],
+              "logo": [
+                {
+                  "href": "https://a.espncdn.com/i/teamlogos/nfl/500/lar.png",
+                  "width": 500,
+                  "height": 500,
+                  "alt": "",
+                  "rel": [
+                    "full",
+                    "default"
+                  ],
+                  "lastUpdated": "2026-04-24T14:36Z"
+                },
+                {
+                  "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/lar.png",
+                  "width": 500,
+                  "height": 500,
+                  "alt": "",
+                  "rel": [
+                    "full",
+                    "scoreboard",
+                    "dark"
+                  ],
+                  "lastUpdated": "2026-04-24T14:27Z"
                 }
               ]
             }
@@ -29100,8 +28913,8 @@
                   "description": "Total Points Against",
                   "abbreviation": "PA",
                   "type": "pointsagainst",
-                  "value": 50,
-                  "displayValue": "50"
+                  "value": 83,
+                  "displayValue": "83"
                 },
                 {
                   "name": "pointsFor",
@@ -29110,8 +28923,8 @@
                   "description": "Total Points For",
                   "abbreviation": "PF",
                   "type": "pointsfor",
-                  "value": 88,
-                  "displayValue": "88"
+                  "value": 140,
+                  "displayValue": "140"
                 },
                 {
                   "name": "ties",
@@ -29140,16 +28953,16 @@
                   "description": "Wins",
                   "abbreviation": "W",
                   "type": "wins",
-                  "value": 3,
-                  "displayValue": "3"
+                  "value": 5,
+                  "displayValue": "5"
                 },
                 {
                   "id": "0",
                   "name": "overall",
                   "abbreviation": "Any",
                   "type": "total",
-                  "summary": "3-0",
-                  "displayValue": "3-0"
+                  "summary": "5-0",
+                  "displayValue": "5-0"
                 }
               ],
               "logo": [
@@ -29179,107 +28992,6 @@
               ]
             },
             {
-              "team": "Las Vegas",
-              "link": "https://www.espn.com/nfl/team/_/name/lv/las-vegas-raiders",
-              "id": "13",
-              "uid": "s:20~l:28~t:13",
-              "stats": [
-                {
-                  "name": "losses",
-                  "displayName": "Losses",
-                  "shortDisplayName": "L",
-                  "description": "Losses",
-                  "abbreviation": "L",
-                  "type": "losses",
-                  "value": 0,
-                  "displayValue": "0"
-                },
-                {
-                  "name": "pointsAgainst",
-                  "displayName": "Points Against",
-                  "shortDisplayName": "PA",
-                  "description": "Total Points Against",
-                  "abbreviation": "PA",
-                  "type": "pointsagainst",
-                  "value": 54,
-                  "displayValue": "54"
-                },
-                {
-                  "name": "pointsFor",
-                  "displayName": "Points For",
-                  "shortDisplayName": "PF",
-                  "description": "Total Points For",
-                  "abbreviation": "PF",
-                  "type": "pointsfor",
-                  "value": 88,
-                  "displayValue": "88"
-                },
-                {
-                  "name": "ties",
-                  "displayName": "Ties",
-                  "shortDisplayName": "T",
-                  "description": "Ties",
-                  "abbreviation": "T",
-                  "type": "ties",
-                  "value": 0,
-                  "displayValue": "0"
-                },
-                {
-                  "name": "winPercent",
-                  "displayName": "Win Percentage",
-                  "shortDisplayName": "PCT",
-                  "description": "Winning Percentage",
-                  "abbreviation": "PCT",
-                  "type": "winpercent",
-                  "value": 1,
-                  "displayValue": "1.000"
-                },
-                {
-                  "name": "wins",
-                  "displayName": "Wins",
-                  "shortDisplayName": "W",
-                  "description": "Wins",
-                  "abbreviation": "W",
-                  "type": "wins",
-                  "value": 3,
-                  "displayValue": "3"
-                },
-                {
-                  "id": "0",
-                  "name": "overall",
-                  "abbreviation": "Any",
-                  "type": "total",
-                  "summary": "3-0",
-                  "displayValue": "3-0"
-                }
-              ],
-              "logo": [
-                {
-                  "href": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png",
-                  "width": 500,
-                  "height": 500,
-                  "alt": "",
-                  "rel": [
-                    "full",
-                    "default"
-                  ],
-                  "lastUpdated": "2024-09-22T22:51Z"
-                },
-                {
-                  "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/lv.png",
-                  "width": 500,
-                  "height": 500,
-                  "alt": "",
-                  "rel": [
-                    "full",
-                    "scoreboard",
-                    "dark"
-                  ],
-                  "lastUpdated": "2024-06-25T18:59Z"
-                }
-              ]
-            },
-            {
               "team": "Denver",
               "link": "https://www.espn.com/nfl/team/_/name/den/denver-broncos",
               "id": "7",
@@ -29292,8 +29004,8 @@
                   "description": "Losses",
                   "abbreviation": "L",
                   "type": "losses",
-                  "value": 1,
-                  "displayValue": "1"
+                  "value": 2,
+                  "displayValue": "2"
                 },
                 {
                   "name": "pointsAgainst",
@@ -29302,8 +29014,8 @@
                   "description": "Total Points Against",
                   "abbreviation": "PA",
                   "type": "pointsagainst",
-                  "value": 70,
-                  "displayValue": "70"
+                  "value": 125,
+                  "displayValue": "125"
                 },
                 {
                   "name": "pointsFor",
@@ -29312,8 +29024,8 @@
                   "description": "Total Points For",
                   "abbreviation": "PF",
                   "type": "pointsfor",
-                  "value": 60,
-                  "displayValue": "60"
+                  "value": 114,
+                  "displayValue": "114"
                 },
                 {
                   "name": "ties",
@@ -29342,16 +29054,16 @@
                   "description": "Wins",
                   "abbreviation": "W",
                   "type": "wins",
-                  "value": 2,
-                  "displayValue": "2"
+                  "value": 4,
+                  "displayValue": "4"
                 },
                 {
                   "id": "0",
                   "name": "overall",
                   "abbreviation": "Any",
                   "type": "total",
-                  "summary": "2-1",
-                  "displayValue": "2-1"
+                  "summary": "4-2",
+                  "displayValue": "4-2"
                 }
               ],
               "logo": [
@@ -29381,10 +29093,10 @@
               ]
             },
             {
-              "team": "Los Angeles",
-              "link": "https://www.espn.com/nfl/team/_/name/lac/los-angeles-chargers",
-              "id": "24",
-              "uid": "s:20~l:28~t:24",
+              "team": "Las Vegas",
+              "link": "https://www.espn.com/nfl/team/_/name/lv/las-vegas-raiders",
+              "id": "13",
+              "uid": "s:20~l:28~t:13",
               "stats": [
                 {
                   "name": "losses",
@@ -29403,8 +29115,8 @@
                   "description": "Total Points Against",
                   "abbreviation": "PA",
                   "type": "pointsagainst",
-                  "value": 76,
-                  "displayValue": "76"
+                  "value": 162,
+                  "displayValue": "162"
                 },
                 {
                   "name": "pointsFor",
@@ -29413,8 +29125,109 @@
                   "description": "Total Points For",
                   "abbreviation": "PF",
                   "type": "pointsfor",
-                  "value": 44,
-                  "displayValue": "44"
+                  "value": 162,
+                  "displayValue": "162"
+                },
+                {
+                  "name": "ties",
+                  "displayName": "Ties",
+                  "shortDisplayName": "T",
+                  "description": "Ties",
+                  "abbreviation": "T",
+                  "type": "ties",
+                  "value": 0,
+                  "displayValue": "0"
+                },
+                {
+                  "name": "winPercent",
+                  "displayName": "Win Percentage",
+                  "shortDisplayName": "PCT",
+                  "description": "Winning Percentage",
+                  "abbreviation": "PCT",
+                  "type": "winpercent",
+                  "value": 0.5,
+                  "displayValue": ".500"
+                },
+                {
+                  "name": "wins",
+                  "displayName": "Wins",
+                  "shortDisplayName": "W",
+                  "description": "Wins",
+                  "abbreviation": "W",
+                  "type": "wins",
+                  "value": 3,
+                  "displayValue": "3"
+                },
+                {
+                  "id": "0",
+                  "name": "overall",
+                  "abbreviation": "Any",
+                  "type": "total",
+                  "summary": "3-3",
+                  "displayValue": "3-3"
+                }
+              ],
+              "logo": [
+                {
+                  "href": "https://a.espncdn.com/i/teamlogos/nfl/500/lv.png",
+                  "width": 500,
+                  "height": 500,
+                  "alt": "",
+                  "rel": [
+                    "full",
+                    "default"
+                  ],
+                  "lastUpdated": "2024-09-22T22:51Z"
+                },
+                {
+                  "href": "https://a.espncdn.com/i/teamlogos/nfl/500-dark/scoreboard/lv.png",
+                  "width": 500,
+                  "height": 500,
+                  "alt": "",
+                  "rel": [
+                    "full",
+                    "scoreboard",
+                    "dark"
+                  ],
+                  "lastUpdated": "2024-06-25T18:59Z"
+                }
+              ]
+            },
+            {
+              "team": "Los Angeles",
+              "link": "https://www.espn.com/nfl/team/_/name/lac/los-angeles-chargers",
+              "id": "24",
+              "uid": "s:20~l:28~t:24",
+              "stats": [
+                {
+                  "name": "losses",
+                  "displayName": "Losses",
+                  "shortDisplayName": "L",
+                  "description": "Losses",
+                  "abbreviation": "L",
+                  "type": "losses",
+                  "value": 6,
+                  "displayValue": "6"
+                },
+                {
+                  "name": "pointsAgainst",
+                  "displayName": "Points Against",
+                  "shortDisplayName": "PA",
+                  "description": "Total Points Against",
+                  "abbreviation": "PA",
+                  "type": "pointsagainst",
+                  "value": 151,
+                  "displayValue": "151"
+                },
+                {
+                  "name": "pointsFor",
+                  "displayName": "Points For",
+                  "shortDisplayName": "PF",
+                  "description": "Total Points For",
+                  "abbreviation": "PF",
+                  "type": "pointsfor",
+                  "value": 90,
+                  "displayValue": "90"
                 },
                 {
                   "name": "ties",
@@ -29451,8 +29264,8 @@
                   "name": "overall",
                   "abbreviation": "Any",
                   "type": "total",
-                  "summary": "0-3",
-                  "displayValue": "0-3"
+                  "summary": "0-6",
+                  "displayValue": "0-6"
                 }
               ],
               "logo": [
