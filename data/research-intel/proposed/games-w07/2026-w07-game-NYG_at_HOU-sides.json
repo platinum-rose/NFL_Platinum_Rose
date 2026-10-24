@@ -1,0 +1,165 @@
+{
+ "game": "NYG@HOU",
+ "pass": "sides",
+ "generated_at": "2026-10-24T01:30:15Z",
+ "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+ "recommendations": [
+  {
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:11:26.964Z",
+   "supercontest_candidate": false,
+   "straight_up_winner": "HOU",
+   "pool_confidence": 12,
+   "market": "spread",
+   "selection": "NYG +10.5",
+   "line": 10.5,
+   "price": -120,
+   "tier": "C",
+   "fair_line": "HOU -9",
+   "edge_pts": 1.5,
+   "playable_to": "+10.5 -115 / +10 -105; pass at +10 -115 or worse, or +9.5",
+   "model_prob": 0.5432,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Power ratings put fair at HOU -6 to -8.5 (SRS gap 4.3-6.9 + HFA)",
+    "HOU off London (W6 at JAX) with no bye",
+    "6+ pt favorites 8-19-3 ATS in 2026",
+    "HOU run game EPA/att -0.17; Montgomery out limits clock-killing",
+    "Tuley/Fezzik/Tucker on NYG at 10+",
+    "Sim 54.3% vs 54.5% break-even at -120: edge is in the number, not the price"
+   ],
+   "counter_case": "NYG lost green-dot LB Edmunds and CB Newsome, with Adebo/Holland/Nubin questionable, against career-best Stroud; 15-pt money>bets gap on HOU; McCarthy's first start behind banged-up tackles could produce short fields."
+  },
+  {
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:11:26.964Z",
+   "supercontest_candidate": false,
+   "straight_up_winner": "HOU",
+   "pool_confidence": 12,
+   "market": "total",
+   "selection": "PASS",
+   "line": 43,
+   "price": -108,
+   "tier": "PASS",
+   "fair_line": "43.5",
+   "edge_pts": 0.5,
+   "playable_to": "Over only at 42 or lower",
+   "model_prob": 0.5,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Both secondaries depleted (lean over) offset by reverse line movement under (77/87 Over, total fell 43.5->43)"
+   ],
+   "counter_case": "Closed roof plus two depleted secondaries; 27-20 clears easily."
+  },
+  {
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:11:26.964Z",
+   "supercontest_candidate": false,
+   "straight_up_winner": "HOU",
+   "pool_confidence": 12,
+   "market": "moneyline",
+   "selection": "PASS (SU: HOU)",
+   "line": null,
+   "price": -410,
+   "tier": "PASS",
+   "fair_line": "HOU -345 (77.5%)",
+   "edge_pts": null,
+   "playable_to": "HOU ML only at -330 or better; NYG only at +380 or better",
+   "model_prob": 0.7746,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Sim HOU win 77.5% vs -410 break-even 80.4%; NYG 22.5% vs +338 break-even 22.8%"
+   ],
+   "counter_case": "If NYG pass protection collapses, HOU win probability is above 80%."
+  }
+ ],
+ "adjustments": {
+  "margin_adj": -1.5,
+  "total_adj": 0.0,
+  "reasons": [
+   "margin: fair HOU -9 vs -10.5 (power ratings, London return, big-fav ATS trend, weak HOU run game; partly offset by NYG defensive injuries)",
+   "total: offsetting signals"
+  ]
+ },
+ "sim_runs": [
+  {
+   "home_line": -10.5,
+   "total": 43,
+   "margin_adj": 0,
+   "total_adj": 0,
+   "away_cover": 0.5,
+   "home_win": 0.8042
+  },
+  {
+   "home_line": -10.5,
+   "total": 43,
+   "margin_adj": -1.5,
+   "total_adj": 0,
+   "away_cover": 0.5432,
+   "home_win": 0.7746
+  },
+  {
+   "home_line": -10,
+   "total": 43,
+   "margin_adj": -1.0,
+   "total_adj": 0,
+   "away_cover": 0.516,
+   "push": 0.0253,
+   "away_cover_excl_push": 0.5295
+  },
+  {
+   "home_line": -9.5,
+   "total": 43,
+   "margin_adj": -0.5,
+   "total_adj": 0,
+   "away_cover": 0.5143,
+   "note": "SuperContest line"
+  },
+  {
+   "home_line": -10.5,
+   "total": 43,
+   "margin_adj": -1.5,
+   "total_adj": 0.5,
+   "over_excl_push": 0.5156
+  }
+ ],
+ "sources": [
+  "scratch/w07-game-synthesis-queue-sides.json (NYG@HOU packet)",
+  "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt (~11:40 PT)",
+  "data/generated/props/bookmaker-live-2026-10-23-giants-at-texans.json (2026-10-23T20:11:26.964Z)",
+  "data/odds/actionnetwork-openers-2026-w07.json",
+  "data/supercontest/week-07-lines.json (2026-10-22T15:03Z)",
+  "data/generated/team-dossiers/2026-w07/NYG.md",
+  "data/generated/team-dossiers/2026-w07/HOU.md",
+  "packet splits actionnetwork 2026-10-23T19:40Z",
+  "https://www.giants.com/news/giants-vs-texans-week-7-injury-report-tremaine-edmunds-jevon-holland-jermaine-eluemunor-andrew-thomas (2026-10-23 16:00)",
+  "scripts/intel/margin-simulator.mjs (selftest PASS)"
+ ],
+ "ambiguities": [
+  "Roof decision moot by rule; weather unverified",
+  "Tank Dell workload after a 22-month absence",
+  "NYG RB split (Skattebo return)",
+  "Adebo listed IR in the feed vs Questionable on giants.com (giants.com used)",
+  "Dossier venue name 'Reliant Stadium' is stale",
+  "No BetOnline board"
+ ],
+ "delta_checklist": [
+  "+10 -110 or better: upgrade spread to B",
+  "+9.5: pass spread",
+  "+11: B, standalone",
+  "Inactives 08:30 PT: Eluemunor out + Thomas limited, or Holland + Adebo out -> pass spread",
+  "Total <=42.5: Over lean; 44+: re-check Under"
+ ],
+ "gate_notes": [
+  "missing_inputs empty",
+  "roster_vet PASS age 0.0h",
+  "projected_starters lists Dart as NYG QB (wrong) - overridden by operator note (McCarthy)",
+  "Friday designations absent from feed - pulled from giants.com",
+  "secondary_matchups coach names stale - ignored",
+  "weather venue_condition_verification_required - retractable roof, moot",
+  "BKR board 13:11 PT newer than paste 11:40 PT; numbers match"
+ ]
+}

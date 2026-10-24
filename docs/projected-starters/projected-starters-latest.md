@@ -1,18 +1,18 @@
-# Projected Starters Snapshot - 2026-10-23
+# Projected Starters Snapshot - 2026-10-24
 
 > Local projected/likely-starter evidence only. This is research context, not a depth-chart source of truth and not a betting recommendation.
 
 Season: 2026
-Generated: 2026-10-23T14:34:03.177Z
-Players: 60 | Teams with signals: 29 | Manual rows: 50 | Estimated rows: 10
+Generated: 2026-10-24T01:26:41.070Z
+Players: 64 | Teams with signals: 30 | Manual rows: 50 | Estimated rows: 15
 
 ## Coverage
 
 | Team | Status | Players | Missing |
 |---|---:|---:|---|
 | ARI | needs_manual_depth_chart | 0 | verified all-position depth chart; manual source count reconciliation |
-| ATL | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
-| BAL | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
+| ATL | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
+| BAL | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | BUF | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation; Connor McGovern: withheld pending confirmation |
 | CAR | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
 | CHI | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
@@ -25,7 +25,7 @@ Players: 60 | Teams with signals: 29 | Manual rows: 50 | Estimated rows: 10
 | HOU | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
 | IND | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
 | JAX | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
-| KC | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
+| KC | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
 | LAC | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
 | LAR | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
 | LV | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
@@ -37,7 +37,7 @@ Players: 60 | Teams with signals: 29 | Manual rows: 50 | Estimated rows: 10
 | NYJ | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
 | PHI | manual_and_estimated_signals | 3 | independent second-source depth-chart reconciliation |
 | PIT | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
-| SEA | needs_manual_depth_chart | 0 | verified all-position depth chart; manual source count reconciliation |
+| SEA | estimated_from_local_starter_language | 1 | manual all-position depth chart; independent source confirmation |
 | SF | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
 | TB | manual_and_estimated_signals | 1 | independent second-source depth-chart reconciliation |
 | TEN | manual_and_estimated_signals | 2 | independent second-source depth-chart reconciliation |
@@ -45,18 +45,22 @@ Players: 60 | Teams with signals: 29 | Manual rows: 50 | Estimated rows: 10
 
 ## ⚠ Needs Human Review
 
-8 player(s) flagged for review -- usually a single-week usage sample (RB/WR/TE committee) rather than a confirmed depth-chart entry. Spot-check before leaning on these.
+12 player(s) flagged for review -- usually a single-week usage sample (RB/WR/TE committee) rather than a confirmed depth-chart entry. Spot-check before leaning on these.
 
 | Team | Player | Pos | Role | Confidence | Why flagged |
 |---|---|---|---|---:|---|
+| ATL | Khalil Herbert | RB | competition_or_rotation | 0.5 | After Brian Robinson (hamstring) was ruled out, Falcons coach Kevin Stefanski said Friday that Herbert will be Bijan Robinson's backup against the 49ers on Sunday, Marc Raimondi of ESPN.com reports. |
 | ATL | Charles Snowden | LB | roster_depth_signal | 0.42 | The Falcons signed Snowden off the Commanders' practice squad to the active roster Tuesday, Josh Kendall of The Athletic reports. |
+| BAL | Tyler Huntley | QB | likely_starter_or_primary | 0.7 | Huntley will start Sunday's Week 7 matchup against Cincinnati if Lamar Jackson (ankle) is unable to play, Ryan Mink of the Ravens' official site reports. |
 | CAR | Anthony Tyus III | RB | roster_depth_signal | 0.42 | The Panthers signed Tyus off their practice squad to the active roster Tuesday, Joe Person of The Athletic reports. |
 | CIN | Josh Kattus | TE | roster_depth_signal | 0.42 | The Bengals have signed Kattus to their practice squad. |
 | DAL | Juanyeh Thomas | S | roster_depth_signal | 0.42 | Thomas was signed to the Cowboys' active roster Tuesday. |
 | DET | DeAndre Carter | WR | roster_depth_signal | 0.42 | The Lions signed Carter to the active roster Thursday. |
+| KC | Andrew Armstrong | WR | roster_depth_signal | 0.42 | The Chiefs signed Armstrong from the practice squad to the active roster Friday, Aaron Wilson of KPRC 2 Houston reports. |
 | LV | Darien Porter | CB | likely_starter_or_primary | 0.7 | Porter is starting at outside cornerback in place of Hezekiah Masses in Sunday's game against the Bills, Sam Warren of The Athletic reports. |
 | NYG | Jameis Winston | QB | likely_starter_or_primary | 0.78 | Winston is in line to serve as the Giants' backup quarterback Sunday against the Texans with the team planning to move forward with J.J. McCarthy as its starter in Week 7, Jeremy Fowler of ESPN.com reports. |
 | NYJ | Isaiah Williams | WR | competition_or_rotation | 0.5 | Williams should continue to serve as the No. 3 wide receiver behind Garrett Wilson and Tim Patrick for Sunday's game against the Patriots due to the absence of Adonai Mitchell (finger). |
+| SEA | Emanuel Wilson | RB | likely_starter_or_primary | 0.7 | Wilson will be the lead back for Sunday's game against the Chiefs after Zach Charbonnet (knee) was ruled out ahead of that contest, John Boyle of the Seahawks' official site reports. |
 
 
 ## Named Status Review Gate
@@ -75,6 +79,9 @@ Players: 60 | Teams with signals: 29 | Manual rows: 50 | Estimated rows: 10
 - Bijan Robinson (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for ATL (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Khalil Herbert (RB): competition_or_rotation, starter 0.5, roster 0.6
+  - Tags: competition | Impact: skill_major | Review: yes
+  - Evidence: After Brian Robinson (hamstring) was ruled out, Falcons coach Kevin Stefanski said Friday that Herbert will be Bijan Robinson's backup against the 49ers on Sunday, Marc Raimondi of ESPN.com reports.
 - Charles Snowden (LB): roster_depth_signal, starter 0.42, roster 0.6
   - Tags: roster_signal | Impact: defensive_major | Review: yes
   - Evidence: The Falcons signed Snowden off the Commanders' practice squad to the active roster Tuesday, Josh Kendall of The Athletic reports.
@@ -84,6 +91,9 @@ Players: 60 | Teams with signals: 29 | Manual rows: 50 | Estimated rows: 10
 - Lamar Jackson (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for BAL (usage score 25.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Tyler Huntley (QB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: qb_major | Review: yes
+  - Evidence: Huntley will start Sunday's Week 7 matchup against Cincinnati if Lamar Jackson (ankle) is unable to play, Ryan Mink of the Ravens' official site reports.
 
 ### BUF
 
@@ -181,7 +191,7 @@ Players: 60 | Teams with signals: 29 | Manual rows: 50 | Estimated rows: 10
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for HOU (usage score 38.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 - Woody Marks (RB): starter, starter 0.8, roster 0.85
-  - Tags: locked_starter, weekly_usage_dominant | Impact: rb_major | Review: no
+  - Tags: locked_starter, weekly_usage_dominant, starter | Impact: rb_major | Review: no
   - Evidence: Week 6 2026 usage leader at RB for HOU (usage score 16.5 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
 
 ### IND
@@ -210,6 +220,9 @@ Players: 60 | Teams with signals: 29 | Manual rows: 50 | Estimated rows: 10
 - Kenneth Walker III (RB): starter, starter 0.8, roster 0.85
   - Tags: locked_starter, week1_usage_dominant | Impact: rb_major | Review: no
   - Evidence: Week 1 2026 usage leader at RB for KC (usage score 26.0 vs runner-up 9.0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+- Andrew Armstrong (WR): roster_depth_signal, starter 0.42, roster 0.6
+  - Tags: roster_signal | Impact: skill_major | Review: yes
+  - Evidence: The Chiefs signed Armstrong from the practice squad to the active roster Friday, Aaron Wilson of KPRC 2 Houston reports.
 
 ### LAC
 
@@ -306,6 +319,12 @@ Players: 60 | Teams with signals: 29 | Manual rows: 50 | Estimated rows: 10
 - Aaron Rodgers (QB): starter, starter 0.95, roster 0.95
   - Tags: locked_starter, week1_usage_dominant | Impact: qb_major | Review: no
   - Evidence: Week 1 2026 usage leader at QB for PIT (usage score 40.0 vs runner-up 0) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts.
+
+### SEA
+
+- Emanuel Wilson (RB): likely_starter_or_primary, starter 0.7, roster 0.66
+  - Tags: starter | Impact: skill_major | Review: yes
+  - Evidence: Wilson will be the lead back for Sunday's game against the Chiefs after Zach Charbonnet (knee) was ruled out ahead of that contest, John Boyle of the Seahawks' official site reports.
 
 ### SF
 

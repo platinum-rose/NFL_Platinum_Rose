@@ -1,0 +1,32 @@
+{
+ "schema": "survivor_pick_intel_v1",
+ "season": 2026,
+ "week": 7,
+ "captured_at": "2026-10-23T17:35:00-07:00",
+ "sources": {
+  "pick_pct": "https://www.fantasyalarm.com/articles/nfl/survivor-pool-picks/best-nfl-survivor-pool-strategy-picks-week-7-texans-over-giants/197478",
+  "pick_pct_label": "Pool Genius popularity via FantasyAlarm (Oct 21)",
+  "ev": "https://www.fantasyalarm.com/articles/nfl/survivor-pool-picks/best-nfl-survivor-pool-strategy-picks-week-7-texans-over-giants/197478",
+  "note": "https://www.rotowire.com/football/article/nfl-survivor-pool-picks-2026-grid-odds-strategy-126290",
+  "note_label": "RotoWire 2026 survivor grid (updated Oct 19) / Pool Genius / SportsLine",
+  "extra": [
+   "https://www.sportsline.com/insiders/nfl-survivor-pool-strategy-should-you-back-the-texans-best-options-for-week-7-include-a-few-pivots/"
+  ],
+  "method": "Win odds from RotoWire's 2026 grid (consensus lines as of Oct 19; current BKR lines differ by up to ~1.5 pts, e.g. HOU -10.5). Pick share and EV are Pool Genius figures quoted by FantasyAlarm on Oct 21, available only for HOU, MIN, DAL, NYJ; other teams have win odds only. KNOWN GAP: SurvivorGrid pick share/value score not fetchable from this session. Thursday teams (NE/CHI) omitted. Research/historical reference only (Andy is out of both survivor pools)."
+ },
+ "teams": {
+  "HOU": {"pick_pct": 33, "ev": 1.10, "note": "Top pick everywhere. RotoWire 75% win (-9), best remaining matchup so no future cost; Pool Genius grade 100, 83% win, 33% popularity, EV 1.10. SportsLine: biggest favorite by far, expect heavy use. Current BKR HOU -10.5."},
+  "MIN": {"pick_pct": 19, "ev": null, "note": "Backup. RotoWire 66% win (-5.5), also their best remaining date; Pool Genius grade 97, 71% win, 19% popularity. BKR MIN -6.5."},
+  "NYJ": {"pick_pct": 15, "ev": 0.94, "note": "Backup. RotoWire 65% win (-5), best remaining date; Pool Genius grade 93, EV 0.94, 15% popularity. BKR NYJ -4.5."},
+  "DAL": {"pick_pct": 4, "ev": 1.01, "note": "Low-owned value per Pool Genius (grade 94, EV 1.01, 4%). RotoWire 63% win (-4.5) but says pass: Week 8 vs ARI (~87%) is better. Monday-night game."},
+  "LAR": {"pick_pct": null, "ev": null, "note": "RotoWire 66% win (-5.5) but save: best spot is Week 10 at ARI (~87%). BKR LAR -3."},
+  "DEN": {"pick_pct": null, "ev": null, "note": "RotoWire 63% win (-4.5), pass: better spots later."},
+  "SF": {"pick_pct": null, "ev": null, "note": "RotoWire 63% win (-4.5), pass. BKR now SF -2.5 (line has come in)."},
+  "CAR": {"pick_pct": null, "ev": null, "note": "RotoWire 60% win (-3.5), marginal. Mayfield expected back for TB."},
+  "DET": {"pick_pct": null, "ev": null, "note": "RotoWire 60% win (-3.5), marginal."},
+  "BAL": {"pick_pct": null, "ev": null, "note": "RotoWire 60% win (-3.5) but BKR now BAL -1 with Lamar Jackson questionable (high-ankle); save for Week 16 vs CLE (~87%). Avoid."},
+  "PIT": {"pick_pct": null, "ev": null, "note": "RotoWire 58% win, trap (neutral-site Paris, wind)."},
+  "SEA": {"pick_pct": null, "ev": null, "note": "RotoWire 58% win, save for Week 9 vs ARI (~88%)."},
+  "CLE": {"pick_pct": null, "ev": null, "note": "RotoWire 54% win, avoid: weakest favorite on the slate."}
+ }
+}

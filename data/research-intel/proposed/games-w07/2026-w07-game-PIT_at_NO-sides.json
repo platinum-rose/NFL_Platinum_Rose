@@ -1,0 +1,191 @@
+{
+  "game": "PIT@NO",
+  "pass": "sides",
+  "generated_at": "2026-10-24T01:30:26Z",
+  "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+  "recommendations": [
+    {
+      "market": "spread",
+      "selection": "PASS (lean PIT -3)",
+      "line": -3,
+      "price": -108,
+      "tier": "PASS",
+      "fair_line": -3.5,
+      "edge_pts": 0.5,
+      "playable_to": "PIT C at -2.5 (to -115); NO C at +3.5 -110 or better",
+      "model_prob": 0.514,
+      "supercontest_candidate": false,
+      "straight_up_winner": "PIT",
+      "pool_confidence": 8,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Fair PIT -3.5 (mean -3.8) vs BKR -3: PIT cover 51.4% excl push < 51.9% break-even at -108",
+        "Experts split by number: PIT voices at <=-3, NO voices only at +3.5",
+        "Sharp ML money on NO (20% bets / 34% money) and intraday juice drift toward NO"
+      ],
+      "counter_case": "PIT on OT/travel fatigue spot, secondary short (Echols out, Elliott Q); NO pass O vs PIT rated high vulnerability; sharp money on NO.",
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:10:43.242Z"
+    },
+    {
+      "market": "total",
+      "selection": "Under 44.5",
+      "line": 44.5,
+      "price": -110,
+      "tier": "C",
+      "fair_line": 43.0,
+      "edge_pts": 1.5,
+      "playable_to": "44 -110 / 43.5 -105; pass at 43",
+      "model_prob": 0.545,
+      "supercontest_candidate": false,
+      "straight_up_winner": "PIT",
+      "pool_confidence": 8,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Open-air Stade de France forecast 26 km/h wind, 54 km/h gusts",
+        "Both offenses bottom-12 EPA/play (PIT #24, NO #20)",
+        "NO 84% RZ TD rate unsustainable",
+        "Total unmoved from 44.5 open despite wind"
+      ],
+      "counter_case": "NO defense EPA/DB +0.092 lets PIT score 27+; wind-driven turnovers create short fields; forecast may soften.",
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:10:43.242Z"
+    },
+    {
+      "market": "moneyline",
+      "selection": "PASS (SU PIT)",
+      "line": null,
+      "price": -161,
+      "tier": "PASS",
+      "fair_line": -168,
+      "edge_pts": null,
+      "playable_to": "PIT ML only at -150 or better",
+      "model_prob": 0.626,
+      "supercontest_candidate": false,
+      "straight_up_winner": "PIT",
+      "pool_confidence": 8,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Model PIT win 62.6% excl tie vs -161 (61.7% w/ vig); NO +140 needs 41.7% vs model 37.4%"
+      ],
+      "counter_case": "Sharp ML money on NO (14-pt money/bets gap) suggests NO upset equity higher than model.",
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:10:43.242Z"
+    },
+    {
+      "market": "spread",
+      "selection": "NO +3.5 (SuperContest)",
+      "line": 3.5,
+      "price": null,
+      "tier": "C",
+      "fair_line": -3.5,
+      "edge_pts": 0.4,
+      "playable_to": "contest line only; at BKR needs +3.5 -110 or better",
+      "model_prob": 0.524,
+      "supercontest_candidate": true,
+      "straight_up_winner": "PIT",
+      "pool_confidence": 8,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Contest hook sits past the 3 (exact-3 ~15% of outcomes)",
+        "NO +3.5 backed by Tuley, Lotzia, Hunter, Tucker",
+        "Model 52.4% at contest line"
+      ],
+      "counter_case": "PIT defense (#6 EPA, 7% sack rate) vs NO OL possibly without Ruiz could produce a two-score win.",
+      "book": "SuperContest",
+      "captured_at": "2026-10-22T15:03:58.771Z"
+    }
+  ],
+  "adjustments": {
+    "margin_adj": -0.5,
+    "total_adj": -1.5,
+    "reasons": [
+      "margin: PIT D #6 EPA vs NO D #28, NO RZ-TD regression; offset by PIT OT/travel, depleted WRs, sharp NO ML money",
+      "total: 16/33 mph wind open-air, both offenses bottom-12 EPA, NO RZ regression"
+    ]
+  },
+  "sim_runs": [
+    {
+      "label": "baseline",
+      "home_line": 3,
+      "total": 44.5,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover": 0.4587,
+      "away_cover": 0.4587,
+      "push": 0.0827,
+      "over": 0.5,
+      "under": 0.5,
+      "home_win": 0.3987
+    },
+    {
+      "label": "adjusted_bkr",
+      "home_line": 3,
+      "total": 44.5,
+      "margin_adj": -0.5,
+      "total_adj": -1.5,
+      "home_cover": 0.4456,
+      "away_cover": 0.4719,
+      "away_cover_excl_push": 0.5143,
+      "push": 0.0826,
+      "over": 0.4546,
+      "under": 0.5454,
+      "home_win": 0.386,
+      "mean_margin": -3.78,
+      "mean_total": 43.02
+    },
+    {
+      "label": "supercontest",
+      "home_line": 3.5,
+      "total": 44.5,
+      "margin_adj": 0.9,
+      "total_adj": -1.5,
+      "home_cover": 0.5239,
+      "away_cover": 0.4761,
+      "push": 0,
+      "over": 0.4546,
+      "under": 0.5454,
+      "home_win": 0.382,
+      "mean_margin": -3.91
+    }
+  ],
+  "sources": [
+    "scratch/w07-game-synthesis-queue-sides.json (PIT@NO packet, built 2026-10-24T01:26:41Z)",
+    "data/generated/props/bookmaker-live-2026-10-23-steelers-at-saints.json (capturedAt 2026-10-23T20:10:43Z)",
+    "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt (Andy paste ~11:40 PT)",
+    "data/odds/actionnetwork-openers-2026-w07.json via packet.market.an_opener",
+    "data/supercontest/week-07-lines.json",
+    "data/generated/props/draftkings-predictions-live-2026-10-23-steelers-at-saints.json (reference only)",
+    "data/generated/team-dossiers/2026-w07/PIT.md",
+    "data/generated/team-dossiers/2026-w07/NO.md",
+    "data/research-intel/review/2026-w07-weather-venue.json via packet.weather",
+    "packet.splits (Action Network 2026-10-23T19:40Z)",
+    "https://www.neworleanssaints.com/news/injury-report-pittsburgh-steelers-vs-new-orleans-saints-2026-nfl-week-7-friday",
+    "scripts/intel/margin-simulator.mjs (selftest PASS)"
+  ],
+  "ambiguities": [
+    "DeShon Elliott listed both Questionable and IR/DTR on team site",
+    "PIT Friday report is an estimate (no practice)",
+    "No BetOnline board captured",
+    "Single Open-Meteo wind capture",
+    "International-favorite ATS trend unaudited, not used"
+  ],
+  "delta_checklist": [
+    "BKR PIT -2.5 -> PIT C; BKR NO +3.5 -110 or better -> NO C",
+    "Sun AM wind: sustained <15 km/h and gusts <30 -> under PASS",
+    "Total <=43 -> under PASS",
+    "Inactives ~5:00 AM PT: Elliott out -> NO nudge; Ruiz out -> PIT/under nudge; Dowdle out -> no change",
+    "NO ML to +130 or shorter confirms sharp NO money; spread stays PASS"
+  ],
+  "gate_notes": [
+    "roster_vet PASS age 0.0h (not re-run)",
+    "missing_inputs empty; BetOnline board absent",
+    "Friday designations absent/stale in packet feed; resolved via official team-site Friday report",
+    "secondary_matchups coverage note carries stale coach/personnel names; ignored",
+    "BKR paste mtime 18:44Z vs header ~11:40 PT; newer 20:10Z board used"
+  ]
+}

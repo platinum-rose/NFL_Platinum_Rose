@@ -204,11 +204,11 @@
   <!-- Metrics Header -->
   <div class="stats-grid">
     <div class="stat-card">
-      <div class="stat-val">2</div>
+      <div class="stat-val">4</div>
       <div class="stat-label">Total Player Props</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val" style="color: #34d399;">2</div>
+      <div class="stat-val" style="color: #34d399;">4</div>
       <div class="stat-label">Tier 1 Recommended Bets</div>
     </div>
     <div class="stat-card">
@@ -220,7 +220,7 @@
       <div class="stat-label">Curated Parlay Cards</div>
     </div>
     <div class="stat-card">
-      <div class="stat-val">2</div>
+      <div class="stat-val">4</div>
       <div class="stat-label">Matchups Covered</div>
     </div>
   </div>
@@ -229,6 +229,8 @@
   <div class="toolbar">
     <div class="filter-group">
       <button class="btn-filter active" onclick="filterGame('all', this)">All Games</button>
+      <button class="btn-filter" onclick="filterGame('GB @ DET', this)">GB @ DET</button>
+      <button class="btn-filter" onclick="filterGame('TB @ CAR', this)">TB @ CAR</button>
       <button class="btn-filter" onclick="filterGame('PIT @ NO', this)">PIT @ NO</button>
       <button class="btn-filter" onclick="filterGame('NYG @ HOU', this)">NYG @ HOU</button>
     </div>
@@ -270,6 +272,64 @@
         </tr>
       </thead>
       <tbody>
+        
+          <tr class="prop-row" data-game="GB @ DET" data-cat="receiving" id="row-prop__9378__tucker_kraft__receptions">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__9378__tucker_kraft__receptions" onchange="toggleProp('prop__9378__tucker_kraft__receptions')">
+            </td>
+            <td>
+              <div class="cell-player">Tucker Kraft</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">GB</span>
+              <div style="font-size: 11px; color: #94a3b8;">GB @ DET</div>
+            </td>
+            <td>Receptions</td>
+            <td><span class="cell-line">4.5 OVER</span></td>
+            <td><span class="cell-odds">-102</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Josh Shepardson (Sharp Football)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Pass-Catching Piece
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                Sharp Betting Tools: NFL Props: Lines &amp; Odds NFL Spreads, Totals, &amp; Moneylines NFL Weather Forecast &amp; Potential Impact NFL Implied Team Totals NFL Week 7 Best Prop Bet: Bryce Young Over 250.5 Passing Yards (-115) The Panthers rank second in pass rate over expected (7.3% PROE) and third in neutral pace . The Buccaneers have faced the fourth-highest PROE (5.3%) this season.
+              </div>
+            </td>
+          </tr>
+        
+          <tr class="prop-row" data-game="TB @ CAR" data-cat="passing" id="row-prop__9378__bryce_young__passing_yards">
+            <td class="checkbox-cell">
+              <input type="checkbox" class="prop-checkbox" id="chk-prop__9378__bryce_young__passing_yards" onchange="toggleProp('prop__9378__bryce_young__passing_yards')">
+            </td>
+            <td>
+              <div class="cell-player">Bryce Young</div>
+            </td>
+            <td>
+              <span style="font-weight: 600;">CAR</span>
+              <div style="font-size: 11px; color: #94a3b8;">TB @ CAR</div>
+            </td>
+            <td>Passing Yards</td>
+            <td><span class="cell-line">250.5 OVER</span></td>
+            <td><span class="cell-odds">-115</span></td>
+            <td>DraftKings/FanDuel (per source article)</td>
+            <td><span class="badge-tier1">Tier 1</span></td>
+            <td>
+              <div style="font-weight: 600;">Josh Shepardson (Sharp Football)</div>
+            </td>
+            <td style="max-width: 320px;">
+              <div style="color: #60a5fa; font-weight: 600; font-size: 12px; margin-bottom: 2px;">
+                Passing Volume Anchor
+              </div>
+              <div style="font-size: 12px; color: #cbd5e1; line-height: 1.35;">
+                The Panthers rank second in pass rate over expected (7.3% PROE) and third in neutral pace . The Buccaneers have faced the fourth-highest PROE (5.3%) this season.
+              </div>
+            </td>
+          </tr>
         
           <tr class="prop-row" data-game="PIT @ NO" data-cat="passing" id="row-prop__8921__aaron_rodgers__pass_attempts">
             <td class="checkbox-cell">
@@ -357,7 +417,7 @@
 </div>
 
 <script>
-  const ALL_PROPS = [{"id":"prop__8921__aaron_rodgers__pass_attempts","player":"Aaron Rodgers","team":"PIT","game":"PIT @ NO","game_slate":"Sunday Early Window","category":"pass_attempts","category_label":"Pass Attempts","stat_type":"passing","line":"28+","side":"over","price":"-542","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":8921,"source_url":"https://www.bettingpros.com/articles/nfl-week-7-picks-predictions-best-early-parlays-2026/","rationale":"This prop has been one of the most lucrative legs of the season, and we are once again going back to the well. Truth be told, passing attempts have yielded massive success over the first seven weeks.","week":7,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["pass_attempts","PIT_offense"],"positive_correlations":[]}},{"id":"prop__8921__nico_collins__anytime_td","player":"Nico Collins","team":"HOU","game":"NYG @ HOU","game_slate":"Sunday Early Window","category":"anytime_td","category_label":"Anytime Touchdown Scorer","stat_type":"touchdown","line":"Yes","side":"anytime","price":"+100","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":8921,"source_url":"https://www.bettingpros.com/articles/nfl-week-7-picks-predictions-best-early-parlays-2026/","rationale":"We close out our parlay with another positive return that is sure to drop throughout the week. You will want to get in on this leg before it is no longer a positive return.","week":7,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"End-Zone Target","synergy_tags":["anytime_td","HOU_offense"],"positive_correlations":[]}}];
+  const ALL_PROPS = [{"id":"prop__9378__tucker_kraft__receptions","player":"Tucker Kraft","team":"GB","game":"GB @ DET","game_slate":"Sunday Late Window","category":"receptions","category_label":"Receptions","stat_type":"receiving","line":"4.5","side":"over","price":"-102","book":"DraftKings/FanDuel (per source article)","analyst":"Josh Shepardson (Sharp Football)","source_article_id":9378,"source_url":"https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-7-2026/","rationale":"Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 7 Best Prop Bet: Bryce Young Over 250.5 Passing Yards (-115) The Panthers rank second in pass rate over expected (7.3% PROE) and third in neutral pace . The Buccaneers have faced the fourth-highest PROE (5.3%) this season.","week":7,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Pass-Catching Piece","synergy_tags":["receptions","GB_offense"],"positive_correlations":[]}},{"id":"prop__9378__bryce_young__passing_yards","player":"Bryce Young","team":"CAR","game":"TB @ CAR","game_slate":"Sunday Early Window","category":"passing_yards","category_label":"Passing Yards","stat_type":"passing","line":"250.5","side":"over","price":"-115","book":"DraftKings/FanDuel (per source article)","analyst":"Josh Shepardson (Sharp Football)","source_article_id":9378,"source_url":"https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-7-2026/","rationale":"The Panthers rank second in pass rate over expected (7.3% PROE) and third in neutral pace . The Buccaneers have faced the fourth-highest PROE (5.3%) this season.","week":7,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["passing_yards","CAR_offense"],"positive_correlations":[]}},{"id":"prop__8921__aaron_rodgers__pass_attempts","player":"Aaron Rodgers","team":"PIT","game":"PIT @ NO","game_slate":"Sunday Early Window","category":"pass_attempts","category_label":"Pass Attempts","stat_type":"passing","line":"28+","side":"over","price":"-542","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":8921,"source_url":"https://www.bettingpros.com/articles/nfl-week-7-picks-predictions-best-early-parlays-2026/","rationale":"This prop has been one of the most lucrative legs of the season, and we are once again going back to the well. Truth be told, passing attempts have yielded massive success over the first seven weeks.","week":7,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"Passing Volume Anchor","synergy_tags":["pass_attempts","PIT_offense"],"positive_correlations":[]}},{"id":"prop__8921__nico_collins__anytime_td","player":"Nico Collins","team":"HOU","game":"NYG @ HOU","game_slate":"Sunday Early Window","category":"anytime_td","category_label":"Anytime Touchdown Scorer","stat_type":"touchdown","line":"Yes","side":"anytime","price":"+100","book":"DraftKings/FanDuel (per source article)","analyst":"Steve Krebs (BettingPros)","source_article_id":8921,"source_url":"https://www.bettingpros.com/articles/nfl-week-7-picks-predictions-best-early-parlays-2026/","rationale":"We close out our parlay with another positive return that is sure to drop throughout the week. You will want to get in on this leg before it is no longer a positive return.","week":7,"tier":1,"tier_label":"Tier 1: Featured Pick","weight":1,"parlay_utility":{"role":"End-Zone Target","synergy_tags":["anytime_td","HOU_offense"],"positive_correlations":[]}}];
   const PREBUILT_CARDS = [];
   const PROPS_BY_ID = new Map(ALL_PROPS.map(p => [p.id, p]));
 

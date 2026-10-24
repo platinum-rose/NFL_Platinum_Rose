@@ -1,0 +1,181 @@
+{
+  "game": "GB@DET",
+  "pass": "sides",
+  "generated_at": "2026-10-24T01:31:28.750972Z",
+  "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+  "recommendations": [
+    {
+      "market": "spread",
+      "selection": "GB +3",
+      "line": 3.0,
+      "price": 104,
+      "tier": "C",
+      "fair_line": -3.0,
+      "edge_pts": 0.0,
+      "playable_to": "GB +3 -110; pass at +2.5",
+      "model_prob": 0.4587,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DET",
+      "pool_confidence": 6,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Fair DET -3.0 (near-equal power/win-total markets + ~1.5-2 HFA + bye/GB DL attrition)",
+        "+104 on dog at key number = ~+1.8% EV at fair (sim cover 45.9 / push 8.3)",
+        "67% bets/73% money on GB; Caesars sharp report on GB +3.5",
+        "Tuley, Sharp, Hunter, Ewing trend on GB"
+      ],
+      "counter_case": "DET off bye at home vs GB front missing Parsons/Hargrave/Ford/Franklin; DET 77% RZ TD; -122 juice signals books leaning DET; GB topped 23 pts once in 6 games.",
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:12:20.187Z"
+    },
+    {
+      "market": "spread",
+      "selection": "GB +3.5 (SuperContest)",
+      "line": 3.5,
+      "price": null,
+      "book": "SuperContest",
+      "captured_at": "2026-10-22T15:03:58.771Z",
+      "tier": "B",
+      "fair_line": -3.0,
+      "edge_pts": 0.5,
+      "playable_to": "contest line locked at +3.5",
+      "model_prob": 0.5133,
+      "supercontest_candidate": true,
+      "straight_up_winner": "DET",
+      "pool_confidence": 6,
+      "parlay_leg_ok": false,
+      "standalone_preferred": true,
+      "reasons": [
+        "Contest hook +3.5 vs BKR -3 key number",
+        "Sim 51.3% with -0.5 view vs contest line",
+        "Sharp action at +3.5 (Caesars), Tuley Best Bet +3.5"
+      ],
+      "counter_case": "DET wins by 4+ off bye; Branch return + Mays shore up DET; GB offense limited."
+    },
+    {
+      "market": "total",
+      "selection": "Over 53.5",
+      "line": 53.5,
+      "price": -111,
+      "tier": "C",
+      "fair_line": 54.5,
+      "edge_pts": 1.0,
+      "playable_to": "54 -110; pass at 54.5",
+      "model_prob": 0.5304,
+      "supercontest_candidate": false,
+      "straight_up_winner": null,
+      "pool_confidence": null,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Dome; DET off EPA #3 and def EPA #31; DET games avg 62.4 total pts",
+        "Opened 52.5 -> 53.5 against 79% Under tickets (RLM to Over)",
+        "GB DL depleted; DET secondary vulnerability tier high (Joseph out)",
+        "Erickson, Perrault, BettingPros over (all at 52.5)"
+      ],
+      "counter_case": "GB games avg 42 pts and slow pace; Love CPOE -6.1; Jacobs return may shorten game; Makinen Under at current 53.5; touts got a point cheaper.",
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:12:20.187Z"
+    },
+    {
+      "market": "moneyline",
+      "selection": "PASS",
+      "line": null,
+      "price": null,
+      "tier": "PASS",
+      "fair_line": "DET -146 (59% excl tie)",
+      "edge_pts": null,
+      "playable_to": "GB ML at +170 or better becomes interesting",
+      "model_prob": 0.6013,
+      "supercontest_candidate": false,
+      "straight_up_winner": "DET",
+      "pool_confidence": 6,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "BKR GB +156 / DET -178 roughly fair vs sim; no edge"
+      ],
+      "counter_case": "If fair is DET -3.5+, DET ML -178 is close to fair; if GB +3 thesis right, GB ML small value.",
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:12:20.187Z"
+    }
+  ],
+  "adjustments": {
+    "margin_adj": 0.0,
+    "total_adj": 1.0,
+    "contest_margin_adj": -0.5,
+    "reasons": [
+      "Margin: view DET -3.0 equals BKR -3 (edge is price); -0.5 home vs contest -3.5",
+      "Total +1.0: dome, DET off EPA #3/def #31, bye, GB DL attrition, RLM on total"
+    ]
+  },
+  "sim_runs": [
+    {
+      "args": "--home-line -3 --total 53.5",
+      "home_cover": 0.4587,
+      "away_cover": 0.4587,
+      "push": 0.0827,
+      "over": 0.5,
+      "home_win": 0.6013
+    },
+    {
+      "args": "--home-line -3 --total 53.5 --margin-adj 0 --total-adj 1.0",
+      "home_cover": 0.4587,
+      "away_cover": 0.4587,
+      "push": 0.0827,
+      "over": 0.5304,
+      "home_win": 0.6013
+    },
+    {
+      "args": "--home-line -3.5 --total 53.5",
+      "home_cover": 0.5,
+      "away_cover": 0.5,
+      "push": 0,
+      "over": 0.5,
+      "home_win": 0.6406
+    },
+    {
+      "args": "--home-line -3.5 --total 53.5 --margin-adj -0.5 --total-adj 1.0",
+      "home_cover": 0.4867,
+      "away_cover": 0.5133,
+      "push": 0,
+      "over": 0.5304,
+      "home_win": 0.6281
+    }
+  ],
+  "sources": [
+    "scratch/w07-game-synthesis-queue-sides.json (GB@DET packet)",
+    "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt (~11:40 PT)",
+    "data/generated/props/bookmaker-live-2026-10-23-packers-at-lions.json (2026-10-23T20:12:20Z)",
+    "data/odds/actionnetwork-openers-2026-w07.json",
+    "data/supercontest/week-07-lines.json",
+    "data/generated/team-dossiers/2026-w07/GB.md",
+    "data/generated/team-dossiers/2026-w07/DET.md",
+    "scripts/intel/margin-simulator.mjs",
+    "https://www.si.com/betting/packers-vs-lions-prediction-odds-spread-injuries-trends-for-nfl-week-7-2026",
+    "https://www.packers.com/news/packers-lions-injury-report-oct-21-2026",
+    "https://www.footballnationusa.com/post/brian-branch-cade-mays-lions-return-packers-week-7-impact"
+  ],
+  "ambiguities": [
+    "DET Friday designations only partially captured (Branch Q); Mays/Ya-Sin final status unconfirmed",
+    "Packet power_ratings SRS disagrees with dossier SRS",
+    "DET FTN through W5 (bye)",
+    "BetOnline board null; splits single-source (AN)"
+  ],
+  "delta_checklist": [
+    "Branch/Mays activation Sat; Branch inactive Sun 11:55 PT -> GB +3 to B, Over to B-",
+    "DET -3.5 at BKR -> GB +3.5 tier B",
+    "GB +3 at -110 or worse -> PASS BKR side",
+    "Total 54.5+ -> PASS Over; 53 -> upgrade",
+    "Love back setback -> side PASS, lean Under",
+    "Jacobs clear lead role -> slight Under nudge"
+  ],
+  "gate_notes": [
+    "missing_inputs empty",
+    "roster_vet PASS age 0.0h; 1 UNVERIFIED unnamed; Parsons withheld in packet, web-confirmed PUP-R (out)",
+    "Official 10/23 injury pages not fetchable (allowlist); used packet ESPN rows published Fri evening",
+    "Stale coach name in secondary_matchups coverage notes ignored",
+    "Anderson (AN article + YouTube) counted as one opinion"
+  ]
+}

@@ -1,0 +1,171 @@
+{
+ "game": "SF@ATL",
+ "pass": "sides",
+ "generated_at": "2026-10-24T01:35:00Z",
+ "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+ "recommendations": [
+  {
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:11:38.577Z",
+   "supercontest_candidate": false,
+   "straight_up_winner": "SF",
+   "pool_confidence": 6,
+   "market": "spread",
+   "selection": "PASS (lean SF -2.5)",
+   "line": -2.5,
+   "price": -114,
+   "tier": "PASS",
+   "fair_line": -3.0,
+   "edge_pts": 0.5,
+   "playable_to": "SF -2.5 -105 or better; pass at -2.5 -110 or worse; hard pass at -3",
+   "model_prob": 0.513,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Fair SF -3.0 vs BKR -2.5: 0.5 pts incl. key 3, but sim 51.3% < 53.3% breakeven at -114",
+    "Sharp flag on ATL: 40% money vs 27% bets on spread (AN 2026-10-23T19:40Z)",
+    "Line moved SF -4.5 (AN open) to -2.5, mostly Evans Achilles injury"
+   ],
+   "counter_case": "Pre-bye 6-0 road fav on MNF short week without Evans/Samuel/Bosa; sharp ATL money; ATL run game shortens game"
+  },
+  {
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:11:38.577Z",
+   "supercontest_candidate": false,
+   "straight_up_winner": "SF",
+   "pool_confidence": 6,
+   "market": "total",
+   "selection": "UNDER 49.5",
+   "line": 49.5,
+   "price": -107,
+   "tier": "C",
+   "fair_line": 48.0,
+   "edge_pts": 1.5,
+   "playable_to": "49 (-110); pass at 48.5",
+   "model_prob": 0.545,
+   "parlay_leg_ok": true,
+   "standalone_preferred": false,
+   "reasons": [
+    "SF passing tree condensed (Evans, Samuel out) -> long drives; SF 5.8 ply/drive, 166 sec/drive",
+    "ATL run-heavy 49.4% rush; ATL pass game collapses under pressure",
+    "Total down 50.5 -> 49.5 despite 69% Over money; experts Anderson (U50) and Krebs (U50.5) agree; PFT 27-20 implies 47"
+   ],
+   "counter_case": "Both defenses depleted (Bosa/Sigle/2 LBs SF; Bowman/Deablo/maybe Terrell ATL); indoors; ATL D 2.43 pts/drive last 3; SF RZ TD 85%"
+  },
+  {
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:11:38.577Z",
+   "supercontest_candidate": false,
+   "straight_up_winner": "SF",
+   "pool_confidence": 6,
+   "market": "moneyline",
+   "selection": "PASS (SF SU)",
+   "line": null,
+   "price": -140,
+   "tier": "PASS",
+   "fair_line": -142,
+   "edge_pts": 0.0,
+   "playable_to": "ATL ML playable C only at +140 or better",
+   "model_prob": 0.586,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Sim SF win 58.6% (excl ties) vs -140 implied 58.3%: no edge"
+   ],
+   "counter_case": "ATL +123 needs 44.8%; sim gives 41.4%. Letdown spot + sharp ATL money could close the gap"
+  },
+  {
+   "book": "SuperContest",
+   "captured_at": "2026-10-22T15:03:58.771Z",
+   "supercontest_candidate": true,
+   "straight_up_winner": "SF",
+   "pool_confidence": 6,
+   "market": "spread",
+   "selection": "SuperContest: ATL +3.5",
+   "line": 3.5,
+   "price": null,
+   "tier": "C",
+   "fair_line": -3.0,
+   "edge_pts": 0.5,
+   "playable_to": "contest line locked; value holds while market at SF -3 or shorter",
+   "model_prob": 0.513,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Contest line 1 pt better than BKR market (-2.5), through key number 3 (P(margin=3) ~15%)",
+    "Sharp money on ATL"
+   ],
+   "counter_case": "SF elite per-play efficiency; margin 7 is second most likely (9.4%)"
+  }
+ ],
+ "adjustments": {
+  "margin_adj": -0.5,
+  "total_adj": -1.5,
+  "reasons": [
+   "Margin (home-positive, vs BKR ATL +2.5): power ~SF -5.5 at ATL, -1.5 Evans+Samuel out, -1.0 MNF short week/travel/pre-bye -> fair SF -3.0",
+   "SC run uses +0.5 vs ATL +3.5 (same view)",
+   "Total: -1.5 for condensed SF passing tree, ATL run rate and slow SF pace -> fair 48.0"
+  ]
+ },
+ "sim_runs": [
+  {
+   "args": "--home-line 2.5 --total 49.5",
+   "home_cover": 0.5,
+   "over": 0.5,
+   "home_win_excl_tie": 0.427
+  },
+  {
+   "args": "--home-line 2.5 --total 49.5 --margin-adj -0.5 --total-adj -1.5",
+   "home_cover": 0.487,
+   "away_cover": 0.513,
+   "over": 0.455,
+   "under": 0.545,
+   "home_win_excl_tie": 0.414
+  },
+  {
+   "args": "--home-line 3.5 --total 49.5",
+   "home_cover": 0.5
+  },
+  {
+   "args": "--home-line 3.5 --total 49.5 --margin-adj 0.5 --total-adj -1.5",
+   "home_cover": 0.513,
+   "away_cover": 0.487
+  }
+ ],
+ "sources": [
+  "scratch/w07-game-synthesis-queue-sides.json (packet SF@ATL, built 2026-10-24T01:26:41Z)",
+  "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt (Andy paste ~11:40 PT 10/23)",
+  "data/generated/props/bookmaker-live-2026-10-23-49ers-at-falcons.json (capturedAt 2026-10-23T20:11:38Z)",
+  "data/odds/actionnetwork-openers-2026-w07.json (AN open SF -4.5/50.5)",
+  "data/supercontest/week-07-lines.json (SF -3.5)",
+  "data/generated/team-dossiers/2026-w07/SF.md",
+  "data/generated/team-dossiers/2026-w07/ATL.md",
+  "packet splits (AN 2026-10-23T19:40Z)",
+  "packet youtube_picks_approved / expert_picks_pull / pick_signals / article_selections",
+  "https://www.rotowire.com/betting/nfl/game.php?id=2978836 (final designations, news through 10/23)",
+  "scripts/intel/margin-simulator.mjs (selftest PASS)"
+ ],
+ "ambiguities": [
+  "Packet power ratings (SF SRS 6.995) vs dossier (9.81) disagree; blended",
+  "ATL dossier HC 'Raheem Morris' stale vs news (Stefanski ATL HC, Morris SF DC)",
+  "Roof status unconfirmed; weather treated as moot",
+  "A.J. Terrell tagged IR in secondary_matchups but Friday report says Questionable (groin)",
+  "BKR team-total rows unparsed; BetOnline board null"
+ ],
+ "delta_checklist": [
+  "Sun ~08:30 PT inactives: A.J. Terrell/Henderson OUT -> SF fair -3.5, SF -2.5 becomes C at -110 or better",
+  "Christian Kirk inactive -> under to B-lean; SF fair -2.5",
+  "Za'Darius Smith OUT -> small SF boost",
+  "BKR to SF -3 -> spread PASS firm; SC ATL +3.5 loses value if market reaches -3.5",
+  "Total <=48.5 -> under PASS; >=50.5 -> under B",
+  "ATL ML +140 or better -> playable C"
+ ],
+ "gate_notes": [
+  "missing_inputs: none; BetOnline board path null",
+  "roster_vet PASS age 0.0h (not rerun)",
+  "kickoff not passed",
+  "Final designations via web search (Rotowire); feed corroborated except Terrell IR tag",
+  "secondary_matchups coach names ignored; ATL dossier HC line stale",
+  "Retractable roof unverified -> weather moot"
+ ]
+}

@@ -1,0 +1,160 @@
+{
+  "game": "TB@CAR",
+  "generated_at": "2026-10-24T01:30:51Z",
+  "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+  "recommendations": [
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:10:54.853Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "CAR",
+      "pool_confidence": 7,
+      "market": "spread",
+      "selection": "CAR -3",
+      "line": -3,
+      "price": 106,
+      "tier": "C",
+      "fair_line": -3.5,
+      "edge_pts": 0.5,
+      "playable_to": "CAR -3 -105; pass at -3 -110 or worse or -3.5",
+      "model_prob": 0.5143,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "CAR power/EPA edge (SRS +4.33 #8 vs -0.63 #21; off EPA #7 vs TB off #29)",
+        "TB OUT: S Winfield Jr., WR Egbuka, RT Goedeke vs CAR OUT: OLB Phillips, Incoom",
+        "Plus-money price on key number: sim 51.4% excl push vs 48.5% break-even"
+      ],
+      "counter_case": "25-pt sharp money gap on TB (60% money/35% bets); juice moved toward TB from open; TB every game one-score; division dogs 20-8 ATS; Mayfield return lifts TB above Daniels-inclusive ratings; exact 3 is most likely margin (push)."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:10:54.853Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "CAR",
+      "pool_confidence": 7,
+      "market": "total",
+      "selection": "OVER 45",
+      "line": 45,
+      "price": 100,
+      "tier": "B",
+      "fair_line": 46.5,
+      "edge_pts": 1.5,
+      "playable_to": "45.5 -110; pass at 46+",
+      "model_prob": 0.5468,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "CAR #2 PROE, top-3 neutral pace vs TB pass funnel (+5.3% PROE faced)",
+        "TB S Winfield OUT; CAR CBs Horn and Jackson on IR",
+        "CAR edge rush missing Phillips and Incoom reduces TB sack risk",
+        "Total moved 44.5->45; money 61% over; Fezzik O44.5, Sharp CAR TT o23.5",
+        "Weather benign 67F, 0% precip"
+      ],
+      "counter_case": "TB game totals 60/42/39/31/40/45 (5 of 6 at or under 45); TB defence #3 EPA; Mayfield rusty with thumb glove; BKR juice leans Under (-117); PFT projects 37."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:10:54.853Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "CAR",
+      "pool_confidence": 7,
+      "market": "moneyline",
+      "selection": "PASS (SU CAR)",
+      "line": null,
+      "price": -145,
+      "tier": "PASS",
+      "fair_line": -155,
+      "edge_pts": null,
+      "playable_to": "CAR ML -130 or better",
+      "model_prob": 0.614,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Fair about 60-61% vs 59.2% implied: no edge"
+      ],
+      "counter_case": "Sharp TB money plus ML move -178 -> -145 suggests market sees TB upset equity rising."
+    }
+  ],
+  "adjustments": {
+    "margin_adj": 0.5,
+    "total_adj": 1.5,
+    "reasons": [
+      "margin +0.5 CAR: power/EPA gap and TB key absences, shaded back toward line for sharp TB money and TB one-score profile",
+      "total +1.5: CAR pace/PROE vs pass funnel, both secondaries missing elite pieces, CAR edge rush depleted, benign weather"
+    ]
+  },
+  "sim_runs": [
+    {
+      "label": "baseline",
+      "home_line": -3,
+      "total": 45,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover_excl_push": 0.5,
+      "side_push": 0.0827,
+      "over_excl_push": 0.5,
+      "home_win": 0.6013
+    },
+    {
+      "label": "adjusted_view_and_supercontest",
+      "home_line": -3,
+      "total": 45,
+      "margin_adj": 0.5,
+      "total_adj": 1.5,
+      "home_cover_excl_push": 0.5143,
+      "side_push": 0.0826,
+      "over_excl_push": 0.5468,
+      "home_win": 0.614
+    },
+    {
+      "label": "tb_lean_check",
+      "home_line": -3,
+      "total": 45,
+      "margin_adj": -0.5,
+      "total_adj": 0,
+      "home_cover_excl_push": 0.4857,
+      "side_push": 0.0827,
+      "over_excl_push": 0.5,
+      "home_win": 0.5885
+    }
+  ],
+  "sources": [
+    "scratch/w07-game-synthesis-queue-sides.json (TB@CAR packet)",
+    "data/generated/props/bookmaker-live-2026-10-23-buccaneers-at-panthers.json @2026-10-23T20:10:54Z",
+    "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt (~11:40 PT)",
+    "data/odds/actionnetwork-openers-2026-w07.json",
+    "data/supercontest/week-07-lines.json",
+    "data/generated/team-dossiers/2026-w07/TB.md",
+    "data/generated/team-dossiers/2026-w07/CAR.md",
+    "data/generated/team-profiles/team-power-ratings-2026.json",
+    "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json",
+    "data/secondary-matchups/secondary-matchup-vulnerability-2026-w07.json",
+    "https://www.buccaneers.com/news/buccaneers-panthers-injury-report-oct-23-week-7-2026",
+    "https://spectrumlocalnews.com/nc/charlotte/news/2026/10/01/panthers-starting-cbs-jaycee-horn-and-mike-jackson-expected-to-miss-about-8-weeks"
+  ],
+  "ambiguities": [
+    "Packet CAR availability block null; used official Friday report",
+    "TB projected starters stale (Daniels)",
+    "secondary_matchups CB rows published_at after packet build",
+    "BKR team totals unparsed/unavailable",
+    "Radowitz CAR -3.5 tagged CAR/DEN dropped; Makinen +3 is TNF NE, dropped"
+  ],
+  "delta_checklist": [
+    "08:30 PT inactives: Mayfield inactive -> CAR -3 to B, Over to PASS",
+    "BKR CAR -2.5 -> CAR tier B at -110 or better; CAR -3 -110 or worse -> spread PASS",
+    "BKR TB +3.5 -> CAR PASS; TB +3.5 -110 contrarian C",
+    "Total 46+ -> Over PASS",
+    "Freeling inactive -> about -0.25 to CAR"
+  ],
+  "gate_notes": [
+    "missing_inputs empty",
+    "roster_vet PASS fresh",
+    "CAR availability null in packet; resolved via buccaneers.com Friday report",
+    "TB projected starter stale",
+    "secondary_matchups future-dated published_at; coordinator name ignored (rule 7)",
+    "FTN CAR stale_1wk through W5",
+    "article_selections team mis-tags"
+  ],
+  "pass": "sides"
+}

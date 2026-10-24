@@ -1,8 +1,8 @@
 # NFL Week 7 Player Prop & Parlay Intelligence Dossier
 
-> **Generated**: 2026-10-23T14:34:05.999Z  
-> **Scope**: Dedicated player prop extraction pass from recent intelligence articles (426 articles scanned).  
-> **Actionable Props Extracted**: **2 player props** across **2 games**.  
+> **Generated**: 2026-10-24T01:18:51.182Z  
+> **Scope**: Dedicated player prop extraction pass from recent intelligence articles (512 articles scanned).  
+> **Actionable Props Extracted**: **4 player props** across **4 games**.  
 > **Curated Pre-Built Parlay Stacks**: **0 correlated parlay cards** ready for execution.
 
 ---
@@ -13,11 +13,11 @@ This dossier isolates pure player prop intelligence to build high-ROI Same Game 
 
 | Metric | Value | Meaning |
 | :--- | :--- | :--- |
-| **Total Player Props** | **2** | Verified player prop recommendations with lines and odds |
-| **Tier 1 Best Bet Props** | **2** | Official analyst recommended best bets (Weight: 1.00) |
+| **Total Player Props** | **4** | Verified player prop recommendations with lines and odds |
+| **Tier 1 Best Bet Props** | **4** | Official analyst recommended best bets (Weight: 1.00) |
 | **Anytime / First TD Scorers** | **1** | High-leverage end-zone targets for multiplier legs |
 | **Curated Parlay Cards** | **0** | Positively correlated SGP & cross-game cards (+645 to +810) |
-| **Games With Extracted Props** | **2** | PIT @ NO, NYG @ HOU |
+| **Games With Extracted Props** | **4** | GB @ DET, TB @ CAR, PIT @ NO, NYG @ HOU |
 
 ---
 
@@ -26,6 +26,12 @@ This dossier isolates pure player prop intelligence to build high-ROI Same Game 
 ---
 
 ## 3. Master Player Prop Board (Grouped by Game & Category)
+
+### 🏈 Matchup: GB @ DET (Sunday Late Window)
+
+| Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
+| :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
+| **Tucker Kraft** | GB | Receptions | `4.5 OVER` | **-102** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Josh Shepardson (Sharp Football) | *Pass-Catching Piece* | Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 7 Best Prop Bet: Bryce Young Over 250.5 Passing Yards (-115) The Panthers rank second in pass rate over expected (7.3% PROE) and third in neutral pace . The Buccaneers have faced the fourth-highest PROE (5.3%) this season. |
 
 ### 🏈 Matchup: NYG @ HOU (Sunday Early Window)
 
@@ -38,6 +44,12 @@ This dossier isolates pure player prop intelligence to build high-ROI Same Game 
 | Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
 | :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
 | **Aaron Rodgers** | PIT | Pass Attempts | `28+ OVER` | **-542** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Steve Krebs (BettingPros) | *Passing Volume Anchor* | This prop has been one of the most lucrative legs of the season, and we are once again going back to the well. Truth be told, passing attempts have yielded massive success over the first seven weeks. |
+
+### 🏈 Matchup: TB @ CAR (Sunday Early Window)
+
+| Player | Pos/Team | Prop Category | Line & Side | Odds | Sportsbook | Tier | Analyst / Source | Parlay Synergy / Role | Rationale Snippet |
+| :--- | :---: | :--- | :---: | :---: | :--- | :---: | :--- | :--- | :--- |
+| **Bryce Young** | CAR | Passing Yards | `250.5 OVER` | **-115** | DraftKings/FanDuel (per source article) | 🟢 Tier 1 | Josh Shepardson (Sharp Football) | *Passing Volume Anchor* | The Panthers rank second in pass rate over expected (7.3% PROE) and third in neutral pace . The Buccaneers have faced the fourth-highest PROE (5.3%) this season. |
 
 ---
 

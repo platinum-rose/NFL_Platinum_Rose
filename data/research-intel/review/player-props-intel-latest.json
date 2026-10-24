@@ -1,18 +1,78 @@
 {
   "schema": "player_props_intel_v1",
-  "generated_at": "2026-10-23T14:34:05.999Z",
+  "generated_at": "2026-10-24T01:18:51.182Z",
   "week": 7,
   "season": 2026,
   "summary": {
-    "articles_scanned": 426,
-    "total_props": 2,
-    "tier_1_props": 2,
+    "articles_scanned": 512,
+    "total_props": 4,
+    "tier_1_props": 4,
     "touchdown_props": 1,
     "curated_parlays": 0,
-    "games_covered": 2
+    "games_covered": 4
   },
   "parlayCards": [],
   "props": [
+    {
+      "id": "prop__9378__tucker_kraft__receptions",
+      "player": "Tucker Kraft",
+      "team": "GB",
+      "game": "GB @ DET",
+      "game_slate": "Sunday Late Window",
+      "category": "receptions",
+      "category_label": "Receptions",
+      "stat_type": "receiving",
+      "line": "4.5",
+      "side": "over",
+      "price": "-102",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 9378,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-7-2026/",
+      "rationale": "Sharp Betting Tools: NFL Props: Lines & Odds NFL Spreads, Totals, & Moneylines NFL Weather Forecast & Potential Impact NFL Implied Team Totals NFL Week 7 Best Prop Bet: Bryce Young Over 250.5 Passing Yards (-115) The Panthers rank second in pass rate over expected (7.3% PROE) and third in neutral pace . The Buccaneers have faced the fourth-highest PROE (5.3%) this season.",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Pass-Catching Piece",
+        "synergy_tags": [
+          "receptions",
+          "GB_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
+    {
+      "id": "prop__9378__bryce_young__passing_yards",
+      "player": "Bryce Young",
+      "team": "CAR",
+      "game": "TB @ CAR",
+      "game_slate": "Sunday Early Window",
+      "category": "passing_yards",
+      "category_label": "Passing Yards",
+      "stat_type": "passing",
+      "line": "250.5",
+      "side": "over",
+      "price": "-115",
+      "book": "DraftKings/FanDuel (per source article)",
+      "analyst": "Josh Shepardson (Sharp Football)",
+      "source_article_id": 9378,
+      "source_url": "https://www.sharpfootballanalysis.com/betting/nfl-player-props-picks-week-7-2026/",
+      "rationale": "The Panthers rank second in pass rate over expected (7.3% PROE) and third in neutral pace . The Buccaneers have faced the fourth-highest PROE (5.3%) this season.",
+      "week": 7,
+      "tier": 1,
+      "tier_label": "Tier 1: Featured Pick",
+      "weight": 1,
+      "parlay_utility": {
+        "role": "Passing Volume Anchor",
+        "synergy_tags": [
+          "passing_yards",
+          "CAR_offense"
+        ],
+        "positive_correlations": []
+      }
+    },
     {
       "id": "prop__8921__aaron_rodgers__pass_attempts",
       "player": "Aaron Rodgers",

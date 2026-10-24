@@ -1,0 +1,157 @@
+{
+  "game": "IND@MIN",
+  "pass": "sides",
+  "generated_at": "2026-10-24T01:30:00Z",
+  "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+  "recommendations": [
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:11:46.376Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "MIN",
+      "pool_confidence": 13,
+      "market": "spread",
+      "selection": "PASS (lean MIN -6.5)",
+      "line": -6.5,
+      "price": -107,
+      "tier": "PASS",
+      "fair_line": -7.0,
+      "edge_pts": 0.5,
+      "playable_to": "MIN tier C at -6 or better; IND only at +7.5",
+      "model_prob": 0.514,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Sim MIN cover 51.4% < 51.7% break-even at -107",
+        "Jones vs Flores 70% blitz; Gardner/Gould/Warren OUT; 2 IND LBs DNP Fri",
+        "MIN wins by 7+ in only 2 of 5; low totals compress margins",
+        "Sharp-leaning voices (Tuley, Fezzik) on IND +6.5; spread money 40% MIN vs 47% bets"
+      ],
+      "counter_case": "IND run game shortens game; MIN offense EPA #26; 6+ favorites 8-19-3 ATS in 2026."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:11:46.376Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "MIN",
+      "pool_confidence": 13,
+      "market": "total",
+      "selection": "UNDER 41.5",
+      "line": 41.5,
+      "price": -109,
+      "tier": "B",
+      "fair_line": 39.5,
+      "edge_pts": 2.0,
+      "playable_to": "u41 -110; pass at 40.5",
+      "model_prob": 0.56,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "MIN games avg 34.6 combined; 1 of 5 over 41.5",
+        "MIN slow pace (61.6 ply/g, 31.0 s/ply) and #1 EPA defense",
+        "Jones EPA/DB -0.967 under pressure; IND punter questionable",
+        "Caesars sharp action Under 43.5/42.5; total moved 42.5->41.5 vs 70% public over",
+        "BettingPros u40, Fitzmaurice u41.5"
+      ],
+      "counter_case": "IND games avg 51.3; IND D allows 26.3 PPG without CB1 Gardner; MIN healthy off bye; IND turnovers create short fields."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:11:46.376Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "MIN",
+      "pool_confidence": 13,
+      "market": "moneyline",
+      "selection": "PASS (SU MIN)",
+      "line": null,
+      "price": -253,
+      "tier": "PASS",
+      "fair_line": -241,
+      "edge_pts": null,
+      "playable_to": "MIN ML only at -235 or better",
+      "model_prob": 0.707,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Sim MIN win 70.7% excl tie vs 71.7% break-even",
+        "ML money 82% vs 92% bets: mild flag on IND +218, not enough (sim 29%)"
+      ],
+      "counter_case": "IND +218 needs 31.4%; Colts turnover-prone and down CB1, but MIN offense limited."
+    }
+  ],
+  "adjustments": {
+    "margin_adj": 0.5,
+    "total_adj": -2.0,
+    "reasons": [
+      "margin +0.5: Jones vs heavy blitz, IND CB1/WR/TE out, IND LBs DNP, MIN rest; offset by low-total compression and weak MIN offense",
+      "total -2.0: MIN scoring environment 34.6, slow pace, pressure-fragile IND QB, possible backup punter; offset partly by poor IND defense"
+    ]
+  },
+  "sim_runs": [
+    {
+      "home_line": -6.5,
+      "total": 41.5,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover": 0.5,
+      "under": 0.5,
+      "home_win_excl_tie": 0.696
+    },
+    {
+      "home_line": -6.5,
+      "total": 41.5,
+      "margin_adj": 0.5,
+      "total_adj": -2.0,
+      "home_cover": 0.514,
+      "under": 0.56,
+      "home_win_excl_tie": 0.707,
+      "mean_margin": 7.58,
+      "mean_total": 39.54
+    },
+    {
+      "home_line": -6.5,
+      "total": 41.5,
+      "margin_adj": 1.0,
+      "total_adj": -2.0,
+      "home_cover": 0.527,
+      "under": 0.56,
+      "note": "sensitivity; SC line == BKR so same run applies"
+    }
+  ],
+  "sources": [
+    "scratch/w07-game-synthesis-queue-sides.json (IND@MIN packet)",
+    "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt",
+    "data/generated/props/bookmaker-live-2026-10-23-colts-at-vikings.json (2026-10-23T20:11:46Z)",
+    "data/odds/actionnetwork-openers-2026-w07.json",
+    "data/supercontest/week-07-lines.json",
+    "data/generated/team-dossiers/2026-w07/IND.md",
+    "data/generated/team-dossiers/2026-w07/MIN.md",
+    "data/generated/team-profiles/team-power-ratings-2026.json",
+    "data/secondary-matchups/secondary-matchup-vulnerability-2026-w07.json",
+    "https://www.vikings.com/news/colts-injury-report-week-7-2026-nfl-season (final report 2026-10-23)",
+    "scripts/intel/margin-simulator.mjs"
+  ],
+  "ambiguities": [
+    "MIN projected starters need manual depth chart",
+    "availability feed listed Mason IR; official report says questionable",
+    "packet vs dossier power ratings differ (used packet)",
+    "AN/Anderson 'post-London fatigue' premise unverified; IND W6 was home vs TEN",
+    "CoversJLo look-ahead thread truncated",
+    "no BetOnline board"
+  ],
+  "delta_checklist": [
+    "MIN -6 or better -> spread MIN tier C",
+    "total 41 -> under C; 40.5 or lower -> PASS; 42.5+ -> under B+",
+    "8:30 AM PT inactives: Boettcher, C.J. Allen, Walley, Sanchez (2+ out -> small MIN/under bump)",
+    "any Jones injury/benching or Taylor trade -> rerun"
+  ],
+  "gate_notes": [
+    "missing_inputs empty",
+    "roster_vet PASS age 0.0h",
+    "kickoff not passed",
+    "rosters from packet/operator notes/official report",
+    "QBs settled: Jones (IND), Murray (MIN)",
+    "final Friday report pulled from vikings.com; feed misclassified Mason as IR",
+    "stale coach names in coverage notes ignored"
+  ]
+}

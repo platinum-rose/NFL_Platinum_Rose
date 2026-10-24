@@ -616,6 +616,20 @@ def main():
     if not beo: gaps.append(f'No parsed BEO boards (data/generated/props/beo-w{WW}.json).')
     yt = J(f'data/podcasts/youtube-extracted-picks-2026-w{WW}.json', {}) or {}
     if not yt: gaps.append('No cleaned YouTube pick digest this week.')
+    # W7+ YouTube files use a flat schema (team/player/market/side/line/price); normalize to the pick/raw shape used below
+    for _p in (yt.get('picks', []) if yt else []):
+        if 'pick' in _p: continue
+        _mk, _sd, _ln = str(_p.get('market') or ''), str(_p.get('side') or ''), _p.get('line')
+        _p['raw'] = {k: _p.get(k) for k in ('team', 'player', 'market', 'side', 'line', 'price')}
+        if _mk in ('total', 'game_total'):
+            _p['pick'] = f"{'Under' if _sd.upper().startswith('U') else 'Over'} {_ln if _ln is not None else ''}".strip()
+        elif _mk in ('spread', 'teaser') and not _p.get('player'):
+            _p['pick'] = f"{_sd or _p.get('team') or ''} {('%+g' % _ln) if isinstance(_ln, (int, float)) else (_ln or '')}".strip()
+        else:
+            _p['pick'] = ' '.join(str(x) for x in (_p.get('player') or _p.get('team'), _mk.replace('_', ' '), _sd, _ln) if x not in (None, ''))
+        _ep = str(_p.get('episode') or '').replace('youtube-', '')
+        _p.setdefault('timestamp_url', f"https://www.youtube.com/watch?v={_ep}&t={int(_p.get('source_timestamp') or 0)}s" if _ep else None)
+        _p.setdefault('verify', None); _p.setdefault('show', _p.get('show') or 'YouTube'); _p.setdefault('speaker', _p.get('speaker') or 'YouTube')
     avail = (J('data/player-availability/latest.json', {}) or {}).get('events', [])
     sec = (J('data/secondary-matchups/latest.json', {}) or {}).get('matchups', [])
     dkfiles = sorted(glob.glob(str(ROOT / f'data/generated/props/dk-predictions-{D}-*.json')))

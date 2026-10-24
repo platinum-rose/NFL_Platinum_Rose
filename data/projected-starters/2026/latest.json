@@ -2,16 +2,16 @@
   "meta": {
     "schema": "projected_starters_snapshot_v1",
     "season": 2026,
-    "generated_at": "2026-10-23T14:34:03.177Z",
+    "generated_at": "2026-10-24T01:26:41.070Z",
     "source_policy": "manual_depth_chart_rows_plus_local_availability_starter_language",
-    "player_count": 60,
+    "player_count": 64,
     "manual_row_count": 50,
     "eligible_manual_row_count": 50,
-    "estimated_row_count": 10,
+    "estimated_row_count": 15,
     "withheld_named_manual_row_count": 0,
     "human_review_approved_count": 206,
     "human_review_rejected_count": 0,
-    "teams_with_signals": 29,
+    "teams_with_signals": 30,
     "teams_needing_manual_depth_chart": 3,
     "named_status_review_validation": {
       "schema": "named_status_review_validation_v1",
@@ -29,16 +29,16 @@
     },
     "inputs": {
       "availability": {
-        "path": "data\\player-availability\\latest.json",
-        "generated_at": "2026-10-23T14:34:00.747Z",
+        "path": "data/player-availability/latest.json",
+        "generated_at": "2026-10-24T01:26:19.557Z",
         "evidence_validation_status": "pass"
       },
       "named_status_review": {
-        "path": "data\\projected-starters\\2026\\named-status-review.json",
+        "path": "data/projected-starters/2026/named-status-review.json",
         "reviewed_at": "2026-10-10T00:00:00-07:00",
         "validation_status": "pass"
       },
-      "manual_directory": "data\\projected-starters\\2026\\manual"
+      "manual_directory": "data/projected-starters/2026/manual"
     },
     "recommendation_status": "research_context_only_not_picks",
     "guardrails": {
@@ -157,6 +157,7 @@
         "Bijan Robinson RB"
       ],
       "estimated": [
+        "Khalil Herbert RB",
         "Charles Snowden LB"
       ],
       "missing": [
@@ -192,6 +193,33 @@
           "confidence_basis": "manual_depth_chart",
           "human_review_decision": "approved",
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+        },
+        {
+          "id": "starter_a7b93b6af1f0815a",
+          "team": "ATL",
+          "team_nick": "Falcons",
+          "player_name": "Khalil Herbert",
+          "position": "RB",
+          "unit": "offense",
+          "role": "competition_or_rotation",
+          "starter_confidence": 0.5,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-23T17:23:00.000Z",
+              "evidence": "After Brian Robinson (hamstring) was ruled out, Falcons coach Kevin Stefanski said Friday that Herbert will be Bijan Robinson's backup against the 49ers on Sunday, Marc Raimondi of ESPN.com reports."
+            }
+          ],
+          "evidence_tags": [
+            "competition"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
         },
         {
           "id": "starter_153042c142c05b73",
@@ -230,7 +258,9 @@
       "known": [
         "Lamar Jackson QB"
       ],
-      "estimated": [],
+      "estimated": [
+        "Tyler Huntley QB"
+      ],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -262,6 +292,33 @@
           "impact_bucket": "qb_major",
           "needs_human_review": false,
           "confidence_basis": "manual_depth_chart"
+        },
+        {
+          "id": "starter_61ff2a9a6843639c",
+          "team": "BAL",
+          "team_nick": "Ravens",
+          "player_name": "Tyler Huntley",
+          "position": "QB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-23T23:25:00.000Z",
+              "evidence": "Huntley will start Sunday's Week 7 matchup against Cincinnati if Lamar Jackson (ankle) is unable to play, Ryan Mink of the Ravens' official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "qb_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -1092,7 +1149,7 @@
           "role": "starter",
           "starter_confidence": 0.8,
           "roster_confidence": 0.85,
-          "source_count": 1,
+          "source_count": 2,
           "sources": [
             {
               "source": "week-usage-locks.json",
@@ -1100,11 +1157,19 @@
               "source_url": null,
               "published_at": null,
               "evidence": "Week 6 2026 usage leader at RB for HOU (usage score 16.5 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+            },
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-23T23:37:00.000Z",
+              "evidence": "Marks is lined up to start at running back against the Giants on Sunday with David Montgomery (groin) ruled out."
             }
           ],
           "evidence_tags": [
             "locked_starter",
-            "weekly_usage_dominant"
+            "weekly_usage_dominant",
+            "starter"
           ],
           "impact_bucket": "rb_major",
           "needs_human_review": false,
@@ -1273,7 +1338,9 @@
         "Patrick Mahomes QB",
         "Kenneth Walker III RB"
       ],
-      "estimated": [],
+      "estimated": [
+        "Andrew Armstrong WR"
+      ],
       "missing": [
         "independent second-source depth-chart reconciliation"
       ],
@@ -1335,6 +1402,33 @@
           "confidence_basis": "manual_depth_chart",
           "human_review_decision": "approved",
           "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+        },
+        {
+          "id": "starter_56956c116ca2e777",
+          "team": "KC",
+          "team_nick": "Chiefs",
+          "player_name": "Andrew Armstrong",
+          "position": "WR",
+          "unit": "offense",
+          "role": "roster_depth_signal",
+          "starter_confidence": 0.42,
+          "roster_confidence": 0.6,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-24T00:29:00.000Z",
+              "evidence": "The Chiefs signed Armstrong from the practice squad to the active roster Friday, Aaron Wilson of KPRC 2 Houston reports."
+            }
+          ],
+          "evidence_tags": [
+            "roster_signal"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
         }
       ],
       "named_status_reviews": []
@@ -2192,14 +2286,44 @@
     "SEA": {
       "team": "SEA",
       "team_name": "Seattle Seahawks",
-      "coverage_status": "needs_manual_depth_chart",
+      "coverage_status": "estimated_from_local_starter_language",
       "known": [],
-      "estimated": [],
-      "missing": [
-        "verified all-position depth chart",
-        "manual source count reconciliation"
+      "estimated": [
+        "Emanuel Wilson RB"
       ],
-      "players": [],
+      "missing": [
+        "manual all-position depth chart",
+        "independent source confirmation"
+      ],
+      "players": [
+        {
+          "id": "starter_83bec770fea99cc7",
+          "team": "SEA",
+          "team_nick": "Seahawks",
+          "player_name": "Emanuel Wilson",
+          "position": "RB",
+          "unit": "offense",
+          "role": "likely_starter_or_primary",
+          "starter_confidence": 0.7,
+          "roster_confidence": 0.66,
+          "source_count": 1,
+          "sources": [
+            {
+              "source": "ESPN injuries API",
+              "source_type": "structured_injury",
+              "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+              "published_at": "2026-10-23T21:54:00.000Z",
+              "evidence": "Wilson will be the lead back for Sunday's game against the Chiefs after Zach Charbonnet (knee) was ruled out ahead of that contest, John Boyle of the Seahawks' official site reports."
+            }
+          ],
+          "evidence_tags": [
+            "starter"
+          ],
+          "impact_bucket": "skill_major",
+          "needs_human_review": true,
+          "confidence_basis": "local_availability_starter_language"
+        }
+      ],
       "named_status_reviews": []
     },
     "TB": {
@@ -2435,7 +2559,7 @@
       "role": "starter",
       "starter_confidence": 0.8,
       "roster_confidence": 0.85,
-      "source_count": 1,
+      "source_count": 2,
       "sources": [
         {
           "source": "week-usage-locks.json",
@@ -2443,11 +2567,19 @@
           "source_url": null,
           "published_at": null,
           "evidence": "Week 6 2026 usage leader at RB for HOU (usage score 16.5 vs runner-up 6.5) -- single-game sample, re-verify weekly for RB/WR/TE committee shifts."
+        },
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-23T23:37:00.000Z",
+          "evidence": "Marks is lined up to start at running back against the Giants on Sunday with David Montgomery (groin) ruled out."
         }
       ],
       "evidence_tags": [
         "locked_starter",
-        "weekly_usage_dominant"
+        "weekly_usage_dominant",
+        "starter"
       ],
       "impact_bucket": "rb_major",
       "needs_human_review": false,
@@ -3844,6 +3976,114 @@
       "confidence_basis": "manual_depth_chart",
       "human_review_decision": "approved",
       "human_review_decided_at": "2026-09-16T03:10:05.798Z"
+    },
+    {
+      "id": "starter_56956c116ca2e777",
+      "team": "KC",
+      "team_nick": "Chiefs",
+      "player_name": "Andrew Armstrong",
+      "position": "WR",
+      "unit": "offense",
+      "role": "roster_depth_signal",
+      "starter_confidence": 0.42,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-24T00:29:00.000Z",
+          "evidence": "The Chiefs signed Armstrong from the practice squad to the active roster Friday, Aaron Wilson of KPRC 2 Houston reports."
+        }
+      ],
+      "evidence_tags": [
+        "roster_signal"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_61ff2a9a6843639c",
+      "team": "BAL",
+      "team_nick": "Ravens",
+      "player_name": "Tyler Huntley",
+      "position": "QB",
+      "unit": "offense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-23T23:25:00.000Z",
+          "evidence": "Huntley will start Sunday's Week 7 matchup against Cincinnati if Lamar Jackson (ankle) is unable to play, Ryan Mink of the Ravens' official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "qb_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_83bec770fea99cc7",
+      "team": "SEA",
+      "team_nick": "Seahawks",
+      "player_name": "Emanuel Wilson",
+      "position": "RB",
+      "unit": "offense",
+      "role": "likely_starter_or_primary",
+      "starter_confidence": 0.7,
+      "roster_confidence": 0.66,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-23T21:54:00.000Z",
+          "evidence": "Wilson will be the lead back for Sunday's game against the Chiefs after Zach Charbonnet (knee) was ruled out ahead of that contest, John Boyle of the Seahawks' official site reports."
+        }
+      ],
+      "evidence_tags": [
+        "starter"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
+    },
+    {
+      "id": "starter_a7b93b6af1f0815a",
+      "team": "ATL",
+      "team_nick": "Falcons",
+      "player_name": "Khalil Herbert",
+      "position": "RB",
+      "unit": "offense",
+      "role": "competition_or_rotation",
+      "starter_confidence": 0.5,
+      "roster_confidence": 0.6,
+      "source_count": 1,
+      "sources": [
+        {
+          "source": "ESPN injuries API",
+          "source_type": "structured_injury",
+          "source_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries",
+          "published_at": "2026-10-23T17:23:00.000Z",
+          "evidence": "After Brian Robinson (hamstring) was ruled out, Falcons coach Kevin Stefanski said Friday that Herbert will be Bijan Robinson's backup against the 49ers on Sunday, Marc Raimondi of ESPN.com reports."
+        }
+      ],
+      "evidence_tags": [
+        "competition"
+      ],
+      "impact_bucket": "skill_major",
+      "needs_human_review": true,
+      "confidence_basis": "local_availability_starter_language"
     },
     {
       "id": "starter_160c73b4722b31f1",

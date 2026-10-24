@@ -1,0 +1,149 @@
+{
+  "game": "KC@SEA",
+  "generated_at": "2026-10-24T01:31:33Z",
+  "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+  "recommendations": [
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:12:40.359Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "SEA",
+      "pool_confidence": 2,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "market": "spread",
+      "selection": "KC +2.5",
+      "line": 2.5,
+      "price": -102,
+      "tier": "C",
+      "fair_line": "SEA -1.5",
+      "edge_pts": 1.0,
+      "playable_to": "KC +2.5 to -115; pass at +2; B at +3 (under -125)",
+      "model_prob": 0.526,
+      "reasons": [
+        "KC power/efficiency edge (SRS 7.42 #3 vs 2.08 #13; EPA off #5 vs #25)",
+        "Futures parity on rest-of-season wins supports ~SEA -1.5 at home",
+        "Darnold vs pressure -0.795 EPA/DB, 7 INT; KC pressure 38.7%",
+        "Public/podcast KC support (Lotzia, Erickson, Hunter, Tuley 55/45 ATS)"
+      ],
+      "counter_case": "Reverse line movement SEA -2 -> -2.5 (-114) against ~89% KC money; KC both LT options out vs 7.5% sack-rate SEA front; Rice out; SEA 10 days rest at home; Fezzik/Sharp on SEA."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:12:40.359Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "SEA",
+      "pool_confidence": 2,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "market": "total",
+      "selection": "PASS (lean Under 42.5)",
+      "line": 42.5,
+      "price": -106,
+      "tier": "PASS",
+      "fair_line": "42.0",
+      "edge_pts": 0.5,
+      "playable_to": "Under C at 43.5+; no over",
+      "model_prob": 0.515,
+      "reasons": [
+        "Two top-4 EPA defenses",
+        "Caesars sharp under from 44.5; public 89% over money without line move",
+        "Sim under 51.5% = break-even at -106"
+      ],
+      "counter_case": "SEA games avg 45 pts, KC 44.6; SEA turnovers create short fields."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:12:40.359Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "SEA",
+      "pool_confidence": 2,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "market": "moneyline",
+      "selection": "KC +134 (alternative to spread, not both)",
+      "line": null,
+      "price": 134,
+      "tier": "C",
+      "fair_line": "KC ~+109",
+      "edge_pts": null,
+      "playable_to": "to +125; pass at +120 or shorter",
+      "model_prob": 0.478,
+      "reasons": [
+        "Sim KC win 47.8% vs 42.7% implied at +134",
+        "Same thesis as spread"
+      ],
+      "counter_case": "Sim still makes SEA the more likely SU winner (52%); a SEA win by any margin loses; same RLM/OL concerns."
+    }
+  ],
+  "adjustments": {
+    "margin_adj": -1.0,
+    "total_adj": -0.5,
+    "reasons": [
+      "margin -1.0: KC efficiency/power edge and futures parity, partly offset by KC OT absences (Simmons IR, Moore OUT), Rice OUT, SEA rest+home",
+      "total -0.5: two top-4 defenses, Rice and Charbonnet out, Caesars sharp under, public over without move"
+    ]
+  },
+  "sim_runs": [
+    {
+      "home_line": -2.5,
+      "total": 42.5,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover": 0.5,
+      "away_cover": 0.5,
+      "over": 0.5,
+      "under": 0.5,
+      "home_win_excl_tie": 0.549
+    },
+    {
+      "home_line": -2.5,
+      "total": 42.5,
+      "margin_adj": -1.0,
+      "total_adj": -0.5,
+      "home_cover": 0.474,
+      "away_cover": 0.526,
+      "over": 0.485,
+      "under": 0.515,
+      "home_win_excl_tie": 0.522,
+      "note": "contest line = BKR -2.5; single run covers SuperContest"
+    }
+  ],
+  "sources": [
+    "scratch/w07-game-synthesis-queue-sides.json (KC@SEA packet, built 2026-10-24T01:26:41Z)",
+    "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt (~11:40 PT)",
+    "data/generated/props/bookmaker-live-2026-10-23-chiefs-at-seahawks.json (2026-10-23T20:12:40Z)",
+    "data/generated/props/draftkings-predictions-live-2026-10-23-chiefs-at-seahawks.json (reference only, 19:10Z)",
+    "data/generated/team-dossiers/2026-w07/KC.md",
+    "data/generated/team-dossiers/2026-w07/SEA.md",
+    "data/research-intel/review/ftn-stats-iq-weekly-synthesis-context-latest.json (via dossiers)",
+    "https://www.chiefs.com/news/week-7-injury-report-chiefs-vs-seahawks-2026",
+    "https://www.rotowire.com/betting/nfl/game.php?id=2978869",
+    "scripts/intel/margin-simulator.mjs"
+  ],
+  "ambiguities": [
+    "BetOnline board missing",
+    "KC SRS differs packet 7.42 vs dossier 8.61",
+    "FTN KC stale through W5",
+    "SEA Lawrence/Nwosu/O'Toole Q only per FantasyPros",
+    "Brandon Anderson under clip rationale references Broncos/Chiefs - dropped",
+    "Article selections tagged SEA belong to other games - dropped"
+  ],
+  "delta_checklist": [
+    "KC +3 (< -125) -> B and SC y; KC +2 or less -> PASS",
+    "KC ML +120 or shorter -> PASS ML",
+    "Inactives ~15:50 PT Sun: KC LT starter; SEA Lawrence/Nwosu; Emmanwori; Sneed",
+    "Darnold late scratch -> KC side to B",
+    "Total 43.5+ -> Under C; 41.5 or lower -> no play",
+    "Rain/wind beyond forecast -> reinforces Under lean"
+  ],
+  "gate_notes": [
+    "missing_inputs empty",
+    "roster_vet PASS age 0.0h",
+    "kickoff not passed",
+    "SEA Friday statuses from packet seahawks.com-sourced items + Rotowire; chiefs.com SEA Friday section 'to be updated'",
+    "secondary_matchups coach names ignored",
+    "no forbidden actions"
+  ],
+  "pass": "sides"
+}

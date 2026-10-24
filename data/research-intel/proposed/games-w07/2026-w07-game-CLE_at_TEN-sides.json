@@ -1,0 +1,174 @@
+{
+  "game": "CLE@TEN",
+  "pass": "sides",
+  "generated_at": "2026-10-24T01:30:41Z",
+  "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+  "recommendations": [
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:11:16.240Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "CLE",
+      "pool_confidence": 4,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "market": "spread",
+      "selection": "PASS (lean CLE)",
+      "line": -2.5,
+      "price": -108,
+      "tier": "PASS",
+      "fair_line": -3.0,
+      "edge_pts": 0.5,
+      "playable_to": "CLE -2 -110 or better; TEN only at +3.5",
+      "model_prob": 0.513,
+      "reasons": [
+        "Fair CLE -3 vs BKR -2.5: 0.5 pt edge, below threshold",
+        "Sim CLE cover 51.3% vs 51.9% break-even at -108",
+        "Efficiency/SRS favor CLE but +15 sharp money gap on TEN spread"
+      ],
+      "counter_case": "CLE efficiency edge (5-7 pts by EPA/SRS) suggests -2.5 is cheap."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:11:16.240Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "CLE",
+      "pool_confidence": 4,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "market": "total",
+      "selection": "UNDER",
+      "line": 37.5,
+      "price": -117,
+      "tier": "C",
+      "fair_line": 36.0,
+      "edge_pts": 1.5,
+      "playable_to": "37.5 -120 or 37 -110; pass at 36.5",
+      "model_prob": 0.545,
+      "reasons": [
+        "Both offenses bottom-10 EPA (CLE #23, TEN #31); slow pace both sides",
+        "TEN games 35.5 avg combined (31st)",
+        "Public 71% bets on Over; Fezzik/Tucker (one show), SI, PFT 19-13 align Under",
+        "Sim under 54.5% vs 53.9% break-even at -117: thin"
+      ],
+      "counter_case": "Perfect weather, TEN pass D 31st with depleted safeties, CLE DL missing Hall Jr., Ward Q; number already down from 38.5 and juiced."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:11:16.240Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "CLE",
+      "pool_confidence": 4,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "market": "moneyline",
+      "selection": "PASS (SU winner CLE)",
+      "line": null,
+      "price": -132,
+      "tier": "PASS",
+      "fair_line": -129,
+      "edge_pts": 0.0,
+      "playable_to": "CLE -125 or better",
+      "model_prob": 0.55,
+      "reasons": [
+        "Sim CLE win 55.0% (56.3% ex-tie) vs -132 implied 56.9%",
+        "ML money on CLE (8-pt gap, no flag)"
+      ],
+      "counter_case": "TEN home, off first win, sharp spread money on TEN; CLE 4-1 one-score luck."
+    },
+    {
+      "book": "SuperContest",
+      "captured_at": "2026-10-22T15:03:58.771Z",
+      "supercontest_candidate": true,
+      "straight_up_winner": "CLE",
+      "pool_confidence": 4,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "market": "spread",
+      "selection": "CLE (SuperContest)",
+      "line": -1.5,
+      "price": null,
+      "tier": "C",
+      "fair_line": -3.0,
+      "edge_pts": 1.5,
+      "playable_to": "contest line locked",
+      "model_prob": 0.539,
+      "reasons": [
+        "Contest line 1 pt better than BKR -2.5",
+        "Sim CLE cover 53.9% at -1.5 with fair -3"
+      ],
+      "counter_case": "+15 sharp money on TEN; Watson 10.9% sack rate; TEN 6 sacks last week."
+    }
+  ],
+  "adjustments": {
+    "margin_adj": -0.5,
+    "total_adj": -1.5,
+    "reasons": [
+      "Fair CLE -3 vs BKR -2.5 (margin_adj -0.5; -1.5 vs SC -1.5)",
+      "Total -1.5: bottom-10 offenses, slow pace, TEN 31st combined scoring"
+    ]
+  },
+  "sim_runs": [
+    {
+      "inputs": "--home-line 2.5 --total 37.5",
+      "away_cover": 0.5,
+      "under": 0.5,
+      "home_win": 0.4393,
+      "tie": 0.024
+    },
+    {
+      "inputs": "--home-line 2.5 --total 37.5 --margin-adj -0.5 --total-adj -1.5",
+      "away_cover": 0.5131,
+      "under": 0.5452,
+      "home_win": 0.4264,
+      "tie": 0.0239
+    },
+    {
+      "inputs": "--home-line 1.5 --total 37.5",
+      "away_cover": 0.5,
+      "home_win": 0.4635,
+      "tie": 0.0242
+    },
+    {
+      "inputs": "--home-line 1.5 --total 37.5 --margin-adj -1.5 --total-adj -1.5",
+      "away_cover": 0.5393,
+      "under": 0.5452,
+      "home_win": 0.4245,
+      "tie": 0.0239
+    }
+  ],
+  "sources": [
+    "scratch/w07-game-synthesis-queue-sides.json#CLE@TEN",
+    "data/generated/props/bookmaker-live-2026-10-23-browns-at-titans.json",
+    "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt",
+    "data/generated/props/draftkings-predictions-live-2026-10-23-browns-at-titans.json (reference only)",
+    "data/generated/team-dossiers/2026-w07/CLE.md",
+    "data/generated/team-dossiers/2026-w07/TEN.md",
+    "data/odds/actionnetwork-openers-2026-w07.json",
+    "data/supercontest/week-07-lines.json",
+    "https://www.tennesseetitans.com/news/week-7-injury-report-titans-vs-browns",
+    "https://www.si.com/betting/browns-vs-titans-prediction-odds-spread-injuries-trends-for-nfl-week-7-01m5b8nfrhb3"
+  ],
+  "ambiguities": [
+    "Titans.com Friday report columns blank at fetch; designations from packet beat-report feed",
+    "Nazeeh Johnson suspension unverified",
+    "Packet vs dossier SRS values differ (different builds)",
+    "AN splits 19:40Z predate newest BKR board 20:11Z"
+  ],
+  "delta_checklist": [
+    "Ward or Delpit OUT: fair total +0.5, CLE SC to lean only",
+    "Ridley inactive: Under to C+/B",
+    "BKR CLE -2 or better: spread CLE tier C",
+    "Total 38+: Under tier B; 36.5 or lower: PASS",
+    "ML CLE -125 or better: CLE ML tier C",
+    "Any Watson status change: void CLE leans"
+  ],
+  "gate_notes": [
+    "roster_vet PASS age 0.0h",
+    "missing_inputs none",
+    "kickoff not passed",
+    "final injury report: Titans.com Friday blank; used packet Friday beat reports",
+    "priced from newest BKR board 20:11Z over 11:40 PT paste",
+    "secondary_matchups coach names ignored"
+  ]
+}

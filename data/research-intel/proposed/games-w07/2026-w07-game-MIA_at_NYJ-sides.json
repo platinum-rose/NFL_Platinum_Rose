@@ -1,0 +1,150 @@
+{
+  "game": "MIA@NYJ",
+  "pass": "sides",
+  "generated_at": "2026-10-24T01:35:00Z",
+  "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+  "recommendations": [
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:11:05.621Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "NYJ",
+      "pool_confidence": 10,
+      "market": "spread",
+      "selection": "NYJ -4.5",
+      "line": -4.5,
+      "price": -102,
+      "tier": "C",
+      "fair_line": -6.0,
+      "edge_pts": 1.5,
+      "playable_to": "-5 -110; pass at -5.5",
+      "model_prob": 0.54,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "SRS gap 6.5 + HFA; NYJ EPA def #5 vs MIA off #28",
+        "Geno short-pass profile vs MIA league-high 89.7% completion allowed under 10 yds (Sharp Worksheet)",
+        "MIA has not led all season; 0-5, net PPG -12.4",
+        "ESPN best bet Jets -4.5; Action Network Jets ML"
+      ],
+      "counter_case": "Line moved 5.5->4.5 toward MIA with even bets (MIA money 55%); MIA off bye; division dogs 20-8 ATS; NYJ 0 RZ TDs in 3 straight and 5-18 under Glenn; PFT 16-13 Jets would not cover."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:11:05.621Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "NYJ",
+      "pool_confidence": 10,
+      "market": "total",
+      "selection": "UNDER 39",
+      "line": 39,
+      "price": -109,
+      "tier": "B",
+      "fair_line": 37.5,
+      "edge_pts": 1.5,
+      "playable_to": "38.5 -115; pass at 38",
+      "model_prob": 0.547,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "Reverse line movement: over 68% bets/65% money but total 39.5->39",
+        "MIA 14.0 PPG, 1.48 pts/drive vs NYJ def #5 EPA",
+        "NYJ RZ TD 37.5%, FG-heavy (Sanders 4/4 FG W6)",
+        "BettingPros Under; Perrault Under 39.5; PFT 16-13 projection",
+        "Calm weather is neutral, no over boost"
+      ],
+      "counter_case": "MIA def #29 EPA, 34.8% pass DVOA allowed; Geno efficient; MIA 8 giveaways create short fields; Willis explosive-pass 16.4%; MIA special teams worst-tier, so a non-offensive TD is possible."
+    },
+    {
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:11:05.621Z",
+      "supercontest_candidate": false,
+      "straight_up_winner": "NYJ",
+      "pool_confidence": 10,
+      "market": "moneyline",
+      "selection": "PASS (SU NYJ)",
+      "line": null,
+      "price": -216,
+      "tier": "PASS",
+      "fair_line": -220,
+      "edge_pts": 0.0,
+      "playable_to": "NYJ ML only at -190 or better",
+      "model_prob": 0.688,
+      "parlay_leg_ok": true,
+      "standalone_preferred": false,
+      "reasons": [
+        "NYJ -216 breakeven 68.4% vs model 68.8% excl ties; no edge",
+        "MIA +187 needs 34.8% vs model about 29%"
+      ],
+      "counter_case": "MIA bye/rest edge and NYJ late-half failures make an outright upset more live than the ratings imply."
+    }
+  ],
+  "adjustments": {
+    "margin_adj": 1.5,
+    "total_adj": -1.5,
+    "reasons": [
+      "Fair NYJ -6.0: SRS/EPA/YPP gap discounted for MIA small sample, bye rest, NYJ end-of-half issues",
+      "Fair total 37.5: MIA 14 PPG offense vs top-5 EPA D; NYJ red-zone stalls; under RLM"
+    ]
+  },
+  "sim_runs": [
+    {
+      "args": "--home-line -4.5 --total 39",
+      "home_cover": 0.5,
+      "under_excl_push": 0.5,
+      "home_win": 0.663
+    },
+    {
+      "args": "--home-line -4.5 --total 39 --margin-adj 1.5 --total-adj -1.5",
+      "home_cover": 0.54,
+      "under_excl_push": 0.547,
+      "home_win": 0.699,
+      "home_win_excl_tie": 0.688,
+      "note": "also SuperContest run (contest line = -4.5)"
+    },
+    {
+      "args": "--home-line -4.5 --total 39 --margin-adj 1.0 --total-adj -1.0",
+      "home_cover": 0.527,
+      "under_excl_push": 0.531,
+      "home_win": 0.687
+    }
+  ],
+  "sources": [
+    "scratch/w07-game-synthesis-queue-sides.json (MIA@NYJ packet)",
+    "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt (paste ~11:40 PT)",
+    "data/generated/props/bookmaker-live-2026-10-23-dolphins-at-jets.json (2026-10-23T20:11:05Z)",
+    "data/odds/actionnetwork-openers-2026-w07.json",
+    "data/supercontest/week-07-lines.json",
+    "data/generated/team-dossiers/2026-w07/MIA.md",
+    "data/generated/team-dossiers/2026-w07/NYJ.md",
+    "data/generated/team-profiles/team-power-ratings-2026.json",
+    "data/secondary-matchups/secondary-matchup-vulnerability-2026-w07.json",
+    "data/research-intel/review/2026-w07-weather-venue.json",
+    "https://www.rotowire.com/betting/nfl/game.php?id=2978854",
+    "scripts/intel/margin-simulator.mjs"
+  ],
+  "ambiguities": [
+    "Official Friday team injury pages not retrievable; statuses from ESPN API/Rotowire 10/21-10/23",
+    "Breece Hall questionable (quad)",
+    "Max Mitchell OT listed OUT in feed from Thursday DNP; confirm",
+    "Action Network Jets ML -115 price is not full-game ML (likely 1H)",
+    "MIA FTN through W5 (bye W6, no missing games)",
+    "No BetOnline board"
+  ],
+  "delta_checklist": [
+    "NYJ -4 -> spread toward B; -5.5 -> pass spread",
+    "Total 38 -> pass Under; 39.5+ -> keep B",
+    "Willis surprise inactive/limited -> NYJ B, Under stronger, re-run sim",
+    "Hall inactive -> no change",
+    "10+ pt MIA money gap with line at 4 -> pass spread",
+    "Inactives about 08:30 PT Sun"
+  ],
+  "gate_notes": [
+    "missing_inputs empty",
+    "roster_vet PASS age 0.0h",
+    "kickoff not passed",
+    "qb_operator_notes empty; QBs from projected_starters + news",
+    "final injury report: official pages failed, used Rotowire/ESPN",
+    "secondary_matchups coach/player coverage names stale, ignored"
+  ]
+}

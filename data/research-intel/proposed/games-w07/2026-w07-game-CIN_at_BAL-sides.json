@@ -1,0 +1,261 @@
+{
+ "game": "CIN@BAL",
+ "pass": "sides",
+ "generated_at": "2026-10-24T01:30:34Z",
+ "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+ "recommendations": [
+  {
+   "market": "spread",
+   "selection": "PASS (lean CIN +1)",
+   "line": 1,
+   "price": -113,
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:11:55.979Z",
+   "tier": "PASS",
+   "fair_line": "BAL -0.2",
+   "edge_pts": 0.8,
+   "playable_to": "CIN +1.5 -113 or CIN +1 -105",
+   "model_prob": 0.5214935861296627,
+   "parlay_leg_ok": false,
+   "reasons": [
+    "Fair BAL -0.2 blended over Lamar in (~60%, BAL -2) / Huntley (~40%, CIN -2.5)",
+    "Sim CIN +1 52.1% excl push < 53.05% breakeven at -113",
+    "CIN ML -102 is the better expression of the same view"
+   ],
+   "counter_case": "If Lamar plays near full strength BAL is ~-2.5/-3 (opener -3); BAL 11-2 SU vs CIN with Lamar.",
+   "supercontest_candidate": false,
+   "straight_up_winner": "CIN",
+   "pool_confidence": 3,
+   "standalone_preferred": false
+  },
+  {
+   "market": "total",
+   "selection": "UNDER 48.5",
+   "line": 48.5,
+   "price": -107,
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:11:55.979Z",
+   "tier": "C",
+   "fair_line": 47.1,
+   "edge_pts": 1.4,
+   "playable_to": "47.5 -110; pass at 47 or if Lamar active full-go",
+   "model_prob": 0.5424448965689294,
+   "parlay_leg_ok": false,
+   "reasons": [
+    "Huntley scenario ~45, hobbled Lamar ~48.5; 60/40 blend 47.1",
+    "Caesars sharp Under 51 early week; open 50.5 -> 48.5",
+    "CIN pressure D (SK% 8.5) vs BAL UPRES 43.9% and limited Lamar mobility"
+   ],
+   "counter_case": "Lamar active + 2024 shootouts (41-38, 35-34), perfect weather, BAL secondary missing Hawkins vs Chase; over money 41% vs 36% bets.",
+   "supercontest_candidate": false,
+   "straight_up_winner": "CIN",
+   "pool_confidence": 3,
+   "standalone_preferred": false
+  },
+  {
+   "market": "moneyline",
+   "selection": "CIN ML",
+   "line": null,
+   "price": -102,
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:11:55.979Z",
+   "tier": "C",
+   "fair_line": "CIN -104 (50.9% excl tie)",
+   "edge_pts": 0.8,
+   "playable_to": "-105; pass at -110",
+   "model_prob": 0.5088245194828017,
+   "parlay_leg_ok": true,
+   "reasons": [
+    "Sharp flag: CIN ML 64% money vs 42% bets (22-pt gap)",
+    "CIN off W6 bye (rest advantage) vs BAL off 13-10 loss",
+    "BAL S Hawkins OUT, LB Robinson OUT (season); Lamar Q high-ankle",
+    "Upgrade to B on Lamar OUT"
+   ],
+   "counter_case": "Healthy-enough Lamar makes BAL the better home roster; market may have overshot from -3 to -1.",
+   "supercontest_candidate": false,
+   "straight_up_winner": "CIN",
+   "pool_confidence": 3,
+   "standalone_preferred": false
+  },
+  {
+   "market": "spread",
+   "selection": "SuperContest: CIN +2.5",
+   "line": 2.5,
+   "price": null,
+   "book": "SuperContest (locked)",
+   "captured_at": "2026-10-22T15:03:58.771Z",
+   "tier": "B",
+   "fair_line": "BAL -0.2",
+   "edge_pts": 2.3,
+   "playable_to": "locked line; drop to C if Lamar full-go",
+   "model_prob": 0.5599927758251182,
+   "parlay_leg_ok": false,
+   "reasons": [
+    "Contest line 1.5 pts wider than BKR (-1)",
+    "Sim 56.0% at contest line",
+    "Tucker/Fezzik best bet (one opinion), Hunter, Action Network, Makinen all CIN; division dogs 20-8 ATS trend"
+   ],
+   "counter_case": "Lamar near full makes -2.5 roughly fair; BAL by 3 (most common margin ~16%) beats it.",
+   "supercontest_candidate": true,
+   "straight_up_winner": "CIN",
+   "pool_confidence": 3,
+   "standalone_preferred": true
+  }
+ ],
+ "adjustments": {
+  "margin_adj": -0.8,
+  "total_adj": -1.4,
+  "reasons": [
+   "Blend Lamar-in (BAL -2, p~0.6) and Huntley (CIN -2.5, p~0.4) -> BAL -0.2 vs BKR -1",
+   "CIN bye rest; BAL S Hawkins + LB Robinson out",
+   "Total: Huntley ~45 / hobbled Lamar ~48.5 -> 47.1",
+   "Contest run uses -2.3 (same view vs -2.5; above soft cap, justified by stale wider line)",
+   "Huntley scenario capped at -3.0 (hard cap)"
+  ]
+ },
+ "sim_runs": {
+  "baseline_bkr": {
+   "inputs": {
+    "homeLine": -1,
+    "total": 48.5,
+    "marginAdj": 0,
+    "totalAdj": 0
+   },
+   "home_cover": 0.48782438661040484,
+   "away_cover": 0.487824386610405,
+   "side_push": 0.024351226779190115,
+   "home_cover_excl_push": 0.4999999999999999,
+   "away_cover_excl_push": 0.5000000000000001,
+   "over": 0.5000000000000003,
+   "under": 0.4999999999999997,
+   "home_win": 0.5243233203377513,
+   "home_win_excl_tie": 0.5121756133895954,
+   "tie": 0.02429541389631182
+  },
+  "adjusted_bkr": {
+   "inputs": {
+    "homeLine": -1,
+    "total": 48.5,
+    "marginAdj": -0.8,
+    "totalAdj": -1.4
+   },
+   "home_cover": 0.4668816694640542,
+   "away_cover": 0.5088245194828026,
+   "side_push": 0.024293811053144012,
+   "home_cover_excl_push": 0.4785064138703373,
+   "away_cover_excl_push": 0.5214935861296627,
+   "over": 0.4575551034310708,
+   "under": 0.5424448965689294,
+   "home_win": 0.5033466924116152,
+   "home_win_excl_tie": 0.4911754805171983,
+   "tie": 0.0243424237888339
+  },
+  "baseline_contest": {
+   "inputs": {
+    "homeLine": -2.5,
+    "total": 48.5,
+    "marginAdj": 0,
+    "totalAdj": 0
+   },
+   "home_cover": 0.5000000000000004,
+   "away_cover": 0.49999999999999956,
+   "side_push": 0,
+   "home_cover_excl_push": 0.5000000000000004,
+   "away_cover_excl_push": 0.49999999999999956,
+   "over": 0.5000000000000003,
+   "under": 0.4999999999999997,
+   "home_win": 0.5606913824492986,
+   "home_win_excl_tie": 0.5486688271432142,
+   "tie": 0.02404511061216884
+  },
+  "adjusted_contest": {
+   "inputs": {
+    "homeLine": -2.5,
+    "total": 48.5,
+    "marginAdj": -2.3,
+    "totalAdj": -1.4
+   },
+   "home_cover": 0.44000722417488275,
+   "away_cover": 0.5599927758251182,
+   "side_push": 0,
+   "home_cover_excl_push": 0.44000722417488236,
+   "away_cover_excl_push": 0.5599927758251178,
+   "over": 0.4575551034310708,
+   "under": 0.5424448965689294,
+   "home_win": 0.500548797703037,
+   "home_win_excl_tie": 0.4883771441487305,
+   "tie": 0.024343307108612912
+  },
+  "scenario_lamar_in": {
+   "inputs": {
+    "homeLine": -1,
+    "total": 48.5,
+    "marginAdj": 1,
+    "totalAdj": 0
+   },
+   "home_cover": 0.5140659578412244,
+   "away_cover": 0.46161143229666035,
+   "side_push": 0.024322609862114684,
+   "home_cover_excl_push": 0.5268810808135828,
+   "away_cover_excl_push": 0.4731189191864172,
+   "over": 0.5000000000000003,
+   "under": 0.4999999999999997,
+   "home_win": 0.5504571931101172,
+   "home_win_excl_tie": 0.5383885677033391,
+   "tie": 0.02413725081355631
+  },
+  "scenario_huntley_capped": {
+   "inputs": {
+    "homeLine": -1,
+    "total": 48.5,
+    "marginAdj": -3,
+    "totalAdj": -3
+   },
+   "home_cover": 0.40994164720796783,
+   "away_cover": 0.5662830026267774,
+   "side_push": 0.023775350165254897,
+   "home_cover_excl_push": 0.4199255235742741,
+   "away_cover_excl_push": 0.5800744764257258,
+   "over": 0.409669102608948,
+   "under": 0.5903308973910518,
+   "home_win": 0.4457696289731483,
+   "home_win_excl_tie": 0.4337169973732227,
+   "tie": 0.024105263199851165
+  }
+ },
+ "sources": [
+  "scratch/w07-game-synthesis-queue-sides.json (CIN@BAL) built 2026-10-24T01:26Z",
+  "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt (~11:40 PT paste)",
+  "data/generated/props/bookmaker-live-2026-10-23-bengals-at-ravens.json 2026-10-23T20:11:55Z",
+  "data/generated/props/draftkings-predictions-live-2026-10-23-bengals-at-ravens.json (reference only)",
+  "data/odds/actionnetwork-openers-2026-w07.json (AN open BAL -3, 50.5)",
+  "data/supercontest/week-07-lines.json (BAL -2.5)",
+  "data/generated/team-dossiers/2026-w07/CIN.md",
+  "data/generated/team-dossiers/2026-w07/BAL.md",
+  "scripts/intel/margin-simulator.mjs",
+  "https://surprisesports.com/scores/nfl/bengals-vs-ravens-401873012/ (ESPN injury mirror, mod 2026-10-23 20:28 ET)",
+  "https://www.si.com/betting/concerning-lamar-jackson-injury-update-shifts-bengals-vs-ravens-odds-in-nfl-week-7"
+ ],
+ "ambiguities": [
+  "Lamar play probability (~60%) is an estimate",
+  "Projected starters lack second-source reconciliation",
+  "CIN FTN through W5 (bye W6)",
+  "BKR team-total rows unparsed",
+  "Availability feed tagged Dugger to CIN with BAL-radio source; Friday report omits him"
+ ],
+ "delta_checklist": [
+  "Lamar OUT: SC CIN +2.5 -> A-, CIN ML -> B (play to -125), Under -> B if >=47.5, pool conf 6",
+  "Lamar active full-go: CIN ML PASS, Under PASS, SC -> C",
+  "BKR CIN +1.5 or better: spread becomes C",
+  "Total <=47: pass under; CIN ML -110 or worse: pass",
+  "BAL DT Washington inactive: minor CIN run bump"
+ ],
+ "gate_notes": [
+  "roster_vet PASS (age 0.0h)",
+  "missing_inputs empty",
+  "Lamar Q unresolved: both scenarios presented, tiers capped C except SC",
+  "availability misclassification (Dugger) noted, verified vs Friday report",
+  "secondary_matchups stale coordinator names ignored",
+  "kickoff not passed"
+ ]
+}

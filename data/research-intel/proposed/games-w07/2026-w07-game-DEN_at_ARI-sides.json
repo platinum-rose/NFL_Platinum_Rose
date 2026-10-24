@@ -1,0 +1,175 @@
+{
+ "game": "DEN@ARI",
+ "pass": "sides",
+ "generated_at": "2026-10-24T01:30:36.790017Z",
+ "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+ "recommendations": [
+  {
+   "market": "spread",
+   "selection": "ARI +4",
+   "line": 4,
+   "price": -101,
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:12:08.587Z",
+   "tier": "C",
+   "fair_line": "DEN -3.5",
+   "edge_pts": 0.5,
+   "playable_to": "ARI +4 -110; pass at +3.5",
+   "model_prob": 0.514,
+   "supercontest_candidate": false,
+   "straight_up_winner": "DEN",
+   "pool_confidence": 9,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "DEN market rating exceeds results model (delta +0.99z; net PPG #22)",
+    "DEN offense EPA #27, 48.5% punt rate, 4-0 one-score, trailed in all 6",
+    "Hufanga out -> te_middle_boost for McBride",
+    "Line moved DEN -4.5 -> -4 toward ARI",
+    "Fezzik/Tucker, Radowitz, BettingPros, Action Network on ARI +4.5 (priced at +4.5)"
+   ],
+   "counter_case": "DEN top-10 defense gets Cooper (and maybe Surtain) back vs worst-ranked ARI pass D; ARI 9 straight home losses; money 68% on DEN."
+  },
+  {
+   "market": "total",
+   "selection": "Under 43",
+   "line": 43,
+   "price": -107,
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:12:08.587Z",
+   "tier": "C",
+   "fair_line": "41.5",
+   "edge_pts": 1.5,
+   "playable_to": "42.5 -110; pass at 42",
+   "model_prob": 0.547,
+   "supercontest_candidate": false,
+   "straight_up_winner": "DEN",
+   "pool_confidence": 9,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "DEN games avg 39.8, 5/6 under 43",
+    "DEN offense 1.62 pts/drive (28th), aDOT 4.9",
+    "ARI slow (6.2 plays/drive), low explosive rate 4.5%",
+    "Total 43.5 -> 43; under money 59% vs 53% bets",
+    "PFT projects 24-13 (37)"
+   ],
+   "counter_case": "ARI games avg 50.7 with 3 overs >60; ARI pass D DVOA +32.6% and FS Wingard out (deep_pass_boost); non-offensive TDs."
+  },
+  {
+   "market": "moneyline",
+   "selection": "PASS (SU: DEN)",
+   "line": null,
+   "price": -223,
+   "book": "BKR",
+   "captured_at": "2026-10-23T20:12:08.587Z",
+   "tier": "PASS",
+   "fair_line": "DEN ~-185 / ARI ~+180",
+   "edge_pts": null,
+   "playable_to": "ARI ML only at +210 or better",
+   "model_prob": 0.64,
+   "supercontest_candidate": false,
+   "straight_up_winner": "DEN",
+   "pool_confidence": 9,
+   "parlay_leg_ok": false,
+   "standalone_preferred": false,
+   "reasons": [
+    "Sim ARI win 36.0% vs 34.1% implied at +193: inside noise",
+    "DEN SU favorite ~64-65%"
+   ],
+   "counter_case": "ARI has two outright upsets as 9.5+ dogs this year."
+  }
+ ],
+ "supercontest": {
+  "selection": "ARI +4.5",
+  "contest_line": -4.5,
+  "candidate": true,
+  "tier": "C",
+  "model_prob": 0.527
+ },
+ "adjustments": {
+  "margin_adj": 0.5,
+  "total_adj": -1.5,
+  "reasons": [
+   "margin +0.5 home: DEN results-based ratings trail market rating; ARI TE-middle edge with Hufanga out; DEN road offense 1-2",
+   "total -1.5: DEN offensive pace/punt rate, ARI low-explosive offense, roof likely closed",
+   "contest run uses +1.0 vs +4.5 (same view)"
+  ]
+ },
+ "sim_runs": [
+  {
+   "home_line": 4,
+   "total": 43,
+   "margin_adj": 0,
+   "total_adj": 0,
+   "home_cover_excl_push": 0.5,
+   "under_excl_push": 0.5,
+   "home_win": 0.3481
+  },
+  {
+   "home_line": 4,
+   "total": 43,
+   "margin_adj": 0.5,
+   "total_adj": -1.5,
+   "home_cover_excl_push": 0.5137,
+   "under_excl_push": 0.5468,
+   "home_win": 0.3605
+  },
+  {
+   "home_line": 4.5,
+   "total": 43,
+   "margin_adj": 0,
+   "total_adj": 0,
+   "home_cover_excl_push": 0.5,
+   "under_excl_push": 0.5,
+   "home_win": 0.337
+  },
+  {
+   "home_line": 4.5,
+   "total": 43,
+   "margin_adj": 1.0,
+   "total_adj": -1.5,
+   "home_cover_excl_push": 0.5268,
+   "under_excl_push": 0.5468,
+   "home_win": 0.3616
+  }
+ ],
+ "sources": [
+  "scratch/w07-game-synthesis-queue-sides.json (DEN@ARI packet)",
+  "data/generated/props/bookmaker-live-2026-10-23-broncos-at-cardinals.json @2026-10-23T20:12:08Z",
+  "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt (~11:40 PT)",
+  "data/odds/actionnetwork-openers-2026-w07.json",
+  "data/supercontest/week-07-lines.json",
+  "data/generated/team-dossiers/2026-w07/DEN.md",
+  "data/generated/team-dossiers/2026-w07/ARI.md",
+  "data/generated/team-profiles/team-power-ratings-2026.json",
+  "data/prediction-markets/cross-market-coherence-latest.json",
+  "data/secondary-matchups/secondary-matchup-vulnerability-2026-w07.json",
+  "data/player-availability/latest.json",
+  "https://www.denverbroncos.com/news/injuryreport/injury-report-cb-pat-surtain-ii-returns-to-practice-ahead-of-broncos-week-7-game-vs-cardinals"
+ ],
+ "ambiguities": [
+  "ARI HC: dossier says Gannon (historical_context_only) but current reporting quotes Mike LaFleur",
+  "Roof open/closed undecided",
+  "Official Friday PDF not fetched; Friday statuses from ESPN feed",
+  "VSiN 'Broncos ML +130' price inconsistent with this game; excluded",
+  "Simon Hunter on both sides across episodes; neutral",
+  "ARI projected starters need manual depth chart"
+ ],
+ "delta_checklist": [
+  "Baker AND Melton out -> spread to PASS",
+  "BKR ARI +3.5 -> spread PASS",
+  "Total <=42 -> under PASS",
+  "10+ pt money/bets gap appears -> revisit",
+  "Brissett not active -> rerun",
+  "Inactives ~11:35 PT Sun"
+ ],
+ "gate_notes": [
+  "roster_vet PASS age 0h",
+  "missing_inputs empty",
+  "Kickoff not passed",
+  "Friday designations from ESPN feed (team site only had Wed report)",
+  "Coaching-name conflict",
+  "Mis-keyed pick_signals/article_selections excluded"
+ ]
+}

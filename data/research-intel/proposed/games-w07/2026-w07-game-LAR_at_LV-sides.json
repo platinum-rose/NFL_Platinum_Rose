@@ -1,0 +1,219 @@
+{
+  "game": "LAR@LV",
+  "pass": "sides",
+  "generated_at": "2026-10-24T01:35:00Z",
+  "packet_built_at": "2026-10-24T01:26:41.394561+00:00",
+  "recommendations": [
+    {
+      "market": "spread",
+      "selection": "PASS (conditional: LAR -3 if Nacua active at -110 or better; LV +3 if Nacua out at +100 or better)",
+      "line": -3.0,
+      "price": -116,
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:12:29.790Z",
+      "tier": "PASS",
+      "fair_line": -3.4,
+      "edge_pts": 0.4,
+      "playable_to": "Nacua active: LAR -3 at -110 or better (C); Nacua out: LV +3 at +100 or better (C); pass at -3.5/+2.5",
+      "model_prob": 0.511,
+      "supercontest_candidate": false,
+      "straight_up_winner": "LAR",
+      "pool_confidence": 6,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Blended fair LAR -3.4 vs BKR -3: LAR cover 51.1% excl push vs 53.7% break-even at -116",
+        "Even Nacua-in view (53.6%) only reaches break-even",
+        "Line moved 5.5->3 since AN open; juice -124 -> -116 after Nacua news"
+      ],
+      "counter_case": "Rams efficiency (DVOA off +13.1%, YPP +1.06) vs LV defense allowing 3.27 pts/drive last 3 weeks could produce a 7+ pt Rams win; or Nacua out and LV +3 is live."
+    },
+    {
+      "market": "total",
+      "selection": "Over",
+      "line": 48.5,
+      "price": -106,
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:12:29.790Z",
+      "tier": "C",
+      "fair_line": 49.25,
+      "edge_pts": 0.75,
+      "playable_to": "48.5 at -110 or better; pass at 49",
+      "model_prob": 0.523,
+      "supercontest_candidate": false,
+      "straight_up_winner": "LAR",
+      "pool_confidence": 6,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "AN splits: Over 49% bets / 60% money (11-pt sharp flag)",
+        "LV D allowed league-high 3.27 pts/drive last 3 weeks; LV game totals 57/62/62/63 last 4",
+        "Rams DL gutted (Turner, Ford, Garrett IR; Landman out; McDuffie Q) lifts LV passing (EPA/DB 0.206)",
+        "Fixed dome; PFT projects 49 total"
+      ],
+      "counter_case": "Rams without Adams (and maybe Nacua) go TE/RB-short game, and LV's run game is broken (EPA/rush -0.248); a 24-20 game stays under. If Nacua is out, fair drops to 48.5."
+    },
+    {
+      "market": "moneyline",
+      "selection": "PASS (SU Rams)",
+      "line": null,
+      "price": -172,
+      "book": "BKR",
+      "captured_at": "2026-10-23T20:12:29.790Z",
+      "tier": "PASS",
+      "fair_line": "LAR ~-157 (61%)",
+      "edge_pts": null,
+      "playable_to": "LAR -150 or better; LV +165 or better",
+      "model_prob": 0.611,
+      "supercontest_candidate": false,
+      "straight_up_winner": "LAR",
+      "pool_confidence": 6,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Sim LAR win ~61% vs 63.2% break-even at -172; LV 38.9% vs 40.2% at +149"
+      ],
+      "counter_case": "If Nacua plays, the Rams' win probability is ~63-64%, near the -172 price."
+    },
+    {
+      "market": "spread",
+      "selection": "LV +4 (SuperContest)",
+      "line": 4.0,
+      "price": null,
+      "book": "SuperContest",
+      "captured_at": "2026-10-22T15:03:58.771Z",
+      "tier": "C",
+      "fair_line": -3.4,
+      "edge_pts": 0.6,
+      "playable_to": "+4 contest; upgrade to B if Nacua ruled out before lock",
+      "model_prob": 0.516,
+      "supercontest_candidate": true,
+      "straight_up_winner": "LAR",
+      "pool_confidence": 6,
+      "parlay_leg_ok": false,
+      "standalone_preferred": false,
+      "reasons": [
+        "Contest line 1 pt above BKR market (-3)",
+        "Sim blended LV cover 51.6%; Nacua-out 54.1%",
+        "Tucker, Fezzik, Action Network, Caesars sharp report on LV +4.5 (0.5 pt better than contest)"
+      ],
+      "counter_case": "Nacua active and McDuffie clears: Nacua-in sim LV cover only 49.3%."
+    }
+  ],
+  "adjustments": {
+    "margin_adj": -0.4,
+    "total_adj": 0.75,
+    "reasons": [
+      "Rams neutral-field efficiency edge ~5-6 pts minus ~2.5-3 pts injuries (Adams IR, Turner/Ford/Garrett IR, Landman out, McDuffie Q) minus ~1.5 HFA -> LAR -3.4; Nacua blended ~50% (in -4.25, out -2.5)",
+      "Total: PPG cross-average 49.8, LV last-4 totals 57+, trimmed for Rams WR losses -> 49.25"
+    ]
+  },
+  "sim_runs": [
+    {
+      "label": "BKR baseline",
+      "home_line": 3,
+      "total": 48.5,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover_excl_push": 0.5,
+      "over": 0.5,
+      "side_push": 0.0827
+    },
+    {
+      "label": "BKR blended",
+      "home_line": 3,
+      "total": 48.5,
+      "margin_adj": -0.4,
+      "total_adj": 0.75,
+      "home_cover_excl_push": 0.4885,
+      "over": 0.5228,
+      "home_win": 0.3885
+    },
+    {
+      "label": "BKR Nacua in",
+      "home_line": 3,
+      "total": 48.5,
+      "margin_adj": -1.25,
+      "total_adj": 1.25,
+      "home_cover_excl_push": 0.4642,
+      "over": 0.5379
+    },
+    {
+      "label": "BKR Nacua out",
+      "home_line": 3,
+      "total": 48.5,
+      "margin_adj": 0.5,
+      "total_adj": 0,
+      "home_cover_excl_push": 0.5143,
+      "over": 0.5
+    },
+    {
+      "label": "SC baseline",
+      "home_line": 4,
+      "total": 48.5,
+      "margin_adj": 0,
+      "total_adj": 0,
+      "home_cover_excl_push": 0.5
+    },
+    {
+      "label": "SC blended",
+      "home_line": 4,
+      "total": 48.5,
+      "margin_adj": 0.6,
+      "total_adj": 0.75,
+      "home_cover_excl_push": 0.5164
+    },
+    {
+      "label": "SC Nacua in",
+      "home_line": 4,
+      "total": 48.5,
+      "margin_adj": -0.25,
+      "total_adj": 1.25,
+      "home_cover_excl_push": 0.4931
+    },
+    {
+      "label": "SC Nacua out",
+      "home_line": 4,
+      "total": 48.5,
+      "margin_adj": 1.5,
+      "total_adj": 0,
+      "home_cover_excl_push": 0.541
+    }
+  ],
+  "sources": [
+    "scratch/w07-game-synthesis-queue-sides.json (LAR@LV packet, built 2026-10-24T01:26:41Z)",
+    "data/generated/props/bookmaker-gamelines-2026-10-23-week7.raw.txt (~11:40 PT)",
+    "data/generated/props/bookmaker-live-2026-10-23-rams-at-raiders.json (2026-10-23T20:12:29Z)",
+    "data/odds/actionnetwork-openers-2026-w07.json (AN open 2026-10-19T00:05Z)",
+    "data/supercontest/week-07-lines.json (2026-10-22T15:03Z)",
+    "data/generated/team-dossiers/2026-w07/LAR.md",
+    "data/generated/team-dossiers/2026-w07/LV.md",
+    "packet.splits (AN 2026-10-23T19:40Z)",
+    "packet.availability (ESPN injuries API, 2026-10-23T23:34Z-2026-10-24T00:04Z)",
+    "packet.news_notes / article_notes / expert_picks_pull / youtube_picks_approved / pick_signals",
+    "https://www.si.com/betting/rams-vs-raiders-prediction-odds-spread-injuries-trends-for-nfl-week-7-2026 (2026-10-20)",
+    "scripts/intel/margin-simulator.mjs"
+  ],
+  "ambiguities": [
+    "Official Friday injury PDFs not retrieved; designations from ESPN feed",
+    "Packet SRS (LAR -2.31 #22) conflicts with dossier SRS (0.48 #18)",
+    "Rotowire Washington blurb references Jeanty ankle (likely August); Jeanty treated as active",
+    "Bowers Friday status not in feed (full Thursday)",
+    "Simon Hunter rationale cites Aaron Donald \u2014 discounted"
+  ],
+  "delta_checklist": [
+    "Nacua inactive (~11:55 PT Sun): SC LV +4 to B; LV +3 +100 or better becomes C; Over to PASS",
+    "Nacua active: LAR -3 at -110 or better becomes C; pass at -3.5",
+    "McDuffie out: +0.5 LV, +0.5 total",
+    "BKR total 49 or higher: Over PASS",
+    "Washington (LV RB) out: no change"
+  ],
+  "gate_notes": [
+    "roster_vet PASS age 0h; not rerun",
+    "missing_inputs empty",
+    "kickoff in future: forward pick",
+    "final injury report: web search done, official PDF unavailable; ESPN feed used",
+    "weather moot: fixed dome",
+    "newest BKR DOM rows (20:12Z) used over paste (~18:40Z)"
+  ]
+}

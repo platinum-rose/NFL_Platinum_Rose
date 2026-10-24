@@ -1,6 +1,6 @@
 # Yahoo Survival Football — Week 7 Intelligence Report
 
-**Generated:** 2026-10-23T17:00:06.347Z | **Season:** 2026 | **Week:** 7
+**Generated:** 2026-10-24T01:18:48.293Z | **Season:** 2026 | **Week:** 7
 
 ---
 
