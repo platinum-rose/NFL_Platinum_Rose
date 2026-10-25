@@ -25400,15 +25400,15 @@
     "odds_decimal": 108.15,
     "potential_profit_usd": 535.76,
     "potential_payout_usd": 540.76,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": "https://be.bookmaker.eu/#ticket_740636102",
     "needs_confirmation": [
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-22 20:56 PT, Bookmaker ticket 740636102: Risk $5.00, Win $535.76 (+10715), placed 8:54 PM PT. Lottery parlay built from leftovers of the TNF parlays; same 9 legs as 740636092 plus PIT @ NO Under 46.5. Funding assumed cash.",
+    "progress_notes": "Andy 2026-10-22 20:56 PT, Bookmaker ticket 740636102: Risk $5.00, Win $535.76 (+10715), placed 8:54 PM PT. Lottery parlay built from leftovers of the TNF parlays; same 9 legs as 740636092 plus PIT @ NO Under 46.5. Funding assumed cash. SETTLED LOSS 2026-10-25 14:22 PT (mobile tracker ESPN grading): lost leg(s) San Francisco 49ers ML; Carolina Panthers ML; Houston Texans ML; New York Jets ML",
     "legs": [
       {
         "leg_num": 1,
@@ -25420,8 +25420,10 @@
         "line": -6,
         "price": "-118",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740636102_1_min_m6"
+        "status": "PUSH",
+        "key": "leg_740636102_1_min_m6",
+        "actual_stat": "MIN 16-10 · on the number",
+        "grading_note": "MIN 16-10 · on the number. ESPN 401873014, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 2,
@@ -25460,8 +25462,10 @@
         "line": null,
         "price": "-156",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740636102_4_sf_ml"
+        "status": "LOST",
+        "key": "leg_740636102_4_sf_ml",
+        "actual_stat": "SF 20-29",
+        "grading_note": "SF 20-29. ESPN 401873017, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 5,
@@ -25473,8 +25477,10 @@
         "line": null,
         "price": "-139",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740636102_5_car_ml"
+        "status": "LOST",
+        "key": "leg_740636102_5_car_ml",
+        "actual_stat": "CAR 13-43",
+        "grading_note": "CAR 13-43. ESPN 401873018, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 6,
@@ -25499,8 +25505,10 @@
         "line": null,
         "price": "-402",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740636102_7_hou_ml"
+        "status": "LOST",
+        "key": "leg_740636102_7_hou_ml",
+        "actual_stat": "HOU 21-27",
+        "grading_note": "HOU 21-27. ESPN 401873016, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 8,
@@ -25526,8 +25534,10 @@
         "line": null,
         "price": "-210",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740636102_9_nyj_ml"
+        "status": "LOST",
+        "key": "leg_740636102_9_nyj_ml",
+        "actual_stat": "NYJ 25-28",
+        "grading_note": "NYJ 25-28. ESPN 401873015, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 10,
@@ -25546,7 +25556,10 @@
         "actual_stat": 26,
         "grading_note": "Total 26 (PIT 16, NO 10) under 46.5. ESPN box score 401873011 (Final: PIT 16, NO 10), fetched 2026-10-25 09:42 PT"
       }
-    ]
+    ],
+    "profit_usd": -5.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-25T21:22:14Z"
   },
   {
     "id": "bet_20261022_bkr_740636092_9team_lottery",
@@ -25570,15 +25583,15 @@
     "odds_decimal": 63.09,
     "potential_profit_usd": 1287.73,
     "potential_payout_usd": 1308.47,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": "https://be.bookmaker.eu/#ticket_740636092",
     "needs_confirmation": [
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-22 20:56 PT, Bookmaker ticket 740636092: Risk $20.74, Win $1,287.73 (+6209), placed 8:54 PM PT. Same 9 legs as the first 9 of 740636102. Funding assumed cash. Dallas @ Philadelphia is MNF 10/26.",
+    "progress_notes": "Andy 2026-10-22 20:56 PT, Bookmaker ticket 740636092: Risk $20.74, Win $1,287.73 (+6209), placed 8:54 PM PT. Same 9 legs as the first 9 of 740636102. Funding assumed cash. Dallas @ Philadelphia is MNF 10/26. SETTLED LOSS 2026-10-25 14:22 PT (mobile tracker ESPN grading): lost leg(s) San Francisco 49ers ML; Carolina Panthers ML; Houston Texans ML; New York Jets ML",
     "legs": [
       {
         "leg_num": 1,
@@ -25590,8 +25603,10 @@
         "line": -6,
         "price": "-118",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740636092_1_min_m6"
+        "status": "PUSH",
+        "key": "leg_740636092_1_min_m6",
+        "actual_stat": "MIN 16-10 · on the number",
+        "grading_note": "MIN 16-10 · on the number. ESPN 401873014, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 2,
@@ -25630,8 +25645,10 @@
         "line": null,
         "price": "-156",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740636092_4_sf_ml"
+        "status": "LOST",
+        "key": "leg_740636092_4_sf_ml",
+        "actual_stat": "SF 20-29",
+        "grading_note": "SF 20-29. ESPN 401873017, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 5,
@@ -25643,8 +25660,10 @@
         "line": null,
         "price": "-139",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740636092_5_car_ml"
+        "status": "LOST",
+        "key": "leg_740636092_5_car_ml",
+        "actual_stat": "CAR 13-43",
+        "grading_note": "CAR 13-43. ESPN 401873018, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 6,
@@ -25669,8 +25688,10 @@
         "line": null,
         "price": "-402",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740636092_7_hou_ml"
+        "status": "LOST",
+        "key": "leg_740636092_7_hou_ml",
+        "actual_stat": "HOU 21-27",
+        "grading_note": "HOU 21-27. ESPN 401873016, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 8,
@@ -25696,10 +25717,15 @@
         "line": null,
         "price": "-210",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
-        "key": "leg_740636092_9_nyj_ml"
+        "status": "LOST",
+        "key": "leg_740636092_9_nyj_ml",
+        "actual_stat": "NYJ 25-28",
+        "grading_note": "NYJ 25-28. ESPN 401873015, mobile-tracker grading 2026-10-25 14:22 PT"
       }
-    ]
+    ],
+    "profit_usd": -20.74,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-25T21:22:14Z"
   },
   {
     "id": "bet_20261025_beo_1008731202_week_7_beo_6leg_prop_parlay",
@@ -25723,8 +25749,8 @@
     "odds_decimal": 64,
     "potential_profit_usd": 315,
     "potential_payout_usd": 320,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": null,
@@ -25732,7 +25758,7 @@
       "placed_at time (BEO Accepted Date 10/25/26 only; logged ~00:30 PT)",
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-25 01:09 PT: official BEO ticket 1008731202, Risk $5.00, To win $315.00 (+6300), Accepted 10/25/26, Type Future/Prop. TD rule on slip: a TD is scored by the player who carries/receives the ball in the end zone (excludes passing TDs). Rodriguez T+A line 9+ is above the Prop Stack Agent projection (Over 7.5).",
+    "progress_notes": "Andy 2026-10-25 01:09 PT: official BEO ticket 1008731202, Risk $5.00, To win $315.00 (+6300), Accepted 10/25/26, Type Future/Prop. TD rule on slip: a TD is scored by the player who carries/receives the ball in the end zone (excludes passing TDs). Rodriguez T+A line 9+ is above the Prop Stack Agent projection (Over 7.5). SETTLED LOSS 2026-10-25 14:22 PT (mobile tracker ESPN grading): lost leg(s) Tank Dell 1+ Touchdowns; Bryce Young Over 1.5 Passing TDs; Jacob Rodriguez 9+ Tackles + Assists",
     "legs": [
       {
         "leg_num": 1,
@@ -25747,10 +25773,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_beo1008731202_1_burrow_passing_touchdowns",
         "target_stat": "passing_touchdowns",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 4,
+        "grading_note": "4 pass TD. ESPN 401873012, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 2,
@@ -25783,10 +25811,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_beo1008731202_3_mccaffrey_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 1,
+        "grading_note": "1 TD. ESPN 401873017, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 4,
@@ -25801,11 +25831,13 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008731202_4_dell_anytime_touchdown",
         "target_stat": "touchdowns",
         "source": "BetOnline",
-        "availability_note": "Returning in Week 7 after a nearly two-year injury layoff (reports 10/20); ESPN roster file still lists him in the IR/out group. Confirm active at 8:30 AM PT inactives."
+        "availability_note": "Returning in Week 7 after a nearly two-year injury layoff (reports 10/20); ESPN roster file still lists him in the IR/out group. Confirm active at 8:30 AM PT inactives.",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873016, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 5,
@@ -25820,10 +25852,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008731202_5_young_passing_touchdowns",
         "target_stat": "passing_touchdowns",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 1,
+        "grading_note": "1 pass TD. ESPN 401873018, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 6,
@@ -25838,13 +25872,18 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008731202_6_rodriguez_tackles_assists",
         "target_stat": "tackles_combined",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 4,
+        "grading_note": "4 tkl+ast. ESPN 401873015, mobile-tracker grading 2026-10-25 14:22 PT"
       }
     ],
-    "platinum_rose_source": "Week 7 Master Intel / Prop Stack Agent recs (built Sat 10/24 PM)"
+    "platinum_rose_source": "Week 7 Master Intel / Prop Stack Agent recs (built Sat 10/24 PM)",
+    "profit_usd": -5.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-25T21:22:14Z"
   },
   {
     "id": "bet_20261025_beo_1008729493_week_7_beo_6leg_prop_parlay",
@@ -26409,8 +26448,8 @@
     "odds_decimal": 306.11,
     "potential_profit_usd": 1546.91,
     "potential_payout_usd": 1551.98,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": "https://predictions.draftkings.com/en/my-trades/open/details/position/45868275",
@@ -26419,7 +26458,7 @@
       "placed_at approximate (~9:35 AM PT)"
     ],
     "promotion": "DK Predictions +30% profit boost (not shown on the My Trades card)",
-    "progress_notes": "Andy 2026-10-25 09:37 PT: DK Predictions position 45868275, 8 Pick Combo 0.4%, Bought $5.07, Pays out $1,195.00 unboosted; with the +30% profit boost Andy reports a total payout of $1,551 (profit 1.30 x 1,189.93 = 1546.91, payout 1551.98). Logged at the boosted figure; use $1,195 if the boost was not credited. Rebuild of BEO ticket 1008680961 (8-leg) after the Rodgers 2+ pass TD leg was failing in Paris: Rodgers dropped, Kirk Cousins 2+ pass TDs added (Prop Stack Agent best leg for LAR@LV). Lines differ from the BEO ticket: Henry 70+ (BEO 74+), NYJ FG via Jason Sanders 2+ FG made.",
+    "progress_notes": "Andy 2026-10-25 09:37 PT: DK Predictions position 45868275, 8 Pick Combo 0.4%, Bought $5.07, Pays out $1,195.00 unboosted; with the +30% profit boost Andy reports a total payout of $1,551 (profit 1.30 x 1,189.93 = 1546.91, payout 1551.98). Logged at the boosted figure; use $1,195 if the boost was not credited. Rebuild of BEO ticket 1008680961 (8-leg) after the Rodgers 2+ pass TD leg was failing in Paris: Rodgers dropped, Kirk Cousins 2+ pass TDs added (Prop Stack Agent best leg for LAR@LV). Lines differ from the BEO ticket: Henry 70+ (BEO 74+), NYJ FG via Jason Sanders 2+ FG made. SETTLED LOSS 2026-10-25 14:22 PT (mobile tracker ESPN grading): lost leg(s) Isaiah Likely Anytime TD Scorer; George Kittle Anytime TD Scorer; Jason Sanders 2+ Field Goals Made; Derrick Henry 70+ Rushing Yards",
     "legs": [
       {
         "leg_num": 1,
@@ -26434,10 +26473,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp45868275_1_likely_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873016, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 2,
@@ -26452,10 +26493,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp45868275_2_kittle_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873017, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 3,
@@ -26470,10 +26513,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:05 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp45868275_3_sanders_field_goals_made",
         "target_stat": "field_goals_made",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 1,
+        "grading_note": "1 FG. ESPN 401873015, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 4,
@@ -26488,10 +26533,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_dkp45868275_4_irving_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 2,
+        "grading_note": "2 TD. ESPN 401873018, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 5,
@@ -26506,10 +26553,12 @@
         "price_source": "DK Predictions pick (no per-leg price on slip)",
         "direction": "over",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_dkp45868275_5_henry_rushing_yards",
         "target_stat": "rushing_yards",
-        "source": "DK Predictions board"
+        "source": "DK Predictions board",
+        "actual_stat": 45,
+        "grading_note": "45 rush yds. ESPN 401873012, mobile-tracker grading 2026-10-25 14:22 PT"
       },
       {
         "leg_num": 6,
@@ -26563,7 +26612,10 @@
         "source": "DK Predictions board"
       }
     ],
-    "platinum_rose_source": "Week 7 Prop Stack Agent rebuild (Option B), Sun 10/25 09:23 PT"
+    "platinum_rose_source": "Week 7 Prop Stack Agent rebuild (Option B), Sun 10/25 09:23 PT",
+    "profit_usd": -5.07,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-25T21:22:14Z"
   },
   {
     "id": "bet_20261025_dkp_45488862_5pick_int_pressure_combo",

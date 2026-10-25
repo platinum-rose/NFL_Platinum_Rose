@@ -1,0 +1,489 @@
+<title>Platinum Rose Road Tracker</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: one column of ticket stubs under a sticky score/totals header; tap a stub to open its legs. */
+:root {
+  --bg: #eef0f4; --surface: #ffffff; --ink: #161a24; --muted: #5b6273; --line: #d9dde6;
+  --accent: #b2325f; --win: #17824a; --loss: #bf3a3a; --live: #a8680f; --idle: #9aa1b1;
+  --win-soft: #e2f3e9; --loss-soft: #f8e4e4; --live-soft: #f8eedb;
+  --f-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --f-body: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "Roboto Mono", monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0e1117; --surface: #171b24; --ink: #e9ebf1; --muted: #8d94a6; --line: #272d3a;
+  --accent: #f07ba5; --win: #43c982; --loss: #ff7070; --live: #f0b54a; --idle: #5d6474;
+  --win-soft: #15291f; --loss-soft: #2e1a1c; --live-soft: #2c2415; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0e1117; --surface: #171b24; --ink: #e9ebf1; --muted: #8d94a6; --line: #272d3a;
+  --accent: #f07ba5; --win: #43c982; --loss: #ff7070; --live: #f0b54a; --idle: #5d6474;
+  --win-soft: #15291f; --loss-soft: #2e1a1c; --live-soft: #2c2415; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.4 var(--f-body); -webkit-tap-highlight-color: transparent; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+.wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 640px; margin: 0 auto; }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
+header.top .wrap { padding-block: 10px 10px; display: grid; gap: 8px; }
+.brand { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.brand h1 { margin: 0; font: 700 22px/1 var(--f-display); letter-spacing: .02em; text-transform: uppercase; }
+.brand h1 span { color: var(--accent); }
+.brand h1 em { font-style: normal; font: 600 13px/1 var(--f-mono); letter-spacing: 0; padding: 3px 6px; border: 1px solid var(--line); border-radius: 4px; vertical-align: 3px; color: var(--muted); }
+.brand h1 { white-space: nowrap; }
+.fresh { font: 500 12px/1.2 var(--f-mono); color: var(--muted); text-align: right; }
+.fresh.stale { color: var(--live); }
+.totals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.tot { display: grid; gap: 2px; }
+.tot small { font: 600 10.5px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.tot b { font: 700 19px/1.1 var(--f-mono); font-variant-numeric: tabular-nums; }
+.tot b.win { color: var(--win); }
+.games { display: flex; gap: 8px; overflow-x: auto; padding-block: 12px 4px; scrollbar-width: none; }
+.games::-webkit-scrollbar { display: none; }
+.game { flex: 0 0 auto; min-width: 92px; display: grid; gap: 2px; padding: 8px 10px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 500 13px/1.2 var(--f-mono); }
+.game.in { border-color: var(--live); }
+.g-row { display: flex; justify-content: space-between; gap: 10px; }
+.g-row b { font-weight: 700; font-variant-numeric: tabular-nums; }
+.g-st { font: 500 11px/1.2 var(--f-body); color: var(--muted); display: flex; align-items: center; gap: 5px; margin-top: 2px; }
+.pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--live); animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .3; } }
+.section-h { display: flex; justify-content: space-between; align-items: baseline; margin: 14px 0 8px; font: 700 15px/1 var(--f-display); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.list { display: grid; gap: 10px; padding-bottom: 24px; }
+.ticket { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.ticket > summary { list-style: none; cursor: pointer; padding: 12px 14px; display: grid; gap: 8px; }
+.ticket > summary::-webkit-details-marker { display: none; }
+.ticket > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 12px; }
+.t-top { display: flex; align-items: center; gap: 8px; font: 500 12px/1 var(--f-mono); color: var(--muted); }
+.book { font-weight: 700; color: var(--accent); letter-spacing: .04em; }
+.odds { margin-left: auto; color: var(--ink); font-weight: 700; }
+.flag { padding: 2px 6px; border-radius: 4px; background: var(--live-soft); color: var(--live); font-weight: 700; text-transform: uppercase; font-size: 10px; letter-spacing: .06em; }
+.t-title { font-weight: 600; font-size: 15px; line-height: 1.3; text-wrap: balance; }
+.bar { display: flex; gap: 3px; height: 8px; }
+.seg { flex: 1; border-radius: 2px; background: var(--line); }
+.seg.won, .seg.push, .seg.void { background: var(--win); }
+.seg.lost { background: var(--loss); }
+.seg.live { background: var(--live); }
+.seg.live.ahead { background: linear-gradient(90deg, var(--win), var(--live)); }
+.seg.check { background: repeating-linear-gradient(45deg, var(--live) 0 3px, transparent 3px 6px); }
+.t-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-size: 13px; color: var(--muted); }
+.money { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.money b { color: var(--ink); }
+.money b.win { color: var(--win); }
+.legs { list-style: none; margin: 0; padding: 4px 14px 12px; border-top: 1px dashed var(--line); display: grid; }
+.leg { display: grid; grid-template-columns: 10px 1fr auto; gap: 10px; align-items: start; padding-block: 9px; border-bottom: 1px solid var(--line); }
+.leg:last-child { border-bottom: 0; }
+.leg-main { min-width: 0; }
+.leg-sel { font-size: 14px; font-weight: 500; overflow-wrap: anywhere; }
+.leg-now { font: 500 12px/1.35 var(--f-mono); color: var(--muted); margin-top: 2px; overflow-wrap: anywhere; }
+.leg-game { color: var(--ink); opacity: .75; }
+.dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; background: var(--idle); }
+.leg-tag { font: 600 11px/1 var(--f-body); letter-spacing: .05em; text-transform: uppercase; padding: 4px 6px; border-radius: 4px; color: var(--muted); background: var(--bg); white-space: nowrap; }
+.leg.won .dot, .leg.push .dot { background: var(--win); } .leg.won .leg-tag, .leg.push .leg-tag { color: var(--win); background: var(--win-soft); }
+.leg.lost .dot { background: var(--loss); } .leg.lost .leg-tag { color: var(--loss); background: var(--loss-soft); }
+.leg.live .dot { background: var(--live); animation: pulse 1.6s ease-in-out infinite; } .leg.live .leg-tag { color: var(--live); background: var(--live-soft); }
+.leg.live.ahead .leg-tag { color: var(--win); background: var(--win-soft); }
+.leg.check .dot { background: var(--live); } .leg.check .leg-tag { color: var(--live); background: var(--live-soft); }
+.empty { padding: 28px 16px; text-align: center; color: var(--muted); background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; }
+footer { color: var(--muted); font-size: 12.5px; padding-block: 4px 32px; display: grid; gap: 6px; }
+@media (prefers-reduced-motion: reduce) { .pulse, .leg.live .dot { animation: none; } }
+</style>
+
+<header class="top"><div class="wrap">
+  <div class="brand"><h1>Platinum <span>Rose</span> <em>W7</em></h1><div class="fresh" id="fresh" data-built="2026-10-25T21:24:09.637Z">Graded 2:24 PM</div></div>
+  <div class="totals">
+    <div class="tot"><small>Open tickets</small><b>12</b></div>
+    <div class="tot"><small>At risk</small><b>$175.06</b></div>
+    <div class="tot"><small>Max to win</small><b class="win">$2,279.19</b></div>
+  </div>
+</div></header>
+
+<main class="wrap">
+  <nav class="games" aria-label="Games your open tickets depend on"><a class="game in" href="https://www.espn.com/nfl/game/_/gameId/401873019" target="_blank" rel="noopener">
+    <span class="g-row"><span>DEN</span><b>13</b></span>
+    <span class="g-row"><span>ARI</span><b>6</b></span>
+    <span class="g-st"><i class="pulse"></i>3:43 - 2nd</span></a><a class="game in" href="https://www.espn.com/nfl/game/_/gameId/401873020" target="_blank" rel="noopener">
+    <span class="g-row"><span>GB</span><b>7</b></span>
+    <span class="g-row"><span>DET</span><b>10</b></span>
+    <span class="g-st"><i class="pulse"></i>6:47 - 2nd</span></a><a class="game in" href="https://www.espn.com/nfl/game/_/gameId/401873021" target="_blank" rel="noopener">
+    <span class="g-row"><span>LAR</span><b>14</b></span>
+    <span class="g-row"><span>LV</span><b>3</b></span>
+    <span class="g-st"><i class="pulse"></i>8:29 - 2nd</span></a><a class="game pre" href="https://www.espn.com/nfl/game/_/gameId/401873022" target="_blank" rel="noopener">
+    <span class="g-row"><span>KC</span><b></b></span>
+    <span class="g-row"><span>SEA</span><b></b></span>
+    <span class="g-st">Sun 5:20 PM</span></a></nav>
+  <div class="section-h"><span>Live &amp; open</span><span>closest to cashing first</span></div>
+  <div class="list">
+    <details class="ticket" id="t-740512242" data-left="1" data-win="353.39">
+  <summary>
+    <div class="t-top"><span class="book">BKR</span><span class="tno">#740512242</span><span class="odds">+2356</span></div>
+    <div class="t-title">Cross-week Flex SGP 6-team (WAS +7.5 / Under 52 SGP; Bears / Over 50.5 SGP; KC +3.5; MIN ML)</div>
+    <div class="bar" role="img" aria-label="5 of 6 hit · 1 to go"><i class="seg pending"></i><i class="seg won"></i><i class="seg won"></i><i class="seg won"></i><i class="seg won"></i><i class="seg won"></i></div>
+    <div class="t-foot"><span class="t-line">5 of 6 hit · 1 to go</span><span class="money"><b>$15</b> to win <b class="win">$353.39</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Kansas City Chiefs +3.5</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Washington Commanders +7.5 (SGP with Under 52)</div>
+    <div class="leg-now"><span class="leg-game">WSH @ SF</span> · WSH 17-23 · covering by 1.5</div></div>
+    <span class="leg-tag">Hit</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Under 52 (SGP with WAS +7.5)</div>
+    <div class="leg-now"><span class="leg-game">WSH @ SF</span> · total 40</div></div>
+    <span class="leg-tag">Hit</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Chicago Bears ML (SGP with Over 50.5)</div>
+    <div class="leg-now"><span class="leg-game">NE @ CHI</span> · CHI 30-24</div></div>
+    <span class="leg-tag">Hit</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Over 50.5 (SGP with Chicago Bears)</div>
+    <div class="leg-now"><span class="leg-game">NE @ CHI</span> · total 54</div></div>
+    <span class="leg-tag">Hit</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Minnesota Vikings ML</div>
+    <div class="leg-now"><span class="leg-game">IND @ MIN</span> · MIN 16-10</div></div>
+    <span class="leg-tag">Hit</span></li></ol>
+</details>
+<details class="ticket" id="t-740506458" data-left="1" data-win="45">
+  <summary>
+    <div class="t-top"><span class="book">BKR</span><span class="tno">#740506458</span><span class="odds">+150</span></div>
+    <div class="t-title">3-team 6-pt football teaser (SF -1, MIN -0.5, KC +8)</div>
+    <div class="bar" role="img" aria-label="2 of 3 hit · 1 to go"><i class="seg pending"></i><i class="seg won"></i><i class="seg won"></i></div>
+    <div class="t-foot"><span class="t-line">2 of 3 hit · 1 to go</span><span class="money"><b>$30</b> to win <b class="win">$45</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Kansas City Chiefs +8 (teased from +2)</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">San Francisco 49ers -1 (teased from -7)</div>
+    <div class="leg-now"><span class="leg-game">WSH @ SF</span> · SF 23-17 · covering by 5</div></div>
+    <span class="leg-tag">Hit</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Minnesota Vikings -0.5 (teased from -6.5)</div>
+    <div class="leg-now"><span class="leg-game">IND @ MIN</span> · MIN 16-10 · covering by 5.5</div></div>
+    <span class="leg-tag">Hit</span></li></ol>
+</details>
+<details class="ticket" id="t-45488862" data-left="2" data-win="72.06">
+  <summary>
+    <div class="t-top"><span class="book">DKP</span><span class="tno">#45488862</span><span class="odds">+1459</span></div>
+    <div class="t-title">5-Pick Combo (6% implied)</div>
+    <div class="bar" role="img" aria-label="3 of 5 hit · 2 to go · 1 live"><i class="seg live behind"></i><i class="seg pending"></i><i class="seg won"></i><i class="seg won"></i><i class="seg won"></i></div>
+    <div class="t-foot"><span class="t-line">3 of 5 hit · 2 to go · 1 live</span><span class="money"><b>$4.94</b> to win <b class="win">$72.06</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Jordan Love 2+ Passing Touchdowns</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · 1 pass TD · needs 1 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Sam Darnold 1+ Interceptions Thrown</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Daniel Jones 1+ Interceptions Thrown</div>
+    <div class="leg-now"><span class="leg-game">IND @ MIN</span> · 1 INT</div></div>
+    <span class="leg-tag">Hit</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Bucky Irving Anytime TD Scorer</div>
+    <div class="leg-now"><span class="leg-game">TB @ CAR</span> · 2 TD</div></div>
+    <span class="leg-tag">Hit</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Andre Szmyt 2+ Field Goals Made</div>
+    <div class="leg-now"><span class="leg-game">CLE @ TEN</span> · 2 FG</div></div>
+    <span class="leg-tag">Hit</span></li></ol>
+</details>
+<details class="ticket" id="t-45474408" data-left="2" data-win="63.88">
+  <summary>
+    <div class="t-top"><span class="book">DKP</span><span class="tno">#45474408</span><span class="odds">+1248</span></div>
+    <div class="t-title">4-Pick Combo (7% implied)</div>
+    <div class="bar" role="img" aria-label="2 of 4 hit · 2 to go · 1 live"><i class="seg live behind"></i><i class="seg pending"></i><i class="seg won"></i><i class="seg won"></i></div>
+    <div class="t-foot"><span class="t-line">2 of 4 hit · 2 to go · 1 live</span><span class="money"><b>$5.12</b> to win <b class="win">$63.88</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Jordan Love 2+ Passing Touchdowns</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · 1 pass TD · needs 1 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Patrick Mahomes 2+ Passing Touchdowns</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Tucker Kraft Anytime TD Scorer</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · 1 TD</div></div>
+    <span class="leg-tag">Hit</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">TB @ CAR Over 42.5 (Alternate Total Points)</div>
+    <div class="leg-now"><span class="leg-game">TB @ CAR</span> · total 56</div></div>
+    <span class="leg-tag">Hit</span></li></ol>
+</details>
+<details class="ticket" id="t-740807098" data-left="3" data-win="353.98">
+  <summary>
+    <div class="t-top"><span class="book">BKR</span><span class="tno">#740807098</span><span class="odds">+1770</span></div>
+    <div class="t-title">SuperContest 5-team parlay (GB +4, LV +4, ARI +4.5, CIN +3, ATL +4)</div>
+    <div class="bar" role="img" aria-label="2 of 5 hit · 3 to go · 3 live"><i class="seg live ahead"></i><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg won"></i><i class="seg won"></i></div>
+    <div class="t-foot"><span class="t-line">2 of 5 hit · 3 to go · 3 live</span><span class="money"><b>$20</b> to win <b class="win">$353.98</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg live ahead">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Green Bay Packers +4</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · GB 7-10 · covering by 1</div></div>
+    <span class="leg-tag">On pace</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Las Vegas Raiders +4</div>
+    <div class="leg-now"><span class="leg-game">LAR @ LV</span> · LV 3-14 · short by 7</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Arizona Cardinals +4.5</div>
+    <div class="leg-now"><span class="leg-game">DEN @ ARI</span> · ARI 6-13 · short by 2.5</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Cincinnati Bengals +3</div>
+    <div class="leg-now"><span class="leg-game">CIN @ BAL</span> · CIN 35-13 · covering by 25</div></div>
+    <span class="leg-tag">Hit</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Atlanta Falcons +4</div>
+    <div class="leg-now"><span class="leg-game">SF @ ATL</span> · ATL 29-20 · covering by 13</div></div>
+    <span class="leg-tag">Hit</span></li></ol>
+</details>
+<details class="ticket" id="t-1008725429" data-left="3" data-win="62.66">
+  <summary>
+    <div class="t-top"><span class="book">BEO</span><span class="tno">#1008725429</span><span class="odds">RR</span></div>
+    <div class="t-title">Week 7 BEO Dog ML round robin by 2s (KC, ARI, LV, ATL, NO)</div>
+    <div class="bar" role="img" aria-label="6 of 10 combos alive"><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg pending"></i><i class="seg lost"></i><i class="seg won"></i></div>
+    <div class="t-foot"><span class="t-line">6 of 10 combos alive</span><span class="money"><b>$20</b> to win <b class="win">$62.66</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Arizona Cardinals ML</div>
+    <div class="leg-now"><span class="leg-game">DEN @ ARI</span> · ARI 6-13</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Las Vegas Raiders ML</div>
+    <div class="leg-now"><span class="leg-game">LAR @ LV</span> · LV 3-14</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Kansas City Chiefs ML</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li><li class="leg lost">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">New Orleans Saints ML</div>
+    <div class="leg-now"><span class="leg-game">PIT @ NO</span> · graded</div></div>
+    <span class="leg-tag">Miss</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Atlanta Falcons ML</div>
+    <div class="leg-now"><span class="leg-game">SF @ ATL</span> · ATL 29-20</div></div>
+    <span class="leg-tag">Hit</span></li></ol>
+</details>
+<details class="ticket" id="t-740807158" data-left="3" data-win="32.62">
+  <summary>
+    <div class="t-top"><span class="book">BKR</span><span class="tno">#740807158</span><span class="odds">RR</span></div>
+    <div class="t-title">SuperContest compact round robin by 2s (GB +4, LV +4, ARI +4.5, CIN +3, ATL +4)</div>
+    <div class="bar" role="img" aria-label="9 of 10 combos alive · 1 cashed ($4.12 back)"><i class="seg live ahead"></i><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg won"></i><i class="seg won"></i></div>
+    <div class="t-foot"><span class="t-line">9 of 10 combos alive · 1 cashed ($4.12 back)</span><span class="money"><b>$15</b> to win <b class="win">$32.62</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg live ahead">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Green Bay Packers +4</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · GB 7-10 · covering by 1</div></div>
+    <span class="leg-tag">On pace</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Las Vegas Raiders +4</div>
+    <div class="leg-now"><span class="leg-game">LAR @ LV</span> · LV 3-14 · short by 7</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Arizona Cardinals +4.5</div>
+    <div class="leg-now"><span class="leg-game">DEN @ ARI</span> · ARI 6-13 · short by 2.5</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Cincinnati Bengals +3</div>
+    <div class="leg-now"><span class="leg-game">CIN @ BAL</span> · CIN 35-13 · covering by 25</div></div>
+    <span class="leg-tag">Hit</span></li><li class="leg won">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Atlanta Falcons +4</div>
+    <div class="leg-now"><span class="leg-game">SF @ ATL</span> · ATL 29-20 · covering by 13</div></div>
+    <span class="leg-tag">Hit</span></li></ol>
+</details>
+<details class="ticket" id="t-740821195" data-left="4" data-win="265.26">
+  <summary>
+    <div class="t-top"><span class="book">BKR</span><span class="tno">#740821195</span><span class="odds">+1061</span></div>
+    <div class="t-title">4-team spread parlay (ARI +5, GB +4, LV +3.5, KC +3.5)</div>
+    <div class="bar" role="img" aria-label="0 of 4 hit · 4 to go · 3 live"><i class="seg live behind"></i><i class="seg live ahead"></i><i class="seg live behind"></i><i class="seg pending"></i></div>
+    <div class="t-foot"><span class="t-line">0 of 4 hit · 4 to go · 3 live</span><span class="money"><b>$25</b> to win <b class="win">$265.26</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Arizona Cardinals +5</div>
+    <div class="leg-now"><span class="leg-game">DEN @ ARI</span> · ARI 6-13 · short by 2</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live ahead">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Green Bay Packers +4</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · GB 7-10 · covering by 1</div></div>
+    <span class="leg-tag">On pace</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Las Vegas Raiders +3.5</div>
+    <div class="leg-now"><span class="leg-game">LAR @ LV</span> · LV 3-14 · short by 7.5</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Kansas City Chiefs +3.5</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li></ol>
+</details>
+<details class="ticket" id="t-1008919809" data-left="4" data-win="130">
+  <summary>
+    <div class="t-top"><span class="book">BEO</span><span class="tno">#1008919809</span><span class="odds">+1300</span></div>
+    <div class="t-title">4-leg plus-money ladder (JSN 8+ rec, Bowers 83+, Brissett 23.5+ cmp, Golden 65+)</div>
+    <div class="bar" role="img" aria-label="0 of 4 hit · 4 to go · 3 live"><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg pending"></i></div>
+    <div class="t-foot"><span class="t-line">0 of 4 hit · 4 to go · 3 live</span><span class="money"><b>$10</b> to win <b class="win">$130</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Brock Bowers (LVR) 83+ Receiving Yards</div>
+    <div class="leg-now"><span class="leg-game">LAR @ LV</span> · 0 rec yds · needs 83 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Jacoby Brissett (ARI) Over 23.5 Pass Completions</div>
+    <div class="leg-now"><span class="leg-game">DEN @ ARI</span> · 8 cmp · needs 16 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Matthew Golden (GB) 65+ Receiving Yards</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · 27 rec yds · needs 38 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Jaxon Smith-Njigba (SEA) 8+ Receptions</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li></ol>
+</details>
+<details class="ticket" id="t-740822735" data-left="5" data-win="325.34">
+  <summary>
+    <div class="t-top"><span class="book">BKR</span><span class="tno">#740822735</span><span class="odds">+1627</span></div>
+    <div class="t-title">5-team parlay (GB@DET Under 57 + GB +4.5, KC@SEA SEA ML + Over 41, LAR ML)</div>
+    <div class="bar" role="img" aria-label="0 of 5 hit · 5 to go · 3 live"><i class="seg live ahead"></i><i class="seg live ahead"></i><i class="seg live ahead"></i><i class="seg pending"></i><i class="seg pending"></i></div>
+    <div class="t-foot"><span class="t-line">0 of 5 hit · 5 to go · 3 live</span><span class="money"><b>$20</b> to win <b class="win">$325.34</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg live ahead">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Under 57 (SGP with GB +4.5)</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · total 17 · 39 pts of room</div></div>
+    <span class="leg-tag">On pace</span></li><li class="leg live ahead">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Green Bay Packers +4.5 (SGP with Under 57)</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · GB 7-10 · covering by 1.5</div></div>
+    <span class="leg-tag">On pace</span></li><li class="leg live ahead">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Los Angeles Rams ML</div>
+    <div class="leg-now"><span class="leg-game">LAR @ LV</span> · LAR 14-3</div></div>
+    <span class="leg-tag">On pace</span></li><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Seattle Seahawks ML (SGP with Over 41)</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Over 41 (SGP with SEA ML)</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li></ol>
+</details>
+<details class="ticket" id="t-1008920800" data-left="5" data-win="165">
+  <summary>
+    <div class="t-top"><span class="book">BEO</span><span class="tno">#1008920800</span><span class="odds">+3300</span></div>
+    <div class="t-title">5-leg TD stack + Darnold INT (McBride, LaPorta, Bowers, Walker TDs)</div>
+    <div class="bar" role="img" aria-label="0 of 5 hit · 5 to go · 3 live"><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg pending"></i><i class="seg pending"></i></div>
+    <div class="t-foot"><span class="t-line">0 of 5 hit · 5 to go · 3 live</span><span class="money"><b>$5</b> to win <b class="win">$165</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Trey McBride (ARI) 1+ Touchdowns</div>
+    <div class="leg-now"><span class="leg-game">DEN @ ARI</span> · 0 TD · needs 1 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Sam LaPorta (DET) 1+ Touchdowns</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · 0 TD · not in box score yet</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Brock Bowers (LVR) 1+ Touchdowns</div>
+    <div class="leg-now"><span class="leg-game">LAR @ LV</span> · 0 TD · needs 1 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Sam Darnold (SEA) Over 0.5 Pass Interceptions</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Kenneth Walker III (KC) 1+ Touchdowns</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li></ol>
+</details>
+<details class="ticket" id="t-1008926148" data-left="8" data-win="410">
+  <summary>
+    <div class="t-top"><span class="book">BEO</span><span class="tno">#1008926148</span><span class="odds">+8200</span></div>
+    <div class="t-title">8-leg afternoon/SNF prop parlay (Watson TD, K. Williams TD, Gibbs 34+ rec yds + 2+ TD, E. Williams T+A, Jeanty, Golden, Walker carries)</div>
+    <div class="bar" role="img" aria-label="0 of 8 hit · 8 to go · 7 live"><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg live behind"></i><i class="seg pending"></i></div>
+    <div class="t-foot"><span class="t-line">0 of 8 hit · 8 to go · 7 live</span><span class="money"><b>$5</b> to win <b class="win">$410</b></span></div>
+  </summary>
+  <ol class="legs"><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Christian Watson (GB) 1+ Touchdowns</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · 0 TD · needs 1 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Kyren Williams (LAR) 1+ Touchdowns</div>
+    <div class="leg-now"><span class="leg-game">LAR @ LV</span> · 0 TD · needs 1 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Jahmyr Gibbs (DET) 34+ Receiving Yards</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · 13 rec yds · needs 21 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Jahmyr Gibbs (DET) 2+ Touchdowns</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · 0 TD · needs 2 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Evan Williams (GB) Over 6.5 tackles + assists</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · 2 tkl+ast · needs 5 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Ashton Jeanty (LVR) Over 25.5 Receiving Yards</div>
+    <div class="leg-now"><span class="leg-game">LAR @ LV</span> · 7 rec yds · needs 19 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg live behind">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Matthew Golden (GB) 65+ Receiving Yards</div>
+    <div class="leg-now"><span class="leg-game">GB @ DET</span> · 27 rec yds · needs 38 more</div></div>
+    <span class="leg-tag">Live</span></li><li class="leg pending">
+    <span class="dot" aria-hidden="true"></span>
+    <div class="leg-main"><div class="leg-sel">Kenneth Walker III (KC) 18+ Carries</div>
+    <div class="leg-now"><span class="leg-game">KC @ SEA</span> · Sun 5:20 PM</div></div>
+    <span class="leg-tag">Not started</span></li></ol>
+</details>
+  </div>
+  <footer>
+    <span>Real tickets only. Week 7 so far: 0 cashed, 16 burnt (hidden). Paper card and SuperContest stay on the desktop tracker.</span>
+    <span>Scores here are as of the time shown up top. Tap a game for ESPN's live gamecast.</span>
+  </footer>
+</main>
+
+<script>
+(function () {
+  var el = document.getElementById('fresh');
+  var built = Date.parse(el.dataset.built);
+  var label = el.textContent;
+  function tick() {
+    var m = Math.round((Date.now() - built) / 60000);
+    el.textContent = label + (m < 1 ? ' · now' : ' · ' + (m < 60 ? m + 'm ago' : Math.floor(m / 60) + 'h ' + (m % 60) + 'm ago'));
+    el.classList.toggle('stale', m >= 45);
+  }
+  tick(); setInterval(tick, 30000);
+  var KEY = 'pr-mobile-open';
+  var openSet = {};
+  try { openSet = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { openSet = {}; }
+  document.querySelectorAll('details.ticket').forEach(function (d) {
+    if (openSet[d.id]) d.open = true;
+    d.addEventListener('toggle', function () {
+      if (d.open) openSet[d.id] = 1; else delete openSet[d.id];
+      try { localStorage.setItem(KEY, JSON.stringify(openSet)); } catch (e) {}
+    });
+  });
+})();
+</script>
