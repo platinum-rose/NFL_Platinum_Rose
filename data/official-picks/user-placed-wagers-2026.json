@@ -26216,8 +26216,8 @@
     "odds_decimal": 237.0698,
     "potential_profit_usd": 1961.74,
     "potential_payout_usd": 1970.05,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": null,
@@ -26225,7 +26225,7 @@
       "placed_at time (BEO Accepted Date 10/25/26 only; logged ~00:30 PT)",
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-25 01:09 PT: official BEO ticket 1008680961, Risk $8.31, To win $1,961.74 (+23607), Accepted 10/25/26. Analyzed Sat 8:52 PM PT (est. hit chance ~1 in 370 vs DKP consensus). KC +3.5 adds to live KC exposure (BKR 740512242 KC +3.5, teaser KC +8).",
+    "progress_notes": "Andy 2026-10-25 01:09 PT: official BEO ticket 1008680961, Risk $8.31, To win $1,961.74 (+23607), Accepted 10/25/26. Analyzed Sat 8:52 PM PT (est. hit chance ~1 in 370 vs DKP consensus). KC +3.5 adds to live KC exposure (BKR 740512242 KC +3.5, teaser KC +8). | Settled LOSS 2026-10-25 09:39 PT: Rodgers Over 1.5 pass TDs lost (PIT@NO final). Other legs left PENDING for record only; rebuilt as DKP position 45868275.",
     "legs": [
       {
         "leg_num": 1,
@@ -26312,10 +26312,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 06:30 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008680961_5_rodgers_passing_touchdowns",
         "target_stat": "passing_touchdowns",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": null,
+        "grading_note": "Andy 2026-10-25 09:39 PT: Rodgers finished with fewer than 2 passing TDs (final). Exact count to fill from the box score."
       },
       {
         "leg_num": 6,
@@ -26371,7 +26373,10 @@
         "note": "Team field goals made (NYJ); kicker Jason Sanders."
       }
     ],
-    "platinum_rose_source": "Week 7 Master Intel / Prop Stack Agent recs (built Sat 10/24 PM)"
+    "platinum_rose_source": "Week 7 Master Intel / Prop Stack Agent recs (built Sat 10/24 PM)",
+    "settled_payout_usd": 0,
+    "profit_usd": -8.31,
+    "graded_at": "2026-10-25T16:39:28Z"
   },
   {
     "id": "bet_20261025_dkp_45868275_8pick_boost30_rebuild_no_rodgers",
