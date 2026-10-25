@@ -13,7 +13,7 @@ import argparse, itertools, json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SECTIONS = ('3', '4', '5', '7h', '7e')  # heading prefixes
+SECTIONS = ('3', '4', '5', '7h', '7i', '7e')  # heading prefixes
 TEAM = {'Arizona': 'ARI', 'Atlanta': 'ATL', 'Baltimore': 'BAL', 'Buffalo': 'BUF', 'Carolina': 'CAR', 'Chicago': 'CHI', 'Cincinnati': 'CIN',
         'Cleveland': 'CLE', 'Dallas': 'DAL', 'Denver': 'DEN', 'Detroit': 'DET', 'Green Bay': 'GB', 'Houston': 'HOU', 'Indianapolis': 'IND',
         'Jacksonville': 'JAX', 'Kansas City': 'KC', 'Las Vegas': 'LV', 'Los Angeles Rams': 'LAR', 'Los Angeles Chargers': 'LAC', 'Miami': 'MIA',
@@ -26,6 +26,7 @@ NICK = {'Browns': 'CLE', 'Jets': 'NYJ', 'Giants': 'NYG', 'Rams': 'LAR', 'Charger
         'Cowboys': 'DAL', 'Eagles': 'PHI', 'Titans': 'TEN'}
 # (regex on the market text, market, target_stat)
 PROPS = [
+    (r'kicker points|kicking points', 'kicker_points', 'kicking_points'),
     (r'longest reception', 'longest_reception', 'longest_reception'),
     (r'pass(?:ing)? TDs?\b|pass TD', 'passing_touchdowns', 'passing_touchdowns'),
     (r'passing yds|passing yards', 'passing_yards', 'passing_yards'),
