@@ -9,10 +9,11 @@ Continue resolving Andy's report issue in a fresh Codex session. Andy says the S
 - Repository: `E:\dev\projects\NFL_Dashboard`
 - Branch: `claude/w5-prop-cards-2026-10-11`
 - Previously pushed base: `ca1b7f4975afb47275d5b6600819bac122d20dd0`
-- Scoped report commit: `7cc4744` (`fix: make Week 7 SuperContest report spread-only`); verify the full hash and upstream status at resume.
+- Scoped report commit: `0284a88bf7addbd79601f8891ffa0f821cbe2258` (`fix: make Week 7 SuperContest report spread-only`), pushed and confirmed by `git ls-remote`. The earlier `7cc4744` hash was superseded before push.
 - Upstream: `origin/claude/w5-prop-cards-2026-10-11`
 - The checkout contains many unrelated dirty files. Do not clean, reset, stash, revert, stage broadly, or commit unrelated data. Do not use `git add -A`.
-- Latest remote fetch attempt failed with `getaddrinfo() thread failed to start`. The cached local upstream still equals the previous base commit. Push was explicitly requested by Andy; retry after the scoped commit. If it fails, preserve the commit and report the exact reason.
+- Sandboxed Git network requests can fail with `getaddrinfo() thread failed to start`; the approved network retry succeeded. Remote branch was independently confirmed at `0284a88bf7addbd79601f8891ffa0f821cbe2258` during closeout. A subsequent documentation-only commit corrects this handoff and the root routing index; inspect live HEAD for that commit.
+- Test suite: not run in this closeout (0 tests run). Prior build/text-audit results below are historical, not a fresh UI verification.
 
 ## User's report requirement
 
@@ -63,9 +64,37 @@ If the report changes again, rebuild first and then update these same files. Do 
 - Andy requested a scoped commit and push. Only stage the enumerated SuperContest report source/code/input files and this handoff; check the staged list before committing.
 - Do not stage or commit unrelated wagers, official-pick ledgers, bankroll, futures, Alpha, survivor, player availability, scratch files, backups, or other week research.
 - Do not place bets, click sportsbook controls, mutate official picks, or write to Supabase.
-- No push was completed as of writing this handoff; finish or report the exact network/auth failure.
+- The report checkpoint is pushed. The user requested stopping report work for a fresh session; this closeout changes handoff documents only.
 - If you make another edit, rebuild and re-audit the rendered HTML text, and inspect the UI/content Andy says is failing. Do not add unrelated tests.
 
 ## Fully detailed resume prompt
 
-You are continuing the Week 7 SuperContest report fix in `E:\dev\projects\NFL_Dashboard`, branch `claude/w5-prop-cards-2026-10-11`. Read this handoff first, then reconcile live Git status and inspect the pushed commit plus the exact current HTML at `dist/nfl_week7_master_packet/nfl_week7_supercontest_intelligence_summary.html`. The last known build passed the roster gate and a visible-text audit found no ML/moneyline or Over/Under terms, but Andy says the report still is not working; independently inspect the current HTML content and behavior to identify the actual failure. The report must show spread picks only: no moneyline or game-total selections or references anywhere, including expert rows and expandable post-mortems. Preserve the pitch summary for each Dashboard AI proposal side, the expert pick summary with current BKR spreads, game-by-game spread context, standings, and spread-only weekly review. Keep the Dashboard AI five as a proposal, not the official Andy/Amanda card. Current proposal: CIN +2.5, GB +3.5, ATL +3.5, LV +4, ARI +4.5; alternates NO +3.5, NYG +9.5, KC +2.5. Andy's prior choices: CLE removed from SC; ATL replaces PHI in SC and dog RR; KC +3 as a single; official five will be confirmed later; CHI slots are 5 Kenny and 7 Duma. A scoped commit/push was explicitly requested. Before commit, verify only the intended paths are staged. Many unrelated files are dirty or untracked; leave them untouched. Retry push (fetch failed with `getaddrinfo() thread failed to start` and cached upstream equals base `ca1b7f4`); preserve the commit and report if network remains blocked. No wagers, official-pick edits, ledger changes, Supabase writes, or broad Git cleanup. Rebuild with Windows Python 3.14 and the command documented above; roster gate must pass. Update the existing Week 07 Drive files in-place by ID if the report is changed again. PDF is stale from 2026-10-23. Finish by stating exactly what failed, what changed, build/audit results, commit/push status, and any remaining blocker.
+Resume Platinum Rose Week 7 SuperContest report work in `E:\dev\projects\NFL_Dashboard`, branch `claude/w5-prop-cards-2026-10-11`. Saved report checkpoint is `0284a88bf7addbd79601f8891ffa0f821cbe2258`, verified pushed; live HEAD may include the documentation-only closeout after it. Suite: not run (0 tests in closeout). Read root `HANDOFF.md`, reconcile live Git, then read this dated handoff. Follow the detailed pickup checklist below. The report issue remains unresolved; do not infer success from a build or keyword scan. Preserve the dirty shared checkout and distinguish saved report proposals from official picks.
+
+## CRITICAL: Fresh-session pickup checklist
+
+1. Read `AGENTS.md`, `CLAUDE.md`, report format/runbook, and applicable report skill before implementation. Reconcile live branch, HEAD, upstream and scoped differences; do not reset, clean, stash, broad-stage, or amend the pushed checkpoint.
+2. Open the exact local SuperContest HTML above. Inspect Main, proposal cards, all expandable pitch sections, Experts, Ranked & Market, standings, weekly reviews and game post-mortems. Reproduce the user's failure before diagnosing it. The previous closeout did not establish rendered behavior.
+3. Compare the current report to the earlier layout and source history. Candidate references include `scratch/w06-supercontest-1017-2030.html`, `scratch/w06-supercontest-1017-2100.html`, and pre-checkpoint Git versions. They are references for layout, not current Week 7 evidence.
+4. Investigate whether the last sides-only edit weakened the analysis: `build.py`'s SC `_card` uses `SCNOTE` plus generic projection/cover-risk fallbacks; `sc_review.py` replaced rich narrative fields with score/margin summaries. This is a suspected regression, not a confirmed root cause. Restore substantive spread-specific pitches and post-mortems from saved evidence without reintroducing other markets or inventing analysis.
+5. AI proposal must contain five spread picks and three alternates. Keep the current proposal listed above separate from the unconfirmed official Andy/Amanda five. Explain each pick, matchup case, counterargument and key risk. Preserve current BKR spread versus fixed contest spread. Legacy `BKR_current_lines` data is opening-line evidence only; verify current capture provenance rather than mislabeling it live.
+6. Experts must show actual spread side, source and current BKR spread, with a top summary of most-supported sides. Exclude other markets from expert counts, rows, detail panels and archived reviews. Check stale `data-mi` links/popup targets after removal of shared Master Intel detail content.
+7. Preserve separate collapsible Overall and Quarterly standings, highlight Amanda Rose, compact GB and fifth-place payout gap, and put Dashboard AI total immediately below Amanda scores. Keep the source/caveat/payout text in a bottom footnote. Overall payouts: $3,500/$1,800/$1,000/$400/$200; quarterly $200; current quarter ends Week 8.
+8. Keep the Platinum Rose card record collapsible. For both Amanda and Dashboard AI, weekly pick details should explain the pre-kickoff spread case, actual game outcome, near-miss versus clearly wrong read, and experts for/against. Historical AI total is 14/30 and Amanda official standings total 12.5 through Week 6. Week 1 evidence includes `dist/locked-card-week-1.json`; never silently exclude it. Verify grades from saved records if changing scoring.
+9. Rebuild using Windows Python 3.14 and the command above; the required roster gate must pass. Inspect actual rendered content and interactions after the rebuild. A zero-match scan for ML/moneyline/Over/Under alone is insufficient. Do not label stale PDF current. Update the same Drive file IDs if delivering revised Drive copies.
+10. Stop for Andy/Amanda before official-pick promotion or placing anything. No wagers, ledger/account changes, Supabase writes, paid synthesis or unrelated cleanup. Report exactly what failed, what changed, what was verified, and what remains unresolved.
+
+## IMPORTANT: Source map and portability
+
+- Report generation: `scripts/master-intel/build.py`, `convert_summary.py`, `site_extras.py`, `sc_review.py`.
+- Week 7 narrative inputs: `reports/intel/master-intel-narratives-2026-w07.md`, `reports/intel/expert-narratives-2026-w07.md`; per-game evidence under `reports/intel/games/2026-w07-game-*-sides.*` and corresponding structured research inputs.
+- Standings/review: `data/supercontest/standings-week-07-2026-10-24.md`, `data/supercontest/dashboard-ai-review-2026.json`; historical evidence under `reports/bets/season-recap/` and `reports/bets/week3-recap/`.
+- General betting proposal: `reports/bets/2026-w07-card.md`; this has broader markets and must not be copied wholesale into the SuperContest report.
+- Generated `dist` files, scratch reference reports, uncommitted research inputs and other dirty files remain on this Windows checkout; a fresh clone alone may not reproduce this exact local build. Continue on this checkout and inventory dependencies before any cross-machine move.
+- Scope saved in report checkpoint: the four generator files above, the two narrative inputs, the card, two standings/review inputs, report format/runbook and this dated handoff (12 paths). Other modified/untracked files were intentionally left outside this checkpoint.
+
+## Blockers and open decisions
+
+- User-visible report failure remains unresolved; layout/content/interaction inspection is the next task.
+- Andy/Amanda's official Week 7 five remain pending; do not ask the four earlier decisions again because Andy already answered them above.
+- No new synthesis is authorized merely to repair presentation. If evidence requires a fresh synthesis, explain the specific gap and verify data before requesting that run.

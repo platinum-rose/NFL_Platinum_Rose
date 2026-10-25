@@ -1,35 +1,22 @@
 # NFL_Dashboard — Current Handoff
 
-> Start here. This is a routing index, not a transcript. One current pickup only.
-> Detail lives in dated `handoffs/`; superseded pickups are in git history and their dated files.
+## PICK UP HERE: Week 7 SuperContest report correction
 
-## PICK UP HERE (Fri 2026-10-16 08:45 PT, Week 6 intel gathering, report due Friday night)
+Repository: `E:\dev\projects\NFL_Dashboard`
+Branch: `claude/w5-prop-cards-2026-10-11`
+Report checkpoint: `0284a88bf7addbd79601f8891ffa0f821cbe2258`, pushed and verified remotely. A documentation-only closeout follows it; reconcile live HEAD.
 
-Branch `claude/w5-prop-cards-2026-10-11`; HEAD is the handoff commit pushed to origin. Verify with `git log --oneline -3`.
-Required read: `handoffs/2026-10-16-0845-claude-w6-intel-gathering-handoff.md`.
+Read `handoffs/2026-10-24-1820-codex-resume-supercontest-sides-only.md` for the full resume prompt, source map, build command and remaining requirements.
 
-Next: Andy captures fresh BKR board plus BOL/DKP Sunday props; rerun injury chain after Friday final reports; synthesis dry-run, then real run only on Andy's go; write 13 narratives, build and QA the Master Intel report. Extracted-but-unpromoted transcripts are in `data/shadow-harness/antigravity-staging/`.
+**Next:** Inspect the exact local Week 7 SuperContest HTML and reproduce Andy's unresolved report issue. Restore substantive spread-only pitch summaries and weekly post-mortems while preserving the established layout, expert sides/current BKR spreads, standings and AI-versus-official tracking. A keyword audit is not proof of a working report.
 
-## Fast resume (do this, nothing more)
-
-1. Read this file, then only the one dated handoff linked above.
-2. `git rev-parse --short HEAD` and `git branch --show-current` (use a 20 s timeout). Do NOT run `git status` on this checkout unless about to commit: it takes 2+ minutes and can leave `.git/index.lock`.
-3. If HEAD or branch disagree with this file, stop and report. Otherwise start the next item.
+**State:** Prior build and roster gate passed; rendered behavior remains unverified. No tests run during closeout. PDF remains stale. AI proposal has five sides plus three alternates; Andy/Amanda's official five remain pending.
 
 ## Guardrails
 
-- Preserve the dirty shared checkout. Never reset, clean, stash, broad-stage, or delete unrelated work; never use `git add -A`.
-- Commits on this mount: if `git commit` times out, check no git process is running, remove the zero-byte `.git/index.lock`, then use plumbing (`git write-tree`, `git commit-tree`, `git update-ref`).
-- Sportsbooks are read-only. Do not place wagers, make account/cashier actions, or call TheOddsAPI.
-- Supabase writes, paid synthesis, portfolio/ledger changes, and official-pick promotion require current, specific authorization. Keep real, paper, and proposed records separate.
-- Run the roster gate before presenting player-specific cards or narratives.
-- If live Git or current evidence contradicts a handoff, stop and report the mismatch.
-
-## Needs Andy / Stop Conditions
-
-- Week 5 Bills-credit receipt, and any pasted slips.
-- Real ticket number for `bet_20261011_betonline_snf_island_6leg` (`pending-not-supplied`) and the leg count on #1004561835.
-
-## Maintenance rule
-
-Keep this file under one screen: one pickup, fast-resume steps, guardrails, stop conditions. A standard handoff adds one dated file in `handoffs/` and OVERWRITES the pickup block above (no stacked or "superseded" blocks). A zero-context team/platform transfer uses the `h2c2` skill.
+- Preserve the dirty shared checkout and local generated/reference files. No reset, clean, stash, broad staging or unrelated commits.
+- Use `git -c core.fsmonitor=false` for Git inspection. Live Git wins over historical handoffs.
+- SuperContest report is spread sides only; other markets stay out of its cards, expert rows and post-mortems.
+- Current BKR capture and fixed contest spreads are distinct; legacy BKR current-lines files are opening-line evidence only.
+- No wagers, account actions, official-pick promotion, ledger/Supabase writes or paid synthesis without explicit authorization.
+- Rebuild with Windows Python 3.14; mandatory roster gate must pass. Verify actual rendered report before claiming the issue fixed.
