@@ -3246,6 +3246,15 @@ def main():
     if not a.no_export:
         convert_summary.generate_docx(str(smd), str(smd.with_suffix('.docx')))
         convert_summary.generate_html(str(smd), str(smd.with_suffix('.html')))
+        # Locked-format gate (Andy 2026-10-25): layout, spread-only, Pitch/Pushback on every AI pick + alternate
+        import check_sc_report
+        _f, _w = check_sc_report.check(W, a.season, out_dir)
+        for _x in _w: print('  sc warn:', _x)
+        if _f:
+            print(f'SuperContest format gate: FAIL ({len(_f)}) — do not send; fill the pitch file (pitch_scaffold.py) and rebuild')
+            for _x in _f: print('  ✗', _x)
+        else:
+            print('SuperContest format gate: PASS')
 
 if __name__ == '__main__':
     main()

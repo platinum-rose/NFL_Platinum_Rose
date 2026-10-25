@@ -18,7 +18,9 @@ description: Build the weekly Platinum Rose Master Intel Report (Saturday night,
 3. First pass: `python3 scripts/master-intel/build.py --week <N> --date <capture-date> --no-export`
 3b. **Roster gate:** `python3 scripts/nfl-rosters/roster_vet.py --week <N> --date <capture-date> --fetch --strict` must print `ROSTER VET: PASS`. Never write a player's 2026 team, role or status from memory; look it up in `data/nfl-rosters/espn-full-rosters-latest.json`.
 4. Write `reports/intel/master-intel-narratives-<season>-w<NN>.md` (game write-ups + `## TICKETS` + `## SUPERCONTEST`) and `data/survivor/pick-intel-<season>-w<NN>.json`.
+4b. **Pitch / Pushback:** `python3 scripts/master-intel/pitch_scaffold.py --week <N>`, then write every TODO in `reports/intel/supercontest-pitches-<season>-w<NN>.json` and `reports/intel/master-pitches-<season>-w<NN>.json` per `agents/dev/PITCH_PUSHBACK_AGENT.md` (every Dashboard AI pick and alternate, and every Platinum Rose straight bet).
 5. Final build: `python3 scripts/master-intel/build.py --week <N> --date <capture-date>` (md, html, docx, json). It re-runs the roster gate and exits on any BLOCK.
+5b. **SuperContest format gate:** the build must print `SuperContest format gate: PASS` (or run `python3 scripts/master-intel/check_sc_report.py --week <N>`). The locked template is `docs/reference/supercontest-report-locked-w07.html`. Don't send on FAIL.
 6. `python3 scripts/master-intel/export_pdf.py dist/nfl_week<N>_master_packet/nfl_week<N>_master_betting_intelligence_summary.html` (pdf).
 7. QA (format doc §6), then archive the five files to Google Drive: `Platinum Rose / Master Intel / <season> / Week <NN>`.
 
