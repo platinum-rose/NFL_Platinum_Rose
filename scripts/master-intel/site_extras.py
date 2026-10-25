@@ -16,6 +16,7 @@ from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlparse
+import sc_review
 
 ROOT = Path(__file__).resolve().parents[2]
 E = lambda s: html.escape(str(s if s is not None else ''), quote=True)
@@ -60,13 +61,15 @@ def load(week, date):
     card = card.read_text(encoding='utf-8') if card.exists() else ''
     narr = ROOT / f'reports/intel/master-intel-narratives-{date[:4]}-w{W}.md'
     narr = narr.read_text(encoding='utf-8') if narr.exists() else ''
+    standings_path = ROOT / f'data/supercontest/standings-week-{W}-{date}.md'
+    standings = standings_path.read_text(encoding='utf-8') if standings_path.exists() else ''
     digest = ROOT / f'scratch/w{W}-synthesis-digest-sat.md'
     digest = digest.read_text(encoding='utf-8') if digest.exists() else ''
     team_game = {}
     for gid, g in games.items():
         team_game[g['away']] = gid; team_game[g['home']] = gid
     return dict(week=int(week), date=date, M=M, games=games, order=order, vrows=vrows, pods=pods, card=card,
-                narr=narr, digest=digest, team_game=team_game, W=W)
+                narr=narr, digest=digest, standings=standings, team_game=team_game, W=W)
 
 
 def block(txt, name):
@@ -76,6 +79,151 @@ def block(txt, name):
         mm = re.match(r'^- (.+?): (.+)$', l.strip())
         if mm: out[mm.group(1).strip()] = mm.group(2).strip()
     return out
+
+
+def standings_html(markdown_text):
+    if not markdown_text.strip(): return ''
+    lines = markdown_text.strip().splitlines()
+    note = lines[0].removeprefix('Source: ').strip() if lines and lines[0].startswith('Source: ') else ''
+    parts = re.split(r'^###\s+', '\n'.join(lines[1:] if note else lines), flags=re.M)
+    sections = []
+    for part in parts[1:]:
+        title, _, body = part.partition('\n')
+        rows = []
+        for line in body.splitlines():
+            if not line.startswith('|'): continue
+            cells = [cell.strip() for cell in line.strip().strip('|').split('|')]
+            if not cells or all(re.fullmatch(r'[-: ]+', cell or ' ') for cell in cells): continue
+            rows.append(cells)
+        if not rows: continue
+        head, data = rows[0], rows[1:]
+        sections.append((title.strip(), head, data))
+
+    def score(row, col):
+        try: return float(row[col].replace(',', ''))
+        except (IndexError, ValueError): return None
+
+    overall = next((x for x in sections if 'overall' in x[0].lower()), None)
+    quarterly = next((x for x in sections if 'quarter' in x[0].lower()), None)
+    def entry_and_leader(section, column):
+        if not section: return None, None, None, []
+        head, data = section[1], section[2]
+        player_col = next((i for i, h in enumerate(head) if h.lower() == 'player'), 0)
+        entry = next((r for r in data if len(r) > player_col and r[player_col].strip().lower() == 'amanda rose'), None)
+        vals = [(score(r, column), r) for r in data]
+        vals = [(v, r) for v, r in vals if v is not None]
+        leader = max((v for v, _ in vals), default=None)
+        cutoff = sorted((v for v, _ in vals), reverse=True)[4] if len(vals) >= 5 else None
+        return entry, leader, cutoff, data
+
+    ov_col = next((i for i, h in enumerate(overall[1]) if h.lower() == 'total score'), 1) if overall else 1
+    q_col = next((i for i, h in enumerate(quarterly[1]) if h.lower() in ('qtrly score', 'quarterly score')), 1) if quarterly else 1
+    ov_entry, ov_leader, ov_cutoff, _ = entry_and_leader(overall, ov_col)
+    q_entry, q_leader, _, _ = entry_and_leader(quarterly, q_col)
+    metrics = ['<div class="sc-standings-summary">']
+    ov_score = None
+    if ov_entry:
+        ov_score = score(ov_entry, ov_col)
+        behind = ov_leader - ov_score if ov_leader is not None and ov_score is not None else None
+        cutoff_gap = ov_cutoff - ov_score if ov_cutoff is not None and ov_score is not None else None
+        metrics.append(f'<div class="sc-standing-metric"><b>Overall · Amanda Rose</b><span>{ov_score:g} points</span><span>GB: {behind:g}</span><span>{cutoff_gap:g} points to current 5th-place payout score</span></div>')
+    if q_entry:
+        q_score = score(q_entry, q_col)
+        behind = q_leader - q_score if q_leader is not None and q_score is not None else None
+        metrics.append(f'<div class="sc-standing-metric"><b>Quarterly · Amanda Rose</b><span>GB: {behind:g}</span><span>{q_score:g} points</span><span>Quarter ends after Week 8</span></div>')
+    metrics.append('</div>')
+    review = J(ROOT / 'data/supercontest/dashboard-ai-review-2026.json', {}) or {}
+    comparable = [r for r in review.get('weeks', []) if r.get('status') == 'graded']
+    ai_points = sum(float(r.get('ai_score', 0)) for r in comparable)
+    amanda_points = sum(float(r.get('official_score', 0)) for r in comparable)
+    metrics.append(f'<p class="sc-dashboard-score"><b>Dashboard AI total:</b> {ai_points:g}/{5 * len(comparable)} points.</p>')
+    out = metrics
+    for idx, (title, head, data) in enumerate(sections):
+        ident = 'sc-overall-standings' if 'overall' in title.lower() else ('sc-quarterly-standings' if 'quarter' in title.lower() else f'sc-standings-{idx+1}')
+        out += [f'<details class="rollup-box sc-standings-table" id="{ident}"><summary><span class="sum-text">{E(title)}</span></summary><div class="rollup-content"><div class="table-responsive"><table><thead><tr>' + ''.join(f'<th>{E(x)}</th>' for x in head) + '</tr></thead><tbody>']
+        for row in data:
+            is_ours = any(x.strip().lower() == 'amanda rose' for x in row)
+            out.append('<tr class="sc-our-entry">' if is_ours else '<tr>')
+            out.append(''.join(f'<td>{E(x)}</td>' for x in row) + '</tr>')
+        out.append('</tbody></table></div></div></details>')
+    out.insert(0, '<style>.sc-standings-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:12px 0}.sc-standing-metric{display:flex;flex-direction:column;gap:4px;padding:12px;border:1px solid #f2c14e;border-radius:10px;background:rgba(242,193,78,.10)}.sc-standing-metric b{color:#f2c14e}.sc-dashboard-score{padding:10px 12px;border-left:3px solid #f2c14e;background:rgba(242,193,78,.07)}.sc-standings-footnote{margin-top:30px;padding-top:10px;border-top:1px solid var(--border);font-size:.82em;color:var(--muted)}.sc-review-why{padding:10px 12px;border-left:3px solid var(--accent);background:var(--raised)}.sc-pick-postmortem{min-width:150px}.sc-pick-postmortem>summary{cursor:pointer;color:var(--accent);font-weight:750}.sc-pick-postmortem-body{min-width:min(680px,80vw);max-width:760px;padding:12px 14px;margin-top:8px;border:1px solid var(--border);border-radius:10px;background:var(--raised);white-space:normal}.sc-pick-postmortem-body h5{margin:10px 0 4px}.sc-pick-postmortem-body p{margin:6px 0}.sc-pick-postmortem-body ul{margin:4px 0 8px;padding-left:20px}.sc-our-entry{background:rgba(242,193,78,.18)!important;outline:1px solid rgba(242,193,78,.5);font-weight:700}.sc-our-entry td:first-child:before{content:"★ ";color:#f2c14e}</style>')
+    return ''.join(out)
+
+
+def standings_footnote_html(markdown_text):
+    lines = markdown_text.strip().splitlines()
+    note = lines[0].removeprefix('Source: ').strip() if lines and lines[0].startswith('Source: ') else ''
+    caveat = '“Games behind” is expressed as a contest-points gap because this snapshot does not include win-loss records. The fifth-place score is a current cutoff reference; final ties follow contest rules.'
+    return '<p class="sc-standings-footnote"><em>' + E(caveat) + '</em><br>' + E('Source: ' + note if note else '') + '</p>'
+
+
+def dashboard_review_html():
+    """Render weekly pick-by-pick reviews for Amanda's official five and Dashboard AI."""
+    path = ROOT / 'data/supercontest/dashboard-ai-review-2026.json'
+    review = J(path, {}) or {}
+    weeks = review.get('weeks', [])
+    graded = [r for r in weeks if r.get('status') == 'graded']
+    if not weeks:
+        return ''
+    ai_score = sum(float(r.get('ai_score', 0)) for r in graded)
+    official_score = sum(float(r.get('official_score', 0)) for r in graded)
+    denom = 5 * len(graded)
+    out = [
+        '<details class="rollup-box" id="sc-card-record"><summary><span class="sum-text">📉 Platinum Rose card record — weekly review</span></summary><div class="rollup-content">',
+        f'<p class="muted-note">Dashboard AI total: <b>{ai_score:g}/{denom}</b> points. Pick assessment: near-miss is 3 or fewer ATS points short; completely off is 10 or more points short.</p>'
+    ]
+    for row in weeks:
+        week_num = int(row.get('week', 0) or 0)
+        week = E(week_num)
+        official_path = ROOT / f'data/supercontest/locked-card-week-{week_num}.json'
+        official_picks = J(official_path, []) or []
+        if official_picks:
+            amanda_rows = sc_review.grade_picks(week_num, official_picks)
+            amanda_score = sc_review.score_picks(amanda_rows)
+        else:
+            amanda_rows = sc_review.grade_picks(week_num, row.get('official_picks', []))
+            amanda_score = sc_review.score_picks(amanda_rows)
+        ai_rows = sc_review.grade_picks(week_num, row.get('ai_picks', []))
+        ai_result = sc_review.score_picks(ai_rows)
+        amanda_title = amanda_score['summary'] if official_picks or row.get('official_picks') else 'card not frozen'
+        if amanda_score['unknown']:
+            amanda_title += f" · {amanda_score['unknown']} ungraded"
+        ai_title = ai_result['summary'] if row.get('ai_picks') else 'not comparable'
+        review_title = f'📉 Week {week_num}: Amanda {amanda_title} · Dashboard AI {ai_title}'
+        out.append(f'<details class="rollup-box sc-week-review" id="sc-review-week-{week_num}"><summary><span class="sum-text">{E(review_title)}</span></summary><div class="rollup-content">')
+
+        def card_html(title, rows, score, no_picks=''):
+            h = [f'<h4>{E(title)} — {E(score["summary"])}</h4>']
+            if not rows:
+                h.append(f'<p class="muted-note">{E(no_picks)}</p>')
+            else:
+                h.append('<div class="table-responsive"><table><thead><tr><th>Pick</th><th>Result</th><th>Final</th><th>Margin vs line</th><th>Pick assessment</th><th>Game post-mortem</th></tr></thead><tbody>')
+                for pick in rows:
+                    icon = '✅' if pick.get('result') == 'Win' else ('➖' if pick.get('result') == 'Push' else ('❌' if pick.get('result') == 'Loss' else '—'))
+                    margin = f'{pick["margin"]:+g}' if pick.get('margin') is not None else '—'
+                    assessment = sc_review.pick_postmortem(week_num, pick, row).get('assessment', '')
+                    postmortem = sc_review.postmortem_html(week_num, pick, row)
+                    h.append(f'<tr><td>{E(pick.get("pick", ""))}</td><td>{icon} {E(pick.get("result", "?"))}</td><td>{E(pick.get("final", "—"))}</td><td>{E(margin)}</td><td>{E(assessment)}</td><td>{postmortem}</td></tr>')
+                h.append('</tbody></table></div>')
+                if score['unknown']:
+                    h.append(f'<p class="muted-note">{score["unknown"]} pick(s) have no saved completed result and are excluded from the score.</p>')
+            return ''.join(h)
+
+        out.append(card_html('Amanda — official contest five', amanda_rows, amanda_score,
+                             'No frozen Amanda card is saved for this week.'))
+        if row.get('ai_picks'):
+            out.append(card_html('Dashboard AI frozen five', ai_rows, ai_result,
+                                 'No Dashboard AI picks are available.'))
+        elif row.get('status') == 'pending':
+            out.append('<h4>Dashboard AI proposal</h4><p class="muted-note">Results are pending. The Dashboard AI proposal is tracked separately from Andy and Amanda’s official contest five.</p>')
+        else:
+            out.append(f'<h4>Dashboard AI — not comparable</h4><p class="muted-note">No complete frozen five-pick recommendation set was preserved, so this week is excluded from the side-by-side five-pick score.</p><p class="sc-review-why"><b>Broader AI review:</b> {E(row.get("dashboard_why") or row.get("note", ""))}</p>')
+        out.append('</div></details>')
+    out += [
+        '<p class="muted-note">This is a sides-only contest benchmark, separate from placed wagers, totals and player props. Results and margins are recomputed from the saved contest lines and ESPN box scores; explanatory notes distinguish game outcomes from any flaws in the original reasoning.</p>',
+        '</div></details>'
+    ]
+    return ''.join(out)
 
 
 def fmt_date(s):
@@ -228,29 +376,33 @@ def sc_page(ctx):
                 + f'<p class="sc-why"><b>Why:</b> {E(reason or "")}</p>'
                 f'<p class="sc-support"><b>Evidence:</b> {E(r.get("support", ""))} · <a href="#sc-exp-{slug(gid)}">experts on this game ↓</a> · <a href="#sc-strip">back to the top ↑</a></p></div></article>')
     h = ['<div class="sc-shell" id="sc-page">',
-         '<h2 class="page-h">🏆 Super Contest — 5 sides against the spread</h2>',
-         '<p class="dashboard-intro">The contest is five picks against the spread at the contest\'s fixed lines: '
-         '<b>sides only</b> — no totals, moneylines, props or teasers on this page. The card ranks sides by how much room '
-         'our projection leaves against the contest line, then by the evidence. Tap a pick for its breakdown; tap + Card to build your weekend card.</p>',
+         '<h2 class="page-h">🏆 Super Contest — Dashboard AI proposal</h2>',
+         '<p class="dashboard-intro">This is the Dashboard AI’s proposed five-slot card against the contest\'s fixed spread lines: '
+         '<b>sides only</b> — no totals, moneylines, props or teasers on this page. The proposal ranks sides by how much room '
+         'our projection leaves against the contest line, then by the evidence. These picks are tracked as the Dashboard AI record, not as Andy and Amanda\'s official card; they will declare their official five separately. Tap a pick for its breakdown; tap + Card to build your weekend card.</p>',
          '<div class="sc-strip" id="sc-strip">',
          '  <div class="sc-strip-group sc-primary-group">',
-         '    <div class="sc-strip-label">⭐ Primary Picks — Our Five Against the Spread</div>',
+         f'    <div class="sc-strip-label">⭐ Dashboard AI proposal — {len(five)} proposed sides</div>',
          '    <div class="sc-tiles">']
     h += [tile(i + 1, r, False) for i, r in enumerate(five)]
+    if len(five) < 5:
+        h.append('<div class="sc-tile sc-tile-pending" role="status" style="border-top-color:#64748b;border-style:dashed;opacity:.82"><div class="sct-header"><span class="sct-rank">#5</span><span class="sct-conf">No AI pick</span></div><div class="sct-pick"><span class="sct-pick-text"><b>No Dashboard AI recommendation</b></span></div><div class="sct-meta"><span class="sct-game">Official five declared separately by Andy and Amanda</span></div></div>')
     h += ['    </div>',
           '  </div>',
           '  <div class="sc-strip-group sc-alt-group">',
-          '    <div class="sc-strip-label">🔁 Contest Alternates — Next Five in Line</div>',
+          '    <div class="sc-strip-label">🔁 Dashboard AI alternates — Next five in line</div>',
           '    <div class="sc-tiles">']
     h += [tile(i + 1, r, True) for i, r in enumerate(alts)]
     h += ['    </div>',
           '  </div>',
           '</div>']
     if note: h.append(f'<p class="muted-note">{E(note)}</p>')
-    h += ['<h3 id="sc-top5">Our five: breakdowns</h3><div class="sc-list">']
+    if ctx.get('standings'): h.append(standings_html(ctx['standings']))
+    h.append(dashboard_review_html())
+    h += ['<h3 id="sc-top5">Dashboard AI proposal: breakdowns</h3><div class="sc-list">']
     h += [card_html(i + 1, r, r5.get(r.get('pick', ''))) for i, r in enumerate(five)]
-    h += ['</div>', '<h3 id="sc-alternates">Five alternates: breakdowns</h3>',
-          '<p class="muted-note">The next-best sides beyond the five recommendations, best first, with what would make each worth swapping in.</p>',
+    h += ['</div>', '<h3 id="sc-alternates">Dashboard AI alternates: breakdowns</h3>',
+          '<p class="muted-note">The next-best sides beyond the proposal, best first, with what would make each worth swapping in.</p>',
           '<div class="sc-list">']
     h += [card_html(i + 1, r, ralt.get(r.get('pick', '')), alt=True) for i, r in enumerate(alts)]
     h += ['</div>']
@@ -267,6 +419,26 @@ def sc_page(ctx):
           'which stores no public link.</p>',
           '<div class="rollup-controls"><button class="btn-toggle" onclick="toggleRollups(\'sc-exp\', true)">Open all games</button>'
           '<button class="btn-toggle" onclick="toggleRollups(\'sc-exp\', false)">Close all games</button></div>']
+    panel_votes = defaultdict(set)
+    for gid, rows in by.items():
+        expert_sides = defaultdict(set)
+        for r in rows: expert_sides[who_of(r)].add(r['side'])
+        for who, sides in expert_sides.items():
+            if len(sides) == 1:
+                side = next(iter(sides)); panel_votes[(gid, side)].add(who)
+    panel_rows = sorted(panel_votes, key=lambda k: (-len(panel_votes[k]), k[1], k[0]))
+    summary = ['<div class="sc-expert-summary"><h4>Pick Summary — most-declared sides</h4>',
+               '<p class="muted-note">Each named expert counts once per game on one side; experts split between both teams are omitted. BKR spread is the current reference quote.</p>',
+               '<div class="table-responsive"><table><thead><tr><th>Rank</th><th>Side</th><th>Experts</th><th>Current BKR spread</th><th>Game</th><th>Names</th></tr></thead><tbody>']
+    for i, (gid, side) in enumerate(panel_rows, 1):
+        g = ctx['games'].get(gid) or {}; quote = (((g.get('lines') or {}).get('spread') or {}).get(side) or {})
+        current = f"{side} {quote['line']:+g} ({quote['price']:+d})" if quote.get('line') is not None and quote.get('price') is not None else (f"{side} {quote['line']:+g}" if quote.get('line') is not None else '—')
+        names = ', '.join(sorted(panel_votes[(gid, side)]))
+        summary.append(f'<tr><td>{i}</td><td><b>{tl(side)}{E(side)}</b></td><td>{len(panel_votes[(gid, side)])}</td><td>{E(current)}</td><td>{E(g.get("away", ""))} @ {E(g.get("home", ""))}</td><td>{E(names)}</td></tr>')
+    if not panel_rows: summary.append('<tr><td colspan="6">No verified side picks this week.</td></tr>')
+    summary.append('</tbody></table></div></div>')
+    expert_intro_idx = next(i for i, item in enumerate(h) if item.startswith('<p class="muted-note">Every verified side'))
+    h.insert(expert_intro_idx + 1, ''.join(summary))
     for gid in ctx['order']:
         rows = by.get(gid, [])
         if not rows: continue
@@ -288,6 +460,7 @@ def sc_page(ctx):
             h.append(f'<tr><td><b>{E(r["side"])}</b>{" 🏆" if r.get("market") == "contest" else ""}</td>'
                      f'<td>{E(who_of(r))}</td><td>{E(lns)}</td><td>{E(q[:260])}</td><td>{source_html(r, ctx)}</td></tr>')
         h += ['</tbody></table></div>', f'<p><a href="{gpage(gid)}">Full matchup →</a></p></div></details>']
+    if ctx.get('standings'): h.append(standings_footnote_html(ctx['standings']))
     h.append('</div>')
     return ''.join(h)
 
@@ -367,7 +540,9 @@ def price_books(ctx):
     # BKR (latest capture for the date)
     bk = J(ROOT / f'data/generated/props/bookmaker-live-{ctx["date"]}-week{ctx["week"]}.json', {}) or {}
     BMAP = {'rec_yds': 'rec_yds', 'rec': 'rec', 'rush_yds': 'rush_yds', 'carries': 'carries', 'pass_yds': 'pass_yds',
-            'pass_cmp': 'pass_cmp', 'pass_td': 'pass_td', 'atd_1_plus': 'atd', 'first_td': 'first_td', 'td_2_plus': 'td2'}
+            'pass_cmp': 'pass_cmp', 'pass_td': 'pass_td', 'atd_1_plus': 'atd', 'first_td': 'first_td', 'td_2_plus': 'td2',
+            'fg_made': 'fg_made', 'field_goal_made': 'fg_made', 'kick_pts': 'kick_pts', 'kicking_points': 'kick_pts',
+            'defense': 'defense', 'tackles_assists': 'defense', 'tackles+assists': 'defense', 'sacks': 'defense', 'def_int': 'defense'}
     for r in bk.get('rows', []):
         mk = BMAP.get(r.get('market'))
         if not mk or not r.get('player') or r.get('odds') is None or r.get('available') is False: continue
@@ -483,14 +658,27 @@ def props_lab(ctx):
         if len(leg['player']) > len(c['player']): c['player'] = leg['player']
         if leg['line'] is not None: c['lines'].append(leg['line'])
         src.setdefault('line', leg['line'])
-        c['src'].append(src)
+        row = src.get('row') or {}
+        who_key = re.sub(r'\s+', ' ', str(src.get('who') or '').strip().lower())
+        if src.get('kind') in ('card', 'lean'):
+            src_key = (src.get('kind'), who_key, str(src.get('what') or ''), str(src.get('line')))
+        elif leg['mkey'] in YES:
+            src_key = ('opinion', who_key)
+        else:
+            # The same speaker's same player/market/side is one opinion, even if it
+            # arrived through article, transcript, or review pipelines more than once.
+            src_key = ('opinion', who_key, str(src.get('line')), str(row.get('selection') or '').strip().lower())
+        seen_keys = c.setdefault('_source_keys', set())
+        if src_key not in seen_keys:
+            seen_keys.add(src_key)
+            c['src'].append(src)
         return c
     for x in card_prop_legs(ctx):
-        c = add(x['gid'], x['leg'], dict(kind='card', who='Platinum Rose card', what=x['ticket'], price=x['price'], book=x['book'], why=x['why']))
+        c = add(x['gid'], x['leg'], dict(kind='card', who='Platinum Rose card', what=x['ticket'], price=x['price'], book=x['book'], tier=x.get('tier'), why=x['why']))
         if c: c['card'] = x['ticket']; c['card_line'] = x['leg']['line']
     for x in digest_prop_legs(ctx):
         skip = 'skip' in x['tier'].lower()
-        c = add(x['gid'], x['leg'], dict(kind='lean', who='Platinum Rose synthesis', what=('skip' if skip else 'tier ' + x['tier']), why=x['why']))
+        c = add(x['gid'], x['leg'], dict(kind='lean', who='Platinum Rose synthesis', what=('skip' if skip else 'tier ' + x['tier']), tier=x['tier'], why=x['why']))
         if c: c['lean'] = 'skip' if skip else x['tier']
     for r in ctx['vrows']:
         if r.get('market') != 'prop': continue
@@ -543,7 +731,7 @@ def props_lab(ctx):
         else: line = None
         leg = dict(player=c['player'], mkey=c['mkey'], side=c['side'], line=line)
         c.update(score=score, line=line, people=sorted(people),
-                 prices=best_prices(idx, c['gid'], leg) if c['mkey'] in MNAME and c['mkey'] not in ('other', 'fg_made', 'kick_pts', 'defense', 'long_rush', 'long_rec', 'long_pass', 'rr_yds', 'team_total') else {},
+                prices=best_prices(idx, c['gid'], leg) if c['mkey'] in MNAME and c['mkey'] not in ('other', 'long_rush', 'long_rec', 'long_pass', 'rr_yds', 'team_total') else {},
                  ctx_line=context(c), status=injury_status(ctx, c['gid'], c['player']))
         if c['status'] in ('out', 'doubtful', 'injured reserve', 'ir'): c['score'] -= 10
         if c['lean'] == 'skip' and not c['card']: c['score'] -= 1
@@ -553,7 +741,8 @@ def props_lab(ctx):
         ('passing', 'Passing Props', '🎯', {'pass_yds', 'pass_td', 'pass_cmp', 'pass_att', 'pass_int', 'long_pass'}),
         ('rushing', 'Rushing Props', '🏃', {'rush_yds', 'carries', 'long_rush', 'rr_yds'}),
         ('receiving', 'Receiving Props', '👐', {'rec_yds', 'rec', 'targets', 'long_rec'}),
-        ('defense', 'Defense & Kicking', '🛡️', {'defense', 'sacks', 'def_int', 'fg_made', 'kick_pts'}),
+        ('defense', 'Defense Props', '🛡️', {'defense', 'sacks', 'def_int'}),
+        ('kicking', 'Kicking Props', '🦵', {'fg_made', 'kick_pts'}),
         ('game', 'Game & Team Props', '🎮', {'team_total', 'other'})
     ]
 
@@ -584,6 +773,18 @@ def props_lab(ctx):
             items_by_cat[cat].append(c)
 
     for key, tdp in td_players.items():
+        unique_src = {}
+        for s in tdp['src']:
+            row = s.get('row') or {}
+            who = re.sub(r'\s+', ' ', str(s.get('who') or '').strip().lower())
+            if s.get('kind') in ('card', 'lean'):
+                ksrc = (s.get('kind'), who, str(s.get('what') or ''), str(s.get('line')))
+            elif s.get('row') and str(s['row'].get('selection') or '').lower().find('anytime') >= 0:
+                ksrc = ('opinion', who)
+            else:
+                ksrc = ('opinion', who, str(s.get('line')), str(row.get('selection') or '').strip().lower())
+            unique_src.setdefault(ksrc, s)
+        tdp['src'] = list(unique_src.values())
         tdp['people'] = sorted({s['who'] for s in tdp['src'] if s['kind'] not in ('card', 'lean')})
         pr_comb = {}
         for sc in tdp['sub_clusters']:
@@ -655,9 +856,9 @@ def props_lab(ctx):
     # Top Filters Bar
     h = ['<div class="props-lab" id="props-lab-legs">',
          '<h3 id="props-recommended">🎯 Props Pool & Ladder Board — Grouped by Category</h3>',
-         f'<p class="dashboard-intro">{total_props} actionable prop plays grouped across 6 position categories, with full interactive '
+         f'<p class="dashboard-intro">{total_props} actionable prop plays grouped across {len(CATEGORIES)} market categories, with full interactive '
          'horizontal ladder rows for yardage, carries, receptions, and touchdowns. Tap any ladder rung to select your amount and place '
-         'it directly on your weekend card.</p>',
+         'it directly on your weekend card. Empty categories stay visible and say when no priced market was captured; a game script that expects field goals is not itself a kicker line. Touchdown stars summarize source tier or distinct source support, not scoring probability.</p>',
          '<div class="legs-filter no-bm" id="legs-filter">',
          '<div class="lf-row"><span class="lf-label">Category</span>',
          f'<button type="button" class="btn-toggle lf-kind btn-primary" data-kind="All">All <small>{total_props}</small></button>']
@@ -695,7 +896,12 @@ def props_lab(ctx):
     # Categories Content
     for cid, title, icon, _ in CATEGORIES:
         items = items_by_cat[cid]
-        if not items: continue
+        if not items:
+            empty_note = ('No defender tackles, sacks, or interception lines were present in the captured prop sources.' if cid == 'defense'
+                          else 'No kicker field-goal or kicking-points lines were present in the captured prop sources.' if cid == 'kicking'
+                          else 'No actionable props were present in the captured sources.')
+            h.append(f'<details class="rollup-box section-pool prop-category-group" data-cat="{E(title)}" id="cat-{cid}" open><summary><span class="sum-text">{icon} {E(title)} — <span class="cat-count">0</span> props</span></summary><div class="rollup-content"><p class="muted-note prop-empty">{E(empty_note)} No odds were inferred.</p></div></details>')
+            continue
         _ord = {g_: i_ for i_, g_ in enumerate(ctx['order'])}
         items_sorted = sorted(items, key=lambda x: (_ord.get(x['gid'], 99), -x.get('score', 0), x.get('player', '')))
         _last_gid = None
@@ -755,6 +961,24 @@ def props_lab(ctx):
             exact = {b: v for b, v in pr.items() if v.get('exact')}
             best = max(exact.items(), key=lambda kv: dec(kv[1]['odds'])) if exact else None
             price_span = f'<b>{am(best[1]["odds"])}</b> <span class="lg-book">{best[0]}</span>' if best else ''
+
+            confidence_html = ''
+            if cid == 'tds':
+                tier_text = next((str(s.get('tier') or '').strip() for s in src if str(s.get('tier') or '').strip()), '')
+                if not tier_text and lean and lean != 'skip':
+                    tier_text = re.sub(r'^tier\s+', '', str(lean), flags=re.I)
+                tier_match = re.match(r'^([A-D])([+-]?)', tier_text.upper()) if tier_text else None
+                tier_values = {'A+': 5.0, 'A': 4.5, 'A-': 4.0, 'B+': 4.0, 'B': 3.5, 'B-': 3.0,
+                               'C+': 3.0, 'C': 2.5, 'C-': 2.0, 'D+': 2.0, 'D': 1.5, 'D-': 1.0}
+                tier_key = (tier_match.group(1) + tier_match.group(2)) if tier_match else ''
+                rating = tier_values.get(tier_key)
+                rating_note = tier_key + ' tier' if rating is not None else ''
+                if rating is None:
+                    rating = float(min(5, max(1, len(people))))
+                    rating_note = f'{len(people)} distinct source' + ('s' if len(people) != 1 else '')
+                fill = max(1, min(5, int(rating + 0.5)))
+                confidence_html = (f'<span class="prop-confidence" title="Evidence confidence from the named tier or distinct supporting sources">'
+                                   f'{"★" * fill}{"☆" * (5 - fill)} <small>{rating:.1f}/5{(" · " + E(rating_note)) if rating_note else ""}</small></span>')
 
             rungs = get_ladder_rungs(c)
             rungs_html = []
@@ -816,6 +1040,7 @@ def props_lab(ctx):
                 f'  <div class="prop-sum-right">'
                 f'    <span class="prop-sum-rec"><b>{E(base_desc)}</b> {price_span}</span>'
                 f'    <span class="prop-sup-tag" title="support score">▲ {score:g} <small>{nsup} src</small></span>'
+                f'    {confidence_html}'
                 f'    <span class="prop-expand-indicator">▼</span>'
                 f'  </div>'
                 f'</summary>'
@@ -1080,6 +1305,11 @@ BOOKMARKS_CSS = r"""
 .at-glance-item{display:inline-flex;align-items:center;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:2px 6px 2px 2px}
 .at-glance-item .at-glance-pill{border:none;background:transparent;padding:4px 6px 4px 8px}
 .at-glance-item .pill-bm-btn{padding:3px 8px;min-height:22px;font-size:10.5px}
+.at-glance-pill small{font-size:10px;font-weight:800;color:var(--muted);margin:0 2px}
+.prop-confidence{display:inline-flex;align-items:center;gap:4px;color:#facc15;font-size:12px;font-weight:850;white-space:nowrap}
+.prop-confidence small{font-size:10px;color:var(--muted);font-weight:700}
+.prop-empty{margin:6px 0;padding:10px 12px;border:1px dashed var(--border);border-radius:8px}
+.gp-bm-btn{margin:0 5px;padding:2px 7px;min-height:21px;font-size:10px}
 .sc-tile-wrap{display:flex;flex-direction:column;gap:5px}
 .sc-tile-wrap .sc-tile{flex:1}
 .sc-tile-btn{width:100%;justify-content:center;padding:6px 8px;font-size:11.5px;border-radius:8px}

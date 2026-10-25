@@ -89,6 +89,7 @@ The builder does everything else from data. These four inputs are written by han
 | Game write-ups + projected scores | `reports/intel/master-intel-narratives-<season>-w<NN>.md` | `## AWAY@HOME`, `projection: TEAM pts, TEAM pts`, then `### Game script`, `### Why the card leans this way`, `### What breaks it` |
 | Ticket one-liners | same file, `## TICKETS` block | `- <card ticket name>: <what it is and why, for a casual bettor>` |
 | SuperContest reasons | same file, `## SUPERCONTEST` block | `- <TEAM>: <plain reason>` |
+| Expert reasoning narratives (Andy, 2026-10-23) | `reports/intel/expert-narratives-<season>-w<NN>.md` | `# title`, intro paragraph(s), `## Group` headers, `### Expert name (show)` blocks: their picks, their reasoning, and a "Moved:" line vs the current BKR number; then a stacking table and a "Dropped" list. build.py renders each `###` as a collapsible panel in section 4 ("Why the experts like what they like"), before the expert registry. Refresh it whenever new expert picks arrive (e.g. the Antigravity YouTube addendum) |
 | Survivor pick intel | `data/survivor/pick-intel-<season>-w<NN>.json` | `teams.<AB>.pick_pct / ev / note` + `sources` (SurvivorGrid pick share and value; Covers or similar save-for-later notes). Cite the URLs |
 
 Writing rules for these:

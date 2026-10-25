@@ -16,7 +16,7 @@ Inputs (all local, all read-only; missing optional inputs are listed under "Know
   optional  scratch/w<NN>-synthesis-digest-sat.md (or w<NN>-synthesis-digest.md)  (lean table, "game | market | lean | source | tier")
   optional  reports/intel/master-intel-narratives-<season>-w<NN>.md  (hand/LLM-written §6 game scripts + projected scores; see runbook)
   optional  data/odds/actionnetwork-openers-<season>-w<NN>.json     (scripts/master-intel/actionnetwork_openers.py; preferred line-move baseline)
-  optional  data/odds/BKR_current_lines_*                          (earlier BKR pastes; fallback baseline = earliest one for the week)
+  optional  data/odds/BKR_Opening_lines_* (legacy BKR_current_lines_*) (opening-line history only; fallback baseline = earliest one for the week)
   optional  reports/bets/2026-w<NN>-card.md                           (card; "### <ticket> — <book> — **$x** — price" headings)
   optional  data/player-availability/latest.json, data/secondary-matchups/latest.json,
             data/nfl-rosters/roster-map-latest.json, data/survivor/*, data/research-intel/review/player-props-intel-latest.json
@@ -25,6 +25,7 @@ Outputs:
 """
 import argparse, math, base64, collections, datetime, glob, html, json, os, re, sys, zoneinfo
 from pathlib import Path
+import sc_review
 
 ROOT = Path(__file__).resolve().parents[2]
 PT = zoneinfo.ZoneInfo('America/Los_Angeles')
@@ -258,7 +259,8 @@ def opening_lines(sched, season=None, week=None):
     1st choice (since 2026-10-03, Andy): data/odds/actionnetwork-openers-<season>-w<NN>.json, written by
     scripts/master-intel/actionnetwork_openers.py (Action Network "Open" book, first line after the previous
     Sunday 5 PM PT re-open). 2nd choice, per game, when that file or game is missing: the earliest pasted BKR
-    game-line snapshot (data/odds/BKR_current_lines_*) whose date header matches the game's PT kickoff date.
+    opening-line snapshot (new `BKR_Opening_lines_*` naming; historical `BKR_current_lines_*` names remain readable)
+    whose date header matches the game's PT kickoff date. These archived snapshots are never the current market input.
     Every entry carries 'label', which the report prints so the reader knows where the opener came from."""
     want = {g['id']: g['k'].astimezone(PT).strftime('%b %d').upper() for g in sched}
     an = {}
@@ -275,11 +277,17 @@ def opening_lines(sched, season=None, week=None):
                            ml={ALIAS.get(k, k): int(x) for k, x in (v.get('ml') or {}).items()})
     pat = re.compile(r'^(\w+) @ (\w+) \d+:\d+.*?\s(\w+) ([+-][\d.]+)[+-]\d+ / (\w+) ([+-][\d.]+)[+-]\d+\s+o([\d.]+)[+-]\d+ u[\d.]+[+-]\d+\s+(\w+) ([+-]\d+) (\w+) ([+-]\d+)')
     out = {}
-    files = sorted(glob.glob(str(ROOT / 'data/odds/BKR_current_lines_*')), key=os.path.getmtime)
+    files = sorted(
+        glob.glob(str(ROOT / 'data/odds/BKR_Opening_lines_*'))
+        + glob.glob(str(ROOT / 'data/odds/BKR_current_lines_*')),
+        key=os.path.getmtime,
+    )
     for f in files:
         try: lines = open(f, encoding='utf-8').read().splitlines()
         except Exception: continue
-        label = Path(f).name.replace('BKR_current_lines_', ''); day = None
+        name = Path(f).name
+        label = name.replace('BKR_Opening_lines_', '').replace('BKR_current_lines_', '')
+        day = None
         for ln in lines:
             h = re.match(r'GAME LINES - (\w{3}) (\d+)', ln)
             if h: day = f'{h.group(1).upper()} {int(h.group(2)):02d}'; continue
@@ -583,6 +591,10 @@ def main():
     live = [g for g in sched if not g['done']]
     bkr = J(f'data/generated/props/bookmaker-live-{D}-week{W}.json')
     if not bkr: sys.exit(f'missing BKR capture data/generated/props/bookmaker-live-{D}-week{W}.json (see docs/MASTER_INTEL_REPORT_RUNBOOK.md)')
+    # Andy may provide a newer rendered BKR game-lines board without a source capture
+    # timestamp. Keep the raw DOM capture and its prop rows intact; overlay only the
+    # spread/total/moneyline values, and preserve the user's provenance explicitly.
+    bkr_user_board = J(f'data/generated/props/bookmaker-user-board-{D}-week{W}.json', {}) or {}
     pull = J(f'data/generated/master-intel/w{WW}-pull.json')
     if not pull: sys.exit(f'missing data/generated/master-intel/w{WW}-pull.json — run scripts/master-intel/pull.mjs --week {W}')
     roster = (J('data/nfl-rosters/roster-map-latest.json', {}) or {}).get('players', {})
@@ -658,6 +670,16 @@ def main():
         ml = {FULL.get(r['side']): r['odds'] for r in gl if r.get('bet') == 'moneyline'}
         tot = {r['side']: (r['line'], r['odds']) for r in gl if r.get('bet') == 'total'}
         G[f'{aw}@{hm}'] = dict(away=aw, home=hm, sp=sp, ml=ml, tot=tot, rows=rows)
+    for _board_game in bkr_user_board.get('games', []):
+        _gid = _board_game.get('game')
+        if _gid not in G: continue
+        _g = G[_gid]
+        _g['sp'] = {t: (q.get('line'), q.get('odds')) for t, q in (_board_game.get('spread') or {}).items()}
+        _g['ml'] = dict(_board_game.get('moneyline') or {})
+        _tot = _board_game.get('total') or {}
+        _g['tot'] = {s: (_tot.get('line'), _tot.get(f'{s.lower()}_odds')) for s in ('Over', 'Under')}
+        _g['line_source'] = bkr_user_board.get('source', 'user-supplied BKR board')
+        _g['line_capture_time'] = bkr_user_board.get('capture_time')
     def team_of(p):
         return (roster.get(p) or {}).get('team')
 
@@ -961,7 +983,7 @@ def main():
     sc_line = bool(picks)
     left_off = re.search(r'^## Left off and why\n(.*?)(?=^## |\Z)', card_cur, re.M | re.S)
 
-    PROPWORDS = r'(\brec\b|\brush\b|pass TD|pass yds|\bTD\b|\bATD\b|T\+A|tackles|receptions|rec yds|completions|attempts|interceptions)'
+    PROPWORDS = r'(\brec\b|\brush\b|pass TD|pass yds|\bTD\b|\bATD\b|T\+A|tackles|sacks|defensive|field goals?|kicking points|receptions|rec yds|completions|attempts|interceptions)'
     def is_prop_text(t): return bool(re.search(PROPWORDS, t, re.I)) and not re.search(r'\bML\b', t)
     def prop_kind(t):
         s_ = t.lower().replace('touchdowns', 'td').replace('touchdown', 'td').replace('passing td', 'pass td')
@@ -969,7 +991,8 @@ def main():
         if re.search(r'2\+ td', s_) and 'pass' not in s_: return '2+ TDs'
         if 'pass td' in s_ or 'passing td' in s_: return 'Passing'
         if 'atd' in s_ or 'anytime' in s_ or re.search(r'\btd\b', s_): return 'Anytime TD'
-        if 't+a' in s_ or 'tackle' in s_: return 'Tackles+Assists'
+        if re.search(r'field[ _]?goals?|kicking points?', s_): return 'Kicking'
+        if 't+a' in s_ or re.search(r'tackle|sack|defensive', s_): return 'Defense'
         if 'rush' in s_: return 'Rushing'
         if 'rec' in s_ or 'receiving' in s_ or 'recept' in s_: return 'Receiving'
         if 'pass' in s_ or 'completion' in s_ or 'attempt' in s_ or 'interception' in s_: return 'Passing'
@@ -987,8 +1010,9 @@ def main():
                 if last and len(last) > 2 and last in lg['market'].lower() and lg['game'] in ids: return lg['game']
         return None
     def lean_type(x):
-        if x['game'].startswith(('T+A', 'Pass TD')) or is_prop_text(x['market']): return 'Prop'
-        if x['lean'] in ('Over', 'Under') or re.match(r'^[UO]\d', x['market']): return 'Total'
+        market_ = str(x.get('market') or '').strip().lower()
+        if x['game'].startswith(('T+A', 'Pass TD')) or market_ in ('prop', 'player_prop', 'player prop', 'player props') or is_prop_text(market_): return 'Prop'
+        if market_ in ('total', 'totals', 'game total', 'over/under', 'o/u') or re.match(r'^(?:over|under|[ou])\s*\d', str(x.get('lean') or ''), re.I) or re.match(r'^[UO]\d', market_, re.I): return 'Total'
         return 'Side'
     TIERBASE = [('1+2', 3.5), ('1-', 2.0), ('2-', 2.0), ('1', 3.0), ('2', 2.5)]
     def conf(x):
@@ -1203,11 +1227,12 @@ def main():
     except Exception: asof_txt = f'{D}'
     L += [logo_css(), f'# 🏈 NFL Week {W} Master Betting Intelligence Report',
           "## What to bet this week, why we like it, and what every expert and betting market is saying",
-          f'### Built {pt12(datetime.datetime.now(PT))} · Prices from Bookmaker as of {asof_txt} — always check the price on your bet slip',
+          (f'### Built {pt12(datetime.datetime.now(PT))} · BKR prop snapshot as of {asof_txt}; game lines use Andy-supplied board (capture time not stated)' if bkr_user_board.get('games') else f'### Built {pt12(datetime.datetime.now(PT))} · Prices from Bookmaker as of {asof_txt} — always check the price on your bet slip'),
           '']
     L += roll('section-top', 'inputs-box', '🧾 Data inputs &amp; freshness — what this report was built from') + [
           '| Input | Coverage | Navigation & Details |', '|---|---|---|',
-          f"| Bookmaker (BKR) same-game props + game lines | {len(G)} games, {len(bkr['rows'])} lines | [Jump to Market Board](#board-defs) · [Game Dossier](#game-dossier) |",
+          f"| Bookmaker (BKR) props | {len(G)} games, {len(bkr['rows'])} rows from {asof_txt} | [Jump to Market Board](#board-defs) · [Game Dossier](#game-dossier) |",
+          (f"| BKR game lines | {len(bkr_user_board.get('games', []))} games from Andy-supplied board; capture time not stated | Overlaid for market comparisons; raw DOM capture retained |" if bkr_user_board.get('games') else ''),
           f"| BetOnline (BEO) prop boards | {len({r['game'] for r in beo})} games, {len(beo)} lines | [Jump to Props Pool](#prop-pool) |",
           f"| DraftKings Predictions saves | {len(dk)} games | [Jump to Quantitative Systems](#systems) |",
           f"| Research signals / articles / expert picks | {len(pull['signals'])} / {len(pull['notes'])} / {len(pull['expert'])} | [View Sourced Articles ({len(pull['notes'])})](#sourced-articles) |",
@@ -1275,10 +1300,25 @@ def main():
                 d_sp = dec(pr_); H2 = R / d_sp
                 opts.append(dict(label=f"{tl(opp)}{opp} {ln_:+g} ({pr_:+d})", H=H2, lock=R - st - H2, middle=R - st + H2 * (d_sp - 1), mid_txt=mid_words(team, ln_)))
         return dict(team=team, opp=opp, game=last['game'], when=kick[last['game']].astimezone(PT).strftime('%a %H:%M PT'), R=R, stake=st, opts=opts)
+    def ticket_prop_estimate(t):
+        if not ticket_is_props(t) or len(t.get('legs') or []) < 2: return None
+        prices = []
+        for leg in t['legs']:
+            m_ = re.search(r'(?<!\d)([+-])\s*(\d{2,5})(?!\d)', str(leg.get('price') or ''))
+            if not m_: return None
+            a_ = int(m_.group(2)) * (1 if m_.group(1) == '+' else -1)
+            prices.append(dec(a_))
+        d_ = math.prod(prices)
+        american_ = round((d_ - 1) * 100) if d_ >= 2 else -round(100 / (d_ - 1))
+        return dict(decimal=d_, american=american_)
+
     def ticket_box(t, cls):
         out = roll(cls, t['id'], f"🎟️ {esc(t['disp'])} — {esc(t['book'])} — ${t['stake']} — {esc(t['price'])}")
         note = tnote(t)
         if note: out += [f"💬 **What it is and why:** {esc(note)}", '']
+        est_ = ticket_prop_estimate(t)
+        if est_:
+            out += [f"**Independent-leg implied price:** ~{est_['american']:+d} (decimal {est_['decimal']:.2f}), multiplying the listed leg odds. Same-game correlation is not adjusted; this is an estimate, not the book's quoted payout. Request the live combo price.", '']
         out += [f"**Payout:** {esc(t['ret'])}", '', '| Game | Leg | Book | Price | Tier | Why |', '|---|---|---|---|---|---|'] + [
                 f"| {glink(lg['game'])} | {esc(lg['market'])} | {esc(lg['book'])} | {esc(lg['price'])} | {esc(lg['tier'])} | {link_sources(lg['why'], lg['game'])} |" for lg in t['legs']]
         nc = night_cap(t)
@@ -1308,16 +1348,18 @@ def main():
     for r_ in RANKED:
         gid_ = r_.get('gid')
         if not gid_ or gid_ not in ids: continue
-        typ_ = r_.get('type')
+        typ_ = lean_type(r_)
         if typ_ == 'Side':
-            team_ = r_.get('lean')
-            if not team_ or (gid_, team_) in seen_glance: continue
-            pm_ = re.search(r'([+−-]\d+(?:\.\d)?)', r_.get('market', ''))
-            spr_ = f"{team_} {pm_.group(1)}" if pm_ else team_
+            A_, H_ = gid_.split('@')
+            side_text = str(r_.get('lean_disp') or r_.get('lean') or '').strip()
+            team_ = next((t_ for t_ in (A_, H_) if re.search(r'\b' + re.escape(t_) + r'\b', side_text, re.I)), None)
+            if not team_: continue
+            if (gid_, team_) in seen_glance: continue
+            spr_ = re.sub(r'^SC\s+', '', side_text)
             pill_id = f"pill-pick-{slug(gid_)}-{slug(team_)}"
             glance_pills.append(
                 f'<div class="at-glance-item" id="{pill_id}">'
-                f'<a href="#{gsid(gid_)}" class="at-glance-pill" title="Click to view full game write-up">{tl(team_)}<span>{spr_}</span></a>'
+                f'<a href="#{gsid(gid_)}" class="at-glance-pill" title="Click to view full game write-up">{tl(team_)}<span>{team_} {spr_[len(team_):].strip()}</span></a>'
                 f'<button class="bm-btn pill-bm-btn" type="button" data-pick="{spr_}" data-ctx="{gid_}" data-page="{gsid(gid_)}" title="Add {spr_} to your weekend card">'
                 f'<span class="bm-icon">☆</span><span class="bm-text">+ Card</span></button></div>'
             )
@@ -1326,16 +1368,16 @@ def main():
         elif typ_ == 'Total' and '@' in gid_:
             if (gid_, 'Total') in seen_glance: continue
             A_, H_ = gid_.split('@')
-            pm_ = re.search(r'\b(Over|Under|[OU])\s*(\d+(?:\.\d)?)', r_.get('market', ''), re.I)
+            pm_ = re.search(r'\b(Over|Under|[OU])\s*(\d+(?:\.\d)?)', str(r_.get('lean_disp') or r_.get('lean') or r_.get('market', '')), re.I)
             if pm_:
                 s_txt = 'Under' if pm_.group(1).upper().startswith('U') else 'Over'
                 tot_lbl = f"{s_txt} {pm_.group(2)}"
             else:
-                tot_lbl = r_.get('market', '')
+                tot_lbl = str(r_.get('lean_disp') or r_.get('lean') or r_.get('market', ''))
             pill_id = f"pill-pick-{slug(gid_)}-total"
             glance_pills.append(
                 f'<div class="at-glance-item" id="{pill_id}">'
-                f'<a href="#{gsid(gid_)}" class="at-glance-pill" title="Click to view full game write-up">{tl(A_)} @ {tl(H_)}<span>{tot_lbl}</span></a>'
+                f'<a href="#{gsid(gid_)}" class="at-glance-pill" title="{FULL_NAME(A_)} @ {FULL_NAME(H_)} total · view full game write-up">{tl(A_)}<small>{A_}</small> @ {tl(H_)}<small>{H_}</small><span>{tot_lbl}</span></a>'
                 f'<button class="bm-btn pill-bm-btn" type="button" data-pick="{tot_lbl}" data-ctx="{gid_}" data-page="{gsid(gid_)}" title="Add {tot_lbl} to your weekend card">'
                 f'<span class="bm-icon">☆</span><span class="bm-text">+ Card</span></button></div>'
             )
@@ -1496,22 +1538,23 @@ def main():
         mkt_clean = re.sub(r'\bATD\b', 'Anytime TD', r['market'])
         L.append(f"| {i+1} | {r['type']} | {glink(r['gid']) if r['gid'] else esc(r['game'])} | {esc(mkt_clean)} | {esc(r['lean_disp'])} | {stars(r['conf'])} | {esc(r['tier'])} | {link_sources(r['source'], r['gid'])} |")
     L += ['', '<a id="card-tickets"></a>', '### 🎟️ Card tickets', '', 'All tickets, with what each one is, why it is on the card and every leg, are in the [Parlays &amp; round robins](#rec-parlays) and [Player prop stacks](#rec-props) boxes at the top of the report.', '']
-    kinds = ['Tackles+Assists', 'Rushing', 'Receiving', 'Passing', 'Anytime TD', 'First TD', '2+ TDs']
+    kinds = ['Tackles+Assists', 'Defense', 'Kicking', 'Rushing', 'Receiving', 'Passing', 'Anytime TD', 'First TD', '2+ TDs']
     def prop_category(p):
         return {'First TD': ('TDs', '🏈 Touchdowns (Anytime / First / 2+)'), 'Anytime TD': ('TDs', '🏈 Touchdowns (Anytime / First / 2+)'),
                 '2+ TDs': ('TDs', '🏈 Touchdowns (Anytime / First / 2+)'),
                 'Passing': ('Passing', '🎯 Passing (Yards / TDs / Completions)'), 'Rushing': ('Rushing', '🏃 Rushing (Yards / Attempts)'),
-                'Receiving': ('Receiving', '🙌 Receiving (Yards / Receptions)'), 'Tackles+Assists': ('DEF', '🛡️ Defense (Tackles + Assists)')}.get(
+                'Receiving': ('Receiving', '🙌 Receiving (Yards / Receptions)'), 'Tackles+Assists': ('DEF', '🛡️ Defense (Tackles + Assists)'),
+                'Defense': ('DEF', '🛡️ Defense (Tackles / Sacks / Interceptions)'), 'Kicking': ('Kicking', '🦵 Kicking (Field Goals / Points)')}.get(
                 p.get('kind'), ('Other', '⚡ Other Markets'))
 
-    cat_order = ['TDs', 'Passing', 'Rushing', 'Receiving', 'DEF', 'Other']
+    cat_order = ['TDs', 'Passing', 'Rushing', 'Receiving', 'DEF', 'Kicking', 'Other']
     pool_games = [g for g in live if POOL.get(g['id'])]
     L += ['', '<a id="prop-pool"></a>', '### 🧰 Build your own: actionable props pool', '',
           'Every player prop that is on the card, in a card lean, called by a named expert, or rated tier 1 by the article feed, grouped by prop category and then by matchup so you can build your own stacks. **"Card"** rows passed our build rules; **"expert"** rows are calls we have not checked ourselves.', '',
-          '**Jump to a category:** ' + ' · '.join(f"[{lab} ({sum(1 for g in pool_games for p in POOL[g['id']] if prop_category(p)[0] == ck)})](#props-cat-{ck.lower()})" for ck, lab in (('TDs','Touchdowns'),('Passing','Passing'),('Rushing','Rushing'),('Receiving','Receiving'),('DEF','Defense'),('Other','Other')) if any(prop_category(p)[0] == ck for g in pool_games for p in POOL[g['id']])), '']
+          '**Jump to a category:** ' + ' · '.join(f"[{lab} ({sum(1 for g in pool_games for p in POOL[g['id']] if prop_category(p)[0] == ck)})](#props-cat-{ck.lower()})" for ck, lab in (('TDs','Touchdowns'),('Passing','Passing'),('Rushing','Rushing'),('Receiving','Receiving'),('DEF','Defense'),('Kicking','Kicking'),('Other','Other')) if any(prop_category(p)[0] == ck for g in pool_games for p in POOL[g['id']])), '']
     _kc = collections.Counter(p['kind'] for g in pool_games for p in POOL[g['id']])
     _missing = [k for k in kinds if not _kc.get(k)]
-    if _missing: L += [f"*No {', '.join(m.replace('+', ' + ') for m in _missing)} props are in this week's pool, so those filters are hidden. (No BetOnline tackles-and-assists board was captured for Week 6.)*" if 'Tackles+Assists' in _missing else f"*No {', '.join(_missing)} props in this week's pool, so those filters are hidden.*", '']
+    if _missing: L += [f"*No {', '.join(m.replace('+', ' + ') for m in _missing)} props are in this week's pool, so those filters are hidden. Captured-board gaps are not a recommendation to invent a line.*", '']
     L += fbar('Type', [(k, f'{k} ({_kc[k]})') for k in kinds if _kc.get(k)], 'prop-pool-tables') + [
           '<div class="rollup-controls">', "  <button class=\"btn-toggle\" onclick=\"toggleRollups('section-pool', true)\">Open all games</button>",
           "  <button class=\"btn-toggle\" onclick=\"toggleRollups('section-pool', false)\">Close all games</button>", '</div>', '', '<div id="prop-pool-tables">']
@@ -1750,12 +1793,31 @@ def main():
     BRANK = {'🌟 Near-unanimous': 4, '🔥 Majority': 3, '⚔️ Clash': 2, '⚖️ Split': 1, '—': 0}
     ranked.sort(key=lambda x: (-BRANK[badge(x[1], len(x[5]), x[0])], -x[0], -x[1]))
     L += roll('section-3', 'consensus-overview', '🧭 Consensus ranking — every game') + [
-          '| Rank | Game | Consensus side | For – Against | Strength | Total lean | Details |', '|---|---|---|---|---|---|---|']
+          '| Rank | Game | Consensus side | BKR spread quote | For – Against | Strength | Total lean | BKR total quote | Details |', '|---|---|---|---|---|---|---|---|---|']
     for i, (m_, n1, g, side, fr, ag) in enumerate(ranked):
         c_ = CONS.get(g['id'], {}); u, o = c_.get('Under', set()), c_.get('Over', set())
-        tlean = f"Under ({len(u)})" if len(u) > len(o) else (f"Over ({len(o)})" if o else '—')
+        if len(u) == len(o) and u:
+            tlean = f"Split (Over {len(o)} / Under {len(u)})"
+        else:
+            tlean = f"Under ({len(u)})" if len(u) > len(o) else (f"Over ({len(o)})" if o else '—')
+        market_ = G.get(g['id']) or {}
+        def _bkr_spread(team_):
+            q_ = (market_.get('sp') or {}).get(team_)
+            return f"{team_} {q_[0]:+g} ({q_[1]:+d})" if q_ and q_[0] is not None and q_[1] is not None else (f"{team_} {q_[0]:+g}" if q_ and q_[0] is not None else '—')
+        if n1 == len(ag) and n1:
+            bkr_side = f"{_bkr_spread(g['visitor'])} / {_bkr_spread(g['home'])}"
+        else:
+            bkr_side = _bkr_spread(side) if n1 else '—'
+        if len(u) == len(o) and u:
+            bkr_total = ' / '.join(f"{lab_} {q_[0]:g} ({q_[1]:+d})" if q_ and q_[0] is not None and q_[1] is not None else f"{lab_} {q_[0]:g}" if q_ and q_[0] is not None else f"{lab_} —" for lab_, q_ in [('Over', (market_.get('tot') or {}).get('Over')), ('Under', (market_.get('tot') or {}).get('Under'))])
+        elif tlean.startswith('Under') or tlean.startswith('Over'):
+            lab_ = 'Under' if tlean.startswith('Under') else 'Over'
+            q_ = (market_.get('tot') or {}).get(lab_)
+            bkr_total = f"{lab_} {q_[0]:g} ({q_[1]:+d})" if q_ and q_[0] is not None and q_[1] is not None else (f"{lab_} {q_[0]:g}" if q_ and q_[0] is not None else '—')
+        else:
+            bkr_total = '—'
         det = [f"[game](#{gsid(g['id'])})", f"[experts](#experts-{slug(g['id'])})"] + ([f"[breakdown](#consensus-{g['id'].lower().replace('@', '-')})"] if n1 >= 2 else [])
-        L.append(f"| {i+1} | {glink(g['id'])} | {('split ' + g['visitor'] + '/' + g['home']) if n1 and n1 == len(ag) else (side if n1 else '—')} | {n1} – {len(ag)} | <span data-sort='{BRANK[badge(n1, len(ag), m_)] * 100 + max(0, m_)}'>{badge(n1, len(ag), m_)}</span> | {tlean} | {' · '.join(det)} |")
+        L.append(f"| {i+1} | {glink(g['id'])} | {('split ' + g['visitor'] + '/' + g['home']) if n1 and n1 == len(ag) else (side if n1 else '—')} | {bkr_side} | {n1} – {len(ag)} | <span data-sort='{BRANK[badge(n1, len(ag), m_)] * 100 + max(0, m_)}'>{badge(n1, len(ag), m_)}</span> | {tlean} | {bkr_total} | {' · '.join(det)} |")
     L += ROLL_END
     cur_bd = None
     for i, (m_, n1, g, side, fr, ag) in enumerate([r for r in ranked if r[1] >= 2]):
@@ -1838,11 +1900,37 @@ def main():
                 quote_ = max((html.unescape(y.get('quote') or '') for y in srcs), key=len)
                 L.append(f"| {mk_} | {glink(x['game'])} | **{esc(vpick(x))}** | {esc(quote_)[:220]} | {' · '.join(dict.fromkeys(one_src(y) for y in srcs))} |")
             L += ['', '</div>', '</details>']
+    # ---------- expert reasoning narratives (hand/agent-written, reports/intel/expert-narratives-<season>-w<NN>.md) ----------
+    xn_p = ROOT / f'reports/intel/expert-narratives-{a.season}-w{WW}.md'
+    if xn_p.exists():
+        _xn = xn_p.read_text(encoding='utf-8').splitlines()
+        L += ['', '<a id="expert-narratives"></a>', "### 🧠 Why the experts like what they like: narrative summaries", '']
+        _intro, _i = [], 0
+        while _i < len(_xn) and not _xn[_i].startswith('## '):
+            if _xn[_i].strip() and not _xn[_i].startswith('# ') and _xn[_i].strip() != '---': _intro.append(_xn[_i])
+            _i += 1
+        L += _intro + ['']
+        _open = False
+        for ln in _xn[_i:]:
+            if ln.strip() == '---': continue
+            if ln.startswith('## '):
+                if _open: L += ['', '</div>', '</details>']; _open = False
+                L += ['', f"#### {ln[3:].strip()}", '']
+            elif ln.startswith('### '):
+                if _open: L += ['', '</div>', '</details>']
+                L += roll('section-4', f"xn-{slug(ln[4:].strip())[:60]}", f"🧠 {esc(ln[4:].strip())}"); _open = True
+            else:
+                L.append(ln)
+        if _open: L += ['', '</div>', '</details>']
+        L += ['']
+    else:
+        gaps.append(f'No expert narrative summaries ({xn_p.relative_to(ROOT).as_posix()}).')
     EXPERT_SHOW = {'Ross Tucker': 'Even Money', 'Steve Fezzik': 'Even Money', 'Steve Fezzick': 'Even Money',
                    'Chad Millman': 'Sharp or Square', 'Simon Hunter': 'Sharp or Square', 'Sharp or Square': 'Sharp or Square',
                    'Matt Perrault': 'BettingPros', 'Joe Pisapia': 'BettingPros', 'Pat Fitzmaurice': 'BettingPros', 'Andrew Erickson': 'BettingPros',
                    'Scott Bogman': 'BettingPros', 'Seth Wilcox': 'BettingPros', 'Terrell Furman Jr.': 'BettingPros', 'BettingPros': 'BettingPros',
-                   'Brandon Anderson': 'Action Network', 'Evan Abrams': 'Action Network', 'Stuckey': 'Action Network', 'Action Network': 'Action Network',
+                   'Brandon Anderson': 'Action Network', 'Evan Abrams': 'Action Network', 'Stuckey': 'Action Network', 'Doug Kezirian': 'Action Network', 'Action Network': 'Action Network',
+                   'Emerson Lotzia': 'The Favorites', 'Brandon Kravitz': 'The Favorites', 'Kendra Middleton': 'The Favorites',
                    'The Favorites': 'The Favorites'}
     def _yt_show(name):
         c_ = collections.Counter(str(p_['show']).split(' — ')[0].strip() for p_ in (yt.get('picks', []) if yt else []) if p_.get('speaker') == name and p_.get('show'))
@@ -2187,9 +2275,16 @@ def main():
             L += roll('section-7-sub', f'{gsid(gid)}-news', f'📰 News & angles ({len(nw)})') + ['Headlines matched to this game by team name and date (newest first). Check the inactive list before kickoff.', ''] + nwl_ + RE
         # grouped picks: one uniform line everywhere: **pick** · source · reason; sides and totals split into the two camps
         def xl(name): i_ = EXPANCH.get(gid, {}).get(name); return f'<span class="cite" tabindex="0">{esc(name)}{cite_pop(gid, name, i_)}</span>' if i_ else esc(name)
-        def gp_line(pick_, src_, why_=''):
+        def gp_line(pick_, src_, why_='', card_pick=None):
             pick_ = pick_.replace('parlay_price_note', '(parlay price note)').replace('_', ' ')
-            return f'<li><b>{pick_}</b> <span class="gp-src">· {src_}</span>' + (f' <span class="gp-why">— {why_}</span>' if why_ else '') + '</li>'
+            action_ = ''
+            if card_pick:
+                safe_pick = html.escape(str(card_pick), quote=True)
+                safe_gid = html.escape(gid, quote=True)
+                safe_page = html.escape(gsid(gid), quote=True)
+                action_ = (f'<button class="bm-btn gp-bm-btn" type="button" data-pick="{safe_pick}" data-ctx="{safe_gid}" data-page="{safe_page}" '
+                           f'title="Add {safe_pick} to My Card"><span class="bm-icon">☆</span><span class="bm-text">+ My Card</span></button>')
+            return f'<li><b>{pick_}</b> {action_} <span class="gp-src">· {src_}</span>' + (f' <span class="gp-why">— {why_}</span>' if why_ else '') + '</li>'
         def side_of(kind_, text_):
             t_ = (text_ or '').lower()
             if kind_ == 'Total':
@@ -2201,13 +2296,14 @@ def main():
         gitems = {'Side': [], 'Total': [], 'Prop': []}
         for r in EXP.get(gid, []):
             k_ = exp_kind(r); sel_ = f"{r.get('selection') or ''} {r.get('line') or ''}".strip()
-            gitems[k_].append((side_of(k_, sel_), gp_line(esc(sel_), xl(r.get('expert')), esc(str(r.get('rationale') or '')[:150]))))
+            gitems[k_].append((side_of(k_, sel_), gp_line(esc(sel_), xl(r.get('expert')), esc(str(r.get('rationale') or '')[:150]), sel_)))
         for p in YT.get(gid, []):
             k_ = yt_kind(p); sel_ = f"{p['pick']} {p.get('price') or ''}".strip()
-            gitems[k_].append((side_of(k_, p['pick']), gp_line(esc(sel_), xl(p['speaker']) + ' (YouTube)', ('⚠ ' + esc(p['verify'])) if p.get('verify') else '')))
+            gitems[k_].append((side_of(k_, p['pick']), gp_line(esc(sel_), xl(p['speaker']) + ' (YouTube)', ('⚠ ' + esc(p['verify'])) if p.get('verify') else '', sel_)))
         for x in RANKED:
             if x['gid'] == gid:
-                lead_ = gp_line('⭐ ' + esc(x['lean_disp'] if x['type'] != 'Prop' else x['market'] + ' → ' + x['lean']), 'Platinum Rose card lean', f'confidence {stars(x["conf"])}').replace('<li>', '<li class="gp-ours">', 1)
+                pick_ = x['lean_disp'] if x['type'] != 'Prop' else x['market'] + ' → ' + x['lean']
+                lead_ = gp_line('⭐ ' + esc(pick_), 'Platinum Rose card lean', f'confidence {stars(x["conf"])}', pick_).replace('<li>', '<li class="gp-ours">', 1)
                 gitems[x['type']].insert(0, (x['lean'] if x['type'] in ('Side', 'Total') else None, lead_))
         _ps = collections.OrderedDict()
         for sel_, who_, url_, out_, why_ in PROPSRC.get(gid, []):
@@ -2546,6 +2642,32 @@ def main():
     card_alt = [(t_, float(l_.replace('−', '-').replace(' ', ''))) for t_, l_ in alt_picks]
     our5 = {t_ for t_, _ in card_sc}; alts = {t_ for t_, _ in card_alt}
     KEYS = (3, 7, 10, 14)
+    SCX = set()
+    SC_VOTES = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))
+    for g in live:
+        for r in EXP.get(g['id'], []):
+            if r.get('pick_type') == 'spread':
+                expert = r.get('expert') or '?'
+                teams = teams_in(str(r.get('selection') or '')) & {g['visitor'], g['home']}
+                if len(teams) == 1:
+                    SCX.add(expert); SC_VOTES[g['id']][expert][next(iter(teams))] += 1
+        for p_ in YT.get(g['id'], []):
+            if str(p_.get('market') or '').lower() == 'spread':
+                expert = p_.get('speaker') or '?'
+                side = p_.get('side')
+                if side not in (g['visitor'], g['home']):
+                    teams = teams_in(str(p_.get('pick') or '')) & {g['visitor'], g['home']}
+                    side = next(iter(teams)) if len(teams) == 1 else None
+                if side in (g['visitor'], g['home']):
+                    SCX.add(expert); SC_VOTES[g['id']][expert][side] += 1
+    SC_CONS = collections.defaultdict(lambda: collections.defaultdict(set))
+    for gid_, by_source in SC_VOTES.items():
+        for source_, counts_ in by_source.items():
+            top_ = max(counts_.values())
+            leaders_ = [side_ for side_, count_ in counts_.items() if count_ == top_]
+            if len(leaders_) == 1: SC_CONS[gid_][leaders_[0]].add(source_)
+    def sc_expert_counts(z):
+        return len(SC_CONS[z['gid']].get(z['side'], set())), len(SC_CONS[z['gid']].get(z['opp'], set()))
     SIDES = []
     for x in scl['games']:
         gid = sc_gid(x)
@@ -2567,7 +2689,7 @@ def main():
                 lo, hi = sorted((tc, tm_))
                 ks = [k for k in KEYS if lo <= k < hi]
                 if ks: key_note = (f"gains key number {ks[0]}" if tc < tm_ else f"loses key number {ks[0]}")
-            c_ = CONS.get(gid, {}); nf, na = len(c_.get(side, ())), len(c_.get(opp, ()))
+            nf, na = len(SC_CONS[gid].get(side, set())), len(SC_CONS[gid].get(opp, set()))
             bm = f'{side} spread' in sharp; bm_against = f'{opp} spread' in sharp
             lean = next((r for r in RANKED if r['gid'] == gid and r['type'] == 'Side' and r['lean'] == side), None)
             score = None
@@ -2583,7 +2705,7 @@ def main():
     live_sides = sorted([z for z in SIDES if z['score'] is not None], key=lambda z: -z['score'])
     for i, z in enumerate(live_sides): z['rank'] = i + 1
     def sline(z): return f"{tl(z['side'])}**{z['side']} {z['lc']:+g}**"
-    def verdict(z): return '⭐ Our five' if z['side'] in our5 else ('🔁 Alternate' if z['side'] in alts else ('Top 10' if z.get('rank', 99) <= 10 else '—'))
+    def verdict(z): return '⭐ Dashboard AI proposal' if z['side'] in our5 else ('🔁 AI alternate' if z['side'] in alts else ('Top 10' if z.get('rank', 99) <= 10 else '—'))
     # season record
     def grade_week(wk, card_):
         out = []
@@ -2616,12 +2738,6 @@ def main():
     wins = sum(1 for _, rs in HIST for r in rs if r['result'] == 'Win'); losses = sum(1 for _, rs in HIST for r in rs if r['result'] == 'Loss'); pushes = sum(1 for _, rs in HIST for r in rs if r['result'] == 'Push')
 
     # links inside this report point to this report's own game boxes and expert panel
-    SCX = set()
-    for g in live:
-        for r in EXP.get(g['id'], []):
-            if r.get('pick_type') in ('spread', 'moneyline', 'teaser'): SCX.add(r.get('expert') or '?')
-        for p_ in YT.get(g['id'], []):
-            if yt_kind(p_) == 'Side': SCX.add(p_['speaker'])
     def glink(gid, text=None): return f'[{text or matchup(gid, False)}](#sc-game-{slug(gid)})' if gid else (text or '—')
     def link_sources(text, gid):
         t_ = esc(text)
@@ -2635,19 +2751,20 @@ def main():
             if re.search(pat_, t_):
                 t_ = re.sub(pat_, lambda m_: f'<a href="#scx-{slug(tgt)}">{m_.group(1)}</a>', t_, count=1); done_.add(tgt)
         return t_
-    S = [logo_css(), f'# 🏆 NFL Week {W} SuperContest Intelligence Report', '## Spread-Only Contest Card: Our Five, Every Side Ranked, and the Game-by-Game Case',
+    S = [logo_css(), f'# 🏆 NFL Week {W} SuperContest Intelligence Report', '## Spread-Only Dashboard AI Proposal, Every Side Ranked, and the Game-by-Game Case',
          '']
     S += roll('sc-top', 'sc-rules', '📋 How the SuperContest works') + [
-         '- **Five picks a week, against the contest\'s own point spreads** (locked for the whole week). No totals, moneylines or props: only sides.',
+         '- **Five picks a week, against the contest\'s own point spreads** (locked for the whole week). This report covers point-spread sides only.',
          '- **Scoring:** a win is 1 point, a push (lands exactly on the number) is ½, a loss is 0.',
          '- **Why the contest line matters:** the contest locks its lines early in the week, while sportsbook lines keep moving. When the contest gives our side a better number than the market does now, that is free value. When it gives a worse number, we are paying for it, and it matters most around **3 and 7**, the most common winning margins.'] + RE
     played = [z for z in SIDES if z['result']]
     S += roll('sc-top', 'sc-status', f'🚨 Contest status — Week {W}', True) + [
          f"- **Season so far:** {wins}–{losses}" + (f"–{pushes}" if pushes else '') + f" ({season_pts:g} of {season_n} points)" + ''.join(f" · Week {wk}: {sum(1 for r in rs if r['result']=='Win')}–{sum(1 for r in rs if r['result']=='Loss')}" for wk, rs in HIST) + '. [Review →](#sc-review)',
          f"- **Already played this week:** " + ('; '.join(f"{matchup(z['gid'], False)} — {z['side']} {z['lc']:+g} **{z['result']}**" for z in played if z['result'] == 'Win') or 'none') + '.',
-         f"- **Our five:** " + ' · '.join(f"{tl(t_)}**{t_} {l_:+g}**" for t_, l_ in card_sc) + (f" (alternate: {card_alt[0][0]} {card_alt[0][1]:+g})" if card_alt else '') + '.',
+         f"- **Dashboard AI proposal ({len(card_sc)} sides):** " + ' · '.join(f"{tl(t_)}**{t_} {l_:+g}**" for t_, l_ in card_sc) + (f" (alternate: {card_alt[0][0]} {card_alt[0][1]:+g})" if card_alt else '') + '.',
+          ("- **Slot 5:** Dashboard AI has no pick. Andy and Amanda will decide the separate official five later." if len(card_sc) < 5 else "- **Status:** This is the Dashboard AI proposal; Andy and Amanda will declare the official five separately."),
          f"- **Contest line better than the market right now:** " + (', '.join(f"{z['side']} {z['lc']:+g} (market {z['lm']:+g})" for z in live_sides if (z['val'] or 0) > 0) or 'none') + '.',
-         f"- **Key-number watch on our five:** " + (', '.join(f"{z['side']} {z['lc']:+g} {z['key']} vs the market ({z['lm']:+g})" for z in live_sides if z['side'] in our5 and z['key']) or 'none') + '.'] + RE
+         f"- **Key-number watch on the proposal:** " + (', '.join(f"{z['side']} {z['lc']:+g} {z['key']} vs the market ({z['lm']:+g})" for z in live_sides if z['side'] in our5 and z['key']) or 'none') + '.'] + RE
 
     # ⭐ Our five (Home tab): quick-link header, then two collapsible groups of brief cards
     def _mk(v): return ('%+g' % v) if v is not None else '—'
@@ -2655,10 +2772,10 @@ def main():
     def _chip(t_, l_):
         z = _zfor(t_, l_)
         return f"<a class='pk-chip' href='#sc5-{slug(t_)}' title='Jump to the {t_} breakdown'>{tl(t_)}<b>{t_} {l_:+g}</b></a>" if z else ''
-    S += ['', '<a id="sc-our-five"></a>', '## ⭐ Our Five: The Platinum Rose Contest Card', '',
-          '<div class="pk-quick"><div class="pk-qrow"><span class="pk-qlabel">⭐ Our five</span>' + ''.join(_chip(t_, l_) for t_, l_ in card_sc) + '</div>'
-          + ('<div class="pk-qrow"><span class="pk-qlabel">🔁 Alternates</span>' + ''.join(_chip(t_, l_) for t_, l_ in card_alt) + '</div>' if card_alt else '') + '</div>', '',
-          'The five sides we propose, with the short reason for each. The alternates are the swap-ins if one of the five falls through. Tap a side above to jump to its breakdown; every card and group collapses. Every other side is on the Ranked & Market tab.', '']
+    S += ['', '<a id="sc-our-five"></a>', '## ⭐ Dashboard AI Proposal for Andy & Amanda', '',
+          '<div class="pk-quick"><div class="pk-qrow"><span class="pk-qlabel">⭐ Dashboard AI proposal</span>' + ''.join(_chip(t_, l_) for t_, l_ in card_sc) + ("<span class='pk-chip' style='border-style:dashed;opacity:.75;cursor:default'><b>#5</b> No AI pick</span>" if len(card_sc) < 5 else '') + '</div>'
+          + ('<div class="pk-qrow"><span class="pk-qlabel">🔁 AI alternates</span>' + ''.join(_chip(t_, l_) for t_, l_ in card_alt) + '</div>' if card_alt else '') + '</div>', '',
+        f'The Dashboard AI proposal contains {len(card_sc)} sides, with a short reason for each. These selections are tracked as Dashboard AI picks, not as Andy and Amanda’s official card. ' + ('Slot 5 has no Dashboard AI pick; Andy and Amanda will decide and declare the official five separately. ' if len(card_sc) < 5 else 'Andy and Amanda will decide and declare the official five separately. ') + 'Alternates are proposal swap-ins if a recommended side falls through. Tap a side above to jump to its breakdown; every card and group collapses. Every other side is on the Ranked & Market tab.', '']
     def _card(t_, l_, is_five):
         z = _zfor(t_, l_)
         if not z: return []
@@ -2666,19 +2783,26 @@ def main():
         tag = '⭐' if is_five else '🔁'
         head = f"{tag} {tl(t_)}{FULL_NAME(t_)} {z['lc']:+g} — {matchup(z['gid'], False)} · {z['g']['k'].astimezone(PT):%a %H:%M PT}"
         out += roll('sc-five', f"sc5-{slug(t_)}", head, True)
-        out += [f"**Contest {z['side']} {z['lc']:+g}** · market now {_mk(z['lm'])}{(' (%+d)' % z['lm_price']) if z['lm'] is not None else ''} · line value {('%+.1f' % z['val']) if z['val'] is not None else '—'}{(' · ' + z['key']) if z['key'] else ''} · projected margin {_mk(z['marg'])} (room {('%+.1f' % z['cush']) if z['cush'] is not None else '—'}) · experts {z['nf']} – {z['na']}" + (f" · projection {proj_txt(z['gid'])}" if proj_txt(z['gid']) else ''), '']
+        _nf, _na = sc_expert_counts(z)
+        out += [f"**Contest {z['side']} {z['lc']:+g}** · market now {_mk(z['lm'])}{(' (%+d)' % z['lm_price']) if z['lm'] is not None else ''} · line value {('%+.1f' % z['val']) if z['val'] is not None else '—'}{(' · ' + z['key']) if z['key'] else ''} · projected margin {_mk(z['marg'])} (room {('%+.1f' % z['cush']) if z['cush'] is not None else '—'}) · spread experts {_nf} – {_na}" + (f" · projection {proj_txt(z['gid'])}" if proj_txt(z['gid']) else ''), '']
         note = SCNOTE.get(t_, '')
         if note: out += [f"🏆 **Why:** {esc(note)}", '']
-        w_ = gwhy(z['gid']); brk = gwhy(z['gid'], 'What breaks it')
-        if w_ or brk or z['key'].startswith('loses'):
-            out += roll('sc-more', f"sc5-{slug(t_)}-more", '🧠 The full case and what breaks it')
-            if w_: out += [f"🧠 **The case:** {link_sources(w_, z['gid'])}", '']
-            if brk: out += [f"⚠️ **What breaks it:** {link_sources(brk, z['gid'])}", '']
-            if z['key'].startswith('loses'): out += [f"🔑 **Key-number warning:** the market has this at {z['lm']:+g}, so the contest's {z['lc']:+g} costs us the half point around {z['key'].split()[-1]}. A {z['key'].split()[-1]}-point result is a win at the market number and a loss here.", '']
-            out += RE
-        out += [f"[Full game breakdown →](#sc-game-{slug(z['gid'])})"] + RE
+        out += roll('sc-more', f"sc5-{slug(t_)}-more", '🧠 Spread case and risk')
+        if note:
+            out += [f"🧠 **Spread case:** {esc(note)}", '']
+        elif z['marg'] is not None and z['cush'] is not None:
+            _forecast = f"projected to win by {abs(z['marg']):g}" if z['marg'] > 0 else f"projected to lose by {abs(z['marg']):g}" if z['marg'] < 0 else 'projected to finish even'
+            out += [f"🧠 **Spread case:** The saved projection has {FULL_NAME(t_)} {_forecast}; against the contest line {z['lc']:+g}, that leaves {z['cush']:+g} points of room.", '']
+        else:
+            out += [f"🧠 **Spread case:** Contest {z['side']} {z['lc']:+g} against the current BKR spread {_mk(z['lm'])}.", '']
+        if z['key'].startswith('loses'):
+            out += [f"🔑 **Key-number warning:** the market has this at {z['lm']:+g}, so the contest's {z['lc']:+g} costs us the half point around {z['key'].split()[-1]}. A {z['key'].split()[-1]}-point result is a win at the market number and a loss here.", '']
+        else:
+            out += [f"⚠️ **Spread risk:** the opponent covering the other side of the {z['lc']:+g} contest spread makes this pick a loss.", '']
+        out += RE
+        out += [f"[SuperContest game breakdown →](#sc-game-{slug(z['gid'])})"] + RE
         return out
-    S += roll('sc-group', 'sc-grp-five', f'⭐ Our five ({len(card_sc)} picks)', True)
+    S += roll('sc-group', 'sc-grp-five', f'⭐ Dashboard AI proposal ({len(card_sc)} sides)', True)
     for t_, l_ in card_sc: S += _card(t_, l_, True)
     S += RE
     if card_alt:
@@ -2752,7 +2876,7 @@ def main():
     if SPL:
         try: _w = datetime.datetime.fromisoformat(max(r_['captured_at'] for r_ in SPL.values())).astimezone(PT).strftime('%a %b %d %H:%M PT')
         except Exception: _w = 'unknown time'
-        S += [f"Spread splits only. Bars show the share of bets (tickets) and the share of money on each side of the spread, as on Action Network. Totals and moneylines are in the Master Intelligence Report. Captured {_w}, so it can lag the market. 💰 = the money share beats the bets share by 15+ points (big-money side). A game with no posted spread split says so.", '',
+        S += [f"Spread splits only. Bars show the share of bets (tickets) and the share of money on each side of the spread, as on Action Network. Captured {_w}, so it can lag the market. 💰 = the money share beats the bets share by 15+ points (big-money side). A game with no posted spread split says so.", '',
               '<div class="sp-legend"><span><i class="sp-k bets"></i>% of bets</span><span><i class="sp-k money"></i>% of money</span></div>']
         def _bar(lab, v, cls):
             return f'<div class="sp-row {cls}"><span class="sp-lab">{lab}</span><span class="sp-bar"><i style="width:{v}%"></i></span><b>{v}%</b></div>'
@@ -2782,38 +2906,53 @@ def main():
     S += RE
     # 3. expert panel
     S += ['', '<a id="sc-experts"></a>', '## 3. The Expert Panel: Who Is on Which Side', '',
-          'Every spread or moneyline pick a named expert made this week, lined up against our five. Moneyline picks count as the side (a team to win outright also covers as an underdog).', '']
+          'Every verified point-spread pick a named expert made this week, lined up against our five.', '']
     byx = collections.defaultdict(list)
     for g in live:
         for r in EXP.get(g['id'], []):
-            if r.get('pick_type') not in ('spread', 'moneyline', 'teaser'): continue
+            if r.get('pick_type') != 'spread': continue
             tm = teams_in(str(r.get('selection') or '')) & {g['visitor'], g['home']}
             if len(tm) == 1: byx[r.get('expert') or '?'].append((list(tm)[0], g['id'], r))
         for p_ in YT.get(g['id'], []):
-            if yt_kind(p_) != 'Side': continue
+            if str(p_.get('market') or '').lower() != 'spread': continue
             tm = teams_in(p_['pick']) & {g['visitor'], g['home']}
             if len(tm) == 2:
                 pos = {t_: re.search(r'\b' + t_ + r'\b', p_['pick']) for t_ in tm}
                 tm = {min((t_ for t_ in tm if pos[t_]), key=lambda t_: pos[t_].start())} if any(pos.values()) else tm
             if len(tm) == 1: byx[p_['speaker']].append((list(tm)[0], g['id'], dict(selection=p_['pick'], line=(p_.get('raw') or {}).get('line'), price=p_.get('price'), yt=True)))
+    _panel_votes = collections.defaultdict(set)
+    _panel_game = {}
+    for _ex, _lst in byx.items():
+        _per_game = collections.defaultdict(collections.Counter)
+        for _team, _gid, _r in _lst: _per_game[_gid][_team] += 1
+        for _gid, _counts in _per_game.items():
+            _top = max(_counts.values())
+            _leaders = [t_ for t_, n_ in _counts.items() if n_ == _top]
+            if len(_leaders) == 1:
+                _team = _leaders[0]
+                _panel_votes[_team].add(_ex); _panel_game[_team] = _gid
+    _panel_ranked = sorted(_panel_votes, key=lambda t_: (-len(_panel_votes[t_]), t_))
+    S += ['### Pick Summary — sides experts named most',
+          'Each expert counts once per game on the side they named most; an expert split between both teams is omitted. The current BKR spread is shown as a reference quote.',
+          '| Rank | Side | Experts | Current BKR spread | Game | Names |', '|---|---|---:|---|---|---|']
+    for _i, _team in enumerate(_panel_ranked, 1):
+        _gid = _panel_game[_team]; _q = ((G.get(_gid) or {}).get('sp') or {}).get(_team)
+        _bkr = f"{_team} {_q[0]:+g} ({_q[1]:+d})" if _q and _q[0] is not None and _q[1] is not None else (f"{_team} {_q[0]:+g}" if _q and _q[0] is not None else '—')
+        S.append(f"| {_i} | {tl(_team)}{_team} | {len(_panel_votes[_team])} | {_bkr} | {matchup(_gid, False)} | {esc(', '.join(sorted(_panel_votes[_team])))} |")
+    if not _panel_ranked: S.append('| — | — | 0 | — | — | No verified side picks |')
+    S.append('')
     _CITED = collections.defaultdict(list)
     for _ex, _lst in byx.items():
         for _t, _g, _r in _lst:
             try: _v = float(_r.get('line')) if _r.get('line') is not None else None
             except Exception: _v = None
-            if _v is not None and abs(_v) < 40 and _r.get('pick_type') != 'teaser' and not (_r.get('pick_type') == 'moneyline'): _CITED[(_t, _g)].append(_v)
+            if _v is not None and abs(_v) < 40 and _r.get('pick_type') == 'spread': _CITED[(_t, _g)].append(_v)
     def _xl(q):
         # line for one expert pick: as cited if the expert/transcript gave it, otherwise estimated from the Bookmaker line we hold (marked ~)
         tm_, gid_, r_ = q; ln = r_.get('line'); sel = str(r_.get('selection') or '')
         try: v = float(ln) if ln is not None else None
         except Exception: v = None
-        is_ml = r_.get('pick_type') == 'moneyline' or bool(re.search(r'\bML\b|moneyline', sel, re.I))
-        if v is not None and abs(v) >= 100: return f" **ML {int(v):+d}**"
-        if v is not None and not is_ml:
-            return f" **{v:+g}**" + (' (teaser)' if r_.get('pick_type') == 'teaser' else '')
-        if is_ml and r_.get('yt') and r_.get('price'):
-            try: return f" **ML {int(r_['price']):+d}**"
-            except Exception: pass
+        if v is not None and abs(v) < 40: return f" **{v:+g}**"
         # 1) other experts' cited lines on this same side this week (the number the market was offering when picks were made), 2) the opening line, 3) the line we hold now
         oth = sorted(x_ for x_ in _CITED.get((tm_, gid_), []) if x_ is not r_.get('_self'))
         est = oth[len(oth) // 2] if oth else None
@@ -2823,11 +2962,11 @@ def main():
         if est is None:
             mk = ((G.get(gid_) or {}).get('sp') or {}).get(tm_)
             est = mk[0] if mk and mk[0] is not None else None
-        if est is not None: return f" ~{est:+g}" + (' ML' if is_ml else '') + ' (est.)'
+        if est is not None: return f" ~{est:+g} (est.)"
         return ' (line n/a)'
     xgroups = collections.defaultdict(list)
     for ex_, lst in byx.items(): xgroups[EXPERT_SHOW.get(ex_) or _yt_show(ex_) or 'Other / independent'].append((ex_, lst))
-    S += ['Experts are grouped by the show or network their picks came from. Each group opens and closes on its own. The number after each team is the line the expert cited (bold). A ~ number with "est." means the expert did not state a line, so it is estimated from what other experts cited for that side this week, then the opening line, then the current Bookmaker number.', '']
+    S += ['Experts are grouped by the show or network their picks came from. Each group opens and closes on its own. The number after each team is the spread the expert cited (bold). A ~ number with "est." means the expert did not state a spread, so it is estimated from what other experts cited for that side this week, then the opening spread, then the current BKR spread.', '']
     for gname, items in sorted(xgroups.items(), key=lambda kv: (kv[0].startswith('Other'), -sum(len(l_) for _, l_ in kv[1]))):
         items = sorted(items, key=lambda kv: -len(kv[1]))
         S += roll('sc-exp', f'sc-exp-{slug(gname)}', f"🎙️ {esc(gname)} — {len(items)} expert{'s' if len(items) != 1 else ''}: {', '.join(esc(e_) for e_, _ in items)}", True)
@@ -2840,7 +2979,7 @@ def main():
         S += RE
     # 4. game by game
     S += ['', '<a id="sc-games"></a>', '## 4. Game-by-Game Spread-Only Breakdowns', '',
-          'Every game on the contest board, in kickoff order: the contest line, both sides\' room against it, and the case for each side.', ''] + controls('sc-game', 'games')
+          'Every game on the contest board, in kickoff order: the contest line, both sides\' room against it, and side-specific evidence. Only evidence that bears on a side is included here.', ''] + controls('sc-game', 'games')
     for x in sorted(scl['games'], key=lambda x: next((g['k'] for g in sched if g['id'] == sc_gid(x)), datetime.datetime.max.replace(tzinfo=datetime.timezone.utc))):
         gid = sc_gid(x)
         if not gid: continue
@@ -2858,43 +2997,146 @@ def main():
               f"| Line value vs market | {('%+.1f' % f_['val']) if f_['val'] is not None else '—'} | {('%+.1f' % d_['val']) if d_['val'] is not None else '—'} |",
               f"| Our projected margin | {('%+g' % f_['marg']) if f_['marg'] is not None else '—'} | {('%+g' % d_['marg']) if d_['marg'] is not None else '—'} |",
               f"| Room vs contest line | {('%+.1f' % f_['cush']) if f_['cush'] is not None else '—'} | {('%+.1f' % d_['cush']) if d_['cush'] is not None else '—'} |",
-              f"| Experts on this side | {f_['nf']} | {d_['nf']} |",
+              f"| Spread experts on this side | {sc_expert_counts(f_)[0]} | {sc_expert_counts(d_)[0]} |",
               f"| Big money on the spread | {'💰' if f_['bm'] else ''} | {'💰' if d_['bm'] else ''} |",
               f"| Contest rank | {f_.get('rank', '—')} | {d_.get('rank', '—')} |", '']
-        for t_, body in (NAR.get(gid) or {}).get('secs', []):
-            S += [f"**{ {'game script': '📖', 'why the card leans this way': '🧠', 'what breaks it': '⚠️'}.get(t_.lower(), '•') } {t_}**", '', link_sources(' '.join(body.split()), gid), '']
-        sp_ex = [r for r in EXP.get(gid, []) if r.get('pick_type') in ('spread', 'moneyline', 'teaser')]
+        _context = next((SCNOTE.get(t_) for t_, _ in card_sc + card_alt if SCNOTE.get(t_) and any(gg['id'] == gid and t_ in (gg['visitor'], gg['home']) for gg in sched)), '')
+        if _context: S += [f"**Selected-side evidence:** {esc(_context)}", '']
+        sp_ex = [r for r in EXP.get(gid, []) if r.get('pick_type') == 'spread']
         if sp_ex:
             S += roll('sc-game-sub', f"sc-game-{slug(gid)}-experts", f"🎙️ Expert spread picks ({len(sp_ex)})") + [
-                  f"- {link_sources(r.get('expert') or '?', gid)}: **{esc(r.get('selection'))}** {esc(r.get('line') or '')} — {esc(r.get('rationale'))[:150]}" for r in sp_ex] + RE
-        trs = [z_ for z_ in TR if z_['gid'] == gid and z_['kind'] != 'Totals']
-        if trs:
-            S += roll('sc-game-sub', f"sc-game-{slug(gid)}-trends", f"📐 Trends pointing to a side ({len(trs)})") + [
-                  f"- {esc(z_['txt'])[:200]} → **{esc(z_['pick'])[:50]}** ({link_sources(z_['src'], gid)})" for z_ in trs] + RE
-        S += [f"[Full Master Intel write-up for this game →]({'nfl_week%d_master_betting_intelligence_summary.html' % W}#{gsid(gid)})"] + RE
+                  f"- {link_sources(r.get('expert') or '?', gid)}: **{esc(r.get('selection'))}** {esc(r.get('line') or '')}" for r in sp_ex] + RE
+        S += [f"[Game-by-game spread analysis →](#sc-game-{slug(gid)})"] + RE
     # 5. review + rules
-    S += ['', '<a id="sc-review"></a>', '## 5. Season Review & Contest Rules of Thumb', '']
-    for wk, rs in HIST:
-        S += roll('sc-review', f"sc-week-{wk}", f"📉 Week {wk}: {sum(1 for r in rs if r['result']=='Win')}–{sum(1 for r in rs if r['result']=='Loss')}" + (f"–{sum(1 for r in rs if r['result']=='Push')}" if any(r['result']=='Push' for r in rs) else '') + f" ({pts(rs):g} pts)") + [
-              '| Pick | Result | Final | Margin vs line | Note |', '|---|---|---|---|---|'] + [
-              f"| {esc(r['pick'])} | {'✅' if r['result']=='Win' else '➖' if r['result']=='Push' else '❌'} {r['result']} | {r.get('final','')} | {('%+g' % r['margin']) if r.get('margin') is not None else ''} | {r.get('note','')} |" for r in rs] + RE
+    standings_path = ROOT / f'data/supercontest/standings-week-{WW}-{D}.md'
+    standings_lines = standings_path.read_text(encoding='utf-8').strip().splitlines() if standings_path.exists() else []
+    ai_review_path = ROOT / 'data/supercontest/dashboard-ai-review-2026.json'
+    ai_review = json.loads(ai_review_path.read_text(encoding='utf-8')) if ai_review_path.exists() else {}
+    review_weeks = ai_review.get('weeks', [])
+    graded_weeks = [r for r in review_weeks if r.get('status') == 'graded']
+    source_note = ''
+    S += ['', '<a id="sc-review"></a>', '## 5. SuperContest Standings & Season Review', '']
+    if standings_lines:
+        # Surface Amanda Rose's current point gaps and the fifth-place payout cutoff
+        # before the full standings tables. Snapshot has points, not W-L records.
+        standings_text = '\n'.join(standings_lines)
+        parsed = {}
+        for section, body in re.findall(r'^###\s+([^\n]+)\n(.*?)(?=^###\s+|\Z)', standings_text, re.M | re.S):
+            rows = []
+            for line in body.splitlines():
+                if not line.startswith('|'): continue
+                cells = [x.strip() for x in line.strip().strip('|').split('|')]
+                if cells and not all(re.fullmatch(r'[-: ]+', x or ' ') for x in cells): rows.append(cells)
+            if rows: parsed[section.lower()] = rows
+        overall_rows = next((v for k, v in parsed.items() if 'overall' in k), [])
+        quarterly_rows = next((v for k, v in parsed.items() if 'quarter' in k), [])
+        def standings_values(rows, heading):
+            if len(rows) < 2: return None
+            header = [x.lower() for x in rows[0]]
+            player_col = next((i for i, x in enumerate(header) if x == 'player'), 0)
+            score_col = next((i for i, x in enumerate(header) if x in (heading, 'qtrly score', 'quarterly score')), 1)
+            data = rows[1:]
+            def value(row):
+                try: return float(row[score_col].replace(',', ''))
+                except (IndexError, ValueError): return None
+            amanda = next((r for r in data if len(r) > player_col and r[player_col].strip().lower() == 'amanda rose'), None)
+            scores = sorted((value(r) for r in data if value(r) is not None), reverse=True)
+            return (value(amanda), scores[0] if scores else None, scores[4] if len(scores) >= 5 else None)
+        overall = standings_values(overall_rows, 'total score')
+        quarterly = standings_values(quarterly_rows, 'qtrly score')
+        if overall and overall[0] is not None:
+            S += [f'**Amanda Rose — Overall:** {overall[0]:g} points; **GB:** {overall[1]-overall[0]:g}; {overall[2]-overall[0]:g} points below the current fifth-place payout score ({overall[2]:g}).']
+        if quarterly and quarterly[0] is not None:
+            S += [f'**Amanda Rose — Quarterly:** {quarterly[0]:g} points; **GB:** {quarterly[1]-quarterly[0]:g}. The quarter ends after Week 8.']
+        if graded_weeks:
+            ai_points = sum(float(r.get('ai_score', 0)) for r in graded_weeks)
+            amanda_points = sum(float(r.get('official_score', 0)) for r in graded_weeks)
+            S += [f'**Dashboard AI total:** {ai_points:g}/{5 * len(graded_weeks)} points.']
+        S += ['']
+        # In the HTML report, keep each standings table independently collapsible.
+        # The DOCX converter treats these summaries as normal section labels.
+        rendered_standings = []
+        standings_open = False
+        source_note = standings_lines[0] if standings_lines and standings_lines[0].startswith('Source: ') else ''
+        standings_content = standings_lines[1:] if source_note else standings_lines
+        for standings_line in standings_content:
+            heading = re.match(r'^###\s+(Overall standings|Quarterly leaderboard)\s*$', standings_line, re.I)
+            if heading:
+                if standings_open: rendered_standings.append('</details>')
+                title = heading.group(1)
+                ident = 'sc-overall-standings' if title.lower().startswith('overall') else 'sc-quarterly-standings'
+                rendered_standings += [f'<details class="rollup-box sc-standings-table" id="{ident}">', f'<summary>{title}</summary>']
+                standings_open = True
+            else:
+                rendered_standings.append(standings_line)
+        if standings_open: rendered_standings.append('</details>')
+        S += rendered_standings + ['', '<details class="rollup-box" id="sc-card-record">', '<summary>Platinum Rose card record — weekly review</summary>', '<div class="rollup-content">', '']
+    else:
+        S += ['_No supplied SuperContest standings snapshot was found for this build._', '', '<details class="rollup-box" id="sc-card-record">', '<summary>Platinum Rose card record — weekly review</summary>', '<div class="rollup-content">', '']
+    if ai_review:
+        ai_pts = sum(float(r.get('ai_score', 0)) for r in graded_weeks)
+        official_pts = sum(float(r.get('official_score', 0)) for r in graded_weeks)
+        S += ['', f"**Dashboard AI total:** {ai_pts:g}/{5 * len(graded_weeks)} points.", '', '_Pick assessment: near-miss is 3 or fewer ATS points short; completely off is 10 or more points short._', '']
+    history_by_week = {wk: rs for wk, rs in HIST}
+    for review_row in review_weeks:
+        wk = int(review_row.get('week', 0) or 0)
+        official_rows = history_by_week.get(wk, [])
+        official_file = J(f'data/supercontest/locked-card-week-{wk}.json', []) or []
+        amanda_picks = sc_review.grade_picks(wk, official_file) if official_file else []
+        amanda_score = sc_review.score_picks(amanda_picks)
+        ai_picks = sc_review.grade_picks(wk, review_row.get('ai_picks', []))
+        ai_card_score = sc_review.score_picks(ai_picks)
+        amanda_summary = amanda_score['summary'] if official_file else 'awaiting frozen five'
+        if amanda_score['unknown']: amanda_summary += f" · {amanda_score['unknown']} ungraded"
+        ai_summary = ai_card_score['summary'] if review_row.get('ai_picks') else 'not comparable'
+        S += roll('sc-review sc-week-review', f'sc-week-review-{wk}', f"📉 Week {wk}: Amanda {amanda_summary} · Dashboard AI {ai_summary}")
+
+        def review_table(label, rows):
+            out = [f'### {label}', '', '| Pick | Result | Final | Margin vs line | Pick assessment | Game post-mortem |', '|---|---|---|---:|---|---|']
+            for item in rows:
+                mark = '✅' if item.get('result') == 'Win' else ('➖' if item.get('result') == 'Push' else ('❌' if item.get('result') == 'Loss' else '—'))
+                margin = '%+g' % item['margin'] if item.get('margin') is not None else '—'
+                assessment = esc(sc_review.pick_postmortem(wk, item, review_row).get('assessment', ''))
+                details = sc_review.postmortem_html(wk, item, review_row).replace('|', '&#124;')
+                out.append(f"| {esc(item.get('pick', ''))} | {mark} {esc(item.get('result', '?'))} | {esc(item.get('final', '—'))} | {margin} | {assessment} | {details} |")
+            return out
+
+        if amanda_picks:
+            S += review_table(f"Amanda — official card: {amanda_score['summary']}", amanda_picks)
+            if amanda_score['unknown']:
+                S += ['', f"_Ungraded picks excluded from score: {amanda_score['unknown']}._"]
+        else:
+            S += ['### Amanda — official card', '', '_No frozen official card is preserved for this week._']
+        if review_row.get('ai_picks'):
+            S += [''] + review_table(f"Dashboard AI — frozen five: {ai_card_score['summary']}", ai_picks)
+        elif review_row.get('status') == 'missing_snapshot':
+            S += ['', '### Dashboard AI — not comparable', '', f"_No complete frozen five-pick recommendation set was preserved. {esc(review_row.get('dashboard_why') or review_row.get('note', ''))}_"]
+        else:
+            S += ['', '### Dashboard AI proposal', '', f"_{esc(review_row.get('note', 'Results pending; the Dashboard AI proposal is tracked separately from Andy and Amanda’s official contest five.'))}_"]
+        if review_row.get('source'):
+            S += ['', f"_Review source: {esc(review_row['source'])}_"]
+        S += ['', '</div>', '</details>', '']
     hooks = [r for _, rs in HIST for r in rs if r.get('note')]
     S += ['', '**Rules of thumb we carry forward:**', '',
           '- **Contest-vs-market value first.** The one Week 1 winner was the pick with the best contest-vs-market number. Prefer sides where the contest gives more points than the market does now.',
           f"- **Respect 3 and 7.** " + (f"Last week {', '.join(r['pick'] for r in hooks)} lost by the half point." if hooks else 'Half points around 3 and 7 decide contest weeks.') + ' A contest line that is worse than the market by a half point around those numbers needs a clearly stronger case.',
           '- **Spread the risk.** Avoid stacking picks that all need the same thing to happen (for example several games that all depend on a backup quarterback struggling).',
           '- **Agreement is a tiebreaker, not a reason.** A lopsided expert count helps, but heavy public agreement can already be priced into the market line.']
-    S += ['', '<a id="disclaimer"></a>',
+    S += ['', '</div>', '</details>', '']
+    if source_note:
+        caveat = '“Games behind” is expressed as a contest-points gap because this snapshot does not include win-loss records. The fifth-place score is a current cutoff reference; final ties follow contest rules.'
+        S += [f'<p class="sc-standings-footnote"><em>{esc(caveat)}</em><br>{esc(source_note)}</p>', '']
+    S += ['<a id="disclaimer"></a>',
           '<div class="legal-disclaimer" style="margin-top: 36px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 8px; background: var(--highlight); font-size: 0.82rem; line-height: 1.55; color: var(--muted);"><strong style="color: var(--text);">⚖️ Disclaimer — for entertainment purposes only.</strong> This report is opinion and research for entertainment and informational purposes. It is not financial, investment, legal or betting advice, and no result is guaranteed. Lines, injuries and availability change. Any pick or wager is your own decision, made at your own risk: the author and Platinum Rose accept no responsibility or liability for any outcome arising from use of this report. Play only where it is legal for you, and only if you are of legal age. If gambling stops being fun, help is available at 1-800-GAMBLER.</div>']
     SC_ICON = {'rec': '⭐', '1': '📊', '2': '⚖️', '3': '🎙️', '4': '🏈', '5': '📉'}
-    SC_PLAIN = {'rec': 'Our Five', '1': 'Every Side, Ranked', '2': 'Contest vs. Market', '3': 'The Expert Panel', '4': 'Game-by-Game', '5': 'Season Review'}
+    SC_PLAIN = {'rec': 'Dashboard AI Proposal', '1': 'Every Side, Ranked', '2': 'Contest vs. Market', '3': 'The Expert Panel', '4': 'Game-by-Game', '5': 'Standings & Review'}
     SC_TIP = {'rec': 'The five contest picks on this week\'s card, each with the case for it, plus the pick sheet to settle your joint five.',
               '1': 'Every side still to be played, ranked for the contest by room against the line, contest-vs-market value, experts and big money.',
               '2': 'Where the contest\'s locked line is better or worse than the sportsbook line right now.',
               '3': 'Which named experts are on which sides, and where they agree or disagree with our five.',
               '4': 'Each game on the contest board: both sides\' numbers and the write-up.',
-              '5': 'How our contest picks have done this season, and the lessons we carry forward.'}
-    S, STOC = wrap_sections(S, icons=SC_ICON, names={'rec': 'Our Five — the Platinum Rose contest card'})
+              '5': 'The current overall and quarterly contest standings, our card record and the lessons we carry forward.'}
+    S, STOC = wrap_sections(S, icons=SC_ICON, names={'rec': 'Dashboard AI Proposal — Platinum Rose contest card'})
     sc_side = ('<div class="side-toc" id="side-toc"><div class="side-toc-title">Contents</div>'
                + ''.join(f'<a href="#{rid}" data-tip="{SC_TIP.get(num, "")}" onclick="document.body.classList.remove(\'toc-open\')"><span class="toc-ico">{SC_ICON.get(num, "📄")}</span><span class="toc-txt">{(num + ". ") if num[0].isdigit() else ""}{SC_PLAIN.get(num, name)}</span></a>' for rid, num, name in STOC)
                + '<a href="#sc-pick-sheet" data-tip="Tick your joint five and copy them."><span class="toc-ico">✍️</span><span class="toc-txt">Pick Sheet</span></a>'
@@ -2919,28 +3161,6 @@ def main():
     if not a.no_export:
         convert_summary.generate_docx(str(smd), str(smd.with_suffix('.docx')))
         convert_summary.generate_html(str(smd), str(smd.with_suffix('.html')))
-        try:
-            mh_ = (out_dir / f'nfl_week{W}_master_betting_intelligence_summary.html').read_text(encoding='utf-8')
-            sp_ = smd.with_suffix('.html'); sh_ = sp_.read_text(encoding='utf-8')
-            parts_ = []
-            for x_ in scl['games']:
-                gid_ = sc_gid(x_)
-                if not gid_: continue
-                m_ = re.search(r'<details[^>]*\bid="game-' + re.escape(slug(gid_)) + r'-box"[^>]*>', mh_)
-                if not m_: continue
-                i_ = m_.start(); d_ = 0; j_ = None
-                for t_ in re.finditer(r'<details\b|</details>', mh_[i_:]):
-                    d_ += 1 if t_.group(0).startswith('<details') else -1
-                    if d_ == 0: j_ = i_ + t_.end(); break
-                if j_: parts_.append(mh_[i_:j_])
-            if parts_:
-                store_ = '<div id="mi-store" hidden aria-hidden="true">' + ''.join(parts_) + '</div>\n'
-                k_ = sh_.rfind('</body>')
-                sh_ = sh_[:k_] + store_ + sh_[k_:] if k_ > -1 else sh_ + store_
-                sp_.write_text(sh_, encoding='utf-8')
-                print(f'embedded {len(parts_)} Master Intel game write-ups in the SuperContest report')
-            else: print('GAP: no Master Intel game write-ups found to embed')
-        except Exception as e_: print(f'GAP: Master Intel write-ups not embedded ({e_})')
 
 if __name__ == '__main__':
     main()

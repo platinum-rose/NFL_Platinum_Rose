@@ -1,0 +1,90 @@
+{
+  "schema": "supercontest_dashboard_ai_review_v1",
+  "season": 2026,
+  "scoring": {
+    "win": 1,
+    "push": 0.5,
+    "loss": 0,
+    "basis": "Five spread-only SuperContest picks at their frozen contest lines"
+  },
+  "as_of_week": 6,
+  "weeks": [
+    {
+      "week": 1,
+      "status": "graded",
+      "source": "dist/locked-card-week-1.json; reports/bets/season-recap/week1-post-mortem.html; reports/bets/season-recap/w1gamesum.json; saved ESPN box scores",
+      "note": "The frozen Week 1 Dashboard card was recovered from dist/locked-card-week-1.json and graded against completed ESPN box scores. It is the same five spread selections as the saved official card.",
+      "ai_score": 1,
+      "official_score": 1,
+      "ai_picks": ["TB +3.5", "IND +3.5", "PIT -3.5", "DAL -3", "CAR +3"],
+      "review": "Both frozen five-side cards went 1–4 (1 point). PIT -3.5 covered by 3.5 points; TB +3.5, IND +3.5, DAL -3, and CAR +3 failed to cover. Dallas lost 28–20 to the Giants, so DAL -3 is graded as a loss rather than left ungraded.",
+      "dashboard_why": "The Dashboard five was TB +3.5, IND +3.5, PIT -3.5, DAL -3, and CAR +3. Only PIT covered. The underdog selections TB, IND, and CAR lost by 6, 18, and 22; DAL lost outright by 8. The saved results establish the score, while these outcomes show the card leaned too heavily on underdog sides and a Dallas favorite that lost outright.",
+      "amanda_why": "Amanda's official five matched the saved Dashboard card. PIT -3.5 was the only winner; TB +3.5, IND +3.5, DAL -3, and CAR +3 lost. Dallas's completed 20–28 loss to the Giants makes DAL -3 a graded loss, bringing the official Week 1 card to 1–4 (1 point)."
+    },
+    {
+      "week": 2,
+      "status": "graded",
+      "ai_score": 3,
+      "official_score": 2,
+      "ai_picks": ["MIN +5.5", "DEN -2.5", "NYJ +3.5", "MIA +13.5", "WAS +4.5"],
+      "official_picks": ["LAC -6.5", "WAS +4", "MIA +14", "LAR -6.5", "DEN -2.5"],
+      "review": "Dashboard side set went 3-2; MIN, DEN and NYJ covered. MIA and WAS lost by 22 and 17. Our official card went 2-3, losing LAC outright plus WAS and MIA; it retained the winning DEN and LAR sides.",
+      "dashboard_why": "MIA +13.5 and WAS +4.5 were the two misses, losing by 22 and 17 points; MIN +5.5, DEN -2.5 and NYJ +3.5 covered.",
+      "amanda_why": "LAC -6.5 lost outright, and WAS +4 and MIA +14 failed to cover. DEN -2.5 and LAR -6.5 were the two winners.",
+      "source": "reports/bets/season-recap/scripts/ai_recs_w2.py; reports/bets/season-recap/week2-post-mortem.html"
+    },
+    {
+      "week": 3,
+      "status": "graded",
+      "ai_score": 1,
+      "official_score": 1,
+      "ai_picks": ["TEN +2.5", "NYJ +6.5", "CIN -3.5", "JAX -3", "SF -8.5"],
+      "official_picks": ["TEN +2.5", "PHI -4.5", "CIN -3.5", "JAX -3", "SF -8.5"],
+      "review": "Both cards went 1-4. NYG beat TEN by 5, DET beat NYJ by 7 (the AI side missed by half a point), CIN lost outright, and SF won by only 6. JAX -3 was the lone winner on both. The PHI substitution also lost outright.",
+      "dashboard_why": "The misses were TEN +2.5 (NYG won by 5), NYJ +6.5 (DET won by 7, a half-point ATS miss), CIN -3.5 (lost outright), and SF -8.5 (won by only 6). JAX -3 was the lone winner.",
+      "amanda_why": "TEN +2.5, PHI -4.5, CIN -3.5 and SF -8.5 missed; NYG beat TEN by 5, PHI and CIN lost outright, and SF won by only 6. JAX -3 was the only winner.",
+      "source": "reports/bets/season-recap/work/container/w3/week3-post-mortem.html; reports/bets/2026-w03-card.md; reports/bets/season-recap/w3gamesum.json; data/supercontest/locked-card-week-3.json"
+    },
+    {
+      "week": 4,
+      "status": "graded",
+      "ai_score": 3,
+      "official_score": 4,
+      "ai_picks": ["ARI -2.5", "MIA +9.5", "LAR -3.5", "TEN +11.5", "DEN +2.5"],
+      "official_picks": ["SF -2.5", "ARI -1.5", "MIA +10.5", "LAR -3", "TEN +11.5"],
+      "review": "Both cards missed ARI. Dashboard also missed DEN +2.5; the official card took SF -2.5 instead, which covered. The other three picks won on both cards.",
+      "dashboard_why": "ARI -2.5 lost and DEN +2.5 did not cover; MIA +9.5, LAR -3.5 and TEN +11.5 covered.",
+      "amanda_why": "ARI -1.5 was the only miss. SF -2.5, MIA +10.5, LAR -3 and TEN +11.5 covered.",
+      "source": "reports/bets/season-recap/scripts/ai_recs_w4.py; reports/bets/season-recap/week4-post-mortem.html"
+    },
+    {
+      "week": 5,
+      "status": "graded",
+      "ai_score": 3,
+      "official_score": 0.5,
+      "ai_picks": ["TEN +7.5", "GB +3", "PIT -2.5", "BAL +3.5", "LAC +3.5"],
+      "official_picks": ["CIN -7", "ARI +5.5", "ATL -3.5", "LV +3.5", "NO +2.5"],
+      "review": "Pick-by-pick regrade corrected the earlier summary: Dashboard scored 3-2 because BAL +3.5 covered, while our reconstructed official five scored 0-4-1, with CIN -7 pushing and the other four missing. The Dashboard set was the dated card proposal, not a placed ticket.",
+      "dashboard_why": "TEN +7.5 and LAC +3.5 failed to cover; GB +3, PIT -2.5 and BAL +3.5 covered. Baltimore won outright 30-23 at Atlanta, so BAL +3.5 was a clear winner.",
+      "amanda_why": "ARI +5.5, ATL -3.5, LV +3.5 and NO +2.5 missed. CIN -7 pushed; there were no winning selections in the saved five. Atlanta lost outright 30-23 to Baltimore, so ATL -3.5 did not cover.",
+      "source": "reports/bets/2026-w05-card.md; reports/bets/season-recap/w5gamesum.json; data/supercontest/locked-card-week-5.json"
+    },
+    {
+      "week": 6,
+      "status": "graded",
+      "ai_score": 3,
+      "official_score": 4,
+      "ai_picks": ["CAR +1.5", "CLE +5.5", "ATL +3", "JAX -2.5", "GB -1.5"],
+      "official_picks": ["CLE +5.5", "CAR +1.5", "KC -7.5", "GB -1.5", "SF -7.5"],
+      "review": "The revised Dashboard five scored 3.0; the official five scored 4.0. CAR, CLE and GB were shared winners. The official card's KC side covered; SF -7.5 was its only miss. Dashboard ATL +3 and JAX -2.5 missed: CHI led ATL 31-7 before late scores, with ATL committing three turnovers, and HOU beat JAX 34-31 after a late go-ahead field goal. JAX's original projection used an unbacktested margin blend and the report flagged gusts.",
+      "dashboard_why": "ATL +3 and JAX -2.5 were the misses. Chicago led Atlanta 31–7 before late scores and Atlanta committed three turnovers; Houston beat Jacksonville 34–31 on a late go-ahead field goal. JAX's original projection used an unbacktested margin blend and the report had flagged gusts. CAR, CLE and GB covered.",
+      "amanda_why": "SF -7.5 was the lone miss. CAR, CLE, KC and GB covered; KC was the official-card difference versus the AI set.",
+      "source": "reports/bets/2026-w06-card.md; reports/analysis/week6-postmortem/w06-postmortem-narrative-2026-10-20.md; data/supercontest/locked-card-week-6.json"
+    },
+    {
+      "week": 7,
+      "status": "pending",
+      "note": "No final score until all games are complete and Andy and Amanda confirm the official five. Freeze the Dashboard five and contest lines before kickoff."
+    }
+  ]
+}

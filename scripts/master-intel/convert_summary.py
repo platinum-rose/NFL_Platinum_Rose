@@ -1070,7 +1070,8 @@ def generate_html(md_path, html_path):
                 if is_first:
                     t_html.append('<thead><tr>')
                 else:
-                    t_html.append('<tr>')
+                    is_our_entry = any('Amanda Rose' in c for c in cells)
+                    t_html.append('<tr class="sc-our-entry">' if is_our_entry else '<tr>')
                 for c in cells:
                     fmt = md_inline(c)
                     if not is_first:
@@ -3492,6 +3493,9 @@ document.addEventListener('keydown', (e) => {{
                 f'</span>')
 
     full_html = re.sub(r'(\d\.\d)\s+([★☆]{5})', _rep_star, full_html)
+
+    # Highlight the report owner's row in the SuperContest standings tables.
+    full_html = full_html.replace('</head>', '<style>.sc-our-entry{background:rgba(242,193,78,.18)!important;outline:1px solid rgba(242,193,78,.55);font-weight:700}.sc-our-entry td:first-child:before{content:"★ ";color:#9a6c00}</style></head>')
 
     Path(html_path).write_text(full_html, encoding='utf-8')
     print(f"Successfully generated HTML: {html_path}")
