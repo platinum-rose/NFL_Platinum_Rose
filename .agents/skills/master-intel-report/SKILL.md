@@ -22,6 +22,7 @@ description: Build the weekly Platinum Rose Master Intel Report (Saturday night,
 5. Final build: `python3 scripts/master-intel/build.py --week <N> --date <capture-date>` (md, html, docx, json). It re-runs the roster gate and exits on any BLOCK.
 5b. **SuperContest format gate:** the build must print `SuperContest format gate: PASS` (or run `python3 scripts/master-intel/check_sc_report.py --week <N>`). The locked template is `docs/reference/supercontest-report-locked-w07.html`. Don't send on FAIL.
 6. `python3 scripts/master-intel/export_pdf.py dist/nfl_week<N>_master_packet/nfl_week<N>_master_betting_intelligence_summary.html` (pdf).
+6b. **Paper-track the card:** `python3 scripts/paper_from_card.py --week <N> --date <Sunday date>`, then `node scripts/generate-live-tracker.mjs --week <N>`. Every Platinum Rose card ticket shows in the Live Tracker's 📝 Imaginary section for accuracy tracking (imaginary money, never in cash totals or the bankroll). Re-run it whenever the card changes.
 7. QA (format doc §6), then archive the five files to Google Drive: `Platinum Rose / Master Intel / <season> / Week <NN>`.
 
 **Never:** hand-edit the output files, redesign the layout without Andy's OK, click anything on a sportsbook, write to Supabase, place bets, or `git add -A`.
