@@ -26978,5 +26978,318 @@
     "settled_payout_usd": 0,
     "profit_usd": -5.0,
     "graded_at": "2026-10-25T16:42:42Z"
+  },
+  {
+    "date": "2026-10-25",
+    "season": 2026,
+    "week": 7,
+    "game": "Week 7 SuperContest multi-game",
+    "book": "Bookmaker",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "status": "PENDING",
+    "result": null,
+    "is_split": false,
+    "split_partner": null,
+    "placed_at": "2026-10-25T10:23:00-07:00",
+    "platinum_rose_source": "Week 7 official SuperContest five (Andy & Amanda): GB, LV, ARI, CIN, ATL; data/supercontest/locked-card-week-7.json",
+    "id": "bet_20261025_bkr_740807158_sc_compact_rr_2s",
+    "ticket_number": "740807158",
+    "book_ticket_number": "740807158",
+    "game_title": "BKR SuperContest compact round robin by 2s (GB +4, LV +4, ARI +4.5, CIN +3, ATL +4)",
+    "ticket_type": "Compact Round Robin (5 Selections, 2-Team Combinations, 10 Parlays)",
+    "category": "Round Robin",
+    "cash_risk_usd": 15,
+    "stake_usd": 15,
+    "units": 1.5,
+    "odds_american": null,
+    "odds_decimal": null,
+    "potential_profit_usd": 32.62,
+    "potential_payout_usd": 47.62,
+    "external_url": "https://be.bookmaker.eu/#ticket_740807158",
+    "needs_confirmation": [
+      "funding_type (assumed cash)"
+    ],
+    "progress_notes": "Andy 2026-10-25: Bookmaker COMPACT ROUND ROBIN (10P-2T) ticket 740807158 on the official Week 7 SuperContest five, placed 10:23 AM PT. Risk $15.00 (10 x $1.50), Win $32.62 (slip, all legs winning). CIN +3 (-179) and ATL +4 (-131) bought live. Book lines differ from contest lines (contest: CIN +2.5, GB +3.5, ATL +3.5, LV +4, ARI +4.5). Per-combo to-win values computed from leg prices; they sum to the slip total of $32.62.",
+    "legs": [
+      {
+        "leg_num": 1,
+        "game": "GB @ DET",
+        "team": "GB",
+        "opponent": "DET",
+        "market": "spread",
+        "selection": "Green Bay Packers +4",
+        "line": 4,
+        "price": "-113",
+        "game_start": "10/25/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_740807158_1_gb_p4",
+        "target_stat": "spread",
+        "source": "Bookmaker"
+      },
+      {
+        "leg_num": 2,
+        "game": "LAR @ LV",
+        "team": "LV",
+        "opponent": "LAR",
+        "market": "spread",
+        "selection": "Las Vegas Raiders +4",
+        "line": 4,
+        "price": "-128",
+        "game_start": "10/25/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_740807158_2_lv_p4",
+        "target_stat": "spread",
+        "source": "Bookmaker"
+      },
+      {
+        "leg_num": 3,
+        "game": "DEN @ ARI",
+        "team": "ARI",
+        "opponent": "DEN",
+        "market": "spread",
+        "selection": "Arizona Cardinals +4.5",
+        "line": 4.5,
+        "price": "-108",
+        "game_start": "10/25/2026 @ 01:05 PM",
+        "status": "PENDING",
+        "key": "leg_740807158_3_ari_p45",
+        "target_stat": "spread",
+        "source": "Bookmaker"
+      },
+      {
+        "leg_num": 4,
+        "game": "CIN @ BAL",
+        "team": "CIN",
+        "opponent": "BAL",
+        "market": "spread",
+        "selection": "Cincinnati Bengals +3",
+        "line": 3,
+        "price": "-179",
+        "game_start": "10/25/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_740807158_4_cin_p3",
+        "target_stat": "spread",
+        "source": "Bookmaker",
+        "note": "Bought live (game in progress at 10:23 AM PT placement)"
+      },
+      {
+        "leg_num": 5,
+        "game": "SF @ ATL",
+        "team": "ATL",
+        "opponent": "SF",
+        "market": "spread",
+        "selection": "Atlanta Falcons +4",
+        "line": 4,
+        "price": "-131",
+        "game_start": "10/25/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_740807158_5_atl_p4",
+        "target_stat": "spread",
+        "source": "Bookmaker",
+        "note": "Bought live (game in progress at 10:23 AM PT placement)"
+      }
+    ],
+    "round_robin": {
+      "selection_count": 5,
+      "teams_per_combination": 2,
+      "combination_count": 10,
+      "stake_per_combination_usd": 1.5,
+      "combinations": [
+        {
+          "teams": [
+            "GB",
+            "LV"
+          ],
+          "stake_usd": 1.5,
+          "to_win_usd": 3.54
+        },
+        {
+          "teams": [
+            "GB",
+            "ARI"
+          ],
+          "stake_usd": 1.5,
+          "to_win_usd": 3.95
+        },
+        {
+          "teams": [
+            "GB",
+            "CIN"
+          ],
+          "stake_usd": 1.5,
+          "to_win_usd": 2.91
+        },
+        {
+          "teams": [
+            "GB",
+            "ATL"
+          ],
+          "stake_usd": 1.5,
+          "to_win_usd": 3.49
+        },
+        {
+          "teams": [
+            "LV",
+            "ARI"
+          ],
+          "stake_usd": 1.5,
+          "to_win_usd": 3.65
+        },
+        {
+          "teams": [
+            "LV",
+            "CIN"
+          ],
+          "stake_usd": 1.5,
+          "to_win_usd": 2.66
+        },
+        {
+          "teams": [
+            "LV",
+            "ATL"
+          ],
+          "stake_usd": 1.5,
+          "to_win_usd": 3.21
+        },
+        {
+          "teams": [
+            "ARI",
+            "CIN"
+          ],
+          "stake_usd": 1.5,
+          "to_win_usd": 3.0
+        },
+        {
+          "teams": [
+            "ARI",
+            "ATL"
+          ],
+          "stake_usd": 1.5,
+          "to_win_usd": 3.59
+        },
+        {
+          "teams": [
+            "CIN",
+            "ATL"
+          ],
+          "stake_usd": 1.5,
+          "to_win_usd": 2.62
+        }
+      ],
+      "settlement_method": "sum of winning 2-team parlays"
+    }
+  },
+  {
+    "date": "2026-10-25",
+    "season": 2026,
+    "week": 7,
+    "game": "Week 7 SuperContest multi-game",
+    "book": "Bookmaker",
+    "funding_type": "cash",
+    "is_promo_credit": false,
+    "status": "PENDING",
+    "result": null,
+    "is_split": false,
+    "split_partner": null,
+    "placed_at": "2026-10-25T10:23:00-07:00",
+    "platinum_rose_source": "Week 7 official SuperContest five (Andy & Amanda): GB, LV, ARI, CIN, ATL; data/supercontest/locked-card-week-7.json",
+    "id": "bet_20261025_bkr_740807098_sc_5team_parlay",
+    "ticket_number": "740807098",
+    "book_ticket_number": "740807098",
+    "game_title": "BKR SuperContest 5-team parlay (GB +4, LV +4, ARI +4.5, CIN +3, ATL +4)",
+    "ticket_type": "5 Teams Parlay",
+    "category": "Parlay",
+    "cash_risk_usd": 20,
+    "stake_usd": 20,
+    "units": 1,
+    "odds_american": "+1770",
+    "odds_decimal": 18.699,
+    "potential_profit_usd": 353.98,
+    "potential_payout_usd": 373.98,
+    "external_url": "https://be.bookmaker.eu/#ticket_740807098",
+    "needs_confirmation": [
+      "funding_type (assumed cash)"
+    ],
+    "progress_notes": "Andy 2026-10-25: Bookmaker 5 TEAMS PARLAY ticket 740807098 on the official Week 7 SuperContest five, placed 10:23 AM PT. Risk $20.00, Win $353.98. CIN +3 (-159) and ATL +4 (-129) bought live. Cash-out offer at logging: $7.73 (not taken).",
+    "legs": [
+      {
+        "leg_num": 1,
+        "game": "GB @ DET",
+        "team": "GB",
+        "opponent": "DET",
+        "market": "spread",
+        "selection": "Green Bay Packers +4",
+        "line": 4,
+        "price": "-113",
+        "game_start": "10/25/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_740807098_1_gb_p4",
+        "target_stat": "spread",
+        "source": "Bookmaker"
+      },
+      {
+        "leg_num": 2,
+        "game": "LAR @ LV",
+        "team": "LV",
+        "opponent": "LAR",
+        "market": "spread",
+        "selection": "Las Vegas Raiders +4",
+        "line": 4,
+        "price": "-128",
+        "game_start": "10/25/2026 @ 01:25 PM",
+        "status": "PENDING",
+        "key": "leg_740807098_2_lv_p4",
+        "target_stat": "spread",
+        "source": "Bookmaker"
+      },
+      {
+        "leg_num": 3,
+        "game": "DEN @ ARI",
+        "team": "ARI",
+        "opponent": "DEN",
+        "market": "spread",
+        "selection": "Arizona Cardinals +4.5",
+        "line": 4.5,
+        "price": "-108",
+        "game_start": "10/25/2026 @ 01:05 PM",
+        "status": "PENDING",
+        "key": "leg_740807098_3_ari_p45",
+        "target_stat": "spread",
+        "source": "Bookmaker"
+      },
+      {
+        "leg_num": 4,
+        "game": "CIN @ BAL",
+        "team": "CIN",
+        "opponent": "BAL",
+        "market": "spread",
+        "selection": "Cincinnati Bengals +3",
+        "line": 3,
+        "price": "-159",
+        "game_start": "10/25/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_740807098_4_cin_p3",
+        "target_stat": "spread",
+        "source": "Bookmaker",
+        "note": "Bought live (game in progress at 10:23 AM PT placement)"
+      },
+      {
+        "leg_num": 5,
+        "game": "SF @ ATL",
+        "team": "ATL",
+        "opponent": "SF",
+        "market": "spread",
+        "selection": "Atlanta Falcons +4",
+        "line": 4,
+        "price": "-129",
+        "game_start": "10/25/2026 @ 10:00 AM",
+        "status": "PENDING",
+        "key": "leg_740807098_5_atl_p4",
+        "target_stat": "spread",
+        "source": "Bookmaker",
+        "note": "Bought live (game in progress at 10:23 AM PT placement)"
+      }
+    ]
   }
 ]
