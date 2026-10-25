@@ -27042,8 +27042,8 @@
     "book": "Bookmaker",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "placed_at": "2026-10-25T10:23:00-07:00",
@@ -27065,7 +27065,7 @@
     "needs_confirmation": [
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-25: Bookmaker COMPACT ROUND ROBIN (10P-2T) ticket 740807158 on the official Week 7 SuperContest five, placed 10:23 AM PT. Risk $15.00 (10 x $1.50), Win $32.62 (slip, all legs winning). CIN +3 (-179) and ATL +4 (-131) bought live. Book lines differ from contest lines (contest: CIN +2.5, GB +3.5, ATL +3.5, LV +4, ARI +4.5). Per-combo to-win values computed from leg prices; they sum to the slip total of $32.62.",
+    "progress_notes": "Andy 2026-10-25: Bookmaker COMPACT ROUND ROBIN (10P-2T) ticket 740807158 on the official Week 7 SuperContest five, placed 10:23 AM PT. Risk $15.00 (10 x $1.50), Win $32.62 (slip, all legs winning). CIN +3 (-179) and ATL +4 (-131) bought live. Book lines differ from contest lines (contest: CIN +2.5, GB +3.5, ATL +3.5, LV +4, ARI +4.5). Per-combo to-win values computed from leg prices; they sum to the slip total of $32.62. SETTLED LOSS 2026-10-25 16:40 PT (mobile tracker ESPN grading): lost leg(s) Las Vegas Raiders +4; Arizona Cardinals +4.5",
     "legs": [
       {
         "leg_num": 1,
@@ -27077,10 +27077,12 @@
         "line": 4,
         "price": "-113",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740807158_1_gb_p4",
         "target_stat": "spread",
-        "source": "Bookmaker"
+        "source": "Bookmaker",
+        "actual_stat": "GB 17-20 · covering by 1",
+        "grading_note": "GB 17-20 · covering by 1. ESPN 401873020, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 2,
@@ -27092,10 +27094,12 @@
         "line": 4,
         "price": "-128",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740807158_2_lv_p4",
         "target_stat": "spread",
-        "source": "Bookmaker"
+        "source": "Bookmaker",
+        "actual_stat": "LV 21-35 · short by 10",
+        "grading_note": "LV 21-35 · short by 10. ESPN 401873021, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 3,
@@ -27107,10 +27111,12 @@
         "line": 4.5,
         "price": "-108",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740807158_3_ari_p45",
         "target_stat": "spread",
-        "source": "Bookmaker"
+        "source": "Bookmaker",
+        "actual_stat": "ARI 16-30 · short by 9.5",
+        "grading_note": "ARI 16-30 · short by 9.5. ESPN 401873019, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 4,
@@ -27122,11 +27128,13 @@
         "line": 3,
         "price": "-179",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740807158_4_cin_p3",
         "target_stat": "spread",
         "source": "Bookmaker",
-        "note": "Bought live (game in progress at 10:23 AM PT placement)"
+        "note": "Bought live (game in progress at 10:23 AM PT placement)",
+        "actual_stat": "CIN 35-13 · covering by 25",
+        "grading_note": "CIN 35-13 · covering by 25. ESPN 401873012, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 5,
@@ -27138,11 +27146,13 @@
         "line": 4,
         "price": "-131",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740807158_5_atl_p4",
         "target_stat": "spread",
         "source": "Bookmaker",
-        "note": "Bought live (game in progress at 10:23 AM PT placement)"
+        "note": "Bought live (game in progress at 10:23 AM PT placement)",
+        "actual_stat": "ATL 29-20 · covering by 13",
+        "grading_note": "ATL 29-20 · covering by 13. ESPN 401873017, mobile-tracker grading 2026-10-25 16:40 PT"
       }
     ],
     "round_robin": {
@@ -27233,7 +27243,10 @@
         }
       ],
       "settlement_method": "sum of winning 2-team parlays"
-    }
+    },
+    "profit_usd": -1.48,
+    "settled_payout_usd": 13.52,
+    "graded_at": "2026-10-25T23:40:50Z"
   },
   {
     "date": "2026-10-25",
@@ -27243,8 +27256,8 @@
     "book": "Bookmaker",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "placed_at": "2026-10-25T10:23:00-07:00",
@@ -27266,7 +27279,7 @@
     "needs_confirmation": [
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-25: Bookmaker 5 TEAMS PARLAY ticket 740807098 on the official Week 7 SuperContest five, placed 10:23 AM PT. Risk $20.00, Win $353.98. CIN +3 (-159) and ATL +4 (-129) bought live. Cash-out offer at logging: $7.73 (not taken).",
+    "progress_notes": "Andy 2026-10-25: Bookmaker 5 TEAMS PARLAY ticket 740807098 on the official Week 7 SuperContest five, placed 10:23 AM PT. Risk $20.00, Win $353.98. CIN +3 (-159) and ATL +4 (-129) bought live. Cash-out offer at logging: $7.73 (not taken). SETTLED LOSS 2026-10-25 16:40 PT (mobile tracker ESPN grading): lost leg(s) Las Vegas Raiders +4; Arizona Cardinals +4.5",
     "legs": [
       {
         "leg_num": 1,
@@ -27278,10 +27291,12 @@
         "line": 4,
         "price": "-113",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740807098_1_gb_p4",
         "target_stat": "spread",
-        "source": "Bookmaker"
+        "source": "Bookmaker",
+        "actual_stat": "GB 17-20 · covering by 1",
+        "grading_note": "GB 17-20 · covering by 1. ESPN 401873020, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 2,
@@ -27293,10 +27308,12 @@
         "line": 4,
         "price": "-128",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740807098_2_lv_p4",
         "target_stat": "spread",
-        "source": "Bookmaker"
+        "source": "Bookmaker",
+        "actual_stat": "LV 21-35 · short by 10",
+        "grading_note": "LV 21-35 · short by 10. ESPN 401873021, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 3,
@@ -27308,10 +27325,12 @@
         "line": 4.5,
         "price": "-108",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740807098_3_ari_p45",
         "target_stat": "spread",
-        "source": "Bookmaker"
+        "source": "Bookmaker",
+        "actual_stat": "ARI 16-30 · short by 9.5",
+        "grading_note": "ARI 16-30 · short by 9.5. ESPN 401873019, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 4,
@@ -27323,11 +27342,13 @@
         "line": 3,
         "price": "-159",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740807098_4_cin_p3",
         "target_stat": "spread",
         "source": "Bookmaker",
-        "note": "Bought live (game in progress at 10:23 AM PT placement)"
+        "note": "Bought live (game in progress at 10:23 AM PT placement)",
+        "actual_stat": "CIN 35-13 · covering by 25",
+        "grading_note": "CIN 35-13 · covering by 25. ESPN 401873012, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 5,
@@ -27339,13 +27360,18 @@
         "line": 4,
         "price": "-129",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740807098_5_atl_p4",
         "target_stat": "spread",
         "source": "Bookmaker",
-        "note": "Bought live (game in progress at 10:23 AM PT placement)"
+        "note": "Bought live (game in progress at 10:23 AM PT placement)",
+        "actual_stat": "ATL 29-20 · covering by 13",
+        "grading_note": "ATL 29-20 · covering by 13. ESPN 401873017, mobile-tracker grading 2026-10-25 16:40 PT"
       }
-    ]
+    ],
+    "profit_usd": -20.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-25T23:40:50Z"
   },
   {
     "date": "2026-10-25",
@@ -27466,8 +27492,8 @@
     "category": "Parlay",
     "funding_type": "cash",
     "is_promo_credit": false,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "needs_confirmation": [
@@ -27487,7 +27513,7 @@
     "potential_profit_usd": 265.26,
     "potential_payout_usd": 290.26,
     "external_url": "https://be.bookmaker.eu/#ticket_740821195",
-    "progress_notes": "Andy 2026-10-25 13:59 PT: Bookmaker 4 TEAMS PARLAY ticket 740821195, placed 1:05 PM PT. Risk $25.00, Win $265.26. ARI +5 (-106), GB +4 (-111), LV +3.5 (-120, slip marks LIVE), KC +3.5 (-140). Cash-out offer at logging: $6.80 (not taken).",
+    "progress_notes": "Andy 2026-10-25 13:59 PT: Bookmaker 4 TEAMS PARLAY ticket 740821195, placed 1:05 PM PT. Risk $25.00, Win $265.26. ARI +5 (-106), GB +4 (-111), LV +3.5 (-120, slip marks LIVE), KC +3.5 (-140). Cash-out offer at logging: $6.80 (not taken). SETTLED LOSS 2026-10-25 16:40 PT (mobile tracker ESPN grading): lost leg(s) Arizona Cardinals +5; Las Vegas Raiders +3.5",
     "legs": [
       {
         "leg_num": 1,
@@ -27499,9 +27525,11 @@
         "line": 5,
         "price": "-106",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740821195_1",
-        "source": "Bookmaker"
+        "source": "Bookmaker",
+        "actual_stat": "ARI 16-30 · short by 9",
+        "grading_note": "ARI 16-30 · short by 9. ESPN 401873019, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 2,
@@ -27513,9 +27541,11 @@
         "line": 4,
         "price": "-111",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_740821195_2",
-        "source": "Bookmaker"
+        "source": "Bookmaker",
+        "actual_stat": "GB 17-20 · covering by 1",
+        "grading_note": "GB 17-20 · covering by 1. ESPN 401873020, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 3,
@@ -27527,10 +27557,12 @@
         "line": 3.5,
         "price": "-120",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_740821195_3",
         "source": "Bookmaker",
-        "note": "Slip marks this leg LIVE"
+        "note": "Slip marks this leg LIVE",
+        "actual_stat": "LV 21-35 · short by 10.5",
+        "grading_note": "LV 21-35 · short by 10.5. ESPN 401873021, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 4,
@@ -27546,7 +27578,10 @@
         "key": "leg_740821195_4",
         "source": "Bookmaker"
       }
-    ]
+    ],
+    "profit_usd": -25.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-25T23:40:50Z"
   },
   {
     "id": "bet_20261025_beo_1008926148_week_7_beo_8leg_prop_parlay",
@@ -27570,8 +27605,8 @@
     "odds_decimal": 83.0,
     "potential_profit_usd": 410,
     "potential_payout_usd": 415,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": null,
@@ -27579,7 +27614,7 @@
       "placed_at time (BEO Accepted Date 10/25/26 only; logged ~13:00 PT)",
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-25 13:59 PT: official BEO ticket 1008926148, $5.00 to win $410.00. Built from stacks E/F; Watson ATD also on DKP 45868275; Gibbs has two legs (34+ rec yds, 2+ TD).",
+    "progress_notes": "Andy 2026-10-25 13:59 PT: official BEO ticket 1008926148, $5.00 to win $410.00. Built from stacks E/F; Watson ATD also on DKP 45868275; Gibbs has two legs (34+ rec yds, 2+ TD). SETTLED LOSS 2026-10-25 16:40 PT (mobile tracker ESPN grading): lost leg(s) Christian Watson (GB) 1+ Touchdowns; Jahmyr Gibbs (DET) 34+ Receiving Yards; Jahmyr Gibbs (DET) 2+ Touchdowns; Matthew Golden (GB) 65+ Receiving Yards",
     "platinum_rose_source": "Week 7 card §7i afternoon prop stacks (Prop Stack Agent), Andy-modified",
     "legs": [
       {
@@ -27595,10 +27630,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008926148_1_watson_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873020, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 2,
@@ -27613,10 +27650,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_beo1008926148_2_williams_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 1,
+        "grading_note": "1 TD. ESPN 401873021, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 3,
@@ -27631,10 +27670,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008926148_3_gibbs_receiving_yards",
         "target_stat": "receiving_yards",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 27,
+        "grading_note": "27 rec yds. ESPN 401873020, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 4,
@@ -27649,10 +27690,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008926148_4_gibbs_touchdowns_2plus",
         "target_stat": "touchdowns",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873020, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 5,
@@ -27667,10 +27710,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_beo1008926148_5_williams_tackles_assists",
         "target_stat": "tackles_combined",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 9,
+        "grading_note": "9 tkl+ast. ESPN 401873020, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 6,
@@ -27685,10 +27730,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_beo1008926148_6_jeanty_receiving_yards",
         "target_stat": "receiving_yards",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 61,
+        "grading_note": "61 rec yds. ESPN 401873021, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 7,
@@ -27703,10 +27750,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008926148_7_golden_receiving_yards",
         "target_stat": "receiving_yards",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 39,
+        "grading_note": "39 rec yds. ESPN 401873020, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 8,
@@ -27726,7 +27775,10 @@
         "target_stat": "carries",
         "source": "BetOnline"
       }
-    ]
+    ],
+    "profit_usd": -5.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-25T23:40:50Z"
   },
   {
     "id": "bet_20261025_beo_1008920800_week_7_beo_5leg_prop_parlay",
@@ -27750,8 +27802,8 @@
     "odds_decimal": 34.0,
     "potential_profit_usd": 165,
     "potential_payout_usd": 170,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": null,
@@ -27759,7 +27811,7 @@
       "placed_at time (BEO Accepted Date 10/25/26 only; logged ~13:00 PT)",
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-25 13:59 PT: official BEO ticket 1008920800, $5.00 to win $165.00. Stack C (TD stack) plus Darnold INT; Darnold INT also on DKP 45488862.",
+    "progress_notes": "Andy 2026-10-25 13:59 PT: official BEO ticket 1008920800, $5.00 to win $165.00. Stack C (TD stack) plus Darnold INT; Darnold INT also on DKP 45488862. SETTLED LOSS 2026-10-25 16:40 PT (mobile tracker ESPN grading): lost leg(s) Sam LaPorta (DET) 1+ Touchdowns; Brock Bowers (LVR) 1+ Touchdowns",
     "platinum_rose_source": "Week 7 card §7i afternoon prop stacks (Prop Stack Agent), Andy-modified",
     "legs": [
       {
@@ -27775,10 +27827,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_beo1008920800_1_mcbride_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 1,
+        "grading_note": "1 TD. ESPN 401873019, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 2,
@@ -27793,10 +27847,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008920800_2_laporta_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873020, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 3,
@@ -27811,10 +27867,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008920800_3_bowers_anytime_touchdown",
         "target_stat": "touchdowns",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 0,
+        "grading_note": "0 TD. ESPN 401873021, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 4,
@@ -27852,7 +27910,10 @@
         "target_stat": "touchdowns",
         "source": "BetOnline"
       }
-    ]
+    ],
+    "profit_usd": -5.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-25T23:40:50Z"
   },
   {
     "id": "bet_20261025_beo_1008919809_week_7_beo_4leg_prop_parlay",
@@ -27876,8 +27937,8 @@
     "odds_decimal": 14.0,
     "potential_profit_usd": 130,
     "potential_payout_usd": 140,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": null,
@@ -27885,7 +27946,7 @@
       "placed_at time (BEO Accepted Date 10/25/26 only; logged ~13:00 PT)",
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-25 13:59 PT: official BEO ticket 1008919809, $10.00 to win $130.00. Stack B (plus-money ladder) at BEO lines (Bowers 83+ vs card 81+, Golden 65+ vs 64+, Brissett O23.5 vs O22.5).",
+    "progress_notes": "Andy 2026-10-25 13:59 PT: official BEO ticket 1008919809, $10.00 to win $130.00. Stack B (plus-money ladder) at BEO lines (Bowers 83+ vs card 81+, Golden 65+ vs 64+, Brissett O23.5 vs O22.5). SETTLED LOSS 2026-10-25 16:40 PT (mobile tracker ESPN grading): lost leg(s) Brock Bowers (LVR) 83+ Receiving Yards; Matthew Golden (GB) 65+ Receiving Yards",
     "platinum_rose_source": "Week 7 card §7i afternoon prop stacks (Prop Stack Agent), Andy-modified",
     "legs": [
       {
@@ -27919,10 +27980,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008919809_2_bowers_receiving_yards",
         "target_stat": "receiving_yards",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 73,
+        "grading_note": "73 rec yds. ESPN 401873021, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 3,
@@ -27937,10 +28000,12 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:05 PM",
-        "status": "PENDING",
+        "status": "WON",
         "key": "leg_beo1008919809_3_brissett_pass_completions",
         "target_stat": "pass_completions",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 27,
+        "grading_note": "27 cmp. ESPN 401873019, mobile-tracker grading 2026-10-25 16:40 PT"
       },
       {
         "leg_num": 4,
@@ -27955,11 +28020,16 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "over",
         "game_start": "10/25/2026 @ 01:25 PM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008919809_4_golden_receiving_yards",
         "target_stat": "receiving_yards",
-        "source": "BetOnline"
+        "source": "BetOnline",
+        "actual_stat": 39,
+        "grading_note": "39 rec yds. ESPN 401873020, mobile-tracker grading 2026-10-25 16:40 PT"
       }
-    ]
+    ],
+    "profit_usd": -10.0,
+    "settled_payout_usd": 0,
+    "graded_at": "2026-10-25T23:40:50Z"
   }
 ]
