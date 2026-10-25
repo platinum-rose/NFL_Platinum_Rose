@@ -25868,8 +25868,8 @@
     "odds_decimal": 26.49,
     "potential_profit_usd": 127.45,
     "potential_payout_usd": 132.45,
-    "status": "PENDING",
-    "result": null,
+    "status": "SETTLED",
+    "result": "loss",
     "is_split": false,
     "split_partner": null,
     "external_url": null,
@@ -25877,7 +25877,7 @@
       "placed_at time (BEO Accepted Date 10/25/26 only; logged ~00:30 PT)",
       "funding_type (assumed cash)"
     ],
-    "progress_notes": "Andy 2026-10-25 01:09 PT: official BEO ticket 1008729493, Risk $5.00, To win $127.45 (+2549), Accepted 10/25/26, Type Future/Prop. Close to the Prop Stack Agent 7a Morning / Core legs, but two legs are on the opposite side of the agent leans (SF FG Over 1.5; Metcalf longest Over 22.5).",
+    "progress_notes": "Andy 2026-10-25 01:09 PT: official BEO ticket 1008729493, Risk $5.00, To win $127.45 (+2549), Accepted 10/25/26, Type Future/Prop. Close to the Prop Stack Agent 7a Morning / Core legs, but two legs are on the opposite side of the agent leans (SF FG Over 1.5; Metcalf longest Over 22.5). SETTLED LOSS 2026-10-25 14:05 PT: NYJ team TDs Under 2.5 lost (3 NYJ TDs, final MIA 28-25).",
     "legs": [
       {
         "leg_num": 1,
@@ -25966,12 +25966,14 @@
         "price_source": "BEO slip (no per-leg price shown)",
         "direction": "under",
         "game_start": "10/25/2026 @ 10:00 AM",
-        "status": "PENDING",
+        "status": "LOST",
         "key": "leg_beo1008729493_5_nyj_team_touchdowns",
         "target_stat": "team_touchdowns",
         "source": "BetOnline",
         "team_market": true,
-        "grading": "manual: count NYJ touchdowns from the box score"
+        "grading": "manual: count NYJ touchdowns from the box score",
+        "actual_stat": 3,
+        "grading_note": "NYJ 3 TD (Taylor 13 pass, Cooper 3 pass, Taylor 12 pass); MIA 28, NYJ 25 final. ESPN 401873015, fetched 2026-10-25 14:05 PT"
       },
       {
         "leg_num": 6,
@@ -25996,7 +25998,8 @@
         "grading_note": "Metcalf 2 rec, 56 yds, long 51. ESPN box score 401873011 (Final: PIT 16, NO 10), fetched 2026-10-25 09:42 PT"
       }
     ],
-    "platinum_rose_source": "Week 7 Master Intel / Prop Stack Agent recs (built Sat 10/24 PM)"
+    "platinum_rose_source": "Week 7 Master Intel / Prop Stack Agent recs (built Sat 10/24 PM)",
+    "profit_usd": -5.0
   },
   {
     "id": "bet_20261025_beo_1008725429_week_7_beo_dog_ml_round_robin_by_2s",
