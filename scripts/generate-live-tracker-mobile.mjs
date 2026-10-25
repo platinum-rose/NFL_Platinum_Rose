@@ -75,6 +75,7 @@ async function loadEvents(weeks) {
           completed: !!st.type.completed,
           detail: st.type.shortDetail || st.type.detail || '',
           period: st.period, clock: st.displayClock,
+          oddsLine: c.odds?.[0]?.details || '', overUnder: c.odds?.[0]?.overUnder ?? null,
         });
       }
     } catch (err) { console.warn('scoreboard week', w, 'failed:', err.message); }
@@ -190,13 +191,13 @@ async function gradeLeg(leg, events) {
     const line = Number(leg.line);
     const dir = leg.direction || (/\bu(nder)?\s?\d/i.test(sel) ? 'under' : 'over');
     if (dir === 'over') {
-      if (total > line) return { ...out, status: 'WON', now: `total ${total}`, locked: true };
-      if (final) return { ...out, status: total === line ? 'PUSH' : 'LOST', now: `total ${total}`, locked: true };
-      return { ...out, status: 'LIVE', lean: 'behind', now: `total ${total} · needs ${Math.floor(line) + 1 - total} more`, locked: false };
+      if (total > line) return { ...out, status: 'WON', value: total, now: `total ${total}`, locked: true };
+      if (final) return { ...out, status: total === line ? 'PUSH' : 'LOST', value: total, now: `total ${total}`, locked: true };
+      return { ...out, status: 'LIVE', lean: 'behind', value: total, now: `total ${total} · needs ${Math.floor(line) + 1 - total} more`, locked: false };
     }
-    if (total > line) return { ...out, status: 'LOST', now: `total ${total}`, locked: true };
-    if (final) return { ...out, status: total === line ? 'PUSH' : 'WON', now: `total ${total}`, locked: true };
-    return { ...out, status: 'LIVE', lean: 'ahead', now: `total ${total} · ${Math.ceil(line) - 1 - total} pts of room`, locked: false };
+    if (total > line) return { ...out, status: 'LOST', value: total, now: `total ${total}`, locked: true };
+    if (final) return { ...out, status: total === line ? 'PUSH' : 'WON', value: total, now: `total ${total}`, locked: true };
+    return { ...out, status: 'LIVE', lean: 'ahead', value: total, now: `total ${total} · ${Math.ceil(line) - 1 - total} pts of room`, locked: false };
   }
 
   // player props
@@ -252,171 +253,224 @@ function summarizeTicket(t, graded) {
   return { kind: 'parlay', state, counts };
 }
 
-// ---------- page ----------
+// ---------- page (styled to match the desktop Live Tracker: navy cards, blue/green accents) ----------
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const usd = (n) => `$${Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 })}`;
-const BOOK_SHORT = { Bookmaker: 'BKR', BetOnline: 'BEO', 'DraftKings Predictions': 'DKP', DraftKings: 'DK', FanDuel: 'FD', Bovada: 'BOV' };
+const usd = (n) => `$${Number(n || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 const STATUS_ORDER = { LIVE: 0, CHECK: 1, PENDING: 2, LOST: 3, WON: 4, PUSH: 5, VOID: 6 };
+const TEAM_NAME = {};
+for (const [nick, ab] of Object.entries(NICK)) if (!TEAM_NAME[ab] && nick !== 'niners' && nick !== 'washington') TEAM_NAME[ab] = nick === '49ers' ? '49ers' : nick[0].toUpperCase() + nick.slice(1);
+const TEAM_COLOR = {
+  ARI: '#97233F', ATL: '#A71930', BAL: '#5B3FBF', BUF: '#1F5BD6', CAR: '#0085CA', CHI: '#C83803', CIN: '#FB4F14', CLE: '#FF3C00',
+  DAL: '#2D5BD1', DEN: '#FB4F14', DET: '#0076B6', GB: '#FFB612', HOU: '#A71930', IND: '#1F5BD6', JAX: '#006778', KC: '#E31837',
+  LAC: '#0080C6', LAR: '#2D5BD1', LV: '#A5ACAF', MIA: '#008E97', MIN: '#4F2683', NE: '#C60C30', NO: '#D3BC8D', NYG: '#1F4BD6',
+  NYJ: '#125740', PHI: '#004C54', PIT: '#FFB612', SEA: '#69BE28', SF: '#AA0000', TB: '#D50A0A', TEN: '#4B92DB', WSH: '#5A1414',
+};
+const DARK_TEXT = new Set(['GB', 'LV', 'NO', 'PIT', 'SEA']);
+const teamChip = (ab) => `<span class="tchip" style="background:${TEAM_COLOR[ab] || '#334155'};color:${DARK_TEXT.has(ab) ? '#0B1120' : '#fff'}">${esc(ab)}</span>`;
+const timePT = (iso) => new Date(iso).toLocaleString('en-US', { timeZone: TZ, hour: 'numeric', minute: '2-digit' }) + ' PT';
 
-function legRow(leg, g) {
-  const cls = g.status === 'LIVE' ? `live ${g.lean || ''}` : g.status.toLowerCase();
-  const tag = { WON: 'Hit', LOST: 'Miss', PUSH: 'Push', VOID: 'Void', LIVE: g.lean === 'ahead' ? 'On pace' : 'Live', PENDING: 'Not started', CHECK: 'Check' }[g.status];
-  return `<li class="leg ${cls}">
-    <span class="dot" aria-hidden="true"></span>
-    <div class="leg-main"><div class="leg-sel">${esc(leg.selection)}</div>
-    <div class="leg-now"><span class="leg-game">${esc(leg.game)}</span>${g.now ? ` · ${esc(g.now)}` : ''}</div></div>
-    <span class="leg-tag">${tag}</span></li>`;
+function clockChip(ev) {
+  if (!ev) return '';
+  if (ev.state === 'pre') return `<span class="chip time">${esc(timePT(ev.date))}</span>`;
+  if (ev.state === 'in') return `<span class="chip live"><i class="pulse"></i>${esc(ev.detail)}</span>`;
+  return `<span class="chip final">${esc(ev.detail || 'Final')}</span>`;
 }
 
-function ticketCard(t, graded, sum) {
-  const book = BOOK_SHORT[t.book] || t.book;
+function legName(leg) {
+  const sel = String(leg.selection || '');
+  const p = String(leg.player || '');
+  if (p && sel.startsWith(p)) {
+    const rest = sel.slice(p.length).trim();
+    return `<b>${esc(p)}</b>${rest ? ` • ${esc(rest)}` : ''}`;
+  }
+  return `<b>${esc(sel)}</b>`;
+}
+
+function legRow(leg, g, ev) {
+  const cls = { WON: 'hit', PUSH: 'push', VOID: 'push', LOST: 'burnt', LIVE: 'live', PENDING: 'pending', CHECK: 'check' }[g.status] || 'pending';
+  const mark = { hit: '✓', push: '=', burnt: '✕', check: '!' }[cls] || '';
+  const hasNum = g.value !== undefined && leg.line != null && !/spread|moneyline/.test(String(leg.market));
+  let progress = '';
+  if (hasNum) {
+    const line = Number(leg.line);
+    const over = (leg.direction || 'over') === 'over';
+    const target = over ? Math.floor(line) + 1 : line;
+    const pct = Math.max(0, Math.min(100, (g.value / (target || 1)) * 100));
+    const tail = cls === 'hit' ? ' ✅' : cls === 'burnt' ? ' ❌' : '';
+    const fill = cls === 'hit' ? 'green' : cls === 'burnt' ? 'red' : over ? 'blue' : 'amber';
+    progress = `<div class="prog-row"><span>Stat Progress${over ? '' : ' (under)'}</span><b>${g.value} / ${line}${tail}</b></div>
+      <div class="pbar"><i class="${fill}" style="width:${pct.toFixed(0)}%"></i></div>`;
+  } else if (g.status !== 'PENDING' || !ev) {
+    progress = `<div class="prog-row"><span>${g.status === 'CHECK' ? 'Needs a hand grade' : 'Score'}</span><b class="${cls}">${esc(g.now || '')}</b></div>`;
+  }
+  return `<div class="leg-item ${cls}">
+    <span class="chk" aria-hidden="true">${mark}</span>
+    <div class="leg-body">
+      <div class="leg-name">${legName(leg)}</div>
+      <div class="leg-meta">${clockChip(ev)}<span class="leg-game">${esc(leg.game)}</span></div>
+      ${progress}
+    </div></div>`;
+}
+
+function ticketCard(t, graded, sum, evById) {
   const order = t.legs.map((l, i) => i).sort((a, b) => (STATUS_ORDER[graded[a].status] ?? 9) - (STATUS_ORDER[graded[b].status] ?? 9));
-  const segs = order.map((i) => {
-    const g = graded[i];
-    return `<i class="seg ${g.status === 'LIVE' ? 'live ' + (g.lean || '') : g.status.toLowerCase()}"></i>`;
-  }).join('');
   const c = sum.counts;
   const left = c.LIVE + c.PENDING + c.CHECK;
-  let line;
-  if (sum.kind === 'rr') {
-    line = `${sum.alive} of ${sum.total} combos alive${sum.cashed ? ` · ${sum.cashed} cashed (${usd(sum.returnedUsd)} back)` : ''}`;
-  } else {
-    line = `${c.WON + c.PUSH} of ${t.legs.length} hit · ${left} to go${c.LIVE ? ` · ${c.LIVE} live` : ''}`;
-  }
+  const done = c.WON + c.PUSH + (c.VOID || 0);
+  const line = sum.kind === 'rr'
+    ? `${sum.alive} of ${sum.total} combos alive${sum.cashed ? ` · ${sum.cashed} cashed (${usd(sum.returnedUsd)} back)` : ''}`
+    : `${done} of ${t.legs.length} hit · ${left} to go${c.LIVE ? ` · ${c.LIVE} live` : ''}`;
   const toWin = sum.kind === 'rr' ? sum.maxProfitUsd : t.potential_profit_usd;
-  let title = String(t.game_title || '').replace(/^(BKR|BEO|DKP)\s+/, '').replace(/^DraftKings Predictions\s+/, '');
-  if (title.length > 70 && title.includes(':')) title = title.slice(0, title.indexOf(':'));
-  return `<details class="ticket" id="t-${esc(t.ticket_number)}" data-left="${left}" data-win="${toWin}">
+  let title = String(t.game_title || '');
+  if (title.length > 90 && title.includes(':')) title = title.slice(0, title.indexOf(':'));
+  const legsLabel = sum.kind === 'rr' ? `Round robin (${t.legs.length} picks)` : `${t.category || 'Parlay'} (${t.legs.length} legs)`;
+  const funding = String(t.funding_type || 'cash').toUpperCase();
+  const pct = sum.kind === 'rr' ? (sum.cashed / sum.total) * 100 : (done / t.legs.length) * 100;
+  return `<details class="bet-card" id="t-${esc(t.ticket_number)}">
   <summary>
-    <div class="t-top"><span class="book">${esc(book)}</span><span class="tno">#${esc(t.ticket_number)}</span>${c.CHECK ? '<span class="flag">check</span>' : ''}<span class="odds">${esc(t.odds_american || (sum.kind === 'rr' ? 'RR' : ''))}</span></div>
-    <div class="t-title">${esc(title)}</div>
-    <div class="bar" role="img" aria-label="${esc(line)}">${segs}</div>
-    <div class="t-foot"><span class="t-line">${esc(line)}</span><span class="money"><b>${usd(t.stake_usd)}</b> to win <b class="win">${usd(toWin)}</b></span></div>
+    <div class="card-header"><div class="card-title">${esc(title)}</div><span class="chev" aria-hidden="true">▾</span></div>
+    <div class="card-subtitle">${esc(t.book)} • ${esc(legsLabel)}</div>
+    <div class="badges"><span class="badge badge-cash">${esc(funding)}</span><span class="badge badge-id">#${esc(t.ticket_number)}</span>${c.CHECK ? '<span class="badge badge-check">check leg</span>' : ''}</div>
+    <div class="money-row">
+      <div><small>Stake:</small><b>${usd(t.stake_usd)}</b></div>
+      <div><small>Odds:</small><b class="odds">${esc(t.odds_american || (sum.kind === 'rr' ? 'RR' : '—'))}</b></div>
+      <div><small>To Win:</small><b class="towin">${usd(toWin)}</b></div>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-fill" style="width:${pct.toFixed(0)}%"></div></div>
+    <div class="card-line">${esc(line)}</div>
   </summary>
-  <ol class="legs">${order.map((i) => legRow(t.legs[i], graded[i])).join('')}</ol>
+  <div class="card-legs">${order.map((i) => legRow(t.legs[i], graded[i], evById.get(graded[i].eventId))).join('')}</div>
 </details>`;
 }
 
-function gameChip(e) {
-  const live = e.state === 'in';
-  const status = e.state === 'pre' ? kickoffPT(e.date) : e.detail;
-  return `<a class="game ${e.state}" href="https://www.espn.com/nfl/game/_/gameId/${e.id}" target="_blank" rel="noopener">
-    <span class="g-row"><span>${e.away}</span><b>${e.state === 'pre' ? '' : e.awayScore}</b></span>
-    <span class="g-row"><span>${e.home}</span><b>${e.state === 'pre' ? '' : e.homeScore}</b></span>
-    <span class="g-st">${live ? '<i class="pulse"></i>' : ''}${esc(status)}</span></a>`;
+function gameCard(e) {
+  const pre = e.state === 'pre';
+  const lead = (ab, mine, theirs) => (!pre && mine > theirs ? ' lead' : '');
+  const odds = [e.oddsLine, e.overUnder != null ? `O/U ${e.overUnder}` : ''].filter(Boolean).join(' • ');
+  return `<a class="game-card ${e.state}" href="https://www.espn.com/nfl/game/_/gameId/${e.id}" target="_blank" rel="noopener">
+    <div class="gc-top">${clockChip(e)}</div>
+    <div class="gc-team${lead(e.away, e.awayScore, e.homeScore)}">${teamChip(e.away)}<span>${esc(TEAM_NAME[e.away] || e.away)}</span><b>${pre ? '' : e.awayScore}</b></div>
+    <div class="gc-team${lead(e.home, e.homeScore, e.awayScore)}">${teamChip(e.home)}<span>${esc(TEAM_NAME[e.home] || e.home)}</span><b>${pre ? '' : e.homeScore}</b></div>
+    ${odds ? `<div class="gc-odds">${esc(odds)}</div>` : ''}
+  </a>`;
 }
 
-function page({ open, settledCounts, games, builtAt, totals }) {
+function page({ open, settledCounts, games, builtAt, totals, evById }) {
   const builtIso = builtAt.toISOString();
   const builtLabel = 'Graded ' + builtAt.toLocaleString('en-US', { timeZone: TZ, hour: 'numeric', minute: '2-digit' });
   return `<title>Platinum Rose Road Tracker</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
 <style>
-/* Layout: one column of ticket stubs under a sticky score/totals header; tap a stub to open its legs. */
+/* Layout: desktop Live Tracker palette on one phone column: header panel, game board strip, slip cards with leg boxes. Single dark look, same as desktop. */
 :root {
-  --bg: #eef0f4; --surface: #ffffff; --ink: #161a24; --muted: #5b6273; --line: #d9dde6;
-  --accent: #b2325f; --win: #17824a; --loss: #bf3a3a; --live: #a8680f; --idle: #9aa1b1;
-  --win-soft: #e2f3e9; --loss-soft: #f8e4e4; --live-soft: #f8eedb;
-  --f-display: "Barlow Condensed", "Arial Narrow", sans-serif;
-  --f-body: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --f-mono: "JetBrains Mono", ui-monospace, "Roboto Mono", monospace;
+  --bg-main: #0B1120; --bg-card: #151F32; --bg-leg: #111A2B; --bg-chip: #1E293B; --border: #273752;
+  --blue: #3B82F6; --green: #10B981; --gold: #F59E0B; --cyan: #38BDF8; --purple: #818CF8; --red: #EF4444;
+  --text: #F8FAFC; --muted: #94A3B8;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
 }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #0e1117; --surface: #171b24; --ink: #e9ebf1; --muted: #8d94a6; --line: #272d3a;
-  --accent: #f07ba5; --win: #43c982; --loss: #ff7070; --live: #f0b54a; --idle: #5d6474;
-  --win-soft: #15291f; --loss-soft: #2e1a1c; --live-soft: #2c2415; color-scheme: dark; } }
-:root[data-theme="dark"] {
-  --bg: #0e1117; --surface: #171b24; --ink: #e9ebf1; --muted: #8d94a6; --line: #272d3a;
-  --accent: #f07ba5; --win: #43c982; --loss: #ff7070; --live: #f0b54a; --idle: #5d6474;
-  --win-soft: #15291f; --loss-soft: #2e1a1c; --live-soft: #2c2415; color-scheme: dark; }
 * { box-sizing: border-box; }
-body { background: var(--bg); color: var(--ink); font: 15px/1.4 var(--f-body); -webkit-tap-highlight-color: transparent; }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+body { background: var(--bg-main); color: var(--text); font: 14px/1.5 var(--font); -webkit-tap-highlight-color: transparent; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg-main); }
 .wrap { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 640px; margin: 0 auto; }
-header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
-header.top .wrap { padding-block: 10px 10px; display: grid; gap: 8px; }
-.brand { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.brand h1 { margin: 0; font: 700 22px/1 var(--f-display); letter-spacing: .02em; text-transform: uppercase; }
-.brand h1 span { color: var(--accent); }
-.brand h1 em { font-style: normal; font: 600 13px/1 var(--f-mono); letter-spacing: 0; padding: 3px 6px; border: 1px solid var(--line); border-radius: 4px; vertical-align: 3px; color: var(--muted); }
-.brand h1 { white-space: nowrap; }
-.fresh { font: 500 12px/1.2 var(--f-mono); color: var(--muted); text-align: right; }
-.fresh.stale { color: var(--live); }
-.totals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.tot { display: grid; gap: 2px; }
-.tot small { font: 600 10.5px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.tot b { font: 700 19px/1.1 var(--f-mono); font-variant-numeric: tabular-nums; }
-.tot b.win { color: var(--win); }
-.games { display: flex; gap: 8px; overflow-x: auto; padding-block: 12px 4px; scrollbar-width: none; }
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg-main); padding-block: 10px 6px; }
+.panel { background: linear-gradient(180deg, #16213A, var(--bg-card)); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; display: grid; gap: 10px; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+.title-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.title-row h1 { margin: 0; font-size: 17px; font-weight: 800; letter-spacing: -.01em; }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(16,185,129,.2); flex: 0 0 auto; }
+.fresh { font-size: 12px; color: var(--muted); }
+.fresh.stale { color: var(--gold); }
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.kpi small { display: block; font-size: 10.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.kpi b { font-size: 19px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.kpi b.blue { color: var(--blue); } .kpi b.green { color: var(--green); }
+.board-h, .slips-h { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 14px 0 8px; font-size: 13px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.board-h span:last-child { color: var(--muted); font-weight: 600; text-transform: none; letter-spacing: 0; font-size: 12px; }
+.slips-h { justify-content: flex-start; }
+.games { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
 .games::-webkit-scrollbar { display: none; }
-.game { flex: 0 0 auto; min-width: 92px; display: grid; gap: 2px; padding: 8px 10px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); color: var(--ink); text-decoration: none; font: 500 13px/1.2 var(--f-mono); }
-.game.in { border-color: var(--live); }
-.g-row { display: flex; justify-content: space-between; gap: 10px; }
-.g-row b { font-weight: 700; font-variant-numeric: tabular-nums; }
-.g-st { font: 500 11px/1.2 var(--f-body); color: var(--muted); display: flex; align-items: center; gap: 5px; margin-top: 2px; }
-.pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--live); animation: pulse 1.6s ease-in-out infinite; }
-@keyframes pulse { 50% { opacity: .3; } }
-.section-h { display: flex; justify-content: space-between; align-items: baseline; margin: 14px 0 8px; font: 700 15px/1 var(--f-display); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.list { display: grid; gap: 10px; padding-bottom: 24px; }
-.ticket { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-.ticket > summary { list-style: none; cursor: pointer; padding: 12px 14px; display: grid; gap: 8px; }
-.ticket > summary::-webkit-details-marker { display: none; }
-.ticket > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 12px; }
-.t-top { display: flex; align-items: center; gap: 8px; font: 500 12px/1 var(--f-mono); color: var(--muted); }
-.book { font-weight: 700; color: var(--accent); letter-spacing: .04em; }
-.odds { margin-left: auto; color: var(--ink); font-weight: 700; }
-.flag { padding: 2px 6px; border-radius: 4px; background: var(--live-soft); color: var(--live); font-weight: 700; text-transform: uppercase; font-size: 10px; letter-spacing: .06em; }
-.t-title { font-weight: 600; font-size: 15px; line-height: 1.3; text-wrap: balance; }
-.bar { display: flex; gap: 3px; height: 8px; }
-.seg { flex: 1; border-radius: 2px; background: var(--line); }
-.seg.won, .seg.push, .seg.void { background: var(--win); }
-.seg.lost { background: var(--loss); }
-.seg.live { background: var(--live); }
-.seg.live.ahead { background: linear-gradient(90deg, var(--win), var(--live)); }
-.seg.check { background: repeating-linear-gradient(45deg, var(--live) 0 3px, transparent 3px 6px); }
-.t-foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font-size: 13px; color: var(--muted); }
-.money { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.money b { color: var(--ink); }
-.money b.win { color: var(--win); }
-.legs { list-style: none; margin: 0; padding: 4px 14px 12px; border-top: 1px dashed var(--line); display: grid; }
-.leg { display: grid; grid-template-columns: 10px 1fr auto; gap: 10px; align-items: start; padding-block: 9px; border-bottom: 1px solid var(--line); }
-.leg:last-child { border-bottom: 0; }
-.leg-main { min-width: 0; }
-.leg-sel { font-size: 14px; font-weight: 500; overflow-wrap: anywhere; }
-.leg-now { font: 500 12px/1.35 var(--f-mono); color: var(--muted); margin-top: 2px; overflow-wrap: anywhere; }
-.leg-game { color: var(--ink); opacity: .75; }
-.dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; background: var(--idle); }
-.leg-tag { font: 600 11px/1 var(--f-body); letter-spacing: .05em; text-transform: uppercase; padding: 4px 6px; border-radius: 4px; color: var(--muted); background: var(--bg); white-space: nowrap; }
-.leg.won .dot, .leg.push .dot { background: var(--win); } .leg.won .leg-tag, .leg.push .leg-tag { color: var(--win); background: var(--win-soft); }
-.leg.lost .dot { background: var(--loss); } .leg.lost .leg-tag { color: var(--loss); background: var(--loss-soft); }
-.leg.live .dot { background: var(--live); animation: pulse 1.6s ease-in-out infinite; } .leg.live .leg-tag { color: var(--live); background: var(--live-soft); }
-.leg.live.ahead .leg-tag { color: var(--win); background: var(--win-soft); }
-.leg.check .dot { background: var(--live); } .leg.check .leg-tag { color: var(--live); background: var(--live-soft); }
-.empty { padding: 28px 16px; text-align: center; color: var(--muted); background: var(--surface); border: 1px dashed var(--line); border-radius: 12px; }
-footer { color: var(--muted); font-size: 12.5px; padding-block: 4px 32px; display: grid; gap: 6px; }
-@media (prefers-reduced-motion: reduce) { .pulse, .leg.live .dot { animation: none; } }
+.game-card { flex: 0 0 auto; width: 168px; display: grid; gap: 6px; padding: 10px; border-radius: 10px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text); text-decoration: none; }
+.game-card.in { border-color: rgba(245,158,11,.55); }
+.gc-team { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+.gc-team.lead { color: var(--text); }
+.gc-team b { font-size: 15px; font-weight: 800; color: var(--text); font-variant-numeric: tabular-nums; }
+.gc-odds { font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 6px; }
+.tchip { font-size: 10.5px; font-weight: 800; padding: 1px 5px; border-radius: 4px; min-width: 32px; text-align: center; letter-spacing: .02em; }
+.chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 6px; white-space: nowrap; }
+.chip.time { background: rgba(59,130,246,.15); color: #93C5FD; border: 1px solid rgba(59,130,246,.4); }
+.chip.live { background: rgba(245,158,11,.14); color: var(--gold); border: 1px solid rgba(245,158,11,.45); }
+.chip.final { background: var(--bg-chip); color: var(--muted); border: 1px solid var(--border); }
+.pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); animation: pulse 1.4s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .25; } }
+.slips-h .dot { animation: pulse 1.8s ease-in-out infinite; }
+.list { display: grid; gap: 12px; padding-bottom: 20px; }
+.bet-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.bet-card > summary { list-style: none; cursor: pointer; padding: 14px; display: grid; gap: 6px; }
+.bet-card > summary::-webkit-details-marker { display: none; }
+.bet-card > summary:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; border-radius: 12px; }
+.card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.card-title { font-size: 15px; font-weight: 700; line-height: 1.35; overflow-wrap: anywhere; }
+.chev { color: var(--muted); transition: transform .2s; padding-top: 2px; }
+.bet-card[open] .chev { transform: rotate(180deg); }
+.card-subtitle { font-size: 12px; color: var(--muted); }
+.badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge { font-size: 10.5px; font-weight: 700; padding: 2px 6px; border-radius: 4px; text-transform: uppercase; }
+.badge-cash { background: var(--bg-chip); color: #E2E8F0; }
+.badge-id { background: transparent; color: var(--muted); border: 1px solid var(--border); text-transform: none; font-variant-numeric: tabular-nums; }
+.badge-check { background: rgba(245,158,11,.15); color: var(--gold); }
+.money-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 4px; }
+.money-row small { display: block; font-size: 12px; color: var(--text); opacity: .85; }
+.money-row b { font-size: 15px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.money-row b.odds { color: var(--cyan); } .money-row b.towin { color: var(--green); }
+.progress-bar-wrap { background: var(--bg-chip); border-radius: 999px; height: 6px; overflow: hidden; margin-top: 4px; }
+.progress-fill { background: var(--blue); height: 100%; }
+.card-line { font-size: 12px; color: var(--muted); }
+.card-legs { display: grid; gap: 8px; padding: 0 12px 12px; }
+.leg-item { display: grid; grid-template-columns: 20px 1fr; gap: 10px; padding: 10px 12px; border-radius: 10px; background: var(--bg-leg); border: 1px solid var(--border); }
+.leg-item.hit { border-color: rgba(16,185,129,.45); }
+.leg-item.burnt { border-color: rgba(239,68,68,.45); opacity: .8; }
+.leg-item.live { border-color: rgba(245,158,11,.45); }
+.chk { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #CBD5E1; background: #E2E8F0; margin-top: 2px; display: grid; place-items: center; font-size: 11px; font-weight: 900; color: #fff; line-height: 1; }
+.leg-item.hit .chk, .leg-item.push .chk { background: var(--green); border-color: var(--green); }
+.leg-item.burnt .chk { background: var(--red); border-color: var(--red); }
+.leg-item.live .chk { background: transparent; border-color: var(--gold); }
+.leg-item.check .chk { background: var(--gold); border-color: var(--gold); color: #0B1120; }
+.leg-body { min-width: 0; display: grid; gap: 6px; }
+.leg-name { font-size: 13.5px; line-height: 1.35; overflow-wrap: anywhere; }
+.leg-name b { font-weight: 700; }
+.leg-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.leg-game { font-size: 11.5px; color: var(--muted); }
+.prog-row { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; color: var(--muted); }
+.prog-row b { color: var(--text); font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; overflow-wrap: anywhere; }
+.prog-row b.hit { color: var(--green); } .prog-row b.burnt { color: var(--red); } .prog-row b.live { color: var(--gold); }
+.pbar { background: var(--bg-chip); border-radius: 999px; height: 5px; overflow: hidden; margin-top: -2px; }
+.pbar i { display: block; height: 100%; background: var(--blue); }
+.pbar i.green { background: var(--green); } .pbar i.red { background: var(--red); } .pbar i.amber { background: var(--gold); }
+.empty { padding: 28px 16px; text-align: center; color: var(--muted); background: var(--bg-card); border: 1px dashed var(--border); border-radius: 12px; }
+footer { color: var(--muted); font-size: 12px; padding-block: 4px 32px; display: grid; gap: 6px; }
+@media (prefers-reduced-motion: reduce) { .pulse, .slips-h .dot { animation: none; } .chev { transition: none; } }
 </style>
 
-<header class="top"><div class="wrap">
-  <div class="brand"><h1>Platinum <span>Rose</span> <em>W${WEEK}</em></h1><div class="fresh" id="fresh" data-built="${builtIso}">${esc(builtLabel)}</div></div>
-  <div class="totals">
-    <div class="tot"><small>Open tickets</small><b>${open.length}</b></div>
-    <div class="tot"><small>At risk</small><b>${usd(totals.risk)}</b></div>
-    <div class="tot"><small>Max to win</small><b class="win">${usd(totals.toWin)}</b></div>
+<div class="top"><div class="wrap"><div class="panel">
+  <div class="title-row"><span class="dot" aria-hidden="true"></span><h1>🏈 NFL Live Tracker • Week ${WEEK}</h1></div>
+  <div class="fresh" id="fresh" data-built="${builtIso}">${esc(builtLabel)}</div>
+  <div class="kpis">
+    <div class="kpi"><small>Cash risk</small><b>${usd(totals.risk)}</b></div>
+    <div class="kpi"><small>Potential win</small><b class="blue">${usd(totals.toWin)}</b></div>
+    <div class="kpi"><small>Total cashed</small><b class="green">${usd(settledCounts.cashedUsd)}</b></div>
   </div>
-</div></header>
+</div></div></div>
 
 <main class="wrap">
-  ${games.length ? `<nav class="games" aria-label="Games your open tickets depend on">${games.map(gameChip).join('')}</nav>` : ''}
-  <div class="section-h"><span>Live &amp; open</span><span>${open.length ? 'closest to cashing first' : ''}</span></div>
+  ${games.length ? `<div class="board-h"><span>📅 Game Board</span><span>${games.length} games · tap for ESPN</span></div>
+  <nav class="games" aria-label="Games your open tickets depend on">${games.map(gameCard).join('')}</nav>` : ''}
+  <div class="slips-h"><span class="dot" aria-hidden="true"></span><span>⚡ Live Active Slips (${open.length} Live)</span></div>
   <div class="list">
-    ${open.length ? open.map((o) => ticketCard(o.t, o.graded, o.sum)).join('\n') : '<div class="empty">No open tickets right now. Everything for this week has settled.</div>'}
+    ${open.length ? open.map((o) => ticketCard(o.t, o.graded, o.sum, evById)).join('\n') : '<div class="empty">No open tickets right now. Everything for this week has settled.</div>'}
   </div>
   <footer>
-    <span>Real tickets only. Week ${WEEK} so far: ${settledCounts.cashed} cashed, ${settledCounts.burnt} burnt (hidden). Paper card and SuperContest stay on the desktop tracker.</span>
-    <span>Scores here are as of the time shown up top. Tap a game for ESPN's live gamecast.</span>
+    <span>Real tickets only, closest to cashing first. Week ${WEEK} so far: ${settledCounts.cashed} cashed, ${settledCounts.burnt} burnt (hidden). The paper card and SuperContest are on the desktop tracker.</span>
+    <span>Scores are as of the time shown up top. Tap a game for ESPN's live gamecast.</span>
   </footer>
 </main>
 
@@ -427,14 +481,14 @@ footer { color: var(--muted); font-size: 12.5px; padding-block: 4px 32px; displa
   var label = el.textContent;
   function tick() {
     var m = Math.round((Date.now() - built) / 60000);
-    el.textContent = label + (m < 1 ? ' · now' : ' · ' + (m < 60 ? m + 'm ago' : Math.floor(m / 60) + 'h ' + (m % 60) + 'm ago'));
+    el.textContent = label + (m < 1 ? ' · just now' : ' · ' + (m < 60 ? m + ' min ago' : Math.floor(m / 60) + ' h ' + (m % 60) + ' min ago'));
     el.classList.toggle('stale', m >= 45);
   }
   tick(); setInterval(tick, 30000);
   var KEY = 'pr-mobile-open';
   var openSet = {};
   try { openSet = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { openSet = {}; }
-  document.querySelectorAll('details.ticket').forEach(function (d) {
+  document.querySelectorAll('details.bet-card').forEach(function (d) {
     if (openSet[d.id]) d.open = true;
     d.addEventListener('toggle', function () {
       if (d.open) openSet[d.id] = 1; else delete openSet[d.id];
@@ -467,6 +521,7 @@ const settledToday = weekTickets.filter((w) => String(w.status).toUpperCase() !=
 const settledCounts = {
   cashed: graded.filter((o) => o.sum.state === 'cashed').length + settledToday.filter((w) => /won|win|cash/i.test(String(w.result))).length,
   burnt: graded.filter((o) => o.sum.state === 'burnt').length + settledToday.filter((w) => /lost|loss/i.test(String(w.result))).length,
+  cashedUsd: settledToday.filter((w) => /won|win|cash/i.test(String(w.result))).reduce((a, w) => a + Number(w.settled_payout_usd || 0), 0),
 };
 const totals = {
   risk: open.reduce((s, o) => s + Number(o.t.stake_usd || 0), 0),
@@ -478,7 +533,8 @@ const stateRank = { in: 0, pre: 1, post: 2 };
 const games = events.filter((e) => gameIds.has(e.id)).sort((a, b) => stateRank[a.state] - stateRank[b.state] || Date.parse(a.date) - Date.parse(b.date));
 
 const builtAt = new Date();
-await writeFile(OUT_HTML, page({ open, settledCounts, games, builtAt, totals }), 'utf8');
+const evById = new Map(events.map((e) => [e.id, e]));
+await writeFile(OUT_HTML, page({ open, settledCounts, games, builtAt, totals, evById }), 'utf8');
 await writeFile(OUT_STATE, JSON.stringify({
   built_at: builtAt.toISOString(), week: WEEK,
   tickets: graded.map((o) => ({
